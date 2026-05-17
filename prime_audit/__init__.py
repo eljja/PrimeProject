@@ -3,9 +3,9 @@
 __all__ = [
     "analysis",
     "catalog",
+    "conjecture_lab",
     "io",
     "models",
     "number_theory",
     "simulators",
 ]
-

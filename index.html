@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PrimeProject Conjecture Lab</title>
+    <meta
+      name="description"
+      content="Interactive visualization for algorithm-induced prime measures, next-prime sampling bias, and residue drift."
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="PrimeProject Conjecture Lab">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>PrimeProject Conjecture Lab</span>
+        </a>
+        <nav class="topnav" aria-label="Lab views">
+          <button class="nav-button is-active" data-scroll-target="gap-panel">Gap Measure</button>
+          <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
+          <button class="nav-button" data-scroll-target="notes-panel">Conjecture Notes</button>
+        </nav>
+        <a class="repo-link" href="https://github.com/eljja/PrimeProject" rel="noreferrer">GitHub</a>
+      </header>
+
+      <main class="workspace">
+        <aside class="control-rail" aria-label="Experiment controls">
+          <h2 class="rail-title">Experiment Control</h2>
+          <section class="control-group">
+            <h2>Generator</h2>
+            <div class="segmented" role="group" aria-label="Generator">
+              <button class="segment is-active" data-generator="next_prime">next_prime</button>
+              <button class="segment" data-generator="rejection">rejection</button>
+              <button class="segment" data-generator="wheel30_next">wheel</button>
+            </div>
+          </section>
+
+          <section class="control-group">
+            <label for="limitRange">Search limit</label>
+            <input id="limitRange" type="range" min="20000" max="300000" step="10000" value="120000" />
+            <output id="limitValue" for="limitRange">120,000</output>
+          </section>
+
+          <section class="control-group">
+            <label for="moduloSelect">Residue modulo</label>
+            <select id="moduloSelect">
+              <option value="30" selected>30</option>
+              <option value="42">42</option>
+              <option value="60">60</option>
+              <option value="210">210</option>
+            </select>
+          </section>
+
+          <section class="control-group">
+            <label for="sampleRange">Rendered samples</label>
+            <input id="sampleRange" type="range" min="400" max="5000" step="100" value="2200" />
+            <output id="sampleValue" for="sampleRange">2,200</output>
+          </section>
+
+          <button id="runExperiment" class="primary-action" type="button">Run Experiment</button>
+        </aside>
+
+        <section class="visual-area" aria-label="Prime measure visualizations">
+          <section id="gap-panel" class="panel main-panel">
+            <div class="panel-heading">
+              <div>
+                <h1>Gap Measure</h1>
+                <p>Algorithm-induced weights over consecutive prime gaps.</p>
+              </div>
+              <div class="metric-strip" aria-label="Experiment metrics">
+                <div>
+                  <span id="primeCount">0</span>
+                  <small>primes</small>
+                </div>
+                <div>
+                  <span id="weightedMeanGap">0</span>
+                  <small>weighted mean gap</small>
+                </div>
+                <div>
+                  <span id="driftMetric">0.000</span>
+                  <small>residue drift</small>
+                </div>
+              </div>
+            </div>
+            <div class="chart-frame">
+              <canvas id="gapCanvas" width="1200" height="560" aria-label="Prime gap scatter plot"></canvas>
+            </div>
+          </section>
+
+          <div class="lower-grid">
+            <section id="residue-panel" class="panel">
+              <div class="panel-heading compact">
+                <div>
+                  <h2>Residue Drift</h2>
+                  <p>Weighted mass by coprime residue class.</p>
+                </div>
+              </div>
+              <svg id="residueWheel" viewBox="0 0 420 320" role="img" aria-label="Residue drift wheel"></svg>
+            </section>
+
+            <section class="panel">
+              <div class="panel-heading compact">
+                <div>
+                  <h2>Weight Distribution</h2>
+                  <p>How much each observation measure concentrates.</p>
+                </div>
+              </div>
+              <svg id="histogram" viewBox="0 0 520 320" role="img" aria-label="Gap weight histogram"></svg>
+            </section>
+          </div>
+        </section>
+
+        <aside id="notes-panel" class="insight-panel" aria-label="Conjecture notes">
+          <section class="note-block">
+            <h2>Conjecture Notes</h2>
+            <p id="activeClaim">
+              next_prime sampling changes the observed prime measure by weighting each prime by its left gap.
+            </p>
+          </section>
+
+          <section class="note-block">
+            <h3>Observation</h3>
+            <dl class="stats-list">
+              <div>
+                <dt>Entropy</dt>
+                <dd id="entropyMetric">0.00 bits</dd>
+              </div>
+              <div>
+                <dt>Effective support</dt>
+                <dd id="supportMetric">0</dd>
+              </div>
+              <div>
+                <dt>Max weight share</dt>
+                <dd id="maxShareMetric">0.00%</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="note-block">
+            <h3>Research Loop</h3>
+            <ol class="timeline">
+              <li class="is-active">Define generator-induced measure</li>
+              <li>Measure residue drift under the induced measure</li>
+              <li>Search for stable drift signatures</li>
+              <li>Promote robust signatures into conjectures</li>
+            </ol>
+          </section>
+        </aside>
+
+        <section class="experiment-log" aria-label="Experiment timeline">
+          <div class="log-heading">
+            <h2>Experiment Timeline</h2>
+            <span id="runStatus">Completed</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Generator</th>
+                  <th>Range</th>
+                  <th>Residue</th>
+                  <th>Primes</th>
+                  <th>Weighted gap</th>
+                  <th>Drift</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="timelineRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>

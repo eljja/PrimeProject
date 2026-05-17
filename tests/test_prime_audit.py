@@ -7,6 +7,7 @@ from pathlib import Path
 
 from prime_audit.analysis import audit_records, report_to_dict
 from prime_audit.catalog import classify_public_prime
+from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
 from prime_audit.io import load_records
 from prime_audit.simulators import (
     add_standard_public_primes,
@@ -43,7 +44,23 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertGreaterEqual(report_dict["summary"]["critical"], 1)
         self.assertGreaterEqual(report_dict["summary"]["info"], 1)
 
+    def test_next_prime_measure_weights_by_left_gap(self) -> None:
+        observations = build_observations(100)
+        by_prime = {observation.prime: observation for observation in observations}
+
+        self.assertEqual(by_prime[11].next_prime_weight, 4)
+        self.assertEqual(by_prime[13].next_prime_weight, 2)
+        self.assertGreater(by_prime[11].next_prime_weight, by_prime[13].next_prime_weight)
+
+    def test_gap_lab_reports_generator_summaries(self) -> None:
+        payload = run_lab(1000, modulo=30)
+        observations = build_observations(1000)
+        rejection = summarize_measure(observations, generator="rejection", modulo=30)
+        next_prime = summarize_measure(observations, generator="next_prime", modulo=30)
+
+        self.assertIn("next_prime", payload["summaries"])
+        self.assertGreater(next_prime.weighted_mean_gap, rejection.weighted_mean_gap)
+
 
 if __name__ == "__main__":
     unittest.main()
-

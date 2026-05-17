@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from .analysis import audit_records, report_to_dict
+from .conjecture_lab import run_lab
 from .io import load_records, write_report_json
 from .simulators import add_standard_public_primes, generate_synthetic_rsa_dataset, records_to_jsonable
 
@@ -29,6 +30,14 @@ def main() -> int:
         help="Include recovered toy factors in the report. Use only for owned test data.",
     )
 
+    gap_lab_parser = subparsers.add_parser(
+        "gap-lab",
+        help="Run algorithm-induced prime measure experiments.",
+    )
+    gap_lab_parser.add_argument("--limit", type=int, default=100_000)
+    gap_lab_parser.add_argument("--modulo", type=int, default=30)
+    gap_lab_parser.add_argument("--output", required=True)
+
     args = parser.parse_args()
     if args.command == "simulate":
         records = generate_synthetic_rsa_dataset(bits=args.bits, seed=args.seed)
@@ -49,10 +58,15 @@ def main() -> int:
         write_report_json(report_to_dict(report), args.output)
         return 0
 
+    if args.command == "gap-lab":
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(run_lab(args.limit, args.modulo), indent=2), encoding="utf-8")
+        return 0
+
     parser.error(f"unknown command {args.command}")
     return 2
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
