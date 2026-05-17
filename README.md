@@ -13,7 +13,9 @@
 
 ## Interactive Conjecture Lab
 
-Open `index.html` locally or publish this repository with GitHub Pages to view the interactive visualization. The lab compares `rejection`, `next_prime`, and `wheel30_next` observation measures over prime gaps and residue classes.
+Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
+
+You can also open `index.html` locally. The lab compares `rejection`, `next_prime`, and `wheel30_next` observation measures over prime gaps and residue classes.
 
 ## Input format
 
