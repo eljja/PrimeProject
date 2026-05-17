@@ -22,8 +22,13 @@
           <span>PrimeProject Conjecture Lab</span>
         </a>
         <nav class="topnav" aria-label="Lab views">
-          <button class="nav-button is-active" data-scroll-target="gap-panel">Gap Measure</button>
+          <button class="nav-button is-active" data-scroll-target="overview-panel">Overview</button>
+          <button class="nav-button" data-scroll-target="gap-panel">Gap Measure</button>
           <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
+          <button class="nav-button" data-scroll-target="gap-distribution-panel">Gap Distribution</button>
+          <button class="nav-button" data-scroll-target="heatmap-panel">Heatmap</button>
+          <button class="nav-button" data-scroll-target="comparisons-panel">Comparisons</button>
+          <button class="nav-button" data-scroll-target="logs-panel">Logs</button>
           <button class="nav-button" data-scroll-target="notes-panel">Conjecture Notes</button>
         </nav>
         <a class="repo-link" href="https://github.com/eljja/PrimeProject" rel="noreferrer">GitHub</a>
@@ -63,12 +68,62 @@
             <output id="sampleValue" for="sampleRange">2,200</output>
           </section>
 
+          <section class="control-group">
+            <label for="weightingSelect">Weighting</label>
+            <select id="weightingSelect">
+              <option value="gap" selected>Gap-weighted</option>
+              <option value="inverse">Inverse gap</option>
+              <option value="normalized">Normalized by log p</option>
+            </select>
+          </section>
+
           <button id="runExperiment" class="primary-action" type="button">Run Experiment</button>
+
+          <section class="control-status" aria-label="Experiment status">
+            <div><span>Status</span><strong id="controlStatus">Completed</strong></div>
+            <div><span>Primes Found</span><strong id="controlPrimeCount">0</strong></div>
+            <div><span>Max Prime</span><strong id="controlMaxPrime">0</strong></div>
+            <div><span>Throughput</span><strong id="controlThroughput">0/s</strong></div>
+          </section>
         </aside>
 
         <section class="visual-area" aria-label="Prime measure visualizations">
-          <section id="gap-panel" class="panel main-panel">
-            <div class="panel-heading">
+          <section id="overview-panel" class="overview-grid">
+            <section class="panel main-panel">
+              <div class="panel-heading">
+                <div>
+                  <h1>Prime Index vs Prime Value</h1>
+                  <p>Generator-weighted observations compared with the baseline p ≈ n log n.</p>
+                </div>
+                <div class="chart-actions" aria-label="Scale controls">
+                  <button class="is-active" type="button">Log-Log</button>
+                  <button type="button">Semi-Log</button>
+                  <label><input id="densityToggle" type="checkbox" /> Density</label>
+                </div>
+              </div>
+              <div class="legend-row">
+                <span><i class="dot teal"></i>next_prime</span>
+                <span><i class="dot amber"></i>rejection</span>
+                <span><i class="dot indigo"></i>wheel</span>
+              </div>
+              <div class="chart-frame">
+                <canvas id="overviewCanvas" width="1200" height="560" aria-label="Prime index versus prime value"></canvas>
+              </div>
+            </section>
+
+            <section id="gap-distribution-panel" class="panel side-chart-panel">
+              <div class="panel-heading compact">
+                <div>
+                  <h2>Gap Distribution</h2>
+                  <p>Mass of Δ = p<sub>n+1</sub> - p<sub>n</sub> by generator.</p>
+                </div>
+              </div>
+              <svg id="gapDistribution" viewBox="0 0 520 420" role="img" aria-label="Gap distribution"></svg>
+            </section>
+          </section>
+
+          <section id="gap-panel" class="panel">
+            <div class="panel-heading compact">
               <div>
                 <h1>Gap Measure</h1>
                 <p>Algorithm-induced weights over consecutive prime gaps.</p>
@@ -93,7 +148,7 @@
             </div>
           </section>
 
-          <div class="lower-grid">
+          <div class="analysis-grid">
             <section id="residue-panel" class="panel">
               <div class="panel-heading compact">
                 <div>
@@ -107,11 +162,43 @@
             <section class="panel">
               <div class="panel-heading compact">
                 <div>
-                  <h2>Weight Distribution</h2>
+                  <h2>Gap vs Local Scale</h2>
+                  <p>Δ / log p under the active observation measure.</p>
+                </div>
+              </div>
+              <canvas id="localScaleCanvas" width="680" height="360" aria-label="Gap versus local scale"></canvas>
+            </section>
+
+            <section class="panel">
+              <div class="panel-heading compact">
+                <div>
+                  <h2>Gap-Weighted Measure</h2>
                   <p>How much each observation measure concentrates.</p>
                 </div>
               </div>
               <svg id="histogram" viewBox="0 0 520 320" role="img" aria-label="Gap weight histogram"></svg>
+            </section>
+          </div>
+
+          <div class="analysis-grid secondary">
+            <section id="heatmap-panel" class="panel">
+              <div class="panel-heading compact">
+                <div>
+                  <h2>Heatmap</h2>
+                  <p>Residue class drift across all generator measures.</p>
+                </div>
+              </div>
+              <svg id="heatmap" viewBox="0 0 620 300" role="img" aria-label="Residue drift heatmap"></svg>
+            </section>
+
+            <section id="comparisons-panel" class="panel comparison-panel">
+              <div class="panel-heading compact">
+                <div>
+                  <h2>Comparisons</h2>
+                  <p>Uniformity, tail concentration, and effective support.</p>
+                </div>
+              </div>
+              <div id="comparisonCards" class="comparison-cards"></div>
             </section>
           </div>
         </section>
@@ -151,9 +238,30 @@
               <li>Promote robust signatures into conjectures</li>
             </ol>
           </section>
+
+          <section class="note-block">
+            <h3>Hypotheses</h3>
+            <ul class="hypothesis-list">
+              <li><strong>H1</strong><span>Prime Number Theorem baseline</span><em>Supported</em></li>
+              <li><strong>H2</strong><span>Residue equidistribution drift</span><em>Tracked</em></li>
+              <li><strong>H3</strong><span>Gap tail heuristic</span><em>Plausible</em></li>
+              <li><strong>H4</strong><span>Generator bias signature</span><em>Active</em></li>
+            </ul>
+          </section>
+
+          <section class="note-block">
+            <h3>Tags</h3>
+            <div class="tag-row">
+              <span>pnt</span>
+              <span>residue</span>
+              <span>gaps</span>
+              <span>wheel</span>
+              <span>bias</span>
+            </div>
+          </section>
         </aside>
 
-        <section class="experiment-log" aria-label="Experiment timeline">
+        <section id="logs-panel" class="experiment-log" aria-label="Experiment timeline">
           <div class="log-heading">
             <h2>Experiment Timeline</h2>
             <span id="runStatus">Completed</span>
