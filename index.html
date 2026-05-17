@@ -25,6 +25,7 @@
           <button class="nav-button is-active" data-scroll-target="overview-panel">Overview</button>
           <button class="nav-button" data-scroll-target="gap-panel">Gap Measure</button>
           <button class="nav-button" data-scroll-target="prediction-panel">Prediction Lab</button>
+          <button class="nav-button" data-scroll-target="bitcoin-panel">Bitcoin Lab</button>
           <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
           <button class="nav-button" data-scroll-target="gap-distribution-panel">Gap Distribution</button>
           <button class="nav-button" data-scroll-target="snapshots-panel">Research Snapshots</button>
@@ -184,6 +185,36 @@
                   </thead>
                   <tbody id="predictionRows"></tbody>
                 </table>
+              </div>
+            </div>
+          </section>
+
+          <section id="bitcoin-panel" class="panel bitcoin-panel">
+            <div class="panel-heading compact">
+              <div>
+                <h2>Bitcoin Lab</h2>
+                <p>secp256k1 primes are public; practical risk lives in private-key and nonce generation.</p>
+              </div>
+            </div>
+            <div class="bitcoin-grid">
+              <div class="bitcoin-card">
+                <span>Field prime p</span>
+                <strong>2^256 - 2^32 - 977</strong>
+                <code>FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F</code>
+              </div>
+              <div class="bitcoin-card">
+                <span>Group order n</span>
+                <strong>256-bit prime order</strong>
+                <code>FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141</code>
+              </div>
+              <div class="bitcoin-card risk">
+                <span>Practical audit</span>
+                <strong>Nonce-risk indicators</strong>
+                <ul>
+                  <li>Repeated ECDSA r</li>
+                  <li>Invalid r/s range</li>
+                  <li>High-s normalization drift</li>
+                </ul>
               </div>
             </div>
           </section>

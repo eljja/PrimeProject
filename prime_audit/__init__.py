@@ -2,6 +2,7 @@
 
 __all__ = [
     "analysis",
+    "bitcoin",
     "catalog",
     "conjecture_lab",
     "io",

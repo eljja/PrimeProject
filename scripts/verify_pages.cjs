@@ -61,6 +61,7 @@ async function main() {
     ),
     predictionRows: document.querySelectorAll("#predictionRows tr").length,
     predictionMetrics: document.querySelector("#predictionMetrics").textContent,
+    bitcoinPanel: document.querySelector("#bitcoin-panel").textContent,
   }));
 
   const mobile = await browser.newPage({
@@ -84,6 +85,10 @@ async function main() {
     process.exit(1);
   }
   if (metrics.predictionRows < 8 || !metrics.predictionMetrics.includes("Actual next")) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (!metrics.bitcoinPanel.includes("secp256k1") || !metrics.bitcoinPanel.includes("Repeated ECDSA r")) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }

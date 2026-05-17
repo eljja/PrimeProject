@@ -10,6 +10,7 @@
 - Recognizes selected ECC field primes.
 - Generates synthetic toy RSA datasets for validation experiments.
 - Explores algorithm-induced prime measures in the PrimeProject Conjecture Lab.
+- Audits Bitcoin secp256k1 constants and ECDSA signature metadata for defensive nonce-risk indicators.
 
 ## Interactive Conjecture Lab
 
@@ -44,6 +45,8 @@ python -m prime_audit.cli simulate --output data/synthetic_keys.json --bits 128 
 python -m prime_audit.cli audit --input data/synthetic_keys.json --output data/audit_report.json
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json
 python -m prime_audit.cli predict --start 100000 --span 640 --modulo 210 --output data/prediction_100k.json
+python -m prime_audit.cli bitcoin-constants --output data/bitcoin_constants.json
+python -m prime_audit.cli bitcoin-signature-audit --input data/bitcoin_signatures.json --output data/bitcoin_signature_audit.json
 python -m prime_audit.cli snapshot --limit 10000000 --modulo 210 --output data/snapshots/prime_measure_10m.summary.json --assets-dir assets/snapshots --slug prime_measure_10m
 python -m prime_audit.cli snapshot-manifest --inputs data/snapshots/prime_measure_1m.summary.json data/snapshots/prime_measure_10m.summary.json --output data/snapshots/manifest.json
 ```

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from .analysis import audit_records, report_to_dict
+from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .conjecture_lab import run_lab
 from .io import load_records, write_report_json
 from .prediction import score_next_prime_candidates
@@ -50,6 +51,19 @@ def main() -> int:
     predict_parser.add_argument("--top", type=int, default=12)
     predict_parser.add_argument("--training-limit", type=int, default=None)
     predict_parser.add_argument("--output", required=True)
+
+    bitcoin_constants_parser = subparsers.add_parser(
+        "bitcoin-constants",
+        help="Write secp256k1 field and group-order constants.",
+    )
+    bitcoin_constants_parser.add_argument("--output", required=True)
+
+    bitcoin_signature_parser = subparsers.add_parser(
+        "bitcoin-signature-audit",
+        help="Audit Bitcoin ECDSA signature metadata for nonce-risk indicators.",
+    )
+    bitcoin_signature_parser.add_argument("--input", required=True)
+    bitcoin_signature_parser.add_argument("--output", required=True)
 
     snapshot_parser = subparsers.add_parser(
         "snapshot",
@@ -106,6 +120,20 @@ def main() -> int:
             training_limit=args.training_limit,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "bitcoin-constants":
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(secp256k1_constants_report(), indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "bitcoin-signature-audit":
+        payload = json.loads(Path(args.input).read_text(encoding="utf-8"))
+        rows = payload["signatures"] if isinstance(payload, dict) else payload
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(audit_bitcoin_signatures(rows), indent=2), encoding="utf-8")
         return 0
 
     if args.command == "snapshot":
