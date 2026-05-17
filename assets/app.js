@@ -5,7 +5,38 @@ const state = {
   renderedSamples: 2200,
   weighting: "gap",
   lab: null,
+  snapshots: [],
+  activeSnapshot: 0,
 };
+
+const bundledSnapshots = [
+  {
+    label: "1M",
+    slug: "prime_measure_1m",
+    limit: 1000000,
+    modulo: 210,
+    prime_count: 78498,
+    max_gap: 114,
+    mean_gap: 12.739098309489535,
+    summary_path: "data/snapshots/prime_measure_1m.summary.json",
+    overview_svg: "assets/snapshots/prime_measure_1m_overview.svg",
+    gap_distribution_svg: "assets/snapshots/prime_measure_1m_gap_distribution.svg",
+    residue_drift_svg: "assets/snapshots/prime_measure_1m_residue_drift.svg",
+  },
+  {
+    label: "10M",
+    slug: "prime_measure_10m",
+    limit: 10000000,
+    modulo: 210,
+    prime_count: 664579,
+    max_gap: 154,
+    mean_gap: 15.047126146216096,
+    summary_path: "data/snapshots/prime_measure_10m.summary.json",
+    overview_svg: "assets/snapshots/prime_measure_10m_overview.svg",
+    gap_distribution_svg: "assets/snapshots/prime_measure_10m_gap_distribution.svg",
+    residue_drift_svg: "assets/snapshots/prime_measure_10m_residue_drift.svg",
+  },
+];
 
 const generatorCopy = {
   next_prime:
@@ -53,6 +84,11 @@ const outputs = {
   controlMaxPrime: document.querySelector("#controlMaxPrime"),
   controlThroughput: document.querySelector("#controlThroughput"),
   comparisonCards: document.querySelector("#comparisonCards"),
+  snapshotButtons: document.querySelector("#snapshotButtons"),
+  snapshotSummary: document.querySelector("#snapshotSummary"),
+  snapshotOverview: document.querySelector("#snapshotOverview"),
+  snapshotGapDistribution: document.querySelector("#snapshotGapDistribution"),
+  snapshotResidueDrift: document.querySelector("#snapshotResidueDrift"),
 };
 
 document.querySelectorAll("[data-generator]").forEach((button) => {
@@ -103,6 +139,7 @@ window.addEventListener("resize", () => {
 });
 
 runExperiment();
+loadSnapshots();
 
 function runExperiment() {
   controls.runExperiment.disabled = true;
@@ -731,6 +768,64 @@ function renderComparisons() {
       </div>`,
     )
     .join("");
+}
+
+async function loadSnapshots() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.snapshots = bundledSnapshots;
+    } else {
+      const response = await fetch("data/snapshots/manifest.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`snapshot manifest ${response.status}`);
+      const manifest = await response.json();
+      state.snapshots = Array.isArray(manifest.snapshots) ? manifest.snapshots : bundledSnapshots;
+    }
+  } catch (error) {
+    state.snapshots = bundledSnapshots;
+  }
+  renderSnapshots();
+}
+
+function renderSnapshots() {
+  if (!outputs.snapshotButtons || !outputs.snapshotSummary) return;
+  if (state.snapshots.length === 0) {
+    outputs.snapshotSummary.textContent = "No precomputed snapshots are bundled.";
+    return;
+  }
+  outputs.snapshotButtons.innerHTML = state.snapshots
+    .map(
+      (snapshot, index) =>
+        `<button type="button" class="${index === state.activeSnapshot ? "is-active" : ""}" data-snapshot-index="${index}">${snapshot.label}</button>`,
+    )
+    .join("");
+  outputs.snapshotButtons.querySelectorAll("[data-snapshot-index]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.activeSnapshot = Number(button.dataset.snapshotIndex);
+      renderSnapshots();
+    });
+  });
+
+  const snapshot = state.snapshots[state.activeSnapshot] || state.snapshots[0];
+  outputs.snapshotSummary.innerHTML = `
+    <div><span>Limit</span><strong>${formatCompact(snapshot.limit)}</strong></div>
+    <div><span>Primes</span><strong>${formatNumber(snapshot.prime_count)}</strong></div>
+    <div><span>Modulo</span><strong>${snapshot.modulo}</strong></div>
+    <div><span>Mean gap</span><strong>${snapshot.mean_gap.toFixed(2)}</strong></div>
+    <div><span>Max gap</span><strong>${snapshot.max_gap}</strong></div>
+  `;
+  setSnapshotImage(outputs.snapshotOverview, snapshot.overview_svg, `${snapshot.label} overview snapshot`);
+  setSnapshotImage(
+    outputs.snapshotGapDistribution,
+    snapshot.gap_distribution_svg,
+    `${snapshot.label} gap distribution snapshot`,
+  );
+  setSnapshotImage(outputs.snapshotResidueDrift, snapshot.residue_drift_svg, `${snapshot.label} residue drift snapshot`);
+}
+
+function setSnapshotImage(image, path, alt) {
+  if (!image) return;
+  image.src = path;
+  image.alt = alt;
 }
 
 function buildGapHistogram(generator, bins, maxGap) {

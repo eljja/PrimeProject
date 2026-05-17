@@ -8,4 +8,5 @@ __all__ = [
     "models",
     "number_theory",
     "simulators",
+    "snapshots",
 ]

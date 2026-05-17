@@ -31,6 +31,15 @@ async function main() {
   });
   await page.click("#runExperiment");
   await page.waitForTimeout(600);
+  await page.waitForSelector("#snapshotButtons button");
+  await page.waitForFunction(() =>
+    [...document.querySelectorAll(".snapshot-grid img")].every((image) => image.complete && image.naturalWidth > 0),
+  );
+  await page.click("#snapshotButtons button:nth-child(2)");
+  await page.waitForFunction(() => document.querySelector("#snapshotSummary").textContent.includes("10M"));
+  await page.waitForFunction(() =>
+    [...document.querySelectorAll(".snapshot-grid img")].every((image) => image.complete && image.naturalWidth > 0),
+  );
   await page.screenshot({
     path: path.join(root, "data", "conjecture_lab_desktop.png"),
     fullPage: true,
@@ -43,6 +52,11 @@ async function main() {
     canvasWidth: document.querySelector("#gapCanvas").getBoundingClientRect().width,
     canvasHeight: document.querySelector("#gapCanvas").getBoundingClientRect().height,
     activeClaim: document.querySelector("#activeClaim").textContent,
+    snapshotButtons: document.querySelectorAll("#snapshotButtons button").length,
+    snapshotSummary: document.querySelector("#snapshotSummary").textContent,
+    snapshotImagesReady: [...document.querySelectorAll(".snapshot-grid img")].every(
+      (image) => image.complete && image.naturalWidth > 0,
+    ),
   }));
 
   const mobile = await browser.newPage({
@@ -58,6 +72,10 @@ async function main() {
   await browser.close();
 
   if (errors.length > 0) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (metrics.snapshotButtons < 2 || !metrics.snapshotImagesReady) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }

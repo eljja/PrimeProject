@@ -26,6 +26,7 @@
           <button class="nav-button" data-scroll-target="gap-panel">Gap Measure</button>
           <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
           <button class="nav-button" data-scroll-target="gap-distribution-panel">Gap Distribution</button>
+          <button class="nav-button" data-scroll-target="snapshots-panel">Research Snapshots</button>
           <button class="nav-button" data-scroll-target="heatmap-panel">Heatmap</button>
           <button class="nav-button" data-scroll-target="comparisons-panel">Comparisons</button>
           <button class="nav-button" data-scroll-target="logs-panel">Logs</button>
@@ -201,6 +202,31 @@
               <div id="comparisonCards" class="comparison-cards"></div>
             </section>
           </div>
+
+          <section id="snapshots-panel" class="panel snapshots-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Research Snapshots</h2>
+                <p>Precomputed local runs above the live browser range; GitHub Pages only displays static SVG results.</p>
+              </div>
+              <div id="snapshotButtons" class="snapshot-buttons" aria-label="Snapshot dataset"></div>
+            </div>
+            <div class="snapshot-summary" id="snapshotSummary"></div>
+            <div class="snapshot-grid">
+              <figure>
+                <img id="snapshotOverview" alt="Research snapshot overview" />
+                <figcaption>Overview</figcaption>
+              </figure>
+              <figure>
+                <img id="snapshotGapDistribution" alt="Research snapshot gap distribution" />
+                <figcaption>Gap Distribution</figcaption>
+              </figure>
+              <figure>
+                <img id="snapshotResidueDrift" alt="Research snapshot residue drift" />
+                <figcaption>Residue Drift</figcaption>
+              </figure>
+            </div>
+          </section>
         </section>
 
         <aside id="notes-panel" class="insight-panel" aria-label="Conjecture notes">

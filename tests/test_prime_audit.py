@@ -14,6 +14,7 @@ from prime_audit.simulators import (
     generate_synthetic_rsa_dataset,
     records_to_jsonable,
 )
+from prime_audit.snapshots import build_snapshot, render_snapshot_svgs
 
 
 class PrimeAuditTests(unittest.TestCase):
@@ -60,6 +61,18 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertIn("next_prime", payload["summaries"])
         self.assertGreater(next_prime.weighted_mean_gap, rejection.weighted_mean_gap)
+
+    def test_snapshot_is_compact_and_renders_svgs(self) -> None:
+        snapshot = build_snapshot(1000, modulo=30, bins=12)
+
+        self.assertEqual(snapshot["schema"], "primeproject.snapshot.v1")
+        self.assertNotIn("observations", snapshot)
+        self.assertIn("gap_histogram", snapshot["generators"]["next_prime"])
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            paths = render_snapshot_svgs(snapshot, tmpdir, "test_snapshot")
+
+        self.assertEqual(len(paths), 3)
 
 
 if __name__ == "__main__":

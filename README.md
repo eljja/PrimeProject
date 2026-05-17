@@ -17,6 +17,8 @@ Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja
 
 You can also open `index.html` locally. The lab compares `rejection`, `next_prime`, and `wheel30_next` observation measures over prime gaps and residue classes.
 
+The live browser experiment is intentionally bounded for responsiveness. Larger local runs are bundled as static Research Snapshots on GitHub Pages, so visitors can inspect 1M and 10M precomputed SVG charts without recalculating them in the browser.
+
 ## Input format
 
 ```json
@@ -41,6 +43,8 @@ You can also open `index.html` locally. The lab compares `rejection`, `next_prim
 python -m prime_audit.cli simulate --output data/synthetic_keys.json --bits 128 --include-standards
 python -m prime_audit.cli audit --input data/synthetic_keys.json --output data/audit_report.json
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json
+python -m prime_audit.cli snapshot --limit 10000000 --modulo 210 --output data/snapshots/prime_measure_10m.summary.json --assets-dir assets/snapshots --slug prime_measure_10m
+python -m prime_audit.cli snapshot-manifest --inputs data/snapshots/prime_measure_1m.summary.json data/snapshots/prime_measure_10m.summary.json --output data/snapshots/manifest.json
 ```
 
 The bundled Codex runtime Python can also run the same commands.

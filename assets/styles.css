@@ -466,8 +466,20 @@ canvas {
   min-height: 318px;
 }
 
+#gapDistribution {
+  height: 420px;
+}
+
 #residueWheel {
   height: 380px;
+}
+
+#histogram {
+  height: 320px;
+}
+
+#heatmap {
+  height: 300px;
 }
 
 #localScaleCanvas {
@@ -645,6 +657,99 @@ canvas {
   font-weight: 820;
 }
 
+.snapshots-panel {
+  overflow: visible;
+}
+
+.snapshot-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.snapshot-buttons button {
+  min-width: 54px;
+  min-height: 32px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--muted);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.snapshot-buttons button.is-active,
+.snapshot-buttons button:hover {
+  color: var(--teal);
+  background: var(--teal-soft);
+  border-color: rgba(8, 127, 122, 0.34);
+}
+
+.snapshot-summary {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: 10px;
+  padding: 16px 20px 4px;
+}
+
+.snapshot-summary div {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 10px 12px;
+}
+
+.snapshot-summary span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 720;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.snapshot-summary strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.1;
+  font-weight: 820;
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 16px 20px 20px;
+}
+
+.snapshot-grid figure {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.snapshot-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 3;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.snapshot-grid figcaption {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 720;
+  padding: 9px 10px;
+}
+
 .experiment-log {
   grid-column: 1 / -1;
   border-radius: var(--radius);
@@ -739,7 +844,8 @@ tr:last-child td {
 
   .overview-grid,
   .analysis-grid,
-  .analysis-grid.secondary {
+  .analysis-grid.secondary,
+  .snapshot-grid {
     grid-template-columns: 1fr;
   }
 
@@ -774,6 +880,13 @@ tr:last-child td {
     padding: 10px;
   }
 
+  .control-rail,
+  .visual-area,
+  .insight-panel,
+  .experiment-log {
+    grid-column: 1;
+  }
+
   .control-rail {
     position: static;
   }
@@ -784,12 +897,26 @@ tr:last-child td {
 
   .metric-strip,
   .analysis-grid,
-  .overview-grid {
+  .overview-grid,
+  .snapshot-summary {
     grid-template-columns: 1fr;
     min-width: 0;
   }
 
+  .snapshot-grid {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
   canvas {
     height: 420px;
+  }
+
+  #gapDistribution,
+  #residueWheel,
+  #histogram,
+  #heatmap {
+    height: 300px;
+    min-height: 300px;
   }
 }

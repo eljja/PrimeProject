@@ -119,13 +119,26 @@ Python:
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json
 ```
 
+큰 범위는 브라우저에서 매번 재계산하지 않고, 로컬에서 compact summary와 SVG를 만들어 GitHub Pages가 정적 그림으로 제공한다.
+
+```powershell
+python -m prime_audit.cli snapshot --limit 10000000 --modulo 210 --output data/snapshots/prime_measure_10m.summary.json --assets-dir assets/snapshots --slug prime_measure_10m
+python -m prime_audit.cli snapshot-manifest --inputs data/snapshots/prime_measure_1m.summary.json data/snapshots/prime_measure_10m.summary.json --output data/snapshots/manifest.json
+```
+
+현재 번들된 Research Snapshots:
+
+- `1M`: 소수 78,498개, 최대 gap 114.
+- `10M`: 소수 664,579개, 최대 gap 154.
+
 Web:
 
 ```text
 index.html
 assets/styles.css
 assets/app.js
+data/snapshots/manifest.json
+assets/snapshots/*.svg
 ```
 
 GitHub Pages에서 루트 `index.html`을 바로 제공하면 인터랙티브 시각화가 열린다.
-

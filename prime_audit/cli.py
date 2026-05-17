@@ -8,6 +8,7 @@ from .analysis import audit_records, report_to_dict
 from .conjecture_lab import run_lab
 from .io import load_records, write_report_json
 from .simulators import add_standard_public_primes, generate_synthetic_rsa_dataset, records_to_jsonable
+from .snapshots import build_snapshot, render_snapshot_svgs, write_manifest, write_snapshot
 
 
 def main() -> int:
@@ -38,6 +39,24 @@ def main() -> int:
     gap_lab_parser.add_argument("--modulo", type=int, default=30)
     gap_lab_parser.add_argument("--output", required=True)
 
+    snapshot_parser = subparsers.add_parser(
+        "snapshot",
+        help="Precompute a compact research snapshot and static SVG charts.",
+    )
+    snapshot_parser.add_argument("--limit", type=int, required=True)
+    snapshot_parser.add_argument("--modulo", type=int, default=210)
+    snapshot_parser.add_argument("--bins", type=int, default=48)
+    snapshot_parser.add_argument("--output", required=True)
+    snapshot_parser.add_argument("--assets-dir", default=None)
+    snapshot_parser.add_argument("--slug", default=None)
+
+    manifest_parser = subparsers.add_parser(
+        "snapshot-manifest",
+        help="Create a manifest from precomputed snapshot JSON files.",
+    )
+    manifest_parser.add_argument("--inputs", nargs="+", required=True)
+    manifest_parser.add_argument("--output", required=True)
+
     args = parser.parse_args()
     if args.command == "simulate":
         records = generate_synthetic_rsa_dataset(bits=args.bits, seed=args.seed)
@@ -62,6 +81,18 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(run_lab(args.limit, args.modulo), indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "snapshot":
+        snapshot = build_snapshot(args.limit, args.modulo, args.bins)
+        write_snapshot(snapshot, args.output)
+        if args.assets_dir:
+            render_snapshot_svgs(snapshot, args.assets_dir, args.slug)
+        return 0
+
+    if args.command == "snapshot-manifest":
+        snapshots = [json.loads(Path(path).read_text(encoding="utf-8")) for path in args.inputs]
+        write_manifest(snapshots, args.output)
         return 0
 
     parser.error(f"unknown command {args.command}")
