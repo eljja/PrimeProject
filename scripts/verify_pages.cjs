@@ -40,6 +40,8 @@ async function main() {
   await page.waitForFunction(() =>
     [...document.querySelectorAll(".snapshot-grid img")].every((image) => image.complete && image.naturalWidth > 0),
   );
+  await page.click("#runPrediction");
+  await page.waitForFunction(() => document.querySelectorAll("#predictionRows tr").length >= 8);
   await page.screenshot({
     path: path.join(root, "data", "conjecture_lab_desktop.png"),
     fullPage: true,
@@ -57,6 +59,8 @@ async function main() {
     snapshotImagesReady: [...document.querySelectorAll(".snapshot-grid img")].every(
       (image) => image.complete && image.naturalWidth > 0,
     ),
+    predictionRows: document.querySelectorAll("#predictionRows tr").length,
+    predictionMetrics: document.querySelector("#predictionMetrics").textContent,
   }));
 
   const mobile = await browser.newPage({
@@ -76,6 +80,10 @@ async function main() {
     process.exit(1);
   }
   if (metrics.snapshotButtons < 2 || !metrics.snapshotImagesReady) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (metrics.predictionRows < 8 || !metrics.predictionMetrics.includes("Actual next")) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }

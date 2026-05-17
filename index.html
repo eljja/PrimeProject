@@ -24,6 +24,7 @@
         <nav class="topnav" aria-label="Lab views">
           <button class="nav-button is-active" data-scroll-target="overview-panel">Overview</button>
           <button class="nav-button" data-scroll-target="gap-panel">Gap Measure</button>
+          <button class="nav-button" data-scroll-target="prediction-panel">Prediction Lab</button>
           <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
           <button class="nav-button" data-scroll-target="gap-distribution-panel">Gap Distribution</button>
           <button class="nav-button" data-scroll-target="snapshots-panel">Research Snapshots</button>
@@ -146,6 +147,44 @@
             </div>
             <div class="chart-frame">
               <canvas id="gapCanvas" width="1200" height="560" aria-label="Prime gap scatter plot"></canvas>
+            </div>
+          </section>
+
+          <section id="prediction-panel" class="panel prediction-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Prediction Lab</h2>
+                <p>Rank next-prime candidates with a hazard score: density, wheel survival, residue drift, and gap survival.</p>
+              </div>
+              <div class="prediction-controls">
+                <label>
+                  Start
+                  <input id="predictionStart" type="number" min="10" step="2" value="100000" />
+                </label>
+                <label>
+                  Span
+                  <input id="predictionSpan" type="number" min="40" max="5000" step="20" value="640" />
+                </label>
+                <button id="runPrediction" type="button">Rank</button>
+              </div>
+            </div>
+            <div class="prediction-body">
+              <div class="prediction-metrics" id="predictionMetrics"></div>
+              <div class="prediction-table-wrap">
+                <table class="prediction-table">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Candidate</th>
+                      <th>Offset</th>
+                      <th>Score</th>
+                      <th>Residue</th>
+                      <th>Actual</th>
+                    </tr>
+                  </thead>
+                  <tbody id="predictionRows"></tbody>
+                </table>
+              </div>
             </div>
           </section>
 

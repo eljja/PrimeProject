@@ -111,12 +111,34 @@ next_prime 관측 측도의 tail은 raw prime gap tail보다 left gap 가중 때
 - 선택된 소수의 분포는 left gap으로 가중된다.
 - 이 가중은 residue drift와 생성기 attribution의 출발점이다.
 
+## PrimeScore 예측 모델
+
+PrimeProject의 예측은 “소수를 정확히 예언한다”가 아니라, 다음 소수가 될 후보를 실용적으로 정렬한다는 의미다. 현재 구현은 다음 hazard score를 사용한다.
+
+```text
+PrimeScore(c | x) =
+  1 / log(c)
+  * wheel_factor(c mod W)
+  * residue_factor(c mod m)
+  * exp(-(c - x) / log(x))
+```
+
+각 항의 의미:
+
+- `1 / log(c)`: 소수정리 기반 지역 밀도.
+- `wheel_factor`: 작은 소수로 나누어지지 않는 후보 공간 보정.
+- `residue_factor`: `next_prime` 관측 측도에서 나타난 residue drift 보정.
+- `exp(-(c - x) / log(x))`: 시작점 `x` 이후 아직 소수가 나오지 않았을 gap survival 근사.
+
+이 점수는 암호 소수를 깨는 도구가 아니라, 후보 우선순위와 생성기 편향 해석을 위한 실험 도구다.
+
 ## 실험 도구
 
 Python:
 
 ```powershell
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json
+python -m prime_audit.cli predict --start 100000 --span 640 --modulo 210 --output data/prediction_100k.json
 ```
 
 큰 범위는 브라우저에서 매번 재계산하지 않고, 로컬에서 compact summary와 SVG를 만들어 GitHub Pages가 정적 그림으로 제공한다.

@@ -9,6 +9,7 @@ from prime_audit.analysis import audit_records, report_to_dict
 from prime_audit.catalog import classify_public_prime
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
 from prime_audit.io import load_records
+from prime_audit.prediction import build_residue_factors, score_next_prime_candidates
 from prime_audit.simulators import (
     add_standard_public_primes,
     generate_synthetic_rsa_dataset,
@@ -73,6 +74,21 @@ class PrimeAuditTests(unittest.TestCase):
             paths = render_snapshot_svgs(snapshot, tmpdir, "test_snapshot")
 
         self.assertEqual(len(paths), 3)
+
+    def test_prediction_ranks_actual_next_prime_candidate(self) -> None:
+        payload = score_next_prime_candidates(1000, span=80, modulo=30, top=10)
+
+        self.assertEqual(payload["schema"], "primeproject.prediction.v1")
+        self.assertEqual(payload["actual_next_prime"], 1009)
+        self.assertIsNotNone(payload["rank_of_actual"])
+        self.assertGreater(payload["candidates_scored"], 0)
+        self.assertIn("score", payload["top_candidates"][0])
+
+    def test_residue_factors_are_positive_for_coprime_classes(self) -> None:
+        factors = build_residue_factors(2000, modulo=30)
+
+        self.assertEqual(set(factors), {1, 7, 11, 13, 17, 19, 23, 29})
+        self.assertTrue(all(value > 0 for value in factors.values()))
 
 
 if __name__ == "__main__":

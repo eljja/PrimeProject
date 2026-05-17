@@ -7,6 +7,7 @@ __all__ = [
     "io",
     "models",
     "number_theory",
+    "prediction",
     "simulators",
     "snapshots",
 ]

@@ -7,6 +7,7 @@ from pathlib import Path
 from .analysis import audit_records, report_to_dict
 from .conjecture_lab import run_lab
 from .io import load_records, write_report_json
+from .prediction import score_next_prime_candidates
 from .simulators import add_standard_public_primes, generate_synthetic_rsa_dataset, records_to_jsonable
 from .snapshots import build_snapshot, render_snapshot_svgs, write_manifest, write_snapshot
 
@@ -38,6 +39,17 @@ def main() -> int:
     gap_lab_parser.add_argument("--limit", type=int, default=100_000)
     gap_lab_parser.add_argument("--modulo", type=int, default=30)
     gap_lab_parser.add_argument("--output", required=True)
+
+    predict_parser = subparsers.add_parser(
+        "predict",
+        help="Rank next-prime candidates with a practical hazard score.",
+    )
+    predict_parser.add_argument("--start", type=int, required=True)
+    predict_parser.add_argument("--span", type=int, default=512)
+    predict_parser.add_argument("--modulo", type=int, default=210)
+    predict_parser.add_argument("--top", type=int, default=12)
+    predict_parser.add_argument("--training-limit", type=int, default=None)
+    predict_parser.add_argument("--output", required=True)
 
     snapshot_parser = subparsers.add_parser(
         "snapshot",
@@ -81,6 +93,19 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(run_lab(args.limit, args.modulo), indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "predict":
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = score_next_prime_candidates(
+            args.start,
+            span=args.span,
+            modulo=args.modulo,
+            top=args.top,
+            training_limit=args.training_limit,
+        )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 
     if args.command == "snapshot":

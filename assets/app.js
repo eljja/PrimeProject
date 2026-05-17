@@ -67,6 +67,9 @@ const controls = {
   weightingSelect: document.querySelector("#weightingSelect"),
   runExperiment: document.querySelector("#runExperiment"),
   densityToggle: document.querySelector("#densityToggle"),
+  predictionStart: document.querySelector("#predictionStart"),
+  predictionSpan: document.querySelector("#predictionSpan"),
+  runPrediction: document.querySelector("#runPrediction"),
 };
 
 const outputs = {
@@ -84,6 +87,8 @@ const outputs = {
   controlMaxPrime: document.querySelector("#controlMaxPrime"),
   controlThroughput: document.querySelector("#controlThroughput"),
   comparisonCards: document.querySelector("#comparisonCards"),
+  predictionMetrics: document.querySelector("#predictionMetrics"),
+  predictionRows: document.querySelector("#predictionRows"),
   snapshotButtons: document.querySelector("#snapshotButtons"),
   snapshotSummary: document.querySelector("#snapshotSummary"),
   snapshotOverview: document.querySelector("#snapshotOverview"),
@@ -132,6 +137,8 @@ controls.weightingSelect.addEventListener("change", () => {
 
 controls.densityToggle.addEventListener("change", render);
 
+controls.runPrediction.addEventListener("click", renderPrediction);
+
 controls.runExperiment.addEventListener("click", runExperiment);
 
 window.addEventListener("resize", () => {
@@ -140,6 +147,7 @@ window.addEventListener("resize", () => {
 
 runExperiment();
 loadSnapshots();
+renderPrediction();
 
 function runExperiment() {
   controls.runExperiment.disabled = true;
@@ -768,6 +776,98 @@ function renderComparisons() {
       </div>`,
     )
     .join("");
+}
+
+function renderPrediction() {
+  if (!outputs.predictionMetrics || !outputs.predictionRows) return;
+  const start = Math.max(10, Number(controls.predictionStart.value) || 100000);
+  const span = Math.max(40, Math.min(5000, Number(controls.predictionSpan.value) || 640));
+  controls.predictionStart.value = start;
+  controls.predictionSpan.value = span;
+  const result = scoreNextPrimeCandidates(start, span, 210, 12);
+  outputs.predictionMetrics.innerHTML = `
+    <div><span>Actual next</span><strong>${formatNumber(result.actualNextPrime)}</strong></div>
+    <div><span>Actual offset</span><strong>+${formatNumber(result.actualOffset)}</strong></div>
+    <div><span>Rank of actual</span><strong>#${result.rankOfActual || `>${result.topCandidates.length}`}</strong></div>
+    <div><span>Candidates scored</span><strong>${formatNumber(result.candidatesScored)}</strong></div>
+  `;
+  outputs.predictionRows.innerHTML = result.topCandidates
+    .map(
+      (candidate, index) => `<tr class="${candidate.isPrime ? "is-prime" : ""}">
+        <td>#${index + 1}</td>
+        <td>${formatNumber(candidate.candidate)}</td>
+        <td>+${formatNumber(candidate.offset)}</td>
+        <td>${candidate.score.toFixed(5)}</td>
+        <td>${candidate.candidate % result.modulo}</td>
+        <td>${candidate.candidate === result.actualNextPrime ? "next prime" : candidate.isPrime ? "prime" : "composite"}</td>
+      </tr>`,
+    )
+    .join("");
+}
+
+function scoreNextPrimeCandidates(start, span, modulo, top) {
+  const end = start + span;
+  const primes = sievePrimes(end);
+  const primeSet = new Set(primes);
+  const actualNextPrime = primes.find((prime) => prime > start) || null;
+  const residueFactors = buildPredictionResidueFactors(primes, modulo);
+  const residues = residueClasses(modulo);
+  const wheelFactor = modulo / residues.length;
+  const expectedGap = Math.max(2, Math.log(Math.max(start, 3)));
+  const candidates = [];
+  for (let candidate = start + 1; candidate <= end; candidate += 1) {
+    if (candidate > 2 && candidate % 2 === 0) continue;
+    if (candidate !== 2 && gcd(candidate, modulo) !== 1) continue;
+    const offset = candidate - start;
+    const baseDensity = 1 / Math.log(Math.max(candidate, 3));
+    const residueFactor = residueFactors.get(candidate % modulo) || 1;
+    const gapSurvival = Math.exp(-offset / expectedGap);
+    const score = baseDensity * wheelFactor * residueFactor * gapSurvival;
+    candidates.push({
+      candidate,
+      offset,
+      score,
+      baseDensity,
+      wheelFactor,
+      residueFactor,
+      gapSurvival,
+      isPrime: primeSet.has(candidate),
+    });
+  }
+  const ranked = candidates.sort((a, b) => b.score - a.score);
+  const actualIndex =
+    actualNextPrime === null ? -1 : ranked.findIndex((candidate) => candidate.candidate === actualNextPrime);
+  return {
+    start,
+    span,
+    modulo,
+    actualNextPrime,
+    actualOffset: actualNextPrime === null ? null : actualNextPrime - start,
+    rankOfActual: actualIndex >= 0 ? actualIndex + 1 : null,
+    candidatesScored: ranked.length,
+    topCandidates: ranked.slice(0, top),
+  };
+}
+
+function buildPredictionResidueFactors(primes, modulo) {
+  const residues = residueClasses(modulo);
+  const totals = new Map(residues.map((residue) => [residue, 0]));
+  let totalWeight = 0;
+  for (let index = 1; index < primes.length; index += 1) {
+    const prime = primes[index];
+    const gap = prime - primes[index - 1];
+    const residue = prime % modulo;
+    if (!totals.has(residue)) continue;
+    totals.set(residue, totals.get(residue) + gap);
+    totalWeight += gap;
+  }
+  const uniform = 1 / residues.length;
+  const factors = new Map();
+  residues.forEach((residue) => {
+    const mass = totalWeight > 0 ? totals.get(residue) / totalWeight : uniform;
+    factors.set(residue, Math.max(0.2, Math.min(5, mass / uniform)));
+  });
+  return factors;
 }
 
 async function loadSnapshots() {
