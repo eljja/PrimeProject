@@ -9,6 +9,12 @@ const state = {
   activeSnapshot: 0,
 };
 
+const limitSlider = {
+  min: 20000,
+  max: 10000000,
+  steps: 1000,
+};
+
 const bundledSnapshots = [
   {
     label: "1M",
@@ -96,6 +102,9 @@ const outputs = {
   snapshotResidueDrift: document.querySelector("#snapshotResidueDrift"),
 };
 
+controls.limitRange.value = limitToSlider(state.limit);
+controls.limitValue.textContent = formatNumber(state.limit);
+
 document.querySelectorAll("[data-generator]").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll("[data-generator]").forEach((item) => item.classList.remove("is-active"));
@@ -115,7 +124,7 @@ document.querySelectorAll("[data-scroll-target]").forEach((button) => {
 });
 
 controls.limitRange.addEventListener("input", () => {
-  state.limit = Number(controls.limitRange.value);
+  state.limit = sliderToLimit(Number(controls.limitRange.value));
   controls.limitValue.textContent = formatNumber(state.limit);
 });
 
@@ -230,7 +239,7 @@ function summarize(observations, generator, modulo) {
     totalWeight,
     entropyBits,
     effectiveSupport: 2 ** entropyBits,
-    maxWeightShare: Math.max(...probabilities),
+    maxWeightShare: maxOf(weights) / totalWeight,
     meanGap,
     weightedMeanGap,
     residueTotalVariation,
@@ -321,7 +330,7 @@ function renderOverviewCanvas() {
   const plotHeight = height - padding.top - padding.bottom;
   const primes = state.lab.primes.slice(1);
   const maxIndex = primes.length;
-  const maxPrime = Math.max(...primes);
+  const maxPrime = primes.at(-1) || 2;
   const minPrime = 2;
   const generators = [
     ["next_prime", colors.teal],
@@ -386,7 +395,7 @@ function renderGapCanvas() {
   const plotHeight = height - padding.top - padding.bottom;
   const observations = thinObservations(state.lab.observations, state.renderedSamples);
   const maxPrime = state.lab.limit;
-  const maxGap = Math.max(...state.lab.observations.map((observation) => observation.gap));
+  const maxGap = maxBy(state.lab.observations, (observation) => observation.gap);
   const weights = observations.map((observation) => transformedWeight(observation, state.generator));
   const maxWeight = Math.max(...weights);
 
@@ -547,7 +556,7 @@ function renderGapDistribution() {
   const width = 520;
   const height = 420;
   const padding = { top: 44, right: 28, bottom: 44, left: 54 };
-  const maxGap = Math.max(...observations.map((observation) => observation.gap));
+  const maxGap = maxBy(observations, (observation) => observation.gap);
   const bins = 28;
   const generators = [
     ["next_prime", colors.teal],
@@ -600,7 +609,7 @@ function renderHistogram() {
   const width = 520;
   const height = 320;
   const padding = { top: 36, right: 22, bottom: 34, left: 42 };
-  const maxGap = Math.max(...observations.map((observation) => observation.gap));
+  const maxGap = maxBy(observations, (observation) => observation.gap);
   const bins = 18;
   const histogram = Array.from({ length: bins }, (_, index) => ({
     start: Math.floor((index / bins) * maxGap),
@@ -1015,6 +1024,35 @@ function gcd(a, b) {
 
 function sum(values) {
   return values.reduce((total, value) => total + value, 0);
+}
+
+function maxOf(values) {
+  let maximum = -Infinity;
+  values.forEach((value) => {
+    if (value > maximum) maximum = value;
+  });
+  return maximum;
+}
+
+function maxBy(values, mapper) {
+  let maximum = -Infinity;
+  values.forEach((value) => {
+    const mapped = mapper(value);
+    if (mapped > maximum) maximum = mapped;
+  });
+  return maximum;
+}
+
+function sliderToLimit(position) {
+  const ratio = Math.max(0, Math.min(limitSlider.steps, position)) / limitSlider.steps;
+  const raw = limitSlider.min * (limitSlider.max / limitSlider.min) ** ratio;
+  const step = raw < 1000000 ? 10000 : 100000;
+  return Math.max(limitSlider.min, Math.round(raw / step) * step);
+}
+
+function limitToSlider(limit) {
+  const bounded = Math.max(limitSlider.min, Math.min(limitSlider.max, limit));
+  return Math.round((Math.log(bounded / limitSlider.min) / Math.log(limitSlider.max / limitSlider.min)) * limitSlider.steps);
 }
 
 function formatNumber(value) {

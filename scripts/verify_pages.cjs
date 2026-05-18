@@ -26,7 +26,9 @@ async function main() {
   await page.click("[data-generator='rejection']");
   await page.click("[data-generator='wheel30_next']");
   await page.locator("#limitRange").evaluate((input) => {
-    input.value = "80000";
+    const min = 20000;
+    const max = 10000000;
+    input.value = String(Math.round((Math.log(80000 / min) / Math.log(max / min)) * 1000));
     input.dispatchEvent(new Event("input", { bubbles: true }));
   });
   await page.click("#runExperiment");

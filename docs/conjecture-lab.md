@@ -163,4 +163,4 @@ data/snapshots/manifest.json
 assets/snapshots/*.svg
 ```
 
-GitHub Pages에서 루트 `index.html`을 바로 제공하면 인터랙티브 시각화가 열린다.
+GitHub Pages에서 루트 `index.html`을 바로 제공하면 인터랙티브 시각화가 열린다. 브라우저 실험의 `Search limit` 슬라이더는 로그 스케일이며, 20K부터 10M까지 직접 계산할 수 있다.

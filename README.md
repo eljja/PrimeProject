@@ -18,7 +18,7 @@ Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja
 
 You can also open `index.html` locally. The lab compares `rejection`, `next_prime`, and `wheel30_next` observation measures over prime gaps and residue classes.
 
-The live browser experiment is intentionally bounded for responsiveness. Larger local runs are bundled as static Research Snapshots on GitHub Pages, so visitors can inspect 1M and 10M precomputed SVG charts without recalculating them in the browser. The Prediction Lab ranks next-prime candidates with a practical hazard score rather than claiming deterministic prime prediction.
+The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Prediction Lab ranks next-prime candidates with a practical hazard score rather than claiming deterministic prime prediction.
 
 ## Input format
 
