@@ -4,8 +4,10 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from random import Random
 
 from prime_audit.analysis import audit_records, evaluate_policy, report_to_dict
+from prime_audit.attribution import run_synthetic_attribution_benchmark, sample_generator_records
 from prime_audit.baselines import build_generator_baseline, compare_fingerprint_to_baselines, sample_quality
 from prime_audit.bitcoin import audit_bitcoin_signatures, parse_der_signature, secp256k1_constants_report
 from prime_audit.catalog import classify_public_prime
@@ -221,6 +223,34 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertLess(quality["overall_confidence"], 0.35)
         self.assertEqual(comparison["findings"][0]["check"], "low_confidence_baseline_match")
+
+    def test_synthetic_attribution_benchmark_reports_confusion_matrix(self) -> None:
+        result = run_synthetic_attribution_benchmark(
+            limit=5000,
+            train_count=16,
+            test_count=8,
+            trials=1,
+            seed=7,
+            gap_max_steps=64,
+        )
+
+        self.assertEqual(result["schema"], "primeproject.synthetic-attribution-benchmark.v1")
+        self.assertEqual(result["total"], 3)
+        self.assertIn("rejection", result["confusion_matrix"])
+        self.assertEqual(len(result["trials_detail"]), 3)
+
+    def test_generator_sampling_returns_unique_prime_records(self) -> None:
+        observations = build_observations(1000)
+        records = sample_generator_records(
+            observations,
+            generator="next_prime",
+            count=12,
+            rng=Random(11),
+            key_prefix="sample",
+        )
+
+        self.assertEqual(len(records), 12)
+        self.assertEqual(len({record.value for record in records}), 12)
 
 
 def base64_lines(data: bytes) -> str:

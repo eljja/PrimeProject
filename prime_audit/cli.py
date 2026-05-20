@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from .analysis import evaluate_policy, audit_records, report_to_dict
+from .attribution import run_synthetic_attribution_benchmark
 from .baselines import build_generator_baseline, compare_fingerprint_to_baselines
 from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .conjecture_lab import run_lab
@@ -98,6 +99,18 @@ def main() -> int:
     compare_baselines_parser.add_argument("--fingerprint", required=True)
     compare_baselines_parser.add_argument("--baselines", nargs="+", required=True)
     compare_baselines_parser.add_argument("--output", required=True)
+
+    attribution_parser = subparsers.add_parser(
+        "attribution-benchmark",
+        help="Evaluate generator fingerprint attribution on synthetic ground-truth samples.",
+    )
+    attribution_parser.add_argument("--limit", type=int, default=200_000)
+    attribution_parser.add_argument("--train-count", type=int, default=80)
+    attribution_parser.add_argument("--test-count", type=int, default=40)
+    attribution_parser.add_argument("--trials", type=int, default=3)
+    attribution_parser.add_argument("--seed", type=int, default=20260521)
+    attribution_parser.add_argument("--gap-max-steps", type=int, default=1024)
+    attribution_parser.add_argument("--output", required=True)
 
     snapshot_parser = subparsers.add_parser(
         "snapshot",
@@ -194,6 +207,20 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         payload = compare_fingerprint_to_baselines(fingerprint, baselines)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "attribution-benchmark":
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = run_synthetic_attribution_benchmark(
+            limit=args.limit,
+            train_count=args.train_count,
+            test_count=args.test_count,
+            trials=args.trials,
+            seed=args.seed,
+            gap_max_steps=args.gap_max_steps,
+        )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

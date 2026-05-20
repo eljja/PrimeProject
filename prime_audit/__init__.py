@@ -2,6 +2,7 @@
 
 __all__ = [
     "analysis",
+    "attribution",
     "baselines",
     "bias_lab",
     "bitcoin",

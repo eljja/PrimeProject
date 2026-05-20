@@ -12,6 +12,7 @@
 - Explores algorithm-induced prime measures and next-prime candidate ranking in the PrimeProject Conjecture Lab.
 - Extracts generator fingerprints from prime-like parameters, including residues, low bits, and local prime-gap context.
 - Builds known-good generator baselines and compares suspicious datasets by fingerprint distance with sample-quality confidence.
+- Benchmarks generator attribution against synthetic ground-truth samples with an accuracy score and confusion matrix.
 - Audits Bitcoin secp256k1 constants and ECDSA signature metadata for defensive nonce-risk indicators.
 
 ## Interactive Conjecture Lab
@@ -48,6 +49,7 @@ python -m prime_audit.cli audit --input data/synthetic_keys.json --output data/a
 python -m prime_audit.cli fingerprint-primes --input data/synthetic_keys.json --output data/generator_fingerprints.json
 python -m prime_audit.cli build-baseline --fingerprint data/generator_fingerprints.json --name openssl-owned-sample --output data/baselines/openssl_owned.json
 python -m prime_audit.cli compare-baselines --fingerprint data/generator_fingerprints.json --baselines data/baselines/openssl_owned.json --output data/baseline_comparison.json
+python -m prime_audit.cli attribution-benchmark --limit 200000 --train-count 80 --test-count 40 --trials 3 --output data/attribution_benchmark.json
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json
 python -m prime_audit.cli bias-rank --start 100000 --span 640 --modulo 210 --output data/bias_rank_100k.json
 python -m prime_audit.cli bitcoin-constants --output data/bitcoin_constants.json
