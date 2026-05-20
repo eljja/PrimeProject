@@ -4,11 +4,13 @@ import argparse
 import json
 from pathlib import Path
 
-from .analysis import audit_records, report_to_dict
+from .analysis import evaluate_policy, audit_records, report_to_dict
+from .baselines import build_generator_baseline, compare_fingerprint_to_baselines
 from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .conjecture_lab import run_lab
+from .fingerprints import analyze_prime_generator_fingerprints
 from .io import load_records, write_report_json
-from .prediction import score_next_prime_candidates
+from .bias_lab import rank_next_prime_candidates
 from .simulators import add_standard_public_primes, generate_synthetic_rsa_dataset, records_to_jsonable
 from .snapshots import build_snapshot, render_snapshot_svgs, write_manifest, write_snapshot
 
@@ -23,10 +25,16 @@ def main() -> int:
     simulate_parser.add_argument("--seed", type=int, default=20260517)
     simulate_parser.add_argument("--include-standards", action="store_true")
 
-    audit_parser = subparsers.add_parser("audit", help="Audit JSON or CSV records.")
-    audit_parser.add_argument("--input", required=True, help="Input JSON/CSV file.")
+    audit_parser = subparsers.add_parser("audit", help="Audit key records or RSA key material.")
+    audit_parser.add_argument("--input", required=True, help="Input JSON/CSV/PEM/DER/CSR file.")
     audit_parser.add_argument("--output", required=True, help="Output JSON report path.")
     audit_parser.add_argument("--fermat-max-steps", type=int, default=100_000)
+    audit_parser.add_argument(
+        "--fail-on",
+        choices=("none", "low", "medium", "high", "critical"),
+        default="none",
+        help="Exit non-zero when findings at or above this severity are present.",
+    )
     audit_parser.add_argument(
         "--include-sensitive-evidence",
         action="store_true",
@@ -41,16 +49,17 @@ def main() -> int:
     gap_lab_parser.add_argument("--modulo", type=int, default=30)
     gap_lab_parser.add_argument("--output", required=True)
 
+    bias_rank_parser = subparsers.add_parser(
+        "bias-rank",
+        help="Rank next-prime candidates as a generator-bias experiment.",
+    )
+    _add_bias_rank_arguments(bias_rank_parser)
+
     predict_parser = subparsers.add_parser(
         "predict",
-        help="Rank next-prime candidates with a practical hazard score.",
+        help="Deprecated alias for bias-rank.",
     )
-    predict_parser.add_argument("--start", type=int, required=True)
-    predict_parser.add_argument("--span", type=int, default=512)
-    predict_parser.add_argument("--modulo", type=int, default=210)
-    predict_parser.add_argument("--top", type=int, default=12)
-    predict_parser.add_argument("--training-limit", type=int, default=None)
-    predict_parser.add_argument("--output", required=True)
+    _add_bias_rank_arguments(predict_parser)
 
     bitcoin_constants_parser = subparsers.add_parser(
         "bitcoin-constants",
@@ -64,6 +73,31 @@ def main() -> int:
     )
     bitcoin_signature_parser.add_argument("--input", required=True)
     bitcoin_signature_parser.add_argument("--output", required=True)
+
+    fingerprint_parser = subparsers.add_parser(
+        "fingerprint-primes",
+        help="Extract generator fingerprints from prime-like public parameters.",
+    )
+    fingerprint_parser.add_argument("--input", required=True)
+    fingerprint_parser.add_argument("--output", required=True)
+    fingerprint_parser.add_argument("--gap-max-steps", type=int, default=4096)
+
+    baseline_parser = subparsers.add_parser(
+        "build-baseline",
+        help="Build a named generator baseline from a fingerprint report.",
+    )
+    baseline_parser.add_argument("--fingerprint", required=True)
+    baseline_parser.add_argument("--name", required=True)
+    baseline_parser.add_argument("--source", default=None)
+    baseline_parser.add_argument("--output", required=True)
+
+    compare_baselines_parser = subparsers.add_parser(
+        "compare-baselines",
+        help="Compare a fingerprint report against one or more generator baselines.",
+    )
+    compare_baselines_parser.add_argument("--fingerprint", required=True)
+    compare_baselines_parser.add_argument("--baselines", nargs="+", required=True)
+    compare_baselines_parser.add_argument("--output", required=True)
 
     snapshot_parser = subparsers.add_parser(
         "snapshot",
@@ -100,8 +134,10 @@ def main() -> int:
             fermat_max_steps=args.fermat_max_steps,
             include_sensitive_evidence=args.include_sensitive_evidence,
         )
-        write_report_json(report_to_dict(report), args.output)
-        return 0
+        report_dict = report_to_dict(report)
+        report_dict["policy"] = evaluate_policy(report.findings, fail_on=args.fail_on)
+        write_report_json(report_dict, args.output)
+        return 0 if report_dict["policy"]["passed"] else 1
 
     if args.command == "gap-lab":
         output = Path(args.output)
@@ -109,10 +145,10 @@ def main() -> int:
         output.write_text(json.dumps(run_lab(args.limit, args.modulo), indent=2), encoding="utf-8")
         return 0
 
-    if args.command == "predict":
+    if args.command in {"bias-rank", "predict"}:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
-        payload = score_next_prime_candidates(
+        payload = rank_next_prime_candidates(
             args.start,
             span=args.span,
             modulo=args.modulo,
@@ -136,6 +172,31 @@ def main() -> int:
         output.write_text(json.dumps(audit_bitcoin_signatures(rows), indent=2), encoding="utf-8")
         return 0
 
+    if args.command == "fingerprint-primes":
+        records = load_records(args.input)
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = analyze_prime_generator_fingerprints(records, gap_max_steps=args.gap_max_steps)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "build-baseline":
+        fingerprint = json.loads(Path(args.fingerprint).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_generator_baseline(fingerprint, name=args.name, source=args.source)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "compare-baselines":
+        fingerprint = json.loads(Path(args.fingerprint).read_text(encoding="utf-8"))
+        baselines = [json.loads(Path(path).read_text(encoding="utf-8")) for path in args.baselines]
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = compare_fingerprint_to_baselines(fingerprint, baselines)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
     if args.command == "snapshot":
         snapshot = build_snapshot(args.limit, args.modulo, args.bins)
         write_snapshot(snapshot, args.output)
@@ -150,6 +211,15 @@ def main() -> int:
 
     parser.error(f"unknown command {args.command}")
     return 2
+
+
+def _add_bias_rank_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--start", type=int, required=True)
+    parser.add_argument("--span", type=int, default=512)
+    parser.add_argument("--modulo", type=int, default=210)
+    parser.add_argument("--top", type=int, default=12)
+    parser.add_argument("--training-limit", type=int, default=None)
+    parser.add_argument("--output", required=True)
 
 
 if __name__ == "__main__":

@@ -22,6 +22,7 @@ SEVERITY_ORDER = {
     "high": 3,
     "critical": 4,
 }
+POLICY_THRESHOLDS = {"none", *SEVERITY_ORDER}
 
 
 def residue_fingerprint(value: int, primes: tuple[int, ...] = SMALL_PRIMES) -> dict[int, int]:
@@ -265,3 +266,27 @@ def summarize_findings(findings: list[Finding]) -> dict[str, int]:
         summary[finding.severity] += 1
     return summary
 
+
+def evaluate_policy(findings: list[Finding], *, fail_on: str = "none") -> dict[str, Any]:
+    if fail_on not in POLICY_THRESHOLDS:
+        raise ValueError(f"unknown policy threshold: {fail_on}")
+    if fail_on == "none":
+        return {
+            "fail_on": fail_on,
+            "passed": True,
+            "blocking_findings": 0,
+            "blocking_checks": [],
+        }
+
+    threshold = SEVERITY_ORDER[fail_on]
+    blocking = [
+        finding
+        for finding in findings
+        if SEVERITY_ORDER[finding.severity] >= threshold
+    ]
+    return {
+        "fail_on": fail_on,
+        "passed": not blocking,
+        "blocking_findings": len(blocking),
+        "blocking_checks": sorted({finding.check for finding in blocking}),
+    }

@@ -24,8 +24,10 @@
         <nav class="topnav" aria-label="Lab views">
           <button class="nav-button is-active" data-scroll-target="overview-panel">Overview</button>
           <button class="nav-button" data-scroll-target="gap-panel">Gap Measure</button>
-          <button class="nav-button" data-scroll-target="prediction-panel">Prediction Lab</button>
+          <button class="nav-button" data-scroll-target="prediction-panel">Bias Ranking</button>
           <button class="nav-button" data-scroll-target="bitcoin-panel">Bitcoin Lab</button>
+          <button class="nav-button" data-scroll-target="fingerprint-panel">Fingerprint Lab</button>
+          <button class="nav-button" data-scroll-target="baseline-panel">Baseline Lab</button>
           <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
           <button class="nav-button" data-scroll-target="gap-distribution-panel">Gap Distribution</button>
           <button class="nav-button" data-scroll-target="snapshots-panel">Research Snapshots</button>
@@ -154,8 +156,8 @@
           <section id="prediction-panel" class="panel prediction-panel">
             <div class="panel-heading">
               <div>
-                <h2>Prediction Lab</h2>
-                <p>Rank next-prime candidates with a hazard score: density, wheel survival, residue drift, and gap survival.</p>
+                <h2>Bias Ranking Lab</h2>
+                <p>Rank next-prime candidates as a generator-bias experiment using density, wheel survival, residue drift, and gap survival.</p>
               </div>
               <div class="prediction-controls">
                 <label>
@@ -216,6 +218,43 @@
                   <li>High-s normalization drift</li>
                 </ul>
               </div>
+            </div>
+          </section>
+
+          <section id="fingerprint-panel" class="panel fingerprint-panel">
+            <div class="panel-heading compact">
+              <div>
+                <h2>Fingerprint Lab</h2>
+                <p>Turn prime-like parameters into generator traces: residues, low bits, and local gap context.</p>
+              </div>
+            </div>
+            <div class="fingerprint-grid">
+              <div>
+                <strong>Residue drift</strong>
+                <span>Measure deviation under mod 30, 210, and 2310.</span>
+              </div>
+              <div>
+                <strong>Gap context</strong>
+                <span>Compare left/right gaps against log(p) to detect next-prime exposure.</span>
+              </div>
+              <div>
+                <strong>Low-bit signal</strong>
+                <span>Track low16 collisions and deterministic template hints.</span>
+              </div>
+            </div>
+          </section>
+
+          <section id="baseline-panel" class="panel baseline-panel">
+            <div class="panel-heading compact">
+              <div>
+                <h2>Baseline Lab</h2>
+                <p>Compare suspicious generator fingerprints against known-good OpenSSL, BoringSSL, Bitcoin Core, and wallet profiles.</p>
+              </div>
+            </div>
+            <div class="baseline-flow">
+              <div><strong>1</strong><span>Fingerprint known-good owned samples.</span></div>
+              <div><strong>2</strong><span>Build named generator baselines.</span></div>
+              <div><strong>3</strong><span>Rank suspicious samples by fingerprint distance.</span></div>
             </div>
           </section>
 

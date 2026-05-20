@@ -795,9 +795,9 @@ function renderPrediction() {
   controls.predictionSpan.value = span;
   const result = scoreNextPrimeCandidates(start, span, 210, 12);
   outputs.predictionMetrics.innerHTML = `
-    <div><span>Actual next</span><strong>${formatNumber(result.actualNextPrime)}</strong></div>
-    <div><span>Actual offset</span><strong>+${formatNumber(result.actualOffset)}</strong></div>
-    <div><span>Rank of actual</span><strong>#${result.rankOfActual || `>${result.topCandidates.length}`}</strong></div>
+    <div><span>Observed next</span><strong>${formatNumber(result.actualNextPrime)}</strong></div>
+    <div><span>Observed offset</span><strong>+${formatNumber(result.actualOffset)}</strong></div>
+    <div><span>Observed rank</span><strong>#${result.rankOfActual || `>${result.topCandidates.length}`}</strong></div>
     <div><span>Candidates scored</span><strong>${formatNumber(result.candidatesScored)}</strong></div>
   `;
   outputs.predictionRows.innerHTML = result.topCandidates

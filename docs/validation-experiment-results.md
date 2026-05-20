@@ -45,8 +45,8 @@ python -m prime_audit.cli audit --input data/synthetic_keys.json --output data/a
 
 다음 개선 항목:
 
-- PEM/DER 공개키 파서 추가.
+- CSR/인증서 입력을 포함한 실제 키 자료 fixture 확대.
+- `--fail-on` 정책 모드의 CI 통합 예제 추가.
 - RFC 7919/RFC 3526 FFDHE/MODP 전체 상수 카탈로그 확장.
 - 생성기 지문 비교를 통계 검정으로 확장.
 - 대규모 키셋용 product/remainder tree 최적화.
-

@@ -113,7 +113,7 @@ next_prime 관측 측도의 tail은 raw prime gap tail보다 left gap 가중 때
 
 ## PrimeScore 예측 모델
 
-PrimeProject의 예측은 “소수를 정확히 예언한다”가 아니라, 다음 소수가 될 후보를 실용적으로 정렬한다는 의미다. 현재 구현은 다음 hazard score를 사용한다.
+PrimeProject의 bias ranking은 “소수를 정확히 예언한다”가 아니라, 작은 실험 구간에서 생성기 편향을 보기 위해 다음 소수 후보를 정렬한다는 의미다. 현재 구현은 다음 toy score를 사용한다.
 
 ```text
 PrimeScore(c | x) =
@@ -138,7 +138,7 @@ Python:
 
 ```powershell
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json
-python -m prime_audit.cli predict --start 100000 --span 640 --modulo 210 --output data/prediction_100k.json
+python -m prime_audit.cli bias-rank --start 100000 --span 640 --modulo 210 --output data/bias_rank_100k.json
 ```
 
 큰 범위는 브라우저에서 매번 재계산하지 않고, 로컬에서 compact summary와 SVG를 만들어 GitHub Pages가 정적 그림으로 제공한다.

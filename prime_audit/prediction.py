@@ -19,7 +19,7 @@ class PrimeCandidateScore:
     is_prime: bool
 
 
-def score_next_prime_candidates(
+def rank_next_prime_candidates(
     start: int,
     *,
     span: int = 512,
@@ -77,7 +77,7 @@ def score_next_prime_candidates(
                 break
 
     return {
-        "schema": "primeproject.prediction.v1",
+        "schema": "primeproject.generator-bias-ranking.v1",
         "start": start,
         "span": span,
         "modulo": modulo,
@@ -89,6 +89,23 @@ def score_next_prime_candidates(
         "candidates_scored": len(scored),
         "top_candidates": [asdict(item) for item in ranked[:top]],
     }
+
+
+def score_next_prime_candidates(
+    start: int,
+    *,
+    span: int = 512,
+    modulo: int = 210,
+    top: int = 12,
+    training_limit: int | None = None,
+) -> dict[str, object]:
+    return rank_next_prime_candidates(
+        start,
+        span=span,
+        modulo=modulo,
+        top=top,
+        training_limit=training_limit,
+    )
 
 
 def build_residue_factors(limit: int, modulo: int) -> dict[int, float]:
