@@ -9,6 +9,7 @@ from random import Random
 from prime_audit.analysis import audit_records, evaluate_policy, report_to_dict
 from prime_audit.attribution import (
     build_bit_length_bucket_plan,
+    run_attribution_confound_grid,
     run_synthetic_attribution_benchmark,
     sample_generator_records,
 )
@@ -265,6 +266,22 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertGreater(len(result["control"]["train_bit_length_plan"]), 0)
         self.assertGreater(len(result["control"]["test_bit_length_plan"]), 0)
         self.assertIn("bit_length_only", result["ablation"])
+
+    def test_attribution_confound_grid_reports_paired_deltas(self) -> None:
+        result = run_attribution_confound_grid(
+            limits=[5000],
+            train_counts=[16],
+            test_counts=[8],
+            trials=1,
+            seed=7,
+            gap_max_steps=64,
+        )
+
+        self.assertEqual(result["schema"], "primeproject.attribution-confound-grid.v1")
+        self.assertEqual(len(result["rows"]), 2)
+        self.assertGreater(len(result["deltas"]), 0)
+        self.assertIn("profiles", result["summary"])
+        self.assertIn("bit_length_only", result["summary"]["profiles"])
 
     def test_baseline_comparison_accepts_ablation_weights(self) -> None:
         target = fingerprint_report_from_values([101, 103, 107, 109, 113, 127, 131, 137])

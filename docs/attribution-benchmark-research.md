@@ -18,6 +18,15 @@ python -m prime_audit.cli attribution-benchmark `
   --output data/attribution_benchmark.json
 ```
 
+```powershell
+python -m prime_audit.cli attribution-grid `
+  --limits 50000 200000 1000000 `
+  --train-counts 40 80 `
+  --test-counts 20 40 `
+  --trials 3 `
+  --output data/attribution_confound_grid.json
+```
+
 ## 실험 흐름
 
 ```text
@@ -62,6 +71,17 @@ build prime observations up to N
 
 통제 모드에서 `bit_length_only` 정확도는 낮아지고, `residue_only` 또는 `gap_only` 신호가 남아야 더 강한 연구 주장으로 이어진다. 따라서 실제 OpenSSL/BoringSSL/Bitcoin Core/wallet sample 비교 전에는 반드시 uncontrolled 결과와 controlled 결과를 함께 보고해야 한다.
 
+## Confound Grid
+
+`attribution-grid`는 같은 `limit`, `train_count`, `test_count` 조합에서 uncontrolled run과 bit-length-controlled run을 쌍으로 실행한다. 출력은 다음 연구 판단을 자동화한다.
+
+- `rows`: 각 run의 profile별 accuracy.
+- `deltas`: 같은 설정에서 uncontrolled accuracy와 controlled accuracy의 차이.
+- `summary.profiles`: profile별 평균 drop과 interpretation count.
+- `most_confound_sensitive_profiles`: bit-length 통제로 성능이 많이 떨어진 profile 순위.
+
+해석 기준은 보수적으로 둔다. controlled accuracy가 random baseline보다 충분히 높으면 `survives_bit_length_control`, uncontrolled에서만 높으면 `control_sensitive`, `bit_length_only`가 통제 후 떨어지면 `bit_length_confound`로 표시한다.
+
 ## 해석
 
 이 실험은 실제 라이브러리 attribution을 증명하는 최종 결과가 아니다. 하지만 다음을 검증하는 최소 과학적 장치다.
@@ -73,7 +93,7 @@ build prime observations up to N
 
 ## 다음 단계
 
-1. 합성 실험을 여러 `limit`, `train_count`, `test_count`, `control_mode` grid로 자동 반복.
+1. `attribution-grid` 결과를 GitHub Pages heatmap으로 시각화.
 2. 실제 OpenSSL/BoringSSL owned sample을 baseline으로 추가.
 3. controlled/uncontrolled delta로 confound-sensitive feature를 자동 표시.
-4. GitHub Pages에 confusion matrix heatmap 추가.
+4. 실제 library sample에서도 같은 delta report를 생성.
