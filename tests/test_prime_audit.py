@@ -428,10 +428,12 @@ class PrimeAuditTests(unittest.TestCase):
             manifest=manifest,
             readiness=readiness,
             generated_at="2026-05-22T00:00:00+00:00",
+            file_paths={"missing-extra": "does-not-exist.json"},
         )
 
         self.assertEqual(pack["schema"], "primeproject.evidence-pack.v1")
         self.assertEqual(pack["claim_level"]["level"], "public_demo_only")
+        self.assertEqual(pack["artifact_count"], 1)
         failed = {gate["code"] for gate in pack["publication_gates"] if not gate["passed"]}
         self.assertIn("real_baseline_gate", failed)
         self.assertIn("classifier_gate", failed)

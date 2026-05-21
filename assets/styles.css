@@ -836,6 +836,155 @@ canvas {
   line-height: 1.45;
 }
 
+.evolution-summary {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: 10px;
+  padding: 16px 20px 4px;
+}
+
+.evolution-summary div {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 10px 12px;
+}
+
+.evolution-summary span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 720;
+  text-transform: uppercase;
+}
+
+.evolution-summary strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.evolution-summary small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.evolution-body {
+  display: grid;
+  grid-template-columns: minmax(520px, 1.2fr) minmax(340px, 0.8fr);
+  gap: 16px;
+  padding: 16px 20px 14px;
+}
+
+#evolutionMap {
+  display: block;
+  width: 100%;
+  min-height: 330px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.evolution-node-layer {
+  fill: var(--muted);
+  font-size: 9px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.evolution-node-label {
+  fill: var(--ink);
+  font-size: 10px;
+  font-weight: 760;
+}
+
+.evolution-timeline {
+  display: grid;
+  gap: 8px;
+}
+
+.evolution-step {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  gap: 9px;
+  align-items: start;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 9px 10px;
+}
+
+.evolution-step i {
+  color: var(--teal);
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 820;
+}
+
+.evolution-step strong {
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.evolution-step em {
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.evolution-step .is-complete {
+  color: var(--teal);
+  background: rgba(8, 127, 122, 0.1);
+}
+
+.evolution-step .is-active {
+  color: var(--indigo);
+  background: rgba(70, 87, 216, 0.1);
+}
+
+.evolution-step span {
+  grid-column: 2 / 4;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.evolution-gaps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0 20px 20px;
+}
+
+.evolution-gaps div {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--amber);
+  background: #fff;
+  padding: 11px 12px;
+}
+
+.evolution-gaps strong,
+.evolution-gaps span {
+  display: block;
+}
+
+.evolution-gaps strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.evolution-gaps span {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .baseline-flow {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1483,6 +1632,8 @@ tr:last-child td {
   .analysis-grid.secondary,
   .bitcoin-grid,
   .fingerprint-grid,
+  .evolution-body,
+  .evolution-gaps,
   .baseline-flow,
   .readiness-body,
   .readiness-dimensions,
@@ -1542,6 +1693,7 @@ tr:last-child td {
   .analysis-grid,
   .overview-grid,
   .prediction-metrics,
+  .evolution-summary,
   .baseline-registry-summary,
   .readiness-summary,
   .evidence-summary,
@@ -1562,6 +1714,12 @@ tr:last-child td {
   }
 
   .snapshot-grid {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .evolution-body,
+  .evolution-gaps {
     grid-template-columns: 1fr;
     padding: 12px;
   }

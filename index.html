@@ -23,6 +23,7 @@
         </a>
         <nav class="topnav" aria-label="Lab views">
           <button class="nav-button is-active" data-scroll-target="overview-panel">Overview</button>
+          <button class="nav-button" data-scroll-target="evolution-panel">Evolution</button>
           <button class="nav-button" data-scroll-target="gap-panel">Gap Measure</button>
           <button class="nav-button" data-scroll-target="prediction-panel">Bias Ranking</button>
           <button class="nav-button" data-scroll-target="bitcoin-panel">Bitcoin Lab</button>
@@ -128,6 +129,21 @@
               </div>
               <svg id="gapDistribution" viewBox="0 0 520 420" role="img" aria-label="Gap distribution"></svg>
             </section>
+          </section>
+
+          <section id="evolution-panel" class="panel evolution-panel">
+            <div class="panel-heading compact">
+              <div>
+                <h2>Project Evolution</h2>
+                <p>Visual history of the research stack, from prime-measure experiments to publication-gated evidence.</p>
+              </div>
+            </div>
+            <div class="evolution-summary" id="evolutionSummary"></div>
+            <div class="evolution-body">
+              <svg id="evolutionMap" viewBox="0 0 960 360" role="img" aria-label="PrimeProject evolution map"></svg>
+              <div class="evolution-timeline" id="evolutionTimeline"></div>
+            </div>
+            <div class="evolution-gaps" id="evolutionGaps"></div>
           </section>
 
           <section id="gap-panel" class="panel">

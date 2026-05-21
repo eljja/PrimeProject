@@ -161,6 +161,12 @@ def main() -> int:
     evidence_pack_parser.add_argument("--attribution-grid", default=None)
     evidence_pack_parser.add_argument("--classifier-report", default=None)
     evidence_pack_parser.add_argument("--bitcoin-risk-report", default=None)
+    evidence_pack_parser.add_argument(
+        "--artifact",
+        nargs="*",
+        default=[],
+        help="Additional checksummed artifact in role=path form.",
+    )
     evidence_pack_parser.add_argument("--output", required=True)
 
     attribution_parser = subparsers.add_parser(
@@ -394,6 +400,11 @@ def main() -> int:
             paths["classifier_report"] = args.classifier_report
         if args.bitcoin_risk_report:
             paths["bitcoin_risk_report"] = args.bitcoin_risk_report
+        for artifact in args.artifact:
+            if "=" not in artifact:
+                raise ValueError(f"artifact requires role=path, got {artifact!r}")
+            role, artifact_path = artifact.split("=", 1)
+            paths[role.strip()] = artifact_path.strip()
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         payload = build_evidence_pack(

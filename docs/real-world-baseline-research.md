@@ -91,12 +91,21 @@ python -m prime_audit.cli evidence-pack `
   --manifest data/baselines/real_world/manifest.json `
   --readiness data/research_readiness.json `
   --attribution-grid data/attribution_confound_grid.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json
 ```
 
 현재 claim level은 `public_demo_only`로 남는다. 이는 실패가 아니라 의도적인 안전장치다. OpenSSL/BoringSSL/Go aggregate baseline과 labelled feature vector가 생기기 전에는 “실세계 생성기 attribution을 증명했다”고 말하지 않도록 막는다.
+
+## Project Evolution View
+
+GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
+
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> readiness -> evidence pack.
+- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, attribution grid row 수, claim level.
+- 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 
 ## Bitcoin 통합
 

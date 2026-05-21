@@ -11,6 +11,7 @@ const state = {
   realBaselineManifest: null,
   researchReadiness: null,
   evidencePack: null,
+  projectEvolution: null,
 };
 
 const limitSlider = {
@@ -243,11 +244,56 @@ const bundledEvidencePack = {
     { code: "bitcoin_integration_gate", passed: false, severity: "medium" },
     { code: "reproducibility_gate", passed: true, severity: "medium" },
   ],
-  artifact_count: 3,
+  artifact_count: 5,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "d89126a682e2cb0208334de48c7bbba889d478bf53e561969b5dd1c881225bd4" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
+    { role: "snapshot_manifest", schema: "primeproject.snapshot-manifest.v1", sha256: "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0" },
+  ],
+};
+
+const bundledProjectEvolution = {
+  schema: "primeproject.project-evolution.v1",
+  headline: "From prime regularity exploration to generator-fingerprint research tooling.",
+  metrics: {
+    live_compute_limit: 10000000,
+    precomputed_snapshot_limits: [1000000, 10000000],
+    registered_real_baselines: 5,
+    available_real_baselines: 1,
+    attribution_grid_rows: 48,
+    attribution_repeats: 3,
+    robust_controlled_profiles: ["all", "gap_only"],
+    publication_claim_level: "public_demo_only",
+    checksummed_artifacts: 3,
+    blocking_gaps: 2,
+  },
+  phases: [
+    { id: "regularity-plan", label: "Prime regularity plan", status: "complete", layer: "theory" },
+    { id: "conjecture-lab", label: "Interactive Conjecture Lab", status: "complete", layer: "visualization" },
+    { id: "static-snapshots", label: "10M research snapshots", status: "complete", layer: "evidence" },
+    { id: "bitcoin-track", label: "Bitcoin defensive track", status: "complete", layer: "crypto" },
+    { id: "fingerprint-baseline", label: "Generator fingerprint baseline", status: "complete", layer: "analysis" },
+    { id: "attribution-grid", label: "Controlled attribution grid", status: "complete", layer: "validation" },
+    { id: "real-world-registry", label: "Real-world baseline registry", status: "scaffolded", layer: "sim-to-real" },
+    { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
+    { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
+  ],
+  connections: [
+    ["regularity-plan", "conjecture-lab"],
+    ["conjecture-lab", "static-snapshots"],
+    ["conjecture-lab", "fingerprint-baseline"],
+    ["bitcoin-track", "real-world-registry"],
+    ["fingerprint-baseline", "attribution-grid"],
+    ["attribution-grid", "readiness-gates"],
+    ["real-world-registry", "readiness-gates"],
+    ["readiness-gates", "evidence-pack"],
+  ],
+  open_gaps: [
+    { priority: "P0", track: "sim-to-real", gap: "Need at least two available real-world aggregate baselines before real attribution claims." },
+    { priority: "P0", track: "classifier", gap: "Need labelled feature vectors across OpenSSL, BoringSSL, Go, and suspicious samples." },
+    { priority: "P1", track: "bitcoin", gap: "Need a bundled Bitcoin nonce-risk report from owned or public metadata summaries." },
   ],
 };
 
@@ -307,6 +353,10 @@ const outputs = {
   snapshotOverview: document.querySelector("#snapshotOverview"),
   snapshotGapDistribution: document.querySelector("#snapshotGapDistribution"),
   snapshotResidueDrift: document.querySelector("#snapshotResidueDrift"),
+  evolutionSummary: document.querySelector("#evolutionSummary"),
+  evolutionMap: document.querySelector("#evolutionMap"),
+  evolutionTimeline: document.querySelector("#evolutionTimeline"),
+  evolutionGaps: document.querySelector("#evolutionGaps"),
   baselineRegistrySummary: document.querySelector("#baselineRegistrySummary"),
   baselineRegistryRows: document.querySelector("#baselineRegistryRows"),
   readinessSummary: document.querySelector("#readinessSummary"),
@@ -378,6 +428,7 @@ window.addEventListener("resize", () => {
 
 runExperiment();
 loadSnapshots();
+loadProjectEvolution();
 loadRealBaselineManifest();
 loadResearchReadiness();
 loadEvidencePack();
@@ -1157,6 +1208,120 @@ function renderSnapshots() {
   setSnapshotImage(outputs.snapshotResidueDrift, snapshot.residue_drift_svg, `${snapshot.label} residue drift snapshot`);
 }
 
+async function loadProjectEvolution() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.projectEvolution = bundledProjectEvolution;
+    } else {
+      const response = await fetch("data/project_evolution.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`project evolution ${response.status}`);
+      state.projectEvolution = await response.json();
+    }
+  } catch (error) {
+    state.projectEvolution = bundledProjectEvolution;
+  }
+  renderProjectEvolution();
+}
+
+function renderProjectEvolution() {
+  if (!outputs.evolutionSummary || !outputs.evolutionMap || !outputs.evolutionTimeline || !outputs.evolutionGaps) return;
+  const evolution = state.projectEvolution || bundledProjectEvolution;
+  const metrics = evolution.metrics || {};
+  const phases = evolution.phases || [];
+  outputs.evolutionSummary.innerHTML = `
+    <div><span>Live compute</span><strong>${formatCompact(metrics.live_compute_limit || 0)}</strong><small>browser limit</small></div>
+    <div><span>Snapshots</span><strong>${formatNumber((metrics.precomputed_snapshot_limits || []).length)}</strong><small>${(metrics.precomputed_snapshot_limits || []).map(formatCompact).join(", ")}</small></div>
+    <div><span>Baselines</span><strong>${formatNumber(metrics.registered_real_baselines || 0)}</strong><small>${formatNumber(metrics.available_real_baselines || 0)} available</small></div>
+    <div><span>Attribution rows</span><strong>${formatNumber(metrics.attribution_grid_rows || 0)}</strong><small>${formatNumber(metrics.attribution_repeats || 0)} repeats</small></div>
+    <div><span>Claim level</span><strong>${escapeHtml(metrics.publication_claim_level || "unknown")}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
+  `;
+  renderEvolutionMap(evolution);
+  outputs.evolutionTimeline.innerHTML = phases
+    .map((phase, index) => `
+      <div class="evolution-step">
+        <i>${String(index + 1).padStart(2, "0")}</i>
+        <strong>${escapeHtml(phase.label || phase.id)}</strong>
+        <em class="${phase.status === "complete" ? "is-complete" : "is-active"}">${escapeHtml(phase.status || "planned")}</em>
+        <span>${escapeHtml(phase.summary || phase.layer || "")}</span>
+      </div>
+    `)
+    .join("");
+  outputs.evolutionGaps.innerHTML = (evolution.open_gaps || [])
+    .map((gap) => `
+      <div>
+        <strong>${escapeHtml(gap.priority || "P?")} ${escapeHtml(gap.track || "research")}</strong>
+        <span>${escapeHtml(gap.gap || "")}</span>
+      </div>
+    `)
+    .join("");
+}
+
+function renderEvolutionMap(evolution) {
+  const svg = outputs.evolutionMap;
+  const width = 960;
+  const height = 360;
+  const phases = evolution.phases || [];
+  const columns = [
+    ["regularity-plan", "bitcoin-track"],
+    ["conjecture-lab"],
+    ["static-snapshots", "fingerprint-baseline"],
+    ["attribution-grid", "real-world-registry"],
+    ["readiness-gates"],
+    ["evidence-pack"],
+  ];
+  const positions = new Map();
+  const left = 44;
+  const top = 52;
+  const columnGap = 154;
+  const rowGap = 112;
+  columns.forEach((column, columnIndex) => {
+    const yOffset = column.length === 1 ? rowGap / 2 : 0;
+    column.forEach((id, rowIndex) => {
+      positions.set(id, {
+        x: left + columnIndex * columnGap,
+        y: top + yOffset + rowIndex * rowGap,
+      });
+    });
+  });
+  svg.innerHTML = "";
+  appendSvg(svg, "text", { x: 44, y: 26, class: "chart-title" }).textContent =
+    "research stack evolution";
+  (evolution.connections || []).forEach(([from, to]) => {
+    const start = positions.get(from);
+    const end = positions.get(to);
+    if (!start || !end) return;
+    const x1 = start.x + 112;
+    const y1 = start.y + 22;
+    const x2 = end.x - 8;
+    const y2 = end.y + 22;
+    appendSvg(svg, "path", {
+      d: `M ${x1} ${y1} C ${x1 + 42} ${y1}, ${x2 - 42} ${y2}, ${x2} ${y2}`,
+      fill: "none",
+      stroke: "#c6ccd8",
+      "stroke-width": 2,
+    });
+  });
+  phases.forEach((phase) => {
+    const point = positions.get(phase.id);
+    if (!point) return;
+    const color = phase.status === "complete" ? colors.teal : phase.status === "active" ? colors.indigo : colors.amber;
+    appendSvg(svg, "rect", {
+      x: point.x,
+      y: point.y,
+      width: 124,
+      height: 58,
+      rx: 8,
+      fill: "#ffffff",
+      stroke: color,
+      "stroke-width": 2,
+    });
+    appendSvg(svg, "circle", { cx: point.x + 16, cy: point.y + 17, r: 5, fill: color });
+    appendSvg(svg, "text", { x: point.x + 28, y: point.y + 20, class: "evolution-node-layer" }).textContent =
+      phase.layer || "";
+    wrapSvgText(svg, phase.label || phase.id, point.x + 14, point.y + 39, 100, 2);
+  });
+}
+
 async function loadRealBaselineManifest() {
   try {
     if (window.location.protocol === "file:") {
@@ -1508,6 +1673,26 @@ function appendSvg(svg, tagName, attributes) {
   }
   svg.appendChild(element);
   return element;
+}
+
+function wrapSvgText(svg, text, x, y, maxChars, maxLines) {
+  const words = String(text).split(/\s+/);
+  const lines = [];
+  let current = "";
+  words.forEach((word) => {
+    const next = current ? `${current} ${word}` : word;
+    if (next.length > maxChars && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = next;
+    }
+  });
+  if (current) lines.push(current);
+  lines.slice(0, maxLines).forEach((line, index) => {
+    const visible = index === maxLines - 1 && lines.length > maxLines ? `${line.slice(0, Math.max(0, maxChars - 1))}...` : line;
+    appendSvg(svg, "text", { x, y: y + index * 13, class: "evolution-node-label" }).textContent = visible;
+  });
 }
 
 function labelForGenerator(generator) {

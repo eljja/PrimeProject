@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.evidence-pack.v1",
-  "generated_at": "2026-05-21T16:24:40+00:00",
+  "generated_at": "2026-05-21T16:33:46+00:00",
   "claim_level": {
     "level": "public_demo_only",
     "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
@@ -63,11 +63,11 @@
       "severity": "medium",
       "message": "Published evidence should include checksummed source JSON artifacts.",
       "evidence": {
-        "artifact_count": 3
+        "artifact_count": 5
       }
     }
   ],
-  "artifact_count": 3,
+  "artifact_count": 5,
   "artifacts": [
     {
       "role": "attribution_grid",
@@ -86,12 +86,28 @@
       "bytes": 3373
     },
     {
+      "role": "project_evolution",
+      "path": "data/project_evolution.json",
+      "exists": true,
+      "sha256": "d89126a682e2cb0208334de48c7bbba889d478bf53e561969b5dd1c881225bd4",
+      "schema": "primeproject.project-evolution.v1",
+      "bytes": 4566
+    },
+    {
       "role": "readiness",
       "path": "data/research_readiness.json",
       "exists": true,
       "sha256": "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc",
       "schema": "primeproject.research-readiness.v1",
       "bytes": 3152
+    },
+    {
+      "role": "snapshot_manifest",
+      "path": "data/snapshots/manifest.json",
+      "exists": true,
+      "sha256": "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0",
+      "schema": "primeproject.snapshot-manifest.v1",
+      "bytes": 1182
     }
   ],
   "evidence_summary": {

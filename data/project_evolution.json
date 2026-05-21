@@ -1,0 +1,118 @@
+{
+  "schema": "primeproject.project-evolution.v1",
+  "updated_at": "2026-05-22T00:00:00+09:00",
+  "headline": "From prime regularity exploration to generator-fingerprint research tooling.",
+  "metrics": {
+    "live_compute_limit": 10000000,
+    "precomputed_snapshot_limits": [1000000, 10000000],
+    "registered_real_baselines": 5,
+    "available_real_baselines": 1,
+    "attribution_grid_rows": 48,
+    "attribution_repeats": 3,
+    "robust_controlled_profiles": ["all", "gap_only"],
+    "publication_claim_level": "public_demo_only",
+    "checksummed_artifacts": 3,
+    "blocking_gaps": 2
+  },
+  "phases": [
+    {
+      "id": "regularity-plan",
+      "label": "Prime regularity plan",
+      "status": "complete",
+      "layer": "theory",
+      "summary": "Defined the practical target as generator traces and anomaly detection, not raw prime prediction.",
+      "outputs": ["docs/prime-regularity-and-crypto-prime-plan.md"]
+    },
+    {
+      "id": "conjecture-lab",
+      "label": "Interactive Conjecture Lab",
+      "status": "complete",
+      "layer": "visualization",
+      "summary": "Built browser-side comparison of rejection, next_prime, and wheel observation measures up to 10M.",
+      "outputs": ["index.html", "assets/app.js"]
+    },
+    {
+      "id": "static-snapshots",
+      "label": "10M research snapshots",
+      "status": "complete",
+      "layer": "evidence",
+      "summary": "Bundled local precomputed SVG snapshots so GitHub Pages can show larger runs without recomputing.",
+      "outputs": ["data/snapshots/manifest.json", "assets/snapshots/*.svg"]
+    },
+    {
+      "id": "bitcoin-track",
+      "label": "Bitcoin defensive track",
+      "status": "complete",
+      "layer": "crypto",
+      "summary": "Separated public secp256k1 constants from practical nonce and signature metadata risk.",
+      "outputs": ["prime_audit/bitcoin.py", "docs/bitcoin-practical-research.md"]
+    },
+    {
+      "id": "fingerprint-baseline",
+      "label": "Generator fingerprint baseline",
+      "status": "complete",
+      "layer": "analysis",
+      "summary": "Added residue, low-bit, and local prime-gap fingerprints with baseline distance comparison.",
+      "outputs": ["prime_audit/fingerprints.py", "prime_audit/baselines.py"]
+    },
+    {
+      "id": "attribution-grid",
+      "label": "Controlled attribution grid",
+      "status": "complete",
+      "layer": "validation",
+      "summary": "Added paired uncontrolled and bit-length-controlled experiments with repeat confidence intervals.",
+      "outputs": ["prime_audit/attribution.py", "data/attribution_confound_grid.json"]
+    },
+    {
+      "id": "real-world-registry",
+      "label": "Real-world baseline registry",
+      "status": "scaffolded",
+      "layer": "sim-to-real",
+      "summary": "Registered OpenSSL, BoringSSL, Go, Bitcoin Core, and wallet/library families while keeping sensitive raw data local.",
+      "outputs": ["data/baselines/real_world/manifest.json"]
+    },
+    {
+      "id": "readiness-gates",
+      "label": "Research readiness scoring",
+      "status": "active",
+      "layer": "governance",
+      "summary": "Scores Sim-to-Real, attribution validation, classifier data, and Bitcoin integration before allowing stronger claims.",
+      "outputs": ["prime_audit/research_readiness.py", "data/research_readiness.json"]
+    },
+    {
+      "id": "evidence-pack",
+      "label": "Evidence pack gates",
+      "status": "active",
+      "layer": "publication",
+      "summary": "Bundles artifact checksums, publication gates, claim level, and local collection protocols.",
+      "outputs": ["prime_audit/evidence_pack.py", "data/evidence_pack.json"]
+    }
+  ],
+  "connections": [
+    ["regularity-plan", "conjecture-lab"],
+    ["conjecture-lab", "static-snapshots"],
+    ["conjecture-lab", "fingerprint-baseline"],
+    ["bitcoin-track", "real-world-registry"],
+    ["fingerprint-baseline", "attribution-grid"],
+    ["attribution-grid", "readiness-gates"],
+    ["real-world-registry", "readiness-gates"],
+    ["readiness-gates", "evidence-pack"]
+  ],
+  "open_gaps": [
+    {
+      "priority": "P0",
+      "track": "sim-to-real",
+      "gap": "Need at least two available real-world aggregate baselines before real attribution claims."
+    },
+    {
+      "priority": "P0",
+      "track": "classifier",
+      "gap": "Need labelled feature vectors across OpenSSL, BoringSSL, Go, and suspicious samples."
+    },
+    {
+      "priority": "P1",
+      "track": "bitcoin",
+      "gap": "Need a bundled Bitcoin nonce-risk report from owned or public metadata summaries."
+    }
+  ]
+}

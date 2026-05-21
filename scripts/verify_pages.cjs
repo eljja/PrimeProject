@@ -48,6 +48,8 @@ async function main() {
     );
     await page.click("#runPrediction");
     await page.waitForFunction(() => document.querySelectorAll("#predictionRows tr").length >= 8);
+    await page.click("[data-scroll-target='evolution-panel']");
+    await page.waitForFunction(() => document.querySelectorAll("#evolutionTimeline .evolution-step").length >= 8);
     await page.click("[data-scroll-target='attribution-panel']");
     await page.waitForFunction(() => document.querySelectorAll("#attributionProfileRows tr").length >= 3);
     await page.click("[data-scroll-target='readiness-panel']");
@@ -73,6 +75,10 @@ async function main() {
       ),
       predictionRows: document.querySelectorAll("#predictionRows tr").length,
       predictionMetrics: document.querySelector("#predictionMetrics").textContent,
+      evolutionPanel: document.querySelector("#evolution-panel").textContent,
+      evolutionSteps: document.querySelectorAll("#evolutionTimeline .evolution-step").length,
+      evolutionNodes: document.querySelectorAll("#evolutionMap rect").length,
+      evolutionGaps: document.querySelectorAll("#evolutionGaps div").length,
       attributionSummary: document.querySelector("#attributionSummary").textContent,
       attributionRows: document.querySelectorAll("#attributionProfileRows tr").length,
       attributionSvgCells: document.querySelectorAll("#attributionGridSvg rect").length,
@@ -117,6 +123,16 @@ async function main() {
     process.exit(1);
   }
   if (
+    metrics.evolutionSteps < 8 ||
+    metrics.evolutionNodes < 8 ||
+    metrics.evolutionGaps < 2 ||
+    !metrics.evolutionPanel.includes("Project Evolution") ||
+    !metrics.evolutionPanel.includes("Evidence pack")
+  ) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (
     metrics.attributionRows < 3 ||
     metrics.attributionSvgCells < 3 ||
     !metrics.attributionSummary.includes("Random baseline") ||
@@ -153,7 +169,7 @@ async function main() {
   }
   if (
     metrics.evidenceGates < 5 ||
-    metrics.evidenceArtifacts < 3 ||
+    metrics.evidenceArtifacts < 5 ||
     !metrics.evidencePanel.includes("Evidence Pack") ||
     !metrics.evidencePanel.includes("public_demo_only")
   ) {
