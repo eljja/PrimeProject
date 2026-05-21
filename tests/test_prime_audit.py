@@ -8,7 +8,12 @@ from random import Random
 
 from prime_audit.analysis import audit_records, evaluate_policy, report_to_dict
 from prime_audit.attribution import run_synthetic_attribution_benchmark, sample_generator_records
-from prime_audit.baselines import build_generator_baseline, compare_fingerprint_to_baselines, sample_quality
+from prime_audit.baselines import (
+    ABLATION_COMPONENT_WEIGHTS,
+    build_generator_baseline,
+    compare_fingerprint_to_baselines,
+    sample_quality,
+)
 from prime_audit.bitcoin import audit_bitcoin_signatures, parse_der_signature, secp256k1_constants_report
 from prime_audit.catalog import classify_public_prime
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
@@ -237,7 +242,23 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(result["schema"], "primeproject.synthetic-attribution-benchmark.v1")
         self.assertEqual(result["total"], 3)
         self.assertIn("rejection", result["confusion_matrix"])
+        self.assertIn("residue_only", result["ablation"])
+        self.assertIn("gap_only", result["ablation"])
         self.assertEqual(len(result["trials_detail"]), 3)
+
+    def test_baseline_comparison_accepts_ablation_weights(self) -> None:
+        target = fingerprint_report_from_values([101, 103, 107, 109, 113, 127, 131, 137])
+        baseline = build_generator_baseline(target, name="self")
+        comparison = compare_fingerprint_to_baselines(
+            target,
+            [baseline],
+            component_weights=ABLATION_COMPONENT_WEIGHTS["residue_only"],
+            profile_name="residue_only",
+        )
+
+        self.assertEqual(comparison["profile_name"], "residue_only")
+        self.assertEqual(comparison["component_weights"], {"residue_tv": 1.0})
+        self.assertEqual(comparison["nearest_baseline"]["distance"], 0.0)
 
     def test_generator_sampling_returns_unique_prime_records(self) -> None:
         observations = build_observations(1000)

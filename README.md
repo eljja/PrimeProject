@@ -12,7 +12,7 @@
 - Explores algorithm-induced prime measures and next-prime candidate ranking in the PrimeProject Conjecture Lab.
 - Extracts generator fingerprints from prime-like parameters, including residues, low bits, and local prime-gap context.
 - Builds known-good generator baselines and compares suspicious datasets by fingerprint distance with sample-quality confidence.
-- Benchmarks generator attribution against synthetic ground-truth samples with an accuracy score and confusion matrix.
+- Benchmarks generator attribution against synthetic ground-truth samples with accuracy, confusion matrices, and feature ablation.
 - Audits Bitcoin secp256k1 constants and ECDSA signature metadata for defensive nonce-risk indicators.
 
 ## Interactive Conjecture Lab

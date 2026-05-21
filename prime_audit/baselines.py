@@ -8,6 +8,25 @@ BASELINE_SCHEMA = "primeproject.generator-baseline.v1"
 COMPARISON_SCHEMA = "primeproject.generator-baseline-comparison.v1"
 MIN_RECOMMENDED_RECORDS = 30
 STRONG_RECOMMENDED_RECORDS = 200
+DEFAULT_COMPONENT_WEIGHTS = {
+    "bit_length": 0.18,
+    "residue_tv": 0.22,
+    "low16_collision": 0.18,
+    "next_prime_exposure": 0.18,
+    "right_gap": 0.10,
+    "large_left_gap": 0.14,
+}
+ABLATION_COMPONENT_WEIGHTS = {
+    "all": DEFAULT_COMPONENT_WEIGHTS,
+    "residue_only": {"residue_tv": 1.0},
+    "gap_only": {
+        "next_prime_exposure": 0.45,
+        "right_gap": 0.25,
+        "large_left_gap": 0.30,
+    },
+    "low_bits_only": {"low16_collision": 1.0},
+    "bit_length_only": {"bit_length": 1.0},
+}
 
 
 def build_generator_baseline(
@@ -31,11 +50,20 @@ def build_generator_baseline(
 def compare_fingerprint_to_baselines(
     fingerprint_report: dict[str, Any],
     baselines: list[dict[str, Any]],
+    *,
+    component_weights: dict[str, float] | None = None,
+    profile_name: str = "all",
 ) -> dict[str, Any]:
     target_features = baseline_features(fingerprint_report.get("aggregate", {}))
     target_quality = sample_quality(fingerprint_report)
     comparisons = [
-        compare_feature_vectors(target_features, baseline.get("features", {}), baseline, target_quality)
+        compare_feature_vectors(
+            target_features,
+            baseline.get("features", {}),
+            baseline,
+            target_quality,
+            component_weights=component_weights,
+        )
         for baseline in baselines
     ]
     comparisons.sort(key=lambda item: item["distance"])
@@ -43,6 +71,8 @@ def compare_fingerprint_to_baselines(
         "schema": COMPARISON_SCHEMA,
         "target_record_count": fingerprint_report.get("record_count", 0),
         "target_quality": target_quality,
+        "profile_name": profile_name,
+        "component_weights": normalized_component_weights(component_weights or DEFAULT_COMPONENT_WEIGHTS),
         "baseline_count": len(baselines),
         "nearest_baseline": comparisons[0] if comparisons else None,
         "comparisons": comparisons,
@@ -73,6 +103,7 @@ def compare_feature_vectors(
     baseline: dict[str, Any],
     baseline_metadata: dict[str, Any],
     target_quality: dict[str, Any] | None = None,
+    component_weights: dict[str, float] | None = None,
 ) -> dict[str, Any]:
     components = {
         "bit_length": distribution_l1(
@@ -104,15 +135,8 @@ def compare_feature_vectors(
             scale=1.0,
         ),
     }
-    weights = {
-        "bit_length": 0.18,
-        "residue_tv": 0.22,
-        "low16_collision": 0.18,
-        "next_prime_exposure": 0.18,
-        "right_gap": 0.10,
-        "large_left_gap": 0.14,
-    }
-    distance = sqrt(sum(weights[key] * (components[key] ** 2) for key in components))
+    weights = normalized_component_weights(component_weights or DEFAULT_COMPONENT_WEIGHTS)
+    distance = sqrt(sum(weights.get(key, 0.0) * (components[key] ** 2) for key in components))
     baseline_quality = baseline_metadata.get("quality") or quality_from_baseline_metadata(baseline_metadata, baseline)
     target_overall = (target_quality or {}).get("overall_confidence", 0.0)
     baseline_overall = baseline_quality.get("overall_confidence", 0.0)
@@ -125,6 +149,7 @@ def compare_feature_vectors(
         "similarity": max(0.0, 1.0 - distance),
         "confidence": confidence,
         "baseline_quality": baseline_quality,
+        "component_weights": weights,
         "components": components,
     }
 
@@ -206,6 +231,18 @@ def numeric_map_distance(left: dict[str, float], right: dict[str, float]) -> flo
     if not keys:
         return 0.0
     return min(1.0, sum(abs(left.get(key, 0.0) - right.get(key, 0.0)) for key in keys) / len(keys))
+
+
+def normalized_component_weights(weights: dict[str, float]) -> dict[str, float]:
+    cleaned = {
+        key: max(0.0, float(value))
+        for key, value in weights.items()
+        if key in DEFAULT_COMPONENT_WEIGHTS
+    }
+    total = sum(cleaned.values())
+    if total <= 0:
+        return dict(DEFAULT_COMPONENT_WEIGHTS)
+    return {key: value / total for key, value in cleaned.items()}
 
 
 def scalar_distance(left: Any, right: Any, *, scale: float) -> float:

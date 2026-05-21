@@ -4,7 +4,7 @@ from bisect import bisect_left
 from random import Random
 from typing import Any
 
-from .baselines import build_generator_baseline, compare_fingerprint_to_baselines
+from .baselines import ABLATION_COMPONENT_WEIGHTS, build_generator_baseline, compare_fingerprint_to_baselines
 from .conjecture_lab import PrimeObservation, build_observations
 from .fingerprints import analyze_prime_generator_fingerprints
 from .models import KeyRecord
@@ -21,6 +21,7 @@ def run_synthetic_attribution_benchmark(
     trials: int = 3,
     seed: int = 20260521,
     gap_max_steps: int = 1024,
+    include_ablation: bool = True,
 ) -> dict[str, Any]:
     if train_count < 2 or test_count < 1:
         raise ValueError("train_count must be at least 2 and test_count must be positive")
@@ -48,13 +49,13 @@ def run_synthetic_attribution_benchmark(
         baseline_reports[generator] = report
         baselines.append(build_generator_baseline(report, name=generator, source="synthetic-ground-truth"))
 
-    confusion = {
-        generator: {candidate: 0 for candidate in ATTRIBUTION_GENERATORS}
-        for generator in ATTRIBUTION_GENERATORS
+    profiles = {"all": ABLATION_COMPONENT_WEIGHTS["all"]}
+    if include_ablation:
+        profiles = dict(ABLATION_COMPONENT_WEIGHTS)
+    results = {
+        name: empty_profile_result()
+        for name in profiles
     }
-    trial_rows = []
-    correct = 0
-    total = 0
     for trial in range(trials):
         for generator in ATTRIBUTION_GENERATORS:
             records = sample_generator_records(
@@ -65,25 +66,20 @@ def run_synthetic_attribution_benchmark(
                 key_prefix=f"test-{trial}-{generator}",
             )
             fingerprint = analyze_prime_generator_fingerprints(records, gap_max_steps=gap_max_steps)
-            comparison = compare_fingerprint_to_baselines(fingerprint, baselines)
-            nearest = comparison["nearest_baseline"]
-            predicted = nearest["baseline_name"] if nearest else None
-            if predicted in confusion[generator]:
-                confusion[generator][predicted] += 1
-            is_correct = predicted == generator
-            correct += 1 if is_correct else 0
-            total += 1
-            trial_rows.append(
-                {
-                    "trial": trial,
-                    "true_generator": generator,
-                    "predicted_generator": predicted,
-                    "correct": is_correct,
-                    "distance": nearest["distance"] if nearest else None,
-                    "confidence": nearest["confidence"] if nearest else None,
-                    "components": nearest["components"] if nearest else None,
-                }
-            )
+            for profile_name, component_weights in profiles.items():
+                comparison = compare_fingerprint_to_baselines(
+                    fingerprint,
+                    baselines,
+                    component_weights=component_weights,
+                    profile_name=profile_name,
+                )
+                add_attribution_result(results[profile_name], trial, generator, comparison)
+
+    primary = finalize_profile_result(results["all"])
+    ablation = {
+        name: finalize_profile_result(result)
+        for name, result in results.items()
+    }
 
     return {
         "schema": "primeproject.synthetic-attribution-benchmark.v1",
@@ -93,16 +89,63 @@ def run_synthetic_attribution_benchmark(
         "test_count": test_count,
         "trials": trials,
         "gap_max_steps": gap_max_steps,
+        "include_ablation": include_ablation,
         "generators": list(ATTRIBUTION_GENERATORS),
-        "accuracy": correct / total if total else 0.0,
-        "correct": correct,
-        "total": total,
-        "confusion_matrix": confusion,
+        "accuracy": primary["accuracy"],
+        "correct": primary["correct"],
+        "total": primary["total"],
+        "confusion_matrix": primary["confusion_matrix"],
+        "ablation": ablation,
         "baseline_quality": {
             baseline["name"]: baseline.get("quality")
             for baseline in baselines
         },
-        "trials_detail": trial_rows,
+        "trials_detail": primary["trials_detail"],
+    }
+
+
+def empty_profile_result() -> dict[str, Any]:
+    return {
+        "correct": 0,
+        "total": 0,
+        "confusion_matrix": {
+            generator: {candidate: 0 for candidate in ATTRIBUTION_GENERATORS}
+            for generator in ATTRIBUTION_GENERATORS
+        },
+        "trials_detail": [],
+    }
+
+
+def add_attribution_result(
+    result: dict[str, Any],
+    trial: int,
+    true_generator: str,
+    comparison: dict[str, Any],
+) -> None:
+    nearest = comparison["nearest_baseline"]
+    predicted = nearest["baseline_name"] if nearest else None
+    if predicted in result["confusion_matrix"][true_generator]:
+        result["confusion_matrix"][true_generator][predicted] += 1
+    is_correct = predicted == true_generator
+    result["correct"] += 1 if is_correct else 0
+    result["total"] += 1
+    result["trials_detail"].append(
+        {
+            "trial": trial,
+            "true_generator": true_generator,
+            "predicted_generator": predicted,
+            "correct": is_correct,
+            "distance": nearest["distance"] if nearest else None,
+            "confidence": nearest["confidence"] if nearest else None,
+            "components": nearest["components"] if nearest else None,
+        }
+    )
+
+
+def finalize_profile_result(result: dict[str, Any]) -> dict[str, Any]:
+    return {
+        **result,
+        "accuracy": result["correct"] / result["total"] if result["total"] else 0.0,
     }
 
 

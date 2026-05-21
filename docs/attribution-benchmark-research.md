@@ -33,8 +33,21 @@ build prime observations up to N
 
 - `accuracy`: 전체 attribution 정확도.
 - `confusion_matrix`: 실제 생성기와 예측 생성기 간 혼동행렬.
+- `ablation`: feature group별 정확도와 혼동행렬.
 - `baseline_quality`: 각 baseline의 sample quality.
 - `trials_detail`: trial별 nearest baseline, distance, confidence, component drift.
+
+## Ablation
+
+현재 benchmark는 기본적으로 다음 profile을 함께 평가한다.
+
+- `all`: 모든 fingerprint component.
+- `residue_only`: residue total variation만 사용.
+- `gap_only`: left/right/local gap 계열만 사용.
+- `low_bits_only`: low16 collision만 사용.
+- `bit_length_only`: bit length 분포만 사용.
+
+이 값은 “어떤 feature가 generator attribution에 실제로 기여하는가”를 보기 위한 최소 실험이다. 실제 연구에서는 표본 크기와 범위를 바꿔 ablation curve를 만들어야 한다.
 
 ## 해석
 
