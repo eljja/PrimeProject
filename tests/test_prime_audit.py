@@ -20,11 +20,18 @@ from prime_audit.baselines import (
     sample_quality,
 )
 from prime_audit.bitcoin import audit_bitcoin_signatures, parse_der_signature, secp256k1_constants_report
+from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
+from prime_audit.crypto_classifier import run_crypto_classifier
+from prime_audit.feature_vectors import (
+    build_feature_vector_payload,
+    feature_vector_from_fingerprint,
+)
 from prime_audit.fingerprints import analyze_prime_generator_fingerprints, prime_gap_context
 from prime_audit.io import load_records
 from prime_audit.models import KeyRecord
+from prime_audit.real_baselines import build_real_baseline_manifest, manifest_public_summary
 from prime_audit.bias_lab import build_residue_factors, rank_next_prime_candidates
 from prime_audit.simulators import (
     add_standard_public_primes,
@@ -334,6 +341,60 @@ class PrimeAuditTests(unittest.TestCase):
             observed_plan[bit_length] = observed_plan.get(bit_length, 0) + 1
 
         self.assertEqual(observed_plan, plan)
+
+    def test_real_baseline_manifest_tracks_planned_and_available_entries(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        summary = manifest_public_summary(manifest)
+
+        self.assertEqual(manifest["schema"], "primeproject.real-world-baseline-manifest.v1")
+        self.assertTrue(manifest["validation"]["passed"])
+        self.assertGreaterEqual(summary["planned_count"], 3)
+        self.assertIn("OpenSSL", summary["libraries"])
+        self.assertFalse(manifest["handling_policy"]["publish_private_primes"])
+
+    def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
+        alpha_a = feature_vector_from_fingerprint(
+            fingerprint_report_from_values([101, 103, 107, 109, 113, 127, 131, 137]),
+            vector_id="alpha-a",
+            label="alpha",
+        )
+        alpha_b = feature_vector_from_fingerprint(
+            fingerprint_report_from_values([139, 149, 151, 157, 163, 167, 173, 179]),
+            vector_id="alpha-b",
+            label="alpha",
+        )
+        beta_a = feature_vector_from_fingerprint(
+            fingerprint_report_from_values([1009, 1013, 1019, 1021, 1031, 1033, 1039, 1049]),
+            vector_id="beta-a",
+            label="beta",
+        )
+        beta_b = feature_vector_from_fingerprint(
+            fingerprint_report_from_values([2003, 2011, 2017, 2027, 2029, 2039, 2053, 2063]),
+            vector_id="beta-b",
+            label="beta",
+        )
+        payload = build_feature_vector_payload([alpha_a, alpha_b, beta_a, beta_b])
+        report = run_crypto_classifier(payload, feature_space="interaction")
+
+        self.assertEqual(payload["schema"], "primeproject.generator-feature-vectors.v1")
+        self.assertEqual(report["schema"], "primeproject.crypto-classifier-report.v1")
+        self.assertEqual(report["total"], 4)
+        self.assertIn("nearest-centroid", report["model"]["family"])
+
+    def test_bitcoin_generator_risk_report_links_signature_audit_to_manifest(self) -> None:
+        audit = audit_bitcoin_signatures(
+            [
+                {"signature_id": "a", "public_key": "02aa", "r": "0x1234", "s": "0x20"},
+                {"signature_id": "b", "public_key": "02aa", "r": "0x1234", "s": "0x21"},
+            ]
+        )
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        report = build_bitcoin_generator_risk_report(audit, manifest)
+
+        self.assertEqual(report["schema"], "primeproject.bitcoin-generator-risk-report.v1")
+        self.assertEqual(report["risk_level"], "critical")
+        self.assertGreater(len(report["related_baselines"]), 0)
+        self.assertGreater(len(report["research_actions"]), 0)
 
 
 def base64_lines(data: bytes) -> str:

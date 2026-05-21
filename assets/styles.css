@@ -872,6 +872,98 @@ canvas {
   font-weight: 650;
 }
 
+.baseline-registry {
+  border-top: 1px solid var(--line);
+  padding: 16px 20px 20px;
+}
+
+.baseline-registry-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(110px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.baseline-registry-summary div {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 10px 12px;
+}
+
+.baseline-registry-summary span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 720;
+  text-transform: uppercase;
+}
+
+.baseline-registry-summary strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.baseline-registry-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.baseline-registry-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.baseline-registry-table th,
+.baseline-registry-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.baseline-registry-table th {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  background: var(--soft);
+}
+
+.baseline-registry-table td strong,
+.baseline-registry-table td span {
+  display: block;
+}
+
+.baseline-registry-table td span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.baseline-registry-table em {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-style: normal;
+  font-weight: 760;
+}
+
+.baseline-registry-table .is-available {
+  color: var(--teal);
+  background: rgba(8, 127, 122, 0.1);
+}
+
+.baseline-registry-table .is-planned {
+  color: var(--amber);
+  background: rgba(215, 138, 17, 0.12);
+}
+
 .attribution-summary {
   display: grid;
   grid-template-columns: repeat(5, minmax(120px, 1fr));
@@ -1183,6 +1275,7 @@ tr:last-child td {
   .analysis-grid,
   .overview-grid,
   .prediction-metrics,
+  .baseline-registry-summary,
   .attribution-summary,
   .snapshot-summary {
     grid-template-columns: 1fr;

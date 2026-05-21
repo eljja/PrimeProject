@@ -68,16 +68,18 @@ async function main() {
         (image) => image.complete && image.naturalWidth > 0,
       ),
       predictionRows: document.querySelectorAll("#predictionRows tr").length,
-    predictionMetrics: document.querySelector("#predictionMetrics").textContent,
-    attributionSummary: document.querySelector("#attributionSummary").textContent,
-    attributionRows: document.querySelectorAll("#attributionProfileRows tr").length,
-    attributionSvgCells: document.querySelectorAll("#attributionGridSvg rect").length,
-    attributionHeader: document.querySelector(".attribution-table thead").textContent,
-    attributionFirstRow: document.querySelector("#attributionProfileRows tr").textContent,
-    bitcoinPanel: document.querySelector("#bitcoin-panel").textContent,
-    fingerprintPanel: document.querySelector("#fingerprint-panel").textContent,
-    baselinePanel: document.querySelector("#baseline-panel").textContent,
-  }));
+      predictionMetrics: document.querySelector("#predictionMetrics").textContent,
+      attributionSummary: document.querySelector("#attributionSummary").textContent,
+      attributionRows: document.querySelectorAll("#attributionProfileRows tr").length,
+      attributionSvgCells: document.querySelectorAll("#attributionGridSvg rect").length,
+      attributionHeader: document.querySelector(".attribution-table thead").textContent,
+      attributionFirstRow: document.querySelector("#attributionProfileRows tr").textContent,
+      bitcoinPanel: document.querySelector("#bitcoin-panel").textContent,
+      fingerprintPanel: document.querySelector("#fingerprint-panel").textContent,
+      baselinePanel: document.querySelector("#baseline-panel").textContent,
+      baselineRegistrySummary: document.querySelector("#baselineRegistrySummary").textContent,
+      baselineRegistryRows: document.querySelectorAll("#baselineRegistryRows tr").length,
+    }));
 
     const mobile = await browser.newPage({
       viewport: { width: 390, height: 900 },
@@ -121,7 +123,12 @@ async function main() {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }
-  if (!metrics.baselinePanel.includes("known-good") || !metrics.baselinePanel.includes("fingerprint distance")) {
+  if (
+    !metrics.baselinePanel.includes("known-good") ||
+    !metrics.baselinePanel.includes("fingerprint distance") ||
+    !metrics.baselineRegistrySummary.includes("Registered") ||
+    metrics.baselineRegistryRows < 5
+  ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }

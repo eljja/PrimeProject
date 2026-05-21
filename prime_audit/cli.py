@@ -8,9 +8,13 @@ from .analysis import evaluate_policy, audit_records, report_to_dict
 from .attribution import run_attribution_confound_grid, run_synthetic_attribution_benchmark
 from .baselines import build_generator_baseline, compare_fingerprint_to_baselines
 from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
+from .bitcoin_integration import build_bitcoin_generator_risk_report
 from .conjecture_lab import run_lab
+from .crypto_classifier import run_crypto_classifier
+from .feature_vectors import build_feature_vector_payload, load_feature_vectors_from_files
 from .fingerprints import analyze_prime_generator_fingerprints
 from .io import load_records, write_report_json
+from .real_baselines import build_real_baseline_manifest, load_real_baseline_entries
 from .bias_lab import rank_next_prime_candidates
 from .simulators import add_standard_public_primes, generate_synthetic_rsa_dataset, records_to_jsonable
 from .snapshots import build_snapshot, render_snapshot_svgs, write_manifest, write_snapshot
@@ -99,6 +103,42 @@ def main() -> int:
     compare_baselines_parser.add_argument("--fingerprint", required=True)
     compare_baselines_parser.add_argument("--baselines", nargs="+", required=True)
     compare_baselines_parser.add_argument("--output", required=True)
+
+    real_baseline_manifest_parser = subparsers.add_parser(
+        "real-baseline-manifest",
+        help="Build a safe manifest for real-world crypto object baselines.",
+    )
+    real_baseline_manifest_parser.add_argument("--entries", nargs="*", default=[])
+    real_baseline_manifest_parser.add_argument("--no-defaults", action="store_true")
+    real_baseline_manifest_parser.add_argument("--output", required=True)
+
+    feature_vector_parser = subparsers.add_parser(
+        "export-feature-vectors",
+        help="Export flattened generator fingerprint vectors for classifier experiments.",
+    )
+    feature_vector_parser.add_argument("--fingerprints", nargs="*", default=[])
+    feature_vector_parser.add_argument("--baselines", nargs="*", default=[])
+    feature_vector_parser.add_argument("--output", required=True)
+
+    crypto_classifier_parser = subparsers.add_parser(
+        "crypto-classifier",
+        help="Evaluate labelled feature vectors with a dependency-free classifier baseline.",
+    )
+    crypto_classifier_parser.add_argument("--features", required=True)
+    crypto_classifier_parser.add_argument(
+        "--feature-space",
+        choices=("linear", "interaction"),
+        default="interaction",
+    )
+    crypto_classifier_parser.add_argument("--output", required=True)
+
+    bitcoin_risk_parser = subparsers.add_parser(
+        "bitcoin-risk-report",
+        help="Combine Bitcoin signature audit output with registered generator baselines.",
+    )
+    bitcoin_risk_parser.add_argument("--signature-audit", required=True)
+    bitcoin_risk_parser.add_argument("--manifest", default=None)
+    bitcoin_risk_parser.add_argument("--output", required=True)
 
     attribution_parser = subparsers.add_parser(
         "attribution-benchmark",
@@ -233,6 +273,45 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         payload = compare_fingerprint_to_baselines(fingerprint, baselines)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "real-baseline-manifest":
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        entries = load_real_baseline_entries(args.entries) if args.entries else []
+        payload = build_real_baseline_manifest(
+            entries,
+            include_default_entries=not args.no_defaults,
+        )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "export-feature-vectors":
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        vectors = load_feature_vectors_from_files(
+            fingerprint_specs=args.fingerprints,
+            baseline_specs=args.baselines,
+        )
+        payload = build_feature_vector_payload(vectors)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "crypto-classifier":
+        feature_payload = json.loads(Path(args.features).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = run_crypto_classifier(feature_payload, feature_space=args.feature_space)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "bitcoin-risk-report":
+        signature_audit = json.loads(Path(args.signature_audit).read_text(encoding="utf-8"))
+        manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8")) if args.manifest else None
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_bitcoin_generator_risk_report(signature_audit, manifest)
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

@@ -13,6 +13,8 @@
 - Extracts generator fingerprints from prime-like parameters, including residues, low bits, and local prime-gap context.
 - Builds known-good generator baselines and compares suspicious datasets by fingerprint distance with sample-quality confidence.
 - Benchmarks generator attribution against synthetic ground-truth samples with accuracy, confusion matrices, feature ablation, bit-length confound control, and paired confound-grid deltas.
+- Registers real-world baseline manifests for OpenSSL, BoringSSL, Go, Bitcoin Core, and wallet/library samples without publishing sensitive key material.
+- Exports fixed-length fingerprint vectors and runs a dependency-free Crypto-Classifier baseline before heavier ML experiments.
 - Audits Bitcoin secp256k1 constants and ECDSA signature metadata for defensive nonce-risk indicators.
 
 ## Interactive Conjecture Lab
@@ -24,6 +26,8 @@ You can also open `index.html` locally. The lab compares `rejection`, `next_prim
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
 The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, highlighting which fingerprint profiles survive bit-length control and which ones are likely range confounds.
+
+The Baseline Lab panel reads `data/baselines/real_world/manifest.json` and shows which real-world baseline families are available, planned, or intentionally local-only.
 
 ## Input format
 
@@ -51,12 +55,16 @@ python -m prime_audit.cli audit --input data/synthetic_keys.json --output data/a
 python -m prime_audit.cli fingerprint-primes --input data/synthetic_keys.json --output data/generator_fingerprints.json
 python -m prime_audit.cli build-baseline --fingerprint data/generator_fingerprints.json --name openssl-owned-sample --output data/baselines/openssl_owned.json
 python -m prime_audit.cli compare-baselines --fingerprint data/generator_fingerprints.json --baselines data/baselines/openssl_owned.json --output data/baseline_comparison.json
+python -m prime_audit.cli real-baseline-manifest --output data/baselines/real_world/manifest.json
+python -m prime_audit.cli export-feature-vectors --fingerprints openssl=data/openssl_fingerprint.json suspicious=data/suspicious_fingerprint.json --output data/feature_vectors.json
+python -m prime_audit.cli crypto-classifier --features data/feature_vectors.json --output data/crypto_classifier_report.json
 python -m prime_audit.cli attribution-benchmark --limit 200000 --train-count 80 --test-count 40 --trials 3 --control-mode bit_length --output data/attribution_benchmark.json
 python -m prime_audit.cli attribution-grid --limits 50000 200000 --train-counts 40 80 --test-counts 20 40 --trials 3 --repeats 3 --output data/attribution_confound_grid.json
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json
 python -m prime_audit.cli bias-rank --start 100000 --span 640 --modulo 210 --output data/bias_rank_100k.json
 python -m prime_audit.cli bitcoin-constants --output data/bitcoin_constants.json
 python -m prime_audit.cli bitcoin-signature-audit --input data/bitcoin_signatures.json --output data/bitcoin_signature_audit.json
+python -m prime_audit.cli bitcoin-risk-report --signature-audit data/bitcoin_signature_audit.json --manifest data/baselines/real_world/manifest.json --output data/bitcoin_generator_risk_report.json
 python -m prime_audit.cli snapshot --limit 10000000 --modulo 210 --output data/snapshots/prime_measure_10m.summary.json --assets-dir assets/snapshots --slug prime_measure_10m
 python -m prime_audit.cli snapshot-manifest --inputs data/snapshots/prime_measure_1m.summary.json data/snapshots/prime_measure_10m.summary.json --output data/snapshots/manifest.json
 python scripts/benchmark_shared_factors.py --count 1000 --bits 128 --output data/shared_factor_benchmark.json

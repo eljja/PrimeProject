@@ -8,6 +8,7 @@ const state = {
   snapshots: [],
   activeSnapshot: 0,
   attributionGrid: null,
+  realBaselineManifest: null,
 };
 
 const limitSlider = {
@@ -118,6 +119,54 @@ const bundledAttributionGrid = {
   },
 };
 
+const bundledRealBaselineManifest = {
+  schema: "primeproject.real-world-baseline-manifest.v1",
+  entry_count: 5,
+  status_counts: { planned: 4, available: 1 },
+  entries: [
+    {
+      baseline_id: "openssl-rsa-prime-owned",
+      library: "OpenSSL",
+      object_type: "rsa-prime",
+      status: "planned",
+      sample_count: 0,
+      sensitive: true,
+    },
+    {
+      baseline_id: "boringssl-rsa-prime-owned",
+      library: "BoringSSL",
+      object_type: "rsa-prime",
+      status: "planned",
+      sample_count: 0,
+      sensitive: true,
+    },
+    {
+      baseline_id: "go-crypto-rsa-prime-owned",
+      library: "Go crypto/rsa",
+      object_type: "rsa-prime",
+      status: "planned",
+      sample_count: 0,
+      sensitive: true,
+    },
+    {
+      baseline_id: "bitcoin-core-ecdsa-signature-public",
+      library: "Bitcoin Core / secp256k1 ecosystem",
+      object_type: "ecdsa-signature",
+      status: "planned",
+      sample_count: 0,
+      sensitive: false,
+    },
+    {
+      baseline_id: "bitcoin-secp256k1-constants",
+      library: "Bitcoin secp256k1",
+      object_type: "ecc-field-prime",
+      status: "available",
+      sample_count: 2,
+      sensitive: false,
+    },
+  ],
+};
+
 const generatorCopy = {
   next_prime:
     "next_prime sampling changes the observed prime measure by weighting each prime by its left gap.",
@@ -174,6 +223,8 @@ const outputs = {
   snapshotOverview: document.querySelector("#snapshotOverview"),
   snapshotGapDistribution: document.querySelector("#snapshotGapDistribution"),
   snapshotResidueDrift: document.querySelector("#snapshotResidueDrift"),
+  baselineRegistrySummary: document.querySelector("#baselineRegistrySummary"),
+  baselineRegistryRows: document.querySelector("#baselineRegistryRows"),
   attributionSummary: document.querySelector("#attributionSummary"),
   attributionGridSvg: document.querySelector("#attributionGridSvg"),
   attributionProfileRows: document.querySelector("#attributionProfileRows"),
@@ -237,6 +288,7 @@ window.addEventListener("resize", () => {
 
 runExperiment();
 loadSnapshots();
+loadRealBaselineManifest();
 loadAttributionGrid();
 renderPrediction();
 
@@ -1013,6 +1065,50 @@ function renderSnapshots() {
   setSnapshotImage(outputs.snapshotResidueDrift, snapshot.residue_drift_svg, `${snapshot.label} residue drift snapshot`);
 }
 
+async function loadRealBaselineManifest() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.realBaselineManifest = bundledRealBaselineManifest;
+    } else {
+      const response = await fetch("data/baselines/real_world/manifest.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`real baseline manifest ${response.status}`);
+      state.realBaselineManifest = await response.json();
+    }
+  } catch (error) {
+    state.realBaselineManifest = bundledRealBaselineManifest;
+  }
+  renderRealBaselineManifest();
+}
+
+function renderRealBaselineManifest() {
+  if (!outputs.baselineRegistrySummary || !outputs.baselineRegistryRows) return;
+  const manifest = state.realBaselineManifest || bundledRealBaselineManifest;
+  const entries = manifest.entries || [];
+  const counts = manifest.status_counts || {};
+  const sensitiveCount = entries.filter((entry) => entry.sensitive).length;
+  outputs.baselineRegistrySummary.innerHTML = `
+    <div><span>Registered</span><strong>${formatNumber(entries.length)}</strong></div>
+    <div><span>Available</span><strong>${formatNumber(counts.available || 0)}</strong></div>
+    <div><span>Planned</span><strong>${formatNumber(counts.planned || 0)}</strong></div>
+    <div><span>Local-sensitive</span><strong>${formatNumber(sensitiveCount)}</strong></div>
+  `;
+  outputs.baselineRegistryRows.innerHTML = entries
+    .map((entry) => {
+      const handling = entry.sensitive ? "local aggregate only" : "public summary";
+      const statusClass = entry.status === "available" ? "is-available" : "is-planned";
+      return `
+        <tr>
+          <td><strong>${escapeHtml(entry.library || entry.baseline_id || "unknown")}</strong><span>${escapeHtml(entry.baseline_id || "")}</span></td>
+          <td>${escapeHtml(entry.object_type || "unknown")}</td>
+          <td><em class="${statusClass}">${escapeHtml(entry.status || "planned")}</em></td>
+          <td>${formatNumber(entry.sample_count || 0)}</td>
+          <td>${handling}</td>
+        </tr>
+      `;
+    })
+    .join("");
+}
+
 async function loadAttributionGrid() {
   try {
     if (window.location.protocol === "file:") {
@@ -1280,6 +1376,18 @@ function limitToSlider(limit) {
 
 function formatNumber(value) {
   return new Intl.NumberFormat("en-US").format(value);
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (character) => (
+    {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    }[character]
+  ));
 }
 
 function formatCompact(value) {

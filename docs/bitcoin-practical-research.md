@@ -37,6 +37,7 @@ curve: y^2 = x^3 + 7 mod p
 ```powershell
 python -m prime_audit.cli bitcoin-constants --output data/bitcoin_constants.json
 python -m prime_audit.cli bitcoin-signature-audit --input data/bitcoin_signatures.json --output data/bitcoin_signature_audit.json
+python -m prime_audit.cli bitcoin-risk-report --signature-audit data/bitcoin_signature_audit.json --manifest data/baselines/real_world/manifest.json --output data/bitcoin_generator_risk_report.json
 ```
 
 입력 예:
@@ -71,7 +72,8 @@ DER 서명도 입력할 수 있다.
 ## 연구 확장 방향
 
 1. 공개 서명셋의 `r` 분포와 wallet fingerprint 비교.
-2. low-s 비율과 시점별 정책 변화 추적.
-3. Schnorr/BIP340 nonce 관련 공개 메타데이터 분석.
-4. known-good wallet 샘플과 의심 샘플의 분포 차이 측정.
-5. 취약 복구가 아니라 취약 징후 탐지 중심의 리포트 자동화.
+2. `bitcoin-risk-report`로 ECDSA nonce fingerprint와 real-world baseline manifest를 결합.
+3. low-s 비율과 시점별 정책 변화 추적.
+4. Schnorr/BIP340 nonce 관련 공개 메타데이터 분석.
+5. known-good wallet 샘플과 의심 샘플의 분포 차이 측정.
+6. 취약 복구가 아니라 취약 징후 탐지 중심의 리포트 자동화.

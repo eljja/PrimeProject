@@ -75,8 +75,8 @@ python -m prime_audit.cli compare-baselines `
 
 ## 다음 단계
 
-1. OpenSSL RSA prime generation owned sample.
-2. BoringSSL owned sample.
-3. Bitcoin Core ECDSA/Schnorr nonce metadata sample.
-4. Wallet별 signature metadata baseline.
-5. baseline registry와 GitHub Pages 비교 시각화.
+1. `real-baseline-manifest`로 OpenSSL, BoringSSL, Go, Bitcoin Core, wallet 기준군을 등록한다.
+2. OpenSSL RSA prime generation owned sample을 로컬에서 생성하고 aggregate fingerprint만 공개한다.
+3. BoringSSL/Go owned sample을 같은 bit-length와 sample count 조건으로 생성한다.
+4. Bitcoin Core ECDSA/Schnorr nonce metadata sample을 `bitcoin-risk-report`와 연결한다.
+5. `export-feature-vectors`와 `crypto-classifier`로 distance 기반 비교가 classifier에서도 재현되는지 확인한다.
