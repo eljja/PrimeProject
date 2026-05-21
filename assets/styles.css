@@ -964,6 +964,149 @@ canvas {
   background: rgba(215, 138, 17, 0.12);
 }
 
+.readiness-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 10px;
+  padding: 16px 20px 4px;
+}
+
+.readiness-summary div {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 10px 12px;
+}
+
+.readiness-summary span,
+.readiness-card span,
+.readiness-card small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 720;
+  text-transform: uppercase;
+}
+
+.readiness-summary strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.readiness-summary small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 680;
+}
+
+.readiness-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 16px;
+  padding: 16px 20px 20px;
+}
+
+.readiness-dimensions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.readiness-card,
+.readiness-actions {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 14px;
+}
+
+.readiness-card > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.readiness-card strong,
+.readiness-actions h3 {
+  color: var(--ink);
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.readiness-card em {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 780;
+}
+
+.readiness-card .is-ready {
+  color: var(--teal);
+  background: rgba(8, 127, 122, 0.1);
+}
+
+.readiness-card .is-prototype {
+  color: var(--indigo);
+  background: rgba(70, 87, 216, 0.1);
+}
+
+.readiness-card .is-scaffold {
+  color: var(--amber);
+  background: rgba(215, 138, 17, 0.12);
+}
+
+.readiness-card .is-not-started {
+  color: var(--danger);
+  background: rgba(189, 61, 52, 0.1);
+}
+
+.readiness-card meter {
+  width: 100%;
+  height: 9px;
+  margin: 12px 0 7px;
+}
+
+.readiness-card p {
+  min-height: 34px;
+  margin: 10px 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.readiness-actions h3 {
+  margin-bottom: 12px;
+}
+
+.readiness-actions ol {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.readiness-actions li strong,
+.readiness-actions li span {
+  display: block;
+}
+
+.readiness-actions li strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.readiness-actions li span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .attribution-summary {
   display: grid;
   grid-template-columns: repeat(5, minmax(120px, 1fr));
@@ -1220,6 +1363,8 @@ tr:last-child td {
   .bitcoin-grid,
   .fingerprint-grid,
   .baseline-flow,
+  .readiness-body,
+  .readiness-dimensions,
   .attribution-body,
   .snapshot-grid {
     grid-template-columns: 1fr;
@@ -1276,6 +1421,7 @@ tr:last-child td {
   .overview-grid,
   .prediction-metrics,
   .baseline-registry-summary,
+  .readiness-summary,
   .attribution-summary,
   .snapshot-summary {
     grid-template-columns: 1fr;
@@ -1298,6 +1444,11 @@ tr:last-child td {
   }
 
   .attribution-body {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .readiness-body {
     grid-template-columns: 1fr;
     padding: 12px;
   }

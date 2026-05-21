@@ -60,6 +60,28 @@ python -m prime_audit.cli crypto-classifier `
 
 이 모델은 최종 분류기가 아니라 연구 안전장치다. 여기서도 분리되지 않는 신호는 무거운 ML을 넣어도 과장될 가능성이 높다.
 
+## Research Readiness
+
+`research-readiness`는 현재 연구 도구가 실세계 attribution 주장에 얼마나 가까운지 점수화한다. 입력은 real-world baseline manifest, attribution grid, classifier report, Bitcoin risk report다.
+
+```powershell
+python -m prime_audit.cli research-readiness `
+  --manifest data/baselines/real_world/manifest.json `
+  --attribution-grid data/attribution_confound_grid.json `
+  --classifier-report data/crypto_classifier_report.json `
+  --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
+  --output data/research_readiness.json
+```
+
+GitHub Pages의 Research Readiness 패널은 이 JSON을 읽어 다음 네 차원을 표시한다.
+
+- `sim_to_real`: OpenSSL, BoringSSL, Go, Bitcoin/wallet baseline 등록 및 공개 가능성.
+- `attribution_validation`: bit-length control 후에도 남는 fingerprint profile.
+- `classifier`: labelled feature vector 수, label 수, leave-one-out 분류 결과.
+- `bitcoin_integration`: nonce fingerprint와 Bitcoin baseline 연결 상태.
+
+중요한 원칙은 “좋은 점수”보다 “blocking gap”이다. 현재처럼 real-world available baseline이 부족하거나 classifier label이 없으면, 페이지는 이를 명시적으로 high-priority gap으로 남긴다.
+
 ## Bitcoin 통합
 
 `bitcoin-risk-report`는 기존 ECDSA signature audit 결과와 real-world manifest를 결합한다.

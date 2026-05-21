@@ -17,6 +17,7 @@ __all__ = [
     "number_theory",
     "prediction",
     "real_baselines",
+    "research_readiness",
     "simulators",
     "snapshots",
 ]

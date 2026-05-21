@@ -1,0 +1,108 @@
+{
+  "schema": "primeproject.research-readiness.v1",
+  "overall": {
+    "score": 0.5869,
+    "label": "prototype_ready"
+  },
+  "dimensions": {
+    "sim_to_real": {
+      "score": 0.8125,
+      "label": "research_ready",
+      "registered_count": 5,
+      "available_count": 1,
+      "planned_count": 4,
+      "local_only_count": 0,
+      "sensitive_count": 3,
+      "expected_coverage": {
+        "openssl": "OpenSSL RSA owned prime baseline",
+        "boringssl": "BoringSSL RSA owned prime baseline",
+        "go crypto/rsa": "Go crypto/rsa owned prime baseline",
+        "bitcoin": "Bitcoin Core or wallet signature metadata baseline"
+      },
+      "gaps": [
+        {
+          "code": "insufficient_available_real_baselines",
+          "severity": "high",
+          "message": "At least two available real-world baselines are needed before real attribution claims.",
+          "evidence": {
+            "available_count": 1
+          }
+        }
+      ]
+    },
+    "attribution_validation": {
+      "score": 1.0,
+      "label": "research_ready",
+      "rows": 48,
+      "repeats": 3,
+      "profile_count": 5,
+      "robust_profiles": [
+        "all",
+        "gap_only"
+      ],
+      "significant_profiles": [],
+      "gaps": []
+    },
+    "classifier": {
+      "score": 0.0,
+      "label": "not_started",
+      "vector_count": 0,
+      "label_count": 0,
+      "accuracy": null,
+      "gaps": [
+        {
+          "code": "missing_classifier_report",
+          "severity": "high",
+          "message": "No classifier report is bundled yet."
+        }
+      ]
+    },
+    "bitcoin_integration": {
+      "score": 0.35,
+      "label": "scaffold_ready",
+      "risk_level": null,
+      "related_baseline_count": 1,
+      "gaps": [
+        {
+          "code": "missing_bitcoin_risk_report",
+          "severity": "medium",
+          "message": "Bitcoin signature audit is not yet connected to a bundled risk report."
+        }
+      ]
+    }
+  },
+  "blocking_gaps": [
+    {
+      "dimension": "sim_to_real",
+      "code": "insufficient_available_real_baselines",
+      "severity": "high",
+      "message": "At least two available real-world baselines are needed before real attribution claims.",
+      "evidence": {
+        "available_count": 1
+      }
+    },
+    {
+      "dimension": "classifier",
+      "code": "missing_classifier_report",
+      "severity": "high",
+      "message": "No classifier report is bundled yet."
+    }
+  ],
+  "next_actions": [
+    {
+      "priority": "P0",
+      "track": "sim-to-real",
+      "action": "Generate at least two local owned-library aggregate baselines with matched bit-length and sample counts."
+    },
+    {
+      "priority": "P0",
+      "track": "classifier",
+      "action": "Export labelled feature vectors for OpenSSL, BoringSSL, Go, and a suspicious sample before trusting classifier output."
+    },
+    {
+      "priority": "P1",
+      "track": "bitcoin",
+      "action": "Bundle a Bitcoin risk report from owned or public metadata summaries and compare it with registered baselines."
+    }
+  ]
+}

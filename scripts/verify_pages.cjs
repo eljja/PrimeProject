@@ -50,6 +50,8 @@ async function main() {
     await page.waitForFunction(() => document.querySelectorAll("#predictionRows tr").length >= 8);
     await page.click("[data-scroll-target='attribution-panel']");
     await page.waitForFunction(() => document.querySelectorAll("#attributionProfileRows tr").length >= 3);
+    await page.click("[data-scroll-target='readiness-panel']");
+    await page.waitForFunction(() => document.querySelectorAll("#readinessDimensions .readiness-card").length >= 4);
     await page.screenshot({
       path: path.join(root, "data", "conjecture_lab_desktop.png"),
       fullPage: true,
@@ -79,6 +81,9 @@ async function main() {
       baselinePanel: document.querySelector("#baseline-panel").textContent,
       baselineRegistrySummary: document.querySelector("#baselineRegistrySummary").textContent,
       baselineRegistryRows: document.querySelectorAll("#baselineRegistryRows tr").length,
+      readinessPanel: document.querySelector("#readiness-panel").textContent,
+      readinessCards: document.querySelectorAll("#readinessDimensions .readiness-card").length,
+      readinessActions: document.querySelectorAll("#readinessActions li").length,
     }));
 
     const mobile = await browser.newPage({
@@ -128,6 +133,15 @@ async function main() {
     !metrics.baselinePanel.includes("fingerprint distance") ||
     !metrics.baselineRegistrySummary.includes("Registered") ||
     metrics.baselineRegistryRows < 5
+  ) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (
+    metrics.readinessCards < 4 ||
+    metrics.readinessActions < 2 ||
+    !metrics.readinessPanel.includes("Research Readiness") ||
+    !metrics.readinessPanel.includes("prototype_ready")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

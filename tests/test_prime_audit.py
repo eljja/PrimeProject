@@ -32,6 +32,7 @@ from prime_audit.fingerprints import analyze_prime_generator_fingerprints, prime
 from prime_audit.io import load_records
 from prime_audit.models import KeyRecord
 from prime_audit.real_baselines import build_real_baseline_manifest, manifest_public_summary
+from prime_audit.research_readiness import build_research_readiness_report
 from prime_audit.bias_lab import build_residue_factors, rank_next_prime_candidates
 from prime_audit.simulators import (
     add_standard_public_primes,
@@ -395,6 +396,29 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(report["risk_level"], "critical")
         self.assertGreater(len(report["related_baselines"]), 0)
         self.assertGreater(len(report["research_actions"]), 0)
+
+    def test_research_readiness_report_surfaces_blocking_gaps(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        grid = run_attribution_confound_grid(
+            limits=[5000],
+            train_counts=[16],
+            test_counts=[8],
+            trials=1,
+            repeats=1,
+            seed=7,
+            gap_max_steps=64,
+            include_ablation=False,
+        )
+        readiness = build_research_readiness_report(
+            manifest=manifest,
+            attribution_grid=grid,
+        )
+
+        self.assertEqual(readiness["schema"], "primeproject.research-readiness.v1")
+        self.assertIn("sim_to_real", readiness["dimensions"])
+        self.assertGreater(len(readiness["blocking_gaps"]), 0)
+        self.assertGreater(len(readiness["next_actions"]), 0)
+        self.assertLess(readiness["overall"]["score"], 0.8)
 
 
 def base64_lines(data: bytes) -> str:

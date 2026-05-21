@@ -80,3 +80,4 @@ python -m prime_audit.cli compare-baselines `
 3. BoringSSL/Go owned sample을 같은 bit-length와 sample count 조건으로 생성한다.
 4. Bitcoin Core ECDSA/Schnorr nonce metadata sample을 `bitcoin-risk-report`와 연결한다.
 5. `export-feature-vectors`와 `crypto-classifier`로 distance 기반 비교가 classifier에서도 재현되는지 확인한다.
+6. `research-readiness`로 실세계 attribution 주장을 막는 high-priority gap을 매 실험마다 갱신한다.

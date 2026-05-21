@@ -15,6 +15,7 @@ from .feature_vectors import build_feature_vector_payload, load_feature_vectors_
 from .fingerprints import analyze_prime_generator_fingerprints
 from .io import load_records, write_report_json
 from .real_baselines import build_real_baseline_manifest, load_real_baseline_entries
+from .research_readiness import build_research_readiness_report
 from .bias_lab import rank_next_prime_candidates
 from .simulators import add_standard_public_primes, generate_synthetic_rsa_dataset, records_to_jsonable
 from .snapshots import build_snapshot, render_snapshot_svgs, write_manifest, write_snapshot
@@ -139,6 +140,16 @@ def main() -> int:
     bitcoin_risk_parser.add_argument("--signature-audit", required=True)
     bitcoin_risk_parser.add_argument("--manifest", default=None)
     bitcoin_risk_parser.add_argument("--output", required=True)
+
+    research_readiness_parser = subparsers.add_parser(
+        "research-readiness",
+        help="Assess end-to-end readiness of the real-world generator fingerprint research pipeline.",
+    )
+    research_readiness_parser.add_argument("--manifest", required=True)
+    research_readiness_parser.add_argument("--attribution-grid", default=None)
+    research_readiness_parser.add_argument("--classifier-report", default=None)
+    research_readiness_parser.add_argument("--bitcoin-risk-report", default=None)
+    research_readiness_parser.add_argument("--output", required=True)
 
     attribution_parser = subparsers.add_parser(
         "attribution-benchmark",
@@ -312,6 +323,34 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         payload = build_bitcoin_generator_risk_report(signature_audit, manifest)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "research-readiness":
+        manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
+        attribution_grid = (
+            json.loads(Path(args.attribution_grid).read_text(encoding="utf-8"))
+            if args.attribution_grid
+            else None
+        )
+        classifier_report = (
+            json.loads(Path(args.classifier_report).read_text(encoding="utf-8"))
+            if args.classifier_report
+            else None
+        )
+        bitcoin_risk_report = (
+            json.loads(Path(args.bitcoin_risk_report).read_text(encoding="utf-8"))
+            if args.bitcoin_risk_report
+            else None
+        )
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_research_readiness_report(
+            manifest=manifest,
+            attribution_grid=attribution_grid,
+            classifier_report=classifier_report,
+            bitcoin_risk_report=bitcoin_risk_report,
+        )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

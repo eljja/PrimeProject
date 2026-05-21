@@ -9,6 +9,7 @@ const state = {
   activeSnapshot: 0,
   attributionGrid: null,
   realBaselineManifest: null,
+  researchReadiness: null,
 };
 
 const limitSlider = {
@@ -167,6 +168,64 @@ const bundledRealBaselineManifest = {
   ],
 };
 
+const bundledResearchReadiness = {
+  schema: "primeproject.research-readiness.v1",
+  overall: { score: 0.5869, label: "prototype_ready" },
+  dimensions: {
+    sim_to_real: {
+      score: 0.8125,
+      label: "research_ready",
+      registered_count: 5,
+      available_count: 1,
+      planned_count: 4,
+      sensitive_count: 3,
+      gaps: [{ code: "insufficient_available_real_baselines", severity: "high" }],
+    },
+    attribution_validation: {
+      score: 1,
+      label: "research_ready",
+      rows: 48,
+      repeats: 3,
+      robust_profiles: ["all", "gap_only"],
+      gaps: [],
+    },
+    classifier: {
+      score: 0,
+      label: "not_started",
+      vector_count: 0,
+      label_count: 0,
+      gaps: [{ code: "missing_classifier_report", severity: "high" }],
+    },
+    bitcoin_integration: {
+      score: 0.35,
+      label: "scaffold_ready",
+      related_baseline_count: 1,
+      gaps: [{ code: "missing_bitcoin_risk_report", severity: "medium" }],
+    },
+  },
+  blocking_gaps: [
+    { dimension: "sim_to_real", code: "insufficient_available_real_baselines", severity: "high" },
+    { dimension: "classifier", code: "missing_classifier_report", severity: "high" },
+  ],
+  next_actions: [
+    {
+      priority: "P0",
+      track: "sim-to-real",
+      action: "Generate at least two local owned-library aggregate baselines with matched bit-length and sample counts.",
+    },
+    {
+      priority: "P0",
+      track: "classifier",
+      action: "Export labelled feature vectors for OpenSSL, BoringSSL, Go, and a suspicious sample before trusting classifier output.",
+    },
+    {
+      priority: "P1",
+      track: "bitcoin",
+      action: "Bundle a Bitcoin risk report from owned or public metadata summaries and compare it with registered baselines.",
+    },
+  ],
+};
+
 const generatorCopy = {
   next_prime:
     "next_prime sampling changes the observed prime measure by weighting each prime by its left gap.",
@@ -225,6 +284,9 @@ const outputs = {
   snapshotResidueDrift: document.querySelector("#snapshotResidueDrift"),
   baselineRegistrySummary: document.querySelector("#baselineRegistrySummary"),
   baselineRegistryRows: document.querySelector("#baselineRegistryRows"),
+  readinessSummary: document.querySelector("#readinessSummary"),
+  readinessDimensions: document.querySelector("#readinessDimensions"),
+  readinessActions: document.querySelector("#readinessActions"),
   attributionSummary: document.querySelector("#attributionSummary"),
   attributionGridSvg: document.querySelector("#attributionGridSvg"),
   attributionProfileRows: document.querySelector("#attributionProfileRows"),
@@ -289,6 +351,7 @@ window.addEventListener("resize", () => {
 runExperiment();
 loadSnapshots();
 loadRealBaselineManifest();
+loadResearchReadiness();
 loadAttributionGrid();
 renderPrediction();
 
@@ -1109,6 +1172,60 @@ function renderRealBaselineManifest() {
     .join("");
 }
 
+async function loadResearchReadiness() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.researchReadiness = bundledResearchReadiness;
+    } else {
+      const response = await fetch("data/research_readiness.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`research readiness ${response.status}`);
+      state.researchReadiness = await response.json();
+    }
+  } catch (error) {
+    state.researchReadiness = bundledResearchReadiness;
+  }
+  renderResearchReadiness();
+}
+
+function renderResearchReadiness() {
+  if (!outputs.readinessSummary || !outputs.readinessDimensions || !outputs.readinessActions) return;
+  const report = state.researchReadiness || bundledResearchReadiness;
+  const overall = report.overall || {};
+  const dimensions = report.dimensions || {};
+  const blocking = report.blocking_gaps || [];
+  outputs.readinessSummary.innerHTML = `
+    <div><span>Overall</span><strong>${formatPercent(overall.score || 0)}</strong><small>${escapeHtml(overall.label || "unknown")}</small></div>
+    <div><span>Blocking gaps</span><strong>${formatNumber(blocking.length)}</strong><small>high priority</small></div>
+    <div><span>Real baselines</span><strong>${formatNumber(dimensions.sim_to_real?.available_count || 0)}</strong><small>available</small></div>
+    <div><span>Robust profiles</span><strong>${formatNumber((dimensions.attribution_validation?.robust_profiles || []).length)}</strong><small>controlled</small></div>
+  `;
+  outputs.readinessDimensions.innerHTML = Object.entries(dimensions)
+    .map(([name, dimension]) => {
+      const gaps = dimension.gaps || [];
+      return `
+        <div class="readiness-card">
+          <div>
+            <strong>${formatDimensionName(name)}</strong>
+            <em class="${readinessClass(dimension.label)}">${escapeHtml(dimension.label || "unknown")}</em>
+          </div>
+          <meter min="0" max="1" value="${Number(dimension.score || 0)}"></meter>
+          <span>${formatPercent(dimension.score || 0)} readiness</span>
+          <p>${formatDimensionEvidence(name, dimension)}</p>
+          <small>${gaps.length ? `${gaps.length} gap${gaps.length === 1 ? "" : "s"}` : "no active gap"}</small>
+        </div>
+      `;
+    })
+    .join("");
+  outputs.readinessActions.innerHTML = (report.next_actions || [])
+    .map((action) => `
+      <li>
+        <strong>${escapeHtml(action.priority || "P?")} ${escapeHtml(action.track || "research")}</strong>
+        <span>${escapeHtml(action.action || "")}</span>
+      </li>
+    `)
+    .join("");
+}
+
 async function loadAttributionGrid() {
   try {
     if (window.location.protocol === "file:") {
@@ -1388,6 +1505,33 @@ function escapeHtml(value) {
       "'": "&#39;",
     }[character]
   ));
+}
+
+function formatDimensionName(value) {
+  return String(value).replaceAll("_", " ");
+}
+
+function readinessClass(label) {
+  if (label === "research_ready") return "is-ready";
+  if (label === "prototype_ready") return "is-prototype";
+  if (label === "scaffold_ready") return "is-scaffold";
+  return "is-not-started";
+}
+
+function formatDimensionEvidence(name, dimension) {
+  if (name === "sim_to_real") {
+    return `${formatNumber(dimension.registered_count || 0)} registered, ${formatNumber(dimension.planned_count || 0)} planned, ${formatNumber(dimension.sensitive_count || 0)} local-sensitive.`;
+  }
+  if (name === "attribution_validation") {
+    return `${formatNumber(dimension.rows || 0)} rows, ${formatNumber(dimension.repeats || 0)} repeats, ${(dimension.robust_profiles || []).join(", ") || "no robust profile"}.`;
+  }
+  if (name === "classifier") {
+    return `${formatNumber(dimension.vector_count || 0)} vectors across ${formatNumber(dimension.label_count || 0)} labels.`;
+  }
+  if (name === "bitcoin_integration") {
+    return `${formatNumber(dimension.related_baseline_count || 0)} related baseline, risk ${dimension.risk_level || "not bundled"}.`;
+  }
+  return `${formatNumber(dimension.gaps?.length || 0)} active gaps.`;
 }
 
 function formatCompact(value) {
