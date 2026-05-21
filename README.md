@@ -16,6 +16,7 @@
 - Registers real-world baseline manifests for OpenSSL, BoringSSL, Go, Bitcoin Core, and wallet/library samples without publishing sensitive key material.
 - Exports fixed-length fingerprint vectors and runs a dependency-free Crypto-Classifier baseline before heavier ML experiments.
 - Scores end-to-end research readiness across Sim-to-Real baselines, attribution validation, classifier data, and Bitcoin integration.
+- Bundles checksummed evidence packs that state publication gates and claim limits.
 - Audits Bitcoin secp256k1 constants and ECDSA signature metadata for defensive nonce-risk indicators.
 
 ## Interactive Conjecture Lab
@@ -31,6 +32,8 @@ The Attribution Grid panel displays a bundled paired benchmark from `data/attrib
 The Baseline Lab panel reads `data/baselines/real_world/manifest.json` and shows which real-world baseline families are available, planned, or intentionally local-only.
 
 The Research Readiness panel reads `data/research_readiness.json` and surfaces blocking gaps before any real-world attribution claim is treated as strong.
+
+The Evidence Pack panel reads `data/evidence_pack.json` and shows checksums, publication gates, and the maximum safe claim level for the bundled artifacts.
 
 ## Input format
 
@@ -62,6 +65,7 @@ python -m prime_audit.cli real-baseline-manifest --output data/baselines/real_wo
 python -m prime_audit.cli export-feature-vectors --fingerprints openssl=data/openssl_fingerprint.json suspicious=data/suspicious_fingerprint.json --output data/feature_vectors.json
 python -m prime_audit.cli crypto-classifier --features data/feature_vectors.json --output data/crypto_classifier_report.json
 python -m prime_audit.cli research-readiness --manifest data/baselines/real_world/manifest.json --attribution-grid data/attribution_confound_grid.json --output data/research_readiness.json
+python -m prime_audit.cli evidence-pack --manifest data/baselines/real_world/manifest.json --readiness data/research_readiness.json --attribution-grid data/attribution_confound_grid.json --output data/evidence_pack.json
 python -m prime_audit.cli attribution-benchmark --limit 200000 --train-count 80 --test-count 40 --trials 3 --control-mode bit_length --output data/attribution_benchmark.json
 python -m prime_audit.cli attribution-grid --limits 50000 200000 --train-counts 40 80 --test-counts 20 40 --trials 3 --repeats 3 --output data/attribution_confound_grid.json
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json

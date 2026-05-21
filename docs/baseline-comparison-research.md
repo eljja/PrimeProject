@@ -81,3 +81,4 @@ python -m prime_audit.cli compare-baselines `
 4. Bitcoin Core ECDSA/Schnorr nonce metadata sample을 `bitcoin-risk-report`와 연결한다.
 5. `export-feature-vectors`와 `crypto-classifier`로 distance 기반 비교가 classifier에서도 재현되는지 확인한다.
 6. `research-readiness`로 실세계 attribution 주장을 막는 high-priority gap을 매 실험마다 갱신한다.
+7. `evidence-pack`으로 공개 가능한 claim level과 artifact checksum을 함께 고정한다.

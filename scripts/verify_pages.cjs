@@ -52,6 +52,8 @@ async function main() {
     await page.waitForFunction(() => document.querySelectorAll("#attributionProfileRows tr").length >= 3);
     await page.click("[data-scroll-target='readiness-panel']");
     await page.waitForFunction(() => document.querySelectorAll("#readinessDimensions .readiness-card").length >= 4);
+    await page.click("[data-scroll-target='evidence-panel']");
+    await page.waitForFunction(() => document.querySelectorAll("#evidenceGateRows .evidence-row").length >= 5);
     await page.screenshot({
       path: path.join(root, "data", "conjecture_lab_desktop.png"),
       fullPage: true,
@@ -84,6 +86,9 @@ async function main() {
       readinessPanel: document.querySelector("#readiness-panel").textContent,
       readinessCards: document.querySelectorAll("#readinessDimensions .readiness-card").length,
       readinessActions: document.querySelectorAll("#readinessActions li").length,
+      evidencePanel: document.querySelector("#evidence-panel").textContent,
+      evidenceGates: document.querySelectorAll("#evidenceGateRows .evidence-row").length,
+      evidenceArtifacts: document.querySelectorAll("#evidenceArtifactRows .evidence-row").length,
     }));
 
     const mobile = await browser.newPage({
@@ -142,6 +147,15 @@ async function main() {
     metrics.readinessActions < 2 ||
     !metrics.readinessPanel.includes("Research Readiness") ||
     !metrics.readinessPanel.includes("prototype_ready")
+  ) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (
+    metrics.evidenceGates < 5 ||
+    metrics.evidenceArtifacts < 3 ||
+    !metrics.evidencePanel.includes("Evidence Pack") ||
+    !metrics.evidencePanel.includes("public_demo_only")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

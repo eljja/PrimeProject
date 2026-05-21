@@ -10,6 +10,7 @@ const state = {
   attributionGrid: null,
   realBaselineManifest: null,
   researchReadiness: null,
+  evidencePack: null,
 };
 
 const limitSlider = {
@@ -226,6 +227,30 @@ const bundledResearchReadiness = {
   ],
 };
 
+const bundledEvidencePack = {
+  schema: "primeproject.evidence-pack.v1",
+  claim_level: {
+    level: "public_demo_only",
+    statement: "Safe to publish as a research scaffold, not as real-world attribution evidence.",
+    failed_gate_count: 3,
+    failed_high_gate_count: 2,
+  },
+  publication_gates: [
+    { code: "sensitive_publication_gate", passed: true, severity: "critical" },
+    { code: "real_baseline_gate", passed: false, severity: "high" },
+    { code: "controlled_signal_gate", passed: true, severity: "high" },
+    { code: "classifier_gate", passed: false, severity: "high" },
+    { code: "bitcoin_integration_gate", passed: false, severity: "medium" },
+    { code: "reproducibility_gate", passed: true, severity: "medium" },
+  ],
+  artifact_count: 3,
+  artifacts: [
+    { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
+    { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
+    { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
+  ],
+};
+
 const generatorCopy = {
   next_prime:
     "next_prime sampling changes the observed prime measure by weighting each prime by its left gap.",
@@ -287,6 +312,9 @@ const outputs = {
   readinessSummary: document.querySelector("#readinessSummary"),
   readinessDimensions: document.querySelector("#readinessDimensions"),
   readinessActions: document.querySelector("#readinessActions"),
+  evidenceSummary: document.querySelector("#evidenceSummary"),
+  evidenceGateRows: document.querySelector("#evidenceGateRows"),
+  evidenceArtifactRows: document.querySelector("#evidenceArtifactRows"),
   attributionSummary: document.querySelector("#attributionSummary"),
   attributionGridSvg: document.querySelector("#attributionGridSvg"),
   attributionProfileRows: document.querySelector("#attributionProfileRows"),
@@ -352,6 +380,7 @@ runExperiment();
 loadSnapshots();
 loadRealBaselineManifest();
 loadResearchReadiness();
+loadEvidencePack();
 loadAttributionGrid();
 renderPrediction();
 
@@ -1226,6 +1255,52 @@ function renderResearchReadiness() {
     .join("");
 }
 
+async function loadEvidencePack() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.evidencePack = bundledEvidencePack;
+    } else {
+      const response = await fetch("data/evidence_pack.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`evidence pack ${response.status}`);
+      state.evidencePack = await response.json();
+    }
+  } catch (error) {
+    state.evidencePack = bundledEvidencePack;
+  }
+  renderEvidencePack();
+}
+
+function renderEvidencePack() {
+  if (!outputs.evidenceSummary || !outputs.evidenceGateRows || !outputs.evidenceArtifactRows) return;
+  const pack = state.evidencePack || bundledEvidencePack;
+  const claim = pack.claim_level || {};
+  const gates = pack.publication_gates || [];
+  const failed = gates.filter((gateItem) => !gateItem.passed);
+  outputs.evidenceSummary.innerHTML = `
+    <div><span>Claim level</span><strong>${escapeHtml(claim.level || "unknown")}</strong><small>${escapeHtml(claim.statement || "")}</small></div>
+    <div><span>Failed gates</span><strong>${formatNumber(failed.length)}</strong><small>${formatNumber(claim.failed_high_gate_count || 0)} high</small></div>
+    <div><span>Artifacts</span><strong>${formatNumber(pack.artifact_count || (pack.artifacts || []).length)}</strong><small>checksummed</small></div>
+  `;
+  outputs.evidenceGateRows.innerHTML = gates
+    .map((gateItem) => `
+      <div class="evidence-row">
+        <strong>${escapeHtml(gateItem.code || "gate")}</strong>
+        <em class="${gateItem.passed ? "is-pass" : "is-fail"}">${gateItem.passed ? "pass" : "fail"}</em>
+        <span>${escapeHtml(gateItem.severity || "unknown")}</span>
+      </div>
+    `)
+    .join("");
+  outputs.evidenceArtifactRows.innerHTML = (pack.artifacts || [])
+    .map((artifact) => `
+      <div class="evidence-row artifact-row">
+        <strong>${escapeHtml(artifact.role || "artifact")}</strong>
+        <span>${escapeHtml(artifact.schema || "unknown schema")}</span>
+        <code>${escapeHtml(shortHash(artifact.sha256))}</code>
+      </div>
+    `)
+    .join("");
+}
+
 async function loadAttributionGrid() {
   try {
     if (window.location.protocol === "file:") {
@@ -1532,6 +1607,11 @@ function formatDimensionEvidence(name, dimension) {
     return `${formatNumber(dimension.related_baseline_count || 0)} related baseline, risk ${dimension.risk_level || "not bundled"}.`;
   }
   return `${formatNumber(dimension.gaps?.length || 0)} active gaps.`;
+}
+
+function shortHash(value) {
+  if (!value) return "missing";
+  return `${String(value).slice(0, 10)}...`;
 }
 
 function formatCompact(value) {

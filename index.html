@@ -29,6 +29,7 @@
           <button class="nav-button" data-scroll-target="fingerprint-panel">Fingerprint Lab</button>
           <button class="nav-button" data-scroll-target="baseline-panel">Baseline Lab</button>
           <button class="nav-button" data-scroll-target="readiness-panel">Readiness</button>
+          <button class="nav-button" data-scroll-target="evidence-panel">Evidence</button>
           <button class="nav-button" data-scroll-target="attribution-panel">Attribution Grid</button>
           <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
           <button class="nav-button" data-scroll-target="gap-distribution-panel">Gap Distribution</button>
@@ -290,6 +291,26 @@
               <div class="readiness-actions">
                 <h3>Next Actions</h3>
                 <ol id="readinessActions"></ol>
+              </div>
+            </div>
+          </section>
+
+          <section id="evidence-panel" class="panel evidence-panel">
+            <div class="panel-heading compact">
+              <div>
+                <h2>Evidence Pack</h2>
+                <p>Checksummed artifacts, publication gates, and claim limits for reproducible research output.</p>
+              </div>
+            </div>
+            <div class="evidence-summary" id="evidenceSummary"></div>
+            <div class="evidence-body">
+              <div class="evidence-gates">
+                <h3>Publication Gates</h3>
+                <div id="evidenceGateRows"></div>
+              </div>
+              <div class="evidence-artifacts">
+                <h3>Artifacts</h3>
+                <div id="evidenceArtifactRows"></div>
               </div>
             </div>
           </section>

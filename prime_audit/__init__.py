@@ -10,6 +10,7 @@ __all__ = [
     "catalog",
     "conjecture_lab",
     "crypto_classifier",
+    "evidence_pack",
     "feature_vectors",
     "fingerprints",
     "io",

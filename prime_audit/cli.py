@@ -11,6 +11,7 @@ from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .bitcoin_integration import build_bitcoin_generator_risk_report
 from .conjecture_lab import run_lab
 from .crypto_classifier import run_crypto_classifier
+from .evidence_pack import build_evidence_pack
 from .feature_vectors import build_feature_vector_payload, load_feature_vectors_from_files
 from .fingerprints import analyze_prime_generator_fingerprints
 from .io import load_records, write_report_json
@@ -150,6 +151,17 @@ def main() -> int:
     research_readiness_parser.add_argument("--classifier-report", default=None)
     research_readiness_parser.add_argument("--bitcoin-risk-report", default=None)
     research_readiness_parser.add_argument("--output", required=True)
+
+    evidence_pack_parser = subparsers.add_parser(
+        "evidence-pack",
+        help="Bundle checksums, readiness gates, and publication limits for research artifacts.",
+    )
+    evidence_pack_parser.add_argument("--manifest", required=True)
+    evidence_pack_parser.add_argument("--readiness", required=True)
+    evidence_pack_parser.add_argument("--attribution-grid", default=None)
+    evidence_pack_parser.add_argument("--classifier-report", default=None)
+    evidence_pack_parser.add_argument("--bitcoin-risk-report", default=None)
+    evidence_pack_parser.add_argument("--output", required=True)
 
     attribution_parser = subparsers.add_parser(
         "attribution-benchmark",
@@ -350,6 +362,47 @@ def main() -> int:
             attribution_grid=attribution_grid,
             classifier_report=classifier_report,
             bitcoin_risk_report=bitcoin_risk_report,
+        )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "evidence-pack":
+        manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
+        readiness = json.loads(Path(args.readiness).read_text(encoding="utf-8"))
+        attribution_grid = (
+            json.loads(Path(args.attribution_grid).read_text(encoding="utf-8"))
+            if args.attribution_grid
+            else None
+        )
+        classifier_report = (
+            json.loads(Path(args.classifier_report).read_text(encoding="utf-8"))
+            if args.classifier_report
+            else None
+        )
+        bitcoin_risk_report = (
+            json.loads(Path(args.bitcoin_risk_report).read_text(encoding="utf-8"))
+            if args.bitcoin_risk_report
+            else None
+        )
+        paths = {
+            "manifest": args.manifest,
+            "readiness": args.readiness,
+        }
+        if args.attribution_grid:
+            paths["attribution_grid"] = args.attribution_grid
+        if args.classifier_report:
+            paths["classifier_report"] = args.classifier_report
+        if args.bitcoin_risk_report:
+            paths["bitcoin_risk_report"] = args.bitcoin_risk_report
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_evidence_pack(
+            manifest=manifest,
+            readiness=readiness,
+            attribution_grid=attribution_grid,
+            classifier_report=classifier_report,
+            bitcoin_risk_report=bitcoin_risk_report,
+            file_paths=paths,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0

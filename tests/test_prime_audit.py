@@ -24,6 +24,7 @@ from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
 from prime_audit.crypto_classifier import run_crypto_classifier
+from prime_audit.evidence_pack import build_evidence_pack
 from prime_audit.feature_vectors import (
     build_feature_vector_payload,
     feature_vector_from_fingerprint,
@@ -419,6 +420,22 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertGreater(len(readiness["blocking_gaps"]), 0)
         self.assertGreater(len(readiness["next_actions"]), 0)
         self.assertLess(readiness["overall"]["score"], 0.8)
+
+    def test_evidence_pack_limits_claims_when_gates_fail(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        readiness = build_research_readiness_report(manifest=manifest)
+        pack = build_evidence_pack(
+            manifest=manifest,
+            readiness=readiness,
+            generated_at="2026-05-22T00:00:00+00:00",
+        )
+
+        self.assertEqual(pack["schema"], "primeproject.evidence-pack.v1")
+        self.assertEqual(pack["claim_level"]["level"], "public_demo_only")
+        failed = {gate["code"] for gate in pack["publication_gates"] if not gate["passed"]}
+        self.assertIn("real_baseline_gate", failed)
+        self.assertIn("classifier_gate", failed)
+        self.assertGreaterEqual(len(pack["local_collection_protocols"]), 3)
 
 
 def base64_lines(data: bytes) -> str:

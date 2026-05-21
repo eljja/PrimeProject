@@ -1,0 +1,175 @@
+{
+  "schema": "primeproject.evidence-pack.v1",
+  "generated_at": "2026-05-21T16:24:40+00:00",
+  "claim_level": {
+    "level": "public_demo_only",
+    "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
+    "failed_gate_count": 3,
+    "failed_high_gate_count": 2
+  },
+  "publication_gates": [
+    {
+      "code": "sensitive_publication_gate",
+      "passed": true,
+      "severity": "critical",
+      "message": "Public bundle must not expose private primes, seeds, or sensitive owned samples.",
+      "evidence": {
+        "sensitive_available": []
+      }
+    },
+    {
+      "code": "real_baseline_gate",
+      "passed": false,
+      "severity": "high",
+      "message": "Real-world attribution needs at least two available aggregate baselines.",
+      "evidence": {
+        "available_count": 1
+      }
+    },
+    {
+      "code": "controlled_signal_gate",
+      "passed": true,
+      "severity": "high",
+      "message": "At least one profile should survive bit-length control before using the signal.",
+      "evidence": {
+        "robust_profiles": [
+          "all",
+          "gap_only"
+        ]
+      }
+    },
+    {
+      "code": "classifier_gate",
+      "passed": false,
+      "severity": "high",
+      "message": "Classifier claims need labelled feature vectors across at least three labels.",
+      "evidence": {
+        "label_count": 0,
+        "vector_count": 0
+      }
+    },
+    {
+      "code": "bitcoin_integration_gate",
+      "passed": false,
+      "severity": "medium",
+      "message": "Bitcoin claims need a bundled nonce-risk report or a completed integration score.",
+      "evidence": {
+        "risk_level": null
+      }
+    },
+    {
+      "code": "reproducibility_gate",
+      "passed": true,
+      "severity": "medium",
+      "message": "Published evidence should include checksummed source JSON artifacts.",
+      "evidence": {
+        "artifact_count": 3
+      }
+    }
+  ],
+  "artifact_count": 3,
+  "artifacts": [
+    {
+      "role": "attribution_grid",
+      "path": "data/attribution_confound_grid.json",
+      "exists": true,
+      "sha256": "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318",
+      "schema": "primeproject.attribution-confound-grid.v1",
+      "bytes": 174610
+    },
+    {
+      "role": "manifest",
+      "path": "data/baselines/real_world/manifest.json",
+      "exists": true,
+      "sha256": "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7",
+      "schema": "primeproject.real-world-baseline-manifest.v1",
+      "bytes": 3373
+    },
+    {
+      "role": "readiness",
+      "path": "data/research_readiness.json",
+      "exists": true,
+      "sha256": "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc",
+      "schema": "primeproject.research-readiness.v1",
+      "bytes": 3152
+    }
+  ],
+  "evidence_summary": {
+    "manifest": {
+      "entry_count": 5,
+      "status_counts": {
+        "planned": 4,
+        "available": 1
+      },
+      "validation_passed": true
+    },
+    "readiness": {
+      "score": 0.5869,
+      "label": "prototype_ready"
+    },
+    "attribution": {
+      "rows": 48,
+      "repeats": 3,
+      "profiles": [
+        "all",
+        "bit_length_only",
+        "gap_only",
+        "low_bits_only",
+        "residue_only"
+      ]
+    },
+    "classifier": {
+      "present": false,
+      "label_count": 0,
+      "vector_count": 0,
+      "accuracy": null
+    },
+    "bitcoin": {
+      "present": false,
+      "risk_level": null
+    }
+  },
+  "required_evidence": [
+    {
+      "item": "two_available_real_baselines",
+      "status": "missing",
+      "reason": "Needed to compare suspicious objects against more than one real generator family."
+    },
+    {
+      "item": "labelled_feature_vectors",
+      "status": "missing",
+      "reason": "Needed before classifier output can support real-world attribution."
+    },
+    {
+      "item": "bitcoin_nonce_risk_report",
+      "status": "missing",
+      "reason": "Needed for wallet/library nonce fingerprint claims."
+    }
+  ],
+  "local_collection_protocols": [
+    {
+      "track": "openssl-rsa",
+      "sample_target": ">=500 p/q prime values per bit length, aggregate only",
+      "public_output": "fingerprint JSON, baseline JSON, feature vectors",
+      "private_output": "raw private keys and primes stay local"
+    },
+    {
+      "track": "boringssl-rsa",
+      "sample_target": "match OpenSSL bit lengths and sample counts",
+      "public_output": "aggregate fingerprint and baseline distance only",
+      "private_output": "raw generated key material stays local"
+    },
+    {
+      "track": "go-crypto-rsa",
+      "sample_target": "match OpenSSL/BoringSSL matrix",
+      "public_output": "aggregate fingerprint and feature vectors",
+      "private_output": "raw generated key material stays local"
+    },
+    {
+      "track": "bitcoin-wallet-signature",
+      "sample_target": "signature metadata grouped by wallet/library/version when lawful and owned/public",
+      "public_output": "nonce-risk summary and distribution fingerprint",
+      "private_output": "seeds, private keys, and deanonymizing metadata stay local"
+    }
+  ]
+}
