@@ -72,6 +72,8 @@ async function main() {
     attributionSummary: document.querySelector("#attributionSummary").textContent,
     attributionRows: document.querySelectorAll("#attributionProfileRows tr").length,
     attributionSvgCells: document.querySelectorAll("#attributionGridSvg rect").length,
+    attributionHeader: document.querySelector(".attribution-table thead").textContent,
+    attributionFirstRow: document.querySelector("#attributionProfileRows tr").textContent,
     bitcoinPanel: document.querySelector("#bitcoin-panel").textContent,
     fingerprintPanel: document.querySelector("#fingerprint-panel").textContent,
     baselinePanel: document.querySelector("#baseline-panel").textContent,
@@ -105,7 +107,8 @@ async function main() {
   if (
     metrics.attributionRows < 3 ||
     metrics.attributionSvgCells < 3 ||
-    !metrics.attributionSummary.includes("Random baseline")
+    !metrics.attributionSummary.includes("Random baseline") ||
+    !metrics.attributionHeader.includes("Controlled p")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

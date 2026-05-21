@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from bisect import bisect_left
 from itertools import product
+from math import comb
 from random import Random
 from typing import Any, Iterable
 
@@ -197,6 +198,14 @@ def summarize_benchmark_row(
         profile_name: profile_result["accuracy"]
         for profile_name, profile_result in result["ablation"].items()
     }
+    profile_correct = {
+        profile_name: profile_result["correct"]
+        for profile_name, profile_result in result["ablation"].items()
+    }
+    profile_total = {
+        profile_name: profile_result["total"]
+        for profile_name, profile_result in result["ablation"].items()
+    }
     return {
         "pair_key": pair_key,
         "base_pair_key": base_pair_key or pair_key,
@@ -209,6 +218,8 @@ def summarize_benchmark_row(
         "control_mode": result["control"]["mode"],
         "accuracy": result["accuracy"],
         "profile_accuracy": profile_accuracy,
+        "profile_correct": profile_correct,
+        "profile_total": profile_total,
         "baseline_quality": result["baseline_quality"],
     }
 
@@ -240,6 +251,10 @@ def build_confound_deltas(
                     "profile": profile_name,
                     "uncontrolled_accuracy": uncontrolled_accuracy,
                     "controlled_accuracy": controlled_accuracy,
+                    "uncontrolled_correct": uncontrolled["profile_correct"][profile_name],
+                    "controlled_correct": controlled["profile_correct"][profile_name],
+                    "uncontrolled_total": uncontrolled["profile_total"][profile_name],
+                    "controlled_total": controlled["profile_total"][profile_name],
                     "accuracy_drop": delta,
                     "interpretation": interpret_confound_delta(
                         profile_name,
@@ -277,6 +292,10 @@ def summarize_confound_deltas(deltas: list[dict[str, Any]]) -> dict[str, Any]:
         uncontrolled_values = [delta["uncontrolled_accuracy"] for delta in profile_deltas]
         controlled_values = [delta["controlled_accuracy"] for delta in profile_deltas]
         drop_values = [delta["accuracy_drop"] for delta in profile_deltas]
+        uncontrolled_correct = sum(delta["uncontrolled_correct"] for delta in profile_deltas)
+        controlled_correct = sum(delta["controlled_correct"] for delta in profile_deltas)
+        uncontrolled_total = sum(delta["uncontrolled_total"] for delta in profile_deltas)
+        controlled_total = sum(delta["controlled_total"] for delta in profile_deltas)
         uncontrolled_stats = distribution_summary(uncontrolled_values)
         controlled_stats = distribution_summary(controlled_values)
         drop_stats = distribution_summary(drop_values)
@@ -287,6 +306,16 @@ def summarize_confound_deltas(deltas: list[dict[str, Any]]) -> dict[str, Any]:
             "uncontrolled_accuracy": uncontrolled_stats,
             "controlled_accuracy": controlled_stats,
             "accuracy_drop": drop_stats,
+            "uncontrolled_significance": binomial_significance(
+                uncontrolled_correct,
+                uncontrolled_total,
+                1 / len(ATTRIBUTION_GENERATORS),
+            ),
+            "controlled_significance": binomial_significance(
+                controlled_correct,
+                controlled_total,
+                1 / len(ATTRIBUTION_GENERATORS),
+            ),
             "runs": len(profile_deltas),
             "interpretations": count_labels(delta["interpretation"] for delta in profile_deltas),
         }
@@ -342,14 +371,57 @@ def distribution_summary(values: list[float]) -> dict[str, float | int]:
     }
 
 
+def binomial_significance(correct: int, total: int, baseline_probability: float) -> dict[str, Any]:
+    p_value = binomial_tail_probability(correct, total, baseline_probability)
+    if p_value <= 0.001:
+        label = "highly_significant"
+    elif p_value <= 0.01:
+        label = "significant_01"
+    elif p_value <= 0.05:
+        label = "significant_05"
+    else:
+        label = "not_significant"
+    return {
+        "correct": correct,
+        "total": total,
+        "baseline_probability": baseline_probability,
+        "p_value": p_value,
+        "label": label,
+    }
+
+
+def binomial_tail_probability(successes: int, trials: int, probability: float) -> float:
+    if trials < 0 or successes < 0:
+        raise ValueError("successes and trials must be non-negative")
+    if successes > trials:
+        return 0.0
+    if trials == 0:
+        return 1.0
+    if probability <= 0:
+        return 1.0 if successes <= 0 else 0.0
+    if probability >= 1:
+        return 1.0
+    return min(
+        1.0,
+        sum(
+            comb(trials, k) * (probability**k) * ((1 - probability) ** (trials - k))
+            for k in range(successes, trials + 1)
+        ),
+    )
+
+
 def interpret_profile_summary(profile_name: str, summary: dict[str, Any]) -> str:
     random_accuracy = 1 / len(ATTRIBUTION_GENERATORS)
     drop = summary["accuracy_drop"]
     controlled = summary["controlled_accuracy"]
     uncontrolled = summary["uncontrolled_accuracy"]
+    controlled_significance = summary.get("controlled_significance", {})
     if profile_name == "bit_length_only" and drop["ci95_low"] > 0.05:
         return "robust_bit_length_confound"
-    if controlled["ci95_low"] > random_accuracy + 0.1:
+    if (
+        controlled["ci95_low"] > random_accuracy + 0.1
+        and controlled_significance.get("p_value", 1.0) <= 0.05
+    ):
         return "robust_survives_bit_length_control"
     if uncontrolled["ci95_low"] > random_accuracy + 0.1 and controlled["ci95_high"] <= random_accuracy + 0.1:
         return "robust_control_sensitive"

@@ -91,6 +91,7 @@ const bundledAttributionGrid = {
         mean_controlled_accuracy: 0.5,
         mean_accuracy_drop: 0.3333,
         accuracy_drop: { mean: 0.3333, ci95_low: -0.05, ci95_high: 0.72 },
+        controlled_significance: { p_value: 0.12, label: "not_significant" },
         robust_interpretation: "inconclusive",
         interpretations: { inconclusive: 1 },
       },
@@ -99,6 +100,7 @@ const bundledAttributionGrid = {
         mean_controlled_accuracy: 0.3333,
         mean_accuracy_drop: 0.5,
         accuracy_drop: { mean: 0.5, ci95_low: -0.02, ci95_high: 1.0 },
+        controlled_significance: { p_value: 0.52, label: "not_significant" },
         robust_interpretation: "inconclusive",
         interpretations: { bit_length_confound: 1 },
       },
@@ -107,6 +109,7 @@ const bundledAttributionGrid = {
         mean_controlled_accuracy: 0.5,
         mean_accuracy_drop: 0.1667,
         accuracy_drop: { mean: 0.1667, ci95_low: -0.21, ci95_high: 0.55 },
+        controlled_significance: { p_value: 0.12, label: "not_significant" },
         robust_interpretation: "inconclusive",
         interpretations: { inconclusive: 1 },
       },
@@ -1058,6 +1061,7 @@ function renderAttributionGrid() {
         <td>${profile.profile}</td>
         <td>${formatPercent(profile.mean_uncontrolled_accuracy)}</td>
         <td>${formatPercent(profile.mean_controlled_accuracy)}</td>
+        <td>${formatPValue(profile.controlled_significance?.p_value)}</td>
         <td class="${profile.mean_accuracy_drop > 0.05 ? "is-drop" : "is-stable"}">${formatSignedPercent(profile.mean_accuracy_drop)}</td>
         <td>${formatPercentInterval(dropStats)}</td>
         <td>${interpretation}</td>
@@ -1297,6 +1301,12 @@ function formatPercentInterval(summary) {
     return `${formatSignedPercent(summary.ci95_low)} to ${formatSignedPercent(summary.ci95_high)}`;
   }
   return "n/a";
+}
+
+function formatPValue(value) {
+  if (!Number.isFinite(value)) return "n/a";
+  if (value < 0.001) return "<0.001";
+  return value.toFixed(3);
 }
 
 function dominantInterpretation(interpretations) {

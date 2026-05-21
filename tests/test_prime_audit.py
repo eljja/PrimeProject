@@ -286,6 +286,8 @@ class PrimeAuditTests(unittest.TestCase):
         bit_length = result["summary"]["profiles"]["bit_length_only"]
         self.assertIn("controlled_accuracy", bit_length)
         self.assertIn("ci95_low", bit_length["controlled_accuracy"])
+        self.assertIn("controlled_significance", bit_length)
+        self.assertIn("p_value", bit_length["controlled_significance"])
         self.assertIn("robust_interpretation", bit_length)
 
     def test_baseline_comparison_accepts_ablation_weights(self) -> None:
