@@ -48,6 +48,7 @@ const bundledSnapshots = [
 const bundledAttributionGrid = {
   schema: "primeproject.attribution-confound-grid.v1",
   random_baseline_accuracy: 1 / 3,
+  repeats: 3,
   deltas: [
     {
       pair_key: "limit=50000;train=40;test=20",
@@ -89,28 +90,28 @@ const bundledAttributionGrid = {
         mean_uncontrolled_accuracy: 0.8333,
         mean_controlled_accuracy: 0.5,
         mean_accuracy_drop: 0.3333,
+        accuracy_drop: { mean: 0.3333, ci95_low: -0.05, ci95_high: 0.72 },
+        robust_interpretation: "inconclusive",
         interpretations: { inconclusive: 1 },
       },
       bit_length_only: {
         mean_uncontrolled_accuracy: 0.8333,
         mean_controlled_accuracy: 0.3333,
         mean_accuracy_drop: 0.5,
+        accuracy_drop: { mean: 0.5, ci95_low: -0.02, ci95_high: 1.0 },
+        robust_interpretation: "inconclusive",
         interpretations: { bit_length_confound: 1 },
       },
       gap_only: {
         mean_uncontrolled_accuracy: 0.6667,
         mean_controlled_accuracy: 0.5,
         mean_accuracy_drop: 0.1667,
+        accuracy_drop: { mean: 0.1667, ci95_low: -0.21, ci95_high: 0.55 },
+        robust_interpretation: "inconclusive",
         interpretations: { inconclusive: 1 },
       },
     },
-    most_confound_sensitive_profiles: [
-      {
-        profile: "bit_length_only",
-        mean_accuracy_drop: 0.5,
-        interpretations: { bit_length_confound: 1 },
-      },
-    ],
+    most_confound_sensitive_profiles: [],
   },
 };
 
@@ -1041,6 +1042,7 @@ function renderAttributionGrid() {
   const strongestConfound = (grid.summary.most_confound_sensitive_profiles || [])[0];
   outputs.attributionSummary.innerHTML = `
     <div><span>Runs</span><strong>${formatNumber((grid.rows || []).length || (grid.deltas || []).length)}</strong></div>
+    <div><span>Repeats</span><strong>${formatNumber(grid.repeats || 1)}</strong></div>
     <div><span>Random baseline</span><strong>${formatPercent(grid.random_baseline_accuracy || 1 / 3)}</strong></div>
     <div><span>Best controlled</span><strong>${strongestControlled ? strongestControlled.profile : "n/a"}</strong></div>
     <div><span>Controlled accuracy</span><strong>${strongestControlled ? formatPercent(strongestControlled.mean_controlled_accuracy) : "n/a"}</strong></div>
@@ -1050,12 +1052,14 @@ function renderAttributionGrid() {
   outputs.attributionProfileRows.innerHTML = profiles
     .sort((a, b) => b.mean_controlled_accuracy - a.mean_controlled_accuracy)
     .map((profile) => {
-      const interpretation = dominantInterpretation(profile.interpretations || {});
+      const dropStats = profile.accuracy_drop || { mean: profile.mean_accuracy_drop };
+      const interpretation = profile.robust_interpretation || dominantInterpretation(profile.interpretations || {});
       return `<tr>
         <td>${profile.profile}</td>
         <td>${formatPercent(profile.mean_uncontrolled_accuracy)}</td>
         <td>${formatPercent(profile.mean_controlled_accuracy)}</td>
         <td class="${profile.mean_accuracy_drop > 0.05 ? "is-drop" : "is-stable"}">${formatSignedPercent(profile.mean_accuracy_drop)}</td>
+        <td>${formatPercentInterval(dropStats)}</td>
         <td>${interpretation}</td>
       </tr>`;
     })
@@ -1067,14 +1071,14 @@ function renderAttributionHeatmap(grid) {
   const width = 760;
   const height = 360;
   const padding = { top: 48, right: 34, bottom: 54, left: 126 };
-  const deltas = grid.deltas || [];
+  const deltas = aggregateAttributionDeltas(grid.deltas || []);
   const profiles = [...new Set(deltas.map((delta) => delta.profile))];
-  const pairs = [...new Set(deltas.map((delta) => delta.pair_key))];
+  const pairs = [...new Set(deltas.map((delta) => delta.base_pair_key || delta.pair_key))];
   const maxPairs = Math.min(10, pairs.length);
   const shownPairs = pairs.slice(0, maxPairs);
   const cellWidth = (width - padding.left - padding.right) / Math.max(1, shownPairs.length);
   const cellHeight = Math.min(42, (height - padding.top - padding.bottom) / Math.max(1, profiles.length));
-  const lookup = new Map(deltas.map((delta) => [`${delta.profile}|${delta.pair_key}`, delta]));
+  const lookup = new Map(deltas.map((delta) => [`${delta.profile}|${delta.base_pair_key || delta.pair_key}`, delta]));
   svg.innerHTML = "";
   appendSvg(svg, "text", { x: padding.left, y: 24, class: "chart-title" }).textContent =
     "accuracy drop after bit-length control";
@@ -1117,6 +1121,29 @@ function renderAttributionHeatmap(grid) {
       }
     });
   });
+}
+
+function aggregateAttributionDeltas(deltas) {
+  const grouped = new Map();
+  deltas.forEach((delta) => {
+    const pair = delta.base_pair_key || delta.pair_key;
+    const key = `${delta.profile}|${pair}`;
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        profile: delta.profile,
+        pair_key: pair,
+        base_pair_key: pair,
+        values: [],
+      });
+    }
+    grouped.get(key).values.push(delta.accuracy_drop);
+  });
+  return [...grouped.values()].map((entry) => ({
+    profile: entry.profile,
+    pair_key: entry.pair_key,
+    base_pair_key: entry.base_pair_key,
+    accuracy_drop: mean(entry.values),
+  }));
 }
 
 function setSnapshotImage(image, path, alt) {
@@ -1214,6 +1241,10 @@ function sum(values) {
   return values.reduce((total, value) => total + value, 0);
 }
 
+function mean(values) {
+  return values.length ? sum(values) / values.length : 0;
+}
+
 function maxOf(values) {
   let maximum = -Infinity;
   values.forEach((value) => {
@@ -1259,6 +1290,13 @@ function formatSignedPercent(value) {
   const numeric = Number(value) || 0;
   const sign = numeric > 0 ? "+" : "";
   return `${sign}${(numeric * 100).toFixed(1)}%`;
+}
+
+function formatPercentInterval(summary) {
+  if (summary && Number.isFinite(summary.ci95_low) && Number.isFinite(summary.ci95_high)) {
+    return `${formatSignedPercent(summary.ci95_low)} to ${formatSignedPercent(summary.ci95_high)}`;
+  }
+  return "n/a";
 }
 
 function dominantInterpretation(interpretations) {

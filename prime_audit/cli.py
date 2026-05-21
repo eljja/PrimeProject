@@ -127,6 +127,12 @@ def main() -> int:
     attribution_grid_parser.add_argument("--train-counts", type=int, nargs="+", required=True)
     attribution_grid_parser.add_argument("--test-counts", type=int, nargs="+", required=True)
     attribution_grid_parser.add_argument("--trials", type=int, default=3)
+    attribution_grid_parser.add_argument(
+        "--repeats",
+        type=int,
+        default=1,
+        help="Repeat each paired grid cell with independent seeds for confidence intervals.",
+    )
     attribution_grid_parser.add_argument("--seed", type=int, default=20260521)
     attribution_grid_parser.add_argument("--gap-max-steps", type=int, default=1024)
     attribution_grid_parser.add_argument("--no-ablation", action="store_true")
@@ -254,6 +260,7 @@ def main() -> int:
             train_counts=args.train_counts,
             test_counts=args.test_counts,
             trials=args.trials,
+            repeats=args.repeats,
             seed=args.seed,
             gap_max_steps=args.gap_max_steps,
             include_ablation=not args.no_ablation,

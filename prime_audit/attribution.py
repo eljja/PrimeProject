@@ -127,35 +127,40 @@ def run_attribution_confound_grid(
     train_counts: list[int],
     test_counts: list[int],
     trials: int = 3,
+    repeats: int = 1,
     seed: int = 20260521,
     gap_max_steps: int = 1024,
     include_ablation: bool = True,
 ) -> dict[str, Any]:
     if not limits or not train_counts or not test_counts:
         raise ValueError("limits, train_counts, and test_counts must be non-empty")
+    if repeats < 1:
+        raise ValueError("repeats must be positive")
 
     rows = []
     paired_results: dict[str, dict[str, dict[str, Any]]] = {}
     for pair_index, (limit, train_count, test_count) in enumerate(
         product(limits, train_counts, test_counts)
     ):
-        pair_key = grid_pair_key(limit, train_count, test_count)
-        pair_seed = seed + pair_index
-        paired_results[pair_key] = {}
-        for control_mode in CONTROL_MODES:
-            result = run_synthetic_attribution_benchmark(
-                limit=limit,
-                train_count=train_count,
-                test_count=test_count,
-                trials=trials,
-                seed=pair_seed,
-                gap_max_steps=gap_max_steps,
-                include_ablation=include_ablation,
-                control_mode=control_mode,
-            )
-            row = summarize_benchmark_row(result, pair_key)
-            rows.append(row)
-            paired_results[pair_key][control_mode] = row
+        base_pair_key = grid_pair_key(limit, train_count, test_count)
+        for repeat_index in range(repeats):
+            pair_key = grid_pair_key(limit, train_count, test_count, repeat=repeat_index)
+            pair_seed = seed + pair_index * repeats + repeat_index
+            paired_results[pair_key] = {}
+            for control_mode in CONTROL_MODES:
+                result = run_synthetic_attribution_benchmark(
+                    limit=limit,
+                    train_count=train_count,
+                    test_count=test_count,
+                    trials=trials,
+                    seed=pair_seed,
+                    gap_max_steps=gap_max_steps,
+                    include_ablation=include_ablation,
+                    control_mode=control_mode,
+                )
+                row = summarize_benchmark_row(result, pair_key, base_pair_key, repeat_index)
+                rows.append(row)
+                paired_results[pair_key][control_mode] = row
 
     deltas = build_confound_deltas(paired_results)
     return {
@@ -164,6 +169,7 @@ def run_attribution_confound_grid(
         "train_counts": train_counts,
         "test_counts": test_counts,
         "trials": trials,
+        "repeats": repeats,
         "seed": seed,
         "gap_max_steps": gap_max_steps,
         "include_ablation": include_ablation,
@@ -174,17 +180,27 @@ def run_attribution_confound_grid(
     }
 
 
-def grid_pair_key(limit: int, train_count: int, test_count: int) -> str:
-    return f"limit={limit};train={train_count};test={test_count}"
+def grid_pair_key(limit: int, train_count: int, test_count: int, repeat: int | None = None) -> str:
+    key = f"limit={limit};train={train_count};test={test_count}"
+    if repeat is not None:
+        return f"{key};repeat={repeat}"
+    return key
 
 
-def summarize_benchmark_row(result: dict[str, Any], pair_key: str) -> dict[str, Any]:
+def summarize_benchmark_row(
+    result: dict[str, Any],
+    pair_key: str,
+    base_pair_key: str | None = None,
+    repeat: int = 0,
+) -> dict[str, Any]:
     profile_accuracy = {
         profile_name: profile_result["accuracy"]
         for profile_name, profile_result in result["ablation"].items()
     }
     return {
         "pair_key": pair_key,
+        "base_pair_key": base_pair_key or pair_key,
+        "repeat": repeat,
         "limit": result["limit"],
         "train_count": result["train_count"],
         "test_count": result["test_count"],
@@ -216,6 +232,8 @@ def build_confound_deltas(
             deltas.append(
                 {
                     "pair_key": pair_key,
+                    "base_pair_key": uncontrolled.get("base_pair_key", pair_key),
+                    "repeat": uncontrolled.get("repeat", 0),
                     "limit": uncontrolled["limit"],
                     "train_count": uncontrolled["train_count"],
                     "test_count": uncontrolled["test_count"],
@@ -259,13 +277,23 @@ def summarize_confound_deltas(deltas: list[dict[str, Any]]) -> dict[str, Any]:
         uncontrolled_values = [delta["uncontrolled_accuracy"] for delta in profile_deltas]
         controlled_values = [delta["controlled_accuracy"] for delta in profile_deltas]
         drop_values = [delta["accuracy_drop"] for delta in profile_deltas]
+        uncontrolled_stats = distribution_summary(uncontrolled_values)
+        controlled_stats = distribution_summary(controlled_values)
+        drop_stats = distribution_summary(drop_values)
         profile_summary[profile_name] = {
-            "mean_uncontrolled_accuracy": mean(uncontrolled_values),
-            "mean_controlled_accuracy": mean(controlled_values),
-            "mean_accuracy_drop": mean(drop_values),
+            "mean_uncontrolled_accuracy": uncontrolled_stats["mean"],
+            "mean_controlled_accuracy": controlled_stats["mean"],
+            "mean_accuracy_drop": drop_stats["mean"],
+            "uncontrolled_accuracy": uncontrolled_stats,
+            "controlled_accuracy": controlled_stats,
+            "accuracy_drop": drop_stats,
             "runs": len(profile_deltas),
             "interpretations": count_labels(delta["interpretation"] for delta in profile_deltas),
         }
+        profile_summary[profile_name]["robust_interpretation"] = interpret_profile_summary(
+            profile_name,
+            profile_summary[profile_name],
+        )
 
     ranked_confounds = sorted(
         profile_summary.items(),
@@ -277,13 +305,55 @@ def summarize_confound_deltas(deltas: list[dict[str, Any]]) -> dict[str, Any]:
         "most_confound_sensitive_profiles": [
             {"profile": profile_name, **summary}
             for profile_name, summary in ranked_confounds
-            if summary["mean_accuracy_drop"] > 0
+            if summary["accuracy_drop"]["ci95_low"] > 0
         ],
     }
 
 
 def mean(values: list[float]) -> float:
     return sum(values) / len(values) if values else 0.0
+
+
+def distribution_summary(values: list[float]) -> dict[str, float | int]:
+    if not values:
+        return {
+            "mean": 0.0,
+            "stddev": 0.0,
+            "standard_error": 0.0,
+            "ci95_low": 0.0,
+            "ci95_high": 0.0,
+            "count": 0,
+        }
+    average = mean(values)
+    if len(values) <= 1:
+        stddev = 0.0
+    else:
+        variance = sum((value - average) ** 2 for value in values) / (len(values) - 1)
+        stddev = variance ** 0.5
+    standard_error = stddev / (len(values) ** 0.5)
+    margin = 1.96 * standard_error
+    return {
+        "mean": average,
+        "stddev": stddev,
+        "standard_error": standard_error,
+        "ci95_low": average - margin,
+        "ci95_high": average + margin,
+        "count": len(values),
+    }
+
+
+def interpret_profile_summary(profile_name: str, summary: dict[str, Any]) -> str:
+    random_accuracy = 1 / len(ATTRIBUTION_GENERATORS)
+    drop = summary["accuracy_drop"]
+    controlled = summary["controlled_accuracy"]
+    uncontrolled = summary["uncontrolled_accuracy"]
+    if profile_name == "bit_length_only" and drop["ci95_low"] > 0.05:
+        return "robust_bit_length_confound"
+    if controlled["ci95_low"] > random_accuracy + 0.1:
+        return "robust_survives_bit_length_control"
+    if uncontrolled["ci95_low"] > random_accuracy + 0.1 and controlled["ci95_high"] <= random_accuracy + 0.1:
+        return "robust_control_sensitive"
+    return "inconclusive"
 
 
 def count_labels(labels: Iterable[str]) -> dict[str, int]:

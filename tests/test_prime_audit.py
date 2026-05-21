@@ -273,15 +273,20 @@ class PrimeAuditTests(unittest.TestCase):
             train_counts=[16],
             test_counts=[8],
             trials=1,
+            repeats=2,
             seed=7,
             gap_max_steps=64,
         )
 
         self.assertEqual(result["schema"], "primeproject.attribution-confound-grid.v1")
-        self.assertEqual(len(result["rows"]), 2)
+        self.assertEqual(result["repeats"], 2)
+        self.assertEqual(len(result["rows"]), 4)
         self.assertGreater(len(result["deltas"]), 0)
         self.assertIn("profiles", result["summary"])
-        self.assertIn("bit_length_only", result["summary"]["profiles"])
+        bit_length = result["summary"]["profiles"]["bit_length_only"]
+        self.assertIn("controlled_accuracy", bit_length)
+        self.assertIn("ci95_low", bit_length["controlled_accuracy"])
+        self.assertIn("robust_interpretation", bit_length)
 
     def test_baseline_comparison_accepts_ablation_weights(self) -> None:
         target = fingerprint_report_from_values([101, 103, 107, 109, 113, 127, 131, 137])

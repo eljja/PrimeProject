@@ -24,6 +24,7 @@ python -m prime_audit.cli attribution-grid `
   --train-counts 40 80 `
   --test-counts 20 40 `
   --trials 3 `
+  --repeats 3 `
   --output data/attribution_confound_grid.json
 ```
 
@@ -78,9 +79,11 @@ build prime observations up to N
 - `rows`: 각 run의 profile별 accuracy.
 - `deltas`: 같은 설정에서 uncontrolled accuracy와 controlled accuracy의 차이.
 - `summary.profiles`: profile별 평균 drop과 interpretation count.
+- `summary.profiles.*.accuracy_drop`: 반복 seed에서 계산한 평균, 표준오차, 95% confidence interval.
 - `most_confound_sensitive_profiles`: bit-length 통제로 성능이 많이 떨어진 profile 순위.
 
 해석 기준은 보수적으로 둔다. controlled accuracy가 random baseline보다 충분히 높으면 `survives_bit_length_control`, uncontrolled에서만 높으면 `control_sensitive`, `bit_length_only`가 통제 후 떨어지면 `bit_length_confound`로 표시한다.
+반복 seed의 95% confidence interval까지 고려한 summary label은 `robust_*` prefix로 표시한다. CI가 넓으면 `inconclusive`로 남겨 후속 실험을 요구한다.
 
 GitHub Pages의 Attribution Grid 패널은 `data/attribution_confound_grid.json`을 읽어서 profile별 mean controlled accuracy와 accuracy drop을 보여준다. 이 뷰의 목적은 “예측 성공률”을 과장하는 것이 아니라, 남는 신호와 사라지는 신호를 분리해서 다음 실험 설계를 정하는 것이다.
 
