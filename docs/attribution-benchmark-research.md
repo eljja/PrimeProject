@@ -14,6 +14,7 @@ python -m prime_audit.cli attribution-benchmark `
   --train-count 80 `
   --test-count 40 `
   --trials 3 `
+  --control-mode bit_length `
   --output data/attribution_benchmark.json
 ```
 
@@ -34,6 +35,7 @@ build prime observations up to N
 - `accuracy`: 전체 attribution 정확도.
 - `confusion_matrix`: 실제 생성기와 예측 생성기 간 혼동행렬.
 - `ablation`: feature group별 정확도와 혼동행렬.
+- `control`: confound 통제 모드와 train/test bit-length bucket 계획.
 - `baseline_quality`: 각 baseline의 sample quality.
 - `trials_detail`: trial별 nearest baseline, distance, confidence, component drift.
 
@@ -49,6 +51,17 @@ build prime observations up to N
 
 이 값은 “어떤 feature가 generator attribution에 실제로 기여하는가”를 보기 위한 최소 실험이다. 실제 연구에서는 표본 크기와 범위를 바꿔 ablation curve를 만들어야 한다.
 
+## Confound Control
+
+`--control-mode bit_length`는 train/test 샘플에서 모든 생성기가 동일한 bit-length bucket 분포를 갖도록 강제한다. 이 모드는 attribution이 단순히 “큰 수를 더 자주 뽑은 생성기”를 맞히는 상황을 제거한다.
+
+특히 `bit_length_only` ablation이 높은 정확도를 보이면 두 가지 가능성이 있다.
+
+- 실제 생성기 흔적이 아니라 샘플링 범위 차이를 학습했을 가능성.
+- 특정 생성기가 같은 관측 공간 안에서도 bit-length 경계 근처를 다르게 가중했을 가능성.
+
+통제 모드에서 `bit_length_only` 정확도는 낮아지고, `residue_only` 또는 `gap_only` 신호가 남아야 더 강한 연구 주장으로 이어진다. 따라서 실제 OpenSSL/BoringSSL/Bitcoin Core/wallet sample 비교 전에는 반드시 uncontrolled 결과와 controlled 결과를 함께 보고해야 한다.
+
 ## 해석
 
 이 실험은 실제 라이브러리 attribution을 증명하는 최종 결과가 아니다. 하지만 다음을 검증하는 최소 과학적 장치다.
@@ -60,7 +73,7 @@ build prime observations up to N
 
 ## 다음 단계
 
-1. 합성 실험을 여러 `limit`, `train_count`, `test_count` grid로 자동 반복.
+1. 합성 실험을 여러 `limit`, `train_count`, `test_count`, `control_mode` grid로 자동 반복.
 2. 실제 OpenSSL/BoringSSL owned sample을 baseline으로 추가.
-3. component ablation: residue만, gap만, low bits만 썼을 때 정확도 비교.
+3. controlled/uncontrolled delta로 confound-sensitive feature를 자동 표시.
 4. GitHub Pages에 confusion matrix heatmap 추가.

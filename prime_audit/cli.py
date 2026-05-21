@@ -110,6 +110,12 @@ def main() -> int:
     attribution_parser.add_argument("--trials", type=int, default=3)
     attribution_parser.add_argument("--seed", type=int, default=20260521)
     attribution_parser.add_argument("--gap-max-steps", type=int, default=1024)
+    attribution_parser.add_argument(
+        "--control-mode",
+        choices=("none", "bit_length"),
+        default="none",
+        help="Hold selected nuisance variables constant across generators.",
+    )
     attribution_parser.add_argument("--no-ablation", action="store_true")
     attribution_parser.add_argument("--output", required=True)
 
@@ -222,6 +228,7 @@ def main() -> int:
             seed=args.seed,
             gap_max_steps=args.gap_max_steps,
             include_ablation=not args.no_ablation,
+            control_mode=args.control_mode,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0

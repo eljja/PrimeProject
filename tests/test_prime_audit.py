@@ -7,7 +7,11 @@ from pathlib import Path
 from random import Random
 
 from prime_audit.analysis import audit_records, evaluate_policy, report_to_dict
-from prime_audit.attribution import run_synthetic_attribution_benchmark, sample_generator_records
+from prime_audit.attribution import (
+    build_bit_length_bucket_plan,
+    run_synthetic_attribution_benchmark,
+    sample_generator_records,
+)
 from prime_audit.baselines import (
     ABLATION_COMPONENT_WEIGHTS,
     build_generator_baseline,
@@ -246,6 +250,22 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("gap_only", result["ablation"])
         self.assertEqual(len(result["trials_detail"]), 3)
 
+    def test_synthetic_attribution_benchmark_can_control_bit_length(self) -> None:
+        result = run_synthetic_attribution_benchmark(
+            limit=5000,
+            train_count=16,
+            test_count=8,
+            trials=1,
+            seed=7,
+            gap_max_steps=64,
+            control_mode="bit_length",
+        )
+
+        self.assertEqual(result["control"]["mode"], "bit_length")
+        self.assertGreater(len(result["control"]["train_bit_length_plan"]), 0)
+        self.assertGreater(len(result["control"]["test_bit_length_plan"]), 0)
+        self.assertIn("bit_length_only", result["ablation"])
+
     def test_baseline_comparison_accepts_ablation_weights(self) -> None:
         target = fingerprint_report_from_values([101, 103, 107, 109, 113, 127, 131, 137])
         baseline = build_generator_baseline(target, name="self")
@@ -272,6 +292,24 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertEqual(len(records), 12)
         self.assertEqual(len({record.value for record in records}), 12)
+
+    def test_generator_sampling_can_follow_bit_length_plan(self) -> None:
+        observations = build_observations(1000)
+        plan = build_bit_length_bucket_plan(observations, 20)
+        records = sample_generator_records(
+            observations,
+            generator="wheel30_next",
+            count=20,
+            rng=Random(11),
+            key_prefix="controlled",
+            bit_length_bucket_plan=plan,
+        )
+        observed_plan: dict[int, int] = {}
+        for record in records:
+            bit_length = record.value.bit_length()
+            observed_plan[bit_length] = observed_plan.get(bit_length, 0) + 1
+
+        self.assertEqual(observed_plan, plan)
 
 
 def base64_lines(data: bytes) -> str:

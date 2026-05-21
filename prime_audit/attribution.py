@@ -22,17 +22,25 @@ def run_synthetic_attribution_benchmark(
     seed: int = 20260521,
     gap_max_steps: int = 1024,
     include_ablation: bool = True,
+    control_mode: str = "none",
 ) -> dict[str, Any]:
     if train_count < 2 or test_count < 1:
         raise ValueError("train_count must be at least 2 and test_count must be positive")
     if trials < 1:
         raise ValueError("trials must be positive")
+    if control_mode not in {"none", "bit_length"}:
+        raise ValueError("control_mode must be 'none' or 'bit_length'")
 
     observations = build_observations(limit)
     if not observations:
         raise ValueError("limit is too small for attribution benchmark")
     if max(train_count, test_count) > len(observations):
         raise ValueError("sample counts exceed available unique prime observations")
+    train_bucket_plan = None
+    test_bucket_plan = None
+    if control_mode == "bit_length":
+        train_bucket_plan = build_bit_length_bucket_plan(observations, train_count)
+        test_bucket_plan = build_bit_length_bucket_plan(observations, test_count)
 
     rng = Random(seed)
     baselines = []
@@ -44,6 +52,7 @@ def run_synthetic_attribution_benchmark(
             count=train_count,
             rng=rng,
             key_prefix=f"train-{generator}",
+            bit_length_bucket_plan=train_bucket_plan,
         )
         report = analyze_prime_generator_fingerprints(records, gap_max_steps=gap_max_steps)
         baseline_reports[generator] = report
@@ -64,6 +73,7 @@ def run_synthetic_attribution_benchmark(
                 count=test_count,
                 rng=rng,
                 key_prefix=f"test-{trial}-{generator}",
+                bit_length_bucket_plan=test_bucket_plan,
             )
             fingerprint = analyze_prime_generator_fingerprints(records, gap_max_steps=gap_max_steps)
             for profile_name, component_weights in profiles.items():
@@ -90,6 +100,11 @@ def run_synthetic_attribution_benchmark(
         "trials": trials,
         "gap_max_steps": gap_max_steps,
         "include_ablation": include_ablation,
+        "control": {
+            "mode": control_mode,
+            "train_bit_length_plan": train_bucket_plan or {},
+            "test_bit_length_plan": test_bucket_plan or {},
+        },
         "generators": list(ATTRIBUTION_GENERATORS),
         "accuracy": primary["accuracy"],
         "correct": primary["correct"],
@@ -156,9 +171,20 @@ def sample_generator_records(
     count: int,
     rng: Random,
     key_prefix: str,
+    bit_length_bucket_plan: dict[int, int] | None = None,
 ) -> list[KeyRecord]:
     weights = weights_for_generator(observations, generator)
-    selected = weighted_sample_without_replacement(observations, weights, count, rng)
+    if bit_length_bucket_plan is None:
+        selected = weighted_sample_without_replacement(observations, weights, count, rng)
+    else:
+        if sum(bit_length_bucket_plan.values()) != count:
+            raise ValueError("bit-length bucket plan must sum to count")
+        selected = weighted_sample_by_bit_length_plan(
+            observations,
+            weights,
+            bit_length_bucket_plan,
+            rng,
+        )
     return [
         KeyRecord(
             key_id=f"{key_prefix}-{index}",
@@ -173,6 +199,89 @@ def sample_generator_records(
         )
         for index, observation in enumerate(selected)
     ]
+
+
+def bucket_observations_by_bit_length(
+    observations: list[PrimeObservation],
+) -> dict[int, list[PrimeObservation]]:
+    buckets: dict[int, list[PrimeObservation]] = {}
+    for observation in observations:
+        buckets.setdefault(observation.prime.bit_length(), []).append(observation)
+    return dict(sorted(buckets.items()))
+
+
+def build_bit_length_bucket_plan(
+    observations: list[PrimeObservation],
+    count: int,
+) -> dict[int, int]:
+    if count < 0:
+        raise ValueError("count must be non-negative")
+    if count > len(observations):
+        raise ValueError("count exceeds population")
+    if count == 0:
+        return {}
+
+    buckets = bucket_observations_by_bit_length(observations)
+    total = len(observations)
+    allocations: dict[int, int] = {}
+    remainders: list[tuple[float, int, int]] = []
+    assigned = 0
+    for bit_length, bucket in buckets.items():
+        exact = count * len(bucket) / total
+        base = min(len(bucket), int(exact))
+        allocations[bit_length] = base
+        assigned += base
+        remainders.append((exact - base, len(bucket) - base, bit_length))
+
+    for _, capacity, bit_length in sorted(remainders, reverse=True):
+        if assigned >= count:
+            break
+        if capacity <= 0:
+            continue
+        allocations[bit_length] += 1
+        assigned += 1
+
+    while assigned < count:
+        progressed = False
+        for bit_length, bucket in buckets.items():
+            if allocations[bit_length] >= len(bucket):
+                continue
+            allocations[bit_length] += 1
+            assigned += 1
+            progressed = True
+            if assigned >= count:
+                break
+        if not progressed:
+            raise ValueError("unable to allocate bit-length control plan")
+
+    return {bit_length: allocation for bit_length, allocation in allocations.items() if allocation > 0}
+
+
+def weighted_sample_by_bit_length_plan(
+    observations: list[PrimeObservation],
+    weights: list[int],
+    bit_length_bucket_plan: dict[int, int],
+    rng: Random,
+) -> list[PrimeObservation]:
+    by_bucket: dict[int, list[tuple[PrimeObservation, int]]] = {}
+    for observation, weight in zip(observations, weights):
+        by_bucket.setdefault(observation.prime.bit_length(), []).append((observation, weight))
+
+    selected: list[PrimeObservation] = []
+    for bit_length, bucket_count in bit_length_bucket_plan.items():
+        if bucket_count < 0:
+            raise ValueError("bit-length bucket counts must be non-negative")
+        bucket = by_bucket.get(bit_length, [])
+        if bucket_count > len(bucket):
+            raise ValueError(f"bit-length bucket {bit_length} exceeds population")
+        if bucket_count == 0:
+            continue
+        bucket_observations = [observation for observation, _ in bucket]
+        bucket_weights = [weight for _, weight in bucket]
+        selected.extend(
+            weighted_sample_without_replacement(bucket_observations, bucket_weights, bucket_count, rng)
+        )
+    return selected
 
 
 def weighted_sample_without_replacement(
