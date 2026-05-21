@@ -7,6 +7,7 @@ const state = {
   lab: null,
   snapshots: [],
   activeSnapshot: 0,
+  attributionGrid: null,
 };
 
 const limitSlider = {
@@ -43,6 +44,75 @@ const bundledSnapshots = [
     residue_drift_svg: "assets/snapshots/prime_measure_10m_residue_drift.svg",
   },
 ];
+
+const bundledAttributionGrid = {
+  schema: "primeproject.attribution-confound-grid.v1",
+  random_baseline_accuracy: 1 / 3,
+  deltas: [
+    {
+      pair_key: "limit=50000;train=40;test=20",
+      limit: 50000,
+      train_count: 40,
+      test_count: 20,
+      profile: "all",
+      uncontrolled_accuracy: 0.8333,
+      controlled_accuracy: 0.5,
+      accuracy_drop: 0.3333,
+      interpretation: "inconclusive",
+    },
+    {
+      pair_key: "limit=50000;train=40;test=20",
+      limit: 50000,
+      train_count: 40,
+      test_count: 20,
+      profile: "bit_length_only",
+      uncontrolled_accuracy: 0.8333,
+      controlled_accuracy: 0.3333,
+      accuracy_drop: 0.5,
+      interpretation: "bit_length_confound",
+    },
+    {
+      pair_key: "limit=50000;train=40;test=20",
+      limit: 50000,
+      train_count: 40,
+      test_count: 20,
+      profile: "gap_only",
+      uncontrolled_accuracy: 0.6667,
+      controlled_accuracy: 0.5,
+      accuracy_drop: 0.1667,
+      interpretation: "inconclusive",
+    },
+  ],
+  summary: {
+    profiles: {
+      all: {
+        mean_uncontrolled_accuracy: 0.8333,
+        mean_controlled_accuracy: 0.5,
+        mean_accuracy_drop: 0.3333,
+        interpretations: { inconclusive: 1 },
+      },
+      bit_length_only: {
+        mean_uncontrolled_accuracy: 0.8333,
+        mean_controlled_accuracy: 0.3333,
+        mean_accuracy_drop: 0.5,
+        interpretations: { bit_length_confound: 1 },
+      },
+      gap_only: {
+        mean_uncontrolled_accuracy: 0.6667,
+        mean_controlled_accuracy: 0.5,
+        mean_accuracy_drop: 0.1667,
+        interpretations: { inconclusive: 1 },
+      },
+    },
+    most_confound_sensitive_profiles: [
+      {
+        profile: "bit_length_only",
+        mean_accuracy_drop: 0.5,
+        interpretations: { bit_length_confound: 1 },
+      },
+    ],
+  },
+};
 
 const generatorCopy = {
   next_prime:
@@ -100,6 +170,9 @@ const outputs = {
   snapshotOverview: document.querySelector("#snapshotOverview"),
   snapshotGapDistribution: document.querySelector("#snapshotGapDistribution"),
   snapshotResidueDrift: document.querySelector("#snapshotResidueDrift"),
+  attributionSummary: document.querySelector("#attributionSummary"),
+  attributionGridSvg: document.querySelector("#attributionGridSvg"),
+  attributionProfileRows: document.querySelector("#attributionProfileRows"),
 };
 
 controls.limitRange.value = limitToSlider(state.limit);
@@ -119,7 +192,11 @@ document.querySelectorAll("[data-scroll-target]").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll("[data-scroll-target]").forEach((item) => item.classList.remove("is-active"));
     button.classList.add("is-active");
-    document.querySelector(`#${button.dataset.scrollTarget}`).scrollIntoView({ block: "start" });
+    const target = document.querySelector(`#${button.dataset.scrollTarget}`);
+    if (!target) return;
+    const topbarOffset = document.querySelector(".topbar")?.getBoundingClientRect().height || 0;
+    target.scrollIntoView({ block: "start", behavior: "auto" });
+    window.scrollBy({ top: -topbarOffset - 12, behavior: "auto" });
   });
 });
 
@@ -156,6 +233,7 @@ window.addEventListener("resize", () => {
 
 runExperiment();
 loadSnapshots();
+loadAttributionGrid();
 renderPrediction();
 
 function runExperiment() {
@@ -931,6 +1009,116 @@ function renderSnapshots() {
   setSnapshotImage(outputs.snapshotResidueDrift, snapshot.residue_drift_svg, `${snapshot.label} residue drift snapshot`);
 }
 
+async function loadAttributionGrid() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.attributionGrid = bundledAttributionGrid;
+    } else {
+      const response = await fetch("data/attribution_confound_grid.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`attribution grid ${response.status}`);
+      state.attributionGrid = await response.json();
+    }
+  } catch (error) {
+    state.attributionGrid = bundledAttributionGrid;
+  }
+  renderAttributionGrid();
+}
+
+function renderAttributionGrid() {
+  if (!outputs.attributionSummary || !outputs.attributionGridSvg || !outputs.attributionProfileRows) return;
+  const grid = state.attributionGrid;
+  if (!grid || !grid.summary) {
+    outputs.attributionSummary.textContent = "No attribution grid data is bundled.";
+    return;
+  }
+  const profiles = Object.entries(grid.summary.profiles || {}).map(([profile, summary]) => ({
+    profile,
+    ...summary,
+  }));
+  const strongestControlled = [...profiles].sort(
+    (a, b) => b.mean_controlled_accuracy - a.mean_controlled_accuracy,
+  )[0];
+  const strongestConfound = (grid.summary.most_confound_sensitive_profiles || [])[0];
+  outputs.attributionSummary.innerHTML = `
+    <div><span>Runs</span><strong>${formatNumber((grid.rows || []).length || (grid.deltas || []).length)}</strong></div>
+    <div><span>Random baseline</span><strong>${formatPercent(grid.random_baseline_accuracy || 1 / 3)}</strong></div>
+    <div><span>Best controlled</span><strong>${strongestControlled ? strongestControlled.profile : "n/a"}</strong></div>
+    <div><span>Controlled accuracy</span><strong>${strongestControlled ? formatPercent(strongestControlled.mean_controlled_accuracy) : "n/a"}</strong></div>
+    <div><span>Top confound</span><strong>${strongestConfound ? strongestConfound.profile : "none"}</strong></div>
+  `;
+  renderAttributionHeatmap(grid);
+  outputs.attributionProfileRows.innerHTML = profiles
+    .sort((a, b) => b.mean_controlled_accuracy - a.mean_controlled_accuracy)
+    .map((profile) => {
+      const interpretation = dominantInterpretation(profile.interpretations || {});
+      return `<tr>
+        <td>${profile.profile}</td>
+        <td>${formatPercent(profile.mean_uncontrolled_accuracy)}</td>
+        <td>${formatPercent(profile.mean_controlled_accuracy)}</td>
+        <td class="${profile.mean_accuracy_drop > 0.05 ? "is-drop" : "is-stable"}">${formatSignedPercent(profile.mean_accuracy_drop)}</td>
+        <td>${interpretation}</td>
+      </tr>`;
+    })
+    .join("");
+}
+
+function renderAttributionHeatmap(grid) {
+  const svg = outputs.attributionGridSvg;
+  const width = 760;
+  const height = 360;
+  const padding = { top: 48, right: 34, bottom: 54, left: 126 };
+  const deltas = grid.deltas || [];
+  const profiles = [...new Set(deltas.map((delta) => delta.profile))];
+  const pairs = [...new Set(deltas.map((delta) => delta.pair_key))];
+  const maxPairs = Math.min(10, pairs.length);
+  const shownPairs = pairs.slice(0, maxPairs);
+  const cellWidth = (width - padding.left - padding.right) / Math.max(1, shownPairs.length);
+  const cellHeight = Math.min(42, (height - padding.top - padding.bottom) / Math.max(1, profiles.length));
+  const lookup = new Map(deltas.map((delta) => [`${delta.profile}|${delta.pair_key}`, delta]));
+  svg.innerHTML = "";
+  appendSvg(svg, "text", { x: padding.left, y: 24, class: "chart-title" }).textContent =
+    "accuracy drop after bit-length control";
+  appendSvg(svg, "text", { x: padding.left + 250, y: 24, class: "chart-label" }).textContent =
+    "amber = confound-sensitive, teal = survives control";
+
+  profiles.forEach((profile, rowIndex) => {
+    const y = padding.top + rowIndex * cellHeight;
+    appendSvg(svg, "text", {
+      x: 18,
+      y: y + cellHeight * 0.62,
+      class: "chart-label",
+    }).textContent = profile;
+    shownPairs.forEach((pair, columnIndex) => {
+      const delta = lookup.get(`${profile}|${pair}`);
+      const drop = delta ? delta.accuracy_drop : 0;
+      const intensity = Math.min(1, Math.abs(drop) / 0.5);
+      const fill = drop >= 0 ? rgbaHex(colors.amber, 0.18 + intensity * 0.72) : rgbaHex(colors.teal, 0.18 + intensity * 0.72);
+      const x = padding.left + columnIndex * cellWidth;
+      appendSvg(svg, "rect", {
+        x,
+        y,
+        width: Math.max(2, cellWidth - 4),
+        height: Math.max(10, cellHeight - 6),
+        fill,
+      });
+      appendSvg(svg, "text", {
+        x: x + cellWidth / 2,
+        y: y + cellHeight * 0.62,
+        "text-anchor": "middle",
+        class: "axis-label",
+      }).textContent = formatSignedPercent(drop);
+      if (rowIndex === profiles.length - 1) {
+        appendSvg(svg, "text", {
+          x: x + cellWidth / 2,
+          y: height - 18,
+          "text-anchor": "middle",
+          class: "axis-label",
+        }).textContent = compactPairLabel(pair);
+      }
+    });
+  });
+}
+
 function setSnapshotImage(image, path, alt) {
   if (!image) return;
   image.src = path;
@@ -1061,4 +1249,26 @@ function formatNumber(value) {
 
 function formatCompact(value) {
   return new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(value);
+}
+
+function formatPercent(value) {
+  return `${((Number(value) || 0) * 100).toFixed(1)}%`;
+}
+
+function formatSignedPercent(value) {
+  const numeric = Number(value) || 0;
+  const sign = numeric > 0 ? "+" : "";
+  return `${sign}${(numeric * 100).toFixed(1)}%`;
+}
+
+function dominantInterpretation(interpretations) {
+  const entries = Object.entries(interpretations);
+  if (entries.length === 0) return "inconclusive";
+  return entries.sort((a, b) => b[1] - a[1])[0][0];
+}
+
+function compactPairLabel(pairKey) {
+  const match = /limit=(\d+);train=(\d+);test=(\d+)/.exec(pairKey);
+  if (!match) return pairKey;
+  return `${formatCompact(Number(match[1]))}/${match[2]}/${match[3]}`;
 }

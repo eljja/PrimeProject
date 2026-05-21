@@ -23,6 +23,8 @@ You can also open `index.html` locally. The lab compares `rejection`, `next_prim
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
+The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, highlighting which fingerprint profiles survive bit-length control and which ones are likely range confounds.
+
 ## Input format
 
 ```json

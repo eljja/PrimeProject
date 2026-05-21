@@ -48,6 +48,8 @@ async function main() {
     );
     await page.click("#runPrediction");
     await page.waitForFunction(() => document.querySelectorAll("#predictionRows tr").length >= 8);
+    await page.click("[data-scroll-target='attribution-panel']");
+    await page.waitForFunction(() => document.querySelectorAll("#attributionProfileRows tr").length >= 3);
     await page.screenshot({
       path: path.join(root, "data", "conjecture_lab_desktop.png"),
       fullPage: true,
@@ -67,6 +69,9 @@ async function main() {
       ),
       predictionRows: document.querySelectorAll("#predictionRows tr").length,
     predictionMetrics: document.querySelector("#predictionMetrics").textContent,
+    attributionSummary: document.querySelector("#attributionSummary").textContent,
+    attributionRows: document.querySelectorAll("#attributionProfileRows tr").length,
+    attributionSvgCells: document.querySelectorAll("#attributionGridSvg rect").length,
     bitcoinPanel: document.querySelector("#bitcoin-panel").textContent,
     fingerprintPanel: document.querySelector("#fingerprint-panel").textContent,
     baselinePanel: document.querySelector("#baseline-panel").textContent,
@@ -94,6 +99,14 @@ async function main() {
     process.exit(1);
   }
   if (metrics.predictionRows < 8 || !metrics.predictionMetrics.includes("Observed next")) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (
+    metrics.attributionRows < 3 ||
+    metrics.attributionSvgCells < 3 ||
+    !metrics.attributionSummary.includes("Random baseline")
+  ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }

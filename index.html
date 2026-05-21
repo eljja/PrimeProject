@@ -28,6 +28,7 @@
           <button class="nav-button" data-scroll-target="bitcoin-panel">Bitcoin Lab</button>
           <button class="nav-button" data-scroll-target="fingerprint-panel">Fingerprint Lab</button>
           <button class="nav-button" data-scroll-target="baseline-panel">Baseline Lab</button>
+          <button class="nav-button" data-scroll-target="attribution-panel">Attribution Grid</button>
           <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
           <button class="nav-button" data-scroll-target="gap-distribution-panel">Gap Distribution</button>
           <button class="nav-button" data-scroll-target="snapshots-panel">Research Snapshots</button>
@@ -255,6 +256,33 @@
               <div><strong>1</strong><span>Fingerprint known-good owned samples.</span></div>
               <div><strong>2</strong><span>Build named generator baselines.</span></div>
               <div><strong>3</strong><span>Rank suspicious samples by fingerprint distance.</span></div>
+            </div>
+          </section>
+
+          <section id="attribution-panel" class="panel attribution-panel">
+            <div class="panel-heading compact">
+              <div>
+                <h2>Attribution Grid</h2>
+                <p>Paired uncontrolled and bit-length-controlled runs separate generator signal from range confounds.</p>
+              </div>
+            </div>
+            <div class="attribution-summary" id="attributionSummary"></div>
+            <div class="attribution-body">
+              <svg id="attributionGridSvg" viewBox="0 0 760 360" role="img" aria-label="Attribution confound grid"></svg>
+              <div class="attribution-table-wrap">
+                <table class="attribution-table">
+                  <thead>
+                    <tr>
+                      <th>Profile</th>
+                      <th>Uncontrolled</th>
+                      <th>Controlled</th>
+                      <th>Drop</th>
+                      <th>Interpretation</th>
+                    </tr>
+                  </thead>
+                  <tbody id="attributionProfileRows"></tbody>
+                </table>
+              </div>
             </div>
           </section>
 

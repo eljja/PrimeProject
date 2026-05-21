@@ -82,6 +82,8 @@ build prime observations up to N
 
 해석 기준은 보수적으로 둔다. controlled accuracy가 random baseline보다 충분히 높으면 `survives_bit_length_control`, uncontrolled에서만 높으면 `control_sensitive`, `bit_length_only`가 통제 후 떨어지면 `bit_length_confound`로 표시한다.
 
+GitHub Pages의 Attribution Grid 패널은 `data/attribution_confound_grid.json`을 읽어서 profile별 mean controlled accuracy와 accuracy drop을 보여준다. 이 뷰의 목적은 “예측 성공률”을 과장하는 것이 아니라, 남는 신호와 사라지는 신호를 분리해서 다음 실험 설계를 정하는 것이다.
+
 ## 해석
 
 이 실험은 실제 라이브러리 attribution을 증명하는 최종 결과가 아니다. 하지만 다음을 검증하는 최소 과학적 장치다.
@@ -93,7 +95,7 @@ build prime observations up to N
 
 ## 다음 단계
 
-1. `attribution-grid` 결과를 GitHub Pages heatmap으로 시각화.
-2. 실제 OpenSSL/BoringSSL owned sample을 baseline으로 추가.
-3. controlled/uncontrolled delta로 confound-sensitive feature를 자동 표시.
-4. 실제 library sample에서도 같은 delta report를 생성.
+1. 실제 OpenSSL/BoringSSL owned sample을 baseline으로 추가.
+2. 실제 library sample에서도 같은 delta report를 생성.
+3. train/test split을 여러 seed로 반복해 confidence interval을 추가.
+4. GitHub Pages에서 profile별 confidence interval과 confusion matrix를 함께 표시.
