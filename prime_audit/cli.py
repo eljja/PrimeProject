@@ -17,7 +17,7 @@ from .evidence_pack import build_evidence_pack
 from .feature_vectors import build_feature_vector_payload, load_feature_vectors_from_files
 from .fingerprints import analyze_prime_generator_fingerprints
 from .io import load_records, write_report_json
-from .provenance import build_provenance_requirements
+from .provenance import build_provenance_audit, build_provenance_requirements, load_provenance_records
 from .real_baselines import build_real_baseline_manifest, load_real_baseline_entries
 from .research_readiness import build_research_readiness_report
 from .bias_lab import rank_next_prime_candidates
@@ -140,6 +140,14 @@ def main() -> int:
     )
     provenance_parser.add_argument("--manifest", required=True)
     provenance_parser.add_argument("--output", required=True)
+
+    provenance_audit_parser = subparsers.add_parser(
+        "provenance-audit",
+        help="Audit filled provenance records for completeness and public-safety.",
+    )
+    provenance_audit_parser.add_argument("--requirements", required=True)
+    provenance_audit_parser.add_argument("--records", nargs="*", default=[])
+    provenance_audit_parser.add_argument("--output", required=True)
 
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
@@ -368,6 +376,14 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(build_provenance_requirements(manifest), indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "provenance-audit":
+        requirements = json.loads(Path(args.requirements).read_text(encoding="utf-8"))
+        records = load_provenance_records(args.records) if args.records else None
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(build_provenance_audit(requirements, records), indent=2), encoding="utf-8")
         return 0
 
     if args.command == "export-feature-vectors":

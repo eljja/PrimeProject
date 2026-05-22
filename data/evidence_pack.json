@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.evidence-pack.v1",
-  "generated_at": "2026-05-22T12:32:02+00:00",
+  "generated_at": "2026-05-22T12:39:47+00:00",
   "claim_level": {
     "level": "public_demo_only",
     "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
@@ -63,7 +63,7 @@
       "severity": "medium",
       "message": "Published evidence should include checksummed source JSON artifacts.",
       "evidence": {
-        "artifact_count": 8
+        "artifact_count": 9
       }
     },
     {
@@ -74,9 +74,18 @@
       "evidence": {
         "has_provenance_requirements": true
       }
+    },
+    {
+      "code": "provenance_audit_gate",
+      "passed": true,
+      "severity": "medium",
+      "message": "Real-world collection claims need a checksummed provenance audit artifact.",
+      "evidence": {
+        "has_provenance_audit": true
+      }
     }
   ],
-  "artifact_count": 8,
+  "artifact_count": 9,
   "artifacts": [
     {
       "role": "attribution_grid",
@@ -114,9 +123,17 @@
       "role": "project_evolution",
       "path": "data/project_evolution.json",
       "exists": true,
-      "sha256": "9b93321b791c55928f41426dc60b0cd44dd6578178056b991a5d4070db4071bb",
+      "sha256": "c45981c6bc09c0fb7ffa49a5a224207d7a25bddb55cde65bf8e9ba35bf366803",
       "schema": "primeproject.project-evolution.v1",
-      "bytes": 6005
+      "bytes": 6504
+    },
+    {
+      "role": "provenance_audit",
+      "path": "data/provenance_audit.json",
+      "exists": true,
+      "sha256": "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd",
+      "schema": "primeproject.provenance-audit.v1",
+      "bytes": 2717
     },
     {
       "role": "provenance_requirements",

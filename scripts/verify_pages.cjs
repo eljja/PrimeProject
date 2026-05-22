@@ -112,6 +112,9 @@ async function main() {
       provenanceSummary: document.querySelector("#provenanceSummary").textContent,
       provenanceRows: document.querySelectorAll("#provenanceRows .provenance-row").length,
       provenanceStatus: document.querySelector("#provenanceStatus").textContent,
+      provenanceAuditSummary: document.querySelector("#provenanceAuditSummary").textContent,
+      provenanceAuditRows: document.querySelectorAll("#provenanceAuditRows .provenance-row").length,
+      provenanceAuditStatus: document.querySelector("#provenanceAuditStatus").textContent,
       readinessPanel: document.querySelector("#readiness-panel").textContent,
       readinessCards: document.querySelectorAll("#readinessDimensions .readiness-card").length,
       readinessActions: document.querySelectorAll("#readinessActions li").length,
@@ -148,7 +151,7 @@ async function main() {
   }
   if (
     metrics.evolutionSteps < 8 ||
-    metrics.evolutionNodes < 8 ||
+    metrics.evolutionNodes < 13 ||
     metrics.evolutionGaps < 2 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
@@ -184,6 +187,7 @@ async function main() {
     !metrics.baselinePanel.includes("Collection Power") ||
     !metrics.baselinePanel.includes("4,514") ||
     !metrics.baselinePanel.includes("Provenance Gate") ||
+    !metrics.baselinePanel.includes("Provenance Audit") ||
     !metrics.baselineRegistrySummary.includes("Registered") ||
     metrics.baselineRegistryRows < 5 ||
     metrics.collectionMatrixRows < 4 ||
@@ -193,7 +197,10 @@ async function main() {
     !metrics.collectionPowerSummary.includes("multinomial") ||
     metrics.provenanceRows < 4 ||
     !metrics.provenanceStatus.includes("35") ||
-    !metrics.provenanceSummary.includes("Required fields")
+    !metrics.provenanceSummary.includes("Required fields") ||
+    metrics.provenanceAuditRows < 4 ||
+    !metrics.provenanceAuditStatus.includes("4") ||
+    !metrics.provenanceAuditSummary.includes("Forbidden")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
@@ -208,11 +215,13 @@ async function main() {
     process.exit(1);
   }
   if (
-    metrics.evidenceGates < 7 ||
-    metrics.evidenceArtifacts < 8 ||
+    metrics.evidenceGates < 8 ||
+    metrics.evidenceArtifacts < 9 ||
     !metrics.evidencePanel.includes("Evidence Pack") ||
     !metrics.evidencePanel.includes("provenance_gate") ||
+    !metrics.evidencePanel.includes("provenance_audit_gate") ||
     !metrics.evidencePanel.includes("provenance_requirements") ||
+    !metrics.evidencePanel.includes("provenance_audit") ||
     !metrics.evidencePanel.includes("public_demo_only")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));

@@ -13,11 +13,13 @@
     "collection_power_coarse_targets": 9,
     "provenance_rows": 4,
     "provenance_missing_required": 35,
+    "provenance_audit_blocked_rows": 4,
+    "provenance_audit_forbidden_fields": 0,
     "attribution_grid_rows": 48,
     "attribution_repeats": 3,
     "robust_controlled_profiles": ["all", "gap_only"],
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 8,
+    "checksummed_artifacts": 9,
     "blocking_gaps": 2
   },
   "phases": [
@@ -102,6 +104,14 @@
       "outputs": ["prime_audit/provenance.py", "data/provenance_requirements.json"]
     },
     {
+      "id": "provenance-audit",
+      "label": "Provenance audit",
+      "status": "active",
+      "layer": "governance",
+      "summary": "Audits filled provenance records for missing metadata, checksum format, and forbidden public sensitive fields before attribution claims.",
+      "outputs": ["prime_audit/provenance.py", "data/provenance_audit.json"]
+    },
+    {
       "id": "readiness-gates",
       "label": "Research readiness scoring",
       "status": "active",
@@ -128,7 +138,8 @@
     ["real-world-registry", "collection-matrix"],
     ["collection-matrix", "collection-power"],
     ["collection-power", "provenance-gate"],
-    ["provenance-gate", "readiness-gates"],
+    ["provenance-gate", "provenance-audit"],
+    ["provenance-audit", "readiness-gates"],
     ["readiness-gates", "evidence-pack"]
   ],
   "open_gaps": [

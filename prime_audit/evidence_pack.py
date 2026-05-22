@@ -164,6 +164,23 @@ def publication_gates(
             },
             severity="medium",
         ),
+        gate(
+            "provenance_audit_gate",
+            any(
+                artifact.get("role") == "provenance_audit"
+                and artifact.get("exists")
+                and artifact.get("schema") == "primeproject.provenance-audit.v1"
+                for artifact in artifacts
+            ),
+            "Real-world collection claims need a checksummed provenance audit artifact.",
+            {
+                "has_provenance_audit": any(
+                    artifact.get("role") == "provenance_audit" and artifact.get("exists")
+                    for artifact in artifacts
+                )
+            },
+            severity="medium",
+        ),
     ]
     if not attribution_grid:
         gates.append(

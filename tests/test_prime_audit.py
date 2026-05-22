@@ -34,7 +34,7 @@ from prime_audit.feature_vectors import (
 from prime_audit.fingerprints import analyze_prime_generator_fingerprints, prime_gap_context
 from prime_audit.io import load_records
 from prime_audit.models import KeyRecord
-from prime_audit.provenance import build_provenance_requirements
+from prime_audit.provenance import build_provenance_audit, build_provenance_requirements
 from prime_audit.real_baselines import build_real_baseline_manifest, manifest_public_summary
 from prime_audit.research_readiness import build_research_readiness_report
 from prime_audit.bias_lab import build_residue_factors, rank_next_prime_candidates
@@ -411,6 +411,39 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("aggregate_artifact_sha256", openssl["missing_required_fields"])
         self.assertNotIn("raw_material_policy", openssl["missing_required_fields"])
 
+    def test_provenance_audit_blocks_missing_metadata(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        requirements = build_provenance_requirements(manifest)
+        audit = build_provenance_audit(requirements)
+
+        self.assertEqual(audit["schema"], "primeproject.provenance-audit.v1")
+        self.assertEqual(audit["row_count"], 4)
+        self.assertEqual(audit["blocked_count"], 4)
+        self.assertEqual(audit["claim_gate"]["status"], "blocked")
+        self.assertGreater(audit["summary"]["total_missing_required"], 0)
+
+    def test_provenance_audit_reports_forbidden_field_names_without_values(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        requirements = build_provenance_requirements(manifest)
+        complete = complete_provenance_record("openssl-rsa-prime-owned")
+        complete["nested"] = {"private_key": "do-not-leak"}
+        audit = build_provenance_audit(requirements, [complete])
+        row = next(item for item in audit["rows"] if item["baseline_id"] == "openssl-rsa-prime-owned")
+
+        self.assertEqual(row["status"], "blocked")
+        self.assertIn("nested.private_key", row["forbidden_public_fields"])
+        self.assertNotIn("do-not-leak", json.dumps(audit))
+
+    def test_provenance_audit_passes_complete_public_safe_record(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        requirements = build_provenance_requirements(manifest)
+        audit = build_provenance_audit(requirements, [complete_provenance_record("openssl-rsa-prime-owned")])
+        row = next(item for item in audit["rows"] if item["baseline_id"] == "openssl-rsa-prime-owned")
+
+        self.assertEqual(row["status"], "pass")
+        self.assertEqual(row["missing_required_fields"], [])
+        self.assertEqual(row["invalid_fields"], [])
+
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(
             fingerprint_report_from_values([101, 103, 107, 109, 113, 127, 131, 137]),
@@ -495,6 +528,7 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("real_baseline_gate", failed)
         self.assertIn("classifier_gate", failed)
         self.assertIn("provenance_gate", failed)
+        self.assertIn("provenance_audit_gate", failed)
         self.assertGreaterEqual(len(pack["local_collection_protocols"]), 3)
 
 
@@ -516,6 +550,27 @@ def fingerprint_report_from_values(values: list[int]) -> dict[str, object]:
         for index, value in enumerate(values)
     ]
     return analyze_prime_generator_fingerprints(records, gap_max_steps=64)
+
+
+def complete_provenance_record(baseline_id: str) -> dict[str, object]:
+    return {
+        "baseline_id": baseline_id,
+        "library": "OpenSSL",
+        "library_version": "3.3.0",
+        "algorithm": "RSA",
+        "object_type": "rsa-prime",
+        "bit_length": 2048,
+        "sample_count": 500,
+        "collector": "local-owned-lab",
+        "collection_date": "2026-05-22",
+        "host_platform": "windows-x64",
+        "source_commit": "0123456789abcdef",
+        "build_config": "release-default",
+        "rng_source": "system-csprng",
+        "generation_command": "openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048",
+        "raw_material_policy": "raw private keys/primes stay local; publish aggregate fingerprints only",
+        "aggregate_artifact_sha256": "a" * 64,
+    }
 
 
 def der_subject_public_key_info(pkcs1: bytes) -> bytes:
