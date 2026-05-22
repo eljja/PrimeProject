@@ -873,6 +873,144 @@ canvas {
   font-size: 11px;
 }
 
+.evolution-impact {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(420px, 1.6fr);
+  gap: 14px;
+  padding: 12px 20px 2px;
+}
+
+.impact-narrative {
+  border-left: 4px solid var(--teal);
+  background: var(--soft);
+  padding: 14px 16px;
+}
+
+.impact-narrative span {
+  display: block;
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.impact-narrative strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.maturity-ladder {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(116px, 1fr));
+  gap: 8px;
+}
+
+.maturity-stage {
+  position: relative;
+  min-height: 124px;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 11px 10px 10px;
+}
+
+.maturity-stage::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: -8px;
+  width: 8px;
+  border-top: 2px solid var(--line);
+}
+
+.maturity-stage:last-child::after {
+  display: none;
+}
+
+.maturity-stage i,
+.maturity-stage em {
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 820;
+}
+
+.maturity-stage i {
+  color: var(--teal);
+}
+
+.maturity-stage strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.maturity-stage em {
+  display: inline-block;
+  margin-top: 7px;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.maturity-stage.is-complete em {
+  color: var(--teal);
+  background: rgba(8, 127, 122, 0.1);
+}
+
+.maturity-stage.is-active em {
+  color: var(--indigo);
+  background: rgba(70, 87, 216, 0.1);
+}
+
+.maturity-stage span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.impact-change-list {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.impact-change-list div {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 11px 12px;
+}
+
+.impact-change-list strong,
+.impact-change-list span,
+.impact-change-list em {
+  display: block;
+}
+
+.impact-change-list strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.impact-change-list span {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.impact-change-list em {
+  margin-top: 8px;
+  color: var(--amber);
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 820;
+}
+
 .evolution-body {
   display: grid;
   grid-template-columns: minmax(520px, 1.2fr) minmax(340px, 0.8fr);
@@ -1853,6 +1991,7 @@ tr:last-child td {
   .analysis-grid.secondary,
   .bitcoin-grid,
   .fingerprint-grid,
+  .evolution-impact,
   .evolution-body,
   .evolution-gaps,
   .baseline-flow,
@@ -1868,6 +2007,11 @@ tr:last-child td {
   .experiment-log {
     grid-column: 1 / -1;
     position: static;
+  }
+
+  .maturity-ladder,
+  .impact-change-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1915,6 +2059,9 @@ tr:last-child td {
   .overview-grid,
   .prediction-metrics,
   .evolution-summary,
+  .evolution-impact,
+  .maturity-ladder,
+  .impact-change-list,
   .baseline-registry-summary,
   .readiness-summary,
   .evidence-summary,
@@ -1940,9 +2087,14 @@ tr:last-child td {
   }
 
   .evolution-body,
-  .evolution-gaps {
+  .evolution-gaps,
+  .evolution-impact {
     grid-template-columns: 1fr;
     padding: 12px;
+  }
+
+  .maturity-stage::after {
+    display: none;
   }
 
   .attribution-body {

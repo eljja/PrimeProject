@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.project-evolution.v1",
-  "updated_at": "2026-05-22T00:00:00+09:00",
+  "updated_at": "2026-05-23T00:00:00+09:00",
   "headline": "From prime regularity exploration to generator-fingerprint research tooling.",
   "metrics": {
     "live_compute_limit": 10000000,
@@ -26,6 +26,63 @@
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 11,
     "blocking_gaps": 2
+  },
+  "change_dashboard": {
+    "headline": "PrimeProject moved from exploratory prime regularity visuals into publication-gated real-world generator fingerprint tooling.",
+    "maturity_ladder": [
+      {
+        "stage": "Explore",
+        "phase_ids": ["regularity-plan", "conjecture-lab", "static-snapshots"],
+        "status": "complete",
+        "signal": "10M browser compute and static snapshots"
+      },
+      {
+        "stage": "Fingerprint",
+        "phase_ids": ["fingerprint-baseline", "attribution-grid"],
+        "status": "complete",
+        "signal": "controlled attribution grid with 48 rows and 3 repeats"
+      },
+      {
+        "stage": "Sim-to-Real",
+        "phase_ids": ["real-world-registry", "collection-matrix", "collection-power"],
+        "status": "active",
+        "signal": "OpenSSL/BoringSSL/Go/Bitcoin collection targets and sample-power floors"
+      },
+      {
+        "stage": "Govern",
+        "phase_ids": ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"],
+        "status": "active",
+        "signal": "provenance, acceptance, and promotion gates before claims"
+      },
+      {
+        "stage": "Publish",
+        "phase_ids": ["readiness-gates", "evidence-pack"],
+        "status": "active",
+        "signal": "11 checksummed artifacts with explicit public_demo_only limits"
+      }
+    ],
+    "latest_changes": [
+      {
+        "label": "Baseline promotion plan",
+        "impact": "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.",
+        "metric": "2 targets / 9,028 samples"
+      },
+      {
+        "label": "Baseline acceptance gate",
+        "impact": "Prevents coarse or undocumented baselines from supporting attribution claims.",
+        "metric": "0 accepted / 10 blocked"
+      },
+      {
+        "label": "Provenance audit",
+        "impact": "Checks missing metadata, checksum format, and forbidden public sensitive fields.",
+        "metric": "4 blocked records"
+      },
+      {
+        "label": "Evidence pack gates",
+        "impact": "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.",
+        "metric": "11 artifacts / 10 gates"
+      }
+    ]
   },
   "phases": [
     {

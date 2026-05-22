@@ -91,6 +91,9 @@ async function main() {
       predictionRows: document.querySelectorAll("#predictionRows tr").length,
       predictionMetrics: document.querySelector("#predictionMetrics").textContent,
       evolutionPanel: document.querySelector("#evolution-panel").textContent,
+      evolutionImpact: document.querySelector("#evolutionImpact").textContent,
+      maturityStages: document.querySelectorAll("#evolutionImpact .maturity-stage").length,
+      impactChanges: document.querySelectorAll("#evolutionImpact .impact-change-list div").length,
       evolutionSteps: document.querySelectorAll("#evolutionTimeline .evolution-step").length,
       evolutionNodes: document.querySelectorAll("#evolutionMap rect").length,
       evolutionGaps: document.querySelectorAll("#evolutionGaps div").length,
@@ -159,7 +162,12 @@ async function main() {
     metrics.evolutionSteps < 8 ||
     metrics.evolutionNodes < 15 ||
     metrics.evolutionGaps < 2 ||
+    metrics.maturityStages < 5 ||
+    metrics.impactChanges < 4 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
+    !metrics.evolutionImpact.includes("Change Dashboard") ||
+    !metrics.evolutionImpact.includes("Baseline promotion plan") ||
+    !metrics.evolutionImpact.includes("11 artifacts") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
     !metrics.evolutionPanel.includes("Sample power") ||
     !metrics.evolutionPanel.includes("Provenance") ||

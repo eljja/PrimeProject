@@ -452,7 +452,7 @@ const bundledEvidencePack = {
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "02526e8094d7b620bd4d35bbd1f8c32d26b2681deb5d038791376eb381367f81" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "fcef00708cc5ed5800f0e356e879837eccdcaf76bba7a18f92c18f5959496418" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
@@ -487,6 +487,23 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 11,
     blocking_gaps: 2,
+  },
+  change_dashboard: {
+    headline:
+      "PrimeProject moved from exploratory prime regularity visuals into publication-gated real-world generator fingerprint tooling.",
+    maturity_ladder: [
+      { stage: "Explore", phase_ids: ["regularity-plan", "conjecture-lab", "static-snapshots"], status: "complete", signal: "10M browser compute and static snapshots" },
+      { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid"], status: "complete", signal: "controlled attribution grid with 48 rows and 3 repeats" },
+      { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets and sample-power floors" },
+      { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"], status: "active", signal: "provenance, acceptance, and promotion gates before claims" },
+      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack"], status: "active", signal: "11 checksummed artifacts with explicit public_demo_only limits" },
+    ],
+    latest_changes: [
+      { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
+      { label: "Baseline acceptance gate", impact: "Prevents coarse or undocumented baselines from supporting attribution claims.", metric: "0 accepted / 10 blocked" },
+      { label: "Provenance audit", impact: "Checks missing metadata, checksum format, and forbidden public sensitive fields.", metric: "4 blocked records" },
+      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "11 artifacts / 10 gates" },
+    ],
   },
   phases: [
     { id: "regularity-plan", label: "Prime regularity plan", status: "complete", layer: "theory" },
@@ -585,6 +602,7 @@ const outputs = {
   snapshotGapDistribution: document.querySelector("#snapshotGapDistribution"),
   snapshotResidueDrift: document.querySelector("#snapshotResidueDrift"),
   evolutionSummary: document.querySelector("#evolutionSummary"),
+  evolutionImpact: document.querySelector("#evolutionImpact"),
   evolutionMap: document.querySelector("#evolutionMap"),
   evolutionTimeline: document.querySelector("#evolutionTimeline"),
   evolutionGaps: document.querySelector("#evolutionGaps"),
@@ -1503,6 +1521,7 @@ function renderProjectEvolution() {
     <div><span>Attribution rows</span><strong>${formatNumber(metrics.attribution_grid_rows || 0)}</strong><small>${formatNumber(metrics.attribution_repeats || 0)} repeats</small></div>
     <div><span>Claim level</span><strong>${escapeHtml(metrics.publication_claim_level || "unknown")}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
   `;
+  renderEvolutionImpact(evolution);
   renderEvolutionMap(evolution);
   outputs.evolutionTimeline.innerHTML = phases
     .map((phase, index) => `
@@ -1522,6 +1541,42 @@ function renderProjectEvolution() {
       </div>
     `)
     .join("");
+}
+
+function renderEvolutionImpact(evolution) {
+  if (!outputs.evolutionImpact) return;
+  const dashboard = evolution.change_dashboard || bundledProjectEvolution.change_dashboard || {};
+  const ladder = dashboard.maturity_ladder || [];
+  const changes = dashboard.latest_changes || [];
+  outputs.evolutionImpact.innerHTML = `
+    <div class="impact-narrative">
+      <span>Change Dashboard</span>
+      <strong>${escapeHtml(dashboard.headline || "Research workflow maturity over time.")}</strong>
+    </div>
+    <div class="maturity-ladder">
+      ${ladder
+        .map((stage, index) => `
+          <div class="maturity-stage ${stage.status === "complete" ? "is-complete" : "is-active"}">
+            <i>${String(index + 1).padStart(2, "0")}</i>
+            <strong>${escapeHtml(stage.stage || "stage")}</strong>
+            <em>${formatNumber((stage.phase_ids || []).length)} steps</em>
+            <span>${escapeHtml(stage.signal || "")}</span>
+          </div>
+        `)
+        .join("")}
+    </div>
+    <div class="impact-change-list">
+      ${changes
+        .map((change) => `
+          <div>
+            <strong>${escapeHtml(change.label || "change")}</strong>
+            <span>${escapeHtml(change.impact || "")}</span>
+            <em>${escapeHtml(change.metric || "")}</em>
+          </div>
+        `)
+        .join("")}
+    </div>
+  `;
 }
 
 function renderEvolutionMap(evolution) {
