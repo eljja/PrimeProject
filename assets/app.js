@@ -14,6 +14,7 @@ const state = {
   claimLedger: null,
   artifactLineage: null,
   decisionProtocol: null,
+  falsificationBattery: null,
   projectEvolution: null,
   collectionMatrix: null,
   collectionPower: null,
@@ -455,7 +456,7 @@ const bundledEvidencePack = {
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "379eed96eaf8464f6b6bda6abbbdbcb2dfca6930ec14b4d52fe665492cf3e3de" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "0b802fa2ff8e94f971568ee8e57f1a1279540b0455d08bd3e6d61c172d78b89e" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
@@ -550,9 +551,9 @@ const bundledArtifactLineage = {
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", exists: true, sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", exists: true, sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "72a85d6bcfe418da86d82a7afa3af8db02395021978451bff29ee1f607734f67" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "9650fb8960e79efe1282f425d4adca996f9f920314dc711c68929843381f7f4d" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "379eed96eaf8464f6b6bda6abbbdbcb2dfca6930ec14b4d52fe665492cf3e3de" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "17499bba399ecb4e11cdbf3b80c818727649e1947e9f59903b9c22776f179595" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "2723926fbd99aad21322c2bef01ca9d09e03f1b9b6f16a4d02d9c39257cdf16e" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "0b802fa2ff8e94f971568ee8e57f1a1279540b0455d08bd3e6d61c172d78b89e" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -643,6 +644,72 @@ const bundledDecisionProtocol = {
   ],
 };
 
+const bundledFalsificationBattery = {
+  schema: "primeproject.falsification-battery.v1",
+  source: {
+    random_baseline_accuracy: 1 / 3,
+    controlled_profiles: ["all", "gap_only"],
+  },
+  summary: {
+    check_count: 5,
+    pass_count: 5,
+    warn_count: 0,
+    fail_count: 0,
+    claim_floor: "controlled_synthetic_only",
+    interpretation:
+      "Falsification battery supports controlled synthetic reporting only; real-world promotion stays blocked.",
+  },
+  downgrade_triggers: [
+    "missing_paired_controls",
+    "bit_length_only_survives_control",
+    "negative_controls_exceed_floor",
+    "decision_protocol_promotes_blocked_claim",
+    "real_world_or_bitcoin_claim_without_bundled_evidence",
+  ],
+  checks: [
+    {
+      check: "paired_control_presence",
+      status: "pass",
+      severity: "critical",
+      message: "Paired uncontrolled and bit-length-controlled attribution rows are present.",
+      evidence: { control_modes: ["bit_length", "none"] },
+    },
+    {
+      check: "controlled_signal_above_random",
+      status: "pass",
+      severity: "high",
+      message: "At least one nontrivial profile remains above random after bit-length control.",
+      evidence: { profiles: ["all", "gap_only"], minimum_lift: 0.1 },
+    },
+    {
+      check: "bit_length_confound_guard",
+      status: "pass",
+      severity: "critical",
+      message: "The bit-length-only profile collapses near random after control.",
+      evidence: { bit_length_only_controlled_accuracy: 0.333333 },
+    },
+    {
+      check: "negative_control_floor",
+      status: "pass",
+      severity: "medium",
+      message: "Low-bit and residue-only controls remain near the random floor.",
+      evidence: { floor: 0.533333, exceeding: [] },
+    },
+    {
+      check: "claim_promotion_guard",
+      status: "pass",
+      severity: "critical",
+      message: "Real-world and Bitcoin attribution promotion remain blocked until required evidence exists.",
+      evidence: {
+        required_blocked_decisions: [
+          "promote_real_world_generator_attribution",
+          "promote_bitcoin_nonce_risk_attribution",
+        ],
+      },
+    },
+  ],
+};
+
 const bundledProjectEvolution = {
   schema: "primeproject.project-evolution.v1",
   headline: "From prime regularity exploration to generator-fingerprint research tooling.",
@@ -678,6 +745,9 @@ const bundledProjectEvolution = {
     lineage_cycles: 0,
     decision_protocol_allowed: 2,
     decision_protocol_blocked: 2,
+    falsification_checks: 5,
+    falsification_failures: 0,
+    falsification_claim_floor: "controlled_synthetic_only",
   },
   change_dashboard: {
     headline:
@@ -687,7 +757,7 @@ const bundledProjectEvolution = {
       { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid"], status: "complete", signal: "controlled attribution grid with 48 rows and 3 repeats" },
       { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets and sample-power floors" },
       { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"], status: "active", signal: "provenance, acceptance, and promotion gates before claims" },
-      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol"], status: "active", signal: "2 allowed decisions and 2 blocked claim promotions" },
+      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery"], status: "active", signal: "5 falsification checks and controlled-synthetic-only claim floor" },
     ],
     latest_changes: [
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
@@ -697,6 +767,7 @@ const bundledProjectEvolution = {
       { label: "Claim ledger", impact: "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.", metric: "3 allowed / 2 blocked" },
       { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "13 nodes / 24 edges" },
       { label: "Decision protocol", impact: "Pre-registers promotion rules so demo, synthetic, real-world, and Bitcoin claims cannot drift after results.", metric: "2 allowed / 2 blocked" },
+      { label: "Falsification battery", impact: "Runs negative controls, bit-length guards, and claim-promotion guards before stronger claims.", metric: "5 pass / 0 fail" },
     ],
   },
   phases: [
@@ -718,6 +789,7 @@ const bundledProjectEvolution = {
     { id: "claim-ledger", label: "Claim ledger", status: "active", layer: "publication" },
     { id: "artifact-lineage", label: "Artifact lineage", status: "active", layer: "reproducibility" },
     { id: "decision-protocol", label: "Decision protocol", status: "active", layer: "governance" },
+    { id: "falsification-battery", label: "Falsification battery", status: "active", layer: "validation" },
   ],
   connections: [
     ["regularity-plan", "conjecture-lab"],
@@ -734,10 +806,12 @@ const bundledProjectEvolution = {
     ["baseline-acceptance", "baseline-promotion"],
     ["baseline-promotion", "readiness-gates"],
     ["readiness-gates", "evidence-pack"],
-    ["evidence-pack", "claim-ledger", "artifact-lineage"],
+    ["evidence-pack", "claim-ledger"],
     ["evidence-pack", "artifact-lineage"],
     ["claim-ledger", "decision-protocol"],
     ["artifact-lineage", "decision-protocol"],
+    ["attribution-grid", "falsification-battery"],
+    ["decision-protocol", "falsification-battery"],
   ],
   open_gaps: [
     { priority: "P0", track: "sim-to-real", gap: "Need at least two available real-world aggregate baselines before real attribution claims." },
@@ -839,6 +913,8 @@ const outputs = {
   artifactLineageRows: document.querySelector("#artifactLineageRows"),
   decisionProtocolSummary: document.querySelector("#decisionProtocolSummary"),
   decisionProtocolRows: document.querySelector("#decisionProtocolRows"),
+  falsificationSummary: document.querySelector("#falsificationSummary"),
+  falsificationRows: document.querySelector("#falsificationRows"),
   attributionSummary: document.querySelector("#attributionSummary"),
   attributionGridSvg: document.querySelector("#attributionGridSvg"),
   attributionProfileRows: document.querySelector("#attributionProfileRows"),
@@ -913,6 +989,7 @@ loadEvidencePack();
 loadClaimLedger();
 loadArtifactLineage();
 loadDecisionProtocol();
+loadFalsificationBattery();
 loadAttributionGrid();
 renderPrediction();
 
@@ -1792,7 +1869,7 @@ function renderEvolutionImpact(evolution) {
 
 function renderEvolutionMap(evolution) {
   const svg = outputs.evolutionMap;
-  const width = 1060;
+  const width = 1210;
   const height = 360;
   const phases = evolution.phases || [];
   const columns = [
@@ -1803,6 +1880,7 @@ function renderEvolutionMap(evolution) {
     ["collection-matrix", "collection-power"],
     ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "readiness-gates"],
     ["evidence-pack", "claim-ledger", "artifact-lineage"],
+    ["decision-protocol", "falsification-battery"],
   ];
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   const positions = new Map();
@@ -2459,6 +2537,43 @@ function renderDecisionProtocol() {
     .join("");
 }
 
+async function loadFalsificationBattery() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.falsificationBattery = bundledFalsificationBattery;
+    } else {
+      const response = await fetch("data/falsification_battery.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`falsification battery ${response.status}`);
+      state.falsificationBattery = await response.json();
+    }
+  } catch (error) {
+    state.falsificationBattery = bundledFalsificationBattery;
+  }
+  renderFalsificationBattery();
+}
+
+function renderFalsificationBattery() {
+  if (!outputs.falsificationSummary || !outputs.falsificationRows) return;
+  const battery = state.falsificationBattery || bundledFalsificationBattery;
+  const summary = battery.summary || {};
+  outputs.falsificationSummary.textContent =
+    `${formatNumber(summary.pass_count || 0)} pass / ${formatNumber(summary.fail_count || 0)} fail`;
+  outputs.falsificationRows.innerHTML = (battery.checks || [])
+    .map((check) => `
+      <div class="falsification-row">
+        <div>
+          <strong>${escapeHtml(check.check || "check")}</strong>
+          <span>${escapeHtml(check.message || "")}</span>
+        </div>
+        <em class="check-status ${checkStatusClass(check.status)}">${escapeHtml(check.status || "unknown")}</em>
+        <small>${escapeHtml(check.severity || "research")}</small>
+        <p>${escapeHtml(summary.claim_floor || "unknown")}</p>
+        <code>${escapeHtml(compactEvidence(check.evidence || {}))}</code>
+      </div>
+    `)
+    .join("");
+}
+
 async function loadAttributionGrid() {
   try {
     if (window.location.protocol === "file:") {
@@ -2776,6 +2891,30 @@ function claimStatusClass(status) {
   if (status === "qualified") return "is-qualified";
   if (status === "blocked") return "is-blocked";
   return "is-unknown";
+}
+
+function checkStatusClass(status) {
+  if (status === "pass") return "is-pass";
+  if (status === "warn") return "is-warn";
+  if (status === "fail") return "is-fail";
+  return "is-unknown";
+}
+
+function compactEvidence(evidence) {
+  const entries = Object.entries(evidence || {}).slice(0, 3);
+  if (!entries.length) return "no extra evidence";
+  return entries
+    .map(([key, value]) => {
+      const text = Array.isArray(value)
+        ? value
+            .map((item) => (typeof item === "object" ? item.profile || item.check || JSON.stringify(item) : item))
+            .join("|")
+        : typeof value === "object"
+          ? JSON.stringify(value)
+          : String(value);
+      return `${key}:${text}`;
+    })
+    .join(", ");
 }
 
 function formatDimensionEvidence(name, dimension) {

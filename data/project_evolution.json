@@ -33,7 +33,10 @@
     "lineage_checksum_mismatches": 0,
     "lineage_cycles": 0,
     "decision_protocol_allowed": 2,
-    "decision_protocol_blocked": 2
+    "decision_protocol_blocked": 2,
+    "falsification_checks": 5,
+    "falsification_failures": 0,
+    "falsification_claim_floor": "controlled_synthetic_only"
   },
   "change_dashboard": {
     "headline": "PrimeProject moved from exploratory prime regularity visuals into publication-gated real-world generator fingerprint tooling.",
@@ -64,9 +67,9 @@
       },
       {
         "stage": "Publish",
-        "phase_ids": ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol"],
+        "phase_ids": ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery"],
         "status": "active",
-        "signal": "2 allowed decisions and 2 blocked claim promotions"
+        "signal": "5 falsification checks and controlled-synthetic-only claim floor"
       }
     ],
     "latest_changes": [
@@ -104,6 +107,11 @@
         "label": "Decision protocol",
         "impact": "Pre-registers promotion rules so demo, synthetic, real-world, and Bitcoin claims cannot drift after results.",
         "metric": "2 allowed / 2 blocked"
+      },
+      {
+        "label": "Falsification battery",
+        "impact": "Runs paired controls, negative controls, bit-length confound guards, and claim-promotion guards before stronger claims.",
+        "metric": "5 pass / 0 fail"
       }
     ]
   },
@@ -251,6 +259,14 @@
       "layer": "governance",
       "summary": "Applies pre-registered publication and claim-promotion rules to evidence, claim, and lineage reports.",
       "outputs": ["prime_audit/decision_protocol.py", "data/decision_protocol.json"]
+    },
+    {
+      "id": "falsification-battery",
+      "label": "Falsification battery",
+      "status": "active",
+      "layer": "validation",
+      "summary": "Runs negative-control, bit-length confound, and claim-promotion checks before attribution claims can be upgraded.",
+      "outputs": ["prime_audit/falsification.py", "data/falsification_battery.json"]
     }
   ],
   "connections": [
@@ -271,7 +287,9 @@
     ["evidence-pack", "claim-ledger"],
     ["evidence-pack", "artifact-lineage"],
     ["claim-ledger", "decision-protocol"],
-    ["artifact-lineage", "decision-protocol"]
+    ["artifact-lineage", "decision-protocol"],
+    ["attribution-grid", "falsification-battery"],
+    ["decision-protocol", "falsification-battery"]
   ],
   "open_gaps": [
     {

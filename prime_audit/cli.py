@@ -20,6 +20,7 @@ from .collection_matrix import build_collection_matrix
 from .collection_power import build_collection_power
 from .evidence_pack import build_evidence_pack
 from .feature_vectors import build_feature_vector_payload, load_feature_vectors_from_files
+from .falsification import build_falsification_battery
 from .fingerprints import analyze_prime_generator_fingerprints
 from .io import load_records, write_report_json
 from .provenance import build_provenance_audit, build_provenance_requirements, load_provenance_records
@@ -261,6 +262,14 @@ def main() -> int:
     decision_protocol_parser.add_argument("--claim-ledger", required=True)
     decision_protocol_parser.add_argument("--artifact-lineage", required=True)
     decision_protocol_parser.add_argument("--output", required=True)
+
+    falsification_parser = subparsers.add_parser(
+        "falsification-battery",
+        help="Run negative-control and claim-downgrade checks before promoting attribution claims.",
+    )
+    falsification_parser.add_argument("--attribution-grid", required=True)
+    falsification_parser.add_argument("--decision-protocol", required=True)
+    falsification_parser.add_argument("--output", required=True)
 
     attribution_parser = subparsers.add_parser(
         "attribution-benchmark",
@@ -623,6 +632,18 @@ def main() -> int:
             evidence_pack=evidence_pack,
             claim_ledger=claim_ledger,
             artifact_lineage=artifact_lineage,
+        )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "falsification-battery":
+        attribution_grid = json.loads(Path(args.attribution_grid).read_text(encoding="utf-8"))
+        decision_protocol = json.loads(Path(args.decision_protocol).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_falsification_battery(
+            attribution_grid=attribution_grid,
+            decision_protocol=decision_protocol,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0

@@ -25,6 +25,7 @@
 - Builds a claim ledger that maps each public-facing research claim to the gates and artifacts that allow, qualify, or block it.
 - Builds an artifact lineage graph that audits public JSON dependencies, Evidence Pack checksums, and cyclic dependency risk.
 - Applies a pre-registered decision protocol that separates public demo, controlled synthetic, real-world attribution, and Bitcoin nonce-risk claim promotion.
+- Runs a falsification battery with paired controls, negative controls, bit-length confound guards, and claim-promotion guards before stronger attribution claims can advance.
 - Audits Bitcoin secp256k1 constants and ECDSA signature metadata for defensive nonce-risk indicators.
 
 ## Interactive Conjecture Lab
@@ -43,7 +44,7 @@ The Baseline Lab panel reads `data/baselines/real_world/manifest.json`, `data/co
 
 The Research Readiness panel reads `data/research_readiness.json` and surfaces blocking gaps before any real-world attribution claim is treated as strong.
 
-The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_ledger.json`, `data/artifact_lineage.json`, and `data/decision_protocol.json` to show checksums, publication gates, the maximum safe claim level, which public claims are currently allowed or blocked, whether the public artifact dependency graph is acyclic and checksum-consistent, and which claim-promotion decisions are pre-registered as allowed or blocked.
+The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_ledger.json`, `data/artifact_lineage.json`, `data/decision_protocol.json`, and `data/falsification_battery.json` to show checksums, publication gates, the maximum safe claim level, which public claims are currently allowed or blocked, whether the public artifact dependency graph is acyclic and checksum-consistent, which claim-promotion decisions are pre-registered as allowed or blocked, and which falsification checks prevent overclaiming.
 
 ## Input format
 
@@ -85,6 +86,7 @@ python -m prime_audit.cli evidence-pack --manifest data/baselines/real_world/man
 python -m prime_audit.cli claim-ledger --evidence-pack data/evidence_pack.json --output data/claim_ledger.json
 python -m prime_audit.cli artifact-lineage --output data/artifact_lineage.json
 python -m prime_audit.cli decision-protocol --evidence-pack data/evidence_pack.json --claim-ledger data/claim_ledger.json --artifact-lineage data/artifact_lineage.json --output data/decision_protocol.json
+python -m prime_audit.cli falsification-battery --attribution-grid data/attribution_confound_grid.json --decision-protocol data/decision_protocol.json --output data/falsification_battery.json
 python -m prime_audit.cli attribution-benchmark --limit 200000 --train-count 80 --test-count 40 --trials 3 --control-mode bit_length --output data/attribution_benchmark.json
 python -m prime_audit.cli attribution-grid --limits 50000 200000 --train-counts 40 80 --test-counts 20 40 --trials 3 --repeats 3 --output data/attribution_confound_grid.json
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json

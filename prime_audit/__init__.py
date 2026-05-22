@@ -17,6 +17,7 @@ __all__ = [
     "decision_protocol",
     "evidence_pack",
     "feature_vectors",
+    "falsification",
     "fingerprints",
     "io",
     "models",

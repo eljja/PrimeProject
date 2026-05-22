@@ -236,11 +236,32 @@ python -m prime_audit.cli decision-protocol `
 
 현재 protocol은 4개 결정을 고정한다. public demo와 controlled synthetic signal report는 허용된다. real-world generator attribution과 Bitcoin nonce-risk attribution promotion은 차단된다. 차단 이유는 각각 accepted real-world baselines/classifier/baseline acceptance, Bitcoin nonce-risk report가 아직 없기 때문이다.
 
+## Falsification Battery
+
+`falsification-battery`는 attribution 결과를 claim으로 승격하기 전에 반증 조건을 먼저 실행한다. 목적은 “맞혔다”는 지표를 늘리는 것이 아니라, 어떤 조건에서 주장을 내려야 하는지 자동으로 남기는 것이다.
+
+```powershell
+python -m prime_audit.cli falsification-battery `
+  --attribution-grid data/attribution_confound_grid.json `
+  --decision-protocol data/decision_protocol.json `
+  --output data/falsification_battery.json
+```
+
+현재 배터리는 5개 체크를 실행한다.
+
+- `paired_control_presence`: uncontrolled run과 bit-length-controlled run이 모두 있는지 확인한다.
+- `controlled_signal_above_random`: bit-length control 후에도 `all`, `gap_only` 같은 비자명 profile이 random baseline을 넘는지 확인한다.
+- `bit_length_confound_guard`: `bit_length_only` profile이 control 후 random floor 근처로 무력화되는지 확인한다.
+- `negative_control_floor`: low-bit/residue-only profile이 비정상적으로 높은 정확도를 보이지 않는지 확인한다.
+- `claim_promotion_guard`: real-world attribution과 Bitcoin nonce-risk attribution promotion이 필요한 evidence 없이 열리지 않는지 확인한다.
+
+현재 결과는 `5 pass / 0 fail`이지만 claim floor는 `controlled_synthetic_only`다. 이는 실세계 OpenSSL/BoringSSL/Go/Bitcoin attribution을 증명했다는 뜻이 아니라, 합성 생성기 조건에서 남는 신호를 보고해도 되는 최소 안전 조건이 갖춰졌다는 뜻이다. GitHub Pages의 Evidence Pack 패널은 이 결과를 Decision Protocol 아래에 표시한다.
+
 ## Project Evolution View
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
 - 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, accepted baseline 수, promotion unlock sample 수, attribution grid row 수, claim level.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 

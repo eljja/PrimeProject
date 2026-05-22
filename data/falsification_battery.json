@@ -1,0 +1,115 @@
+{
+  "schema": "primeproject.falsification-battery.v1",
+  "generated_at": "2026-05-22T16:56:24+00:00",
+  "source": {
+    "attribution_grid_schema": "primeproject.attribution-confound-grid.v1",
+    "decision_protocol_schema": "primeproject.decision-protocol.v1",
+    "random_baseline_accuracy": 0.3333333333333333,
+    "controlled_profiles": [
+      "all",
+      "gap_only"
+    ]
+  },
+  "summary": {
+    "check_count": 5,
+    "pass_count": 5,
+    "warn_count": 0,
+    "fail_count": 0,
+    "claim_floor": "controlled_synthetic_only",
+    "interpretation": "Falsification battery supports controlled synthetic reporting only; real-world promotion stays blocked."
+  },
+  "downgrade_triggers": [
+    "missing_paired_controls",
+    "bit_length_only_survives_control",
+    "negative_controls_exceed_floor",
+    "decision_protocol_promotes_blocked_claim",
+    "real_world_or_bitcoin_claim_without_bundled_evidence"
+  ],
+  "checks": [
+    {
+      "check": "paired_control_presence",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Paired uncontrolled and bit-length-controlled attribution rows are present.",
+      "evidence": {
+        "control_modes": [
+          "bit_length",
+          "none"
+        ],
+        "required": [
+          "bit_length",
+          "none"
+        ]
+      }
+    },
+    {
+      "check": "controlled_signal_above_random",
+      "status": "pass",
+      "severity": "high",
+      "message": "At least one nontrivial profile remains above random after bit-length control.",
+      "evidence": {
+        "random_baseline_accuracy": 0.333333,
+        "minimum_lift": 0.1,
+        "profiles": [
+          {
+            "profile": "all",
+            "mean_controlled_accuracy": 0.550926,
+            "robust_interpretation": "robust_survives_bit_length_control"
+          },
+          {
+            "profile": "gap_only",
+            "mean_controlled_accuracy": 0.606481,
+            "robust_interpretation": "robust_survives_bit_length_control"
+          }
+        ]
+      }
+    },
+    {
+      "check": "bit_length_confound_guard",
+      "status": "pass",
+      "severity": "critical",
+      "message": "The bit-length-only profile collapses near random after control.",
+      "evidence": {
+        "random_baseline_accuracy": 0.333333,
+        "bit_length_only_controlled_accuracy": 0.333333,
+        "robust_interpretation": "inconclusive"
+      }
+    },
+    {
+      "check": "negative_control_floor",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Low-bit and residue-only controls remain near the random floor.",
+      "evidence": {
+        "random_baseline_accuracy": 0.333333,
+        "floor": 0.533333,
+        "controls": [
+          {
+            "profile": "low_bits_only",
+            "mean_controlled_accuracy": 0.333333,
+            "robust_interpretation": "inconclusive"
+          },
+          {
+            "profile": "residue_only",
+            "mean_controlled_accuracy": 0.291667,
+            "robust_interpretation": "inconclusive"
+          }
+        ],
+        "exceeding": []
+      }
+    },
+    {
+      "check": "claim_promotion_guard",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Real-world and Bitcoin attribution promotion remain blocked until required evidence exists.",
+      "evidence": {
+        "required_blocked_decisions": [
+          "promote_real_world_generator_attribution",
+          "promote_bitcoin_nonce_risk_attribution"
+        ],
+        "unexpectedly_promoted": []
+      }
+    }
+  ]
+}

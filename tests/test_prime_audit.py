@@ -36,6 +36,7 @@ from prime_audit.feature_vectors import (
     build_feature_vector_payload,
     feature_vector_from_fingerprint,
 )
+from prime_audit.falsification import build_falsification_battery
 from prime_audit.fingerprints import analyze_prime_generator_fingerprints, prime_gap_context
 from prime_audit.io import load_records
 from prime_audit.models import KeyRecord
@@ -782,6 +783,84 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(decisions["promote_bitcoin_nonce_risk_attribution"]["status"], "blocked")
         self.assertEqual(protocol["summary"]["allowed_count"], 2)
         self.assertEqual(protocol["summary"]["blocked_count"], 2)
+
+    def test_falsification_battery_keeps_real_world_claims_blocked(self) -> None:
+        grid = {
+            "schema": "primeproject.attribution-confound-grid.v1",
+            "random_baseline_accuracy": 1 / 3,
+            "rows": [
+                {"control_mode": "none"},
+                {"control_mode": "bit_length"},
+            ],
+            "summary": {
+                "profiles": {
+                    "all": {
+                        "mean_controlled_accuracy": 0.56,
+                        "robust_interpretation": "robust_survives_bit_length_control",
+                    },
+                    "gap_only": {
+                        "mean_controlled_accuracy": 0.61,
+                        "robust_interpretation": "robust_survives_bit_length_control",
+                    },
+                    "bit_length_only": {
+                        "mean_controlled_accuracy": 0.33,
+                        "robust_interpretation": "inconclusive",
+                    },
+                    "low_bits_only": {
+                        "mean_controlled_accuracy": 0.33,
+                        "robust_interpretation": "inconclusive",
+                    },
+                    "residue_only": {
+                        "mean_controlled_accuracy": 0.29,
+                        "robust_interpretation": "inconclusive",
+                    },
+                }
+            },
+        }
+        protocol = {
+            "schema": "primeproject.decision-protocol.v1",
+            "decisions": [
+                {"decision_id": "promote_real_world_generator_attribution", "status": "blocked"},
+                {"decision_id": "promote_bitcoin_nonce_risk_attribution", "status": "blocked"},
+            ],
+        }
+
+        battery = build_falsification_battery(
+            attribution_grid=grid,
+            decision_protocol=protocol,
+            generated_at="2026-05-23T00:00:00+00:00",
+        )
+        checks = {check["check"]: check for check in battery["checks"]}
+
+        self.assertEqual(battery["schema"], "primeproject.falsification-battery.v1")
+        self.assertEqual(battery["summary"]["claim_floor"], "controlled_synthetic_only")
+        self.assertEqual(battery["summary"]["fail_count"], 0)
+        self.assertEqual(checks["controlled_signal_above_random"]["status"], "pass")
+        self.assertEqual(checks["bit_length_confound_guard"]["status"], "pass")
+        self.assertEqual(checks["claim_promotion_guard"]["status"], "pass")
+
+    def test_falsification_battery_fails_if_high_risk_claim_is_promoted(self) -> None:
+        grid = {
+            "random_baseline_accuracy": 1 / 3,
+            "rows": [{"control_mode": "none"}, {"control_mode": "bit_length"}],
+            "summary": {"profiles": {"bit_length_only": {"mean_controlled_accuracy": 0.33}}},
+        }
+        protocol = {
+            "decisions": [
+                {"decision_id": "promote_real_world_generator_attribution", "status": "allowed"},
+                {"decision_id": "promote_bitcoin_nonce_risk_attribution", "status": "blocked"},
+            ]
+        }
+
+        battery = build_falsification_battery(
+            attribution_grid=grid,
+            decision_protocol=protocol,
+            generated_at="2026-05-23T00:00:00+00:00",
+        )
+        checks = {check["check"]: check for check in battery["checks"]}
+
+        self.assertEqual(checks["claim_promotion_guard"]["status"], "fail")
+        self.assertEqual(battery["summary"]["claim_floor"], "do_not_promote")
 
 
 def base64_lines(data: bytes) -> str:

@@ -1933,7 +1933,14 @@ canvas {
   background: #fff;
 }
 
-.decision-protocol-heading {
+.falsification-battery {
+  margin: 0 20px 20px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.decision-protocol-heading,
+.falsification-battery-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1942,23 +1949,27 @@ canvas {
   padding: 14px;
 }
 
-.decision-protocol-heading h3 {
+.decision-protocol-heading h3,
+.falsification-battery-heading h3 {
   color: var(--ink);
   font-size: 13px;
 }
 
-.decision-protocol-heading span {
+.decision-protocol-heading span,
+.falsification-battery-heading span {
   color: var(--muted);
   font-size: 12px;
   font-weight: 760;
 }
 
-.decision-protocol-rows {
+.decision-protocol-rows,
+.falsification-battery-rows {
   display: grid;
   gap: 0;
 }
 
-.decision-row {
+.decision-row,
+.falsification-row {
   display: grid;
   grid-template-columns: minmax(190px, 0.9fr) 86px 130px minmax(260px, 1.3fr) minmax(180px, 0.9fr);
   gap: 12px;
@@ -1968,7 +1979,8 @@ canvas {
   padding: 10px 14px;
 }
 
-.decision-row:first-child {
+.decision-row:first-child,
+.falsification-row:first-child {
   border-top: 0;
 }
 
@@ -1976,17 +1988,24 @@ canvas {
 .decision-row span,
 .decision-row p,
 .decision-row code,
-.decision-row small {
+.decision-row small,
+.falsification-row strong,
+.falsification-row span,
+.falsification-row p,
+.falsification-row code,
+.falsification-row small {
   overflow-wrap: anywhere;
 }
 
-.decision-row strong {
+.decision-row strong,
+.falsification-row strong {
   display: block;
   color: var(--ink);
   font-size: 12px;
 }
 
-.decision-row span {
+.decision-row span,
+.falsification-row span {
   display: block;
   margin-top: 3px;
   color: var(--muted);
@@ -1994,20 +2013,50 @@ canvas {
   line-height: 1.35;
 }
 
-.decision-row p {
+.decision-row p,
+.falsification-row p {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.35;
 }
 
 .decision-row small,
-.decision-row code {
+.decision-row code,
+.falsification-row small,
+.falsification-row code {
   color: var(--muted);
   font-size: 11px;
 }
 
-.decision-row code {
+.decision-row code,
+.falsification-row code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.check-status {
+  justify-self: start;
+  min-width: 60px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 820;
+  text-align: center;
+}
+
+.check-status.is-pass {
+  color: var(--teal);
+  background: rgba(8, 127, 122, 0.1);
+}
+
+.check-status.is-warn {
+  color: var(--amber);
+  background: rgba(215, 138, 17, 0.12);
+}
+
+.check-status.is-fail {
+  color: var(--danger);
+  background: rgba(189, 61, 52, 0.1);
 }
 
 .attribution-summary {
@@ -2288,7 +2337,9 @@ tr:last-child td {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .claim-row {
+  .claim-row,
+  .decision-row,
+  .falsification-row {
     grid-template-columns: minmax(0, 1fr) 86px 120px;
   }
 }
@@ -2408,11 +2459,13 @@ tr:last-child td {
     grid-template-columns: 1fr;
   }
 
-  .decision-protocol {
+  .decision-protocol,
+  .falsification-battery {
     margin: 0 12px 12px;
   }
 
-  .decision-protocol-heading {
+  .decision-protocol-heading,
+  .falsification-battery-heading {
     display: grid;
   }
 
@@ -2420,6 +2473,7 @@ tr:last-child td {
   .artifact-row,
   .claim-row,
   .decision-row,
+  .falsification-row,
   .collection-row,
   .collection-gate,
   .power-row,
