@@ -1,0 +1,334 @@
+{
+  "schema": "primeproject.artifact-lineage.v1",
+  "generated_at": "2026-05-22T16:39:02+00:00",
+  "summary": {
+    "node_count": 13,
+    "edge_count": 24,
+    "missing_count": 0,
+    "invalid_edge_count": 0,
+    "checksum_mismatch_count": 0,
+    "cycle_count": 0,
+    "reproducible": true
+  },
+  "policy": {
+    "lineage_is_outside_evidence_pack": true,
+    "reason": "The lineage report audits the evidence pack and claim ledger, so it is generated after them to avoid circular checksums.",
+    "publishable_unit": "schemas, checksums, dependency edges, and mismatch flags only"
+  },
+  "nodes": [
+    {
+      "role": "attribution_grid",
+      "path": "data/attribution_confound_grid.json",
+      "exists": true,
+      "schema": "primeproject.attribution-confound-grid.v1",
+      "sha256": "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318",
+      "bytes": 174610
+    },
+    {
+      "role": "baseline_acceptance",
+      "path": "data/baseline_acceptance.json",
+      "exists": true,
+      "schema": "primeproject.baseline-acceptance.v1",
+      "sha256": "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58",
+      "bytes": 7662
+    },
+    {
+      "role": "baseline_promotion_plan",
+      "path": "data/baseline_promotion_plan.json",
+      "exists": true,
+      "schema": "primeproject.baseline-promotion-plan.v1",
+      "sha256": "dd975b3a84f528552a925e248f249566be24dbd13926e2fab814e88778a52e87",
+      "bytes": 8366
+    },
+    {
+      "role": "claim_ledger",
+      "path": "data/claim_ledger.json",
+      "exists": true,
+      "schema": "primeproject.claim-ledger.v1",
+      "sha256": "8e5be0782db4010f4305c30e7f1c744d26eec50008a27cb75cd00f8dede19605",
+      "bytes": 9121
+    },
+    {
+      "role": "collection_matrix",
+      "path": "data/collection_matrix.json",
+      "exists": true,
+      "schema": "primeproject.real-world-collection-matrix.v1",
+      "sha256": "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92",
+      "bytes": 6150
+    },
+    {
+      "role": "collection_power",
+      "path": "data/collection_power.json",
+      "exists": true,
+      "schema": "primeproject.collection-power.v1",
+      "sha256": "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b",
+      "bytes": 6080
+    },
+    {
+      "role": "evidence_pack",
+      "path": "data/evidence_pack.json",
+      "exists": true,
+      "schema": "primeproject.evidence-pack.v1",
+      "sha256": "db892553caf5c1700fbacf88aa483912683edbf236671847f2487c814b81323e",
+      "bytes": 8927
+    },
+    {
+      "role": "manifest",
+      "path": "data/baselines/real_world/manifest.json",
+      "exists": true,
+      "schema": "primeproject.real-world-baseline-manifest.v1",
+      "sha256": "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7",
+      "bytes": 3373
+    },
+    {
+      "role": "project_evolution",
+      "path": "data/project_evolution.json",
+      "exists": true,
+      "schema": "primeproject.project-evolution.v1",
+      "sha256": "69a5e3ee3aa185d9e688218909883d3b96979196290b15b7e625fb03bd7438aa",
+      "bytes": 11158
+    },
+    {
+      "role": "provenance_audit",
+      "path": "data/provenance_audit.json",
+      "exists": true,
+      "schema": "primeproject.provenance-audit.v1",
+      "sha256": "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd",
+      "bytes": 2717
+    },
+    {
+      "role": "provenance_requirements",
+      "path": "data/provenance_requirements.json",
+      "exists": true,
+      "schema": "primeproject.provenance-requirements.v1",
+      "sha256": "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0",
+      "bytes": 5942
+    },
+    {
+      "role": "readiness",
+      "path": "data/research_readiness.json",
+      "exists": true,
+      "schema": "primeproject.research-readiness.v1",
+      "sha256": "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc",
+      "bytes": 3152
+    },
+    {
+      "role": "snapshot_manifest",
+      "path": "data/snapshots/manifest.json",
+      "exists": true,
+      "schema": "primeproject.snapshot-manifest.v1",
+      "sha256": "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0",
+      "bytes": 1182
+    }
+  ],
+  "edges": [
+    {
+      "from": "manifest",
+      "to": "baseline_acceptance",
+      "valid": true
+    },
+    {
+      "from": "collection_matrix",
+      "to": "baseline_acceptance",
+      "valid": true
+    },
+    {
+      "from": "collection_power",
+      "to": "baseline_acceptance",
+      "valid": true
+    },
+    {
+      "from": "provenance_audit",
+      "to": "baseline_acceptance",
+      "valid": true
+    },
+    {
+      "from": "baseline_acceptance",
+      "to": "baseline_promotion_plan",
+      "valid": true
+    },
+    {
+      "from": "collection_power",
+      "to": "baseline_promotion_plan",
+      "valid": true
+    },
+    {
+      "from": "evidence_pack",
+      "to": "claim_ledger",
+      "valid": true
+    },
+    {
+      "from": "manifest",
+      "to": "collection_matrix",
+      "valid": true
+    },
+    {
+      "from": "collection_matrix",
+      "to": "collection_power",
+      "valid": true
+    },
+    {
+      "from": "manifest",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "readiness",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "attribution_grid",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "baseline_acceptance",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "project_evolution",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "snapshot_manifest",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "collection_matrix",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "collection_power",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "provenance_requirements",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "provenance_audit",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "baseline_promotion_plan",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "provenance_requirements",
+      "to": "provenance_audit",
+      "valid": true
+    },
+    {
+      "from": "manifest",
+      "to": "provenance_requirements",
+      "valid": true
+    },
+    {
+      "from": "manifest",
+      "to": "readiness",
+      "valid": true
+    },
+    {
+      "from": "attribution_grid",
+      "to": "readiness",
+      "valid": true
+    }
+  ],
+  "checksum_checks": [
+    {
+      "role": "attribution_grid",
+      "status": "match",
+      "expected_sha256": "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318",
+      "actual_sha256": "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318",
+      "schema": "primeproject.attribution-confound-grid.v1"
+    },
+    {
+      "role": "baseline_acceptance",
+      "status": "match",
+      "expected_sha256": "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58",
+      "actual_sha256": "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58",
+      "schema": "primeproject.baseline-acceptance.v1"
+    },
+    {
+      "role": "baseline_promotion_plan",
+      "status": "match",
+      "expected_sha256": "dd975b3a84f528552a925e248f249566be24dbd13926e2fab814e88778a52e87",
+      "actual_sha256": "dd975b3a84f528552a925e248f249566be24dbd13926e2fab814e88778a52e87",
+      "schema": "primeproject.baseline-promotion-plan.v1"
+    },
+    {
+      "role": "collection_matrix",
+      "status": "match",
+      "expected_sha256": "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92",
+      "actual_sha256": "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92",
+      "schema": "primeproject.real-world-collection-matrix.v1"
+    },
+    {
+      "role": "collection_power",
+      "status": "match",
+      "expected_sha256": "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b",
+      "actual_sha256": "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b",
+      "schema": "primeproject.collection-power.v1"
+    },
+    {
+      "role": "manifest",
+      "status": "match",
+      "expected_sha256": "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7",
+      "actual_sha256": "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7",
+      "schema": "primeproject.real-world-baseline-manifest.v1"
+    },
+    {
+      "role": "project_evolution",
+      "status": "match",
+      "expected_sha256": "69a5e3ee3aa185d9e688218909883d3b96979196290b15b7e625fb03bd7438aa",
+      "actual_sha256": "69a5e3ee3aa185d9e688218909883d3b96979196290b15b7e625fb03bd7438aa",
+      "schema": "primeproject.project-evolution.v1"
+    },
+    {
+      "role": "provenance_audit",
+      "status": "match",
+      "expected_sha256": "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd",
+      "actual_sha256": "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd",
+      "schema": "primeproject.provenance-audit.v1"
+    },
+    {
+      "role": "provenance_requirements",
+      "status": "match",
+      "expected_sha256": "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0",
+      "actual_sha256": "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0",
+      "schema": "primeproject.provenance-requirements.v1"
+    },
+    {
+      "role": "readiness",
+      "status": "match",
+      "expected_sha256": "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc",
+      "actual_sha256": "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc",
+      "schema": "primeproject.research-readiness.v1"
+    },
+    {
+      "role": "snapshot_manifest",
+      "status": "match",
+      "expected_sha256": "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0",
+      "actual_sha256": "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0",
+      "schema": "primeproject.snapshot-manifest.v1"
+    }
+  ],
+  "cycles": [],
+  "findings": [
+    {
+      "severity": "info",
+      "check": "lineage_reproducible",
+      "message": "Declared artifacts exist, evidence-pack checksums match, and dependency graph is acyclic.",
+      "evidence": {}
+    }
+  ]
+}

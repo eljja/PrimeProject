@@ -1845,6 +1845,88 @@ canvas {
   background: rgba(189, 61, 52, 0.1);
 }
 
+.artifact-lineage {
+  margin: 0 20px 20px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.artifact-lineage-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding: 14px;
+}
+
+.artifact-lineage-heading h3 {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.artifact-lineage-heading span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 760;
+}
+
+.artifact-lineage-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 12px;
+  padding: 12px 14px 14px;
+}
+
+#artifactLineageMap {
+  width: 100%;
+  min-height: 260px;
+}
+
+.artifact-lineage-rows {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.lineage-health,
+.lineage-stat,
+.lineage-finding {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 9px 10px;
+}
+
+.lineage-health strong,
+.lineage-stat strong,
+.lineage-finding strong {
+  display: block;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.lineage-health span,
+.lineage-stat span,
+.lineage-finding span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.lineage-health.is-pass {
+  border-color: rgba(8, 127, 122, 0.28);
+  background: rgba(8, 127, 122, 0.08);
+}
+
+.lineage-health.is-fail {
+  border-color: rgba(189, 61, 52, 0.28);
+  background: rgba(189, 61, 52, 0.08);
+}
+
 .attribution-summary {
   display: grid;
   grid-template-columns: repeat(5, minmax(120px, 1fr));
@@ -2231,6 +2313,16 @@ tr:last-child td {
 
   .claim-ledger-heading {
     display: grid;
+  }
+
+  .artifact-lineage {
+    margin: 0 12px 12px;
+  }
+
+  .artifact-lineage-heading,
+  .artifact-lineage-body {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .evidence-row,

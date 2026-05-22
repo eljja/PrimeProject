@@ -7,6 +7,7 @@ from pathlib import Path
 from random import Random
 
 from prime_audit.analysis import audit_records, evaluate_policy, report_to_dict
+from prime_audit.artifact_lineage import build_artifact_lineage
 from prime_audit.attribution import (
     build_bit_length_bucket_plan,
     run_attribution_confound_grid,
@@ -679,12 +680,63 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("bitcoin_risk_report", claims["bitcoin_nonce_risk_attribution"]["missing_required_artifacts"])
         self.assertGreaterEqual(ledger["summary"]["blocked_count"], 2)
 
+    def test_artifact_lineage_detects_checksum_mismatch_and_cycles(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            manifest = tmp / "manifest.json"
+            readiness = tmp / "readiness.json"
+            evidence = tmp / "evidence.json"
+            manifest.write_text(json.dumps({"schema": "manifest.v1"}), encoding="utf-8")
+            readiness.write_text(json.dumps({"schema": "readiness.v1"}), encoding="utf-8")
+            evidence.write_text(
+                json.dumps(
+                    {
+                        "schema": "primeproject.evidence-pack.v1",
+                        "artifacts": [
+                            {"role": "manifest", "sha256": "0" * 64},
+                            {
+                                "role": "readiness",
+                                "sha256": sha256_text(readiness.read_text(encoding="utf-8")),
+                            },
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            lineage = build_artifact_lineage(
+                artifact_paths={
+                    "manifest": manifest,
+                    "readiness": readiness,
+                    "evidence_pack": evidence,
+                },
+                dependencies={
+                    "manifest": ["evidence_pack"],
+                    "evidence_pack": ["manifest"],
+                },
+                generated_at="2026-05-23T00:00:00+00:00",
+            )
+
+        self.assertEqual(lineage["schema"], "primeproject.artifact-lineage.v1")
+        self.assertEqual(lineage["summary"]["checksum_mismatch_count"], 1)
+        self.assertGreaterEqual(lineage["summary"]["cycle_count"], 1)
+        self.assertFalse(lineage["summary"]["reproducible"])
+        checks = {check["role"]: check["status"] for check in lineage["checksum_checks"]}
+        self.assertEqual(checks["manifest"], "mismatch")
+        self.assertEqual(checks["readiness"], "match")
+
 
 def base64_lines(data: bytes) -> str:
     import base64
 
     encoded = base64.b64encode(data).decode("ascii")
     return "\n".join(encoded[index : index + 64] for index in range(0, len(encoded), 64))
+
+
+def sha256_text(value: str) -> str:
+    import hashlib
+
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
 def fingerprint_report_from_values(values: list[int]) -> dict[str, object]:

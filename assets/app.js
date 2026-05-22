@@ -12,6 +12,7 @@ const state = {
   researchReadiness: null,
   evidencePack: null,
   claimLedger: null,
+  artifactLineage: null,
   projectEvolution: null,
   collectionMatrix: null,
   collectionPower: null,
@@ -453,7 +454,7 @@ const bundledEvidencePack = {
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "ad8a6547bef0a7ddb62e70963fe115dec3d9a1023ff7fa6d78d2ef910c9bf945" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "69a5e3ee3aa185d9e688218909883d3b96979196290b15b7e625fb03bd7438aa" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
@@ -529,6 +530,61 @@ const bundledClaimLedger = {
   blocked_claim_ids: ["real_world_generator_attribution", "bitcoin_nonce_risk_attribution"],
 };
 
+const bundledArtifactLineage = {
+  schema: "primeproject.artifact-lineage.v1",
+  summary: {
+    node_count: 13,
+    edge_count: 24,
+    missing_count: 0,
+    invalid_edge_count: 0,
+    checksum_mismatch_count: 0,
+    cycle_count: 0,
+    reproducible: true,
+  },
+  policy: {
+    lineage_is_outside_evidence_pack: true,
+    reason: "The lineage report audits the evidence pack and claim ledger, so it is generated after them to avoid circular checksums.",
+  },
+  nodes: [
+    { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", exists: true, sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
+    { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", exists: true, sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
+    { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "db892553caf5c1700fbacf88aa483912683edbf236671847f2487c814b81323e" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "8e5be0782db4010f4305c30e7f1c744d26eec50008a27cb75cd00f8dede19605" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "69a5e3ee3aa185d9e688218909883d3b96979196290b15b7e625fb03bd7438aa" },
+  ],
+  edges: [
+    { from: "manifest", to: "collection_matrix", valid: true },
+    { from: "collection_matrix", to: "collection_power", valid: true },
+    { from: "manifest", to: "provenance_requirements", valid: true },
+    { from: "provenance_requirements", to: "provenance_audit", valid: true },
+    { from: "manifest", to: "baseline_acceptance", valid: true },
+    { from: "collection_matrix", to: "baseline_acceptance", valid: true },
+    { from: "collection_power", to: "baseline_acceptance", valid: true },
+    { from: "provenance_audit", to: "baseline_acceptance", valid: true },
+    { from: "baseline_acceptance", to: "baseline_promotion_plan", valid: true },
+    { from: "attribution_grid", to: "readiness", valid: true },
+    { from: "manifest", to: "readiness", valid: true },
+    { from: "readiness", to: "evidence_pack", valid: true },
+    { from: "baseline_acceptance", to: "evidence_pack", valid: true },
+    { from: "baseline_promotion_plan", to: "evidence_pack", valid: true },
+    { from: "project_evolution", to: "evidence_pack", valid: true },
+    { from: "evidence_pack", to: "claim_ledger", valid: true },
+  ],
+  checksum_checks: [
+    { role: "manifest", status: "match" },
+    { role: "readiness", status: "match" },
+    { role: "project_evolution", status: "match" },
+  ],
+  findings: [
+    {
+      severity: "info",
+      check: "lineage_reproducible",
+      message: "Declared artifacts exist, evidence-pack checksums match, and dependency graph is acyclic.",
+    },
+  ],
+};
+
 const bundledProjectEvolution = {
   schema: "primeproject.project-evolution.v1",
   headline: "From prime regularity exploration to generator-fingerprint research tooling.",
@@ -558,6 +614,10 @@ const bundledProjectEvolution = {
     blocking_gaps: 2,
     claim_ledger_allowed: 3,
     claim_ledger_blocked: 2,
+    lineage_nodes: 13,
+    lineage_edges: 24,
+    lineage_checksum_mismatches: 0,
+    lineage_cycles: 0,
   },
   change_dashboard: {
     headline:
@@ -567,7 +627,7 @@ const bundledProjectEvolution = {
       { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid"], status: "complete", signal: "controlled attribution grid with 48 rows and 3 repeats" },
       { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets and sample-power floors" },
       { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"], status: "active", signal: "provenance, acceptance, and promotion gates before claims" },
-      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger"], status: "active", signal: "5 claim rules with 3 allowed and 2 blocked statements" },
+      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage"], status: "active", signal: "13 artifact nodes, 24 edges, zero checksum mismatches" },
     ],
     latest_changes: [
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
@@ -575,6 +635,7 @@ const bundledProjectEvolution = {
       { label: "Provenance audit", impact: "Checks missing metadata, checksum format, and forbidden public sensitive fields.", metric: "4 blocked records" },
       { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "11 artifacts / 10 gates" },
       { label: "Claim ledger", impact: "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.", metric: "3 allowed / 2 blocked" },
+      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "13 nodes / 24 edges" },
     ],
   },
   phases: [
@@ -594,6 +655,7 @@ const bundledProjectEvolution = {
     { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
     { id: "claim-ledger", label: "Claim ledger", status: "active", layer: "publication" },
+    { id: "artifact-lineage", label: "Artifact lineage", status: "active", layer: "reproducibility" },
   ],
   connections: [
     ["regularity-plan", "conjecture-lab"],
@@ -610,7 +672,8 @@ const bundledProjectEvolution = {
     ["baseline-acceptance", "baseline-promotion"],
     ["baseline-promotion", "readiness-gates"],
     ["readiness-gates", "evidence-pack"],
-    ["evidence-pack", "claim-ledger"],
+    ["evidence-pack", "claim-ledger", "artifact-lineage"],
+    ["evidence-pack", "artifact-lineage"],
   ],
   open_gaps: [
     { priority: "P0", track: "sim-to-real", gap: "Need at least two available real-world aggregate baselines before real attribution claims." },
@@ -707,6 +770,9 @@ const outputs = {
   evidenceArtifactRows: document.querySelector("#evidenceArtifactRows"),
   claimLedgerSummary: document.querySelector("#claimLedgerSummary"),
   claimLedgerRows: document.querySelector("#claimLedgerRows"),
+  artifactLineageSummary: document.querySelector("#artifactLineageSummary"),
+  artifactLineageMap: document.querySelector("#artifactLineageMap"),
+  artifactLineageRows: document.querySelector("#artifactLineageRows"),
   attributionSummary: document.querySelector("#attributionSummary"),
   attributionGridSvg: document.querySelector("#attributionGridSvg"),
   attributionProfileRows: document.querySelector("#attributionProfileRows"),
@@ -779,6 +845,7 @@ loadBaselinePromotion();
 loadResearchReadiness();
 loadEvidencePack();
 loadClaimLedger();
+loadArtifactLineage();
 loadAttributionGrid();
 renderPrediction();
 
@@ -1668,7 +1735,7 @@ function renderEvolutionMap(evolution) {
     ["attribution-grid", "real-world-registry"],
     ["collection-matrix", "collection-power"],
     ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "readiness-gates"],
-    ["evidence-pack", "claim-ledger"],
+    ["evidence-pack", "claim-ledger", "artifact-lineage"],
   ];
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   const positions = new Map();
@@ -2181,6 +2248,111 @@ function renderClaimLedger() {
       `;
     })
     .join("");
+}
+
+async function loadArtifactLineage() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.artifactLineage = bundledArtifactLineage;
+    } else {
+      const response = await fetch("data/artifact_lineage.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`artifact lineage ${response.status}`);
+      state.artifactLineage = await response.json();
+    }
+  } catch (error) {
+    state.artifactLineage = bundledArtifactLineage;
+  }
+  renderArtifactLineage();
+}
+
+function renderArtifactLineage() {
+  if (!outputs.artifactLineageSummary || !outputs.artifactLineageMap || !outputs.artifactLineageRows) return;
+  const lineage = state.artifactLineage || bundledArtifactLineage;
+  const summary = lineage.summary || {};
+  outputs.artifactLineageSummary.textContent =
+    `${formatNumber(summary.node_count || 0)} nodes / ${formatNumber(summary.edge_count || 0)} edges`;
+  renderArtifactLineageMap(lineage);
+  const rows = [
+    { label: "Missing", value: summary.missing_count || 0 },
+    { label: "Checksum mismatch", value: summary.checksum_mismatch_count || 0 },
+    { label: "Cycles", value: summary.cycle_count || 0 },
+    { label: "Evidence checks", value: (lineage.checksum_checks || []).length },
+  ];
+  outputs.artifactLineageRows.innerHTML = `
+    <div class="lineage-health ${summary.reproducible ? "is-pass" : "is-fail"}">
+      <strong>${summary.reproducible ? "reproducible" : "needs review"}</strong>
+      <span>${escapeHtml(lineage.policy?.reason || "")}</span>
+    </div>
+    ${rows
+      .map((row) => `
+        <div class="lineage-stat">
+          <span>${escapeHtml(row.label)}</span>
+          <strong>${formatNumber(row.value)}</strong>
+        </div>
+      `)
+      .join("")}
+    ${(lineage.findings || [])
+      .slice(0, 2)
+      .map((finding) => `
+        <div class="lineage-finding">
+          <strong>${escapeHtml(finding.check || "finding")}</strong>
+          <span>${escapeHtml(finding.message || "")}</span>
+        </div>
+      `)
+      .join("")}
+  `;
+}
+
+function renderArtifactLineageMap(lineage) {
+  const svg = outputs.artifactLineageMap;
+  const width = 940;
+  const height = 280;
+  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.innerHTML = "";
+  const positions = new Map([
+    ["manifest", { x: 30, y: 42 }],
+    ["attribution_grid", { x: 30, y: 132 }],
+    ["collection_matrix", { x: 198, y: 42 }],
+    ["collection_power", { x: 366, y: 42 }],
+    ["provenance_requirements", { x: 198, y: 132 }],
+    ["provenance_audit", { x: 366, y: 132 }],
+    ["baseline_acceptance", { x: 534, y: 42 }],
+    ["baseline_promotion_plan", { x: 702, y: 42 }],
+    ["readiness", { x: 366, y: 212 }],
+    ["project_evolution", { x: 534, y: 212 }],
+    ["evidence_pack", { x: 702, y: 142 }],
+    ["claim_ledger", { x: 842, y: 142 }],
+  ]);
+  appendSvg(svg, "text", { x: 30, y: 24, class: "chart-title" }).textContent = "artifact dependency DAG";
+  (lineage.edges || []).forEach((edge) => {
+    const start = positions.get(edge.from);
+    const end = positions.get(edge.to);
+    if (!start || !end) return;
+    appendSvg(svg, "path", {
+      d: `M ${start.x + 112} ${start.y + 20} C ${start.x + 150} ${start.y + 20}, ${end.x - 36} ${end.y + 20}, ${end.x} ${end.y + 20}`,
+      fill: "none",
+      stroke: edge.valid ? "#c6ccd8" : colors.danger,
+      "stroke-width": 2,
+    });
+  });
+  const nodesByRole = new Map((lineage.nodes || []).map((node) => [node.role, node]));
+  positions.forEach((point, role) => {
+    const node = nodesByRole.get(role) || {};
+    const exists = node.exists !== false;
+    const color = !exists ? colors.danger : role === "evidence_pack" || role === "claim_ledger" ? colors.indigo : colors.teal;
+    appendSvg(svg, "rect", {
+      x: point.x,
+      y: point.y,
+      width: 124,
+      height: 44,
+      rx: 7,
+      fill: "#ffffff",
+      stroke: color,
+      "stroke-width": 2,
+    });
+    appendSvg(svg, "circle", { cx: point.x + 14, cy: point.y + 15, r: 4, fill: color });
+    wrapSvgText(svg, role.replaceAll("_", " "), point.x + 26, point.y + 16, 14, 2);
+  });
 }
 
 async function loadAttributionGrid() {

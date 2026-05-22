@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from .analysis import evaluate_policy, audit_records, report_to_dict
+from .artifact_lineage import build_artifact_lineage
 from .attribution import run_attribution_confound_grid, run_synthetic_attribution_benchmark
 from .baseline_acceptance import build_baseline_acceptance
 from .baseline_promotion import build_baseline_promotion_plan
@@ -232,6 +233,24 @@ def main() -> int:
     )
     claim_ledger_parser.add_argument("--evidence-pack", required=True)
     claim_ledger_parser.add_argument("--output", required=True)
+
+    artifact_lineage_parser = subparsers.add_parser(
+        "artifact-lineage",
+        help="Build a dependency and checksum lineage report for public research artifacts.",
+    )
+    artifact_lineage_parser.add_argument(
+        "--artifact",
+        nargs="*",
+        default=[],
+        help="Override or add artifact role=path entries. Defaults cover the bundled public artifacts.",
+    )
+    artifact_lineage_parser.add_argument(
+        "--dependency",
+        nargs="*",
+        default=[],
+        help="Override dependency edges as role:dep1,dep2.",
+    )
+    artifact_lineage_parser.add_argument("--output", required=True)
 
     attribution_parser = subparsers.add_parser(
         "attribution-benchmark",
@@ -555,6 +574,32 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         payload = build_claim_ledger(evidence_pack)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "artifact-lineage":
+        artifact_paths = {}
+        for artifact in args.artifact:
+            if "=" not in artifact:
+                raise ValueError(f"artifact requires role=path, got {artifact!r}")
+            role, artifact_path = artifact.split("=", 1)
+            artifact_paths[role.strip()] = artifact_path.strip()
+        dependencies = {}
+        for dependency in args.dependency:
+            if ":" not in dependency:
+                raise ValueError(f"dependency requires role:dep1,dep2, got {dependency!r}")
+            role, dependency_values = dependency.split(":", 1)
+            dependencies[role.strip()] = [
+                item.strip()
+                for item in dependency_values.split(",")
+                if item.strip()
+            ]
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_artifact_lineage(
+            artifact_paths=artifact_paths,
+            dependencies=dependencies,
+        )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

@@ -2,6 +2,7 @@
 
 __all__ = [
     "analysis",
+    "artifact_lineage",
     "attribution",
     "baselines",
     "bias_lab",
