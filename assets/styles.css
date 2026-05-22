@@ -2124,6 +2124,124 @@ canvas {
   font-weight: 820;
 }
 
+.null-calibration {
+  margin: 0 20px 20px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.null-calibration-heading {
+  border-bottom: 1px solid var(--line);
+  padding: 14px;
+}
+
+.null-calibration-heading h3 {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.null-calibration-heading p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.null-calibration-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 10px;
+  padding: 14px 14px 8px;
+}
+
+.null-calibration-summary div {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 10px;
+}
+
+.null-calibration-summary span,
+.null-calibration-summary small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.null-calibration-summary span {
+  font-weight: 760;
+  text-transform: uppercase;
+}
+
+.null-calibration-summary strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.null-calibration-summary small {
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+.null-calibration-rows {
+  display: grid;
+  gap: 0;
+  padding: 0 14px 14px;
+}
+
+.null-row {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.7fr) 100px 86px minmax(130px, 1fr) 88px minmax(150px, 0.9fr);
+  gap: 10px;
+  align-items: center;
+  min-height: 42px;
+  border-top: 1px solid var(--line);
+  padding: 8px 0;
+}
+
+.null-row strong,
+.null-row span,
+.null-row code,
+.null-row em {
+  overflow-wrap: anywhere;
+}
+
+.null-row strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.null-row span,
+.null-row code {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.null-row code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.null-row em {
+  justify-self: start;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 820;
+}
+
+.null-row em.is-pass {
+  color: var(--teal);
+  background: rgba(8, 127, 122, 0.1);
+}
+
+.null-row em.is-null {
+  color: var(--muted);
+  background: var(--soft);
+}
+
 .snapshots-panel {
   overflow: visible;
 }
@@ -2431,6 +2549,14 @@ tr:last-child td {
     padding: 12px;
   }
 
+  .null-calibration {
+    margin: 0 12px 12px;
+  }
+
+  .null-calibration-summary {
+    grid-template-columns: 1fr;
+  }
+
   .readiness-body {
     grid-template-columns: 1fr;
     padding: 12px;
@@ -2474,6 +2600,7 @@ tr:last-child td {
   .claim-row,
   .decision-row,
   .falsification-row,
+  .null-row,
   .collection-row,
   .collection-gate,
   .power-row,

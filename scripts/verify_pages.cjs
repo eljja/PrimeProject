@@ -102,6 +102,8 @@ async function main() {
       attributionSvgCells: document.querySelectorAll("#attributionGridSvg rect").length,
       attributionHeader: document.querySelector(".attribution-table thead").textContent,
       attributionFirstRow: document.querySelector("#attributionProfileRows tr").textContent,
+      nullCalibrationSummary: document.querySelector("#nullCalibrationSummary").textContent,
+      nullCalibrationRows: document.querySelectorAll("#nullCalibrationRows .null-row").length,
       bitcoinPanel: document.querySelector("#bitcoin-panel").textContent,
       fingerprintPanel: document.querySelector("#fingerprint-panel").textContent,
       baselinePanel: document.querySelector("#baseline-panel").textContent,
@@ -181,7 +183,8 @@ async function main() {
     !metrics.evolutionImpact.includes("Artifact lineage") ||
     !metrics.evolutionImpact.includes("Decision protocol") ||
     !metrics.evolutionImpact.includes("Falsification battery") ||
-    !metrics.evolutionImpact.includes("11 artifacts") ||
+    !metrics.evolutionImpact.includes("Null calibration") ||
+    !metrics.evolutionImpact.includes("12 artifacts") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
     !metrics.evolutionPanel.includes("Sample power") ||
     !metrics.evolutionPanel.includes("Provenance") ||
@@ -195,6 +198,15 @@ async function main() {
     metrics.attributionSvgCells < 3 ||
     !metrics.attributionSummary.includes("Random baseline") ||
     !metrics.attributionHeader.includes("Controlled p")
+  ) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (
+    metrics.nullCalibrationRows < 5 ||
+    !metrics.nullCalibrationSummary.includes("5,000") ||
+    !metrics.nullCalibrationSummary.includes("gap_only") ||
+    !metrics.attributionFirstRow.includes("all")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
@@ -252,7 +264,7 @@ async function main() {
   }
   if (
     metrics.evidenceGates < 10 ||
-    metrics.evidenceArtifacts < 11 ||
+    metrics.evidenceArtifacts < 12 ||
     metrics.claimLedgerRows < 5 ||
     metrics.artifactLineageRows < 5 ||
     metrics.artifactLineagePaths < 10 ||
@@ -271,7 +283,7 @@ async function main() {
     !metrics.evidencePanel.includes("claim_promotion_guard") ||
     !metrics.evidencePanel.includes("controlled_synthetic_only") ||
     !metrics.evidencePanel.includes("reproducible") ||
-    !metrics.artifactLineageSummary.includes("13 nodes") ||
+    !metrics.artifactLineageSummary.includes("14 nodes") ||
     !metrics.evidencePanel.includes("real_world_generator_attribution") ||
     !metrics.evidencePanel.includes("bitcoin_nonce_risk_attribution") ||
     !metrics.evidencePanel.includes("blocked") ||
@@ -284,6 +296,7 @@ async function main() {
     !metrics.evidencePanel.includes("provenance_audit") ||
     !metrics.evidencePanel.includes("baseline_acceptance") ||
     !metrics.evidencePanel.includes("baseline_promotion_plan") ||
+    !metrics.evidencePanel.includes("null_calibration") ||
     !metrics.evidencePanel.includes("public_demo_only")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));

@@ -40,6 +40,7 @@ from prime_audit.falsification import build_falsification_battery
 from prime_audit.fingerprints import analyze_prime_generator_fingerprints, prime_gap_context
 from prime_audit.io import load_records
 from prime_audit.models import KeyRecord
+from prime_audit.null_calibration import build_null_calibration
 from prime_audit.provenance import build_provenance_audit, build_provenance_requirements
 from prime_audit.real_baselines import build_real_baseline_manifest, manifest_public_summary
 from prime_audit.research_readiness import build_research_readiness_report
@@ -861,6 +862,36 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertEqual(checks["claim_promotion_guard"]["status"], "fail")
         self.assertEqual(battery["summary"]["claim_floor"], "do_not_promote")
+
+    def test_null_calibration_reports_familywise_profile_p_values(self) -> None:
+        grid = {
+            "schema": "primeproject.attribution-confound-grid.v1",
+            "random_baseline_accuracy": 1 / 3,
+            "rows": [
+                {
+                    "control_mode": "bit_length",
+                    "profile_correct": {"gap_only": 8, "low_bits_only": 3},
+                    "profile_total": {"gap_only": 9, "low_bits_only": 9},
+                },
+                {
+                    "control_mode": "bit_length",
+                    "profile_correct": {"gap_only": 7, "low_bits_only": 3},
+                    "profile_total": {"gap_only": 9, "low_bits_only": 9},
+                },
+            ],
+        }
+
+        calibration = build_null_calibration(
+            attribution_grid=grid,
+            iterations=250,
+            seed=7,
+        )
+        profiles = {profile["profile"]: profile for profile in calibration["profiles"]}
+
+        self.assertEqual(calibration["schema"], "primeproject.null-calibration.v1")
+        self.assertEqual(calibration["summary"]["top_profile"], "gap_only")
+        self.assertLess(profiles["gap_only"]["familywise_p_value"], 0.1)
+        self.assertEqual(profiles["low_bits_only"]["interpretation"], "near_null")
 
 
 def base64_lines(data: bytes) -> str:

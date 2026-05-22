@@ -23,8 +23,11 @@
     "attribution_grid_rows": 48,
     "attribution_repeats": 3,
     "robust_controlled_profiles": ["all", "gap_only"],
+    "null_calibration_iterations": 5000,
+    "null_familywise_survivors": 2,
+    "null_top_profile": "gap_only",
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 11,
+    "checksummed_artifacts": 12,
     "blocking_gaps": 2,
     "claim_ledger_allowed": 3,
     "claim_ledger_blocked": 2,
@@ -49,9 +52,9 @@
       },
       {
         "stage": "Fingerprint",
-        "phase_ids": ["fingerprint-baseline", "attribution-grid"],
+        "phase_ids": ["fingerprint-baseline", "attribution-grid", "null-calibration"],
         "status": "complete",
-        "signal": "controlled attribution grid with 48 rows and 3 repeats"
+        "signal": "controlled attribution plus 5,000-iteration family-wise null calibration"
       },
       {
         "stage": "Sim-to-Real",
@@ -112,6 +115,11 @@
         "label": "Falsification battery",
         "impact": "Runs paired controls, negative controls, bit-length confound guards, and claim-promotion guards before stronger claims.",
         "metric": "5 pass / 0 fail"
+      },
+      {
+        "label": "Null calibration",
+        "impact": "Tests whether the best-looking controlled profile survives row-structured random-label simulation and multiple-profile selection.",
+        "metric": "2 family-wise survivors"
       }
     ]
   },
@@ -163,6 +171,14 @@
       "layer": "validation",
       "summary": "Added paired uncontrolled and bit-length-controlled experiments with repeat confidence intervals.",
       "outputs": ["prime_audit/attribution.py", "data/attribution_confound_grid.json"]
+    },
+    {
+      "id": "null-calibration",
+      "label": "Null calibration",
+      "status": "complete",
+      "layer": "statistics",
+      "summary": "Calibrates controlled attribution profiles against a row-structured random-label null with family-wise profile selection control.",
+      "outputs": ["prime_audit/null_calibration.py", "data/null_calibration.json"]
     },
     {
       "id": "real-world-registry",
@@ -275,6 +291,8 @@
     ["conjecture-lab", "fingerprint-baseline"],
     ["bitcoin-track", "real-world-registry"],
     ["fingerprint-baseline", "attribution-grid"],
+    ["attribution-grid", "null-calibration"],
+    ["null-calibration", "readiness-gates"],
     ["attribution-grid", "readiness-gates"],
     ["real-world-registry", "collection-matrix"],
     ["collection-matrix", "collection-power"],

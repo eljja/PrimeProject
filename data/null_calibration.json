@@ -1,0 +1,80 @@
+{
+  "schema": "primeproject.null-calibration.v1",
+  "source": {
+    "attribution_grid_schema": "primeproject.attribution-confound-grid.v1",
+    "controlled_row_count": 24,
+    "profile_count": 5,
+    "random_baseline_accuracy": 0.3333333333333333
+  },
+  "method": {
+    "name": "row-structured binomial null calibration",
+    "iterations": 5000,
+    "seed": 20260523,
+    "familywise_control": "maximum observed lift across profiles per simulated iteration",
+    "interpretation": "Controls for selecting the best-looking profile after observing multiple attribution profiles."
+  },
+  "summary": {
+    "profile_count": 5,
+    "familywise_survivor_count": 2,
+    "top_profile": "gap_only",
+    "top_familywise_p_value": 0.0002,
+    "claim_floor": "controlled_synthetic_only"
+  },
+  "profiles": [
+    {
+      "profile": "gap_only",
+      "observed_controlled_accuracy": 0.606481,
+      "observed_lift": 0.273148,
+      "null_mean": 0.333381,
+      "null_ci95_low": 0.273148,
+      "null_ci95_high": 0.398148,
+      "pointwise_p_value": 0.0002,
+      "familywise_p_value": 0.0002,
+      "interpretation": "familywise_survives_null"
+    },
+    {
+      "profile": "all",
+      "observed_controlled_accuracy": 0.550926,
+      "observed_lift": 0.217593,
+      "null_mean": 0.333003,
+      "null_ci95_low": 0.273148,
+      "null_ci95_high": 0.398148,
+      "pointwise_p_value": 0.0002,
+      "familywise_p_value": 0.0002,
+      "interpretation": "familywise_survives_null"
+    },
+    {
+      "profile": "bit_length_only",
+      "observed_controlled_accuracy": 0.333333,
+      "observed_lift": 0.0,
+      "null_mean": 0.333872,
+      "null_ci95_low": 0.268519,
+      "null_ci95_high": 0.398148,
+      "pointwise_p_value": 0.529494,
+      "familywise_p_value": 0.977604,
+      "interpretation": "near_null"
+    },
+    {
+      "profile": "low_bits_only",
+      "observed_controlled_accuracy": 0.333333,
+      "observed_lift": 0.0,
+      "null_mean": 0.333265,
+      "null_ci95_low": 0.273148,
+      "null_ci95_high": 0.398148,
+      "pointwise_p_value": 0.525495,
+      "familywise_p_value": 0.977604,
+      "interpretation": "near_null"
+    },
+    {
+      "profile": "residue_only",
+      "observed_controlled_accuracy": 0.291667,
+      "observed_lift": -0.041667,
+      "null_mean": 0.333526,
+      "null_ci95_low": 0.273148,
+      "null_ci95_high": 0.398148,
+      "pointwise_p_value": 0.911818,
+      "familywise_p_value": 1.0,
+      "interpretation": "near_null"
+    }
+  ]
+}

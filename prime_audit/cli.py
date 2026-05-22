@@ -23,6 +23,7 @@ from .feature_vectors import build_feature_vector_payload, load_feature_vectors_
 from .falsification import build_falsification_battery
 from .fingerprints import analyze_prime_generator_fingerprints
 from .io import load_records, write_report_json
+from .null_calibration import build_null_calibration
 from .provenance import build_provenance_audit, build_provenance_requirements, load_provenance_records
 from .real_baselines import build_real_baseline_manifest, load_real_baseline_entries
 from .research_readiness import build_research_readiness_report
@@ -270,6 +271,15 @@ def main() -> int:
     falsification_parser.add_argument("--attribution-grid", required=True)
     falsification_parser.add_argument("--decision-protocol", required=True)
     falsification_parser.add_argument("--output", required=True)
+
+    null_calibration_parser = subparsers.add_parser(
+        "null-calibration",
+        help="Calibrate controlled attribution profiles against a row-structured random-label null.",
+    )
+    null_calibration_parser.add_argument("--attribution-grid", required=True)
+    null_calibration_parser.add_argument("--iterations", type=int, default=5000)
+    null_calibration_parser.add_argument("--seed", type=int, default=20260523)
+    null_calibration_parser.add_argument("--output", required=True)
 
     attribution_parser = subparsers.add_parser(
         "attribution-benchmark",
@@ -644,6 +654,18 @@ def main() -> int:
         payload = build_falsification_battery(
             attribution_grid=attribution_grid,
             decision_protocol=decision_protocol,
+        )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "null-calibration":
+        attribution_grid = json.loads(Path(args.attribution_grid).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_null_calibration(
+            attribution_grid=attribution_grid,
+            iterations=args.iterations,
+            seed=args.seed,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
