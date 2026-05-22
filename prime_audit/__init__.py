@@ -14,6 +14,7 @@ __all__ = [
     "collection_power",
     "conjecture_lab",
     "crypto_classifier",
+    "decision_protocol",
     "evidence_pack",
     "feature_vectors",
     "fingerprints",

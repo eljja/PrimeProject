@@ -13,6 +13,7 @@ const state = {
   evidencePack: null,
   claimLedger: null,
   artifactLineage: null,
+  decisionProtocol: null,
   projectEvolution: null,
   collectionMatrix: null,
   collectionPower: null,
@@ -454,7 +455,7 @@ const bundledEvidencePack = {
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "69a5e3ee3aa185d9e688218909883d3b96979196290b15b7e625fb03bd7438aa" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "379eed96eaf8464f6b6bda6abbbdbcb2dfca6930ec14b4d52fe665492cf3e3de" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
@@ -549,9 +550,9 @@ const bundledArtifactLineage = {
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", exists: true, sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", exists: true, sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "db892553caf5c1700fbacf88aa483912683edbf236671847f2487c814b81323e" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "8e5be0782db4010f4305c30e7f1c744d26eec50008a27cb75cd00f8dede19605" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "69a5e3ee3aa185d9e688218909883d3b96979196290b15b7e625fb03bd7438aa" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "72a85d6bcfe418da86d82a7afa3af8db02395021978451bff29ee1f607734f67" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "9650fb8960e79efe1282f425d4adca996f9f920314dc711c68929843381f7f4d" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "379eed96eaf8464f6b6bda6abbbdbcb2dfca6930ec14b4d52fe665492cf3e3de" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -581,6 +582,63 @@ const bundledArtifactLineage = {
       severity: "info",
       check: "lineage_reproducible",
       message: "Declared artifacts exist, evidence-pack checksums match, and dependency graph is acyclic.",
+    },
+  ],
+};
+
+const bundledDecisionProtocol = {
+  schema: "primeproject.decision-protocol.v1",
+  source: {
+    claim_level: "public_demo_only",
+    lineage_reproducible: true,
+  },
+  summary: {
+    decision_count: 4,
+    allowed_count: 2,
+    blocked_count: 2,
+    qualified_count: 0,
+    public_claim_ceiling: "public_demo_only",
+  },
+  decisions: [
+    {
+      decision_id: "publish_public_demo",
+      title: "Publish public demo and exploratory visualizations",
+      track: "publication",
+      status: "allowed",
+      threshold: "No sensitive material, at least three checksummed artifacts, and acyclic lineage.",
+      statement: "Public demo language is allowed when labelled as exploratory visualization.",
+      blocking_items: [],
+      next_action: "Keep limitations attached and preserve current evidence snapshots.",
+    },
+    {
+      decision_id: "report_controlled_synthetic_signal",
+      title: "Report controlled synthetic generator signal",
+      track: "controlled-validation",
+      status: "allowed",
+      threshold: "Controlled attribution grid is present and at least one profile survives bit-length control.",
+      statement: "Controlled synthetic attribution may be reported with confound limits attached.",
+      blocking_items: [],
+      next_action: "Keep limitations attached and preserve current evidence snapshots.",
+    },
+    {
+      decision_id: "promote_real_world_generator_attribution",
+      title: "Promote real-world generator attribution claim",
+      track: "sim-to-real",
+      status: "blocked",
+      threshold: "At least two accepted RSA library baselines, complete provenance, labelled classifier vectors across at least three labels, and matching evidence-pack checksums.",
+      statement: "Real-world generator attribution must remain a blocked claim.",
+      blocking_items: ["gate:real_baseline_gate", "gate:classifier_gate", "gate:baseline_acceptance_gate", "claim:real_world_generator_attribution:blocked"],
+      next_action: "Collect accepted OpenSSL/BoringSSL aggregate baselines, complete provenance, and export labelled classifier vectors.",
+    },
+    {
+      decision_id: "promote_bitcoin_nonce_risk_attribution",
+      title: "Promote Bitcoin wallet/library nonce-risk attribution claim",
+      track: "bitcoin",
+      status: "blocked",
+      threshold: "A bundled Bitcoin nonce-risk report exists and is linked to wallet/library baseline metadata.",
+      statement: "Bitcoin attribution must stay blocked until nonce-risk evidence is bundled.",
+      blocking_items: ["gate:bitcoin_integration_gate", "artifact:bitcoin_risk_report", "claim:bitcoin_nonce_risk_attribution:blocked"],
+      next_action: "Bundle a public-safe Bitcoin nonce-risk report from owned or public metadata summaries.",
     },
   ],
 };
@@ -618,6 +676,8 @@ const bundledProjectEvolution = {
     lineage_edges: 24,
     lineage_checksum_mismatches: 0,
     lineage_cycles: 0,
+    decision_protocol_allowed: 2,
+    decision_protocol_blocked: 2,
   },
   change_dashboard: {
     headline:
@@ -627,7 +687,7 @@ const bundledProjectEvolution = {
       { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid"], status: "complete", signal: "controlled attribution grid with 48 rows and 3 repeats" },
       { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets and sample-power floors" },
       { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"], status: "active", signal: "provenance, acceptance, and promotion gates before claims" },
-      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage"], status: "active", signal: "13 artifact nodes, 24 edges, zero checksum mismatches" },
+      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol"], status: "active", signal: "2 allowed decisions and 2 blocked claim promotions" },
     ],
     latest_changes: [
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
@@ -636,6 +696,7 @@ const bundledProjectEvolution = {
       { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "11 artifacts / 10 gates" },
       { label: "Claim ledger", impact: "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.", metric: "3 allowed / 2 blocked" },
       { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "13 nodes / 24 edges" },
+      { label: "Decision protocol", impact: "Pre-registers promotion rules so demo, synthetic, real-world, and Bitcoin claims cannot drift after results.", metric: "2 allowed / 2 blocked" },
     ],
   },
   phases: [
@@ -656,6 +717,7 @@ const bundledProjectEvolution = {
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
     { id: "claim-ledger", label: "Claim ledger", status: "active", layer: "publication" },
     { id: "artifact-lineage", label: "Artifact lineage", status: "active", layer: "reproducibility" },
+    { id: "decision-protocol", label: "Decision protocol", status: "active", layer: "governance" },
   ],
   connections: [
     ["regularity-plan", "conjecture-lab"],
@@ -674,6 +736,8 @@ const bundledProjectEvolution = {
     ["readiness-gates", "evidence-pack"],
     ["evidence-pack", "claim-ledger", "artifact-lineage"],
     ["evidence-pack", "artifact-lineage"],
+    ["claim-ledger", "decision-protocol"],
+    ["artifact-lineage", "decision-protocol"],
   ],
   open_gaps: [
     { priority: "P0", track: "sim-to-real", gap: "Need at least two available real-world aggregate baselines before real attribution claims." },
@@ -773,6 +837,8 @@ const outputs = {
   artifactLineageSummary: document.querySelector("#artifactLineageSummary"),
   artifactLineageMap: document.querySelector("#artifactLineageMap"),
   artifactLineageRows: document.querySelector("#artifactLineageRows"),
+  decisionProtocolSummary: document.querySelector("#decisionProtocolSummary"),
+  decisionProtocolRows: document.querySelector("#decisionProtocolRows"),
   attributionSummary: document.querySelector("#attributionSummary"),
   attributionGridSvg: document.querySelector("#attributionGridSvg"),
   attributionProfileRows: document.querySelector("#attributionProfileRows"),
@@ -846,6 +912,7 @@ loadResearchReadiness();
 loadEvidencePack();
 loadClaimLedger();
 loadArtifactLineage();
+loadDecisionProtocol();
 loadAttributionGrid();
 renderPrediction();
 
@@ -2353,6 +2420,43 @@ function renderArtifactLineageMap(lineage) {
     appendSvg(svg, "circle", { cx: point.x + 14, cy: point.y + 15, r: 4, fill: color });
     wrapSvgText(svg, role.replaceAll("_", " "), point.x + 26, point.y + 16, 14, 2);
   });
+}
+
+async function loadDecisionProtocol() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.decisionProtocol = bundledDecisionProtocol;
+    } else {
+      const response = await fetch("data/decision_protocol.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`decision protocol ${response.status}`);
+      state.decisionProtocol = await response.json();
+    }
+  } catch (error) {
+    state.decisionProtocol = bundledDecisionProtocol;
+  }
+  renderDecisionProtocol();
+}
+
+function renderDecisionProtocol() {
+  if (!outputs.decisionProtocolSummary || !outputs.decisionProtocolRows) return;
+  const protocol = state.decisionProtocol || bundledDecisionProtocol;
+  const summary = protocol.summary || {};
+  outputs.decisionProtocolSummary.textContent =
+    `${formatNumber(summary.allowed_count || 0)} allowed / ${formatNumber(summary.blocked_count || 0)} blocked`;
+  outputs.decisionProtocolRows.innerHTML = (protocol.decisions || [])
+    .map((decision) => `
+      <div class="decision-row">
+        <div>
+          <strong>${escapeHtml(decision.decision_id || "decision")}</strong>
+          <span>${escapeHtml(decision.title || "")}</span>
+        </div>
+        <em class="claim-status ${claimStatusClass(decision.status)}">${escapeHtml(decision.status || "unknown")}</em>
+        <small>${escapeHtml(decision.track || "research")}</small>
+        <p>${escapeHtml(decision.threshold || "")}</p>
+        <code>${(decision.blocking_items || []).length ? escapeHtml(decision.blocking_items.join(", ")) : "promotion rule satisfied"}</code>
+      </div>
+    `)
+    .join("");
 }
 
 async function loadAttributionGrid() {

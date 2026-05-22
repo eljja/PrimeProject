@@ -15,6 +15,7 @@ from .bitcoin_integration import build_bitcoin_generator_risk_report
 from .claim_ledger import build_claim_ledger
 from .conjecture_lab import run_lab
 from .crypto_classifier import run_crypto_classifier
+from .decision_protocol import build_decision_protocol
 from .collection_matrix import build_collection_matrix
 from .collection_power import build_collection_power
 from .evidence_pack import build_evidence_pack
@@ -251,6 +252,15 @@ def main() -> int:
         help="Override dependency edges as role:dep1,dep2.",
     )
     artifact_lineage_parser.add_argument("--output", required=True)
+
+    decision_protocol_parser = subparsers.add_parser(
+        "decision-protocol",
+        help="Apply pre-registered publication and claim-promotion decisions to the current evidence bundle.",
+    )
+    decision_protocol_parser.add_argument("--evidence-pack", required=True)
+    decision_protocol_parser.add_argument("--claim-ledger", required=True)
+    decision_protocol_parser.add_argument("--artifact-lineage", required=True)
+    decision_protocol_parser.add_argument("--output", required=True)
 
     attribution_parser = subparsers.add_parser(
         "attribution-benchmark",
@@ -599,6 +609,20 @@ def main() -> int:
         payload = build_artifact_lineage(
             artifact_paths=artifact_paths,
             dependencies=dependencies,
+        )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "decision-protocol":
+        evidence_pack = json.loads(Path(args.evidence_pack).read_text(encoding="utf-8"))
+        claim_ledger = json.loads(Path(args.claim_ledger).read_text(encoding="utf-8"))
+        artifact_lineage = json.loads(Path(args.artifact_lineage).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_decision_protocol(
+            evidence_pack=evidence_pack,
+            claim_ledger=claim_ledger,
+            artifact_lineage=artifact_lineage,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0

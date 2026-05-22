@@ -136,6 +136,8 @@ async function main() {
       artifactLineageRows: document.querySelectorAll("#artifactLineageRows > div").length,
       artifactLineagePaths: document.querySelectorAll("#artifactLineageMap path").length,
       artifactLineageNodes: document.querySelectorAll("#artifactLineageMap rect").length,
+      decisionProtocolSummary: document.querySelector("#decisionProtocolSummary").textContent,
+      decisionProtocolRows: document.querySelectorAll("#decisionProtocolRows .decision-row").length,
       evidenceTop: Math.round(document.querySelector("#evidence-panel").getBoundingClientRect().top),
     }));
 
@@ -175,6 +177,7 @@ async function main() {
     !metrics.evolutionImpact.includes("Baseline promotion plan") ||
     !metrics.evolutionImpact.includes("Claim ledger") ||
     !metrics.evolutionImpact.includes("Artifact lineage") ||
+    !metrics.evolutionImpact.includes("Decision protocol") ||
     !metrics.evolutionImpact.includes("11 artifacts") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
     !metrics.evolutionPanel.includes("Sample power") ||
@@ -251,9 +254,14 @@ async function main() {
     metrics.artifactLineageRows < 5 ||
     metrics.artifactLineagePaths < 10 ||
     metrics.artifactLineageNodes < 10 ||
+    metrics.decisionProtocolRows < 4 ||
     !metrics.evidencePanel.includes("Evidence Pack") ||
     !metrics.evidencePanel.includes("Claim Ledger") ||
     !metrics.evidencePanel.includes("Artifact Lineage") ||
+    !metrics.evidencePanel.includes("Decision Protocol") ||
+    !metrics.evidencePanel.includes("promote_real_world_generator_attribution") ||
+    !metrics.evidencePanel.includes("promote_bitcoin_nonce_risk_attribution") ||
+    !metrics.decisionProtocolSummary.includes("2 allowed") ||
     !metrics.evidencePanel.includes("reproducible") ||
     !metrics.artifactLineageSummary.includes("13 nodes") ||
     !metrics.evidencePanel.includes("real_world_generator_attribution") ||

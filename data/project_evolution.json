@@ -31,7 +31,9 @@
     "lineage_nodes": 13,
     "lineage_edges": 24,
     "lineage_checksum_mismatches": 0,
-    "lineage_cycles": 0
+    "lineage_cycles": 0,
+    "decision_protocol_allowed": 2,
+    "decision_protocol_blocked": 2
   },
   "change_dashboard": {
     "headline": "PrimeProject moved from exploratory prime regularity visuals into publication-gated real-world generator fingerprint tooling.",
@@ -62,9 +64,9 @@
       },
       {
         "stage": "Publish",
-        "phase_ids": ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage"],
+        "phase_ids": ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol"],
         "status": "active",
-        "signal": "13 artifact nodes, 24 edges, zero checksum mismatches"
+        "signal": "2 allowed decisions and 2 blocked claim promotions"
       }
     ],
     "latest_changes": [
@@ -97,6 +99,11 @@
         "label": "Artifact lineage",
         "impact": "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.",
         "metric": "13 nodes / 24 edges"
+      },
+      {
+        "label": "Decision protocol",
+        "impact": "Pre-registers promotion rules so demo, synthetic, real-world, and Bitcoin claims cannot drift after results.",
+        "metric": "2 allowed / 2 blocked"
       }
     ]
   },
@@ -236,6 +243,14 @@
       "layer": "reproducibility",
       "summary": "Builds an acyclic dependency graph over public artifacts and checks evidence-pack checksums against current files.",
       "outputs": ["prime_audit/artifact_lineage.py", "data/artifact_lineage.json"]
+    },
+    {
+      "id": "decision-protocol",
+      "label": "Decision protocol",
+      "status": "active",
+      "layer": "governance",
+      "summary": "Applies pre-registered publication and claim-promotion rules to evidence, claim, and lineage reports.",
+      "outputs": ["prime_audit/decision_protocol.py", "data/decision_protocol.json"]
     }
   ],
   "connections": [
@@ -254,7 +269,9 @@
     ["baseline-promotion", "readiness-gates"],
     ["readiness-gates", "evidence-pack"],
     ["evidence-pack", "claim-ledger"],
-    ["evidence-pack", "artifact-lineage"]
+    ["evidence-pack", "artifact-lineage"],
+    ["claim-ledger", "decision-protocol"],
+    ["artifact-lineage", "decision-protocol"]
   ],
   "open_gaps": [
     {

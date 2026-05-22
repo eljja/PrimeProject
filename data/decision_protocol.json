@@ -1,0 +1,173 @@
+{
+  "schema": "primeproject.decision-protocol.v1",
+  "generated_at": "2026-05-22T16:48:32+00:00",
+  "source": {
+    "evidence_pack_schema": "primeproject.evidence-pack.v1",
+    "claim_ledger_schema": "primeproject.claim-ledger.v1",
+    "artifact_lineage_schema": "primeproject.artifact-lineage.v1",
+    "claim_level": "public_demo_only",
+    "lineage_reproducible": true
+  },
+  "summary": {
+    "decision_count": 4,
+    "allowed_count": 2,
+    "blocked_count": 2,
+    "qualified_count": 0,
+    "public_claim_ceiling": "public_demo_only"
+  },
+  "protocol_policy": {
+    "pre_registered_before_claim_promotion": true,
+    "blocked_decisions_must_not_be_reworded_as_conclusions": true,
+    "decision_protocol_is_post_pack": true,
+    "reason": "This protocol consumes the evidence pack, claim ledger, and lineage audit, so it is generated after them."
+  },
+  "decisions": [
+    {
+      "decision_id": "publish_public_demo",
+      "title": "Publish public demo and exploratory visualizations",
+      "track": "publication",
+      "claim_id": "prime_measure_visualization",
+      "status": "allowed",
+      "threshold": "No sensitive material, at least three checksummed artifacts, and acyclic lineage.",
+      "statement": "Public demo language is allowed when labelled as exploratory visualization.",
+      "blocking_items": [],
+      "required_gates": [
+        {
+          "code": "sensitive_publication_gate",
+          "passed": true,
+          "severity": "critical"
+        },
+        {
+          "code": "reproducibility_gate",
+          "passed": true,
+          "severity": "medium"
+        }
+      ],
+      "required_artifacts": [
+        {
+          "role": "snapshot_manifest",
+          "present": true
+        }
+      ],
+      "lineage_reproducible": true,
+      "next_action": "Keep limitations attached and preserve current evidence snapshots."
+    },
+    {
+      "decision_id": "report_controlled_synthetic_signal",
+      "title": "Report controlled synthetic generator signal",
+      "track": "controlled-validation",
+      "claim_id": "synthetic_generator_attribution",
+      "status": "allowed",
+      "threshold": "Controlled attribution grid is present and at least one profile survives bit-length control.",
+      "statement": "Controlled synthetic attribution may be reported with confound limits attached.",
+      "blocking_items": [],
+      "required_gates": [
+        {
+          "code": "controlled_signal_gate",
+          "passed": true,
+          "severity": "high"
+        },
+        {
+          "code": "reproducibility_gate",
+          "passed": true,
+          "severity": "medium"
+        }
+      ],
+      "required_artifacts": [
+        {
+          "role": "attribution_grid",
+          "present": true
+        }
+      ],
+      "lineage_reproducible": true,
+      "next_action": "Keep limitations attached and preserve current evidence snapshots."
+    },
+    {
+      "decision_id": "promote_real_world_generator_attribution",
+      "title": "Promote real-world generator attribution claim",
+      "track": "sim-to-real",
+      "claim_id": "real_world_generator_attribution",
+      "status": "blocked",
+      "threshold": "At least two accepted RSA library baselines, complete provenance, labelled classifier vectors across at least three labels, and matching evidence-pack checksums.",
+      "statement": "Real-world generator attribution must remain a blocked claim.",
+      "blocking_items": [
+        "gate:real_baseline_gate",
+        "gate:classifier_gate",
+        "gate:baseline_acceptance_gate",
+        "claim:real_world_generator_attribution:blocked"
+      ],
+      "required_gates": [
+        {
+          "code": "real_baseline_gate",
+          "passed": false,
+          "severity": "high"
+        },
+        {
+          "code": "classifier_gate",
+          "passed": false,
+          "severity": "high"
+        },
+        {
+          "code": "provenance_gate",
+          "passed": true,
+          "severity": "medium"
+        },
+        {
+          "code": "provenance_audit_gate",
+          "passed": true,
+          "severity": "medium"
+        },
+        {
+          "code": "baseline_acceptance_gate",
+          "passed": false,
+          "severity": "high"
+        }
+      ],
+      "required_artifacts": [
+        {
+          "role": "manifest",
+          "present": true
+        },
+        {
+          "role": "readiness",
+          "present": true
+        },
+        {
+          "role": "baseline_acceptance",
+          "present": true
+        }
+      ],
+      "lineage_reproducible": true,
+      "next_action": "Collect accepted OpenSSL/BoringSSL aggregate baselines, complete provenance, and export labelled classifier vectors."
+    },
+    {
+      "decision_id": "promote_bitcoin_nonce_risk_attribution",
+      "title": "Promote Bitcoin wallet/library nonce-risk attribution claim",
+      "track": "bitcoin",
+      "claim_id": "bitcoin_nonce_risk_attribution",
+      "status": "blocked",
+      "threshold": "A bundled Bitcoin nonce-risk report exists and is linked to wallet/library baseline metadata.",
+      "statement": "Bitcoin attribution must stay blocked until nonce-risk evidence is bundled.",
+      "blocking_items": [
+        "gate:bitcoin_integration_gate",
+        "artifact:bitcoin_risk_report",
+        "claim:bitcoin_nonce_risk_attribution:blocked"
+      ],
+      "required_gates": [
+        {
+          "code": "bitcoin_integration_gate",
+          "passed": false,
+          "severity": "medium"
+        }
+      ],
+      "required_artifacts": [
+        {
+          "role": "bitcoin_risk_report",
+          "present": false
+        }
+      ],
+      "lineage_reproducible": true,
+      "next_action": "Bundle a public-safe Bitcoin nonce-risk report from owned or public metadata summaries."
+    }
+  ]
+}

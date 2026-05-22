@@ -30,6 +30,7 @@ from prime_audit.collection_matrix import build_collection_matrix
 from prime_audit.collection_power import build_collection_power
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
 from prime_audit.crypto_classifier import run_crypto_classifier
+from prime_audit.decision_protocol import build_decision_protocol
 from prime_audit.evidence_pack import build_evidence_pack
 from prime_audit.feature_vectors import (
     build_feature_vector_payload,
@@ -724,6 +725,63 @@ class PrimeAuditTests(unittest.TestCase):
         checks = {check["role"]: check["status"] for check in lineage["checksum_checks"]}
         self.assertEqual(checks["manifest"], "mismatch")
         self.assertEqual(checks["readiness"], "match")
+
+    def test_decision_protocol_blocks_claim_promotion_until_gates_pass(self) -> None:
+        evidence = {
+            "schema": "primeproject.evidence-pack.v1",
+            "claim_level": {"level": "public_demo_only"},
+            "publication_gates": [
+                {"code": "sensitive_publication_gate", "passed": True, "severity": "critical"},
+                {"code": "reproducibility_gate", "passed": True, "severity": "medium"},
+                {"code": "controlled_signal_gate", "passed": True, "severity": "high"},
+                {"code": "real_baseline_gate", "passed": False, "severity": "high"},
+                {"code": "classifier_gate", "passed": False, "severity": "high"},
+                {"code": "provenance_gate", "passed": True, "severity": "medium"},
+                {"code": "provenance_audit_gate", "passed": True, "severity": "medium"},
+                {"code": "baseline_acceptance_gate", "passed": False, "severity": "high"},
+                {"code": "bitcoin_integration_gate", "passed": False, "severity": "medium"},
+            ],
+            "artifacts": [
+                {"role": "snapshot_manifest", "exists": True, "sha256": "a" * 64},
+                {"role": "attribution_grid", "exists": True, "sha256": "b" * 64},
+                {"role": "manifest", "exists": True, "sha256": "c" * 64},
+                {"role": "readiness", "exists": True, "sha256": "d" * 64},
+                {"role": "baseline_acceptance", "exists": True, "sha256": "e" * 64},
+            ],
+        }
+        claim_ledger = {
+            "schema": "primeproject.claim-ledger.v1",
+            "claims": [
+                {"claim_id": "prime_measure_visualization", "status": "allowed"},
+                {"claim_id": "synthetic_generator_attribution", "status": "allowed"},
+                {"claim_id": "real_world_generator_attribution", "status": "blocked"},
+                {"claim_id": "bitcoin_nonce_risk_attribution", "status": "blocked"},
+            ],
+        }
+        lineage = {
+            "schema": "primeproject.artifact-lineage.v1",
+            "summary": {"reproducible": True},
+        }
+
+        protocol = build_decision_protocol(
+            evidence_pack=evidence,
+            claim_ledger=claim_ledger,
+            artifact_lineage=lineage,
+            generated_at="2026-05-23T00:00:00+00:00",
+        )
+        decisions = {decision["decision_id"]: decision for decision in protocol["decisions"]}
+
+        self.assertEqual(protocol["schema"], "primeproject.decision-protocol.v1")
+        self.assertEqual(decisions["publish_public_demo"]["status"], "allowed")
+        self.assertEqual(decisions["report_controlled_synthetic_signal"]["status"], "allowed")
+        self.assertEqual(decisions["promote_real_world_generator_attribution"]["status"], "blocked")
+        self.assertIn(
+            "gate:real_baseline_gate",
+            decisions["promote_real_world_generator_attribution"]["blocking_items"],
+        )
+        self.assertEqual(decisions["promote_bitcoin_nonce_risk_attribution"]["status"], "blocked")
+        self.assertEqual(protocol["summary"]["allowed_count"], 2)
+        self.assertEqual(protocol["summary"]["blocked_count"], 2)
 
 
 def base64_lines(data: bytes) -> str:

@@ -222,11 +222,25 @@ python -m prime_audit.cli artifact-lineage `
 
 현재 lineage는 13개 artifact node와 24개 dependency edge를 추적한다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`와 `artifact_lineage`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> claim_ledger/artifact_lineage -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
 
+## Decision Protocol
+
+`decision-protocol`은 Evidence Pack, Claim Ledger, Artifact Lineage를 입력으로 받아 claim promotion 여부를 사전 등록된 규칙으로 판정한다. 목적은 결과를 본 뒤 claim 기준을 바꾸는 것을 막는 것이다.
+
+```powershell
+python -m prime_audit.cli decision-protocol `
+  --evidence-pack data/evidence_pack.json `
+  --claim-ledger data/claim_ledger.json `
+  --artifact-lineage data/artifact_lineage.json `
+  --output data/decision_protocol.json
+```
+
+현재 protocol은 4개 결정을 고정한다. public demo와 controlled synthetic signal report는 허용된다. real-world generator attribution과 Bitcoin nonce-risk attribution promotion은 차단된다. 차단 이유는 각각 accepted real-world baselines/classifier/baseline acceptance, Bitcoin nonce-risk report가 아직 없기 때문이다.
+
 ## Project Evolution View
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> readiness -> evidence pack -> claim ledger -> artifact lineage.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol.
 - 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, accepted baseline 수, promotion unlock sample 수, attribution grid row 수, claim level.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 
