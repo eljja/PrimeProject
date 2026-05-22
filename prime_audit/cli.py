@@ -11,6 +11,7 @@ from .baseline_promotion import build_baseline_promotion_plan
 from .baselines import build_generator_baseline, compare_fingerprint_to_baselines
 from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .bitcoin_integration import build_bitcoin_generator_risk_report
+from .claim_ledger import build_claim_ledger
 from .conjecture_lab import run_lab
 from .crypto_classifier import run_crypto_classifier
 from .collection_matrix import build_collection_matrix
@@ -224,6 +225,13 @@ def main() -> int:
         help="Additional checksummed artifact in role=path form.",
     )
     evidence_pack_parser.add_argument("--output", required=True)
+
+    claim_ledger_parser = subparsers.add_parser(
+        "claim-ledger",
+        help="Map public research claims to the evidence gates and artifacts that support or block them.",
+    )
+    claim_ledger_parser.add_argument("--evidence-pack", required=True)
+    claim_ledger_parser.add_argument("--output", required=True)
 
     attribution_parser = subparsers.add_parser(
         "attribution-benchmark",
@@ -539,6 +547,14 @@ def main() -> int:
             baseline_acceptance=baseline_acceptance,
             file_paths=paths,
         )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "claim-ledger":
+        evidence_pack = json.loads(Path(args.evidence_pack).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_claim_ledger(evidence_pack)
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

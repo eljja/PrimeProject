@@ -1736,6 +1736,115 @@ canvas {
   font-size: 11px;
 }
 
+.claim-ledger {
+  margin: 0 20px 20px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.claim-ledger-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding: 14px;
+}
+
+.claim-ledger-heading h3 {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.claim-ledger-heading span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 760;
+}
+
+.claim-ledger-rows {
+  display: grid;
+  gap: 0;
+}
+
+.claim-row {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.9fr) 86px 130px minmax(260px, 1.3fr) minmax(180px, 0.9fr);
+  gap: 12px;
+  align-items: center;
+  min-height: 60px;
+  border-top: 1px solid var(--line);
+  padding: 10px 14px;
+}
+
+.claim-row:first-child {
+  border-top: 0;
+}
+
+.claim-row strong,
+.claim-row span,
+.claim-row p,
+.claim-row code,
+.claim-row small {
+  overflow-wrap: anywhere;
+}
+
+.claim-row strong {
+  display: block;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.claim-row span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.claim-row p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.claim-row small,
+.claim-row code {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.claim-row code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.claim-status {
+  justify-self: start;
+  min-width: 72px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 820;
+  text-align: center;
+}
+
+.claim-status.is-allowed {
+  color: var(--teal);
+  background: rgba(8, 127, 122, 0.1);
+}
+
+.claim-status.is-qualified {
+  color: var(--amber);
+  background: rgba(215, 138, 17, 0.12);
+}
+
+.claim-status.is-blocked {
+  color: var(--danger);
+  background: rgba(189, 61, 52, 0.1);
+}
+
 .attribution-summary {
   display: grid;
   grid-template-columns: repeat(5, minmax(120px, 1fr));
@@ -2013,6 +2122,10 @@ tr:last-child td {
   .impact-change-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .claim-row {
+    grid-template-columns: minmax(0, 1fr) 86px 120px;
+  }
 }
 
 @media (min-width: 1700px) {
@@ -2112,8 +2225,17 @@ tr:last-child td {
     padding: 12px;
   }
 
+  .claim-ledger {
+    margin: 0 12px 12px;
+  }
+
+  .claim-ledger-heading {
+    display: grid;
+  }
+
   .evidence-row,
   .artifact-row,
+  .claim-row,
   .collection-row,
   .collection-gate,
   .power-row,

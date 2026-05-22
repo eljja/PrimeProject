@@ -130,6 +130,8 @@ async function main() {
       evidencePanel: document.querySelector("#evidence-panel").textContent,
       evidenceGates: document.querySelectorAll("#evidenceGateRows .evidence-row").length,
       evidenceArtifacts: document.querySelectorAll("#evidenceArtifactRows .evidence-row").length,
+      claimLedgerRows: document.querySelectorAll("#claimLedgerRows .claim-row").length,
+      claimLedgerSummary: document.querySelector("#claimLedgerSummary").textContent,
       evidenceTop: Math.round(document.querySelector("#evidence-panel").getBoundingClientRect().top),
     }));
 
@@ -167,6 +169,7 @@ async function main() {
     !metrics.evolutionPanel.includes("Project Evolution") ||
     !metrics.evolutionImpact.includes("Change Dashboard") ||
     !metrics.evolutionImpact.includes("Baseline promotion plan") ||
+    !metrics.evolutionImpact.includes("Claim ledger") ||
     !metrics.evolutionImpact.includes("11 artifacts") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
     !metrics.evolutionPanel.includes("Sample power") ||
@@ -239,7 +242,13 @@ async function main() {
   if (
     metrics.evidenceGates < 10 ||
     metrics.evidenceArtifacts < 11 ||
+    metrics.claimLedgerRows < 5 ||
     !metrics.evidencePanel.includes("Evidence Pack") ||
+    !metrics.evidencePanel.includes("Claim Ledger") ||
+    !metrics.evidencePanel.includes("real_world_generator_attribution") ||
+    !metrics.evidencePanel.includes("bitcoin_nonce_risk_attribution") ||
+    !metrics.evidencePanel.includes("blocked") ||
+    !metrics.claimLedgerSummary.includes("3 allowed") ||
     !metrics.evidencePanel.includes("provenance_gate") ||
     !metrics.evidencePanel.includes("provenance_audit_gate") ||
     !metrics.evidencePanel.includes("baseline_acceptance_gate") ||

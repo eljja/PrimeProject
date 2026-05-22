@@ -11,6 +11,7 @@ const state = {
   realBaselineManifest: null,
   researchReadiness: null,
   evidencePack: null,
+  claimLedger: null,
   projectEvolution: null,
   collectionMatrix: null,
   collectionPower: null,
@@ -452,12 +453,80 @@ const bundledEvidencePack = {
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "fcef00708cc5ed5800f0e356e879837eccdcaf76bba7a18f92c18f5959496418" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "ad8a6547bef0a7ddb62e70963fe115dec3d9a1023ff7fa6d78d2ef910c9bf945" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
     { role: "snapshot_manifest", schema: "primeproject.snapshot-manifest.v1", sha256: "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0" },
   ],
+};
+
+const bundledClaimLedger = {
+  schema: "primeproject.claim-ledger.v1",
+  source: {
+    claim_level: "public_demo_only",
+    failed_gate_count: 4,
+  },
+  summary: {
+    claim_count: 5,
+    allowed_count: 3,
+    qualified_count: 0,
+    blocked_count: 2,
+    public_claim_ceiling: "public_demo_only",
+  },
+  claims: [
+    {
+      claim_id: "prime_measure_visualization",
+      title: "Prime-measure visualization is reproducible enough for public demo use",
+      category: "visualization",
+      claim_level: "visual_demo",
+      status: "allowed",
+      public_statement: "The GitHub Pages visualizations may be described as reproducible exploratory views over bundled/live prime-measure experiments.",
+      failed_required_gates: [],
+      missing_required_artifacts: [],
+    },
+    {
+      claim_id: "synthetic_generator_attribution",
+      title: "Controlled synthetic generator fingerprints are observable",
+      category: "controlled_validation",
+      claim_level: "controlled_synthetic",
+      status: "allowed",
+      public_statement: "Synthetic generator families can be compared under controlled experiments, with bit-length confounds explicitly reported.",
+      failed_required_gates: [],
+      missing_required_artifacts: [],
+    },
+    {
+      claim_id: "real_world_generator_attribution",
+      title: "Real-world library generator attribution is supported",
+      category: "sim_to_real",
+      claim_level: "real_world_candidate",
+      status: "blocked",
+      public_statement: "Do not claim real-world generator attribution. Current evidence is a scaffold and planning system, not accepted attribution evidence.",
+      failed_required_gates: ["real_baseline_gate", "classifier_gate", "baseline_acceptance_gate"],
+      missing_required_artifacts: [],
+    },
+    {
+      claim_id: "bitcoin_nonce_risk_attribution",
+      title: "Bitcoin wallet/library nonce-risk attribution is supported",
+      category: "bitcoin",
+      claim_level: "wallet_nonce_candidate",
+      status: "blocked",
+      public_statement: "Do not claim Bitcoin wallet/library attribution. Public secp256k1 constants are not the risk surface; nonce metadata evidence is still missing.",
+      failed_required_gates: ["bitcoin_integration_gate"],
+      missing_required_artifacts: ["bitcoin_risk_report"],
+    },
+    {
+      claim_id: "public_safety_and_reproducibility",
+      title: "Public artifact bundle is safe enough to inspect",
+      category: "publication",
+      claim_level: "publication_scaffold",
+      status: "allowed",
+      public_statement: "The public bundle can be inspected as a defensive research scaffold with private key material and sensitive prime samples excluded.",
+      failed_required_gates: [],
+      missing_required_artifacts: [],
+    },
+  ],
+  blocked_claim_ids: ["real_world_generator_attribution", "bitcoin_nonce_risk_attribution"],
 };
 
 const bundledProjectEvolution = {
@@ -487,6 +556,8 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 11,
     blocking_gaps: 2,
+    claim_ledger_allowed: 3,
+    claim_ledger_blocked: 2,
   },
   change_dashboard: {
     headline:
@@ -496,13 +567,14 @@ const bundledProjectEvolution = {
       { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid"], status: "complete", signal: "controlled attribution grid with 48 rows and 3 repeats" },
       { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets and sample-power floors" },
       { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"], status: "active", signal: "provenance, acceptance, and promotion gates before claims" },
-      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack"], status: "active", signal: "11 checksummed artifacts with explicit public_demo_only limits" },
+      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger"], status: "active", signal: "5 claim rules with 3 allowed and 2 blocked statements" },
     ],
     latest_changes: [
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
       { label: "Baseline acceptance gate", impact: "Prevents coarse or undocumented baselines from supporting attribution claims.", metric: "0 accepted / 10 blocked" },
       { label: "Provenance audit", impact: "Checks missing metadata, checksum format, and forbidden public sensitive fields.", metric: "4 blocked records" },
       { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "11 artifacts / 10 gates" },
+      { label: "Claim ledger", impact: "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.", metric: "3 allowed / 2 blocked" },
     ],
   },
   phases: [
@@ -521,6 +593,7 @@ const bundledProjectEvolution = {
     { id: "baseline-promotion", label: "Promotion plan", status: "active", layer: "planning" },
     { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
+    { id: "claim-ledger", label: "Claim ledger", status: "active", layer: "publication" },
   ],
   connections: [
     ["regularity-plan", "conjecture-lab"],
@@ -537,6 +610,7 @@ const bundledProjectEvolution = {
     ["baseline-acceptance", "baseline-promotion"],
     ["baseline-promotion", "readiness-gates"],
     ["readiness-gates", "evidence-pack"],
+    ["evidence-pack", "claim-ledger"],
   ],
   open_gaps: [
     { priority: "P0", track: "sim-to-real", gap: "Need at least two available real-world aggregate baselines before real attribution claims." },
@@ -631,6 +705,8 @@ const outputs = {
   evidenceSummary: document.querySelector("#evidenceSummary"),
   evidenceGateRows: document.querySelector("#evidenceGateRows"),
   evidenceArtifactRows: document.querySelector("#evidenceArtifactRows"),
+  claimLedgerSummary: document.querySelector("#claimLedgerSummary"),
+  claimLedgerRows: document.querySelector("#claimLedgerRows"),
   attributionSummary: document.querySelector("#attributionSummary"),
   attributionGridSvg: document.querySelector("#attributionGridSvg"),
   attributionProfileRows: document.querySelector("#attributionProfileRows"),
@@ -702,6 +778,7 @@ loadBaselineAcceptance();
 loadBaselinePromotion();
 loadResearchReadiness();
 loadEvidencePack();
+loadClaimLedger();
 loadAttributionGrid();
 renderPrediction();
 
@@ -1591,7 +1668,7 @@ function renderEvolutionMap(evolution) {
     ["attribution-grid", "real-world-registry"],
     ["collection-matrix", "collection-power"],
     ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "readiness-gates"],
-    ["evidence-pack"],
+    ["evidence-pack", "claim-ledger"],
   ];
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   const positions = new Map();
@@ -2062,6 +2139,50 @@ function renderEvidencePack() {
     .join("");
 }
 
+async function loadClaimLedger() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.claimLedger = bundledClaimLedger;
+    } else {
+      const response = await fetch("data/claim_ledger.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`claim ledger ${response.status}`);
+      state.claimLedger = await response.json();
+    }
+  } catch (error) {
+    state.claimLedger = bundledClaimLedger;
+  }
+  renderClaimLedger();
+}
+
+function renderClaimLedger() {
+  if (!outputs.claimLedgerSummary || !outputs.claimLedgerRows) return;
+  const ledger = state.claimLedger || bundledClaimLedger;
+  const summary = ledger.summary || {};
+  const claims = ledger.claims || [];
+  outputs.claimLedgerSummary.textContent =
+    `${formatNumber(summary.allowed_count || 0)} allowed / ${formatNumber(summary.blocked_count || 0)} blocked`;
+  outputs.claimLedgerRows.innerHTML = claims
+    .map((claim) => {
+      const failed = [
+        ...(claim.failed_required_gates || []),
+        ...(claim.missing_required_artifacts || []).map((role) => `missing:${role}`),
+      ];
+      return `
+        <div class="claim-row">
+          <div>
+            <strong>${escapeHtml(claim.claim_id || "claim")}</strong>
+            <span>${escapeHtml(claim.title || "")}</span>
+          </div>
+          <em class="claim-status ${claimStatusClass(claim.status)}">${escapeHtml(claim.status || "unknown")}</em>
+          <small>${escapeHtml(claim.claim_level || "unknown")}</small>
+          <p>${escapeHtml(claim.public_statement || "")}</p>
+          <code>${failed.length ? escapeHtml(failed.join(", ")) : "evidence gates satisfied"}</code>
+        </div>
+      `;
+    })
+    .join("");
+}
+
 async function loadAttributionGrid() {
   try {
     if (window.location.protocol === "file:") {
@@ -2372,6 +2493,13 @@ function readinessClass(label) {
   if (label === "prototype_ready") return "is-prototype";
   if (label === "scaffold_ready") return "is-scaffold";
   return "is-not-started";
+}
+
+function claimStatusClass(status) {
+  if (status === "allowed") return "is-allowed";
+  if (status === "qualified") return "is-qualified";
+  if (status === "blocked") return "is-blocked";
+  return "is-unknown";
 }
 
 function formatDimensionEvidence(name, dimension) {

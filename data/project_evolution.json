@@ -25,7 +25,9 @@
     "robust_controlled_profiles": ["all", "gap_only"],
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 11,
-    "blocking_gaps": 2
+    "blocking_gaps": 2,
+    "claim_ledger_allowed": 3,
+    "claim_ledger_blocked": 2
   },
   "change_dashboard": {
     "headline": "PrimeProject moved from exploratory prime regularity visuals into publication-gated real-world generator fingerprint tooling.",
@@ -56,9 +58,9 @@
       },
       {
         "stage": "Publish",
-        "phase_ids": ["readiness-gates", "evidence-pack"],
+        "phase_ids": ["readiness-gates", "evidence-pack", "claim-ledger"],
         "status": "active",
-        "signal": "11 checksummed artifacts with explicit public_demo_only limits"
+        "signal": "5 claim rules with 3 allowed and 2 blocked statements"
       }
     ],
     "latest_changes": [
@@ -81,6 +83,11 @@
         "label": "Evidence pack gates",
         "impact": "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.",
         "metric": "11 artifacts / 10 gates"
+      },
+      {
+        "label": "Claim ledger",
+        "impact": "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.",
+        "metric": "3 allowed / 2 blocked"
       }
     ]
   },
@@ -204,6 +211,14 @@
       "layer": "publication",
       "summary": "Bundles artifact checksums, publication gates, claim level, and local collection protocols.",
       "outputs": ["prime_audit/evidence_pack.py", "data/evidence_pack.json"]
+    },
+    {
+      "id": "claim-ledger",
+      "label": "Claim ledger",
+      "status": "active",
+      "layer": "publication",
+      "summary": "Maps each public-facing claim to the gates and artifacts that allow, qualify, or block it.",
+      "outputs": ["prime_audit/claim_ledger.py", "data/claim_ledger.json"]
     }
   ],
   "connections": [
@@ -220,7 +235,8 @@
     ["provenance-audit", "baseline-acceptance"],
     ["baseline-acceptance", "baseline-promotion"],
     ["baseline-promotion", "readiness-gates"],
-    ["readiness-gates", "evidence-pack"]
+    ["readiness-gates", "evidence-pack"],
+    ["evidence-pack", "claim-ledger"]
   ],
   "open_gaps": [
     {

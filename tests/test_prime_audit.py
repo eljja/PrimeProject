@@ -24,6 +24,7 @@ from prime_audit.baselines import (
 from prime_audit.bitcoin import audit_bitcoin_signatures, parse_der_signature, secp256k1_constants_report
 from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
+from prime_audit.claim_ledger import build_claim_ledger
 from prime_audit.collection_matrix import build_collection_matrix
 from prime_audit.collection_power import build_collection_power
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
@@ -634,6 +635,49 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("baseline_acceptance_gate", failed)
         self.assertIn("promotion_plan_gate", failed)
         self.assertGreaterEqual(len(pack["local_collection_protocols"]), 3)
+
+    def test_claim_ledger_blocks_unsupported_real_world_claims(self) -> None:
+        evidence = {
+            "schema": "primeproject.evidence-pack.v1",
+            "claim_level": {
+                "level": "public_demo_only",
+                "failed_gate_count": 3,
+            },
+            "publication_gates": [
+                {"code": "sensitive_publication_gate", "passed": True, "severity": "critical"},
+                {"code": "real_baseline_gate", "passed": False, "severity": "high"},
+                {"code": "controlled_signal_gate", "passed": True, "severity": "high"},
+                {"code": "classifier_gate", "passed": False, "severity": "high"},
+                {"code": "bitcoin_integration_gate", "passed": False, "severity": "medium"},
+                {"code": "reproducibility_gate", "passed": True, "severity": "medium"},
+                {"code": "provenance_gate", "passed": True, "severity": "medium"},
+                {"code": "provenance_audit_gate", "passed": True, "severity": "medium"},
+                {"code": "baseline_acceptance_gate", "passed": False, "severity": "high"},
+                {"code": "promotion_plan_gate", "passed": True, "severity": "medium"},
+            ],
+            "artifacts": [
+                {"role": "attribution_grid", "exists": True, "sha256": "a" * 64},
+                {"role": "baseline_acceptance", "exists": True, "sha256": "b" * 64},
+                {"role": "manifest", "exists": True, "sha256": "c" * 64},
+                {"role": "project_evolution", "exists": True, "sha256": "d" * 64},
+                {"role": "readiness", "exists": True, "sha256": "e" * 64},
+                {"role": "snapshot_manifest", "exists": True, "sha256": "f" * 64},
+            ],
+        }
+
+        ledger = build_claim_ledger(evidence, generated_at="2026-05-23T00:00:00+00:00")
+        claims = {claim["claim_id"]: claim for claim in ledger["claims"]}
+
+        self.assertEqual(ledger["schema"], "primeproject.claim-ledger.v1")
+        self.assertEqual(claims["synthetic_generator_attribution"]["status"], "allowed")
+        self.assertEqual(claims["real_world_generator_attribution"]["status"], "blocked")
+        self.assertIn(
+            "real_baseline_gate",
+            claims["real_world_generator_attribution"]["failed_required_gates"],
+        )
+        self.assertEqual(claims["bitcoin_nonce_risk_attribution"]["status"], "blocked")
+        self.assertIn("bitcoin_risk_report", claims["bitcoin_nonce_risk_attribution"]["missing_required_artifacts"])
+        self.assertGreaterEqual(ledger["summary"]["blocked_count"], 2)
 
 
 def base64_lines(data: bytes) -> str:
