@@ -79,6 +79,24 @@ python -m prime_audit.cli collection-matrix `
 
 private prime, private key, seed, wallet material은 공개 산출물이 아니다. 공개 단위는 aggregate fingerprint, baseline JSON, feature vector, nonce-risk summary로 제한한다. `claim_gate.status`가 `blocked`이면 GitHub Pages는 이를 Baseline Lab과 Evidence Pack에서 그대로 보여준다.
 
+## Collection Power
+
+`collection-power`는 collection target을 통계적 screening floor로 바꾼다. 이 단계의 목적은 표본 수를 과장하지 않는 것이다. 예를 들어 RSA prime 500개/bit-length는 빠른 screening에는 유용하지만, mod 210 residue TV drift 10% 수준의 보수적 claim에는 부족하다고 표시된다.
+
+```powershell
+python -m prime_audit.cli collection-power `
+  --matrix data/collection_matrix.json `
+  --output data/collection_power.json
+```
+
+현재 기본 해석은 다음과 같다.
+
+- RSA 2048/3072/4096-bit 500개 target: `coarse`, 약 30% 수준의 보수적 TV floor.
+- 10% TV drift claim을 보수적으로 다루려면 각 library/bit-length 조합당 약 4,514개 target이 필요.
+- Bitcoin signature metadata 10,000개 target: `strong`, 64-bucket nonce fingerprint 기준 약 7.8% TV floor.
+
+이 값은 attribution 증명이 아니라 수집 계획의 품질 경계다. GitHub Pages는 이 결과를 Baseline Lab에 표시해서 500개 RSA sample을 강한 실세계 claim으로 오해하지 않게 한다.
+
 ## Research Readiness
 
 `research-readiness`는 현재 연구 도구가 실세계 attribution 주장에 얼마나 가까운지 점수화한다. 입력은 real-world baseline manifest, attribution grid, classifier report, Bitcoin risk report다.
@@ -110,7 +128,7 @@ python -m prime_audit.cli evidence-pack `
   --manifest data/baselines/real_world/manifest.json `
   --readiness data/research_readiness.json `
   --attribution-grid data/attribution_confound_grid.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json
@@ -122,8 +140,8 @@ python -m prime_audit.cli evidence-pack `
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> readiness -> evidence pack.
-- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, attribution grid row 수, claim level.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> readiness -> evidence pack.
+- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, attribution grid row 수, claim level.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 
 ## Bitcoin 통합

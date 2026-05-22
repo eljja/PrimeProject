@@ -838,7 +838,7 @@ canvas {
 
 .evolution-summary {
   display: grid;
-  grid-template-columns: repeat(6, minmax(112px, 1fr));
+  grid-template-columns: repeat(7, minmax(104px, 1fr));
   gap: 10px;
   padding: 16px 20px 4px;
 }
@@ -1113,7 +1113,8 @@ canvas {
   background: rgba(215, 138, 17, 0.12);
 }
 
-.collection-matrix {
+.collection-matrix,
+.collection-power {
   border-top: 1px solid var(--line);
   padding: 16px 20px 20px;
 }
@@ -1202,6 +1203,91 @@ canvas {
 .collection-gate {
   border-left: 3px solid var(--danger);
   background: var(--soft);
+}
+
+.collection-power-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(110px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.collection-power-summary div {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 10px 12px;
+}
+
+.collection-power-summary span,
+.collection-power-summary small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 720;
+  text-transform: uppercase;
+}
+
+.collection-power-summary strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.collection-power-summary small {
+  margin-top: 4px;
+  text-transform: none;
+}
+
+.collection-power-rows {
+  display: grid;
+  gap: 8px;
+}
+
+.power-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 90px 140px 130px;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 10px 12px;
+  font-size: 12px;
+}
+
+.power-row strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.power-row span {
+  color: var(--muted);
+}
+
+.power-row em {
+  justify-self: start;
+  min-height: 22px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 780;
+}
+
+.power-row .is-strong {
+  color: var(--teal);
+  background: rgba(8, 127, 122, 0.1);
+}
+
+.power-row .is-screening {
+  color: var(--indigo);
+  background: rgba(70, 87, 216, 0.1);
+}
+
+.power-row .is-coarse {
+  color: var(--amber);
+  background: rgba(215, 138, 17, 0.12);
 }
 
 .readiness-summary {
@@ -1833,7 +1919,8 @@ tr:last-child td {
   .evidence-row,
   .artifact-row,
   .collection-row,
-  .collection-gate {
+  .collection-gate,
+  .power-row {
     grid-template-columns: 1fr;
     gap: 4px;
   }
@@ -1844,6 +1931,10 @@ tr:last-child td {
 
   .collection-targets {
     justify-content: flex-start;
+  }
+
+  .collection-power-summary {
+    grid-template-columns: 1fr;
   }
 
   canvas {

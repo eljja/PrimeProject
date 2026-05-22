@@ -23,6 +23,7 @@ from prime_audit.bitcoin import audit_bitcoin_signatures, parse_der_signature, s
 from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
 from prime_audit.collection_matrix import build_collection_matrix
+from prime_audit.collection_power import build_collection_power
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
 from prime_audit.crypto_classifier import run_crypto_classifier
 from prime_audit.evidence_pack import build_evidence_pack
@@ -379,6 +380,22 @@ class PrimeAuditTests(unittest.TestCase):
         manifest["entries"][0]["bit_length"] = 2048
         matched = build_collection_matrix(manifest)
         self.assertEqual(matched["complete_target_count"], 1)
+
+    def test_collection_power_marks_rsa_targets_as_coarse_screening(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        matrix = build_collection_matrix(manifest)
+        power = build_collection_power(matrix)
+
+        self.assertEqual(power["schema"], "primeproject.collection-power.v1")
+        self.assertEqual(power["summary"]["target_count"], 10)
+        self.assertEqual(power["summary"]["coarse_count"], 9)
+        self.assertEqual(power["summary"]["strong_count"], 1)
+        rsa_rows = [row for row in power["rows"] if row["object_type"] == "rsa-prime"]
+        self.assertTrue(all(row["bucket_count"] == 48 for row in rsa_rows))
+        self.assertTrue(all(row["min_samples_for_10pct_tv"] > row["sample_target"] for row in rsa_rows))
+        signature = next(row for row in power["rows"] if row["object_type"] == "ecdsa-signature")
+        self.assertEqual(signature["power_tier"], "strong")
+        self.assertGreaterEqual(len(power["recommendations"]), 1)
 
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(

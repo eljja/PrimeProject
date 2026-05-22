@@ -12,6 +12,7 @@ from .bitcoin_integration import build_bitcoin_generator_risk_report
 from .conjecture_lab import run_lab
 from .crypto_classifier import run_crypto_classifier
 from .collection_matrix import build_collection_matrix
+from .collection_power import build_collection_power
 from .evidence_pack import build_evidence_pack
 from .feature_vectors import build_feature_vector_payload, load_feature_vectors_from_files
 from .fingerprints import analyze_prime_generator_fingerprints
@@ -121,6 +122,16 @@ def main() -> int:
     )
     collection_matrix_parser.add_argument("--manifest", required=True)
     collection_matrix_parser.add_argument("--output", required=True)
+
+    collection_power_parser = subparsers.add_parser(
+        "collection-power",
+        help="Estimate statistical screening power for real-world collection targets.",
+    )
+    collection_power_parser.add_argument("--matrix", required=True)
+    collection_power_parser.add_argument("--modulo", type=int, default=210)
+    collection_power_parser.add_argument("--alpha", type=float, default=0.05)
+    collection_power_parser.add_argument("--target-tv", type=float, default=0.10)
+    collection_power_parser.add_argument("--output", required=True)
 
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
@@ -329,6 +340,19 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(build_collection_matrix(manifest), indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "collection-power":
+        matrix = json.loads(Path(args.matrix).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_collection_power(
+            matrix,
+            modulo=args.modulo,
+            alpha=args.alpha,
+            target_tv=args.target_tv,
+        )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 
     if args.command == "export-feature-vectors":

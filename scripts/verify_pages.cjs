@@ -106,6 +106,9 @@ async function main() {
       baselineRegistryRows: document.querySelectorAll("#baselineRegistryRows tr").length,
       collectionMatrixRows: document.querySelectorAll("#collectionMatrixRows .collection-row").length,
       collectionMatrixStatus: document.querySelector("#collectionMatrixStatus").textContent,
+      collectionPowerSummary: document.querySelector("#collectionPowerSummary").textContent,
+      collectionPowerRows: document.querySelectorAll("#collectionPowerRows .power-row").length,
+      collectionPowerStatus: document.querySelector("#collectionPowerStatus").textContent,
       readinessPanel: document.querySelector("#readiness-panel").textContent,
       readinessCards: document.querySelectorAll("#readinessDimensions .readiness-card").length,
       readinessActions: document.querySelectorAll("#readinessActions li").length,
@@ -146,6 +149,7 @@ async function main() {
     metrics.evolutionGaps < 2 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
+    !metrics.evolutionPanel.includes("Sample power") ||
     !metrics.evolutionPanel.includes("Evidence pack")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
@@ -173,10 +177,15 @@ async function main() {
     !metrics.baselinePanel.includes("fingerprint distance") ||
     !metrics.baselinePanel.includes("Real-World Collection Matrix") ||
     !metrics.baselinePanel.includes("Claim gate") ||
+    !metrics.baselinePanel.includes("Collection Power") ||
+    !metrics.baselinePanel.includes("4,514") ||
     !metrics.baselineRegistrySummary.includes("Registered") ||
     metrics.baselineRegistryRows < 5 ||
     metrics.collectionMatrixRows < 4 ||
-    !metrics.collectionMatrixStatus.includes("10")
+    !metrics.collectionMatrixStatus.includes("10") ||
+    metrics.collectionPowerRows < 5 ||
+    !metrics.collectionPowerStatus.includes("coarse") ||
+    !metrics.collectionPowerSummary.includes("multinomial")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
@@ -192,7 +201,7 @@ async function main() {
   }
   if (
     metrics.evidenceGates < 5 ||
-    metrics.evidenceArtifacts < 6 ||
+    metrics.evidenceArtifacts < 7 ||
     !metrics.evidencePanel.includes("Evidence Pack") ||
     !metrics.evidencePanel.includes("public_demo_only")
   ) {

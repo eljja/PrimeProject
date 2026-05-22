@@ -9,6 +9,7 @@ __all__ = [
     "bitcoin_integration",
     "catalog",
     "collection_matrix",
+    "collection_power",
     "conjecture_lab",
     "crypto_classifier",
     "evidence_pack",

@@ -13,6 +13,7 @@ const state = {
   evidencePack: null,
   projectEvolution: null,
   collectionMatrix: null,
+  collectionPower: null,
 };
 
 const limitSlider = {
@@ -201,6 +202,50 @@ const bundledCollectionMatrix = {
   ],
 };
 
+const bundledCollectionPower = {
+  schema: "primeproject.collection-power.v1",
+  method: {
+    name: "multinomial screening floor",
+    alpha: 0.05,
+    target_tv: 0.1,
+    modulo: 210,
+    interpretation:
+      "This is a conservative planning heuristic for aggregate fingerprints, not a proof of generator attribution.",
+  },
+  summary: {
+    target_count: 10,
+    coarse_count: 9,
+    screening_count: 0,
+    strong_count: 1,
+    minimum_recommended_replicates: 3,
+    weakest_targets: [
+      { library: "OpenSSL", bit_length: 2048, sample_target: 500, conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+      { library: "OpenSSL", bit_length: 3072, sample_target: 500, conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+      { library: "OpenSSL", bit_length: 4096, sample_target: 500, conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+    ],
+  },
+  rows: [
+    { library: "OpenSSL", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+    { library: "OpenSSL", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+    { library: "OpenSSL", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+    { library: "BoringSSL", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+    { library: "BoringSSL", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+    { library: "BoringSSL", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+    { library: "Go crypto/rsa", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+    { library: "Go crypto/rsa", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+    { library: "Go crypto/rsa", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+    { library: "Bitcoin Core / wallet metadata", bit_length: 256, sample_target: 10000, object_type: "ecdsa-signature", power_tier: "strong", conservative_tv_floor_95: 0.077784, min_samples_for_10pct_tv: 6051 },
+  ],
+  recommendations: [
+    {
+      priority: "P0",
+      track: "rsa-prime-generation",
+      action:
+        "Treat 500 RSA primes per bit length as coarse screening; target about 4514 primes per library/bit-length for conservative 10% TV drift claims.",
+    },
+  ],
+};
+
 const bundledResearchReadiness = {
   schema: "primeproject.research-readiness.v1",
   overall: { score: 0.5869, label: "prototype_ready" },
@@ -275,12 +320,13 @@ const bundledEvidencePack = {
     { code: "bitcoin_integration_gate", passed: false, severity: "medium" },
     { code: "reproducibility_gate", passed: true, severity: "medium" },
   ],
-  artifact_count: 6,
+  artifact_count: 7,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
+    { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "613089bc0e484841f0f82d9d4c44f4e4439ae361533951fa6abeaa8f52fad199" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "83e04ea8e5209c8f1050eeb72231ae5be91a67e2740b48fafba3d16d5958ec1c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
     { role: "snapshot_manifest", schema: "primeproject.snapshot-manifest.v1", sha256: "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0" },
   ],
@@ -296,11 +342,13 @@ const bundledProjectEvolution = {
     available_real_baselines: 1,
     collection_targets: 10,
     collection_complete_targets: 0,
+    collection_power_strong_targets: 1,
+    collection_power_coarse_targets: 9,
     attribution_grid_rows: 48,
     attribution_repeats: 3,
     robust_controlled_profiles: ["all", "gap_only"],
     publication_claim_level: "public_demo_only",
-    checksummed_artifacts: 6,
+    checksummed_artifacts: 7,
     blocking_gaps: 2,
   },
   phases: [
@@ -312,6 +360,7 @@ const bundledProjectEvolution = {
     { id: "attribution-grid", label: "Controlled attribution grid", status: "complete", layer: "validation" },
     { id: "real-world-registry", label: "Real-world baseline registry", status: "scaffolded", layer: "sim-to-real" },
     { id: "collection-matrix", label: "Real-world collection matrix", status: "active", layer: "sim-to-real" },
+    { id: "collection-power", label: "Sample power calibration", status: "active", layer: "statistics" },
     { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
   ],
@@ -323,7 +372,8 @@ const bundledProjectEvolution = {
     ["fingerprint-baseline", "attribution-grid"],
     ["attribution-grid", "readiness-gates"],
     ["real-world-registry", "collection-matrix"],
-    ["collection-matrix", "readiness-gates"],
+    ["collection-matrix", "collection-power"],
+    ["collection-power", "readiness-gates"],
     ["readiness-gates", "evidence-pack"],
   ],
   open_gaps: [
@@ -397,6 +447,9 @@ const outputs = {
   baselineRegistryRows: document.querySelector("#baselineRegistryRows"),
   collectionMatrixStatus: document.querySelector("#collectionMatrixStatus"),
   collectionMatrixRows: document.querySelector("#collectionMatrixRows"),
+  collectionPowerStatus: document.querySelector("#collectionPowerStatus"),
+  collectionPowerSummary: document.querySelector("#collectionPowerSummary"),
+  collectionPowerRows: document.querySelector("#collectionPowerRows"),
   readinessSummary: document.querySelector("#readinessSummary"),
   readinessDimensions: document.querySelector("#readinessDimensions"),
   readinessActions: document.querySelector("#readinessActions"),
@@ -467,6 +520,7 @@ loadSnapshots();
 loadProjectEvolution();
 loadRealBaselineManifest();
 loadCollectionMatrix();
+loadCollectionPower();
 loadResearchReadiness();
 loadEvidencePack();
 loadAttributionGrid();
@@ -1280,6 +1334,7 @@ function renderProjectEvolution() {
     <div><span>Snapshots</span><strong>${formatNumber((metrics.precomputed_snapshot_limits || []).length)}</strong><small>${(metrics.precomputed_snapshot_limits || []).map(formatCompact).join(", ")}</small></div>
     <div><span>Baselines</span><strong>${formatNumber(metrics.registered_real_baselines || 0)}</strong><small>${formatNumber(metrics.available_real_baselines || 0)} available</small></div>
     <div><span>Collection targets</span><strong>${formatNumber(metrics.collection_targets || 0)}</strong><small>${formatNumber(metrics.collection_complete_targets || 0)} complete</small></div>
+    <div><span>Power floor</span><strong>${formatNumber(metrics.collection_power_strong_targets || 0)}</strong><small>${formatNumber(metrics.collection_power_coarse_targets || 0)} coarse</small></div>
     <div><span>Attribution rows</span><strong>${formatNumber(metrics.attribution_grid_rows || 0)}</strong><small>${formatNumber(metrics.attribution_repeats || 0)} repeats</small></div>
     <div><span>Claim level</span><strong>${escapeHtml(metrics.publication_claim_level || "unknown")}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
   `;
@@ -1314,7 +1369,7 @@ function renderEvolutionMap(evolution) {
     ["conjecture-lab"],
     ["static-snapshots", "fingerprint-baseline"],
     ["attribution-grid", "real-world-registry"],
-    ["collection-matrix", "readiness-gates"],
+    ["collection-matrix", "collection-power", "readiness-gates"],
     ["evidence-pack"],
   ];
   const positions = new Map();
@@ -1427,6 +1482,49 @@ async function loadCollectionMatrix() {
     state.collectionMatrix = bundledCollectionMatrix;
   }
   renderCollectionMatrix();
+}
+
+async function loadCollectionPower() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.collectionPower = bundledCollectionPower;
+    } else {
+      const response = await fetch("data/collection_power.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`collection power ${response.status}`);
+      state.collectionPower = await response.json();
+    }
+  } catch (error) {
+    state.collectionPower = bundledCollectionPower;
+  }
+  renderCollectionPower();
+}
+
+function renderCollectionPower() {
+  if (!outputs.collectionPowerStatus || !outputs.collectionPowerSummary || !outputs.collectionPowerRows) return;
+  const power = state.collectionPower || bundledCollectionPower;
+  const summary = power.summary || {};
+  const rows = power.rows || [];
+  outputs.collectionPowerStatus.textContent =
+    `${formatNumber(summary.strong_count || 0)} strong · ${formatNumber(summary.coarse_count || 0)} coarse`;
+  outputs.collectionPowerSummary.innerHTML = `
+    <div><span>Method</span><strong>${escapeHtml(power.method?.name || "unknown")}</strong><small>${formatPercent(power.method?.target_tv || 0)} TV target</small></div>
+    <div><span>Targets</span><strong>${formatNumber(summary.target_count || rows.length)}</strong><small>${formatNumber(summary.minimum_recommended_replicates || 0)} replicates</small></div>
+    <div><span>Strong</span><strong>${formatNumber(summary.strong_count || 0)}</strong><small>claim-ready floor</small></div>
+    <div><span>Coarse</span><strong>${formatNumber(summary.coarse_count || 0)}</strong><small>screening only</small></div>
+  `;
+  outputs.collectionPowerRows.innerHTML = rows
+    .slice()
+    .sort((a, b) => b.conservative_tv_floor_95 - a.conservative_tv_floor_95)
+    .slice(0, 5)
+    .map((row) => `
+      <div class="power-row">
+        <strong>${escapeHtml(row.library || "unknown")} ${formatNumber(row.bit_length || 0)}b</strong>
+        <em class="is-${escapeHtml(row.power_tier || "coarse")}">${escapeHtml(row.power_tier || "coarse")}</em>
+        <span>95% TV floor ${formatPercent(row.conservative_tv_floor_95 || 0)}</span>
+        <span>10% TV n≈${formatNumber(row.min_samples_for_10pct_tv || 0)}</span>
+      </div>
+    `)
+    .join("");
 }
 
 function renderCollectionMatrix() {

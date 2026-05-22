@@ -9,11 +9,13 @@
     "available_real_baselines": 1,
     "collection_targets": 10,
     "collection_complete_targets": 0,
+    "collection_power_strong_targets": 1,
+    "collection_power_coarse_targets": 9,
     "attribution_grid_rows": 48,
     "attribution_repeats": 3,
     "robust_controlled_profiles": ["all", "gap_only"],
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 6,
+    "checksummed_artifacts": 7,
     "blocking_gaps": 2
   },
   "phases": [
@@ -82,6 +84,14 @@
       "outputs": ["prime_audit/collection_matrix.py", "data/collection_matrix.json"]
     },
     {
+      "id": "collection-power",
+      "label": "Sample power calibration",
+      "status": "active",
+      "layer": "statistics",
+      "summary": "Estimates conservative TV-drift screening floors so sample counts are not treated as stronger evidence than they support.",
+      "outputs": ["prime_audit/collection_power.py", "data/collection_power.json"]
+    },
+    {
       "id": "readiness-gates",
       "label": "Research readiness scoring",
       "status": "active",
@@ -106,7 +116,8 @@
     ["fingerprint-baseline", "attribution-grid"],
     ["attribution-grid", "readiness-gates"],
     ["real-world-registry", "collection-matrix"],
-    ["collection-matrix", "readiness-gates"],
+    ["collection-matrix", "collection-power"],
+    ["collection-power", "readiness-gates"],
     ["readiness-gates", "evidence-pack"]
   ],
   "open_gaps": [

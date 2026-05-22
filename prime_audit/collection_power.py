@@ -1,0 +1,169 @@
+from __future__ import annotations
+
+import math
+from typing import Any
+
+
+COLLECTION_POWER_SCHEMA = "primeproject.collection-power.v1"
+
+
+def build_collection_power(
+    matrix: dict[str, Any],
+    *,
+    modulo: int = 210,
+    alpha: float = 0.05,
+    target_tv: float = 0.10,
+) -> dict[str, Any]:
+    rows = [
+        target_power(row, target, modulo=modulo, alpha=alpha, target_tv=target_tv)
+        for row in matrix.get("rows", [])
+        for target in row.get("targets", [])
+    ]
+    coarse = sum(1 for row in rows if row["power_tier"] == "coarse")
+    screening = sum(1 for row in rows if row["power_tier"] == "screening")
+    strong = sum(1 for row in rows if row["power_tier"] == "strong")
+    return {
+        "schema": COLLECTION_POWER_SCHEMA,
+        "method": {
+            "name": "multinomial screening floor",
+            "alpha": alpha,
+            "target_tv": target_tv,
+            "modulo": modulo,
+            "interpretation": "This is a conservative planning heuristic for aggregate fingerprints, not a proof of generator attribution.",
+        },
+        "summary": {
+            "target_count": len(rows),
+            "coarse_count": coarse,
+            "screening_count": screening,
+            "strong_count": strong,
+            "minimum_recommended_replicates": matrix.get("sample_handling", {}).get("minimum_replicates_per_label", 3),
+            "weakest_targets": weakest_targets(rows),
+        },
+        "rows": rows,
+        "recommendations": recommendations(rows),
+    }
+
+
+def target_power(
+    collection_row: dict[str, Any],
+    target: dict[str, Any],
+    *,
+    modulo: int,
+    alpha: float,
+    target_tv: float,
+) -> dict[str, Any]:
+    sample_target = max(1, int(target.get("sample_target") or 0))
+    bucket_count = bucket_count_for_target(target, modulo)
+    z_score = normal_z_for_two_sided_alpha(alpha)
+    class_probability = 1.0 / bucket_count
+    class_shift_95 = z_score * math.sqrt(class_probability * (1.0 - class_probability) / sample_target)
+    typical_tv_noise_floor = math.sqrt((bucket_count - 1) / (4.0 * sample_target))
+    conservative_tv_floor_95 = z_score * typical_tv_noise_floor
+    min_samples_for_target_tv = math.ceil((z_score**2 * (bucket_count - 1)) / (4.0 * target_tv**2))
+    tier = power_tier(conservative_tv_floor_95)
+    return {
+        "library": collection_row.get("library"),
+        "track": collection_row.get("track"),
+        "object_type": target.get("object_type"),
+        "bit_length": target.get("bit_length"),
+        "sample_target": sample_target,
+        "bucket_count": bucket_count,
+        "status": target.get("status", "planned"),
+        "power_tier": tier,
+        "class_shift_95": round(class_shift_95, 6),
+        "typical_tv_noise_floor": round(typical_tv_noise_floor, 6),
+        "conservative_tv_floor_95": round(conservative_tv_floor_95, 6),
+        "min_samples_for_10pct_tv": min_samples_for_target_tv,
+        "sample_gap_to_10pct_tv": max(0, min_samples_for_target_tv - sample_target),
+    }
+
+
+def bucket_count_for_target(target: dict[str, Any], modulo: int) -> int:
+    if target.get("object_type") == "rsa-prime":
+        return euler_phi(modulo)
+    if target.get("object_type") == "ecdsa-signature":
+        return 64
+    return max(8, euler_phi(modulo))
+
+
+def euler_phi(value: int) -> int:
+    result = value
+    candidate = 2
+    remaining = value
+    while candidate * candidate <= remaining:
+        if remaining % candidate == 0:
+            while remaining % candidate == 0:
+                remaining //= candidate
+            result -= result // candidate
+        candidate += 1
+    if remaining > 1:
+        result -= result // remaining
+    return result
+
+
+def normal_z_for_two_sided_alpha(alpha: float) -> float:
+    if alpha <= 0 or alpha >= 1:
+        raise ValueError("alpha must be between 0 and 1")
+    # Keep the module dependency-free; the project currently needs 95% planning intervals.
+    if abs(alpha - 0.05) < 1e-12:
+        return 1.959963984540054
+    if abs(alpha - 0.01) < 1e-12:
+        return 2.5758293035489004
+    if abs(alpha - 0.10) < 1e-12:
+        return 1.6448536269514722
+    return 1.959963984540054
+
+
+def power_tier(conservative_tv_floor_95: float) -> str:
+    if conservative_tv_floor_95 <= 0.10:
+        return "strong"
+    if conservative_tv_floor_95 <= 0.20:
+        return "screening"
+    return "coarse"
+
+
+def weakest_targets(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "library": row["library"],
+            "bit_length": row["bit_length"],
+            "sample_target": row["sample_target"],
+            "conservative_tv_floor_95": row["conservative_tv_floor_95"],
+            "min_samples_for_10pct_tv": row["min_samples_for_10pct_tv"],
+        }
+        for row in sorted(rows, key=lambda item: item["conservative_tv_floor_95"], reverse=True)[:3]
+    ]
+
+
+def recommendations(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    needs_more = [row for row in rows if row["sample_gap_to_10pct_tv"] > 0]
+    rsa_gaps = [row for row in needs_more if row["object_type"] == "rsa-prime"]
+    signature_gaps = [row for row in needs_more if row["object_type"] == "ecdsa-signature"]
+    actions = []
+    if rsa_gaps:
+        max_needed = max(row["min_samples_for_10pct_tv"] for row in rsa_gaps)
+        actions.append(
+            {
+                "priority": "P0",
+                "track": "rsa-prime-generation",
+                "action": f"Treat 500 RSA primes per bit length as coarse screening; target about {max_needed} primes per library/bit-length for conservative 10% TV drift claims.",
+            }
+        )
+    if signature_gaps:
+        max_needed = max(row["min_samples_for_10pct_tv"] for row in signature_gaps)
+        actions.append(
+            {
+                "priority": "P1",
+                "track": "signature-nonce-metadata",
+                "action": f"Raise signature metadata targets toward {max_needed} rows when nonce-bucket claims need conservative 10% TV resolution.",
+            }
+        )
+    if not actions:
+        actions.append(
+            {
+                "priority": "P1",
+                "track": "publication",
+                "action": "Current sample targets clear the conservative planning floor; focus on independent replicates and provenance metadata.",
+            }
+        )
+    return actions
