@@ -60,6 +60,25 @@ python -m prime_audit.cli crypto-classifier `
 
 이 모델은 최종 분류기가 아니라 연구 안전장치다. 여기서도 분리되지 않는 신호는 무거운 ML을 넣어도 과장될 가능성이 높다.
 
+## Collection Matrix
+
+`collection-matrix`는 manifest에 등록된 baseline을 실제 수집 목표로 확장한다. 목적은 “어떤 라이브러리를 모을 것인가”가 아니라, claim을 강하게 만들기 전에 필요한 bit-length, sample count, public output 단위를 명시하는 것이다.
+
+```powershell
+python -m prime_audit.cli collection-matrix `
+  --manifest data/baselines/real_world/manifest.json `
+  --output data/collection_matrix.json
+```
+
+현재 matrix는 다음 target을 요구한다.
+
+- OpenSSL RSA prime: 2048/3072/4096-bit 각각 500개 이상의 aggregate sample.
+- BoringSSL RSA prime: 2048/3072/4096-bit 각각 500개 이상의 aggregate sample.
+- Go crypto/rsa prime: 2048/3072/4096-bit 각각 500개 이상의 aggregate sample.
+- Bitcoin Core / wallet signature metadata: 256-bit ECDSA signature metadata 10,000개 이상.
+
+private prime, private key, seed, wallet material은 공개 산출물이 아니다. 공개 단위는 aggregate fingerprint, baseline JSON, feature vector, nonce-risk summary로 제한한다. `claim_gate.status`가 `blocked`이면 GitHub Pages는 이를 Baseline Lab과 Evidence Pack에서 그대로 보여준다.
+
 ## Research Readiness
 
 `research-readiness`는 현재 연구 도구가 실세계 attribution 주장에 얼마나 가까운지 점수화한다. 입력은 real-world baseline manifest, attribution grid, classifier report, Bitcoin risk report다.
@@ -91,7 +110,7 @@ python -m prime_audit.cli evidence-pack `
   --manifest data/baselines/real_world/manifest.json `
   --readiness data/research_readiness.json `
   --attribution-grid data/attribution_confound_grid.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json
@@ -103,8 +122,8 @@ python -m prime_audit.cli evidence-pack `
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> readiness -> evidence pack.
-- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, attribution grid row 수, claim level.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> readiness -> evidence pack.
+- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, attribution grid row 수, claim level.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 
 ## Bitcoin 통합

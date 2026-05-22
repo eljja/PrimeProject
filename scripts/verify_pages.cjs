@@ -50,12 +50,27 @@ async function main() {
     await page.waitForFunction(() => document.querySelectorAll("#predictionRows tr").length >= 8);
     await page.click("[data-scroll-target='evolution-panel']");
     await page.waitForFunction(() => document.querySelectorAll("#evolutionTimeline .evolution-step").length >= 8);
+    await page.waitForFunction(() => {
+      const rect = document.querySelector("#evolution-panel").getBoundingClientRect();
+      const headerHeight = document.querySelector(".topbar").getBoundingClientRect().height;
+      return rect.top >= headerHeight - 20 && rect.top <= headerHeight + 28;
+    });
     await page.click("[data-scroll-target='attribution-panel']");
     await page.waitForFunction(() => document.querySelectorAll("#attributionProfileRows tr").length >= 3);
+    await page.waitForFunction(() => {
+      const rect = document.querySelector("#attribution-panel").getBoundingClientRect();
+      const headerHeight = document.querySelector(".topbar").getBoundingClientRect().height;
+      return rect.top >= headerHeight - 20 && rect.top <= headerHeight + 28;
+    });
     await page.click("[data-scroll-target='readiness-panel']");
     await page.waitForFunction(() => document.querySelectorAll("#readinessDimensions .readiness-card").length >= 4);
     await page.click("[data-scroll-target='evidence-panel']");
     await page.waitForFunction(() => document.querySelectorAll("#evidenceGateRows .evidence-row").length >= 5);
+    await page.waitForFunction(() => {
+      const rect = document.querySelector("#evidence-panel").getBoundingClientRect();
+      const headerHeight = document.querySelector(".topbar").getBoundingClientRect().height;
+      return rect.top >= headerHeight - 20 && rect.top <= headerHeight + 28;
+    });
     await page.screenshot({
       path: path.join(root, "data", "conjecture_lab_desktop.png"),
       fullPage: true,
@@ -89,12 +104,15 @@ async function main() {
       baselinePanel: document.querySelector("#baseline-panel").textContent,
       baselineRegistrySummary: document.querySelector("#baselineRegistrySummary").textContent,
       baselineRegistryRows: document.querySelectorAll("#baselineRegistryRows tr").length,
+      collectionMatrixRows: document.querySelectorAll("#collectionMatrixRows .collection-row").length,
+      collectionMatrixStatus: document.querySelector("#collectionMatrixStatus").textContent,
       readinessPanel: document.querySelector("#readiness-panel").textContent,
       readinessCards: document.querySelectorAll("#readinessDimensions .readiness-card").length,
       readinessActions: document.querySelectorAll("#readinessActions li").length,
       evidencePanel: document.querySelector("#evidence-panel").textContent,
       evidenceGates: document.querySelectorAll("#evidenceGateRows .evidence-row").length,
       evidenceArtifacts: document.querySelectorAll("#evidenceArtifactRows .evidence-row").length,
+      evidenceTop: Math.round(document.querySelector("#evidence-panel").getBoundingClientRect().top),
     }));
 
     const mobile = await browser.newPage({
@@ -127,6 +145,7 @@ async function main() {
     metrics.evolutionNodes < 8 ||
     metrics.evolutionGaps < 2 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
+    !metrics.evolutionPanel.includes("collection matrix") ||
     !metrics.evolutionPanel.includes("Evidence pack")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
@@ -152,8 +171,12 @@ async function main() {
   if (
     !metrics.baselinePanel.includes("known-good") ||
     !metrics.baselinePanel.includes("fingerprint distance") ||
+    !metrics.baselinePanel.includes("Real-World Collection Matrix") ||
+    !metrics.baselinePanel.includes("Claim gate") ||
     !metrics.baselineRegistrySummary.includes("Registered") ||
-    metrics.baselineRegistryRows < 5
+    metrics.baselineRegistryRows < 5 ||
+    metrics.collectionMatrixRows < 4 ||
+    !metrics.collectionMatrixStatus.includes("10")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
@@ -169,7 +192,7 @@ async function main() {
   }
   if (
     metrics.evidenceGates < 5 ||
-    metrics.evidenceArtifacts < 5 ||
+    metrics.evidenceArtifacts < 6 ||
     !metrics.evidencePanel.includes("Evidence Pack") ||
     !metrics.evidencePanel.includes("public_demo_only")
   ) {

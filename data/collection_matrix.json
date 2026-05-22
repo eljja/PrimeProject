@@ -1,0 +1,215 @@
+{
+  "schema": "primeproject.real-world-collection-matrix.v1",
+  "sample_handling": {
+    "raw_private_material_public": false,
+    "aggregate_fingerprints_public": true,
+    "minimum_replicates_per_label": 3,
+    "publication_unit": "aggregate fingerprint, baseline JSON, and feature vector only"
+  },
+  "row_count": 4,
+  "target_count": 10,
+  "complete_target_count": 0,
+  "blocked_target_count": 10,
+  "local_sensitive_count": 3,
+  "completion_ratio": 0.0,
+  "claim_gate": {
+    "status": "blocked",
+    "available_rsa_libraries": 0,
+    "minimum_available_rsa_libraries": 2,
+    "minimum_label_replicates": 3,
+    "message": "Real-world attribution remains blocked until at least two aggregate RSA library baselines and labelled classifier replicates exist."
+  },
+  "rows": [
+    {
+      "library": "OpenSSL",
+      "baseline_id": "openssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "sensitive": true,
+      "targets": [
+        {
+          "bit_length": 2048,
+          "sample_target": 500,
+          "object_type": "rsa-prime",
+          "status": "planned",
+          "public_output": "aggregate fingerprint + baseline + feature vector"
+        },
+        {
+          "bit_length": 3072,
+          "sample_target": 500,
+          "object_type": "rsa-prime",
+          "status": "planned",
+          "public_output": "aggregate fingerprint + baseline + feature vector"
+        },
+        {
+          "bit_length": 4096,
+          "sample_target": 500,
+          "object_type": "rsa-prime",
+          "status": "planned",
+          "public_output": "aggregate fingerprint + baseline + feature vector"
+        }
+      ]
+    },
+    {
+      "library": "BoringSSL",
+      "baseline_id": "boringssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "sensitive": true,
+      "targets": [
+        {
+          "bit_length": 2048,
+          "sample_target": 500,
+          "object_type": "rsa-prime",
+          "status": "planned",
+          "public_output": "aggregate fingerprint + baseline + feature vector"
+        },
+        {
+          "bit_length": 3072,
+          "sample_target": 500,
+          "object_type": "rsa-prime",
+          "status": "planned",
+          "public_output": "aggregate fingerprint + baseline + feature vector"
+        },
+        {
+          "bit_length": 4096,
+          "sample_target": 500,
+          "object_type": "rsa-prime",
+          "status": "planned",
+          "public_output": "aggregate fingerprint + baseline + feature vector"
+        }
+      ]
+    },
+    {
+      "library": "Go crypto/rsa",
+      "baseline_id": "go-crypto-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "sensitive": true,
+      "targets": [
+        {
+          "bit_length": 2048,
+          "sample_target": 500,
+          "object_type": "rsa-prime",
+          "status": "planned",
+          "public_output": "aggregate fingerprint + baseline + feature vector"
+        },
+        {
+          "bit_length": 3072,
+          "sample_target": 500,
+          "object_type": "rsa-prime",
+          "status": "planned",
+          "public_output": "aggregate fingerprint + baseline + feature vector"
+        },
+        {
+          "bit_length": 4096,
+          "sample_target": 500,
+          "object_type": "rsa-prime",
+          "status": "planned",
+          "public_output": "aggregate fingerprint + baseline + feature vector"
+        }
+      ]
+    },
+    {
+      "library": "Bitcoin Core / wallet metadata",
+      "baseline_id": "bitcoin-core-ecdsa-signature-public",
+      "track": "signature-nonce-metadata",
+      "sensitive": false,
+      "targets": [
+        {
+          "bit_length": 256,
+          "sample_target": 10000,
+          "object_type": "ecdsa-signature",
+          "status": "planned",
+          "public_output": "nonce-risk summary + distribution fingerprint"
+        }
+      ]
+    }
+  ],
+  "next_unlock": [
+    {
+      "gate": "real_baseline_gate",
+      "need": "two available aggregate RSA library baselines",
+      "candidate_targets": [
+        {
+          "library": "OpenSSL",
+          "bit_length": 2048,
+          "sample_target": 500
+        },
+        {
+          "library": "OpenSSL",
+          "bit_length": 3072,
+          "sample_target": 500
+        },
+        {
+          "library": "OpenSSL",
+          "bit_length": 4096,
+          "sample_target": 500
+        },
+        {
+          "library": "BoringSSL",
+          "bit_length": 2048,
+          "sample_target": 500
+        },
+        {
+          "library": "BoringSSL",
+          "bit_length": 3072,
+          "sample_target": 500
+        },
+        {
+          "library": "BoringSSL",
+          "bit_length": 4096,
+          "sample_target": 500
+        }
+      ]
+    },
+    {
+      "gate": "classifier_gate",
+      "need": "labelled feature vectors from at least three library families",
+      "candidate_targets": [
+        {
+          "library": "OpenSSL",
+          "bit_length": 2048,
+          "sample_target": 500
+        },
+        {
+          "library": "OpenSSL",
+          "bit_length": 3072,
+          "sample_target": 500
+        },
+        {
+          "library": "OpenSSL",
+          "bit_length": 4096,
+          "sample_target": 500
+        },
+        {
+          "library": "BoringSSL",
+          "bit_length": 2048,
+          "sample_target": 500
+        },
+        {
+          "library": "BoringSSL",
+          "bit_length": 3072,
+          "sample_target": 500
+        },
+        {
+          "library": "BoringSSL",
+          "bit_length": 4096,
+          "sample_target": 500
+        },
+        {
+          "library": "Go crypto/rsa",
+          "bit_length": 2048,
+          "sample_target": 500
+        },
+        {
+          "library": "Go crypto/rsa",
+          "bit_length": 3072,
+          "sample_target": 500
+        },
+        {
+          "library": "Go crypto/rsa",
+          "bit_length": 4096,
+          "sample_target": 500
+        }
+      ]
+    }
+  ]
+}

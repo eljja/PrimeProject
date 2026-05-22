@@ -7,11 +7,13 @@
     "precomputed_snapshot_limits": [1000000, 10000000],
     "registered_real_baselines": 5,
     "available_real_baselines": 1,
+    "collection_targets": 10,
+    "collection_complete_targets": 0,
     "attribution_grid_rows": 48,
     "attribution_repeats": 3,
     "robust_controlled_profiles": ["all", "gap_only"],
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 3,
+    "checksummed_artifacts": 6,
     "blocking_gaps": 2
   },
   "phases": [
@@ -72,6 +74,14 @@
       "outputs": ["data/baselines/real_world/manifest.json"]
     },
     {
+      "id": "collection-matrix",
+      "label": "Real-world collection matrix",
+      "status": "active",
+      "layer": "sim-to-real",
+      "summary": "Defines matched 2048/3072/4096-bit RSA and Bitcoin signature metadata targets before claims can advance.",
+      "outputs": ["prime_audit/collection_matrix.py", "data/collection_matrix.json"]
+    },
+    {
       "id": "readiness-gates",
       "label": "Research readiness scoring",
       "status": "active",
@@ -95,7 +105,8 @@
     ["bitcoin-track", "real-world-registry"],
     ["fingerprint-baseline", "attribution-grid"],
     ["attribution-grid", "readiness-gates"],
-    ["real-world-registry", "readiness-gates"],
+    ["real-world-registry", "collection-matrix"],
+    ["collection-matrix", "readiness-gates"],
     ["readiness-gates", "evidence-pack"]
   ],
   "open_gaps": [

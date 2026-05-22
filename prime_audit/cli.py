@@ -11,6 +11,7 @@ from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .bitcoin_integration import build_bitcoin_generator_risk_report
 from .conjecture_lab import run_lab
 from .crypto_classifier import run_crypto_classifier
+from .collection_matrix import build_collection_matrix
 from .evidence_pack import build_evidence_pack
 from .feature_vectors import build_feature_vector_payload, load_feature_vectors_from_files
 from .fingerprints import analyze_prime_generator_fingerprints
@@ -113,6 +114,13 @@ def main() -> int:
     real_baseline_manifest_parser.add_argument("--entries", nargs="*", default=[])
     real_baseline_manifest_parser.add_argument("--no-defaults", action="store_true")
     real_baseline_manifest_parser.add_argument("--output", required=True)
+
+    collection_matrix_parser = subparsers.add_parser(
+        "collection-matrix",
+        help="Build a real-world sample collection matrix from the baseline manifest.",
+    )
+    collection_matrix_parser.add_argument("--manifest", required=True)
+    collection_matrix_parser.add_argument("--output", required=True)
 
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
@@ -314,6 +322,13 @@ def main() -> int:
             include_default_entries=not args.no_defaults,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "collection-matrix":
+        manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(build_collection_matrix(manifest), indent=2), encoding="utf-8")
         return 0
 
     if args.command == "export-feature-vectors":

@@ -838,7 +838,7 @@ canvas {
 
 .evolution-summary {
   display: grid;
-  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  grid-template-columns: repeat(6, minmax(112px, 1fr));
   gap: 10px;
   padding: 16px 20px 4px;
 }
@@ -1111,6 +1111,97 @@ canvas {
 .baseline-registry-table .is-planned {
   color: var(--amber);
   background: rgba(215, 138, 17, 0.12);
+}
+
+.collection-matrix {
+  border-top: 1px solid var(--line);
+  padding: 16px 20px 20px;
+}
+
+.matrix-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.matrix-heading span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 720;
+}
+
+.collection-matrix-rows {
+  display: grid;
+  gap: 8px;
+}
+
+.collection-row,
+.collection-gate {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.75fr) minmax(0, 1.25fr);
+  gap: 12px;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 11px 12px;
+}
+
+.collection-row strong,
+.collection-row span,
+.collection-gate strong,
+.collection-gate span {
+  display: block;
+}
+
+.collection-row strong,
+.collection-gate strong {
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.collection-row span,
+.collection-gate span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.collection-targets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.collection-targets em {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 780;
+  white-space: nowrap;
+}
+
+.collection-targets .is-available {
+  color: var(--teal);
+  background: rgba(8, 127, 122, 0.1);
+}
+
+.collection-targets .is-planned {
+  color: var(--amber);
+  background: rgba(215, 138, 17, 0.12);
+}
+
+.collection-gate {
+  border-left: 3px solid var(--danger);
+  background: var(--soft);
 }
 
 .readiness-summary {
@@ -1740,9 +1831,19 @@ tr:last-child td {
   }
 
   .evidence-row,
-  .artifact-row {
+  .artifact-row,
+  .collection-row,
+  .collection-gate {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+
+  .matrix-heading {
+    display: grid;
+  }
+
+  .collection-targets {
+    justify-content: flex-start;
   }
 
   canvas {

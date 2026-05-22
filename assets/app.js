@@ -12,6 +12,7 @@ const state = {
   researchReadiness: null,
   evidencePack: null,
   projectEvolution: null,
+  collectionMatrix: null,
 };
 
 const limitSlider = {
@@ -170,6 +171,36 @@ const bundledRealBaselineManifest = {
   ],
 };
 
+const bundledCollectionMatrix = {
+  schema: "primeproject.real-world-collection-matrix.v1",
+  sample_handling: {
+    raw_private_material_public: false,
+    aggregate_fingerprints_public: true,
+    minimum_replicates_per_label: 3,
+    publication_unit: "aggregate fingerprint, baseline JSON, and feature vector only",
+  },
+  row_count: 4,
+  target_count: 10,
+  complete_target_count: 0,
+  blocked_target_count: 10,
+  local_sensitive_count: 3,
+  completion_ratio: 0,
+  claim_gate: {
+    status: "blocked",
+    available_rsa_libraries: 0,
+    minimum_available_rsa_libraries: 2,
+    minimum_label_replicates: 3,
+    message:
+      "Real-world attribution remains blocked until at least two aggregate RSA library baselines and labelled classifier replicates exist.",
+  },
+  rows: [
+    { library: "OpenSSL", track: "rsa-prime-generation", sensitive: true, targets: [{ bit_length: 2048, sample_target: 500, status: "planned" }, { bit_length: 3072, sample_target: 500, status: "planned" }, { bit_length: 4096, sample_target: 500, status: "planned" }] },
+    { library: "BoringSSL", track: "rsa-prime-generation", sensitive: true, targets: [{ bit_length: 2048, sample_target: 500, status: "planned" }, { bit_length: 3072, sample_target: 500, status: "planned" }, { bit_length: 4096, sample_target: 500, status: "planned" }] },
+    { library: "Go crypto/rsa", track: "rsa-prime-generation", sensitive: true, targets: [{ bit_length: 2048, sample_target: 500, status: "planned" }, { bit_length: 3072, sample_target: 500, status: "planned" }, { bit_length: 4096, sample_target: 500, status: "planned" }] },
+    { library: "Bitcoin Core / wallet metadata", track: "signature-nonce-metadata", sensitive: false, targets: [{ bit_length: 256, sample_target: 10000, status: "planned" }] },
+  ],
+};
+
 const bundledResearchReadiness = {
   schema: "primeproject.research-readiness.v1",
   overall: { score: 0.5869, label: "prototype_ready" },
@@ -244,11 +275,12 @@ const bundledEvidencePack = {
     { code: "bitcoin_integration_gate", passed: false, severity: "medium" },
     { code: "reproducibility_gate", passed: true, severity: "medium" },
   ],
-  artifact_count: 5,
+  artifact_count: 6,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
+    { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "d89126a682e2cb0208334de48c7bbba889d478bf53e561969b5dd1c881225bd4" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "613089bc0e484841f0f82d9d4c44f4e4439ae361533951fa6abeaa8f52fad199" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
     { role: "snapshot_manifest", schema: "primeproject.snapshot-manifest.v1", sha256: "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0" },
   ],
@@ -262,11 +294,13 @@ const bundledProjectEvolution = {
     precomputed_snapshot_limits: [1000000, 10000000],
     registered_real_baselines: 5,
     available_real_baselines: 1,
+    collection_targets: 10,
+    collection_complete_targets: 0,
     attribution_grid_rows: 48,
     attribution_repeats: 3,
     robust_controlled_profiles: ["all", "gap_only"],
     publication_claim_level: "public_demo_only",
-    checksummed_artifacts: 3,
+    checksummed_artifacts: 6,
     blocking_gaps: 2,
   },
   phases: [
@@ -277,6 +311,7 @@ const bundledProjectEvolution = {
     { id: "fingerprint-baseline", label: "Generator fingerprint baseline", status: "complete", layer: "analysis" },
     { id: "attribution-grid", label: "Controlled attribution grid", status: "complete", layer: "validation" },
     { id: "real-world-registry", label: "Real-world baseline registry", status: "scaffolded", layer: "sim-to-real" },
+    { id: "collection-matrix", label: "Real-world collection matrix", status: "active", layer: "sim-to-real" },
     { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
   ],
@@ -287,7 +322,8 @@ const bundledProjectEvolution = {
     ["bitcoin-track", "real-world-registry"],
     ["fingerprint-baseline", "attribution-grid"],
     ["attribution-grid", "readiness-gates"],
-    ["real-world-registry", "readiness-gates"],
+    ["real-world-registry", "collection-matrix"],
+    ["collection-matrix", "readiness-gates"],
     ["readiness-gates", "evidence-pack"],
   ],
   open_gaps: [
@@ -359,6 +395,8 @@ const outputs = {
   evolutionGaps: document.querySelector("#evolutionGaps"),
   baselineRegistrySummary: document.querySelector("#baselineRegistrySummary"),
   baselineRegistryRows: document.querySelector("#baselineRegistryRows"),
+  collectionMatrixStatus: document.querySelector("#collectionMatrixStatus"),
+  collectionMatrixRows: document.querySelector("#collectionMatrixRows"),
   readinessSummary: document.querySelector("#readinessSummary"),
   readinessDimensions: document.querySelector("#readinessDimensions"),
   readinessActions: document.querySelector("#readinessActions"),
@@ -389,9 +427,7 @@ document.querySelectorAll("[data-scroll-target]").forEach((button) => {
     button.classList.add("is-active");
     const target = document.querySelector(`#${button.dataset.scrollTarget}`);
     if (!target) return;
-    const topbarOffset = document.querySelector(".topbar")?.getBoundingClientRect().height || 0;
-    target.scrollIntoView({ block: "start", behavior: "auto" });
-    window.scrollBy({ top: -topbarOffset - 12, behavior: "auto" });
+    scrollToPanel(target);
   });
 });
 
@@ -430,10 +466,21 @@ runExperiment();
 loadSnapshots();
 loadProjectEvolution();
 loadRealBaselineManifest();
+loadCollectionMatrix();
 loadResearchReadiness();
 loadEvidencePack();
 loadAttributionGrid();
 renderPrediction();
+
+function scrollToPanel(target) {
+  const topbarOffset = document.querySelector(".topbar")?.getBoundingClientRect().height || 0;
+  const targetTop = target.getBoundingClientRect().top + window.pageYOffset - topbarOffset - 12;
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    left: 0,
+    behavior: "auto",
+  });
+}
 
 function runExperiment() {
   controls.runExperiment.disabled = true;
@@ -1232,6 +1279,7 @@ function renderProjectEvolution() {
     <div><span>Live compute</span><strong>${formatCompact(metrics.live_compute_limit || 0)}</strong><small>browser limit</small></div>
     <div><span>Snapshots</span><strong>${formatNumber((metrics.precomputed_snapshot_limits || []).length)}</strong><small>${(metrics.precomputed_snapshot_limits || []).map(formatCompact).join(", ")}</small></div>
     <div><span>Baselines</span><strong>${formatNumber(metrics.registered_real_baselines || 0)}</strong><small>${formatNumber(metrics.available_real_baselines || 0)} available</small></div>
+    <div><span>Collection targets</span><strong>${formatNumber(metrics.collection_targets || 0)}</strong><small>${formatNumber(metrics.collection_complete_targets || 0)} complete</small></div>
     <div><span>Attribution rows</span><strong>${formatNumber(metrics.attribution_grid_rows || 0)}</strong><small>${formatNumber(metrics.attribution_repeats || 0)} repeats</small></div>
     <div><span>Claim level</span><strong>${escapeHtml(metrics.publication_claim_level || "unknown")}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
   `;
@@ -1266,7 +1314,7 @@ function renderEvolutionMap(evolution) {
     ["conjecture-lab"],
     ["static-snapshots", "fingerprint-baseline"],
     ["attribution-grid", "real-world-registry"],
-    ["readiness-gates"],
+    ["collection-matrix", "readiness-gates"],
     ["evidence-pack"],
   ];
   const positions = new Map();
@@ -1364,6 +1412,53 @@ function renderRealBaselineManifest() {
       `;
     })
     .join("");
+}
+
+async function loadCollectionMatrix() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.collectionMatrix = bundledCollectionMatrix;
+    } else {
+      const response = await fetch("data/collection_matrix.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`collection matrix ${response.status}`);
+      state.collectionMatrix = await response.json();
+    }
+  } catch (error) {
+    state.collectionMatrix = bundledCollectionMatrix;
+  }
+  renderCollectionMatrix();
+}
+
+function renderCollectionMatrix() {
+  if (!outputs.collectionMatrixStatus || !outputs.collectionMatrixRows) return;
+  const matrix = state.collectionMatrix || bundledCollectionMatrix;
+  const gate = matrix.claim_gate || {};
+  outputs.collectionMatrixStatus.textContent =
+    `${formatNumber(matrix.complete_target_count || 0)} / ${formatNumber(matrix.target_count || 0)} targets complete · ${escapeHtml(gate.status || "unknown")}`;
+  outputs.collectionMatrixRows.innerHTML = (matrix.rows || [])
+    .map((row) => `
+      <div class="collection-row">
+        <div>
+          <strong>${escapeHtml(row.library || "unknown")}</strong>
+          <span>${escapeHtml(row.track || "")}${row.sensitive ? " · local raw data" : " · public metadata"}</span>
+        </div>
+        <div class="collection-targets">
+          ${(row.targets || [])
+            .map((target) => `
+              <em class="${target.status === "available" ? "is-available" : "is-planned"}" title="${escapeHtml(target.public_output || "")}">
+                ${formatNumber(target.bit_length || 0)}b / ${formatNumber(target.sample_target || 0)}
+              </em>
+            `)
+            .join("")}
+        </div>
+      </div>
+    `)
+    .join("") + `
+      <div class="collection-gate">
+        <strong>Claim gate</strong>
+        <span>${escapeHtml(gate.message || "No claim gate is defined.")}</span>
+      </div>
+    `;
 }
 
 async function loadResearchReadiness() {

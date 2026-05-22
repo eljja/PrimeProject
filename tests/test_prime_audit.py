@@ -22,6 +22,7 @@ from prime_audit.baselines import (
 from prime_audit.bitcoin import audit_bitcoin_signatures, parse_der_signature, secp256k1_constants_report
 from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
+from prime_audit.collection_matrix import build_collection_matrix
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
 from prime_audit.crypto_classifier import run_crypto_classifier
 from prime_audit.evidence_pack import build_evidence_pack
@@ -353,6 +354,31 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertGreaterEqual(summary["planned_count"], 3)
         self.assertIn("OpenSSL", summary["libraries"])
         self.assertFalse(manifest["handling_policy"]["publish_private_primes"])
+
+    def test_collection_matrix_defines_real_world_sample_targets(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        matrix = build_collection_matrix(manifest)
+
+        self.assertEqual(matrix["schema"], "primeproject.real-world-collection-matrix.v1")
+        self.assertEqual(matrix["target_count"], 10)
+        self.assertEqual(matrix["row_count"], 4)
+        self.assertEqual(matrix["blocked_target_count"], 10)
+        self.assertEqual(matrix["local_sensitive_count"], 3)
+        self.assertEqual(matrix["claim_gate"]["status"], "blocked")
+        rsa_rows = [row for row in matrix["rows"] if row["track"] == "rsa-prime-generation"]
+        self.assertEqual({target["bit_length"] for row in rsa_rows for target in row["targets"]}, {2048, 3072, 4096})
+        self.assertEqual(matrix["sample_handling"]["raw_private_material_public"], False)
+        self.assertGreaterEqual(len(matrix["next_unlock"]), 2)
+
+        manifest["entries"][0]["status"] = "available"
+        manifest["entries"][0]["sample_count"] = 500
+        manifest["entries"][0]["bit_length"] = None
+        unspecified = build_collection_matrix(manifest)
+        self.assertEqual(unspecified["complete_target_count"], 0)
+
+        manifest["entries"][0]["bit_length"] = 2048
+        matched = build_collection_matrix(manifest)
+        self.assertEqual(matched["complete_target_count"], 1)
 
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(
