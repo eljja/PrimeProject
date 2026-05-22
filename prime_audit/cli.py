@@ -17,6 +17,7 @@ from .evidence_pack import build_evidence_pack
 from .feature_vectors import build_feature_vector_payload, load_feature_vectors_from_files
 from .fingerprints import analyze_prime_generator_fingerprints
 from .io import load_records, write_report_json
+from .provenance import build_provenance_requirements
 from .real_baselines import build_real_baseline_manifest, load_real_baseline_entries
 from .research_readiness import build_research_readiness_report
 from .bias_lab import rank_next_prime_candidates
@@ -132,6 +133,13 @@ def main() -> int:
     collection_power_parser.add_argument("--alpha", type=float, default=0.05)
     collection_power_parser.add_argument("--target-tv", type=float, default=0.10)
     collection_power_parser.add_argument("--output", required=True)
+
+    provenance_parser = subparsers.add_parser(
+        "provenance-requirements",
+        help="Build provenance requirements for real-world baseline collection.",
+    )
+    provenance_parser.add_argument("--manifest", required=True)
+    provenance_parser.add_argument("--output", required=True)
 
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
@@ -353,6 +361,13 @@ def main() -> int:
             target_tv=args.target_tv,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "provenance-requirements":
+        manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(build_provenance_requirements(manifest), indent=2), encoding="utf-8")
         return 0
 
     if args.command == "export-feature-vectors":

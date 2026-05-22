@@ -14,6 +14,7 @@ const state = {
   projectEvolution: null,
   collectionMatrix: null,
   collectionPower: null,
+  provenanceRequirements: null,
 };
 
 const limitSlider = {
@@ -246,6 +247,46 @@ const bundledCollectionPower = {
   ],
 };
 
+const bundledProvenanceRequirements = {
+  schema: "primeproject.provenance-requirements.v1",
+  required_fields: [
+    "baseline_id",
+    "library",
+    "library_version",
+    "algorithm",
+    "object_type",
+    "bit_length",
+    "sample_count",
+    "collector",
+    "collection_date",
+    "host_platform",
+    "source_commit",
+    "build_config",
+    "rng_source",
+    "generation_command",
+    "raw_material_policy",
+    "aggregate_artifact_sha256",
+  ],
+  forbidden_public_fields: ["private_key", "private_prime", "wallet_seed", "raw_signature_owner"],
+  row_count: 4,
+  missing_required_count: 35,
+  public_safety: {
+    raw_private_material_public: false,
+    aggregate_artifacts_public: true,
+    review_required_before_status_available: true,
+  },
+  claim_gate: {
+    status: "blocked",
+    message: "Real-world baselines need complete provenance before being used for attribution claims.",
+  },
+  rows: [
+    { baseline_id: "openssl-rsa-prime-owned", library: "OpenSSL", object_type: "rsa-prime", missing_required_count: 9, completion_ratio: 0.4375, missing_required_fields: ["bit_length", "collector", "collection_date", "host_platform", "source_commit", "build_config", "rng_source", "generation_command", "aggregate_artifact_sha256"] },
+    { baseline_id: "boringssl-rsa-prime-owned", library: "BoringSSL", object_type: "rsa-prime", missing_required_count: 9, completion_ratio: 0.4375, missing_required_fields: ["bit_length", "collector", "collection_date", "host_platform", "source_commit", "build_config", "rng_source", "generation_command", "aggregate_artifact_sha256"] },
+    { baseline_id: "go-crypto-rsa-prime-owned", library: "Go crypto/rsa", object_type: "rsa-prime", missing_required_count: 9, completion_ratio: 0.4375, missing_required_fields: ["bit_length", "collector", "collection_date", "host_platform", "source_commit", "build_config", "rng_source", "generation_command", "aggregate_artifact_sha256"] },
+    { baseline_id: "bitcoin-core-ecdsa-signature-public", library: "Bitcoin Core / secp256k1 ecosystem", object_type: "ecdsa-signature", missing_required_count: 8, completion_ratio: 0.5, missing_required_fields: ["collector", "collection_date", "host_platform", "source_commit", "build_config", "rng_source", "generation_command", "aggregate_artifact_sha256"] },
+  ],
+};
+
 const bundledResearchReadiness = {
   schema: "primeproject.research-readiness.v1",
   overall: { score: 0.5869, label: "prototype_ready" },
@@ -319,14 +360,16 @@ const bundledEvidencePack = {
     { code: "classifier_gate", passed: false, severity: "high" },
     { code: "bitcoin_integration_gate", passed: false, severity: "medium" },
     { code: "reproducibility_gate", passed: true, severity: "medium" },
+    { code: "provenance_gate", passed: true, severity: "medium" },
   ],
-  artifact_count: 7,
+  artifact_count: 8,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "83e04ea8e5209c8f1050eeb72231ae5be91a67e2740b48fafba3d16d5958ec1c" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "9b93321b791c55928f41426dc60b0cd44dd6578178056b991a5d4070db4071bb" },
+    { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
     { role: "snapshot_manifest", schema: "primeproject.snapshot-manifest.v1", sha256: "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0" },
   ],
@@ -344,11 +387,13 @@ const bundledProjectEvolution = {
     collection_complete_targets: 0,
     collection_power_strong_targets: 1,
     collection_power_coarse_targets: 9,
+    provenance_rows: 4,
+    provenance_missing_required: 35,
     attribution_grid_rows: 48,
     attribution_repeats: 3,
     robust_controlled_profiles: ["all", "gap_only"],
     publication_claim_level: "public_demo_only",
-    checksummed_artifacts: 7,
+    checksummed_artifacts: 8,
     blocking_gaps: 2,
   },
   phases: [
@@ -361,6 +406,7 @@ const bundledProjectEvolution = {
     { id: "real-world-registry", label: "Real-world baseline registry", status: "scaffolded", layer: "sim-to-real" },
     { id: "collection-matrix", label: "Real-world collection matrix", status: "active", layer: "sim-to-real" },
     { id: "collection-power", label: "Sample power calibration", status: "active", layer: "statistics" },
+    { id: "provenance-gate", label: "Provenance requirements", status: "active", layer: "governance" },
     { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
   ],
@@ -373,7 +419,8 @@ const bundledProjectEvolution = {
     ["attribution-grid", "readiness-gates"],
     ["real-world-registry", "collection-matrix"],
     ["collection-matrix", "collection-power"],
-    ["collection-power", "readiness-gates"],
+    ["collection-power", "provenance-gate"],
+    ["provenance-gate", "readiness-gates"],
     ["readiness-gates", "evidence-pack"],
   ],
   open_gaps: [
@@ -450,6 +497,9 @@ const outputs = {
   collectionPowerStatus: document.querySelector("#collectionPowerStatus"),
   collectionPowerSummary: document.querySelector("#collectionPowerSummary"),
   collectionPowerRows: document.querySelector("#collectionPowerRows"),
+  provenanceStatus: document.querySelector("#provenanceStatus"),
+  provenanceSummary: document.querySelector("#provenanceSummary"),
+  provenanceRows: document.querySelector("#provenanceRows"),
   readinessSummary: document.querySelector("#readinessSummary"),
   readinessDimensions: document.querySelector("#readinessDimensions"),
   readinessActions: document.querySelector("#readinessActions"),
@@ -521,6 +571,7 @@ loadProjectEvolution();
 loadRealBaselineManifest();
 loadCollectionMatrix();
 loadCollectionPower();
+loadProvenanceRequirements();
 loadResearchReadiness();
 loadEvidencePack();
 loadAttributionGrid();
@@ -1335,6 +1386,7 @@ function renderProjectEvolution() {
     <div><span>Baselines</span><strong>${formatNumber(metrics.registered_real_baselines || 0)}</strong><small>${formatNumber(metrics.available_real_baselines || 0)} available</small></div>
     <div><span>Collection targets</span><strong>${formatNumber(metrics.collection_targets || 0)}</strong><small>${formatNumber(metrics.collection_complete_targets || 0)} complete</small></div>
     <div><span>Power floor</span><strong>${formatNumber(metrics.collection_power_strong_targets || 0)}</strong><small>${formatNumber(metrics.collection_power_coarse_targets || 0)} coarse</small></div>
+    <div><span>Provenance</span><strong>${formatNumber(metrics.provenance_rows || 0)}</strong><small>${formatNumber(metrics.provenance_missing_required || 0)} missing</small></div>
     <div><span>Attribution rows</span><strong>${formatNumber(metrics.attribution_grid_rows || 0)}</strong><small>${formatNumber(metrics.attribution_repeats || 0)} repeats</small></div>
     <div><span>Claim level</span><strong>${escapeHtml(metrics.publication_claim_level || "unknown")}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
   `;
@@ -1369,7 +1421,7 @@ function renderEvolutionMap(evolution) {
     ["conjecture-lab"],
     ["static-snapshots", "fingerprint-baseline"],
     ["attribution-grid", "real-world-registry"],
-    ["collection-matrix", "collection-power", "readiness-gates"],
+    ["collection-matrix", "collection-power", "provenance-gate", "readiness-gates"],
     ["evidence-pack"],
   ];
   const positions = new Map();
@@ -1522,6 +1574,48 @@ function renderCollectionPower() {
         <em class="is-${escapeHtml(row.power_tier || "coarse")}">${escapeHtml(row.power_tier || "coarse")}</em>
         <span>95% TV floor ${formatPercent(row.conservative_tv_floor_95 || 0)}</span>
         <span>10% TV n≈${formatNumber(row.min_samples_for_10pct_tv || 0)}</span>
+      </div>
+    `)
+    .join("");
+}
+
+async function loadProvenanceRequirements() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.provenanceRequirements = bundledProvenanceRequirements;
+    } else {
+      const response = await fetch("data/provenance_requirements.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`provenance requirements ${response.status}`);
+      state.provenanceRequirements = await response.json();
+    }
+  } catch (error) {
+    state.provenanceRequirements = bundledProvenanceRequirements;
+  }
+  renderProvenanceRequirements();
+}
+
+function renderProvenanceRequirements() {
+  if (!outputs.provenanceStatus || !outputs.provenanceSummary || !outputs.provenanceRows) return;
+  const provenance = state.provenanceRequirements || bundledProvenanceRequirements;
+  const gate = provenance.claim_gate || {};
+  const rows = provenance.rows || [];
+  outputs.provenanceStatus.textContent =
+    `${formatNumber(provenance.missing_required_count || 0)} fields missing · ${escapeHtml(gate.status || "unknown")}`;
+  outputs.provenanceSummary.innerHTML = `
+    <div><span>Rows</span><strong>${formatNumber(provenance.row_count || rows.length)}</strong><small>non-standard baselines</small></div>
+    <div><span>Required fields</span><strong>${formatNumber((provenance.required_fields || []).length)}</strong><small>per template</small></div>
+    <div><span>Missing</span><strong>${formatNumber(provenance.missing_required_count || 0)}</strong><small>before collection</small></div>
+    <div><span>Public safety</span><strong>${provenance.public_safety?.raw_private_material_public ? "fail" : "pass"}</strong><small>aggregate only</small></div>
+  `;
+  outputs.provenanceRows.innerHTML = rows
+    .slice()
+    .sort((a, b) => b.missing_required_count - a.missing_required_count)
+    .map((row) => `
+      <div class="provenance-row">
+        <strong>${escapeHtml(row.library || row.baseline_id || "unknown")}</strong>
+        <span>${formatPercent(row.completion_ratio || 0)} complete</span>
+        <em>${formatNumber(row.missing_required_count || 0)} missing</em>
+        <code>${escapeHtml((row.missing_required_fields || []).slice(0, 3).join(", ") || "complete")}</code>
       </div>
     `)
     .join("");

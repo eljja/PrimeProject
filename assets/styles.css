@@ -838,7 +838,7 @@ canvas {
 
 .evolution-summary {
   display: grid;
-  grid-template-columns: repeat(7, minmax(104px, 1fr));
+  grid-template-columns: repeat(8, minmax(96px, 1fr));
   gap: 10px;
   padding: 16px 20px 4px;
 }
@@ -1114,7 +1114,8 @@ canvas {
 }
 
 .collection-matrix,
-.collection-power {
+.collection-power,
+.provenance-gate {
   border-top: 1px solid var(--line);
   padding: 16px 20px 20px;
 }
@@ -1205,21 +1206,25 @@ canvas {
   background: var(--soft);
 }
 
-.collection-power-summary {
+.collection-power-summary,
+.provenance-summary {
   display: grid;
   grid-template-columns: repeat(4, minmax(110px, 1fr));
   gap: 10px;
   margin-bottom: 12px;
 }
 
-.collection-power-summary div {
+.collection-power-summary div,
+.provenance-summary div {
   border: 1px solid var(--line);
   background: #fff;
   padding: 10px 12px;
 }
 
 .collection-power-summary span,
-.collection-power-summary small {
+.collection-power-summary small,
+.provenance-summary span,
+.provenance-summary small {
   display: block;
   color: var(--muted);
   font-size: 11px;
@@ -1227,7 +1232,8 @@ canvas {
   text-transform: uppercase;
 }
 
-.collection-power-summary strong {
+.collection-power-summary strong,
+.provenance-summary strong {
   display: block;
   margin-top: 5px;
   color: var(--ink);
@@ -1235,17 +1241,20 @@ canvas {
   line-height: 1.2;
 }
 
-.collection-power-summary small {
+.collection-power-summary small,
+.provenance-summary small {
   margin-top: 4px;
   text-transform: none;
 }
 
-.collection-power-rows {
+.collection-power-rows,
+.provenance-rows {
   display: grid;
   gap: 8px;
 }
 
-.power-row {
+.power-row,
+.provenance-row {
   display: grid;
   grid-template-columns: minmax(180px, 1fr) 90px 140px 130px;
   gap: 10px;
@@ -1256,16 +1265,19 @@ canvas {
   font-size: 12px;
 }
 
-.power-row strong {
+.power-row strong,
+.provenance-row strong {
   color: var(--ink);
   font-size: 12px;
 }
 
-.power-row span {
+.power-row span,
+.provenance-row span {
   color: var(--muted);
 }
 
-.power-row em {
+.power-row em,
+.provenance-row em {
   justify-self: start;
   min-height: 22px;
   padding: 3px 8px;
@@ -1288,6 +1300,12 @@ canvas {
 .power-row .is-coarse {
   color: var(--amber);
   background: rgba(215, 138, 17, 0.12);
+}
+
+.provenance-row code {
+  color: var(--muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
 }
 
 .readiness-summary {
@@ -1920,7 +1938,8 @@ tr:last-child td {
   .artifact-row,
   .collection-row,
   .collection-gate,
-  .power-row {
+  .power-row,
+  .provenance-row {
     grid-template-columns: 1fr;
     gap: 4px;
   }
@@ -1933,7 +1952,8 @@ tr:last-child td {
     justify-content: flex-start;
   }
 
-  .collection-power-summary {
+  .collection-power-summary,
+  .provenance-summary {
     grid-template-columns: 1fr;
   }
 

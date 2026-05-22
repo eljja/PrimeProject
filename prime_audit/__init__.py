@@ -19,6 +19,7 @@ __all__ = [
     "models",
     "number_theory",
     "prediction",
+    "provenance",
     "real_baselines",
     "research_readiness",
     "simulators",

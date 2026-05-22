@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.evidence-pack.v1",
-  "generated_at": "2026-05-22T12:24:11+00:00",
+  "generated_at": "2026-05-22T12:32:02+00:00",
   "claim_level": {
     "level": "public_demo_only",
     "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
@@ -63,11 +63,20 @@
       "severity": "medium",
       "message": "Published evidence should include checksummed source JSON artifacts.",
       "evidence": {
-        "artifact_count": 7
+        "artifact_count": 8
+      }
+    },
+    {
+      "code": "provenance_gate",
+      "passed": true,
+      "severity": "medium",
+      "message": "Real-world collection claims need a checksummed provenance requirements artifact.",
+      "evidence": {
+        "has_provenance_requirements": true
       }
     }
   ],
-  "artifact_count": 7,
+  "artifact_count": 8,
   "artifacts": [
     {
       "role": "attribution_grid",
@@ -105,9 +114,17 @@
       "role": "project_evolution",
       "path": "data/project_evolution.json",
       "exists": true,
-      "sha256": "83e04ea8e5209c8f1050eeb72231ae5be91a67e2740b48fafba3d16d5958ec1c",
+      "sha256": "9b93321b791c55928f41426dc60b0cd44dd6578178056b991a5d4070db4071bb",
       "schema": "primeproject.project-evolution.v1",
-      "bytes": 5539
+      "bytes": 6005
+    },
+    {
+      "role": "provenance_requirements",
+      "path": "data/provenance_requirements.json",
+      "exists": true,
+      "sha256": "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0",
+      "schema": "primeproject.provenance-requirements.v1",
+      "bytes": 5942
     },
     {
       "role": "readiness",

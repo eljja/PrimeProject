@@ -97,6 +97,20 @@ python -m prime_audit.cli collection-power `
 
 이 값은 attribution 증명이 아니라 수집 계획의 품질 경계다. GitHub Pages는 이 결과를 Baseline Lab에 표시해서 500개 RSA sample을 강한 실세계 claim으로 오해하지 않게 한다.
 
+## Provenance Requirements
+
+`provenance-requirements`는 실세계 baseline이 들어오기 전 반드시 채워야 할 재현성 metadata를 정의한다. 이 단계가 없으면 같은 라이브러리 이름을 쓰더라도 version, source commit, build flag, RNG source, generation command 차이 때문에 fingerprint 비교가 학술적으로 무의미해질 수 있다.
+
+```powershell
+python -m prime_audit.cli provenance-requirements `
+  --manifest data/baselines/real_world/manifest.json `
+  --output data/provenance_requirements.json
+```
+
+필수 항목은 `baseline_id`, `library_version`, `bit_length`, `sample_count`, `collector`, `host_platform`, `source_commit`, `build_config`, `rng_source`, `generation_command`, `raw_material_policy`, `aggregate_artifact_sha256` 등을 포함한다. 공개 금지 항목은 `private_key`, `private_prime`, `wallet_seed`, `raw_signature_owner`다.
+
+GitHub Pages의 Provenance Gate는 현재 missing field 수를 보여준다. Evidence Pack은 `provenance_requirements` artifact가 checksummed bundle에 없으면 medium severity gate를 실패시킨다.
+
 ## Research Readiness
 
 `research-readiness`는 현재 연구 도구가 실세계 attribution 주장에 얼마나 가까운지 점수화한다. 입력은 real-world baseline manifest, attribution grid, classifier report, Bitcoin risk report다.
@@ -128,7 +142,7 @@ python -m prime_audit.cli evidence-pack `
   --manifest data/baselines/real_world/manifest.json `
   --readiness data/research_readiness.json `
   --attribution-grid data/attribution_confound_grid.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json
@@ -140,8 +154,8 @@ python -m prime_audit.cli evidence-pack `
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> readiness -> evidence pack.
-- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, attribution grid row 수, claim level.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> provenance gate -> readiness -> evidence pack.
+- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, attribution grid row 수, claim level.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 
 ## Bitcoin 통합

@@ -34,6 +34,7 @@ from prime_audit.feature_vectors import (
 from prime_audit.fingerprints import analyze_prime_generator_fingerprints, prime_gap_context
 from prime_audit.io import load_records
 from prime_audit.models import KeyRecord
+from prime_audit.provenance import build_provenance_requirements
 from prime_audit.real_baselines import build_real_baseline_manifest, manifest_public_summary
 from prime_audit.research_readiness import build_research_readiness_report
 from prime_audit.bias_lab import build_residue_factors, rank_next_prime_candidates
@@ -397,6 +398,19 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(signature["power_tier"], "strong")
         self.assertGreaterEqual(len(power["recommendations"]), 1)
 
+    def test_provenance_requirements_block_incomplete_real_baselines(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        requirements = build_provenance_requirements(manifest)
+
+        self.assertEqual(requirements["schema"], "primeproject.provenance-requirements.v1")
+        self.assertEqual(requirements["row_count"], 4)
+        self.assertEqual(requirements["claim_gate"]["status"], "blocked")
+        self.assertGreater(requirements["missing_required_count"], 0)
+        openssl = next(row for row in requirements["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned")
+        self.assertIn("collector", openssl["missing_required_fields"])
+        self.assertIn("aggregate_artifact_sha256", openssl["missing_required_fields"])
+        self.assertNotIn("raw_material_policy", openssl["missing_required_fields"])
+
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(
             fingerprint_report_from_values([101, 103, 107, 109, 113, 127, 131, 137]),
@@ -480,6 +494,7 @@ class PrimeAuditTests(unittest.TestCase):
         failed = {gate["code"] for gate in pack["publication_gates"] if not gate["passed"]}
         self.assertIn("real_baseline_gate", failed)
         self.assertIn("classifier_gate", failed)
+        self.assertIn("provenance_gate", failed)
         self.assertGreaterEqual(len(pack["local_collection_protocols"]), 3)
 
 
