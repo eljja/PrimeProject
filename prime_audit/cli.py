@@ -7,6 +7,7 @@ from pathlib import Path
 from .analysis import evaluate_policy, audit_records, report_to_dict
 from .attribution import run_attribution_confound_grid, run_synthetic_attribution_benchmark
 from .baseline_acceptance import build_baseline_acceptance
+from .baseline_promotion import build_baseline_promotion_plan
 from .baselines import build_generator_baseline, compare_fingerprint_to_baselines
 from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .bitcoin_integration import build_bitcoin_generator_risk_report
@@ -159,6 +160,14 @@ def main() -> int:
     baseline_acceptance_parser.add_argument("--power", required=True)
     baseline_acceptance_parser.add_argument("--provenance-audit", required=True)
     baseline_acceptance_parser.add_argument("--output", required=True)
+
+    baseline_promotion_parser = subparsers.add_parser(
+        "baseline-promotion-plan",
+        help="Plan the shortest path from blocked baselines to accepted real-world evidence.",
+    )
+    baseline_promotion_parser.add_argument("--acceptance", required=True)
+    baseline_promotion_parser.add_argument("--power", required=True)
+    baseline_promotion_parser.add_argument("--output", required=True)
 
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
@@ -411,6 +420,15 @@ def main() -> int:
             power=power,
             provenance_audit=provenance_audit,
         )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "baseline-promotion-plan":
+        acceptance = json.loads(Path(args.acceptance).read_text(encoding="utf-8"))
+        power = json.loads(Path(args.power).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_baseline_promotion_plan(acceptance=acceptance, power=power)
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

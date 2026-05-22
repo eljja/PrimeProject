@@ -14,6 +14,7 @@ from prime_audit.attribution import (
     sample_generator_records,
 )
 from prime_audit.baseline_acceptance import build_baseline_acceptance
+from prime_audit.baseline_promotion import build_baseline_promotion_plan
 from prime_audit.baselines import (
     ABLATION_COMPONENT_WEIGHTS,
     build_generator_baseline,
@@ -499,6 +500,52 @@ class PrimeAuditTests(unittest.TestCase):
         promoted = next(row for row in stronger["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 2048)
         self.assertEqual(promoted["acceptance"], "accepted")
 
+    def test_baseline_promotion_plan_selects_minimal_rsa_unlock_path(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        matrix = build_collection_matrix(manifest)
+        power = build_collection_power(matrix)
+        audit = build_provenance_audit(build_provenance_requirements(manifest))
+        acceptance = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_audit=audit,
+        )
+        plan = build_baseline_promotion_plan(acceptance=acceptance, power=power)
+
+        self.assertEqual(plan["schema"], "primeproject.baseline-promotion-plan.v1")
+        self.assertEqual(plan["summary"]["minimal_unlock_target_count"], 2)
+        self.assertEqual([row["library"] for row in plan["minimal_unlock_targets"]], ["OpenSSL", "BoringSSL"])
+        self.assertEqual([row["bit_length"] for row in plan["minimal_unlock_targets"]], [2048, 2048])
+        self.assertEqual(plan["summary"]["projected_samples_for_minimal_unlock"], 9028)
+        self.assertEqual(plan["summary"]["dominant_next_step"], "complete_provenance_record")
+
+    def test_baseline_promotion_plan_marks_accepted_targets_ready(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        manifest["entries"][0]["status"] = "available"
+        manifest["entries"][0]["bit_length"] = 2048
+        manifest["entries"][0]["sample_count"] = 5000
+        matrix = build_collection_matrix(manifest)
+        for target in matrix["rows"][0]["targets"]:
+            if target["bit_length"] == 2048:
+                target["sample_target"] = 5000
+        power = build_collection_power(matrix)
+        audit = build_provenance_audit(
+            build_provenance_requirements(manifest),
+            [complete_provenance_record("openssl-rsa-prime-owned")],
+        )
+        acceptance = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_audit=audit,
+        )
+        plan = build_baseline_promotion_plan(acceptance=acceptance, power=power)
+        openssl = next(row for row in plan["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 2048)
+
+        self.assertEqual(openssl["promotion_state"], "ready")
+        self.assertEqual(openssl["next_step"], "ready_for_claim_gate")
+
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(
             fingerprint_report_from_values([101, 103, 107, 109, 113, 127, 131, 137]),
@@ -585,6 +632,7 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("provenance_gate", failed)
         self.assertIn("provenance_audit_gate", failed)
         self.assertIn("baseline_acceptance_gate", failed)
+        self.assertIn("promotion_plan_gate", failed)
         self.assertGreaterEqual(len(pack["local_collection_protocols"]), 3)
 
 

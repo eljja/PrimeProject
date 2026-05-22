@@ -118,6 +118,9 @@ async function main() {
       baselineAcceptanceSummary: document.querySelector("#baselineAcceptanceSummary").textContent,
       baselineAcceptanceRows: document.querySelectorAll("#baselineAcceptanceRows .provenance-row").length,
       baselineAcceptanceStatus: document.querySelector("#baselineAcceptanceStatus").textContent,
+      baselinePromotionSummary: document.querySelector("#baselinePromotionSummary").textContent,
+      baselinePromotionRows: document.querySelectorAll("#baselinePromotionRows .provenance-row").length,
+      baselinePromotionStatus: document.querySelector("#baselinePromotionStatus").textContent,
       readinessPanel: document.querySelector("#readiness-panel").textContent,
       readinessCards: document.querySelectorAll("#readinessDimensions .readiness-card").length,
       readinessActions: document.querySelectorAll("#readinessActions li").length,
@@ -154,7 +157,7 @@ async function main() {
   }
   if (
     metrics.evolutionSteps < 8 ||
-    metrics.evolutionNodes < 14 ||
+    metrics.evolutionNodes < 15 ||
     metrics.evolutionGaps < 2 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
@@ -192,6 +195,7 @@ async function main() {
     !metrics.baselinePanel.includes("Provenance Gate") ||
     !metrics.baselinePanel.includes("Provenance Audit") ||
     !metrics.baselinePanel.includes("Baseline Acceptance") ||
+    !metrics.baselinePanel.includes("Promotion Plan") ||
     !metrics.baselineRegistrySummary.includes("Registered") ||
     metrics.baselineRegistryRows < 5 ||
     metrics.collectionMatrixRows < 4 ||
@@ -207,7 +211,10 @@ async function main() {
     !metrics.provenanceAuditSummary.includes("Forbidden") ||
     metrics.baselineAcceptanceRows < 6 ||
     !metrics.baselineAcceptanceStatus.includes("0 accepted") ||
-    !metrics.baselineAcceptanceSummary.includes("Minimum")
+    !metrics.baselineAcceptanceSummary.includes("Minimum") ||
+    metrics.baselinePromotionRows < 2 ||
+    !metrics.baselinePromotionStatus.includes("2") ||
+    !metrics.baselinePromotionSummary.includes("9,028")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
@@ -222,15 +229,17 @@ async function main() {
     process.exit(1);
   }
   if (
-    metrics.evidenceGates < 9 ||
-    metrics.evidenceArtifacts < 10 ||
+    metrics.evidenceGates < 10 ||
+    metrics.evidenceArtifacts < 11 ||
     !metrics.evidencePanel.includes("Evidence Pack") ||
     !metrics.evidencePanel.includes("provenance_gate") ||
     !metrics.evidencePanel.includes("provenance_audit_gate") ||
     !metrics.evidencePanel.includes("baseline_acceptance_gate") ||
+    !metrics.evidencePanel.includes("promotion_plan_gate") ||
     !metrics.evidencePanel.includes("provenance_requirements") ||
     !metrics.evidencePanel.includes("provenance_audit") ||
     !metrics.evidencePanel.includes("baseline_acceptance") ||
+    !metrics.evidencePanel.includes("baseline_promotion_plan") ||
     !metrics.evidencePanel.includes("public_demo_only")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));

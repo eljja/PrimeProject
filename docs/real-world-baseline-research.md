@@ -144,6 +144,19 @@ python -m prime_audit.cli baseline-acceptance `
 
 현재 public demo는 10개 target 모두 `blocked`다. 특히 RSA 500 sample 계획은 coarse screening으로만 취급되며, 10% TV drift를 보수적으로 주장하려면 bit length/library 조합당 약 4514개 sample 수준이 필요하다는 경계를 유지한다.
 
+## Baseline Promotion Plan
+
+`baseline-promotion-plan`은 blocked 상태에서 accepted evidence로 가는 최단 경로를 계산한다. 현재 계획에서는 OpenSSL 2048-bit와 BoringSSL 2048-bit를 우선 unlock target으로 잡고, 두 library를 10% TV floor 기준으로 승격하려면 총 9028개 aggregate RSA prime sample이 필요하다고 표시한다.
+
+```powershell
+python -m prime_audit.cli baseline-promotion-plan `
+  --acceptance data/baseline_acceptance.json `
+  --power data/collection_power.json `
+  --output data/baseline_promotion_plan.json
+```
+
+이 산출물은 실제 수집 작업의 우선순위표다. 먼저 provenance record를 완성하고, raw private material은 local에 유지하며, 공개 artifact는 aggregate fingerprint와 checksum만 포함해야 한다. GitHub Pages의 Promotion Plan은 이 minimal unlock path를 그대로 표시한다.
+
 ## Research Readiness
 
 `research-readiness`는 현재 연구 도구가 실세계 attribution 주장에 얼마나 가까운지 점수화한다. 입력은 real-world baseline manifest, attribution grid, classifier report, Bitcoin risk report다.
@@ -176,7 +189,7 @@ python -m prime_audit.cli evidence-pack `
   --readiness data/research_readiness.json `
   --attribution-grid data/attribution_confound_grid.json `
   --baseline-acceptance data/baseline_acceptance.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json baseline_promotion_plan=data/baseline_promotion_plan.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json
@@ -188,8 +201,8 @@ python -m prime_audit.cli evidence-pack `
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> readiness -> evidence pack.
-- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, accepted baseline 수, attribution grid row 수, claim level.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> readiness -> evidence pack.
+- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, accepted baseline 수, promotion unlock sample 수, attribution grid row 수, claim level.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 
 ## Bitcoin 통합

@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.evidence-pack.v1",
-  "generated_at": "2026-05-22T12:51:01+00:00",
+  "generated_at": "2026-05-22T16:00:21+00:00",
   "claim_level": {
     "level": "public_demo_only",
     "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
@@ -63,7 +63,7 @@
       "severity": "medium",
       "message": "Published evidence should include checksummed source JSON artifacts.",
       "evidence": {
-        "artifact_count": 10
+        "artifact_count": 11
       }
     },
     {
@@ -94,9 +94,18 @@
         "accepted_rsa_library_count": 0,
         "claim_gate": "blocked"
       }
+    },
+    {
+      "code": "promotion_plan_gate",
+      "passed": true,
+      "severity": "medium",
+      "message": "Blocked real-world baselines should publish a concrete promotion plan.",
+      "evidence": {
+        "has_promotion_plan": true
+      }
     }
   ],
-  "artifact_count": 10,
+  "artifact_count": 11,
   "artifacts": [
     {
       "role": "attribution_grid",
@@ -113,6 +122,14 @@
       "sha256": "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58",
       "schema": "primeproject.baseline-acceptance.v1",
       "bytes": 7662
+    },
+    {
+      "role": "baseline_promotion_plan",
+      "path": "data/baseline_promotion_plan.json",
+      "exists": true,
+      "sha256": "dd975b3a84f528552a925e248f249566be24dbd13926e2fab814e88778a52e87",
+      "schema": "primeproject.baseline-promotion-plan.v1",
+      "bytes": 8366
     },
     {
       "role": "collection_matrix",
@@ -142,9 +159,9 @@
       "role": "project_evolution",
       "path": "data/project_evolution.json",
       "exists": true,
-      "sha256": "0ae3c66fe13d7e09dac4510c571c45dd756de5fdfb0b6bb6f931b18d930721e4",
+      "sha256": "02526e8094d7b620bd4d35bbd1f8c32d26b2681deb5d038791376eb381367f81",
       "schema": "primeproject.project-evolution.v1",
-      "bytes": 7061
+      "bytes": 7574
     },
     {
       "role": "provenance_audit",

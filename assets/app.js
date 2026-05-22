@@ -17,6 +17,7 @@ const state = {
   provenanceRequirements: null,
   provenanceAudit: null,
   baselineAcceptance: null,
+  baselinePromotion: null,
 };
 
 const limitSlider = {
@@ -345,6 +346,26 @@ const bundledBaselineAcceptance = {
   ],
 };
 
+const bundledBaselinePromotion = {
+  schema: "primeproject.baseline-promotion-plan.v1",
+  row_count: 10,
+  summary: {
+    ready_count: 0,
+    p0_target_count: 9,
+    minimal_unlock_target_count: 2,
+    projected_samples_for_minimal_unlock: 9028,
+    dominant_next_step: "complete_provenance_record",
+  },
+  minimal_unlock_targets: [
+    { baseline_id: "openssl-rsa-prime-owned", library: "OpenSSL", object_type: "rsa-prime", bit_length: 2048, priority: "P0", current_acceptance: "blocked", promotion_state: "collect_and_document", next_step: "complete_provenance_record", current_samples: 0, planned_sample_target: 500, target_samples_for_10pct_tv: 4514, remaining_samples_to_10pct_tv: 4514, power_tier: "coarse" },
+    { baseline_id: "boringssl-rsa-prime-owned", library: "BoringSSL", object_type: "rsa-prime", bit_length: 2048, priority: "P0", current_acceptance: "blocked", promotion_state: "collect_and_document", next_step: "complete_provenance_record", current_samples: 0, planned_sample_target: 500, target_samples_for_10pct_tv: 4514, remaining_samples_to_10pct_tv: 4514, power_tier: "coarse" },
+  ],
+  claim_gate: {
+    status: "blocked",
+    message: "Promotion plan identifies the shortest public-safe path from blocked baselines to accepted real-world evidence.",
+  },
+};
+
 const bundledResearchReadiness = {
   schema: "primeproject.research-readiness.v1",
   overall: { score: 0.5869, label: "prototype_ready" },
@@ -421,15 +442,17 @@ const bundledEvidencePack = {
     { code: "provenance_gate", passed: true, severity: "medium" },
     { code: "provenance_audit_gate", passed: true, severity: "medium" },
     { code: "baseline_acceptance_gate", passed: false, severity: "high" },
+    { code: "promotion_plan_gate", passed: true, severity: "medium" },
   ],
-  artifact_count: 10,
+  artifact_count: 11,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58" },
+    { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "dd975b3a84f528552a925e248f249566be24dbd13926e2fab814e88778a52e87" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "0ae3c66fe13d7e09dac4510c571c45dd756de5fdfb0b6bb6f931b18d930721e4" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "02526e8094d7b620bd4d35bbd1f8c32d26b2681deb5d038791376eb381367f81" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
@@ -456,11 +479,13 @@ const bundledProjectEvolution = {
     baseline_acceptance_rows: 10,
     baseline_acceptance_accepted: 0,
     baseline_acceptance_blocked: 10,
+    promotion_minimal_unlock_targets: 2,
+    promotion_projected_samples: 9028,
     attribution_grid_rows: 48,
     attribution_repeats: 3,
     robust_controlled_profiles: ["all", "gap_only"],
     publication_claim_level: "public_demo_only",
-    checksummed_artifacts: 10,
+    checksummed_artifacts: 11,
     blocking_gaps: 2,
   },
   phases: [
@@ -476,6 +501,7 @@ const bundledProjectEvolution = {
     { id: "provenance-gate", label: "Provenance requirements", status: "active", layer: "governance" },
     { id: "provenance-audit", label: "Provenance audit", status: "active", layer: "governance" },
     { id: "baseline-acceptance", label: "Baseline acceptance", status: "active", layer: "publication" },
+    { id: "baseline-promotion", label: "Promotion plan", status: "active", layer: "planning" },
     { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
   ],
@@ -491,7 +517,8 @@ const bundledProjectEvolution = {
     ["collection-power", "provenance-gate"],
     ["provenance-gate", "provenance-audit"],
     ["provenance-audit", "baseline-acceptance"],
-    ["baseline-acceptance", "readiness-gates"],
+    ["baseline-acceptance", "baseline-promotion"],
+    ["baseline-promotion", "readiness-gates"],
     ["readiness-gates", "evidence-pack"],
   ],
   open_gaps: [
@@ -577,6 +604,9 @@ const outputs = {
   baselineAcceptanceStatus: document.querySelector("#baselineAcceptanceStatus"),
   baselineAcceptanceSummary: document.querySelector("#baselineAcceptanceSummary"),
   baselineAcceptanceRows: document.querySelector("#baselineAcceptanceRows"),
+  baselinePromotionStatus: document.querySelector("#baselinePromotionStatus"),
+  baselinePromotionSummary: document.querySelector("#baselinePromotionSummary"),
+  baselinePromotionRows: document.querySelector("#baselinePromotionRows"),
   readinessSummary: document.querySelector("#readinessSummary"),
   readinessDimensions: document.querySelector("#readinessDimensions"),
   readinessActions: document.querySelector("#readinessActions"),
@@ -651,6 +681,7 @@ loadCollectionPower();
 loadProvenanceRequirements();
 loadProvenanceAudit();
 loadBaselineAcceptance();
+loadBaselinePromotion();
 loadResearchReadiness();
 loadEvidencePack();
 loadAttributionGrid();
@@ -1468,6 +1499,7 @@ function renderProjectEvolution() {
     <div><span>Provenance</span><strong>${formatNumber(metrics.provenance_rows || 0)}</strong><small>${formatNumber(metrics.provenance_missing_required || 0)} missing</small></div>
     <div><span>Audit block</span><strong>${formatNumber(metrics.provenance_audit_blocked_rows || 0)}</strong><small>${formatNumber(metrics.provenance_audit_forbidden_fields || 0)} forbidden fields</small></div>
     <div><span>Accepted</span><strong>${formatNumber(metrics.baseline_acceptance_accepted || 0)}</strong><small>${formatNumber(metrics.baseline_acceptance_blocked || 0)} blocked baselines</small></div>
+    <div><span>Promotion</span><strong>${formatNumber(metrics.promotion_minimal_unlock_targets || 0)}</strong><small>${formatNumber(metrics.promotion_projected_samples || 0)} samples</small></div>
     <div><span>Attribution rows</span><strong>${formatNumber(metrics.attribution_grid_rows || 0)}</strong><small>${formatNumber(metrics.attribution_repeats || 0)} repeats</small></div>
     <div><span>Claim level</span><strong>${escapeHtml(metrics.publication_claim_level || "unknown")}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
   `;
@@ -1503,15 +1535,15 @@ function renderEvolutionMap(evolution) {
     ["static-snapshots", "fingerprint-baseline"],
     ["attribution-grid", "real-world-registry"],
     ["collection-matrix", "collection-power"],
-    ["provenance-gate", "provenance-audit", "baseline-acceptance", "readiness-gates"],
+    ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "readiness-gates"],
     ["evidence-pack"],
   ];
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   const positions = new Map();
   const left = 32;
-  const top = 44;
+  const top = 42;
   const columnGap = 145;
-  const rowGap = 72;
+  const rowGap = 56;
   columns.forEach((column, columnIndex) => {
     const yOffset = column.length === 1 ? rowGap / 2 : 0;
     column.forEach((id, rowIndex) => {
@@ -1798,6 +1830,46 @@ function renderBaselineAcceptance() {
         <span>${escapeHtml(row.power_tier || "unknown")} power</span>
         <em class="is-${escapeHtml(row.acceptance || "blocked").replace("_", "-")}">${escapeHtml(row.acceptance || "blocked")}</em>
         <code>${escapeHtml((row.blocking_reasons || [])[0] || "claim-ready")}</code>
+      </div>
+    `)
+    .join("");
+}
+
+async function loadBaselinePromotion() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.baselinePromotion = bundledBaselinePromotion;
+    } else {
+      const response = await fetch("data/baseline_promotion_plan.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`baseline promotion ${response.status}`);
+      state.baselinePromotion = await response.json();
+    }
+  } catch (error) {
+    state.baselinePromotion = bundledBaselinePromotion;
+  }
+  renderBaselinePromotion();
+}
+
+function renderBaselinePromotion() {
+  if (!outputs.baselinePromotionStatus || !outputs.baselinePromotionSummary || !outputs.baselinePromotionRows) return;
+  const plan = state.baselinePromotion || bundledBaselinePromotion;
+  const summary = plan.summary || {};
+  const rows = plan.minimal_unlock_targets || [];
+  outputs.baselinePromotionStatus.textContent =
+    `${formatNumber(summary.minimal_unlock_target_count || rows.length)} target unlock path`;
+  outputs.baselinePromotionSummary.innerHTML = `
+    <div><span>Unlock targets</span><strong>${formatNumber(summary.minimal_unlock_target_count || rows.length)}</strong><small>RSA libraries</small></div>
+    <div><span>Projected n</span><strong>${formatNumber(summary.projected_samples_for_minimal_unlock || 0)}</strong><small>10% TV floor</small></div>
+    <div><span>P0 targets</span><strong>${formatNumber(summary.p0_target_count || 0)}</strong><small>collection queue</small></div>
+    <div><span>Next step</span><strong>${escapeHtml(summary.dominant_next_step || "ready")}</strong><small>dominant blocker</small></div>
+  `;
+  outputs.baselinePromotionRows.innerHTML = rows
+    .map((row) => `
+      <div class="provenance-row audit-row">
+        <strong>${escapeHtml(row.library || row.baseline_id || "unknown")} ${formatNumber(row.bit_length || 0)}b</strong>
+        <span>${formatNumber(row.target_samples_for_10pct_tv || 0)} samples</span>
+        <em class="is-screening-only">${escapeHtml(row.priority || "P0")}</em>
+        <code>${escapeHtml(row.next_step || "ready")}</code>
       </div>
     `)
     .join("");

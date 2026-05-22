@@ -18,11 +18,13 @@
     "baseline_acceptance_rows": 10,
     "baseline_acceptance_accepted": 0,
     "baseline_acceptance_blocked": 10,
+    "promotion_minimal_unlock_targets": 2,
+    "promotion_projected_samples": 9028,
     "attribution_grid_rows": 48,
     "attribution_repeats": 3,
     "robust_controlled_profiles": ["all", "gap_only"],
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 10,
+    "checksummed_artifacts": 11,
     "blocking_gaps": 2
   },
   "phases": [
@@ -123,6 +125,14 @@
       "outputs": ["prime_audit/baseline_acceptance.py", "data/baseline_acceptance.json"]
     },
     {
+      "id": "baseline-promotion",
+      "label": "Promotion plan",
+      "status": "active",
+      "layer": "planning",
+      "summary": "Identifies the minimal OpenSSL/BoringSSL-style unlock path and required sample floor before accepted real-world evidence is possible.",
+      "outputs": ["prime_audit/baseline_promotion.py", "data/baseline_promotion_plan.json"]
+    },
+    {
       "id": "readiness-gates",
       "label": "Research readiness scoring",
       "status": "active",
@@ -151,7 +161,8 @@
     ["collection-power", "provenance-gate"],
     ["provenance-gate", "provenance-audit"],
     ["provenance-audit", "baseline-acceptance"],
-    ["baseline-acceptance", "readiness-gates"],
+    ["baseline-acceptance", "baseline-promotion"],
+    ["baseline-promotion", "readiness-gates"],
     ["readiness-gates", "evidence-pack"]
   ],
   "open_gaps": [

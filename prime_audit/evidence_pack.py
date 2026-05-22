@@ -196,6 +196,23 @@ def publication_gates(
             },
             severity="high",
         ),
+        gate(
+            "promotion_plan_gate",
+            any(
+                artifact.get("role") == "baseline_promotion_plan"
+                and artifact.get("exists")
+                and artifact.get("schema") == "primeproject.baseline-promotion-plan.v1"
+                for artifact in artifacts
+            ),
+            "Blocked real-world baselines should publish a concrete promotion plan.",
+            {
+                "has_promotion_plan": any(
+                    artifact.get("role") == "baseline_promotion_plan" and artifact.get("exists")
+                    for artifact in artifacts
+                )
+            },
+            severity="medium",
+        ),
     ]
     if not attribution_grid:
         gates.append(
