@@ -14,6 +14,7 @@
 - Builds known-good generator baselines and compares suspicious datasets by fingerprint distance with sample-quality confidence.
 - Benchmarks generator attribution against synthetic ground-truth samples with accuracy, confusion matrices, feature ablation, bit-length confound control, and paired confound-grid deltas.
 - Calibrates controlled attribution profiles against a row-structured random-label null with family-wise correction across multiple profiles.
+- Audits setting-level replication so null-calibrated profiles must repeat across limit, train-count, and test-count cells.
 - Registers real-world baseline manifests for OpenSSL, BoringSSL, Go, Bitcoin Core, and wallet/library samples without publishing sensitive key material.
 - Defines a real-world collection matrix for matched OpenSSL/BoringSSL/Go RSA-prime targets and Bitcoin signature metadata before stronger claims are allowed.
 - Estimates sample-size power floors so collection targets are marked as coarse screening or stronger evidence before publication claims.
@@ -39,7 +40,7 @@ The live browser experiment can compute directly up to 10M with a logarithmic se
 
 The Project Evolution panel reads `data/project_evolution.json` and visualizes how the work moved from prime-measure experiments to controlled attribution, real-world baseline scaffolding, readiness gates, evidence packs, and a maturity dashboard that summarizes the latest research changes.
 
-The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json` and `data/null_calibration.json`, highlighting which fingerprint profiles survive bit-length control, which ones are likely range confounds, and whether the strongest controlled profiles survive random-label null simulation after family-wise profile selection.
+The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, `data/null_calibration.json`, and `data/replication_audit.json`, highlighting which fingerprint profiles survive bit-length control, which ones are likely range confounds, whether the strongest controlled profiles survive random-label null simulation after family-wise profile selection, and whether those profiles replicate across settings.
 
 The Baseline Lab panel reads `data/baselines/real_world/manifest.json`, `data/collection_matrix.json`, `data/collection_power.json`, `data/provenance_requirements.json`, `data/provenance_audit.json`, `data/baseline_acceptance.json`, and `data/baseline_promotion_plan.json` to show which real-world baseline families are registered, whether targets are only coarse screening or strong enough for tighter claims, and which baselines still block publication.
 
@@ -83,12 +84,13 @@ python -m prime_audit.cli baseline-promotion-plan --acceptance data/baseline_acc
 python -m prime_audit.cli export-feature-vectors --fingerprints openssl=data/openssl_fingerprint.json suspicious=data/suspicious_fingerprint.json --output data/feature_vectors.json
 python -m prime_audit.cli crypto-classifier --features data/feature_vectors.json --output data/crypto_classifier_report.json
 python -m prime_audit.cli research-readiness --manifest data/baselines/real_world/manifest.json --attribution-grid data/attribution_confound_grid.json --output data/research_readiness.json
-python -m prime_audit.cli evidence-pack --manifest data/baselines/real_world/manifest.json --readiness data/research_readiness.json --attribution-grid data/attribution_confound_grid.json --baseline-acceptance data/baseline_acceptance.json --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json baseline_promotion_plan=data/baseline_promotion_plan.json null_calibration=data/null_calibration.json --output data/evidence_pack.json
+python -m prime_audit.cli evidence-pack --manifest data/baselines/real_world/manifest.json --readiness data/research_readiness.json --attribution-grid data/attribution_confound_grid.json --baseline-acceptance data/baseline_acceptance.json --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json baseline_promotion_plan=data/baseline_promotion_plan.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json --output data/evidence_pack.json
 python -m prime_audit.cli claim-ledger --evidence-pack data/evidence_pack.json --output data/claim_ledger.json
 python -m prime_audit.cli artifact-lineage --output data/artifact_lineage.json
 python -m prime_audit.cli decision-protocol --evidence-pack data/evidence_pack.json --claim-ledger data/claim_ledger.json --artifact-lineage data/artifact_lineage.json --output data/decision_protocol.json
 python -m prime_audit.cli falsification-battery --attribution-grid data/attribution_confound_grid.json --decision-protocol data/decision_protocol.json --output data/falsification_battery.json
 python -m prime_audit.cli null-calibration --attribution-grid data/attribution_confound_grid.json --iterations 5000 --output data/null_calibration.json
+python -m prime_audit.cli replication-audit --attribution-grid data/attribution_confound_grid.json --null-calibration data/null_calibration.json --output data/replication_audit.json
 python -m prime_audit.cli attribution-benchmark --limit 200000 --train-count 80 --test-count 40 --trials 3 --control-mode bit_length --output data/attribution_benchmark.json
 python -m prime_audit.cli attribution-grid --limits 50000 200000 --train-counts 40 80 --test-counts 20 40 --trials 3 --repeats 3 --output data/attribution_confound_grid.json
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json

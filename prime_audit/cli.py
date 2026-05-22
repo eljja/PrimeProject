@@ -26,6 +26,7 @@ from .io import load_records, write_report_json
 from .null_calibration import build_null_calibration
 from .provenance import build_provenance_audit, build_provenance_requirements, load_provenance_records
 from .real_baselines import build_real_baseline_manifest, load_real_baseline_entries
+from .replication_audit import build_replication_audit
 from .research_readiness import build_research_readiness_report
 from .bias_lab import rank_next_prime_candidates
 from .simulators import add_standard_public_primes, generate_synthetic_rsa_dataset, records_to_jsonable
@@ -280,6 +281,16 @@ def main() -> int:
     null_calibration_parser.add_argument("--iterations", type=int, default=5000)
     null_calibration_parser.add_argument("--seed", type=int, default=20260523)
     null_calibration_parser.add_argument("--output", required=True)
+
+    replication_audit_parser = subparsers.add_parser(
+        "replication-audit",
+        help="Audit whether controlled attribution profiles replicate across limit/train/test settings.",
+    )
+    replication_audit_parser.add_argument("--attribution-grid", required=True)
+    replication_audit_parser.add_argument("--null-calibration", default=None)
+    replication_audit_parser.add_argument("--lift-threshold", type=float, default=0.10)
+    replication_audit_parser.add_argument("--minimum-replicated-ratio", type=float, default=0.75)
+    replication_audit_parser.add_argument("--output", required=True)
 
     attribution_parser = subparsers.add_parser(
         "attribution-benchmark",
@@ -666,6 +677,24 @@ def main() -> int:
             attribution_grid=attribution_grid,
             iterations=args.iterations,
             seed=args.seed,
+        )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "replication-audit":
+        attribution_grid = json.loads(Path(args.attribution_grid).read_text(encoding="utf-8"))
+        null_calibration = (
+            json.loads(Path(args.null_calibration).read_text(encoding="utf-8"))
+            if args.null_calibration
+            else None
+        )
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_replication_audit(
+            attribution_grid=attribution_grid,
+            null_calibration=null_calibration,
+            lift_threshold=args.lift_threshold,
+            minimum_replicated_ratio=args.minimum_replicated_ratio,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0

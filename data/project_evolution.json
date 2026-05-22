@@ -26,13 +26,15 @@
     "null_calibration_iterations": 5000,
     "null_familywise_survivors": 2,
     "null_top_profile": "gap_only",
+    "replication_setting_count": 8,
+    "replication_stable_profiles": 2,
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 12,
+    "checksummed_artifacts": 13,
     "blocking_gaps": 2,
     "claim_ledger_allowed": 3,
     "claim_ledger_blocked": 2,
-    "lineage_nodes": 13,
-    "lineage_edges": 24,
+    "lineage_nodes": 15,
+    "lineage_edges": 29,
     "lineage_checksum_mismatches": 0,
     "lineage_cycles": 0,
     "decision_protocol_allowed": 2,
@@ -52,9 +54,9 @@
       },
       {
         "stage": "Fingerprint",
-        "phase_ids": ["fingerprint-baseline", "attribution-grid", "null-calibration"],
+        "phase_ids": ["fingerprint-baseline", "attribution-grid", "null-calibration", "replication-audit"],
         "status": "complete",
-        "signal": "controlled attribution plus 5,000-iteration family-wise null calibration"
+        "signal": "controlled attribution, null calibration, and 8-setting replication audit"
       },
       {
         "stage": "Sim-to-Real",
@@ -94,7 +96,7 @@
       {
         "label": "Evidence pack gates",
         "impact": "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.",
-        "metric": "11 artifacts / 10 gates"
+        "metric": "13 artifacts / 10 gates"
       },
       {
         "label": "Claim ledger",
@@ -104,7 +106,7 @@
       {
         "label": "Artifact lineage",
         "impact": "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.",
-        "metric": "13 nodes / 24 edges"
+        "metric": "15 nodes / 29 edges"
       },
       {
         "label": "Decision protocol",
@@ -120,6 +122,11 @@
         "label": "Null calibration",
         "impact": "Tests whether the best-looking controlled profile survives row-structured random-label simulation and multiple-profile selection.",
         "metric": "2 family-wise survivors"
+      },
+      {
+        "label": "Replication audit",
+        "impact": "Checks whether null-calibrated profiles repeat across limit, train-count, and test-count settings instead of depending on one run.",
+        "metric": "2 stable / 8 settings"
       }
     ]
   },
@@ -179,6 +186,14 @@
       "layer": "statistics",
       "summary": "Calibrates controlled attribution profiles against a row-structured random-label null with family-wise profile selection control.",
       "outputs": ["prime_audit/null_calibration.py", "data/null_calibration.json"]
+    },
+    {
+      "id": "replication-audit",
+      "label": "Replication audit",
+      "status": "complete",
+      "layer": "statistics",
+      "summary": "Audits whether null-calibrated controlled profiles replicate across limit, train-count, and test-count settings.",
+      "outputs": ["prime_audit/replication_audit.py", "data/replication_audit.json"]
     },
     {
       "id": "real-world-registry",
@@ -292,6 +307,8 @@
     ["bitcoin-track", "real-world-registry"],
     ["fingerprint-baseline", "attribution-grid"],
     ["attribution-grid", "null-calibration"],
+    ["null-calibration", "replication-audit"],
+    ["replication-audit", "readiness-gates"],
     ["null-calibration", "readiness-gates"],
     ["attribution-grid", "readiness-gates"],
     ["real-world-registry", "collection-matrix"],

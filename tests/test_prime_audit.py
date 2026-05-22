@@ -43,6 +43,7 @@ from prime_audit.models import KeyRecord
 from prime_audit.null_calibration import build_null_calibration
 from prime_audit.provenance import build_provenance_audit, build_provenance_requirements
 from prime_audit.real_baselines import build_real_baseline_manifest, manifest_public_summary
+from prime_audit.replication_audit import build_replication_audit
 from prime_audit.research_readiness import build_research_readiness_report
 from prime_audit.bias_lab import build_residue_factors, rank_next_prime_candidates
 from prime_audit.simulators import (
@@ -892,6 +893,40 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(calibration["summary"]["top_profile"], "gap_only")
         self.assertLess(profiles["gap_only"]["familywise_p_value"], 0.1)
         self.assertEqual(profiles["low_bits_only"]["interpretation"], "near_null")
+
+    def test_replication_audit_requires_setting_replication_and_null_support(self) -> None:
+        grid = {
+            "schema": "primeproject.attribution-confound-grid.v1",
+            "random_baseline_accuracy": 1 / 3,
+            "deltas": [
+                {"profile": "gap_only", "base_pair_key": "a", "controlled_accuracy": 0.60},
+                {"profile": "gap_only", "base_pair_key": "a", "controlled_accuracy": 0.56},
+                {"profile": "gap_only", "base_pair_key": "b", "controlled_accuracy": 0.52},
+                {"profile": "gap_only", "base_pair_key": "b", "controlled_accuracy": 0.49},
+                {"profile": "low_bits_only", "base_pair_key": "a", "controlled_accuracy": 0.33},
+                {"profile": "low_bits_only", "base_pair_key": "b", "controlled_accuracy": 0.36},
+            ],
+        }
+        null_calibration = {
+            "schema": "primeproject.null-calibration.v1",
+            "profiles": [
+                {"profile": "gap_only", "interpretation": "familywise_survives_null", "familywise_p_value": 0.01},
+                {"profile": "low_bits_only", "interpretation": "near_null", "familywise_p_value": 0.9},
+            ],
+        }
+
+        audit = build_replication_audit(
+            attribution_grid=grid,
+            null_calibration=null_calibration,
+            lift_threshold=0.10,
+            minimum_replicated_ratio=1.0,
+        )
+        profiles = {profile["profile"]: profile for profile in audit["profiles"]}
+
+        self.assertEqual(audit["schema"], "primeproject.replication-audit.v1")
+        self.assertEqual(audit["summary"]["stable_profiles"], ["gap_only"])
+        self.assertEqual(profiles["gap_only"]["status"], "replicated_and_null_calibrated")
+        self.assertEqual(profiles["low_bits_only"]["status"], "not_replicated")
 
 
 def base64_lines(data: bytes) -> str:

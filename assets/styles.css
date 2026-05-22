@@ -2124,55 +2124,65 @@ canvas {
   font-weight: 820;
 }
 
-.null-calibration {
+.null-calibration,
+.replication-audit {
   margin: 0 20px 20px;
   border: 1px solid var(--line);
   background: #fff;
 }
 
-.null-calibration-heading {
+.null-calibration-heading,
+.replication-audit-heading {
   border-bottom: 1px solid var(--line);
   padding: 14px;
 }
 
-.null-calibration-heading h3 {
+.null-calibration-heading h3,
+.replication-audit-heading h3 {
   color: var(--ink);
   font-size: 13px;
 }
 
-.null-calibration-heading p {
+.null-calibration-heading p,
+.replication-audit-heading p {
   margin-top: 4px;
   color: var(--muted);
   font-size: 12px;
   line-height: 1.4;
 }
 
-.null-calibration-summary {
+.null-calibration-summary,
+.replication-audit-summary {
   display: grid;
   grid-template-columns: repeat(4, minmax(120px, 1fr));
   gap: 10px;
   padding: 14px 14px 8px;
 }
 
-.null-calibration-summary div {
+.null-calibration-summary div,
+.replication-audit-summary div {
   border: 1px solid var(--line);
   background: var(--soft);
   padding: 10px;
 }
 
 .null-calibration-summary span,
-.null-calibration-summary small {
+.null-calibration-summary small,
+.replication-audit-summary span,
+.replication-audit-summary small {
   display: block;
   color: var(--muted);
   font-size: 11px;
 }
 
-.null-calibration-summary span {
+.null-calibration-summary span,
+.replication-audit-summary span {
   font-weight: 760;
   text-transform: uppercase;
 }
 
-.null-calibration-summary strong {
+.null-calibration-summary strong,
+.replication-audit-summary strong {
   display: block;
   margin-top: 5px;
   color: var(--ink);
@@ -2180,18 +2190,21 @@ canvas {
   overflow-wrap: anywhere;
 }
 
-.null-calibration-summary small {
+.null-calibration-summary small,
+.replication-audit-summary small {
   margin-top: 4px;
   line-height: 1.35;
 }
 
-.null-calibration-rows {
+.null-calibration-rows,
+.replication-audit-rows {
   display: grid;
   gap: 0;
   padding: 0 14px 14px;
 }
 
-.null-row {
+.null-row,
+.replication-row {
   display: grid;
   grid-template-columns: minmax(110px, 0.7fr) 100px 86px minmax(130px, 1fr) 88px minmax(150px, 0.9fr);
   gap: 10px;
@@ -2204,26 +2217,35 @@ canvas {
 .null-row strong,
 .null-row span,
 .null-row code,
-.null-row em {
+.null-row em,
+.replication-row strong,
+.replication-row span,
+.replication-row code,
+.replication-row em {
   overflow-wrap: anywhere;
 }
 
-.null-row strong {
+.null-row strong,
+.replication-row strong {
   color: var(--ink);
   font-size: 12px;
 }
 
 .null-row span,
-.null-row code {
+.null-row code,
+.replication-row span,
+.replication-row code {
   color: var(--muted);
   font-size: 11px;
 }
 
-.null-row code {
+.null-row code,
+.replication-row code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-.null-row em {
+.null-row em,
+.replication-row em {
   justify-self: start;
   padding: 4px 8px;
   border-radius: 999px;
@@ -2232,12 +2254,14 @@ canvas {
   font-weight: 820;
 }
 
-.null-row em.is-pass {
+.null-row em.is-pass,
+.replication-row em.is-pass {
   color: var(--teal);
   background: rgba(8, 127, 122, 0.1);
 }
 
-.null-row em.is-null {
+.null-row em.is-null,
+.replication-row em.is-null {
   color: var(--muted);
   background: var(--soft);
 }
@@ -2549,11 +2573,13 @@ tr:last-child td {
     padding: 12px;
   }
 
-  .null-calibration {
+  .null-calibration,
+  .replication-audit {
     margin: 0 12px 12px;
   }
 
-  .null-calibration-summary {
+  .null-calibration-summary,
+  .replication-audit-summary {
     grid-template-columns: 1fr;
   }
 
@@ -2601,6 +2627,7 @@ tr:last-child td {
   .decision-row,
   .falsification-row,
   .null-row,
+  .replication-row,
   .collection-row,
   .collection-gate,
   .power-row,

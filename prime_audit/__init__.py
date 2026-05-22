@@ -26,6 +26,7 @@ __all__ = [
     "prediction",
     "provenance",
     "real_baselines",
+    "replication_audit",
     "research_readiness",
     "simulators",
     "snapshots",

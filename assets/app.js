@@ -9,6 +9,7 @@ const state = {
   activeSnapshot: 0,
   attributionGrid: null,
   nullCalibration: null,
+  replicationAudit: null,
   realBaselineManifest: null,
   researchReadiness: null,
   evidencePack: null,
@@ -158,6 +159,28 @@ const bundledNullCalibration = {
     { profile: "bit_length_only", observed_controlled_accuracy: 0.333333, observed_lift: 0, null_ci95_low: 0.268519, null_ci95_high: 0.398148, pointwise_p_value: 0.529494, familywise_p_value: 0.977604, interpretation: "near_null" },
     { profile: "low_bits_only", observed_controlled_accuracy: 0.333333, observed_lift: 0, null_ci95_low: 0.273148, null_ci95_high: 0.398148, pointwise_p_value: 0.525495, familywise_p_value: 0.977604, interpretation: "near_null" },
     { profile: "residue_only", observed_controlled_accuracy: 0.291667, observed_lift: -0.041667, null_ci95_low: 0.273148, null_ci95_high: 0.398148, pointwise_p_value: 0.911818, familywise_p_value: 1, interpretation: "near_null" },
+  ],
+};
+
+const bundledReplicationAudit = {
+  schema: "primeproject.replication-audit.v1",
+  method: {
+    lift_threshold: 0.1,
+    minimum_replicated_ratio: 0.75,
+  },
+  summary: {
+    profile_count: 5,
+    setting_count: 8,
+    stable_profile_count: 2,
+    stable_profiles: ["gap_only", "all"],
+    claim_floor: "controlled_synthetic_only",
+  },
+  profiles: [
+    { profile: "gap_only", setting_count: 8, replicated_setting_count: 8, replicated_ratio: 1, mean_controlled_accuracy: 0.606482, minimum_setting_lift: 0.185185, null_interpretation: "familywise_survives_null", familywise_p_value: 0.0002, status: "replicated_and_null_calibrated", weak_settings: [] },
+    { profile: "all", setting_count: 8, replicated_setting_count: 8, replicated_ratio: 1, mean_controlled_accuracy: 0.550926, minimum_setting_lift: 0.111111, null_interpretation: "familywise_survives_null", familywise_p_value: 0.0002, status: "replicated_and_null_calibrated", weak_settings: [] },
+    { profile: "bit_length_only", setting_count: 8, replicated_setting_count: 0, replicated_ratio: 0, mean_controlled_accuracy: 0.333333, minimum_setting_lift: 0, null_interpretation: "near_null", familywise_p_value: 0.977604, status: "not_replicated", weak_settings: ["all settings"] },
+    { profile: "low_bits_only", setting_count: 8, replicated_setting_count: 0, replicated_ratio: 0, mean_controlled_accuracy: 0.333333, minimum_setting_lift: 0, null_interpretation: "near_null", familywise_p_value: 0.977604, status: "not_replicated", weak_settings: ["all settings"] },
+    { profile: "residue_only", setting_count: 8, replicated_setting_count: 0, replicated_ratio: 0, mean_controlled_accuracy: 0.291666, minimum_setting_lift: -0.148148, null_interpretation: "near_null", familywise_p_value: 1, status: "not_replicated", weak_settings: ["all settings"] },
   ],
 };
 
@@ -477,7 +500,7 @@ const bundledEvidencePack = {
     { code: "baseline_acceptance_gate", passed: false, severity: "high" },
     { code: "promotion_plan_gate", passed: true, severity: "medium" },
   ],
-  artifact_count: 12,
+  artifact_count: 13,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58" },
@@ -486,10 +509,11 @@ const bundledEvidencePack = {
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "6d55710ba25cceddeec859e97137eb7a8ca1157a5bed99d788370ddf6bb49210" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "d5e71aed9ce06d9135def2a0a5a38ddcbbd3f646ef59344182c46d54844d9938" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
+    { role: "replication_audit", schema: "primeproject.replication-audit.v1", sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
     { role: "snapshot_manifest", schema: "primeproject.snapshot-manifest.v1", sha256: "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0" },
   ],
 };
@@ -565,8 +589,8 @@ const bundledClaimLedger = {
 const bundledArtifactLineage = {
   schema: "primeproject.artifact-lineage.v1",
   summary: {
-    node_count: 14,
-    edge_count: 26,
+    node_count: 15,
+    edge_count: 29,
     missing_count: 0,
     invalid_edge_count: 0,
     checksum_mismatch_count: 0,
@@ -581,10 +605,11 @@ const bundledArtifactLineage = {
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", exists: true, sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", exists: true, sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "16d52fe1e4236d018240ff8cb852698ba90a8aae32715fba45b2a3c866686958" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "9ea3d0db7960cda2b15ff4bfcf20e21925615f52e141cdc81b967994bc4ac2c5" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "0b7c5b0d31c5c65cf7967b549d0917f19e0df0cdc5bbe93830e5abb586302a41" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "9b0d5656bd6c2fda95deceeb853e2337c2988d6747de384ab4a9e9eab36b836d" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "6d55710ba25cceddeec859e97137eb7a8ca1157a5bed99d788370ddf6bb49210" },
+    { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "d5e71aed9ce06d9135def2a0a5a38ddcbbd3f646ef59344182c46d54844d9938" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -596,11 +621,16 @@ const bundledArtifactLineage = {
     { from: "collection_power", to: "baseline_acceptance", valid: true },
     { from: "provenance_audit", to: "baseline_acceptance", valid: true },
     { from: "baseline_acceptance", to: "baseline_promotion_plan", valid: true },
+    { from: "attribution_grid", to: "null_calibration", valid: true },
+    { from: "attribution_grid", to: "replication_audit", valid: true },
+    { from: "null_calibration", to: "replication_audit", valid: true },
     { from: "attribution_grid", to: "readiness", valid: true },
     { from: "manifest", to: "readiness", valid: true },
     { from: "readiness", to: "evidence_pack", valid: true },
     { from: "baseline_acceptance", to: "evidence_pack", valid: true },
     { from: "baseline_promotion_plan", to: "evidence_pack", valid: true },
+    { from: "null_calibration", to: "evidence_pack", valid: true },
+    { from: "replication_audit", to: "evidence_pack", valid: true },
     { from: "project_evolution", to: "evidence_pack", valid: true },
     { from: "evidence_pack", to: "claim_ledger", valid: true },
   ],
@@ -766,12 +796,12 @@ const bundledProjectEvolution = {
     attribution_repeats: 3,
     robust_controlled_profiles: ["all", "gap_only"],
     publication_claim_level: "public_demo_only",
-    checksummed_artifacts: 11,
+    checksummed_artifacts: 13,
     blocking_gaps: 2,
     claim_ledger_allowed: 3,
     claim_ledger_blocked: 2,
-    lineage_nodes: 14,
-    lineage_edges: 26,
+    lineage_nodes: 15,
+    lineage_edges: 29,
     lineage_checksum_mismatches: 0,
     lineage_cycles: 0,
     decision_protocol_allowed: 2,
@@ -782,13 +812,15 @@ const bundledProjectEvolution = {
     null_calibration_iterations: 5000,
     null_familywise_survivors: 2,
     null_top_profile: "gap_only",
+    replication_setting_count: 8,
+    replication_stable_profiles: 2,
   },
   change_dashboard: {
     headline:
       "PrimeProject moved from exploratory prime regularity visuals into publication-gated real-world generator fingerprint tooling.",
     maturity_ladder: [
       { stage: "Explore", phase_ids: ["regularity-plan", "conjecture-lab", "static-snapshots"], status: "complete", signal: "10M browser compute and static snapshots" },
-      { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid", "null-calibration"], status: "complete", signal: "controlled attribution plus 5,000-iteration family-wise null calibration" },
+      { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid", "null-calibration", "replication-audit"], status: "complete", signal: "controlled attribution, null calibration, and 8-setting replication audit" },
       { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets and sample-power floors" },
       { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"], status: "active", signal: "provenance, acceptance, and promotion gates before claims" },
       { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery"], status: "active", signal: "5 falsification checks and controlled-synthetic-only claim floor" },
@@ -797,12 +829,13 @@ const bundledProjectEvolution = {
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
       { label: "Baseline acceptance gate", impact: "Prevents coarse or undocumented baselines from supporting attribution claims.", metric: "0 accepted / 10 blocked" },
       { label: "Provenance audit", impact: "Checks missing metadata, checksum format, and forbidden public sensitive fields.", metric: "4 blocked records" },
-      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "12 artifacts / 10 gates" },
+      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "13 artifacts / 10 gates" },
       { label: "Claim ledger", impact: "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.", metric: "3 allowed / 2 blocked" },
-      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "14 nodes / 26 edges" },
+      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "15 nodes / 29 edges" },
       { label: "Decision protocol", impact: "Pre-registers promotion rules so demo, synthetic, real-world, and Bitcoin claims cannot drift after results.", metric: "2 allowed / 2 blocked" },
       { label: "Falsification battery", impact: "Runs negative controls, bit-length guards, and claim-promotion guards before stronger claims.", metric: "5 pass / 0 fail" },
       { label: "Null calibration", impact: "Tests whether the best-looking controlled profile survives row-structured random-label simulation and multiple-profile selection.", metric: "2 family-wise survivors" },
+      { label: "Replication audit", impact: "Checks whether null-calibrated profiles repeat across limit, train-count, and test-count settings instead of depending on one run.", metric: "2 stable / 8 settings" },
     ],
   },
   phases: [
@@ -813,6 +846,7 @@ const bundledProjectEvolution = {
     { id: "fingerprint-baseline", label: "Generator fingerprint baseline", status: "complete", layer: "analysis" },
     { id: "attribution-grid", label: "Controlled attribution grid", status: "complete", layer: "validation" },
     { id: "null-calibration", label: "Null calibration", status: "complete", layer: "statistics" },
+    { id: "replication-audit", label: "Replication audit", status: "complete", layer: "statistics" },
     { id: "real-world-registry", label: "Real-world baseline registry", status: "scaffolded", layer: "sim-to-real" },
     { id: "collection-matrix", label: "Real-world collection matrix", status: "active", layer: "sim-to-real" },
     { id: "collection-power", label: "Sample power calibration", status: "active", layer: "statistics" },
@@ -834,6 +868,8 @@ const bundledProjectEvolution = {
     ["bitcoin-track", "real-world-registry"],
     ["fingerprint-baseline", "attribution-grid"],
     ["attribution-grid", "null-calibration"],
+    ["null-calibration", "replication-audit"],
+    ["replication-audit", "readiness-gates"],
     ["null-calibration", "readiness-gates"],
     ["attribution-grid", "readiness-gates"],
     ["real-world-registry", "collection-matrix"],
@@ -958,6 +994,8 @@ const outputs = {
   attributionProfileRows: document.querySelector("#attributionProfileRows"),
   nullCalibrationSummary: document.querySelector("#nullCalibrationSummary"),
   nullCalibrationRows: document.querySelector("#nullCalibrationRows"),
+  replicationAuditSummary: document.querySelector("#replicationAuditSummary"),
+  replicationAuditRows: document.querySelector("#replicationAuditRows"),
 };
 
 controls.limitRange.value = limitToSlider(state.limit);
@@ -1032,6 +1070,7 @@ loadDecisionProtocol();
 loadFalsificationBattery();
 loadAttributionGrid();
 loadNullCalibration();
+loadReplicationAudit();
 renderPrediction();
 
 function scrollToPanel(target) {
@@ -1917,7 +1956,7 @@ function renderEvolutionMap(evolution) {
     ["regularity-plan", "bitcoin-track"],
     ["conjecture-lab"],
     ["static-snapshots", "fingerprint-baseline"],
-    ["attribution-grid", "null-calibration", "real-world-registry"],
+    ["attribution-grid", "null-calibration", "replication-audit", "real-world-registry"],
     ["collection-matrix", "collection-power"],
     ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "readiness-gates"],
     ["evidence-pack", "claim-ledger", "artifact-lineage"],
@@ -2499,13 +2538,14 @@ function renderArtifactLineageMap(lineage) {
     ["manifest", { x: 30, y: 42 }],
     ["attribution_grid", { x: 30, y: 132 }],
     ["null_calibration", { x: 198, y: 212 }],
+    ["replication_audit", { x: 366, y: 212 }],
     ["collection_matrix", { x: 198, y: 42 }],
     ["collection_power", { x: 366, y: 42 }],
     ["provenance_requirements", { x: 198, y: 132 }],
     ["provenance_audit", { x: 366, y: 132 }],
     ["baseline_acceptance", { x: 534, y: 42 }],
     ["baseline_promotion_plan", { x: 702, y: 42 }],
-    ["readiness", { x: 366, y: 212 }],
+    ["readiness", { x: 534, y: 212 }],
     ["project_evolution", { x: 534, y: 212 }],
     ["evidence_pack", { x: 702, y: 142 }],
     ["claim_ledger", { x: 842, y: 142 }],
@@ -2708,6 +2748,46 @@ function renderNullCalibration() {
         <span>${formatPercent(profile.null_ci95_low)}-${formatPercent(profile.null_ci95_high)} null 95%</span>
         <code>FW p=${formatPValue(profile.familywise_p_value)}</code>
         <em class="${profile.interpretation === "familywise_survives_null" ? "is-pass" : "is-null"}">${escapeHtml(profile.interpretation || "unknown")}</em>
+      </div>
+    `)
+    .join("");
+}
+
+async function loadReplicationAudit() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.replicationAudit = bundledReplicationAudit;
+    } else {
+      const response = await fetch("data/replication_audit.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`replication audit ${response.status}`);
+      state.replicationAudit = await response.json();
+    }
+  } catch (error) {
+    state.replicationAudit = bundledReplicationAudit;
+  }
+  renderReplicationAudit();
+}
+
+function renderReplicationAudit() {
+  if (!outputs.replicationAuditSummary || !outputs.replicationAuditRows) return;
+  const audit = state.replicationAudit || bundledReplicationAudit;
+  const summary = audit.summary || {};
+  const method = audit.method || {};
+  outputs.replicationAuditSummary.innerHTML = `
+    <div><span>Settings</span><strong>${formatNumber(summary.setting_count || 0)}</strong><small>limit/train/test cells</small></div>
+    <div><span>Stable profiles</span><strong>${formatNumber(summary.stable_profile_count || 0)}</strong><small>${escapeHtml((summary.stable_profiles || []).join(", ") || "none")}</small></div>
+    <div><span>Lift threshold</span><strong>${formatSignedPercent(method.lift_threshold || 0)}</strong><small>over random baseline</small></div>
+    <div><span>Claim floor</span><strong>${escapeHtml(summary.claim_floor || "unknown")}</strong><small>synthetic only</small></div>
+  `;
+  outputs.replicationAuditRows.innerHTML = (audit.profiles || [])
+    .map((profile) => `
+      <div class="replication-row">
+        <strong>${escapeHtml(profile.profile || "profile")}</strong>
+        <span>${formatNumber(profile.replicated_setting_count || 0)} / ${formatNumber(profile.setting_count || 0)} settings</span>
+        <span>${formatPercent(profile.replicated_ratio || 0)} replicated</span>
+        <span>${formatSignedPercent(profile.minimum_setting_lift || 0)} min lift</span>
+        <code>FW p=${formatPValue(profile.familywise_p_value)}</code>
+        <em class="${profile.status === "replicated_and_null_calibrated" ? "is-pass" : "is-null"}">${escapeHtml(profile.status || "unknown")}</em>
       </div>
     `)
     .join("");

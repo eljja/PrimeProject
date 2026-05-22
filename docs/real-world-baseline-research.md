@@ -192,6 +192,19 @@ python -m prime_audit.cli null-calibration `
 
 현재 결과는 `gap_only`와 `all`이 family-wise null에서도 살아남고, `bit_length_only`, `low_bits_only`, `residue_only`는 near-null로 남는다. 이는 합성 generator fingerprint 신호가 단순 random fluctuation보다 강하다는 근거를 보강하지만, claim floor는 여전히 `controlled_synthetic_only`다. 실세계 OpenSSL/BoringSSL/Go/Bitcoin attribution은 별도 baseline, provenance, classifier evidence가 생기기 전까지 차단된다.
 
+## Replication Audit
+
+`replication-audit`은 null calibration을 통과한 profile이 특정 설정 하나에만 기대는지 확인한다. 같은 attribution grid를 limit, train-count, test-count 설정별로 다시 묶고, 각 설정에서 controlled accuracy lift가 random baseline보다 충분히 높은지 검사한다.
+
+```powershell
+python -m prime_audit.cli replication-audit `
+  --attribution-grid data/attribution_confound_grid.json `
+  --null-calibration data/null_calibration.json `
+  --output data/replication_audit.json
+```
+
+현재 결과는 `gap_only`와 `all`이 8개 설정 모두에서 replicated 상태이며 null calibration도 통과한다. 반대로 `bit_length_only`, `low_bits_only`, `residue_only`는 0/8 설정에서 replicated로 남아 negative control 역할을 유지한다. 이 단계는 합성 실험 claim을 조금 더 강하게 만들지만, 역시 실세계 attribution claim을 열지는 않는다.
+
 ## Evidence Pack
 
 `evidence-pack`은 공개 산출물의 재현성과 주장 한계를 묶는 최종 출판 단위다. 입력 JSON의 SHA-256, schema, byte size를 기록하고 publication gate를 통과했는지 표시한다.
@@ -202,7 +215,7 @@ python -m prime_audit.cli evidence-pack `
   --readiness data/research_readiness.json `
   --attribution-grid data/attribution_confound_grid.json `
   --baseline-acceptance data/baseline_acceptance.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json baseline_promotion_plan=data/baseline_promotion_plan.json null_calibration=data/null_calibration.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json baseline_promotion_plan=data/baseline_promotion_plan.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json
@@ -233,7 +246,7 @@ python -m prime_audit.cli artifact-lineage `
   --output data/artifact_lineage.json
 ```
 
-현재 lineage는 13개 artifact node와 24개 dependency edge를 추적한다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`와 `artifact_lineage`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> claim_ledger/artifact_lineage -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
+현재 lineage는 15개 artifact node와 29개 dependency edge를 추적한다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`와 `artifact_lineage`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> claim_ledger/artifact_lineage -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
 
 ## Decision Protocol
 
@@ -274,7 +287,7 @@ python -m prime_audit.cli falsification-battery `
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
 - 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, accepted baseline 수, promotion unlock sample 수, attribution grid row 수, claim level.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 
