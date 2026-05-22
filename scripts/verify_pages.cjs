@@ -92,8 +92,11 @@ async function main() {
       predictionMetrics: document.querySelector("#predictionMetrics").textContent,
       evolutionPanel: document.querySelector("#evolution-panel").textContent,
       evolutionImpact: document.querySelector("#evolutionImpact").textContent,
+      evolutionDelta: document.querySelector("#evolutionDelta").textContent,
       maturityStages: document.querySelectorAll("#evolutionImpact .maturity-stage").length,
       impactChanges: document.querySelectorAll("#evolutionImpact .impact-change-list div").length,
+      deltaTracks: document.querySelectorAll("#evolutionDelta .delta-track").length,
+      claimLanes: document.querySelectorAll("#evolutionDelta .claim-lane").length,
       evolutionSteps: document.querySelectorAll("#evolutionTimeline .evolution-step").length,
       evolutionNodes: document.querySelectorAll("#evolutionMap rect").length,
       evolutionGaps: document.querySelectorAll("#evolutionGaps div").length,
@@ -178,8 +181,15 @@ async function main() {
     metrics.evolutionGaps < 2 ||
     metrics.maturityStages < 5 ||
     metrics.impactChanges < 4 ||
+    metrics.deltaTracks < 4 ||
+    metrics.claimLanes < 4 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
     !metrics.evolutionImpact.includes("Change Dashboard") ||
+    !metrics.evolutionDelta.includes("Research Delta") ||
+    !metrics.evolutionDelta.includes("10M live compute") ||
+    !metrics.evolutionDelta.includes("controlled grid + null + replication") ||
+    !metrics.evolutionDelta.includes("Real-world generator attribution") ||
+    !metrics.evolutionDelta.includes("Bitcoin wallet/library attribution") ||
     !metrics.evolutionImpact.includes("Baseline promotion plan") ||
     !metrics.evolutionImpact.includes("Claim ledger") ||
     !metrics.evolutionImpact.includes("Artifact lineage") ||

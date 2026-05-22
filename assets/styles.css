@@ -1011,6 +1011,195 @@ canvas {
   font-weight: 820;
 }
 
+.evolution-delta {
+  display: grid;
+  gap: 12px;
+  padding: 14px 20px 2px;
+}
+
+.delta-heading {
+  display: grid;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: linear-gradient(90deg, rgba(8, 127, 122, 0.08), rgba(70, 87, 216, 0.05));
+  padding: 13px 14px;
+}
+
+.delta-heading span,
+.delta-state span,
+.delta-track b,
+.claim-lane span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.delta-heading strong {
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.delta-state {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.delta-state div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 12px;
+}
+
+.delta-state strong {
+  display: block;
+  margin-top: 7px;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.delta-track-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.delta-track {
+  position: relative;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--teal);
+  background: #fff;
+  padding: 12px;
+}
+
+.delta-track.is-blocked {
+  border-top-color: var(--danger);
+}
+
+.delta-track.is-guarded {
+  border-top-color: var(--amber);
+}
+
+.delta-track strong,
+.delta-track span,
+.delta-track em,
+.delta-track b {
+  display: block;
+}
+
+.delta-track strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.delta-track span,
+.delta-track em {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.delta-track span {
+  margin-top: 8px;
+}
+
+.delta-track i {
+  display: block;
+  width: 100%;
+  height: 13px;
+  margin: 8px 0;
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+
+.delta-track i::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  transform: rotate(45deg);
+}
+
+.delta-track em {
+  color: var(--ink);
+  font-style: normal;
+  font-weight: 720;
+}
+
+.delta-track b {
+  margin-top: 9px;
+  color: var(--teal);
+}
+
+.delta-track.is-blocked b {
+  color: var(--danger);
+}
+
+.delta-track.is-guarded b {
+  color: var(--amber);
+}
+
+.claim-lane-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.claim-lane {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 12px;
+}
+
+.claim-lane.is-allowed {
+  background: rgba(8, 127, 122, 0.07);
+  border-color: rgba(8, 127, 122, 0.28);
+}
+
+.claim-lane.is-blocked {
+  background: rgba(189, 61, 52, 0.06);
+  border-color: rgba(189, 61, 52, 0.22);
+}
+
+.claim-lane.is-allowed span {
+  color: var(--teal);
+}
+
+.claim-lane.is-blocked span {
+  color: var(--danger);
+}
+
+.claim-lane strong,
+.claim-lane em {
+  display: block;
+}
+
+.claim-lane strong {
+  margin-top: 7px;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.claim-lane em {
+  margin-top: 7px;
+  color: var(--muted);
+  font-style: normal;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
 .evolution-body {
   display: grid;
   grid-template-columns: minmax(520px, 1.2fr) minmax(340px, 0.8fr);
@@ -2457,6 +2646,9 @@ tr:last-child td {
   .bitcoin-grid,
   .fingerprint-grid,
   .evolution-impact,
+  .delta-state,
+  .delta-track-grid,
+  .claim-lane-grid,
   .evolution-body,
   .evolution-gaps,
   .baseline-flow,
@@ -2475,7 +2667,9 @@ tr:last-child td {
   }
 
   .maturity-ladder,
-  .impact-change-list {
+  .impact-change-list,
+  .delta-track-grid,
+  .claim-lane-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2531,6 +2725,10 @@ tr:last-child td {
   .prediction-metrics,
   .evolution-summary,
   .evolution-impact,
+  .evolution-delta,
+  .delta-state,
+  .delta-track-grid,
+  .claim-lane-grid,
   .maturity-ladder,
   .impact-change-list,
   .baseline-registry-summary,
@@ -2559,7 +2757,8 @@ tr:last-child td {
 
   .evolution-body,
   .evolution-gaps,
-  .evolution-impact {
+  .evolution-impact,
+  .evolution-delta {
     grid-template-columns: 1fr;
     padding: 12px;
   }
