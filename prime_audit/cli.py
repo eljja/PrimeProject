@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .analysis import evaluate_policy, audit_records, report_to_dict
 from .attribution import run_attribution_confound_grid, run_synthetic_attribution_benchmark
+from .baseline_acceptance import build_baseline_acceptance
 from .baselines import build_generator_baseline, compare_fingerprint_to_baselines
 from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .bitcoin_integration import build_bitcoin_generator_risk_report
@@ -149,6 +150,16 @@ def main() -> int:
     provenance_audit_parser.add_argument("--records", nargs="*", default=[])
     provenance_audit_parser.add_argument("--output", required=True)
 
+    baseline_acceptance_parser = subparsers.add_parser(
+        "baseline-acceptance",
+        help="Combine availability, power, and provenance into real-baseline acceptance gates.",
+    )
+    baseline_acceptance_parser.add_argument("--manifest", required=True)
+    baseline_acceptance_parser.add_argument("--matrix", required=True)
+    baseline_acceptance_parser.add_argument("--power", required=True)
+    baseline_acceptance_parser.add_argument("--provenance-audit", required=True)
+    baseline_acceptance_parser.add_argument("--output", required=True)
+
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
         help="Export flattened generator fingerprint vectors for classifier experiments.",
@@ -196,6 +207,7 @@ def main() -> int:
     evidence_pack_parser.add_argument("--attribution-grid", default=None)
     evidence_pack_parser.add_argument("--classifier-report", default=None)
     evidence_pack_parser.add_argument("--bitcoin-risk-report", default=None)
+    evidence_pack_parser.add_argument("--baseline-acceptance", default=None)
     evidence_pack_parser.add_argument(
         "--artifact",
         nargs="*",
@@ -386,6 +398,22 @@ def main() -> int:
         output.write_text(json.dumps(build_provenance_audit(requirements, records), indent=2), encoding="utf-8")
         return 0
 
+    if args.command == "baseline-acceptance":
+        manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
+        matrix = json.loads(Path(args.matrix).read_text(encoding="utf-8"))
+        power = json.loads(Path(args.power).read_text(encoding="utf-8"))
+        provenance_audit = json.loads(Path(args.provenance_audit).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_audit=provenance_audit,
+        )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
     if args.command == "export-feature-vectors":
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
@@ -460,6 +488,11 @@ def main() -> int:
             if args.bitcoin_risk_report
             else None
         )
+        baseline_acceptance = (
+            json.loads(Path(args.baseline_acceptance).read_text(encoding="utf-8"))
+            if args.baseline_acceptance
+            else None
+        )
         paths = {
             "manifest": args.manifest,
             "readiness": args.readiness,
@@ -470,6 +503,8 @@ def main() -> int:
             paths["classifier_report"] = args.classifier_report
         if args.bitcoin_risk_report:
             paths["bitcoin_risk_report"] = args.bitcoin_risk_report
+        if args.baseline_acceptance:
+            paths["baseline_acceptance"] = args.baseline_acceptance
         for artifact in args.artifact:
             if "=" not in artifact:
                 raise ValueError(f"artifact requires role=path, got {artifact!r}")
@@ -483,6 +518,7 @@ def main() -> int:
             attribution_grid=attribution_grid,
             classifier_report=classifier_report,
             bitcoin_risk_report=bitcoin_risk_report,
+            baseline_acceptance=baseline_acceptance,
             file_paths=paths,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")

@@ -17,6 +17,7 @@ def build_evidence_pack(
     attribution_grid: dict[str, Any] | None = None,
     classifier_report: dict[str, Any] | None = None,
     bitcoin_risk_report: dict[str, Any] | None = None,
+    baseline_acceptance: dict[str, Any] | None = None,
     file_paths: dict[str, str | Path] | None = None,
     generated_at: str | None = None,
 ) -> dict[str, Any]:
@@ -27,6 +28,7 @@ def build_evidence_pack(
         attribution_grid=attribution_grid or {},
         classifier_report=classifier_report or {},
         bitcoin_risk_report=bitcoin_risk_report or {},
+        baseline_acceptance=baseline_acceptance or {},
         artifacts=artifacts,
     )
     return {
@@ -42,6 +44,7 @@ def build_evidence_pack(
             attribution_grid=attribution_grid or {},
             classifier_report=classifier_report or {},
             bitcoin_risk_report=bitcoin_risk_report or {},
+            baseline_acceptance=baseline_acceptance or {},
         ),
         "required_evidence": required_evidence(readiness),
         "local_collection_protocols": local_collection_protocols(),
@@ -92,6 +95,7 @@ def publication_gates(
     attribution_grid: dict[str, Any],
     classifier_report: dict[str, Any],
     bitcoin_risk_report: dict[str, Any],
+    baseline_acceptance: dict[str, Any],
     artifacts: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
     dimensions = readiness.get("dimensions", {})
@@ -181,6 +185,17 @@ def publication_gates(
             },
             severity="medium",
         ),
+        gate(
+            "baseline_acceptance_gate",
+            baseline_acceptance.get("claim_gate", {}).get("status") == "open",
+            "Real-world attribution claims need at least two accepted RSA library baselines.",
+            {
+                "accepted_count": baseline_acceptance.get("accepted_count", 0),
+                "accepted_rsa_library_count": baseline_acceptance.get("summary", {}).get("accepted_rsa_library_count", 0),
+                "claim_gate": baseline_acceptance.get("claim_gate", {}).get("status"),
+            },
+            severity="high",
+        ),
     ]
     if not attribution_grid:
         gates.append(
@@ -202,6 +217,7 @@ def evidence_summary(
     attribution_grid: dict[str, Any],
     classifier_report: dict[str, Any],
     bitcoin_risk_report: dict[str, Any],
+    baseline_acceptance: dict[str, Any],
 ) -> dict[str, Any]:
     return {
         "manifest": {
@@ -224,6 +240,12 @@ def evidence_summary(
         "bitcoin": {
             "present": bool(bitcoin_risk_report),
             "risk_level": bitcoin_risk_report.get("risk_level") if bitcoin_risk_report else None,
+        },
+        "baseline_acceptance": {
+            "present": bool(baseline_acceptance),
+            "accepted_count": baseline_acceptance.get("accepted_count", 0) if baseline_acceptance else 0,
+            "screening_only_count": baseline_acceptance.get("screening_only_count", 0) if baseline_acceptance else 0,
+            "blocked_count": baseline_acceptance.get("blocked_count", 0) if baseline_acceptance else 0,
         },
     }
 

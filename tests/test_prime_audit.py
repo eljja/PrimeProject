@@ -13,6 +13,7 @@ from prime_audit.attribution import (
     run_synthetic_attribution_benchmark,
     sample_generator_records,
 )
+from prime_audit.baseline_acceptance import build_baseline_acceptance
 from prime_audit.baselines import (
     ABLATION_COMPONENT_WEIGHTS,
     build_generator_baseline,
@@ -444,6 +445,60 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(row["missing_required_fields"], [])
         self.assertEqual(row["invalid_fields"], [])
 
+    def test_baseline_acceptance_blocks_uncollected_targets(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        matrix = build_collection_matrix(manifest)
+        power = build_collection_power(matrix)
+        audit = build_provenance_audit(build_provenance_requirements(manifest))
+        acceptance = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_audit=audit,
+        )
+
+        self.assertEqual(acceptance["schema"], "primeproject.baseline-acceptance.v1")
+        self.assertEqual(acceptance["row_count"], 10)
+        self.assertEqual(acceptance["accepted_count"], 0)
+        self.assertEqual(acceptance["blocked_count"], 10)
+        self.assertEqual(acceptance["claim_gate"]["status"], "blocked")
+        self.assertIn("provenance_not_passed", {item["reason"] for item in acceptance["summary"]["dominant_blockers"]})
+
+    def test_baseline_acceptance_distinguishes_screening_from_accepted(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        manifest["entries"][0]["status"] = "available"
+        manifest["entries"][0]["bit_length"] = 2048
+        manifest["entries"][0]["sample_count"] = 500
+        matrix = build_collection_matrix(manifest)
+        power = build_collection_power(matrix)
+        audit = build_provenance_audit(
+            build_provenance_requirements(manifest),
+            [complete_provenance_record("openssl-rsa-prime-owned")],
+        )
+        acceptance = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_audit=audit,
+        )
+        openssl = next(row for row in acceptance["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 2048)
+
+        self.assertEqual(openssl["acceptance"], "screening_only")
+        self.assertEqual(openssl["blocking_reasons"], [])
+
+        for target in matrix["rows"][0]["targets"]:
+            if target["bit_length"] == 2048:
+                target["sample_target"] = 5000
+        stronger_power = build_collection_power(matrix)
+        stronger = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=stronger_power,
+            provenance_audit=audit,
+        )
+        promoted = next(row for row in stronger["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 2048)
+        self.assertEqual(promoted["acceptance"], "accepted")
+
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(
             fingerprint_report_from_values([101, 103, 107, 109, 113, 127, 131, 137]),
@@ -529,6 +584,7 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("classifier_gate", failed)
         self.assertIn("provenance_gate", failed)
         self.assertIn("provenance_audit_gate", failed)
+        self.assertIn("baseline_acceptance_gate", failed)
         self.assertGreaterEqual(len(pack["local_collection_protocols"]), 3)
 
 

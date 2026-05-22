@@ -123,6 +123,27 @@ python -m prime_audit.cli provenance-audit `
 
 실제 수집 record가 있을 때는 `--records records.json`을 추가한다. 현재 public demo는 아직 실세계 record가 없으므로 4개 non-standard baseline row가 모두 `blocked`다. 이 blocked 상태는 의도적인 claim gate이며, 향후 OpenSSL/BoringSSL/Go/Bitcoin baseline이 채워질 때 public-safe 여부를 자동으로 검증하는 계약 역할을 한다.
 
+## Baseline Acceptance
+
+`baseline-acceptance`는 실세계 baseline을 실제 attribution 기준군으로 승격할 수 있는지 최종 판정한다. 입력은 manifest, collection matrix, collection power, provenance audit이다.
+
+```powershell
+python -m prime_audit.cli baseline-acceptance `
+  --manifest data/baselines/real_world/manifest.json `
+  --matrix data/collection_matrix.json `
+  --power data/collection_power.json `
+  --provenance-audit data/provenance_audit.json `
+  --output data/baseline_acceptance.json
+```
+
+판정은 세 단계다.
+
+- `blocked`: manifest target이 아직 available이 아니거나 provenance가 통과하지 못한 상태.
+- `screening_only`: availability와 provenance는 통과했지만 sample power가 coarse라 강한 attribution claim에는 부족한 상태.
+- `accepted`: availability, provenance, public-safety, sample-power tier가 모두 통과한 상태.
+
+현재 public demo는 10개 target 모두 `blocked`다. 특히 RSA 500 sample 계획은 coarse screening으로만 취급되며, 10% TV drift를 보수적으로 주장하려면 bit length/library 조합당 약 4514개 sample 수준이 필요하다는 경계를 유지한다.
+
 ## Research Readiness
 
 `research-readiness`는 현재 연구 도구가 실세계 attribution 주장에 얼마나 가까운지 점수화한다. 입력은 real-world baseline manifest, attribution grid, classifier report, Bitcoin risk report다.
@@ -154,7 +175,8 @@ python -m prime_audit.cli evidence-pack `
   --manifest data/baselines/real_world/manifest.json `
   --readiness data/research_readiness.json `
   --attribution-grid data/attribution_confound_grid.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json `
+  --baseline-acceptance data/baseline_acceptance.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json
@@ -166,8 +188,8 @@ python -m prime_audit.cli evidence-pack `
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> readiness -> evidence pack.
-- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, attribution grid row 수, claim level.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> readiness -> evidence pack.
+- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, accepted baseline 수, attribution grid row 수, claim level.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 
 ## Bitcoin 통합

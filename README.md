@@ -17,6 +17,7 @@
 - Defines a real-world collection matrix for matched OpenSSL/BoringSSL/Go RSA-prime targets and Bitcoin signature metadata before stronger claims are allowed.
 - Estimates sample-size power floors so collection targets are marked as coarse screening or stronger evidence before publication claims.
 - Generates and audits provenance contracts for real-world baselines so library version, build flags, RNG source, commands, aggregate artifact hashes, and forbidden public sensitive fields are checked before attribution claims.
+- Combines availability, provenance, and sample-power tiers into baseline acceptance gates before a real-world baseline can support attribution claims.
 - Exports fixed-length fingerprint vectors and runs a dependency-free Crypto-Classifier baseline before heavier ML experiments.
 - Scores end-to-end research readiness across Sim-to-Real baselines, attribution validation, classifier data, and Bitcoin integration.
 - Bundles checksummed evidence packs that state publication gates and claim limits.
@@ -34,7 +35,7 @@ The Project Evolution panel reads `data/project_evolution.json` and visualizes h
 
 The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, highlighting which fingerprint profiles survive bit-length control and which ones are likely range confounds.
 
-The Baseline Lab panel reads `data/baselines/real_world/manifest.json`, `data/collection_matrix.json`, `data/collection_power.json`, `data/provenance_requirements.json`, and `data/provenance_audit.json` to show which real-world baseline families are registered, whether targets are only coarse screening or strong enough for tighter claims, and which provenance records still block publication.
+The Baseline Lab panel reads `data/baselines/real_world/manifest.json`, `data/collection_matrix.json`, `data/collection_power.json`, `data/provenance_requirements.json`, `data/provenance_audit.json`, and `data/baseline_acceptance.json` to show which real-world baseline families are registered, whether targets are only coarse screening or strong enough for tighter claims, and which baselines still block publication.
 
 The Research Readiness panel reads `data/research_readiness.json` and surfaces blocking gaps before any real-world attribution claim is treated as strong.
 
@@ -71,10 +72,11 @@ python -m prime_audit.cli collection-matrix --manifest data/baselines/real_world
 python -m prime_audit.cli collection-power --matrix data/collection_matrix.json --output data/collection_power.json
 python -m prime_audit.cli provenance-requirements --manifest data/baselines/real_world/manifest.json --output data/provenance_requirements.json
 python -m prime_audit.cli provenance-audit --requirements data/provenance_requirements.json --output data/provenance_audit.json
+python -m prime_audit.cli baseline-acceptance --manifest data/baselines/real_world/manifest.json --matrix data/collection_matrix.json --power data/collection_power.json --provenance-audit data/provenance_audit.json --output data/baseline_acceptance.json
 python -m prime_audit.cli export-feature-vectors --fingerprints openssl=data/openssl_fingerprint.json suspicious=data/suspicious_fingerprint.json --output data/feature_vectors.json
 python -m prime_audit.cli crypto-classifier --features data/feature_vectors.json --output data/crypto_classifier_report.json
 python -m prime_audit.cli research-readiness --manifest data/baselines/real_world/manifest.json --attribution-grid data/attribution_confound_grid.json --output data/research_readiness.json
-python -m prime_audit.cli evidence-pack --manifest data/baselines/real_world/manifest.json --readiness data/research_readiness.json --attribution-grid data/attribution_confound_grid.json --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json --output data/evidence_pack.json
+python -m prime_audit.cli evidence-pack --manifest data/baselines/real_world/manifest.json --readiness data/research_readiness.json --attribution-grid data/attribution_confound_grid.json --baseline-acceptance data/baseline_acceptance.json --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json --output data/evidence_pack.json
 python -m prime_audit.cli attribution-benchmark --limit 200000 --train-count 80 --test-count 40 --trials 3 --control-mode bit_length --output data/attribution_benchmark.json
 python -m prime_audit.cli attribution-grid --limits 50000 200000 --train-counts 40 80 --test-counts 20 40 --trials 3 --repeats 3 --output data/attribution_confound_grid.json
 python -m prime_audit.cli gap-lab --limit 100000 --modulo 30 --output data/conjecture_lab_100k.json

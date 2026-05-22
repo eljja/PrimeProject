@@ -1,11 +1,11 @@
 {
   "schema": "primeproject.evidence-pack.v1",
-  "generated_at": "2026-05-22T12:39:47+00:00",
+  "generated_at": "2026-05-22T12:51:01+00:00",
   "claim_level": {
     "level": "public_demo_only",
     "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
-    "failed_gate_count": 3,
-    "failed_high_gate_count": 2
+    "failed_gate_count": 4,
+    "failed_high_gate_count": 3
   },
   "publication_gates": [
     {
@@ -63,7 +63,7 @@
       "severity": "medium",
       "message": "Published evidence should include checksummed source JSON artifacts.",
       "evidence": {
-        "artifact_count": 9
+        "artifact_count": 10
       }
     },
     {
@@ -83,9 +83,20 @@
       "evidence": {
         "has_provenance_audit": true
       }
+    },
+    {
+      "code": "baseline_acceptance_gate",
+      "passed": false,
+      "severity": "high",
+      "message": "Real-world attribution claims need at least two accepted RSA library baselines.",
+      "evidence": {
+        "accepted_count": 0,
+        "accepted_rsa_library_count": 0,
+        "claim_gate": "blocked"
+      }
     }
   ],
-  "artifact_count": 9,
+  "artifact_count": 10,
   "artifacts": [
     {
       "role": "attribution_grid",
@@ -94,6 +105,14 @@
       "sha256": "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318",
       "schema": "primeproject.attribution-confound-grid.v1",
       "bytes": 174610
+    },
+    {
+      "role": "baseline_acceptance",
+      "path": "data/baseline_acceptance.json",
+      "exists": true,
+      "sha256": "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58",
+      "schema": "primeproject.baseline-acceptance.v1",
+      "bytes": 7662
     },
     {
       "role": "collection_matrix",
@@ -123,9 +142,9 @@
       "role": "project_evolution",
       "path": "data/project_evolution.json",
       "exists": true,
-      "sha256": "c45981c6bc09c0fb7ffa49a5a224207d7a25bddb55cde65bf8e9ba35bf366803",
+      "sha256": "0ae3c66fe13d7e09dac4510c571c45dd756de5fdfb0b6bb6f931b18d930721e4",
       "schema": "primeproject.project-evolution.v1",
-      "bytes": 6504
+      "bytes": 7061
     },
     {
       "role": "provenance_audit",
@@ -193,6 +212,12 @@
     "bitcoin": {
       "present": false,
       "risk_level": null
+    },
+    "baseline_acceptance": {
+      "present": true,
+      "accepted_count": 0,
+      "screening_only_count": 0,
+      "blocked_count": 10
     }
   },
   "required_evidence": [

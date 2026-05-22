@@ -15,11 +15,14 @@
     "provenance_missing_required": 35,
     "provenance_audit_blocked_rows": 4,
     "provenance_audit_forbidden_fields": 0,
+    "baseline_acceptance_rows": 10,
+    "baseline_acceptance_accepted": 0,
+    "baseline_acceptance_blocked": 10,
     "attribution_grid_rows": 48,
     "attribution_repeats": 3,
     "robust_controlled_profiles": ["all", "gap_only"],
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 9,
+    "checksummed_artifacts": 10,
     "blocking_gaps": 2
   },
   "phases": [
@@ -112,6 +115,14 @@
       "outputs": ["prime_audit/provenance.py", "data/provenance_audit.json"]
     },
     {
+      "id": "baseline-acceptance",
+      "label": "Baseline acceptance",
+      "status": "active",
+      "layer": "publication",
+      "summary": "Combines collection availability, provenance audit, and sample-power tier before a real-world baseline can be used for attribution claims.",
+      "outputs": ["prime_audit/baseline_acceptance.py", "data/baseline_acceptance.json"]
+    },
+    {
       "id": "readiness-gates",
       "label": "Research readiness scoring",
       "status": "active",
@@ -139,7 +150,8 @@
     ["collection-matrix", "collection-power"],
     ["collection-power", "provenance-gate"],
     ["provenance-gate", "provenance-audit"],
-    ["provenance-audit", "readiness-gates"],
+    ["provenance-audit", "baseline-acceptance"],
+    ["baseline-acceptance", "readiness-gates"],
     ["readiness-gates", "evidence-pack"]
   ],
   "open_gaps": [

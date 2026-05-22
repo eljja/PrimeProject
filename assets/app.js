@@ -16,6 +16,7 @@ const state = {
   collectionPower: null,
   provenanceRequirements: null,
   provenanceAudit: null,
+  baselineAcceptance: null,
 };
 
 const limitSlider = {
@@ -312,6 +313,38 @@ const bundledProvenanceAudit = {
   ],
 };
 
+const bundledBaselineAcceptance = {
+  schema: "primeproject.baseline-acceptance.v1",
+  row_count: 10,
+  accepted_count: 0,
+  screening_only_count: 0,
+  blocked_count: 10,
+  summary: {
+    accepted_rsa_library_count: 0,
+    accepted_rsa_libraries: [],
+    minimum_rsa_libraries: 2,
+    public_safe: true,
+    dominant_blockers: [
+      { reason: "manifest_not_available", count: 10 },
+      { reason: "provenance_not_passed", count: 10 },
+      { reason: "target_not_available", count: 10 },
+    ],
+  },
+  claim_gate: {
+    status: "blocked",
+    message:
+      "Real-world attribution remains blocked until at least two RSA libraries pass availability, provenance, and power gates.",
+  },
+  rows: [
+    { baseline_id: "openssl-rsa-prime-owned", library: "OpenSSL", object_type: "rsa-prime", bit_length: 2048, acceptance: "blocked", power_tier: "coarse", blocking_reasons: ["manifest_not_available", "target_not_available", "provenance_not_passed"] },
+    { baseline_id: "openssl-rsa-prime-owned", library: "OpenSSL", object_type: "rsa-prime", bit_length: 3072, acceptance: "blocked", power_tier: "coarse", blocking_reasons: ["manifest_not_available", "target_not_available", "provenance_not_passed"] },
+    { baseline_id: "openssl-rsa-prime-owned", library: "OpenSSL", object_type: "rsa-prime", bit_length: 4096, acceptance: "blocked", power_tier: "coarse", blocking_reasons: ["manifest_not_available", "target_not_available", "provenance_not_passed"] },
+    { baseline_id: "boringssl-rsa-prime-owned", library: "BoringSSL", object_type: "rsa-prime", bit_length: 2048, acceptance: "blocked", power_tier: "coarse", blocking_reasons: ["manifest_not_available", "target_not_available", "provenance_not_passed"] },
+    { baseline_id: "boringssl-rsa-prime-owned", library: "BoringSSL", object_type: "rsa-prime", bit_length: 3072, acceptance: "blocked", power_tier: "coarse", blocking_reasons: ["manifest_not_available", "target_not_available", "provenance_not_passed"] },
+    { baseline_id: "go-crypto-rsa-prime-owned", library: "Go crypto/rsa", object_type: "rsa-prime", bit_length: 2048, acceptance: "blocked", power_tier: "coarse", blocking_reasons: ["manifest_not_available", "target_not_available", "provenance_not_passed"] },
+  ],
+};
+
 const bundledResearchReadiness = {
   schema: "primeproject.research-readiness.v1",
   overall: { score: 0.5869, label: "prototype_ready" },
@@ -375,8 +408,8 @@ const bundledEvidencePack = {
   claim_level: {
     level: "public_demo_only",
     statement: "Safe to publish as a research scaffold, not as real-world attribution evidence.",
-    failed_gate_count: 3,
-    failed_high_gate_count: 2,
+    failed_gate_count: 4,
+    failed_high_gate_count: 3,
   },
   publication_gates: [
     { code: "sensitive_publication_gate", passed: true, severity: "critical" },
@@ -387,14 +420,16 @@ const bundledEvidencePack = {
     { code: "reproducibility_gate", passed: true, severity: "medium" },
     { code: "provenance_gate", passed: true, severity: "medium" },
     { code: "provenance_audit_gate", passed: true, severity: "medium" },
+    { code: "baseline_acceptance_gate", passed: false, severity: "high" },
   ],
-  artifact_count: 9,
+  artifact_count: 10,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
+    { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "c45981c6bc09c0fb7ffa49a5a224207d7a25bddb55cde65bf8e9ba35bf366803" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "0ae3c66fe13d7e09dac4510c571c45dd756de5fdfb0b6bb6f931b18d930721e4" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
@@ -418,11 +453,14 @@ const bundledProjectEvolution = {
     provenance_missing_required: 35,
     provenance_audit_blocked_rows: 4,
     provenance_audit_forbidden_fields: 0,
+    baseline_acceptance_rows: 10,
+    baseline_acceptance_accepted: 0,
+    baseline_acceptance_blocked: 10,
     attribution_grid_rows: 48,
     attribution_repeats: 3,
     robust_controlled_profiles: ["all", "gap_only"],
     publication_claim_level: "public_demo_only",
-    checksummed_artifacts: 9,
+    checksummed_artifacts: 10,
     blocking_gaps: 2,
   },
   phases: [
@@ -437,6 +475,7 @@ const bundledProjectEvolution = {
     { id: "collection-power", label: "Sample power calibration", status: "active", layer: "statistics" },
     { id: "provenance-gate", label: "Provenance requirements", status: "active", layer: "governance" },
     { id: "provenance-audit", label: "Provenance audit", status: "active", layer: "governance" },
+    { id: "baseline-acceptance", label: "Baseline acceptance", status: "active", layer: "publication" },
     { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
   ],
@@ -451,7 +490,8 @@ const bundledProjectEvolution = {
     ["collection-matrix", "collection-power"],
     ["collection-power", "provenance-gate"],
     ["provenance-gate", "provenance-audit"],
-    ["provenance-audit", "readiness-gates"],
+    ["provenance-audit", "baseline-acceptance"],
+    ["baseline-acceptance", "readiness-gates"],
     ["readiness-gates", "evidence-pack"],
   ],
   open_gaps: [
@@ -534,6 +574,9 @@ const outputs = {
   provenanceAuditStatus: document.querySelector("#provenanceAuditStatus"),
   provenanceAuditSummary: document.querySelector("#provenanceAuditSummary"),
   provenanceAuditRows: document.querySelector("#provenanceAuditRows"),
+  baselineAcceptanceStatus: document.querySelector("#baselineAcceptanceStatus"),
+  baselineAcceptanceSummary: document.querySelector("#baselineAcceptanceSummary"),
+  baselineAcceptanceRows: document.querySelector("#baselineAcceptanceRows"),
   readinessSummary: document.querySelector("#readinessSummary"),
   readinessDimensions: document.querySelector("#readinessDimensions"),
   readinessActions: document.querySelector("#readinessActions"),
@@ -607,6 +650,7 @@ loadCollectionMatrix();
 loadCollectionPower();
 loadProvenanceRequirements();
 loadProvenanceAudit();
+loadBaselineAcceptance();
 loadResearchReadiness();
 loadEvidencePack();
 loadAttributionGrid();
@@ -1423,6 +1467,7 @@ function renderProjectEvolution() {
     <div><span>Power floor</span><strong>${formatNumber(metrics.collection_power_strong_targets || 0)}</strong><small>${formatNumber(metrics.collection_power_coarse_targets || 0)} coarse</small></div>
     <div><span>Provenance</span><strong>${formatNumber(metrics.provenance_rows || 0)}</strong><small>${formatNumber(metrics.provenance_missing_required || 0)} missing</small></div>
     <div><span>Audit block</span><strong>${formatNumber(metrics.provenance_audit_blocked_rows || 0)}</strong><small>${formatNumber(metrics.provenance_audit_forbidden_fields || 0)} forbidden fields</small></div>
+    <div><span>Accepted</span><strong>${formatNumber(metrics.baseline_acceptance_accepted || 0)}</strong><small>${formatNumber(metrics.baseline_acceptance_blocked || 0)} blocked baselines</small></div>
     <div><span>Attribution rows</span><strong>${formatNumber(metrics.attribution_grid_rows || 0)}</strong><small>${formatNumber(metrics.attribution_repeats || 0)} repeats</small></div>
     <div><span>Claim level</span><strong>${escapeHtml(metrics.publication_claim_level || "unknown")}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
   `;
@@ -1458,15 +1503,15 @@ function renderEvolutionMap(evolution) {
     ["static-snapshots", "fingerprint-baseline"],
     ["attribution-grid", "real-world-registry"],
     ["collection-matrix", "collection-power"],
-    ["provenance-gate", "provenance-audit", "readiness-gates"],
+    ["provenance-gate", "provenance-audit", "baseline-acceptance", "readiness-gates"],
     ["evidence-pack"],
   ];
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   const positions = new Map();
   const left = 32;
-  const top = 52;
+  const top = 44;
   const columnGap = 145;
-  const rowGap = 92;
+  const rowGap = 72;
   columns.forEach((column, columnIndex) => {
     const yOffset = column.length === 1 ? rowGap / 2 : 0;
     column.forEach((id, rowIndex) => {
@@ -1708,6 +1753,53 @@ function renderProvenanceAudit() {
         </div>
       `;
     })
+    .join("");
+}
+
+async function loadBaselineAcceptance() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.baselineAcceptance = bundledBaselineAcceptance;
+    } else {
+      const response = await fetch("data/baseline_acceptance.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`baseline acceptance ${response.status}`);
+      state.baselineAcceptance = await response.json();
+    }
+  } catch (error) {
+    state.baselineAcceptance = bundledBaselineAcceptance;
+  }
+  renderBaselineAcceptance();
+}
+
+function renderBaselineAcceptance() {
+  if (!outputs.baselineAcceptanceStatus || !outputs.baselineAcceptanceSummary || !outputs.baselineAcceptanceRows) return;
+  const acceptance = state.baselineAcceptance || bundledBaselineAcceptance;
+  const summary = acceptance.summary || {};
+  const rows = acceptance.rows || [];
+  const gate = acceptance.claim_gate || {};
+  outputs.baselineAcceptanceStatus.textContent =
+    `${formatNumber(acceptance.accepted_count || 0)} accepted · ${escapeHtml(gate.status || "unknown")}`;
+  outputs.baselineAcceptanceSummary.innerHTML = `
+    <div><span>Targets</span><strong>${formatNumber(acceptance.row_count || rows.length)}</strong><small>${formatNumber(acceptance.blocked_count || 0)} blocked</small></div>
+    <div><span>Accepted</span><strong>${formatNumber(acceptance.accepted_count || 0)}</strong><small>${formatNumber(summary.accepted_rsa_library_count || 0)} RSA libs</small></div>
+    <div><span>Screening</span><strong>${formatNumber(acceptance.screening_only_count || 0)}</strong><small>not claim-ready</small></div>
+    <div><span>Minimum</span><strong>${formatNumber(summary.minimum_rsa_libraries || 0)}</strong><small>RSA libraries</small></div>
+  `;
+  outputs.baselineAcceptanceRows.innerHTML = rows
+    .slice()
+    .sort((a, b) => {
+      const rank = { accepted: 0, screening_only: 1, blocked: 2 };
+      return (rank[a.acceptance] ?? 3) - (rank[b.acceptance] ?? 3);
+    })
+    .slice(0, 6)
+    .map((row) => `
+      <div class="provenance-row audit-row">
+        <strong>${escapeHtml(row.library || row.baseline_id || "unknown")} ${formatNumber(row.bit_length || 0)}b</strong>
+        <span>${escapeHtml(row.power_tier || "unknown")} power</span>
+        <em class="is-${escapeHtml(row.acceptance || "blocked").replace("_", "-")}">${escapeHtml(row.acceptance || "blocked")}</em>
+        <code>${escapeHtml((row.blocking_reasons || [])[0] || "claim-ready")}</code>
+      </div>
+    `)
     .join("");
 }
 

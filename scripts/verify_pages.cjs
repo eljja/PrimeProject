@@ -115,6 +115,9 @@ async function main() {
       provenanceAuditSummary: document.querySelector("#provenanceAuditSummary").textContent,
       provenanceAuditRows: document.querySelectorAll("#provenanceAuditRows .provenance-row").length,
       provenanceAuditStatus: document.querySelector("#provenanceAuditStatus").textContent,
+      baselineAcceptanceSummary: document.querySelector("#baselineAcceptanceSummary").textContent,
+      baselineAcceptanceRows: document.querySelectorAll("#baselineAcceptanceRows .provenance-row").length,
+      baselineAcceptanceStatus: document.querySelector("#baselineAcceptanceStatus").textContent,
       readinessPanel: document.querySelector("#readiness-panel").textContent,
       readinessCards: document.querySelectorAll("#readinessDimensions .readiness-card").length,
       readinessActions: document.querySelectorAll("#readinessActions li").length,
@@ -151,7 +154,7 @@ async function main() {
   }
   if (
     metrics.evolutionSteps < 8 ||
-    metrics.evolutionNodes < 13 ||
+    metrics.evolutionNodes < 14 ||
     metrics.evolutionGaps < 2 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
@@ -188,6 +191,7 @@ async function main() {
     !metrics.baselinePanel.includes("4,514") ||
     !metrics.baselinePanel.includes("Provenance Gate") ||
     !metrics.baselinePanel.includes("Provenance Audit") ||
+    !metrics.baselinePanel.includes("Baseline Acceptance") ||
     !metrics.baselineRegistrySummary.includes("Registered") ||
     metrics.baselineRegistryRows < 5 ||
     metrics.collectionMatrixRows < 4 ||
@@ -200,7 +204,10 @@ async function main() {
     !metrics.provenanceSummary.includes("Required fields") ||
     metrics.provenanceAuditRows < 4 ||
     !metrics.provenanceAuditStatus.includes("4") ||
-    !metrics.provenanceAuditSummary.includes("Forbidden")
+    !metrics.provenanceAuditSummary.includes("Forbidden") ||
+    metrics.baselineAcceptanceRows < 6 ||
+    !metrics.baselineAcceptanceStatus.includes("0 accepted") ||
+    !metrics.baselineAcceptanceSummary.includes("Minimum")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
@@ -215,13 +222,15 @@ async function main() {
     process.exit(1);
   }
   if (
-    metrics.evidenceGates < 8 ||
-    metrics.evidenceArtifacts < 9 ||
+    metrics.evidenceGates < 9 ||
+    metrics.evidenceArtifacts < 10 ||
     !metrics.evidencePanel.includes("Evidence Pack") ||
     !metrics.evidencePanel.includes("provenance_gate") ||
     !metrics.evidencePanel.includes("provenance_audit_gate") ||
+    !metrics.evidencePanel.includes("baseline_acceptance_gate") ||
     !metrics.evidencePanel.includes("provenance_requirements") ||
     !metrics.evidencePanel.includes("provenance_audit") ||
+    !metrics.evidencePanel.includes("baseline_acceptance") ||
     !metrics.evidencePanel.includes("public_demo_only")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
