@@ -217,6 +217,15 @@ def publication_gates(
                 "forbidden_public_field_count": collection_intake.get("summary", {}).get(
                     "forbidden_public_field_count", 0
                 ),
+                "feature_vector_contract_blocked_count": collection_intake.get("summary", {}).get(
+                    "feature_vector_contract_blocked_count", 0
+                ),
+                "duplicate_submission_count": collection_intake.get("summary", {}).get(
+                    "duplicate_submission_count", 0
+                ),
+                "reused_aggregate_hash_count": collection_intake.get("summary", {}).get(
+                    "reused_aggregate_hash_count", 0
+                ),
                 "claim_gate": collection_intake.get("claim_gate", {}).get("status"),
             },
             severity="high",
@@ -303,6 +312,21 @@ def evidence_summary(
             else 0,
             "forbidden_public_field_count": collection_intake.get("summary", {}).get(
                 "forbidden_public_field_count", 0
+            )
+            if collection_intake
+            else 0,
+            "feature_vector_contract_blocked_count": collection_intake.get("summary", {}).get(
+                "feature_vector_contract_blocked_count", 0
+            )
+            if collection_intake
+            else 0,
+            "duplicate_submission_count": collection_intake.get("summary", {}).get(
+                "duplicate_submission_count", 0
+            )
+            if collection_intake
+            else 0,
+            "reused_aggregate_hash_count": collection_intake.get("summary", {}).get(
+                "reused_aggregate_hash_count", 0
             )
             if collection_intake
             else 0,

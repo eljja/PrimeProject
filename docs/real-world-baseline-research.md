@@ -199,7 +199,7 @@ python -m prime_audit.cli collection-intake `
   --output data/collection_intake.json
 ```
 
-현재 공개 번들은 raw 실세계 제출물이 없으므로 `0 submitted / 0 accepted / 10 blocked` 상태다. 특히 OpenSSL 2048-bit와 BoringSSL 2048-bit P0 task 두 개가 아직 막혀 있으며, 10% TV floor 기준으로 총 9028개 aggregate sample이 남아 있다. 이 게이트가 중요한 이유는 실세계 수집 이후에도 private prime, wallet seed, raw key file 같은 민감 필드가 공개 artifact에 섞이는 것을 자동으로 차단하고, feature vector가 없는 artifact가 classifier claim으로 넘어가는 것을 막기 때문이다. 또한 동일 task_id로 제출된 중복 intake record와 서로 다른 기준군이 같은 aggregate checksum을 공유하는 artifact 재사용을 차단해, 제출 충돌이나 데이터셋 재포장으로 baseline claim이 오염되는 경로를 막는다. Evidence Pack은 이 결과를 `collection_intake_gate`로 다시 평가하므로, intake가 blocked인 동안 real-world generator attribution 승격도 자동으로 blocked 상태를 유지한다.
+현재 공개 번들은 raw 실세계 제출물이 없으므로 `0 submitted / 0 accepted / 10 blocked` 상태다. 특히 OpenSSL 2048-bit와 BoringSSL 2048-bit P0 task 두 개가 아직 막혀 있으며, 10% TV floor 기준으로 총 9028개 aggregate sample이 남아 있다. 이 게이트가 중요한 이유는 실세계 수집 이후에도 private prime, wallet seed, raw key file 같은 민감 필드가 공개 artifact에 섞이는 것을 자동으로 차단하고, feature vector가 없는 artifact가 classifier claim으로 넘어가는 것을 막기 때문이다. 이제 제출 record는 `feature_vector_path`뿐 아니라 공개 가능한 `feature_vector_summary` 계약도 포함해야 하며, intake는 schema, 14개 scalar feature, numeric 값, sample count, bit-length 정합성을 검사한다. 또한 동일 task_id로 제출된 중복 intake record와 서로 다른 기준군이 같은 aggregate checksum을 공유하는 artifact 재사용을 차단해, 제출 충돌이나 데이터셋 재포장으로 baseline claim이 오염되는 경로를 막는다. Evidence Pack은 이 결과를 `collection_intake_gate`로 다시 평가하므로, intake가 blocked인 동안 real-world generator attribution 승격도 자동으로 blocked 상태를 유지한다.
 
 ## Research Readiness
 

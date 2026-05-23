@@ -475,11 +475,12 @@ const bundledCollectionIntake = {
     forbidden_public_field_count: 0,
     duplicate_submission_count: 0,
     reused_aggregate_hash_count: 0,
+    feature_vector_contract_blocked_count: 0,
     dominant_blockers: [{ reason: "intake_record", count: 10 }],
   },
   claim_gate: {
     status: "blocked",
-    message: "Real-world intake remains blocked until at least two RSA library tasks pass sample, provenance, checksum, duplicate-submission, reused-artifact, and public-safety checks.",
+    message: "Real-world intake remains blocked until at least two RSA library tasks pass sample, provenance, checksum, feature-vector contract, duplicate-submission, reused-artifact, and public-safety checks.",
   },
   rows: [
     { priority: "P0", library: "BoringSSL", baseline_id: "boringssl-rsa-prime-owned", object_type: "rsa-prime", bit_length: 2048, submitted: false, submission_count: 0, sample_count: 0, planned_sample_target: 500, remaining_samples_to_10pct_tv: 4514, claim_scope: "not_submitted", status: "blocked", blocking_reasons: ["intake_record"], forbidden_public_fields: [] },
@@ -635,13 +636,13 @@ const bundledEvidencePack = {
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "dd975b3a84f528552a925e248f249566be24dbd13926e2fab814e88778a52e87" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", sha256: "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4" },
-    { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "fbae54bc9a51f47217754cb8271e9e9b111e87d9363f6a0a0c633dcfe51ba0bc" },
+    { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "157e2ff905896dab3b4b64cf6459398c4c375f46fed7ca8d849ff1ce7d01fe0c" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "40b5bfb9fe14cd00e24be6b5c678825fa7a8a587b3ff018ebbb8c5eee8dd3ee0" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
@@ -739,13 +740,13 @@ const bundledArtifactLineage = {
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", exists: true, sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", exists: true, sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", exists: true, sha256: "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4" },
-    { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "fbae54bc9a51f47217754cb8271e9e9b111e87d9363f6a0a0c633dcfe51ba0bc" },
+    { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "38c5bee848f0c3b3fec3bd11ccd0a17adcd3aa9bf7a7b35bdbe30c2ed2c3e926" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "cde5b15bfdc56949376d52a62468a8b4a5bfb9ab4375f67582a5b39567dd2e9e" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "f77a5db63c51bb7615caea473f7ac4c14c9b97c649a83d711871a1587fc36070" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "fe416835d72785daefdfe6198e05c33de64443a5308fc73c963c982457d598f5" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "157e2ff905896dab3b4b64cf6459398c4c375f46fed7ca8d849ff1ce7d01fe0c" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "40b5bfb9fe14cd00e24be6b5c678825fa7a8a587b3ff018ebbb8c5eee8dd3ee0" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -988,7 +989,7 @@ const bundledProjectEvolution = {
     latest_changes: [
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
       { label: "Collection handoff packet", impact: "Converts the unlock path into prioritized public-safe collection tasks with provenance and classifier constraints.", metric: "10 tasks / 2 P0" },
-      { label: "Collection intake validator", impact: "Blocks submitted aggregate artifacts until sample, provenance, checksum, feature-vector, claim-scope, duplicate-submission, reused-artifact, and public-safety checks pass.", metric: "0 accepted / 10 blocked" },
+      { label: "Collection intake validator", impact: "Blocks submitted aggregate artifacts until sample, provenance, checksum, embedded feature-vector contract, claim-scope, duplicate-submission, reused-artifact, and public-safety checks pass.", metric: "0 accepted / 10 blocked" },
       { label: "Baseline acceptance gate", impact: "Prevents coarse or undocumented baselines from supporting attribution claims.", metric: "0 accepted / 10 blocked" },
       { label: "Provenance audit", impact: "Checks missing metadata, checksum format, and forbidden public sensitive fields.", metric: "4 blocked records" },
       { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "17 artifacts / 11 gates" },
@@ -2646,6 +2647,7 @@ function renderCollectionIntake() {
     <div><span>Submitted</span><strong>${formatNumber(summary.submitted_count || 0)}</strong><small>${formatNumber(summary.task_count || rows.length)} intake tasks</small></div>
     <div><span>Accepted</span><strong>${formatNumber(summary.accepted_count || 0)}</strong><small>${formatNumber(summary.accepted_rsa_library_count || 0)} RSA libs</small></div>
     <div><span>P0 blocked</span><strong>${formatNumber(summary.p0_blocked_count || 0)}</strong><small>${formatNumber(summary.remaining_p0_samples_for_10pct_tv || 0)} samples left</small></div>
+    <div><span>Vectors</span><strong>${formatNumber(summary.feature_vector_contract_blocked_count || 0)}</strong><small>contract blocked</small></div>
     <div><span>Collisions</span><strong>${formatNumber((summary.duplicate_submission_count || 0) + (summary.reused_aggregate_hash_count || 0))}</strong><small>duplicate / reused</small></div>
     <div><span>Forbidden</span><strong>${formatNumber(summary.forbidden_public_field_count || 0)}</strong><small>${escapeHtml(gate.status || "unknown")}</small></div>
   `;

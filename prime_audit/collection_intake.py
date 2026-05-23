@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import json
+from math import isfinite
 from pathlib import Path
 from typing import Any
+
+from .feature_vectors import FEATURE_VECTOR_VERSION, SCALAR_FEATURES
 
 
 COLLECTION_INTAKE_SCHEMA = "primeproject.collection-intake.v1"
@@ -50,7 +53,11 @@ def build_collection_intake(
             "message": (
                 "At least two RSA library intake records are accepted."
                 if summary["accepted_rsa_library_count"] >= 2
-                else "Real-world intake remains blocked until at least two RSA library tasks pass sample, provenance, checksum, and public-safety checks."
+                else (
+                    "Real-world intake remains blocked until at least two RSA library tasks pass sample, "
+                    "provenance, checksum, feature-vector contract, duplicate-submission, reused-artifact, "
+                    "and public-safety checks."
+                )
             ),
         },
         "rows": rows,
@@ -96,6 +103,17 @@ def intake_row(task: dict[str, Any], records: list[dict[str, Any]] | None) -> di
         missing.append("provenance_record")
     if submitted and not record.get("feature_vector_path"):
         missing.append("feature_vector_path")
+    feature_vector_contract = (
+        validate_feature_vector_contract(record, task, sample_count=sample_count)
+        if submitted
+        else {
+            "present": False,
+            "status": "not_submitted",
+            "label": None,
+            "blocking_reasons": [],
+        }
+    )
+    missing.extend(feature_vector_contract["blocking_reasons"])
     if submitted and record.get("claim_scope") != "real_world":
         missing.append("real_world_claim_scope")
     blockers = list(dict.fromkeys([*missing, *("forbidden_public_fields" for _ in forbidden)]))
@@ -120,6 +138,9 @@ def intake_row(task: dict[str, Any], records: list[dict[str, Any]] | None) -> di
         "aggregate_artifact_sha256": checksum if is_sha256_hex(checksum) else None,
         "provenance_record_present": bool(record.get("provenance_record")),
         "feature_vector_path": record.get("feature_vector_path"),
+        "feature_vector_summary_present": feature_vector_contract["present"],
+        "feature_vector_label": feature_vector_contract["label"],
+        "feature_vector_contract": feature_vector_contract["status"],
         "forbidden_public_fields": forbidden,
         "blocking_reasons": blockers,
         "status": status,
@@ -146,6 +167,9 @@ def extra_intake_row(record: dict[str, Any]) -> dict[str, Any]:
         "aggregate_artifact_sha256": record.get("aggregate_artifact_sha256"),
         "provenance_record_present": bool(record.get("provenance_record")),
         "feature_vector_path": record.get("feature_vector_path"),
+        "feature_vector_summary_present": bool(feature_vector_payload(record)),
+        "feature_vector_label": None,
+        "feature_vector_contract": "unknown_task",
         "forbidden_public_fields": forbidden,
         "blocking_reasons": ["unknown_task", *("forbidden_public_fields" for _ in forbidden)],
         "status": "blocked",
@@ -205,6 +229,9 @@ def intake_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "reused_aggregate_hash_count": sum(
             1 for row in rows if "aggregate_artifact_sha256_reused" in (row.get("blocking_reasons") or [])
         ),
+        "feature_vector_contract_blocked_count": sum(
+            1 for row in rows if any(str(reason).startswith("feature_vector_") for reason in row.get("blocking_reasons", []))
+        ),
         "dominant_blockers": dominant_blockers(rows),
     }
 
@@ -241,6 +268,72 @@ def aggregate_forbidden_field_paths(records: list[dict[str, Any]]) -> list[str]:
     for index, record in enumerate(records):
         paths.extend(forbidden_field_paths(record, f"records[{index}]"))
     return paths
+
+
+def validate_feature_vector_contract(record: dict[str, Any], task: dict[str, Any], *, sample_count: int) -> dict[str, Any]:
+    vector = feature_vector_payload(record)
+    if not vector:
+        return {
+            "present": False,
+            "status": "missing",
+            "label": None,
+            "blocking_reasons": ["feature_vector_summary"],
+        }
+
+    reasons = []
+    if vector.get("schema") != FEATURE_VECTOR_VERSION:
+        reasons.append("feature_vector_schema")
+    label = str(vector.get("label") or "")
+    if not label:
+        reasons.append("feature_vector_label")
+
+    record_count = optional_int(vector.get("record_count"))
+    if record_count is None or record_count != sample_count:
+        reasons.append("feature_vector_record_count_mismatch")
+
+    features = vector.get("features") if isinstance(vector.get("features"), dict) else {}
+    missing_features = [name for name in SCALAR_FEATURES if name not in features]
+    if missing_features:
+        reasons.append("feature_vector_missing_features")
+    non_numeric = [name for name in SCALAR_FEATURES if name in features and not finite_number(features.get(name))]
+    if non_numeric:
+        reasons.append("feature_vector_non_numeric")
+
+    bit_length = task.get("bit_length")
+    bit_length_mean = features.get("bit_length_mean")
+    if bit_length and finite_number(bit_length_mean) and abs(float(bit_length_mean) - float(bit_length)) > 0.5:
+        reasons.append("feature_vector_bit_length_mismatch")
+
+    return {
+        "present": True,
+        "status": "pass" if not reasons else "blocked",
+        "label": label or None,
+        "blocking_reasons": list(dict.fromkeys(reasons)),
+    }
+
+
+def feature_vector_payload(record: dict[str, Any]) -> dict[str, Any] | None:
+    payload = record.get("feature_vector_summary") or record.get("feature_vector")
+    return payload if isinstance(payload, dict) else None
+
+
+def finite_number(value: Any) -> bool:
+    if isinstance(value, bool):
+        return False
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return False
+    return isfinite(number)
+
+
+def optional_int(value: Any) -> int | None:
+    if isinstance(value, bool):
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
 
 
 def is_sha256_hex(value: str) -> bool:

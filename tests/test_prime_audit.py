@@ -35,6 +35,8 @@ from prime_audit.crypto_classifier import run_crypto_classifier
 from prime_audit.decision_protocol import build_decision_protocol
 from prime_audit.evidence_pack import build_evidence_pack
 from prime_audit.feature_vectors import (
+    FEATURE_VECTOR_VERSION,
+    SCALAR_FEATURES,
     build_controlled_synthetic_feature_vectors,
     build_feature_vector_payload,
     feature_vector_from_fingerprint,
@@ -55,6 +57,23 @@ from prime_audit.simulators import (
     records_to_jsonable,
 )
 from prime_audit.snapshots import build_snapshot, render_snapshot_svgs
+
+
+def intake_feature_vector(label: str, *, record_count: int = 5000, bit_length: int = 2048) -> dict[str, object]:
+    features = {name: 0.1 for name in SCALAR_FEATURES}
+    features["record_count_log2"] = 12.2879
+    features["bit_length_mean"] = float(bit_length)
+    features["bit_length_stddev"] = 0.0
+    features["bit_length_entropy"] = 0.0
+    features["bit_length_max_mass"] = 1.0
+    return {
+        "schema": FEATURE_VECTOR_VERSION,
+        "id": f"{label}-intake",
+        "label": label,
+        "source": "unit-test",
+        "record_count": record_count,
+        "features": features,
+    }
 
 
 class PrimeAuditTests(unittest.TestCase):
@@ -626,6 +645,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "aggregate_artifact_sha256": "a" * 64,
                     "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
                     "feature_vector_path": "data/openssl_feature.json",
+                    "feature_vector_summary": intake_feature_vector("OpenSSL"),
                 },
                 {
                     "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
@@ -634,6 +654,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "aggregate_artifact_sha256": "b" * 64,
                     "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned"},
                     "feature_vector_path": "data/boringssl_feature.json",
+                    "feature_vector_summary": intake_feature_vector("BoringSSL"),
                 },
             ],
         )
@@ -647,6 +668,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "aggregate_artifact_sha256": "a" * 64,
                     "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
                     "feature_vector_path": "data/openssl_feature.json",
+                    "feature_vector_summary": intake_feature_vector("OpenSSL"),
                     "private_prime": "do-not-publish",
                 }
             ],
@@ -701,6 +723,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "aggregate_artifact_sha256": "c" * 64,
                     "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
                     "feature_vector_path": "data/openssl_feature.json",
+                    "feature_vector_summary": intake_feature_vector("OpenSSL"),
                 },
                 {
                     "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
@@ -709,6 +732,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "aggregate_artifact_sha256": "c" * 64,
                     "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned"},
                     "feature_vector_path": "data/boringssl_feature.json",
+                    "feature_vector_summary": intake_feature_vector("BoringSSL"),
                 },
             ],
         )
@@ -722,6 +746,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "aggregate_artifact_sha256": "d" * 64,
                     "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
                     "feature_vector_path": "data/openssl_feature.json",
+                    "feature_vector_summary": intake_feature_vector("OpenSSL"),
                 },
                 {
                     "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
@@ -730,6 +755,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "aggregate_artifact_sha256": "e" * 64,
                     "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
                     "feature_vector_path": "data/openssl_feature_alt.json",
+                    "feature_vector_summary": intake_feature_vector("OpenSSL"),
                     "private_prime": "do-not-publish",
                 },
             ],
@@ -751,6 +777,51 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(duplicate_row["submission_count"], 2)
         self.assertIn("duplicate_intake_record", duplicate_row["blocking_reasons"])
         self.assertIn("records[1].private_prime", duplicate_row["forbidden_public_fields"])
+
+    def test_collection_intake_blocks_invalid_feature_vector_contract(self) -> None:
+        handoff = {
+            "schema": "primeproject.collection-handoff.v1",
+            "rows": [
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "priority": "P0",
+                    "library": "OpenSSL",
+                    "baseline_id": "openssl-rsa-prime-owned",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                },
+            ],
+        }
+        bad_vector = intake_feature_vector("OpenSSL")
+        bad_vector["record_count"] = "not-a-number"
+        bad_vector["features"] = dict(bad_vector["features"])
+        bad_vector["features"].pop("residue_tv_210")
+        bad_vector["features"]["bit_length_mean"] = 3072.0
+
+        intake = build_collection_intake(
+            handoff=handoff,
+            records=[
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 5000,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "f" * 64,
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "feature_vector_path": "data/openssl_feature.json",
+                    "feature_vector_summary": bad_vector,
+                }
+            ],
+        )
+        row = intake["rows"][0]
+
+        self.assertEqual(row["feature_vector_contract"], "blocked")
+        self.assertEqual(intake["summary"]["feature_vector_contract_blocked_count"], 1)
+        self.assertIn("feature_vector_record_count_mismatch", row["blocking_reasons"])
+        self.assertIn("feature_vector_missing_features", row["blocking_reasons"])
+        self.assertIn("feature_vector_bit_length_mismatch", row["blocking_reasons"])
 
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(

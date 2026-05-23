@@ -22,7 +22,7 @@
 - Combines availability, provenance, and sample-power tiers into baseline acceptance gates before a real-world baseline can support attribution claims.
 - Produces a baseline promotion plan that identifies the shortest collection/provenance path from blocked baselines to accepted real-world evidence.
 - Converts the promotion path into a public-safe collection handoff packet with prioritized tasks, sample floors, provenance blockers, and forbidden raw-material fields.
-- Validates submitted collection artifacts with an intake gate for sample floors, checksums, provenance records, feature vectors, claim scope, duplicate task submissions, reused aggregate hashes, and forbidden public fields.
+- Validates submitted collection artifacts with an intake gate for sample floors, checksums, provenance records, embedded public feature-vector contracts, claim scope, duplicate task submissions, reused aggregate hashes, and forbidden public fields.
 - Exports fixed-length fingerprint vectors and runs a dependency-free Crypto-Classifier baseline before heavier ML experiments.
 - Scores end-to-end research readiness across Sim-to-Real baselines, attribution validation, classifier data, and Bitcoin integration.
 - Bundles checksummed evidence packs that state publication gates and claim limits.
@@ -46,7 +46,7 @@ The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synth
 
 The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, `data/null_calibration.json`, and `data/replication_audit.json`, highlighting which fingerprint profiles survive bit-length control, which ones are likely range confounds, whether the strongest controlled profiles survive random-label null simulation after family-wise profile selection, and whether those profiles replicate across settings.
 
-The Baseline Lab panel reads `data/baselines/real_world/manifest.json`, `data/collection_matrix.json`, `data/collection_power.json`, `data/provenance_requirements.json`, `data/provenance_audit.json`, `data/baseline_acceptance.json`, `data/baseline_promotion_plan.json`, `data/collection_handoff.json`, and `data/collection_intake.json` to show which real-world baseline families are registered, whether targets are only coarse screening or strong enough for tighter claims, which baselines still block publication, which public-safe collection tasks should be executed first, and whether submitted aggregate artifacts are acceptable without duplicate submission collisions or reused aggregate checksums.
+The Baseline Lab panel reads `data/baselines/real_world/manifest.json`, `data/collection_matrix.json`, `data/collection_power.json`, `data/provenance_requirements.json`, `data/provenance_audit.json`, `data/baseline_acceptance.json`, `data/baseline_promotion_plan.json`, `data/collection_handoff.json`, and `data/collection_intake.json` to show which real-world baseline families are registered, whether targets are only coarse screening or strong enough for tighter claims, which baselines still block publication, which public-safe collection tasks should be executed first, and whether submitted aggregate artifacts are acceptable without feature-vector contract failures, duplicate submission collisions, or reused aggregate checksums.
 
 The Research Readiness panel reads `data/research_readiness.json` and surfaces blocking gaps before any real-world attribution claim is treated as strong.
 
