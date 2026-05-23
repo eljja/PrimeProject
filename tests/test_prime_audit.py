@@ -663,6 +663,95 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("private_prime", sensitive_row["forbidden_public_fields"])
         self.assertEqual(sensitive_row["status"], "blocked")
 
+    def test_collection_intake_blocks_duplicate_records_and_reused_artifacts(self) -> None:
+        handoff = {
+            "schema": "primeproject.collection-handoff.v1",
+            "rows": [
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "priority": "P0",
+                    "library": "OpenSSL",
+                    "baseline_id": "openssl-rsa-prime-owned",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                },
+                {
+                    "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+                    "priority": "P0",
+                    "library": "BoringSSL",
+                    "baseline_id": "boringssl-rsa-prime-owned",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                },
+            ],
+        }
+        reused = build_collection_intake(
+            handoff=handoff,
+            records=[
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 5000,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "c" * 64,
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "feature_vector_path": "data/openssl_feature.json",
+                },
+                {
+                    "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 5000,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "c" * 64,
+                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned"},
+                    "feature_vector_path": "data/boringssl_feature.json",
+                },
+            ],
+        )
+        duplicated = build_collection_intake(
+            handoff=handoff,
+            records=[
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 5000,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "d" * 64,
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "feature_vector_path": "data/openssl_feature.json",
+                },
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 5000,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "e" * 64,
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "feature_vector_path": "data/openssl_feature_alt.json",
+                    "private_prime": "do-not-publish",
+                },
+            ],
+        )
+
+        self.assertEqual(reused["claim_gate"]["status"], "blocked")
+        self.assertEqual(reused["summary"]["reused_aggregate_hash_count"], 2)
+        self.assertTrue(
+            all(
+                "aggregate_artifact_sha256_reused" in row["blocking_reasons"]
+                for row in reused["rows"]
+                if row["submitted"]
+            )
+        )
+        duplicate_row = next(
+            row for row in duplicated["rows"] if row["task_id"] == "openssl-rsa-prime-owned:2048:rsa-prime"
+        )
+        self.assertEqual(duplicated["summary"]["duplicate_submission_count"], 1)
+        self.assertEqual(duplicate_row["submission_count"], 2)
+        self.assertIn("duplicate_intake_record", duplicate_row["blocking_reasons"])
+        self.assertIn("records[1].private_prime", duplicate_row["forbidden_public_fields"])
+
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(
             fingerprint_report_from_values([101, 103, 107, 109, 113, 127, 131, 137]),

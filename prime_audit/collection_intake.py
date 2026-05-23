@@ -22,9 +22,11 @@ def build_collection_intake(
     records: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     task_rows = {row.get("task_id"): row for row in handoff.get("rows", []) if row.get("task_id")}
-    records_by_task: dict[str, dict[str, Any]] = {
-        record.get("task_id"): record for record in records or [] if record.get("task_id")
-    }
+    records_by_task: dict[str, list[dict[str, Any]]] = {}
+    for record in records or []:
+        task_id = record.get("task_id")
+        if task_id:
+            records_by_task.setdefault(task_id, []).append(record)
     rows = [
         intake_row(task, records_by_task.get(task_id))
         for task_id, task in sorted(task_rows.items(), key=lambda item: intake_sort_key(item[1]))
@@ -35,6 +37,7 @@ def build_collection_intake(
         if record.get("task_id") not in task_rows
     ]
     rows.extend(extra)
+    apply_cross_record_checks(rows)
     summary = intake_summary(rows)
     return {
         "schema": COLLECTION_INTAKE_SCHEMA,
@@ -71,17 +74,20 @@ def load_intake_records(paths: list[str | Path]) -> list[dict[str, Any]]:
     return records
 
 
-def intake_row(task: dict[str, Any], record: dict[str, Any] | None) -> dict[str, Any]:
-    record = record or {}
-    submitted = bool(record)
+def intake_row(task: dict[str, Any], records: list[dict[str, Any]] | None) -> dict[str, Any]:
+    records = records or []
+    record = records[0] if records else {}
+    submitted = bool(records)
     sample_count = int(record.get("sample_count") or 0)
     required_samples = int(task.get("target_samples_for_10pct_tv") or task.get("planned_sample_target") or 0)
     planned_samples = int(task.get("planned_sample_target") or 0)
     checksum = str(record.get("aggregate_artifact_sha256") or "")
-    forbidden = forbidden_field_paths(record)
+    forbidden = aggregate_forbidden_field_paths(records)
     missing = []
     if not submitted:
         missing.append("intake_record")
+    if len(records) > 1:
+        missing.append("duplicate_intake_record")
     if submitted and sample_count < planned_samples:
         missing.append("planned_sample_target")
     if submitted and not is_sha256_hex(checksum):
@@ -105,6 +111,7 @@ def intake_row(task: dict[str, Any], record: dict[str, Any] | None) -> dict[str,
         "object_type": task.get("object_type"),
         "bit_length": task.get("bit_length"),
         "submitted": submitted,
+        "submission_count": len(records),
         "sample_count": sample_count,
         "planned_sample_target": planned_samples,
         "target_samples_for_10pct_tv": required_samples,
@@ -130,6 +137,7 @@ def extra_intake_row(record: dict[str, Any]) -> dict[str, Any]:
         "object_type": record.get("object_type", "unknown"),
         "bit_length": record.get("bit_length"),
         "submitted": True,
+        "submission_count": 1,
         "sample_count": int(record.get("sample_count") or 0),
         "planned_sample_target": 0,
         "target_samples_for_10pct_tv": 0,
@@ -142,6 +150,25 @@ def extra_intake_row(record: dict[str, Any]) -> dict[str, Any]:
         "blocking_reasons": ["unknown_task", *("forbidden_public_fields" for _ in forbidden)],
         "status": "blocked",
     }
+
+
+def apply_cross_record_checks(rows: list[dict[str, Any]]) -> None:
+    hashes: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        checksum = str(row.get("aggregate_artifact_sha256") or "")
+        if row.get("submitted") and is_sha256_hex(checksum):
+            hashes.setdefault(checksum.lower(), []).append(row)
+    for checksum, matching_rows in hashes.items():
+        task_ids = {row.get("task_id") for row in matching_rows}
+        if len(matching_rows) < 2 or len(task_ids) < 2:
+            continue
+        for row in matching_rows:
+            reasons = list(row.get("blocking_reasons") or [])
+            if "aggregate_artifact_sha256_reused" not in reasons:
+                reasons.append("aggregate_artifact_sha256_reused")
+            row["blocking_reasons"] = reasons
+            row["status"] = "blocked"
+            row["reused_aggregate_artifact_sha256"] = checksum
 
 
 def intake_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
@@ -172,6 +199,12 @@ def intake_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
             if row.get("priority") == "P0"
         ),
         "forbidden_public_field_count": sum(len(row.get("forbidden_public_fields") or []) for row in rows),
+        "duplicate_submission_count": sum(
+            1 for row in rows if "duplicate_intake_record" in (row.get("blocking_reasons") or [])
+        ),
+        "reused_aggregate_hash_count": sum(
+            1 for row in rows if "aggregate_artifact_sha256_reused" in (row.get("blocking_reasons") or [])
+        ),
         "dominant_blockers": dominant_blockers(rows),
     }
 
@@ -198,6 +231,15 @@ def forbidden_field_paths(payload: Any, prefix: str = "") -> list[str]:
     elif isinstance(payload, list):
         for index, value in enumerate(payload):
             paths.extend(forbidden_field_paths(value, f"{prefix}[{index}]"))
+    return paths
+
+
+def aggregate_forbidden_field_paths(records: list[dict[str, Any]]) -> list[str]:
+    if len(records) <= 1:
+        return forbidden_field_paths(records[0]) if records else []
+    paths = []
+    for index, record in enumerate(records):
+        paths.extend(forbidden_field_paths(record, f"records[{index}]"))
     return paths
 
 
