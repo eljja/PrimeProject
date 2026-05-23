@@ -1,11 +1,11 @@
 {
   "schema": "primeproject.evidence-pack.v1",
-  "generated_at": "2026-05-23T04:28:46+00:00",
+  "generated_at": "2026-05-23T04:33:37+00:00",
   "claim_level": {
     "level": "public_demo_only",
     "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
-    "failed_gate_count": 4,
-    "failed_high_gate_count": 3
+    "failed_gate_count": 5,
+    "failed_high_gate_count": 4
   },
   "publication_gates": [
     {
@@ -93,6 +93,20 @@
       "evidence": {
         "accepted_count": 0,
         "accepted_rsa_library_count": 0,
+        "claim_gate": "blocked"
+      }
+    },
+    {
+      "code": "collection_intake_gate",
+      "passed": false,
+      "severity": "high",
+      "message": "Submitted aggregate artifacts must pass collection intake before real-world attribution claims.",
+      "evidence": {
+        "submitted_count": 0,
+        "accepted_count": 0,
+        "accepted_rsa_library_count": 0,
+        "p0_blocked_count": 2,
+        "forbidden_public_field_count": 0,
         "claim_gate": "blocked"
       }
     },
@@ -200,7 +214,7 @@
       "role": "project_evolution",
       "path": "data/project_evolution.json",
       "exists": true,
-      "sha256": "01bd355541a4e65b51f7dead8ae99b674f478cad8b7f6d9c5302f0a017d0f7b2",
+      "sha256": "d5605e0ae6305087566c5e7458a38695cbf4c0f6fcb9354a539315a54e830a2c",
       "schema": "primeproject.project-evolution.v1",
       "bytes": 19405
     },
@@ -284,6 +298,13 @@
       "accepted_count": 0,
       "screening_only_count": 0,
       "blocked_count": 10
+    },
+    "collection_intake": {
+      "present": true,
+      "submitted_count": 0,
+      "accepted_count": 0,
+      "blocked_count": 10,
+      "forbidden_public_field_count": 0
     }
   },
   "required_evidence": [

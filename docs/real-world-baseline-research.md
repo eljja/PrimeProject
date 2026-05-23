@@ -199,7 +199,7 @@ python -m prime_audit.cli collection-intake `
   --output data/collection_intake.json
 ```
 
-현재 공개 번들은 raw 실세계 제출물이 없으므로 `0 submitted / 0 accepted / 10 blocked` 상태다. 특히 OpenSSL 2048-bit와 BoringSSL 2048-bit P0 task 두 개가 아직 막혀 있으며, 10% TV floor 기준으로 총 9028개 aggregate sample이 남아 있다. 이 게이트가 중요한 이유는 실세계 수집 이후에도 private prime, wallet seed, raw key file 같은 민감 필드가 공개 artifact에 섞이는 것을 자동으로 차단하고, feature vector가 없는 artifact가 classifier claim으로 넘어가는 것을 막기 때문이다.
+현재 공개 번들은 raw 실세계 제출물이 없으므로 `0 submitted / 0 accepted / 10 blocked` 상태다. 특히 OpenSSL 2048-bit와 BoringSSL 2048-bit P0 task 두 개가 아직 막혀 있으며, 10% TV floor 기준으로 총 9028개 aggregate sample이 남아 있다. 이 게이트가 중요한 이유는 실세계 수집 이후에도 private prime, wallet seed, raw key file 같은 민감 필드가 공개 artifact에 섞이는 것을 자동으로 차단하고, feature vector가 없는 artifact가 classifier claim으로 넘어가는 것을 막기 때문이다. Evidence Pack은 이 결과를 `collection_intake_gate`로 다시 평가하므로, intake가 blocked인 동안 real-world generator attribution 승격도 자동으로 blocked 상태를 유지한다.
 
 ## Research Readiness
 
@@ -259,7 +259,8 @@ python -m prime_audit.cli evidence-pack `
   --readiness data/research_readiness.json `
   --attribution-grid data/attribution_confound_grid.json `
   --baseline-acceptance data/baseline_acceptance.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json baseline_promotion_plan=data/baseline_promotion_plan.json collection_handoff=data/collection_handoff.json collection_intake=data/collection_intake.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json classifier_report=data/crypto_classifier_report.json `
+  --collection-intake data/collection_intake.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_promotion_plan=data/baseline_promotion_plan.json collection_handoff=data/collection_handoff.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json

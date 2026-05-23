@@ -264,6 +264,7 @@ def main() -> int:
     evidence_pack_parser.add_argument("--classifier-report", default=None)
     evidence_pack_parser.add_argument("--bitcoin-risk-report", default=None)
     evidence_pack_parser.add_argument("--baseline-acceptance", default=None)
+    evidence_pack_parser.add_argument("--collection-intake", default=None)
     evidence_pack_parser.add_argument(
         "--artifact",
         nargs="*",
@@ -672,6 +673,11 @@ def main() -> int:
             if args.baseline_acceptance
             else None
         )
+        collection_intake = (
+            json.loads(Path(args.collection_intake).read_text(encoding="utf-8"))
+            if args.collection_intake
+            else None
+        )
         paths = {
             "manifest": args.manifest,
             "readiness": args.readiness,
@@ -684,6 +690,8 @@ def main() -> int:
             paths["bitcoin_risk_report"] = args.bitcoin_risk_report
         if args.baseline_acceptance:
             paths["baseline_acceptance"] = args.baseline_acceptance
+        if args.collection_intake:
+            paths["collection_intake"] = args.collection_intake
         for artifact in args.artifact:
             if "=" not in artifact:
                 raise ValueError(f"artifact requires role=path, got {artifact!r}")
@@ -698,6 +706,7 @@ def main() -> int:
             classifier_report=classifier_report,
             bitcoin_risk_report=bitcoin_risk_report,
             baseline_acceptance=baseline_acceptance,
+            collection_intake=collection_intake,
             file_paths=paths,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")

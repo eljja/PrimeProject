@@ -771,6 +771,7 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("provenance_gate", failed)
         self.assertIn("provenance_audit_gate", failed)
         self.assertIn("baseline_acceptance_gate", failed)
+        self.assertIn("collection_intake_gate", failed)
         self.assertIn("promotion_plan_gate", failed)
         self.assertGreaterEqual(len(pack["local_collection_protocols"]), 3)
 
@@ -791,11 +792,13 @@ class PrimeAuditTests(unittest.TestCase):
                 {"code": "provenance_gate", "passed": True, "severity": "medium"},
                 {"code": "provenance_audit_gate", "passed": True, "severity": "medium"},
                 {"code": "baseline_acceptance_gate", "passed": False, "severity": "high"},
+                {"code": "collection_intake_gate", "passed": False, "severity": "high"},
                 {"code": "promotion_plan_gate", "passed": True, "severity": "medium"},
             ],
             "artifacts": [
                 {"role": "attribution_grid", "exists": True, "sha256": "a" * 64},
                 {"role": "baseline_acceptance", "exists": True, "sha256": "b" * 64},
+                {"role": "collection_intake", "exists": True, "sha256": "1" * 64},
                 {"role": "manifest", "exists": True, "sha256": "c" * 64},
                 {"role": "project_evolution", "exists": True, "sha256": "d" * 64},
                 {"role": "readiness", "exists": True, "sha256": "e" * 64},
@@ -875,6 +878,7 @@ class PrimeAuditTests(unittest.TestCase):
                 {"code": "provenance_gate", "passed": True, "severity": "medium"},
                 {"code": "provenance_audit_gate", "passed": True, "severity": "medium"},
                 {"code": "baseline_acceptance_gate", "passed": False, "severity": "high"},
+                {"code": "collection_intake_gate", "passed": False, "severity": "high"},
                 {"code": "bitcoin_integration_gate", "passed": False, "severity": "medium"},
             ],
             "artifacts": [
@@ -883,6 +887,7 @@ class PrimeAuditTests(unittest.TestCase):
                 {"role": "manifest", "exists": True, "sha256": "c" * 64},
                 {"role": "readiness", "exists": True, "sha256": "d" * 64},
                 {"role": "baseline_acceptance", "exists": True, "sha256": "e" * 64},
+                {"role": "collection_intake", "exists": True, "sha256": "f" * 64},
             ],
         }
         claim_ledger = {
@@ -913,6 +918,10 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(decisions["promote_real_world_generator_attribution"]["status"], "blocked")
         self.assertIn(
             "gate:real_baseline_gate",
+            decisions["promote_real_world_generator_attribution"]["blocking_items"],
+        )
+        self.assertIn(
+            "gate:collection_intake_gate",
             decisions["promote_real_world_generator_attribution"]["blocking_items"],
         )
         self.assertEqual(decisions["promote_bitcoin_nonce_risk_attribution"]["status"], "blocked")

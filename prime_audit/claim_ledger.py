@@ -63,8 +63,9 @@ CLAIM_SPECS: tuple[ClaimSpec, ...] = (
             "provenance_gate",
             "provenance_audit_gate",
             "baseline_acceptance_gate",
+            "collection_intake_gate",
         ),
-        required_artifacts=("manifest", "readiness", "baseline_acceptance"),
+        required_artifacts=("manifest", "readiness", "baseline_acceptance", "collection_intake"),
         advisory_gates=("promotion_plan_gate",),
         blocked_statement=(
             "Do not claim real-world generator attribution. Current evidence is a scaffold "

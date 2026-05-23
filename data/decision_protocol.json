@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.decision-protocol.v1",
-  "generated_at": "2026-05-23T04:29:06+00:00",
+  "generated_at": "2026-05-23T04:33:55+00:00",
   "source": {
     "evidence_pack_schema": "primeproject.evidence-pack.v1",
     "claim_ledger_schema": "primeproject.claim-ledger.v1",
@@ -88,12 +88,13 @@
       "track": "sim-to-real",
       "claim_id": "real_world_generator_attribution",
       "status": "blocked",
-      "threshold": "At least two accepted RSA library baselines, complete provenance, labelled classifier vectors across at least three labels, and matching evidence-pack checksums.",
+      "threshold": "At least two accepted RSA library baselines, complete provenance, accepted collection intake, labelled classifier vectors across at least three labels, and matching evidence-pack checksums.",
       "statement": "Real-world generator attribution must remain a blocked claim.",
       "blocking_items": [
         "gate:real_baseline_gate",
         "gate:classifier_gate",
         "gate:baseline_acceptance_gate",
+        "gate:collection_intake_gate",
         "claim:real_world_generator_attribution:blocked"
       ],
       "required_gates": [
@@ -121,6 +122,11 @@
           "code": "baseline_acceptance_gate",
           "passed": false,
           "severity": "high"
+        },
+        {
+          "code": "collection_intake_gate",
+          "passed": false,
+          "severity": "high"
         }
       ],
       "required_artifacts": [
@@ -135,10 +141,14 @@
         {
           "role": "baseline_acceptance",
           "present": true
+        },
+        {
+          "role": "collection_intake",
+          "present": true
         }
       ],
       "lineage_reproducible": true,
-      "next_action": "Collect accepted OpenSSL/BoringSSL aggregate baselines, complete provenance, and export labelled classifier vectors."
+      "next_action": "Collect accepted OpenSSL/BoringSSL aggregate baselines, pass collection intake, complete provenance, and export labelled classifier vectors."
     },
     {
       "decision_id": "promote_bitcoin_nonce_risk_attribution",

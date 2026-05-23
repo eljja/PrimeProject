@@ -58,12 +58,13 @@ DECISION_RULES: tuple[DecisionRule, ...] = (
             "provenance_gate",
             "provenance_audit_gate",
             "baseline_acceptance_gate",
+            "collection_intake_gate",
         ),
-        required_artifacts=("manifest", "readiness", "baseline_acceptance"),
+        required_artifacts=("manifest", "readiness", "baseline_acceptance", "collection_intake"),
         required_lineage_reproducible=True,
         threshold=(
-            "At least two accepted RSA library baselines, complete provenance, labelled classifier "
-            "vectors across at least three labels, and matching evidence-pack checksums."
+            "At least two accepted RSA library baselines, complete provenance, accepted collection "
+            "intake, labelled classifier vectors across at least three labels, and matching evidence-pack checksums."
         ),
         allowed_statement="Cautious real-world generator attribution experiments may be reported.",
         blocked_statement="Real-world generator attribution must remain a blocked claim.",
@@ -189,7 +190,7 @@ def next_action_for(decision_id: str, blocking_items: list[str]) -> str:
     if not blocking_items:
         return "Keep limitations attached and preserve current evidence snapshots."
     if decision_id == "promote_real_world_generator_attribution":
-        return "Collect accepted OpenSSL/BoringSSL aggregate baselines, complete provenance, and export labelled classifier vectors."
+        return "Collect accepted OpenSSL/BoringSSL aggregate baselines, pass collection intake, complete provenance, and export labelled classifier vectors."
     if decision_id == "promote_bitcoin_nonce_risk_attribution":
         return "Bundle a public-safe Bitcoin nonce-risk report from owned or public metadata summaries."
     if any(item.startswith("lineage:") for item in blocking_items):

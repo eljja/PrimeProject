@@ -317,7 +317,7 @@ async function main() {
     process.exit(1);
   }
   if (
-    metrics.evidenceGates < 10 ||
+    metrics.evidenceGates < 11 ||
     metrics.evidenceArtifacts < 17 ||
     metrics.claimLedgerRows < 5 ||
     metrics.artifactLineageRows < 5 ||
@@ -345,6 +345,7 @@ async function main() {
     !metrics.evidencePanel.includes("provenance_gate") ||
     !metrics.evidencePanel.includes("provenance_audit_gate") ||
     !metrics.evidencePanel.includes("baseline_acceptance_gate") ||
+    !metrics.evidencePanel.includes("collection_intake_gate") ||
     !metrics.evidencePanel.includes("promotion_plan_gate") ||
     !metrics.evidencePanel.includes("provenance_requirements") ||
     !metrics.evidencePanel.includes("provenance_audit") ||

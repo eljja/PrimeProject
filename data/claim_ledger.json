@@ -1,10 +1,10 @@
 {
   "schema": "primeproject.claim-ledger.v1",
-  "generated_at": "2026-05-23T04:28:52+00:00",
+  "generated_at": "2026-05-23T04:33:44+00:00",
   "source": {
     "schema": "primeproject.evidence-pack.v1",
     "claim_level": "public_demo_only",
-    "failed_gate_count": 4
+    "failed_gate_count": 5
   },
   "summary": {
     "claim_count": 5,
@@ -127,6 +127,12 @@
           "present": true,
           "passed": false,
           "severity": "high"
+        },
+        {
+          "code": "collection_intake_gate",
+          "present": true,
+          "passed": false,
+          "severity": "high"
         }
       ],
       "advisory_gates": [
@@ -155,12 +161,19 @@
           "present": true,
           "schema": "primeproject.baseline-acceptance.v1",
           "sha256": "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58"
+        },
+        {
+          "role": "collection_intake",
+          "present": true,
+          "schema": "primeproject.collection-intake.v1",
+          "sha256": "e950bd4dbffd38b7687c6431902d1f9715aa072c71f615e2b8860f4db2207902"
         }
       ],
       "failed_required_gates": [
         "real_baseline_gate",
         "classifier_gate",
-        "baseline_acceptance_gate"
+        "baseline_acceptance_gate",
+        "collection_intake_gate"
       ],
       "failed_advisory_gates": [],
       "missing_required_artifacts": []
@@ -270,7 +283,7 @@
           "role": "project_evolution",
           "present": true,
           "schema": "primeproject.project-evolution.v1",
-          "sha256": "01bd355541a4e65b51f7dead8ae99b674f478cad8b7f6d9c5302f0a017d0f7b2"
+          "sha256": "d5605e0ae6305087566c5e7458a38695cbf4c0f6fcb9354a539315a54e830a2c"
         }
       ],
       "failed_required_gates": [],

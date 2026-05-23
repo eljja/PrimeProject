@@ -18,6 +18,7 @@ def build_evidence_pack(
     classifier_report: dict[str, Any] | None = None,
     bitcoin_risk_report: dict[str, Any] | None = None,
     baseline_acceptance: dict[str, Any] | None = None,
+    collection_intake: dict[str, Any] | None = None,
     file_paths: dict[str, str | Path] | None = None,
     generated_at: str | None = None,
 ) -> dict[str, Any]:
@@ -29,6 +30,7 @@ def build_evidence_pack(
         classifier_report=classifier_report or {},
         bitcoin_risk_report=bitcoin_risk_report or {},
         baseline_acceptance=baseline_acceptance or {},
+        collection_intake=collection_intake or {},
         artifacts=artifacts,
     )
     return {
@@ -45,6 +47,7 @@ def build_evidence_pack(
             classifier_report=classifier_report or {},
             bitcoin_risk_report=bitcoin_risk_report or {},
             baseline_acceptance=baseline_acceptance or {},
+            collection_intake=collection_intake or {},
         ),
         "required_evidence": required_evidence(readiness),
         "local_collection_protocols": local_collection_protocols(),
@@ -96,6 +99,7 @@ def publication_gates(
     classifier_report: dict[str, Any],
     bitcoin_risk_report: dict[str, Any],
     baseline_acceptance: dict[str, Any],
+    collection_intake: dict[str, Any],
     artifacts: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
     dimensions = readiness.get("dimensions", {})
@@ -200,6 +204,24 @@ def publication_gates(
             severity="high",
         ),
         gate(
+            "collection_intake_gate",
+            collection_intake.get("claim_gate", {}).get("status") == "open",
+            "Submitted aggregate artifacts must pass collection intake before real-world attribution claims.",
+            {
+                "submitted_count": collection_intake.get("summary", {}).get("submitted_count", 0),
+                "accepted_count": collection_intake.get("summary", {}).get("accepted_count", 0),
+                "accepted_rsa_library_count": collection_intake.get("summary", {}).get(
+                    "accepted_rsa_library_count", 0
+                ),
+                "p0_blocked_count": collection_intake.get("summary", {}).get("p0_blocked_count", 0),
+                "forbidden_public_field_count": collection_intake.get("summary", {}).get(
+                    "forbidden_public_field_count", 0
+                ),
+                "claim_gate": collection_intake.get("claim_gate", {}).get("status"),
+            },
+            severity="high",
+        ),
+        gate(
             "promotion_plan_gate",
             any(
                 artifact.get("role") == "baseline_promotion_plan"
@@ -238,6 +260,7 @@ def evidence_summary(
     classifier_report: dict[str, Any],
     bitcoin_risk_report: dict[str, Any],
     baseline_acceptance: dict[str, Any],
+    collection_intake: dict[str, Any],
 ) -> dict[str, Any]:
     return {
         "manifest": {
@@ -266,6 +289,23 @@ def evidence_summary(
             "accepted_count": baseline_acceptance.get("accepted_count", 0) if baseline_acceptance else 0,
             "screening_only_count": baseline_acceptance.get("screening_only_count", 0) if baseline_acceptance else 0,
             "blocked_count": baseline_acceptance.get("blocked_count", 0) if baseline_acceptance else 0,
+        },
+        "collection_intake": {
+            "present": bool(collection_intake),
+            "submitted_count": collection_intake.get("summary", {}).get("submitted_count", 0)
+            if collection_intake
+            else 0,
+            "accepted_count": collection_intake.get("summary", {}).get("accepted_count", 0)
+            if collection_intake
+            else 0,
+            "blocked_count": collection_intake.get("summary", {}).get("blocked_count", 0)
+            if collection_intake
+            else 0,
+            "forbidden_public_field_count": collection_intake.get("summary", {}).get(
+                "forbidden_public_field_count", 0
+            )
+            if collection_intake
+            else 0,
         },
     }
 
