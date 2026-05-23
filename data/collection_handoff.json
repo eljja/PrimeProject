@@ -1,0 +1,508 @@
+{
+  "schema": "primeproject.collection-handoff.v1",
+  "source_schemas": {
+    "manifest": "primeproject.real-world-baseline-manifest.v1",
+    "collection_matrix": "primeproject.real-world-collection-matrix.v1",
+    "collection_power": "primeproject.collection-power.v1",
+    "provenance_requirements": "primeproject.provenance-requirements.v1",
+    "provenance_audit": "primeproject.provenance-audit.v1",
+    "baseline_acceptance": "primeproject.baseline-acceptance.v1",
+    "baseline_promotion_plan": "primeproject.baseline-promotion-plan.v1",
+    "classifier_report": "primeproject.crypto-classifier-report.v1"
+  },
+  "summary": {
+    "task_count": 10,
+    "p0_count": 2,
+    "blocked_count": 10,
+    "remaining_p0_samples_for_10pct_tv": 9028,
+    "missing_provenance_field_count": 89,
+    "classifier_scope": "controlled_synthetic_only",
+    "classifier_label_count": 3,
+    "next_unlock": "collect OpenSSL 2048-bit and BoringSSL 2048-bit aggregate RSA-prime baselines with complete provenance"
+  },
+  "claim_gate": {
+    "status": "blocked",
+    "message": "Handoff is ready for collection execution, but real-world attribution claims remain blocked."
+  },
+  "public_artifact_contract": {
+    "publish_private_material": false,
+    "publish_raw_private_primes": false,
+    "publish_wallet_seeds": false,
+    "required_public_outputs": [
+      "aggregate fingerprint JSON",
+      "baseline JSON",
+      "feature vector JSON",
+      "provenance record JSON",
+      "SHA-256 checksum"
+    ]
+  },
+  "rows": [
+    {
+      "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+      "priority": "P0",
+      "library": "BoringSSL",
+      "baseline_id": "boringssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "current_samples": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_plan": 500,
+      "remaining_samples_to_10pct_tv": 4514,
+      "power_tier": "coarse",
+      "acceptance": "blocked",
+      "blocking_reasons": [
+        "manifest_not_available",
+        "target_not_available",
+        "provenance_not_passed"
+      ],
+      "provenance_status": "blocked",
+      "missing_provenance_fields": [
+        "bit_length",
+        "collector",
+        "collection_date",
+        "host_platform",
+        "source_commit",
+        "build_config",
+        "rng_source",
+        "generation_command",
+        "aggregate_artifact_sha256"
+      ],
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "raw_material_policy": "raw private keys/primes stay local; publish aggregate fingerprints only",
+      "collector_contract": {
+        "local_input": "owned generated RSA private material",
+        "public_input": "none",
+        "public_output": "aggregate RSA-prime fingerprint and feature vector",
+        "minimum_replicates": 3,
+        "must_not_publish": [
+          "private_key",
+          "private_prime",
+          "raw_key_file"
+        ]
+      }
+    },
+    {
+      "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+      "priority": "P0",
+      "library": "OpenSSL",
+      "baseline_id": "openssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "current_samples": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_plan": 500,
+      "remaining_samples_to_10pct_tv": 4514,
+      "power_tier": "coarse",
+      "acceptance": "blocked",
+      "blocking_reasons": [
+        "manifest_not_available",
+        "target_not_available",
+        "provenance_not_passed"
+      ],
+      "provenance_status": "blocked",
+      "missing_provenance_fields": [
+        "bit_length",
+        "collector",
+        "collection_date",
+        "host_platform",
+        "source_commit",
+        "build_config",
+        "rng_source",
+        "generation_command",
+        "aggregate_artifact_sha256"
+      ],
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "raw_material_policy": "raw private keys/primes stay local; publish aggregate fingerprints only",
+      "collector_contract": {
+        "local_input": "owned generated RSA private material",
+        "public_input": "none",
+        "public_output": "aggregate RSA-prime fingerprint and feature vector",
+        "minimum_replicates": 3,
+        "must_not_publish": [
+          "private_key",
+          "private_prime",
+          "raw_key_file"
+        ]
+      }
+    },
+    {
+      "task_id": "bitcoin-core-ecdsa-signature-public:256:ecdsa-signature",
+      "priority": "P1",
+      "library": "Bitcoin Core / wallet metadata",
+      "baseline_id": "bitcoin-core-ecdsa-signature-public",
+      "track": "signature-nonce-metadata",
+      "object_type": "ecdsa-signature",
+      "bit_length": 256,
+      "current_samples": 0,
+      "planned_sample_target": 10000,
+      "target_samples_for_10pct_tv": 10000,
+      "remaining_samples_to_plan": 10000,
+      "remaining_samples_to_10pct_tv": 10000,
+      "power_tier": "strong",
+      "acceptance": "blocked",
+      "blocking_reasons": [
+        "manifest_not_available",
+        "target_not_available",
+        "provenance_not_passed"
+      ],
+      "provenance_status": "blocked",
+      "missing_provenance_fields": [
+        "collector",
+        "collection_date",
+        "host_platform",
+        "source_commit",
+        "build_config",
+        "rng_source",
+        "generation_command",
+        "aggregate_artifact_sha256"
+      ],
+      "public_output": "nonce-risk summary + distribution fingerprint",
+      "raw_material_policy": "publish public metadata summaries only",
+      "collector_contract": {
+        "local_input": "owned wallet signatures or public-chain signature metadata",
+        "public_input": "signature r/s/z metadata only",
+        "public_output": "nonce-risk summary and distribution fingerprint",
+        "minimum_replicates": 1,
+        "must_not_publish": [
+          "wallet_seed",
+          "private_key",
+          "raw_signature_owner"
+        ]
+      }
+    },
+    {
+      "task_id": "go-crypto-rsa-prime-owned:2048:rsa-prime",
+      "priority": "P1",
+      "library": "Go crypto/rsa",
+      "baseline_id": "go-crypto-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "current_samples": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_plan": 500,
+      "remaining_samples_to_10pct_tv": 4514,
+      "power_tier": "coarse",
+      "acceptance": "blocked",
+      "blocking_reasons": [
+        "manifest_not_available",
+        "target_not_available",
+        "provenance_not_passed"
+      ],
+      "provenance_status": "blocked",
+      "missing_provenance_fields": [
+        "bit_length",
+        "collector",
+        "collection_date",
+        "host_platform",
+        "source_commit",
+        "build_config",
+        "rng_source",
+        "generation_command",
+        "aggregate_artifact_sha256"
+      ],
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "raw_material_policy": "raw private keys/primes stay local; publish aggregate fingerprints only",
+      "collector_contract": {
+        "local_input": "owned generated RSA private material",
+        "public_input": "none",
+        "public_output": "aggregate RSA-prime fingerprint and feature vector",
+        "minimum_replicates": 3,
+        "must_not_publish": [
+          "private_key",
+          "private_prime",
+          "raw_key_file"
+        ]
+      }
+    },
+    {
+      "task_id": "boringssl-rsa-prime-owned:3072:rsa-prime",
+      "priority": "P2",
+      "library": "BoringSSL",
+      "baseline_id": "boringssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
+      "current_samples": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_plan": 500,
+      "remaining_samples_to_10pct_tv": 4514,
+      "power_tier": "coarse",
+      "acceptance": "blocked",
+      "blocking_reasons": [
+        "manifest_not_available",
+        "target_not_available",
+        "provenance_not_passed"
+      ],
+      "provenance_status": "blocked",
+      "missing_provenance_fields": [
+        "bit_length",
+        "collector",
+        "collection_date",
+        "host_platform",
+        "source_commit",
+        "build_config",
+        "rng_source",
+        "generation_command",
+        "aggregate_artifact_sha256"
+      ],
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "raw_material_policy": "raw private keys/primes stay local; publish aggregate fingerprints only",
+      "collector_contract": {
+        "local_input": "owned generated RSA private material",
+        "public_input": "none",
+        "public_output": "aggregate RSA-prime fingerprint and feature vector",
+        "minimum_replicates": 3,
+        "must_not_publish": [
+          "private_key",
+          "private_prime",
+          "raw_key_file"
+        ]
+      }
+    },
+    {
+      "task_id": "boringssl-rsa-prime-owned:4096:rsa-prime",
+      "priority": "P2",
+      "library": "BoringSSL",
+      "baseline_id": "boringssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
+      "current_samples": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_plan": 500,
+      "remaining_samples_to_10pct_tv": 4514,
+      "power_tier": "coarse",
+      "acceptance": "blocked",
+      "blocking_reasons": [
+        "manifest_not_available",
+        "target_not_available",
+        "provenance_not_passed"
+      ],
+      "provenance_status": "blocked",
+      "missing_provenance_fields": [
+        "bit_length",
+        "collector",
+        "collection_date",
+        "host_platform",
+        "source_commit",
+        "build_config",
+        "rng_source",
+        "generation_command",
+        "aggregate_artifact_sha256"
+      ],
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "raw_material_policy": "raw private keys/primes stay local; publish aggregate fingerprints only",
+      "collector_contract": {
+        "local_input": "owned generated RSA private material",
+        "public_input": "none",
+        "public_output": "aggregate RSA-prime fingerprint and feature vector",
+        "minimum_replicates": 3,
+        "must_not_publish": [
+          "private_key",
+          "private_prime",
+          "raw_key_file"
+        ]
+      }
+    },
+    {
+      "task_id": "go-crypto-rsa-prime-owned:3072:rsa-prime",
+      "priority": "P2",
+      "library": "Go crypto/rsa",
+      "baseline_id": "go-crypto-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
+      "current_samples": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_plan": 500,
+      "remaining_samples_to_10pct_tv": 4514,
+      "power_tier": "coarse",
+      "acceptance": "blocked",
+      "blocking_reasons": [
+        "manifest_not_available",
+        "target_not_available",
+        "provenance_not_passed"
+      ],
+      "provenance_status": "blocked",
+      "missing_provenance_fields": [
+        "bit_length",
+        "collector",
+        "collection_date",
+        "host_platform",
+        "source_commit",
+        "build_config",
+        "rng_source",
+        "generation_command",
+        "aggregate_artifact_sha256"
+      ],
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "raw_material_policy": "raw private keys/primes stay local; publish aggregate fingerprints only",
+      "collector_contract": {
+        "local_input": "owned generated RSA private material",
+        "public_input": "none",
+        "public_output": "aggregate RSA-prime fingerprint and feature vector",
+        "minimum_replicates": 3,
+        "must_not_publish": [
+          "private_key",
+          "private_prime",
+          "raw_key_file"
+        ]
+      }
+    },
+    {
+      "task_id": "go-crypto-rsa-prime-owned:4096:rsa-prime",
+      "priority": "P2",
+      "library": "Go crypto/rsa",
+      "baseline_id": "go-crypto-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
+      "current_samples": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_plan": 500,
+      "remaining_samples_to_10pct_tv": 4514,
+      "power_tier": "coarse",
+      "acceptance": "blocked",
+      "blocking_reasons": [
+        "manifest_not_available",
+        "target_not_available",
+        "provenance_not_passed"
+      ],
+      "provenance_status": "blocked",
+      "missing_provenance_fields": [
+        "bit_length",
+        "collector",
+        "collection_date",
+        "host_platform",
+        "source_commit",
+        "build_config",
+        "rng_source",
+        "generation_command",
+        "aggregate_artifact_sha256"
+      ],
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "raw_material_policy": "raw private keys/primes stay local; publish aggregate fingerprints only",
+      "collector_contract": {
+        "local_input": "owned generated RSA private material",
+        "public_input": "none",
+        "public_output": "aggregate RSA-prime fingerprint and feature vector",
+        "minimum_replicates": 3,
+        "must_not_publish": [
+          "private_key",
+          "private_prime",
+          "raw_key_file"
+        ]
+      }
+    },
+    {
+      "task_id": "openssl-rsa-prime-owned:3072:rsa-prime",
+      "priority": "P2",
+      "library": "OpenSSL",
+      "baseline_id": "openssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
+      "current_samples": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_plan": 500,
+      "remaining_samples_to_10pct_tv": 4514,
+      "power_tier": "coarse",
+      "acceptance": "blocked",
+      "blocking_reasons": [
+        "manifest_not_available",
+        "target_not_available",
+        "provenance_not_passed"
+      ],
+      "provenance_status": "blocked",
+      "missing_provenance_fields": [
+        "bit_length",
+        "collector",
+        "collection_date",
+        "host_platform",
+        "source_commit",
+        "build_config",
+        "rng_source",
+        "generation_command",
+        "aggregate_artifact_sha256"
+      ],
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "raw_material_policy": "raw private keys/primes stay local; publish aggregate fingerprints only",
+      "collector_contract": {
+        "local_input": "owned generated RSA private material",
+        "public_input": "none",
+        "public_output": "aggregate RSA-prime fingerprint and feature vector",
+        "minimum_replicates": 3,
+        "must_not_publish": [
+          "private_key",
+          "private_prime",
+          "raw_key_file"
+        ]
+      }
+    },
+    {
+      "task_id": "openssl-rsa-prime-owned:4096:rsa-prime",
+      "priority": "P2",
+      "library": "OpenSSL",
+      "baseline_id": "openssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
+      "current_samples": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_plan": 500,
+      "remaining_samples_to_10pct_tv": 4514,
+      "power_tier": "coarse",
+      "acceptance": "blocked",
+      "blocking_reasons": [
+        "manifest_not_available",
+        "target_not_available",
+        "provenance_not_passed"
+      ],
+      "provenance_status": "blocked",
+      "missing_provenance_fields": [
+        "bit_length",
+        "collector",
+        "collection_date",
+        "host_platform",
+        "source_commit",
+        "build_config",
+        "rng_source",
+        "generation_command",
+        "aggregate_artifact_sha256"
+      ],
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "raw_material_policy": "raw private keys/primes stay local; publish aggregate fingerprints only",
+      "collector_contract": {
+        "local_input": "owned generated RSA private material",
+        "public_input": "none",
+        "public_output": "aggregate RSA-prime fingerprint and feature vector",
+        "minimum_replicates": 3,
+        "must_not_publish": [
+          "private_key",
+          "private_prime",
+          "raw_key_file"
+        ]
+      }
+    }
+  ],
+  "execution_order": [
+    "collect raw material locally",
+    "derive aggregate fingerprint",
+    "write provenance record",
+    "audit provenance",
+    "export feature vector",
+    "rerun classifier/readiness/evidence-pack"
+  ]
+}

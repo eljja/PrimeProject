@@ -1661,6 +1661,85 @@ canvas {
   overflow-wrap: anywhere;
 }
 
+.handoff-rows {
+  display: grid;
+  gap: 8px;
+  padding: 0 14px 14px;
+}
+
+.handoff-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 56px 120px minmax(160px, 0.8fr);
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 10px 12px;
+}
+
+.handoff-row strong,
+.handoff-contract strong {
+  display: block;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.handoff-row span,
+.handoff-contract span,
+.handoff-contract code {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.handoff-row div span {
+  display: block;
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+.handoff-row em {
+  justify-self: start;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 820;
+}
+
+.priority-p0 {
+  background: rgba(189, 61, 52, 0.12);
+  color: var(--danger);
+}
+
+.priority-p1 {
+  background: rgba(215, 138, 17, 0.12);
+  color: var(--amber);
+}
+
+.priority-p2 {
+  background: rgba(11, 127, 122, 0.1);
+  color: var(--teal);
+}
+
+.handoff-row code {
+  color: var(--muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.handoff-contract {
+  margin: 0 14px 14px;
+  border-left: 3px solid var(--teal);
+  background: rgba(11, 127, 122, 0.08);
+  padding: 10px 12px;
+}
+
+.handoff-contract span,
+.handoff-contract code {
+  display: block;
+  margin-top: 4px;
+}
+
 .readiness-summary {
   display: grid;
   grid-template-columns: repeat(4, minmax(120px, 1fr));
@@ -2978,6 +3057,10 @@ tr:last-child td {
   .provenance-row {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+
+  .handoff-row {
+    grid-template-columns: 1fr;
   }
 
   .matrix-heading {

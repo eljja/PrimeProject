@@ -170,6 +170,25 @@ python -m prime_audit.cli baseline-promotion-plan `
 
 이 산출물은 실제 수집 작업의 우선순위표다. 먼저 provenance record를 완성하고, raw private material은 local에 유지하며, 공개 artifact는 aggregate fingerprint와 checksum만 포함해야 한다. GitHub Pages의 Promotion Plan은 이 minimal unlock path를 그대로 표시한다.
 
+## Collection Handoff
+
+`collection-handoff`는 promotion plan을 실제 수집 실행 패킷으로 바꾼다. 목적은 “OpenSSL/BoringSSL을 모으자”가 아니라, 어떤 task가 P0인지, 몇 개 sample이 필요한지, 어떤 provenance field가 막고 있는지, 무엇을 절대 공개하면 안 되는지까지 public-safe JSON으로 고정하는 것이다.
+
+```powershell
+python -m prime_audit.cli collection-handoff `
+  --manifest data/baselines/real_world/manifest.json `
+  --matrix data/collection_matrix.json `
+  --power data/collection_power.json `
+  --provenance-requirements data/provenance_requirements.json `
+  --provenance-audit data/provenance_audit.json `
+  --baseline-acceptance data/baseline_acceptance.json `
+  --promotion-plan data/baseline_promotion_plan.json `
+  --classifier-report data/crypto_classifier_report.json `
+  --output data/collection_handoff.json
+```
+
+현재 handoff는 10개 collection task를 만들고, P0는 OpenSSL 2048-bit와 BoringSSL 2048-bit 두 개다. 두 P0 target은 10% TV floor 기준 총 9028개 sample이 필요하며, 공개 계약은 `aggregate fingerprint JSON`, `baseline JSON`, `feature vector JSON`, `provenance record JSON`, `SHA-256 checksum`으로 제한한다. `private_key`, `private_prime`, `wallet_seed`, raw key file은 공개 금지 필드로 남는다.
+
 ## Research Readiness
 
 `research-readiness`는 현재 연구 도구가 실세계 attribution 주장에 얼마나 가까운지 점수화한다. 입력은 real-world baseline manifest, attribution grid, classifier report, Bitcoin risk report다.
@@ -228,7 +247,7 @@ python -m prime_audit.cli evidence-pack `
   --readiness data/research_readiness.json `
   --attribution-grid data/attribution_confound_grid.json `
   --baseline-acceptance data/baseline_acceptance.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json baseline_promotion_plan=data/baseline_promotion_plan.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json classifier_report=data/crypto_classifier_report.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json baseline_promotion_plan=data/baseline_promotion_plan.json collection_handoff=data/collection_handoff.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json classifier_report=data/crypto_classifier_report.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json
@@ -259,7 +278,7 @@ python -m prime_audit.cli artifact-lineage `
   --output data/artifact_lineage.json
 ```
 
-현재 lineage는 17개 artifact node와 33개 dependency edge를 추적한다. 새로 추가된 `feature_vectors`와 `classifier_report`는 `readiness`와 `evidence_pack`의 입력으로 연결된다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`와 `artifact_lineage`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> claim_ledger/artifact_lineage -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
+현재 lineage는 18개 artifact node와 42개 dependency edge를 추적한다. `feature_vectors`와 `classifier_report`는 `readiness`와 `evidence_pack`의 입력으로 연결되고, `collection_handoff`는 manifest, collection matrix/power, provenance, acceptance, promotion, classifier scope를 묶는 sim-to-real 실행 산출물로 연결된다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`와 `artifact_lineage`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> claim_ledger/artifact_lineage -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
 
 ## Decision Protocol
 
@@ -300,9 +319,9 @@ python -m prime_audit.cli falsification-battery `
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> collection handoff -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
 - 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, accepted baseline 수, promotion unlock sample 수, attribution grid row 수, classifier vector 수, claim level.
-- Research Delta: 초기 300K 수준의 탐색형 prime-regularity demo에서 현재 10M live compute, 1M/10M snapshot, 48-row attribution grid, 5,000 null iteration, 8-setting replication audit, scoped classifier baseline, 15 checksummed artifact로 이동한 변화를 한 화면에서 비교한다.
+- Research Delta: 초기 300K 수준의 탐색형 prime-regularity demo에서 현재 10M live compute, 1M/10M snapshot, 48-row attribution grid, 5,000 null iteration, 8-setting replication audit, scoped classifier baseline, collection handoff, 16 checksummed artifact로 이동한 변화를 한 화면에서 비교한다.
 - Claim lane: public demo와 controlled synthetic signal은 allowed로 보이지만, real-world generator attribution과 Bitcoin wallet/library attribution은 accepted baseline, classifier vector, nonce-risk report가 없기 때문에 blocked로 남긴다.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 

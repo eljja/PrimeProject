@@ -13,6 +13,7 @@ from .baselines import build_generator_baseline, compare_fingerprint_to_baseline
 from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .bitcoin_integration import build_bitcoin_generator_risk_report
 from .claim_ledger import build_claim_ledger
+from .collection_handoff import build_collection_handoff
 from .conjecture_lab import run_lab
 from .crypto_classifier import run_crypto_classifier
 from .decision_protocol import build_decision_protocol
@@ -178,6 +179,20 @@ def main() -> int:
     baseline_promotion_parser.add_argument("--acceptance", required=True)
     baseline_promotion_parser.add_argument("--power", required=True)
     baseline_promotion_parser.add_argument("--output", required=True)
+
+    collection_handoff_parser = subparsers.add_parser(
+        "collection-handoff",
+        help="Build an execution handoff packet for real-world baseline collection.",
+    )
+    collection_handoff_parser.add_argument("--manifest", required=True)
+    collection_handoff_parser.add_argument("--matrix", required=True)
+    collection_handoff_parser.add_argument("--power", required=True)
+    collection_handoff_parser.add_argument("--provenance-requirements", required=True)
+    collection_handoff_parser.add_argument("--provenance-audit", required=True)
+    collection_handoff_parser.add_argument("--baseline-acceptance", required=True)
+    collection_handoff_parser.add_argument("--promotion-plan", required=True)
+    collection_handoff_parser.add_argument("--classifier-report", default=None)
+    collection_handoff_parser.add_argument("--output", required=True)
 
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
@@ -513,6 +528,32 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         payload = build_baseline_promotion_plan(acceptance=acceptance, power=power)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "collection-handoff":
+        manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
+        matrix = json.loads(Path(args.matrix).read_text(encoding="utf-8"))
+        power = json.loads(Path(args.power).read_text(encoding="utf-8"))
+        provenance_requirements = json.loads(Path(args.provenance_requirements).read_text(encoding="utf-8"))
+        provenance_audit = json.loads(Path(args.provenance_audit).read_text(encoding="utf-8"))
+        baseline_acceptance = json.loads(Path(args.baseline_acceptance).read_text(encoding="utf-8"))
+        promotion_plan = json.loads(Path(args.promotion_plan).read_text(encoding="utf-8"))
+        classifier_report = (
+            json.loads(Path(args.classifier_report).read_text(encoding="utf-8")) if args.classifier_report else None
+        )
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_collection_handoff(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_requirements=provenance_requirements,
+            provenance_audit=provenance_audit,
+            baseline_acceptance=baseline_acceptance,
+            promotion_plan=promotion_plan,
+            classifier_report=classifier_report,
+        )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

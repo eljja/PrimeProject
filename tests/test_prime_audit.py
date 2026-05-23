@@ -26,6 +26,7 @@ from prime_audit.bitcoin import audit_bitcoin_signatures, parse_der_signature, s
 from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
 from prime_audit.claim_ledger import build_claim_ledger
+from prime_audit.collection_handoff import build_collection_handoff
 from prime_audit.collection_matrix import build_collection_matrix
 from prime_audit.collection_power import build_collection_power
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
@@ -552,6 +553,38 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertEqual(openssl["promotion_state"], "ready")
         self.assertEqual(openssl["next_step"], "ready_for_claim_gate")
+
+    def test_collection_handoff_prioritizes_minimal_real_world_unlock(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        matrix = build_collection_matrix(manifest)
+        power = build_collection_power(matrix)
+        requirements = build_provenance_requirements(manifest)
+        audit = build_provenance_audit(requirements)
+        acceptance = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_audit=audit,
+        )
+        plan = build_baseline_promotion_plan(acceptance=acceptance, power=power)
+        handoff = build_collection_handoff(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_requirements=requirements,
+            provenance_audit=audit,
+            baseline_acceptance=acceptance,
+            promotion_plan=plan,
+            classifier_report={"schema": "primeproject.crypto-classifier-report.v1", "claim_scope": "controlled_synthetic_only", "label_count": 3},
+        )
+
+        self.assertEqual(handoff["schema"], "primeproject.collection-handoff.v1")
+        self.assertEqual(handoff["summary"]["p0_count"], 2)
+        self.assertEqual(handoff["summary"]["remaining_p0_samples_for_10pct_tv"], 9028)
+        self.assertEqual(handoff["claim_gate"]["status"], "blocked")
+        self.assertEqual([row["library"] for row in handoff["rows"][:2]], ["BoringSSL", "OpenSSL"])
+        self.assertFalse(handoff["public_artifact_contract"]["publish_private_material"])
+        self.assertIn("private_prime", handoff["rows"][0]["collector_contract"]["must_not_publish"])
 
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(

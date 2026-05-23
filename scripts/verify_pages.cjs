@@ -131,6 +131,10 @@ async function main() {
       baselinePromotionSummary: document.querySelector("#baselinePromotionSummary").textContent,
       baselinePromotionRows: document.querySelectorAll("#baselinePromotionRows .provenance-row").length,
       baselinePromotionStatus: document.querySelector("#baselinePromotionStatus").textContent,
+      collectionHandoffStatus: document.querySelector("#collectionHandoffStatus").textContent,
+      collectionHandoffSummary: document.querySelector("#collectionHandoffSummary").textContent,
+      collectionHandoffRows: document.querySelectorAll("#collectionHandoffRows .handoff-row").length,
+      collectionHandoffContract: document.querySelector("#collectionHandoffContract").textContent,
       readinessPanel: document.querySelector("#readiness-panel").textContent,
       readinessCards: document.querySelectorAll("#readinessDimensions .readiness-card").length,
       readinessActions: document.querySelectorAll("#readinessActions li").length,
@@ -201,8 +205,10 @@ async function main() {
     !metrics.evolutionImpact.includes("Null calibration") ||
     !metrics.evolutionImpact.includes("Replication audit") ||
     !metrics.evolutionImpact.includes("Crypto-classifier scaffold") ||
-    !metrics.evolutionImpact.includes("15 artifacts") ||
+    !metrics.evolutionImpact.includes("Collection handoff packet") ||
+    !metrics.evolutionImpact.includes("16 artifacts") ||
     !metrics.evolutionPanel.includes("Crypto-classifier baseline") ||
+    !metrics.evolutionPanel.includes("Collection handoff") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
     !metrics.evolutionPanel.includes("Sample power") ||
     !metrics.evolutionPanel.includes("Provenance") ||
@@ -275,7 +281,12 @@ async function main() {
     !metrics.baselineAcceptanceSummary.includes("Minimum") ||
     metrics.baselinePromotionRows < 2 ||
     !metrics.baselinePromotionStatus.includes("2") ||
-    !metrics.baselinePromotionSummary.includes("9,028")
+    !metrics.baselinePromotionSummary.includes("9,028") ||
+    metrics.collectionHandoffRows < 4 ||
+    !metrics.collectionHandoffStatus.includes("2 P0") ||
+    !metrics.collectionHandoffSummary.includes("9,028") ||
+    !metrics.collectionHandoffSummary.includes("controlled_synthetic_only") ||
+    !metrics.collectionHandoffContract.includes("private material stays local")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
@@ -296,7 +307,7 @@ async function main() {
   }
   if (
     metrics.evidenceGates < 10 ||
-    metrics.evidenceArtifacts < 15 ||
+    metrics.evidenceArtifacts < 16 ||
     metrics.claimLedgerRows < 5 ||
     metrics.artifactLineageRows < 5 ||
     metrics.artifactLineagePaths < 10 ||
@@ -315,7 +326,7 @@ async function main() {
     !metrics.evidencePanel.includes("claim_promotion_guard") ||
     !metrics.evidencePanel.includes("controlled_synthetic_only") ||
     !metrics.evidencePanel.includes("reproducible") ||
-    !metrics.artifactLineageSummary.includes("17 nodes") ||
+    !metrics.artifactLineageSummary.includes("18 nodes") ||
     !metrics.evidencePanel.includes("real_world_generator_attribution") ||
     !metrics.evidencePanel.includes("bitcoin_nonce_risk_attribution") ||
     !metrics.evidencePanel.includes("blocked") ||
@@ -328,6 +339,7 @@ async function main() {
     !metrics.evidencePanel.includes("provenance_audit") ||
     !metrics.evidencePanel.includes("baseline_acceptance") ||
     !metrics.evidencePanel.includes("baseline_promotion_plan") ||
+    !metrics.evidencePanel.includes("collection_handoff") ||
     !metrics.evidencePanel.includes("null_calibration") ||
     !metrics.evidencePanel.includes("replication_audit") ||
     !metrics.evidencePanel.includes("feature_vectors") ||

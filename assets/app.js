@@ -26,6 +26,7 @@ const state = {
   provenanceAudit: null,
   baselineAcceptance: null,
   baselinePromotion: null,
+  collectionHandoff: null,
 };
 
 const limitSlider = {
@@ -424,6 +425,40 @@ const bundledBaselinePromotion = {
   },
 };
 
+const bundledCollectionHandoff = {
+  schema: "primeproject.collection-handoff.v1",
+  summary: {
+    task_count: 10,
+    p0_count: 2,
+    blocked_count: 10,
+    remaining_p0_samples_for_10pct_tv: 9028,
+    missing_provenance_field_count: 89,
+    classifier_scope: "controlled_synthetic_only",
+    classifier_label_count: 3,
+    next_unlock: "collect OpenSSL 2048-bit and BoringSSL 2048-bit aggregate RSA-prime baselines with complete provenance",
+  },
+  claim_gate: {
+    status: "blocked",
+    message: "Handoff is ready for collection execution, but real-world attribution claims remain blocked.",
+  },
+  public_artifact_contract: {
+    publish_private_material: false,
+    required_public_outputs: [
+      "aggregate fingerprint JSON",
+      "baseline JSON",
+      "feature vector JSON",
+      "provenance record JSON",
+      "SHA-256 checksum",
+    ],
+  },
+  rows: [
+    { priority: "P0", library: "BoringSSL", baseline_id: "boringssl-rsa-prime-owned", track: "rsa-prime-generation", object_type: "rsa-prime", bit_length: 2048, remaining_samples_to_plan: 500, remaining_samples_to_10pct_tv: 4514, acceptance: "blocked", provenance_status: "blocked", public_output: "aggregate fingerprint + baseline + feature vector", collector_contract: { minimum_replicates: 3, must_not_publish: ["private_key", "private_prime", "raw_key_file"] } },
+    { priority: "P0", library: "OpenSSL", baseline_id: "openssl-rsa-prime-owned", track: "rsa-prime-generation", object_type: "rsa-prime", bit_length: 2048, remaining_samples_to_plan: 500, remaining_samples_to_10pct_tv: 4514, acceptance: "blocked", provenance_status: "blocked", public_output: "aggregate fingerprint + baseline + feature vector", collector_contract: { minimum_replicates: 3, must_not_publish: ["private_key", "private_prime", "raw_key_file"] } },
+    { priority: "P1", library: "Bitcoin Core / wallet metadata", baseline_id: "bitcoin-core-ecdsa-signature-public", track: "signature-nonce-metadata", object_type: "ecdsa-signature", bit_length: 256, remaining_samples_to_plan: 10000, remaining_samples_to_10pct_tv: 10000, acceptance: "blocked", provenance_status: "blocked", public_output: "nonce-risk summary + distribution fingerprint", collector_contract: { minimum_replicates: 1, must_not_publish: ["wallet_seed", "private_key", "raw_signature_owner"] } },
+    { priority: "P1", library: "Go crypto/rsa", baseline_id: "go-crypto-rsa-prime-owned", track: "rsa-prime-generation", object_type: "rsa-prime", bit_length: 2048, remaining_samples_to_plan: 500, remaining_samples_to_10pct_tv: 4514, acceptance: "blocked", provenance_status: "blocked", public_output: "aggregate fingerprint + baseline + feature vector", collector_contract: { minimum_replicates: 3, must_not_publish: ["private_key", "private_prime", "raw_key_file"] } },
+  ],
+};
+
 const bundledResearchReadiness = {
   schema: "primeproject.research-readiness.v1",
   overall: { score: 0.7094, label: "prototype_ready" },
@@ -557,18 +592,19 @@ const bundledEvidencePack = {
     { code: "baseline_acceptance_gate", passed: false, severity: "high" },
     { code: "promotion_plan_gate", passed: true, severity: "medium" },
   ],
-  artifact_count: 15,
+  artifact_count: 16,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58" },
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "dd975b3a84f528552a925e248f249566be24dbd13926e2fab814e88778a52e87" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
+    { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", sha256: "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "4c3dac501722b74852b74020f43459e9556e1fb43d400bd475502f5a897d4251" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "8674c81fdcdcc82b3bfd81ceb730f95ecc8c5e846be02ee945ad1c1cdcc39d35" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
@@ -648,8 +684,8 @@ const bundledClaimLedger = {
 const bundledArtifactLineage = {
   schema: "primeproject.artifact-lineage.v1",
   summary: {
-    node_count: 17,
-    edge_count: 33,
+    node_count: 18,
+    edge_count: 42,
     missing_count: 0,
     invalid_edge_count: 0,
     checksum_mismatch_count: 0,
@@ -665,12 +701,13 @@ const bundledArtifactLineage = {
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", exists: true, sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", exists: true, sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", exists: true, sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
+    { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", exists: true, sha256: "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "f13aaaae1b696073519c1ea01ce0c77106b2e59c9b8f7f28be98c5802f6ce4e5" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "d35c0dfacc51069edb06dc23e216dffca61b26a623b3cd17da88cda72ee7c3cb" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "5e12cf01471769bc13ca87ba5a63613dbbdf1e1393081bc3326ced61ba4ee52a" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "605b5ff643bf46994ae36e2a9bfbc075875fe57fd3e2da31e75e9c3dca4096fc" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "4c3dac501722b74852b74020f43459e9556e1fb43d400bd475502f5a897d4251" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "8674c81fdcdcc82b3bfd81ceb730f95ecc8c5e846be02ee945ad1c1cdcc39d35" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -682,6 +719,14 @@ const bundledArtifactLineage = {
     { from: "collection_power", to: "baseline_acceptance", valid: true },
     { from: "provenance_audit", to: "baseline_acceptance", valid: true },
     { from: "baseline_acceptance", to: "baseline_promotion_plan", valid: true },
+    { from: "baseline_acceptance", to: "collection_handoff", valid: true },
+    { from: "baseline_promotion_plan", to: "collection_handoff", valid: true },
+    { from: "classifier_report", to: "collection_handoff", valid: true },
+    { from: "collection_matrix", to: "collection_handoff", valid: true },
+    { from: "collection_power", to: "collection_handoff", valid: true },
+    { from: "manifest", to: "collection_handoff", valid: true },
+    { from: "provenance_audit", to: "collection_handoff", valid: true },
+    { from: "provenance_requirements", to: "collection_handoff", valid: true },
     { from: "attribution_grid", to: "null_calibration", valid: true },
     { from: "attribution_grid", to: "replication_audit", valid: true },
     { from: "null_calibration", to: "replication_audit", valid: true },
@@ -696,6 +741,7 @@ const bundledArtifactLineage = {
     { from: "replication_audit", to: "evidence_pack", valid: true },
     { from: "feature_vectors", to: "evidence_pack", valid: true },
     { from: "classifier_report", to: "evidence_pack", valid: true },
+    { from: "collection_handoff", to: "evidence_pack", valid: true },
     { from: "project_evolution", to: "evidence_pack", valid: true },
     { from: "evidence_pack", to: "claim_ledger", valid: true },
   ],
@@ -865,12 +911,12 @@ const bundledProjectEvolution = {
     classifier_accuracy: 1 / 3,
     classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
-    checksummed_artifacts: 15,
+    checksummed_artifacts: 16,
     blocking_gaps: 2,
     claim_ledger_allowed: 3,
     claim_ledger_blocked: 2,
-    lineage_nodes: 17,
-    lineage_edges: 33,
+    lineage_nodes: 18,
+    lineage_edges: 42,
     lineage_checksum_mismatches: 0,
     lineage_cycles: 0,
     decision_protocol_allowed: 2,
@@ -890,17 +936,18 @@ const bundledProjectEvolution = {
     maturity_ladder: [
       { stage: "Explore", phase_ids: ["regularity-plan", "conjecture-lab", "static-snapshots"], status: "complete", signal: "10M browser compute and static snapshots" },
       { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid", "null-calibration", "replication-audit", "crypto-classifier"], status: "complete", signal: "controlled attribution, null calibration, 8-setting replication audit, and scoped classifier baseline" },
-      { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets and sample-power floors" },
-      { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"], status: "active", signal: "provenance, acceptance, and promotion gates before claims" },
+      { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power", "collection-handoff"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets, sample-power floors, and execution handoff" },
+      { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff"], status: "active", signal: "provenance, acceptance, promotion, and handoff gates before claims" },
       { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery"], status: "active", signal: "5 falsification checks and controlled-synthetic-only claim floor" },
     ],
     latest_changes: [
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
+      { label: "Collection handoff packet", impact: "Converts the unlock path into prioritized public-safe collection tasks with provenance and classifier constraints.", metric: "10 tasks / 2 P0" },
       { label: "Baseline acceptance gate", impact: "Prevents coarse or undocumented baselines from supporting attribution claims.", metric: "0 accepted / 10 blocked" },
       { label: "Provenance audit", impact: "Checks missing metadata, checksum format, and forbidden public sensitive fields.", metric: "4 blocked records" },
-      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "15 artifacts / 10 gates" },
+      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "16 artifacts / 10 gates" },
       { label: "Claim ledger", impact: "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.", metric: "3 allowed / 2 blocked" },
-      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "17 nodes / 33 edges" },
+      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "18 nodes / 42 edges" },
       { label: "Decision protocol", impact: "Pre-registers promotion rules so demo, synthetic, real-world, and Bitcoin claims cannot drift after results.", metric: "2 allowed / 2 blocked" },
       { label: "Falsification battery", impact: "Runs negative controls, bit-length guards, and claim-promotion guards before stronger claims.", metric: "5 pass / 0 fail" },
       { label: "Null calibration", impact: "Tests whether the best-looking controlled profile survives row-structured random-label simulation and multiple-profile selection.", metric: "2 family-wise survivors" },
@@ -917,8 +964,8 @@ const bundledProjectEvolution = {
       tracks: [
         { track: "Scale", before: "300K-style browser exploration", current: "10M live compute and 1M/10M static snapshots", state: "complete" },
         { track: "Signal", before: "Residue and gap visual drift", current: "48-row attribution grid, 5,000 null iterations, 8-setting replication audit, 12 classifier vectors", state: "complete" },
-        { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 0 accepted baselines", state: "blocked" },
-        { track: "Publication", before: "Informal narrative claims", current: "15 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery", state: "guarded" },
+        { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 10 handoff tasks, 0 accepted baselines", state: "blocked" },
+        { track: "Publication", before: "Informal narrative claims", current: "16 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery", state: "guarded" },
       ],
       claim_lanes: [
         { claim: "Public demo", status: "allowed", basis: "safe public artifact bundle" },
@@ -945,6 +992,7 @@ const bundledProjectEvolution = {
     { id: "provenance-audit", label: "Provenance audit", status: "active", layer: "governance" },
     { id: "baseline-acceptance", label: "Baseline acceptance", status: "active", layer: "publication" },
     { id: "baseline-promotion", label: "Promotion plan", status: "active", layer: "planning" },
+    { id: "collection-handoff", label: "Collection handoff", status: "active", layer: "sim-to-real" },
     { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
     { id: "claim-ledger", label: "Claim ledger", status: "active", layer: "publication" },
@@ -971,7 +1019,9 @@ const bundledProjectEvolution = {
     ["provenance-gate", "provenance-audit"],
     ["provenance-audit", "baseline-acceptance"],
     ["baseline-acceptance", "baseline-promotion"],
-    ["baseline-promotion", "readiness-gates"],
+    ["baseline-promotion", "collection-handoff"],
+    ["collection-handoff", "readiness-gates"],
+    ["collection-handoff", "evidence-pack"],
     ["readiness-gates", "evidence-pack"],
     ["evidence-pack", "claim-ledger"],
     ["evidence-pack", "artifact-lineage"],
@@ -1068,6 +1118,10 @@ const outputs = {
   baselinePromotionStatus: document.querySelector("#baselinePromotionStatus"),
   baselinePromotionSummary: document.querySelector("#baselinePromotionSummary"),
   baselinePromotionRows: document.querySelector("#baselinePromotionRows"),
+  collectionHandoffStatus: document.querySelector("#collectionHandoffStatus"),
+  collectionHandoffSummary: document.querySelector("#collectionHandoffSummary"),
+  collectionHandoffRows: document.querySelector("#collectionHandoffRows"),
+  collectionHandoffContract: document.querySelector("#collectionHandoffContract"),
   readinessSummary: document.querySelector("#readinessSummary"),
   readinessDimensions: document.querySelector("#readinessDimensions"),
   readinessActions: document.querySelector("#readinessActions"),
@@ -1159,6 +1213,7 @@ loadProvenanceRequirements();
 loadProvenanceAudit();
 loadBaselineAcceptance();
 loadBaselinePromotion();
+loadCollectionHandoff();
 loadResearchReadiness();
 loadClassifierLab();
 loadEvidencePack();
@@ -2110,7 +2165,7 @@ function renderEvolutionMap(evolution) {
     ["static-snapshots", "fingerprint-baseline"],
     ["attribution-grid", "null-calibration", "replication-audit", "crypto-classifier", "real-world-registry"],
     ["collection-matrix", "collection-power"],
-    ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "readiness-gates"],
+    ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff", "readiness-gates"],
     ["evidence-pack", "claim-ledger", "artifact-lineage"],
     ["decision-protocol", "falsification-battery"],
   ];
@@ -2451,6 +2506,66 @@ function renderBaselinePromotion() {
     .join("");
 }
 
+async function loadCollectionHandoff() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.collectionHandoff = bundledCollectionHandoff;
+    } else {
+      const response = await fetch("data/collection_handoff.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`collection handoff ${response.status}`);
+      state.collectionHandoff = await response.json();
+    }
+  } catch (error) {
+    state.collectionHandoff = bundledCollectionHandoff;
+  }
+  renderCollectionHandoff();
+}
+
+function renderCollectionHandoff() {
+  if (
+    !outputs.collectionHandoffStatus ||
+    !outputs.collectionHandoffSummary ||
+    !outputs.collectionHandoffRows ||
+    !outputs.collectionHandoffContract
+  ) {
+    return;
+  }
+  const handoff = state.collectionHandoff || bundledCollectionHandoff;
+  const summary = handoff.summary || {};
+  const rows = handoff.rows || [];
+  const contract = handoff.public_artifact_contract || {};
+  const requiredOutputs = contract.required_public_outputs || [];
+  outputs.collectionHandoffStatus.textContent =
+    `${formatNumber(summary.p0_count || 0)} P0 · ${escapeHtml(handoff.claim_gate?.status || "unknown")}`;
+  outputs.collectionHandoffSummary.innerHTML = `
+    <div><span>Tasks</span><strong>${formatNumber(summary.task_count || rows.length)}</strong><small>${formatNumber(summary.blocked_count || 0)} blocked</small></div>
+    <div><span>P0 samples</span><strong>${formatNumber(summary.remaining_p0_samples_for_10pct_tv || 0)}</strong><small>10% TV floor</small></div>
+    <div><span>Provenance</span><strong>${formatNumber(summary.missing_provenance_field_count || 0)}</strong><small>field references</small></div>
+    <div><span>Classifier</span><strong>${escapeHtml(summary.classifier_scope || "missing")}</strong><small>${formatNumber(summary.classifier_label_count || 0)} labels</small></div>
+  `;
+  outputs.collectionHandoffRows.innerHTML = rows
+    .slice()
+    .sort((a, b) => priorityRank(a.priority) - priorityRank(b.priority))
+    .slice(0, 5)
+    .map((row) => `
+      <div class="handoff-row">
+        <div>
+          <strong>${escapeHtml(row.library || row.baseline_id || "unknown")} ${formatNumber(row.bit_length || 0)}b</strong>
+          <span>${escapeHtml(row.public_output || row.track || "")}</span>
+        </div>
+        <em class="priority-${escapeHtml(row.priority || "P2").toLowerCase()}">${escapeHtml(row.priority || "P2")}</em>
+        <span>${formatNumber(row.remaining_samples_to_10pct_tv || 0)} samples</span>
+        <code>${escapeHtml((row.collector_contract?.must_not_publish || []).slice(0, 2).join(", ") || "aggregate-only")}</code>
+      </div>
+    `)
+    .join("");
+  outputs.collectionHandoffContract.innerHTML = `
+    <strong>Public contract</strong>
+    <span>${contract.publish_private_material ? "private material publication allowed" : "private material stays local"}</span>
+    <code>${escapeHtml(requiredOutputs.join(" · ") || "aggregate outputs only")}</code>
+  `;
+}
+
 function renderCollectionMatrix() {
   if (!outputs.collectionMatrixStatus || !outputs.collectionMatrixRows) return;
   const matrix = state.collectionMatrix || bundledCollectionMatrix;
@@ -2746,6 +2861,7 @@ function renderArtifactLineageMap(lineage) {
     ["provenance_audit", { x: 366, y: 162 }],
     ["baseline_acceptance", { x: 534, y: 102 }],
     ["baseline_promotion_plan", { x: 702, y: 102 }],
+    ["collection_handoff", { x: 534, y: 162 }],
     ["attribution_grid", { x: 30, y: 252 }],
     ["null_calibration", { x: 198, y: 252 }],
     ["replication_audit", { x: 366, y: 252 }],
@@ -3252,6 +3368,10 @@ function readinessClass(label) {
   if (label === "prototype_ready") return "is-prototype";
   if (label === "scaffold_ready") return "is-scaffold";
   return "is-not-started";
+}
+
+function priorityRank(priority) {
+  return { P0: 0, P1: 1, P2: 2 }[priority] ?? 9;
 }
 
 function claimStatusClass(status) {

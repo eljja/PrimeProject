@@ -1,9 +1,9 @@
 {
   "schema": "primeproject.artifact-lineage.v1",
-  "generated_at": "2026-05-23T03:35:55+00:00",
+  "generated_at": "2026-05-23T03:50:32+00:00",
   "summary": {
-    "node_count": 17,
-    "edge_count": 33,
+    "node_count": 18,
+    "edge_count": 42,
     "missing_count": 0,
     "invalid_edge_count": 0,
     "checksum_mismatch_count": 0,
@@ -45,7 +45,7 @@
       "path": "data/claim_ledger.json",
       "exists": true,
       "schema": "primeproject.claim-ledger.v1",
-      "sha256": "d35c0dfacc51069edb06dc23e216dffca61b26a623b3cd17da88cda72ee7c3cb",
+      "sha256": "605b5ff643bf46994ae36e2a9bfbc075875fe57fd3e2da31e75e9c3dca4096fc",
       "bytes": 9121
     },
     {
@@ -55,6 +55,14 @@
       "schema": "primeproject.crypto-classifier-report.v1",
       "sha256": "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663",
       "bytes": 7119
+    },
+    {
+      "role": "collection_handoff",
+      "path": "data/collection_handoff.json",
+      "exists": true,
+      "schema": "primeproject.collection-handoff.v1",
+      "sha256": "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4",
+      "bytes": 17526
     },
     {
       "role": "collection_matrix",
@@ -77,8 +85,8 @@
       "path": "data/evidence_pack.json",
       "exists": true,
       "schema": "primeproject.evidence-pack.v1",
-      "sha256": "f13aaaae1b696073519c1ea01ce0c77106b2e59c9b8f7f28be98c5802f6ce4e5",
-      "bytes": 10144
+      "sha256": "5e12cf01471769bc13ca87ba5a63613dbbdf1e1393081bc3326ced61ba4ee52a",
+      "bytes": 10428
     },
     {
       "role": "feature_vectors",
@@ -109,8 +117,8 @@
       "path": "data/project_evolution.json",
       "exists": true,
       "schema": "primeproject.project-evolution.v1",
-      "sha256": "4c3dac501722b74852b74020f43459e9556e1fb43d400bd475502f5a897d4251",
-      "bytes": 17723
+      "sha256": "8674c81fdcdcc82b3bfd81ceb730f95ecc8c5e846be02ee945ad1c1cdcc39d35",
+      "bytes": 18526
     },
     {
       "role": "provenance_audit",
@@ -192,6 +200,46 @@
     {
       "from": "feature_vectors",
       "to": "classifier_report",
+      "valid": true
+    },
+    {
+      "from": "manifest",
+      "to": "collection_handoff",
+      "valid": true
+    },
+    {
+      "from": "collection_matrix",
+      "to": "collection_handoff",
+      "valid": true
+    },
+    {
+      "from": "collection_power",
+      "to": "collection_handoff",
+      "valid": true
+    },
+    {
+      "from": "provenance_requirements",
+      "to": "collection_handoff",
+      "valid": true
+    },
+    {
+      "from": "provenance_audit",
+      "to": "collection_handoff",
+      "valid": true
+    },
+    {
+      "from": "baseline_acceptance",
+      "to": "collection_handoff",
+      "valid": true
+    },
+    {
+      "from": "baseline_promotion_plan",
+      "to": "collection_handoff",
+      "valid": true
+    },
+    {
+      "from": "classifier_report",
+      "to": "collection_handoff",
       "valid": true
     },
     {
@@ -280,6 +328,11 @@
       "valid": true
     },
     {
+      "from": "collection_handoff",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
       "from": "attribution_grid",
       "to": "null_calibration",
       "valid": true
@@ -350,6 +403,13 @@
       "schema": "primeproject.crypto-classifier-report.v1"
     },
     {
+      "role": "collection_handoff",
+      "status": "match",
+      "expected_sha256": "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4",
+      "actual_sha256": "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4",
+      "schema": "primeproject.collection-handoff.v1"
+    },
+    {
       "role": "collection_matrix",
       "status": "match",
       "expected_sha256": "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92",
@@ -387,8 +447,8 @@
     {
       "role": "project_evolution",
       "status": "match",
-      "expected_sha256": "4c3dac501722b74852b74020f43459e9556e1fb43d400bd475502f5a897d4251",
-      "actual_sha256": "4c3dac501722b74852b74020f43459e9556e1fb43d400bd475502f5a897d4251",
+      "expected_sha256": "8674c81fdcdcc82b3bfd81ceb730f95ecc8c5e846be02ee945ad1c1cdcc39d35",
+      "actual_sha256": "8674c81fdcdcc82b3bfd81ceb730f95ecc8c5e846be02ee945ad1c1cdcc39d35",
       "schema": "primeproject.project-evolution.v1"
     },
     {
