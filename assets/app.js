@@ -27,6 +27,7 @@ const state = {
   baselineAcceptance: null,
   baselinePromotion: null,
   collectionHandoff: null,
+  collectionIntake: null,
 };
 
 const limitSlider = {
@@ -459,6 +460,38 @@ const bundledCollectionHandoff = {
   ],
 };
 
+const bundledCollectionIntake = {
+  schema: "primeproject.collection-intake.v1",
+  summary: {
+    task_count: 10,
+    submitted_count: 0,
+    accepted_count: 0,
+    screening_only_count: 0,
+    blocked_count: 10,
+    p0_blocked_count: 2,
+    accepted_rsa_library_count: 0,
+    accepted_rsa_libraries: [],
+    remaining_p0_samples_for_10pct_tv: 9028,
+    forbidden_public_field_count: 0,
+    dominant_blockers: [{ reason: "intake_record", count: 10 }],
+  },
+  claim_gate: {
+    status: "blocked",
+    message: "Real-world intake remains blocked until at least two RSA library tasks pass sample, provenance, checksum, and public-safety checks.",
+  },
+  rows: [
+    { priority: "P0", library: "BoringSSL", baseline_id: "boringssl-rsa-prime-owned", object_type: "rsa-prime", bit_length: 2048, submitted: false, sample_count: 0, planned_sample_target: 500, remaining_samples_to_10pct_tv: 4514, claim_scope: "not_submitted", status: "blocked", blocking_reasons: ["intake_record"], forbidden_public_fields: [] },
+    { priority: "P0", library: "OpenSSL", baseline_id: "openssl-rsa-prime-owned", object_type: "rsa-prime", bit_length: 2048, submitted: false, sample_count: 0, planned_sample_target: 500, remaining_samples_to_10pct_tv: 4514, claim_scope: "not_submitted", status: "blocked", blocking_reasons: ["intake_record"], forbidden_public_fields: [] },
+    { priority: "P1", library: "Bitcoin Core / wallet metadata", baseline_id: "bitcoin-core-ecdsa-signature-public", object_type: "ecdsa-signature", bit_length: 256, submitted: false, sample_count: 0, planned_sample_target: 10000, remaining_samples_to_10pct_tv: 10000, claim_scope: "not_submitted", status: "blocked", blocking_reasons: ["intake_record"], forbidden_public_fields: [] },
+    { priority: "P1", library: "Go crypto/rsa", baseline_id: "go-crypto-rsa-prime-owned", object_type: "rsa-prime", bit_length: 2048, submitted: false, sample_count: 0, planned_sample_target: 500, remaining_samples_to_10pct_tv: 4514, claim_scope: "not_submitted", status: "blocked", blocking_reasons: ["intake_record"], forbidden_public_fields: [] },
+    { priority: "P2", library: "BoringSSL", baseline_id: "boringssl-rsa-prime-owned", object_type: "rsa-prime", bit_length: 3072, submitted: false, sample_count: 0, planned_sample_target: 500, remaining_samples_to_10pct_tv: 4514, claim_scope: "not_submitted", status: "blocked", blocking_reasons: ["intake_record"], forbidden_public_fields: [] },
+  ],
+  public_safety: {
+    forbidden_field_names: ["private_key", "private_prime", "raw_key_file", "raw_signature_owner", "wallet_seed"],
+    private_material_publication_allowed: false,
+  },
+};
+
 const bundledResearchReadiness = {
   schema: "primeproject.research-readiness.v1",
   overall: { score: 0.7094, label: "prototype_ready" },
@@ -592,19 +625,20 @@ const bundledEvidencePack = {
     { code: "baseline_acceptance_gate", passed: false, severity: "high" },
     { code: "promotion_plan_gate", passed: true, severity: "medium" },
   ],
-  artifact_count: 16,
+  artifact_count: 17,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58" },
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "dd975b3a84f528552a925e248f249566be24dbd13926e2fab814e88778a52e87" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", sha256: "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4" },
+    { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "e950bd4dbffd38b7687c6431902d1f9715aa072c71f615e2b8860f4db2207902" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "8674c81fdcdcc82b3bfd81ceb730f95ecc8c5e846be02ee945ad1c1cdcc39d35" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "01bd355541a4e65b51f7dead8ae99b674f478cad8b7f6d9c5302f0a017d0f7b2" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
@@ -684,8 +718,8 @@ const bundledClaimLedger = {
 const bundledArtifactLineage = {
   schema: "primeproject.artifact-lineage.v1",
   summary: {
-    node_count: 18,
-    edge_count: 42,
+    node_count: 19,
+    edge_count: 44,
     missing_count: 0,
     invalid_edge_count: 0,
     checksum_mismatch_count: 0,
@@ -702,12 +736,13 @@ const bundledArtifactLineage = {
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", exists: true, sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", exists: true, sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", exists: true, sha256: "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4" },
+    { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "e950bd4dbffd38b7687c6431902d1f9715aa072c71f615e2b8860f4db2207902" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "5e12cf01471769bc13ca87ba5a63613dbbdf1e1393081bc3326ced61ba4ee52a" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "605b5ff643bf46994ae36e2a9bfbc075875fe57fd3e2da31e75e9c3dca4096fc" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "dadb4a8ba5e1035fd5f2ba5d4438bd99925cc9c2bc29d9a321f423d5db006d41" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "e9314fe8f1284c19ae9c29098c5d91c7c47233c8ff18a9a44479b27373809fcf" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "8674c81fdcdcc82b3bfd81ceb730f95ecc8c5e846be02ee945ad1c1cdcc39d35" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "01bd355541a4e65b51f7dead8ae99b674f478cad8b7f6d9c5302f0a017d0f7b2" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -727,6 +762,7 @@ const bundledArtifactLineage = {
     { from: "manifest", to: "collection_handoff", valid: true },
     { from: "provenance_audit", to: "collection_handoff", valid: true },
     { from: "provenance_requirements", to: "collection_handoff", valid: true },
+    { from: "collection_handoff", to: "collection_intake", valid: true },
     { from: "attribution_grid", to: "null_calibration", valid: true },
     { from: "attribution_grid", to: "replication_audit", valid: true },
     { from: "null_calibration", to: "replication_audit", valid: true },
@@ -742,6 +778,7 @@ const bundledArtifactLineage = {
     { from: "feature_vectors", to: "evidence_pack", valid: true },
     { from: "classifier_report", to: "evidence_pack", valid: true },
     { from: "collection_handoff", to: "evidence_pack", valid: true },
+    { from: "collection_intake", to: "evidence_pack", valid: true },
     { from: "project_evolution", to: "evidence_pack", valid: true },
     { from: "evidence_pack", to: "claim_ledger", valid: true },
   ],
@@ -903,6 +940,11 @@ const bundledProjectEvolution = {
     baseline_acceptance_blocked: 10,
     promotion_minimal_unlock_targets: 2,
     promotion_projected_samples: 9028,
+    intake_tasks: 10,
+    intake_submitted: 0,
+    intake_accepted: 0,
+    intake_blocked: 10,
+    intake_p0_blocked: 2,
     attribution_grid_rows: 48,
     attribution_repeats: 3,
     robust_controlled_profiles: ["all", "gap_only"],
@@ -911,12 +953,12 @@ const bundledProjectEvolution = {
     classifier_accuracy: 1 / 3,
     classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
-    checksummed_artifacts: 16,
+    checksummed_artifacts: 17,
     blocking_gaps: 2,
     claim_ledger_allowed: 3,
     claim_ledger_blocked: 2,
-    lineage_nodes: 18,
-    lineage_edges: 42,
+    lineage_nodes: 19,
+    lineage_edges: 44,
     lineage_checksum_mismatches: 0,
     lineage_cycles: 0,
     decision_protocol_allowed: 2,
@@ -936,18 +978,19 @@ const bundledProjectEvolution = {
     maturity_ladder: [
       { stage: "Explore", phase_ids: ["regularity-plan", "conjecture-lab", "static-snapshots"], status: "complete", signal: "10M browser compute and static snapshots" },
       { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid", "null-calibration", "replication-audit", "crypto-classifier"], status: "complete", signal: "controlled attribution, null calibration, 8-setting replication audit, and scoped classifier baseline" },
-      { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power", "collection-handoff"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets, sample-power floors, and execution handoff" },
-      { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff"], status: "active", signal: "provenance, acceptance, promotion, and handoff gates before claims" },
+      { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power", "collection-handoff", "collection-intake"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets, sample-power floors, handoff, and intake validation" },
+      { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff", "collection-intake"], status: "active", signal: "provenance, acceptance, promotion, handoff, and intake gates before claims" },
       { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery"], status: "active", signal: "5 falsification checks and controlled-synthetic-only claim floor" },
     ],
     latest_changes: [
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
       { label: "Collection handoff packet", impact: "Converts the unlock path into prioritized public-safe collection tasks with provenance and classifier constraints.", metric: "10 tasks / 2 P0" },
+      { label: "Collection intake validator", impact: "Blocks submitted aggregate artifacts until sample, provenance, checksum, feature-vector, claim-scope, and public-safety checks pass.", metric: "0 accepted / 10 blocked" },
       { label: "Baseline acceptance gate", impact: "Prevents coarse or undocumented baselines from supporting attribution claims.", metric: "0 accepted / 10 blocked" },
       { label: "Provenance audit", impact: "Checks missing metadata, checksum format, and forbidden public sensitive fields.", metric: "4 blocked records" },
-      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "16 artifacts / 10 gates" },
+      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "17 artifacts / 10 gates" },
       { label: "Claim ledger", impact: "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.", metric: "3 allowed / 2 blocked" },
-      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "18 nodes / 42 edges" },
+      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "19 nodes / 44 edges" },
       { label: "Decision protocol", impact: "Pre-registers promotion rules so demo, synthetic, real-world, and Bitcoin claims cannot drift after results.", metric: "2 allowed / 2 blocked" },
       { label: "Falsification battery", impact: "Runs negative controls, bit-length guards, and claim-promotion guards before stronger claims.", metric: "5 pass / 0 fail" },
       { label: "Null calibration", impact: "Tests whether the best-looking controlled profile survives row-structured random-label simulation and multiple-profile selection.", metric: "2 family-wise survivors" },
@@ -964,8 +1007,8 @@ const bundledProjectEvolution = {
       tracks: [
         { track: "Scale", before: "300K-style browser exploration", current: "10M live compute and 1M/10M static snapshots", state: "complete" },
         { track: "Signal", before: "Residue and gap visual drift", current: "48-row attribution grid, 5,000 null iterations, 8-setting replication audit, 12 classifier vectors", state: "complete" },
-        { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 10 handoff tasks, 0 accepted baselines", state: "blocked" },
-        { track: "Publication", before: "Informal narrative claims", current: "16 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery", state: "guarded" },
+        { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 intake blockers, 0 accepted baselines", state: "blocked" },
+        { track: "Publication", before: "Informal narrative claims", current: "17 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery", state: "guarded" },
       ],
       claim_lanes: [
         { claim: "Public demo", status: "allowed", basis: "safe public artifact bundle" },
@@ -993,6 +1036,7 @@ const bundledProjectEvolution = {
     { id: "baseline-acceptance", label: "Baseline acceptance", status: "active", layer: "publication" },
     { id: "baseline-promotion", label: "Promotion plan", status: "active", layer: "planning" },
     { id: "collection-handoff", label: "Collection handoff", status: "active", layer: "sim-to-real" },
+    { id: "collection-intake", label: "Collection intake", status: "active", layer: "sim-to-real" },
     { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
     { id: "claim-ledger", label: "Claim ledger", status: "active", layer: "publication" },
@@ -1020,8 +1064,9 @@ const bundledProjectEvolution = {
     ["provenance-audit", "baseline-acceptance"],
     ["baseline-acceptance", "baseline-promotion"],
     ["baseline-promotion", "collection-handoff"],
-    ["collection-handoff", "readiness-gates"],
-    ["collection-handoff", "evidence-pack"],
+    ["collection-handoff", "collection-intake"],
+    ["collection-intake", "readiness-gates"],
+    ["collection-intake", "evidence-pack"],
     ["readiness-gates", "evidence-pack"],
     ["evidence-pack", "claim-ledger"],
     ["evidence-pack", "artifact-lineage"],
@@ -1122,6 +1167,9 @@ const outputs = {
   collectionHandoffSummary: document.querySelector("#collectionHandoffSummary"),
   collectionHandoffRows: document.querySelector("#collectionHandoffRows"),
   collectionHandoffContract: document.querySelector("#collectionHandoffContract"),
+  collectionIntakeStatus: document.querySelector("#collectionIntakeStatus"),
+  collectionIntakeSummary: document.querySelector("#collectionIntakeSummary"),
+  collectionIntakeRows: document.querySelector("#collectionIntakeRows"),
   readinessSummary: document.querySelector("#readinessSummary"),
   readinessDimensions: document.querySelector("#readinessDimensions"),
   readinessActions: document.querySelector("#readinessActions"),
@@ -1214,6 +1262,7 @@ loadProvenanceAudit();
 loadBaselineAcceptance();
 loadBaselinePromotion();
 loadCollectionHandoff();
+loadCollectionIntake();
 loadResearchReadiness();
 loadClassifierLab();
 loadEvidencePack();
@@ -2165,7 +2214,8 @@ function renderEvolutionMap(evolution) {
     ["static-snapshots", "fingerprint-baseline"],
     ["attribution-grid", "null-calibration", "replication-audit", "crypto-classifier", "real-world-registry"],
     ["collection-matrix", "collection-power"],
-    ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff", "readiness-gates"],
+    ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"],
+    ["collection-handoff", "collection-intake", "readiness-gates"],
     ["evidence-pack", "claim-ledger", "artifact-lineage"],
     ["decision-protocol", "falsification-battery"],
   ];
@@ -2173,7 +2223,7 @@ function renderEvolutionMap(evolution) {
   const positions = new Map();
   const left = 32;
   const top = 42;
-  const columnGap = 145;
+  const columnGap = 130;
   const rowGap = 56;
   columns.forEach((column, columnIndex) => {
     const yOffset = column.length === 1 ? rowGap / 2 : 0;
@@ -2566,6 +2616,57 @@ function renderCollectionHandoff() {
   `;
 }
 
+async function loadCollectionIntake() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.collectionIntake = bundledCollectionIntake;
+    } else {
+      const response = await fetch("data/collection_intake.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`collection intake ${response.status}`);
+      state.collectionIntake = await response.json();
+    }
+  } catch (error) {
+    state.collectionIntake = bundledCollectionIntake;
+  }
+  renderCollectionIntake();
+}
+
+function renderCollectionIntake() {
+  if (!outputs.collectionIntakeStatus || !outputs.collectionIntakeSummary || !outputs.collectionIntakeRows) return;
+  const intake = state.collectionIntake || bundledCollectionIntake;
+  const summary = intake.summary || {};
+  const rows = intake.rows || [];
+  const gate = intake.claim_gate || {};
+  outputs.collectionIntakeStatus.textContent =
+    `${formatNumber(summary.accepted_count || 0)} accepted · ${formatNumber(summary.blocked_count || 0)} blocked`;
+  outputs.collectionIntakeSummary.innerHTML = `
+    <div><span>Submitted</span><strong>${formatNumber(summary.submitted_count || 0)}</strong><small>${formatNumber(summary.task_count || rows.length)} intake tasks</small></div>
+    <div><span>Accepted</span><strong>${formatNumber(summary.accepted_count || 0)}</strong><small>${formatNumber(summary.accepted_rsa_library_count || 0)} RSA libs</small></div>
+    <div><span>P0 blocked</span><strong>${formatNumber(summary.p0_blocked_count || 0)}</strong><small>${formatNumber(summary.remaining_p0_samples_for_10pct_tv || 0)} samples left</small></div>
+    <div><span>Forbidden</span><strong>${formatNumber(summary.forbidden_public_field_count || 0)}</strong><small>${escapeHtml(gate.status || "unknown")}</small></div>
+  `;
+  outputs.collectionIntakeRows.innerHTML = rows
+    .slice()
+    .sort((a, b) => priorityRank(a.priority) - priorityRank(b.priority))
+    .slice(0, 5)
+    .map((row) => {
+      const issue = (row.forbidden_public_fields || [])[0] || (row.blocking_reasons || [])[0] || "claim-ready";
+      const submitted = row.submitted ? `${formatNumber(row.sample_count || 0)} samples` : "not submitted";
+      return `
+        <div class="intake-row">
+          <div>
+            <strong>${escapeHtml(row.library || row.baseline_id || "unknown")} ${formatNumber(row.bit_length || 0)}b</strong>
+            <span>${escapeHtml(row.object_type || row.track || "")} · ${escapeHtml(submitted)}</span>
+          </div>
+          <em class="priority-${escapeHtml(row.priority || "P2").toLowerCase()}">${escapeHtml(row.priority || "P2")}</em>
+          <span>${escapeHtml(row.status || "blocked")}</span>
+          <code>${escapeHtml(issue)}</code>
+        </div>
+      `;
+    })
+    .join("");
+}
+
 function renderCollectionMatrix() {
   if (!outputs.collectionMatrixStatus || !outputs.collectionMatrixRows) return;
   const matrix = state.collectionMatrix || bundledCollectionMatrix;
@@ -2862,6 +2963,7 @@ function renderArtifactLineageMap(lineage) {
     ["baseline_acceptance", { x: 534, y: 102 }],
     ["baseline_promotion_plan", { x: 702, y: 102 }],
     ["collection_handoff", { x: 534, y: 162 }],
+    ["collection_intake", { x: 702, y: 162 }],
     ["attribution_grid", { x: 30, y: 252 }],
     ["null_calibration", { x: 198, y: 252 }],
     ["replication_audit", { x: 366, y: 252 }],

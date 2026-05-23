@@ -1,0 +1,270 @@
+{
+  "schema": "primeproject.collection-intake.v1",
+  "source_schemas": {
+    "collection_handoff": "primeproject.collection-handoff.v1"
+  },
+  "summary": {
+    "task_count": 10,
+    "submitted_count": 0,
+    "accepted_count": 0,
+    "screening_only_count": 0,
+    "blocked_count": 10,
+    "p0_blocked_count": 2,
+    "accepted_rsa_library_count": 0,
+    "accepted_rsa_libraries": [],
+    "remaining_p0_samples_for_10pct_tv": 9028,
+    "forbidden_public_field_count": 0,
+    "dominant_blockers": [
+      {
+        "reason": "intake_record",
+        "count": 10
+      }
+    ]
+  },
+  "claim_gate": {
+    "status": "blocked",
+    "message": "Real-world intake remains blocked until at least two RSA library tasks pass sample, provenance, checksum, and public-safety checks."
+  },
+  "rows": [
+    {
+      "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+      "priority": "P0",
+      "library": "BoringSSL",
+      "baseline_id": "boringssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "submitted": false,
+      "sample_count": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_10pct_tv": 4514,
+      "claim_scope": "not_submitted",
+      "aggregate_artifact_sha256": null,
+      "provenance_record_present": false,
+      "feature_vector_path": null,
+      "forbidden_public_fields": [],
+      "blocking_reasons": [
+        "intake_record"
+      ],
+      "status": "blocked"
+    },
+    {
+      "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+      "priority": "P0",
+      "library": "OpenSSL",
+      "baseline_id": "openssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "submitted": false,
+      "sample_count": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_10pct_tv": 4514,
+      "claim_scope": "not_submitted",
+      "aggregate_artifact_sha256": null,
+      "provenance_record_present": false,
+      "feature_vector_path": null,
+      "forbidden_public_fields": [],
+      "blocking_reasons": [
+        "intake_record"
+      ],
+      "status": "blocked"
+    },
+    {
+      "task_id": "bitcoin-core-ecdsa-signature-public:256:ecdsa-signature",
+      "priority": "P1",
+      "library": "Bitcoin Core / wallet metadata",
+      "baseline_id": "bitcoin-core-ecdsa-signature-public",
+      "track": "signature-nonce-metadata",
+      "object_type": "ecdsa-signature",
+      "bit_length": 256,
+      "submitted": false,
+      "sample_count": 0,
+      "planned_sample_target": 10000,
+      "target_samples_for_10pct_tv": 10000,
+      "remaining_samples_to_10pct_tv": 10000,
+      "claim_scope": "not_submitted",
+      "aggregate_artifact_sha256": null,
+      "provenance_record_present": false,
+      "feature_vector_path": null,
+      "forbidden_public_fields": [],
+      "blocking_reasons": [
+        "intake_record"
+      ],
+      "status": "blocked"
+    },
+    {
+      "task_id": "go-crypto-rsa-prime-owned:2048:rsa-prime",
+      "priority": "P1",
+      "library": "Go crypto/rsa",
+      "baseline_id": "go-crypto-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "submitted": false,
+      "sample_count": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_10pct_tv": 4514,
+      "claim_scope": "not_submitted",
+      "aggregate_artifact_sha256": null,
+      "provenance_record_present": false,
+      "feature_vector_path": null,
+      "forbidden_public_fields": [],
+      "blocking_reasons": [
+        "intake_record"
+      ],
+      "status": "blocked"
+    },
+    {
+      "task_id": "boringssl-rsa-prime-owned:3072:rsa-prime",
+      "priority": "P2",
+      "library": "BoringSSL",
+      "baseline_id": "boringssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
+      "submitted": false,
+      "sample_count": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_10pct_tv": 4514,
+      "claim_scope": "not_submitted",
+      "aggregate_artifact_sha256": null,
+      "provenance_record_present": false,
+      "feature_vector_path": null,
+      "forbidden_public_fields": [],
+      "blocking_reasons": [
+        "intake_record"
+      ],
+      "status": "blocked"
+    },
+    {
+      "task_id": "boringssl-rsa-prime-owned:4096:rsa-prime",
+      "priority": "P2",
+      "library": "BoringSSL",
+      "baseline_id": "boringssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
+      "submitted": false,
+      "sample_count": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_10pct_tv": 4514,
+      "claim_scope": "not_submitted",
+      "aggregate_artifact_sha256": null,
+      "provenance_record_present": false,
+      "feature_vector_path": null,
+      "forbidden_public_fields": [],
+      "blocking_reasons": [
+        "intake_record"
+      ],
+      "status": "blocked"
+    },
+    {
+      "task_id": "go-crypto-rsa-prime-owned:3072:rsa-prime",
+      "priority": "P2",
+      "library": "Go crypto/rsa",
+      "baseline_id": "go-crypto-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
+      "submitted": false,
+      "sample_count": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_10pct_tv": 4514,
+      "claim_scope": "not_submitted",
+      "aggregate_artifact_sha256": null,
+      "provenance_record_present": false,
+      "feature_vector_path": null,
+      "forbidden_public_fields": [],
+      "blocking_reasons": [
+        "intake_record"
+      ],
+      "status": "blocked"
+    },
+    {
+      "task_id": "go-crypto-rsa-prime-owned:4096:rsa-prime",
+      "priority": "P2",
+      "library": "Go crypto/rsa",
+      "baseline_id": "go-crypto-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
+      "submitted": false,
+      "sample_count": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_10pct_tv": 4514,
+      "claim_scope": "not_submitted",
+      "aggregate_artifact_sha256": null,
+      "provenance_record_present": false,
+      "feature_vector_path": null,
+      "forbidden_public_fields": [],
+      "blocking_reasons": [
+        "intake_record"
+      ],
+      "status": "blocked"
+    },
+    {
+      "task_id": "openssl-rsa-prime-owned:3072:rsa-prime",
+      "priority": "P2",
+      "library": "OpenSSL",
+      "baseline_id": "openssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
+      "submitted": false,
+      "sample_count": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_10pct_tv": 4514,
+      "claim_scope": "not_submitted",
+      "aggregate_artifact_sha256": null,
+      "provenance_record_present": false,
+      "feature_vector_path": null,
+      "forbidden_public_fields": [],
+      "blocking_reasons": [
+        "intake_record"
+      ],
+      "status": "blocked"
+    },
+    {
+      "task_id": "openssl-rsa-prime-owned:4096:rsa-prime",
+      "priority": "P2",
+      "library": "OpenSSL",
+      "baseline_id": "openssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
+      "submitted": false,
+      "sample_count": 0,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "remaining_samples_to_10pct_tv": 4514,
+      "claim_scope": "not_submitted",
+      "aggregate_artifact_sha256": null,
+      "provenance_record_present": false,
+      "feature_vector_path": null,
+      "forbidden_public_fields": [],
+      "blocking_reasons": [
+        "intake_record"
+      ],
+      "status": "blocked"
+    }
+  ],
+  "public_safety": {
+    "forbidden_field_names": [
+      "private_key",
+      "private_prime",
+      "raw_key_file",
+      "raw_signature_owner",
+      "wallet_seed"
+    ],
+    "private_material_publication_allowed": false
+  }
+}

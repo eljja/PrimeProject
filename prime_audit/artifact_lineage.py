@@ -27,6 +27,7 @@ DEFAULT_DEPENDENCIES: dict[str, tuple[str, ...]] = {
         "baseline_promotion_plan",
         "classifier_report",
     ),
+    "collection_intake": ("collection_handoff",),
     "classifier_report": ("feature_vectors",),
     "readiness": ("manifest", "attribution_grid", "classifier_report"),
     "null_calibration": ("attribution_grid",),
@@ -48,6 +49,7 @@ DEFAULT_DEPENDENCIES: dict[str, tuple[str, ...]] = {
         "provenance_audit",
         "baseline_promotion_plan",
         "collection_handoff",
+        "collection_intake",
     ),
     "claim_ledger": ("evidence_pack",),
 }
@@ -62,6 +64,7 @@ DEFAULT_ARTIFACT_PATHS: dict[str, str] = {
     "baseline_acceptance": "data/baseline_acceptance.json",
     "baseline_promotion_plan": "data/baseline_promotion_plan.json",
     "collection_handoff": "data/collection_handoff.json",
+    "collection_intake": "data/collection_intake.json",
     "feature_vectors": "data/feature_vectors.json",
     "classifier_report": "data/crypto_classifier_report.json",
     "collection_matrix": "data/collection_matrix.json",

@@ -135,6 +135,9 @@ async function main() {
       collectionHandoffSummary: document.querySelector("#collectionHandoffSummary").textContent,
       collectionHandoffRows: document.querySelectorAll("#collectionHandoffRows .handoff-row").length,
       collectionHandoffContract: document.querySelector("#collectionHandoffContract").textContent,
+      collectionIntakeStatus: document.querySelector("#collectionIntakeStatus").textContent,
+      collectionIntakeSummary: document.querySelector("#collectionIntakeSummary").textContent,
+      collectionIntakeRows: document.querySelectorAll("#collectionIntakeRows .intake-row").length,
       readinessPanel: document.querySelector("#readiness-panel").textContent,
       readinessCards: document.querySelectorAll("#readinessDimensions .readiness-card").length,
       readinessActions: document.querySelectorAll("#readinessActions li").length,
@@ -206,9 +209,11 @@ async function main() {
     !metrics.evolutionImpact.includes("Replication audit") ||
     !metrics.evolutionImpact.includes("Crypto-classifier scaffold") ||
     !metrics.evolutionImpact.includes("Collection handoff packet") ||
-    !metrics.evolutionImpact.includes("16 artifacts") ||
+    !metrics.evolutionImpact.includes("17 artifacts") ||
+    !metrics.evolutionImpact.includes("Collection intake validator") ||
     !metrics.evolutionPanel.includes("Crypto-classifier baseline") ||
     !metrics.evolutionPanel.includes("Collection handoff") ||
+    !metrics.evolutionPanel.includes("Collection intake") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
     !metrics.evolutionPanel.includes("Sample power") ||
     !metrics.evolutionPanel.includes("Provenance") ||
@@ -263,6 +268,7 @@ async function main() {
     !metrics.baselinePanel.includes("Provenance Audit") ||
     !metrics.baselinePanel.includes("Baseline Acceptance") ||
     !metrics.baselinePanel.includes("Promotion Plan") ||
+    !metrics.baselinePanel.includes("Collection Intake") ||
     !metrics.baselineRegistrySummary.includes("Registered") ||
     metrics.baselineRegistryRows < 5 ||
     metrics.collectionMatrixRows < 4 ||
@@ -286,7 +292,12 @@ async function main() {
     !metrics.collectionHandoffStatus.includes("2 P0") ||
     !metrics.collectionHandoffSummary.includes("9,028") ||
     !metrics.collectionHandoffSummary.includes("controlled_synthetic_only") ||
-    !metrics.collectionHandoffContract.includes("private material stays local")
+    !metrics.collectionHandoffContract.includes("private material stays local") ||
+    metrics.collectionIntakeRows < 4 ||
+    !metrics.collectionIntakeStatus.includes("0 accepted") ||
+    !metrics.collectionIntakeStatus.includes("10 blocked") ||
+    !metrics.collectionIntakeSummary.includes("10") ||
+    !metrics.collectionIntakeSummary.includes("2")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
@@ -307,7 +318,7 @@ async function main() {
   }
   if (
     metrics.evidenceGates < 10 ||
-    metrics.evidenceArtifacts < 16 ||
+    metrics.evidenceArtifacts < 17 ||
     metrics.claimLedgerRows < 5 ||
     metrics.artifactLineageRows < 5 ||
     metrics.artifactLineagePaths < 10 ||
@@ -326,7 +337,7 @@ async function main() {
     !metrics.evidencePanel.includes("claim_promotion_guard") ||
     !metrics.evidencePanel.includes("controlled_synthetic_only") ||
     !metrics.evidencePanel.includes("reproducible") ||
-    !metrics.artifactLineageSummary.includes("18 nodes") ||
+    !metrics.artifactLineageSummary.includes("19 nodes") ||
     !metrics.evidencePanel.includes("real_world_generator_attribution") ||
     !metrics.evidencePanel.includes("bitcoin_nonce_risk_attribution") ||
     !metrics.evidencePanel.includes("blocked") ||
@@ -340,6 +351,7 @@ async function main() {
     !metrics.evidencePanel.includes("baseline_acceptance") ||
     !metrics.evidencePanel.includes("baseline_promotion_plan") ||
     !metrics.evidencePanel.includes("collection_handoff") ||
+    !metrics.evidencePanel.includes("collection_intake") ||
     !metrics.evidencePanel.includes("null_calibration") ||
     !metrics.evidencePanel.includes("replication_audit") ||
     !metrics.evidencePanel.includes("feature_vectors") ||

@@ -14,6 +14,7 @@ from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .bitcoin_integration import build_bitcoin_generator_risk_report
 from .claim_ledger import build_claim_ledger
 from .collection_handoff import build_collection_handoff
+from .collection_intake import build_collection_intake, load_intake_records
 from .conjecture_lab import run_lab
 from .crypto_classifier import run_crypto_classifier
 from .decision_protocol import build_decision_protocol
@@ -193,6 +194,14 @@ def main() -> int:
     collection_handoff_parser.add_argument("--promotion-plan", required=True)
     collection_handoff_parser.add_argument("--classifier-report", default=None)
     collection_handoff_parser.add_argument("--output", required=True)
+
+    collection_intake_parser = subparsers.add_parser(
+        "collection-intake",
+        help="Validate submitted real-world collection artifacts against a handoff packet.",
+    )
+    collection_intake_parser.add_argument("--handoff", required=True)
+    collection_intake_parser.add_argument("--records", nargs="*", default=[])
+    collection_intake_parser.add_argument("--output", required=True)
 
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
@@ -554,6 +563,15 @@ def main() -> int:
             promotion_plan=promotion_plan,
             classifier_report=classifier_report,
         )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "collection-intake":
+        handoff = json.loads(Path(args.handoff).read_text(encoding="utf-8"))
+        records = load_intake_records(args.records) if args.records else None
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_collection_intake(handoff=handoff, records=records)
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

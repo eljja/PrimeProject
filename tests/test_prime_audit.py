@@ -27,6 +27,7 @@ from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
 from prime_audit.claim_ledger import build_claim_ledger
 from prime_audit.collection_handoff import build_collection_handoff
+from prime_audit.collection_intake import build_collection_intake
 from prime_audit.collection_matrix import build_collection_matrix
 from prime_audit.collection_power import build_collection_power
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
@@ -585,6 +586,82 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual([row["library"] for row in handoff["rows"][:2]], ["BoringSSL", "OpenSSL"])
         self.assertFalse(handoff["public_artifact_contract"]["publish_private_material"])
         self.assertIn("private_prime", handoff["rows"][0]["collector_contract"]["must_not_publish"])
+
+    def test_collection_intake_blocks_missing_or_sensitive_submissions(self) -> None:
+        handoff = {
+            "schema": "primeproject.collection-handoff.v1",
+            "rows": [
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "priority": "P0",
+                    "library": "OpenSSL",
+                    "baseline_id": "openssl-rsa-prime-owned",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                },
+                {
+                    "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+                    "priority": "P0",
+                    "library": "BoringSSL",
+                    "baseline_id": "boringssl-rsa-prime-owned",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                },
+            ],
+        }
+        blocked = build_collection_intake(handoff=handoff)
+        accepted = build_collection_intake(
+            handoff=handoff,
+            records=[
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 5000,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "a" * 64,
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "feature_vector_path": "data/openssl_feature.json",
+                },
+                {
+                    "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 5000,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "b" * 64,
+                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned"},
+                    "feature_vector_path": "data/boringssl_feature.json",
+                },
+            ],
+        )
+        sensitive = build_collection_intake(
+            handoff=handoff,
+            records=[
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 5000,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "a" * 64,
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "feature_vector_path": "data/openssl_feature.json",
+                    "private_prime": "do-not-publish",
+                }
+            ],
+        )
+
+        self.assertEqual(blocked["schema"], "primeproject.collection-intake.v1")
+        self.assertEqual(blocked["summary"]["submitted_count"], 0)
+        self.assertEqual(blocked["claim_gate"]["status"], "blocked")
+        self.assertEqual(accepted["claim_gate"]["status"], "open")
+        self.assertEqual(accepted["summary"]["accepted_rsa_library_count"], 2)
+        sensitive_row = next(
+            row for row in sensitive["rows"] if row["task_id"] == "openssl-rsa-prime-owned:2048:rsa-prime"
+        )
+        self.assertIn("private_prime", sensitive_row["forbidden_public_fields"])
+        self.assertEqual(sensitive_row["status"], "blocked")
 
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(

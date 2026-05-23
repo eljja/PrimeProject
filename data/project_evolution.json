@@ -20,6 +20,11 @@
     "baseline_acceptance_blocked": 10,
     "promotion_minimal_unlock_targets": 2,
     "promotion_projected_samples": 9028,
+    "intake_tasks": 10,
+    "intake_submitted": 0,
+    "intake_accepted": 0,
+    "intake_blocked": 10,
+    "intake_p0_blocked": 2,
     "attribution_grid_rows": 48,
     "attribution_repeats": 3,
     "robust_controlled_profiles": ["all", "gap_only"],
@@ -33,12 +38,12 @@
     "classifier_accuracy": 0.3333333333333333,
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 16,
+    "checksummed_artifacts": 17,
     "blocking_gaps": 2,
     "claim_ledger_allowed": 3,
     "claim_ledger_blocked": 2,
-    "lineage_nodes": 18,
-    "lineage_edges": 42,
+    "lineage_nodes": 19,
+    "lineage_edges": 44,
     "lineage_checksum_mismatches": 0,
     "lineage_cycles": 0,
     "decision_protocol_allowed": 2,
@@ -64,15 +69,15 @@
       },
       {
         "stage": "Sim-to-Real",
-        "phase_ids": ["real-world-registry", "collection-matrix", "collection-power", "collection-handoff"],
+        "phase_ids": ["real-world-registry", "collection-matrix", "collection-power", "collection-handoff", "collection-intake"],
         "status": "active",
-        "signal": "OpenSSL/BoringSSL/Go/Bitcoin collection targets, sample-power floors, and execution handoff"
+        "signal": "OpenSSL/BoringSSL/Go/Bitcoin collection targets, sample-power floors, handoff, and intake validation"
       },
       {
         "stage": "Govern",
-        "phase_ids": ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff"],
+        "phase_ids": ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff", "collection-intake"],
         "status": "active",
-        "signal": "provenance, acceptance, promotion, and handoff gates before claims"
+        "signal": "provenance, acceptance, promotion, handoff, and intake gates before claims"
       },
       {
         "stage": "Publish",
@@ -93,6 +98,11 @@
         "metric": "10 tasks / 2 P0"
       },
       {
+        "label": "Collection intake validator",
+        "impact": "Blocks submitted aggregate artifacts until sample, provenance, checksum, feature-vector, claim-scope, and public-safety checks pass.",
+        "metric": "0 accepted / 10 blocked"
+      },
+      {
         "label": "Baseline acceptance gate",
         "impact": "Prevents coarse or undocumented baselines from supporting attribution claims.",
         "metric": "0 accepted / 10 blocked"
@@ -105,7 +115,7 @@
       {
         "label": "Evidence pack gates",
         "impact": "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.",
-        "metric": "16 artifacts / 10 gates"
+        "metric": "17 artifacts / 10 gates"
       },
       {
         "label": "Claim ledger",
@@ -115,7 +125,7 @@
       {
         "label": "Artifact lineage",
         "impact": "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.",
-        "metric": "18 nodes / 42 edges"
+        "metric": "19 nodes / 44 edges"
       },
       {
         "label": "Decision protocol",
@@ -166,13 +176,13 @@
         {
           "track": "Reality",
           "before": "No real-world generator baseline gate",
-          "current": "5 registered baseline families, 10 collection targets, 10 handoff tasks, 0 accepted baselines",
+          "current": "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 intake blockers, 0 accepted baselines",
           "state": "blocked"
         },
         {
           "track": "Publication",
           "before": "Informal narrative claims",
-          "current": "16 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery",
+          "current": "17 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery",
           "state": "guarded"
         }
       ],
@@ -338,6 +348,14 @@
       "outputs": ["prime_audit/collection_handoff.py", "data/collection_handoff.json"]
     },
     {
+      "id": "collection-intake",
+      "label": "Collection intake",
+      "status": "active",
+      "layer": "sim-to-real",
+      "summary": "Validates submitted aggregate artifacts against handoff tasks before they can become accepted real-world baselines.",
+      "outputs": ["prime_audit/collection_intake.py", "data/collection_intake.json"]
+    },
+    {
       "id": "readiness-gates",
       "label": "Research readiness scoring",
       "status": "active",
@@ -406,8 +424,9 @@
     ["provenance-audit", "baseline-acceptance"],
     ["baseline-acceptance", "baseline-promotion"],
     ["baseline-promotion", "collection-handoff"],
-    ["collection-handoff", "readiness-gates"],
-    ["collection-handoff", "evidence-pack"],
+    ["collection-handoff", "collection-intake"],
+    ["collection-intake", "readiness-gates"],
+    ["collection-intake", "evidence-pack"],
     ["readiness-gates", "evidence-pack"],
     ["evidence-pack", "claim-ledger"],
     ["evidence-pack", "artifact-lineage"],

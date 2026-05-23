@@ -1,9 +1,9 @@
 {
   "schema": "primeproject.artifact-lineage.v1",
-  "generated_at": "2026-05-23T03:50:32+00:00",
+  "generated_at": "2026-05-23T04:29:22+00:00",
   "summary": {
-    "node_count": 18,
-    "edge_count": 42,
+    "node_count": 19,
+    "edge_count": 44,
     "missing_count": 0,
     "invalid_edge_count": 0,
     "checksum_mismatch_count": 0,
@@ -45,7 +45,7 @@
       "path": "data/claim_ledger.json",
       "exists": true,
       "schema": "primeproject.claim-ledger.v1",
-      "sha256": "605b5ff643bf46994ae36e2a9bfbc075875fe57fd3e2da31e75e9c3dca4096fc",
+      "sha256": "e9314fe8f1284c19ae9c29098c5d91c7c47233c8ff18a9a44479b27373809fcf",
       "bytes": 9121
     },
     {
@@ -63,6 +63,14 @@
       "schema": "primeproject.collection-handoff.v1",
       "sha256": "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4",
       "bytes": 17526
+    },
+    {
+      "role": "collection_intake",
+      "path": "data/collection_intake.json",
+      "exists": true,
+      "schema": "primeproject.collection-intake.v1",
+      "sha256": "e950bd4dbffd38b7687c6431902d1f9715aa072c71f615e2b8860f4db2207902",
+      "bytes": 8662
     },
     {
       "role": "collection_matrix",
@@ -85,8 +93,8 @@
       "path": "data/evidence_pack.json",
       "exists": true,
       "schema": "primeproject.evidence-pack.v1",
-      "sha256": "5e12cf01471769bc13ca87ba5a63613dbbdf1e1393081bc3326ced61ba4ee52a",
-      "bytes": 10428
+      "sha256": "dadb4a8ba5e1035fd5f2ba5d4438bd99925cc9c2bc29d9a321f423d5db006d41",
+      "bytes": 10708
     },
     {
       "role": "feature_vectors",
@@ -117,8 +125,8 @@
       "path": "data/project_evolution.json",
       "exists": true,
       "schema": "primeproject.project-evolution.v1",
-      "sha256": "8674c81fdcdcc82b3bfd81ceb730f95ecc8c5e846be02ee945ad1c1cdcc39d35",
-      "bytes": 18526
+      "sha256": "01bd355541a4e65b51f7dead8ae99b674f478cad8b7f6d9c5302f0a017d0f7b2",
+      "bytes": 19405
     },
     {
       "role": "provenance_audit",
@@ -243,6 +251,11 @@
       "valid": true
     },
     {
+      "from": "collection_handoff",
+      "to": "collection_intake",
+      "valid": true
+    },
+    {
       "from": "manifest",
       "to": "collection_matrix",
       "valid": true
@@ -333,6 +346,11 @@
       "valid": true
     },
     {
+      "from": "collection_intake",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
       "from": "attribution_grid",
       "to": "null_calibration",
       "valid": true
@@ -410,6 +428,13 @@
       "schema": "primeproject.collection-handoff.v1"
     },
     {
+      "role": "collection_intake",
+      "status": "match",
+      "expected_sha256": "e950bd4dbffd38b7687c6431902d1f9715aa072c71f615e2b8860f4db2207902",
+      "actual_sha256": "e950bd4dbffd38b7687c6431902d1f9715aa072c71f615e2b8860f4db2207902",
+      "schema": "primeproject.collection-intake.v1"
+    },
+    {
       "role": "collection_matrix",
       "status": "match",
       "expected_sha256": "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92",
@@ -447,8 +472,8 @@
     {
       "role": "project_evolution",
       "status": "match",
-      "expected_sha256": "8674c81fdcdcc82b3bfd81ceb730f95ecc8c5e846be02ee945ad1c1cdcc39d35",
-      "actual_sha256": "8674c81fdcdcc82b3bfd81ceb730f95ecc8c5e846be02ee945ad1c1cdcc39d35",
+      "expected_sha256": "01bd355541a4e65b51f7dead8ae99b674f478cad8b7f6d9c5302f0a017d0f7b2",
+      "actual_sha256": "01bd355541a4e65b51f7dead8ae99b674f478cad8b7f6d9c5302f0a017d0f7b2",
       "schema": "primeproject.project-evolution.v1"
     },
     {
