@@ -130,11 +130,14 @@ def publication_gates(
         ),
         gate(
             "classifier_gate",
-            int(classifier.get("label_count") or 0) >= 3 and int(classifier.get("vector_count") or 0) >= 12,
-            "Classifier claims need labelled feature vectors across at least three labels.",
+            classifier.get("real_world_claim_ready") is True
+            and int(classifier.get("label_count") or 0) >= 3
+            and int(classifier.get("vector_count") or 0) >= 12,
+            "Classifier claims need real-world labelled feature vectors across at least three labels.",
             {
                 "label_count": classifier.get("label_count", 0),
                 "vector_count": classifier.get("vector_count", 0),
+                "claim_scope": classifier.get("claim_scope"),
             },
         ),
         gate(

@@ -39,13 +39,24 @@ python -m prime_audit.cli real-baseline-manifest `
 `export-feature-vectors`는 fingerprint/baseline JSON을 classifier가 읽을 수 있는 고정 길이 벡터로 변환한다.
 
 ```powershell
+python -m prime_audit.cli synthetic-feature-vectors `
+  --limit 200000 `
+  --samples-per-label 4 `
+  --record-count 80 `
+  --seed 20260523 `
+  --gap-max-steps 1024 `
+  --output data/feature_vectors.json
+
 python -m prime_audit.cli export-feature-vectors `
   --fingerprints openssl=data/openssl_fingerprint.json suspicious=data/suspicious_fingerprint.json `
   --baselines go=data/baselines/go_owned.json `
+  --claim-scope real_world `
   --output data/feature_vectors.json
 ```
 
 현재 feature는 bit-length distribution moments, residue TV drift, low16 collision, next-prime exposure, local gap statistics를 포함한다.
+
+현재 공개 번들에는 실세계 baseline이 아직 없으므로 `synthetic-feature-vectors`로 만든 12개 controlled synthetic vector가 들어 있다. 이 산출물의 `claim_scope`는 `controlled_synthetic_only`이며, classifier 파이프라인과 GitHub Pages 시각화를 검증하기 위한 기준군이다.
 
 ## Crypto-Classifier v1
 
@@ -59,6 +70,8 @@ python -m prime_audit.cli crypto-classifier `
 ```
 
 이 모델은 최종 분류기가 아니라 연구 안전장치다. 여기서도 분리되지 않는 신호는 무거운 ML을 넣어도 과장될 가능성이 높다.
+
+현재 번들 결과는 3개 label(`next_prime`, `rejection`, `wheel30_next`)과 12개 vector에서 leave-one-out 정확도 33.3%다. 이 수치는 실세계 분류 성능 주장이 아니라, fixed vector schema, interaction feature path, classifier gate가 end-to-end로 연결됐는지 확인하는 negative/controlled baseline이다. 따라서 `research-readiness`는 classifier 차원을 `scaffold_ready`로 두고 `real_world_claim_ready=false`를 유지한다.
 
 ## Collection Matrix
 
@@ -215,7 +228,7 @@ python -m prime_audit.cli evidence-pack `
   --readiness data/research_readiness.json `
   --attribution-grid data/attribution_confound_grid.json `
   --baseline-acceptance data/baseline_acceptance.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json baseline_promotion_plan=data/baseline_promotion_plan.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_acceptance=data/baseline_acceptance.json baseline_promotion_plan=data/baseline_promotion_plan.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json classifier_report=data/crypto_classifier_report.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json
@@ -246,7 +259,7 @@ python -m prime_audit.cli artifact-lineage `
   --output data/artifact_lineage.json
 ```
 
-현재 lineage는 15개 artifact node와 29개 dependency edge를 추적한다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`와 `artifact_lineage`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> claim_ledger/artifact_lineage -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
+현재 lineage는 17개 artifact node와 33개 dependency edge를 추적한다. 새로 추가된 `feature_vectors`와 `classifier_report`는 `readiness`와 `evidence_pack`의 입력으로 연결된다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`와 `artifact_lineage`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> claim_ledger/artifact_lineage -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
 
 ## Decision Protocol
 
@@ -287,9 +300,9 @@ python -m prime_audit.cli falsification-battery `
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
-- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, accepted baseline 수, promotion unlock sample 수, attribution grid row 수, claim level.
-- Research Delta: 초기 300K 수준의 탐색형 prime-regularity demo에서 현재 10M live compute, 1M/10M snapshot, 48-row attribution grid, 5,000 null iteration, 8-setting replication audit, 13 checksummed artifact로 이동한 변화를 한 화면에서 비교한다.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
+- 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, accepted baseline 수, promotion unlock sample 수, attribution grid row 수, classifier vector 수, claim level.
+- Research Delta: 초기 300K 수준의 탐색형 prime-regularity demo에서 현재 10M live compute, 1M/10M snapshot, 48-row attribution grid, 5,000 null iteration, 8-setting replication audit, scoped classifier baseline, 15 checksummed artifact로 이동한 변화를 한 화면에서 비교한다.
 - Claim lane: public demo와 controlled synthetic signal은 allowed로 보이지만, real-world generator attribution과 Bitcoin wallet/library attribution은 accepted baseline, classifier vector, nonce-risk report가 없기 때문에 blocked로 남긴다.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 
@@ -315,5 +328,5 @@ python -m prime_audit.cli bitcoin-risk-report `
 1. OpenSSL/BoringSSL/Go를 로컬에서 실제로 빌드해 2048/3072/4096-bit RSA prime aggregate baseline 생성.
 2. 동일한 sample count와 bit-length 조건으로 library 간 fingerprint distance 측정.
 3. owned wallet 또는 공개 메타데이터에서 ECDSA/Schnorr signature baseline 생성.
-4. classifier report를 Attribution Grid처럼 GitHub Pages에서 시각화.
+4. OpenSSL/BoringSSL/Go aggregate baseline을 `real_world` claim scope의 feature vector로 export하고 classifier gate를 실제 label replicate 기준으로 재평가.
 5. 충분한 label replicate가 쌓이면 XGBoost/Random Forest backend를 선택적 dependency로 추가.

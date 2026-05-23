@@ -33,6 +33,7 @@ from prime_audit.crypto_classifier import run_crypto_classifier
 from prime_audit.decision_protocol import build_decision_protocol
 from prime_audit.evidence_pack import build_evidence_pack
 from prime_audit.feature_vectors import (
+    build_controlled_synthetic_feature_vectors,
     build_feature_vector_payload,
     feature_vector_from_fingerprint,
 )
@@ -580,6 +581,28 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(report["schema"], "primeproject.crypto-classifier-report.v1")
         self.assertEqual(report["total"], 4)
         self.assertIn("nearest-centroid", report["model"]["family"])
+
+    def test_controlled_synthetic_classifier_stays_scope_limited(self) -> None:
+        payload = build_controlled_synthetic_feature_vectors(
+            limit=50_000,
+            samples_per_label=2,
+            record_count=20,
+            seed=20260523,
+            gap_max_steps=256,
+        )
+        report = run_crypto_classifier(payload, feature_space="interaction")
+        readiness = build_research_readiness_report(
+            manifest=build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00"),
+            classifier_report=report,
+        )
+
+        self.assertEqual(payload["claim_scope"], "controlled_synthetic_only")
+        self.assertEqual(report["claim_scope"], "controlled_synthetic_only")
+        self.assertFalse(readiness["dimensions"]["classifier"]["real_world_claim_ready"])
+        self.assertIn(
+            "classifier_scope_not_real_world",
+            {gap["code"] for gap in readiness["dimensions"]["classifier"]["gaps"]},
+        )
 
     def test_bitcoin_generator_risk_report_links_signature_audit_to_manifest(self) -> None:
         audit = audit_bitcoin_signatures(

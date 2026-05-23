@@ -182,6 +182,7 @@ def assess_classifier(report: dict[str, Any]) -> dict[str, Any]:
     vector_count = int(report.get("usable_vector_count") or report.get("vector_count") or 0)
     label_count = int(report.get("label_count") or 0)
     total = int(report.get("total") or 0)
+    claim_scope = str(report.get("claim_scope") or "unspecified")
     accuracy = report.get("accuracy")
     accuracy_score = float(accuracy) if accuracy is not None else 0.0
     sample_score = min(1.0, vector_count / 24)
@@ -189,6 +190,17 @@ def assess_classifier(report: dict[str, Any]) -> dict[str, Any]:
     trial_score = min(1.0, total / 24)
     score = 0.25 * sample_score + 0.25 * label_score + 0.25 * trial_score + 0.25 * accuracy_score
     gaps = []
+    real_world_claim_ready = claim_scope == "real_world"
+    if not real_world_claim_ready:
+        score = min(score, 0.49)
+        gaps.append(
+            {
+                "code": "classifier_scope_not_real_world",
+                "severity": "high",
+                "message": "Bundled classifier evidence is not scoped to real-world library attribution.",
+                "evidence": {"claim_scope": claim_scope},
+            }
+        )
     if label_count < 3:
         gaps.append(
             {
@@ -212,6 +224,8 @@ def assess_classifier(report: dict[str, Any]) -> dict[str, Any]:
         "label": readiness_label(score),
         "vector_count": vector_count,
         "label_count": label_count,
+        "claim_scope": claim_scope,
+        "real_world_claim_ready": real_world_claim_ready,
         "accuracy": accuracy,
         "total": total,
         "gaps": gaps,
@@ -281,12 +295,12 @@ def next_actions(dimensions: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
                 "action": "Generate at least two local owned-library aggregate baselines with matched bit-length and sample counts.",
             }
         )
-    if dimensions["classifier"]["label_count"] < 3:
+    if not dimensions["classifier"].get("real_world_claim_ready"):
         actions.append(
             {
                 "priority": "P0",
                 "track": "classifier",
-                "action": "Export labelled feature vectors for OpenSSL, BoringSSL, Go, and a suspicious sample before trusting classifier output.",
+                "action": "Export real-world labelled feature vectors for OpenSSL, BoringSSL, Go, and a suspicious sample before trusting classifier output.",
             }
         )
     if not dimensions["attribution_validation"]["robust_profiles"]:

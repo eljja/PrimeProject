@@ -13,6 +13,7 @@ def run_crypto_classifier(
     feature_payload: dict[str, Any],
     *,
     feature_space: str = "interaction",
+    claim_scope: str | None = None,
 ) -> dict[str, Any]:
     vectors = [normalize_feature_vector(vector) for vector in feature_payload.get("vectors", [])]
     labels = sorted({vector["label"] for vector in vectors if vector.get("label")})
@@ -21,6 +22,7 @@ def run_crypto_classifier(
     correct = sum(1 for row in predictions if row["correct"])
     total = len(predictions)
     label_summary = summarize_labels(predictions, labels)
+    effective_claim_scope = claim_scope or feature_payload.get("claim_scope") or "unspecified"
     return {
         "schema": CRYPTO_CLASSIFIER_SCHEMA,
         "model": {
@@ -29,6 +31,7 @@ def run_crypto_classifier(
             "dependency": "stdlib",
             "purpose": "screening baseline before heavier XGBoost/RandomForest experiments",
         },
+        "claim_scope": effective_claim_scope,
         "vector_count": len(vectors),
         "usable_vector_count": len(usable),
         "label_count": len(labels),
@@ -37,7 +40,7 @@ def run_crypto_classifier(
         "total": total,
         "labels": label_summary,
         "predictions": predictions,
-        "findings": classifier_findings(vectors, usable, predictions),
+        "findings": classifier_findings(vectors, usable, predictions, claim_scope=effective_claim_scope),
     }
 
 
@@ -134,8 +137,19 @@ def classifier_findings(
     vectors: list[dict[str, Any]],
     usable: list[dict[str, Any]],
     predictions: list[dict[str, Any]],
+    *,
+    claim_scope: str,
 ) -> list[dict[str, Any]]:
     findings: list[dict[str, Any]] = []
+    if claim_scope != "real_world":
+        findings.append(
+            {
+                "check": "classifier_scope_limited",
+                "severity": "info",
+                "message": "Classifier report is not real-world attribution evidence; it can only validate the classifier plumbing and controlled-synthetic signal.",
+                "evidence": {"claim_scope": claim_scope},
+            }
+        )
     if len(usable) < len(vectors):
         findings.append(
             {

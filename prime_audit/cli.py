@@ -19,7 +19,11 @@ from .decision_protocol import build_decision_protocol
 from .collection_matrix import build_collection_matrix
 from .collection_power import build_collection_power
 from .evidence_pack import build_evidence_pack
-from .feature_vectors import build_feature_vector_payload, load_feature_vectors_from_files
+from .feature_vectors import (
+    build_controlled_synthetic_feature_vectors,
+    build_feature_vector_payload,
+    load_feature_vectors_from_files,
+)
 from .falsification import build_falsification_battery
 from .fingerprints import analyze_prime_generator_fingerprints
 from .io import load_records, write_report_json
@@ -181,7 +185,19 @@ def main() -> int:
     )
     feature_vector_parser.add_argument("--fingerprints", nargs="*", default=[])
     feature_vector_parser.add_argument("--baselines", nargs="*", default=[])
+    feature_vector_parser.add_argument("--claim-scope", default="unspecified")
     feature_vector_parser.add_argument("--output", required=True)
+
+    synthetic_feature_vector_parser = subparsers.add_parser(
+        "synthetic-feature-vectors",
+        help="Generate controlled synthetic generator feature vectors for classifier plumbing checks.",
+    )
+    synthetic_feature_vector_parser.add_argument("--limit", type=int, default=200_000)
+    synthetic_feature_vector_parser.add_argument("--samples-per-label", type=int, default=4)
+    synthetic_feature_vector_parser.add_argument("--record-count", type=int, default=80)
+    synthetic_feature_vector_parser.add_argument("--seed", type=int, default=20260523)
+    synthetic_feature_vector_parser.add_argument("--gap-max-steps", type=int, default=1024)
+    synthetic_feature_vector_parser.add_argument("--output", required=True)
 
     crypto_classifier_parser = subparsers.add_parser(
         "crypto-classifier",
@@ -193,6 +209,7 @@ def main() -> int:
         choices=("linear", "interaction"),
         default="interaction",
     )
+    crypto_classifier_parser.add_argument("--claim-scope", default=None)
     crypto_classifier_parser.add_argument("--output", required=True)
 
     bitcoin_risk_parser = subparsers.add_parser(
@@ -507,6 +524,20 @@ def main() -> int:
             baseline_specs=args.baselines,
         )
         payload = build_feature_vector_payload(vectors)
+        payload["claim_scope"] = args.claim_scope
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "synthetic-feature-vectors":
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_controlled_synthetic_feature_vectors(
+            limit=args.limit,
+            samples_per_label=args.samples_per_label,
+            record_count=args.record_count,
+            seed=args.seed,
+            gap_max_steps=args.gap_max_steps,
+        )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 
@@ -514,7 +545,11 @@ def main() -> int:
         feature_payload = json.loads(Path(args.features).read_text(encoding="utf-8"))
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
-        payload = run_crypto_classifier(feature_payload, feature_space=args.feature_space)
+        payload = run_crypto_classifier(
+            feature_payload,
+            feature_space=args.feature_space,
+            claim_scope=args.claim_scope,
+        )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

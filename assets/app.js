@@ -12,6 +12,8 @@ const state = {
   replicationAudit: null,
   realBaselineManifest: null,
   researchReadiness: null,
+  featureVectors: null,
+  cryptoClassifier: null,
   evidencePack: null,
   claimLedger: null,
   artifactLineage: null,
@@ -424,7 +426,7 @@ const bundledBaselinePromotion = {
 
 const bundledResearchReadiness = {
   schema: "primeproject.research-readiness.v1",
-  overall: { score: 0.5869, label: "prototype_ready" },
+  overall: { score: 0.7094, label: "prototype_ready" },
   dimensions: {
     sim_to_real: {
       score: 0.8125,
@@ -444,11 +446,15 @@ const bundledResearchReadiness = {
       gaps: [],
     },
     classifier: {
-      score: 0,
-      label: "not_started",
-      vector_count: 0,
-      label_count: 0,
-      gaps: [{ code: "missing_classifier_report", severity: "high" }],
+      score: 0.49,
+      label: "scaffold_ready",
+      vector_count: 12,
+      label_count: 3,
+      claim_scope: "controlled_synthetic_only",
+      real_world_claim_ready: false,
+      accuracy: 1 / 3,
+      total: 12,
+      gaps: [{ code: "classifier_scope_not_real_world", severity: "high" }],
     },
     bitcoin_integration: {
       score: 0.35,
@@ -459,7 +465,7 @@ const bundledResearchReadiness = {
   },
   blocking_gaps: [
     { dimension: "sim_to_real", code: "insufficient_available_real_baselines", severity: "high" },
-    { dimension: "classifier", code: "missing_classifier_report", severity: "high" },
+    { dimension: "classifier", code: "classifier_scope_not_real_world", severity: "high" },
   ],
   next_actions: [
     {
@@ -470,12 +476,63 @@ const bundledResearchReadiness = {
     {
       priority: "P0",
       track: "classifier",
-      action: "Export labelled feature vectors for OpenSSL, BoringSSL, Go, and a suspicious sample before trusting classifier output.",
+      action: "Export real-world labelled feature vectors for OpenSSL, BoringSSL, Go, and a suspicious sample before trusting classifier output.",
     },
     {
       priority: "P1",
       track: "bitcoin",
       action: "Bundle a Bitcoin risk report from owned or public metadata summaries and compare it with registered baselines.",
+    },
+  ],
+};
+
+const bundledFeatureVectors = {
+  schema: "primeproject.generator-feature-vectors.v1",
+  claim_scope: "controlled_synthetic_only",
+  vector_count: 12,
+  labels: ["next_prime", "rejection", "wheel30_next"],
+  feature_names: [
+    "record_count_log2",
+    "bit_length_mean",
+    "bit_length_stddev",
+    "bit_length_entropy",
+    "bit_length_max_mass",
+    "residue_tv_30",
+    "residue_tv_210",
+    "residue_tv_2310",
+    "low16_collision_rate",
+    "next_prime_exposure_score",
+    "mean_left_gap_over_logp",
+    "mean_right_gap_over_logp",
+    "large_left_gap_ratio",
+    "max_residue_tv",
+  ],
+};
+
+const bundledCryptoClassifier = {
+  schema: "primeproject.crypto-classifier-report.v1",
+  model: {
+    family: "nearest-centroid",
+    feature_space: "interaction",
+    dependency: "stdlib",
+  },
+  claim_scope: "controlled_synthetic_only",
+  vector_count: 12,
+  usable_vector_count: 12,
+  label_count: 3,
+  accuracy: 1 / 3,
+  correct: 4,
+  total: 12,
+  labels: {
+    next_prime: { total: 4, correct: 0, accuracy: 0 },
+    rejection: { total: 4, correct: 4, accuracy: 1 },
+    wheel30_next: { total: 4, correct: 0, accuracy: 0 },
+  },
+  findings: [
+    {
+      check: "classifier_scope_limited",
+      severity: "info",
+      message: "Classifier report is not real-world attribution evidence; it can only validate the classifier plumbing and controlled-synthetic signal.",
     },
   ],
 };
@@ -500,19 +557,21 @@ const bundledEvidencePack = {
     { code: "baseline_acceptance_gate", passed: false, severity: "high" },
     { code: "promotion_plan_gate", passed: true, severity: "medium" },
   ],
-  artifact_count: 13,
+  artifact_count: 15,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58" },
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "dd975b3a84f528552a925e248f249566be24dbd13926e2fab814e88778a52e87" },
+    { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
+    { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "6ac445d3861e9df711ef30a62315405ddf898e75d9ce46027a1e5a196294d35d" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "4c3dac501722b74852b74020f43459e9556e1fb43d400bd475502f5a897d4251" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
-    { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
+    { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
     { role: "snapshot_manifest", schema: "primeproject.snapshot-manifest.v1", sha256: "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0" },
   ],
@@ -589,8 +648,8 @@ const bundledClaimLedger = {
 const bundledArtifactLineage = {
   schema: "primeproject.artifact-lineage.v1",
   summary: {
-    node_count: 15,
-    edge_count: 29,
+    node_count: 17,
+    edge_count: 33,
     missing_count: 0,
     invalid_edge_count: 0,
     checksum_mismatch_count: 0,
@@ -604,12 +663,14 @@ const bundledArtifactLineage = {
   nodes: [
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", exists: true, sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", exists: true, sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
-    { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "373b77380a895edf09cc8992b54c4969cfeba4ad5d430b29f98de0a12a4d00f9" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "ccc070545396d5f93ac0c4e88a789d75ec4974a164b0a53432291057b3a6848e" },
+    { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", exists: true, sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
+    { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", exists: true, sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
+    { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "f13aaaae1b696073519c1ea01ce0c77106b2e59c9b8f7f28be98c5802f6ce4e5" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "d35c0dfacc51069edb06dc23e216dffca61b26a623b3cd17da88cda72ee7c3cb" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "6ac445d3861e9df711ef30a62315405ddf898e75d9ce46027a1e5a196294d35d" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "4c3dac501722b74852b74020f43459e9556e1fb43d400bd475502f5a897d4251" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -625,12 +686,16 @@ const bundledArtifactLineage = {
     { from: "attribution_grid", to: "replication_audit", valid: true },
     { from: "null_calibration", to: "replication_audit", valid: true },
     { from: "attribution_grid", to: "readiness", valid: true },
+    { from: "feature_vectors", to: "classifier_report", valid: true },
+    { from: "classifier_report", to: "readiness", valid: true },
     { from: "manifest", to: "readiness", valid: true },
     { from: "readiness", to: "evidence_pack", valid: true },
     { from: "baseline_acceptance", to: "evidence_pack", valid: true },
     { from: "baseline_promotion_plan", to: "evidence_pack", valid: true },
     { from: "null_calibration", to: "evidence_pack", valid: true },
     { from: "replication_audit", to: "evidence_pack", valid: true },
+    { from: "feature_vectors", to: "evidence_pack", valid: true },
+    { from: "classifier_report", to: "evidence_pack", valid: true },
     { from: "project_evolution", to: "evidence_pack", valid: true },
     { from: "evidence_pack", to: "claim_ledger", valid: true },
   ],
@@ -795,13 +860,17 @@ const bundledProjectEvolution = {
     attribution_grid_rows: 48,
     attribution_repeats: 3,
     robust_controlled_profiles: ["all", "gap_only"],
+    classifier_vector_count: 12,
+    classifier_label_count: 3,
+    classifier_accuracy: 1 / 3,
+    classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
-    checksummed_artifacts: 13,
+    checksummed_artifacts: 15,
     blocking_gaps: 2,
     claim_ledger_allowed: 3,
     claim_ledger_blocked: 2,
-    lineage_nodes: 15,
-    lineage_edges: 29,
+    lineage_nodes: 17,
+    lineage_edges: 33,
     lineage_checksum_mismatches: 0,
     lineage_cycles: 0,
     decision_protocol_allowed: 2,
@@ -820,7 +889,7 @@ const bundledProjectEvolution = {
       "PrimeProject moved from exploratory prime regularity visuals into publication-gated real-world generator fingerprint tooling.",
     maturity_ladder: [
       { stage: "Explore", phase_ids: ["regularity-plan", "conjecture-lab", "static-snapshots"], status: "complete", signal: "10M browser compute and static snapshots" },
-      { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid", "null-calibration", "replication-audit"], status: "complete", signal: "controlled attribution, null calibration, and 8-setting replication audit" },
+      { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid", "null-calibration", "replication-audit", "crypto-classifier"], status: "complete", signal: "controlled attribution, null calibration, 8-setting replication audit, and scoped classifier baseline" },
       { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets and sample-power floors" },
       { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"], status: "active", signal: "provenance, acceptance, and promotion gates before claims" },
       { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery"], status: "active", signal: "5 falsification checks and controlled-synthetic-only claim floor" },
@@ -829,13 +898,14 @@ const bundledProjectEvolution = {
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
       { label: "Baseline acceptance gate", impact: "Prevents coarse or undocumented baselines from supporting attribution claims.", metric: "0 accepted / 10 blocked" },
       { label: "Provenance audit", impact: "Checks missing metadata, checksum format, and forbidden public sensitive fields.", metric: "4 blocked records" },
-      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "13 artifacts / 10 gates" },
+      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "15 artifacts / 10 gates" },
       { label: "Claim ledger", impact: "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.", metric: "3 allowed / 2 blocked" },
-      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "15 nodes / 29 edges" },
+      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "17 nodes / 33 edges" },
       { label: "Decision protocol", impact: "Pre-registers promotion rules so demo, synthetic, real-world, and Bitcoin claims cannot drift after results.", metric: "2 allowed / 2 blocked" },
       { label: "Falsification battery", impact: "Runs negative controls, bit-length guards, and claim-promotion guards before stronger claims.", metric: "5 pass / 0 fail" },
       { label: "Null calibration", impact: "Tests whether the best-looking controlled profile survives row-structured random-label simulation and multiple-profile selection.", metric: "2 family-wise survivors" },
       { label: "Replication audit", impact: "Checks whether null-calibrated profiles repeat across limit, train-count, and test-count settings instead of depending on one run.", metric: "2 stable / 8 settings" },
+      { label: "Crypto-classifier scaffold", impact: "Exports fixed-length controlled synthetic fingerprint vectors and runs a dependency-free classifier baseline without opening real-world claims.", metric: "12 vectors / 3 labels" },
     ],
     research_delta: {
       headline: "What changed from the original prime-regularity demo to the current research scaffold.",
@@ -846,13 +916,13 @@ const bundledProjectEvolution = {
       },
       tracks: [
         { track: "Scale", before: "300K-style browser exploration", current: "10M live compute and 1M/10M static snapshots", state: "complete" },
-        { track: "Signal", before: "Residue and gap visual drift", current: "48-row attribution grid, 5,000 null iterations, 8-setting replication audit", state: "complete" },
+        { track: "Signal", before: "Residue and gap visual drift", current: "48-row attribution grid, 5,000 null iterations, 8-setting replication audit, 12 classifier vectors", state: "complete" },
         { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 0 accepted baselines", state: "blocked" },
-        { track: "Publication", before: "Informal narrative claims", current: "13 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery", state: "guarded" },
+        { track: "Publication", before: "Informal narrative claims", current: "15 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery", state: "guarded" },
       ],
       claim_lanes: [
         { claim: "Public demo", status: "allowed", basis: "safe public artifact bundle" },
-        { claim: "Controlled synthetic signal", status: "allowed", basis: "controlled grid + null + replication" },
+        { claim: "Controlled synthetic signal", status: "allowed", basis: "controlled grid + null + replication + scoped classifier" },
         { claim: "Real-world generator attribution", status: "blocked", basis: "accepted baselines and classifier vectors missing" },
         { claim: "Bitcoin wallet/library attribution", status: "blocked", basis: "nonce-risk report and wallet baseline metadata missing" },
       ],
@@ -867,6 +937,7 @@ const bundledProjectEvolution = {
     { id: "attribution-grid", label: "Controlled attribution grid", status: "complete", layer: "validation" },
     { id: "null-calibration", label: "Null calibration", status: "complete", layer: "statistics" },
     { id: "replication-audit", label: "Replication audit", status: "complete", layer: "statistics" },
+    { id: "crypto-classifier", label: "Crypto-classifier baseline", status: "active", layer: "analysis" },
     { id: "real-world-registry", label: "Real-world baseline registry", status: "scaffolded", layer: "sim-to-real" },
     { id: "collection-matrix", label: "Real-world collection matrix", status: "active", layer: "sim-to-real" },
     { id: "collection-power", label: "Sample power calibration", status: "active", layer: "statistics" },
@@ -889,6 +960,8 @@ const bundledProjectEvolution = {
     ["fingerprint-baseline", "attribution-grid"],
     ["attribution-grid", "null-calibration"],
     ["null-calibration", "replication-audit"],
+    ["replication-audit", "crypto-classifier"],
+    ["crypto-classifier", "readiness-gates"],
     ["replication-audit", "readiness-gates"],
     ["null-calibration", "readiness-gates"],
     ["attribution-grid", "readiness-gates"],
@@ -998,6 +1071,9 @@ const outputs = {
   readinessSummary: document.querySelector("#readinessSummary"),
   readinessDimensions: document.querySelector("#readinessDimensions"),
   readinessActions: document.querySelector("#readinessActions"),
+  classifierStatus: document.querySelector("#classifierStatus"),
+  classifierSummary: document.querySelector("#classifierSummary"),
+  classifierLabels: document.querySelector("#classifierLabels"),
   evidenceSummary: document.querySelector("#evidenceSummary"),
   evidenceGateRows: document.querySelector("#evidenceGateRows"),
   evidenceArtifactRows: document.querySelector("#evidenceArtifactRows"),
@@ -1084,6 +1160,7 @@ loadProvenanceAudit();
 loadBaselineAcceptance();
 loadBaselinePromotion();
 loadResearchReadiness();
+loadClassifierLab();
 loadEvidencePack();
 loadClaimLedger();
 loadArtifactLineage();
@@ -2031,7 +2108,7 @@ function renderEvolutionMap(evolution) {
     ["regularity-plan", "bitcoin-track"],
     ["conjecture-lab"],
     ["static-snapshots", "fingerprint-baseline"],
-    ["attribution-grid", "null-calibration", "replication-audit", "real-world-registry"],
+    ["attribution-grid", "null-calibration", "replication-audit", "crypto-classifier", "real-world-registry"],
     ["collection-matrix", "collection-power"],
     ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "readiness-gates"],
     ["evidence-pack", "claim-ledger", "artifact-lineage"],
@@ -2460,6 +2537,57 @@ function renderResearchReadiness() {
     .join("");
 }
 
+async function loadClassifierLab() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.featureVectors = bundledFeatureVectors;
+      state.cryptoClassifier = bundledCryptoClassifier;
+    } else {
+      const [featureResponse, classifierResponse] = await Promise.all([
+        fetch("data/feature_vectors.json", { cache: "no-cache" }),
+        fetch("data/crypto_classifier_report.json", { cache: "no-cache" }),
+      ]);
+      if (!featureResponse.ok) throw new Error(`feature vectors ${featureResponse.status}`);
+      if (!classifierResponse.ok) throw new Error(`crypto classifier ${classifierResponse.status}`);
+      state.featureVectors = await featureResponse.json();
+      state.cryptoClassifier = await classifierResponse.json();
+    }
+  } catch (error) {
+    state.featureVectors = bundledFeatureVectors;
+    state.cryptoClassifier = bundledCryptoClassifier;
+  }
+  renderClassifierLab();
+}
+
+function renderClassifierLab() {
+  if (!outputs.classifierStatus || !outputs.classifierSummary || !outputs.classifierLabels) return;
+  const features = state.featureVectors || bundledFeatureVectors;
+  const report = state.cryptoClassifier || bundledCryptoClassifier;
+  const scope = report.claim_scope || features.claim_scope || "unknown";
+  outputs.classifierStatus.textContent = scope === "real_world" ? "real-world scoped" : "controlled synthetic only";
+  outputs.classifierSummary.innerHTML = `
+    <div><span>Vectors</span><strong>${formatNumber(report.usable_vector_count || report.vector_count || 0)}</strong><small>${formatNumber(report.label_count || 0)} labels</small></div>
+    <div><span>Accuracy</span><strong>${report.accuracy == null ? "n/a" : formatPercent(report.accuracy)}</strong><small>${formatNumber(report.correct || 0)} / ${formatNumber(report.total || 0)}</small></div>
+    <div><span>Feature space</span><strong>${escapeHtml(report.model?.feature_space || "unknown")}</strong><small>${formatNumber((features.feature_names || []).length)} features</small></div>
+    <div><span>Claim scope</span><strong>${escapeHtml(scope)}</strong><small>not real-world attribution</small></div>
+  `;
+  outputs.classifierLabels.innerHTML = Object.entries(report.labels || {})
+    .map(([label, summary]) => `
+      <div class="classifier-label-row">
+        <strong>${escapeHtml(label)}</strong>
+        <span>${formatNumber(summary.correct || 0)} / ${formatNumber(summary.total || 0)}</span>
+        <meter min="0" max="1" value="${Number(summary.accuracy || 0)}"></meter>
+        <em>${summary.accuracy == null ? "n/a" : formatPercent(summary.accuracy)}</em>
+      </div>
+    `)
+    .join("") + `
+      <div class="classifier-finding">
+        <strong>${escapeHtml((report.findings || [])[0]?.check || "scope_gate")}</strong>
+        <span>${escapeHtml((report.findings || [])[0]?.message || "Classifier output is gated before real-world attribution claims.")}</span>
+      </div>
+    `;
+}
+
 async function loadEvidencePack() {
   try {
     if (window.location.protocol === "file:") {
@@ -2605,25 +2733,28 @@ function renderArtifactLineage() {
 
 function renderArtifactLineageMap(lineage) {
   const svg = outputs.artifactLineageMap;
-  const width = 940;
-  const height = 280;
+  const width = 1020;
+  const height = 380;
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   svg.innerHTML = "";
   const positions = new Map([
     ["manifest", { x: 30, y: 42 }],
-    ["attribution_grid", { x: 30, y: 132 }],
-    ["null_calibration", { x: 198, y: 212 }],
-    ["replication_audit", { x: 366, y: 212 }],
-    ["collection_matrix", { x: 198, y: 42 }],
-    ["collection_power", { x: 366, y: 42 }],
-    ["provenance_requirements", { x: 198, y: 132 }],
-    ["provenance_audit", { x: 366, y: 132 }],
-    ["baseline_acceptance", { x: 534, y: 42 }],
-    ["baseline_promotion_plan", { x: 702, y: 42 }],
-    ["readiness", { x: 534, y: 212 }],
-    ["project_evolution", { x: 534, y: 212 }],
-    ["evidence_pack", { x: 702, y: 142 }],
-    ["claim_ledger", { x: 842, y: 142 }],
+    ["snapshot_manifest", { x: 198, y: 42 }],
+    ["collection_matrix", { x: 198, y: 102 }],
+    ["collection_power", { x: 366, y: 102 }],
+    ["provenance_requirements", { x: 198, y: 162 }],
+    ["provenance_audit", { x: 366, y: 162 }],
+    ["baseline_acceptance", { x: 534, y: 102 }],
+    ["baseline_promotion_plan", { x: 702, y: 102 }],
+    ["attribution_grid", { x: 30, y: 252 }],
+    ["null_calibration", { x: 198, y: 252 }],
+    ["replication_audit", { x: 366, y: 252 }],
+    ["feature_vectors", { x: 198, y: 312 }],
+    ["classifier_report", { x: 366, y: 312 }],
+    ["readiness", { x: 534, y: 252 }],
+    ["project_evolution", { x: 534, y: 312 }],
+    ["evidence_pack", { x: 702, y: 242 }],
+    ["claim_ledger", { x: 852, y: 242 }],
   ]);
   appendSvg(svg, "text", { x: 30, y: 24, class: "chart-title" }).textContent = "artifact dependency DAG";
   (lineage.edges || []).forEach((edge) => {
@@ -3162,7 +3293,7 @@ function formatDimensionEvidence(name, dimension) {
     return `${formatNumber(dimension.rows || 0)} rows, ${formatNumber(dimension.repeats || 0)} repeats, ${(dimension.robust_profiles || []).join(", ") || "no robust profile"}.`;
   }
   if (name === "classifier") {
-    return `${formatNumber(dimension.vector_count || 0)} vectors across ${formatNumber(dimension.label_count || 0)} labels.`;
+    return `${formatNumber(dimension.vector_count || 0)} vectors across ${formatNumber(dimension.label_count || 0)} labels, scope ${dimension.claim_scope || "unknown"}.`;
   }
   if (name === "bitcoin_integration") {
     return `${formatNumber(dimension.related_baseline_count || 0)} related baseline, risk ${dimension.risk_level || "not bundled"}.`;

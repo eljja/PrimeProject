@@ -1,0 +1,297 @@
+{
+  "schema": "primeproject.crypto-classifier-report.v1",
+  "model": {
+    "family": "nearest-centroid",
+    "feature_space": "interaction",
+    "dependency": "stdlib",
+    "purpose": "screening baseline before heavier XGBoost/RandomForest experiments"
+  },
+  "claim_scope": "controlled_synthetic_only",
+  "vector_count": 12,
+  "usable_vector_count": 12,
+  "label_count": 3,
+  "accuracy": 0.3333333333333333,
+  "correct": 4,
+  "total": 12,
+  "labels": {
+    "next_prime": {
+      "total": 4,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "rejection": {
+      "total": 4,
+      "correct": 4,
+      "accuracy": 1.0
+    },
+    "wheel30_next": {
+      "total": 4,
+      "correct": 0,
+      "accuracy": 0.0
+    }
+  },
+  "predictions": [
+    {
+      "id": "rejection-0",
+      "actual": "rejection",
+      "predicted": "rejection",
+      "correct": true,
+      "margin": 1.6880332017164035,
+      "distances": [
+        {
+          "label": "rejection",
+          "distance": 0.5539305816058527
+        },
+        {
+          "label": "next_prime",
+          "distance": 2.241963783322256
+        },
+        {
+          "label": "wheel30_next",
+          "distance": 2.265811670564765
+        }
+      ]
+    },
+    {
+      "id": "rejection-1",
+      "actual": "rejection",
+      "predicted": "rejection",
+      "correct": true,
+      "margin": 1.616088168740636,
+      "distances": [
+        {
+          "label": "rejection",
+          "distance": 0.28604295426571974
+        },
+        {
+          "label": "next_prime",
+          "distance": 1.9021311230063558
+        },
+        {
+          "label": "wheel30_next",
+          "distance": 1.9272311558563457
+        }
+      ]
+    },
+    {
+      "id": "rejection-2",
+      "actual": "rejection",
+      "predicted": "rejection",
+      "correct": true,
+      "margin": 1.21902504653493,
+      "distances": [
+        {
+          "label": "rejection",
+          "distance": 0.9563232730910282
+        },
+        {
+          "label": "next_prime",
+          "distance": 2.175348319625958
+        },
+        {
+          "label": "wheel30_next",
+          "distance": 2.219957747102731
+        }
+      ]
+    },
+    {
+      "id": "rejection-3",
+      "actual": "rejection",
+      "predicted": "rejection",
+      "correct": true,
+      "margin": 1.3409258341106935,
+      "distances": [
+        {
+          "label": "rejection",
+          "distance": 0.43940311547729066
+        },
+        {
+          "label": "next_prime",
+          "distance": 1.7803289495879842
+        },
+        {
+          "label": "wheel30_next",
+          "distance": 1.8077071108607783
+        }
+      ]
+    },
+    {
+      "id": "next_prime-0",
+      "actual": "next_prime",
+      "predicted": "wheel30_next",
+      "correct": false,
+      "margin": 0.1420640257757495,
+      "distances": [
+        {
+          "label": "wheel30_next",
+          "distance": 0.5727216382935745
+        },
+        {
+          "label": "next_prime",
+          "distance": 0.714785664069324
+        },
+        {
+          "label": "rejection",
+          "distance": 1.4610564970718036
+        }
+      ]
+    },
+    {
+      "id": "next_prime-1",
+      "actual": "next_prime",
+      "predicted": "wheel30_next",
+      "correct": false,
+      "margin": 0.1426246352087197,
+      "distances": [
+        {
+          "label": "wheel30_next",
+          "distance": 0.6355598351398942
+        },
+        {
+          "label": "next_prime",
+          "distance": 0.7781844703486139
+        },
+        {
+          "label": "rejection",
+          "distance": 1.4535644381506876
+        }
+      ]
+    },
+    {
+      "id": "next_prime-2",
+      "actual": "next_prime",
+      "predicted": "wheel30_next",
+      "correct": false,
+      "margin": 0.27596467099556354,
+      "distances": [
+        {
+          "label": "wheel30_next",
+          "distance": 0.6842512411135052
+        },
+        {
+          "label": "next_prime",
+          "distance": 0.9602159121090688
+        },
+        {
+          "label": "rejection",
+          "distance": 2.6633285015661854
+        }
+      ]
+    },
+    {
+      "id": "next_prime-3",
+      "actual": "next_prime",
+      "predicted": "wheel30_next",
+      "correct": false,
+      "margin": 0.14334947627367267,
+      "distances": [
+        {
+          "label": "wheel30_next",
+          "distance": 0.4805920228693211
+        },
+        {
+          "label": "next_prime",
+          "distance": 0.6239414991429938
+        },
+        {
+          "label": "rejection",
+          "distance": 2.393604089656407
+        }
+      ]
+    },
+    {
+      "id": "wheel30_next-0",
+      "actual": "wheel30_next",
+      "predicted": "next_prime",
+      "correct": false,
+      "margin": 0.013905232136610018,
+      "distances": [
+        {
+          "label": "next_prime",
+          "distance": 0.1862358237673471
+        },
+        {
+          "label": "wheel30_next",
+          "distance": 0.20014105590395712
+        },
+        {
+          "label": "rejection",
+          "distance": 1.8784820040239705
+        }
+      ]
+    },
+    {
+      "id": "wheel30_next-1",
+      "actual": "wheel30_next",
+      "predicted": "next_prime",
+      "correct": false,
+      "margin": 0.18670704884226852,
+      "distances": [
+        {
+          "label": "next_prime",
+          "distance": 0.8164200363787552
+        },
+        {
+          "label": "wheel30_next",
+          "distance": 1.0031270852210237
+        },
+        {
+          "label": "rejection",
+          "distance": 2.690496582909402
+        }
+      ]
+    },
+    {
+      "id": "wheel30_next-2",
+      "actual": "wheel30_next",
+      "predicted": "next_prime",
+      "correct": false,
+      "margin": 0.19022258748074228,
+      "distances": [
+        {
+          "label": "next_prime",
+          "distance": 0.5123728386309282
+        },
+        {
+          "label": "wheel30_next",
+          "distance": 0.7025954261116705
+        },
+        {
+          "label": "rejection",
+          "distance": 1.6089628115235797
+        }
+      ]
+    },
+    {
+      "id": "wheel30_next-3",
+      "actual": "wheel30_next",
+      "predicted": "next_prime",
+      "correct": false,
+      "margin": 0.1602964859410243,
+      "distances": [
+        {
+          "label": "next_prime",
+          "distance": 0.2535731962812615
+        },
+        {
+          "label": "wheel30_next",
+          "distance": 0.4138696822222858
+        },
+        {
+          "label": "rejection",
+          "distance": 1.9516216210506532
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "check": "classifier_scope_limited",
+      "severity": "info",
+      "message": "Classifier report is not real-world attribution evidence; it can only validate the classifier plumbing and controlled-synthetic signal.",
+      "evidence": {
+        "claim_scope": "controlled_synthetic_only"
+      }
+    }
+  ]
+}

@@ -1804,6 +1804,137 @@ canvas {
   line-height: 1.45;
 }
 
+.classifier-lab {
+  margin: 0 20px 20px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.classifier-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.classifier-heading h3 {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.classifier-heading p {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.classifier-heading span {
+  flex: 0 0 auto;
+  color: var(--amber);
+  background: rgba(215, 138, 17, 0.12);
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.classifier-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 14px 16px 8px;
+}
+
+.classifier-summary div {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 10px 12px;
+}
+
+.classifier-summary span,
+.classifier-summary small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 720;
+  text-transform: uppercase;
+}
+
+.classifier-summary strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.classifier-summary small {
+  margin-top: 4px;
+  font-weight: 680;
+}
+
+.classifier-labels {
+  display: grid;
+  gap: 8px;
+  padding: 8px 16px 16px;
+}
+
+.classifier-label-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) 90px minmax(120px, 0.8fr) 70px;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 9px 10px;
+}
+
+.classifier-label-row strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.classifier-label-row span,
+.classifier-label-row em,
+.classifier-finding span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.classifier-label-row meter {
+  width: 100%;
+  height: 8px;
+}
+
+.classifier-label-row em {
+  font-style: normal;
+  font-weight: 820;
+}
+
+.classifier-finding {
+  border-left: 3px solid var(--amber);
+  background: rgba(215, 138, 17, 0.08);
+  padding: 10px 12px;
+}
+
+.classifier-finding strong,
+.classifier-finding span {
+  display: block;
+}
+
+.classifier-finding strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.classifier-finding span {
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
 .evidence-summary {
   display: grid;
   grid-template-columns: 1.4fr 0.7fr 0.7fr;
@@ -2654,6 +2785,7 @@ tr:last-child td {
   .baseline-flow,
   .readiness-body,
   .readiness-dimensions,
+  .classifier-summary,
   .evidence-body,
   .attribution-body,
   .snapshot-grid {
@@ -2785,6 +2917,19 @@ tr:last-child td {
   .readiness-body {
     grid-template-columns: 1fr;
     padding: 12px;
+  }
+
+  .classifier-lab {
+    margin: 0 12px 12px;
+  }
+
+  .classifier-heading {
+    display: grid;
+  }
+
+  .classifier-summary,
+  .classifier-label-row {
+    grid-template-columns: 1fr;
   }
 
   .evidence-body {

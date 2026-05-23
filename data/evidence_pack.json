@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.evidence-pack.v1",
-  "generated_at": "2026-05-22T22:34:29+00:00",
+  "generated_at": "2026-05-23T03:35:18+00:00",
   "claim_level": {
     "level": "public_demo_only",
     "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
@@ -42,10 +42,11 @@
       "code": "classifier_gate",
       "passed": false,
       "severity": "high",
-      "message": "Classifier claims need labelled feature vectors across at least three labels.",
+      "message": "Classifier claims need real-world labelled feature vectors across at least three labels.",
       "evidence": {
-        "label_count": 0,
-        "vector_count": 0
+        "label_count": 3,
+        "vector_count": 12,
+        "claim_scope": "controlled_synthetic_only"
       }
     },
     {
@@ -63,7 +64,7 @@
       "severity": "medium",
       "message": "Published evidence should include checksummed source JSON artifacts.",
       "evidence": {
-        "artifact_count": 13
+        "artifact_count": 15
       }
     },
     {
@@ -105,7 +106,7 @@
       }
     }
   ],
-  "artifact_count": 13,
+  "artifact_count": 15,
   "artifacts": [
     {
       "role": "attribution_grid",
@@ -132,6 +133,14 @@
       "bytes": 8366
     },
     {
+      "role": "classifier_report",
+      "path": "data/crypto_classifier_report.json",
+      "exists": true,
+      "sha256": "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663",
+      "schema": "primeproject.crypto-classifier-report.v1",
+      "bytes": 7119
+    },
+    {
       "role": "collection_matrix",
       "path": "data/collection_matrix.json",
       "exists": true,
@@ -146,6 +155,14 @@
       "sha256": "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b",
       "schema": "primeproject.collection-power.v1",
       "bytes": 6080
+    },
+    {
+      "role": "feature_vectors",
+      "path": "data/feature_vectors.json",
+      "exists": true,
+      "sha256": "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538",
+      "schema": "primeproject.generator-feature-vectors.v1",
+      "bytes": 11469
     },
     {
       "role": "manifest",
@@ -167,9 +184,9 @@
       "role": "project_evolution",
       "path": "data/project_evolution.json",
       "exists": true,
-      "sha256": "6ac445d3861e9df711ef30a62315405ddf898e75d9ce46027a1e5a196294d35d",
+      "sha256": "4c3dac501722b74852b74020f43459e9556e1fb43d400bd475502f5a897d4251",
       "schema": "primeproject.project-evolution.v1",
-      "bytes": 16658
+      "bytes": 17723
     },
     {
       "role": "provenance_audit",
@@ -191,9 +208,9 @@
       "role": "readiness",
       "path": "data/research_readiness.json",
       "exists": true,
-      "sha256": "1cbc7b7e045128afe264c71ee5b14c3fa2e780cf5cf93fd93155e11ed29f83dc",
+      "sha256": "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4",
       "schema": "primeproject.research-readiness.v1",
-      "bytes": 3152
+      "bytes": 3563
     },
     {
       "role": "replication_audit",
@@ -222,7 +239,7 @@
       "validation_passed": true
     },
     "readiness": {
-      "score": 0.5869,
+      "score": 0.7094,
       "label": "prototype_ready"
     },
     "attribution": {
@@ -237,10 +254,10 @@
       ]
     },
     "classifier": {
-      "present": false,
-      "label_count": 0,
-      "vector_count": 0,
-      "accuracy": null
+      "present": true,
+      "label_count": 3,
+      "vector_count": 12,
+      "accuracy": 0.3333333333333333
     },
     "bitcoin": {
       "present": false,
@@ -261,7 +278,7 @@
     },
     {
       "item": "labelled_feature_vectors",
-      "status": "missing",
+      "status": "complete",
       "reason": "Needed before classifier output can support real-world attribution."
     },
     {

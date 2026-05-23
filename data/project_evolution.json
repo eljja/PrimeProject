@@ -28,13 +28,17 @@
     "null_top_profile": "gap_only",
     "replication_setting_count": 8,
     "replication_stable_profiles": 2,
+    "classifier_vector_count": 12,
+    "classifier_label_count": 3,
+    "classifier_accuracy": 0.3333333333333333,
+    "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 13,
+    "checksummed_artifacts": 15,
     "blocking_gaps": 2,
     "claim_ledger_allowed": 3,
     "claim_ledger_blocked": 2,
-    "lineage_nodes": 15,
-    "lineage_edges": 29,
+    "lineage_nodes": 17,
+    "lineage_edges": 33,
     "lineage_checksum_mismatches": 0,
     "lineage_cycles": 0,
     "decision_protocol_allowed": 2,
@@ -54,9 +58,9 @@
       },
       {
         "stage": "Fingerprint",
-        "phase_ids": ["fingerprint-baseline", "attribution-grid", "null-calibration", "replication-audit"],
+        "phase_ids": ["fingerprint-baseline", "attribution-grid", "null-calibration", "replication-audit", "crypto-classifier"],
         "status": "complete",
-        "signal": "controlled attribution, null calibration, and 8-setting replication audit"
+        "signal": "controlled attribution, null calibration, 8-setting replication audit, and scoped classifier baseline"
       },
       {
         "stage": "Sim-to-Real",
@@ -96,7 +100,7 @@
       {
         "label": "Evidence pack gates",
         "impact": "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.",
-        "metric": "13 artifacts / 10 gates"
+        "metric": "15 artifacts / 10 gates"
       },
       {
         "label": "Claim ledger",
@@ -106,7 +110,7 @@
       {
         "label": "Artifact lineage",
         "impact": "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.",
-        "metric": "15 nodes / 29 edges"
+        "metric": "17 nodes / 33 edges"
       },
       {
         "label": "Decision protocol",
@@ -115,7 +119,7 @@
       },
       {
         "label": "Falsification battery",
-        "impact": "Runs paired controls, negative controls, bit-length confound guards, and claim-promotion guards before stronger claims.",
+        "impact": "Runs negative controls, bit-length guards, and claim-promotion guards before stronger claims.",
         "metric": "5 pass / 0 fail"
       },
       {
@@ -127,6 +131,11 @@
         "label": "Replication audit",
         "impact": "Checks whether null-calibrated profiles repeat across limit, train-count, and test-count settings instead of depending on one run.",
         "metric": "2 stable / 8 settings"
+      },
+      {
+        "label": "Crypto-classifier scaffold",
+        "impact": "Exports fixed-length controlled synthetic fingerprint vectors and runs a dependency-free classifier baseline without opening real-world claims.",
+        "metric": "12 vectors / 3 labels"
       }
     ],
     "research_delta": {
@@ -146,7 +155,7 @@
         {
           "track": "Signal",
           "before": "Residue and gap visual drift",
-          "current": "48-row attribution grid, 5,000 null iterations, 8-setting replication audit",
+          "current": "48-row attribution grid, 5,000 null iterations, 8-setting replication audit, 12 classifier vectors",
           "state": "complete"
         },
         {
@@ -171,7 +180,7 @@
         {
           "claim": "Controlled synthetic signal",
           "status": "allowed",
-          "basis": "controlled grid + null + replication"
+          "basis": "controlled grid + null + replication + scoped classifier"
         },
         {
           "claim": "Real-world generator attribution",
@@ -250,6 +259,14 @@
       "layer": "statistics",
       "summary": "Audits whether null-calibrated controlled profiles replicate across limit, train-count, and test-count settings.",
       "outputs": ["prime_audit/replication_audit.py", "data/replication_audit.json"]
+    },
+    {
+      "id": "crypto-classifier",
+      "label": "Crypto-classifier baseline",
+      "status": "active",
+      "layer": "analysis",
+      "summary": "Exports fixed-length controlled synthetic feature vectors and runs a nearest-centroid classifier while keeping real-world attribution gated.",
+      "outputs": ["prime_audit/feature_vectors.py", "prime_audit/crypto_classifier.py", "data/feature_vectors.json", "data/crypto_classifier_report.json"]
     },
     {
       "id": "real-world-registry",
@@ -364,6 +381,8 @@
     ["fingerprint-baseline", "attribution-grid"],
     ["attribution-grid", "null-calibration"],
     ["null-calibration", "replication-audit"],
+    ["replication-audit", "crypto-classifier"],
+    ["crypto-classifier", "readiness-gates"],
     ["replication-audit", "readiness-gates"],
     ["null-calibration", "readiness-gates"],
     ["attribution-grid", "readiness-gates"],

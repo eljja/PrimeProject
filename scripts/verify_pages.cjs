@@ -134,6 +134,9 @@ async function main() {
       readinessPanel: document.querySelector("#readiness-panel").textContent,
       readinessCards: document.querySelectorAll("#readinessDimensions .readiness-card").length,
       readinessActions: document.querySelectorAll("#readinessActions li").length,
+      classifierStatus: document.querySelector("#classifierStatus").textContent,
+      classifierSummary: document.querySelector("#classifierSummary").textContent,
+      classifierLabels: document.querySelectorAll("#classifierLabels .classifier-label-row").length,
       evidencePanel: document.querySelector("#evidence-panel").textContent,
       evidenceGates: document.querySelectorAll("#evidenceGateRows .evidence-row").length,
       evidenceArtifacts: document.querySelectorAll("#evidenceArtifactRows .evidence-row").length,
@@ -197,7 +200,9 @@ async function main() {
     !metrics.evolutionImpact.includes("Falsification battery") ||
     !metrics.evolutionImpact.includes("Null calibration") ||
     !metrics.evolutionImpact.includes("Replication audit") ||
-    !metrics.evolutionImpact.includes("13 artifacts") ||
+    !metrics.evolutionImpact.includes("Crypto-classifier scaffold") ||
+    !metrics.evolutionImpact.includes("15 artifacts") ||
+    !metrics.evolutionPanel.includes("Crypto-classifier baseline") ||
     !metrics.evolutionPanel.includes("collection matrix") ||
     !metrics.evolutionPanel.includes("Sample power") ||
     !metrics.evolutionPanel.includes("Provenance") ||
@@ -279,14 +284,19 @@ async function main() {
     metrics.readinessCards < 4 ||
     metrics.readinessActions < 2 ||
     !metrics.readinessPanel.includes("Research Readiness") ||
-    !metrics.readinessPanel.includes("prototype_ready")
+    !metrics.readinessPanel.includes("prototype_ready") ||
+    !metrics.readinessPanel.includes("Crypto-Classifier Baseline") ||
+    metrics.classifierLabels < 3 ||
+    !metrics.classifierStatus.includes("controlled synthetic only") ||
+    !metrics.classifierSummary.includes("12") ||
+    !metrics.classifierSummary.includes("33.3%")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }
   if (
     metrics.evidenceGates < 10 ||
-    metrics.evidenceArtifacts < 13 ||
+    metrics.evidenceArtifacts < 15 ||
     metrics.claimLedgerRows < 5 ||
     metrics.artifactLineageRows < 5 ||
     metrics.artifactLineagePaths < 10 ||
@@ -305,7 +315,7 @@ async function main() {
     !metrics.evidencePanel.includes("claim_promotion_guard") ||
     !metrics.evidencePanel.includes("controlled_synthetic_only") ||
     !metrics.evidencePanel.includes("reproducible") ||
-    !metrics.artifactLineageSummary.includes("15 nodes") ||
+    !metrics.artifactLineageSummary.includes("17 nodes") ||
     !metrics.evidencePanel.includes("real_world_generator_attribution") ||
     !metrics.evidencePanel.includes("bitcoin_nonce_risk_attribution") ||
     !metrics.evidencePanel.includes("blocked") ||
@@ -320,6 +330,8 @@ async function main() {
     !metrics.evidencePanel.includes("baseline_promotion_plan") ||
     !metrics.evidencePanel.includes("null_calibration") ||
     !metrics.evidencePanel.includes("replication_audit") ||
+    !metrics.evidencePanel.includes("feature_vectors") ||
+    !metrics.evidencePanel.includes("classifier_report") ||
     !metrics.evidencePanel.includes("public_demo_only")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
