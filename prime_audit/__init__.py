@@ -10,6 +10,7 @@ __all__ = [
     "bitcoin_integration",
     "catalog",
     "claim_ledger",
+    "collection_contract",
     "collection_handoff",
     "collection_intake",
     "collection_matrix",

@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.evidence-pack.v1",
-  "generated_at": "2026-05-23T05:02:09+00:00",
+  "generated_at": "2026-05-24T12:21:17+00:00",
   "claim_level": {
     "level": "public_demo_only",
     "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
@@ -64,7 +64,7 @@
       "severity": "medium",
       "message": "Published evidence should include checksummed source JSON artifacts.",
       "evidence": {
-        "artifact_count": 17
+        "artifact_count": 18
       }
     },
     {
@@ -83,6 +83,15 @@
       "message": "Real-world collection claims need a checksummed provenance audit artifact.",
       "evidence": {
         "has_provenance_audit": true
+      }
+    },
+    {
+      "code": "collection_submission_contract_gate",
+      "passed": true,
+      "severity": "medium",
+      "message": "Real-world collection claims need a public submission contract before intake records are accepted.",
+      "evidence": {
+        "has_collection_submission_contract": true
       }
     },
     {
@@ -123,7 +132,7 @@
       }
     }
   ],
-  "artifact_count": 17,
+  "artifact_count": 18,
   "artifacts": [
     {
       "role": "attribution_grid",
@@ -190,6 +199,14 @@
       "bytes": 6080
     },
     {
+      "role": "collection_submission_contract",
+      "path": "data/collection_submission_contract.json",
+      "exists": true,
+      "sha256": "5abf1e18ae9fb25342f219c28529721d90f96e0805e3f88fed10c75f1980c8a4",
+      "schema": "primeproject.collection-submission-contract.v1",
+      "bytes": 26039
+    },
+    {
       "role": "feature_vectors",
       "path": "data/feature_vectors.json",
       "exists": true,
@@ -217,9 +234,9 @@
       "role": "project_evolution",
       "path": "data/project_evolution.json",
       "exists": true,
-      "sha256": "78155ff3fc11a88415343aeee1f2308129dd132f84d631472509546616fcf925",
+      "sha256": "6e2934d6d331ce6213c78d4c760a2145f048040e146408d705d5d0f4bab4e6c5",
       "schema": "primeproject.project-evolution.v1",
-      "bytes": 22291
+      "bytes": 23352
     },
     {
       "role": "provenance_audit",

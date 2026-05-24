@@ -137,6 +137,9 @@ async function main() {
       collectionHandoffSummary: document.querySelector("#collectionHandoffSummary").textContent,
       collectionHandoffRows: document.querySelectorAll("#collectionHandoffRows .handoff-row").length,
       collectionHandoffContract: document.querySelector("#collectionHandoffContract").textContent,
+      collectionSubmissionContractStatus: document.querySelector("#collectionSubmissionContractStatus").textContent,
+      collectionSubmissionContractSummary: document.querySelector("#collectionSubmissionContractSummary").textContent,
+      collectionSubmissionContractRows: document.querySelectorAll("#collectionSubmissionContractRows .handoff-row").length,
       collectionIntakeStatus: document.querySelector("#collectionIntakeStatus").textContent,
       collectionIntakeSummary: document.querySelector("#collectionIntakeSummary").textContent,
       collectionIntakeRows: document.querySelectorAll("#collectionIntakeRows .intake-row").length,
@@ -203,7 +206,7 @@ async function main() {
     !metrics.evolutionImpact.includes("Scale lift") ||
     !metrics.evolutionImpact.includes("Publication guardrails") ||
     !metrics.evolutionDelta.includes("Intake contract") ||
-    !metrics.evolutionDelta.includes("feature-vector contract required") ||
+    !metrics.evolutionDelta.includes("14 scalar feature contract") ||
     !metrics.evolutionDelta.includes("Research Delta") ||
     !metrics.evolutionDelta.includes("10M live compute") ||
     !metrics.evolutionDelta.includes("controlled grid + null + replication") ||
@@ -218,7 +221,8 @@ async function main() {
     !metrics.evolutionImpact.includes("Replication audit") ||
     !metrics.evolutionImpact.includes("Crypto-classifier scaffold") ||
     !metrics.evolutionImpact.includes("Collection handoff packet") ||
-    !metrics.evolutionImpact.includes("17 artifacts") ||
+    !metrics.evolutionImpact.includes("Submission contract") ||
+    !metrics.evolutionImpact.includes("18 artifacts") ||
     !metrics.evolutionImpact.includes("Collection intake validator") ||
     !metrics.evolutionPanel.includes("Crypto-classifier baseline") ||
     !metrics.evolutionPanel.includes("Collection handoff") ||
@@ -278,6 +282,7 @@ async function main() {
     !metrics.baselinePanel.includes("Baseline Acceptance") ||
     !metrics.baselinePanel.includes("Promotion Plan") ||
     !metrics.baselinePanel.includes("Collection Intake") ||
+    !metrics.baselinePanel.includes("Submission Contract") ||
     !metrics.baselineRegistrySummary.includes("Registered") ||
     metrics.baselineRegistryRows < 5 ||
     metrics.collectionMatrixRows < 4 ||
@@ -302,6 +307,10 @@ async function main() {
     !metrics.collectionHandoffSummary.includes("9,028") ||
     !metrics.collectionHandoffSummary.includes("controlled_synthetic_only") ||
     !metrics.collectionHandoffContract.includes("private material stays local") ||
+    metrics.collectionSubmissionContractRows < 4 ||
+    !metrics.collectionSubmissionContractStatus.includes("10 templates") ||
+    !metrics.collectionSubmissionContractSummary.includes("14") ||
+    !metrics.collectionSubmissionContractSummary.includes("forbidden") ||
     metrics.collectionIntakeRows < 4 ||
     !metrics.collectionIntakeStatus.includes("0 accepted") ||
     !metrics.collectionIntakeStatus.includes("10 blocked") ||
@@ -346,7 +355,7 @@ async function main() {
     !metrics.evidencePanel.includes("claim_promotion_guard") ||
     !metrics.evidencePanel.includes("controlled_synthetic_only") ||
     !metrics.evidencePanel.includes("reproducible") ||
-    !metrics.artifactLineageSummary.includes("19 nodes") ||
+    !metrics.artifactLineageSummary.includes("20 nodes") ||
     !metrics.evidencePanel.includes("real_world_generator_attribution") ||
     !metrics.evidencePanel.includes("bitcoin_nonce_risk_attribution") ||
     !metrics.evidencePanel.includes("blocked") ||
@@ -361,6 +370,7 @@ async function main() {
     !metrics.evidencePanel.includes("baseline_acceptance") ||
     !metrics.evidencePanel.includes("baseline_promotion_plan") ||
     !metrics.evidencePanel.includes("collection_handoff") ||
+    !metrics.evidencePanel.includes("collection_submission_contract") ||
     !metrics.evidencePanel.includes("collection_intake") ||
     !metrics.evidencePanel.includes("null_calibration") ||
     !metrics.evidencePanel.includes("replication_audit") ||

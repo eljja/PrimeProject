@@ -13,6 +13,7 @@ from .baselines import build_generator_baseline, compare_fingerprint_to_baseline
 from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .bitcoin_integration import build_bitcoin_generator_risk_report
 from .claim_ledger import build_claim_ledger
+from .collection_contract import build_collection_submission_contract
 from .collection_handoff import build_collection_handoff
 from .collection_intake import build_collection_intake, load_intake_records
 from .conjecture_lab import run_lab
@@ -202,6 +203,13 @@ def main() -> int:
     collection_intake_parser.add_argument("--handoff", required=True)
     collection_intake_parser.add_argument("--records", nargs="*", default=[])
     collection_intake_parser.add_argument("--output", required=True)
+
+    collection_contract_parser = subparsers.add_parser(
+        "collection-submission-contract",
+        help="Build a machine-readable public submission contract for collection handoff tasks.",
+    )
+    collection_contract_parser.add_argument("--handoff", required=True)
+    collection_contract_parser.add_argument("--output", required=True)
 
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
@@ -573,6 +581,14 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         payload = build_collection_intake(handoff=handoff, records=records)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "collection-submission-contract":
+        handoff = json.loads(Path(args.handoff).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_collection_submission_contract(handoff=handoff)
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

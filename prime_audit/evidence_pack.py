@@ -193,6 +193,23 @@ def publication_gates(
             severity="medium",
         ),
         gate(
+            "collection_submission_contract_gate",
+            any(
+                artifact.get("role") == "collection_submission_contract"
+                and artifact.get("exists")
+                and artifact.get("schema") == "primeproject.collection-submission-contract.v1"
+                for artifact in artifacts
+            ),
+            "Real-world collection claims need a public submission contract before intake records are accepted.",
+            {
+                "has_collection_submission_contract": any(
+                    artifact.get("role") == "collection_submission_contract" and artifact.get("exists")
+                    for artifact in artifacts
+                )
+            },
+            severity="medium",
+        ),
+        gate(
             "baseline_acceptance_gate",
             baseline_acceptance.get("claim_gate", {}).get("status") == "open",
             "Real-world attribution claims need at least two accepted RSA library baselines.",

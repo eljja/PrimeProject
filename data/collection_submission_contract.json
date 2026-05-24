@@ -1,0 +1,679 @@
+{
+  "schema": "primeproject.collection-submission-contract.v1",
+  "source_schemas": {
+    "collection_handoff": "primeproject.collection-handoff.v1"
+  },
+  "summary": {
+    "task_count": 10,
+    "p0_count": 2,
+    "required_record_field_count": 7,
+    "required_scalar_feature_count": 14,
+    "forbidden_public_field_count": 5,
+    "claim_scope_required": "real_world",
+    "feature_vector_schema": "generator-feature-vector.v1",
+    "private_material_publication_allowed": false
+  },
+  "record_contract": {
+    "required_fields": [
+      "task_id",
+      "sample_count",
+      "claim_scope",
+      "aggregate_artifact_sha256",
+      "provenance_record",
+      "feature_vector_path",
+      "feature_vector_summary"
+    ],
+    "claim_scope_must_equal": "real_world",
+    "aggregate_artifact_sha256": {
+      "encoding": "hex",
+      "length": 64,
+      "must_be_unique_across_task_ids": true
+    },
+    "sample_count": {
+      "must_meet_planned_sample_target": true,
+      "screening_only_below_10pct_tv_floor": true
+    }
+  },
+  "feature_vector_contract": {
+    "schema": "generator-feature-vector.v1",
+    "required_scalar_features": [
+      "record_count_log2",
+      "bit_length_mean",
+      "bit_length_stddev",
+      "bit_length_entropy",
+      "bit_length_max_mass",
+      "residue_tv_30",
+      "residue_tv_210",
+      "residue_tv_2310",
+      "low16_collision_rate",
+      "next_prime_exposure_score",
+      "mean_left_gap_over_logp",
+      "mean_right_gap_over_logp",
+      "large_left_gap_ratio",
+      "max_residue_tv"
+    ],
+    "record_count_must_equal_sample_count": true,
+    "bit_length_mean_must_match_task_bit_length": true,
+    "all_scalar_features_must_be_finite_numbers": true
+  },
+  "public_safety": {
+    "private_material_publication_allowed": false,
+    "forbidden_field_names": [
+      "private_key",
+      "private_prime",
+      "raw_key_file",
+      "raw_signature_owner",
+      "wallet_seed"
+    ],
+    "forbidden_payload_policy": "Any forbidden field anywhere in the submitted public record blocks intake."
+  },
+  "acceptance_checks": [
+    {
+      "code": "known_task",
+      "blocks": true,
+      "message": "task_id must match one collection handoff task."
+    },
+    {
+      "code": "single_submission_per_task",
+      "blocks": true,
+      "message": "Only one public aggregate submission per task_id is accepted in one intake run."
+    },
+    {
+      "code": "sample_floor",
+      "blocks": true,
+      "message": "sample_count must meet planned_sample_target; below the 10% TV floor remains screening_only."
+    },
+    {
+      "code": "checksum_integrity",
+      "blocks": true,
+      "message": "aggregate_artifact_sha256 must be a 64-character SHA-256 hex digest and not reused across task IDs."
+    },
+    {
+      "code": "provenance_record",
+      "blocks": true,
+      "message": "A public provenance_record must accompany the aggregate artifact."
+    },
+    {
+      "code": "feature_vector_contract",
+      "blocks": true,
+      "message": "feature_vector_summary must match schema, scalar features, record_count, and bit_length_mean constraints."
+    },
+    {
+      "code": "public_safety",
+      "blocks": true,
+      "message": "Private keys, raw primes, wallet seeds, raw key files, and raw signature owner fields must not appear."
+    }
+  ],
+  "task_templates": [
+    {
+      "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+      "priority": "P0",
+      "library": "BoringSSL",
+      "baseline_id": "boringssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "minimum_replicates": 3,
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "must_not_publish": [
+        "private_key",
+        "private_prime",
+        "raw_key_file",
+        "raw_signature_owner",
+        "wallet_seed"
+      ],
+      "submission_record_template": {
+        "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+        "sample_count": 4514,
+        "claim_scope": "real_world",
+        "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance_record": {
+          "baseline_id": "boringssl-rsa-prime-owned",
+          "library": "BoringSSL",
+          "source_commit": "<public source commit>",
+          "build_config": "<public build flags>",
+          "rng_source": "<public RNG description>",
+          "generation_command": "<public command or reproducible recipe>"
+        },
+        "feature_vector_path": "data/real_world/boringssl-rsa-prime-owned_2048_rsa-prime.feature.json",
+        "feature_vector_summary": {
+          "schema": "generator-feature-vector.v1",
+          "id": "boringssl-rsa-prime-owned:2048:rsa-prime-feature-summary",
+          "label": "BoringSSL",
+          "record_count": 4514,
+          "features": {
+            "record_count_log2": 12,
+            "bit_length_mean": 2048.0,
+            "bit_length_stddev": 0.0,
+            "bit_length_entropy": 0.0,
+            "bit_length_max_mass": 1.0,
+            "residue_tv_30": 0.0,
+            "residue_tv_210": 0.0,
+            "residue_tv_2310": 0.0,
+            "low16_collision_rate": 0.0,
+            "next_prime_exposure_score": 0.0,
+            "mean_left_gap_over_logp": 0.0,
+            "mean_right_gap_over_logp": 0.0,
+            "large_left_gap_ratio": 0.0,
+            "max_residue_tv": 0.0
+          }
+        }
+      }
+    },
+    {
+      "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+      "priority": "P0",
+      "library": "OpenSSL",
+      "baseline_id": "openssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "minimum_replicates": 3,
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "must_not_publish": [
+        "private_key",
+        "private_prime",
+        "raw_key_file",
+        "raw_signature_owner",
+        "wallet_seed"
+      ],
+      "submission_record_template": {
+        "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+        "sample_count": 4514,
+        "claim_scope": "real_world",
+        "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance_record": {
+          "baseline_id": "openssl-rsa-prime-owned",
+          "library": "OpenSSL",
+          "source_commit": "<public source commit>",
+          "build_config": "<public build flags>",
+          "rng_source": "<public RNG description>",
+          "generation_command": "<public command or reproducible recipe>"
+        },
+        "feature_vector_path": "data/real_world/openssl-rsa-prime-owned_2048_rsa-prime.feature.json",
+        "feature_vector_summary": {
+          "schema": "generator-feature-vector.v1",
+          "id": "openssl-rsa-prime-owned:2048:rsa-prime-feature-summary",
+          "label": "OpenSSL",
+          "record_count": 4514,
+          "features": {
+            "record_count_log2": 12,
+            "bit_length_mean": 2048.0,
+            "bit_length_stddev": 0.0,
+            "bit_length_entropy": 0.0,
+            "bit_length_max_mass": 1.0,
+            "residue_tv_30": 0.0,
+            "residue_tv_210": 0.0,
+            "residue_tv_2310": 0.0,
+            "low16_collision_rate": 0.0,
+            "next_prime_exposure_score": 0.0,
+            "mean_left_gap_over_logp": 0.0,
+            "mean_right_gap_over_logp": 0.0,
+            "large_left_gap_ratio": 0.0,
+            "max_residue_tv": 0.0
+          }
+        }
+      }
+    },
+    {
+      "task_id": "bitcoin-core-ecdsa-signature-public:256:ecdsa-signature",
+      "priority": "P1",
+      "library": "Bitcoin Core / wallet metadata",
+      "baseline_id": "bitcoin-core-ecdsa-signature-public",
+      "track": "signature-nonce-metadata",
+      "object_type": "ecdsa-signature",
+      "bit_length": 256,
+      "planned_sample_target": 10000,
+      "target_samples_for_10pct_tv": 10000,
+      "minimum_replicates": 1,
+      "public_output": "nonce-risk summary + distribution fingerprint",
+      "must_not_publish": [
+        "private_key",
+        "private_prime",
+        "raw_key_file",
+        "raw_signature_owner",
+        "wallet_seed"
+      ],
+      "submission_record_template": {
+        "task_id": "bitcoin-core-ecdsa-signature-public:256:ecdsa-signature",
+        "sample_count": 10000,
+        "claim_scope": "real_world",
+        "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance_record": {
+          "baseline_id": "bitcoin-core-ecdsa-signature-public",
+          "library": "Bitcoin Core / wallet metadata",
+          "source_commit": "<public source commit>",
+          "build_config": "<public build flags>",
+          "rng_source": "<public RNG description>",
+          "generation_command": "<public command or reproducible recipe>"
+        },
+        "feature_vector_path": "data/real_world/bitcoin-core-ecdsa-signature-public_256_ecdsa-signature.feature.json",
+        "feature_vector_summary": {
+          "schema": "generator-feature-vector.v1",
+          "id": "bitcoin-core-ecdsa-signature-public:256:ecdsa-signature-feature-summary",
+          "label": "Bitcoin Core / wallet metadata",
+          "record_count": 10000,
+          "features": {
+            "record_count_log2": 13,
+            "bit_length_mean": 256.0,
+            "bit_length_stddev": 0.0,
+            "bit_length_entropy": 0.0,
+            "bit_length_max_mass": 1.0,
+            "residue_tv_30": 0.0,
+            "residue_tv_210": 0.0,
+            "residue_tv_2310": 0.0,
+            "low16_collision_rate": 0.0,
+            "next_prime_exposure_score": 0.0,
+            "mean_left_gap_over_logp": 0.0,
+            "mean_right_gap_over_logp": 0.0,
+            "large_left_gap_ratio": 0.0,
+            "max_residue_tv": 0.0
+          }
+        }
+      }
+    },
+    {
+      "task_id": "go-crypto-rsa-prime-owned:2048:rsa-prime",
+      "priority": "P1",
+      "library": "Go crypto/rsa",
+      "baseline_id": "go-crypto-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "minimum_replicates": 3,
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "must_not_publish": [
+        "private_key",
+        "private_prime",
+        "raw_key_file",
+        "raw_signature_owner",
+        "wallet_seed"
+      ],
+      "submission_record_template": {
+        "task_id": "go-crypto-rsa-prime-owned:2048:rsa-prime",
+        "sample_count": 4514,
+        "claim_scope": "real_world",
+        "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance_record": {
+          "baseline_id": "go-crypto-rsa-prime-owned",
+          "library": "Go crypto/rsa",
+          "source_commit": "<public source commit>",
+          "build_config": "<public build flags>",
+          "rng_source": "<public RNG description>",
+          "generation_command": "<public command or reproducible recipe>"
+        },
+        "feature_vector_path": "data/real_world/go-crypto-rsa-prime-owned_2048_rsa-prime.feature.json",
+        "feature_vector_summary": {
+          "schema": "generator-feature-vector.v1",
+          "id": "go-crypto-rsa-prime-owned:2048:rsa-prime-feature-summary",
+          "label": "Go crypto/rsa",
+          "record_count": 4514,
+          "features": {
+            "record_count_log2": 12,
+            "bit_length_mean": 2048.0,
+            "bit_length_stddev": 0.0,
+            "bit_length_entropy": 0.0,
+            "bit_length_max_mass": 1.0,
+            "residue_tv_30": 0.0,
+            "residue_tv_210": 0.0,
+            "residue_tv_2310": 0.0,
+            "low16_collision_rate": 0.0,
+            "next_prime_exposure_score": 0.0,
+            "mean_left_gap_over_logp": 0.0,
+            "mean_right_gap_over_logp": 0.0,
+            "large_left_gap_ratio": 0.0,
+            "max_residue_tv": 0.0
+          }
+        }
+      }
+    },
+    {
+      "task_id": "boringssl-rsa-prime-owned:3072:rsa-prime",
+      "priority": "P2",
+      "library": "BoringSSL",
+      "baseline_id": "boringssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "minimum_replicates": 3,
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "must_not_publish": [
+        "private_key",
+        "private_prime",
+        "raw_key_file",
+        "raw_signature_owner",
+        "wallet_seed"
+      ],
+      "submission_record_template": {
+        "task_id": "boringssl-rsa-prime-owned:3072:rsa-prime",
+        "sample_count": 4514,
+        "claim_scope": "real_world",
+        "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance_record": {
+          "baseline_id": "boringssl-rsa-prime-owned",
+          "library": "BoringSSL",
+          "source_commit": "<public source commit>",
+          "build_config": "<public build flags>",
+          "rng_source": "<public RNG description>",
+          "generation_command": "<public command or reproducible recipe>"
+        },
+        "feature_vector_path": "data/real_world/boringssl-rsa-prime-owned_3072_rsa-prime.feature.json",
+        "feature_vector_summary": {
+          "schema": "generator-feature-vector.v1",
+          "id": "boringssl-rsa-prime-owned:3072:rsa-prime-feature-summary",
+          "label": "BoringSSL",
+          "record_count": 4514,
+          "features": {
+            "record_count_log2": 12,
+            "bit_length_mean": 3072.0,
+            "bit_length_stddev": 0.0,
+            "bit_length_entropy": 0.0,
+            "bit_length_max_mass": 1.0,
+            "residue_tv_30": 0.0,
+            "residue_tv_210": 0.0,
+            "residue_tv_2310": 0.0,
+            "low16_collision_rate": 0.0,
+            "next_prime_exposure_score": 0.0,
+            "mean_left_gap_over_logp": 0.0,
+            "mean_right_gap_over_logp": 0.0,
+            "large_left_gap_ratio": 0.0,
+            "max_residue_tv": 0.0
+          }
+        }
+      }
+    },
+    {
+      "task_id": "boringssl-rsa-prime-owned:4096:rsa-prime",
+      "priority": "P2",
+      "library": "BoringSSL",
+      "baseline_id": "boringssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "minimum_replicates": 3,
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "must_not_publish": [
+        "private_key",
+        "private_prime",
+        "raw_key_file",
+        "raw_signature_owner",
+        "wallet_seed"
+      ],
+      "submission_record_template": {
+        "task_id": "boringssl-rsa-prime-owned:4096:rsa-prime",
+        "sample_count": 4514,
+        "claim_scope": "real_world",
+        "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance_record": {
+          "baseline_id": "boringssl-rsa-prime-owned",
+          "library": "BoringSSL",
+          "source_commit": "<public source commit>",
+          "build_config": "<public build flags>",
+          "rng_source": "<public RNG description>",
+          "generation_command": "<public command or reproducible recipe>"
+        },
+        "feature_vector_path": "data/real_world/boringssl-rsa-prime-owned_4096_rsa-prime.feature.json",
+        "feature_vector_summary": {
+          "schema": "generator-feature-vector.v1",
+          "id": "boringssl-rsa-prime-owned:4096:rsa-prime-feature-summary",
+          "label": "BoringSSL",
+          "record_count": 4514,
+          "features": {
+            "record_count_log2": 12,
+            "bit_length_mean": 4096.0,
+            "bit_length_stddev": 0.0,
+            "bit_length_entropy": 0.0,
+            "bit_length_max_mass": 1.0,
+            "residue_tv_30": 0.0,
+            "residue_tv_210": 0.0,
+            "residue_tv_2310": 0.0,
+            "low16_collision_rate": 0.0,
+            "next_prime_exposure_score": 0.0,
+            "mean_left_gap_over_logp": 0.0,
+            "mean_right_gap_over_logp": 0.0,
+            "large_left_gap_ratio": 0.0,
+            "max_residue_tv": 0.0
+          }
+        }
+      }
+    },
+    {
+      "task_id": "go-crypto-rsa-prime-owned:3072:rsa-prime",
+      "priority": "P2",
+      "library": "Go crypto/rsa",
+      "baseline_id": "go-crypto-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "minimum_replicates": 3,
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "must_not_publish": [
+        "private_key",
+        "private_prime",
+        "raw_key_file",
+        "raw_signature_owner",
+        "wallet_seed"
+      ],
+      "submission_record_template": {
+        "task_id": "go-crypto-rsa-prime-owned:3072:rsa-prime",
+        "sample_count": 4514,
+        "claim_scope": "real_world",
+        "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance_record": {
+          "baseline_id": "go-crypto-rsa-prime-owned",
+          "library": "Go crypto/rsa",
+          "source_commit": "<public source commit>",
+          "build_config": "<public build flags>",
+          "rng_source": "<public RNG description>",
+          "generation_command": "<public command or reproducible recipe>"
+        },
+        "feature_vector_path": "data/real_world/go-crypto-rsa-prime-owned_3072_rsa-prime.feature.json",
+        "feature_vector_summary": {
+          "schema": "generator-feature-vector.v1",
+          "id": "go-crypto-rsa-prime-owned:3072:rsa-prime-feature-summary",
+          "label": "Go crypto/rsa",
+          "record_count": 4514,
+          "features": {
+            "record_count_log2": 12,
+            "bit_length_mean": 3072.0,
+            "bit_length_stddev": 0.0,
+            "bit_length_entropy": 0.0,
+            "bit_length_max_mass": 1.0,
+            "residue_tv_30": 0.0,
+            "residue_tv_210": 0.0,
+            "residue_tv_2310": 0.0,
+            "low16_collision_rate": 0.0,
+            "next_prime_exposure_score": 0.0,
+            "mean_left_gap_over_logp": 0.0,
+            "mean_right_gap_over_logp": 0.0,
+            "large_left_gap_ratio": 0.0,
+            "max_residue_tv": 0.0
+          }
+        }
+      }
+    },
+    {
+      "task_id": "go-crypto-rsa-prime-owned:4096:rsa-prime",
+      "priority": "P2",
+      "library": "Go crypto/rsa",
+      "baseline_id": "go-crypto-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "minimum_replicates": 3,
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "must_not_publish": [
+        "private_key",
+        "private_prime",
+        "raw_key_file",
+        "raw_signature_owner",
+        "wallet_seed"
+      ],
+      "submission_record_template": {
+        "task_id": "go-crypto-rsa-prime-owned:4096:rsa-prime",
+        "sample_count": 4514,
+        "claim_scope": "real_world",
+        "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance_record": {
+          "baseline_id": "go-crypto-rsa-prime-owned",
+          "library": "Go crypto/rsa",
+          "source_commit": "<public source commit>",
+          "build_config": "<public build flags>",
+          "rng_source": "<public RNG description>",
+          "generation_command": "<public command or reproducible recipe>"
+        },
+        "feature_vector_path": "data/real_world/go-crypto-rsa-prime-owned_4096_rsa-prime.feature.json",
+        "feature_vector_summary": {
+          "schema": "generator-feature-vector.v1",
+          "id": "go-crypto-rsa-prime-owned:4096:rsa-prime-feature-summary",
+          "label": "Go crypto/rsa",
+          "record_count": 4514,
+          "features": {
+            "record_count_log2": 12,
+            "bit_length_mean": 4096.0,
+            "bit_length_stddev": 0.0,
+            "bit_length_entropy": 0.0,
+            "bit_length_max_mass": 1.0,
+            "residue_tv_30": 0.0,
+            "residue_tv_210": 0.0,
+            "residue_tv_2310": 0.0,
+            "low16_collision_rate": 0.0,
+            "next_prime_exposure_score": 0.0,
+            "mean_left_gap_over_logp": 0.0,
+            "mean_right_gap_over_logp": 0.0,
+            "large_left_gap_ratio": 0.0,
+            "max_residue_tv": 0.0
+          }
+        }
+      }
+    },
+    {
+      "task_id": "openssl-rsa-prime-owned:3072:rsa-prime",
+      "priority": "P2",
+      "library": "OpenSSL",
+      "baseline_id": "openssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "minimum_replicates": 3,
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "must_not_publish": [
+        "private_key",
+        "private_prime",
+        "raw_key_file",
+        "raw_signature_owner",
+        "wallet_seed"
+      ],
+      "submission_record_template": {
+        "task_id": "openssl-rsa-prime-owned:3072:rsa-prime",
+        "sample_count": 4514,
+        "claim_scope": "real_world",
+        "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance_record": {
+          "baseline_id": "openssl-rsa-prime-owned",
+          "library": "OpenSSL",
+          "source_commit": "<public source commit>",
+          "build_config": "<public build flags>",
+          "rng_source": "<public RNG description>",
+          "generation_command": "<public command or reproducible recipe>"
+        },
+        "feature_vector_path": "data/real_world/openssl-rsa-prime-owned_3072_rsa-prime.feature.json",
+        "feature_vector_summary": {
+          "schema": "generator-feature-vector.v1",
+          "id": "openssl-rsa-prime-owned:3072:rsa-prime-feature-summary",
+          "label": "OpenSSL",
+          "record_count": 4514,
+          "features": {
+            "record_count_log2": 12,
+            "bit_length_mean": 3072.0,
+            "bit_length_stddev": 0.0,
+            "bit_length_entropy": 0.0,
+            "bit_length_max_mass": 1.0,
+            "residue_tv_30": 0.0,
+            "residue_tv_210": 0.0,
+            "residue_tv_2310": 0.0,
+            "low16_collision_rate": 0.0,
+            "next_prime_exposure_score": 0.0,
+            "mean_left_gap_over_logp": 0.0,
+            "mean_right_gap_over_logp": 0.0,
+            "large_left_gap_ratio": 0.0,
+            "max_residue_tv": 0.0
+          }
+        }
+      }
+    },
+    {
+      "task_id": "openssl-rsa-prime-owned:4096:rsa-prime",
+      "priority": "P2",
+      "library": "OpenSSL",
+      "baseline_id": "openssl-rsa-prime-owned",
+      "track": "rsa-prime-generation",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
+      "planned_sample_target": 500,
+      "target_samples_for_10pct_tv": 4514,
+      "minimum_replicates": 3,
+      "public_output": "aggregate fingerprint + baseline + feature vector",
+      "must_not_publish": [
+        "private_key",
+        "private_prime",
+        "raw_key_file",
+        "raw_signature_owner",
+        "wallet_seed"
+      ],
+      "submission_record_template": {
+        "task_id": "openssl-rsa-prime-owned:4096:rsa-prime",
+        "sample_count": 4514,
+        "claim_scope": "real_world",
+        "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance_record": {
+          "baseline_id": "openssl-rsa-prime-owned",
+          "library": "OpenSSL",
+          "source_commit": "<public source commit>",
+          "build_config": "<public build flags>",
+          "rng_source": "<public RNG description>",
+          "generation_command": "<public command or reproducible recipe>"
+        },
+        "feature_vector_path": "data/real_world/openssl-rsa-prime-owned_4096_rsa-prime.feature.json",
+        "feature_vector_summary": {
+          "schema": "generator-feature-vector.v1",
+          "id": "openssl-rsa-prime-owned:4096:rsa-prime-feature-summary",
+          "label": "OpenSSL",
+          "record_count": 4514,
+          "features": {
+            "record_count_log2": 12,
+            "bit_length_mean": 4096.0,
+            "bit_length_stddev": 0.0,
+            "bit_length_entropy": 0.0,
+            "bit_length_max_mass": 1.0,
+            "residue_tv_30": 0.0,
+            "residue_tv_210": 0.0,
+            "residue_tv_2310": 0.0,
+            "low16_collision_rate": 0.0,
+            "next_prime_exposure_score": 0.0,
+            "mean_left_gap_over_logp": 0.0,
+            "mean_right_gap_over_logp": 0.0,
+            "large_left_gap_ratio": 0.0,
+            "max_residue_tv": 0.0
+          }
+        }
+      }
+    }
+  ]
+}

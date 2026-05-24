@@ -26,6 +26,7 @@ from prime_audit.bitcoin import audit_bitcoin_signatures, parse_der_signature, s
 from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
 from prime_audit.claim_ledger import build_claim_ledger
+from prime_audit.collection_contract import build_collection_submission_contract
 from prime_audit.collection_handoff import build_collection_handoff
 from prime_audit.collection_intake import build_collection_intake
 from prime_audit.collection_matrix import build_collection_matrix
@@ -606,6 +607,42 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertFalse(handoff["public_artifact_contract"]["publish_private_material"])
         self.assertIn("private_prime", handoff["rows"][0]["collector_contract"]["must_not_publish"])
 
+    def test_collection_submission_contract_exports_task_templates(self) -> None:
+        handoff = {
+            "schema": "primeproject.collection-handoff.v1",
+            "rows": [
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "priority": "P0",
+                    "library": "OpenSSL",
+                    "baseline_id": "openssl-rsa-prime-owned",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                    "public_output": "aggregate fingerprint + baseline + feature vector",
+                    "collector_contract": {
+                        "minimum_replicates": 3,
+                        "must_not_publish": ["private_key", "private_prime", "raw_key_file"],
+                    },
+                },
+            ],
+        }
+        contract = build_collection_submission_contract(handoff=handoff)
+        template = contract["task_templates"][0]["submission_record_template"]
+
+        self.assertEqual(contract["schema"], "primeproject.collection-submission-contract.v1")
+        self.assertEqual(contract["summary"]["task_count"], 1)
+        self.assertEqual(contract["summary"]["required_scalar_feature_count"], 14)
+        self.assertIn("feature_vector_summary", contract["record_contract"]["required_fields"])
+        self.assertEqual(contract["feature_vector_contract"]["schema"], "generator-feature-vector.v1")
+        self.assertIn("private_prime", contract["public_safety"]["forbidden_field_names"])
+        self.assertEqual(template["task_id"], "openssl-rsa-prime-owned:2048:rsa-prime")
+        self.assertEqual(template["claim_scope"], "real_world")
+        self.assertEqual(template["feature_vector_summary"]["record_count"], 4514)
+        self.assertEqual(template["feature_vector_summary"]["features"]["bit_length_mean"], 2048.0)
+
     def test_collection_intake_blocks_missing_or_sensitive_submissions(self) -> None:
         handoff = {
             "schema": "primeproject.collection-handoff.v1",
@@ -930,6 +967,7 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("classifier_gate", failed)
         self.assertIn("provenance_gate", failed)
         self.assertIn("provenance_audit_gate", failed)
+        self.assertIn("collection_submission_contract_gate", failed)
         self.assertIn("baseline_acceptance_gate", failed)
         self.assertIn("collection_intake_gate", failed)
         self.assertIn("promotion_plan_gate", failed)

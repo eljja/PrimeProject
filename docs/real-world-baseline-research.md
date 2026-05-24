@@ -14,6 +14,7 @@ owned or public sample
   -> build-baseline or bitcoin-risk-report
   -> real-baseline-manifest
   -> export-feature-vectors
+  -> collection-submission-contract
   -> crypto-classifier
 ```
 
@@ -188,6 +189,20 @@ python -m prime_audit.cli collection-handoff `
 ```
 
 현재 handoff는 10개 collection task를 만들고, P0는 OpenSSL 2048-bit와 BoringSSL 2048-bit 두 개다. 두 P0 target은 10% TV floor 기준 총 9028개 sample이 필요하며, 공개 계약은 `aggregate fingerprint JSON`, `baseline JSON`, `feature vector JSON`, `provenance record JSON`, `SHA-256 checksum`으로 제한한다. `private_key`, `private_prime`, `wallet_seed`, raw key file은 공개 금지 필드로 남는다.
+
+## Collection Submission Contract
+
+`collection-submission-contract`는 handoff를 실제 제출자가 따라야 할 machine-readable 계약으로 변환한다. handoff가 “무엇을 수집할지”를 정의한다면, submission contract는 “어떤 JSON record가 intake를 통과할 수 있는지”를 미리 고정한다.
+
+```powershell
+python -m prime_audit.cli collection-submission-contract `
+  --handoff data/collection_handoff.json `
+  --output data/collection_submission_contract.json
+```
+
+현재 계약은 10개 task template을 만들고, 각 제출 record에 `task_id`, `sample_count`, `claim_scope`, `aggregate_artifact_sha256`, `provenance_record`, `feature_vector_path`, `feature_vector_summary` 7개 필드를 요구한다. `feature_vector_summary`는 `generator-feature-vector.v1` schema, 14개 scalar feature, `record_count == sample_count`, task bit length와 맞는 `bit_length_mean`, finite numeric value 조건을 만족해야 한다.
+
+이 단계의 실용적 가치는 두 가지다. 첫째, OpenSSL/BoringSSL/Go/wallet 수집자가 private material을 공개하지 않고도 재현 가능한 aggregate artifact를 제출할 수 있는 템플릿을 제공한다. 둘째, intake 전에 checksum 재사용, feature-vector 누락, claim scope 오류, forbidden field 노출 같은 실패 조건을 공개 산출물로 고정해 “나중에 결과를 보고 기준을 바꾸는” 위험을 줄인다. GitHub Pages의 Baseline Lab은 이 계약을 Submission Contract 블록으로 표시하고, Evidence Pack은 `collection_submission_contract_gate`로 체크섬 포함 여부를 검사한다.
 
 ## Collection Intake
 
