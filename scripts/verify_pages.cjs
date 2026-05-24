@@ -296,6 +296,8 @@ async function main() {
     metrics.collectionPowerRows < 5 ||
     !metrics.collectionPowerStatus.includes("coarse") ||
     !metrics.collectionPowerSummary.includes("multinomial") ||
+    !metrics.collectionPowerSummary.includes("Sensitivity") ||
+    !metrics.baselinePanel.includes("rsa-prime sensitivity") ||
     metrics.provenanceRows < 4 ||
     !metrics.provenanceStatus.includes("35") ||
     !metrics.provenanceSummary.includes("Required fields") ||

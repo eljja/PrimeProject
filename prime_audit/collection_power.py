@@ -6,6 +6,8 @@ from typing import Any
 
 
 COLLECTION_POWER_SCHEMA = "primeproject.collection-power.v1"
+SENSITIVITY_ALPHA_VALUES = (0.10, 0.05, 0.01, 0.001)
+SENSITIVITY_TARGET_TV_VALUES = (0.20, 0.10, 0.05)
 
 
 def build_collection_power(
@@ -24,6 +26,7 @@ def build_collection_power(
     coarse = sum(1 for row in rows if row["power_tier"] == "coarse")
     screening = sum(1 for row in rows if row["power_tier"] == "screening")
     strong = sum(1 for row in rows if row["power_tier"] == "strong")
+    sensitivity_rows = build_sensitivity_grid(rows)
     return {
         "schema": COLLECTION_POWER_SCHEMA,
         "method": {
@@ -43,6 +46,11 @@ def build_collection_power(
             "weakest_targets": weakest_targets(rows),
         },
         "rows": rows,
+        "sensitivity": {
+            "alpha_values": list(SENSITIVITY_ALPHA_VALUES),
+            "target_tv_values": list(SENSITIVITY_TARGET_TV_VALUES),
+            "rows": sensitivity_rows,
+        },
         "recommendations": recommendations(rows),
     }
 
@@ -67,6 +75,11 @@ def target_power(
         z_score=z_score,
         target_tv=target_tv,
     )
+    min_samples_for_10pct_tv = minimum_samples_for_tv_floor(
+        bucket_count=bucket_count,
+        z_score=z_score,
+        target_tv=0.10,
+    )
     tier = power_tier(conservative_tv_floor_95)
     return {
         "library": collection_row.get("library"),
@@ -84,8 +97,8 @@ def target_power(
         "target_tv_label": tv_label(target_tv),
         "min_samples_for_target_tv": min_samples_for_target_tv,
         "sample_gap_to_target_tv": max(0, min_samples_for_target_tv - sample_target),
-        "min_samples_for_10pct_tv": min_samples_for_target_tv,
-        "sample_gap_to_10pct_tv": max(0, min_samples_for_target_tv - sample_target),
+        "min_samples_for_10pct_tv": min_samples_for_10pct_tv,
+        "sample_gap_to_10pct_tv": max(0, min_samples_for_10pct_tv - sample_target),
     }
 
 
@@ -136,6 +149,46 @@ def tv_label(target_tv: float) -> str:
         return f"{int(round(percentage))}pct"
     label = f"{percentage:.3f}".rstrip("0").rstrip(".")
     return f"{label.replace('.', '_')}pct"
+
+
+def build_sensitivity_grid(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    profiles: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        object_type = str(row.get("object_type") or "unknown")
+        current = profiles.get(object_type)
+        sample_target = int(row.get("sample_target") or 0)
+        if not current or sample_target > int(current.get("planned_sample_target") or 0):
+            profiles[object_type] = {
+                "object_type": object_type,
+                "bucket_count": int(row.get("bucket_count") or 0),
+                "planned_sample_target": sample_target,
+            }
+
+    sensitivity = []
+    for profile in sorted(profiles.values(), key=lambda item: str(item["object_type"])):
+        bucket_count = int(profile["bucket_count"])
+        planned_sample_target = int(profile["planned_sample_target"])
+        for alpha in SENSITIVITY_ALPHA_VALUES:
+            z_score = normal_z_for_two_sided_alpha(alpha)
+            for target_tv in SENSITIVITY_TARGET_TV_VALUES:
+                min_samples = minimum_samples_for_tv_floor(
+                    bucket_count=bucket_count,
+                    z_score=z_score,
+                    target_tv=target_tv,
+                )
+                sensitivity.append(
+                    {
+                        "object_type": profile["object_type"],
+                        "bucket_count": bucket_count,
+                        "planned_sample_target": planned_sample_target,
+                        "alpha": alpha,
+                        "target_tv": target_tv,
+                        "target_tv_label": tv_label(target_tv),
+                        "min_samples": min_samples,
+                        "sample_gap_vs_planned_target": max(0, min_samples - planned_sample_target),
+                    }
+                )
+    return sensitivity
 
 
 def power_tier(conservative_tv_floor_95: float) -> str:

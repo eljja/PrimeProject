@@ -304,6 +304,17 @@ const bundledCollectionPower = {
     { library: "Go crypto/rsa", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
     { library: "Bitcoin Core / wallet metadata", bit_length: 256, sample_target: 10000, object_type: "ecdsa-signature", power_tier: "strong", conservative_tv_floor_95: 0.077784, target_tv_label: "10pct", min_samples_for_target_tv: 6051, min_samples_for_10pct_tv: 6051 },
   ],
+  sensitivity: {
+    alpha_values: [0.1, 0.05, 0.01, 0.001],
+    target_tv_values: [0.2, 0.1, 0.05],
+    rows: [
+      { object_type: "rsa-prime", bucket_count: 48, planned_sample_target: 500, alpha: 0.05, target_tv: 0.2, target_tv_label: "20pct", min_samples: 1129, sample_gap_vs_planned_target: 629 },
+      { object_type: "rsa-prime", bucket_count: 48, planned_sample_target: 500, alpha: 0.05, target_tv: 0.1, target_tv_label: "10pct", min_samples: 4514, sample_gap_vs_planned_target: 4014 },
+      { object_type: "rsa-prime", bucket_count: 48, planned_sample_target: 500, alpha: 0.05, target_tv: 0.05, target_tv_label: "5pct", min_samples: 18055, sample_gap_vs_planned_target: 17555 },
+      { object_type: "rsa-prime", bucket_count: 48, planned_sample_target: 500, alpha: 0.001, target_tv: 0.05, target_tv_label: "5pct", min_samples: 50890, sample_gap_vs_planned_target: 50390 },
+      { object_type: "ecdsa-signature", bucket_count: 64, planned_sample_target: 10000, alpha: 0.05, target_tv: 0.1, target_tv_label: "10pct", min_samples: 6051, sample_gap_vs_planned_target: 0 },
+    ],
+  },
   recommendations: [
     {
       priority: "P0",
@@ -781,7 +792,7 @@ const bundledEvidencePack = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794", quality_gate_status: "pass", fixture_count: 6, failed_expectation_count: 0, public_safe_fixture_count: 6 },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
-    { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "937ae6860ea0ae064cf0187b3ad14886fca6d57759a0c8bbbf020495c22fc28b" },
+    { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "0865ab64761e24c253a761722cfb0478edb32d2985b5fd61d76a3697fac65a05" },
     { role: "collection_submission_contract", schema: "primeproject.collection-submission-contract.v1", sha256: "5abf1e18ae9fb25342f219c28529721d90f96e0805e3f88fed10c75f1980c8a4" },
     { role: "collection_submission_lint", schema: "primeproject.collection-submission-lint.v1", sha256: "15fe34e67cefe7e3a45d1b9c566127a9c9822b545c6a29b0f243d9dc8fd8f4b0" },
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
@@ -890,8 +901,8 @@ const bundledArtifactLineage = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "58adaf9e1ae9a3ec3c4f01bf310d8b2ce4b4629db6389c108ca9106a34132419" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "a942d3352f95d61fbda8eb0976d8a677212d3a4c57f6caf4eaaf8d3cc594d614" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "f5dfe5e7ad16ec5829e171000a626992e81ac78e26931552394a9ba5d7a41cce" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "3caa7591dc10f6ecdb4f49d49c5011dc782df1e6e23e4df851845f3c2dab9fd9" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
     { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "6b2ca0e7131ec56d5a27d0b2d8e6445cc1f70d1a56ab5f201e700661f94b55cb" },
@@ -2624,15 +2635,16 @@ function renderCollectionPower() {
   const power = state.collectionPower || bundledCollectionPower;
   const summary = power.summary || {};
   const rows = power.rows || [];
+  const sensitivityRows = sensitivityRowsForDisplay(power);
   outputs.collectionPowerStatus.textContent =
     `${formatNumber(summary.strong_count || 0)} strong · ${formatNumber(summary.coarse_count || 0)} coarse`;
   outputs.collectionPowerSummary.innerHTML = `
     <div><span>Method</span><strong>${escapeHtml(power.method?.name || "unknown")}</strong><small>${formatPercent(power.method?.target_tv || 0)} TV target</small></div>
     <div><span>Targets</span><strong>${formatNumber(summary.target_count || rows.length)}</strong><small>${formatNumber(summary.minimum_recommended_replicates || 0)} replicates</small></div>
     <div><span>Strong</span><strong>${formatNumber(summary.strong_count || 0)}</strong><small>claim-ready floor</small></div>
-    <div><span>Coarse</span><strong>${formatNumber(summary.coarse_count || 0)}</strong><small>screening only</small></div>
+    <div><span>Sensitivity</span><strong>${formatNumber((power.sensitivity?.rows || []).length)}</strong><small>alpha x TV grid</small></div>
   `;
-  outputs.collectionPowerRows.innerHTML = rows
+  const targetRowsHtml = rows
     .slice()
     .sort((a, b) => b.conservative_tv_floor_95 - a.conservative_tv_floor_95)
     .slice(0, 5)
@@ -2649,6 +2661,29 @@ function renderCollectionPower() {
       `;
     })
     .join("");
+  const sensitivityHtml = sensitivityRows
+    .map((row) => `
+      <div class="power-row is-sensitivity">
+        <strong>${escapeHtml(row.object_type || "object")} sensitivity</strong>
+        <em class="is-screening">alpha ${escapeHtml(String(row.alpha))}</em>
+        <span>${escapeHtml(displayTvLabel(row.target_tv_label, row.target_tv))} TV · ${formatNumber(row.bucket_count || 0)} buckets</span>
+        <span>n≈${formatNumber(row.min_samples || 0)}</span>
+      </div>
+    `)
+    .join("");
+  outputs.collectionPowerRows.innerHTML = targetRowsHtml + sensitivityHtml;
+}
+
+function sensitivityRowsForDisplay(power) {
+  const rows = power.sensitivity?.rows || [];
+  const defaultAlpha = Number(power.method?.alpha ?? 0.05);
+  const rsaRows = rows
+    .filter((row) => row.object_type === "rsa-prime" && Math.abs(Number(row.alpha) - defaultAlpha) < 1e-12)
+    .sort((a, b) => Number(b.target_tv || 0) - Number(a.target_tv || 0));
+  const strictRsa = rows.find(
+    (row) => row.object_type === "rsa-prime" && Number(row.alpha) === 0.001 && Number(row.target_tv) === 0.05
+  );
+  return [...rsaRows.slice(0, 3), strictRsa].filter(Boolean);
 }
 
 async function loadProvenanceRequirements() {

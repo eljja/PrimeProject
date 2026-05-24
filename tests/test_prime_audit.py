@@ -424,9 +424,17 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(power["summary"]["target_count"], 10)
         self.assertEqual(power["summary"]["coarse_count"], 9)
         self.assertEqual(power["summary"]["strong_count"], 1)
+        self.assertGreaterEqual(len(power["sensitivity"]["rows"]), 18)
         rsa_rows = [row for row in power["rows"] if row["object_type"] == "rsa-prime"]
         self.assertTrue(all(row["bucket_count"] == 48 for row in rsa_rows))
         self.assertTrue(all(row["min_samples_for_10pct_tv"] > row["sample_target"] for row in rsa_rows))
+        rsa_sensitivity = {
+            (row["alpha"], row["target_tv"]): row
+            for row in power["sensitivity"]["rows"]
+            if row["object_type"] == "rsa-prime"
+        }
+        self.assertEqual(rsa_sensitivity[(0.05, 0.20)]["min_samples"], 1129)
+        self.assertEqual(rsa_sensitivity[(0.05, 0.05)]["min_samples"], 18055)
         signature = next(row for row in power["rows"] if row["object_type"] == "ecdsa-signature")
         self.assertEqual(signature["power_tier"], "strong")
         self.assertGreaterEqual(len(power["recommendations"]), 1)
@@ -457,6 +465,8 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(rsa["target_tv_label"], "5pct")
         self.assertEqual(rsa["min_samples_for_target_tv"], 18055)
         self.assertEqual(rsa["sample_gap_to_target_tv"], 17555)
+        self.assertEqual(rsa["min_samples_for_10pct_tv"], 4514)
+        self.assertEqual(rsa["sample_gap_to_10pct_tv"], 4014)
         self.assertIn("5% TV", power["recommendations"][0]["action"])
 
     def test_collection_power_rejects_invalid_alpha(self) -> None:
