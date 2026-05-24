@@ -786,7 +786,7 @@ const bundledEvidencePack = {
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "dd7a41a91ae43988bcbbf0b54d3c2b3ea6abb7dacdf0862765492a7f84a14b3f" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "721b78551fdbf2bc4e84f0338a8e4424a390c90c9941a869f076779fcf588089" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
@@ -889,11 +889,11 @@ const bundledArtifactLineage = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "cc65fdf5910563dc476050683b8050235e0da0c92a23fcbefe737d26f2f30445" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "be99580d344ced3dc4cf554bc645c99aaa9d8ef00788ca485e34a03ce69072f7" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "e7aef56de9bfea1daf8ee41b08585ea0aed85393afd5afea2ac8b4a5f0803e48" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "525fd9afd40765d7d9fd4df5cab54839dcb2caf76c3413ee5863264cfea3d5a1" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "dd7a41a91ae43988bcbbf0b54d3c2b3ea6abb7dacdf0862765492a7f84a14b3f" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "721b78551fdbf2bc4e84f0338a8e4424a390c90c9941a869f076779fcf588089" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -1168,6 +1168,13 @@ const bundledProjectEvolution = {
         { stage: "Intake contract", score: 0, status: "blocked", evidence: "10 task templates; 6 lint fixtures pass expectations; 0 submitted artifacts" },
         { stage: "Publish claims", score: 60, status: "guarded", evidence: "public_demo_only; real-world and Bitcoin attribution blocked" },
       ],
+      evidence_spine: [
+        { layer: "Scale", score: 100, status: "complete", artifacts: ["data/snapshots/manifest.json", "assets/snapshots/*.svg"], gate: "10M live compute plus 1M/10M static snapshots", proof: "The original browser experiment is now backed by larger reproducible local snapshots." },
+        { layer: "Signal", score: 100, status: "complete", artifacts: ["data/attribution_confound_grid.json", "data/null_calibration.json", "data/replication_audit.json"], gate: "48 grid rows, 5,000 null iterations, 8 replication settings", proof: "Generator-fingerprint claims are limited to controlled synthetic evidence that survives confound checks." },
+        { layer: "Sim-to-Real", score: 35, status: "blocked", artifacts: ["data/collection_handoff.json", "data/collection_submission_contract.json", "data/collection_fixture_audit.json", "data/collection_intake.json"], gate: "10 targets, 6 public-safe fixtures, 0 accepted real submissions", proof: "OpenSSL/BoringSSL/Go/Bitcoin collection is specified and lint-tested, but real aggregate baselines are not accepted yet." },
+        { layer: "Governance", score: 65, status: "guarded", artifacts: ["data/provenance_requirements.json", "data/provenance_audit.json", "data/baseline_acceptance.json", "data/baseline_promotion_plan.json"], gate: "0 accepted baselines, 4 provenance rows blocked, 9,028 P0 samples projected", proof: "The project now states exactly why stronger real-world claims remain blocked." },
+        { layer: "Publication", score: 80, status: "guarded", artifacts: ["data/evidence_pack.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json"], gate: "20 artifacts, 14 gates, 22 lineage nodes, 5 falsification checks", proof: "Public statements are constrained by checksums, lineage, decision rules, and falsification guards." },
+      ],
     },
     latest_changes: [
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
@@ -1337,6 +1344,7 @@ const outputs = {
   snapshotResidueDrift: document.querySelector("#snapshotResidueDrift"),
   evolutionSummary: document.querySelector("#evolutionSummary"),
   evolutionImpact: document.querySelector("#evolutionImpact"),
+  evolutionSpine: document.querySelector("#evolutionSpine"),
   evolutionDelta: document.querySelector("#evolutionDelta"),
   evolutionMap: document.querySelector("#evolutionMap"),
   evolutionTimeline: document.querySelector("#evolutionTimeline"),
@@ -2301,6 +2309,7 @@ function renderProjectEvolution() {
     <div><span>Claim level</span><strong>${escapeHtml(metrics.publication_claim_level || "unknown")}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
   `;
   renderEvolutionImpact(evolution);
+  renderEvolutionSpine(evolution);
   renderEvolutionDelta(evolution);
   renderEvolutionMap(evolution);
   outputs.evolutionTimeline.innerHTML = phases
@@ -2321,6 +2330,38 @@ function renderProjectEvolution() {
       </div>
     `)
     .join("");
+}
+
+function renderEvolutionSpine(evolution) {
+  if (!outputs.evolutionSpine) return;
+  const dashboard = evolution.change_dashboard || bundledProjectEvolution.change_dashboard || {};
+  const rollup = dashboard.visual_rollup || {};
+  const spine = rollup.evidence_spine || [];
+  outputs.evolutionSpine.innerHTML = `
+    <div class="spine-heading">
+      <span>Evidence Spine</span>
+      <strong>Existing results organized by research evidence layer and current claim readiness.</strong>
+    </div>
+    <div class="spine-grid">
+      ${spine
+        .map((item) => {
+          const score = Math.max(0, Math.min(100, Number(item.score) || 0));
+          return `
+            <div class="spine-card is-${escapeHtml(item.status || "active")}">
+              <div class="spine-card-top">
+                <strong>${escapeHtml(item.layer || "Layer")}</strong>
+                <em>${formatNumber(score)}%</em>
+              </div>
+              <i><b style="width: ${score}%"></b></i>
+              <span>${escapeHtml(item.gate || "")}</span>
+              <p>${escapeHtml(item.proof || "")}</p>
+              <code>${escapeHtml((item.artifacts || []).join(" · "))}</code>
+            </div>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
 }
 
 function renderEvolutionImpact(evolution) {

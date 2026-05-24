@@ -92,11 +92,13 @@ async function main() {
       predictionMetrics: document.querySelector("#predictionMetrics").textContent,
       evolutionPanel: document.querySelector("#evolution-panel").textContent,
       evolutionImpact: document.querySelector("#evolutionImpact").textContent,
+      evolutionSpine: document.querySelector("#evolutionSpine").textContent,
       evolutionDelta: document.querySelector("#evolutionDelta").textContent,
       maturityStages: document.querySelectorAll("#evolutionImpact .maturity-stage").length,
       releaseNodes: document.querySelectorAll("#evolutionImpact .release-node").length,
       impactChanges: document.querySelectorAll("#evolutionImpact .impact-change-list div").length,
       evidenceFlowNodes: document.querySelectorAll("#evolutionDelta .evidence-flow-node").length,
+      evidenceSpineCards: document.querySelectorAll("#evolutionSpine .spine-card").length,
       deltaTracks: document.querySelectorAll("#evolutionDelta .delta-track").length,
       claimLanes: document.querySelectorAll("#evolutionDelta .claim-lane").length,
       evolutionSteps: document.querySelectorAll("#evolutionTimeline .evolution-step").length,
@@ -204,6 +206,7 @@ async function main() {
     metrics.releaseNodes < 5 ||
     metrics.impactChanges < 4 ||
     metrics.evidenceFlowNodes < 5 ||
+    metrics.evidenceSpineCards < 5 ||
     metrics.deltaTracks < 4 ||
     metrics.claimLanes < 4 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
@@ -211,6 +214,10 @@ async function main() {
     !metrics.evolutionImpact.includes("Visual Change Trail") ||
     !metrics.evolutionImpact.includes("Scale lift") ||
     !metrics.evolutionImpact.includes("Publication guardrails") ||
+    !metrics.evolutionSpine.includes("Evidence Spine") ||
+    !metrics.evolutionSpine.includes("Sim-to-Real") ||
+    !metrics.evolutionSpine.includes("data/collection_fixture_audit.json") ||
+    !metrics.evolutionSpine.includes("20 artifacts") ||
     !metrics.evolutionDelta.includes("Intake contract") ||
     !metrics.evolutionDelta.includes("6 lint fixtures") ||
     !metrics.evolutionDelta.includes("Research Delta") ||

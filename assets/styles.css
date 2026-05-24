@@ -1103,6 +1103,127 @@ canvas {
   font-weight: 820;
 }
 
+.evidence-spine {
+  display: grid;
+  gap: 12px;
+  padding: 14px 20px 2px;
+}
+
+.spine-heading {
+  display: grid;
+  gap: 6px;
+  border-left: 4px solid var(--indigo);
+  background: linear-gradient(90deg, rgba(70, 87, 216, 0.08), rgba(8, 127, 122, 0.05));
+  padding: 13px 14px;
+}
+
+.spine-heading span {
+  color: var(--indigo);
+  font-size: 11px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.spine-heading strong {
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.spine-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.spine-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--teal);
+  background: #fff;
+  padding: 12px;
+}
+
+.spine-card.is-blocked {
+  border-top-color: var(--danger);
+}
+
+.spine-card.is-guarded {
+  border-top-color: var(--amber);
+}
+
+.spine-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.spine-card strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.spine-card em {
+  color: var(--teal);
+  font-style: normal;
+  font-size: 15px;
+  font-weight: 840;
+}
+
+.spine-card.is-blocked em {
+  color: var(--danger);
+}
+
+.spine-card.is-guarded em {
+  color: var(--amber);
+}
+
+.spine-card i {
+  display: block;
+  height: 7px;
+  margin-top: 9px;
+  background: var(--soft);
+  overflow: hidden;
+}
+
+.spine-card i b {
+  display: block;
+  height: 100%;
+  background: var(--teal);
+}
+
+.spine-card.is-blocked i b {
+  background: var(--danger);
+}
+
+.spine-card.is-guarded i b {
+  background: var(--amber);
+}
+
+.spine-card span,
+.spine-card p,
+.spine-card code {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.spine-card span {
+  color: var(--ink);
+  font-weight: 760;
+}
+
+.spine-card p {
+  margin-bottom: 0;
+}
+
+.spine-card code {
+  overflow-wrap: anywhere;
+}
+
 .evolution-delta {
   display: grid;
   gap: 12px;
@@ -3057,6 +3178,7 @@ tr:last-child td {
   .evolution-impact,
   .delta-state,
   .release-trail,
+  .spine-grid,
   .evidence-flow-strip,
   .delta-track-grid,
   .claim-lane-grid,
@@ -3081,6 +3203,7 @@ tr:last-child td {
   .maturity-ladder,
   .impact-change-list,
   .release-trail,
+  .spine-grid,
   .evidence-flow-strip,
   .delta-track-grid,
   .claim-lane-grid {
@@ -3142,6 +3265,7 @@ tr:last-child td {
   .evolution-delta,
   .delta-state,
   .release-trail,
+  .spine-grid,
   .evidence-flow-strip,
   .delta-track-grid,
   .claim-lane-grid,
@@ -3174,6 +3298,7 @@ tr:last-child td {
   .evolution-body,
   .evolution-gaps,
   .evolution-impact,
+  .evidence-spine,
   .evolution-delta {
     grid-template-columns: 1fr;
     padding: 12px;
