@@ -296,6 +296,7 @@ def main() -> int:
         default=[],
         help="Additional checksummed artifact in role=path form.",
     )
+    evidence_pack_parser.add_argument("--generated-at", default=None)
     evidence_pack_parser.add_argument("--output", required=True)
 
     claim_ledger_parser = subparsers.add_parser(
@@ -303,6 +304,7 @@ def main() -> int:
         help="Map public research claims to the evidence gates and artifacts that support or block them.",
     )
     claim_ledger_parser.add_argument("--evidence-pack", required=True)
+    claim_ledger_parser.add_argument("--generated-at", default=None)
     claim_ledger_parser.add_argument("--output", required=True)
 
     artifact_lineage_parser = subparsers.add_parser(
@@ -321,6 +323,7 @@ def main() -> int:
         default=[],
         help="Override dependency edges as role:dep1,dep2.",
     )
+    artifact_lineage_parser.add_argument("--generated-at", default=None)
     artifact_lineage_parser.add_argument("--output", required=True)
 
     decision_protocol_parser = subparsers.add_parser(
@@ -330,6 +333,7 @@ def main() -> int:
     decision_protocol_parser.add_argument("--evidence-pack", required=True)
     decision_protocol_parser.add_argument("--claim-ledger", required=True)
     decision_protocol_parser.add_argument("--artifact-lineage", required=True)
+    decision_protocol_parser.add_argument("--generated-at", default=None)
     decision_protocol_parser.add_argument("--output", required=True)
 
     falsification_parser = subparsers.add_parser(
@@ -338,6 +342,7 @@ def main() -> int:
     )
     falsification_parser.add_argument("--attribution-grid", required=True)
     falsification_parser.add_argument("--decision-protocol", required=True)
+    falsification_parser.add_argument("--generated-at", default=None)
     falsification_parser.add_argument("--output", required=True)
 
     null_calibration_parser = subparsers.add_parser(
@@ -758,6 +763,7 @@ def main() -> int:
             baseline_acceptance=baseline_acceptance,
             collection_intake=collection_intake,
             file_paths=paths,
+            generated_at=args.generated_at,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
@@ -766,7 +772,7 @@ def main() -> int:
         evidence_pack = json.loads(Path(args.evidence_pack).read_text(encoding="utf-8"))
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
-        payload = build_claim_ledger(evidence_pack)
+        payload = build_claim_ledger(evidence_pack, generated_at=args.generated_at)
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 
@@ -792,6 +798,7 @@ def main() -> int:
         payload = build_artifact_lineage(
             artifact_paths=artifact_paths,
             dependencies=dependencies,
+            generated_at=args.generated_at,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
@@ -806,6 +813,7 @@ def main() -> int:
             evidence_pack=evidence_pack,
             claim_ledger=claim_ledger,
             artifact_lineage=artifact_lineage,
+            generated_at=args.generated_at,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
@@ -818,6 +826,7 @@ def main() -> int:
         payload = build_falsification_battery(
             attribution_grid=attribution_grid,
             decision_protocol=decision_protocol,
+            generated_at=args.generated_at,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0

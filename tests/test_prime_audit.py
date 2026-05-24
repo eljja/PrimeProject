@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from random import Random
+from unittest.mock import patch
 
 from prime_audit.analysis import audit_records, evaluate_policy, report_to_dict
 from prime_audit.artifact_lineage import build_artifact_lineage
@@ -26,6 +27,7 @@ from prime_audit.bitcoin import audit_bitcoin_signatures, parse_der_signature, s
 from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
 from prime_audit.claim_ledger import build_claim_ledger
+from prime_audit.cli import main as cli_main
 from prime_audit.collection_contract import build_collection_submission_contract
 from prime_audit.collection_fixture_audit import build_collection_fixture_audit
 from prime_audit.collection_handoff import build_collection_handoff
@@ -1502,6 +1504,106 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertEqual(saved, fresh)
 
+    def test_publication_cli_commands_accept_generated_at(self) -> None:
+        generated_at = "2026-05-24T16:56:40+00:00"
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp = Path(tmp_dir)
+            manifest_payload = build_real_baseline_manifest(created_at=generated_at)
+            readiness_payload = build_research_readiness_report(manifest=manifest_payload)
+            manifest = write_json(tmp / "manifest.json", manifest_payload)
+            readiness = write_json(tmp / "readiness.json", readiness_payload)
+            evidence = tmp / "evidence_pack.json"
+            claim_ledger = tmp / "claim_ledger.json"
+            lineage = tmp / "artifact_lineage.json"
+            decision = tmp / "decision_protocol.json"
+            attribution_grid = write_json(
+                tmp / "attribution_grid.json",
+                {
+                    "schema": "primeproject.attribution-confound-grid.v1",
+                    "random_baseline_accuracy": 1 / 3,
+                    "summary": {"profiles": {}},
+                    "rows": [],
+                },
+            )
+            falsification = tmp / "falsification_battery.json"
+
+            self.assertEqual(
+                run_cli(
+                    "evidence-pack",
+                    "--manifest",
+                    str(manifest),
+                    "--readiness",
+                    str(readiness),
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(evidence),
+                ),
+                0,
+            )
+            self.assertEqual(
+                run_cli(
+                    "claim-ledger",
+                    "--evidence-pack",
+                    str(evidence),
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(claim_ledger),
+                ),
+                0,
+            )
+            self.assertEqual(
+                run_cli(
+                    "artifact-lineage",
+                    "--artifact",
+                    f"manifest={manifest}",
+                    f"readiness={readiness}",
+                    f"evidence_pack={evidence}",
+                    "--dependency",
+                    "evidence_pack:manifest,readiness",
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(lineage),
+                ),
+                0,
+            )
+            self.assertEqual(
+                run_cli(
+                    "decision-protocol",
+                    "--evidence-pack",
+                    str(evidence),
+                    "--claim-ledger",
+                    str(claim_ledger),
+                    "--artifact-lineage",
+                    str(lineage),
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(decision),
+                ),
+                0,
+            )
+            self.assertEqual(
+                run_cli(
+                    "falsification-battery",
+                    "--attribution-grid",
+                    str(attribution_grid),
+                    "--decision-protocol",
+                    str(decision),
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(falsification),
+                ),
+                0,
+            )
+
+            for output in (evidence, claim_ledger, lineage, decision, falsification):
+                with self.subTest(output=output.name):
+                    self.assertEqual(load_json(output)["generated_at"], generated_at)
+
     def test_null_calibration_reports_familywise_profile_p_values(self) -> None:
         grid = {
             "schema": "primeproject.attribution-confound-grid.v1",
@@ -1588,6 +1690,20 @@ def sha256_file(path: Path) -> str:
 
 def load_repo_json(path: str) -> dict[str, object]:
     return json.loads((REPO_ROOT / path).read_text(encoding="utf-8"))
+
+
+def load_json(path: Path) -> dict[str, object]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def write_json(path: Path, payload: dict[str, object]) -> Path:
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    return path
+
+
+def run_cli(*args: str) -> int:
+    with patch("sys.argv", ["prime_audit.cli", *args]):
+        return cli_main()
 
 
 def fingerprint_report_from_values(values: list[int]) -> dict[str, object]:

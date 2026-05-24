@@ -310,6 +310,7 @@ python -m prime_audit.cli evidence-pack `
   --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_promotion_plan=data/baseline_promotion_plan.json collection_handoff=data/collection_handoff.json collection_submission_contract=data/collection_submission_contract.json collection_submission_lint=data/collection_submission_lint.json collection_fixture_audit=data/collection_fixture_audit.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
+  --generated-at 2026-05-24T16:56:40+00:00 `
   --output data/evidence_pack.json
 ```
 
@@ -322,6 +323,7 @@ python -m prime_audit.cli evidence-pack `
 ```powershell
 python -m prime_audit.cli claim-ledger `
   --evidence-pack data/evidence_pack.json `
+  --generated-at 2026-05-24T16:56:40+00:00 `
   --output data/claim_ledger.json
 ```
 
@@ -335,6 +337,7 @@ Claim Ledger는 Evidence Pack에서 파생되지만 Evidence Pack 내부 체크�
 
 ```powershell
 python -m prime_audit.cli artifact-lineage `
+  --generated-at 2026-05-24T16:56:40+00:00 `
   --output data/artifact_lineage.json
 ```
 
@@ -349,6 +352,7 @@ python -m prime_audit.cli decision-protocol `
   --evidence-pack data/evidence_pack.json `
   --claim-ledger data/claim_ledger.json `
   --artifact-lineage data/artifact_lineage.json `
+  --generated-at 2026-05-24T16:56:40+00:00 `
   --output data/decision_protocol.json
 ```
 
@@ -362,6 +366,7 @@ python -m prime_audit.cli decision-protocol `
 python -m prime_audit.cli falsification-battery `
   --attribution-grid data/attribution_confound_grid.json `
   --decision-protocol data/decision_protocol.json `
+  --generated-at 2026-05-24T16:56:40+00:00 `
   --output data/falsification_battery.json
 ```
 
