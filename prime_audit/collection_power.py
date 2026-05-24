@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+from statistics import NormalDist
 from typing import Any
 
 
@@ -102,16 +103,9 @@ def euler_phi(value: int) -> int:
 
 
 def normal_z_for_two_sided_alpha(alpha: float) -> float:
-    if alpha <= 0 or alpha >= 1:
+    if not math.isfinite(alpha) or alpha <= 0 or alpha >= 1:
         raise ValueError("alpha must be between 0 and 1")
-    # Keep the module dependency-free; the project currently needs 95% planning intervals.
-    if abs(alpha - 0.05) < 1e-12:
-        return 1.959963984540054
-    if abs(alpha - 0.01) < 1e-12:
-        return 2.5758293035489004
-    if abs(alpha - 0.10) < 1e-12:
-        return 1.6448536269514722
-    return 1.959963984540054
+    return NormalDist().inv_cdf(1.0 - alpha / 2.0)
 
 
 def power_tier(conservative_tv_floor_95: float) -> str:

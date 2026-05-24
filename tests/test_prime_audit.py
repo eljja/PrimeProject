@@ -431,6 +431,28 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(signature["power_tier"], "strong")
         self.assertGreaterEqual(len(power["recommendations"]), 1)
 
+    def test_collection_power_honors_custom_alpha(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        matrix = build_collection_matrix(manifest)
+
+        default_power = build_collection_power(matrix)
+        stricter_power = build_collection_power(matrix, alpha=0.001)
+
+        default_rsa = next(row for row in default_power["rows"] if row["object_type"] == "rsa-prime")
+        stricter_rsa = next(row for row in stricter_power["rows"] if row["object_type"] == "rsa-prime")
+
+        self.assertEqual(stricter_power["method"]["alpha"], 0.001)
+        self.assertEqual(default_rsa["min_samples_for_10pct_tv"], 4514)
+        self.assertEqual(stricter_rsa["min_samples_for_10pct_tv"], 12723)
+        self.assertGreater(stricter_rsa["conservative_tv_floor_95"], default_rsa["conservative_tv_floor_95"])
+
+    def test_collection_power_rejects_invalid_alpha(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        matrix = build_collection_matrix(manifest)
+
+        with self.assertRaises(ValueError):
+            build_collection_power(matrix, alpha=0.0)
+
     def test_provenance_requirements_block_incomplete_real_baselines(self) -> None:
         manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
         requirements = build_provenance_requirements(manifest)
