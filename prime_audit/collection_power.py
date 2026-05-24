@@ -15,6 +15,7 @@ def build_collection_power(
     alpha: float = 0.05,
     target_tv: float = 0.10,
 ) -> dict[str, Any]:
+    validate_power_parameters(modulo=modulo, alpha=alpha, target_tv=target_tv)
     rows = [
         target_power(row, target, modulo=modulo, alpha=alpha, target_tv=target_tv)
         for row in matrix.get("rows", [])
@@ -29,6 +30,7 @@ def build_collection_power(
             "name": "multinomial screening floor",
             "alpha": alpha,
             "target_tv": target_tv,
+            "target_tv_label": tv_label(target_tv),
             "modulo": modulo,
             "interpretation": "This is a conservative planning heuristic for aggregate fingerprints, not a proof of generator attribution.",
         },
@@ -60,7 +62,11 @@ def target_power(
     class_shift_95 = z_score * math.sqrt(class_probability * (1.0 - class_probability) / sample_target)
     typical_tv_noise_floor = math.sqrt((bucket_count - 1) / (4.0 * sample_target))
     conservative_tv_floor_95 = z_score * typical_tv_noise_floor
-    min_samples_for_target_tv = math.ceil((z_score**2 * (bucket_count - 1)) / (4.0 * target_tv**2))
+    min_samples_for_target_tv = minimum_samples_for_tv_floor(
+        bucket_count=bucket_count,
+        z_score=z_score,
+        target_tv=target_tv,
+    )
     tier = power_tier(conservative_tv_floor_95)
     return {
         "library": collection_row.get("library"),
@@ -74,6 +80,10 @@ def target_power(
         "class_shift_95": round(class_shift_95, 6),
         "typical_tv_noise_floor": round(typical_tv_noise_floor, 6),
         "conservative_tv_floor_95": round(conservative_tv_floor_95, 6),
+        "target_tv": target_tv,
+        "target_tv_label": tv_label(target_tv),
+        "min_samples_for_target_tv": min_samples_for_target_tv,
+        "sample_gap_to_target_tv": max(0, min_samples_for_target_tv - sample_target),
         "min_samples_for_10pct_tv": min_samples_for_target_tv,
         "sample_gap_to_10pct_tv": max(0, min_samples_for_target_tv - sample_target),
     }
@@ -108,6 +118,26 @@ def normal_z_for_two_sided_alpha(alpha: float) -> float:
     return NormalDist().inv_cdf(1.0 - alpha / 2.0)
 
 
+def validate_power_parameters(*, modulo: int, alpha: float, target_tv: float) -> None:
+    if modulo < 2:
+        raise ValueError("modulo must be at least 2")
+    normal_z_for_two_sided_alpha(alpha)
+    if not math.isfinite(target_tv) or target_tv <= 0 or target_tv >= 1:
+        raise ValueError("target_tv must be between 0 and 1")
+
+
+def minimum_samples_for_tv_floor(*, bucket_count: int, z_score: float, target_tv: float) -> int:
+    return math.ceil((z_score**2 * (bucket_count - 1)) / (4.0 * target_tv**2))
+
+
+def tv_label(target_tv: float) -> str:
+    percentage = target_tv * 100
+    if abs(percentage - round(percentage)) < 1e-9:
+        return f"{int(round(percentage))}pct"
+    label = f"{percentage:.3f}".rstrip("0").rstrip(".")
+    return f"{label.replace('.', '_')}pct"
+
+
 def power_tier(conservative_tv_floor_95: float) -> str:
     if conservative_tv_floor_95 <= 0.10:
         return "strong"
@@ -123,6 +153,8 @@ def weakest_targets(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "bit_length": row["bit_length"],
             "sample_target": row["sample_target"],
             "conservative_tv_floor_95": row["conservative_tv_floor_95"],
+            "target_tv_label": row["target_tv_label"],
+            "min_samples_for_target_tv": row["min_samples_for_target_tv"],
             "min_samples_for_10pct_tv": row["min_samples_for_10pct_tv"],
         }
         for row in sorted(rows, key=lambda item: item["conservative_tv_floor_95"], reverse=True)[:3]
@@ -130,26 +162,28 @@ def weakest_targets(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def recommendations(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    needs_more = [row for row in rows if row["sample_gap_to_10pct_tv"] > 0]
+    needs_more = [row for row in rows if row["sample_gap_to_target_tv"] > 0]
     rsa_gaps = [row for row in needs_more if row["object_type"] == "rsa-prime"]
     signature_gaps = [row for row in needs_more if row["object_type"] == "ecdsa-signature"]
     actions = []
     if rsa_gaps:
-        max_needed = max(row["min_samples_for_10pct_tv"] for row in rsa_gaps)
+        max_needed = max(row["min_samples_for_target_tv"] for row in rsa_gaps)
+        target_label = tv_display(float(rsa_gaps[0].get("target_tv") or 0.10))
         actions.append(
             {
                 "priority": "P0",
                 "track": "rsa-prime-generation",
-                "action": f"Treat 500 RSA primes per bit length as coarse screening; target about {max_needed} primes per library/bit-length for conservative 10% TV drift claims.",
+                "action": f"Treat 500 RSA primes per bit length as coarse screening; target about {max_needed} primes per library/bit-length for conservative {target_label} TV drift claims.",
             }
         )
     if signature_gaps:
-        max_needed = max(row["min_samples_for_10pct_tv"] for row in signature_gaps)
+        max_needed = max(row["min_samples_for_target_tv"] for row in signature_gaps)
+        target_label = tv_display(float(signature_gaps[0].get("target_tv") or 0.10))
         actions.append(
             {
                 "priority": "P1",
                 "track": "signature-nonce-metadata",
-                "action": f"Raise signature metadata targets toward {max_needed} rows when nonce-bucket claims need conservative 10% TV resolution.",
+                "action": f"Raise signature metadata targets toward {max_needed} rows when nonce-bucket claims need conservative {target_label} TV resolution.",
             }
         )
     if not actions:
@@ -161,3 +195,10 @@ def recommendations(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             }
         )
     return actions
+
+
+def tv_display(target_tv: float) -> str:
+    percentage = target_tv * 100
+    if abs(percentage - round(percentage)) < 1e-9:
+        return f"{int(round(percentage))}%"
+    return f"{percentage:.3f}".rstrip("0").rstrip(".") + "%"

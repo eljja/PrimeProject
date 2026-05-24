@@ -112,7 +112,7 @@ python -m prime_audit.cli collection-power `
 - 10% TV drift claim을 보수적으로 다루려면 각 library/bit-length 조합당 약 4,514개 target이 필요.
 - Bitcoin signature metadata 10,000개 target: `strong`, 64-bucket nonce fingerprint 기준 약 7.8% TV floor.
 
-`--alpha`는 임의의 유의수준을 받을 수 있으며, 계산은 Python 표준 라이브러리의 정규분포 역누적값을 사용한다. 예를 들어 `--alpha 0.001`처럼 더 엄격한 계획을 쓰면 RSA mod 210의 10% TV floor가 4,514개에서 12,723개로 증가한다. 유효하지 않은 alpha는 조용히 기본값으로 대체하지 않고 실패시킨다.
+`--alpha`는 임의의 유의수준을 받을 수 있으며, 계산은 Python 표준 라이브러리의 정규분포 역누적값을 사용한다. 예를 들어 `--alpha 0.001`처럼 더 엄격한 계획을 쓰면 RSA mod 210의 10% TV floor가 4,514개에서 12,723개로 증가한다. `--target-tv`도 일반화되어 `target_tv_label`, `min_samples_for_target_tv`, `sample_gap_to_target_tv`로 기록된다. 예를 들어 5% TV floor는 같은 조건에서 18,055개가 필요하다. 유효하지 않은 alpha나 target TV는 조용히 기본값으로 대체하지 않고 실패시킨다.
 
 이 값은 attribution 증명이 아니라 수집 계획의 품질 경계다. GitHub Pages는 이 결과를 Baseline Lab에 표시해서 500개 RSA sample을 강한 실세계 claim으로 오해하지 않게 한다.
 

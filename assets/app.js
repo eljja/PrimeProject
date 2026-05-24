@@ -275,6 +275,7 @@ const bundledCollectionPower = {
     name: "multinomial screening floor",
     alpha: 0.05,
     target_tv: 0.1,
+    target_tv_label: "10pct",
     modulo: 210,
     interpretation:
       "This is a conservative planning heuristic for aggregate fingerprints, not a proof of generator attribution.",
@@ -286,22 +287,22 @@ const bundledCollectionPower = {
     strong_count: 1,
     minimum_recommended_replicates: 3,
     weakest_targets: [
-      { library: "OpenSSL", bit_length: 2048, sample_target: 500, conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-      { library: "OpenSSL", bit_length: 3072, sample_target: 500, conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-      { library: "OpenSSL", bit_length: 4096, sample_target: 500, conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
+      { library: "OpenSSL", bit_length: 2048, sample_target: 500, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+      { library: "OpenSSL", bit_length: 3072, sample_target: 500, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+      { library: "OpenSSL", bit_length: 4096, sample_target: 500, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
     ],
   },
   rows: [
-    { library: "OpenSSL", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-    { library: "OpenSSL", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-    { library: "OpenSSL", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-    { library: "BoringSSL", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-    { library: "BoringSSL", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-    { library: "BoringSSL", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-    { library: "Go crypto/rsa", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-    { library: "Go crypto/rsa", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-    { library: "Go crypto/rsa", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, min_samples_for_10pct_tv: 4514 },
-    { library: "Bitcoin Core / wallet metadata", bit_length: 256, sample_target: 10000, object_type: "ecdsa-signature", power_tier: "strong", conservative_tv_floor_95: 0.077784, min_samples_for_10pct_tv: 6051 },
+    { library: "OpenSSL", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "OpenSSL", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "OpenSSL", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "BoringSSL", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "BoringSSL", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "BoringSSL", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "Go crypto/rsa", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "Go crypto/rsa", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "Go crypto/rsa", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "Bitcoin Core / wallet metadata", bit_length: 256, sample_target: 10000, object_type: "ecdsa-signature", power_tier: "strong", conservative_tv_floor_95: 0.077784, target_tv_label: "10pct", min_samples_for_target_tv: 6051, min_samples_for_10pct_tv: 6051 },
   ],
   recommendations: [
     {
@@ -780,7 +781,7 @@ const bundledEvidencePack = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794", quality_gate_status: "pass", fixture_count: 6, failed_expectation_count: 0, public_safe_fixture_count: 6 },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
-    { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
+    { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "937ae6860ea0ae064cf0187b3ad14886fca6d57759a0c8bbbf020495c22fc28b" },
     { role: "collection_submission_contract", schema: "primeproject.collection-submission-contract.v1", sha256: "5abf1e18ae9fb25342f219c28529721d90f96e0805e3f88fed10c75f1980c8a4" },
     { role: "collection_submission_lint", schema: "primeproject.collection-submission-lint.v1", sha256: "15fe34e67cefe7e3a45d1b9c566127a9c9822b545c6a29b0f243d9dc8fd8f4b0" },
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
@@ -889,8 +890,8 @@ const bundledArtifactLineage = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "17b21eb0267632596aff9527ca3b6ba5a22d50a9b2403e97ff8c455d959ec846" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "f8d2c5ab5f0daa8ec0ffb3e110f7192db9c6b8694da7f256756175010a6278b4" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "58adaf9e1ae9a3ec3c4f01bf310d8b2ce4b4629db6389c108ca9106a34132419" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "a942d3352f95d61fbda8eb0976d8a677212d3a4c57f6caf4eaaf8d3cc594d614" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
     { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "6b2ca0e7131ec56d5a27d0b2d8e6445cc1f70d1a56ab5f201e700661f94b55cb" },
@@ -2635,14 +2636,18 @@ function renderCollectionPower() {
     .slice()
     .sort((a, b) => b.conservative_tv_floor_95 - a.conservative_tv_floor_95)
     .slice(0, 5)
-    .map((row) => `
-      <div class="power-row">
-        <strong>${escapeHtml(row.library || "unknown")} ${formatNumber(row.bit_length || 0)}b</strong>
-        <em class="is-${escapeHtml(row.power_tier || "coarse")}">${escapeHtml(row.power_tier || "coarse")}</em>
-        <span>95% TV floor ${formatPercent(row.conservative_tv_floor_95 || 0)}</span>
-        <span>10% TV n≈${formatNumber(row.min_samples_for_10pct_tv || 0)}</span>
-      </div>
-    `)
+    .map((row) => {
+      const targetLabel = displayTvLabel(row.target_tv_label, row.target_tv ?? power.method?.target_tv);
+      const targetSamples = row.min_samples_for_target_tv || row.min_samples_for_10pct_tv || 0;
+      return `
+        <div class="power-row">
+          <strong>${escapeHtml(row.library || "unknown")} ${formatNumber(row.bit_length || 0)}b</strong>
+          <em class="is-${escapeHtml(row.power_tier || "coarse")}">${escapeHtml(row.power_tier || "coarse")}</em>
+          <span>95% TV floor ${formatPercent(row.conservative_tv_floor_95 || 0)}</span>
+          <span>${escapeHtml(targetLabel)} TV n≈${formatNumber(targetSamples)}</span>
+        </div>
+      `;
+    })
     .join("");
 }
 
@@ -3977,6 +3982,15 @@ function formatCompact(value) {
 
 function formatPercent(value) {
   return `${((Number(value) || 0) * 100).toFixed(1)}%`;
+}
+
+function displayTvLabel(label, targetTv) {
+  if (Number.isFinite(Number(targetTv))) {
+    return formatPercent(Number(targetTv)).replace(".0%", "%");
+  }
+  const match = String(label || "").match(/^(\d+)(?:_(\d+))?pct$/);
+  if (match) return `${match[1]}${match[2] ? `.${match[2]}` : ""}%`;
+  return String(label || "target");
 }
 
 function formatSignedPercent(value) {
