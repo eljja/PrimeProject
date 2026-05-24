@@ -72,10 +72,12 @@ def artifact_summaries(file_paths: dict[str, str | Path]) -> list[dict[str, Any]
             continue
         data = path.read_bytes()
         schema = None
+        payload_summary: dict[str, Any] = {}
         try:
             payload = json.loads(data.decode("utf-8"))
             if isinstance(payload, dict):
                 schema = payload.get("schema")
+                payload_summary = artifact_semantics(role, payload)
         except (UnicodeDecodeError, json.JSONDecodeError):
             schema = None
         artifacts.append(
@@ -86,9 +88,23 @@ def artifact_summaries(file_paths: dict[str, str | Path]) -> list[dict[str, Any]
                 "sha256": hashlib.sha256(data).hexdigest(),
                 "schema": schema,
                 "bytes": len(data),
+                **payload_summary,
             }
         )
     return artifacts
+
+
+def artifact_semantics(role: str, payload: dict[str, Any]) -> dict[str, Any]:
+    if role == "collection_fixture_audit":
+        summary = payload.get("summary") or {}
+        quality_gate = payload.get("quality_gate") or {}
+        return {
+            "quality_gate_status": quality_gate.get("status"),
+            "fixture_count": summary.get("fixture_count"),
+            "failed_expectation_count": summary.get("failed_expectation_count"),
+            "public_safe_fixture_count": summary.get("public_safe_fixture_count"),
+        }
+    return {}
 
 
 def publication_gates(
@@ -107,6 +123,19 @@ def publication_gates(
     attribution = dimensions.get("attribution_validation", {})
     classifier = dimensions.get("classifier", {})
     bitcoin = dimensions.get("bitcoin_integration", {})
+    artifact_by_role = {artifact.get("role"): artifact for artifact in artifacts}
+    fixture_audit = artifact_by_role.get("collection_fixture_audit", {})
+    fixture_count = int(fixture_audit.get("fixture_count") or 0)
+    public_safe_fixture_count = int(fixture_audit.get("public_safe_fixture_count") or 0)
+    fixture_failed_count = int(fixture_audit.get("failed_expectation_count") or 0)
+    fixture_audit_passed = (
+        fixture_audit.get("exists")
+        and fixture_audit.get("schema") == "primeproject.collection-fixture-audit.v1"
+        and fixture_audit.get("quality_gate_status") == "pass"
+        and fixture_count > 0
+        and public_safe_fixture_count == fixture_count
+        and fixture_failed_count == 0
+    )
     sensitive_available = [
         entry.get("baseline_id")
         for entry in manifest.get("entries", [])
@@ -228,18 +257,14 @@ def publication_gates(
         ),
         gate(
             "collection_fixture_audit_gate",
-            any(
-                artifact.get("role") == "collection_fixture_audit"
-                and artifact.get("exists")
-                and artifact.get("schema") == "primeproject.collection-fixture-audit.v1"
-                for artifact in artifacts
-            ),
-            "Real-world collection tooling needs public-safe fixtures that prove lint pass/warn/block behavior before live submissions.",
+            bool(fixture_audit_passed),
+            "Real-world collection tooling needs passing public-safe fixtures that prove lint pass/warn/block behavior before live submissions.",
             {
-                "has_collection_fixture_audit": any(
-                    artifact.get("role") == "collection_fixture_audit" and artifact.get("exists")
-                    for artifact in artifacts
-                )
+                "has_collection_fixture_audit": bool(fixture_audit.get("exists")),
+                "quality_gate_status": fixture_audit.get("quality_gate_status"),
+                "fixture_count": fixture_count,
+                "failed_expectation_count": fixture_failed_count,
+                "public_safe_fixture_count": public_safe_fixture_count,
             },
             severity="medium",
         ),

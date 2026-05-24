@@ -53,7 +53,7 @@ The Baseline Lab panel reads `data/baselines/real_world/manifest.json`, `data/co
 
 The Research Readiness panel reads `data/research_readiness.json` and surfaces blocking gaps before any real-world attribution claim is treated as strong.
 
-The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_ledger.json`, `data/artifact_lineage.json`, `data/decision_protocol.json`, and `data/falsification_battery.json` to show checksums, publication gates, the maximum safe claim level, which public claims are currently allowed or blocked, whether the public artifact dependency graph is acyclic and checksum-consistent, which claim-promotion decisions are pre-registered as allowed or blocked, and which falsification checks prevent overclaiming.
+The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_ledger.json`, `data/artifact_lineage.json`, `data/decision_protocol.json`, and `data/falsification_battery.json` to show checksums, semantic publication gates, the maximum safe claim level, which public claims are currently allowed or blocked, whether the public artifact dependency graph is acyclic and checksum-consistent, which claim-promotion decisions are pre-registered as allowed or blocked, and which falsification checks prevent overclaiming. The fixture-audit gate now checks `quality_gate.status`, fixture count, public-safety count, and failed expectation count instead of only checking that the file exists.
 
 ## Input format
 

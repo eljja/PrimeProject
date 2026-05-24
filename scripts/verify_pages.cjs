@@ -392,6 +392,7 @@ async function main() {
     !metrics.evidencePanel.includes("collection_submission_lint") ||
     !metrics.evidencePanel.includes("collection_fixture_audit") ||
     !metrics.evidencePanel.includes("collection_fixture_audit_gate") ||
+    !metrics.evidencePanel.includes("quality pass") ||
     !metrics.evidencePanel.includes("collection_intake") ||
     !metrics.evidencePanel.includes("null_calibration") ||
     !metrics.evidencePanel.includes("replication_audit") ||

@@ -1087,6 +1087,42 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("promotion_plan_gate", failed)
         self.assertGreaterEqual(len(pack["local_collection_protocols"]), 3)
 
+    def test_evidence_pack_requires_passing_fixture_audit_semantics(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        readiness = build_research_readiness_report(manifest=manifest)
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            path = Path(tmp_dir) / "collection_fixture_audit.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "schema": "primeproject.collection-fixture-audit.v1",
+                        "summary": {
+                            "fixture_count": 2,
+                            "failed_expectation_count": 1,
+                            "public_safe_fixture_count": 2,
+                        },
+                        "quality_gate": {"status": "fail"},
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            pack = build_evidence_pack(
+                manifest=manifest,
+                readiness=readiness,
+                generated_at="2026-05-22T00:00:00+00:00",
+                file_paths={"collection_fixture_audit": path},
+            )
+
+        fixture_artifact = next(
+            artifact for artifact in pack["artifacts"] if artifact["role"] == "collection_fixture_audit"
+        )
+        fixture_gate = next(gate for gate in pack["publication_gates"] if gate["code"] == "collection_fixture_audit_gate")
+        self.assertEqual(fixture_artifact["quality_gate_status"], "fail")
+        self.assertEqual(fixture_artifact["failed_expectation_count"], 1)
+        self.assertFalse(fixture_gate["passed"])
+        self.assertEqual(fixture_gate["evidence"]["quality_gate_status"], "fail")
+
     def test_claim_ledger_blocks_unsupported_real_world_claims(self) -> None:
         evidence = {
             "schema": "primeproject.evidence-pack.v1",

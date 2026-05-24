@@ -230,7 +230,7 @@ python -m prime_audit.cli collection-fixture-audit `
   --output data/collection_fixture_audit.json
 ```
 
-현재 bundled fixture audit은 6개 fixture 모두 expectation을 만족한다. 이 산출물의 의미는 “실제 OpenSSL/BoringSSL 데이터가 수집됐다”가 아니라, 실제 데이터가 들어오기 전에 제출 계약과 lint의 실패/경고 경계가 재현 가능하게 고정됐다는 것이다. GitHub Pages의 Baseline Lab은 Fixture Audit 블록으로 이 결과를 보여주고, Evidence Pack은 `collection_fixture_audit_gate`로 해당 검증 산출물이 포함됐는지 확인한다.
+현재 bundled fixture audit은 6개 fixture 모두 expectation을 만족한다. 이 산출물의 의미는 “실제 OpenSSL/BoringSSL 데이터가 수집됐다”가 아니라, 실제 데이터가 들어오기 전에 제출 계약과 lint의 실패/경고 경계가 재현 가능하게 고정됐다는 것이다. GitHub Pages의 Baseline Lab은 Fixture Audit 블록으로 이 결과를 보여주고, Evidence Pack은 `collection_fixture_audit_gate`로 해당 검증 산출물이 포함됐는지뿐 아니라 `quality_gate.status == pass`, 실패 fixture 0개, public-safe fixture 수 일치까지 확인한다.
 
 ## Collection Intake
 

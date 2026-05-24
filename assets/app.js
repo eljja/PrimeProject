@@ -760,7 +760,12 @@ const bundledEvidencePack = {
     { code: "provenance_audit_gate", passed: true, severity: "medium" },
     { code: "collection_submission_contract_gate", passed: true, severity: "medium" },
     { code: "collection_submission_lint_gate", passed: true, severity: "medium" },
-    { code: "collection_fixture_audit_gate", passed: true, severity: "medium" },
+    {
+      code: "collection_fixture_audit_gate",
+      passed: true,
+      severity: "medium",
+      evidence: { quality_gate_status: "pass", fixture_count: 6, failed_expectation_count: 0, public_safe_fixture_count: 6 },
+    },
     { code: "baseline_acceptance_gate", passed: false, severity: "high" },
     { code: "collection_intake_gate", passed: false, severity: "high" },
     { code: "promotion_plan_gate", passed: true, severity: "medium" },
@@ -772,7 +777,7 @@ const bundledEvidencePack = {
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "dd975b3a84f528552a925e248f249566be24dbd13926e2fab814e88778a52e87" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", sha256: "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4" },
-    { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
+    { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794", quality_gate_status: "pass", fixture_count: 6, failed_expectation_count: 0, public_safe_fixture_count: 6 },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
@@ -884,8 +889,8 @@ const bundledArtifactLineage = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "8d50ec198f4fbb61db8a0be94550c1a3aa532aff98a5d106841cd90ce2f9dba1" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "93fa9cb757023cc6ca714f76992b446ec3d0880c358196dd3fbbcc731f85cf7c" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "cc65fdf5910563dc476050683b8050235e0da0c92a23fcbefe737d26f2f30445" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "be99580d344ced3dc4cf554bc645c99aaa9d8ef00788ca485e34a03ce69072f7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
     { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "dd7a41a91ae43988bcbbf0b54d3c2b3ea6abb7dacdf0862765492a7f84a14b3f" },
@@ -3238,13 +3243,19 @@ function renderEvidencePack() {
     `)
     .join("");
   outputs.evidenceArtifactRows.innerHTML = (pack.artifacts || [])
-    .map((artifact) => `
-      <div class="evidence-row artifact-row">
-        <strong>${escapeHtml(artifact.role || "artifact")}</strong>
-        <span>${escapeHtml(artifact.schema || "unknown schema")}</span>
-        <code>${escapeHtml(shortHash(artifact.sha256))}</code>
-      </div>
-    `)
+    .map((artifact) => {
+      const semantic =
+        artifact.quality_gate_status
+          ? ` · quality ${artifact.quality_gate_status} · ${formatNumber(artifact.failed_expectation_count || 0)} failures`
+          : "";
+      return `
+        <div class="evidence-row artifact-row">
+          <strong>${escapeHtml(artifact.role || "artifact")}</strong>
+          <span>${escapeHtml(artifact.schema || "unknown schema")}${escapeHtml(semantic)}</span>
+          <code>${escapeHtml(shortHash(artifact.sha256))}</code>
+        </div>
+      `;
+    })
     .join("");
 }
 

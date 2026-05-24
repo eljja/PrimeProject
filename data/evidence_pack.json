@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.evidence-pack.v1",
-  "generated_at": "2026-05-24T12:49:26+00:00",
+  "generated_at": "2026-05-24T13:01:42+00:00",
   "claim_level": {
     "level": "public_demo_only",
     "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
@@ -107,9 +107,13 @@
       "code": "collection_fixture_audit_gate",
       "passed": true,
       "severity": "medium",
-      "message": "Real-world collection tooling needs public-safe fixtures that prove lint pass/warn/block behavior before live submissions.",
+      "message": "Real-world collection tooling needs passing public-safe fixtures that prove lint pass/warn/block behavior before live submissions.",
       "evidence": {
-        "has_collection_fixture_audit": true
+        "has_collection_fixture_audit": true,
+        "quality_gate_status": "pass",
+        "fixture_count": 6,
+        "failed_expectation_count": 0,
+        "public_safe_fixture_count": 6
       }
     },
     {
@@ -190,7 +194,11 @@
       "exists": true,
       "sha256": "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794",
       "schema": "primeproject.collection-fixture-audit.v1",
-      "bytes": 4752
+      "bytes": 4752,
+      "quality_gate_status": "pass",
+      "fixture_count": 6,
+      "failed_expectation_count": 0,
+      "public_safe_fixture_count": 6
     },
     {
       "role": "collection_handoff",
