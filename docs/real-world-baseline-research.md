@@ -380,7 +380,7 @@ python -m prime_audit.cli falsification-battery `
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화하되, 중복 나열을 줄이고 의사결정에 필요한 근거만 남긴다.
 
 - 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> collection handoff -> submission contract -> submission lint -> fixture audit -> collection intake -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
-- 현황 지표: scale, controlled signal, accepted real baseline, collection intake, checksummed evidence, claim level만 상단에 남겨 현재 판단에 직접 필요한 수치로 제한한다.
+- 현황 지표: scale, controlled signal, attribution-ready generator baseline, public control, collection intake, checksummed evidence, claim level만 상단에 남겨 현재 판단에 직접 필요한 수치로 제한한다.
 - Visual Change Trail: prime regularity demo, 10M scale lift, controlled attribution, sim-to-real gates, publication guardrails만 release-style milestone로 보여준다.
 - Evidence Spine: Scale, Signal, Sim-to-Real, Governance, Publication 축으로 기존 산출물을 한 번만 재배치한다. 각 축은 점수, 상태, artifact 개수와 짧은 artifact 이름, gate 문장, 현재 proof를 함께 표시한다.
 - Claim Boundaries: before/current/next와 claim lane만 남긴다. public demo와 controlled synthetic signal은 allowed로 보이지만, real-world generator attribution과 Bitcoin wallet/library attribution은 accepted baseline, classifier vector, nonce-risk report가 없기 때문에 blocked로 남긴다.

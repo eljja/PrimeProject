@@ -808,7 +808,7 @@ const bundledEvidencePack = {
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "6b2ca0e7131ec56d5a27d0b2d8e6445cc1f70d1a56ab5f201e700661f94b55cb" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "713cb99f855df7e8c12150211d879ed5eb5ad18c4c3129be2a6a9ab3a7f10b35" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "ed06deee979aa2845454739f1d8e67cdfe4128309b0867835a4d812d1f3e4c53" },
@@ -911,11 +911,11 @@ const bundledArtifactLineage = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "ed06deee979aa2845454739f1d8e67cdfe4128309b0867835a4d812d1f3e4c53" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "8c846be8716924bef7b687d2243ba692ccdb6d3ed00710cbaa585697ccce2314" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "f814f36d9675c7d0781004077f2c8961509621ea810909496bf2c895a91791af" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "8941a703279ebf2d77792f5c841da095194141f69749339d570771d58aea5725" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "7422fa84450cfc214d1d9d14793666f3ddab8e0660c83d41d1749a5c8e82f32a" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "6b2ca0e7131ec56d5a27d0b2d8e6445cc1f70d1a56ab5f201e700661f94b55cb" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "713cb99f855df7e8c12150211d879ed5eb5ad18c4c3129be2a6a9ab3a7f10b35" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -1107,7 +1107,9 @@ const bundledProjectEvolution = {
     live_compute_limit: 10000000,
     precomputed_snapshot_limits: [1000000, 10000000],
     registered_real_baselines: 5,
-    available_real_baselines: 1,
+    available_real_baselines: 0,
+    manifest_available_baselines: 1,
+    public_control_baselines: 1,
     collection_targets: 10,
     collection_complete_targets: 0,
     collection_power_strong_targets: 1,
@@ -1290,7 +1292,7 @@ const bundledProjectEvolution = {
     ["decision-protocol", "falsification-battery"],
   ],
   open_gaps: [
-    { priority: "P0", track: "sim-to-real", gap: "Need at least two available real-world aggregate baselines before real attribution claims." },
+    { priority: "P0", track: "sim-to-real", gap: "Need at least two available aggregate generator baselines before real attribution claims." },
     { priority: "P0", track: "classifier", gap: "Need labelled feature vectors across OpenSSL, BoringSSL, Go, and suspicious samples." },
     { priority: "P1", track: "bitcoin", gap: "Need a bundled Bitcoin nonce-risk report from owned or public metadata summaries." },
   ],
@@ -2307,8 +2309,8 @@ function renderProjectEvolution() {
   const phases = evolution.phases || [];
   outputs.evolutionSummary.innerHTML = `
     <div><span>Scale</span><strong>${formatCompact(metrics.live_compute_limit || 0)}</strong><small>${(metrics.precomputed_snapshot_limits || []).map(formatCompact).join(", ")} snapshots</small></div>
-    <div><span>Controlled signal</span><strong>${formatNumber(metrics.robust_controlled_profiles?.length || 0)}</strong><small>${formatNumber(metrics.null_calibration_iterations || 0)} null iterations</small></div>
-    <div><span>Real baselines</span><strong>${formatNumber(metrics.baseline_acceptance_accepted || 0)}</strong><small>${formatNumber(metrics.baseline_acceptance_blocked || 0)} blocked</small></div>
+    <div><span>Controlled signal</span><strong>${formatNumber(metrics.robust_controlled_profiles?.length || 0)} profiles</strong><small>${formatNumber(metrics.null_calibration_iterations || 0)} null iterations</small></div>
+    <div><span>Generator baselines</span><strong>${formatNumber(metrics.available_real_baselines || 0)}</strong><small>${formatNumber(metrics.public_control_baselines || 0)} public control</small></div>
     <div><span>Collection</span><strong>${formatNumber(metrics.intake_accepted || 0)}</strong><small>${formatNumber(metrics.intake_blocked || 0)} intake blockers</small></div>
     <div><span>Evidence</span><strong>${formatNumber(metrics.checksummed_artifacts || 0)}</strong><small>${formatNumber(metrics.falsification_checks || 0)} falsification checks</small></div>
     <div><span>Claim level</span><strong>${escapeHtml(formatClaimLevel(metrics.publication_claim_level))}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>

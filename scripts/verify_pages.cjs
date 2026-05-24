@@ -94,6 +94,7 @@ async function main() {
       evolutionImpact: document.querySelector("#evolutionImpact").textContent,
       evolutionSpine: document.querySelector("#evolutionSpine").textContent,
       evolutionDelta: document.querySelector("#evolutionDelta").textContent,
+      evolutionSummary: document.querySelector("#evolutionSummary").textContent,
       maturityStages: document.querySelectorAll("#evolutionImpact .maturity-stage").length,
       strategyCards: document.querySelectorAll("#evolutionImpact .strategy-card").length,
       releaseNodes: document.querySelectorAll("#evolutionImpact .release-node").length,
@@ -209,6 +210,11 @@ async function main() {
     metrics.evidenceSpineCards < 5 ||
     metrics.claimLanes < 4 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
+    !metrics.evolutionSummary.includes("Generator baselines") ||
+    !metrics.evolutionSummary.includes("0") ||
+    !metrics.evolutionSummary.includes("1 public control") ||
+    !metrics.evolutionSummary.includes("2 profiles") ||
+    !metrics.evolutionSummary.includes("5,000 null iterations") ||
     !metrics.evolutionImpact.includes("Project Logic") ||
     !metrics.evolutionImpact.includes("Supported") ||
     !metrics.evolutionImpact.includes("Not supported yet") ||
