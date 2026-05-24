@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import argparse
+import hashlib
 import json
 import subprocess
 import sys
@@ -27,7 +29,13 @@ DIRECT_EVIDENCE_ROLES = {
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Reproduce and compare PrimeProject publication artifacts.")
+    parser.add_argument("--report", default=None, help="Optional path to write a machine-readable audit report.")
+    args = parser.parse_args()
+
     generated_at = str(read_json(REPO_ROOT / "data/evidence_pack.json")["generated_at"])
+    commands: list[list[str]] = []
+    comparisons: list[dict[str, Any]] = []
     with tempfile.TemporaryDirectory(prefix="primeproject-publication-") as tmp_dir:
         tmp = Path(tmp_dir)
         outputs = {
@@ -38,7 +46,7 @@ def main() -> int:
             "falsification_battery": tmp / "falsification_battery.json",
         }
 
-        run_cli(
+        commands.append(run_cli(
             "evidence-pack",
             "--manifest",
             "data/baselines/real_world/manifest.json",
@@ -58,8 +66,8 @@ def main() -> int:
             generated_at,
             "--output",
             str(outputs["evidence_pack"]),
-        )
-        run_cli(
+        ))
+        commands.append(run_cli(
             "claim-ledger",
             "--evidence-pack",
             str(outputs["evidence_pack"]),
@@ -67,15 +75,15 @@ def main() -> int:
             generated_at,
             "--output",
             str(outputs["claim_ledger"]),
-        )
-        run_cli(
+        ))
+        commands.append(run_cli(
             "artifact-lineage",
             "--generated-at",
             generated_at,
             "--output",
             str(outputs["artifact_lineage"]),
-        )
-        run_cli(
+        ))
+        commands.append(run_cli(
             "decision-protocol",
             "--evidence-pack",
             str(outputs["evidence_pack"]),
@@ -87,8 +95,8 @@ def main() -> int:
             generated_at,
             "--output",
             str(outputs["decision_protocol"]),
-        )
-        run_cli(
+        ))
+        commands.append(run_cli(
             "falsification-battery",
             "--attribution-grid",
             "data/attribution_confound_grid.json",
@@ -98,14 +106,27 @@ def main() -> int:
             generated_at,
             "--output",
             str(outputs["falsification_battery"]),
-        )
+        ))
 
-        mismatches = [
-            name
+        comparisons = [
+            compare_artifact(name, outputs[name], REPO_ROOT / public_path)
             for name, public_path in PUBLICATION_OUTPUTS.items()
-            if read_json(outputs[name]) != read_json(REPO_ROOT / public_path)
         ]
 
+    mismatches = [row["artifact"] for row in comparisons if not row["json_equal"]]
+    report = {
+        "schema": "primeproject.publication-reproduction-audit.v1",
+        "generated_at": generated_at,
+        "reproducible": not mismatches,
+        "command_count": len(commands),
+        "commands": [format_command(command) for command in commands],
+        "comparisons": comparisons,
+        "mismatches": mismatches,
+    }
+    if args.report:
+        report_path = Path(args.report)
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     if mismatches:
         print("Publication reproduction failed:", ", ".join(mismatches), file=sys.stderr)
         return 1
@@ -126,9 +147,27 @@ def public_evidence_artifact_args() -> list[str]:
     ]
 
 
-def run_cli(*args: str) -> None:
+def compare_artifact(name: str, reproduced: Path, public: Path) -> dict[str, Any]:
+    reproduced_bytes = reproduced.read_bytes()
+    public_bytes = public.read_bytes()
+    return {
+        "artifact": name,
+        "public_path": str(public.relative_to(REPO_ROOT)).replace("\\", "/"),
+        "json_equal": read_json(reproduced) == read_json(public),
+        "byte_equal": reproduced_bytes == public_bytes,
+        "reproduced_sha256": hashlib.sha256(reproduced_bytes).hexdigest(),
+        "public_sha256": hashlib.sha256(public_bytes).hexdigest(),
+    }
+
+
+def run_cli(*args: str) -> list[str]:
     command = [sys.executable, "-m", "prime_audit.cli", *args]
     subprocess.run(command, cwd=REPO_ROOT, check=True)
+    return command
+
+
+def format_command(command: list[str]) -> list[str]:
+    return ["python" if index == 0 else value for index, value in enumerate(command)]
 
 
 if __name__ == "__main__":

@@ -1706,16 +1706,25 @@ class PrimeAuditTests(unittest.TestCase):
                     self.assertEqual(load_json(output), load_repo_json(public_path))
 
     def test_publication_reproduction_script_succeeds(self) -> None:
-        result = subprocess.run(
-            [sys.executable, "scripts/reproduce_publication.py"],
-            cwd=REPO_ROOT,
-            check=False,
-            capture_output=True,
-            text=True,
-        )
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            report = Path(tmp_dir) / "publication_reproduction_report.json"
+            result = subprocess.run(
+                [sys.executable, "scripts/reproduce_publication.py", "--report", str(report)],
+                cwd=REPO_ROOT,
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("Publication artifacts reproduce exactly", result.stdout)
+            payload = load_json(report)
 
-        self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn("Publication artifacts reproduce exactly", result.stdout)
+        self.assertEqual(payload["schema"], "primeproject.publication-reproduction-audit.v1")
+        self.assertTrue(payload["reproducible"])
+        self.assertEqual(payload["command_count"], 5)
+        self.assertEqual(len(payload["comparisons"]), 5)
+        self.assertTrue(all(row["json_equal"] for row in payload["comparisons"]))
+        self.assertTrue(all(row["byte_equal"] for row in payload["comparisons"]))
 
     def test_null_calibration_reports_familywise_profile_p_values(self) -> None:
         grid = {

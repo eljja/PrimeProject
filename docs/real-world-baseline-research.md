@@ -387,6 +387,8 @@ python -m prime_audit.cli falsification-battery `
 python scripts/reproduce_publication.py
 ```
 
+감사 기록을 파일로 남기려면 `--report publication_reproduction_report.json`을 붙인다. report에는 실행 명령, 공개 artifact 경로, 재생성 SHA-256, 공개 SHA-256, JSON 동등성, byte 동등성이 들어간다.
+
 이 검사가 통과해야 GitHub Pages에 보이는 publication gate와 claim boundary가 현재 공개 artifact bundle에서 재현된다고 말할 수 있다.
 
 ## Project Evolution View
