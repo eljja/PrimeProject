@@ -95,6 +95,7 @@ async function main() {
       evolutionSpine: document.querySelector("#evolutionSpine").textContent,
       evolutionDelta: document.querySelector("#evolutionDelta").textContent,
       maturityStages: document.querySelectorAll("#evolutionImpact .maturity-stage").length,
+      strategyCards: document.querySelectorAll("#evolutionImpact .strategy-card").length,
       releaseNodes: document.querySelectorAll("#evolutionImpact .release-node").length,
       impactChanges: document.querySelectorAll("#evolutionImpact .impact-change-list div").length,
       evidenceFlowNodes: document.querySelectorAll("#evolutionDelta .evidence-flow-node").length,
@@ -202,43 +203,31 @@ async function main() {
     metrics.evolutionSteps < 8 ||
     metrics.evolutionNodes < 15 ||
     metrics.evolutionGaps < 2 ||
-    metrics.maturityStages < 5 ||
+    metrics.strategyCards < 3 ||
     metrics.releaseNodes < 5 ||
-    metrics.impactChanges < 4 ||
-    metrics.evidenceFlowNodes < 5 ||
+    metrics.impactChanges < 5 ||
     metrics.evidenceSpineCards < 5 ||
-    metrics.deltaTracks < 4 ||
     metrics.claimLanes < 4 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
-    !metrics.evolutionImpact.includes("Change Dashboard") ||
+    !metrics.evolutionImpact.includes("Project Logic") ||
+    !metrics.evolutionImpact.includes("Supported") ||
+    !metrics.evolutionImpact.includes("Not supported yet") ||
+    !metrics.evolutionImpact.includes("Next decisive test") ||
     !metrics.evolutionImpact.includes("Visual Change Trail") ||
     !metrics.evolutionImpact.includes("Scale lift") ||
     !metrics.evolutionImpact.includes("Publication guardrails") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
-    !metrics.evolutionSpine.includes("data/collection_fixture_audit.json") ||
+    !metrics.evolutionSpine.includes("fixture audit") ||
     !metrics.evolutionSpine.includes("20 artifacts") ||
-    !metrics.evolutionDelta.includes("Intake contract") ||
-    !metrics.evolutionDelta.includes("6 lint fixtures") ||
-    !metrics.evolutionDelta.includes("Research Delta") ||
-    !metrics.evolutionDelta.includes("10M live compute") ||
+    !metrics.evolutionDelta.includes("Claim Boundaries") ||
     !metrics.evolutionDelta.includes("controlled grid + null + replication") ||
     !metrics.evolutionDelta.includes("Real-world generator attribution") ||
     !metrics.evolutionDelta.includes("Bitcoin wallet/library attribution") ||
-    !metrics.evolutionImpact.includes("Baseline promotion plan") ||
-    !metrics.evolutionImpact.includes("Claim ledger") ||
-    !metrics.evolutionImpact.includes("Artifact lineage") ||
-    !metrics.evolutionImpact.includes("Decision protocol") ||
-    !metrics.evolutionImpact.includes("Falsification battery") ||
-    !metrics.evolutionImpact.includes("Null calibration") ||
-    !metrics.evolutionImpact.includes("Replication audit") ||
-    !metrics.evolutionImpact.includes("Crypto-classifier scaffold") ||
-    !metrics.evolutionImpact.includes("Collection handoff packet") ||
-    !metrics.evolutionImpact.includes("Submission contract") ||
-    !metrics.evolutionImpact.includes("Submission lint") ||
-    !metrics.evolutionImpact.includes("Submission fixture audit") ||
-    !metrics.evolutionImpact.includes("20 artifacts") ||
-    !metrics.evolutionImpact.includes("Collection intake validator") ||
+    !metrics.evolutionImpact.includes("Controlled signal") ||
+    !metrics.evolutionImpact.includes("Real-world gate") ||
+    !metrics.evolutionImpact.includes("Submission discipline") ||
+    !metrics.evolutionImpact.includes("Publication guardrail") ||
     !metrics.evolutionPanel.includes("Crypto-classifier baseline") ||
     !metrics.evolutionPanel.includes("Collection handoff") ||
     !metrics.evolutionPanel.includes("Collection intake") ||

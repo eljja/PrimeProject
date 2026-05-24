@@ -786,7 +786,7 @@ const bundledEvidencePack = {
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "721b78551fdbf2bc4e84f0338a8e4424a390c90c9941a869f076779fcf588089" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "6b2ca0e7131ec56d5a27d0b2d8e6445cc1f70d1a56ab5f201e700661f94b55cb" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
@@ -889,11 +889,11 @@ const bundledArtifactLineage = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "e7aef56de9bfea1daf8ee41b08585ea0aed85393afd5afea2ac8b4a5f0803e48" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "525fd9afd40765d7d9fd4df5cab54839dcb2caf76c3413ee5863264cfea3d5a1" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "0d6a78c8b0bba14be9b33e7f817ba5410c1899934302654bb151d20d3f79ef7f" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "4e44f885d4197bc8d473a585f8c4ba56467092a7a38e424318644edbcc052ad8" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "721b78551fdbf2bc4e84f0338a8e4424a390c90c9941a869f076779fcf588089" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "6b2ca0e7131ec56d5a27d0b2d8e6445cc1f70d1a56ab5f201e700661f94b55cb" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -1177,23 +1177,11 @@ const bundledProjectEvolution = {
       ],
     },
     latest_changes: [
-      { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
-      { label: "Collection handoff packet", impact: "Converts the unlock path into prioritized public-safe collection tasks with provenance and classifier constraints.", metric: "10 tasks / 2 P0" },
-      { label: "Submission contract", impact: "Publishes machine-readable record, checksum, provenance, feature-vector, and public-safety rules before collectors submit aggregates.", metric: "10 templates / 7 fields / 14 features" },
-      { label: "Submission lint", impact: "Lets collectors test candidate public records against task IDs, sample floors, checksums, feature vectors, duplicates, and forbidden fields before intake.", metric: "10 waiting / 0 blocked" },
-      { label: "Submission fixture audit", impact: "Proves the lint contract catches public-safe pass, warning, missing-feature, forbidden-field, and reused-checksum scenarios before real collectors submit data.", metric: "6 fixtures / 0 failures" },
-      { label: "Collection intake validator", impact: "Blocks submitted aggregate artifacts until sample, provenance, checksum, embedded feature-vector contract, claim-scope, duplicate-submission, reused-artifact, and public-safety checks pass.", metric: "0 accepted / 10 blocked" },
-      { label: "Intake feature-vector contract", impact: "Requires submitted artifacts to expose a public, schema-matched feature summary before classifier evidence can be trusted.", metric: "14 scalar features / submitted only" },
-      { label: "Baseline acceptance gate", impact: "Prevents coarse or undocumented baselines from supporting attribution claims.", metric: "0 accepted / 10 blocked" },
-      { label: "Provenance audit", impact: "Checks missing metadata, checksum format, and forbidden public sensitive fields.", metric: "4 blocked records" },
-      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "20 artifacts / 14 gates" },
-      { label: "Claim ledger", impact: "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.", metric: "3 allowed / 2 blocked" },
-      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "22 nodes / 52 edges" },
-      { label: "Decision protocol", impact: "Pre-registers promotion rules so demo, synthetic, real-world, and Bitcoin claims cannot drift after results.", metric: "2 allowed / 2 blocked" },
-      { label: "Falsification battery", impact: "Runs negative controls, bit-length guards, and claim-promotion guards before stronger claims.", metric: "5 pass / 0 fail" },
-      { label: "Null calibration", impact: "Tests whether the best-looking controlled profile survives row-structured random-label simulation and multiple-profile selection.", metric: "2 family-wise survivors" },
-      { label: "Replication audit", impact: "Checks whether null-calibrated profiles repeat across limit, train-count, and test-count settings instead of depending on one run.", metric: "2 stable / 8 settings" },
-      { label: "Crypto-classifier scaffold", impact: "Exports fixed-length controlled synthetic fingerprint vectors and runs a dependency-free classifier baseline without opening real-world claims.", metric: "12 vectors / 3 labels" },
+      { label: "Scale evidence", impact: "The browser demo is now backed by 10M live compute plus static 1M/10M snapshots.", metric: "10M live / 2 snapshots" },
+      { label: "Controlled signal", impact: "Synthetic generator fingerprints must survive bit-length controls, null calibration, and replication before they count.", metric: "48 rows / 5,000 null / 8 settings" },
+      { label: "Real-world gate", impact: "OpenSSL/BoringSSL/Go/Bitcoin targets are registered, but attribution remains blocked until accepted aggregate baselines arrive.", metric: "0 accepted / 10 blocked" },
+      { label: "Submission discipline", impact: "Collection contract, lint fixtures, and intake validation define exactly what public-safe evidence must contain.", metric: "10 templates / 6 fixtures" },
+      { label: "Publication guardrail", impact: "Claim ledger, lineage, decision rules, and falsification checks keep the public page at demo/scaffold claim strength.", metric: "20 artifacts / 5 checks" },
     ],
     research_delta: {
       headline: "What changed from the original prime-regularity demo to the current research scaffold.",
@@ -2296,23 +2284,31 @@ function renderProjectEvolution() {
   const metrics = evolution.metrics || {};
   const phases = evolution.phases || [];
   outputs.evolutionSummary.innerHTML = `
-    <div><span>Live compute</span><strong>${formatCompact(metrics.live_compute_limit || 0)}</strong><small>browser limit</small></div>
-    <div><span>Snapshots</span><strong>${formatNumber((metrics.precomputed_snapshot_limits || []).length)}</strong><small>${(metrics.precomputed_snapshot_limits || []).map(formatCompact).join(", ")}</small></div>
-    <div><span>Baselines</span><strong>${formatNumber(metrics.registered_real_baselines || 0)}</strong><small>${formatNumber(metrics.available_real_baselines || 0)} available</small></div>
-    <div><span>Collection targets</span><strong>${formatNumber(metrics.collection_targets || 0)}</strong><small>${formatNumber(metrics.collection_complete_targets || 0)} complete</small></div>
-    <div><span>Power floor</span><strong>${formatNumber(metrics.collection_power_strong_targets || 0)}</strong><small>${formatNumber(metrics.collection_power_coarse_targets || 0)} coarse</small></div>
-    <div><span>Provenance</span><strong>${formatNumber(metrics.provenance_rows || 0)}</strong><small>${formatNumber(metrics.provenance_missing_required || 0)} missing</small></div>
-    <div><span>Audit block</span><strong>${formatNumber(metrics.provenance_audit_blocked_rows || 0)}</strong><small>${formatNumber(metrics.provenance_audit_forbidden_fields || 0)} forbidden fields</small></div>
-    <div><span>Accepted</span><strong>${formatNumber(metrics.baseline_acceptance_accepted || 0)}</strong><small>${formatNumber(metrics.baseline_acceptance_blocked || 0)} blocked baselines</small></div>
-    <div><span>Promotion</span><strong>${formatNumber(metrics.promotion_minimal_unlock_targets || 0)}</strong><small>${formatNumber(metrics.promotion_projected_samples || 0)} samples</small></div>
-    <div><span>Attribution rows</span><strong>${formatNumber(metrics.attribution_grid_rows || 0)}</strong><small>${formatNumber(metrics.attribution_repeats || 0)} repeats</small></div>
-    <div><span>Claim level</span><strong>${escapeHtml(metrics.publication_claim_level || "unknown")}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
+    <div><span>Scale</span><strong>${formatCompact(metrics.live_compute_limit || 0)}</strong><small>${(metrics.precomputed_snapshot_limits || []).map(formatCompact).join(", ")} snapshots</small></div>
+    <div><span>Controlled signal</span><strong>${formatNumber(metrics.robust_controlled_profiles?.length || 0)}</strong><small>${formatNumber(metrics.null_calibration_iterations || 0)} null iterations</small></div>
+    <div><span>Real baselines</span><strong>${formatNumber(metrics.baseline_acceptance_accepted || 0)}</strong><small>${formatNumber(metrics.baseline_acceptance_blocked || 0)} blocked</small></div>
+    <div><span>Collection</span><strong>${formatNumber(metrics.intake_accepted || 0)}</strong><small>${formatNumber(metrics.intake_blocked || 0)} intake blockers</small></div>
+    <div><span>Evidence</span><strong>${formatNumber(metrics.checksummed_artifacts || 0)}</strong><small>${formatNumber(metrics.falsification_checks || 0)} falsification checks</small></div>
+    <div><span>Claim level</span><strong>${escapeHtml(formatClaimLevel(metrics.publication_claim_level))}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
   `;
   renderEvolutionImpact(evolution);
   renderEvolutionSpine(evolution);
   renderEvolutionDelta(evolution);
   renderEvolutionMap(evolution);
-  outputs.evolutionTimeline.innerHTML = phases
+  const spotlightIds = new Set([
+    "conjecture-lab",
+    "static-snapshots",
+    "attribution-grid",
+    "null-calibration",
+    "replication-audit",
+    "collection-fixture-audit",
+    "collection-intake",
+    "evidence-pack",
+    "decision-protocol",
+    "falsification-battery",
+  ]);
+  const spotlightPhases = phases.filter((phase) => spotlightIds.has(phase.id));
+  outputs.evolutionTimeline.innerHTML = spotlightPhases
     .map((phase, index) => `
       <div class="evolution-step">
         <i>${String(index + 1).padStart(2, "0")}</i>
@@ -2340,12 +2336,13 @@ function renderEvolutionSpine(evolution) {
   outputs.evolutionSpine.innerHTML = `
     <div class="spine-heading">
       <span>Evidence Spine</span>
-      <strong>Existing results organized by research evidence layer and current claim readiness.</strong>
+      <strong>One evidence layer per claim question, with artifact names shown once.</strong>
     </div>
     <div class="spine-grid">
       ${spine
         .map((item) => {
           const score = Math.max(0, Math.min(100, Number(item.score) || 0));
+          const artifacts = item.artifacts || [];
           return `
             <div class="spine-card is-${escapeHtml(item.status || "active")}">
               <div class="spine-card-top">
@@ -2355,7 +2352,7 @@ function renderEvolutionSpine(evolution) {
               <i><b style="width: ${score}%"></b></i>
               <span>${escapeHtml(item.gate || "")}</span>
               <p>${escapeHtml(item.proof || "")}</p>
-              <code>${escapeHtml((item.artifacts || []).join(" · "))}</code>
+              <code>${formatNumber(artifacts.length)} artifacts: ${escapeHtml(artifacts.map(shortArtifactName).join(", "))}</code>
             </div>
           `;
         })
@@ -2364,29 +2361,49 @@ function renderEvolutionSpine(evolution) {
   `;
 }
 
+function shortArtifactName(path) {
+  return String(path || "")
+    .replace(/^data\//, "")
+    .replace(/^assets\/snapshots\/\*\.svg$/, "snapshot SVGs")
+    .replace(/\.json$/, "")
+    .replace(/_/g, " ");
+}
+
+function formatClaimLevel(level) {
+  const value = String(level || "unknown");
+  if (value === "public_demo_only") return "public demo";
+  if (value === "controlled_synthetic_only") return "synthetic only";
+  return value.replace(/_/g, " ");
+}
+
 function renderEvolutionImpact(evolution) {
   if (!outputs.evolutionImpact) return;
   const dashboard = evolution.change_dashboard || bundledProjectEvolution.change_dashboard || {};
-  const ladder = dashboard.maturity_ladder || [];
+  const metrics = evolution.metrics || {};
   const rollup = dashboard.visual_rollup || {};
   const releaseTrail = rollup.release_trail || [];
-  const changes = dashboard.latest_changes || [];
+  const changes = (dashboard.latest_changes || []).slice(0, 5);
   outputs.evolutionImpact.innerHTML = `
     <div class="impact-narrative">
-      <span>Change Dashboard</span>
+      <span>Project Logic</span>
       <strong>${escapeHtml(dashboard.headline || "Research workflow maturity over time.")}</strong>
     </div>
-    <div class="maturity-ladder">
-      ${ladder
-        .map((stage, index) => `
-          <div class="maturity-stage ${stage.status === "complete" ? "is-complete" : "is-active"}">
-            <i>${String(index + 1).padStart(2, "0")}</i>
-            <strong>${escapeHtml(stage.stage || "stage")}</strong>
-            <em>${formatNumber((stage.phase_ids || []).length)} steps</em>
-            <span>${escapeHtml(stage.signal || "")}</span>
-          </div>
-        `)
-        .join("")}
+    <div class="strategic-summary">
+      <div class="strategy-card is-complete">
+        <span>Supported</span>
+        <strong>Controlled synthetic fingerprints</strong>
+        <em>${formatNumber(metrics.attribution_grid_rows || 0)} rows · ${formatNumber(metrics.replication_setting_count || 0)} replication settings</em>
+      </div>
+      <div class="strategy-card is-blocked">
+        <span>Not supported yet</span>
+        <strong>Real-world or Bitcoin attribution</strong>
+        <em>${formatNumber(metrics.baseline_acceptance_accepted || 0)} accepted baselines · ${formatNumber(metrics.intake_accepted || 0)} accepted submissions</em>
+      </div>
+      <div class="strategy-card is-guarded">
+        <span>Next decisive test</span>
+        <strong>Accepted library baselines + labelled vectors</strong>
+        <em>${formatNumber(metrics.promotion_minimal_unlock_targets || 0)} unlock targets · ${formatNumber(metrics.promotion_projected_samples || 0)} projected samples</em>
+      </div>
     </div>
     <div class="release-trail">
       <div class="release-trail-heading">
@@ -2421,14 +2438,12 @@ function renderEvolutionImpact(evolution) {
 function renderEvolutionDelta(evolution) {
   if (!outputs.evolutionDelta) return;
   const dashboard = evolution.change_dashboard || bundledProjectEvolution.change_dashboard || {};
-  const rollup = dashboard.visual_rollup || {};
   const delta = dashboard.research_delta || {};
   const claimState = delta.claim_state || {};
-  const tracks = delta.tracks || [];
   const lanes = delta.claim_lanes || [];
   outputs.evolutionDelta.innerHTML = `
     <div class="delta-heading">
-      <span>Research Delta</span>
+      <span>Claim Boundaries</span>
       <strong>${escapeHtml(delta.headline || "Visible before/current/next state of the research program.")}</strong>
     </div>
     <div class="delta-state">
@@ -2444,31 +2459,6 @@ function renderEvolutionDelta(evolution) {
         <span>Next unlock</span>
         <strong>${escapeHtml(claimState.next || "Real-world baselines and classifier vectors")}</strong>
       </div>
-    </div>
-    <div class="evidence-flow-strip">
-      ${(rollup.evidence_flow || [])
-        .map((item) => `
-          <div class="evidence-flow-node is-${escapeHtml(item.status || "active")}">
-            <span>${escapeHtml(item.stage || "stage")}</span>
-            <strong>${formatNumber(item.score || 0)}%</strong>
-            <i><b style="width: ${Math.max(0, Math.min(100, Number(item.score) || 0))}%"></b></i>
-            <em>${escapeHtml(item.evidence || "")}</em>
-          </div>
-        `)
-        .join("")}
-    </div>
-    <div class="delta-track-grid">
-      ${tracks
-        .map((track) => `
-          <div class="delta-track is-${escapeHtml(track.state || "active")}">
-            <strong>${escapeHtml(track.track || "Track")}</strong>
-            <span>${escapeHtml(track.before || "")}</span>
-            <i aria-hidden="true"></i>
-            <em>${escapeHtml(track.current || "")}</em>
-            <b>${escapeHtml(track.state || "active")}</b>
-          </div>
-        `)
-        .join("")}
     </div>
     <div class="claim-lane-grid">
       ${lanes
