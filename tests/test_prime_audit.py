@@ -1496,6 +1496,12 @@ class PrimeAuditTests(unittest.TestCase):
                 self.assertEqual(artifact["schema"], payload.get("schema"))
                 self.assertEqual(artifact["sha256"], sha256_file(path))
 
+    def test_public_artifact_lineage_matches_current_default_graph(self) -> None:
+        saved = load_repo_json("data/artifact_lineage.json")
+        fresh = build_artifact_lineage(generated_at=str(saved["generated_at"]))
+
+        self.assertEqual(saved, fresh)
+
     def test_null_calibration_reports_familywise_profile_p_values(self) -> None:
         grid = {
             "schema": "primeproject.attribution-confound-grid.v1",
