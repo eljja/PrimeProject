@@ -210,6 +210,23 @@ def publication_gates(
             severity="medium",
         ),
         gate(
+            "collection_submission_lint_gate",
+            any(
+                artifact.get("role") == "collection_submission_lint"
+                and artifact.get("exists")
+                and artifact.get("schema") == "primeproject.collection-submission-lint.v1"
+                for artifact in artifacts
+            ),
+            "Real-world collection claims need a pre-intake submission lint report for public contract failures.",
+            {
+                "has_collection_submission_lint": any(
+                    artifact.get("role") == "collection_submission_lint" and artifact.get("exists")
+                    for artifact in artifacts
+                )
+            },
+            severity="medium",
+        ),
+        gate(
             "baseline_acceptance_gate",
             baseline_acceptance.get("claim_gate", {}).get("status") == "open",
             "Real-world attribution claims need at least two accepted RSA library baselines.",

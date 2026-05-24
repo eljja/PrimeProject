@@ -23,6 +23,10 @@
     "submission_contract_tasks": 10,
     "submission_contract_required_fields": 7,
     "submission_contract_scalar_features": 14,
+    "submission_lint_tasks": 10,
+    "submission_lint_submitted": 0,
+    "submission_lint_blocked": 0,
+    "submission_lint_waiting": 10,
     "intake_tasks": 10,
     "intake_submitted": 0,
     "intake_accepted": 0,
@@ -42,12 +46,12 @@
     "classifier_accuracy": 0.3333333333333333,
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 18,
+    "checksummed_artifacts": 19,
     "blocking_gaps": 2,
     "claim_ledger_allowed": 3,
     "claim_ledger_blocked": 2,
-    "lineage_nodes": 20,
-    "lineage_edges": 47,
+    "lineage_nodes": 21,
+    "lineage_edges": 49,
     "lineage_checksum_mismatches": 0,
     "lineage_cycles": 0,
     "decision_protocol_allowed": 2,
@@ -73,15 +77,15 @@
       },
       {
         "stage": "Sim-to-Real",
-        "phase_ids": ["real-world-registry", "collection-matrix", "collection-power", "collection-handoff", "collection-submission-contract", "collection-intake"],
+        "phase_ids": ["real-world-registry", "collection-matrix", "collection-power", "collection-handoff", "collection-submission-contract", "collection-submission-lint", "collection-intake"],
         "status": "active",
-        "signal": "OpenSSL/BoringSSL/Go/Bitcoin collection targets, sample-power floors, handoff, submission contract, and intake validation"
+        "signal": "OpenSSL/BoringSSL/Go/Bitcoin collection targets, sample-power floors, handoff, submission contract, pre-intake lint, and intake validation"
       },
       {
         "stage": "Govern",
-        "phase_ids": ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff", "collection-submission-contract", "collection-intake"],
+        "phase_ids": ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff", "collection-submission-contract", "collection-submission-lint", "collection-intake"],
         "status": "active",
-        "signal": "provenance, acceptance, promotion, handoff, submission-contract, and intake gates before claims"
+        "signal": "provenance, acceptance, promotion, handoff, submission-contract, lint, and intake gates before claims"
       },
       {
         "stage": "Publish",
@@ -125,7 +129,7 @@
           "marker": "05",
           "title": "Publication guardrails",
           "state": "guarded",
-          "measure": "18 artifacts / 12 gates / 5 falsification checks",
+          "measure": "19 artifacts / 13 gates / 5 falsification checks",
           "proof": "claim ledger, lineage, decision protocol, and falsification battery prevent overclaiming"
         }
       ],
@@ -152,7 +156,7 @@
           "stage": "Intake contract",
           "score": 0,
           "status": "blocked",
-          "evidence": "10 task templates; 14 scalar feature contract; 0 submitted artifacts"
+          "evidence": "10 task templates; pre-intake lint waiting; 0 submitted artifacts"
         },
         {
           "stage": "Publish claims",
@@ -179,6 +183,11 @@
         "metric": "10 templates / 7 fields / 14 features"
       },
       {
+        "label": "Submission lint",
+        "impact": "Lets collectors test candidate public records against task IDs, sample floors, checksums, feature vectors, duplicates, and forbidden fields before intake.",
+        "metric": "10 waiting / 0 blocked"
+      },
+      {
         "label": "Collection intake validator",
         "impact": "Blocks submitted aggregate artifacts until sample, provenance, checksum, embedded feature-vector contract, claim-scope, duplicate-submission, reused-artifact, and public-safety checks pass.",
         "metric": "0 accepted / 10 blocked"
@@ -201,7 +210,7 @@
       {
         "label": "Evidence pack gates",
         "impact": "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.",
-        "metric": "18 artifacts / 12 gates"
+        "metric": "19 artifacts / 13 gates"
       },
       {
         "label": "Claim ledger",
@@ -211,7 +220,7 @@
       {
         "label": "Artifact lineage",
         "impact": "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.",
-        "metric": "20 nodes / 47 edges"
+        "metric": "21 nodes / 49 edges"
       },
       {
         "label": "Decision protocol",
@@ -262,13 +271,13 @@
         {
           "track": "Reality",
           "before": "No real-world generator baseline gate",
-          "current": "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, 10 intake blockers, 0 accepted baselines",
+          "current": "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, pre-intake lint, 10 intake blockers, 0 accepted baselines",
           "state": "blocked"
         },
         {
           "track": "Publication",
           "before": "Informal narrative claims",
-          "current": "18 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery",
+          "current": "19 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery",
           "state": "guarded"
         }
       ],
@@ -442,6 +451,14 @@
       "outputs": ["prime_audit/collection_contract.py", "data/collection_submission_contract.json"]
     },
     {
+      "id": "collection-submission-lint",
+      "label": "Submission lint",
+      "status": "active",
+      "layer": "sim-to-real",
+      "summary": "Runs pre-intake checks over candidate public submission records so collectors can fix contract, checksum, feature-vector, duplicate, and public-safety errors before claim gates.",
+      "outputs": ["prime_audit/collection_lint.py", "data/collection_submission_lint.json"]
+    },
+    {
       "id": "collection-intake",
       "label": "Collection intake",
       "status": "active",
@@ -519,7 +536,8 @@
     ["baseline-acceptance", "baseline-promotion"],
     ["baseline-promotion", "collection-handoff"],
     ["collection-handoff", "collection-submission-contract"],
-    ["collection-submission-contract", "collection-intake"],
+    ["collection-submission-contract", "collection-submission-lint"],
+    ["collection-submission-lint", "collection-intake"],
     ["collection-intake", "readiness-gates"],
     ["collection-intake", "evidence-pack"],
     ["readiness-gates", "evidence-pack"],

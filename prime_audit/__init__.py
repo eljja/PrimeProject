@@ -13,6 +13,7 @@ __all__ = [
     "collection_contract",
     "collection_handoff",
     "collection_intake",
+    "collection_lint",
     "collection_matrix",
     "collection_power",
     "conjecture_lab",

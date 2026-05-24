@@ -16,6 +16,7 @@ from .claim_ledger import build_claim_ledger
 from .collection_contract import build_collection_submission_contract
 from .collection_handoff import build_collection_handoff
 from .collection_intake import build_collection_intake, load_intake_records
+from .collection_lint import build_collection_submission_lint
 from .conjecture_lab import run_lab
 from .crypto_classifier import run_crypto_classifier
 from .decision_protocol import build_decision_protocol
@@ -210,6 +211,14 @@ def main() -> int:
     )
     collection_contract_parser.add_argument("--handoff", required=True)
     collection_contract_parser.add_argument("--output", required=True)
+
+    collection_lint_parser = subparsers.add_parser(
+        "collection-submission-lint",
+        help="Lint candidate public collection submissions against the submission contract before intake.",
+    )
+    collection_lint_parser.add_argument("--contract", required=True)
+    collection_lint_parser.add_argument("--records", nargs="*", default=[])
+    collection_lint_parser.add_argument("--output", required=True)
 
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
@@ -589,6 +598,15 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         payload = build_collection_submission_contract(handoff=handoff)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "collection-submission-lint":
+        contract = json.loads(Path(args.contract).read_text(encoding="utf-8"))
+        records = load_intake_records(args.records) if args.records else None
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_collection_submission_lint(contract=contract, records=records)
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

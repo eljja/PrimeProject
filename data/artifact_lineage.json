@@ -1,9 +1,9 @@
 {
   "schema": "primeproject.artifact-lineage.v1",
-  "generated_at": "2026-05-24T12:21:29+00:00",
+  "generated_at": "2026-05-24T12:35:08+00:00",
   "summary": {
-    "node_count": 20,
-    "edge_count": 47,
+    "node_count": 21,
+    "edge_count": 49,
     "missing_count": 0,
     "invalid_edge_count": 0,
     "checksum_mismatch_count": 0,
@@ -97,12 +97,20 @@
       "bytes": 26039
     },
     {
+      "role": "collection_submission_lint",
+      "path": "data/collection_submission_lint.json",
+      "exists": true,
+      "schema": "primeproject.collection-submission-lint.v1",
+      "sha256": "15fe34e67cefe7e3a45d1b9c566127a9c9822b545c6a29b0f243d9dc8fd8f4b0",
+      "bytes": 7649
+    },
+    {
       "role": "evidence_pack",
       "path": "data/evidence_pack.json",
       "exists": true,
       "schema": "primeproject.evidence-pack.v1",
-      "sha256": "caba762f5f1dc25682fc80ed8104bd50c7b86194923057c03fae39c8f06e2d0d",
-      "bytes": 12274
+      "sha256": "178802567c9db9a3c6b5d18ddaaf54dca9d5658b55a5146a860235e36d65889f",
+      "bytes": 12897
     },
     {
       "role": "feature_vectors",
@@ -133,8 +141,8 @@
       "path": "data/project_evolution.json",
       "exists": true,
       "schema": "primeproject.project-evolution.v1",
-      "sha256": "6e2934d6d331ce6213c78d4c760a2145f048040e146408d705d5d0f4bab4e6c5",
-      "bytes": 23352
+      "sha256": "2976cf0b2de5c7295a3ed32467924544f99c01330e69899053a8bb10f6260634",
+      "bytes": 24360
     },
     {
       "role": "provenance_audit",
@@ -284,6 +292,11 @@
       "valid": true
     },
     {
+      "from": "collection_submission_contract",
+      "to": "collection_submission_lint",
+      "valid": true
+    },
+    {
       "from": "manifest",
       "to": "evidence_pack",
       "valid": true
@@ -365,6 +378,11 @@
     },
     {
       "from": "collection_submission_contract",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
+      "from": "collection_submission_lint",
       "to": "evidence_pack",
       "valid": true
     },
@@ -479,6 +497,13 @@
       "schema": "primeproject.collection-submission-contract.v1"
     },
     {
+      "role": "collection_submission_lint",
+      "status": "match",
+      "expected_sha256": "15fe34e67cefe7e3a45d1b9c566127a9c9822b545c6a29b0f243d9dc8fd8f4b0",
+      "actual_sha256": "15fe34e67cefe7e3a45d1b9c566127a9c9822b545c6a29b0f243d9dc8fd8f4b0",
+      "schema": "primeproject.collection-submission-lint.v1"
+    },
+    {
       "role": "feature_vectors",
       "status": "match",
       "expected_sha256": "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538",
@@ -502,8 +527,8 @@
     {
       "role": "project_evolution",
       "status": "match",
-      "expected_sha256": "6e2934d6d331ce6213c78d4c760a2145f048040e146408d705d5d0f4bab4e6c5",
-      "actual_sha256": "6e2934d6d331ce6213c78d4c760a2145f048040e146408d705d5d0f4bab4e6c5",
+      "expected_sha256": "2976cf0b2de5c7295a3ed32467924544f99c01330e69899053a8bb10f6260634",
+      "actual_sha256": "2976cf0b2de5c7295a3ed32467924544f99c01330e69899053a8bb10f6260634",
       "schema": "primeproject.project-evolution.v1"
     },
     {

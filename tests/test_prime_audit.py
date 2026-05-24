@@ -29,6 +29,7 @@ from prime_audit.claim_ledger import build_claim_ledger
 from prime_audit.collection_contract import build_collection_submission_contract
 from prime_audit.collection_handoff import build_collection_handoff
 from prime_audit.collection_intake import build_collection_intake
+from prime_audit.collection_lint import build_collection_submission_lint
 from prime_audit.collection_matrix import build_collection_matrix
 from prime_audit.collection_power import build_collection_power
 from prime_audit.conjecture_lab import build_observations, run_lab, summarize_measure
@@ -643,6 +644,78 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(template["feature_vector_summary"]["record_count"], 4514)
         self.assertEqual(template["feature_vector_summary"]["features"]["bit_length_mean"], 2048.0)
 
+    def test_collection_submission_lint_blocks_contract_violations_before_intake(self) -> None:
+        handoff = {
+            "schema": "primeproject.collection-handoff.v1",
+            "rows": [
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "priority": "P0",
+                    "library": "OpenSSL",
+                    "baseline_id": "openssl-rsa-prime-owned",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                    "collector_contract": {"must_not_publish": ["private_prime"]},
+                },
+                {
+                    "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+                    "priority": "P0",
+                    "library": "BoringSSL",
+                    "baseline_id": "boringssl-rsa-prime-owned",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                    "collector_contract": {"must_not_publish": ["private_prime"]},
+                },
+            ],
+        }
+        contract = build_collection_submission_contract(handoff=handoff)
+        waiting = build_collection_submission_lint(contract=contract)
+        bad_vector = intake_feature_vector("OpenSSL", record_count=100, bit_length=2048)
+        bad_vector["features"] = dict(bad_vector["features"])
+        bad_vector["features"].pop("residue_tv_210")
+        blocked = build_collection_submission_lint(
+            contract=contract,
+            records=[
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 100,
+                    "claim_scope": "controlled_synthetic_only",
+                    "aggregate_artifact_sha256": "a" * 64,
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "feature_vector_path": "data/openssl_feature.json",
+                    "feature_vector_summary": bad_vector,
+                    "private_prime": "do-not-publish",
+                },
+                {
+                    "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 5000,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "a" * 64,
+                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned"},
+                    "feature_vector_path": "data/boringssl_feature.json",
+                    "feature_vector_summary": intake_feature_vector("BoringSSL", record_count=5000),
+                },
+            ],
+        )
+
+        self.assertEqual(waiting["schema"], "primeproject.collection-submission-lint.v1")
+        self.assertEqual(waiting["lint_gate"]["status"], "waiting")
+        self.assertEqual(waiting["summary"]["awaiting_submission_count"], 2)
+        self.assertEqual(blocked["lint_gate"]["status"], "blocked")
+        self.assertEqual(blocked["summary"]["blocked_count"], 2)
+        self.assertEqual(blocked["summary"]["reused_aggregate_hash_count"], 2)
+        openssl = next(row for row in blocked["rows"] if row["library"] == "OpenSSL")
+        self.assertIn("planned_sample_target", openssl["blocking_reasons"])
+        self.assertIn("real_world_claim_scope", openssl["blocking_reasons"])
+        self.assertIn("feature_vector_missing_features", openssl["blocking_reasons"])
+        self.assertIn("private_prime", openssl["forbidden_public_fields"])
+
     def test_collection_intake_blocks_missing_or_sensitive_submissions(self) -> None:
         handoff = {
             "schema": "primeproject.collection-handoff.v1",
@@ -968,6 +1041,7 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("provenance_gate", failed)
         self.assertIn("provenance_audit_gate", failed)
         self.assertIn("collection_submission_contract_gate", failed)
+        self.assertIn("collection_submission_lint_gate", failed)
         self.assertIn("baseline_acceptance_gate", failed)
         self.assertIn("collection_intake_gate", failed)
         self.assertIn("promotion_plan_gate", failed)

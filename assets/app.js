@@ -28,6 +28,7 @@ const state = {
   baselinePromotion: null,
   collectionHandoff: null,
   collectionSubmissionContract: null,
+  collectionSubmissionLint: null,
   collectionIntake: null,
 };
 
@@ -527,6 +528,34 @@ const bundledCollectionSubmissionContract = {
   ],
 };
 
+const bundledCollectionSubmissionLint = {
+  schema: "primeproject.collection-submission-lint.v1",
+  summary: {
+    task_count: 10,
+    submitted_count: 0,
+    awaiting_submission_count: 10,
+    pass_count: 0,
+    warning_count: 0,
+    blocked_count: 0,
+    forbidden_public_field_count: 0,
+    feature_vector_blocked_count: 0,
+    reused_aggregate_hash_count: 0,
+    dominant_blockers: [],
+    dominant_warnings: [{ reason: "awaiting_submission", count: 10 }],
+  },
+  lint_gate: {
+    status: "waiting",
+    message: "No submitted records are available; collectors can use the task templates before intake.",
+  },
+  rows: [
+    { priority: "P0", library: "BoringSSL", baseline_id: "boringssl-rsa-prime-owned", object_type: "rsa-prime", bit_length: 2048, submitted: false, sample_count: 0, planned_sample_target: 500, target_samples_for_10pct_tv: 4514, warning_reasons: ["awaiting_submission"], blocking_reasons: [], status: "awaiting_submission" },
+    { priority: "P0", library: "OpenSSL", baseline_id: "openssl-rsa-prime-owned", object_type: "rsa-prime", bit_length: 2048, submitted: false, sample_count: 0, planned_sample_target: 500, target_samples_for_10pct_tv: 4514, warning_reasons: ["awaiting_submission"], blocking_reasons: [], status: "awaiting_submission" },
+    { priority: "P1", library: "Bitcoin Core / wallet metadata", baseline_id: "bitcoin-core-ecdsa-signature-public", object_type: "ecdsa-signature", bit_length: 256, submitted: false, sample_count: 0, planned_sample_target: 10000, target_samples_for_10pct_tv: 10000, warning_reasons: ["awaiting_submission"], blocking_reasons: [], status: "awaiting_submission" },
+    { priority: "P1", library: "Go crypto/rsa", baseline_id: "go-crypto-rsa-prime-owned", object_type: "rsa-prime", bit_length: 2048, submitted: false, sample_count: 0, planned_sample_target: 500, target_samples_for_10pct_tv: 4514, warning_reasons: ["awaiting_submission"], blocking_reasons: [], status: "awaiting_submission" },
+    { priority: "P2", library: "BoringSSL", baseline_id: "boringssl-rsa-prime-owned", object_type: "rsa-prime", bit_length: 3072, submitted: false, sample_count: 0, planned_sample_target: 500, target_samples_for_10pct_tv: 4514, warning_reasons: ["awaiting_submission"], blocking_reasons: [], status: "awaiting_submission" },
+  ],
+};
+
 const bundledCollectionIntake = {
   schema: "primeproject.collection-intake.v1",
   summary: {
@@ -693,11 +722,12 @@ const bundledEvidencePack = {
     { code: "provenance_gate", passed: true, severity: "medium" },
     { code: "provenance_audit_gate", passed: true, severity: "medium" },
     { code: "collection_submission_contract_gate", passed: true, severity: "medium" },
+    { code: "collection_submission_lint_gate", passed: true, severity: "medium" },
     { code: "baseline_acceptance_gate", passed: false, severity: "high" },
     { code: "collection_intake_gate", passed: false, severity: "high" },
     { code: "promotion_plan_gate", passed: true, severity: "medium" },
   ],
-  artifact_count: 18,
+  artifact_count: 19,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58" },
@@ -708,10 +738,11 @@ const bundledEvidencePack = {
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2093411a402d68d3df0e16591369a0b63816780a0bc6a460c7a38437d102540b" },
     { role: "collection_submission_contract", schema: "primeproject.collection-submission-contract.v1", sha256: "5abf1e18ae9fb25342f219c28529721d90f96e0805e3f88fed10c75f1980c8a4" },
+    { role: "collection_submission_lint", schema: "primeproject.collection-submission-lint.v1", sha256: "15fe34e67cefe7e3a45d1b9c566127a9c9822b545c6a29b0f243d9dc8fd8f4b0" },
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "6e2934d6d331ce6213c78d4c760a2145f048040e146408d705d5d0f4bab4e6c5" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "2976cf0b2de5c7295a3ed32467924544f99c01330e69899053a8bb10f6260634" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
@@ -791,8 +822,8 @@ const bundledClaimLedger = {
 const bundledArtifactLineage = {
   schema: "primeproject.artifact-lineage.v1",
   summary: {
-    node_count: 20,
-    edge_count: 47,
+    node_count: 21,
+    edge_count: 49,
     missing_count: 0,
     invalid_edge_count: 0,
     checksum_mismatch_count: 0,
@@ -810,13 +841,14 @@ const bundledArtifactLineage = {
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", exists: true, sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", exists: true, sha256: "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4" },
     { role: "collection_submission_contract", schema: "primeproject.collection-submission-contract.v1", exists: true, sha256: "5abf1e18ae9fb25342f219c28529721d90f96e0805e3f88fed10c75f1980c8a4" },
+    { role: "collection_submission_lint", schema: "primeproject.collection-submission-lint.v1", exists: true, sha256: "15fe34e67cefe7e3a45d1b9c566127a9c9822b545c6a29b0f243d9dc8fd8f4b0" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "caba762f5f1dc25682fc80ed8104bd50c7b86194923057c03fae39c8f06e2d0d" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "05eea405c2eb485a529c1e5a155fe5babb5e40f1dd288219dd4e1155075516d6" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "178802567c9db9a3c6b5d18ddaaf54dca9d5658b55a5146a860235e36d65889f" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "73144c6849ef74b594733c068898b507bb67b12cb9bd06f87c6790eb0df7fa01" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "6e2934d6d331ce6213c78d4c760a2145f048040e146408d705d5d0f4bab4e6c5" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "2976cf0b2de5c7295a3ed32467924544f99c01330e69899053a8bb10f6260634" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -837,6 +869,7 @@ const bundledArtifactLineage = {
     { from: "provenance_audit", to: "collection_handoff", valid: true },
     { from: "provenance_requirements", to: "collection_handoff", valid: true },
     { from: "collection_handoff", to: "collection_submission_contract", valid: true },
+    { from: "collection_submission_contract", to: "collection_submission_lint", valid: true },
     { from: "collection_handoff", to: "collection_intake", valid: true },
     { from: "collection_submission_contract", to: "collection_intake", valid: true },
     { from: "attribution_grid", to: "null_calibration", valid: true },
@@ -855,6 +888,7 @@ const bundledArtifactLineage = {
     { from: "classifier_report", to: "evidence_pack", valid: true },
     { from: "collection_handoff", to: "evidence_pack", valid: true },
     { from: "collection_submission_contract", to: "evidence_pack", valid: true },
+    { from: "collection_submission_lint", to: "evidence_pack", valid: true },
     { from: "collection_intake", to: "evidence_pack", valid: true },
     { from: "project_evolution", to: "evidence_pack", valid: true },
     { from: "evidence_pack", to: "claim_ledger", valid: true },
@@ -1020,6 +1054,10 @@ const bundledProjectEvolution = {
     submission_contract_tasks: 10,
     submission_contract_required_fields: 7,
     submission_contract_scalar_features: 14,
+    submission_lint_tasks: 10,
+    submission_lint_submitted: 0,
+    submission_lint_blocked: 0,
+    submission_lint_waiting: 10,
     intake_tasks: 10,
     intake_submitted: 0,
     intake_accepted: 0,
@@ -1034,12 +1072,12 @@ const bundledProjectEvolution = {
     classifier_accuracy: 1 / 3,
     classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
-    checksummed_artifacts: 18,
+    checksummed_artifacts: 19,
     blocking_gaps: 2,
     claim_ledger_allowed: 3,
     claim_ledger_blocked: 2,
-    lineage_nodes: 20,
-    lineage_edges: 47,
+    lineage_nodes: 21,
+    lineage_edges: 49,
     lineage_checksum_mismatches: 0,
     lineage_cycles: 0,
     decision_protocol_allowed: 2,
@@ -1059,8 +1097,8 @@ const bundledProjectEvolution = {
     maturity_ladder: [
       { stage: "Explore", phase_ids: ["regularity-plan", "conjecture-lab", "static-snapshots"], status: "complete", signal: "10M browser compute and static snapshots" },
       { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid", "null-calibration", "replication-audit", "crypto-classifier"], status: "complete", signal: "controlled attribution, null calibration, 8-setting replication audit, and scoped classifier baseline" },
-      { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power", "collection-handoff", "collection-submission-contract", "collection-intake"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets, sample-power floors, handoff, submission contract, and intake validation" },
-      { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff", "collection-submission-contract", "collection-intake"], status: "active", signal: "provenance, acceptance, promotion, handoff, submission-contract, and intake gates before claims" },
+      { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power", "collection-handoff", "collection-submission-contract", "collection-submission-lint", "collection-intake"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets, sample-power floors, handoff, submission contract, pre-intake lint, and intake validation" },
+      { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff", "collection-submission-contract", "collection-submission-lint", "collection-intake"], status: "active", signal: "provenance, acceptance, promotion, handoff, submission-contract, lint, and intake gates before claims" },
       { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery"], status: "active", signal: "5 falsification checks and controlled-synthetic-only claim floor" },
     ],
     visual_rollup: {
@@ -1070,13 +1108,13 @@ const bundledProjectEvolution = {
         { marker: "02", title: "Scale lift", state: "complete", measure: "10M live + 1M/10M snapshots", proof: "larger local runs are visible on GitHub Pages without recomputation" },
         { marker: "03", title: "Controlled attribution", state: "complete", measure: "48 rows / 5,000 null iterations / 8 replication settings", proof: "signal must survive bit-length control, null calibration, and replication" },
         { marker: "04", title: "Sim-to-real gates", state: "blocked", measure: "10 targets / 9,028 P0 samples left", proof: "OpenSSL/BoringSSL/Go/Bitcoin baselines are registered but not accepted" },
-        { marker: "05", title: "Publication guardrails", state: "guarded", measure: "18 artifacts / 12 gates / 5 falsification checks", proof: "claim ledger, lineage, decision protocol, and falsification battery prevent overclaiming" },
+        { marker: "05", title: "Publication guardrails", state: "guarded", measure: "19 artifacts / 13 gates / 5 falsification checks", proof: "claim ledger, lineage, decision protocol, and falsification battery prevent overclaiming" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },
         { stage: "Controlled signal", score: 100, status: "complete", evidence: "null-calibrated, replicated synthetic generator fingerprints" },
         { stage: "Real baseline", score: 0, status: "blocked", evidence: "0 accepted RSA library baselines" },
-        { stage: "Intake contract", score: 0, status: "blocked", evidence: "10 task templates; 14 scalar feature contract; 0 submitted artifacts" },
+        { stage: "Intake contract", score: 0, status: "blocked", evidence: "10 task templates; pre-intake lint waiting; 0 submitted artifacts" },
         { stage: "Publish claims", score: 60, status: "guarded", evidence: "public_demo_only; real-world and Bitcoin attribution blocked" },
       ],
     },
@@ -1084,13 +1122,14 @@ const bundledProjectEvolution = {
       { label: "Baseline promotion plan", impact: "Turns blocked baselines into a concrete OpenSSL/BoringSSL unlock path.", metric: "2 targets / 9,028 samples" },
       { label: "Collection handoff packet", impact: "Converts the unlock path into prioritized public-safe collection tasks with provenance and classifier constraints.", metric: "10 tasks / 2 P0" },
       { label: "Submission contract", impact: "Publishes machine-readable record, checksum, provenance, feature-vector, and public-safety rules before collectors submit aggregates.", metric: "10 templates / 7 fields / 14 features" },
+      { label: "Submission lint", impact: "Lets collectors test candidate public records against task IDs, sample floors, checksums, feature vectors, duplicates, and forbidden fields before intake.", metric: "10 waiting / 0 blocked" },
       { label: "Collection intake validator", impact: "Blocks submitted aggregate artifacts until sample, provenance, checksum, embedded feature-vector contract, claim-scope, duplicate-submission, reused-artifact, and public-safety checks pass.", metric: "0 accepted / 10 blocked" },
       { label: "Intake feature-vector contract", impact: "Requires submitted artifacts to expose a public, schema-matched feature summary before classifier evidence can be trusted.", metric: "14 scalar features / submitted only" },
       { label: "Baseline acceptance gate", impact: "Prevents coarse or undocumented baselines from supporting attribution claims.", metric: "0 accepted / 10 blocked" },
       { label: "Provenance audit", impact: "Checks missing metadata, checksum format, and forbidden public sensitive fields.", metric: "4 blocked records" },
-      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "18 artifacts / 12 gates" },
+      { label: "Evidence pack gates", impact: "Bundles checksums and publication limits so GitHub Pages shows claim boundaries.", metric: "19 artifacts / 13 gates" },
       { label: "Claim ledger", impact: "Maps public statements to gates so unsupported real-world and Bitcoin attribution claims stay blocked.", metric: "3 allowed / 2 blocked" },
-      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "20 nodes / 47 edges" },
+      { label: "Artifact lineage", impact: "Audits public JSON dependencies and evidence-pack checksums as an acyclic reproducibility graph.", metric: "21 nodes / 49 edges" },
       { label: "Decision protocol", impact: "Pre-registers promotion rules so demo, synthetic, real-world, and Bitcoin claims cannot drift after results.", metric: "2 allowed / 2 blocked" },
       { label: "Falsification battery", impact: "Runs negative controls, bit-length guards, and claim-promotion guards before stronger claims.", metric: "5 pass / 0 fail" },
       { label: "Null calibration", impact: "Tests whether the best-looking controlled profile survives row-structured random-label simulation and multiple-profile selection.", metric: "2 family-wise survivors" },
@@ -1107,8 +1146,8 @@ const bundledProjectEvolution = {
       tracks: [
         { track: "Scale", before: "300K-style browser exploration", current: "10M live compute and 1M/10M static snapshots", state: "complete" },
         { track: "Signal", before: "Residue and gap visual drift", current: "48-row attribution grid, 5,000 null iterations, 8-setting replication audit, 12 classifier vectors", state: "complete" },
-        { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, 10 intake blockers, 0 accepted baselines", state: "blocked" },
-        { track: "Publication", before: "Informal narrative claims", current: "18 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery", state: "guarded" },
+        { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, pre-intake lint, 10 intake blockers, 0 accepted baselines", state: "blocked" },
+        { track: "Publication", before: "Informal narrative claims", current: "19 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery", state: "guarded" },
       ],
       claim_lanes: [
         { claim: "Public demo", status: "allowed", basis: "safe public artifact bundle" },
@@ -1137,6 +1176,7 @@ const bundledProjectEvolution = {
     { id: "baseline-promotion", label: "Promotion plan", status: "active", layer: "planning" },
     { id: "collection-handoff", label: "Collection handoff", status: "active", layer: "sim-to-real" },
     { id: "collection-submission-contract", label: "Submission contract", status: "active", layer: "sim-to-real" },
+    { id: "collection-submission-lint", label: "Submission lint", status: "active", layer: "sim-to-real" },
     { id: "collection-intake", label: "Collection intake", status: "active", layer: "sim-to-real" },
     { id: "readiness-gates", label: "Research readiness scoring", status: "active", layer: "governance" },
     { id: "evidence-pack", label: "Evidence pack gates", status: "active", layer: "publication" },
@@ -1166,7 +1206,8 @@ const bundledProjectEvolution = {
     ["baseline-acceptance", "baseline-promotion"],
     ["baseline-promotion", "collection-handoff"],
     ["collection-handoff", "collection-submission-contract"],
-    ["collection-submission-contract", "collection-intake"],
+    ["collection-submission-contract", "collection-submission-lint"],
+    ["collection-submission-lint", "collection-intake"],
     ["collection-intake", "readiness-gates"],
     ["collection-intake", "evidence-pack"],
     ["readiness-gates", "evidence-pack"],
@@ -1272,6 +1313,9 @@ const outputs = {
   collectionSubmissionContractStatus: document.querySelector("#collectionSubmissionContractStatus"),
   collectionSubmissionContractSummary: document.querySelector("#collectionSubmissionContractSummary"),
   collectionSubmissionContractRows: document.querySelector("#collectionSubmissionContractRows"),
+  collectionSubmissionLintStatus: document.querySelector("#collectionSubmissionLintStatus"),
+  collectionSubmissionLintSummary: document.querySelector("#collectionSubmissionLintSummary"),
+  collectionSubmissionLintRows: document.querySelector("#collectionSubmissionLintRows"),
   collectionIntakeStatus: document.querySelector("#collectionIntakeStatus"),
   collectionIntakeSummary: document.querySelector("#collectionIntakeSummary"),
   collectionIntakeRows: document.querySelector("#collectionIntakeRows"),
@@ -1368,6 +1412,7 @@ loadBaselineAcceptance();
 loadBaselinePromotion();
 loadCollectionHandoff();
 loadCollectionSubmissionContract();
+loadCollectionSubmissionLint();
 loadCollectionIntake();
 loadResearchReadiness();
 loadClassifierLab();
@@ -2352,7 +2397,7 @@ function renderEvolutionMap(evolution) {
     ["attribution-grid", "null-calibration", "replication-audit", "crypto-classifier", "real-world-registry"],
     ["collection-matrix", "collection-power"],
     ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion"],
-    ["collection-handoff", "collection-intake", "readiness-gates"],
+    ["collection-handoff", "collection-submission-contract", "collection-submission-lint", "collection-intake", "readiness-gates"],
     ["evidence-pack", "claim-ledger", "artifact-lineage"],
     ["decision-protocol", "falsification-battery"],
   ];
@@ -2808,6 +2853,61 @@ function renderCollectionSubmissionContract() {
     .join("");
 }
 
+async function loadCollectionSubmissionLint() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.collectionSubmissionLint = bundledCollectionSubmissionLint;
+    } else {
+      const response = await fetch("data/collection_submission_lint.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`collection submission lint ${response.status}`);
+      state.collectionSubmissionLint = await response.json();
+    }
+  } catch (error) {
+    state.collectionSubmissionLint = bundledCollectionSubmissionLint;
+  }
+  renderCollectionSubmissionLint();
+}
+
+function renderCollectionSubmissionLint() {
+  if (!outputs.collectionSubmissionLintStatus || !outputs.collectionSubmissionLintSummary || !outputs.collectionSubmissionLintRows) {
+    return;
+  }
+  const lint = state.collectionSubmissionLint || bundledCollectionSubmissionLint;
+  const summary = lint.summary || {};
+  const rows = lint.rows || [];
+  const gate = lint.lint_gate || {};
+  outputs.collectionSubmissionLintStatus.textContent =
+    `${formatNumber(summary.pass_count || 0)} pass · ${escapeHtml(gate.status || "waiting")}`;
+  outputs.collectionSubmissionLintSummary.innerHTML = `
+    <div><span>Submitted</span><strong>${formatNumber(summary.submitted_count || 0)}</strong><small>${formatNumber(summary.task_count || rows.length)} lint tasks</small></div>
+    <div><span>Waiting</span><strong>${formatNumber(summary.awaiting_submission_count || 0)}</strong><small>contract templates</small></div>
+    <div><span>Blocked</span><strong>${formatNumber(summary.blocked_count || 0)}</strong><small>pre-intake errors</small></div>
+    <div><span>Warnings</span><strong>${formatNumber(summary.warning_count || 0)}</strong><small>${escapeHtml((summary.dominant_warnings || [])[0]?.reason || "none")}</small></div>
+    <div><span>Vectors</span><strong>${formatNumber(summary.feature_vector_blocked_count || 0)}</strong><small>lint blocked</small></div>
+    <div><span>Reuse</span><strong>${formatNumber(summary.reused_aggregate_hash_count || 0)}</strong><small>checksum collisions</small></div>
+  `;
+  outputs.collectionSubmissionLintRows.innerHTML = rows
+    .slice()
+    .sort((a, b) => priorityRank(a.priority) - priorityRank(b.priority))
+    .slice(0, 5)
+    .map((row) => {
+      const issue = (row.blocking_reasons || [])[0] || (row.warning_reasons || [])[0] || "contract-ready";
+      const sampleText = row.submitted ? `${formatNumber(row.sample_count || 0)} samples` : "awaiting submission";
+      return `
+        <div class="intake-row">
+          <div>
+            <strong>${escapeHtml(row.library || row.baseline_id || "unknown")} ${formatNumber(row.bit_length || 0)}b</strong>
+            <span>${escapeHtml(row.object_type || "object")} · ${escapeHtml(sampleText)}</span>
+          </div>
+          <em class="priority-${escapeHtml(row.priority || "P2").toLowerCase()}">${escapeHtml(row.priority || "P2")}</em>
+          <span>${escapeHtml(row.status || "waiting")}</span>
+          <code>${escapeHtml(issue)}</code>
+        </div>
+      `;
+    })
+    .join("");
+}
+
 async function loadCollectionIntake() {
   try {
     if (window.location.protocol === "file:") {
@@ -3158,7 +3258,8 @@ function renderArtifactLineageMap(lineage) {
     ["baseline_promotion_plan", { x: 702, y: 102 }],
     ["collection_handoff", { x: 534, y: 162 }],
     ["collection_submission_contract", { x: 702, y: 162 }],
-    ["collection_intake", { x: 870, y: 162 }],
+    ["collection_submission_lint", { x: 870, y: 162 }],
+    ["collection_intake", { x: 1020, y: 162 }],
     ["attribution_grid", { x: 30, y: 252 }],
     ["null_calibration", { x: 198, y: 252 }],
     ["replication_audit", { x: 366, y: 252 }],

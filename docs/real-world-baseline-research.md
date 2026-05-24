@@ -15,6 +15,7 @@ owned or public sample
   -> real-baseline-manifest
   -> export-feature-vectors
   -> collection-submission-contract
+  -> collection-submission-lint
   -> crypto-classifier
 ```
 
@@ -203,6 +204,19 @@ python -m prime_audit.cli collection-submission-contract `
 현재 계약은 10개 task template을 만들고, 각 제출 record에 `task_id`, `sample_count`, `claim_scope`, `aggregate_artifact_sha256`, `provenance_record`, `feature_vector_path`, `feature_vector_summary` 7개 필드를 요구한다. `feature_vector_summary`는 `generator-feature-vector.v1` schema, 14개 scalar feature, `record_count == sample_count`, task bit length와 맞는 `bit_length_mean`, finite numeric value 조건을 만족해야 한다.
 
 이 단계의 실용적 가치는 두 가지다. 첫째, OpenSSL/BoringSSL/Go/wallet 수집자가 private material을 공개하지 않고도 재현 가능한 aggregate artifact를 제출할 수 있는 템플릿을 제공한다. 둘째, intake 전에 checksum 재사용, feature-vector 누락, claim scope 오류, forbidden field 노출 같은 실패 조건을 공개 산출물로 고정해 “나중에 결과를 보고 기준을 바꾸는” 위험을 줄인다. GitHub Pages의 Baseline Lab은 이 계약을 Submission Contract 블록으로 표시하고, Evidence Pack은 `collection_submission_contract_gate`로 체크섬 포함 여부를 검사한다.
+
+## Collection Submission Lint
+
+`collection-submission-lint`는 제출 후보 record를 intake에 넣기 전에 계약 위반을 미리 찾는 로컬/공개-safe 검증 단계다. intake는 claim gate 판정에 가깝고, lint는 collector 피드백 도구다.
+
+```powershell
+python -m prime_audit.cli collection-submission-lint `
+  --contract data/collection_submission_contract.json `
+  --records records/submission_candidates.json `
+  --output data/collection_submission_lint.json
+```
+
+검사 항목은 known task ID, 필수 record field, `real_world` claim scope, planned sample floor, 10% TV screening floor warning, SHA-256 checksum 형식과 task 간 재사용, provenance record, feature vector schema/feature/record_count/bit_length 정합성, 중복 제출, forbidden public field scan이다. 현재 공개 번들은 제출 후보가 없으므로 `waiting` 상태이며, 10개 task가 `awaiting_submission`으로 표시된다. 실제 수집자가 record를 넣으면 이 단계에서 `blocked`, `warning`, `pass`를 먼저 확인한 뒤 `collection-intake`로 넘길 수 있다.
 
 ## Collection Intake
 
