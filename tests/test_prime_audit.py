@@ -62,6 +62,9 @@ from prime_audit.simulators import (
 from prime_audit.snapshots import build_snapshot, render_snapshot_svgs
 
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
 def intake_feature_vector(label: str, *, record_count: int = 5000, bit_length: int = 2048) -> dict[str, object]:
     features = {name: 0.1 for name in SCALAR_FEATURES}
     features["record_count_log2"] = 12.2879
@@ -1439,6 +1442,46 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(checks["claim_promotion_guard"]["status"], "fail")
         self.assertEqual(battery["summary"]["claim_floor"], "do_not_promote")
 
+    def test_project_evolution_metrics_match_public_artifacts(self) -> None:
+        project = load_repo_json("data/project_evolution.json")
+        manifest = load_repo_json("data/baselines/real_world/manifest.json")
+        readiness = load_repo_json("data/research_readiness.json")
+        evidence = load_repo_json("data/evidence_pack.json")
+        acceptance = load_repo_json("data/baseline_acceptance.json")
+        intake = load_repo_json("data/collection_intake.json")
+        claim_ledger = load_repo_json("data/claim_ledger.json")
+        lineage = load_repo_json("data/artifact_lineage.json")
+        decision = load_repo_json("data/decision_protocol.json")
+        falsification = load_repo_json("data/falsification_battery.json")
+
+        metrics = project["metrics"]
+        sim_to_real = readiness["dimensions"]["sim_to_real"]
+        manifest_entries = manifest["entries"]
+        public_controls = [
+            entry
+            for entry in manifest_entries
+            if entry.get("status") == "available" and entry.get("source_type") == "public-standard"
+        ]
+
+        self.assertEqual(metrics["registered_real_baselines"], manifest["entry_count"])
+        self.assertEqual(metrics["manifest_available_baselines"], manifest["status_counts"]["available"])
+        self.assertEqual(metrics["public_control_baselines"], len(public_controls))
+        self.assertEqual(metrics["available_real_baselines"], sim_to_real["available_count"])
+        self.assertEqual(metrics["baseline_acceptance_accepted"], acceptance["accepted_count"])
+        self.assertEqual(metrics["baseline_acceptance_blocked"], acceptance["blocked_count"])
+        self.assertEqual(metrics["intake_accepted"], intake["summary"]["accepted_count"])
+        self.assertEqual(metrics["intake_blocked"], intake["summary"]["blocked_count"])
+        self.assertEqual(metrics["checksummed_artifacts"], evidence["artifact_count"])
+        self.assertEqual(metrics["blocking_gaps"], len(readiness["blocking_gaps"]))
+        self.assertEqual(metrics["claim_ledger_allowed"], claim_ledger["summary"]["allowed_count"])
+        self.assertEqual(metrics["claim_ledger_blocked"], claim_ledger["summary"]["blocked_count"])
+        self.assertEqual(metrics["lineage_nodes"], lineage["summary"]["node_count"])
+        self.assertEqual(metrics["lineage_edges"], lineage["summary"]["edge_count"])
+        self.assertEqual(metrics["decision_protocol_allowed"], decision["summary"]["allowed_count"])
+        self.assertEqual(metrics["decision_protocol_blocked"], decision["summary"]["blocked_count"])
+        self.assertEqual(metrics["falsification_checks"], falsification["summary"]["check_count"])
+        self.assertEqual(metrics["falsification_failures"], falsification["summary"]["fail_count"])
+
     def test_null_calibration_reports_familywise_profile_p_values(self) -> None:
         grid = {
             "schema": "primeproject.attribution-confound-grid.v1",
@@ -1515,6 +1558,10 @@ def sha256_text(value: str) -> str:
     import hashlib
 
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def load_repo_json(path: str) -> dict[str, object]:
+    return json.loads((REPO_ROOT / path).read_text(encoding="utf-8"))
 
 
 def fingerprint_report_from_values(values: list[int]) -> dict[str, object]:
