@@ -12,6 +12,14 @@ EXPECTED_REAL_BASELINES = {
     "bitcoin": "Bitcoin Core or wallet signature metadata baseline",
 }
 
+ATTRIBUTION_BASELINE_OBJECT_TYPES = {
+    "rsa-prime",
+    "rsa-modulus",
+    "dh-prime",
+    "ecdsa-signature",
+    "schnorr-signature",
+}
+
 
 def build_research_readiness_report(
     *,
@@ -63,7 +71,13 @@ def assess_sim_to_real(manifest: dict[str, Any]) -> dict[str, Any]:
         if key not in covered
     }
     sensitive_count = sum(1 for entry in entries if entry.get("sensitive"))
-    available_count = int(status_counts.get("available") or 0)
+    manifest_available_count = int(status_counts.get("available") or 0)
+    available_count = sum(1 for entry in entries if is_available_attribution_baseline(entry))
+    public_control_count = sum(
+        1
+        for entry in entries
+        if entry.get("status") == "available" and not is_available_attribution_baseline(entry)
+    )
     planned_count = int(status_counts.get("planned") or 0)
     local_only_count = int(status_counts.get("local-only") or 0)
     coverage_score = len(covered) / len(EXPECTED_REAL_BASELINES)
@@ -87,14 +101,18 @@ def assess_sim_to_real(manifest: dict[str, Any]) -> dict[str, Any]:
             {
                 "code": "insufficient_available_real_baselines",
                 "severity": "high",
-                "message": "At least two available real-world baselines are needed before real attribution claims.",
-                "evidence": {"available_count": available_count},
+                "message": "At least two available aggregate generator baselines are needed before real attribution claims.",
+                "evidence": {
+                    "available_count": available_count,
+                    "manifest_available_count": manifest_available_count,
+                    "public_control_count": public_control_count,
+                },
             }
         )
         readiness_cap = {
             "max_score": 0.54,
             "max_label": "scaffold_ready",
-            "reason": "Sim-to-real evidence cannot be research-ready until at least two aggregate real-world baselines are available.",
+            "reason": "Sim-to-real evidence cannot be research-ready until at least two aggregate generator baselines are available; public constants count only as controls.",
         }
     score = min(raw_score, readiness_cap["max_score"]) if readiness_cap else raw_score
     return {
@@ -104,12 +122,24 @@ def assess_sim_to_real(manifest: dict[str, Any]) -> dict[str, Any]:
         "readiness_cap": readiness_cap,
         "registered_count": len(entries),
         "available_count": available_count,
+        "manifest_available_count": manifest_available_count,
+        "public_control_count": public_control_count,
         "planned_count": planned_count,
         "local_only_count": local_only_count,
         "sensitive_count": sensitive_count,
         "expected_coverage": covered,
         "gaps": gaps,
     }
+
+
+def is_available_attribution_baseline(entry: dict[str, Any]) -> bool:
+    if entry.get("status") != "available":
+        return False
+    if entry.get("source_type") == "public-standard":
+        return False
+    if entry.get("object_type") not in ATTRIBUTION_BASELINE_OBJECT_TYPES:
+        return False
+    return int(entry.get("sample_count") or 0) > 0
 
 
 def assess_attribution_validation(grid: dict[str, Any]) -> dict[str, Any]:
