@@ -1482,6 +1482,20 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(metrics["falsification_checks"], falsification["summary"]["check_count"])
         self.assertEqual(metrics["falsification_failures"], falsification["summary"]["fail_count"])
 
+    def test_public_evidence_pack_hashes_match_files(self) -> None:
+        evidence = load_repo_json("data/evidence_pack.json")
+        artifacts = evidence["artifacts"]
+
+        self.assertEqual(evidence["artifact_count"], len(artifacts))
+        for artifact in artifacts:
+            with self.subTest(role=artifact["role"]):
+                path = REPO_ROOT / str(artifact["path"])
+                self.assertTrue(artifact["exists"])
+                self.assertTrue(path.exists())
+                payload = json.loads(path.read_text(encoding="utf-8"))
+                self.assertEqual(artifact["schema"], payload.get("schema"))
+                self.assertEqual(artifact["sha256"], sha256_file(path))
+
     def test_null_calibration_reports_familywise_profile_p_values(self) -> None:
         grid = {
             "schema": "primeproject.attribution-confound-grid.v1",
@@ -1558,6 +1572,12 @@ def sha256_text(value: str) -> str:
     import hashlib
 
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def sha256_file(path: Path) -> str:
+    import hashlib
+
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def load_repo_json(path: str) -> dict[str, object]:
