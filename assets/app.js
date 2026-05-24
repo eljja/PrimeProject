@@ -644,11 +644,17 @@ const bundledCollectionIntake = {
 
 const bundledResearchReadiness = {
   schema: "primeproject.research-readiness.v1",
-  overall: { score: 0.7094, label: "prototype_ready" },
+  overall: { score: 0.614, label: "prototype_ready" },
   dimensions: {
     sim_to_real: {
-      score: 0.8125,
-      label: "research_ready",
+      score: 0.54,
+      label: "scaffold_ready",
+      raw_score: 0.8125,
+      readiness_cap: {
+        max_score: 0.54,
+        max_label: "scaffold_ready",
+        reason: "Sim-to-real evidence cannot be research-ready until at least two aggregate real-world baselines are available.",
+      },
       registered_count: 5,
       available_count: 1,
       planned_count: 4,
@@ -803,7 +809,7 @@ const bundledEvidencePack = {
     { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "6b2ca0e7131ec56d5a27d0b2d8e6445cc1f70d1a56ab5f201e700661f94b55cb" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
-    { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
+    { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "cb0eabf1fb1334e9dcc95ea9d42626b3c45a775d195892b85df5cb4ee6379a16" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
     { role: "snapshot_manifest", schema: "primeproject.snapshot-manifest.v1", sha256: "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0" },
   ],
@@ -902,9 +908,9 @@ const bundledArtifactLineage = {
     { role: "collection_submission_lint", schema: "primeproject.collection-submission-lint.v1", exists: true, sha256: "15fe34e67cefe7e3a45d1b9c566127a9c9822b545c6a29b0f243d9dc8fd8f4b0" },
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
-    { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "22e8e4d24270ab6a4c3661e6198cbcaa738ff6315a44a27d149b285b74803bfa" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "90958785284058e60789eac1331ef25a6b7336e0c3de83628ec3ac90592e17f0" },
+    { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "cb0eabf1fb1334e9dcc95ea9d42626b3c45a775d195892b85df5cb4ee6379a16" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "f57f0100f04e0a1e51c8af538ff357a7ae1e5c374be2bad97c51b028f0d6e0c1" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "53d22a4780f090aa9be98ab0d8f9f4c1fbfb9fadad09f1221c6128cfea26585e" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
     { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "6b2ca0e7131ec56d5a27d0b2d8e6445cc1f70d1a56ab5f201e700661f94b55cb" },
@@ -3996,7 +4002,10 @@ function compactEvidence(evidence) {
 
 function formatDimensionEvidence(name, dimension) {
   if (name === "sim_to_real") {
-    return `${formatNumber(dimension.registered_count || 0)} registered, ${formatNumber(dimension.planned_count || 0)} planned, ${formatNumber(dimension.sensitive_count || 0)} local-sensitive.`;
+    const cap = dimension.readiness_cap
+      ? ` cap ${escapeHtml(dimension.readiness_cap.max_label || "scaffold_ready")} from ${formatPercent(dimension.raw_score || dimension.score || 0)}.`
+      : "";
+    return `${formatNumber(dimension.registered_count || 0)} registered, ${formatNumber(dimension.planned_count || 0)} planned, ${formatNumber(dimension.sensitive_count || 0)} local-sensitive.${cap}`;
   }
   if (name === "attribution_validation") {
     return `${formatNumber(dimension.rows || 0)} rows, ${formatNumber(dimension.repeats || 0)} repeats, ${(dimension.robust_profiles || []).join(", ") || "no robust profile"}.`;

@@ -70,8 +70,9 @@ def assess_sim_to_real(manifest: dict[str, Any]) -> dict[str, Any]:
     availability_score = min(1.0, available_count / max(1, len(EXPECTED_REAL_BASELINES)))
     planning_score = min(1.0, (planned_count + local_only_count + available_count) / max(1, len(EXPECTED_REAL_BASELINES)))
     policy_score = 1.0 if not manifest.get("validation", {}).get("errors") else 0.0
-    score = 0.35 * coverage_score + 0.25 * availability_score + 0.25 * planning_score + 0.15 * policy_score
+    raw_score = 0.35 * coverage_score + 0.25 * availability_score + 0.25 * planning_score + 0.15 * policy_score
     gaps = []
+    readiness_cap = None
     if missing:
         gaps.append(
             {
@@ -90,9 +91,17 @@ def assess_sim_to_real(manifest: dict[str, Any]) -> dict[str, Any]:
                 "evidence": {"available_count": available_count},
             }
         )
+        readiness_cap = {
+            "max_score": 0.54,
+            "max_label": "scaffold_ready",
+            "reason": "Sim-to-real evidence cannot be research-ready until at least two aggregate real-world baselines are available.",
+        }
+    score = min(raw_score, readiness_cap["max_score"]) if readiness_cap else raw_score
     return {
         "score": round(score, 4),
         "label": readiness_label(score),
+        "raw_score": round(raw_score, 4),
+        "readiness_cap": readiness_cap,
         "registered_count": len(entries),
         "available_count": available_count,
         "planned_count": planned_count,

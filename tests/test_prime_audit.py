@@ -1137,6 +1137,9 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertEqual(readiness["schema"], "primeproject.research-readiness.v1")
         self.assertIn("sim_to_real", readiness["dimensions"])
+        self.assertEqual(readiness["dimensions"]["sim_to_real"]["label"], "scaffold_ready")
+        self.assertLess(readiness["dimensions"]["sim_to_real"]["score"], readiness["dimensions"]["sim_to_real"]["raw_score"])
+        self.assertEqual(readiness["dimensions"]["sim_to_real"]["readiness_cap"]["max_label"], "scaffold_ready")
         self.assertGreater(len(readiness["blocking_gaps"]), 0)
         self.assertGreater(len(readiness["next_actions"]), 0)
         self.assertLess(readiness["overall"]["score"], 0.8)

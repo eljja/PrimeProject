@@ -341,6 +341,8 @@ async function main() {
     metrics.readinessActions < 2 ||
     !metrics.readinessPanel.includes("Research Readiness") ||
     !metrics.readinessPanel.includes("prototype_ready") ||
+    !metrics.readinessPanel.includes("61.4%") ||
+    !metrics.readinessPanel.includes("cap scaffold_ready from 81.3%") ||
     !metrics.readinessPanel.includes("Crypto-Classifier Baseline") ||
     metrics.classifierLabels < 3 ||
     !metrics.classifierStatus.includes("controlled synthetic only") ||
