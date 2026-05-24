@@ -309,7 +309,6 @@ python -m prime_audit.cli evidence-pack `
   --collection-intake data/collection_intake.json `
   --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_promotion_plan=data/baseline_promotion_plan.json collection_handoff=data/collection_handoff.json collection_submission_contract=data/collection_submission_contract.json collection_submission_lint=data/collection_submission_lint.json collection_fixture_audit=data/collection_fixture_audit.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json `
   --classifier-report data/crypto_classifier_report.json `
-  --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --generated-at 2026-05-24T16:56:40+00:00 `
   --output data/evidence_pack.json
 ```

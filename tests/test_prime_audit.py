@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -1604,6 +1605,104 @@ class PrimeAuditTests(unittest.TestCase):
                 with self.subTest(output=output.name):
                     self.assertEqual(load_json(output)["generated_at"], generated_at)
 
+    def test_publication_cli_recreates_public_artifacts(self) -> None:
+        generated_at = str(load_repo_json("data/evidence_pack.json")["generated_at"])
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp = Path(tmp_dir)
+            evidence = tmp / "evidence_pack.json"
+            claim_ledger = tmp / "claim_ledger.json"
+            lineage = tmp / "artifact_lineage.json"
+            decision = tmp / "decision_protocol.json"
+            falsification = tmp / "falsification_battery.json"
+
+            self.assertEqual(
+                run_cli(
+                    "evidence-pack",
+                    "--manifest",
+                    "data/baselines/real_world/manifest.json",
+                    "--readiness",
+                    "data/research_readiness.json",
+                    "--attribution-grid",
+                    "data/attribution_confound_grid.json",
+                    "--classifier-report",
+                    "data/crypto_classifier_report.json",
+                    "--baseline-acceptance",
+                    "data/baseline_acceptance.json",
+                    "--collection-intake",
+                    "data/collection_intake.json",
+                    "--artifact",
+                    *public_evidence_artifact_args(),
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(evidence),
+                ),
+                0,
+            )
+            self.assertEqual(
+                run_cli(
+                    "claim-ledger",
+                    "--evidence-pack",
+                    str(evidence),
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(claim_ledger),
+                ),
+                0,
+            )
+            self.assertEqual(
+                run_cli(
+                    "artifact-lineage",
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(lineage),
+                ),
+                0,
+            )
+            self.assertEqual(
+                run_cli(
+                    "decision-protocol",
+                    "--evidence-pack",
+                    str(evidence),
+                    "--claim-ledger",
+                    str(claim_ledger),
+                    "--artifact-lineage",
+                    str(lineage),
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(decision),
+                ),
+                0,
+            )
+            self.assertEqual(
+                run_cli(
+                    "falsification-battery",
+                    "--attribution-grid",
+                    "data/attribution_confound_grid.json",
+                    "--decision-protocol",
+                    str(decision),
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(falsification),
+                ),
+                0,
+            )
+
+            expected = {
+                evidence: "data/evidence_pack.json",
+                claim_ledger: "data/claim_ledger.json",
+                lineage: "data/artifact_lineage.json",
+                decision: "data/decision_protocol.json",
+                falsification: "data/falsification_battery.json",
+            }
+            for output, public_path in expected.items():
+                with self.subTest(public_path=public_path):
+                    self.assertEqual(load_json(output), load_repo_json(public_path))
+
     def test_null_calibration_reports_familywise_profile_p_values(self) -> None:
         grid = {
             "schema": "primeproject.attribution-confound-grid.v1",
@@ -1702,8 +1801,30 @@ def write_json(path: Path, payload: dict[str, object]) -> Path:
 
 
 def run_cli(*args: str) -> int:
-    with patch("sys.argv", ["prime_audit.cli", *args]):
-        return cli_main()
+    current = Path.cwd()
+    try:
+        os.chdir(REPO_ROOT)
+        with patch("sys.argv", ["prime_audit.cli", *args]):
+            return cli_main()
+    finally:
+        os.chdir(current)
+
+
+def public_evidence_artifact_args() -> list[str]:
+    supplied_roles = {
+        "manifest",
+        "readiness",
+        "attribution_grid",
+        "classifier_report",
+        "baseline_acceptance",
+        "collection_intake",
+    }
+    evidence = load_repo_json("data/evidence_pack.json")
+    return [
+        f"{artifact['role']}={artifact['path']}"
+        for artifact in evidence["artifacts"]
+        if artifact["role"] not in supplied_roles
+    ]
 
 
 def fingerprint_report_from_values(values: list[int]) -> dict[str, object]:
