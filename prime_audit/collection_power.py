@@ -32,6 +32,8 @@ def build_collection_power(
         "method": {
             "name": "multinomial screening floor",
             "alpha": alpha,
+            "interval_confidence": interval_confidence(alpha),
+            "interval_label": interval_label(alpha),
             "target_tv": target_tv,
             "target_tv_label": tv_label(target_tv),
             "modulo": modulo,
@@ -66,10 +68,13 @@ def target_power(
     sample_target = max(1, int(target.get("sample_target") or 0))
     bucket_count = bucket_count_for_target(target, modulo)
     z_score = normal_z_for_two_sided_alpha(alpha)
+    z_score_95 = normal_z_for_two_sided_alpha(0.05)
     class_probability = 1.0 / bucket_count
-    class_shift_95 = z_score * math.sqrt(class_probability * (1.0 - class_probability) / sample_target)
+    class_shift_interval = z_score * math.sqrt(class_probability * (1.0 - class_probability) / sample_target)
+    class_shift_95 = z_score_95 * math.sqrt(class_probability * (1.0 - class_probability) / sample_target)
     typical_tv_noise_floor = math.sqrt((bucket_count - 1) / (4.0 * sample_target))
-    conservative_tv_floor_95 = z_score * typical_tv_noise_floor
+    conservative_tv_floor_interval = z_score * typical_tv_noise_floor
+    conservative_tv_floor_95 = z_score_95 * typical_tv_noise_floor
     min_samples_for_target_tv = minimum_samples_for_tv_floor(
         bucket_count=bucket_count,
         z_score=z_score,
@@ -80,7 +85,7 @@ def target_power(
         z_score=z_score,
         target_tv=0.10,
     )
-    tier = power_tier(conservative_tv_floor_95)
+    tier = power_tier(conservative_tv_floor_interval)
     return {
         "library": collection_row.get("library"),
         "track": collection_row.get("track"),
@@ -90,8 +95,12 @@ def target_power(
         "bucket_count": bucket_count,
         "status": target.get("status", "planned"),
         "power_tier": tier,
+        "interval_confidence": interval_confidence(alpha),
+        "interval_label": interval_label(alpha),
+        "class_shift_interval": round(class_shift_interval, 6),
         "class_shift_95": round(class_shift_95, 6),
         "typical_tv_noise_floor": round(typical_tv_noise_floor, 6),
+        "conservative_tv_floor_interval": round(conservative_tv_floor_interval, 6),
         "conservative_tv_floor_95": round(conservative_tv_floor_95, 6),
         "target_tv": target_tv,
         "target_tv_label": tv_label(target_tv),
@@ -151,6 +160,14 @@ def tv_label(target_tv: float) -> str:
     return f"{label.replace('.', '_')}pct"
 
 
+def interval_confidence(alpha: float) -> float:
+    return 1.0 - alpha
+
+
+def interval_label(alpha: float) -> str:
+    return tv_label(interval_confidence(alpha))
+
+
 def build_sensitivity_grid(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     profiles: dict[str, dict[str, Any]] = {}
     for row in rows:
@@ -205,12 +222,14 @@ def weakest_targets(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "library": row["library"],
             "bit_length": row["bit_length"],
             "sample_target": row["sample_target"],
+            "interval_label": row["interval_label"],
+            "conservative_tv_floor_interval": row["conservative_tv_floor_interval"],
             "conservative_tv_floor_95": row["conservative_tv_floor_95"],
             "target_tv_label": row["target_tv_label"],
             "min_samples_for_target_tv": row["min_samples_for_target_tv"],
             "min_samples_for_10pct_tv": row["min_samples_for_10pct_tv"],
         }
-        for row in sorted(rows, key=lambda item: item["conservative_tv_floor_95"], reverse=True)[:3]
+        for row in sorted(rows, key=lambda item: item["conservative_tv_floor_interval"], reverse=True)[:3]
     ]
 
 

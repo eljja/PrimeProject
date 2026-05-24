@@ -274,6 +274,8 @@ const bundledCollectionPower = {
   method: {
     name: "multinomial screening floor",
     alpha: 0.05,
+    interval_confidence: 0.95,
+    interval_label: "95pct",
     target_tv: 0.1,
     target_tv_label: "10pct",
     modulo: 210,
@@ -287,22 +289,22 @@ const bundledCollectionPower = {
     strong_count: 1,
     minimum_recommended_replicates: 3,
     weakest_targets: [
-      { library: "OpenSSL", bit_length: 2048, sample_target: 500, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-      { library: "OpenSSL", bit_length: 3072, sample_target: 500, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-      { library: "OpenSSL", bit_length: 4096, sample_target: 500, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+      { library: "OpenSSL", bit_length: 2048, sample_target: 500, interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+      { library: "OpenSSL", bit_length: 3072, sample_target: 500, interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+      { library: "OpenSSL", bit_length: 4096, sample_target: 500, interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
     ],
   },
   rows: [
-    { library: "OpenSSL", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-    { library: "OpenSSL", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-    { library: "OpenSSL", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-    { library: "BoringSSL", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-    { library: "BoringSSL", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-    { library: "BoringSSL", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-    { library: "Go crypto/rsa", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-    { library: "Go crypto/rsa", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-    { library: "Go crypto/rsa", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
-    { library: "Bitcoin Core / wallet metadata", bit_length: 256, sample_target: 10000, object_type: "ecdsa-signature", power_tier: "strong", conservative_tv_floor_95: 0.077784, target_tv_label: "10pct", min_samples_for_target_tv: 6051, min_samples_for_10pct_tv: 6051 },
+    { library: "OpenSSL", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "OpenSSL", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "OpenSSL", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "BoringSSL", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "BoringSSL", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "BoringSSL", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "Go crypto/rsa", bit_length: 2048, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "Go crypto/rsa", bit_length: 3072, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "Go crypto/rsa", bit_length: 4096, sample_target: 500, object_type: "rsa-prime", power_tier: "coarse", interval_label: "95pct", conservative_tv_floor_interval: 0.300457, conservative_tv_floor_95: 0.300457, target_tv_label: "10pct", min_samples_for_target_tv: 4514, min_samples_for_10pct_tv: 4514 },
+    { library: "Bitcoin Core / wallet metadata", bit_length: 256, sample_target: 10000, object_type: "ecdsa-signature", power_tier: "strong", interval_label: "95pct", conservative_tv_floor_interval: 0.077784, conservative_tv_floor_95: 0.077784, target_tv_label: "10pct", min_samples_for_target_tv: 6051, min_samples_for_10pct_tv: 6051 },
   ],
   sensitivity: {
     alpha_values: [0.1, 0.05, 0.01, 0.001],
@@ -785,14 +787,14 @@ const bundledEvidencePack = {
   artifact_count: 20,
   artifacts: [
     { role: "attribution_grid", schema: "primeproject.attribution-confound-grid.v1", sha256: "4873f01f4deec22f70c3a98563cd37e0ccbb587313e4d70befebff30e3f12318" },
-    { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "f6244dbebd7c7f7f5a7e8bf29a2ebbec618f42348f671e116d8ae8b80c994f58" },
+    { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "11bfcc840ff2cda806a9abca4c914475bd0f049cf9f5a5f930eafc5aec8657b3" },
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "4636041a732e84825a9c0af28075583927e1be1edbe25bbf988eb1333a509bd6" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", sha256: "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4" },
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794", quality_gate_status: "pass", fixture_count: 6, failed_expectation_count: 0, public_safe_fixture_count: 6 },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
-    { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "0865ab64761e24c253a761722cfb0478edb32d2985b5fd61d76a3697fac65a05" },
+    { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2a2472a6b27874b4e9d8e8dd8025f0d4452a89206cd44a2838ea2e23505edd15" },
     { role: "collection_submission_contract", schema: "primeproject.collection-submission-contract.v1", sha256: "5abf1e18ae9fb25342f219c28529721d90f96e0805e3f88fed10c75f1980c8a4" },
     { role: "collection_submission_lint", schema: "primeproject.collection-submission-lint.v1", sha256: "15fe34e67cefe7e3a45d1b9c566127a9c9822b545c6a29b0f243d9dc8fd8f4b0" },
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
@@ -901,8 +903,8 @@ const bundledArtifactLineage = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "05f4eae8063668779b66a0f3f8eb10f33e4d5b8173d32c6fe02008dc9229e3d4" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "f5dfe5e7ad16ec5829e171000a626992e81ac78e26931552394a9ba5d7a41cce" },
-    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "3caa7591dc10f6ecdb4f49d49c5011dc782df1e6e23e4df851845f3c2dab9fd9" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "22e8e4d24270ab6a4c3661e6198cbcaa738ff6315a44a27d149b285b74803bfa" },
+    { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "90958785284058e60789eac1331ef25a6b7336e0c3de83628ec3ac90592e17f0" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
     { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "6b2ca0e7131ec56d5a27d0b2d8e6445cc1f70d1a56ab5f201e700661f94b55cb" },
@@ -2639,23 +2641,25 @@ function renderCollectionPower() {
   outputs.collectionPowerStatus.textContent =
     `${formatNumber(summary.strong_count || 0)} strong · ${formatNumber(summary.coarse_count || 0)} coarse`;
   outputs.collectionPowerSummary.innerHTML = `
-    <div><span>Method</span><strong>${escapeHtml(power.method?.name || "unknown")}</strong><small>${formatPercent(power.method?.target_tv || 0)} TV target</small></div>
+    <div><span>Method</span><strong>${escapeHtml(power.method?.name || "unknown")}</strong><small>${displayTvLabel(power.method?.interval_label, power.method?.interval_confidence)} interval</small></div>
     <div><span>Targets</span><strong>${formatNumber(summary.target_count || rows.length)}</strong><small>${formatNumber(summary.minimum_recommended_replicates || 0)} replicates</small></div>
     <div><span>Strong</span><strong>${formatNumber(summary.strong_count || 0)}</strong><small>claim-ready floor</small></div>
     <div><span>Sensitivity</span><strong>${formatNumber((power.sensitivity?.rows || []).length)}</strong><small>alpha x TV grid</small></div>
   `;
   const targetRowsHtml = rows
     .slice()
-    .sort((a, b) => b.conservative_tv_floor_95 - a.conservative_tv_floor_95)
+    .sort((a, b) => (b.conservative_tv_floor_interval || b.conservative_tv_floor_95) - (a.conservative_tv_floor_interval || a.conservative_tv_floor_95))
     .slice(0, 5)
     .map((row) => {
       const targetLabel = displayTvLabel(row.target_tv_label, row.target_tv ?? power.method?.target_tv);
       const targetSamples = row.min_samples_for_target_tv || row.min_samples_for_10pct_tv || 0;
+      const intervalLabel = displayTvLabel(row.interval_label, row.interval_confidence ?? power.method?.interval_confidence);
+      const intervalFloor = row.conservative_tv_floor_interval || row.conservative_tv_floor_95 || 0;
       return `
         <div class="power-row">
           <strong>${escapeHtml(row.library || "unknown")} ${formatNumber(row.bit_length || 0)}b</strong>
           <em class="is-${escapeHtml(row.power_tier || "coarse")}">${escapeHtml(row.power_tier || "coarse")}</em>
-          <span>95% TV floor ${formatPercent(row.conservative_tv_floor_95 || 0)}</span>
+          <span>${escapeHtml(intervalLabel)} TV floor ${formatPercent(intervalFloor)}</span>
           <span>${escapeHtml(targetLabel)} TV n≈${formatNumber(targetSamples)}</span>
         </div>
       `;

@@ -91,6 +91,8 @@ def acceptance_row(
         "manifest_status": entry.get("status", "missing"),
         "provenance_status": audit.get("status", "missing"),
         "power_tier": power_tier,
+        "interval_label": power.get("interval_label"),
+        "conservative_tv_floor_interval": power.get("conservative_tv_floor_interval"),
         "conservative_tv_floor_95": power.get("conservative_tv_floor_95"),
         "acceptance": acceptance,
         "blocking_reasons": blockers,
