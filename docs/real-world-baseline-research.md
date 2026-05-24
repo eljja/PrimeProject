@@ -172,7 +172,7 @@ python -m prime_audit.cli baseline-promotion-plan `
   --output data/baseline_promotion_plan.json
 ```
 
-이 산출물은 실제 수집 작업의 우선순위표다. 먼저 provenance record를 완성하고, raw private material은 local에 유지하며, 공개 artifact는 aggregate fingerprint와 checksum만 포함해야 한다. GitHub Pages의 Promotion Plan은 이 minimal unlock path를 그대로 표시한다.
+이 산출물은 실제 수집 작업의 우선순위표다. 현재처럼 aggregate artifact 자체가 없을 때는 `collect_aggregate_baseline`이 먼저 나오고, artifact와 checksum이 생긴 뒤 `complete_provenance_record`가 다음 단계가 된다. raw private material은 local에 유지하며, 공개 artifact는 aggregate fingerprint와 checksum만 포함해야 한다. GitHub Pages의 Promotion Plan은 이 minimal unlock path를 그대로 표시한다.
 
 ## Collection Handoff
 

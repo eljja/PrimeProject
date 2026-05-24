@@ -549,7 +549,32 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual([row["library"] for row in plan["minimal_unlock_targets"]], ["OpenSSL", "BoringSSL"])
         self.assertEqual([row["bit_length"] for row in plan["minimal_unlock_targets"]], [2048, 2048])
         self.assertEqual(plan["summary"]["projected_samples_for_minimal_unlock"], 9028)
-        self.assertEqual(plan["summary"]["dominant_next_step"], "complete_provenance_record")
+        self.assertEqual(plan["summary"]["dominant_next_step"], "collect_aggregate_baseline")
+
+    def test_baseline_promotion_plan_completes_provenance_after_artifact_exists(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        manifest["entries"][0]["status"] = "available"
+        manifest["entries"][0]["bit_length"] = 2048
+        manifest["entries"][0]["sample_count"] = 500
+        matrix = build_collection_matrix(manifest)
+        power = build_collection_power(matrix)
+        audit = build_provenance_audit(build_provenance_requirements(manifest))
+        acceptance = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_audit=audit,
+        )
+        plan = build_baseline_promotion_plan(acceptance=acceptance, power=power)
+        openssl = next(
+            row
+            for row in plan["rows"]
+            if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 2048
+        )
+
+        self.assertEqual(openssl["next_step"], "complete_provenance_record")
+        self.assertNotIn("manifest_not_available", openssl["blocking_reasons"])
+        self.assertNotIn("target_not_available", openssl["blocking_reasons"])
 
     def test_baseline_promotion_plan_marks_accepted_targets_ready(self) -> None:
         manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")

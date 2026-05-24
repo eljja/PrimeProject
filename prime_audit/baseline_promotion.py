@@ -81,10 +81,10 @@ def promotion_state(row: dict[str, Any], power: dict[str, Any]) -> str:
 def next_step(blockers: list[str], row: dict[str, Any], power: dict[str, Any]) -> str:
     if "forbidden_public_fields" in blockers:
         return "remove_forbidden_public_fields"
-    if "provenance_not_passed" in blockers:
-        return "complete_provenance_record"
     if "manifest_not_available" in blockers or "target_not_available" in blockers:
         return "collect_aggregate_baseline"
+    if "provenance_not_passed" in blockers:
+        return "complete_provenance_record"
     if row.get("acceptance") == "screening_only" or power.get("power_tier") == "coarse":
         return "raise_sample_count_to_power_floor"
     return "ready_for_claim_gate"
