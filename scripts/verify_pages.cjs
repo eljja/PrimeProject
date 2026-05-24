@@ -5,6 +5,7 @@ const { chromium } = loadPlaywright();
 
 async function main() {
   const root = path.resolve(__dirname, "..");
+  const publicData = loadPublicData(root);
   const url = pathToFileURL(path.join(root, "index.html")).href;
   const chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
   let browser = null;
@@ -160,6 +161,7 @@ async function main() {
       classifierSummary: document.querySelector("#classifierSummary").textContent,
       classifierLabels: document.querySelectorAll("#classifierLabels .classifier-label-row").length,
       evidencePanel: document.querySelector("#evidence-panel").textContent,
+      evidenceSummary: document.querySelector("#evidenceSummary").textContent,
       evidenceGates: document.querySelectorAll("#evidenceGateRows .evidence-row").length,
       evidenceArtifacts: document.querySelectorAll("#evidenceArtifactRows .evidence-row").length,
       claimLedgerRows: document.querySelectorAll("#claimLedgerRows .claim-row").length,
@@ -190,6 +192,32 @@ async function main() {
 
   if (errors.length > 0) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  const expected = buildExpectedPublicText(publicData);
+  const exactPublicChecks = [
+    [metrics.evolutionSummary, expected.evolution.scale],
+    [metrics.evolutionSummary, expected.evolution.snapshots],
+    [metrics.evolutionSummary, expected.evolution.controlledSignal],
+    [metrics.evolutionSummary, expected.evolution.generatorBaselines],
+    [metrics.evolutionSummary, expected.evolution.collection],
+    [metrics.evolutionSummary, expected.evolution.evidence],
+    [metrics.evolutionSummary, expected.evolution.claimLevel],
+    [metrics.readinessPanel, expected.readiness.overall],
+    [metrics.readinessPanel, expected.readiness.simToReal],
+    [metrics.evidenceSummary, expected.evidence.claimLevel],
+    [metrics.evidenceSummary, expected.evidence.failedGates],
+    [metrics.evidenceSummary, expected.evidence.artifacts],
+    [metrics.claimLedgerSummary, expected.claimLedger],
+    [metrics.artifactLineageSummary, expected.lineage],
+    [metrics.decisionProtocolSummary, expected.decision],
+    [metrics.falsificationSummary, expected.falsification],
+  ];
+  const missingPublicChecks = exactPublicChecks
+    .filter(([actual, expectedText]) => !String(actual).includes(expectedText))
+    .map(([actual, expectedText]) => ({ expected: expectedText, actual }));
+  if (missingPublicChecks.length > 0) {
+    console.error(JSON.stringify({ errors, missingPublicChecks, metrics }, null, 2));
     process.exit(1);
   }
   if (metrics.snapshotButtons < 2 || !metrics.snapshotImagesReady) {
@@ -411,6 +439,101 @@ async function main() {
     process.exit(1);
   }
   console.log(JSON.stringify({ errors, metrics }, null, 2));
+}
+
+function loadPublicData(root) {
+  return {
+    evolution: readJson(root, "data/project_evolution.json"),
+    readiness: readJson(root, "data/research_readiness.json"),
+    evidence: readJson(root, "data/evidence_pack.json"),
+    claimLedger: readJson(root, "data/claim_ledger.json"),
+    lineage: readJson(root, "data/artifact_lineage.json"),
+    decision: readJson(root, "data/decision_protocol.json"),
+    falsification: readJson(root, "data/falsification_battery.json"),
+  };
+}
+
+function readJson(root, relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(root, relativePath), "utf8"));
+}
+
+function buildExpectedPublicText(data) {
+  const metrics = data.evolution.metrics || {};
+  const readiness = data.readiness;
+  const simToReal = readiness.dimensions?.sim_to_real || {};
+  const evidence = data.evidence;
+  const failedGates = (evidence.publication_gates || []).filter((gate) => !gate.passed);
+  return {
+    evolution: {
+      scale: formatCompact(metrics.live_compute_limit || 0),
+      snapshots: `${(metrics.precomputed_snapshot_limits || []).map(formatCompact).join(", ")} snapshots`,
+      controlledSignal:
+        `${formatNumber((metrics.robust_controlled_profiles || []).length)} profiles` +
+        `${formatNumber(metrics.null_calibration_iterations || 0)} null iterations`,
+      generatorBaselines:
+        `${formatNumber(metrics.available_real_baselines || 0)}` +
+        `${formatNumber(metrics.public_control_baselines || 0)} public control`,
+      collection:
+        `${formatNumber(metrics.intake_accepted || 0)}` +
+        `${formatNumber(metrics.intake_blocked || 0)} intake blockers`,
+      evidence:
+        `${formatNumber(metrics.checksummed_artifacts || 0)}` +
+        `${formatNumber(metrics.falsification_checks || 0)} falsification checks`,
+      claimLevel:
+        `${formatClaimLevel(metrics.publication_claim_level)}` +
+        `${formatNumber(metrics.blocking_gaps || 0)} blocking gaps`,
+    },
+    readiness: {
+      overall: `${formatPercent(readiness.overall?.score || 0)}${readiness.overall?.label || "unknown"}`,
+      simToReal:
+        `${formatNumber(simToReal.available_count || 0)} attribution-ready, ` +
+        `${formatNumber(simToReal.public_control_count || 0)} public controls, ` +
+        `${formatNumber(simToReal.planned_count || 0)} planned.` +
+        (simToReal.readiness_cap
+          ? ` cap ${simToReal.readiness_cap.max_label || "scaffold_ready"} from ${formatPercent(
+              simToReal.raw_score || simToReal.score || 0,
+            )}.`
+          : ""),
+    },
+    evidence: {
+      claimLevel: `${evidence.claim_level?.level || "unknown"}${evidence.claim_level?.statement || ""}`,
+      failedGates:
+        `${formatNumber(failedGates.length)}` +
+        `${formatNumber(evidence.claim_level?.failed_high_gate_count || 0)} high`,
+      artifacts: `${formatNumber(evidence.artifact_count || (evidence.artifacts || []).length)}checksummed`,
+    },
+    claimLedger:
+      `${formatNumber(data.claimLedger.summary?.allowed_count || 0)} allowed / ` +
+      `${formatNumber(data.claimLedger.summary?.blocked_count || 0)} blocked`,
+    lineage:
+      `${formatNumber(data.lineage.summary?.node_count || 0)} nodes / ` +
+      `${formatNumber(data.lineage.summary?.edge_count || 0)} edges`,
+    decision:
+      `${formatNumber(data.decision.summary?.allowed_count || 0)} allowed / ` +
+      `${formatNumber(data.decision.summary?.blocked_count || 0)} blocked`,
+    falsification:
+      `${formatNumber(data.falsification.summary?.pass_count || 0)} pass / ` +
+      `${formatNumber(data.falsification.summary?.fail_count || 0)} fail`,
+  };
+}
+
+function formatNumber(value) {
+  return new Intl.NumberFormat("en-US").format(value);
+}
+
+function formatCompact(value) {
+  return new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(value);
+}
+
+function formatPercent(value) {
+  return `${((Number(value) || 0) * 100).toFixed(1)}%`;
+}
+
+function formatClaimLevel(level) {
+  const value = String(level || "unknown");
+  if (value === "public_demo_only") return "public demo";
+  if (value === "controlled_synthetic_only") return "synthetic only";
+  return value.replace(/_/g, " ");
 }
 
 function loadPlaywright() {
