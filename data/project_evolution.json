@@ -25,6 +25,7 @@
     "intake_accepted": 0,
     "intake_blocked": 10,
     "intake_p0_blocked": 2,
+    "intake_feature_vector_contract_blocked": 0,
     "attribution_grid_rows": 48,
     "attribution_repeats": 3,
     "robust_controlled_profiles": ["all", "gap_only"],
@@ -86,6 +87,78 @@
         "signal": "5 falsification checks and controlled-synthetic-only claim floor"
       }
     ],
+    "visual_rollup": {
+      "headline": "Visible change history: exploration scale, controlled signal, sim-to-real gates, and publication guardrails.",
+      "release_trail": [
+        {
+          "marker": "01",
+          "title": "Prime regularity demo",
+          "state": "complete",
+          "measure": "browser experiment",
+          "proof": "interactive gap, residue, and next-prime measure views"
+        },
+        {
+          "marker": "02",
+          "title": "Scale lift",
+          "state": "complete",
+          "measure": "10M live + 1M/10M snapshots",
+          "proof": "larger local runs are visible on GitHub Pages without recomputation"
+        },
+        {
+          "marker": "03",
+          "title": "Controlled attribution",
+          "state": "complete",
+          "measure": "48 rows / 5,000 null iterations / 8 replication settings",
+          "proof": "signal must survive bit-length control, null calibration, and replication"
+        },
+        {
+          "marker": "04",
+          "title": "Sim-to-real gates",
+          "state": "blocked",
+          "measure": "10 targets / 9,028 P0 samples left",
+          "proof": "OpenSSL/BoringSSL/Go/Bitcoin baselines are registered but not accepted"
+        },
+        {
+          "marker": "05",
+          "title": "Publication guardrails",
+          "state": "guarded",
+          "measure": "17 artifacts / 11 gates / 5 falsification checks",
+          "proof": "claim ledger, lineage, decision protocol, and falsification battery prevent overclaiming"
+        }
+      ],
+      "evidence_flow": [
+        {
+          "stage": "Explore",
+          "score": 100,
+          "status": "complete",
+          "evidence": "10M compute and static snapshots"
+        },
+        {
+          "stage": "Controlled signal",
+          "score": 100,
+          "status": "complete",
+          "evidence": "null-calibrated, replicated synthetic generator fingerprints"
+        },
+        {
+          "stage": "Real baseline",
+          "score": 0,
+          "status": "blocked",
+          "evidence": "0 accepted RSA library baselines"
+        },
+        {
+          "stage": "Intake contract",
+          "score": 0,
+          "status": "blocked",
+          "evidence": "0 submitted artifacts; feature-vector contract required"
+        },
+        {
+          "stage": "Publish claims",
+          "score": 60,
+          "status": "guarded",
+          "evidence": "public_demo_only; real-world and Bitcoin attribution blocked"
+        }
+      ]
+    },
     "latest_changes": [
       {
         "label": "Baseline promotion plan",
@@ -101,6 +174,11 @@
         "label": "Collection intake validator",
         "impact": "Blocks submitted aggregate artifacts until sample, provenance, checksum, embedded feature-vector contract, claim-scope, duplicate-submission, reused-artifact, and public-safety checks pass.",
         "metric": "0 accepted / 10 blocked"
+      },
+      {
+        "label": "Intake feature-vector contract",
+        "impact": "Requires submitted artifacts to expose a public, schema-matched feature summary before classifier evidence can be trusted.",
+        "metric": "14 scalar features / submitted only"
       },
       {
         "label": "Baseline acceptance gate",

@@ -94,7 +94,9 @@ async function main() {
       evolutionImpact: document.querySelector("#evolutionImpact").textContent,
       evolutionDelta: document.querySelector("#evolutionDelta").textContent,
       maturityStages: document.querySelectorAll("#evolutionImpact .maturity-stage").length,
+      releaseNodes: document.querySelectorAll("#evolutionImpact .release-node").length,
       impactChanges: document.querySelectorAll("#evolutionImpact .impact-change-list div").length,
+      evidenceFlowNodes: document.querySelectorAll("#evolutionDelta .evidence-flow-node").length,
       deltaTracks: document.querySelectorAll("#evolutionDelta .delta-track").length,
       claimLanes: document.querySelectorAll("#evolutionDelta .claim-lane").length,
       evolutionSteps: document.querySelectorAll("#evolutionTimeline .evolution-step").length,
@@ -190,11 +192,18 @@ async function main() {
     metrics.evolutionNodes < 15 ||
     metrics.evolutionGaps < 2 ||
     metrics.maturityStages < 5 ||
+    metrics.releaseNodes < 5 ||
     metrics.impactChanges < 4 ||
+    metrics.evidenceFlowNodes < 5 ||
     metrics.deltaTracks < 4 ||
     metrics.claimLanes < 4 ||
     !metrics.evolutionPanel.includes("Project Evolution") ||
     !metrics.evolutionImpact.includes("Change Dashboard") ||
+    !metrics.evolutionImpact.includes("Visual Change Trail") ||
+    !metrics.evolutionImpact.includes("Scale lift") ||
+    !metrics.evolutionImpact.includes("Publication guardrails") ||
+    !metrics.evolutionDelta.includes("Intake contract") ||
+    !metrics.evolutionDelta.includes("feature-vector contract required") ||
     !metrics.evolutionDelta.includes("Research Delta") ||
     !metrics.evolutionDelta.includes("10M live compute") ||
     !metrics.evolutionDelta.includes("controlled grid + null + replication") ||
