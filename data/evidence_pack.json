@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.evidence-pack.v1",
-  "generated_at": "2026-05-24T12:35:01+00:00",
+  "generated_at": "2026-05-24T12:49:26+00:00",
   "claim_level": {
     "level": "public_demo_only",
     "statement": "Safe to publish as a research scaffold, not as real-world attribution evidence.",
@@ -64,7 +64,7 @@
       "severity": "medium",
       "message": "Published evidence should include checksummed source JSON artifacts.",
       "evidence": {
-        "artifact_count": 19
+        "artifact_count": 20
       }
     },
     {
@@ -101,6 +101,15 @@
       "message": "Real-world collection claims need a pre-intake submission lint report for public contract failures.",
       "evidence": {
         "has_collection_submission_lint": true
+      }
+    },
+    {
+      "code": "collection_fixture_audit_gate",
+      "passed": true,
+      "severity": "medium",
+      "message": "Real-world collection tooling needs public-safe fixtures that prove lint pass/warn/block behavior before live submissions.",
+      "evidence": {
+        "has_collection_fixture_audit": true
       }
     },
     {
@@ -141,7 +150,7 @@
       }
     }
   ],
-  "artifact_count": 19,
+  "artifact_count": 20,
   "artifacts": [
     {
       "role": "attribution_grid",
@@ -174,6 +183,14 @@
       "sha256": "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663",
       "schema": "primeproject.crypto-classifier-report.v1",
       "bytes": 7119
+    },
+    {
+      "role": "collection_fixture_audit",
+      "path": "data/collection_fixture_audit.json",
+      "exists": true,
+      "sha256": "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794",
+      "schema": "primeproject.collection-fixture-audit.v1",
+      "bytes": 4752
     },
     {
       "role": "collection_handoff",
@@ -251,9 +268,9 @@
       "role": "project_evolution",
       "path": "data/project_evolution.json",
       "exists": true,
-      "sha256": "2976cf0b2de5c7295a3ed32467924544f99c01330e69899053a8bb10f6260634",
+      "sha256": "dd7a41a91ae43988bcbbf0b54d3c2b3ea6abb7dacdf0862765492a7f84a14b3f",
       "schema": "primeproject.project-evolution.v1",
-      "bytes": 24360
+      "bytes": 25365
     },
     {
       "role": "provenance_audit",

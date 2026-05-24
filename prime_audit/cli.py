@@ -16,6 +16,7 @@ from .claim_ledger import build_claim_ledger
 from .collection_contract import build_collection_submission_contract
 from .collection_handoff import build_collection_handoff
 from .collection_intake import build_collection_intake, load_intake_records
+from .collection_fixture_audit import build_collection_fixture_audit
 from .collection_lint import build_collection_submission_lint
 from .conjecture_lab import run_lab
 from .crypto_classifier import run_crypto_classifier
@@ -219,6 +220,13 @@ def main() -> int:
     collection_lint_parser.add_argument("--contract", required=True)
     collection_lint_parser.add_argument("--records", nargs="*", default=[])
     collection_lint_parser.add_argument("--output", required=True)
+
+    collection_fixture_audit_parser = subparsers.add_parser(
+        "collection-fixture-audit",
+        help="Audit public-safe submission fixtures against the pre-intake collection linter.",
+    )
+    collection_fixture_audit_parser.add_argument("--contract", required=True)
+    collection_fixture_audit_parser.add_argument("--output", required=True)
 
     feature_vector_parser = subparsers.add_parser(
         "export-feature-vectors",
@@ -607,6 +615,14 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         payload = build_collection_submission_lint(contract=contract, records=records)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "collection-fixture-audit":
+        contract = json.loads(Path(args.contract).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_collection_fixture_audit(contract=contract)
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

@@ -1,0 +1,164 @@
+{
+  "schema": "primeproject.collection-fixture-audit.v1",
+  "source_schemas": {
+    "collection_submission_contract": "primeproject.collection-submission-contract.v1",
+    "collection_submission_lint": "primeproject.collection-submission-lint.v1"
+  },
+  "summary": {
+    "fixture_count": 6,
+    "passed_expectation_count": 6,
+    "failed_expectation_count": 0,
+    "expected_pass_count": 1,
+    "expected_warning_count": 1,
+    "expected_blocked_count": 4,
+    "actual_pass_count": 1,
+    "actual_warning_count": 1,
+    "actual_blocked_count": 4,
+    "public_safe_fixture_count": 6
+  },
+  "quality_gate": {
+    "status": "pass",
+    "message": "Submission lint behavior matches all public-safe fixture expectations."
+  },
+  "lint_summary": {
+    "task_count": 10,
+    "submitted_count": 6,
+    "awaiting_submission_count": 4,
+    "pass_count": 1,
+    "warning_count": 1,
+    "blocked_count": 4,
+    "forbidden_public_field_count": 1,
+    "feature_vector_blocked_count": 1,
+    "reused_aggregate_hash_count": 2,
+    "dominant_blockers": [
+      {
+        "reason": "aggregate_artifact_sha256_reused",
+        "count": 2
+      },
+      {
+        "reason": "feature_vector_missing_features",
+        "count": 1
+      },
+      {
+        "reason": "forbidden_public_fields",
+        "count": 1
+      }
+    ],
+    "dominant_warnings": [
+      {
+        "reason": "awaiting_submission",
+        "count": 4
+      },
+      {
+        "reason": "below_10pct_tv_floor",
+        "count": 1
+      }
+    ]
+  },
+  "rows": [
+    {
+      "fixture_id": "valid_warning",
+      "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
+      "library": "BoringSSL",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "expected_status": "warning",
+      "actual_status": "warning",
+      "expected_reasons": [
+        "below_10pct_tv_floor"
+      ],
+      "actual_reasons": [
+        "below_10pct_tv_floor"
+      ],
+      "missing_expected_reasons": [],
+      "expectation_met": true,
+      "public_safe": true
+    },
+    {
+      "fixture_id": "valid_ready",
+      "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+      "library": "OpenSSL",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "expected_status": "pass",
+      "actual_status": "pass",
+      "expected_reasons": [],
+      "actual_reasons": [],
+      "missing_expected_reasons": [],
+      "expectation_met": true,
+      "public_safe": true
+    },
+    {
+      "fixture_id": "blocked_missing_feature",
+      "task_id": "bitcoin-core-ecdsa-signature-public:256:ecdsa-signature",
+      "library": "Bitcoin Core / wallet metadata",
+      "object_type": "ecdsa-signature",
+      "bit_length": 256,
+      "expected_status": "blocked",
+      "actual_status": "blocked",
+      "expected_reasons": [
+        "feature_vector_missing_features"
+      ],
+      "actual_reasons": [
+        "feature_vector_missing_features"
+      ],
+      "missing_expected_reasons": [],
+      "expectation_met": true,
+      "public_safe": true
+    },
+    {
+      "fixture_id": "blocked_forbidden_field",
+      "task_id": "go-crypto-rsa-prime-owned:2048:rsa-prime",
+      "library": "Go crypto/rsa",
+      "object_type": "rsa-prime",
+      "bit_length": 2048,
+      "expected_status": "blocked",
+      "actual_status": "blocked",
+      "expected_reasons": [
+        "forbidden_public_fields"
+      ],
+      "actual_reasons": [
+        "forbidden_public_fields"
+      ],
+      "missing_expected_reasons": [],
+      "expectation_met": true,
+      "public_safe": true
+    },
+    {
+      "fixture_id": "blocked_reused_checksum_a",
+      "task_id": "boringssl-rsa-prime-owned:3072:rsa-prime",
+      "library": "BoringSSL",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
+      "expected_status": "blocked",
+      "actual_status": "blocked",
+      "expected_reasons": [
+        "aggregate_artifact_sha256_reused"
+      ],
+      "actual_reasons": [
+        "aggregate_artifact_sha256_reused"
+      ],
+      "missing_expected_reasons": [],
+      "expectation_met": true,
+      "public_safe": true
+    },
+    {
+      "fixture_id": "blocked_reused_checksum_b",
+      "task_id": "boringssl-rsa-prime-owned:4096:rsa-prime",
+      "library": "BoringSSL",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
+      "expected_status": "blocked",
+      "actual_status": "blocked",
+      "expected_reasons": [
+        "aggregate_artifact_sha256_reused"
+      ],
+      "actual_reasons": [
+        "aggregate_artifact_sha256_reused"
+      ],
+      "missing_expected_reasons": [],
+      "expectation_met": true,
+      "public_safe": true
+    }
+  ]
+}

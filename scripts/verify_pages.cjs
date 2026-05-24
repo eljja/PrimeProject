@@ -143,6 +143,9 @@ async function main() {
       collectionSubmissionLintStatus: document.querySelector("#collectionSubmissionLintStatus").textContent,
       collectionSubmissionLintSummary: document.querySelector("#collectionSubmissionLintSummary").textContent,
       collectionSubmissionLintRows: document.querySelectorAll("#collectionSubmissionLintRows .intake-row").length,
+      collectionFixtureAuditStatus: document.querySelector("#collectionFixtureAuditStatus").textContent,
+      collectionFixtureAuditSummary: document.querySelector("#collectionFixtureAuditSummary").textContent,
+      collectionFixtureAuditRows: document.querySelectorAll("#collectionFixtureAuditRows .fixture-row").length,
       collectionIntakeStatus: document.querySelector("#collectionIntakeStatus").textContent,
       collectionIntakeSummary: document.querySelector("#collectionIntakeSummary").textContent,
       collectionIntakeRows: document.querySelectorAll("#collectionIntakeRows .intake-row").length,
@@ -209,7 +212,7 @@ async function main() {
     !metrics.evolutionImpact.includes("Scale lift") ||
     !metrics.evolutionImpact.includes("Publication guardrails") ||
     !metrics.evolutionDelta.includes("Intake contract") ||
-    !metrics.evolutionDelta.includes("pre-intake lint waiting") ||
+    !metrics.evolutionDelta.includes("6 lint fixtures") ||
     !metrics.evolutionDelta.includes("Research Delta") ||
     !metrics.evolutionDelta.includes("10M live compute") ||
     !metrics.evolutionDelta.includes("controlled grid + null + replication") ||
@@ -226,7 +229,8 @@ async function main() {
     !metrics.evolutionImpact.includes("Collection handoff packet") ||
     !metrics.evolutionImpact.includes("Submission contract") ||
     !metrics.evolutionImpact.includes("Submission lint") ||
-    !metrics.evolutionImpact.includes("19 artifacts") ||
+    !metrics.evolutionImpact.includes("Submission fixture audit") ||
+    !metrics.evolutionImpact.includes("20 artifacts") ||
     !metrics.evolutionImpact.includes("Collection intake validator") ||
     !metrics.evolutionPanel.includes("Crypto-classifier baseline") ||
     !metrics.evolutionPanel.includes("Collection handoff") ||
@@ -288,6 +292,7 @@ async function main() {
     !metrics.baselinePanel.includes("Collection Intake") ||
     !metrics.baselinePanel.includes("Submission Contract") ||
     !metrics.baselinePanel.includes("Submission Lint") ||
+    !metrics.baselinePanel.includes("Fixture Audit") ||
     !metrics.baselineRegistrySummary.includes("Registered") ||
     metrics.baselineRegistryRows < 5 ||
     metrics.collectionMatrixRows < 4 ||
@@ -320,6 +325,10 @@ async function main() {
     !metrics.collectionSubmissionLintStatus.includes("waiting") ||
     !metrics.collectionSubmissionLintSummary.includes("10") ||
     !metrics.collectionSubmissionLintSummary.includes("awaiting_submission") ||
+    metrics.collectionFixtureAuditRows < 6 ||
+    !metrics.collectionFixtureAuditStatus.includes("pass") ||
+    !metrics.collectionFixtureAuditSummary.includes("6") ||
+    !metrics.collectionFixtureAuditSummary.includes("0") ||
     metrics.collectionIntakeRows < 4 ||
     !metrics.collectionIntakeStatus.includes("0 accepted") ||
     !metrics.collectionIntakeStatus.includes("10 blocked") ||
@@ -364,7 +373,7 @@ async function main() {
     !metrics.evidencePanel.includes("claim_promotion_guard") ||
     !metrics.evidencePanel.includes("controlled_synthetic_only") ||
     !metrics.evidencePanel.includes("reproducible") ||
-    !metrics.artifactLineageSummary.includes("21 nodes") ||
+    !metrics.artifactLineageSummary.includes("22 nodes") ||
     !metrics.evidencePanel.includes("real_world_generator_attribution") ||
     !metrics.evidencePanel.includes("bitcoin_nonce_risk_attribution") ||
     !metrics.evidencePanel.includes("blocked") ||
@@ -381,6 +390,8 @@ async function main() {
     !metrics.evidencePanel.includes("collection_handoff") ||
     !metrics.evidencePanel.includes("collection_submission_contract") ||
     !metrics.evidencePanel.includes("collection_submission_lint") ||
+    !metrics.evidencePanel.includes("collection_fixture_audit") ||
+    !metrics.evidencePanel.includes("collection_fixture_audit_gate") ||
     !metrics.evidencePanel.includes("collection_intake") ||
     !metrics.evidencePanel.includes("null_calibration") ||
     !metrics.evidencePanel.includes("replication_audit") ||

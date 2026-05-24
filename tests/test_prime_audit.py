@@ -27,6 +27,7 @@ from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
 from prime_audit.claim_ledger import build_claim_ledger
 from prime_audit.collection_contract import build_collection_submission_contract
+from prime_audit.collection_fixture_audit import build_collection_fixture_audit
 from prime_audit.collection_handoff import build_collection_handoff
 from prime_audit.collection_intake import build_collection_intake
 from prime_audit.collection_lint import build_collection_submission_lint
@@ -715,6 +716,45 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("real_world_claim_scope", openssl["blocking_reasons"])
         self.assertIn("feature_vector_missing_features", openssl["blocking_reasons"])
         self.assertIn("private_prime", openssl["forbidden_public_fields"])
+
+    def test_collection_fixture_audit_proves_lint_outcomes(self) -> None:
+        handoff = {
+            "schema": "primeproject.collection-handoff.v1",
+            "rows": [
+                {
+                    "task_id": f"fixture-lib-{index}:2048:rsa-prime",
+                    "priority": "P0" if index < 2 else "P1",
+                    "library": f"FixtureLib{index}",
+                    "baseline_id": f"fixture-lib-{index}",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                    "collector_contract": {"must_not_publish": ["private_prime"]},
+                }
+                for index in range(6)
+            ],
+        }
+        audit = build_collection_fixture_audit(
+            contract=build_collection_submission_contract(handoff=handoff)
+        )
+
+        self.assertEqual(audit["schema"], "primeproject.collection-fixture-audit.v1")
+        self.assertEqual(audit["quality_gate"]["status"], "pass")
+        self.assertEqual(audit["summary"]["fixture_count"], 6)
+        self.assertEqual(audit["summary"]["failed_expectation_count"], 0)
+        self.assertEqual(audit["summary"]["expected_warning_count"], 1)
+        self.assertEqual(audit["summary"]["expected_blocked_count"], 4)
+        reasons = {
+            reason
+            for row in audit["rows"]
+            for reason in row["actual_reasons"]
+        }
+        self.assertIn("below_10pct_tv_floor", reasons)
+        self.assertIn("feature_vector_missing_features", reasons)
+        self.assertIn("forbidden_public_fields", reasons)
+        self.assertIn("aggregate_artifact_sha256_reused", reasons)
 
     def test_collection_intake_blocks_missing_or_sensitive_submissions(self) -> None:
         handoff = {

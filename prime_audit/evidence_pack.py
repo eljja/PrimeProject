@@ -227,6 +227,23 @@ def publication_gates(
             severity="medium",
         ),
         gate(
+            "collection_fixture_audit_gate",
+            any(
+                artifact.get("role") == "collection_fixture_audit"
+                and artifact.get("exists")
+                and artifact.get("schema") == "primeproject.collection-fixture-audit.v1"
+                for artifact in artifacts
+            ),
+            "Real-world collection tooling needs public-safe fixtures that prove lint pass/warn/block behavior before live submissions.",
+            {
+                "has_collection_fixture_audit": any(
+                    artifact.get("role") == "collection_fixture_audit" and artifact.get("exists")
+                    for artifact in artifacts
+                )
+            },
+            severity="medium",
+        ),
+        gate(
             "baseline_acceptance_gate",
             baseline_acceptance.get("claim_gate", {}).get("status") == "open",
             "Real-world attribution claims need at least two accepted RSA library baselines.",

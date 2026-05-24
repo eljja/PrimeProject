@@ -1,9 +1,9 @@
 {
   "schema": "primeproject.artifact-lineage.v1",
-  "generated_at": "2026-05-24T12:35:08+00:00",
+  "generated_at": "2026-05-24T12:49:38+00:00",
   "summary": {
-    "node_count": 21,
-    "edge_count": 49,
+    "node_count": 22,
+    "edge_count": 52,
     "missing_count": 0,
     "invalid_edge_count": 0,
     "checksum_mismatch_count": 0,
@@ -45,7 +45,7 @@
       "path": "data/claim_ledger.json",
       "exists": true,
       "schema": "primeproject.claim-ledger.v1",
-      "sha256": "05eea405c2eb485a529c1e5a155fe5babb5e40f1dd288219dd4e1155075516d6",
+      "sha256": "93fa9cb757023cc6ca714f76992b446ec3d0880c358196dd3fbbcc731f85cf7c",
       "bytes": 9547
     },
     {
@@ -55,6 +55,14 @@
       "schema": "primeproject.crypto-classifier-report.v1",
       "sha256": "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663",
       "bytes": 7119
+    },
+    {
+      "role": "collection_fixture_audit",
+      "path": "data/collection_fixture_audit.json",
+      "exists": true,
+      "schema": "primeproject.collection-fixture-audit.v1",
+      "sha256": "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794",
+      "bytes": 4752
     },
     {
       "role": "collection_handoff",
@@ -109,8 +117,8 @@
       "path": "data/evidence_pack.json",
       "exists": true,
       "schema": "primeproject.evidence-pack.v1",
-      "sha256": "178802567c9db9a3c6b5d18ddaaf54dca9d5658b55a5146a860235e36d65889f",
-      "bytes": 12897
+      "sha256": "8d50ec198f4fbb61db8a0be94550c1a3aa532aff98a5d106841cd90ce2f9dba1",
+      "bytes": 13533
     },
     {
       "role": "feature_vectors",
@@ -141,8 +149,8 @@
       "path": "data/project_evolution.json",
       "exists": true,
       "schema": "primeproject.project-evolution.v1",
-      "sha256": "2976cf0b2de5c7295a3ed32467924544f99c01330e69899053a8bb10f6260634",
-      "bytes": 24360
+      "sha256": "dd7a41a91ae43988bcbbf0b54d3c2b3ea6abb7dacdf0862765492a7f84a14b3f",
+      "bytes": 25365
     },
     {
       "role": "provenance_audit",
@@ -224,6 +232,16 @@
     {
       "from": "feature_vectors",
       "to": "classifier_report",
+      "valid": true
+    },
+    {
+      "from": "collection_submission_contract",
+      "to": "collection_fixture_audit",
+      "valid": true
+    },
+    {
+      "from": "collection_submission_lint",
+      "to": "collection_fixture_audit",
       "valid": true
     },
     {
@@ -387,6 +405,11 @@
       "valid": true
     },
     {
+      "from": "collection_fixture_audit",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
       "from": "collection_intake",
       "to": "evidence_pack",
       "valid": true
@@ -462,6 +485,13 @@
       "schema": "primeproject.crypto-classifier-report.v1"
     },
     {
+      "role": "collection_fixture_audit",
+      "status": "match",
+      "expected_sha256": "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794",
+      "actual_sha256": "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794",
+      "schema": "primeproject.collection-fixture-audit.v1"
+    },
+    {
       "role": "collection_handoff",
       "status": "match",
       "expected_sha256": "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4",
@@ -527,8 +557,8 @@
     {
       "role": "project_evolution",
       "status": "match",
-      "expected_sha256": "2976cf0b2de5c7295a3ed32467924544f99c01330e69899053a8bb10f6260634",
-      "actual_sha256": "2976cf0b2de5c7295a3ed32467924544f99c01330e69899053a8bb10f6260634",
+      "expected_sha256": "dd7a41a91ae43988bcbbf0b54d3c2b3ea6abb7dacdf0862765492a7f84a14b3f",
+      "actual_sha256": "dd7a41a91ae43988bcbbf0b54d3c2b3ea6abb7dacdf0862765492a7f84a14b3f",
       "schema": "primeproject.project-evolution.v1"
     },
     {

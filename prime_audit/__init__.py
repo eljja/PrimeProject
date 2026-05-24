@@ -11,6 +11,7 @@ __all__ = [
     "catalog",
     "claim_ledger",
     "collection_contract",
+    "collection_fixture_audit",
     "collection_handoff",
     "collection_intake",
     "collection_lint",

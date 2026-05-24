@@ -16,6 +16,8 @@ owned or public sample
   -> export-feature-vectors
   -> collection-submission-contract
   -> collection-submission-lint
+  -> collection-fixture-audit
+  -> collection-intake
   -> crypto-classifier
 ```
 
@@ -218,6 +220,18 @@ python -m prime_audit.cli collection-submission-lint `
 
 검사 항목은 known task ID, 필수 record field, `real_world` claim scope, planned sample floor, 10% TV screening floor warning, SHA-256 checksum 형식과 task 간 재사용, provenance record, feature vector schema/feature/record_count/bit_length 정합성, 중복 제출, forbidden public field scan이다. 현재 공개 번들은 제출 후보가 없으므로 `waiting` 상태이며, 10개 task가 `awaiting_submission`으로 표시된다. 실제 수집자가 record를 넣으면 이 단계에서 `blocked`, `warning`, `pass`를 먼저 확인한 뒤 `collection-intake`로 넘길 수 있다.
 
+## Collection Fixture Audit
+
+`collection-fixture-audit`는 실제 collector 제출 전에 lint가 의도대로 작동하는지 검증하는 public-safe regression suite다. 정상 제출, 10% TV floor 미달 경고, feature-vector 누락, forbidden field 노출, aggregate checksum 재사용 사례를 synthetic fixture로 만들고, 각 fixture의 expected status와 실제 lint status를 비교한다.
+
+```powershell
+python -m prime_audit.cli collection-fixture-audit `
+  --contract data/collection_submission_contract.json `
+  --output data/collection_fixture_audit.json
+```
+
+현재 bundled fixture audit은 6개 fixture 모두 expectation을 만족한다. 이 산출물의 의미는 “실제 OpenSSL/BoringSSL 데이터가 수집됐다”가 아니라, 실제 데이터가 들어오기 전에 제출 계약과 lint의 실패/경고 경계가 재현 가능하게 고정됐다는 것이다. GitHub Pages의 Baseline Lab은 Fixture Audit 블록으로 이 결과를 보여주고, Evidence Pack은 `collection_fixture_audit_gate`로 해당 검증 산출물이 포함됐는지 확인한다.
+
 ## Collection Intake
 
 `collection-intake`는 handoff 이후 실제 aggregate artifact가 제출됐을 때 통과 여부를 판정한다. 이 단계는 "데이터가 있다"를 곧바로 "real-world baseline이 생겼다"로 승격하지 않는다. 각 제출물은 handoff task와 매칭되어야 하고, sample floor, SHA-256 checksum, provenance record, feature vector path, `real_world` claim scope, forbidden public field scan을 모두 지나야 한다.
@@ -289,7 +303,7 @@ python -m prime_audit.cli evidence-pack `
   --attribution-grid data/attribution_confound_grid.json `
   --baseline-acceptance data/baseline_acceptance.json `
   --collection-intake data/collection_intake.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_promotion_plan=data/baseline_promotion_plan.json collection_handoff=data/collection_handoff.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_promotion_plan=data/baseline_promotion_plan.json collection_handoff=data/collection_handoff.json collection_submission_contract=data/collection_submission_contract.json collection_submission_lint=data/collection_submission_lint.json collection_fixture_audit=data/collection_fixture_audit.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json `
   --classifier-report data/crypto_classifier_report.json `
   --bitcoin-risk-report data/bitcoin_generator_risk_report.json `
   --output data/evidence_pack.json
@@ -320,7 +334,7 @@ python -m prime_audit.cli artifact-lineage `
   --output data/artifact_lineage.json
 ```
 
-현재 lineage는 19개 artifact node와 44개 dependency edge를 추적한다. `feature_vectors`와 `classifier_report`는 `readiness`와 `evidence_pack`의 입력으로 연결되고, `collection_handoff`는 manifest, collection matrix/power, provenance, acceptance, promotion, classifier scope를 묶는 sim-to-real 실행 산출물로 연결된다. `collection_intake`는 그 handoff task에 실제 제출 aggregate artifact가 맞는지 검증한 뒤 `readiness`와 `evidence_pack`으로 이어지는 안전 게이트다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`와 `artifact_lineage`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> claim_ledger/artifact_lineage -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
+현재 lineage는 22개 artifact node와 52개 dependency edge를 추적한다. `feature_vectors`와 `classifier_report`는 `readiness`와 `evidence_pack`의 입력으로 연결되고, `collection_handoff`는 manifest, collection matrix/power, provenance, acceptance, promotion, classifier scope를 묶는 sim-to-real 실행 산출물로 연결된다. `collection_fixture_audit`는 submission contract와 lint 사이의 pass/warn/block 경계를 고정하고, `collection_intake`는 그 handoff task에 실제 제출 aggregate artifact가 맞는지 검증한 뒤 `readiness`와 `evidence_pack`으로 이어지는 안전 게이트다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`와 `artifact_lineage`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> claim_ledger/artifact_lineage -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
 
 ## Decision Protocol
 
@@ -361,11 +375,11 @@ python -m prime_audit.cli falsification-battery `
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화한다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> collection handoff -> collection intake -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> collection handoff -> submission contract -> submission lint -> fixture audit -> collection intake -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
 - 현황 지표: 10M live compute limit, snapshot 수, real-world baseline 등록 수, collection target 수, sample power tier, provenance missing field 수, provenance audit block 수, accepted baseline 수, promotion unlock sample 수, attribution grid row 수, classifier vector 수, claim level.
 - Visual Change Trail: prime regularity demo, 10M scale lift, controlled attribution, sim-to-real gates, publication guardrails를 release-style milestone로 보여준다. 사용자는 현재 프로젝트가 단순 시각화에서 publication-gated evidence system으로 이동한 경로를 한 화면에서 확인할 수 있다.
 - Evidence Flow: Explore와 Controlled signal은 100% complete로 보이지만, Real baseline과 Intake contract는 0% blocked로 표시된다. Publish claims는 `public_demo_only` 상태로 guarded 처리되어, GitHub Pages가 강한 실세계 attribution을 암시하지 않도록 한다.
-- Research Delta: 초기 300K 수준의 탐색형 prime-regularity demo에서 현재 10M live compute, 1M/10M snapshot, 48-row attribution grid, 5,000 null iteration, 8-setting replication audit, scoped classifier baseline, collection handoff/intake, 17 checksummed artifact로 이동한 변화를 한 화면에서 비교한다.
+- Research Delta: 초기 300K 수준의 탐색형 prime-regularity demo에서 현재 10M live compute, 1M/10M snapshot, 48-row attribution grid, 5,000 null iteration, 8-setting replication audit, scoped classifier baseline, collection handoff/lint/fixture/intake, 20 checksummed artifact로 이동한 변화를 한 화면에서 비교한다.
 - Claim lane: public demo와 controlled synthetic signal은 allowed로 보이지만, real-world generator attribution과 Bitcoin wallet/library attribution은 accepted baseline, classifier vector, nonce-risk report가 없기 때문에 blocked로 남긴다.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.
 
