@@ -379,6 +379,16 @@ python -m prime_audit.cli falsification-battery `
 
 현재 결과는 `5 pass / 0 fail`이지만 claim floor는 `controlled_synthetic_only`다. 이는 실세계 OpenSSL/BoringSSL/Go/Bitcoin attribution을 증명했다는 뜻이 아니라, 합성 생성기 조건에서 남는 신호를 보고해도 되는 최소 안전 조건이 갖춰졌다는 뜻이다. GitHub Pages의 Evidence Pack 패널은 이 결과를 Decision Protocol 아래에 표시한다.
 
+## Publication Reproduction Audit
+
+공개 번들을 덮어쓰지 않고 재생성 가능성을 확인하려면 아래 명령을 실행한다. 이 스크립트는 Evidence Pack, Claim Ledger, Artifact Lineage, Decision Protocol, Falsification Battery를 임시 디렉터리에 다시 만들고 현재 `data/*.json` 산출물과 byte-for-byte 의미의 JSON 동등성을 비교한다.
+
+```powershell
+python scripts/reproduce_publication.py
+```
+
+이 검사가 통과해야 GitHub Pages에 보이는 publication gate와 claim boundary가 현재 공개 artifact bundle에서 재현된다고 말할 수 있다.
+
 ## Project Evolution View
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화하되, 중복 나열을 줄이고 의사결정에 필요한 근거만 남긴다.

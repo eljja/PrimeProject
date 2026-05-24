@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import os
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -1702,6 +1704,18 @@ class PrimeAuditTests(unittest.TestCase):
             for output, public_path in expected.items():
                 with self.subTest(public_path=public_path):
                     self.assertEqual(load_json(output), load_repo_json(public_path))
+
+    def test_publication_reproduction_script_succeeds(self) -> None:
+        result = subprocess.run(
+            [sys.executable, "scripts/reproduce_publication.py"],
+            cwd=REPO_ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("Publication artifacts reproduce exactly", result.stdout)
 
     def test_null_calibration_reports_familywise_profile_p_values(self) -> None:
         grid = {

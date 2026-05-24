@@ -116,6 +116,12 @@ python -m prime_audit.cli snapshot-manifest --inputs data/snapshots/prime_measur
 python scripts/benchmark_shared_factors.py --count 1000 --bits 128 --output data/shared_factor_benchmark.json
 ```
 
+To audit the current publication bundle without overwriting files, run:
+
+```bash
+python scripts/reproduce_publication.py
+```
+
 The bundled Codex runtime Python can also run the same commands.
 
 ## Boundary
