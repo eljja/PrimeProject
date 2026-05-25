@@ -29,9 +29,9 @@
     "submission_lint_submitted": 0,
     "submission_lint_blocked": 0,
     "submission_lint_waiting": 10,
-    "submission_fixture_cases": 8,
+    "submission_fixture_cases": 9,
     "submission_fixture_expectation_failures": 0,
-    "submission_fixture_public_safe": 8,
+    "submission_fixture_public_safe": 9,
     "intake_tasks": 10,
     "intake_submitted": 0,
     "intake_accepted": 0,
@@ -53,7 +53,7 @@
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
     "claim_language_scanned_files": 14,
-    "claim_language_scanned_lines": 6647,
+    "claim_language_scanned_lines": 6648,
     "claim_language_triggered_mentions": 88,
     "claim_language_guarded_mentions": 88,
     "claim_language_failures": 0,
@@ -171,7 +171,7 @@
           "stage": "Intake contract",
           "score": 0,
           "status": "blocked",
-          "evidence": "10 task templates; 8 lint fixtures pass expectations; 0 submitted artifacts"
+          "evidence": "10 task templates; 9 lint fixtures pass expectations; 0 submitted artifacts"
         },
         {
           "stage": "Publish claims",
@@ -202,7 +202,7 @@
           "score": 35,
           "status": "blocked",
           "artifacts": ["data/collection_handoff.json", "data/collection_submission_contract.json", "data/collection_fixture_audit.json", "data/collection_intake.json"],
-          "gate": "10 targets, 8 public-safe fixtures, 0 accepted real submissions",
+          "gate": "10 targets, 9 public-safe fixtures, 0 accepted real submissions",
           "proof": "OpenSSL/BoringSSL/Go/Bitcoin collection is specified and lint-tested, but real aggregate baselines are not accepted yet."
         },
         {
@@ -242,7 +242,7 @@
       {
         "label": "Submission discipline",
         "impact": "Collection contract, lint fixtures, and intake validation define exactly what public-safe evidence must contain.",
-        "metric": "10 templates / 8 fixtures"
+        "metric": "10 templates / 9 fixtures"
       },
       {
         "label": "Publication guardrail",
@@ -273,7 +273,7 @@
         {
           "track": "Reality",
           "before": "No real-world generator baseline gate",
-          "current": "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, pre-intake lint, 8 fixture cases, 10 intake blockers, 0 accepted baselines",
+          "current": "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, pre-intake lint, 9 fixture cases, 10 intake blockers, 0 accepted baselines",
           "state": "blocked"
         },
         {
@@ -449,7 +449,7 @@
       "label": "Submission contract",
       "status": "active",
       "layer": "sim-to-real",
-      "summary": "Exports machine-readable public submission templates that bind task IDs, sample floors, checksums, provenance identity, feature vectors, and forbidden private fields.",
+      "summary": "Exports machine-readable public submission templates that bind task IDs, optional record identity, sample floors, checksums, provenance identity, feature vectors, and forbidden private fields.",
       "outputs": ["prime_audit/collection_contract.py", "data/collection_submission_contract.json"]
     },
     {
@@ -465,7 +465,7 @@
       "label": "Fixture audit",
       "status": "active",
       "layer": "validation",
-      "summary": "Runs public-safe pass, warning, missing-feature, forbidden-field, provenance-identity, feature-label, and reused-checksum fixtures against the submission linter before real collector data is accepted.",
+      "summary": "Runs public-safe pass, warning, missing-feature, forbidden-field, provenance-identity, feature-label, record-identity, and reused-checksum fixtures against the submission linter before real collector data is accepted.",
       "outputs": ["prime_audit/collection_fixture_audit.py", "data/collection_fixture_audit.json"]
     },
     {

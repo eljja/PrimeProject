@@ -18,6 +18,14 @@ REQUIRED_RECORD_FIELDS = [
     "feature_vector_summary",
 ]
 
+OPTIONAL_IDENTITY_FIELDS = [
+    "baseline_id",
+    "library",
+    "track",
+    "object_type",
+    "bit_length",
+]
+
 
 def build_collection_submission_contract(*, handoff: dict[str, Any]) -> dict[str, Any]:
     tasks = [submission_task_template(row) for row in handoff.get("rows", [])]
@@ -37,6 +45,7 @@ def build_collection_submission_contract(*, handoff: dict[str, Any]) -> dict[str
         },
         "record_contract": {
             "required_fields": list(REQUIRED_RECORD_FIELDS),
+            "optional_identity_fields_must_match_task": list(OPTIONAL_IDENTITY_FIELDS),
             "claim_scope_must_equal": "real_world",
             "aggregate_artifact_sha256": {
                 "encoding": "hex",
@@ -94,6 +103,11 @@ def submission_record_template(row: dict[str, Any], sample_count: int) -> dict[s
     return {
         "task_id": task_id,
         "sample_count": sample_count,
+        "baseline_id": row.get("baseline_id"),
+        "library": row.get("library"),
+        "track": row.get("track"),
+        "object_type": row.get("object_type"),
+        "bit_length": row.get("bit_length"),
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0" * 64,
         "provenance_record": {
@@ -137,6 +151,11 @@ def acceptance_checks() -> list[dict[str, Any]]:
             "message": "task_id must match one collection handoff task.",
         },
         {
+            "code": "record_identity_binding",
+            "blocks": True,
+            "message": "If baseline_id, library, track, object_type, or bit_length appear on the public record, they must match the task.",
+        },
+        {
             "code": "single_submission_per_task",
             "blocks": True,
             "message": "Only one public aggregate submission per task_id is accepted in one intake run.",
@@ -159,7 +178,7 @@ def acceptance_checks() -> list[dict[str, Any]]:
         {
             "code": "feature_vector_contract",
             "blocks": True,
-            "message": "feature_vector_summary must match schema, scalar features, record_count, and bit_length_mean constraints.",
+            "message": "feature_vector_summary must match schema, task library label, scalar features, record_count, and bit_length_mean constraints.",
         },
         {
             "code": "public_safety",

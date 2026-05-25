@@ -9,6 +9,7 @@ from .collection_intake import (
     optional_int,
     validate_feature_vector_contract,
     validate_provenance_identity,
+    validate_record_identity,
 )
 
 
@@ -96,6 +97,7 @@ def lint_task_row(
         blockers.append("duplicate_submission_record")
     if record.get("task_id") != template.get("task_id"):
         blockers.append("task_id_mismatch")
+    blockers.extend(validate_record_identity(record, template))
     if record.get("claim_scope") != (contract.get("record_contract") or {}).get("claim_scope_must_equal", "real_world"):
         blockers.append("real_world_claim_scope")
 

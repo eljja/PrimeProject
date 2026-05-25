@@ -99,6 +99,8 @@ def intake_row(task: dict[str, Any], records: list[dict[str, Any]] | None) -> di
         missing.append("planned_sample_target")
     if submitted and not is_sha256_hex(checksum):
         missing.append("aggregate_artifact_sha256")
+    if submitted:
+        missing.extend(validate_record_identity(record, task))
     if submitted and not record.get("provenance_record"):
         missing.append("provenance_record")
     if submitted:
@@ -325,6 +327,20 @@ def validate_provenance_identity(record: dict[str, Any], task: dict[str, Any]) -
         reasons.append("provenance_baseline_id_mismatch")
     if provenance.get("library") != task.get("library"):
         reasons.append("provenance_library_mismatch")
+    return reasons
+
+
+def validate_record_identity(record: dict[str, Any], task: dict[str, Any]) -> list[str]:
+    reasons = []
+    for field in ("baseline_id", "library", "track", "object_type"):
+        if field in record and record.get(field) not in (None, "") and record.get(field) != task.get(field):
+            reasons.append(f"record_{field}_mismatch")
+
+    if "bit_length" in record and record.get("bit_length") not in (None, ""):
+        submitted_bit_length = optional_int(record.get("bit_length"))
+        task_bit_length = optional_int(task.get("bit_length"))
+        if submitted_bit_length is None or submitted_bit_length != task_bit_length:
+            reasons.append("record_bit_length_mismatch")
     return reasons
 
 

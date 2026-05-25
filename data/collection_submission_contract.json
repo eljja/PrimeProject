@@ -23,6 +23,13 @@
       "feature_vector_path",
       "feature_vector_summary"
     ],
+    "optional_identity_fields_must_match_task": [
+      "baseline_id",
+      "library",
+      "track",
+      "object_type",
+      "bit_length"
+    ],
     "claim_scope_must_equal": "real_world",
     "aggregate_artifact_sha256": {
       "encoding": "hex",
@@ -75,6 +82,11 @@
       "message": "task_id must match one collection handoff task."
     },
     {
+      "code": "record_identity_binding",
+      "blocks": true,
+      "message": "If baseline_id, library, track, object_type, or bit_length appear on the public record, they must match the task."
+    },
+    {
       "code": "single_submission_per_task",
       "blocks": true,
       "message": "Only one public aggregate submission per task_id is accepted in one intake run."
@@ -97,7 +109,7 @@
     {
       "code": "feature_vector_contract",
       "blocks": true,
-      "message": "feature_vector_summary must match schema, scalar features, record_count, and bit_length_mean constraints."
+      "message": "feature_vector_summary must match schema, task library label, scalar features, record_count, and bit_length_mean constraints."
     },
     {
       "code": "public_safety",
@@ -128,6 +140,11 @@
       "submission_record_template": {
         "task_id": "boringssl-rsa-prime-owned:2048:rsa-prime",
         "sample_count": 4514,
+        "baseline_id": "boringssl-rsa-prime-owned",
+        "library": "BoringSSL",
+        "track": "rsa-prime-generation",
+        "object_type": "rsa-prime",
+        "bit_length": 2048,
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
         "provenance_record": {
@@ -185,6 +202,11 @@
       "submission_record_template": {
         "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
         "sample_count": 4514,
+        "baseline_id": "openssl-rsa-prime-owned",
+        "library": "OpenSSL",
+        "track": "rsa-prime-generation",
+        "object_type": "rsa-prime",
+        "bit_length": 2048,
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
         "provenance_record": {
@@ -242,6 +264,11 @@
       "submission_record_template": {
         "task_id": "bitcoin-core-ecdsa-signature-public:256:ecdsa-signature",
         "sample_count": 10000,
+        "baseline_id": "bitcoin-core-ecdsa-signature-public",
+        "library": "Bitcoin Core / wallet metadata",
+        "track": "signature-nonce-metadata",
+        "object_type": "ecdsa-signature",
+        "bit_length": 256,
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
         "provenance_record": {
@@ -299,6 +326,11 @@
       "submission_record_template": {
         "task_id": "go-crypto-rsa-prime-owned:2048:rsa-prime",
         "sample_count": 4514,
+        "baseline_id": "go-crypto-rsa-prime-owned",
+        "library": "Go crypto/rsa",
+        "track": "rsa-prime-generation",
+        "object_type": "rsa-prime",
+        "bit_length": 2048,
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
         "provenance_record": {
@@ -356,6 +388,11 @@
       "submission_record_template": {
         "task_id": "boringssl-rsa-prime-owned:3072:rsa-prime",
         "sample_count": 4514,
+        "baseline_id": "boringssl-rsa-prime-owned",
+        "library": "BoringSSL",
+        "track": "rsa-prime-generation",
+        "object_type": "rsa-prime",
+        "bit_length": 3072,
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
         "provenance_record": {
@@ -413,6 +450,11 @@
       "submission_record_template": {
         "task_id": "boringssl-rsa-prime-owned:4096:rsa-prime",
         "sample_count": 4514,
+        "baseline_id": "boringssl-rsa-prime-owned",
+        "library": "BoringSSL",
+        "track": "rsa-prime-generation",
+        "object_type": "rsa-prime",
+        "bit_length": 4096,
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
         "provenance_record": {
@@ -470,6 +512,11 @@
       "submission_record_template": {
         "task_id": "go-crypto-rsa-prime-owned:3072:rsa-prime",
         "sample_count": 4514,
+        "baseline_id": "go-crypto-rsa-prime-owned",
+        "library": "Go crypto/rsa",
+        "track": "rsa-prime-generation",
+        "object_type": "rsa-prime",
+        "bit_length": 3072,
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
         "provenance_record": {
@@ -527,6 +574,11 @@
       "submission_record_template": {
         "task_id": "go-crypto-rsa-prime-owned:4096:rsa-prime",
         "sample_count": 4514,
+        "baseline_id": "go-crypto-rsa-prime-owned",
+        "library": "Go crypto/rsa",
+        "track": "rsa-prime-generation",
+        "object_type": "rsa-prime",
+        "bit_length": 4096,
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
         "provenance_record": {
@@ -584,6 +636,11 @@
       "submission_record_template": {
         "task_id": "openssl-rsa-prime-owned:3072:rsa-prime",
         "sample_count": 4514,
+        "baseline_id": "openssl-rsa-prime-owned",
+        "library": "OpenSSL",
+        "track": "rsa-prime-generation",
+        "object_type": "rsa-prime",
+        "bit_length": 3072,
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
         "provenance_record": {
@@ -641,6 +698,11 @@
       "submission_record_template": {
         "task_id": "openssl-rsa-prime-owned:4096:rsa-prime",
         "sample_count": 4514,
+        "baseline_id": "openssl-rsa-prime-owned",
+        "library": "OpenSSL",
+        "track": "rsa-prime-generation",
+        "object_type": "rsa-prime",
+        "bit_length": 4096,
         "claim_scope": "real_world",
         "aggregate_artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
         "provenance_record": {

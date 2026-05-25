@@ -5,16 +5,16 @@
     "collection_submission_lint": "primeproject.collection-submission-lint.v1"
   },
   "summary": {
-    "fixture_count": 8,
-    "passed_expectation_count": 8,
+    "fixture_count": 9,
+    "passed_expectation_count": 9,
     "failed_expectation_count": 0,
     "expected_pass_count": 1,
     "expected_warning_count": 1,
-    "expected_blocked_count": 6,
+    "expected_blocked_count": 7,
     "actual_pass_count": 1,
     "actual_warning_count": 1,
-    "actual_blocked_count": 6,
-    "public_safe_fixture_count": 8
+    "actual_blocked_count": 7,
+    "public_safe_fixture_count": 9
   },
   "quality_gate": {
     "status": "pass",
@@ -22,11 +22,11 @@
   },
   "lint_summary": {
     "task_count": 10,
-    "submitted_count": 8,
-    "awaiting_submission_count": 2,
+    "submitted_count": 9,
+    "awaiting_submission_count": 1,
     "pass_count": 1,
     "warning_count": 1,
-    "blocked_count": 6,
+    "blocked_count": 7,
     "forbidden_public_field_count": 1,
     "feature_vector_blocked_count": 2,
     "reused_aggregate_hash_count": 2,
@@ -50,12 +50,16 @@
       {
         "reason": "provenance_baseline_id_mismatch",
         "count": 1
+      },
+      {
+        "reason": "record_baseline_id_mismatch",
+        "count": 1
       }
     ],
     "dominant_warnings": [
       {
         "reason": "awaiting_submission",
-        "count": 2
+        "count": 1
       },
       {
         "reason": "below_10pct_tv_floor",
@@ -169,11 +173,29 @@
       "public_safe": true
     },
     {
-      "fixture_id": "blocked_reused_checksum_a",
+      "fixture_id": "blocked_record_identity",
       "task_id": "go-crypto-rsa-prime-owned:3072:rsa-prime",
       "library": "Go crypto/rsa",
       "object_type": "rsa-prime",
       "bit_length": 3072,
+      "expected_status": "blocked",
+      "actual_status": "blocked",
+      "expected_reasons": [
+        "record_baseline_id_mismatch"
+      ],
+      "actual_reasons": [
+        "record_baseline_id_mismatch"
+      ],
+      "missing_expected_reasons": [],
+      "expectation_met": true,
+      "public_safe": true
+    },
+    {
+      "fixture_id": "blocked_reused_checksum_a",
+      "task_id": "go-crypto-rsa-prime-owned:4096:rsa-prime",
+      "library": "Go crypto/rsa",
+      "object_type": "rsa-prime",
+      "bit_length": 4096,
       "expected_status": "blocked",
       "actual_status": "blocked",
       "expected_reasons": [
@@ -188,10 +210,10 @@
     },
     {
       "fixture_id": "blocked_reused_checksum_b",
-      "task_id": "go-crypto-rsa-prime-owned:4096:rsa-prime",
-      "library": "Go crypto/rsa",
+      "task_id": "openssl-rsa-prime-owned:3072:rsa-prime",
+      "library": "OpenSSL",
       "object_type": "rsa-prime",
-      "bit_length": 4096,
+      "bit_length": 3072,
       "expected_status": "blocked",
       "actual_status": "blocked",
       "expected_reasons": [
