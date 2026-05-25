@@ -1807,6 +1807,7 @@ class PrimeAuditTests(unittest.TestCase):
         generated_at = str(load_repo_json("data/evidence_pack.json")["generated_at"])
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp = Path(tmp_dir)
+            claim_language = tmp / "claim_language_audit.json"
             evidence = tmp / "evidence_pack.json"
             claim_ledger = tmp / "claim_ledger.json"
             lineage = tmp / "artifact_lineage.json"
@@ -1814,6 +1815,16 @@ class PrimeAuditTests(unittest.TestCase):
             falsification = tmp / "falsification_battery.json"
             consistency = tmp / "publication_consistency.json"
 
+            self.assertEqual(
+                run_cli(
+                    "claim-language-audit",
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(claim_language),
+                ),
+                0,
+            )
             self.assertEqual(
                 run_cli(
                     "evidence-pack",
@@ -1910,6 +1921,7 @@ class PrimeAuditTests(unittest.TestCase):
             )
 
             expected = {
+                claim_language: "data/claim_language_audit.json",
                 evidence: "data/evidence_pack.json",
                 claim_ledger: "data/claim_ledger.json",
                 lineage: "data/artifact_lineage.json",
@@ -1942,12 +1954,15 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(payload["json_mismatches"], [])
         self.assertEqual(payload["byte_mismatches"], [])
         self.assertEqual(payload["mismatches"], [])
-        self.assertEqual(payload["command_count"], 6)
+        self.assertEqual(payload["command_count"], 7)
         self.assertEqual(payload["command_path_policy"], "Temporary output paths are normalized to {tmp}.")
         command_text = json.dumps(payload["commands"])
+        self.assertIn("claim-language-audit", command_text)
+        self.assertIn("claim_language_audit.json", command_text)
         self.assertIn("{tmp}", command_text)
         self.assertNotIn("primeproject-publication-", command_text)
-        self.assertEqual(len(payload["comparisons"]), 6)
+        self.assertEqual(len(payload["comparisons"]), 7)
+        self.assertIn("claim_language_audit", {row["artifact"] for row in payload["comparisons"]})
         self.assertTrue(all(row["json_equal"] for row in payload["comparisons"]))
         self.assertTrue(all(row["byte_equal"] for row in payload["comparisons"]))
         self.assertTrue(all("raw_byte_equal" in row for row in payload["comparisons"]))

@@ -12,6 +12,7 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PUBLICATION_OUTPUTS = {
+    "claim_language_audit": "data/claim_language_audit.json",
     "evidence_pack": "data/evidence_pack.json",
     "claim_ledger": "data/claim_ledger.json",
     "artifact_lineage": "data/artifact_lineage.json",
@@ -42,6 +43,7 @@ def main() -> int:
         tmp = Path(tmp_dir)
         tmp_root = str(tmp)
         outputs = {
+            "claim_language_audit": tmp / "claim_language_audit.json",
             "evidence_pack": tmp / "evidence_pack.json",
             "claim_ledger": tmp / "claim_ledger.json",
             "artifact_lineage": tmp / "artifact_lineage.json",
@@ -50,6 +52,13 @@ def main() -> int:
             "publication_consistency": tmp / "publication_consistency.json",
         }
 
+        commands.append(run_cli(
+            "claim-language-audit",
+            "--generated-at",
+            generated_at,
+            "--output",
+            str(outputs["claim_language_audit"]),
+        ))
         commands.append(run_cli(
             "evidence-pack",
             "--manifest",

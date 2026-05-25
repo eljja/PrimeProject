@@ -401,7 +401,7 @@ python -m prime_audit.cli publication-consistency `
 
 ## Publication Reproduction Audit
 
-공개 번들을 덮어쓰지 않고 재생성 가능성을 확인하려면 아래 명령을 실행한다. 이 스크립트는 Evidence Pack, Claim Ledger, Artifact Lineage, Decision Protocol, Falsification Battery, Publication Consistency를 임시 디렉터리에 다시 만들고 현재 `data/*.json` 산출물과 byte-for-byte 의미의 JSON 동등성을 비교한다.
+공개 번들을 덮어쓰지 않고 재생성 가능성을 확인하려면 아래 명령을 실행한다. 이 스크립트는 Claim-language Audit, Evidence Pack, Claim Ledger, Artifact Lineage, Decision Protocol, Falsification Battery, Publication Consistency를 임시 디렉터리에 다시 만들고 현재 `data/*.json` 산출물과 byte-for-byte 의미의 JSON 동등성을 비교한다. Claim-language Audit 자체도 비교 대상이므로 공개 문구가 바뀌었는데 `data/claim_language_audit.json`만 오래된 상태로 남는 문제를 잡을 수 있다.
 
 ```powershell
 python scripts/reproduce_publication.py

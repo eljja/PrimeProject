@@ -128,7 +128,7 @@ To audit the current publication bundle without overwriting files, run:
 python scripts/reproduce_publication.py
 ```
 
-Add `--report publication_reproduction_report.json` to save the compared canonical JSON hashes, raw file hashes, and command trace with temporary output paths normalized to `{tmp}`. Local reproduction reports matching `publication_reproduction_report*.json` are ignored by git so audit scratch output does not enter the public evidence bundle by accident.
+The script starts by regenerating `data/claim_language_audit.json` in a temporary directory and compares it with the public artifact, so stale public wording checks cannot pass unnoticed. Add `--report publication_reproduction_report.json` to save the compared canonical JSON hashes, raw file hashes, and command trace with temporary output paths normalized to `{tmp}`. Local reproduction reports matching `publication_reproduction_report*.json` are ignored by git so audit scratch output does not enter the public evidence bundle by accident.
 
 To verify the GitHub Pages surface, run:
 
