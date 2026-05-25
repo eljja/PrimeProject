@@ -186,6 +186,80 @@ function renderProofAttempt(problem) {
   `;
 }
 
+function statusText(value) {
+  return String(value || "missing").replaceAll("_", " ");
+}
+
+function renderProofMap(problem) {
+  const attempt = problem.proof_attempt || {};
+  const graph = attempt.attack_graph || {};
+  const nodes = graph.nodes || [];
+  const edges = graph.edges || [];
+  const bridges = attempt.known_theorem_bridges || [];
+  const lemmas = attempt.lemma_candidates || [];
+  return `
+    <div class="proof-map-grid">
+      ${nodes
+        .map(
+          (node) => `
+            <div class="proof-node is-${escapeHtml(node.status || "open")}">
+              <span>${escapeHtml(node.id || "")}</span>
+              <strong>${escapeHtml(node.label || "")}</strong>
+              <em>${escapeHtml(statusText(node.status))}</em>
+            </div>
+          `,
+        )
+        .join("")}
+    </div>
+    <div class="proof-edge-list">
+      ${edges
+        .map(
+          (edge) => `
+            <div class="proof-edge is-${escapeHtml(edge.status || "open")}">
+              <code>${escapeHtml(edge.from || "")} -> ${escapeHtml(edge.to || "")}</code>
+              <span>${escapeHtml(edge.label || "")}</span>
+              <strong>${escapeHtml(statusText(edge.status))}</strong>
+            </div>
+          `,
+        )
+        .join("")}
+    </div>
+    <div class="bridge-lemma-grid">
+      <section>
+        <h3>Known theorem bridges</h3>
+        ${bridges
+          .map(
+            (bridge) => `
+              <article class="bridge-card is-${escapeHtml(bridge.status || "open")}">
+                <span>${escapeHtml(bridge.id || "")}</span>
+                <strong>${escapeHtml(bridge.name || "")}</strong>
+                <p>${escapeHtml(bridge.role || "")}</p>
+                <em>${escapeHtml(statusText(bridge.status))}</em>
+              </article>
+            `,
+          )
+          .join("")}
+      </section>
+      <section>
+        <h3>Lemma candidates</h3>
+        ${lemmas
+          .map(
+            (lemma) => `
+              <article class="bridge-card is-${escapeHtml(lemma.status || "open")}">
+                <span>${escapeHtml(lemma.id || "")}</span>
+                <strong>${escapeHtml(lemma.statement || "")}</strong>
+                <p>${escapeHtml(lemma.evidence || "")}</p>
+                <p>${escapeHtml(lemma.required_upgrade || "")}</p>
+                <em>${escapeHtml(statusText(lemma.status))}</em>
+              </article>
+            `,
+          )
+          .join("")}
+      </section>
+    </div>
+  `;
+}
+
 function render(payload, problem) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
@@ -216,6 +290,7 @@ function render(payload, problem) {
   document.querySelector("#finiteEvidence").innerHTML = renderTable(problem);
   document.querySelector("#certificatePanel").innerHTML = renderCertificate(problem);
   document.querySelector("#proofAttempt").innerHTML = renderProofAttempt(problem);
+  document.querySelector("#proofMap").innerHTML = renderProofMap(problem);
   document.querySelector("#proofGates").innerHTML = list(problem.proof_gates || []);
   document.querySelector("#candidateStrategy").innerHTML = list(problem.candidate_strategy || []);
   document.querySelector("#blockedClaims").innerHTML = (payload.claim_policy.blocked_claims || [])

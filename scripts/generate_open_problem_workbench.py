@@ -106,6 +106,9 @@ def proof_attempt_ledger(
     formal_statement: str,
     obligations: list[dict[str, str]],
     falsification_targets: list[str],
+    attack_graph: dict[str, list[dict[str, str]]],
+    known_theorem_bridges: list[dict[str, str]],
+    lemma_candidates: list[dict[str, str]],
 ) -> dict[str, object]:
     return {
         "schema": PROOF_ATTEMPT_SCHEMA,
@@ -113,6 +116,9 @@ def proof_attempt_ledger(
         "status": "open_infinite_obligation",
         "bounded_theorem_status": "proved_by_certificate",
         "attack_route": route,
+        "attack_graph": attack_graph,
+        "known_theorem_bridges": known_theorem_bridges,
+        "lemma_candidates": lemma_candidates,
         "obligations": obligations,
         "falsification_targets": falsification_targets,
         "next_formalization_target": {
@@ -198,6 +204,42 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
                 "A proposed all-x theta bound fails on a computed checkpoint.",
                 "The bound does not imply a published RH-equivalent criterion.",
                 "The argument depends on a finite zero table without an infinite tail theorem.",
+            ],
+            attack_graph={
+                "nodes": [
+                    {"id": "rh-finite", "label": "Bounded theta/pi certificate", "status": "proved_by_certificate"},
+                    {"id": "rh-envelope", "label": "Explicit all-x theta envelope", "status": "open_bridge"},
+                    {"id": "rh-equivalence", "label": "RH-equivalent zero-control criterion", "status": "known_bridge_needed"},
+                    {"id": "rh-target", "label": "All non-trivial zeros on Re(s)=1/2", "status": "open_target"},
+                ],
+                "edges": [
+                    {"from": "rh-finite", "to": "rh-envelope", "status": "open_bridge", "label": "remove search limit"},
+                    {"from": "rh-envelope", "to": "rh-equivalence", "status": "open_bridge", "label": "prove criterion strength"},
+                    {"from": "rh-equivalence", "to": "rh-target", "status": "open_bridge", "label": "formal implication"},
+                ],
+            },
+            known_theorem_bridges=[
+                {
+                    "id": "RH-B1",
+                    "name": "Prime-counting error equivalences",
+                    "role": "Identify an explicit error envelope strong enough to imply RH.",
+                    "status": "bridge_not_satisfied",
+                },
+                {
+                    "id": "RH-B2",
+                    "name": "Zero-free region machinery",
+                    "role": "Convert analytic estimates into critical-strip zero control.",
+                    "status": "bridge_not_satisfied",
+                },
+            ],
+            lemma_candidates=[
+                {
+                    "id": "RH-L1",
+                    "statement": "There exists an explicit C such that |theta(x)-x| <= C sqrt(x) log(x)^2 for all x >= x0.",
+                    "evidence": "Finite checkpoints are below the normalized envelope through the committed limit.",
+                    "required_upgrade": "Prove the inequality for the infinite tail and show constants meet an RH-equivalent bound.",
+                    "status": "open_candidate",
+                }
             ],
         ),
         "proof_gates": [
@@ -303,6 +345,42 @@ def build_collatz(limit: int) -> dict[str, object]:
                 "A proposed drift inequality admits an infinite exceptional set.",
                 "Odd-only compression silently loses a valid trajectory branch.",
             ],
+            attack_graph={
+                "nodes": [
+                    {"id": "c-finite", "label": "Bounded trajectory certificate", "status": "proved_by_certificate"},
+                    {"id": "c-blocks", "label": "Residue-block descent family", "status": "open_bridge"},
+                    {"id": "c-coverage", "label": "Recursive all-block coverage", "status": "open_bridge"},
+                    {"id": "c-target", "label": "Every positive integer reaches 1", "status": "open_target"},
+                ],
+                "edges": [
+                    {"from": "c-finite", "to": "c-blocks", "status": "open_bridge", "label": "generalize finite descent"},
+                    {"from": "c-blocks", "to": "c-coverage", "status": "open_bridge", "label": "cover all residue blocks"},
+                    {"from": "c-coverage", "to": "c-target", "status": "open_bridge", "label": "exclude cycles/divergence"},
+                ],
+            },
+            known_theorem_bridges=[
+                {
+                    "id": "C-B1",
+                    "name": "Accelerated odd Collatz map",
+                    "role": "Reduce even divisions while preserving every trajectory branch.",
+                    "status": "usable_but_insufficient",
+                },
+                {
+                    "id": "C-B2",
+                    "name": "Descent certificate induction",
+                    "role": "Turn residue-block certificates into a global well-founded descent argument.",
+                    "status": "bridge_not_satisfied",
+                },
+            ],
+            lemma_candidates=[
+                {
+                    "id": "C-L1",
+                    "statement": "Every odd residue block modulo 2^a 3^b has a finite accelerated path to a smaller representative in a covered block.",
+                    "evidence": "Bounded replay identifies many descending trajectories and worst stopping-time cases.",
+                    "required_upgrade": "Construct a finite symbolic block cover with an induction measure that cannot increase forever.",
+                    "status": "open_candidate",
+                }
+            ],
         ),
         "proof_gates": [
             "Prove descent or recurrence for every congruence class without relying on finite enumeration.",
@@ -393,6 +471,42 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
                 "The threshold exceeds the certified finite range.",
                 "The model assumes unproved prime-pair independence.",
             ],
+            attack_graph={
+                "nodes": [
+                    {"id": "g-finite", "label": "Bounded witness certificate", "status": "proved_by_certificate"},
+                    {"id": "g-thin", "label": "Thinnest residue-class lower bound", "status": "open_bridge"},
+                    {"id": "g-threshold", "label": "Explicit threshold below certificate limit", "status": "open_bridge"},
+                    {"id": "g-target", "label": "Every even n > 2 has p+q witness", "status": "open_target"},
+                ],
+                "edges": [
+                    {"from": "g-finite", "to": "g-threshold", "status": "open_bridge", "label": "close finite/infinite gap"},
+                    {"from": "g-thin", "to": "g-threshold", "status": "open_bridge", "label": "make lower bound positive"},
+                    {"from": "g-threshold", "to": "g-target", "status": "open_bridge", "label": "cover all even values"},
+                ],
+            },
+            known_theorem_bridges=[
+                {
+                    "id": "G-B1",
+                    "name": "Circle-method lower bounds",
+                    "role": "Supply explicit positive representation counts for all large even integers.",
+                    "status": "bridge_not_satisfied",
+                },
+                {
+                    "id": "G-B2",
+                    "name": "Finite verification threshold bridge",
+                    "role": "Ensure the analytic threshold does not start above the certified finite range.",
+                    "status": "bridge_not_satisfied",
+                },
+            ],
+            lemma_candidates=[
+                {
+                    "id": "G-L1",
+                    "statement": "For every even n >= N, the Goldbach representation count R(n) is strictly positive with explicit N <= certificate_limit.",
+                    "evidence": "Bounded witness search shows no failures and records hardest smallest-prime decompositions.",
+                    "required_upgrade": "Derive explicit constants that beat all singular-series and error-term losses.",
+                    "status": "open_candidate",
+                }
+            ],
         ),
         "proof_gates": [
             "Control prime coverage in every residue class strongly enough for all even integers.",
@@ -480,6 +594,42 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
                 "The lower bound collapses to zero for exact gap 2.",
                 "The argument proves bounded gaps but cannot force gap 2.",
                 "An admissible-pattern step assumes the k-tuple conjecture.",
+            ],
+            attack_graph={
+                "nodes": [
+                    {"id": "tp-finite", "label": "Bounded twin-pair certificate", "status": "proved_by_certificate"},
+                    {"id": "tp-pattern", "label": "Admissible two-point lower bound", "status": "open_bridge"},
+                    {"id": "tp-exact", "label": "Exact gap-2 infinitude theorem", "status": "open_bridge"},
+                    {"id": "tp-target", "label": "Infinitely many twin primes", "status": "open_target"},
+                ],
+                "edges": [
+                    {"from": "tp-finite", "to": "tp-pattern", "status": "open_bridge", "label": "lift density beyond finite range"},
+                    {"from": "tp-pattern", "to": "tp-exact", "status": "open_bridge", "label": "force exact gap 2"},
+                    {"from": "tp-exact", "to": "tp-target", "status": "open_bridge", "label": "prove infinitude"},
+                ],
+            },
+            known_theorem_bridges=[
+                {
+                    "id": "TP-B1",
+                    "name": "Bounded prime gaps",
+                    "role": "Existing methods prove some bounded gaps, but not exact gap 2.",
+                    "status": "usable_but_insufficient",
+                },
+                {
+                    "id": "TP-B2",
+                    "name": "Hardy-Littlewood k-tuple heuristic",
+                    "role": "Predicts the right density but cannot be used as an assumption-free proof.",
+                    "status": "heuristic_only",
+                },
+            ],
+            lemma_candidates=[
+                {
+                    "id": "TP-L1",
+                    "statement": "There is an explicit c > 0 such that pi_2(x) >= c x / log(x)^2 for arbitrarily large x without k-tuple assumptions.",
+                    "evidence": "Bounded counts track the Hardy-Littlewood scale through the committed limit.",
+                    "required_upgrade": "Replace the heuristic density curve with an unconditional lower-bound theorem for exact gap 2.",
+                    "status": "open_candidate",
+                }
             ],
         ),
         "proof_gates": [

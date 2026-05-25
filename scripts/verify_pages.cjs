@@ -227,6 +227,7 @@ async function main() {
           metricCount: document.querySelectorAll(".proof-metric").length,
           certificateText: document.querySelector("#certificatePanel").textContent,
           proofAttemptText: document.querySelector("#proofAttempt").textContent,
+          proofMapText: document.querySelector("#proofMap").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
           text: document.body.textContent,
         }), problemId),
@@ -263,6 +264,9 @@ async function main() {
         !page.proofAttemptText.includes("open infinite obligation") ||
         !page.proofAttemptText.includes("proved by certificate") ||
         !page.proofAttemptText.includes("Falsification targets") ||
+        !page.proofMapText.includes("Known theorem bridges") ||
+        !page.proofMapText.includes("Lemma candidates") ||
+        !page.proofMapText.includes("open bridge") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||
         !page.text.includes("No proof claim"),
