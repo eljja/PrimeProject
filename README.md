@@ -39,7 +39,7 @@
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-You can also open `index.html` locally. The lab compares `rejection`, `next_prime`, and `wheel30_next` observation measures over prime gaps and residue classes.
+You can also open `index.html` locally for an offline smoke view. In direct `file://` mode the header shows `Offline fallback data`; use a local static HTTP server or GitHub Pages when you need the current public `data/*.json` artifact bundle. The lab compares `rejection`, `next_prime`, and `wheel30_next` observation measures over prime gaps and residue classes.
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 

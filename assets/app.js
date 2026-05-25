@@ -1351,6 +1351,7 @@ const controls = {
 };
 
 const outputs = {
+  dataSourceBadge: document.querySelector("#dataSourceBadge"),
   primeCount: document.querySelector("#primeCount"),
   weightedMeanGap: document.querySelector("#weightedMeanGap"),
   driftMetric: document.querySelector("#driftMetric"),
@@ -1442,6 +1443,17 @@ const outputs = {
   replicationAuditRows: document.querySelector("#replicationAuditRows"),
 };
 
+function renderDataSourceBadge() {
+  if (!outputs.dataSourceBadge) return;
+  const isFileMode = window.location.protocol === "file:";
+  outputs.dataSourceBadge.textContent = isFileMode ? "Offline fallback data" : "Public JSON data";
+  outputs.dataSourceBadge.classList.toggle("is-fallback", isFileMode);
+  outputs.dataSourceBadge.classList.toggle("is-public", !isFileMode);
+  outputs.dataSourceBadge.title = isFileMode
+    ? "Direct file mode cannot fetch the public data/*.json bundle; panels use embedded fallback constants."
+    : "Panels are loaded through the public data/*.json artifact bundle used by GitHub Pages.";
+}
+
 controls.limitRange.value = limitToSlider(state.limit);
 controls.limitValue.textContent = formatNumber(state.limit);
 
@@ -1497,6 +1509,7 @@ window.addEventListener("resize", () => {
 });
 
 runExperiment();
+renderDataSourceBadge();
 loadSnapshots();
 loadProjectEvolution();
 loadRealBaselineManifest();

@@ -90,6 +90,7 @@ async function main() {
 
     metrics = await page.evaluate(() => ({
       pageProtocol: window.location.protocol,
+      dataSourceBadge: document.querySelector("#dataSourceBadge").textContent,
       title: document.title,
       primeCount: document.querySelector("#primeCount").textContent,
       drift: document.querySelector("#driftMetric").textContent,
@@ -212,6 +213,10 @@ async function main() {
   }
   const expected = buildExpectedPublicText(publicData);
   if (metrics.pageProtocol !== "http:" || metrics.fetchedDataJson < 20) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (!metrics.dataSourceBadge.includes("Public JSON data")) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }

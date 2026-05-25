@@ -118,6 +118,27 @@ select {
   color: #ffffff;
 }
 
+.data-source-badge {
+  flex: 0 0 auto;
+  border: 1px solid #3a4452;
+  background: rgba(255, 255, 255, 0.04);
+  color: #b8c2cf;
+  padding: 7px 9px;
+  font-size: 11px;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.data-source-badge.is-public {
+  border-color: rgba(8, 127, 122, 0.75);
+  color: #b8f0ea;
+}
+
+.data-source-badge.is-fallback {
+  border-color: rgba(215, 138, 17, 0.75);
+  color: #ffdca3;
+}
+
 .repo-link {
   border: 1px solid #3a4452;
   color: #ffffff;
@@ -3305,6 +3326,10 @@ tr:last-child td {
 
   .topnav {
     overflow-x: auto;
+  }
+
+  .data-source-badge {
+    align-self: flex-start;
   }
 
   .workspace {
