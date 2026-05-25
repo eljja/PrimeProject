@@ -49,6 +49,13 @@ def main() -> int:
         if not gate.get("open_obligations") or not gate.get("open_attack_graph_links"):
             print(f"{problem.get('id')} proof promotion gate is missing open blockers.", file=sys.stderr)
             return 1
+        contract = problem.get("formal_proof_contract", {})
+        if contract.get("status") != "not_formalized_open":
+            print(f"{problem.get('id')} formal proof contract status is not open.", file=sys.stderr)
+            return 1
+        if "sorry" not in " ".join(contract.get("acceptance_rules", [])):
+            print(f"{problem.get('id')} formal proof contract does not ban unchecked proof holes.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

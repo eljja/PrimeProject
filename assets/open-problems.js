@@ -265,6 +265,7 @@ function renderProofStatusGate(problem) {
   const rows = [
     ["Promotion status", statusText(gate.promotion_status)],
     ["Allowed public claim", statusText(gate.allowed_public_claim)],
+    ["Formal contract", statusText(gate.formal_contract_status)],
     ["Open obligations", (gate.open_obligations || []).join(", ") || "none"],
     ["Open graph links", (gate.open_attack_graph_links || []).join(", ") || "none"],
     ["Unsatisfied bridges", (gate.unsatisfied_known_theorem_bridges || []).join(", ") || "none"],
@@ -287,6 +288,41 @@ function renderProofStatusGate(problem) {
           `,
         )
         .join("")}
+    </div>
+  `;
+}
+
+function renderFormalContract(problem) {
+  const contract = problem.formal_proof_contract || {};
+  return `
+    <div class="formal-contract-head">
+      <div>
+        <span>Target</span>
+        <strong>${escapeHtml(contract.proof_assistant_target || "missing")}</strong>
+      </div>
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(contract.status))}</strong>
+      </div>
+      <div>
+        <span>Theorem</span>
+        <strong>${escapeHtml(contract.theorem_name || "missing")}</strong>
+      </div>
+    </div>
+    <pre class="formal-statement"><code>${escapeHtml(contract.lean_statement || "")}</code></pre>
+    <div class="bridge-lemma-grid">
+      <section>
+        <h3>Required artifacts</h3>
+        ${list(contract.required_artifacts || [])}
+      </section>
+      <section>
+        <h3>Forbidden assumptions</h3>
+        ${list(contract.forbidden_assumptions || [])}
+      </section>
+    </div>
+    <div class="formal-rules">
+      <strong>Acceptance rules</strong>
+      ${list(contract.acceptance_rules || [])}
     </div>
   `;
 }
@@ -323,6 +359,7 @@ function render(payload, problem) {
   document.querySelector("#proofAttempt").innerHTML = renderProofAttempt(problem);
   document.querySelector("#proofMap").innerHTML = renderProofMap(problem);
   document.querySelector("#proofStatusGate").innerHTML = renderProofStatusGate(problem);
+  document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#proofGates").innerHTML = list(problem.proof_gates || []);
   document.querySelector("#candidateStrategy").innerHTML = list(problem.candidate_strategy || []);
   document.querySelector("#blockedClaims").innerHTML = (payload.claim_policy.blocked_claims || [])

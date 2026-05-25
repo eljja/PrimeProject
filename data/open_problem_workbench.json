@@ -205,6 +205,36 @@
         "Prove an explicit equivalence strong enough to imply all non-trivial zeros lie on Re(s)=1/2.",
         "Show every numerical or symbolic step is independent of bounded search limits."
       ],
+      "formal_proof_contract": {
+        "schema": "primeproject.formal-proof-contract.v1",
+        "problem_id": "riemann",
+        "proof_assistant_target": "Lean 4",
+        "status": "not_formalized_open",
+        "theorem_name": "primeproject_riemann_hypothesis",
+        "lean_statement": "theorem primeproject_riemann_hypothesis : forall rho, Zeta.NontrivialZero rho -> rho.re = (1/2 : Real) := by",
+        "allowed_artifact_inputs": [
+          "bounded_certificate_merkle_root",
+          "formal_proof_verified_bridge",
+          "accepted_theorem_reference"
+        ],
+        "required_artifacts": [
+          "bounded theta/pi certificate",
+          "formal all-x prime-counting error theorem",
+          "formal RH-equivalence bridge"
+        ],
+        "forbidden_assumptions": [
+          "RiemannHypothesis",
+          "Zeta.nontrivialZeros_on_criticalLine",
+          "any axiom implying all non-trivial zeta zeros have real part 1/2"
+        ],
+        "acceptance_rules": [
+          "No `sorry`, `admit`, unchecked axiom, or imported theorem equivalent to the target conjecture.",
+          "Every finite computation must be represented by a bounded certificate and every infinite step by a formal theorem.",
+          "The proof-status gate must report eligible_for_independent_review before any page can change from open_not_proven.",
+          "An external reviewer must be able to replay the kernel check without trusting PrimeProject code."
+        ],
+        "current_blocker": "open infinite obligations remain outside the proof assistant kernel"
+      },
       "candidate_strategy": [
         "Use generator-fingerprint residuals to look for structured departures from PNT-scale noise.",
         "Convert any stable residual law into a falsifiable analytic lemma before treating it as proof evidence.",
@@ -220,7 +250,8 @@
           "open_obligations",
           "open_attack_graph_links",
           "unsatisfied_known_theorem_bridges",
-          "unproved_lemma_candidates"
+          "unproved_lemma_candidates",
+          "formal_contract_not_verified"
         ],
         "open_obligations": [
           "RH-O2",
@@ -241,6 +272,7 @@
         "open_lemma_candidates": [
           "RH-L1"
         ],
+        "formal_contract_status": "not_formalized_open",
         "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
       }
     },
@@ -500,6 +532,36 @@
         "Search for monotone certificates on blocks, then try to lift them to all blocks recursively.",
         "Treat random-walk drift evidence as heuristic until a deterministic certificate exists."
       ],
+      "formal_proof_contract": {
+        "schema": "primeproject.formal-proof-contract.v1",
+        "problem_id": "collatz",
+        "proof_assistant_target": "Lean 4",
+        "status": "not_formalized_open",
+        "theorem_name": "primeproject_collatz_conjecture",
+        "lean_statement": "theorem primeproject_collatz_conjecture : forall n : Nat, 0 < n -> exists k, Collatz.iterate k n = 1 := by",
+        "allowed_artifact_inputs": [
+          "bounded_certificate_merkle_root",
+          "formal_proof_verified_bridge",
+          "accepted_theorem_reference"
+        ],
+        "required_artifacts": [
+          "bounded trajectory certificate",
+          "formal residue-block descent theorem",
+          "formal cycle and divergence exclusion theorem"
+        ],
+        "forbidden_assumptions": [
+          "CollatzConjecture",
+          "well_foundedness of Collatz trajectories without proof",
+          "any axiom excluding non-trivial cycles or divergent paths"
+        ],
+        "acceptance_rules": [
+          "No `sorry`, `admit`, unchecked axiom, or imported theorem equivalent to the target conjecture.",
+          "Every finite computation must be represented by a bounded certificate and every infinite step by a formal theorem.",
+          "The proof-status gate must report eligible_for_independent_review before any page can change from open_not_proven.",
+          "An external reviewer must be able to replay the kernel check without trusting PrimeProject code."
+        ],
+        "current_blocker": "open infinite obligations remain outside the proof assistant kernel"
+      },
       "claim_boundary": "No proof claim. Current evidence is finite exhaustive replay plus blocker list.",
       "proof_status_gate": {
         "schema": "primeproject.open-problem-proof-status-gate.v1",
@@ -510,7 +572,8 @@
           "open_obligations",
           "open_attack_graph_links",
           "unsatisfied_known_theorem_bridges",
-          "unproved_lemma_candidates"
+          "unproved_lemma_candidates",
+          "formal_contract_not_verified"
         ],
         "open_obligations": [
           "C-O2",
@@ -531,6 +594,7 @@
         "open_lemma_candidates": [
           "C-L1"
         ],
+        "formal_contract_status": "not_formalized_open",
         "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
       }
     },
@@ -764,6 +828,36 @@
         "Compare bounded failures against Hardy-Littlewood-style expected representation counts.",
         "Escalate only if the thin-class model yields a provable lower bound above zero."
       ],
+      "formal_proof_contract": {
+        "schema": "primeproject.formal-proof-contract.v1",
+        "problem_id": "goldbach",
+        "proof_assistant_target": "Lean 4",
+        "status": "not_formalized_open",
+        "theorem_name": "primeproject_goldbach_conjecture",
+        "lean_statement": "theorem primeproject_goldbach_conjecture : forall n : Nat, Even n -> 2 < n -> exists p q : Nat, Nat.Prime p /\\ Nat.Prime q /\\ n = p + q := by",
+        "allowed_artifact_inputs": [
+          "bounded_certificate_merkle_root",
+          "formal_proof_verified_bridge",
+          "accepted_theorem_reference"
+        ],
+        "required_artifacts": [
+          "bounded witness certificate",
+          "formal positive representation-count lower bound",
+          "formal threshold bridge below certificate limit"
+        ],
+        "forbidden_assumptions": [
+          "GoldbachConjecture",
+          "HardyLittlewood prime-pair independence as an axiom",
+          "any axiom asserting positive Goldbach representation counts"
+        ],
+        "acceptance_rules": [
+          "No `sorry`, `admit`, unchecked axiom, or imported theorem equivalent to the target conjecture.",
+          "Every finite computation must be represented by a bounded certificate and every infinite step by a formal theorem.",
+          "The proof-status gate must report eligible_for_independent_review before any page can change from open_not_proven.",
+          "An external reviewer must be able to replay the kernel check without trusting PrimeProject code."
+        ],
+        "current_blocker": "open infinite obligations remain outside the proof assistant kernel"
+      },
       "claim_boundary": "No proof claim. Current evidence is bounded exhaustive verification.",
       "proof_status_gate": {
         "schema": "primeproject.open-problem-proof-status-gate.v1",
@@ -774,7 +868,8 @@
           "open_obligations",
           "open_attack_graph_links",
           "unsatisfied_known_theorem_bridges",
-          "unproved_lemma_candidates"
+          "unproved_lemma_candidates",
+          "formal_contract_not_verified"
         ],
         "open_obligations": [
           "G-O2",
@@ -795,6 +890,7 @@
         "open_lemma_candidates": [
           "G-L1"
         ],
+        "formal_contract_status": "not_formalized_open",
         "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
       }
     },
@@ -976,6 +1072,36 @@
         "Stress-test whether observed twin density survives generator and modulus changes.",
         "Treat density agreement as a guide for lemma search, not as proof."
       ],
+      "formal_proof_contract": {
+        "schema": "primeproject.formal-proof-contract.v1",
+        "problem_id": "twin-prime",
+        "proof_assistant_target": "Lean 4",
+        "status": "not_formalized_open",
+        "theorem_name": "primeproject_twin_prime_conjecture",
+        "lean_statement": "theorem primeproject_twin_prime_conjecture : forall N : Nat, exists p : Nat, N < p /\\ Nat.Prime p /\\ Nat.Prime (p + 2) := by",
+        "allowed_artifact_inputs": [
+          "bounded_certificate_merkle_root",
+          "formal_proof_verified_bridge",
+          "accepted_theorem_reference"
+        ],
+        "required_artifacts": [
+          "bounded twin-pair certificate",
+          "formal exact gap-2 lower-bound theorem",
+          "formal infinitude bridge"
+        ],
+        "forbidden_assumptions": [
+          "TwinPrimeConjecture",
+          "HardyLittlewood k-tuple conjecture as an axiom",
+          "bounded gaps theorem treated as exact gap 2"
+        ],
+        "acceptance_rules": [
+          "No `sorry`, `admit`, unchecked axiom, or imported theorem equivalent to the target conjecture.",
+          "Every finite computation must be represented by a bounded certificate and every infinite step by a formal theorem.",
+          "The proof-status gate must report eligible_for_independent_review before any page can change from open_not_proven.",
+          "An external reviewer must be able to replay the kernel check without trusting PrimeProject code."
+        ],
+        "current_blocker": "open infinite obligations remain outside the proof assistant kernel"
+      },
       "claim_boundary": "No proof claim. Current evidence is finite counting and heuristic comparison.",
       "proof_status_gate": {
         "schema": "primeproject.open-problem-proof-status-gate.v1",
@@ -986,7 +1112,8 @@
           "open_obligations",
           "open_attack_graph_links",
           "unsatisfied_known_theorem_bridges",
-          "unproved_lemma_candidates"
+          "unproved_lemma_candidates",
+          "formal_contract_not_verified"
         ],
         "open_obligations": [
           "TP-O2",
@@ -1007,6 +1134,7 @@
         "open_lemma_candidates": [
           "TP-L1"
         ],
+        "formal_contract_status": "not_formalized_open",
         "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
       }
     }

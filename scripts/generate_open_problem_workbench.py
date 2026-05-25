@@ -12,6 +12,7 @@ SCHEMA = "primeproject.open-problem-workbench.v1"
 CERTIFICATE_SCHEMA = "primeproject.bounded-proof-certificate.v1"
 PROOF_ATTEMPT_SCHEMA = "primeproject.proof-attempt-ledger.v1"
 PROOF_STATUS_GATE_SCHEMA = "primeproject.open-problem-proof-status-gate.v1"
+FORMAL_PROOF_CONTRACT_SCHEMA = "primeproject.formal-proof-contract.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -140,6 +141,7 @@ def proof_status_gate(problem: dict[str, object]) -> dict[str, object]:
     graph_edges = graph.get("edges", []) if isinstance(graph, dict) else []
     bridges = attempt.get("known_theorem_bridges", []) if isinstance(attempt, dict) else []
     lemmas = attempt.get("lemma_candidates", []) if isinstance(attempt, dict) else []
+    contract = problem.get("formal_proof_contract", {})
 
     proof_statuses = {"proved_by_certificate", "formal_proof_verified", "accepted_theorem"}
     open_obligations = [
@@ -174,6 +176,8 @@ def proof_status_gate(problem: dict[str, object]) -> dict[str, object]:
         blockers.append("unsatisfied_known_theorem_bridges")
     if open_lemmas:
         blockers.append("unproved_lemma_candidates")
+    if not isinstance(contract, dict) or contract.get("status") != "formal_proof_verified":
+        blockers.append("formal_contract_not_verified")
 
     return {
         "schema": PROOF_STATUS_GATE_SCHEMA,
@@ -185,7 +189,40 @@ def proof_status_gate(problem: dict[str, object]) -> dict[str, object]:
         "open_attack_graph_links": open_graph_links,
         "unsatisfied_known_theorem_bridges": unsatisfied_bridges,
         "open_lemma_candidates": open_lemmas,
+        "formal_contract_status": contract.get("status", "missing") if isinstance(contract, dict) else "missing",
         "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem.",
+    }
+
+
+def formal_proof_contract(
+    *,
+    problem_id: str,
+    theorem_name: str,
+    lean_statement: str,
+    forbidden_assumptions: list[str],
+    required_artifacts: list[str],
+) -> dict[str, object]:
+    return {
+        "schema": FORMAL_PROOF_CONTRACT_SCHEMA,
+        "problem_id": problem_id,
+        "proof_assistant_target": "Lean 4",
+        "status": "not_formalized_open",
+        "theorem_name": theorem_name,
+        "lean_statement": lean_statement,
+        "allowed_artifact_inputs": [
+            "bounded_certificate_merkle_root",
+            "formal_proof_verified_bridge",
+            "accepted_theorem_reference",
+        ],
+        "required_artifacts": required_artifacts,
+        "forbidden_assumptions": forbidden_assumptions,
+        "acceptance_rules": [
+            "No `sorry`, `admit`, unchecked axiom, or imported theorem equivalent to the target conjecture.",
+            "Every finite computation must be represented by a bounded certificate and every infinite step by a formal theorem.",
+            "The proof-status gate must report eligible_for_independent_review before any page can change from open_not_proven.",
+            "An external reviewer must be able to replay the kernel check without trusting PrimeProject code.",
+        ],
+        "current_blocker": "open infinite obligations remain outside the proof assistant kernel",
     }
 
 
@@ -306,6 +343,21 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
             "Prove an explicit equivalence strong enough to imply all non-trivial zeros lie on Re(s)=1/2.",
             "Show every numerical or symbolic step is independent of bounded search limits.",
         ],
+        "formal_proof_contract": formal_proof_contract(
+            problem_id="riemann",
+            theorem_name="primeproject_riemann_hypothesis",
+            lean_statement="theorem primeproject_riemann_hypothesis : forall rho, Zeta.NontrivialZero rho -> rho.re = (1/2 : Real) := by",
+            forbidden_assumptions=[
+                "RiemannHypothesis",
+                "Zeta.nontrivialZeros_on_criticalLine",
+                "any axiom implying all non-trivial zeta zeros have real part 1/2",
+            ],
+            required_artifacts=[
+                "bounded theta/pi certificate",
+                "formal all-x prime-counting error theorem",
+                "formal RH-equivalence bridge",
+            ],
+        ),
         "candidate_strategy": [
             "Use generator-fingerprint residuals to look for structured departures from PNT-scale noise.",
             "Convert any stable residual law into a falsifiable analytic lemma before treating it as proof evidence.",
@@ -451,6 +503,21 @@ def build_collatz(limit: int) -> dict[str, object]:
             "Search for monotone certificates on blocks, then try to lift them to all blocks recursively.",
             "Treat random-walk drift evidence as heuristic until a deterministic certificate exists.",
         ],
+        "formal_proof_contract": formal_proof_contract(
+            problem_id="collatz",
+            theorem_name="primeproject_collatz_conjecture",
+            lean_statement="theorem primeproject_collatz_conjecture : forall n : Nat, 0 < n -> exists k, Collatz.iterate k n = 1 := by",
+            forbidden_assumptions=[
+                "CollatzConjecture",
+                "well_foundedness of Collatz trajectories without proof",
+                "any axiom excluding non-trivial cycles or divergent paths",
+            ],
+            required_artifacts=[
+                "bounded trajectory certificate",
+                "formal residue-block descent theorem",
+                "formal cycle and divergence exclusion theorem",
+            ],
+        ),
         "claim_boundary": "No proof claim. Current evidence is finite exhaustive replay plus blocker list.",
     }
 
@@ -577,6 +644,21 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
             "Compare bounded failures against Hardy-Littlewood-style expected representation counts.",
             "Escalate only if the thin-class model yields a provable lower bound above zero.",
         ],
+        "formal_proof_contract": formal_proof_contract(
+            problem_id="goldbach",
+            theorem_name="primeproject_goldbach_conjecture",
+            lean_statement="theorem primeproject_goldbach_conjecture : forall n : Nat, Even n -> 2 < n -> exists p q : Nat, Nat.Prime p /\\ Nat.Prime q /\\ n = p + q := by",
+            forbidden_assumptions=[
+                "GoldbachConjecture",
+                "HardyLittlewood prime-pair independence as an axiom",
+                "any axiom asserting positive Goldbach representation counts",
+            ],
+            required_artifacts=[
+                "bounded witness certificate",
+                "formal positive representation-count lower bound",
+                "formal threshold bridge below certificate limit",
+            ],
+        ),
         "claim_boundary": "No proof claim. Current evidence is bounded exhaustive verification.",
     }
 
@@ -701,6 +783,21 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
             "Stress-test whether observed twin density survives generator and modulus changes.",
             "Treat density agreement as a guide for lemma search, not as proof.",
         ],
+        "formal_proof_contract": formal_proof_contract(
+            problem_id="twin-prime",
+            theorem_name="primeproject_twin_prime_conjecture",
+            lean_statement="theorem primeproject_twin_prime_conjecture : forall N : Nat, exists p : Nat, N < p /\\ Nat.Prime p /\\ Nat.Prime (p + 2) := by",
+            forbidden_assumptions=[
+                "TwinPrimeConjecture",
+                "HardyLittlewood k-tuple conjecture as an axiom",
+                "bounded gaps theorem treated as exact gap 2",
+            ],
+            required_artifacts=[
+                "bounded twin-pair certificate",
+                "formal exact gap-2 lower-bound theorem",
+                "formal infinitude bridge",
+            ],
+        ),
         "claim_boundary": "No proof claim. Current evidence is finite counting and heuristic comparison.",
     }
 

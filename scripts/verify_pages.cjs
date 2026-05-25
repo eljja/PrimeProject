@@ -229,6 +229,7 @@ async function main() {
           proofAttemptText: document.querySelector("#proofAttempt").textContent,
           proofMapText: document.querySelector("#proofMap").textContent,
           proofStatusGateText: document.querySelector("#proofStatusGate").textContent,
+          formalContractText: document.querySelector("#formalContract").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
           text: document.body.textContent,
         }), problemId),
@@ -271,6 +272,9 @@ async function main() {
         !page.proofStatusGateText.includes("blocked open infinite obligation") ||
         !page.proofStatusGateText.includes("bounded theorem only") ||
         !page.proofStatusGateText.includes("Machine gate") ||
+        !page.formalContractText.includes("Lean 4") ||
+        !page.formalContractText.includes("Forbidden assumptions") ||
+        !page.formalContractText.includes("No `sorry`") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||
         !page.text.includes("No proof claim"),
