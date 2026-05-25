@@ -115,6 +115,15 @@ def artifact_semantics(role: str, payload: dict[str, Any]) -> dict[str, Any]:
             "failed_expectation_count": summary.get("failed_expectation_count"),
             "public_safe_fixture_count": summary.get("public_safe_fixture_count"),
         }
+    if role == "claim_language_audit":
+        summary = payload.get("summary") or {}
+        quality_gate = payload.get("quality_gate") or {}
+        return {
+            "quality_gate_status": quality_gate.get("status"),
+            "scanned_file_count": summary.get("scanned_file_count"),
+            "scanned_line_count": summary.get("scanned_line_count"),
+            "claim_language_fail_count": summary.get("fail_count"),
+        }
     return {}
 
 
@@ -136,6 +145,7 @@ def publication_gates(
     bitcoin = dimensions.get("bitcoin_integration", {})
     artifact_by_role = {artifact.get("role"): artifact for artifact in artifacts}
     fixture_audit = artifact_by_role.get("collection_fixture_audit", {})
+    claim_language_audit = artifact_by_role.get("claim_language_audit", {})
     fixture_count = int(fixture_audit.get("fixture_count") or 0)
     public_safe_fixture_count = int(fixture_audit.get("public_safe_fixture_count") or 0)
     fixture_failed_count = int(fixture_audit.get("failed_expectation_count") or 0)
@@ -146,6 +156,12 @@ def publication_gates(
         and fixture_count > 0
         and public_safe_fixture_count == fixture_count
         and fixture_failed_count == 0
+    )
+    claim_language_passed = (
+        claim_language_audit.get("exists")
+        and claim_language_audit.get("schema") == "primeproject.claim-language-audit.v1"
+        and claim_language_audit.get("quality_gate_status") == "pass"
+        and int(claim_language_audit.get("claim_language_fail_count") or 0) == 0
     )
     sensitive_available = [
         entry.get("baseline_id")
@@ -197,6 +213,18 @@ def publication_gates(
             "Published evidence should include checksummed source JSON artifacts.",
             {"artifact_count": len(artifacts)},
             severity="medium",
+        ),
+        gate(
+            "claim_language_gate",
+            bool(claim_language_passed),
+            "Public README/docs/GitHub Pages language must not exceed the current evidence boundary.",
+            {
+                "has_claim_language_audit": bool(claim_language_audit.get("exists")),
+                "quality_gate_status": claim_language_audit.get("quality_gate_status"),
+                "fail_count": int(claim_language_audit.get("claim_language_fail_count") or 0),
+                "scanned_file_count": int(claim_language_audit.get("scanned_file_count") or 0),
+            },
+            severity="high",
         ),
         gate(
             "provenance_gate",

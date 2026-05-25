@@ -300,6 +300,8 @@ python -m prime_audit.cli replication-audit `
 
 `evidence-pack`은 공개 산출물의 재현성과 주장 한계를 묶는 최종 출판 단위다. 입력 JSON의 SHA-256, schema, byte size를 기록하고 publication gate를 통과했는지 표시한다.
 
+`claim-language-audit`는 Evidence Pack 직전에 README, docs, GitHub Pages HTML/JS 문구를 검사한다. 목적은 계산 결과가 아니라 공개 claim 문구가 현재 evidence boundary를 넘어서는 순간을 잡는 것이다. 현재 공개 문구 14개 파일은 real-world/Bitcoin attribution이 blocked boundary로 남는지, private material이 local/forbidden policy로만 언급되는지, proof/guarantee 표현이 고위험 주장에 붙지 않는지 모두 통과한다.
+
 ```powershell
 python -m prime_audit.cli evidence-pack `
   --manifest data/baselines/real_world/manifest.json `
@@ -307,7 +309,7 @@ python -m prime_audit.cli evidence-pack `
   --attribution-grid data/attribution_confound_grid.json `
   --baseline-acceptance data/baseline_acceptance.json `
   --collection-intake data/collection_intake.json `
-  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_promotion_plan=data/baseline_promotion_plan.json collection_handoff=data/collection_handoff.json collection_submission_contract=data/collection_submission_contract.json collection_submission_lint=data/collection_submission_lint.json collection_fixture_audit=data/collection_fixture_audit.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json `
+  --artifact project_evolution=data/project_evolution.json snapshot_manifest=data/snapshots/manifest.json collection_matrix=data/collection_matrix.json collection_power=data/collection_power.json provenance_requirements=data/provenance_requirements.json provenance_audit=data/provenance_audit.json baseline_promotion_plan=data/baseline_promotion_plan.json collection_handoff=data/collection_handoff.json collection_submission_contract=data/collection_submission_contract.json collection_submission_lint=data/collection_submission_lint.json collection_fixture_audit=data/collection_fixture_audit.json claim_language_audit=data/claim_language_audit.json null_calibration=data/null_calibration.json replication_audit=data/replication_audit.json feature_vectors=data/feature_vectors.json `
   --classifier-report data/crypto_classifier_report.json `
   --generated-at 2026-05-24T16:56:40+00:00 `
   --output data/evidence_pack.json
@@ -342,7 +344,7 @@ python -m prime_audit.cli artifact-lineage `
   --output data/artifact_lineage.json
 ```
 
-현재 lineage는 22개 artifact node와 52개 dependency edge를 추적한다. `feature_vectors`와 `classifier_report`는 `readiness`와 `evidence_pack`의 입력으로 연결되고, `collection_handoff`는 manifest, collection matrix/power, provenance, acceptance, promotion, classifier scope를 묶는 sim-to-real 실행 산출물로 연결된다. `collection_fixture_audit`는 submission contract와 lint 사이의 pass/warn/block 경계를 고정하고, `collection_intake`는 그 handoff task에 실제 제출 aggregate artifact가 맞는지 검증한 뒤 `readiness`와 `evidence_pack`으로 이어지는 안전 게이트다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`, `artifact_lineage`, `decision_protocol`, `falsification_battery`, `publication_consistency`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage/consistency 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> post-pack audit -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
+현재 lineage는 23개 artifact node와 53개 dependency edge를 추적한다. `feature_vectors`와 `classifier_report`는 `readiness`와 `evidence_pack`의 입력으로 연결되고, `collection_handoff`는 manifest, collection matrix/power, provenance, acceptance, promotion, classifier scope를 묶는 sim-to-real 실행 산출물로 연결된다. `collection_fixture_audit`는 submission contract와 lint 사이의 pass/warn/block 경계를 고정하고, `claim_language_audit`는 공개 문구가 evidence boundary를 넘지 않는지 고정하며, `collection_intake`는 그 handoff task에 실제 제출 aggregate artifact가 맞는지 검증한 뒤 `readiness`와 `evidence_pack`으로 이어지는 안전 게이트다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`, `artifact_lineage`, `decision_protocol`, `falsification_battery`, `publication_consistency`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage/consistency 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> post-pack audit -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
 
 ## Decision Protocol
 
@@ -413,7 +415,7 @@ python scripts/reproduce_publication.py
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화하되, 중복 나열을 줄이고 의사결정에 필요한 근거만 남긴다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> collection handoff -> submission contract -> submission lint -> fixture audit -> collection intake -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery -> publication consistency.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> collection handoff -> submission contract -> submission lint -> fixture audit -> collection intake -> readiness -> claim-language audit -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery -> publication consistency.
 - 현황 지표: scale, controlled signal, attribution-ready generator baseline, public control, collection intake, checksummed evidence, claim level만 상단에 남겨 현재 판단에 직접 필요한 수치로 제한한다.
 - Visual Change Trail: prime regularity demo, 10M scale lift, controlled attribution, sim-to-real gates, publication guardrails만 release-style milestone로 보여준다.
 - Evidence Spine: Scale, Signal, Sim-to-Real, Governance, Publication 축으로 기존 산출물을 한 번만 재배치한다. 각 축은 점수, 상태, artifact 개수와 짧은 artifact 이름, gate 문장, 현재 proof를 함께 표시한다.

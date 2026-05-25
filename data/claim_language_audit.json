@@ -1,0 +1,107 @@
+{
+  "schema": "primeproject.claim-language-audit.v1",
+  "generated_at": "2026-05-24T16:56:40+00:00",
+  "summary": {
+    "status": "pass",
+    "scanned_file_count": 14,
+    "scanned_line_count": 6638,
+    "rule_count": 5,
+    "finding_count": 0,
+    "fail_count": 0
+  },
+  "quality_gate": {
+    "status": "pass",
+    "message": "Public claim language stays within the current evidence boundary."
+  },
+  "policy": {
+    "scope": "README, docs, GitHub Pages HTML, and bundled frontend copy",
+    "claim_boundary": "public_demo_only plus controlled_synthetic_only signal; real-world and Bitcoin attribution remain blocked",
+    "sensitive_material_policy": "Private keys, private primes, seeds, raw key files, and owner-identifying signature material must stay local."
+  },
+  "scanned_files": [
+    {
+      "path": "assets/app.js",
+      "line_count": 4267
+    },
+    {
+      "path": "docs/attribution-benchmark-research.md",
+      "line_count": 105
+    },
+    {
+      "path": "docs/baseline-comparison-research.md",
+      "line_count": 84
+    },
+    {
+      "path": "docs/bitcoin-practical-research.md",
+      "line_count": 79
+    },
+    {
+      "path": "docs/conjecture-lab.md",
+      "line_count": 166
+    },
+    {
+      "path": "docs/crypto-prime-catalog.md",
+      "line_count": 72
+    },
+    {
+      "path": "docs/generator-fingerprint-research.md",
+      "line_count": 72
+    },
+    {
+      "path": "docs/prime-regularity-and-crypto-prime-plan.md",
+      "line_count": 342
+    },
+    {
+      "path": "docs/PrimeProject_Strategic_Review_V2.md",
+      "line_count": 67
+    },
+    {
+      "path": "docs/real-world-baseline-research.md",
+      "line_count": 448
+    },
+    {
+      "path": "docs/validation-experiment-results.md",
+      "line_count": 52
+    },
+    {
+      "path": "index.html",
+      "line_count": 678
+    },
+    {
+      "path": "PrimeProject_Strategic_Review.md",
+      "line_count": 53
+    },
+    {
+      "path": "README.md",
+      "line_count": 153
+    }
+  ],
+  "rules": [
+    {
+      "rule_id": "cryptographic_break_or_key_recovery",
+      "severity": "critical",
+      "message": "Security-break or key-recovery wording must be explicitly scoped as blocked, impossible, toy, or defensive."
+    },
+    {
+      "rule_id": "unsupported_real_world_attribution",
+      "severity": "high",
+      "message": "Real-world attribution language must remain gated until accepted real baselines and labelled vectors exist."
+    },
+    {
+      "rule_id": "unsupported_bitcoin_attribution",
+      "severity": "high",
+      "message": "Bitcoin attribution wording must be tied to nonce-risk evidence and stay blocked without wallet/library metadata."
+    },
+    {
+      "rule_id": "unsupported_proof_or_guarantee",
+      "severity": "high",
+      "message": "Proof or guarantee wording cannot be attached to high-risk real-world, Bitcoin, or security claims."
+    },
+    {
+      "rule_id": "sensitive_material_publication",
+      "severity": "critical",
+      "message": "Sensitive-material field names may appear only as forbidden/local handling policy, never as public payload claims."
+    }
+  ],
+  "findings": []
+}

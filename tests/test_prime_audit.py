@@ -34,6 +34,7 @@ from prime_audit.bitcoin import audit_bitcoin_signatures, parse_der_signature, s
 from prime_audit.bitcoin_integration import build_bitcoin_generator_risk_report
 from prime_audit.catalog import classify_public_prime
 from prime_audit.claim_ledger import build_claim_ledger
+from prime_audit.claim_language import build_claim_language_audit
 from prime_audit.cli import main as cli_main
 from prime_audit.collection_contract import build_collection_submission_contract
 from prime_audit.collection_fixture_audit import build_collection_fixture_audit
@@ -844,6 +845,50 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("forbidden_public_fields", reasons)
         self.assertIn("aggregate_artifact_sha256_reused", reasons)
 
+    def test_claim_language_audit_blocks_unsupported_public_claims(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp = Path(tmp_dir)
+            public = tmp / "README.md"
+            public.write_text("This tool proves real-world Bitcoin attribution.\n", encoding="utf-8")
+
+            audit = build_claim_language_audit(
+                root=tmp,
+                paths=["README.md"],
+                generated_at="2026-05-24T00:00:00+00:00",
+            )
+
+        self.assertEqual(audit["schema"], "primeproject.claim-language-audit.v1")
+        self.assertEqual(audit["quality_gate"]["status"], "fail")
+        self.assertEqual(audit["summary"]["fail_count"], 3)
+        self.assertEqual(
+            {finding["rule_id"] for finding in audit["findings"]},
+            {
+                "unsupported_bitcoin_attribution",
+                "unsupported_proof_or_guarantee",
+                "unsupported_real_world_attribution",
+            },
+        )
+
+    def test_claim_language_audit_accepts_guarded_boundaries(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp = Path(tmp_dir)
+            public = tmp / "README.md"
+            public.write_text(
+                "Bitcoin attribution remains blocked until nonce-risk metadata exists.\n"
+                "Real-world attribution is gated before accepted baselines are collected.\n"
+                "private_key must not publish and stays local.\n",
+                encoding="utf-8",
+            )
+
+            audit = build_claim_language_audit(
+                root=tmp,
+                paths=["README.md"],
+                generated_at="2026-05-24T00:00:00+00:00",
+            )
+
+        self.assertEqual(audit["quality_gate"]["status"], "pass")
+        self.assertEqual(audit["summary"]["fail_count"], 0)
+
     def test_collection_intake_blocks_missing_or_sensitive_submissions(self) -> None:
         handoff = {
             "schema": "primeproject.collection-handoff.v1",
@@ -1222,6 +1267,43 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertFalse(fixture_gate["passed"])
         self.assertEqual(fixture_gate["evidence"]["quality_gate_status"], "fail")
 
+    def test_evidence_pack_requires_passing_claim_language_audit(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        readiness = build_research_readiness_report(manifest=manifest)
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            path = Path(tmp_dir) / "claim_language_audit.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "schema": "primeproject.claim-language-audit.v1",
+                        "summary": {
+                            "status": "fail",
+                            "scanned_file_count": 1,
+                            "scanned_line_count": 1,
+                            "fail_count": 1,
+                        },
+                        "quality_gate": {"status": "fail"},
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            pack = build_evidence_pack(
+                manifest=manifest,
+                readiness=readiness,
+                generated_at="2026-05-22T00:00:00+00:00",
+                file_paths={"claim_language_audit": path},
+            )
+
+        claim_language_artifact = next(
+            artifact for artifact in pack["artifacts"] if artifact["role"] == "claim_language_audit"
+        )
+        claim_language_gate = next(gate for gate in pack["publication_gates"] if gate["code"] == "claim_language_gate")
+        self.assertEqual(claim_language_artifact["quality_gate_status"], "fail")
+        self.assertEqual(claim_language_artifact["claim_language_fail_count"], 1)
+        self.assertFalse(claim_language_gate["passed"])
+        self.assertEqual(claim_language_gate["evidence"]["fail_count"], 1)
+
     def test_claim_ledger_blocks_unsupported_real_world_claims(self) -> None:
         evidence = {
             "schema": "primeproject.evidence-pack.v1",
@@ -1528,6 +1610,7 @@ class PrimeAuditTests(unittest.TestCase):
         decision = load_repo_json("data/decision_protocol.json")
         falsification = load_repo_json("data/falsification_battery.json")
         consistency = load_repo_json("data/publication_consistency.json")
+        claim_language = load_repo_json("data/claim_language_audit.json")
 
         metrics = project["metrics"]
         sim_to_real = readiness["dimensions"]["sim_to_real"]
@@ -1547,6 +1630,9 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(metrics["intake_accepted"], intake["summary"]["accepted_count"])
         self.assertEqual(metrics["intake_blocked"], intake["summary"]["blocked_count"])
         self.assertEqual(metrics["checksummed_artifacts"], evidence["artifact_count"])
+        self.assertEqual(metrics["claim_language_scanned_files"], claim_language["summary"]["scanned_file_count"])
+        self.assertEqual(metrics["claim_language_scanned_lines"], claim_language["summary"]["scanned_line_count"])
+        self.assertEqual(metrics["claim_language_failures"], claim_language["summary"]["fail_count"])
         self.assertEqual(metrics["blocking_gaps"], len(readiness["blocking_gaps"]))
         self.assertEqual(metrics["claim_ledger_allowed"], claim_ledger["summary"]["allowed_count"])
         self.assertEqual(metrics["claim_ledger_blocked"], claim_ledger["summary"]["blocked_count"])
@@ -1561,6 +1647,11 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(metrics["publication_consistency_status"], consistency["summary"]["status"])
         self.assertEqual(metrics["publication_guard_checks"], falsification["summary"]["check_count"] + consistency["summary"]["check_count"])
         self.assertIn("publication-consistency", {phase["id"] for phase in project["phases"]})
+        self.assertIn("claim-language-audit", {phase["id"] for phase in project["phases"]})
+        self.assertIn(
+            ["claim-language-audit", "evidence-pack"],
+            project["connections"],
+        )
         self.assertIn(
             ["falsification-battery", "publication-consistency"],
             project["connections"],

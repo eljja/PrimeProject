@@ -51,12 +51,15 @@
     "classifier_accuracy": 0.3333333333333333,
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
-    "checksummed_artifacts": 20,
+    "checksummed_artifacts": 21,
+    "claim_language_scanned_files": 14,
+    "claim_language_scanned_lines": 6638,
+    "claim_language_failures": 0,
     "blocking_gaps": 2,
     "claim_ledger_allowed": 3,
     "claim_ledger_blocked": 2,
-    "lineage_nodes": 22,
-    "lineage_edges": 52,
+    "lineage_nodes": 23,
+    "lineage_edges": 53,
     "lineage_checksum_mismatches": 0,
     "lineage_cycles": 0,
     "decision_protocol_allowed": 2,
@@ -99,7 +102,7 @@
       },
       {
         "stage": "Publish",
-        "phase_ids": ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery", "publication-consistency"],
+        "phase_ids": ["readiness-gates", "claim-language-audit", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery", "publication-consistency"],
         "status": "active",
         "signal": "5 falsification checks, 6 consistency checks, and controlled-synthetic-only claim floor"
       }
@@ -139,8 +142,8 @@
           "marker": "05",
           "title": "Publication guardrails",
           "state": "guarded",
-          "measure": "20 checked artifacts / 14 gates / 11 guard checks",
-          "proof": "claim ledger, lineage, decision protocol, falsification battery, and consistency audit prevent overclaiming"
+          "measure": "21 checked artifacts / 15 gates / 11 guard checks",
+          "proof": "claim-language audit, claim ledger, lineage, decision protocol, falsification battery, and consistency audit prevent overclaiming"
         }
       ],
       "evidence_flow": [
@@ -213,8 +216,8 @@
           "score": 80,
           "status": "guarded",
           "artifacts": ["data/evidence_pack.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json", "data/publication_consistency.json"],
-          "gate": "20 checked artifacts, 14 gates, 22 lineage nodes, 11 guard checks",
-          "proof": "Public statements are constrained by checksums, lineage, decision rules, falsification guards, and consistency checks."
+          "gate": "21 checked artifacts, 15 gates, 23 lineage nodes, 11 guard checks",
+          "proof": "Public statements are constrained by claim-language audit, checksums, lineage, decision rules, falsification guards, and consistency checks."
         }
       ]
     },
@@ -241,8 +244,8 @@
       },
       {
         "label": "Publication guardrail",
-        "impact": "Claim ledger, lineage, decision rules, falsification checks, and consistency checks keep the public page at demo/scaffold claim strength.",
-        "metric": "20 artifacts / 11 guard checks"
+        "impact": "Claim-language audit, claim ledger, lineage, decision rules, falsification checks, and consistency checks keep the public page at demo/scaffold claim strength.",
+        "metric": "21 artifacts / 11 guard checks"
       }
     ],
     "research_delta": {
@@ -274,7 +277,7 @@
         {
           "track": "Publication",
           "before": "Informal narrative claims",
-          "current": "20 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery, consistency audit",
+          "current": "21 checksummed artifacts, claim-language audit, claim ledger, lineage DAG, decision protocol, falsification battery, consistency audit",
           "state": "guarded"
         }
       ],
@@ -488,6 +491,14 @@
       "outputs": ["prime_audit/evidence_pack.py", "data/evidence_pack.json"]
     },
     {
+      "id": "claim-language-audit",
+      "label": "Claim-language audit",
+      "status": "active",
+      "layer": "publication",
+      "summary": "Scans README, docs, and GitHub Pages copy so public wording cannot exceed the current evidence boundary.",
+      "outputs": ["prime_audit/claim_language.py", "data/claim_language_audit.json"]
+    },
+    {
       "id": "claim-ledger",
       "label": "Claim ledger",
       "status": "active",
@@ -553,6 +564,7 @@
     ["collection-submission-lint", "collection-fixture-audit"],
     ["collection-fixture-audit", "collection-intake"],
     ["collection-intake", "readiness-gates"],
+    ["claim-language-audit", "evidence-pack"],
     ["collection-intake", "evidence-pack"],
     ["readiness-gates", "evidence-pack"],
     ["evidence-pack", "claim-ledger"],

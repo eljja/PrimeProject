@@ -13,6 +13,7 @@ from .baselines import build_generator_baseline, compare_fingerprint_to_baseline
 from .bitcoin import audit_bitcoin_signatures, secp256k1_constants_report
 from .bitcoin_integration import build_bitcoin_generator_risk_report
 from .claim_ledger import build_claim_ledger
+from .claim_language import build_claim_language_audit
 from .collection_contract import build_collection_submission_contract
 from .collection_handoff import build_collection_handoff
 from .collection_intake import build_collection_intake, load_intake_records
@@ -269,6 +270,15 @@ def main() -> int:
     bitcoin_risk_parser.add_argument("--signature-audit", required=True)
     bitcoin_risk_parser.add_argument("--manifest", default=None)
     bitcoin_risk_parser.add_argument("--output", required=True)
+
+    claim_language_parser = subparsers.add_parser(
+        "claim-language-audit",
+        help="Audit public README/docs/GitHub Pages wording against the current evidence boundary.",
+    )
+    claim_language_parser.add_argument("--root", default=".")
+    claim_language_parser.add_argument("--paths", nargs="*", default=None)
+    claim_language_parser.add_argument("--generated-at", default=None)
+    claim_language_parser.add_argument("--output", required=True)
 
     research_readiness_parser = subparsers.add_parser(
         "research-readiness",
@@ -686,6 +696,17 @@ def main() -> int:
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)
         payload = build_bitcoin_generator_risk_report(signature_audit, manifest)
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "claim-language-audit":
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_claim_language_audit(
+            root=args.root,
+            paths=args.paths,
+            generated_at=args.generated_at,
+        )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return 0
 

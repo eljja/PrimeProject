@@ -282,7 +282,7 @@ async function main() {
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
     !metrics.evolutionSpine.includes("fixture audit") ||
-    !metrics.evolutionSpine.includes("20 checked artifacts") ||
+    !metrics.evolutionSpine.includes("21 checked artifacts") ||
     !metrics.evolutionSpine.includes("publication consistency") ||
     !metrics.evolutionDelta.includes("Claim Boundaries") ||
     !metrics.evolutionDelta.includes("controlled grid + null + replication") ||
@@ -444,7 +444,7 @@ async function main() {
     !metrics.evidencePanel.includes("claim_promotion_guard") ||
     !metrics.evidencePanel.includes("controlled_synthetic_only") ||
     !metrics.evidencePanel.includes("reproducible") ||
-    !metrics.artifactLineageSummary.includes("22 nodes") ||
+    !metrics.artifactLineageSummary.includes("23 nodes") ||
     !metrics.evidencePanel.includes("real_world_generator_attribution") ||
     !metrics.evidencePanel.includes("bitcoin_nonce_risk_attribution") ||
     !metrics.evidencePanel.includes("blocked") ||
@@ -463,6 +463,8 @@ async function main() {
     !metrics.evidencePanel.includes("collection_submission_lint") ||
     !metrics.evidencePanel.includes("collection_fixture_audit") ||
     !metrics.evidencePanel.includes("collection_fixture_audit_gate") ||
+    !metrics.evidencePanel.includes("claim_language_audit") ||
+    !metrics.evidencePanel.includes("claim_language_gate") ||
     !metrics.evidencePanel.includes("quality pass") ||
     !metrics.evidencePanel.includes("collection_intake") ||
     !metrics.evidencePanel.includes("null_calibration") ||

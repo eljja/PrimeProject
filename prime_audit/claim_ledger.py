@@ -50,7 +50,7 @@ CLAIM_SPECS: tuple[ClaimSpec, ...] = (
     ),
     ClaimSpec(
         claim_id="real_world_generator_attribution",
-        title="Real-world library generator attribution is supported",
+        title="Real-world library generator attribution candidate",
         category="sim_to_real",
         claim_level="real_world_candidate",
         public_statement=(
@@ -74,7 +74,7 @@ CLAIM_SPECS: tuple[ClaimSpec, ...] = (
     ),
     ClaimSpec(
         claim_id="bitcoin_nonce_risk_attribution",
-        title="Bitcoin wallet/library nonce-risk attribution is supported",
+        title="Bitcoin wallet/library nonce-risk attribution candidate",
         category="bitcoin",
         claim_level="wallet_nonce_candidate",
         public_statement=(
