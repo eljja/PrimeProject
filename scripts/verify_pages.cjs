@@ -276,6 +276,8 @@ async function main() {
     !metrics.evolutionImpact.includes("Not supported yet") ||
     !metrics.evolutionImpact.includes("Next decisive test") ||
     !metrics.evolutionImpact.includes("Visual Change Trail") ||
+    !metrics.evolutionImpact.includes("Hardening Map") ||
+    !metrics.evolutionImpact.includes("feature_vector_path_public_relative") ||
     !metrics.evolutionImpact.includes("Scale lift") ||
     !metrics.evolutionImpact.includes("Publication guardrails") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||

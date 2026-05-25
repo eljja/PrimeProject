@@ -53,7 +53,7 @@
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
     "claim_language_scanned_files": 14,
-    "claim_language_scanned_lines": 6649,
+    "claim_language_scanned_lines": 6675,
     "claim_language_triggered_mentions": 88,
     "claim_language_guarded_mentions": 88,
     "claim_language_failures": 0,
@@ -178,6 +178,48 @@
           "score": 60,
           "status": "guarded",
           "evidence": "public_demo_only; real-world and Bitcoin attribution blocked"
+        }
+      ],
+      "hardening_map": [
+        {
+          "step": "01",
+          "layer": "Task provenance",
+          "risk": "Submitted provenance can name the wrong baseline or library.",
+          "guard": "provenance_record must match task baseline_id and library.",
+          "evidence": "provenance_baseline_id_mismatch fixture",
+          "status": "blocked"
+        },
+        {
+          "step": "02",
+          "layer": "Feature label",
+          "risk": "A feature vector can be labelled as a different generator family.",
+          "guard": "feature_vector_summary.label must match the task library.",
+          "evidence": "feature_vector_label_mismatch fixture",
+          "status": "blocked"
+        },
+        {
+          "step": "03",
+          "layer": "Record identity",
+          "risk": "Top-level baseline/library fields can contradict the task.",
+          "guard": "Optional record identity fields must match the task when present.",
+          "evidence": "record_baseline_id_mismatch fixture",
+          "status": "blocked"
+        },
+        {
+          "step": "04",
+          "layer": "Public path",
+          "risk": "A public artifact can leak local paths, URLs, or parent traversal.",
+          "guard": "feature_vector_path must be a public relative path.",
+          "evidence": "feature_vector_path_public_relative fixture",
+          "status": "blocked"
+        },
+        {
+          "step": "05",
+          "layer": "Fixture replay",
+          "risk": "Lint behavior can drift after contract changes.",
+          "guard": "10 public-safe fixtures replay pass/warn/block boundaries before intake.",
+          "evidence": "10 fixtures, 0 expectation failures",
+          "status": "guarded"
         }
       ],
       "evidence_spine": [

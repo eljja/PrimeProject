@@ -207,7 +207,7 @@ python -m prime_audit.cli collection-submission-contract `
   --output data/collection_submission_contract.json
 ```
 
-현재 계약은 10개 task template을 만들고, 각 제출 record에 `task_id`, `sample_count`, `claim_scope`, `aggregate_artifact_sha256`, `provenance_record`, `feature_vector_path`, `feature_vector_summary` 7개 필드를 요구한다. `feature_vector_summary`는 `generator-feature-vector.v1` schema, 14개 scalar feature, `record_count == sample_count`, task bit length와 맞는 `bit_length_mean`, finite numeric value 조건을 만족해야 한다.
+현재 계약은 10개 task template을 만들고, 각 제출 record에 `task_id`, `sample_count`, `claim_scope`, `aggregate_artifact_sha256`, `provenance_record`, `feature_vector_path`, `feature_vector_summary` 7개 필드를 요구한다. `feature_vector_path`는 공개 가능한 상대 경로여야 하며 absolute path, drive prefix, URL, parent traversal을 허용하지 않는다. `feature_vector_summary`는 `generator-feature-vector.v1` schema, task library와 일치하는 label, 14개 scalar feature, `record_count == sample_count`, task bit length와 맞는 `bit_length_mean`, finite numeric value 조건을 만족해야 한다. 제출 record에 `baseline_id`, `library`, `track`, `object_type`, `bit_length`가 별도로 들어오면 이 optional identity 값도 task와 일치해야 한다.
 
 이 단계의 실용적 가치는 두 가지다. 첫째, OpenSSL/BoringSSL/Go/wallet 수집자가 private material을 공개하지 않고도 재현 가능한 aggregate artifact를 제출할 수 있는 템플릿을 제공한다. 둘째, intake 전에 checksum 재사용, feature-vector 누락, claim scope 오류, forbidden field 노출 같은 실패 조건을 공개 산출물로 고정해 “나중에 결과를 보고 기준을 바꾸는” 위험을 줄인다. GitHub Pages의 Baseline Lab은 이 계약을 Submission Contract 블록으로 표시하고, Evidence Pack은 `collection_submission_contract_gate`로 체크섬 포함 여부를 검사한다.
 
@@ -226,7 +226,7 @@ python -m prime_audit.cli collection-submission-lint `
 
 ## Collection Fixture Audit
 
-`collection-fixture-audit`는 실제 collector 제출 전에 lint가 의도대로 작동하는지 검증하는 public-safe regression suite다. 정상 제출, 10% TV floor 미달 경고, feature-vector 누락, forbidden field 노출, aggregate checksum 재사용 사례를 synthetic fixture로 만들고, 각 fixture의 expected status와 실제 lint status를 비교한다.
+`collection-fixture-audit`는 실제 collector 제출 전에 lint가 의도대로 작동하는지 검증하는 public-safe regression suite다. 정상 제출, 10% TV floor 미달 경고, feature-vector 누락, forbidden field 노출, provenance identity 불일치, feature label 불일치, top-level record identity 불일치, non-public feature-vector path, aggregate checksum 재사용 사례를 synthetic fixture로 만들고, 각 fixture의 expected status와 실제 lint status를 비교한다.
 
 ```powershell
 python -m prime_audit.cli collection-fixture-audit `
@@ -234,7 +234,7 @@ python -m prime_audit.cli collection-fixture-audit `
   --output data/collection_fixture_audit.json
 ```
 
-현재 bundled fixture audit은 6개 fixture 모두 expectation을 만족한다. 이 산출물의 의미는 “실제 OpenSSL/BoringSSL 데이터가 수집됐다”가 아니라, 실제 데이터가 들어오기 전에 제출 계약과 lint의 실패/경고 경계가 재현 가능하게 고정됐다는 것이다. GitHub Pages의 Baseline Lab은 Fixture Audit 블록으로 이 결과를 보여주고, Evidence Pack은 `collection_fixture_audit_gate`로 해당 검증 산출물이 포함됐는지뿐 아니라 `quality_gate.status == pass`, 실패 fixture 0개, public-safe fixture 수 일치까지 확인한다.
+현재 bundled fixture audit은 10개 fixture 모두 expectation을 만족한다. 이 산출물의 의미는 “실제 OpenSSL/BoringSSL 데이터가 수집됐다”가 아니라, 실제 데이터가 들어오기 전에 제출 계약과 lint의 실패/경고 경계가 재현 가능하게 고정됐다는 것이다. GitHub Pages의 Baseline Lab은 Fixture Audit 블록으로 이 결과를 보여주고, Evidence Pack은 `collection_fixture_audit_gate`로 해당 검증 산출물이 포함됐는지뿐 아니라 `quality_gate.status == pass`, 실패 fixture 0개, public-safe fixture 수 일치까지 확인한다.
 
 ## Collection Intake
 
@@ -246,7 +246,7 @@ python -m prime_audit.cli collection-intake `
   --output data/collection_intake.json
 ```
 
-현재 공개 번들은 raw 실세계 제출물이 없으므로 `0 submitted / 0 accepted / 10 blocked` 상태다. 특히 OpenSSL 2048-bit와 BoringSSL 2048-bit P0 task 두 개가 아직 막혀 있으며, 10% TV floor 기준으로 총 9028개 aggregate sample이 남아 있다. 이 게이트가 중요한 이유는 실세계 수집 이후에도 private prime, wallet seed, raw key file 같은 민감 필드가 공개 artifact에 섞이는 것을 자동으로 차단하고, feature vector가 없는 artifact가 classifier claim으로 넘어가는 것을 막기 때문이다. 이제 제출 record는 `feature_vector_path`뿐 아니라 공개 가능한 `feature_vector_summary` 계약도 포함해야 하며, intake는 schema, 14개 scalar feature, numeric 값, sample count, bit-length 정합성을 검사한다. 또한 동일 task_id로 제출된 중복 intake record와 서로 다른 기준군이 같은 aggregate checksum을 공유하는 artifact 재사용을 차단해, 제출 충돌이나 데이터셋 재포장으로 baseline claim이 오염되는 경로를 막는다. Evidence Pack은 이 결과를 `collection_intake_gate`로 다시 평가하므로, intake가 blocked인 동안 real-world generator attribution 승격도 자동으로 blocked 상태를 유지한다.
+현재 공개 번들은 raw 실세계 제출물이 없으므로 `0 submitted / 0 accepted / 10 blocked` 상태다. 특히 OpenSSL 2048-bit와 BoringSSL 2048-bit P0 task 두 개가 아직 막혀 있으며, 10% TV floor 기준으로 총 9028개 aggregate sample이 남아 있다. 이 게이트가 중요한 이유는 실세계 수집 이후에도 private prime, wallet seed, raw key file 같은 민감 필드가 공개 artifact에 섞이는 것을 자동으로 차단하고, feature vector가 없는 artifact가 classifier claim으로 넘어가는 것을 막기 때문이다. 이제 제출 record는 공개 상대경로인 `feature_vector_path`뿐 아니라 공개 가능한 `feature_vector_summary` 계약도 포함해야 하며, intake는 schema, task library label, 14개 scalar feature, numeric 값, sample count, bit-length 정합성을 검사한다. 또한 provenance identity, optional record identity, 동일 task_id로 제출된 중복 intake record, 서로 다른 기준군이 같은 aggregate checksum을 공유하는 artifact 재사용을 차단해, 제출 충돌이나 데이터셋 재포장으로 baseline claim이 오염되는 경로를 막는다. Evidence Pack은 이 결과를 `collection_intake_gate`로 다시 평가하므로, intake가 blocked인 동안 real-world generator attribution 승격도 자동으로 blocked 상태를 유지한다.
 
 ## Research Readiness
 
@@ -418,6 +418,7 @@ GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽
 - 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> collection handoff -> submission contract -> submission lint -> fixture audit -> collection intake -> readiness -> claim-language audit -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery -> publication consistency.
 - 현황 지표: scale, controlled signal, attribution-ready generator baseline, public control, collection intake, checksummed evidence, claim level만 상단에 남겨 현재 판단에 직접 필요한 수치로 제한한다.
 - Visual Change Trail: prime regularity demo, 10M scale lift, controlled attribution, sim-to-real gates, publication guardrails만 release-style milestone로 보여준다.
+- Hardening Map: provenance identity, feature label, optional record identity, public feature-vector path, fixture replay가 어떤 오염 경로를 차단하는지 한 줄 흐름으로 보여준다.
 - Evidence Spine: Scale, Signal, Sim-to-Real, Governance, Publication 축으로 기존 산출물을 한 번만 재배치한다. 각 축은 점수, 상태, artifact 개수와 짧은 artifact 이름, gate 문장, 현재 proof를 함께 표시한다.
 - Claim Boundaries: before/current/next와 claim lane만 남긴다. public demo와 controlled synthetic signal은 allowed로 보이지만, real-world generator attribution과 Bitcoin wallet/library attribution은 accepted baseline, classifier vector, nonce-risk report가 없기 때문에 blocked로 남긴다.
 - 남은 gap: real-world baseline, classifier label, Bitcoin nonce-risk report.

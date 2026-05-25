@@ -809,7 +809,7 @@ const bundledEvidencePack = {
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "11bfcc840ff2cda806a9abca4c914475bd0f049cf9f5a5f930eafc5aec8657b3" },
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "4636041a732e84825a9c0af28075583927e1be1edbe25bbf988eb1333a509bd6" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
-    { role: "claim_language_audit", schema: "primeproject.claim-language-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", scanned_file_count: 14, scanned_line_count: 6649, claim_language_triggered_count: 88, claim_language_guarded_count: 88, claim_language_fail_count: 0 },
+    { role: "claim_language_audit", schema: "primeproject.claim-language-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", scanned_file_count: 14, scanned_line_count: 6675, claim_language_triggered_count: 88, claim_language_guarded_count: 88, claim_language_fail_count: 0 },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", sha256: "47e75e611e98837cac5ecc690cc49900a2b757a7b2d857d474988a4406a5f232" },
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", fixture_count: 10, failed_expectation_count: 0, public_safe_fixture_count: 10 },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "9179e93a350bcebc96db80f095b4966f5514ae53c9866264d2c8731408d9469b" },
@@ -1264,7 +1264,7 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
     claim_language_scanned_files: 14,
-    claim_language_scanned_lines: 6649,
+    claim_language_scanned_lines: 6675,
     claim_language_triggered_mentions: 88,
     claim_language_guarded_mentions: 88,
     claim_language_failures: 0,
@@ -1314,8 +1314,15 @@ const bundledProjectEvolution = {
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },
         { stage: "Controlled signal", score: 100, status: "complete", evidence: "null-calibrated, replicated synthetic generator fingerprints" },
         { stage: "Real baseline", score: 0, status: "blocked", evidence: "0 accepted RSA library baselines" },
-        { stage: "Intake contract", score: 0, status: "blocked", evidence: "10 task templates; 9 lint fixtures pass expectations; 0 submitted artifacts" },
+        { stage: "Intake contract", score: 0, status: "blocked", evidence: "10 task templates; 10 lint fixtures pass expectations; 0 submitted artifacts" },
         { stage: "Publish claims", score: 60, status: "guarded", evidence: "public_demo_only; real-world and Bitcoin attribution blocked" },
+      ],
+      hardening_map: [
+        { step: "01", layer: "Task provenance", risk: "Submitted provenance can name the wrong baseline or library.", guard: "provenance_record must match task baseline_id and library.", evidence: "provenance_baseline_id_mismatch fixture", status: "blocked" },
+        { step: "02", layer: "Feature label", risk: "A feature vector can be labelled as a different generator family.", guard: "feature_vector_summary.label must match the task library.", evidence: "feature_vector_label_mismatch fixture", status: "blocked" },
+        { step: "03", layer: "Record identity", risk: "Top-level baseline/library fields can contradict the task.", guard: "Optional record identity fields must match the task when present.", evidence: "record_baseline_id_mismatch fixture", status: "blocked" },
+        { step: "04", layer: "Public path", risk: "A public artifact can leak local paths, URLs, or parent traversal.", guard: "feature_vector_path must be a public relative path.", evidence: "feature_vector_path_public_relative fixture", status: "blocked" },
+        { step: "05", layer: "Fixture replay", risk: "Lint behavior can drift after contract changes.", guard: "10 public-safe fixtures replay pass/warn/block boundaries before intake.", evidence: "10 fixtures, 0 expectation failures", status: "guarded" },
       ],
       evidence_spine: [
         { layer: "Scale", score: 100, status: "complete", artifacts: ["data/snapshots/manifest.json", "assets/snapshots/*.svg"], gate: "10M live compute plus 1M/10M static snapshots", proof: "The original browser experiment is now backed by larger reproducible local snapshots." },
@@ -2555,6 +2562,7 @@ function renderEvolutionImpact(evolution) {
   const metrics = evolution.metrics || {};
   const rollup = dashboard.visual_rollup || {};
   const releaseTrail = rollup.release_trail || [];
+  const hardeningMap = rollup.hardening_map || [];
   const changes = (dashboard.latest_changes || []).slice(0, 5);
   outputs.evolutionImpact.innerHTML = `
     <div class="impact-narrative">
@@ -2590,6 +2598,23 @@ function renderEvolutionImpact(evolution) {
             <strong>${escapeHtml(item.title || "milestone")}</strong>
             <em>${escapeHtml(item.measure || "")}</em>
             <span>${escapeHtml(item.proof || "")}</span>
+          </div>
+        `)
+        .join("")}
+    </div>
+    <div class="hardening-map">
+      <div class="hardening-heading">
+        <span>Hardening Map</span>
+        <strong>Recent fixes converted silent data contamination paths into explicit public contract blockers.</strong>
+      </div>
+      ${hardeningMap
+        .map((item) => `
+          <div class="hardening-node is-${escapeHtml(item.status || "guarded")}">
+            <i>${escapeHtml(item.step || "")}</i>
+            <strong>${escapeHtml(item.layer || "Guard")}</strong>
+            <span>${escapeHtml(item.risk || "")}</span>
+            <em>${escapeHtml(item.guard || "")}</em>
+            <code>${escapeHtml(item.evidence || "")}</code>
           </div>
         `)
         .join("")}
