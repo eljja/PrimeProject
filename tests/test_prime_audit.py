@@ -670,6 +670,13 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(openssl["next_step"], "complete_provenance_record")
         self.assertNotIn("manifest_not_available", openssl["blocking_reasons"])
         self.assertNotIn("target_not_available", openssl["blocking_reasons"])
+        openssl_3072 = next(
+            row
+            for row in plan["rows"]
+            if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 3072
+        )
+        self.assertEqual(openssl_3072["current_samples"], 0)
+        self.assertEqual(openssl_3072["next_step"], "collect_matching_bit_length_baseline")
 
     def test_baseline_promotion_plan_marks_accepted_targets_ready(self) -> None:
         manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
@@ -696,6 +703,29 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertEqual(openssl["promotion_state"], "ready")
         self.assertEqual(openssl["next_step"], "ready_for_claim_gate")
+
+    def test_baseline_promotion_plan_prioritizes_underpowered_available_targets(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        manifest["entries"][0]["status"] = "available"
+        manifest["entries"][0]["bit_length"] = 2048
+        manifest["entries"][0]["sample_count"] = 100
+        matrix = build_collection_matrix(manifest)
+        power = build_collection_power(matrix)
+        audit = build_provenance_audit(
+            build_provenance_requirements(manifest),
+            [complete_provenance_record("openssl-rsa-prime-owned")],
+        )
+        acceptance = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_audit=audit,
+        )
+        plan = build_baseline_promotion_plan(acceptance=acceptance, power=power)
+        openssl = next(row for row in plan["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 2048)
+
+        self.assertEqual(openssl["current_samples"], 100)
+        self.assertEqual(openssl["next_step"], "raise_sample_count_to_collection_target")
 
     def test_collection_handoff_prioritizes_minimal_real_world_unlock(self) -> None:
         manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
@@ -728,6 +758,41 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual([row["library"] for row in handoff["rows"][:2]], ["BoringSSL", "OpenSSL"])
         self.assertFalse(handoff["public_artifact_contract"]["publish_private_material"])
         self.assertIn("private_prime", handoff["rows"][0]["collector_contract"]["must_not_publish"])
+
+    def test_collection_handoff_uses_target_scoped_sample_counts(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        manifest["entries"][0]["status"] = "available"
+        manifest["entries"][0]["bit_length"] = 2048
+        manifest["entries"][0]["sample_count"] = 500
+        matrix = build_collection_matrix(manifest)
+        power = build_collection_power(matrix)
+        requirements = build_provenance_requirements(manifest)
+        audit = build_provenance_audit(requirements, [complete_provenance_record("openssl-rsa-prime-owned")])
+        acceptance = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_audit=audit,
+        )
+        plan = build_baseline_promotion_plan(acceptance=acceptance, power=power)
+        handoff = build_collection_handoff(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_requirements=requirements,
+            provenance_audit=audit,
+            baseline_acceptance=acceptance,
+            promotion_plan=plan,
+            classifier_report={"schema": "primeproject.crypto-classifier-report.v1", "claim_scope": "controlled_synthetic_only", "label_count": 3},
+        )
+        openssl_2048 = next(row for row in handoff["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 2048)
+        openssl_3072 = next(row for row in handoff["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 3072)
+
+        self.assertEqual(openssl_2048["current_samples"], 500)
+        self.assertEqual(openssl_2048["remaining_samples_to_plan"], 0)
+        self.assertEqual(openssl_3072["current_samples"], 0)
+        self.assertEqual(openssl_3072["remaining_samples_to_plan"], 500)
+        self.assertEqual(openssl_3072["manifest_sample_count"], 500)
 
     def test_collection_submission_contract_exports_task_templates(self) -> None:
         handoff = {

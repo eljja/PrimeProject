@@ -125,7 +125,7 @@ def handoff_row(
     is_minimal_unlock: bool,
 ) -> dict[str, Any]:
     object_type = target.get("object_type")
-    current_samples = int(entry.get("sample_count") or 0)
+    current_samples = current_samples_for_target(entry, target, acceptance)
     planned_samples = int(target.get("sample_target") or 0)
     target_samples_for_10pct = int(power.get("min_samples_for_10pct_tv") or planned_samples)
     if object_type in {"ecdsa-signature", "schnorr-signature"}:
@@ -143,6 +143,8 @@ def handoff_row(
         "object_type": object_type,
         "bit_length": target.get("bit_length"),
         "current_samples": current_samples,
+        "manifest_bit_length": acceptance.get("manifest_bit_length", entry.get("bit_length")),
+        "manifest_sample_count": acceptance.get("manifest_sample_count", entry.get("sample_count", 0)),
         "planned_sample_target": planned_samples,
         "target_samples_for_10pct_tv": target_samples_for_10pct,
         "remaining_samples_to_plan": remaining_to_plan,
@@ -159,6 +161,16 @@ def handoff_row(
         ),
         "collector_contract": collector_contract(collection_row, target),
     }
+
+
+def current_samples_for_target(entry: dict[str, Any], target: dict[str, Any], acceptance: dict[str, Any]) -> int:
+    if "sample_count" in acceptance:
+        return int(acceptance.get("sample_count") or 0)
+    if entry.get("status") != "available":
+        return 0
+    if entry.get("bit_length") != target.get("bit_length"):
+        return 0
+    return int(entry.get("sample_count") or 0)
 
 
 def priority_for_target(
