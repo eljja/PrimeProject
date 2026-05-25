@@ -24,9 +24,9 @@
 - Combines availability, provenance, and sample-power tiers into baseline acceptance gates before a real-world baseline can support attribution claims.
 - Produces a baseline promotion plan that identifies the shortest collection/provenance path from blocked baselines to accepted real-world evidence.
 - Converts the promotion path into a public-safe collection handoff packet with prioritized tasks, sample floors, provenance blockers, and forbidden raw-material fields.
-- Publishes a machine-readable collection submission contract with task templates, required record fields, checksum rules, provenance requirements, feature-vector schema rules, and forbidden public fields.
+- Publishes a machine-readable collection submission contract with task templates, required record fields, checksum rules, provenance identity binding, feature-vector schema rules, and forbidden public fields.
 - Lints candidate public collection submissions against that contract before intake so collectors can fix task, checksum, feature-vector, duplicate, sample-floor, and public-safety errors locally.
-- Audits public-safe submission fixtures that prove the linter's pass, warning, missing-feature, forbidden-field, and reused-checksum behavior before real collection records are accepted.
+- Audits public-safe submission fixtures that prove the linter's pass, warning, missing-feature, forbidden-field, provenance-identity, and reused-checksum behavior before real collection records are accepted.
 - Validates submitted collection artifacts with an intake gate for sample floors, checksums, provenance records, embedded public feature-vector contracts, claim scope, duplicate task submissions, reused aggregate hashes, and forbidden public fields.
 - Exports fixed-length fingerprint vectors and runs a dependency-free Crypto-Classifier baseline before heavier ML experiments.
 - Scores end-to-end research readiness across Sim-to-Real baselines, attribution validation, classifier data, and Bitcoin integration.

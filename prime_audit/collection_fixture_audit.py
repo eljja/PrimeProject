@@ -65,8 +65,9 @@ def build_submission_fixtures(contract: dict[str, Any]) -> list[dict[str, Any]]:
         ("valid_ready", 1, "pass", [], make_ready_record),
         ("blocked_missing_feature", 2, "blocked", ["feature_vector_missing_features"], make_missing_feature_record),
         ("blocked_forbidden_field", 3, "blocked", ["forbidden_public_fields"], make_forbidden_record),
-        ("blocked_reused_checksum_a", 4, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
-        ("blocked_reused_checksum_b", 5, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
+        ("blocked_provenance_identity", 4, "blocked", ["provenance_baseline_id_mismatch"], make_bad_provenance_record),
+        ("blocked_reused_checksum_a", 5, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
+        ("blocked_reused_checksum_b", 6, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
     ]
     for fixture_id, template_index, expected_status, expected_reasons, factory in cases:
         if template_index >= len(templates):
@@ -139,6 +140,14 @@ def make_missing_feature_record(template: dict[str, Any], fixture_id: str) -> di
 def make_forbidden_record(template: dict[str, Any], fixture_id: str) -> dict[str, Any]:
     record = base_record(template, fixture_id)
     record["private_prime"] = "<redacted-fixture-marker>"
+    return record
+
+
+def make_bad_provenance_record(template: dict[str, Any], fixture_id: str) -> dict[str, Any]:
+    record = base_record(template, fixture_id)
+    provenance = dict(record.get("provenance_record") or {})
+    provenance["baseline_id"] = f"{template.get('baseline_id')}-wrong"
+    record["provenance_record"] = provenance
     return record
 
 

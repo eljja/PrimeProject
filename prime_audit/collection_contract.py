@@ -153,7 +153,7 @@ def acceptance_checks() -> list[dict[str, Any]]:
         {
             "code": "provenance_record",
             "blocks": True,
-            "message": "A public provenance_record must accompany the aggregate artifact.",
+            "message": "A public provenance_record must accompany the aggregate artifact and match the task baseline_id and library.",
         },
         {
             "code": "feature_vector_contract",

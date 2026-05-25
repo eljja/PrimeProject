@@ -101,6 +101,8 @@ def intake_row(task: dict[str, Any], records: list[dict[str, Any]] | None) -> di
         missing.append("aggregate_artifact_sha256")
     if submitted and not record.get("provenance_record"):
         missing.append("provenance_record")
+    if submitted:
+        missing.extend(validate_provenance_identity(record, task))
     if submitted and not record.get("feature_vector_path"):
         missing.append("feature_vector_path")
     feature_vector_contract = (
@@ -310,6 +312,18 @@ def validate_feature_vector_contract(record: dict[str, Any], task: dict[str, Any
         "label": label or None,
         "blocking_reasons": list(dict.fromkeys(reasons)),
     }
+
+
+def validate_provenance_identity(record: dict[str, Any], task: dict[str, Any]) -> list[str]:
+    provenance = record.get("provenance_record")
+    if not isinstance(provenance, dict):
+        return []
+    reasons = []
+    if provenance.get("baseline_id") != task.get("baseline_id"):
+        reasons.append("provenance_baseline_id_mismatch")
+    if provenance.get("library") != task.get("library"):
+        reasons.append("provenance_library_mismatch")
+    return reasons
 
 
 def feature_vector_payload(record: dict[str, Any]) -> dict[str, Any] | None:

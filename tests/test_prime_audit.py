@@ -873,7 +873,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "sample_count": 100,
                     "claim_scope": "controlled_synthetic_only",
                     "aggregate_artifact_sha256": "a" * 64,
-                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned", "library": "OpenSSL"},
                     "feature_vector_path": "data/openssl_feature.json",
                     "feature_vector_summary": bad_vector,
                     "private_prime": "do-not-publish",
@@ -883,7 +883,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "sample_count": 5000,
                     "claim_scope": "real_world",
                     "aggregate_artifact_sha256": "a" * 64,
-                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned"},
+                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned", "library": "BoringSSL"},
                     "feature_vector_path": "data/boringssl_feature.json",
                     "feature_vector_summary": intake_feature_vector("BoringSSL", record_count=5000),
                 },
@@ -902,6 +902,45 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("feature_vector_missing_features", openssl["blocking_reasons"])
         self.assertIn("private_prime", openssl["forbidden_public_fields"])
 
+    def test_collection_submission_lint_binds_provenance_to_task_identity(self) -> None:
+        handoff = {
+            "schema": "primeproject.collection-handoff.v1",
+            "rows": [
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "priority": "P0",
+                    "library": "OpenSSL",
+                    "baseline_id": "openssl-rsa-prime-owned",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                    "collector_contract": {"must_not_publish": ["private_prime"]},
+                },
+            ],
+        }
+        contract = build_collection_submission_contract(handoff=handoff)
+        lint = build_collection_submission_lint(
+            contract=contract,
+            records=[
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 4514,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "b" * 64,
+                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned", "library": "BoringSSL"},
+                    "feature_vector_path": "data/openssl_feature.json",
+                    "feature_vector_summary": intake_feature_vector("OpenSSL", record_count=4514, bit_length=2048),
+                },
+            ],
+        )
+        row = lint["rows"][0]
+
+        self.assertEqual(row["status"], "blocked")
+        self.assertIn("provenance_baseline_id_mismatch", row["blocking_reasons"])
+        self.assertIn("provenance_library_mismatch", row["blocking_reasons"])
+
     def test_collection_fixture_audit_proves_lint_outcomes(self) -> None:
         handoff = {
             "schema": "primeproject.collection-handoff.v1",
@@ -918,7 +957,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "target_samples_for_10pct_tv": 4514,
                     "collector_contract": {"must_not_publish": ["private_prime"]},
                 }
-                for index in range(6)
+                for index in range(7)
             ],
         }
         audit = build_collection_fixture_audit(
@@ -927,10 +966,10 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertEqual(audit["schema"], "primeproject.collection-fixture-audit.v1")
         self.assertEqual(audit["quality_gate"]["status"], "pass")
-        self.assertEqual(audit["summary"]["fixture_count"], 6)
+        self.assertEqual(audit["summary"]["fixture_count"], 7)
         self.assertEqual(audit["summary"]["failed_expectation_count"], 0)
         self.assertEqual(audit["summary"]["expected_warning_count"], 1)
-        self.assertEqual(audit["summary"]["expected_blocked_count"], 4)
+        self.assertEqual(audit["summary"]["expected_blocked_count"], 5)
         reasons = {
             reason
             for row in audit["rows"]
@@ -939,6 +978,7 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("below_10pct_tv_floor", reasons)
         self.assertIn("feature_vector_missing_features", reasons)
         self.assertIn("forbidden_public_fields", reasons)
+        self.assertIn("provenance_baseline_id_mismatch", reasons)
         self.assertIn("aggregate_artifact_sha256_reused", reasons)
 
     def test_claim_language_audit_blocks_unsupported_public_claims(self) -> None:
@@ -1032,7 +1072,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "sample_count": 5000,
                     "claim_scope": "real_world",
                     "aggregate_artifact_sha256": "a" * 64,
-                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned", "library": "OpenSSL"},
                     "feature_vector_path": "data/openssl_feature.json",
                     "feature_vector_summary": intake_feature_vector("OpenSSL"),
                 },
@@ -1041,7 +1081,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "sample_count": 5000,
                     "claim_scope": "real_world",
                     "aggregate_artifact_sha256": "b" * 64,
-                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned"},
+                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned", "library": "BoringSSL"},
                     "feature_vector_path": "data/boringssl_feature.json",
                     "feature_vector_summary": intake_feature_vector("BoringSSL"),
                 },
@@ -1055,7 +1095,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "sample_count": 5000,
                     "claim_scope": "real_world",
                     "aggregate_artifact_sha256": "a" * 64,
-                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned", "library": "OpenSSL"},
                     "feature_vector_path": "data/openssl_feature.json",
                     "feature_vector_summary": intake_feature_vector("OpenSSL"),
                     "private_prime": "do-not-publish",
@@ -1110,7 +1150,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "sample_count": 5000,
                     "claim_scope": "real_world",
                     "aggregate_artifact_sha256": "c" * 64,
-                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned", "library": "OpenSSL"},
                     "feature_vector_path": "data/openssl_feature.json",
                     "feature_vector_summary": intake_feature_vector("OpenSSL"),
                 },
@@ -1119,7 +1159,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "sample_count": 5000,
                     "claim_scope": "real_world",
                     "aggregate_artifact_sha256": "c" * 64,
-                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned"},
+                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned", "library": "BoringSSL"},
                     "feature_vector_path": "data/boringssl_feature.json",
                     "feature_vector_summary": intake_feature_vector("BoringSSL"),
                 },
@@ -1133,7 +1173,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "sample_count": 5000,
                     "claim_scope": "real_world",
                     "aggregate_artifact_sha256": "d" * 64,
-                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned", "library": "OpenSSL"},
                     "feature_vector_path": "data/openssl_feature.json",
                     "feature_vector_summary": intake_feature_vector("OpenSSL"),
                 },
@@ -1142,7 +1182,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "sample_count": 5000,
                     "claim_scope": "real_world",
                     "aggregate_artifact_sha256": "e" * 64,
-                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned", "library": "OpenSSL"},
                     "feature_vector_path": "data/openssl_feature_alt.json",
                     "feature_vector_summary": intake_feature_vector("OpenSSL"),
                     "private_prime": "do-not-publish",
@@ -1198,7 +1238,7 @@ class PrimeAuditTests(unittest.TestCase):
                     "sample_count": 5000,
                     "claim_scope": "real_world",
                     "aggregate_artifact_sha256": "f" * 64,
-                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned"},
+                    "provenance_record": {"baseline_id": "openssl-rsa-prime-owned", "library": "OpenSSL"},
                     "feature_vector_path": "data/openssl_feature.json",
                     "feature_vector_summary": bad_vector,
                 }
@@ -1211,6 +1251,43 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("feature_vector_record_count_mismatch", row["blocking_reasons"])
         self.assertIn("feature_vector_missing_features", row["blocking_reasons"])
         self.assertIn("feature_vector_bit_length_mismatch", row["blocking_reasons"])
+
+    def test_collection_intake_binds_provenance_to_task_identity(self) -> None:
+        handoff = {
+            "schema": "primeproject.collection-handoff.v1",
+            "rows": [
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "priority": "P0",
+                    "library": "OpenSSL",
+                    "baseline_id": "openssl-rsa-prime-owned",
+                    "track": "rsa-prime-generation",
+                    "object_type": "rsa-prime",
+                    "bit_length": 2048,
+                    "planned_sample_target": 500,
+                    "target_samples_for_10pct_tv": 4514,
+                },
+            ],
+        }
+        intake = build_collection_intake(
+            handoff=handoff,
+            records=[
+                {
+                    "task_id": "openssl-rsa-prime-owned:2048:rsa-prime",
+                    "sample_count": 4514,
+                    "claim_scope": "real_world",
+                    "aggregate_artifact_sha256": "c" * 64,
+                    "provenance_record": {"baseline_id": "boringssl-rsa-prime-owned", "library": "BoringSSL"},
+                    "feature_vector_path": "data/openssl_feature.json",
+                    "feature_vector_summary": intake_feature_vector("OpenSSL", record_count=4514, bit_length=2048),
+                },
+            ],
+        )
+        row = intake["rows"][0]
+
+        self.assertEqual(row["status"], "blocked")
+        self.assertIn("provenance_baseline_id_mismatch", row["blocking_reasons"])
+        self.assertIn("provenance_library_mismatch", row["blocking_reasons"])
 
     def test_feature_vectors_and_classifier_report_label_accuracy(self) -> None:
         alpha_a = feature_vector_from_fingerprint(
