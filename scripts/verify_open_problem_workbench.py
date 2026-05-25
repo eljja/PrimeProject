@@ -102,6 +102,9 @@ def main() -> int:
         if not all(gap.get("required_artifact") for gap in gaps):
             print(f"{problem.get('id')} proof gap taxonomy is missing required artifacts.", file=sys.stderr)
             return 1
+        if not all(gap.get("next_experiment") and gap.get("failure_signal") for gap in gaps):
+            print(f"{problem.get('id')} proof gap taxonomy is missing work-order fields.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

@@ -492,6 +492,8 @@ function renderDecisiveLemmaLab(problem) {
                 <strong>${escapeHtml(statusText(gap.status))}</strong>
                 <p>${escapeHtml(gap.description || "")}</p>
                 <small>Required artifact: ${escapeHtml(gap.required_artifact || "")}</small>
+                <small>Next experiment: ${escapeHtml(gap.next_experiment || "")}</small>
+                <small>Failure signal: ${escapeHtml(gap.failure_signal || "")}</small>
               </article>
             `,
           )

@@ -534,6 +534,8 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
                         "status": "open_infinite_bridge",
                         "description": "Checkpoint control must become an all-x theta estimate with explicit constants.",
                         "required_artifact": "formal all-x theta theorem",
+                        "next_experiment": "Fit explicit theta-envelope candidates from certified checkpoints, then stress them against denser local theta samples before attempting an all-x theorem.",
+                        "failure_signal": "A denser certified checkpoint violates the proposed envelope or the constants cannot be stated independently of the search limit.",
                     },
                     {
                         "id": "RH-G2",
@@ -541,6 +543,8 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
                         "status": "open_infinite_bridge",
                         "description": "The all-x estimate must imply an accepted RH-equivalent zero-control criterion.",
                         "required_artifact": "formal RH-equivalence bridge",
+                        "next_experiment": "Map each candidate theta bound to a published RH-equivalent or insufficient prime-counting criterion.",
+                        "failure_signal": "The best available bound is weaker than every accepted RH-equivalent criterion.",
                     },
                     {
                         "id": "RH-G3",
@@ -548,6 +552,8 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
                         "status": "open_formalization",
                         "description": "Zeta zero, theta, and explicit-bound objects must be kernel-checkable without conjectural imports.",
                         "required_artifact": "Lean 4 definitions and theorem skeleton",
+                        "next_experiment": "Create a no-sorry Lean namespace containing only definitions and theorem statements for zeros, theta, and the proposed envelope.",
+                        "failure_signal": "The formal statement needs an imported theorem equivalent to RH or an unchecked axiom.",
                     },
                     {
                         "id": "RH-G4",
@@ -555,6 +561,8 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
                         "status": "blocked_until_g1_g3_close",
                         "description": "An external replay must verify the proof without trusting PrimeProject code.",
                         "required_artifact": "external kernel replay report",
+                        "next_experiment": "Package the formal artifacts and verifier command once G1-G3 have closed.",
+                        "failure_signal": "A clean environment cannot replay the kernel check from published artifacts.",
                     },
                 ],
             ),
@@ -801,6 +809,8 @@ def build_collatz(limit: int) -> dict[str, object]:
                         "status": "open_infinite_bridge",
                         "description": "Finite trajectories must be replaced by a complete symbolic residue-block cover.",
                         "required_artifact": "residue-block cover certificate",
+                        "next_experiment": "Generate odd-only residue transition blocks and rank uncovered classes by shortest missing descent.",
+                        "failure_signal": "A residue block remains uncovered or branches into a non-descending class under every tested modulus.",
                     },
                     {
                         "id": "C-G2",
@@ -808,6 +818,8 @@ def build_collatz(limit: int) -> dict[str, object]:
                         "status": "open_infinite_bridge",
                         "description": "The cover must provide a well-founded measure that cannot increase forever.",
                         "required_artifact": "formal descent theorem",
+                        "next_experiment": "Search for a monotone block measure that decreases across the generated transition cover.",
+                        "failure_signal": "The measure admits an infinite non-decreasing path or requires probabilistic drift assumptions.",
                     },
                     {
                         "id": "C-G3",
@@ -815,6 +827,8 @@ def build_collatz(limit: int) -> dict[str, object]:
                         "status": "open_infinite_bridge",
                         "description": "The descent theorem must exclude both non-trivial cycles and divergent branches.",
                         "required_artifact": "cycle and divergence exclusion proof",
+                        "next_experiment": "Derive cycle and divergence exclusions from the same well-founded measure instead of separate empirical checks.",
+                        "failure_signal": "A non-trivial cycle or divergent branch remains compatible with the descent cover.",
                     },
                     {
                         "id": "C-G4",
@@ -822,6 +836,8 @@ def build_collatz(limit: int) -> dict[str, object]:
                         "status": "blocked_until_g1_g3_close",
                         "description": "A clean replay must verify the accelerated-map equivalence and descent proof.",
                         "required_artifact": "external kernel replay report",
+                        "next_experiment": "Export the residue cover and descent theorem to a clean proof-assistant replay package.",
+                        "failure_signal": "The replay depends on PrimeProject-specific generated state or unchecked trajectory assumptions.",
                     },
                 ],
             ),
@@ -1050,6 +1066,8 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
                         "status": "open_infinite_bridge",
                         "description": "The representation count must be proved positive for every sufficiently large even integer.",
                         "required_artifact": "explicit representation-count lower-bound theorem",
+                        "next_experiment": "Stress the thinnest bounded residue classes and derive candidate constants for an explicit lower-bound inequality.",
+                        "failure_signal": "A residue class makes the lower bound non-positive or the constants depend on unproved independence.",
                     },
                     {
                         "id": "G-G2",
@@ -1057,6 +1075,8 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
                         "status": "open_infinite_bridge",
                         "description": "The analytic threshold must be at or below the certified bounded range.",
                         "required_artifact": "formal finite-to-infinite threshold comparison",
+                        "next_experiment": "Compare every candidate analytic threshold against the committed certificate limit and record the uncovered interval.",
+                        "failure_signal": "The threshold remains above the certified range or leaves an unchecked finite gap.",
                     },
                     {
                         "id": "G-G3",
@@ -1064,6 +1084,8 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
                         "status": "open_formalization",
                         "description": "The proof must not assume unproved prime-pair independence or Hardy-Littlewood strength.",
                         "required_artifact": "assumption audit in formal contract",
+                        "next_experiment": "Audit every lower-bound step for hidden Hardy-Littlewood or prime-pair independence assumptions.",
+                        "failure_signal": "A required step is only heuristic or imports a conjecture equivalent to positive representation counts.",
                     },
                     {
                         "id": "G-G4",
@@ -1071,6 +1093,8 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
                         "status": "blocked_until_g1_g3_close",
                         "description": "An external replay must verify the lower-bound and threshold bridge.",
                         "required_artifact": "external kernel replay report",
+                        "next_experiment": "Bundle the witness certificate, threshold bridge, and assumption audit for independent replay.",
+                        "failure_signal": "The reviewer cannot reproduce the threshold bridge from public artifacts.",
                     },
                 ],
             ),
@@ -1296,6 +1320,8 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
                         "status": "open_infinite_bridge",
                         "description": "A positive lower bound is needed for exact gap-2 pairs, not merely bounded prime gaps.",
                         "required_artifact": "unconditional exact gap-2 lower-bound theorem",
+                        "next_experiment": "Separate exact gap-2 counts from bounded-gap signals and test candidate lower-bound forms against wheel/residue stress cases.",
+                        "failure_signal": "The argument proves only bounded gaps larger than 2 or the exact gap-2 lower bound collapses to zero.",
                     },
                     {
                         "id": "TP-G2",
@@ -1303,6 +1329,8 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
                         "status": "open_infinite_bridge",
                         "description": "Hardy-Littlewood k-tuple behavior cannot be used as an assumption.",
                         "required_artifact": "assumption-free distribution argument",
+                        "next_experiment": "Identify which observed density features are heuristic-only and remove them from the formal target statement.",
+                        "failure_signal": "The proof still requires k-tuple independence or Hardy-Littlewood-scale density as an axiom.",
                     },
                     {
                         "id": "TP-G3",
@@ -1310,6 +1338,8 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
                         "status": "open_infinite_bridge",
                         "description": "The exact gap-2 lower bound must imply arbitrarily large twin pairs.",
                         "required_artifact": "formal infinitude bridge",
+                        "next_experiment": "Formalize the implication from a positive exact-gap lower bound over arbitrarily large x to infinitely many twin primes.",
+                        "failure_signal": "The lower bound applies only to bounded ranges or averaged windows without forcing arbitrarily large pairs.",
                     },
                     {
                         "id": "TP-G4",
@@ -1317,6 +1347,8 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
                         "status": "blocked_until_g1_g3_close",
                         "description": "A clean external replay must verify exact gap-2, not just bounded gaps.",
                         "required_artifact": "external kernel replay report",
+                        "next_experiment": "Prepare a minimal external replay package that distinguishes exact gap 2 from bounded-gap theorems.",
+                        "failure_signal": "The replay verifies a bounded-gap theorem but not exact twin-prime infinitude.",
                     },
                 ],
             ),

@@ -61,7 +61,7 @@ Each problem also includes a `primeproject.proof-milestone-queue.v1` object. The
 
 Each problem also includes a `primeproject.decisive-lemma-lab.v1` object. This is the current proof-forge target: it names the single lemma that would close the most important open milestones, records the finite probe that PrimeProject can already replay, and states the proof obligation and falsification test that prevent finite evidence from being misrepresented as a full solution. The same object now carries an automated falsification probe with bounded pass conditions, violation counts, strongest observed stress cases, the explicit proof gap that keeps the problem open, and a `primeproject.decisive-lemma-probe-certificate.v1` hash certificate over the probe payload.
 
-The decisive lemma lab also carries a `primeproject.proof-gap-taxonomy.v1` object. This breaks the remaining proof gap into named open or blocked items such as infinite-lift, theorem-bridge, formalization, dependency-control, and independent-review gaps. Each gap must name the artifact needed to close it.
+The decisive lemma lab also carries a `primeproject.proof-gap-taxonomy.v1` object. This breaks the remaining proof gap into named open or blocked items such as infinite-lift, theorem-bridge, formalization, dependency-control, and independent-review gaps. Each gap must name the artifact needed to close it, the next experiment to run, and the failure signal that would invalidate that path.
 
 ## Claim Boundary
 

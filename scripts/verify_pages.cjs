@@ -293,6 +293,8 @@ async function main() {
         !page.decisiveLemmaText.includes("Proof Gap Taxonomy") ||
         !page.decisiveLemmaText.includes("proof gaps open") ||
         !page.decisiveLemmaText.includes("Required artifact") ||
+        !page.decisiveLemmaText.includes("Next experiment") ||
+        !page.decisiveLemmaText.includes("Failure signal") ||
         !page.decisiveLemmaText.includes("proof") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||
