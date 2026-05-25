@@ -313,7 +313,18 @@
             "value": 0.076725,
             "threshold": 0.08
           },
-          "proof_gap": "Checkpoint probes do not quantify every x and do not prove the RH-equivalence bridge."
+          "proof_gap": "Checkpoint probes do not quantify every x and do not prove the RH-equivalence bridge.",
+          "probe_certificate": {
+            "schema": "primeproject.decisive-lemma-probe-certificate.v1",
+            "problem_id": "riemann",
+            "lemma_id": "RH-DL1",
+            "status": "probe_payload_certified",
+            "leaf_count": 1,
+            "payload_sha256": "950cf2ac2616a85faccf2d51b3a1485c172b3c077b68373e128a859a85d66743",
+            "merkle_root": "950cf2ac2616a85faccf2d51b3a1485c172b3c077b68373e128a859a85d66743",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "scope": "automated_falsification_probe_without_certificate"
+          }
         },
         "current_result": "The bounded probe is compatible with the lemma but does not prove it.",
         "next_action": "Formalize the target inequality and enumerate which published equivalence theorem would be sufficient.",
@@ -726,7 +737,18 @@
             "value": 524,
             "at": 837799
           },
-          "proof_gap": "A replay through the limit does not produce a symbolic residue-block cover or a well-founded descent proof."
+          "proof_gap": "A replay through the limit does not produce a symbolic residue-block cover or a well-founded descent proof.",
+          "probe_certificate": {
+            "schema": "primeproject.decisive-lemma-probe-certificate.v1",
+            "problem_id": "collatz",
+            "lemma_id": "C-DL1",
+            "status": "probe_payload_certified",
+            "leaf_count": 1,
+            "payload_sha256": "61948cd9e5c94bd4a5a6267ed66bde18c1a6f0fec5a3ece18b8a1e908f50b14b",
+            "merkle_root": "61948cd9e5c94bd4a5a6267ed66bde18c1a6f0fec5a3ece18b8a1e908f50b14b",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "scope": "automated_falsification_probe_without_certificate"
+          }
         },
         "current_result": "The bounded replay supports the search for descent certificates but still depends on finite enumeration.",
         "next_action": "Generate candidate odd-only residue transitions and rank uncovered blocks by descent failure risk.",
@@ -1109,7 +1131,18 @@
             "smallest_prime": 523,
             "partner": 502699
           },
-          "proof_gap": "Witnesses through the limit do not give an explicit positive lower bound for all large even integers."
+          "proof_gap": "Witnesses through the limit do not give an explicit positive lower bound for all large even integers.",
+          "probe_certificate": {
+            "schema": "primeproject.decisive-lemma-probe-certificate.v1",
+            "problem_id": "goldbach",
+            "lemma_id": "G-DL1",
+            "status": "probe_payload_certified",
+            "leaf_count": 1,
+            "payload_sha256": "2fb85ac873ec2816e658749c94d62fe3acde76b4ab570d7a012a6b372e306ea2",
+            "merkle_root": "2fb85ac873ec2816e658749c94d62fe3acde76b4ab570d7a012a6b372e306ea2",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "scope": "automated_falsification_probe_without_certificate"
+          }
         },
         "current_result": "The bounded witness certificate closes the finite range only; the positive infinite lower bound is open.",
         "next_action": "Use the hardest bounded decompositions to prioritize residue classes for explicit lower-bound stress tests.",
@@ -1442,7 +1475,18 @@
             "estimate": 6917.46,
             "ratio": 1.180925
           },
-          "proof_gap": "Positive bounded counts and heuristic-scale agreement do not prove infinitely many exact gap-2 pairs."
+          "proof_gap": "Positive bounded counts and heuristic-scale agreement do not prove infinitely many exact gap-2 pairs.",
+          "probe_certificate": {
+            "schema": "primeproject.decisive-lemma-probe-certificate.v1",
+            "problem_id": "twin-prime",
+            "lemma_id": "TP-DL1",
+            "status": "probe_payload_certified",
+            "leaf_count": 1,
+            "payload_sha256": "1a65fdfc63699c273cdc36d43db109614f5a93059ee198a4f6b3b19e7ec22453",
+            "merkle_root": "1a65fdfc63699c273cdc36d43db109614f5a93059ee198a4f6b3b19e7ec22453",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "scope": "automated_falsification_probe_without_certificate"
+          }
         },
         "current_result": "The bounded count agrees with heuristic scale but does not establish infinitude.",
         "next_action": "Separate exact gap-2 requirements from bounded-gap evidence and formalize the missing lower-bound theorem.",

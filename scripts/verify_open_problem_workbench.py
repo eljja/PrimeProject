@@ -5,7 +5,7 @@ import json
 import sys
 from pathlib import Path
 
-from generate_open_problem_workbench import build_payload
+from generate_open_problem_workbench import build_payload, hash_leaf
 
 
 def canonical(payload: dict[str, object]) -> str:
@@ -80,6 +80,16 @@ def main() -> int:
             return 1
         if not probe.get("pass_condition") or not probe.get("proof_gap"):
             print(f"{problem.get('id')} decisive lemma falsification probe is missing pass/gap terms.", file=sys.stderr)
+            return 1
+        certificate = probe.get("probe_certificate", {})
+        if certificate.get("status") != "probe_payload_certified":
+            print(f"{problem.get('id')} decisive lemma probe certificate has unexpected status.", file=sys.stderr)
+            return 1
+        uncertified_probe = dict(probe)
+        uncertified_probe.pop("probe_certificate", None)
+        expected_hash = hash_leaf(json.dumps(uncertified_probe, sort_keys=True, separators=(",", ":")))
+        if certificate.get("payload_sha256") != expected_hash or certificate.get("merkle_root") != expected_hash:
+            print(f"{problem.get('id')} decisive lemma probe certificate hash mismatch.", file=sys.stderr)
             return 1
 
     certificate_roots = {

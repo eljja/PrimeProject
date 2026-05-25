@@ -288,6 +288,8 @@ async function main() {
         !page.decisiveLemmaText.includes("Falsification Test") ||
         !page.decisiveLemmaText.includes("Automated Falsification Probe") ||
         !page.decisiveLemmaText.includes("bounded probe passed proof open") ||
+        !page.decisiveLemmaText.includes("probe payload certified") ||
+        !page.decisiveLemmaText.includes("Merkle root") ||
         !page.decisiveLemmaText.includes("proof") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||

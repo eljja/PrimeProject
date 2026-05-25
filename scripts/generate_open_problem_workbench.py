@@ -15,6 +15,7 @@ PROOF_STATUS_GATE_SCHEMA = "primeproject.open-problem-proof-status-gate.v1"
 FORMAL_PROOF_CONTRACT_SCHEMA = "primeproject.formal-proof-contract.v1"
 PROOF_MILESTONE_SCHEMA = "primeproject.proof-milestone-queue.v1"
 DECISIVE_LEMMA_SCHEMA = "primeproject.decisive-lemma-lab.v1"
+PROBE_CERTIFICATE_SCHEMA = "primeproject.decisive-lemma-probe-certificate.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -264,6 +265,11 @@ def decisive_lemma_lab(
     next_action: str,
     automated_falsification_probe: dict[str, object],
 ) -> dict[str, object]:
+    probe = attach_probe_certificate(
+        problem_id=problem_id,
+        lemma_id=lemma_id,
+        probe=automated_falsification_probe,
+    )
     return {
         "schema": DECISIVE_LEMMA_SCHEMA,
         "problem_id": problem_id,
@@ -275,11 +281,29 @@ def decisive_lemma_lab(
         "finite_probe": finite_probe,
         "proof_obligation": proof_obligation,
         "falsification_test": falsification_test,
-        "automated_falsification_probe": automated_falsification_probe,
+        "automated_falsification_probe": probe,
         "current_result": current_result,
         "next_action": next_action,
         "promotion_rule": "The lab may upgrade a milestone only when the proof obligation is discharged by a formal theorem or accepted external proof, not by finite probe success.",
     }
+
+
+def attach_probe_certificate(*, problem_id: str, lemma_id: str, probe: dict[str, object]) -> dict[str, object]:
+    certified_probe = dict(probe)
+    payload = json.dumps(certified_probe, sort_keys=True, separators=(",", ":"))
+    payload_hash = hash_leaf(payload)
+    certified_probe["probe_certificate"] = {
+        "schema": PROBE_CERTIFICATE_SCHEMA,
+        "problem_id": problem_id,
+        "lemma_id": lemma_id,
+        "status": "probe_payload_certified",
+        "leaf_count": 1,
+        "payload_sha256": payload_hash,
+        "merkle_root": payload_hash,
+        "verifier": "scripts/verify_open_problem_workbench.py",
+        "scope": "automated_falsification_probe_without_certificate",
+    }
+    return certified_probe
 
 
 def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:

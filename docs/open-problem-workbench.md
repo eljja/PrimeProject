@@ -7,7 +7,7 @@ PrimeProject now has four GitHub Pages subpages for:
 - Goldbach Conjecture
 - Twin Prime Conjecture
 
-The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with automated falsification probes, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
+The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
 ## Public Pages
 
@@ -59,7 +59,7 @@ Each problem also includes a `primeproject.formal-proof-contract.v1` object. The
 
 Each problem also includes a `primeproject.proof-milestone-queue.v1` object. The queue turns the proof contract into work items: the bounded certificate is the only completed milestone, while formal definitions, infinite bridge theorems, and independent kernel review remain open or blocked.
 
-Each problem also includes a `primeproject.decisive-lemma-lab.v1` object. This is the current proof-forge target: it names the single lemma that would close the most important open milestones, records the finite probe that PrimeProject can already replay, and states the proof obligation and falsification test that prevent finite evidence from being misrepresented as a full solution. The same object now carries an automated falsification probe with bounded pass conditions, violation counts, strongest observed stress cases, and the explicit proof gap that keeps the problem open.
+Each problem also includes a `primeproject.decisive-lemma-lab.v1` object. This is the current proof-forge target: it names the single lemma that would close the most important open milestones, records the finite probe that PrimeProject can already replay, and states the proof obligation and falsification test that prevent finite evidence from being misrepresented as a full solution. The same object now carries an automated falsification probe with bounded pass conditions, violation counts, strongest observed stress cases, the explicit proof gap that keeps the problem open, and a `primeproject.decisive-lemma-probe-certificate.v1` hash certificate over the probe payload.
 
 ## Claim Boundary
 

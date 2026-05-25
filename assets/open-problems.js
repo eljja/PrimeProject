@@ -374,6 +374,7 @@ function renderDecisiveLemmaLab(problem) {
   const probe = lab.finite_probe || {};
   const probeRows = Object.entries(probe);
   const falsificationProbe = lab.automated_falsification_probe || {};
+  const probeCertificate = falsificationProbe.probe_certificate || {};
   const strongestRows = Object.entries(falsificationProbe.strongest_observed || {});
   return `
     <div class="decisive-lab-head">
@@ -454,6 +455,20 @@ function renderDecisiveLemmaLab(problem) {
           .join("")}
       </div>
       <p>${escapeHtml(falsificationProbe.proof_gap || "")}</p>
+      <div class="probe-certificate">
+        <div>
+          <span>Certificate</span>
+          <strong>${escapeHtml(statusText(probeCertificate.status))}</strong>
+        </div>
+        <div>
+          <span>Merkle root</span>
+          <code>${escapeHtml(probeCertificate.merkle_root || "missing")}</code>
+        </div>
+        <div>
+          <span>Verifier</span>
+          <strong>${escapeHtml(probeCertificate.verifier || "missing")}</strong>
+        </div>
+      </div>
     </div>
     <div class="decisive-current">
       <strong>${escapeHtml(lab.current_result || "")}</strong>
