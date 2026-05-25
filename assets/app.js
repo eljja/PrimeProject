@@ -815,6 +815,24 @@ const bundledEvidencePack = {
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
     { role: "snapshot_manifest", schema: "primeproject.snapshot-manifest.v1", sha256: "ff9fea32962c21607de547e13d6385b0a0d9d13efa08c8df25b0e72806be84e0" },
   ],
+  required_evidence: [
+    {
+      item: "two_available_real_baselines",
+      status: "missing",
+      reason: "Needed to compare suspicious objects against more than one real generator family.",
+    },
+    {
+      item: "real_world_labelled_feature_vectors",
+      status: "missing",
+      reason:
+        "Needed before classifier output can support real-world attribution, not just controlled synthetic validation.",
+    },
+    {
+      item: "bitcoin_nonce_risk_report",
+      status: "missing",
+      reason: "Needed for wallet/library nonce fingerprint claims.",
+    },
+  ],
 };
 
 const bundledClaimLedger = {
@@ -911,7 +929,7 @@ const bundledArtifactLineage = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "ed06deee979aa2845454739f1d8e67cdfe4128309b0867835a4d812d1f3e4c53" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "8941a703279ebf2d77792f5c841da095194141f69749339d570771d58aea5725" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "6f3b840330b9db244eadecaf72f559c9bb44bc338030de1cab4c4ccf3859133c" },
     { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "7422fa84450cfc214d1d9d14793666f3ddab8e0660c83d41d1749a5c8e82f32a" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
@@ -1405,6 +1423,7 @@ const outputs = {
   evidenceSummary: document.querySelector("#evidenceSummary"),
   evidenceGateRows: document.querySelector("#evidenceGateRows"),
   evidenceArtifactRows: document.querySelector("#evidenceArtifactRows"),
+  requiredEvidenceRows: document.querySelector("#requiredEvidenceRows"),
   claimLedgerSummary: document.querySelector("#claimLedgerSummary"),
   claimLedgerRows: document.querySelector("#claimLedgerRows"),
   artifactLineageSummary: document.querySelector("#artifactLineageSummary"),
@@ -3308,7 +3327,7 @@ async function loadEvidencePack() {
 }
 
 function renderEvidencePack() {
-  if (!outputs.evidenceSummary || !outputs.evidenceGateRows || !outputs.evidenceArtifactRows) return;
+  if (!outputs.evidenceSummary || !outputs.evidenceGateRows || !outputs.evidenceArtifactRows || !outputs.requiredEvidenceRows) return;
   const pack = state.evidencePack || bundledEvidencePack;
   const claim = pack.claim_level || {};
   const gates = pack.publication_gates || [];
@@ -3341,6 +3360,15 @@ function renderEvidencePack() {
         </div>
       `;
     })
+    .join("");
+  outputs.requiredEvidenceRows.innerHTML = (pack.required_evidence || [])
+    .map((item) => `
+      <div class="evidence-row required-row">
+        <strong>${escapeHtml(item.item || "required_evidence")}</strong>
+        <em class="${item.status === "complete" ? "is-pass" : "is-fail"}">${escapeHtml(item.status || "missing")}</em>
+        <span>${escapeHtml(item.reason || "")}</span>
+      </div>
+    `)
     .join("");
 }
 

@@ -1178,6 +1178,9 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("baseline_acceptance_gate", failed)
         self.assertIn("collection_intake_gate", failed)
         self.assertIn("promotion_plan_gate", failed)
+        required = {item["item"]: item for item in pack["required_evidence"]}
+        self.assertEqual(required["real_world_labelled_feature_vectors"]["status"], "missing")
+        self.assertNotIn("labelled_feature_vectors", required)
         self.assertGreaterEqual(len(pack["local_collection_protocols"]), 3)
 
     def test_evidence_pack_requires_passing_fixture_audit_semantics(self) -> None:
@@ -1490,8 +1493,11 @@ class PrimeAuditTests(unittest.TestCase):
     def test_public_evidence_pack_hashes_match_files(self) -> None:
         evidence = load_repo_json("data/evidence_pack.json")
         artifacts = evidence["artifacts"]
+        required = {item["item"]: item for item in evidence["required_evidence"]}
 
         self.assertEqual(evidence["artifact_count"], len(artifacts))
+        self.assertEqual(required["real_world_labelled_feature_vectors"]["status"], "missing")
+        self.assertNotIn("labelled_feature_vectors", required)
         for artifact in artifacts:
             with self.subTest(role=artifact["role"]):
                 path = REPO_ROOT / str(artifact["path"])

@@ -162,8 +162,10 @@ async function main() {
       classifierLabels: document.querySelectorAll("#classifierLabels .classifier-label-row").length,
       evidencePanel: document.querySelector("#evidence-panel").textContent,
       evidenceSummary: document.querySelector("#evidenceSummary").textContent,
+      requiredEvidenceRows: document.querySelector("#requiredEvidenceRows").textContent,
       evidenceGates: document.querySelectorAll("#evidenceGateRows .evidence-row").length,
       evidenceArtifacts: document.querySelectorAll("#evidenceArtifactRows .evidence-row").length,
+      requiredEvidenceCount: document.querySelectorAll("#requiredEvidenceRows .required-row").length,
       claimLedgerRows: document.querySelectorAll("#claimLedgerRows .claim-row").length,
       claimLedgerSummary: document.querySelector("#claimLedgerSummary").textContent,
       artifactLineageSummary: document.querySelector("#artifactLineageSummary").textContent,
@@ -390,6 +392,7 @@ async function main() {
   if (
     metrics.evidenceGates < 11 ||
     metrics.evidenceArtifacts < 17 ||
+    metrics.requiredEvidenceCount < 3 ||
     metrics.claimLedgerRows < 5 ||
     metrics.artifactLineageRows < 5 ||
     metrics.artifactLineagePaths < 10 ||
@@ -433,7 +436,9 @@ async function main() {
     !metrics.evidencePanel.includes("replication_audit") ||
     !metrics.evidencePanel.includes("feature_vectors") ||
     !metrics.evidencePanel.includes("classifier_report") ||
-    !metrics.evidencePanel.includes("public_demo_only")
+    !metrics.evidencePanel.includes("public_demo_only") ||
+    !metrics.requiredEvidenceRows.includes("real_world_labelled_feature_vectors") ||
+    !metrics.requiredEvidenceRows.includes("missing")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

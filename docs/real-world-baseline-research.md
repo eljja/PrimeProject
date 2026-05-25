@@ -315,6 +315,8 @@ python -m prime_audit.cli evidence-pack `
 
 현재 claim level은 `public_demo_only`로 남는다. 이는 실패가 아니라 의도적인 안전장치다. OpenSSL/BoringSSL/Go aggregate baseline과 labelled feature vector가 생기기 전에는 “실세계 생성기 attribution을 증명했다”고 말하지 않도록 막는다.
 
+`required_evidence`도 같은 경계를 따른다. controlled synthetic classifier vector는 classifier plumbing과 합성 신호 검증에는 유용하지만, `real_world_claim_ready=true`인 labelled vector가 아니면 `real_world_labelled_feature_vectors`는 `missing`으로 남긴다.
+
 ## Claim Ledger
 
 `claim-ledger`는 Evidence Pack을 입력으로 받아 공개 문장 단위의 주장 허용 상태를 계산한다. 목적은 “프로젝트가 무엇을 할 수 있는가”를 홍보 문장으로 쓰기 전에, 각 문장이 어떤 gate와 artifact에 의해 허용되는지 확인하는 것이다.

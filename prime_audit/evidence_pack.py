@@ -415,6 +415,11 @@ def required_evidence(readiness: dict[str, Any]) -> list[dict[str, Any]]:
     sim = dimensions.get("sim_to_real", {})
     classifier = dimensions.get("classifier", {})
     bitcoin = dimensions.get("bitcoin_integration", {})
+    classifier_ready = (
+        classifier.get("real_world_claim_ready") is True
+        and int(classifier.get("label_count") or 0) >= 3
+        and int(classifier.get("vector_count") or 0) >= 12
+    )
     return [
         {
             "item": "two_available_real_baselines",
@@ -422,9 +427,9 @@ def required_evidence(readiness: dict[str, Any]) -> list[dict[str, Any]]:
             "reason": "Needed to compare suspicious objects against more than one real generator family.",
         },
         {
-            "item": "labelled_feature_vectors",
-            "status": "complete" if int(classifier.get("label_count") or 0) >= 3 else "missing",
-            "reason": "Needed before classifier output can support real-world attribution.",
+            "item": "real_world_labelled_feature_vectors",
+            "status": "complete" if classifier_ready else "missing",
+            "reason": "Needed before classifier output can support real-world attribution, not just controlled synthetic validation.",
         },
         {
             "item": "bitcoin_nonce_risk_report",

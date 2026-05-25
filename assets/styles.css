@@ -2437,20 +2437,22 @@ canvas {
 
 .evidence-body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.9fr);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr) minmax(300px, 0.8fr);
   gap: 16px;
   padding: 16px 20px 20px;
 }
 
 .evidence-gates,
-.evidence-artifacts {
+.evidence-artifacts,
+.evidence-required {
   border: 1px solid var(--line);
   background: #fff;
   padding: 14px;
 }
 
 .evidence-gates h3,
-.evidence-artifacts h3 {
+.evidence-artifacts h3,
+.evidence-required h3 {
   margin-bottom: 12px;
   color: var(--ink);
   font-size: 13px;
@@ -2511,6 +2513,10 @@ canvas {
 
 .artifact-row {
   grid-template-columns: 130px minmax(0, 1fr) 104px;
+}
+
+.required-row {
+  grid-template-columns: minmax(0, 1fr) 72px minmax(160px, 1.1fr);
 }
 
 .artifact-row code {
