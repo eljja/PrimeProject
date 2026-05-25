@@ -64,6 +64,16 @@ def main() -> int:
         if len(milestones) < 5 or queue.get("completed_count") != 1 or queue.get("open_count", 0) < 3:
             print(f"{problem.get('id')} proof milestone queue does not expose the expected open work.", file=sys.stderr)
             return 1
+        lab = problem.get("decisive_lemma_lab", {})
+        if lab.get("status") != "active_not_proven":
+            print(f"{problem.get('id')} decisive lemma lab has unexpected status.", file=sys.stderr)
+            return 1
+        if not lab.get("proof_obligation") or not lab.get("falsification_test"):
+            print(f"{problem.get('id')} decisive lemma lab is missing proof or falsification terms.", file=sys.stderr)
+            return 1
+        if not lab.get("closes_milestones") or not lab.get("finite_probe"):
+            print(f"{problem.get('id')} decisive lemma lab is not tied to milestones and finite probes.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

@@ -232,6 +232,7 @@ async function main() {
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
+          decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
           text: document.body.textContent,
         }), problemId),
@@ -281,6 +282,10 @@ async function main() {
         !page.milestoneQueueText.includes("bounded only infinite proof open") ||
         !page.milestoneQueueText.includes("complete") ||
         !page.milestoneQueueText.includes("open infinite bridge") ||
+        !page.decisiveLemmaText.includes("active not proven") ||
+        !page.decisiveLemmaText.includes("Candidate statement") ||
+        !page.decisiveLemmaText.includes("Proof Obligation") ||
+        !page.decisiveLemmaText.includes("Falsification Test") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||
         !page.text.includes("No proof claim"),

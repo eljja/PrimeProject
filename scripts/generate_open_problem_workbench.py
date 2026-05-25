@@ -14,6 +14,7 @@ PROOF_ATTEMPT_SCHEMA = "primeproject.proof-attempt-ledger.v1"
 PROOF_STATUS_GATE_SCHEMA = "primeproject.open-problem-proof-status-gate.v1"
 FORMAL_PROOF_CONTRACT_SCHEMA = "primeproject.formal-proof-contract.v1"
 PROOF_MILESTONE_SCHEMA = "primeproject.proof-milestone-queue.v1"
+DECISIVE_LEMMA_SCHEMA = "primeproject.decisive-lemma-lab.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -249,6 +250,36 @@ def proof_milestone_queue(
     }
 
 
+def decisive_lemma_lab(
+    *,
+    problem_id: str,
+    lemma_id: str,
+    decisive_question: str,
+    candidate_statement: str,
+    closes_milestones: list[str],
+    finite_probe: dict[str, object],
+    proof_obligation: str,
+    falsification_test: str,
+    current_result: str,
+    next_action: str,
+) -> dict[str, object]:
+    return {
+        "schema": DECISIVE_LEMMA_SCHEMA,
+        "problem_id": problem_id,
+        "lemma_id": lemma_id,
+        "status": "active_not_proven",
+        "decisive_question": decisive_question,
+        "candidate_statement": candidate_statement,
+        "closes_milestones": closes_milestones,
+        "finite_probe": finite_probe,
+        "proof_obligation": proof_obligation,
+        "falsification_test": falsification_test,
+        "current_result": current_result,
+        "next_action": next_action,
+        "promotion_rule": "The lab may upgrade a milestone only when the proof obligation is discharged by a formal theorem or accepted external proof, not by finite probe success.",
+    }
+
+
 def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
     checkpoints = [10**k for k in range(2, int(math.log10(limit)) + 1)]
     rows = []
@@ -421,6 +452,23 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
                     "exit_criterion": "A clean Lean replay passes outside PrimeProject.",
                 },
             ],
+        ),
+        "decisive_lemma_lab": decisive_lemma_lab(
+            problem_id="riemann",
+            lemma_id="RH-DL1",
+            decisive_question="Can finite theta residual discipline be upgraded into an explicit all-x bound strong enough for an RH-equivalent bridge?",
+            candidate_statement="There are explicit constants C and x0 such that |theta(x)-x| <= C sqrt(x) log(x)^2 for every x >= x0, and the constants satisfy a formal RH-equivalent criterion.",
+            closes_milestones=["RH-M3", "RH-M4"],
+            finite_probe={
+                "limit": limit,
+                "checkpoint_count": len(rows),
+                "observed_max_scaled_theta_error": max_scaled_theta_error,
+                "probe_status": "no_bounded_violation",
+            },
+            proof_obligation="Replace checkpoint agreement with a theorem over all real x beyond a stated threshold and prove the equivalence bridge without importing RH.",
+            falsification_test="Search for a computed theta residual that violates the proposed envelope, then reject any envelope that fails to imply a known RH-equivalent statement.",
+            current_result="The bounded probe is compatible with the lemma but does not prove it.",
+            next_action="Formalize the target inequality and enumerate which published equivalence theorem would be sufficient.",
         ),
         "candidate_strategy": [
             "Use generator-fingerprint residuals to look for structured departures from PNT-scale noise.",
@@ -623,6 +671,25 @@ def build_collatz(limit: int) -> dict[str, object]:
                 },
             ],
         ),
+        "decisive_lemma_lab": decisive_lemma_lab(
+            problem_id="collatz",
+            lemma_id="C-DL1",
+            decisive_question="Can the bounded trajectory evidence be compressed into a finite symbolic descent cover for all residue blocks?",
+            candidate_statement="There is a finite set of accelerated Collatz residue-block certificates whose recursive lift forces every positive integer into a smaller covered representative.",
+            closes_milestones=["C-M3", "C-M4"],
+            finite_probe={
+                "limit": limit,
+                "tested_start_values": limit,
+                "counterexamples": 0,
+                "max_total_stopping_time_n": max_steps["n"],
+                "max_total_stopping_time": max_steps["steps"],
+                "probe_status": "no_bounded_counterexample",
+            },
+            proof_obligation="Prove the block cover is complete under lifting and that its descent measure is well-founded, excluding cycles and divergence.",
+            falsification_test="Find a residue block with no certified descent path or a lifted block whose measure can increase indefinitely.",
+            current_result="The bounded replay supports the search for descent certificates but still depends on finite enumeration.",
+            next_action="Generate candidate odd-only residue transitions and rank uncovered blocks by descent failure risk.",
+        ),
         "claim_boundary": "No proof claim. Current evidence is finite exhaustive replay plus blocker list.",
     }
 
@@ -805,6 +872,25 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
                 },
             ],
         ),
+        "decisive_lemma_lab": decisive_lemma_lab(
+            problem_id="goldbach",
+            lemma_id="G-DL1",
+            decisive_question="Can the thinnest bounded representation classes be turned into an explicit positive lower bound for all large even integers?",
+            candidate_statement="For every even n >= N, the Goldbach representation count R(n) is positive, with an explicit threshold N no larger than the committed certificate limit.",
+            closes_milestones=["G-M3", "G-M4"],
+            finite_probe={
+                "limit": limit,
+                "tested_even_values": (limit - 2) // 2,
+                "counterexamples": len(failures),
+                "hardest_even": hardest["even"],
+                "hardest_smallest_prime": hardest["smallest_prime"],
+                "probe_status": "no_bounded_counterexample",
+            },
+            proof_obligation="Derive explicit constants for a positive representation-count lower bound and bridge the analytic threshold to the certified finite range.",
+            falsification_test="Reject any proposed lower bound that becomes non-positive in a residue class or whose threshold exceeds the certificate limit.",
+            current_result="The bounded witness certificate closes the finite range only; the positive infinite lower bound is open.",
+            next_action="Use the hardest bounded decompositions to prioritize residue classes for explicit lower-bound stress tests.",
+        ),
         "claim_boundary": "No proof claim. Current evidence is bounded exhaustive verification.",
     }
 
@@ -984,6 +1070,24 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
                     "exit_criterion": "A clean Lean replay passes outside PrimeProject.",
                 },
             ],
+        ),
+        "decisive_lemma_lab": decisive_lemma_lab(
+            problem_id="twin-prime",
+            lemma_id="TP-DL1",
+            decisive_question="Can observed exact gap-2 persistence be upgraded into an unconditional lower bound for arbitrarily large x?",
+            candidate_statement="There is an explicit c > 0 such that the number of twin prime pairs up to x is at least c x / log(x)^2 for arbitrarily large x, without assuming Hardy-Littlewood.",
+            closes_milestones=["TP-M3", "TP-M4"],
+            finite_probe={
+                "limit": limit,
+                "twin_pair_count": count,
+                "largest_pair_seen": largest_pair,
+                "checkpoint_count": len(rows),
+                "probe_status": "density_observed_not_proven",
+            },
+            proof_obligation="Prove an unconditional exact gap-2 lower bound strong enough to imply arbitrarily large twin prime pairs.",
+            falsification_test="Reject any argument that proves only bounded gaps, assumes k-tuple independence, or lets the exact gap-2 lower bound collapse to zero.",
+            current_result="The bounded count agrees with heuristic scale but does not establish infinitude.",
+            next_action="Separate exact gap-2 requirements from bounded-gap evidence and formalize the missing lower-bound theorem.",
         ),
         "claim_boundary": "No proof claim. Current evidence is finite counting and heuristic comparison.",
     }

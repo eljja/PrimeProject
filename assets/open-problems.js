@@ -369,6 +369,61 @@ function renderMilestoneQueue(problem) {
   `;
 }
 
+function renderDecisiveLemmaLab(problem) {
+  const lab = problem.decisive_lemma_lab || {};
+  const probe = lab.finite_probe || {};
+  const probeRows = Object.entries(probe);
+  return `
+    <div class="decisive-lab-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(lab.status))}</strong>
+      </div>
+      <div>
+        <span>Lemma</span>
+        <strong>${escapeHtml(lab.lemma_id || "missing")}</strong>
+      </div>
+      <div>
+        <span>Would close</span>
+        <strong>${escapeHtml((lab.closes_milestones || []).join(", ") || "none")}</strong>
+      </div>
+    </div>
+    <p class="attempt-route">${escapeHtml(lab.decisive_question || "")}</p>
+    <div class="decisive-statement">
+      <span>Candidate statement</span>
+      <p>${escapeHtml(lab.candidate_statement || "")}</p>
+    </div>
+    <div class="decisive-grid">
+      <section>
+        <h3>Finite Probe</h3>
+        <div class="proof-gate-table">
+          ${probeRows
+            .map(
+              ([label, value]) => `
+                <div>
+                  <span>${escapeHtml(label.replaceAll("_", " "))}</span>
+                  <strong>${escapeHtml(formatValue(value))}</strong>
+                </div>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+      <section>
+        <h3>Proof Obligation</h3>
+        <p>${escapeHtml(lab.proof_obligation || "")}</p>
+        <h3>Falsification Test</h3>
+        <p>${escapeHtml(lab.falsification_test || "")}</p>
+      </section>
+    </div>
+    <div class="decisive-current">
+      <strong>${escapeHtml(lab.current_result || "")}</strong>
+      <p>${escapeHtml(lab.next_action || "")}</p>
+      <small>${escapeHtml(lab.promotion_rule || "")}</small>
+    </div>
+  `;
+}
+
 function render(payload, problem) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
@@ -403,6 +458,7 @@ function render(payload, problem) {
   document.querySelector("#proofStatusGate").innerHTML = renderProofStatusGate(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
+  document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);
   document.querySelector("#proofGates").innerHTML = list(problem.proof_gates || []);
   document.querySelector("#candidateStrategy").innerHTML = list(problem.candidate_strategy || []);
   document.querySelector("#blockedClaims").innerHTML = (payload.claim_policy.blocked_claims || [])

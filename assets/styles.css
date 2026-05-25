@@ -1089,6 +1089,84 @@ canvas {
   line-height: 1.45;
 }
 
+.decisive-lab-head {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.55fr) minmax(140px, 0.35fr) minmax(240px, 1fr);
+  gap: 10px;
+}
+
+.decisive-lab-head div,
+.decisive-statement,
+.decisive-current {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.decisive-lab-head span,
+.decisive-statement span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.decisive-lab-head strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.decisive-statement {
+  margin-top: 12px;
+  border-left: 3px solid var(--teal);
+}
+
+.decisive-statement p,
+.decisive-current p,
+.decisive-current small,
+.decisive-grid p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.decisive-current strong {
+  color: var(--ink);
+}
+
+.decisive-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(300px, 1.1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.decisive-grid section {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  padding: 12px;
+}
+
+.decisive-grid h3 {
+  margin: 0 0 9px;
+  font-size: 12px;
+}
+
+.decisive-grid h3 + p + h3 {
+  margin-top: 14px;
+}
+
+.decisive-current {
+  margin-top: 12px;
+  border-top: 3px solid var(--danger);
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -4054,7 +4132,9 @@ tr:last-child td {
   .proof-gate-table,
   .formal-contract-head,
   .milestone-summary,
-  .milestone-list {
+  .milestone-list,
+  .decisive-lab-head,
+  .decisive-grid {
     grid-template-columns: 1fr;
   }
 }
