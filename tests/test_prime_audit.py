@@ -1283,7 +1283,7 @@ class PrimeAuditTests(unittest.TestCase):
                             {"role": "manifest", "sha256": "0" * 64},
                             {
                                 "role": "readiness",
-                                "sha256": sha256_text(readiness.read_text(encoding="utf-8")),
+                                "sha256": sha256_file(readiness),
                             },
                         ],
                     }
@@ -1947,7 +1947,12 @@ def sha256_text(value: str) -> str:
 def sha256_file(path: Path) -> str:
     import hashlib
 
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    data = path.read_bytes()
+    try:
+        payload = json.loads(data.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        return hashlib.sha256(data).hexdigest()
+    return hashlib.sha256(json.dumps(payload, indent=2, sort_keys=True).encode("utf-8")).hexdigest()
 
 
 def load_repo_json(path: str) -> dict[str, object]:

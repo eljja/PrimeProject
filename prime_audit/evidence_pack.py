@@ -75,12 +75,14 @@ def artifact_summaries(file_paths: dict[str, str | Path]) -> list[dict[str, Any]
             )
             continue
         data = path.read_bytes()
+        hash_bytes = data
         schema = None
         payload_summary: dict[str, Any] = {}
         try:
             payload = json.loads(data.decode("utf-8"))
             if isinstance(payload, dict):
                 schema = payload.get("schema")
+                hash_bytes = canonical_json_bytes(payload)
                 payload_summary = artifact_semantics(role, payload)
         except (UnicodeDecodeError, json.JSONDecodeError):
             schema = None
@@ -89,13 +91,18 @@ def artifact_summaries(file_paths: dict[str, str | Path]) -> list[dict[str, Any]
                 "role": role,
                 "path": str(path).replace("\\", "/"),
                 "exists": True,
-                "sha256": hashlib.sha256(data).hexdigest(),
+                "sha256": hashlib.sha256(hash_bytes).hexdigest(),
                 "schema": schema,
                 "bytes": len(data),
+                "hash_policy": "canonical_json" if schema else "raw_bytes",
                 **payload_summary,
             }
         )
     return artifacts
+
+
+def canonical_json_bytes(payload: dict[str, Any]) -> bytes:
+    return json.dumps(payload, indent=2, sort_keys=True).encode("utf-8")
 
 
 def artifact_semantics(role: str, payload: dict[str, Any]) -> dict[str, Any]:

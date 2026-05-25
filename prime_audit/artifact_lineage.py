@@ -150,11 +150,13 @@ def artifact_node(role: str, path_value: str | Path) -> dict[str, Any]:
             "bytes": 0,
         }
     data = path.read_bytes()
+    hash_bytes = data
     schema = None
     try:
         payload = json.loads(data.decode("utf-8"))
         if isinstance(payload, dict):
             schema = payload.get("schema")
+            hash_bytes = canonical_json_bytes(payload)
     except (UnicodeDecodeError, json.JSONDecodeError):
         schema = None
     return {
@@ -162,9 +164,14 @@ def artifact_node(role: str, path_value: str | Path) -> dict[str, Any]:
         "path": str(path).replace("\\", "/"),
         "exists": True,
         "schema": schema,
-        "sha256": hashlib.sha256(data).hexdigest(),
+        "sha256": hashlib.sha256(hash_bytes).hexdigest(),
         "bytes": len(data),
+        "hash_policy": "canonical_json" if schema else "raw_bytes",
     }
+
+
+def canonical_json_bytes(payload: dict[str, Any]) -> bytes:
+    return json.dumps(payload, indent=2, sort_keys=True).encode("utf-8")
 
 
 def evidence_pack_checksum_checks(nodes: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
