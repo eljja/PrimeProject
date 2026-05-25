@@ -124,6 +124,14 @@ python scripts/reproduce_publication.py
 
 Add `--report publication_reproduction_report.json` to save the compared artifact hashes and command trace with temporary output paths normalized to `{tmp}`.
 
+To verify the GitHub Pages surface, run:
+
+```bash
+node scripts/verify_pages.cjs
+```
+
+The verifier serves the repository over local HTTP, so it exercises the same `data/*.json` fetch path used by GitHub Pages instead of the `file://` fallback constants.
+
 The bundled Codex runtime Python can also run the same commands.
 
 ## Boundary

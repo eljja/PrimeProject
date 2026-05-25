@@ -1,15 +1,17 @@
 const path = require("node:path");
 const fs = require("node:fs");
-const { pathToFileURL } = require("node:url");
+const http = require("node:http");
 const { chromium } = loadPlaywright();
 
 async function main() {
   const root = path.resolve(__dirname, "..");
   const publicData = loadPublicData(root);
-  const url = pathToFileURL(path.join(root, "index.html")).href;
+  const serverHandle = await startStaticServer(root);
+  const url = serverHandle.url;
   const chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
   let browser = null;
   const errors = [];
+  const dataResponses = [];
   let metrics = null;
 
   try {
@@ -25,6 +27,15 @@ async function main() {
     page.on("pageerror", (error) => errors.push(error.message));
     page.on("console", (message) => {
       if (message.type() === "error") errors.push(message.text());
+    });
+    page.on("response", (response) => {
+      const responseUrl = response.url();
+      if (responseUrl.includes("/data/") && responseUrl.endsWith(".json")) {
+        dataResponses.push({ url: responseUrl, status: response.status() });
+      }
+      if (response.status() >= 400) {
+        errors.push(`${response.status()} ${responseUrl}`);
+      }
     });
 
     await page.goto(url, { waitUntil: "networkidle" });
@@ -78,6 +89,7 @@ async function main() {
     });
 
     metrics = await page.evaluate(() => ({
+      pageProtocol: window.location.protocol,
       title: document.title,
       primeCount: document.querySelector("#primeCount").textContent,
       drift: document.querySelector("#driftMetric").textContent,
@@ -178,6 +190,7 @@ async function main() {
       falsificationRows: document.querySelectorAll("#falsificationRows .falsification-row").length,
       evidenceTop: Math.round(document.querySelector("#evidence-panel").getBoundingClientRect().top),
     }));
+    metrics.fetchedDataJson = dataResponses.filter((response) => response.status >= 200 && response.status < 300).length;
 
     const mobile = await browser.newPage({
       viewport: { width: 390, height: 900 },
@@ -190,6 +203,7 @@ async function main() {
     });
   } finally {
     if (browser) await browser.close();
+    await closeServer(serverHandle.server);
   }
 
   if (errors.length > 0) {
@@ -197,6 +211,10 @@ async function main() {
     process.exit(1);
   }
   const expected = buildExpectedPublicText(publicData);
+  if (metrics.pageProtocol !== "http:" || metrics.fetchedDataJson < 20) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
   const exactPublicChecks = [
     [metrics.evolutionSummary, expected.evolution.scale],
     [metrics.evolutionSummary, expected.evolution.snapshots],
@@ -288,7 +306,7 @@ async function main() {
     metrics.nullCalibrationRows < 5 ||
     !metrics.nullCalibrationSummary.includes("5,000") ||
     !metrics.nullCalibrationSummary.includes("gap_only") ||
-    !metrics.attributionFirstRow.includes("all")
+    !metrics.attributionFirstRow.includes(expected.attribution.topControlledProfile)
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
@@ -455,6 +473,7 @@ function loadPublicData(root) {
     lineage: readJson(root, "data/artifact_lineage.json"),
     decision: readJson(root, "data/decision_protocol.json"),
     falsification: readJson(root, "data/falsification_battery.json"),
+    attribution: readJson(root, "data/attribution_confound_grid.json"),
   };
 }
 
@@ -467,8 +486,15 @@ function buildExpectedPublicText(data) {
   const readiness = data.readiness;
   const simToReal = readiness.dimensions?.sim_to_real || {};
   const evidence = data.evidence;
+  const attributionProfiles = Object.entries(data.attribution.summary?.profiles || {});
+  const topControlled = attributionProfiles.sort(
+    (left, right) => (right[1].mean_controlled_accuracy || 0) - (left[1].mean_controlled_accuracy || 0),
+  )[0];
   const failedGates = (evidence.publication_gates || []).filter((gate) => !gate.passed);
   return {
+    attribution: {
+      topControlledProfile: topControlled ? topControlled[0] : "",
+    },
     evolution: {
       scale: formatCompact(metrics.live_compute_limit || 0),
       snapshots: `${(metrics.precomputed_snapshot_limits || []).map(formatCompact).join(", ")} snapshots`,
@@ -583,3 +609,61 @@ main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
+
+function startStaticServer(root) {
+  const server = http.createServer((request, response) => {
+    try {
+      const requestUrl = new URL(request.url || "/", "http://127.0.0.1");
+      const pathname = decodeURIComponent(requestUrl.pathname);
+      const relativePath = pathname === "/" ? "index.html" : pathname.replace(/^\/+/, "");
+      const filePath = path.resolve(root, relativePath);
+      if (filePath !== root && !filePath.startsWith(`${root}${path.sep}`)) {
+        response.writeHead(403, { "Content-Type": "text/plain; charset=utf-8" });
+        response.end("Forbidden");
+        return;
+      }
+      if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+        response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+        response.end("Not found");
+        return;
+      }
+      response.writeHead(200, {
+        "Content-Type": contentType(filePath),
+        "Cache-Control": "no-store",
+      });
+      fs.createReadStream(filePath).pipe(response);
+    } catch (error) {
+      response.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
+      response.end(String(error && error.message ? error.message : error));
+    }
+  });
+
+  return new Promise((resolve, reject) => {
+    server.once("error", reject);
+    server.listen(0, "127.0.0.1", () => {
+      server.off("error", reject);
+      const address = server.address();
+      resolve({ server, url: `http://127.0.0.1:${address.port}/index.html` });
+    });
+  });
+}
+
+function closeServer(server) {
+  return new Promise((resolve, reject) => {
+    server.close((error) => (error ? reject(error) : resolve()));
+  });
+}
+
+function contentType(filePath) {
+  const extension = path.extname(filePath).toLowerCase();
+  return (
+    {
+      ".css": "text/css; charset=utf-8",
+      ".html": "text/html; charset=utf-8",
+      ".js": "application/javascript; charset=utf-8",
+      ".json": "application/json; charset=utf-8",
+      ".png": "image/png",
+      ".svg": "image/svg+xml; charset=utf-8",
+    }[extension] || "application/octet-stream"
+  );
+}
