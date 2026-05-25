@@ -7,7 +7,7 @@ PrimeProject now has four GitHub Pages subpages for:
 - Goldbach Conjecture
 - Twin Prime Conjecture
 
-The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
+The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
 ## Public Pages
 
@@ -40,6 +40,12 @@ Current bounded checks:
 - Twin Prime: twin-pair counts and Hardy-Littlewood heuristic comparison through 1,000,000.
 
 Each problem includes a `primeproject.bounded-proof-certificate.v1` object. The certificate hashes every bounded witness or diagnostic row, groups leaves into deterministic chunks, and exposes a Merkle root that CI recomputes. This is a real proof artifact for the bounded theorem only. It is intentionally not a proof of the unbounded conjecture.
+
+Each problem also includes a `primeproject.proof-attempt-ledger.v1` object. The ledger separates three things:
+
+- `proved_by_certificate`: the finite theorem already verified by the Merkle certificate.
+- `open_obligation`: the exact infinite lemma still needed before any solution claim is allowed.
+- `falsification_targets`: concrete ways an attempted proof can fail.
 
 ## Claim Boundary
 

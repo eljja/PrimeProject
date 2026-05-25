@@ -226,6 +226,7 @@ async function main() {
           status: document.querySelector("#claimStatus").textContent,
           metricCount: document.querySelectorAll(".proof-metric").length,
           certificateText: document.querySelector("#certificatePanel").textContent,
+          proofAttemptText: document.querySelector("#proofAttempt").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
           text: document.body.textContent,
         }), problemId),
@@ -259,6 +260,9 @@ async function main() {
         page.blockedClaimCount < 4 ||
         !page.certificateText.includes("bounded theorem certified") ||
         !page.certificateText.includes("scripts/verify_open_problem_workbench.py") ||
+        !page.proofAttemptText.includes("open infinite obligation") ||
+        !page.proofAttemptText.includes("proved by certificate") ||
+        !page.proofAttemptText.includes("Falsification targets") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||
         !page.text.includes("No proof claim"),

@@ -10,6 +10,7 @@ from pathlib import Path
 
 SCHEMA = "primeproject.open-problem-workbench.v1"
 CERTIFICATE_SCHEMA = "primeproject.bounded-proof-certificate.v1"
+PROOF_ATTEMPT_SCHEMA = "primeproject.proof-attempt-ledger.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -98,6 +99,31 @@ def li_approx(x: int) -> float:
     return total
 
 
+def proof_attempt_ledger(
+    *,
+    problem_id: str,
+    route: str,
+    formal_statement: str,
+    obligations: list[dict[str, str]],
+    falsification_targets: list[str],
+) -> dict[str, object]:
+    return {
+        "schema": PROOF_ATTEMPT_SCHEMA,
+        "problem_id": problem_id,
+        "status": "open_infinite_obligation",
+        "bounded_theorem_status": "proved_by_certificate",
+        "attack_route": route,
+        "obligations": obligations,
+        "falsification_targets": falsification_targets,
+        "next_formalization_target": {
+            "format": "lean_ready_statement",
+            "statement": formal_statement,
+            "status": "not_formalized",
+        },
+        "promotion_rule": "A page may move from open_not_proven only when every open obligation is replaced by an independently checkable proof that does not depend on the search limit.",
+    }
+
+
 def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
     checkpoints = [10**k for k in range(2, int(math.log10(limit)) + 1)]
     rows = []
@@ -141,6 +167,39 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
             "max_scaled_theta_error": round(max_scaled_theta_error, 6),
         },
         "certificate": certificate.finish(),
+        "proof_attempt": proof_attempt_ledger(
+            problem_id="riemann",
+            route="Prime-counting residuals -> explicit theta(x) envelope -> zero-free critical-strip control strong enough for RH.",
+            formal_statement="For every non-trivial zero rho of zeta, Re(rho) = 1/2.",
+            obligations=[
+                {
+                    "id": "RH-O1",
+                    "claim": "Bounded theta/pi diagnostics are exactly reproducible.",
+                    "status": "proved_by_certificate",
+                    "verifier": "scripts/verify_open_problem_workbench.py",
+                    "failure_mode": "Merkle root mismatch or changed checkpoint row.",
+                },
+                {
+                    "id": "RH-O2",
+                    "claim": "Find an explicit residual bound valid for all x beyond a finite threshold.",
+                    "status": "open_obligation",
+                    "verifier": "analytic proof required",
+                    "failure_mode": "A residual spike violates the proposed global envelope.",
+                },
+                {
+                    "id": "RH-O3",
+                    "claim": "Show the global envelope implies all non-trivial zeros lie on the critical line.",
+                    "status": "open_obligation",
+                    "verifier": "formal theorem or accepted analytic derivation",
+                    "failure_mode": "The envelope is weaker than a known RH-equivalent condition.",
+                },
+            ],
+            falsification_targets=[
+                "A proposed all-x theta bound fails on a computed checkpoint.",
+                "The bound does not imply a published RH-equivalent criterion.",
+                "The argument depends on a finite zero table without an infinite tail theorem.",
+            ],
+        ),
         "proof_gates": [
             "Replace finite prime-counting evidence with a theorem controlling zeta zeros on the full critical strip.",
             "Prove an explicit equivalence strong enough to imply all non-trivial zeros lie on Re(s)=1/2.",
@@ -212,6 +271,39 @@ def build_collatz(limit: int) -> dict[str, object]:
             },
         },
         "certificate": certificate.finish(),
+        "proof_attempt": proof_attempt_ledger(
+            problem_id="collatz",
+            route="Odd-only accelerated map -> residue-block descent certificate -> recursive coverage of every positive integer.",
+            formal_statement="For every positive integer n, some iterate of the Collatz map reaches 1.",
+            obligations=[
+                {
+                    "id": "C-O1",
+                    "claim": "Every n <= 1,000,000 reaches 1 under the Collatz map.",
+                    "status": "proved_by_certificate",
+                    "verifier": "scripts/verify_open_problem_workbench.py",
+                    "failure_mode": "A trajectory leaf changes or a non-reaching start value appears.",
+                },
+                {
+                    "id": "C-O2",
+                    "claim": "Construct residue-block descent certificates that cover all sufficiently large blocks.",
+                    "status": "open_obligation",
+                    "verifier": "deterministic descent proof required",
+                    "failure_mode": "An uncovered block has no guaranteed descent path.",
+                },
+                {
+                    "id": "C-O3",
+                    "claim": "Rule out divergent trajectories and non-trivial cycles simultaneously.",
+                    "status": "open_obligation",
+                    "verifier": "cycle and divergence exclusion theorem",
+                    "failure_mode": "A cycle or non-descending infinite branch remains possible.",
+                },
+            ],
+            falsification_targets=[
+                "A residue block cannot be assigned a monotone descent certificate.",
+                "A proposed drift inequality admits an infinite exceptional set.",
+                "Odd-only compression silently loses a valid trajectory branch.",
+            ],
+        ),
         "proof_gates": [
             "Prove descent or recurrence for every congruence class without relying on finite enumeration.",
             "Rule out non-trivial cycles and divergent trajectories simultaneously.",
@@ -269,6 +361,39 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
             "sample_decompositions": decompositions,
         },
         "certificate": certificate.finish(),
+        "proof_attempt": proof_attempt_ledger(
+            problem_id="goldbach",
+            route="Exhaustive bounded witnesses -> thinnest residue-class model -> explicit positive lower bound for all even n.",
+            formal_statement="For every even integer n > 2, there exist primes p and q such that n = p + q.",
+            obligations=[
+                {
+                    "id": "G-O1",
+                    "claim": "Every even n <= 1,000,000 has a prime-pair witness.",
+                    "status": "proved_by_certificate",
+                    "verifier": "scripts/verify_open_problem_workbench.py",
+                    "failure_mode": "A witness leaf changes or an even n has no pair.",
+                },
+                {
+                    "id": "G-O2",
+                    "claim": "Prove a positive representation-count lower bound for all even n above a threshold.",
+                    "status": "open_obligation",
+                    "verifier": "explicit analytic lower-bound proof",
+                    "failure_mode": "A thin residue class has no proven positive lower bound.",
+                },
+                {
+                    "id": "G-O3",
+                    "claim": "Bridge the analytic threshold to the bounded certified range with no gap.",
+                    "status": "open_obligation",
+                    "verifier": "threshold comparison against certificate limit",
+                    "failure_mode": "The analytic theorem starts above the certified range.",
+                },
+            ],
+            falsification_targets=[
+                "A proposed lower bound becomes non-positive for a residue class.",
+                "The threshold exceeds the certified finite range.",
+                "The model assumes unproved prime-pair independence.",
+            ],
+        ),
         "proof_gates": [
             "Control prime coverage in every residue class strongly enough for all even integers.",
             "Bridge from verified finite range to an analytic theorem for the infinite tail.",
@@ -324,6 +449,39 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
             "checkpoints": rows,
         },
         "certificate": certificate.finish(),
+        "proof_attempt": proof_attempt_ledger(
+            problem_id="twin-prime",
+            route="Certified finite twin pairs -> admissible two-point pattern analysis -> lower-bound theorem for exact gap 2.",
+            formal_statement="For infinitely many primes p, p + 2 is also prime.",
+            obligations=[
+                {
+                    "id": "TP-O1",
+                    "claim": "Every twin prime pair p,p+2 with p+2 <= 1,000,000 is counted by the sieve scan.",
+                    "status": "proved_by_certificate",
+                    "verifier": "scripts/verify_open_problem_workbench.py",
+                    "failure_mode": "The pair list Merkle root changes or a pair is missed.",
+                },
+                {
+                    "id": "TP-O2",
+                    "claim": "Prove infinitely many exact prime gaps of size 2, not only bounded gaps.",
+                    "status": "open_obligation",
+                    "verifier": "exact gap-2 infinitude theorem",
+                    "failure_mode": "The proof only gives a bounded gap larger than 2.",
+                },
+                {
+                    "id": "TP-O3",
+                    "claim": "Remove dependence on unproved Hardy-Littlewood k-tuple assumptions.",
+                    "status": "open_obligation",
+                    "verifier": "assumption-free lower-bound proof",
+                    "failure_mode": "The density argument remains heuristic.",
+                },
+            ],
+            falsification_targets=[
+                "The lower bound collapses to zero for exact gap 2.",
+                "The argument proves bounded gaps but cannot force gap 2.",
+                "An admissible-pattern step assumes the k-tuple conjecture.",
+            ],
+        ),
         "proof_gates": [
             "Prove infinitely many prime gaps of size exactly 2, not merely bounded gaps.",
             "Remove dependence on unproven distribution assumptions such as full Hardy-Littlewood k-tuple strength.",

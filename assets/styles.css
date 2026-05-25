@@ -734,6 +734,85 @@ canvas {
   margin: 10px 0 0;
 }
 
+.attempt-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.attempt-summary div,
+.obligation-item {
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 11px;
+}
+
+.attempt-summary span,
+.obligation-item span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.attempt-summary strong,
+.obligation-item strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.attempt-route {
+  border-left: 3px solid var(--teal);
+  padding-left: 10px;
+  font-weight: 720;
+}
+
+.obligation-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.obligation-item.is-open_obligation {
+  border-top: 3px solid var(--danger);
+}
+
+.obligation-item.is-proved_by_certificate {
+  border-top: 3px solid var(--teal);
+}
+
+.obligation-item p,
+.obligation-item em {
+  display: block;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.falsification-targets {
+  margin-top: 12px;
+  border: 1px dashed var(--line);
+  padding: 12px;
+}
+
+.falsification-targets strong {
+  display: block;
+  color: var(--danger);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.falsification-targets ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -3690,7 +3769,9 @@ tr:last-child td {
   }
 
   .proof-grid,
-  .proof-metrics {
+  .proof-metrics,
+  .attempt-summary,
+  .obligation-list {
     grid-template-columns: 1fr;
   }
 }

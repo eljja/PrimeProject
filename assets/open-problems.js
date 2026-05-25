@@ -148,6 +148,44 @@ function renderCertificate(problem) {
   `;
 }
 
+function renderProofAttempt(problem) {
+  const attempt = problem.proof_attempt || {};
+  const obligations = attempt.obligations || [];
+  const targets = attempt.falsification_targets || [];
+  return `
+    <div class="attempt-summary">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(String(attempt.status || "missing").replaceAll("_", " "))}</strong>
+      </div>
+      <div>
+        <span>Bounded theorem</span>
+        <strong>${escapeHtml(String(attempt.bounded_theorem_status || "missing").replaceAll("_", " "))}</strong>
+      </div>
+    </div>
+    <p class="attempt-route">${escapeHtml(attempt.attack_route || "")}</p>
+    <div class="obligation-list">
+      ${obligations
+        .map(
+          (item) => `
+            <div class="obligation-item is-${escapeHtml(item.status || "open")}">
+              <span>${escapeHtml(item.id || "")}</span>
+              <strong>${escapeHtml(String(item.status || "").replaceAll("_", " "))}</strong>
+              <p>${escapeHtml(item.claim || "")}</p>
+              <em>${escapeHtml(item.verifier || "")}</em>
+            </div>
+          `,
+        )
+        .join("")}
+    </div>
+    <div class="falsification-targets">
+      <strong>Falsification targets</strong>
+      <ul>${targets.map((target) => `<li>${escapeHtml(target)}</li>`).join("")}</ul>
+    </div>
+    <p class="certificate-verifier">Formal target: <code>${escapeHtml(attempt.next_formalization_target?.statement || "")}</code></p>
+  `;
+}
+
 function render(payload, problem) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
@@ -177,6 +215,7 @@ function render(payload, problem) {
 
   document.querySelector("#finiteEvidence").innerHTML = renderTable(problem);
   document.querySelector("#certificatePanel").innerHTML = renderCertificate(problem);
+  document.querySelector("#proofAttempt").innerHTML = renderProofAttempt(problem);
   document.querySelector("#proofGates").innerHTML = list(problem.proof_gates || []);
   document.querySelector("#candidateStrategy").innerHTML = list(problem.candidate_strategy || []);
   document.querySelector("#blockedClaims").innerHTML = (payload.claim_policy.blocked_claims || [])
