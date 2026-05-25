@@ -1741,6 +1741,10 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertTrue(all(row["json_equal"] for row in payload["comparisons"]))
         self.assertTrue(all(row["byte_equal"] for row in payload["comparisons"]))
 
+    def test_local_reproduction_reports_are_ignored(self) -> None:
+        ignored = (REPO_ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()
+        self.assertIn("publication_reproduction_report*.json", ignored)
+
     def test_null_calibration_reports_familywise_profile_p_values(self) -> None:
         grid = {
             "schema": "primeproject.attribution-confound-grid.v1",
