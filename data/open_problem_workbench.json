@@ -1,0 +1,226 @@
+{
+  "schema": "primeproject.open-problem-workbench.v1",
+  "generated_at": "2026-05-25T14:03:42+00:00",
+  "search_limit": 1000000,
+  "claim_policy": {
+    "public_claim": "proof_workbench_only",
+    "reason": "These pages are allowed to show finite evidence, proof gates, and candidate strategies, but must not claim a proof until an independently checkable infinite argument exists.",
+    "blocked_claims": [
+      "Riemann Hypothesis proven",
+      "Collatz Conjecture proven",
+      "Goldbach Conjecture proven",
+      "Twin Prime Conjecture proven"
+    ]
+  },
+  "problems": [
+    {
+      "id": "riemann",
+      "title": "Riemann Hypothesis",
+      "korean_title": "\ub9ac\ub9cc\uac00\uc124",
+      "status": "open_not_proven",
+      "target_statement": "All non-trivial zeros of the Riemann zeta function have real part 1/2.",
+      "tool_position": "PrimeProject can test prime-counting error signatures and RH-compatible envelopes on finite ranges; it cannot turn finite checks into a proof.",
+      "finite_result": {
+        "limit": 1000000,
+        "checkpoints": [
+          {
+            "x": 100,
+            "pi_x": 25,
+            "li_approx": 36.359,
+            "pi_minus_li_approx": -11.359,
+            "theta_minus_x": -16.272,
+            "scaled_theta_error": 0.076725
+          },
+          {
+            "x": 1000,
+            "pi_x": 168,
+            "li_approx": 178.986,
+            "pi_minus_li_approx": -10.986,
+            "theta_minus_x": -43.755,
+            "scaled_theta_error": 0.028997
+          },
+          {
+            "x": 10000,
+            "pi_x": 1229,
+            "li_approx": 1245.395,
+            "pi_minus_li_approx": -16.395,
+            "theta_minus_x": -104.009,
+            "scaled_theta_error": 0.012261
+          },
+          {
+            "x": 100000,
+            "pi_x": 9592,
+            "li_approx": 9626.886,
+            "pi_minus_li_approx": -34.886,
+            "theta_minus_x": -314.611,
+            "scaled_theta_error": 0.007506
+          },
+          {
+            "x": 1000000,
+            "pi_x": 78498,
+            "li_approx": 78621.012,
+            "pi_minus_li_approx": -123.012,
+            "theta_minus_x": -1515.825,
+            "scaled_theta_error": 0.007942
+          }
+        ],
+        "max_scaled_theta_error": 0.076725
+      },
+      "proof_gates": [
+        "Replace finite prime-counting evidence with a theorem controlling zeta zeros on the full critical strip.",
+        "Prove an explicit equivalence strong enough to imply all non-trivial zeros lie on Re(s)=1/2.",
+        "Show every numerical or symbolic step is independent of bounded search limits."
+      ],
+      "candidate_strategy": [
+        "Use generator-fingerprint residuals to look for structured departures from PNT-scale noise.",
+        "Convert any stable residual law into a falsifiable analytic lemma before treating it as proof evidence.",
+        "Reject any argument that only rephrases finite zero or finite prime-count checks."
+      ],
+      "claim_boundary": "No proof claim. Current evidence is only finite RH-compatible diagnostics."
+    },
+    {
+      "id": "collatz",
+      "title": "Collatz Conjecture",
+      "korean_title": "\ucf5c\ub77c\uce20 \ucd94\uce21",
+      "status": "open_not_proven",
+      "target_statement": "Repeatedly applying n/2 for even n and 3n+1 for odd n eventually reaches 1 for every positive integer.",
+      "tool_position": "PrimeProject can exhaustively replay trajectories over a bounded range and search for divergent behavior; bounded replay is not a proof over all integers.",
+      "finite_result": {
+        "limit": 1000000,
+        "tested_start_values": 1000000,
+        "counterexamples": 0,
+        "max_total_stopping_time": {
+          "n": 837799,
+          "steps": 524
+        },
+        "max_peak_ratio": {
+          "n": 159487,
+          "peak": 17202377752,
+          "ratio": 107860.689285
+        }
+      },
+      "proof_gates": [
+        "Prove descent or recurrence for every congruence class without relying on finite enumeration.",
+        "Rule out non-trivial cycles and divergent trajectories simultaneously.",
+        "Turn stochastic drift intuition into a deterministic inequality with no exceptional infinite set."
+      ],
+      "candidate_strategy": [
+        "Compress trajectories by odd-only maps and residue-class transitions.",
+        "Search for monotone certificates on blocks, then try to lift them to all blocks recursively.",
+        "Treat random-walk drift evidence as heuristic until a deterministic certificate exists."
+      ],
+      "claim_boundary": "No proof claim. Current evidence is finite exhaustive replay plus blocker list."
+    },
+    {
+      "id": "goldbach",
+      "title": "Goldbach Conjecture",
+      "korean_title": "\uace8\ub4dc\ubc14\ud750 \ucd94\uce21",
+      "status": "open_not_proven",
+      "target_statement": "Every even integer greater than 2 is the sum of two primes.",
+      "tool_position": "PrimeProject can verify every even value up to a chosen public limit and expose the hardest bounded cases; this is not an infinite proof.",
+      "finite_result": {
+        "limit": 1000000,
+        "tested_even_values": 499999,
+        "counterexamples": 0,
+        "first_failures": [],
+        "hardest_smallest_prime_decomposition": {
+          "even": 503222,
+          "smallest_prime": 523,
+          "partner": 502699
+        },
+        "sample_decompositions": [
+          {
+            "even": 100,
+            "p": 3,
+            "q": 97
+          },
+          {
+            "even": 1000,
+            "p": 3,
+            "q": 997
+          },
+          {
+            "even": 10000,
+            "p": 59,
+            "q": 9941
+          },
+          {
+            "even": 100000,
+            "p": 11,
+            "q": 99989
+          },
+          {
+            "even": 1000000,
+            "p": 17,
+            "q": 999983
+          }
+        ]
+      },
+      "proof_gates": [
+        "Control prime coverage in every residue class strongly enough for all even integers.",
+        "Bridge from verified finite range to an analytic theorem for the infinite tail.",
+        "State explicit constants and thresholds so no unverified gap remains."
+      ],
+      "candidate_strategy": [
+        "Use residue-drift tools to detect classes where representations are thinnest.",
+        "Compare bounded failures against Hardy-Littlewood-style expected representation counts.",
+        "Escalate only if the thin-class model yields a provable lower bound above zero."
+      ],
+      "claim_boundary": "No proof claim. Current evidence is bounded exhaustive verification."
+    },
+    {
+      "id": "twin-prime",
+      "title": "Twin Prime Conjecture",
+      "korean_title": "\uc30d\ub465\uc774 \uc18c\uc218 \ucd94\uce21",
+      "status": "open_not_proven",
+      "target_statement": "There are infinitely many prime pairs p and p+2.",
+      "tool_position": "PrimeProject can count twin pairs and compare them with heuristic density curves over finite ranges; unbounded infinitude remains the missing proof step.",
+      "finite_result": {
+        "limit": 1000000,
+        "twin_pair_count": 8169,
+        "largest_pair_seen": [
+          999959,
+          999961
+        ],
+        "checkpoints": [
+          {
+            "x": 100,
+            "twin_pairs": 9,
+            "hardy_littlewood_estimate": 6.23
+          },
+          {
+            "x": 1000,
+            "twin_pairs": 35,
+            "hardy_littlewood_estimate": 27.67
+          },
+          {
+            "x": 10000,
+            "twin_pairs": 206,
+            "hardy_littlewood_estimate": 155.64
+          },
+          {
+            "x": 100000,
+            "twin_pairs": 1224,
+            "hardy_littlewood_estimate": 996.11
+          },
+          {
+            "x": 1000000,
+            "twin_pairs": 8169,
+            "hardy_littlewood_estimate": 6917.46
+          }
+        ]
+      },
+      "proof_gates": [
+        "Prove infinitely many prime gaps of size exactly 2, not merely bounded gaps.",
+        "Remove dependence on unproven distribution assumptions such as full Hardy-Littlewood k-tuple strength.",
+        "Turn finite density persistence into a lower-bound theorem for all large x."
+      ],
+      "candidate_strategy": [
+        "Use wheel/residue drift measurements to isolate admissible two-point patterns.",
+        "Stress-test whether observed twin density survives generator and modulus changes.",
+        "Treat density agreement as a guide for lemma search, not as proof."
+      ],
+      "claim_boundary": "No proof claim. Current evidence is finite counting and heuristic comparison."
+    }
+  ]
+}

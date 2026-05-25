@@ -204,6 +204,33 @@ async function main() {
       path: path.join(root, "data", "conjecture_lab_mobile.png"),
       fullPage: true,
     });
+
+    metrics.openProblemPages = [];
+    for (const [problemId, href] of [
+      ["riemann", "open-problems/riemann.html"],
+      ["collatz", "open-problems/collatz.html"],
+      ["goldbach", "open-problems/goldbach.html"],
+      ["twin-prime", "open-problems/twin-prime.html"],
+    ]) {
+      const problemPage = await browser.newPage({
+        viewport: { width: 1280, height: 900 },
+        deviceScaleFactor: 1,
+      });
+      await problemPage.goto(new URL(href, url).toString(), { waitUntil: "networkidle" });
+      await problemPage.waitForFunction(() => document.querySelectorAll(".proof-metric").length >= 3);
+      metrics.openProblemPages.push(
+        await problemPage.evaluate((expectedProblemId) => ({
+          problemId: expectedProblemId,
+          title: document.title,
+          heading: document.querySelector("#problemTitle").textContent,
+          status: document.querySelector("#claimStatus").textContent,
+          metricCount: document.querySelectorAll(".proof-metric").length,
+          blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          text: document.body.textContent,
+        }), problemId),
+      );
+      await problemPage.close();
+    }
   } finally {
     if (browser) await browser.close();
     await closeServer(serverHandle.server);
@@ -219,6 +246,21 @@ async function main() {
     process.exit(1);
   }
   if (!metrics.dataSourceBadge.includes("Public JSON data")) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (
+    metrics.openProblemPages.length !== 4 ||
+    metrics.openProblemPages.some(
+      (page) =>
+        !page.status.includes("open not proven") ||
+        page.metricCount < 3 ||
+        page.blockedClaimCount < 4 ||
+        !page.text.includes("Proof Gates") ||
+        !page.text.includes("Candidate Strategy") ||
+        !page.text.includes("No proof claim"),
+    )
+  ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }

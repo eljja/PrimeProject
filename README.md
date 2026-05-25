@@ -43,11 +43,20 @@
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
+Open problem subpages:
+
+- [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html)
+- [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html)
+- [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html)
+- [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html)
+
 You can also open `index.html` locally for an offline smoke view. In direct `file://` mode the header shows `Offline fallback data`; use a local static HTTP server or GitHub Pages when you need the current public `data/*.json` artifact bundle. The lab compares `rejection`, `next_prime`, and `wheel30_next` observation measures over prime gaps and residue classes.
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
 The Project Evolution panel reads `data/project_evolution.json` and now presents a condensed research narrative: six decisive metrics, a five-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+
+The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows bounded computation, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
