@@ -288,6 +288,8 @@ def validate_feature_vector_contract(record: dict[str, Any], task: dict[str, Any
     label = str(vector.get("label") or "")
     if not label:
         reasons.append("feature_vector_label")
+    elif label != str(task.get("library") or ""):
+        reasons.append("feature_vector_label_mismatch")
 
     record_count = optional_int(vector.get("record_count"))
     if record_count is None or record_count != sample_count:

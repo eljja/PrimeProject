@@ -66,8 +66,9 @@ def build_submission_fixtures(contract: dict[str, Any]) -> list[dict[str, Any]]:
         ("blocked_missing_feature", 2, "blocked", ["feature_vector_missing_features"], make_missing_feature_record),
         ("blocked_forbidden_field", 3, "blocked", ["forbidden_public_fields"], make_forbidden_record),
         ("blocked_provenance_identity", 4, "blocked", ["provenance_baseline_id_mismatch"], make_bad_provenance_record),
-        ("blocked_reused_checksum_a", 5, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
-        ("blocked_reused_checksum_b", 6, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
+        ("blocked_feature_label", 5, "blocked", ["feature_vector_label_mismatch"], make_bad_feature_label_record),
+        ("blocked_reused_checksum_a", 6, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
+        ("blocked_reused_checksum_b", 7, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
     ]
     for fixture_id, template_index, expected_status, expected_reasons, factory in cases:
         if template_index >= len(templates):
@@ -148,6 +149,14 @@ def make_bad_provenance_record(template: dict[str, Any], fixture_id: str) -> dic
     provenance = dict(record.get("provenance_record") or {})
     provenance["baseline_id"] = f"{template.get('baseline_id')}-wrong"
     record["provenance_record"] = provenance
+    return record
+
+
+def make_bad_feature_label_record(template: dict[str, Any], fixture_id: str) -> dict[str, Any]:
+    record = base_record(template, fixture_id)
+    summary = dict(record.get("feature_vector_summary") or {})
+    summary["label"] = f"{template.get('library')}-wrong"
+    record["feature_vector_summary"] = summary
     return record
 
 

@@ -388,9 +388,9 @@ async function main() {
     !metrics.collectionSubmissionLintStatus.includes("waiting") ||
     !metrics.collectionSubmissionLintSummary.includes("10") ||
     !metrics.collectionSubmissionLintSummary.includes("awaiting_submission") ||
-    metrics.collectionFixtureAuditRows < 7 ||
+    metrics.collectionFixtureAuditRows < 8 ||
     !metrics.collectionFixtureAuditStatus.includes("pass") ||
-    !metrics.collectionFixtureAuditSummary.includes("7") ||
+    !metrics.collectionFixtureAuditSummary.includes("8") ||
     !metrics.collectionFixtureAuditSummary.includes("0") ||
     metrics.collectionIntakeRows < 4 ||
     !metrics.collectionIntakeStatus.includes("0 accepted") ||

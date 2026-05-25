@@ -52,6 +52,7 @@ def build_collection_submission_contract(*, handoff: dict[str, Any]) -> dict[str
             "schema": FEATURE_VECTOR_VERSION,
             "required_scalar_features": list(SCALAR_FEATURES),
             "record_count_must_equal_sample_count": True,
+            "label_must_match_task_library": True,
             "bit_length_mean_must_match_task_bit_length": True,
             "all_scalar_features_must_be_finite_numbers": True,
         },
