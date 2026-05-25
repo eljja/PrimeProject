@@ -36,15 +36,23 @@ jobs:
       - name: Compile Python sources
         run: python -m compileall prime_audit scripts tests
 
-      - name: Run publication-critical unit checks
-        run: >
-          python -m unittest
-          tests.test_prime_audit.PrimeAuditTests.test_publication_consistency_checks_claim_boundaries
-          tests.test_prime_audit.PrimeAuditTests.test_publication_consistency_fails_on_mixed_artifact_vintages
-          tests.test_prime_audit.PrimeAuditTests.test_project_evolution_metrics_match_public_artifacts
-          tests.test_prime_audit.PrimeAuditTests.test_public_evidence_pack_hashes_match_files
-          tests.test_prime_audit.PrimeAuditTests.test_public_artifact_lineage_matches_current_default_graph
-          tests.test_prime_audit.PrimeAuditTests.test_publication_reproduction_script_succeeds
+      - name: Unit check publication consistency
+        run: python -m unittest tests.test_prime_audit.PrimeAuditTests.test_publication_consistency_checks_claim_boundaries
+
+      - name: Unit check artifact vintages
+        run: python -m unittest tests.test_prime_audit.PrimeAuditTests.test_publication_consistency_fails_on_mixed_artifact_vintages
+
+      - name: Unit check evolution metrics
+        run: python -m unittest tests.test_prime_audit.PrimeAuditTests.test_project_evolution_metrics_match_public_artifacts
+
+      - name: Unit check evidence hashes
+        run: python -m unittest tests.test_prime_audit.PrimeAuditTests.test_public_evidence_pack_hashes_match_files
+
+      - name: Unit check artifact lineage
+        run: python -m unittest tests.test_prime_audit.PrimeAuditTests.test_public_artifact_lineage_matches_current_default_graph
+
+      - name: Unit check publication reproduction
+        run: python -m unittest tests.test_prime_audit.PrimeAuditTests.test_publication_reproduction_script_succeeds
 
       - name: Reproduce publication artifacts
         run: python scripts/reproduce_publication.py
