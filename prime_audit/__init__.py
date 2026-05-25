@@ -30,6 +30,7 @@ __all__ = [
     "null_calibration",
     "prediction",
     "provenance",
+    "publication_consistency",
     "real_baselines",
     "replication_audit",
     "research_readiness",

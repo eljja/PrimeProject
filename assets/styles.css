@@ -2748,8 +2748,15 @@ canvas {
   background: #fff;
 }
 
+.publication-consistency {
+  margin: 0 20px 20px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
 .decision-protocol-heading,
-.falsification-battery-heading {
+.falsification-battery-heading,
+.publication-consistency-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2759,26 +2766,30 @@ canvas {
 }
 
 .decision-protocol-heading h3,
-.falsification-battery-heading h3 {
+.falsification-battery-heading h3,
+.publication-consistency-heading h3 {
   color: var(--ink);
   font-size: 13px;
 }
 
 .decision-protocol-heading span,
-.falsification-battery-heading span {
+.falsification-battery-heading span,
+.publication-consistency-heading span {
   color: var(--muted);
   font-size: 12px;
   font-weight: 760;
 }
 
 .decision-protocol-rows,
-.falsification-battery-rows {
+.falsification-battery-rows,
+.publication-consistency-rows {
   display: grid;
   gap: 0;
 }
 
 .decision-row,
-.falsification-row {
+.falsification-row,
+.consistency-row {
   display: grid;
   grid-template-columns: minmax(190px, 0.9fr) 86px 130px minmax(260px, 1.3fr) minmax(180px, 0.9fr);
   gap: 12px;
@@ -2789,7 +2800,8 @@ canvas {
 }
 
 .decision-row:first-child,
-.falsification-row:first-child {
+.falsification-row:first-child,
+.consistency-row:first-child {
   border-top: 0;
 }
 
@@ -2802,19 +2814,26 @@ canvas {
 .falsification-row span,
 .falsification-row p,
 .falsification-row code,
-.falsification-row small {
+.falsification-row small,
+.consistency-row strong,
+.consistency-row span,
+.consistency-row p,
+.consistency-row code,
+.consistency-row small {
   overflow-wrap: anywhere;
 }
 
 .decision-row strong,
-.falsification-row strong {
+.falsification-row strong,
+.consistency-row strong {
   display: block;
   color: var(--ink);
   font-size: 12px;
 }
 
 .decision-row span,
-.falsification-row span {
+.falsification-row span,
+.consistency-row span {
   display: block;
   margin-top: 3px;
   color: var(--muted);
@@ -2823,7 +2842,8 @@ canvas {
 }
 
 .decision-row p,
-.falsification-row p {
+.falsification-row p,
+.consistency-row p {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.35;
@@ -2832,13 +2852,16 @@ canvas {
 .decision-row small,
 .decision-row code,
 .falsification-row small,
-.falsification-row code {
+.falsification-row code,
+.consistency-row small,
+.consistency-row code {
   color: var(--muted);
   font-size: 11px;
 }
 
 .decision-row code,
-.falsification-row code {
+.falsification-row code,
+.consistency-row code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
@@ -3304,7 +3327,8 @@ tr:last-child td {
 
   .claim-row,
   .decision-row,
-  .falsification-row {
+  .falsification-row,
+  .consistency-row {
     grid-template-columns: minmax(0, 1fr) 86px 120px;
   }
 }
@@ -3462,12 +3486,14 @@ tr:last-child td {
   }
 
   .decision-protocol,
-  .falsification-battery {
+  .falsification-battery,
+  .publication-consistency {
     margin: 0 12px 12px;
   }
 
   .decision-protocol-heading,
-  .falsification-battery-heading {
+  .falsification-battery-heading,
+  .publication-consistency-heading {
     display: grid;
   }
 
@@ -3476,6 +3502,7 @@ tr:last-child td {
   .claim-row,
   .decision-row,
   .falsification-row,
+  .consistency-row,
   .null-row,
   .replication-row,
   .collection-row,

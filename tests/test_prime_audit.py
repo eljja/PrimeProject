@@ -55,6 +55,7 @@ from prime_audit.io import load_records
 from prime_audit.models import KeyRecord
 from prime_audit.null_calibration import build_null_calibration
 from prime_audit.provenance import build_provenance_audit, build_provenance_requirements
+from prime_audit.publication_consistency import build_publication_consistency_report
 from prime_audit.real_baselines import build_real_baseline_manifest, manifest_public_summary
 from prime_audit.replication_audit import build_replication_audit
 from prime_audit.research_readiness import build_research_readiness_report
@@ -1180,6 +1181,8 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertIn("promotion_plan_gate", failed)
         required = {item["item"]: item for item in pack["required_evidence"]}
         self.assertEqual(required["real_world_labelled_feature_vectors"]["status"], "missing")
+        self.assertEqual(required["two_accepted_real_baselines"]["status"], "missing")
+        self.assertEqual(required["accepted_collection_intake"]["status"], "missing")
         self.assertNotIn("labelled_feature_vectors", required)
         self.assertGreaterEqual(len(pack["local_collection_protocols"]), 3)
 
@@ -1450,6 +1453,48 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(checks["claim_promotion_guard"]["status"], "fail")
         self.assertEqual(battery["summary"]["claim_floor"], "do_not_promote")
 
+    def test_publication_consistency_checks_claim_boundaries(self) -> None:
+        report = build_publication_consistency_report(
+            evidence_pack=load_repo_json("data/evidence_pack.json"),
+            claim_ledger=load_repo_json("data/claim_ledger.json"),
+            decision_protocol=load_repo_json("data/decision_protocol.json"),
+            falsification_battery=load_repo_json("data/falsification_battery.json"),
+            generated_at="2026-05-24T16:56:40+00:00",
+        )
+        checks = {check["check"]: check for check in report["checks"]}
+
+        self.assertEqual(report["schema"], "primeproject.publication-consistency.v1")
+        self.assertEqual(report["summary"]["status"], "pass")
+        self.assertTrue(report["summary"]["high_risk_claims_blocked"])
+        self.assertTrue(report["summary"]["high_risk_decisions_blocked"])
+        self.assertEqual(checks["real_world_boundary_consistent"]["status"], "pass")
+        self.assertEqual(checks["bitcoin_boundary_consistent"]["status"], "pass")
+        self.assertEqual(checks["required_evidence_covers_blockers"]["status"], "pass")
+
+    def test_publication_consistency_fails_when_required_evidence_drops_blocker(self) -> None:
+        evidence = json.loads(json.dumps(load_repo_json("data/evidence_pack.json")))
+        evidence["required_evidence"] = [
+            item
+            for item in evidence["required_evidence"]
+            if item["item"] != "accepted_collection_intake"
+        ]
+
+        report = build_publication_consistency_report(
+            evidence_pack=evidence,
+            claim_ledger=load_repo_json("data/claim_ledger.json"),
+            decision_protocol=load_repo_json("data/decision_protocol.json"),
+            falsification_battery=load_repo_json("data/falsification_battery.json"),
+            generated_at="2026-05-24T16:56:40+00:00",
+        )
+        checks = {check["check"]: check for check in report["checks"]}
+
+        self.assertEqual(report["summary"]["status"], "fail")
+        self.assertEqual(checks["required_evidence_covers_blockers"]["status"], "fail")
+        self.assertIn(
+            {"failed_gate": "collection_intake_gate", "required_evidence": "accepted_collection_intake"},
+            checks["required_evidence_covers_blockers"]["evidence"]["missing_explanations"],
+        )
+
     def test_project_evolution_metrics_match_public_artifacts(self) -> None:
         project = load_repo_json("data/project_evolution.json")
         manifest = load_repo_json("data/baselines/real_world/manifest.json")
@@ -1496,7 +1541,11 @@ class PrimeAuditTests(unittest.TestCase):
         required = {item["item"]: item for item in evidence["required_evidence"]}
 
         self.assertEqual(evidence["artifact_count"], len(artifacts))
+        self.assertEqual(required["two_available_real_baselines"]["status"], "missing")
         self.assertEqual(required["real_world_labelled_feature_vectors"]["status"], "missing")
+        self.assertEqual(required["two_accepted_real_baselines"]["status"], "missing")
+        self.assertEqual(required["accepted_collection_intake"]["status"], "missing")
+        self.assertEqual(required["bitcoin_nonce_risk_report"]["status"], "missing")
         self.assertNotIn("labelled_feature_vectors", required)
         for artifact in artifacts:
             with self.subTest(role=artifact["role"]):
@@ -1535,6 +1584,7 @@ class PrimeAuditTests(unittest.TestCase):
                 },
             )
             falsification = tmp / "falsification_battery.json"
+            consistency = tmp / "publication_consistency.json"
 
             self.assertEqual(
                 run_cli(
@@ -1608,8 +1658,26 @@ class PrimeAuditTests(unittest.TestCase):
                 ),
                 0,
             )
+            self.assertEqual(
+                run_cli(
+                    "publication-consistency",
+                    "--evidence-pack",
+                    str(evidence),
+                    "--claim-ledger",
+                    str(claim_ledger),
+                    "--decision-protocol",
+                    str(decision),
+                    "--falsification-battery",
+                    str(falsification),
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(consistency),
+                ),
+                0,
+            )
 
-            for output in (evidence, claim_ledger, lineage, decision, falsification):
+            for output in (evidence, claim_ledger, lineage, decision, falsification, consistency):
                 with self.subTest(output=output.name):
                     self.assertEqual(load_json(output)["generated_at"], generated_at)
 
@@ -1622,6 +1690,7 @@ class PrimeAuditTests(unittest.TestCase):
             lineage = tmp / "artifact_lineage.json"
             decision = tmp / "decision_protocol.json"
             falsification = tmp / "falsification_battery.json"
+            consistency = tmp / "publication_consistency.json"
 
             self.assertEqual(
                 run_cli(
@@ -1699,6 +1768,24 @@ class PrimeAuditTests(unittest.TestCase):
                 ),
                 0,
             )
+            self.assertEqual(
+                run_cli(
+                    "publication-consistency",
+                    "--evidence-pack",
+                    str(evidence),
+                    "--claim-ledger",
+                    str(claim_ledger),
+                    "--decision-protocol",
+                    str(decision),
+                    "--falsification-battery",
+                    str(falsification),
+                    "--generated-at",
+                    generated_at,
+                    "--output",
+                    str(consistency),
+                ),
+                0,
+            )
 
             expected = {
                 evidence: "data/evidence_pack.json",
@@ -1706,6 +1793,7 @@ class PrimeAuditTests(unittest.TestCase):
                 lineage: "data/artifact_lineage.json",
                 decision: "data/decision_protocol.json",
                 falsification: "data/falsification_battery.json",
+                consistency: "data/publication_consistency.json",
             }
             for output, public_path in expected.items():
                 with self.subTest(public_path=public_path):
@@ -1732,12 +1820,12 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(payload["json_mismatches"], [])
         self.assertEqual(payload["byte_mismatches"], [])
         self.assertEqual(payload["mismatches"], [])
-        self.assertEqual(payload["command_count"], 5)
+        self.assertEqual(payload["command_count"], 6)
         self.assertEqual(payload["command_path_policy"], "Temporary output paths are normalized to {tmp}.")
         command_text = json.dumps(payload["commands"])
         self.assertIn("{tmp}", command_text)
         self.assertNotIn("primeproject-publication-", command_text)
-        self.assertEqual(len(payload["comparisons"]), 5)
+        self.assertEqual(len(payload["comparisons"]), 6)
         self.assertTrue(all(row["json_equal"] for row in payload["comparisons"]))
         self.assertTrue(all(row["byte_equal"] for row in payload["comparisons"]))
 

@@ -49,7 +49,11 @@ def build_evidence_pack(
             baseline_acceptance=baseline_acceptance or {},
             collection_intake=collection_intake or {},
         ),
-        "required_evidence": required_evidence(readiness),
+        "required_evidence": required_evidence(
+            readiness,
+            baseline_acceptance=baseline_acceptance or {},
+            collection_intake=collection_intake or {},
+        ),
         "local_collection_protocols": local_collection_protocols(),
     }
 
@@ -410,11 +414,18 @@ def evidence_summary(
     }
 
 
-def required_evidence(readiness: dict[str, Any]) -> list[dict[str, Any]]:
+def required_evidence(
+    readiness: dict[str, Any],
+    *,
+    baseline_acceptance: dict[str, Any] | None = None,
+    collection_intake: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
     dimensions = readiness.get("dimensions", {})
     sim = dimensions.get("sim_to_real", {})
     classifier = dimensions.get("classifier", {})
     bitcoin = dimensions.get("bitcoin_integration", {})
+    acceptance = baseline_acceptance or {}
+    intake = collection_intake or {}
     classifier_ready = (
         classifier.get("real_world_claim_ready") is True
         and int(classifier.get("label_count") or 0) >= 3
@@ -430,6 +441,22 @@ def required_evidence(readiness: dict[str, Any]) -> list[dict[str, Any]]:
             "item": "real_world_labelled_feature_vectors",
             "status": "complete" if classifier_ready else "missing",
             "reason": "Needed before classifier output can support real-world attribution, not just controlled synthetic validation.",
+        },
+        {
+            "item": "two_accepted_real_baselines",
+            "status": "complete"
+            if acceptance.get("claim_gate", {}).get("status") == "open"
+            and int(acceptance.get("accepted_count") or 0) >= 2
+            else "missing",
+            "reason": "Needed before the baseline acceptance gate can support real-world attribution.",
+        },
+        {
+            "item": "accepted_collection_intake",
+            "status": "complete"
+            if intake.get("claim_gate", {}).get("status") == "open"
+            and int(intake.get("summary", {}).get("accepted_count") or 0) > 0
+            else "missing",
+            "reason": "Needed before submitted aggregate artifacts can support real-world attribution claims.",
         },
         {
             "item": "bitcoin_nonce_risk_report",

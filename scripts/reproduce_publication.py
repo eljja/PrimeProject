@@ -17,6 +17,7 @@ PUBLICATION_OUTPUTS = {
     "artifact_lineage": "data/artifact_lineage.json",
     "decision_protocol": "data/decision_protocol.json",
     "falsification_battery": "data/falsification_battery.json",
+    "publication_consistency": "data/publication_consistency.json",
 }
 DIRECT_EVIDENCE_ROLES = {
     "manifest",
@@ -46,6 +47,7 @@ def main() -> int:
             "artifact_lineage": tmp / "artifact_lineage.json",
             "decision_protocol": tmp / "decision_protocol.json",
             "falsification_battery": tmp / "falsification_battery.json",
+            "publication_consistency": tmp / "publication_consistency.json",
         }
 
         commands.append(run_cli(
@@ -108,6 +110,21 @@ def main() -> int:
             generated_at,
             "--output",
             str(outputs["falsification_battery"]),
+        ))
+        commands.append(run_cli(
+            "publication-consistency",
+            "--evidence-pack",
+            str(outputs["evidence_pack"]),
+            "--claim-ledger",
+            str(outputs["claim_ledger"]),
+            "--decision-protocol",
+            str(outputs["decision_protocol"]),
+            "--falsification-battery",
+            str(outputs["falsification_battery"]),
+            "--generated-at",
+            generated_at,
+            "--output",
+            str(outputs["publication_consistency"]),
         ))
 
         comparisons = [

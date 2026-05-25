@@ -33,6 +33,7 @@
 - Builds an artifact lineage graph that audits public JSON dependencies, Evidence Pack checksums, and cyclic dependency risk.
 - Applies a pre-registered decision protocol that separates public demo, controlled synthetic, real-world attribution, and Bitcoin nonce-risk claim promotion.
 - Runs a falsification battery with paired controls, negative controls, bit-length confound guards, and claim-promotion guards before stronger attribution claims can advance.
+- Runs a publication consistency audit that checks Evidence Pack, Claim Ledger, Decision Protocol, and Falsification Battery agree on the same high-risk claim boundary.
 - Audits Bitcoin secp256k1 constants and ECDSA signature metadata for defensive nonce-risk indicators.
 
 ## Interactive Conjecture Lab
@@ -53,7 +54,7 @@ The Baseline Lab panel reads `data/baselines/real_world/manifest.json`, `data/co
 
 The Research Readiness panel reads `data/research_readiness.json` and surfaces blocking gaps before any real-world attribution claim is treated as strong.
 
-The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_ledger.json`, `data/artifact_lineage.json`, `data/decision_protocol.json`, and `data/falsification_battery.json` to show checksums, semantic publication gates, the maximum safe claim level, which public claims are currently allowed or blocked, whether the public artifact dependency graph is acyclic and checksum-consistent, which claim-promotion decisions are pre-registered as allowed or blocked, and which falsification checks prevent overclaiming. The fixture-audit gate now checks `quality_gate.status`, fixture count, public-safety count, and failed expectation count instead of only checking that the file exists.
+The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_ledger.json`, `data/artifact_lineage.json`, `data/decision_protocol.json`, `data/falsification_battery.json`, and `data/publication_consistency.json` to show checksums, semantic publication gates, the maximum safe claim level, which public claims are currently allowed or blocked, whether the public artifact dependency graph is acyclic and checksum-consistent, which claim-promotion decisions are pre-registered as allowed or blocked, which falsification checks prevent overclaiming, and whether all public governance artifacts agree on the same high-risk claim boundary. The fixture-audit gate now checks `quality_gate.status`, fixture count, public-safety count, and failed expectation count instead of only checking that the file exists.
 
 ## Input format
 
@@ -102,6 +103,7 @@ python -m prime_audit.cli claim-ledger --evidence-pack data/evidence_pack.json -
 python -m prime_audit.cli artifact-lineage --generated-at 2026-05-24T16:56:40+00:00 --output data/artifact_lineage.json
 python -m prime_audit.cli decision-protocol --evidence-pack data/evidence_pack.json --claim-ledger data/claim_ledger.json --artifact-lineage data/artifact_lineage.json --generated-at 2026-05-24T16:56:40+00:00 --output data/decision_protocol.json
 python -m prime_audit.cli falsification-battery --attribution-grid data/attribution_confound_grid.json --decision-protocol data/decision_protocol.json --generated-at 2026-05-24T16:56:40+00:00 --output data/falsification_battery.json
+python -m prime_audit.cli publication-consistency --evidence-pack data/evidence_pack.json --claim-ledger data/claim_ledger.json --decision-protocol data/decision_protocol.json --falsification-battery data/falsification_battery.json --generated-at 2026-05-24T16:56:40+00:00 --output data/publication_consistency.json
 python -m prime_audit.cli null-calibration --attribution-grid data/attribution_confound_grid.json --iterations 5000 --output data/null_calibration.json
 python -m prime_audit.cli replication-audit --attribution-grid data/attribution_confound_grid.json --null-calibration data/null_calibration.json --output data/replication_audit.json
 python -m prime_audit.cli attribution-benchmark --limit 200000 --train-count 80 --test-count 40 --trials 3 --control-mode bit_length --output data/attribution_benchmark.json

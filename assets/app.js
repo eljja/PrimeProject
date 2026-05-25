@@ -19,6 +19,7 @@ const state = {
   artifactLineage: null,
   decisionProtocol: null,
   falsificationBattery: null,
+  publicationConsistency: null,
   projectEvolution: null,
   collectionMatrix: null,
   collectionPower: null,
@@ -828,6 +829,16 @@ const bundledEvidencePack = {
         "Needed before classifier output can support real-world attribution, not just controlled synthetic validation.",
     },
     {
+      item: "two_accepted_real_baselines",
+      status: "missing",
+      reason: "Needed before the baseline acceptance gate can support real-world attribution.",
+    },
+    {
+      item: "accepted_collection_intake",
+      status: "missing",
+      reason: "Needed before submitted aggregate artifacts can support real-world attribution claims.",
+    },
+    {
       item: "bitcoin_nonce_risk_report",
       status: "missing",
       reason: "Needed for wallet/library nonce fingerprint claims.",
@@ -929,7 +940,7 @@ const bundledArtifactLineage = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "ed06deee979aa2845454739f1d8e67cdfe4128309b0867835a4d812d1f3e4c53" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "6f3b840330b9db244eadecaf72f559c9bb44bc338030de1cab4c4ccf3859133c" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "3c11ae01206c599bcfc0a16ec4cffe05f176be236b4eaaf5f8cf7fb83d7b706e" },
     { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "7422fa84450cfc214d1d9d14793666f3ddab8e0660c83d41d1749a5c8e82f32a" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
@@ -1114,6 +1125,72 @@ const bundledFalsificationBattery = {
           "promote_bitcoin_nonce_risk_attribution",
         ],
       },
+    },
+  ],
+};
+
+const bundledPublicationConsistency = {
+  schema: "primeproject.publication-consistency.v1",
+  source: {
+    claim_level: "public_demo_only",
+    falsification_claim_floor: "controlled_synthetic_only",
+  },
+  summary: {
+    status: "pass",
+    check_count: 5,
+    pass_count: 5,
+    warn_count: 0,
+    fail_count: 0,
+    high_risk_claims_blocked: true,
+    high_risk_decisions_blocked: true,
+  },
+  policy: {
+    post_pack_audit: true,
+    reason:
+      "This consistency report consumes the evidence pack, claim ledger, decision protocol, and falsification battery after those artifacts are generated.",
+  },
+  checks: [
+    {
+      check: "real_world_boundary_consistent",
+      status: "pass",
+      severity: "critical",
+      message: "Real-world attribution is blocked by matching evidence, ledger, decision, and missing-evidence signals.",
+      evidence: {
+        missing_required_evidence: [
+          "two_available_real_baselines",
+          "real_world_labelled_feature_vectors",
+          "two_accepted_real_baselines",
+          "accepted_collection_intake",
+        ],
+      },
+    },
+    {
+      check: "bitcoin_boundary_consistent",
+      status: "pass",
+      severity: "critical",
+      message: "Bitcoin nonce-risk attribution is blocked consistently until a bundled risk report exists.",
+      evidence: { required_evidence_status: "missing" },
+    },
+    {
+      check: "decision_claim_alignment",
+      status: "pass",
+      severity: "critical",
+      message: "No decision promotes a claim that the claim ledger blocks.",
+      evidence: { contradictions: [] },
+    },
+    {
+      check: "falsification_guard_alignment",
+      status: "pass",
+      severity: "critical",
+      message: "The falsification guard agrees that high-risk attribution decisions remain blocked.",
+      evidence: { claim_promotion_guard_status: "pass" },
+    },
+    {
+      check: "required_evidence_covers_blockers",
+      status: "pass",
+      severity: "high",
+      message: "Every high-risk failed gate has a matching required-evidence item.",
+      evidence: { missing_explanations: [] },
     },
   ],
 };
@@ -1434,6 +1511,8 @@ const outputs = {
   decisionProtocolRows: document.querySelector("#decisionProtocolRows"),
   falsificationSummary: document.querySelector("#falsificationSummary"),
   falsificationRows: document.querySelector("#falsificationRows"),
+  publicationConsistencySummary: document.querySelector("#publicationConsistencySummary"),
+  publicationConsistencyRows: document.querySelector("#publicationConsistencyRows"),
   attributionSummary: document.querySelector("#attributionSummary"),
   attributionGridSvg: document.querySelector("#attributionGridSvg"),
   attributionProfileRows: document.querySelector("#attributionProfileRows"),
@@ -1531,6 +1610,7 @@ loadClaimLedger();
 loadArtifactLineage();
 loadDecisionProtocol();
 loadFalsificationBattery();
+loadPublicationConsistency();
 loadAttributionGrid();
 loadNullCalibration();
 loadReplicationAudit();
@@ -3612,6 +3692,43 @@ function renderFalsificationBattery() {
         <em class="check-status ${checkStatusClass(check.status)}">${escapeHtml(check.status || "unknown")}</em>
         <small>${escapeHtml(check.severity || "research")}</small>
         <p>${escapeHtml(summary.claim_floor || "unknown")}</p>
+        <code>${escapeHtml(compactEvidence(check.evidence || {}))}</code>
+      </div>
+    `)
+    .join("");
+}
+
+async function loadPublicationConsistency() {
+  try {
+    if (window.location.protocol === "file:") {
+      state.publicationConsistency = bundledPublicationConsistency;
+    } else {
+      const response = await fetch("data/publication_consistency.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`publication consistency ${response.status}`);
+      state.publicationConsistency = await response.json();
+    }
+  } catch (error) {
+    state.publicationConsistency = bundledPublicationConsistency;
+  }
+  renderPublicationConsistency();
+}
+
+function renderPublicationConsistency() {
+  if (!outputs.publicationConsistencySummary || !outputs.publicationConsistencyRows) return;
+  const report = state.publicationConsistency || bundledPublicationConsistency;
+  const summary = report.summary || {};
+  outputs.publicationConsistencySummary.textContent =
+    `${escapeHtml(summary.status || "unknown")} · ${formatNumber(summary.pass_count || 0)} pass / ${formatNumber(summary.fail_count || 0)} fail`;
+  outputs.publicationConsistencyRows.innerHTML = (report.checks || [])
+    .map((check) => `
+      <div class="consistency-row">
+        <div>
+          <strong>${escapeHtml(check.check || "check")}</strong>
+          <span>${escapeHtml(check.message || "")}</span>
+        </div>
+        <em class="check-status ${checkStatusClass(check.status)}">${escapeHtml(check.status || "unknown")}</em>
+        <small>${escapeHtml(check.severity || "research")}</small>
+        <p>${escapeHtml(report.policy?.post_pack_audit ? "post-pack audit" : "inline audit")}</p>
         <code>${escapeHtml(compactEvidence(check.evidence || {}))}</code>
       </div>
     `)

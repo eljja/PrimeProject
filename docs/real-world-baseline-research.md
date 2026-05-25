@@ -342,7 +342,7 @@ python -m prime_audit.cli artifact-lineage `
   --output data/artifact_lineage.json
 ```
 
-현재 lineage는 22개 artifact node와 52개 dependency edge를 추적한다. `feature_vectors`와 `classifier_report`는 `readiness`와 `evidence_pack`의 입력으로 연결되고, `collection_handoff`는 manifest, collection matrix/power, provenance, acceptance, promotion, classifier scope를 묶는 sim-to-real 실행 산출물로 연결된다. `collection_fixture_audit`는 submission contract와 lint 사이의 pass/warn/block 경계를 고정하고, `collection_intake`는 그 handoff task에 실제 제출 aggregate artifact가 맞는지 검증한 뒤 `readiness`와 `evidence_pack`으로 이어지는 안전 게이트다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`와 `artifact_lineage`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> claim_ledger/artifact_lineage -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
+현재 lineage는 22개 artifact node와 52개 dependency edge를 추적한다. `feature_vectors`와 `classifier_report`는 `readiness`와 `evidence_pack`의 입력으로 연결되고, `collection_handoff`는 manifest, collection matrix/power, provenance, acceptance, promotion, classifier scope를 묶는 sim-to-real 실행 산출물로 연결된다. `collection_fixture_audit`는 submission contract와 lint 사이의 pass/warn/block 경계를 고정하고, `collection_intake`는 그 handoff task에 실제 제출 aggregate artifact가 맞는지 검증한 뒤 `readiness`와 `evidence_pack`으로 이어지는 안전 게이트다. `evidence_pack`은 checksummed bundle의 중심이고, `claim_ledger`, `artifact_lineage`, `decision_protocol`, `falsification_battery`, `publication_consistency`는 그 이후에 생성되는 post-pack audit 산출물이다. 따라서 lineage/consistency 자체는 Evidence Pack checksum 목록에 넣지 않는다. 이 순서를 지켜야 evidence_pack -> post-pack audit -> evidence_pack 형태의 순환 재현성 문제가 생기지 않는다.
 
 ## Decision Protocol
 
@@ -381,9 +381,25 @@ python -m prime_audit.cli falsification-battery `
 
 현재 결과는 `5 pass / 0 fail`이지만 claim floor는 `controlled_synthetic_only`다. 이는 실세계 OpenSSL/BoringSSL/Go/Bitcoin attribution을 증명했다는 뜻이 아니라, 합성 생성기 조건에서 남는 신호를 보고해도 되는 최소 안전 조건이 갖춰졌다는 뜻이다. GitHub Pages의 Evidence Pack 패널은 이 결과를 Decision Protocol 아래에 표시한다.
 
+## Publication Consistency
+
+`publication-consistency`는 Evidence Pack, Claim Ledger, Decision Protocol, Falsification Battery가 같은 claim boundary를 보고 있는지 검사한다. 이번 개선에서 발견한 문제는 Evidence Pack이 `baseline_acceptance_gate`와 `collection_intake_gate`를 실패로 막고 있었지만, `required_evidence` 목록에는 그 blocker를 직접 해소할 항목이 없었다는 점이다. 이제 `two_accepted_real_baselines`와 `accepted_collection_intake`를 요구 증거로 추가하고, consistency audit이 이 누락을 다시 잡는다.
+
+```powershell
+python -m prime_audit.cli publication-consistency `
+  --evidence-pack data/evidence_pack.json `
+  --claim-ledger data/claim_ledger.json `
+  --decision-protocol data/decision_protocol.json `
+  --falsification-battery data/falsification_battery.json `
+  --generated-at 2026-05-24T16:56:40+00:00 `
+  --output data/publication_consistency.json
+```
+
+현재 결과는 `5 pass / 0 fail`이다. 핵심 체크는 real-world attribution, Bitcoin nonce-risk attribution, decision/claim alignment, falsification guard alignment, failed gate와 required evidence의 대응 관계다. 이 리포트가 실패하면 GitHub Pages의 public claim 문구와 promotion gate가 서로 다른 기준을 말하고 있다는 뜻이므로 publication bundle을 업데이트하기 전 차단해야 한다.
+
 ## Publication Reproduction Audit
 
-공개 번들을 덮어쓰지 않고 재생성 가능성을 확인하려면 아래 명령을 실행한다. 이 스크립트는 Evidence Pack, Claim Ledger, Artifact Lineage, Decision Protocol, Falsification Battery를 임시 디렉터리에 다시 만들고 현재 `data/*.json` 산출물과 byte-for-byte 의미의 JSON 동등성을 비교한다.
+공개 번들을 덮어쓰지 않고 재생성 가능성을 확인하려면 아래 명령을 실행한다. 이 스크립트는 Evidence Pack, Claim Ledger, Artifact Lineage, Decision Protocol, Falsification Battery, Publication Consistency를 임시 디렉터리에 다시 만들고 현재 `data/*.json` 산출물과 byte-for-byte 의미의 JSON 동등성을 비교한다.
 
 ```powershell
 python scripts/reproduce_publication.py
@@ -397,7 +413,7 @@ python scripts/reproduce_publication.py
 
 GitHub Pages의 Project Evolution 패널은 `data/project_evolution.json`을 읽어 지금까지의 변화 자체를 연구 산출물로 시각화하되, 중복 나열을 줄이고 의사결정에 필요한 근거만 남긴다.
 
-- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> collection handoff -> submission contract -> submission lint -> fixture audit -> collection intake -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery.
+- 연구 단계: regularity plan -> Conjecture Lab -> snapshots -> fingerprint baseline -> attribution grid -> null calibration -> replication audit -> crypto-classifier -> real-world registry -> collection matrix -> collection power -> provenance gate -> provenance audit -> baseline acceptance -> promotion plan -> collection handoff -> submission contract -> submission lint -> fixture audit -> collection intake -> readiness -> evidence pack -> claim ledger -> artifact lineage -> decision protocol -> falsification battery -> publication consistency.
 - 현황 지표: scale, controlled signal, attribution-ready generator baseline, public control, collection intake, checksummed evidence, claim level만 상단에 남겨 현재 판단에 직접 필요한 수치로 제한한다.
 - Visual Change Trail: prime regularity demo, 10M scale lift, controlled attribution, sim-to-real gates, publication guardrails만 release-style milestone로 보여준다.
 - Evidence Spine: Scale, Signal, Sim-to-Real, Governance, Publication 축으로 기존 산출물을 한 번만 재배치한다. 각 축은 점수, 상태, artifact 개수와 짧은 artifact 이름, gate 문장, 현재 proof를 함께 표시한다.

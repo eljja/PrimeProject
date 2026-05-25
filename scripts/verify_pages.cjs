@@ -189,6 +189,8 @@ async function main() {
       decisionProtocolRows: document.querySelectorAll("#decisionProtocolRows .decision-row").length,
       falsificationSummary: document.querySelector("#falsificationSummary").textContent,
       falsificationRows: document.querySelectorAll("#falsificationRows .falsification-row").length,
+      publicationConsistencySummary: document.querySelector("#publicationConsistencySummary").textContent,
+      publicationConsistencyRows: document.querySelectorAll("#publicationConsistencyRows .consistency-row").length,
       evidenceTop: Math.round(document.querySelector("#evidence-panel").getBoundingClientRect().top),
     }));
     metrics.fetchedDataJson = dataResponses.filter((response) => response.status >= 200 && response.status < 300).length;
@@ -237,6 +239,7 @@ async function main() {
     [metrics.artifactLineageSummary, expected.lineage],
     [metrics.decisionProtocolSummary, expected.decision],
     [metrics.falsificationSummary, expected.falsification],
+    [metrics.publicationConsistencySummary, expected.consistency],
   ];
   const missingPublicChecks = exactPublicChecks
     .filter(([actual, expectedText]) => !String(actual).includes(expectedText))
@@ -415,18 +418,22 @@ async function main() {
   if (
     metrics.evidenceGates < 11 ||
     metrics.evidenceArtifacts < 17 ||
-    metrics.requiredEvidenceCount < 3 ||
+    metrics.requiredEvidenceCount < 5 ||
     metrics.claimLedgerRows < 5 ||
     metrics.artifactLineageRows < 5 ||
     metrics.artifactLineagePaths < 10 ||
     metrics.artifactLineageNodes < 10 ||
     metrics.decisionProtocolRows < 4 ||
     metrics.falsificationRows < 5 ||
+    metrics.publicationConsistencyRows < 5 ||
     !metrics.evidencePanel.includes("Evidence Pack") ||
     !metrics.evidencePanel.includes("Claim Ledger") ||
     !metrics.evidencePanel.includes("Artifact Lineage") ||
     !metrics.evidencePanel.includes("Decision Protocol") ||
     !metrics.evidencePanel.includes("Falsification Battery") ||
+    !metrics.evidencePanel.includes("Publication Consistency") ||
+    !metrics.evidencePanel.includes("real_world_boundary_consistent") ||
+    !metrics.evidencePanel.includes("required_evidence_covers_blockers") ||
     !metrics.evidencePanel.includes("promote_real_world_generator_attribution") ||
     !metrics.evidencePanel.includes("promote_bitcoin_nonce_risk_attribution") ||
     !metrics.decisionProtocolSummary.includes("2 allowed") ||
@@ -461,6 +468,8 @@ async function main() {
     !metrics.evidencePanel.includes("classifier_report") ||
     !metrics.evidencePanel.includes("public_demo_only") ||
     !metrics.requiredEvidenceRows.includes("real_world_labelled_feature_vectors") ||
+    !metrics.requiredEvidenceRows.includes("two_accepted_real_baselines") ||
+    !metrics.requiredEvidenceRows.includes("accepted_collection_intake") ||
     !metrics.requiredEvidenceRows.includes("missing")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
@@ -478,6 +487,7 @@ function loadPublicData(root) {
     lineage: readJson(root, "data/artifact_lineage.json"),
     decision: readJson(root, "data/decision_protocol.json"),
     falsification: readJson(root, "data/falsification_battery.json"),
+    consistency: readJson(root, "data/publication_consistency.json"),
     attribution: readJson(root, "data/attribution_confound_grid.json"),
   };
 }
@@ -550,6 +560,10 @@ function buildExpectedPublicText(data) {
     falsification:
       `${formatNumber(data.falsification.summary?.pass_count || 0)} pass / ` +
       `${formatNumber(data.falsification.summary?.fail_count || 0)} fail`,
+    consistency:
+      `${data.consistency.summary?.status || "unknown"} · ` +
+      `${formatNumber(data.consistency.summary?.pass_count || 0)} pass / ` +
+      `${formatNumber(data.consistency.summary?.fail_count || 0)} fail`,
   };
 }
 

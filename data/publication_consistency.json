@@ -1,0 +1,102 @@
+{
+  "schema": "primeproject.publication-consistency.v1",
+  "generated_at": "2026-05-24T16:56:40+00:00",
+  "source": {
+    "evidence_pack_schema": "primeproject.evidence-pack.v1",
+    "claim_ledger_schema": "primeproject.claim-ledger.v1",
+    "decision_protocol_schema": "primeproject.decision-protocol.v1",
+    "falsification_battery_schema": "primeproject.falsification-battery.v1",
+    "claim_level": "public_demo_only",
+    "falsification_claim_floor": "controlled_synthetic_only"
+  },
+  "summary": {
+    "status": "pass",
+    "check_count": 5,
+    "pass_count": 5,
+    "warn_count": 0,
+    "fail_count": 0,
+    "high_risk_claims_blocked": true,
+    "high_risk_decisions_blocked": true
+  },
+  "policy": {
+    "post_pack_audit": true,
+    "reason": "This consistency report consumes the evidence pack, claim ledger, decision protocol, and falsification battery. It is generated after those artifacts to catch claim-boundary drift without creating circular evidence-pack hashes.",
+    "allowed_failure_interpretation": "A fail means public claim language and promotion gates disagree."
+  },
+  "checks": [
+    {
+      "check": "real_world_boundary_consistent",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Real-world attribution is blocked by matching evidence, ledger, decision, and missing-evidence signals.",
+      "evidence": {
+        "failed_gates": [
+          "real_baseline_gate",
+          "classifier_gate",
+          "baseline_acceptance_gate",
+          "collection_intake_gate"
+        ],
+        "claim_status": "blocked",
+        "decision_status": "blocked",
+        "missing_required_evidence": [
+          "two_available_real_baselines",
+          "real_world_labelled_feature_vectors",
+          "two_accepted_real_baselines",
+          "accepted_collection_intake"
+        ]
+      }
+    },
+    {
+      "check": "bitcoin_boundary_consistent",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Bitcoin nonce-risk attribution is blocked consistently until a bundled risk report exists.",
+      "evidence": {
+        "bitcoin_gate_passed": false,
+        "claim_status": "blocked",
+        "decision_status": "blocked",
+        "blocking_items": [
+          "artifact:bitcoin_risk_report",
+          "claim:bitcoin_nonce_risk_attribution:blocked",
+          "gate:bitcoin_integration_gate"
+        ],
+        "required_evidence_status": "missing"
+      }
+    },
+    {
+      "check": "decision_claim_alignment",
+      "status": "pass",
+      "severity": "critical",
+      "message": "No decision promotes a claim that the claim ledger blocks.",
+      "evidence": {
+        "contradictions": []
+      }
+    },
+    {
+      "check": "falsification_guard_alignment",
+      "status": "pass",
+      "severity": "critical",
+      "message": "The falsification guard agrees that high-risk attribution decisions remain blocked.",
+      "evidence": {
+        "claim_promotion_guard_status": "pass",
+        "unexpectedly_promoted_decisions": []
+      }
+    },
+    {
+      "check": "required_evidence_covers_blockers",
+      "status": "pass",
+      "severity": "high",
+      "message": "Every high-risk failed gate has a matching required-evidence item.",
+      "evidence": {
+        "failed_gate_codes": [
+          "real_baseline_gate",
+          "classifier_gate",
+          "bitcoin_integration_gate",
+          "baseline_acceptance_gate",
+          "collection_intake_gate"
+        ],
+        "missing_explanations": []
+      }
+    }
+  ]
+}

@@ -34,6 +34,7 @@ from .fingerprints import analyze_prime_generator_fingerprints
 from .io import load_records, write_report_json
 from .null_calibration import build_null_calibration
 from .provenance import build_provenance_audit, build_provenance_requirements, load_provenance_records
+from .publication_consistency import build_publication_consistency_report
 from .real_baselines import build_real_baseline_manifest, load_real_baseline_entries
 from .replication_audit import build_replication_audit
 from .research_readiness import build_research_readiness_report
@@ -344,6 +345,17 @@ def main() -> int:
     falsification_parser.add_argument("--decision-protocol", required=True)
     falsification_parser.add_argument("--generated-at", default=None)
     falsification_parser.add_argument("--output", required=True)
+
+    publication_consistency_parser = subparsers.add_parser(
+        "publication-consistency",
+        help="Check that evidence, claim, decision, and falsification artifacts agree on claim boundaries.",
+    )
+    publication_consistency_parser.add_argument("--evidence-pack", required=True)
+    publication_consistency_parser.add_argument("--claim-ledger", required=True)
+    publication_consistency_parser.add_argument("--decision-protocol", required=True)
+    publication_consistency_parser.add_argument("--falsification-battery", required=True)
+    publication_consistency_parser.add_argument("--generated-at", default=None)
+    publication_consistency_parser.add_argument("--output", required=True)
 
     null_calibration_parser = subparsers.add_parser(
         "null-calibration",
@@ -826,6 +838,23 @@ def main() -> int:
         payload = build_falsification_battery(
             attribution_grid=attribution_grid,
             decision_protocol=decision_protocol,
+            generated_at=args.generated_at,
+        )
+        output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        return 0
+
+    if args.command == "publication-consistency":
+        evidence_pack = json.loads(Path(args.evidence_pack).read_text(encoding="utf-8"))
+        claim_ledger = json.loads(Path(args.claim_ledger).read_text(encoding="utf-8"))
+        decision_protocol = json.loads(Path(args.decision_protocol).read_text(encoding="utf-8"))
+        falsification_battery = json.loads(Path(args.falsification_battery).read_text(encoding="utf-8"))
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        payload = build_publication_consistency_report(
+            evidence_pack=evidence_pack,
+            claim_ledger=claim_ledger,
+            decision_protocol=decision_protocol,
+            falsification_battery=falsification_battery,
             generated_at=args.generated_at,
         )
         output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
