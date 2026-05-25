@@ -140,7 +140,7 @@ The bundled Codex runtime Python can also run the same commands.
 
 ## Continuous Verification
 
-GitHub Actions now runs the publication guard on pushes and pull requests to `main`: Python compile checks, the full unit suite, publication artifact reproduction, JavaScript syntax checks, Playwright-based GitHub Pages verification, and a final committed-artifact drift check. This keeps the public research bundle from silently diverging from the audited evidence files.
+GitHub Actions now runs the publication guard on pushes and pull requests to `main`: Python compile checks, publication-critical unit checks, publication artifact reproduction, JavaScript syntax checks, Playwright-based GitHub Pages verification, and a final committed-artifact drift check. This keeps the public research bundle from silently diverging from the audited evidence files. Run `python -m unittest discover -s tests -p "test_*.py"` locally for the full suite.
 
 ## Boundary
 
