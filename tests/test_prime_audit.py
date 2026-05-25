@@ -1721,6 +1721,11 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertEqual(payload["schema"], "primeproject.publication-reproduction-audit.v1")
         self.assertTrue(payload["reproducible"])
+        self.assertTrue(payload["json_reproducible"])
+        self.assertTrue(payload["byte_reproducible"])
+        self.assertEqual(payload["json_mismatches"], [])
+        self.assertEqual(payload["byte_mismatches"], [])
+        self.assertEqual(payload["mismatches"], [])
         self.assertEqual(payload["command_count"], 5)
         self.assertEqual(payload["command_path_policy"], "Temporary output paths are normalized to {tmp}.")
         command_text = json.dumps(payload["commands"])

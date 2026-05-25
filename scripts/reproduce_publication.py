@@ -115,15 +115,21 @@ def main() -> int:
             for name, public_path in PUBLICATION_OUTPUTS.items()
         ]
 
-    mismatches = [row["artifact"] for row in comparisons if not row["json_equal"]]
+    json_mismatches = [row["artifact"] for row in comparisons if not row["json_equal"]]
+    byte_mismatches = [row["artifact"] for row in comparisons if not row["byte_equal"]]
+    mismatches = sorted(set(json_mismatches + byte_mismatches))
     report = {
         "schema": "primeproject.publication-reproduction-audit.v1",
         "generated_at": generated_at,
         "reproducible": not mismatches,
+        "json_reproducible": not json_mismatches,
+        "byte_reproducible": not byte_mismatches,
         "command_count": len(commands),
         "command_path_policy": "Temporary output paths are normalized to {tmp}.",
         "commands": [format_command(command, tmp_root=tmp_root) for command in commands],
         "comparisons": comparisons,
+        "json_mismatches": json_mismatches,
+        "byte_mismatches": byte_mismatches,
         "mismatches": mismatches,
     }
     if args.report:
