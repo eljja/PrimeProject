@@ -859,7 +859,13 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertEqual(audit["schema"], "primeproject.claim-language-audit.v1")
         self.assertEqual(audit["quality_gate"]["status"], "fail")
+        self.assertEqual(audit["summary"]["triggered_count"], 3)
+        self.assertEqual(audit["summary"]["guarded_count"], 0)
         self.assertEqual(audit["summary"]["fail_count"], 3)
+        rules = {rule["rule_id"]: rule for rule in audit["rules"]}
+        self.assertEqual(rules["unsupported_real_world_attribution"]["fail_count"], 1)
+        self.assertEqual(rules["unsupported_bitcoin_attribution"]["fail_count"], 1)
+        self.assertEqual(rules["unsupported_proof_or_guarantee"]["fail_count"], 1)
         self.assertEqual(
             {finding["rule_id"] for finding in audit["findings"]},
             {
@@ -888,6 +894,10 @@ class PrimeAuditTests(unittest.TestCase):
 
         self.assertEqual(audit["quality_gate"]["status"], "pass")
         self.assertEqual(audit["summary"]["fail_count"], 0)
+        self.assertEqual(audit["summary"]["triggered_count"], 3)
+        self.assertEqual(audit["summary"]["guarded_count"], 3)
+        rules = {rule["rule_id"]: rule for rule in audit["rules"]}
+        self.assertEqual(rules["sensitive_material_publication"]["guarded_count"], 1)
 
     def test_collection_intake_blocks_missing_or_sensitive_submissions(self) -> None:
         handoff = {
@@ -1300,6 +1310,7 @@ class PrimeAuditTests(unittest.TestCase):
         )
         claim_language_gate = next(gate for gate in pack["publication_gates"] if gate["code"] == "claim_language_gate")
         self.assertEqual(claim_language_artifact["quality_gate_status"], "fail")
+        self.assertIsNone(claim_language_artifact["claim_language_guarded_count"])
         self.assertEqual(claim_language_artifact["claim_language_fail_count"], 1)
         self.assertFalse(claim_language_gate["passed"])
         self.assertEqual(claim_language_gate["evidence"]["fail_count"], 1)
@@ -1632,6 +1643,8 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(metrics["checksummed_artifacts"], evidence["artifact_count"])
         self.assertEqual(metrics["claim_language_scanned_files"], claim_language["summary"]["scanned_file_count"])
         self.assertEqual(metrics["claim_language_scanned_lines"], claim_language["summary"]["scanned_line_count"])
+        self.assertEqual(metrics["claim_language_triggered_mentions"], claim_language["summary"]["triggered_count"])
+        self.assertEqual(metrics["claim_language_guarded_mentions"], claim_language["summary"]["guarded_count"])
         self.assertEqual(metrics["claim_language_failures"], claim_language["summary"]["fail_count"])
         self.assertEqual(metrics["blocking_gaps"], len(readiness["blocking_gaps"]))
         self.assertEqual(metrics["claim_ledger_allowed"], claim_ledger["summary"]["allowed_count"])

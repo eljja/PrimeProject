@@ -805,7 +805,7 @@ const bundledEvidencePack = {
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "11bfcc840ff2cda806a9abca4c914475bd0f049cf9f5a5f930eafc5aec8657b3" },
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "4636041a732e84825a9c0af28075583927e1be1edbe25bbf988eb1333a509bd6" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
-    { role: "claim_language_audit", schema: "primeproject.claim-language-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", scanned_file_count: 14, scanned_line_count: 6638, claim_language_fail_count: 0 },
+    { role: "claim_language_audit", schema: "primeproject.claim-language-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", scanned_file_count: 14, scanned_line_count: 6645, claim_language_triggered_count: 88, claim_language_guarded_count: 88, claim_language_fail_count: 0 },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", sha256: "96a78185f4fd71b260d2459c4737eb6a7ee0be62e339f9eba21fb465795845f4" },
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794", quality_gate_status: "pass", fixture_count: 6, failed_expectation_count: 0, public_safe_fixture_count: 6 },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
@@ -1260,7 +1260,9 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
     claim_language_scanned_files: 14,
-    claim_language_scanned_lines: 6638,
+    claim_language_scanned_lines: 6645,
+    claim_language_triggered_mentions: 88,
+    claim_language_guarded_mentions: 88,
     claim_language_failures: 0,
     blocking_gaps: 2,
     claim_ledger_allowed: 3,
@@ -3473,10 +3475,15 @@ function renderEvidencePack() {
     .join("");
   outputs.evidenceArtifactRows.innerHTML = (pack.artifacts || [])
     .map((artifact) => {
-      const semantic =
-        artifact.quality_gate_status
-          ? ` · quality ${artifact.quality_gate_status} · ${formatNumber(artifact.failed_expectation_count || 0)} failures`
-          : "";
+      let semantic = "";
+      if (artifact.role === "claim_language_audit") {
+        semantic =
+          ` · quality ${artifact.quality_gate_status || "unknown"}` +
+          ` · ${formatNumber(artifact.claim_language_guarded_count || 0)} guarded` +
+          ` · ${formatNumber(artifact.claim_language_fail_count || 0)} failures`;
+      } else if (artifact.quality_gate_status) {
+        semantic = ` · quality ${artifact.quality_gate_status} · ${formatNumber(artifact.failed_expectation_count || 0)} failures`;
+      }
       return `
         <div class="evidence-row artifact-row">
           <strong>${escapeHtml(artifact.role || "artifact")}</strong>

@@ -4,8 +4,10 @@
   "summary": {
     "status": "pass",
     "scanned_file_count": 14,
-    "scanned_line_count": 6638,
+    "scanned_line_count": 6645,
     "rule_count": 5,
+    "triggered_count": 88,
+    "guarded_count": 88,
     "finding_count": 0,
     "fail_count": 0
   },
@@ -21,7 +23,7 @@
   "scanned_files": [
     {
       "path": "assets/app.js",
-      "line_count": 4267
+      "line_count": 4274
     },
     {
       "path": "docs/attribution-benchmark-research.md",
@@ -80,27 +82,42 @@
     {
       "rule_id": "cryptographic_break_or_key_recovery",
       "severity": "critical",
-      "message": "Security-break or key-recovery wording must be explicitly scoped as blocked, impossible, toy, or defensive."
+      "message": "Security-break or key-recovery wording must be explicitly scoped as blocked, impossible, toy, or defensive.",
+      "triggered_count": 0,
+      "guarded_count": 0,
+      "fail_count": 0
     },
     {
       "rule_id": "unsupported_real_world_attribution",
       "severity": "high",
-      "message": "Real-world attribution language must remain gated until accepted real baselines and labelled vectors exist."
+      "message": "Real-world attribution language must remain gated until accepted real baselines and labelled vectors exist.",
+      "triggered_count": 46,
+      "guarded_count": 46,
+      "fail_count": 0
     },
     {
       "rule_id": "unsupported_bitcoin_attribution",
       "severity": "high",
-      "message": "Bitcoin attribution wording must be tied to nonce-risk evidence and stay blocked without wallet/library metadata."
+      "message": "Bitcoin attribution wording must be tied to nonce-risk evidence and stay blocked without wallet/library metadata.",
+      "triggered_count": 27,
+      "guarded_count": 27,
+      "fail_count": 0
     },
     {
       "rule_id": "unsupported_proof_or_guarantee",
       "severity": "high",
-      "message": "Proof or guarantee wording cannot be attached to high-risk real-world, Bitcoin, or security claims."
+      "message": "Proof or guarantee wording cannot be attached to high-risk real-world, Bitcoin, or security claims.",
+      "triggered_count": 1,
+      "guarded_count": 1,
+      "fail_count": 0
     },
     {
       "rule_id": "sensitive_material_publication",
       "severity": "critical",
-      "message": "Sensitive-material field names may appear only as forbidden/local handling policy, never as public payload claims."
+      "message": "Sensitive-material field names may appear only as forbidden/local handling policy, never as public payload claims.",
+      "triggered_count": 14,
+      "guarded_count": 14,
+      "fail_count": 0
     }
   ],
   "findings": []

@@ -465,6 +465,7 @@ async function main() {
     !metrics.evidencePanel.includes("collection_fixture_audit_gate") ||
     !metrics.evidencePanel.includes("claim_language_audit") ||
     !metrics.evidencePanel.includes("claim_language_gate") ||
+    !metrics.evidencePanel.includes("88 guarded") ||
     !metrics.evidencePanel.includes("quality pass") ||
     !metrics.evidencePanel.includes("collection_intake") ||
     !metrics.evidencePanel.includes("null_calibration") ||

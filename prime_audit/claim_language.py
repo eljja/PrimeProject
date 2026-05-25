@@ -111,6 +111,10 @@ def build_claim_language_audit(
     scan_paths = list(paths or DEFAULT_PUBLIC_PATHS)
     files = resolve_scan_files(root_path, scan_paths)
     findings: list[dict[str, Any]] = []
+    rule_counts = {
+        rule.rule_id: {"triggered_count": 0, "guarded_count": 0, "fail_count": 0}
+        for rule in LANGUAGE_RULES
+    }
     scanned = []
     line_count = 0
 
@@ -133,9 +137,13 @@ def build_claim_language_audit(
             continue
         scanned.append({"path": relative, "line_count": len(lines)})
         line_count += len(lines)
-        findings.extend(scan_lines(relative, lines))
+        file_findings, file_rule_counts = scan_lines(relative, lines)
+        findings.extend(file_findings)
+        merge_rule_counts(rule_counts, file_rule_counts)
 
     fail_count = sum(1 for finding in findings if finding["status"] == "fail")
+    guarded_count = sum(counts["guarded_count"] for counts in rule_counts.values())
+    triggered_count = sum(counts["triggered_count"] for counts in rule_counts.values())
     status = "pass" if fail_count == 0 else "fail"
     return {
         "schema": CLAIM_LANGUAGE_AUDIT_SCHEMA,
@@ -145,6 +153,8 @@ def build_claim_language_audit(
             "scanned_file_count": len(scanned),
             "scanned_line_count": line_count,
             "rule_count": len(LANGUAGE_RULES),
+            "triggered_count": triggered_count,
+            "guarded_count": guarded_count,
             "finding_count": len(findings),
             "fail_count": fail_count,
         },
@@ -167,6 +177,7 @@ def build_claim_language_audit(
                 "rule_id": rule.rule_id,
                 "severity": rule.severity,
                 "message": rule.message,
+                **rule_counts[rule.rule_id],
             }
             for rule in LANGUAGE_RULES
         ],
@@ -184,8 +195,18 @@ def resolve_scan_files(root: Path, path_patterns: Iterable[str]) -> list[Path]:
     return sorted(files)
 
 
-def scan_lines(relative_path: str, lines: list[str]) -> list[dict[str, Any]]:
+def merge_rule_counts(target: dict[str, dict[str, int]], source: dict[str, dict[str, int]]) -> None:
+    for rule_id, counts in source.items():
+        for key, value in counts.items():
+            target[rule_id][key] += value
+
+
+def scan_lines(relative_path: str, lines: list[str]) -> tuple[list[dict[str, Any]], dict[str, dict[str, int]]]:
     findings = []
+    rule_counts = {
+        rule.rule_id: {"triggered_count": 0, "guarded_count": 0, "fail_count": 0}
+        for rule in LANGUAGE_RULES
+    }
     for line_number, line in enumerate(lines, start=1):
         stripped = line.strip()
         if not stripped:
@@ -197,8 +218,11 @@ def scan_lines(relative_path: str, lines: list[str]) -> list[dict[str, Any]]:
         for rule in LANGUAGE_RULES:
             if not rule.trigger.search(stripped):
                 continue
+            rule_counts[rule.rule_id]["triggered_count"] += 1
             if rule.guard.search(context):
+                rule_counts[rule.rule_id]["guarded_count"] += 1
                 continue
+            rule_counts[rule.rule_id]["fail_count"] += 1
             findings.append(
                 {
                     "rule_id": rule.rule_id,
@@ -210,7 +234,7 @@ def scan_lines(relative_path: str, lines: list[str]) -> list[dict[str, Any]]:
                     "message": rule.message,
                 }
             )
-    return findings
+    return findings, rule_counts
 
 
 def compact_snippet(value: str, limit: int = 180) -> str:

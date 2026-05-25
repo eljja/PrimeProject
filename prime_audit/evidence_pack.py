@@ -122,6 +122,8 @@ def artifact_semantics(role: str, payload: dict[str, Any]) -> dict[str, Any]:
             "quality_gate_status": quality_gate.get("status"),
             "scanned_file_count": summary.get("scanned_file_count"),
             "scanned_line_count": summary.get("scanned_line_count"),
+            "claim_language_triggered_count": summary.get("triggered_count"),
+            "claim_language_guarded_count": summary.get("guarded_count"),
             "claim_language_fail_count": summary.get("fail_count"),
         }
     return {}
