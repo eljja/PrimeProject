@@ -93,7 +93,7 @@ def artifact_summaries(file_paths: dict[str, str | Path]) -> list[dict[str, Any]
                 "exists": True,
                 "sha256": hashlib.sha256(hash_bytes).hexdigest(),
                 "schema": schema,
-                "bytes": len(data),
+                "bytes": len(hash_bytes),
                 "hash_policy": "canonical_json" if schema else "raw_bytes",
                 **payload_summary,
             }

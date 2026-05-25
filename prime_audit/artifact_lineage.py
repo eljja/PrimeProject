@@ -165,7 +165,7 @@ def artifact_node(role: str, path_value: str | Path) -> dict[str, Any]:
         "exists": True,
         "schema": schema,
         "sha256": hashlib.sha256(hash_bytes).hexdigest(),
-        "bytes": len(data),
+        "bytes": len(hash_bytes),
         "hash_policy": "canonical_json" if schema else "raw_bytes",
     }
 
