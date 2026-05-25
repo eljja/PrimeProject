@@ -44,6 +44,12 @@ def build_publication_consistency_report(
     }
 
     checks = [
+        generated_at_alignment_check(
+            evidence_pack,
+            claim_ledger,
+            decision_protocol,
+            falsification_battery,
+        ),
         real_world_boundary_check(gates, required, claims, decisions),
         bitcoin_boundary_check(gates, required, claims, decisions),
         decision_claim_alignment_check(claims, decisions),
@@ -64,6 +70,10 @@ def build_publication_consistency_report(
             "claim_ledger_schema": claim_ledger.get("schema"),
             "decision_protocol_schema": decision_protocol.get("schema"),
             "falsification_battery_schema": falsification_battery.get("schema"),
+            "evidence_pack_generated_at": evidence_pack.get("generated_at"),
+            "claim_ledger_generated_at": claim_ledger.get("generated_at"),
+            "decision_protocol_generated_at": decision_protocol.get("generated_at"),
+            "falsification_battery_generated_at": falsification_battery.get("generated_at"),
             "claim_level": evidence_pack.get("claim_level", {}).get("level"),
             "falsification_claim_floor": falsification_battery.get("summary", {}).get("claim_floor"),
         },
@@ -94,6 +104,46 @@ def build_publication_consistency_report(
         },
         "checks": checks,
     }
+
+
+def generated_at_alignment_check(
+    evidence_pack: dict[str, Any],
+    claim_ledger: dict[str, Any],
+    decision_protocol: dict[str, Any],
+    falsification_battery: dict[str, Any],
+) -> dict[str, Any]:
+    generated_at_by_artifact = {
+        "evidence_pack": evidence_pack.get("generated_at"),
+        "claim_ledger": claim_ledger.get("generated_at"),
+        "decision_protocol": decision_protocol.get("generated_at"),
+        "falsification_battery": falsification_battery.get("generated_at"),
+    }
+    missing = [
+        name
+        for name, generated_at in generated_at_by_artifact.items()
+        if not generated_at
+    ]
+    unique_values = sorted(
+        {
+            str(generated_at)
+            for generated_at in generated_at_by_artifact.values()
+            if generated_at
+        }
+    )
+    passes = not missing and len(unique_values) == 1
+    return check_result(
+        "generated_at_alignment",
+        "pass" if passes else "fail",
+        "high",
+        "Publication governance artifacts share the same generated_at timestamp."
+        if passes
+        else "Publication governance artifacts were generated from different vintages.",
+        {
+            "generated_at_by_artifact": generated_at_by_artifact,
+            "unique_generated_at": unique_values,
+            "missing_generated_at": missing,
+        },
+    )
 
 
 def real_world_boundary_check(

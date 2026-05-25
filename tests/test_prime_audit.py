@@ -1467,9 +1467,30 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(report["summary"]["status"], "pass")
         self.assertTrue(report["summary"]["high_risk_claims_blocked"])
         self.assertTrue(report["summary"]["high_risk_decisions_blocked"])
+        self.assertEqual(checks["generated_at_alignment"]["status"], "pass")
         self.assertEqual(checks["real_world_boundary_consistent"]["status"], "pass")
         self.assertEqual(checks["bitcoin_boundary_consistent"]["status"], "pass")
         self.assertEqual(checks["required_evidence_covers_blockers"]["status"], "pass")
+
+    def test_publication_consistency_fails_on_mixed_artifact_vintages(self) -> None:
+        claim_ledger = json.loads(json.dumps(load_repo_json("data/claim_ledger.json")))
+        claim_ledger["generated_at"] = "2026-05-25T00:00:00+00:00"
+
+        report = build_publication_consistency_report(
+            evidence_pack=load_repo_json("data/evidence_pack.json"),
+            claim_ledger=claim_ledger,
+            decision_protocol=load_repo_json("data/decision_protocol.json"),
+            falsification_battery=load_repo_json("data/falsification_battery.json"),
+            generated_at="2026-05-24T16:56:40+00:00",
+        )
+        checks = {check["check"]: check for check in report["checks"]}
+
+        self.assertEqual(report["summary"]["status"], "fail")
+        self.assertEqual(checks["generated_at_alignment"]["status"], "fail")
+        self.assertIn(
+            "2026-05-25T00:00:00+00:00",
+            checks["generated_at_alignment"]["evidence"]["unique_generated_at"],
+        )
 
     def test_publication_consistency_fails_when_required_evidence_drops_blocker(self) -> None:
         evidence = json.loads(json.dumps(load_repo_json("data/evidence_pack.json")))

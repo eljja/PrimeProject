@@ -395,7 +395,7 @@ python -m prime_audit.cli publication-consistency `
   --output data/publication_consistency.json
 ```
 
-현재 결과는 `5 pass / 0 fail`이다. 핵심 체크는 real-world attribution, Bitcoin nonce-risk attribution, decision/claim alignment, falsification guard alignment, failed gate와 required evidence의 대응 관계다. 이 리포트가 실패하면 GitHub Pages의 public claim 문구와 promotion gate가 서로 다른 기준을 말하고 있다는 뜻이므로 publication bundle을 업데이트하기 전 차단해야 한다.
+현재 결과는 `6 pass / 0 fail`이다. 핵심 체크는 generated_at alignment, real-world attribution, Bitcoin nonce-risk attribution, decision/claim alignment, falsification guard alignment, failed gate와 required evidence의 대응 관계다. 이 리포트가 실패하면 GitHub Pages의 public claim 문구와 promotion gate가 서로 다른 기준을 말하거나, 서로 다른 시점의 publication artifact를 섞었다는 뜻이므로 publication bundle을 업데이트하기 전 차단해야 한다.
 
 ## Publication Reproduction Audit
 

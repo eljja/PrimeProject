@@ -6,13 +6,17 @@
     "claim_ledger_schema": "primeproject.claim-ledger.v1",
     "decision_protocol_schema": "primeproject.decision-protocol.v1",
     "falsification_battery_schema": "primeproject.falsification-battery.v1",
+    "evidence_pack_generated_at": "2026-05-24T16:56:40+00:00",
+    "claim_ledger_generated_at": "2026-05-24T16:56:40+00:00",
+    "decision_protocol_generated_at": "2026-05-24T16:56:40+00:00",
+    "falsification_battery_generated_at": "2026-05-24T16:56:40+00:00",
     "claim_level": "public_demo_only",
     "falsification_claim_floor": "controlled_synthetic_only"
   },
   "summary": {
     "status": "pass",
-    "check_count": 5,
-    "pass_count": 5,
+    "check_count": 6,
+    "pass_count": 6,
     "warn_count": 0,
     "fail_count": 0,
     "high_risk_claims_blocked": true,
@@ -24,6 +28,24 @@
     "allowed_failure_interpretation": "A fail means public claim language and promotion gates disagree."
   },
   "checks": [
+    {
+      "check": "generated_at_alignment",
+      "status": "pass",
+      "severity": "high",
+      "message": "Publication governance artifacts share the same generated_at timestamp.",
+      "evidence": {
+        "generated_at_by_artifact": {
+          "evidence_pack": "2026-05-24T16:56:40+00:00",
+          "claim_ledger": "2026-05-24T16:56:40+00:00",
+          "decision_protocol": "2026-05-24T16:56:40+00:00",
+          "falsification_battery": "2026-05-24T16:56:40+00:00"
+        },
+        "unique_generated_at": [
+          "2026-05-24T16:56:40+00:00"
+        ],
+        "missing_generated_at": []
+      }
+    },
     {
       "check": "real_world_boundary_consistent",
       "status": "pass",

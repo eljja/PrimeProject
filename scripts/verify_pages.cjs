@@ -278,7 +278,7 @@ async function main() {
     !metrics.evolutionImpact.includes("Visual Change Trail") ||
     !metrics.evolutionImpact.includes("Scale lift") ||
     !metrics.evolutionImpact.includes("Publication guardrails") ||
-    !metrics.evolutionImpact.includes("10 guard checks") ||
+    !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
     !metrics.evolutionSpine.includes("fixture audit") ||

@@ -64,11 +64,11 @@
     "falsification_checks": 5,
     "falsification_failures": 0,
     "falsification_claim_floor": "controlled_synthetic_only",
-    "publication_consistency_checks": 5,
+    "publication_consistency_checks": 6,
     "publication_consistency_failures": 0,
     "publication_consistency_status": "pass",
     "publication_guard_artifacts": 6,
-    "publication_guard_checks": 10
+    "publication_guard_checks": 11
   },
   "change_dashboard": {
     "headline": "PrimeProject moved from exploratory prime regularity visuals into publication-gated real-world generator fingerprint tooling.",
@@ -101,7 +101,7 @@
         "stage": "Publish",
         "phase_ids": ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery", "publication-consistency"],
         "status": "active",
-        "signal": "5 falsification checks, 5 consistency checks, and controlled-synthetic-only claim floor"
+        "signal": "5 falsification checks, 6 consistency checks, and controlled-synthetic-only claim floor"
       }
     ],
     "visual_rollup": {
@@ -139,7 +139,7 @@
           "marker": "05",
           "title": "Publication guardrails",
           "state": "guarded",
-          "measure": "20 checked artifacts / 14 gates / 10 guard checks",
+          "measure": "20 checked artifacts / 14 gates / 11 guard checks",
           "proof": "claim ledger, lineage, decision protocol, falsification battery, and consistency audit prevent overclaiming"
         }
       ],
@@ -213,7 +213,7 @@
           "score": 80,
           "status": "guarded",
           "artifacts": ["data/evidence_pack.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json", "data/publication_consistency.json"],
-          "gate": "20 checked artifacts, 14 gates, 22 lineage nodes, 10 guard checks",
+          "gate": "20 checked artifacts, 14 gates, 22 lineage nodes, 11 guard checks",
           "proof": "Public statements are constrained by checksums, lineage, decision rules, falsification guards, and consistency checks."
         }
       ]
@@ -242,7 +242,7 @@
       {
         "label": "Publication guardrail",
         "impact": "Claim ledger, lineage, decision rules, falsification checks, and consistency checks keep the public page at demo/scaffold claim strength.",
-        "metric": "20 artifacts / 10 guard checks"
+        "metric": "20 artifacts / 11 guard checks"
       }
     ],
     "research_delta": {
