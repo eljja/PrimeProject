@@ -7,7 +7,7 @@ PrimeProject now has four GitHub Pages subpages for:
 - Goldbach Conjecture
 - Twin Prime Conjecture
 
-The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
+The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
 ## Public Pages
 
@@ -52,6 +52,8 @@ The same ledger now includes an attack graph, known theorem bridges, and lemma c
 - The attack graph shows which edge still has to remove the finite search limit.
 - Known theorem bridges record where existing mathematics is usable, insufficient, or only heuristic.
 - Lemma candidates state the next target in a form that could later be moved into a formal proof assistant.
+
+Each problem also includes a `primeproject.open-problem-proof-status-gate.v1` object. The gate is intentionally conservative: it blocks a full-proof claim while any obligation, attack-graph edge, theorem bridge, or lemma candidate remains open. `scripts/verify_open_problem_workbench.py` checks that all four pages remain blocked until the finite certificate is joined to an independently checkable infinite proof.
 
 ## Claim Boundary
 

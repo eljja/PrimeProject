@@ -11,6 +11,7 @@ from pathlib import Path
 SCHEMA = "primeproject.open-problem-workbench.v1"
 CERTIFICATE_SCHEMA = "primeproject.bounded-proof-certificate.v1"
 PROOF_ATTEMPT_SCHEMA = "primeproject.proof-attempt-ledger.v1"
+PROOF_STATUS_GATE_SCHEMA = "primeproject.open-problem-proof-status-gate.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -127,6 +128,64 @@ def proof_attempt_ledger(
             "status": "not_formalized",
         },
         "promotion_rule": "A page may move from open_not_proven only when every open obligation is replaced by an independently checkable proof that does not depend on the search limit.",
+    }
+
+
+def proof_status_gate(problem: dict[str, object]) -> dict[str, object]:
+    attempt = problem.get("proof_attempt", {})
+    certificate = problem.get("certificate", {})
+    obligations = attempt.get("obligations", []) if isinstance(attempt, dict) else []
+    graph = attempt.get("attack_graph", {}) if isinstance(attempt, dict) else {}
+    graph_nodes = graph.get("nodes", []) if isinstance(graph, dict) else []
+    graph_edges = graph.get("edges", []) if isinstance(graph, dict) else []
+    bridges = attempt.get("known_theorem_bridges", []) if isinstance(attempt, dict) else []
+    lemmas = attempt.get("lemma_candidates", []) if isinstance(attempt, dict) else []
+
+    proof_statuses = {"proved_by_certificate", "formal_proof_verified", "accepted_theorem"}
+    open_obligations = [
+        item.get("id", "unknown")
+        for item in obligations
+        if isinstance(item, dict) and item.get("status") not in proof_statuses
+    ]
+    open_graph_links = [
+        f"{item.get('from', item.get('id', 'unknown'))}->{item.get('to', item.get('status', 'unknown'))}"
+        for item in [*graph_nodes, *graph_edges]
+        if isinstance(item, dict)
+        and item.get("status") not in {"proved_by_certificate", "formal_proof_verified", "accepted_theorem"}
+    ]
+    unsatisfied_bridges = [
+        item.get("id", "unknown")
+        for item in bridges
+        if isinstance(item, dict) and item.get("status") not in {"formal_proof_verified", "accepted_theorem"}
+    ]
+    open_lemmas = [
+        item.get("id", "unknown")
+        for item in lemmas
+        if isinstance(item, dict) and item.get("status") not in {"formal_proof_verified", "accepted_theorem"}
+    ]
+    blockers = []
+    if certificate.get("status") != "bounded_theorem_certified":
+        blockers.append("bounded_certificate_missing")
+    if open_obligations:
+        blockers.append("open_obligations")
+    if open_graph_links:
+        blockers.append("open_attack_graph_links")
+    if unsatisfied_bridges:
+        blockers.append("unsatisfied_known_theorem_bridges")
+    if open_lemmas:
+        blockers.append("unproved_lemma_candidates")
+
+    return {
+        "schema": PROOF_STATUS_GATE_SCHEMA,
+        "problem_id": problem.get("id"),
+        "promotion_status": "blocked_open_infinite_obligation" if blockers else "eligible_for_independent_review",
+        "allowed_public_claim": "bounded_theorem_only" if blockers else "candidate_full_proof_requires_external_review",
+        "blockers": blockers,
+        "open_obligations": open_obligations,
+        "open_attack_graph_links": open_graph_links,
+        "unsatisfied_known_theorem_bridges": unsatisfied_bridges,
+        "open_lemma_candidates": open_lemmas,
+        "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem.",
     }
 
 
@@ -648,10 +707,30 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
 
 def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, object]:
     primes, is_prime = sieve(limit)
+    problems = [
+        build_riemann(limit, primes),
+        build_collatz(limit),
+        build_goldbach(limit, primes, is_prime),
+        build_twin_prime(limit, primes, is_prime),
+    ]
+    for problem in problems:
+        problem["proof_status_gate"] = proof_status_gate(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "search_limit": limit,
+        "proof_status_gate_summary": {
+            "schema": PROOF_STATUS_GATE_SCHEMA,
+            "status": "all_full_proof_claims_blocked",
+            "problem_count": len(problems),
+            "blocked_problem_count": sum(
+                1 for problem in problems if problem["proof_status_gate"]["promotion_status"].startswith("blocked")
+            ),
+            "eligible_problem_count": sum(
+                1 for problem in problems if problem["proof_status_gate"]["promotion_status"].startswith("eligible")
+            ),
+            "public_claim": "bounded_theorem_only_for_all_four_pages",
+        },
         "claim_policy": {
             "public_claim": "proof_workbench_only",
             "reason": "These pages are allowed to show finite evidence, proof gates, and candidate strategies, but must not claim a proof until an independently checkable infinite argument exists.",
@@ -662,12 +741,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
                 "Twin Prime Conjecture proven",
             ],
         },
-        "problems": [
-            build_riemann(limit, primes),
-            build_collatz(limit),
-            build_goldbach(limit, primes, is_prime),
-            build_twin_prime(limit, primes, is_prime),
-        ],
+        "problems": problems,
     }
 
 

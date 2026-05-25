@@ -260,6 +260,37 @@ function renderProofMap(problem) {
   `;
 }
 
+function renderProofStatusGate(problem) {
+  const gate = problem.proof_status_gate || {};
+  const rows = [
+    ["Promotion status", statusText(gate.promotion_status)],
+    ["Allowed public claim", statusText(gate.allowed_public_claim)],
+    ["Open obligations", (gate.open_obligations || []).join(", ") || "none"],
+    ["Open graph links", (gate.open_attack_graph_links || []).join(", ") || "none"],
+    ["Unsatisfied bridges", (gate.unsatisfied_known_theorem_bridges || []).join(", ") || "none"],
+    ["Open lemma candidates", (gate.open_lemma_candidates || []).join(", ") || "none"],
+  ];
+  return `
+    <div class="proof-gate-status is-${escapeHtml(gate.promotion_status || "missing")}">
+      <span>Machine gate</span>
+      <strong>${escapeHtml(statusText(gate.promotion_status))}</strong>
+      <p>${escapeHtml(gate.machine_rule || "")}</p>
+    </div>
+    <div class="proof-gate-table">
+      ${rows
+        .map(
+          ([label, value]) => `
+            <div>
+              <span>${escapeHtml(label)}</span>
+              <strong>${escapeHtml(value)}</strong>
+            </div>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
 function render(payload, problem) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
@@ -291,6 +322,7 @@ function render(payload, problem) {
   document.querySelector("#certificatePanel").innerHTML = renderCertificate(problem);
   document.querySelector("#proofAttempt").innerHTML = renderProofAttempt(problem);
   document.querySelector("#proofMap").innerHTML = renderProofMap(problem);
+  document.querySelector("#proofStatusGate").innerHTML = renderProofStatusGate(problem);
   document.querySelector("#proofGates").innerHTML = list(problem.proof_gates || []);
   document.querySelector("#candidateStrategy").innerHTML = list(problem.candidate_strategy || []);
   document.querySelector("#blockedClaims").innerHTML = (payload.claim_policy.blocked_claims || [])

@@ -228,6 +228,7 @@ async function main() {
           certificateText: document.querySelector("#certificatePanel").textContent,
           proofAttemptText: document.querySelector("#proofAttempt").textContent,
           proofMapText: document.querySelector("#proofMap").textContent,
+          proofStatusGateText: document.querySelector("#proofStatusGate").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
           text: document.body.textContent,
         }), problemId),
@@ -267,6 +268,9 @@ async function main() {
         !page.proofMapText.includes("Known theorem bridges") ||
         !page.proofMapText.includes("Lemma candidates") ||
         !page.proofMapText.includes("open bridge") ||
+        !page.proofStatusGateText.includes("blocked open infinite obligation") ||
+        !page.proofStatusGateText.includes("bounded theorem only") ||
+        !page.proofStatusGateText.includes("Machine gate") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||
         !page.text.includes("No proof claim"),

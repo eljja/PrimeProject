@@ -2,6 +2,14 @@
   "schema": "primeproject.open-problem-workbench.v1",
   "generated_at": "2026-05-25T14:03:42+00:00",
   "search_limit": 1000000,
+  "proof_status_gate_summary": {
+    "schema": "primeproject.open-problem-proof-status-gate.v1",
+    "status": "all_full_proof_claims_blocked",
+    "problem_count": 4,
+    "blocked_problem_count": 4,
+    "eligible_problem_count": 0,
+    "public_claim": "bounded_theorem_only_for_all_four_pages"
+  },
   "claim_policy": {
     "public_claim": "proof_workbench_only",
     "reason": "These pages are allowed to show finite evidence, proof gates, and candidate strategies, but must not claim a proof until an independently checkable infinite argument exists.",
@@ -202,7 +210,39 @@
         "Convert any stable residual law into a falsifiable analytic lemma before treating it as proof evidence.",
         "Reject any argument that only rephrases finite zero or finite prime-count checks."
       ],
-      "claim_boundary": "No proof claim. Current evidence is only finite RH-compatible diagnostics."
+      "claim_boundary": "No proof claim. Current evidence is only finite RH-compatible diagnostics.",
+      "proof_status_gate": {
+        "schema": "primeproject.open-problem-proof-status-gate.v1",
+        "problem_id": "riemann",
+        "promotion_status": "blocked_open_infinite_obligation",
+        "allowed_public_claim": "bounded_theorem_only",
+        "blockers": [
+          "open_obligations",
+          "open_attack_graph_links",
+          "unsatisfied_known_theorem_bridges",
+          "unproved_lemma_candidates"
+        ],
+        "open_obligations": [
+          "RH-O2",
+          "RH-O3"
+        ],
+        "open_attack_graph_links": [
+          "rh-envelope->open_bridge",
+          "rh-equivalence->known_bridge_needed",
+          "rh-target->open_target",
+          "rh-finite->rh-envelope",
+          "rh-envelope->rh-equivalence",
+          "rh-equivalence->rh-target"
+        ],
+        "unsatisfied_known_theorem_bridges": [
+          "RH-B1",
+          "RH-B2"
+        ],
+        "open_lemma_candidates": [
+          "RH-L1"
+        ],
+        "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      }
     },
     {
       "id": "collatz",
@@ -460,7 +500,39 @@
         "Search for monotone certificates on blocks, then try to lift them to all blocks recursively.",
         "Treat random-walk drift evidence as heuristic until a deterministic certificate exists."
       ],
-      "claim_boundary": "No proof claim. Current evidence is finite exhaustive replay plus blocker list."
+      "claim_boundary": "No proof claim. Current evidence is finite exhaustive replay plus blocker list.",
+      "proof_status_gate": {
+        "schema": "primeproject.open-problem-proof-status-gate.v1",
+        "problem_id": "collatz",
+        "promotion_status": "blocked_open_infinite_obligation",
+        "allowed_public_claim": "bounded_theorem_only",
+        "blockers": [
+          "open_obligations",
+          "open_attack_graph_links",
+          "unsatisfied_known_theorem_bridges",
+          "unproved_lemma_candidates"
+        ],
+        "open_obligations": [
+          "C-O2",
+          "C-O3"
+        ],
+        "open_attack_graph_links": [
+          "c-blocks->open_bridge",
+          "c-coverage->open_bridge",
+          "c-target->open_target",
+          "c-finite->c-blocks",
+          "c-blocks->c-coverage",
+          "c-coverage->c-target"
+        ],
+        "unsatisfied_known_theorem_bridges": [
+          "C-B1",
+          "C-B2"
+        ],
+        "open_lemma_candidates": [
+          "C-L1"
+        ],
+        "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      }
     },
     {
       "id": "goldbach",
@@ -692,7 +764,39 @@
         "Compare bounded failures against Hardy-Littlewood-style expected representation counts.",
         "Escalate only if the thin-class model yields a provable lower bound above zero."
       ],
-      "claim_boundary": "No proof claim. Current evidence is bounded exhaustive verification."
+      "claim_boundary": "No proof claim. Current evidence is bounded exhaustive verification.",
+      "proof_status_gate": {
+        "schema": "primeproject.open-problem-proof-status-gate.v1",
+        "problem_id": "goldbach",
+        "promotion_status": "blocked_open_infinite_obligation",
+        "allowed_public_claim": "bounded_theorem_only",
+        "blockers": [
+          "open_obligations",
+          "open_attack_graph_links",
+          "unsatisfied_known_theorem_bridges",
+          "unproved_lemma_candidates"
+        ],
+        "open_obligations": [
+          "G-O2",
+          "G-O3"
+        ],
+        "open_attack_graph_links": [
+          "g-thin->open_bridge",
+          "g-threshold->open_bridge",
+          "g-target->open_target",
+          "g-finite->g-threshold",
+          "g-thin->g-threshold",
+          "g-threshold->g-target"
+        ],
+        "unsatisfied_known_theorem_bridges": [
+          "G-B1",
+          "G-B2"
+        ],
+        "open_lemma_candidates": [
+          "G-L1"
+        ],
+        "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      }
     },
     {
       "id": "twin-prime",
@@ -872,7 +976,39 @@
         "Stress-test whether observed twin density survives generator and modulus changes.",
         "Treat density agreement as a guide for lemma search, not as proof."
       ],
-      "claim_boundary": "No proof claim. Current evidence is finite counting and heuristic comparison."
+      "claim_boundary": "No proof claim. Current evidence is finite counting and heuristic comparison.",
+      "proof_status_gate": {
+        "schema": "primeproject.open-problem-proof-status-gate.v1",
+        "problem_id": "twin-prime",
+        "promotion_status": "blocked_open_infinite_obligation",
+        "allowed_public_claim": "bounded_theorem_only",
+        "blockers": [
+          "open_obligations",
+          "open_attack_graph_links",
+          "unsatisfied_known_theorem_bridges",
+          "unproved_lemma_candidates"
+        ],
+        "open_obligations": [
+          "TP-O2",
+          "TP-O3"
+        ],
+        "open_attack_graph_links": [
+          "tp-pattern->open_bridge",
+          "tp-exact->open_bridge",
+          "tp-target->open_target",
+          "tp-finite->tp-pattern",
+          "tp-pattern->tp-exact",
+          "tp-exact->tp-target"
+        ],
+        "unsatisfied_known_theorem_bridges": [
+          "TP-B1",
+          "TP-B2"
+        ],
+        "open_lemma_candidates": [
+          "TP-L1"
+        ],
+        "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      }
     }
   ]
 }

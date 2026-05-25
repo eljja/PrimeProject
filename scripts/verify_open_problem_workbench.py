@@ -37,6 +37,19 @@ def main() -> int:
         )
         return 1
 
+    summary = rebuilt.get("proof_status_gate_summary", {})
+    if summary.get("status") != "all_full_proof_claims_blocked":
+        print("Open problem proof status gate is not blocking full-proof claims.", file=sys.stderr)
+        return 1
+    for problem in rebuilt.get("problems", []):
+        gate = problem.get("proof_status_gate", {})
+        if gate.get("promotion_status") != "blocked_open_infinite_obligation":
+            print(f"{problem.get('id')} proof promotion gate is not blocked.", file=sys.stderr)
+            return 1
+        if not gate.get("open_obligations") or not gate.get("open_attack_graph_links"):
+            print(f"{problem.get('id')} proof promotion gate is missing open blockers.", file=sys.stderr)
+            return 1
+
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]
         for problem in rebuilt["problems"]

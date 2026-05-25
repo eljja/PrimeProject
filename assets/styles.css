@@ -928,6 +928,49 @@ canvas {
   line-height: 1.45;
 }
 
+.proof-gate-status {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--danger);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.proof-gate-status span,
+.proof-gate-table span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.proof-gate-status strong,
+.proof-gate-table strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.proof-gate-status p {
+  margin-top: 8px;
+}
+
+.proof-gate-table {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.proof-gate-table div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 11px;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -3889,7 +3932,8 @@ tr:last-child td {
   .obligation-list,
   .proof-map-grid,
   .proof-edge,
-  .bridge-lemma-grid {
+  .bridge-lemma-grid,
+  .proof-gate-table {
     grid-template-columns: 1fr;
   }
 }
