@@ -56,6 +56,12 @@ def build_collection_submission_contract(*, handoff: dict[str, Any]) -> dict[str
                 "must_meet_planned_sample_target": True,
                 "screening_only_below_10pct_tv_floor": True,
             },
+            "feature_vector_path": {
+                "must_be_public_relative": True,
+                "disallow_absolute_paths": True,
+                "disallow_parent_traversal": True,
+                "disallow_url_or_drive_prefix": True,
+            },
         },
         "feature_vector_contract": {
             "schema": FEATURE_VECTOR_VERSION,
@@ -169,6 +175,11 @@ def acceptance_checks() -> list[dict[str, Any]]:
             "code": "checksum_integrity",
             "blocks": True,
             "message": "aggregate_artifact_sha256 must be a 64-character SHA-256 hex digest and not reused across task IDs.",
+        },
+        {
+            "code": "public_path_policy",
+            "blocks": True,
+            "message": "feature_vector_path must be a public relative path, not an absolute path, URL, drive-prefixed path, or parent traversal.",
         },
         {
             "code": "provenance_record",

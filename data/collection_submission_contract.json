@@ -39,6 +39,12 @@
     "sample_count": {
       "must_meet_planned_sample_target": true,
       "screening_only_below_10pct_tv_floor": true
+    },
+    "feature_vector_path": {
+      "must_be_public_relative": true,
+      "disallow_absolute_paths": true,
+      "disallow_parent_traversal": true,
+      "disallow_url_or_drive_prefix": true
     }
   },
   "feature_vector_contract": {
@@ -100,6 +106,11 @@
       "code": "checksum_integrity",
       "blocks": true,
       "message": "aggregate_artifact_sha256 must be a 64-character SHA-256 hex digest and not reused across task IDs."
+    },
+    {
+      "code": "public_path_policy",
+      "blocks": true,
+      "message": "feature_vector_path must be a public relative path, not an absolute path, URL, drive-prefixed path, or parent traversal."
     },
     {
       "code": "provenance_record",

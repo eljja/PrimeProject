@@ -8,6 +8,7 @@ from .collection_intake import (
     is_sha256_hex,
     optional_int,
     validate_feature_vector_contract,
+    validate_public_relative_path,
     validate_provenance_identity,
     validate_record_identity,
 )
@@ -116,6 +117,8 @@ def lint_task_row(
     blockers.extend(validate_provenance_identity(record, template))
     if not record.get("feature_vector_path"):
         blockers.append("feature_vector_path")
+    else:
+        blockers.extend(validate_public_relative_path(record.get("feature_vector_path"), "feature_vector_path"))
 
     vector_contract = validate_feature_vector_contract(record, template, sample_count=sample_count)
     blockers.extend(vector_contract.get("blocking_reasons") or [])

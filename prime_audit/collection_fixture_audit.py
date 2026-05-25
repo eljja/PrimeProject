@@ -68,8 +68,9 @@ def build_submission_fixtures(contract: dict[str, Any]) -> list[dict[str, Any]]:
         ("blocked_provenance_identity", 4, "blocked", ["provenance_baseline_id_mismatch"], make_bad_provenance_record),
         ("blocked_feature_label", 5, "blocked", ["feature_vector_label_mismatch"], make_bad_feature_label_record),
         ("blocked_record_identity", 6, "blocked", ["record_baseline_id_mismatch"], make_bad_record_identity_record),
-        ("blocked_reused_checksum_a", 7, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
-        ("blocked_reused_checksum_b", 8, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
+        ("blocked_feature_path", 7, "blocked", ["feature_vector_path_public_relative"], make_bad_feature_path_record),
+        ("blocked_reused_checksum_a", 8, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
+        ("blocked_reused_checksum_b", 9, "blocked", ["aggregate_artifact_sha256_reused"], make_reused_checksum_record),
     ]
     for fixture_id, template_index, expected_status, expected_reasons, factory in cases:
         if template_index >= len(templates):
@@ -164,6 +165,12 @@ def make_bad_feature_label_record(template: dict[str, Any], fixture_id: str) -> 
 def make_bad_record_identity_record(template: dict[str, Any], fixture_id: str) -> dict[str, Any]:
     record = base_record(template, fixture_id)
     record["baseline_id"] = f"{template.get('baseline_id')}-wrong"
+    return record
+
+
+def make_bad_feature_path_record(template: dict[str, Any], fixture_id: str) -> dict[str, Any]:
+    record = base_record(template, fixture_id)
+    record["feature_vector_path"] = "../private/local-feature-vector.json"
     return record
 
 

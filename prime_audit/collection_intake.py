@@ -107,6 +107,8 @@ def intake_row(task: dict[str, Any], records: list[dict[str, Any]] | None) -> di
         missing.extend(validate_provenance_identity(record, task))
     if submitted and not record.get("feature_vector_path"):
         missing.append("feature_vector_path")
+    elif submitted:
+        missing.extend(validate_public_relative_path(record.get("feature_vector_path"), "feature_vector_path"))
     feature_vector_contract = (
         validate_feature_vector_contract(record, task, sample_count=sample_count)
         if submitted
@@ -342,6 +344,26 @@ def validate_record_identity(record: dict[str, Any], task: dict[str, Any]) -> li
         if submitted_bit_length is None or submitted_bit_length != task_bit_length:
             reasons.append("record_bit_length_mismatch")
     return reasons
+
+
+def validate_public_relative_path(value: Any, field_name: str) -> list[str]:
+    path = str(value or "")
+    if not path:
+        return [field_name]
+    if any(ord(character) < 32 for character in path):
+        return [f"{field_name}_public_relative"]
+    normalized = path.replace("\\", "/")
+    parts = [part for part in normalized.split("/") if part]
+    if (
+        path != normalized
+        or path.startswith(("/", "\\"))
+        or "://" in path
+        or ":" in path
+        or ".." in parts
+        or not parts
+    ):
+        return [f"{field_name}_public_relative"]
+    return []
 
 
 def feature_vector_payload(record: dict[str, Any]) -> dict[str, Any] | None:

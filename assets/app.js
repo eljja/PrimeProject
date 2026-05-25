@@ -575,27 +575,27 @@ const bundledCollectionSubmissionLint = {
 const bundledCollectionFixtureAudit = {
   schema: "primeproject.collection-fixture-audit.v1",
   summary: {
-    fixture_count: 9,
-    passed_expectation_count: 9,
+    fixture_count: 10,
+    passed_expectation_count: 10,
     failed_expectation_count: 0,
     expected_pass_count: 1,
     expected_warning_count: 1,
-    expected_blocked_count: 7,
+    expected_blocked_count: 8,
     actual_pass_count: 1,
     actual_warning_count: 1,
-    actual_blocked_count: 7,
-    public_safe_fixture_count: 9,
+    actual_blocked_count: 8,
+    public_safe_fixture_count: 10,
   },
   quality_gate: {
     status: "pass",
     message: "Submission lint behavior matches all public-safe fixture expectations.",
   },
   lint_summary: {
-    submitted_count: 9,
-    awaiting_submission_count: 1,
+    submitted_count: 10,
+    awaiting_submission_count: 0,
     pass_count: 1,
     warning_count: 1,
-    blocked_count: 7,
+    blocked_count: 8,
     reused_aggregate_hash_count: 2,
   },
   rows: [
@@ -605,9 +605,10 @@ const bundledCollectionFixtureAudit = {
     { fixture_id: "blocked_forbidden_field", library: "Go crypto/rsa", object_type: "rsa-prime", bit_length: 2048, expected_status: "blocked", actual_status: "blocked", expected_reasons: ["forbidden_public_fields"], actual_reasons: ["forbidden_public_fields"], expectation_met: true, public_safe: true },
     { fixture_id: "blocked_provenance_identity", library: "BoringSSL", object_type: "rsa-prime", bit_length: 3072, expected_status: "blocked", actual_status: "blocked", expected_reasons: ["provenance_baseline_id_mismatch"], actual_reasons: ["provenance_baseline_id_mismatch"], expectation_met: true, public_safe: true },
     { fixture_id: "blocked_feature_label", library: "BoringSSL", object_type: "rsa-prime", bit_length: 4096, expected_status: "blocked", actual_status: "blocked", expected_reasons: ["feature_vector_label_mismatch"], actual_reasons: ["feature_vector_label_mismatch"], expectation_met: true, public_safe: true },
-    { fixture_id: "blocked_record_identity", library: "Go crypto/rsa", object_type: "rsa-prime", bit_length: 2048, expected_status: "blocked", actual_status: "blocked", expected_reasons: ["record_baseline_id_mismatch"], actual_reasons: ["record_baseline_id_mismatch"], expectation_met: true, public_safe: true },
-    { fixture_id: "blocked_reused_checksum_a", library: "Go crypto/rsa", object_type: "rsa-prime", bit_length: 3072, expected_status: "blocked", actual_status: "blocked", expected_reasons: ["aggregate_artifact_sha256_reused"], actual_reasons: ["aggregate_artifact_sha256_reused"], expectation_met: true, public_safe: true },
-    { fixture_id: "blocked_reused_checksum_b", library: "Go crypto/rsa", object_type: "rsa-prime", bit_length: 4096, expected_status: "blocked", actual_status: "blocked", expected_reasons: ["aggregate_artifact_sha256_reused"], actual_reasons: ["aggregate_artifact_sha256_reused"], expectation_met: true, public_safe: true },
+    { fixture_id: "blocked_record_identity", library: "Go crypto/rsa", object_type: "rsa-prime", bit_length: 3072, expected_status: "blocked", actual_status: "blocked", expected_reasons: ["record_baseline_id_mismatch"], actual_reasons: ["record_baseline_id_mismatch"], expectation_met: true, public_safe: true },
+    { fixture_id: "blocked_feature_path", library: "Go crypto/rsa", object_type: "rsa-prime", bit_length: 4096, expected_status: "blocked", actual_status: "blocked", expected_reasons: ["feature_vector_path_public_relative"], actual_reasons: ["feature_vector_path_public_relative"], expectation_met: true, public_safe: true },
+    { fixture_id: "blocked_reused_checksum_a", library: "OpenSSL", object_type: "rsa-prime", bit_length: 3072, expected_status: "blocked", actual_status: "blocked", expected_reasons: ["aggregate_artifact_sha256_reused"], actual_reasons: ["aggregate_artifact_sha256_reused"], expectation_met: true, public_safe: true },
+    { fixture_id: "blocked_reused_checksum_b", library: "OpenSSL", object_type: "rsa-prime", bit_length: 4096, expected_status: "blocked", actual_status: "blocked", expected_reasons: ["aggregate_artifact_sha256_reused"], actual_reasons: ["aggregate_artifact_sha256_reused"], expectation_met: true, public_safe: true },
   ],
 };
 
@@ -796,7 +797,7 @@ const bundledEvidencePack = {
       code: "collection_fixture_audit_gate",
       passed: true,
       severity: "medium",
-      evidence: { quality_gate_status: "pass", fixture_count: 9, failed_expectation_count: 0, public_safe_fixture_count: 9 },
+      evidence: { quality_gate_status: "pass", fixture_count: 10, failed_expectation_count: 0, public_safe_fixture_count: 10 },
     },
     { code: "baseline_acceptance_gate", passed: false, severity: "high" },
     { code: "collection_intake_gate", passed: false, severity: "high" },
@@ -808,9 +809,9 @@ const bundledEvidencePack = {
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "11bfcc840ff2cda806a9abca4c914475bd0f049cf9f5a5f930eafc5aec8657b3" },
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "4636041a732e84825a9c0af28075583927e1be1edbe25bbf988eb1333a509bd6" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
-    { role: "claim_language_audit", schema: "primeproject.claim-language-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", scanned_file_count: 14, scanned_line_count: 6648, claim_language_triggered_count: 88, claim_language_guarded_count: 88, claim_language_fail_count: 0 },
+    { role: "claim_language_audit", schema: "primeproject.claim-language-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", scanned_file_count: 14, scanned_line_count: 6649, claim_language_triggered_count: 88, claim_language_guarded_count: 88, claim_language_fail_count: 0 },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", sha256: "47e75e611e98837cac5ecc690cc49900a2b757a7b2d857d474988a4406a5f232" },
-    { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", fixture_count: 9, failed_expectation_count: 0, public_safe_fixture_count: 9 },
+    { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", fixture_count: 10, failed_expectation_count: 0, public_safe_fixture_count: 10 },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "9179e93a350bcebc96db80f095b4966f5514ae53c9866264d2c8731408d9469b" },
     { role: "collection_matrix", schema: "primeproject.real-world-collection-matrix.v1", sha256: "703703591cbfb4ca35f3c5dcb350043e75c698a8df750fb7a77c500bc4fc6f92" },
     { role: "collection_power", schema: "primeproject.collection-power.v1", sha256: "2a2472a6b27874b4e9d8e8dd8025f0d4452a89206cd44a2838ea2e23505edd15" },
@@ -1244,9 +1245,9 @@ const bundledProjectEvolution = {
     submission_lint_submitted: 0,
     submission_lint_blocked: 0,
     submission_lint_waiting: 10,
-    submission_fixture_cases: 9,
+    submission_fixture_cases: 10,
     submission_fixture_expectation_failures: 0,
-    submission_fixture_public_safe: 9,
+    submission_fixture_public_safe: 10,
     intake_tasks: 10,
     intake_submitted: 0,
     intake_accepted: 0,
@@ -1263,7 +1264,7 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
     claim_language_scanned_files: 14,
-    claim_language_scanned_lines: 6648,
+    claim_language_scanned_lines: 6649,
     claim_language_triggered_mentions: 88,
     claim_language_guarded_mentions: 88,
     claim_language_failures: 0,
@@ -1319,7 +1320,7 @@ const bundledProjectEvolution = {
       evidence_spine: [
         { layer: "Scale", score: 100, status: "complete", artifacts: ["data/snapshots/manifest.json", "assets/snapshots/*.svg"], gate: "10M live compute plus 1M/10M static snapshots", proof: "The original browser experiment is now backed by larger reproducible local snapshots." },
         { layer: "Signal", score: 100, status: "complete", artifacts: ["data/attribution_confound_grid.json", "data/null_calibration.json", "data/replication_audit.json"], gate: "48 grid rows, 5,000 null iterations, 8 replication settings", proof: "Generator-fingerprint claims are limited to controlled synthetic evidence that survives confound checks." },
-        { layer: "Sim-to-Real", score: 35, status: "blocked", artifacts: ["data/collection_handoff.json", "data/collection_submission_contract.json", "data/collection_fixture_audit.json", "data/collection_intake.json"], gate: "10 targets, 9 public-safe fixtures, 0 accepted real submissions", proof: "OpenSSL/BoringSSL/Go/Bitcoin collection is specified and lint-tested, but real aggregate baselines are not accepted yet." },
+        { layer: "Sim-to-Real", score: 35, status: "blocked", artifacts: ["data/collection_handoff.json", "data/collection_submission_contract.json", "data/collection_fixture_audit.json", "data/collection_intake.json"], gate: "10 targets, 10 public-safe fixtures, 0 accepted real submissions", proof: "OpenSSL/BoringSSL/Go/Bitcoin collection is specified and lint-tested, but real aggregate baselines are not accepted yet." },
         { layer: "Governance", score: 65, status: "guarded", artifacts: ["data/provenance_requirements.json", "data/provenance_audit.json", "data/baseline_acceptance.json", "data/baseline_promotion_plan.json"], gate: "0 accepted baselines, 4 provenance rows blocked, 9,028 P0 samples projected", proof: "The project now states exactly why stronger real-world claims remain blocked." },
         { layer: "Publication", score: 80, status: "guarded", artifacts: ["data/evidence_pack.json", "data/claim_language_audit.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json", "data/publication_consistency.json"], gate: "21 checked artifacts, 15 gates, 23 lineage nodes, 11 guard checks", proof: "Public statements are constrained by claim-language audit, checksums, lineage, decision rules, falsification guards, and consistency checks." },
       ],
@@ -1328,7 +1329,7 @@ const bundledProjectEvolution = {
       { label: "Scale evidence", impact: "The browser demo is now backed by 10M live compute plus static 1M/10M snapshots.", metric: "10M live / 2 snapshots" },
       { label: "Controlled signal", impact: "Synthetic generator fingerprints must survive bit-length controls, null calibration, and replication before they count.", metric: "48 rows / 5,000 null / 8 settings" },
       { label: "Real-world gate", impact: "OpenSSL/BoringSSL/Go/Bitcoin targets are registered, but attribution remains blocked until accepted aggregate baselines arrive.", metric: "0 accepted / 10 blocked" },
-      { label: "Submission discipline", impact: "Collection contract, lint fixtures, and intake validation define exactly what public-safe evidence must contain.", metric: "10 templates / 9 fixtures" },
+      { label: "Submission discipline", impact: "Collection contract, lint fixtures, and intake validation define exactly what public-safe evidence must contain.", metric: "10 templates / 10 fixtures" },
       { label: "Publication guardrail", impact: "Claim-language audit, claim ledger, lineage, decision rules, falsification checks, and consistency checks keep the public page at demo/scaffold claim strength.", metric: "21 artifacts / 11 guard checks" },
     ],
     research_delta: {
@@ -1341,7 +1342,7 @@ const bundledProjectEvolution = {
       tracks: [
         { track: "Scale", before: "300K-style browser exploration", current: "10M live compute and 1M/10M static snapshots", state: "complete" },
         { track: "Signal", before: "Residue and gap visual drift", current: "48-row attribution grid, 5,000 null iterations, 8-setting replication audit, 12 classifier vectors", state: "complete" },
-        { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, pre-intake lint, 9 fixture cases, 10 intake blockers, 0 accepted baselines", state: "blocked" },
+        { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, pre-intake lint, 10 fixture cases, 10 intake blockers, 0 accepted baselines", state: "blocked" },
         { track: "Publication", before: "Informal narrative claims", current: "21 checksummed artifacts, claim-language audit, claim ledger, lineage DAG, decision protocol, falsification battery, consistency audit", state: "guarded" },
       ],
       claim_lanes: [
@@ -3233,7 +3234,7 @@ function renderCollectionFixtureAudit() {
     <div><span>Lint replay</span><strong>${formatNumber(lint.submitted_count || 0)}</strong><small>${formatNumber(lint.reused_aggregate_hash_count || 0)} reused hashes</small></div>
   `;
   outputs.collectionFixtureAuditRows.innerHTML = rows
-    .slice(0, 9)
+    .slice(0, 10)
     .map((row) => {
       const reason = (row.actual_reasons || [])[0] || "contract-ready";
       return `

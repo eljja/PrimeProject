@@ -5,16 +5,16 @@
     "collection_submission_lint": "primeproject.collection-submission-lint.v1"
   },
   "summary": {
-    "fixture_count": 9,
-    "passed_expectation_count": 9,
+    "fixture_count": 10,
+    "passed_expectation_count": 10,
     "failed_expectation_count": 0,
     "expected_pass_count": 1,
     "expected_warning_count": 1,
-    "expected_blocked_count": 7,
+    "expected_blocked_count": 8,
     "actual_pass_count": 1,
     "actual_warning_count": 1,
-    "actual_blocked_count": 7,
-    "public_safe_fixture_count": 9
+    "actual_blocked_count": 8,
+    "public_safe_fixture_count": 10
   },
   "quality_gate": {
     "status": "pass",
@@ -22,13 +22,13 @@
   },
   "lint_summary": {
     "task_count": 10,
-    "submitted_count": 9,
-    "awaiting_submission_count": 1,
+    "submitted_count": 10,
+    "awaiting_submission_count": 0,
     "pass_count": 1,
     "warning_count": 1,
-    "blocked_count": 7,
+    "blocked_count": 8,
     "forbidden_public_field_count": 1,
-    "feature_vector_blocked_count": 2,
+    "feature_vector_blocked_count": 3,
     "reused_aggregate_hash_count": 2,
     "dominant_blockers": [
       {
@@ -41,6 +41,10 @@
       },
       {
         "reason": "feature_vector_missing_features",
+        "count": 1
+      },
+      {
+        "reason": "feature_vector_path_public_relative",
         "count": 1
       },
       {
@@ -57,10 +61,6 @@
       }
     ],
     "dominant_warnings": [
-      {
-        "reason": "awaiting_submission",
-        "count": 1
-      },
       {
         "reason": "below_10pct_tv_floor",
         "count": 1
@@ -191,11 +191,29 @@
       "public_safe": true
     },
     {
-      "fixture_id": "blocked_reused_checksum_a",
+      "fixture_id": "blocked_feature_path",
       "task_id": "go-crypto-rsa-prime-owned:4096:rsa-prime",
       "library": "Go crypto/rsa",
       "object_type": "rsa-prime",
       "bit_length": 4096,
+      "expected_status": "blocked",
+      "actual_status": "blocked",
+      "expected_reasons": [
+        "feature_vector_path_public_relative"
+      ],
+      "actual_reasons": [
+        "feature_vector_path_public_relative"
+      ],
+      "missing_expected_reasons": [],
+      "expectation_met": true,
+      "public_safe": true
+    },
+    {
+      "fixture_id": "blocked_reused_checksum_a",
+      "task_id": "openssl-rsa-prime-owned:3072:rsa-prime",
+      "library": "OpenSSL",
+      "object_type": "rsa-prime",
+      "bit_length": 3072,
       "expected_status": "blocked",
       "actual_status": "blocked",
       "expected_reasons": [
@@ -210,10 +228,10 @@
     },
     {
       "fixture_id": "blocked_reused_checksum_b",
-      "task_id": "openssl-rsa-prime-owned:3072:rsa-prime",
+      "task_id": "openssl-rsa-prime-owned:4096:rsa-prime",
       "library": "OpenSSL",
       "object_type": "rsa-prime",
-      "bit_length": 3072,
+      "bit_length": 4096,
       "expected_status": "blocked",
       "actual_status": "blocked",
       "expected_reasons": [
