@@ -416,6 +416,75 @@
         ],
         "formal_contract_status": "not_formalized_open",
         "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      },
+      "proof_execution_protocol": {
+        "schema": "primeproject.proof-execution-protocol.v1",
+        "problem_id": "riemann",
+        "status": "blocked_before_full_proof",
+        "execution_mode": "bounded_certificate_plus_formal_infinite_obligation_tracking",
+        "current_frontier": "Formalize an explicit all-x prime-counting error theorem strong enough to connect finite theta diagnostics to an RH-equivalent bridge.",
+        "primary_open_gap": "RH-G1",
+        "primary_next_experiment": "Fit explicit theta-envelope candidates from certified checkpoints, then stress them against denser local theta samples before attempting an all-x theorem.",
+        "primary_failure_signal": "A denser certified checkpoint violates the proposed envelope or the constants cannot be stated independently of the search limit.",
+        "open_obligation_ids": [
+          "RH-O2",
+          "RH-O3"
+        ],
+        "blocking_reasons": [
+          "open_obligations",
+          "open_attack_graph_links",
+          "unsatisfied_known_theorem_bridges",
+          "unproved_lemma_candidates",
+          "formal_contract_not_verified"
+        ],
+        "stages": [
+          {
+            "id": "riemann-exec-1",
+            "name": "bounded certificate replay",
+            "status": "complete",
+            "input": "finite computation rows",
+            "required_output": "Merkle-rooted bounded theorem certificate",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "proof_value": "Closes only the finite range; it does not discharge an infinite conjecture."
+          },
+          {
+            "id": "riemann-exec-2",
+            "name": "formal target normalization",
+            "status": "not_formalized_open",
+            "input": "Lean-oriented theorem statement and forbidden assumptions",
+            "required_output": "kernel-checkable definitions with no sorry/admit/target-equivalent axiom",
+            "verifier": "Lean 4 replay required",
+            "proof_value": "Prevents finite evidence or conjectural imports from being mistaken for proof."
+          },
+          {
+            "id": "riemann-exec-3",
+            "name": "decisive lemma attack",
+            "status": "active_not_proven",
+            "input": "There are explicit constants C and x0 such that |theta(x)-x| <= C sqrt(x) log(x)^2 for every x >= x0, and the constants satisfy a formal RH-equivalent criterion.",
+            "required_output": "Replace checkpoint agreement with a theorem over all real x beyond a stated threshold and prove the equivalence bridge without importing RH.",
+            "verifier": "formal theorem or accepted external theorem",
+            "proof_value": "The first infinite step that would close the main open milestones."
+          },
+          {
+            "id": "riemann-exec-4",
+            "name": "gap work-order falsification",
+            "status": "proof_gaps_open",
+            "input": "Fit explicit theta-envelope candidates from certified checkpoints, then stress them against denser local theta samples before attempting an all-x theorem.",
+            "required_output": "formal all-x theta theorem",
+            "verifier": "A denser certified checkpoint violates the proposed envelope or the constants cannot be stated independently of the search limit.",
+            "proof_value": "Turns the next research move into a testable success/failure condition."
+          },
+          {
+            "id": "riemann-exec-5",
+            "name": "full proof promotion gate",
+            "status": "blocked_open_infinite_obligation",
+            "input": "all obligations, graph links, theorem bridges, lemma candidates, and formal contract",
+            "required_output": "eligible_for_independent_review",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "proof_value": "Blocks any public full-proof claim until every infinite bridge is independently checkable."
+          }
+        ],
+        "promotion_rule": "The conjecture page cannot claim solved status until every protocol stage is complete or formally verified and the proof-status gate is eligible_for_independent_review."
       }
     },
     {
@@ -882,6 +951,75 @@
         ],
         "formal_contract_status": "not_formalized_open",
         "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      },
+      "proof_execution_protocol": {
+        "schema": "primeproject.proof-execution-protocol.v1",
+        "problem_id": "collatz",
+        "status": "blocked_before_full_proof",
+        "execution_mode": "bounded_certificate_plus_formal_infinite_obligation_tracking",
+        "current_frontier": "Construct a symbolic residue-block descent certificate that covers an infinite family, not only enumerated starts.",
+        "primary_open_gap": "C-G1",
+        "primary_next_experiment": "Generate odd-only residue transition blocks and rank uncovered classes by shortest missing descent.",
+        "primary_failure_signal": "A residue block remains uncovered or branches into a non-descending class under every tested modulus.",
+        "open_obligation_ids": [
+          "C-O2",
+          "C-O3"
+        ],
+        "blocking_reasons": [
+          "open_obligations",
+          "open_attack_graph_links",
+          "unsatisfied_known_theorem_bridges",
+          "unproved_lemma_candidates",
+          "formal_contract_not_verified"
+        ],
+        "stages": [
+          {
+            "id": "collatz-exec-1",
+            "name": "bounded certificate replay",
+            "status": "complete",
+            "input": "finite computation rows",
+            "required_output": "Merkle-rooted bounded theorem certificate",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "proof_value": "Closes only the finite range; it does not discharge an infinite conjecture."
+          },
+          {
+            "id": "collatz-exec-2",
+            "name": "formal target normalization",
+            "status": "not_formalized_open",
+            "input": "Lean-oriented theorem statement and forbidden assumptions",
+            "required_output": "kernel-checkable definitions with no sorry/admit/target-equivalent axiom",
+            "verifier": "Lean 4 replay required",
+            "proof_value": "Prevents finite evidence or conjectural imports from being mistaken for proof."
+          },
+          {
+            "id": "collatz-exec-3",
+            "name": "decisive lemma attack",
+            "status": "active_not_proven",
+            "input": "There is a finite set of accelerated Collatz residue-block certificates whose recursive lift forces every positive integer into a smaller covered representative.",
+            "required_output": "Prove the block cover is complete under lifting and that its descent measure is well-founded, excluding cycles and divergence.",
+            "verifier": "formal theorem or accepted external theorem",
+            "proof_value": "The first infinite step that would close the main open milestones."
+          },
+          {
+            "id": "collatz-exec-4",
+            "name": "gap work-order falsification",
+            "status": "proof_gaps_open",
+            "input": "Generate odd-only residue transition blocks and rank uncovered classes by shortest missing descent.",
+            "required_output": "residue-block cover certificate",
+            "verifier": "A residue block remains uncovered or branches into a non-descending class under every tested modulus.",
+            "proof_value": "Turns the next research move into a testable success/failure condition."
+          },
+          {
+            "id": "collatz-exec-5",
+            "name": "full proof promotion gate",
+            "status": "blocked_open_infinite_obligation",
+            "input": "all obligations, graph links, theorem bridges, lemma candidates, and formal contract",
+            "required_output": "eligible_for_independent_review",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "proof_value": "Blocks any public full-proof claim until every infinite bridge is independently checkable."
+          }
+        ],
+        "promotion_rule": "The conjecture page cannot claim solved status until every protocol stage is complete or formally verified and the proof-status gate is eligible_for_independent_review."
       }
     },
     {
@@ -1323,6 +1461,75 @@
         ],
         "formal_contract_status": "not_formalized_open",
         "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      },
+      "proof_execution_protocol": {
+        "schema": "primeproject.proof-execution-protocol.v1",
+        "problem_id": "goldbach",
+        "status": "blocked_before_full_proof",
+        "execution_mode": "bounded_certificate_plus_formal_infinite_obligation_tracking",
+        "current_frontier": "Prove an explicit positive Goldbach representation lower bound whose threshold is below the certified finite range.",
+        "primary_open_gap": "G-G1",
+        "primary_next_experiment": "Stress the thinnest bounded residue classes and derive candidate constants for an explicit lower-bound inequality.",
+        "primary_failure_signal": "A residue class makes the lower bound non-positive or the constants depend on unproved independence.",
+        "open_obligation_ids": [
+          "G-O2",
+          "G-O3"
+        ],
+        "blocking_reasons": [
+          "open_obligations",
+          "open_attack_graph_links",
+          "unsatisfied_known_theorem_bridges",
+          "unproved_lemma_candidates",
+          "formal_contract_not_verified"
+        ],
+        "stages": [
+          {
+            "id": "goldbach-exec-1",
+            "name": "bounded certificate replay",
+            "status": "complete",
+            "input": "finite computation rows",
+            "required_output": "Merkle-rooted bounded theorem certificate",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "proof_value": "Closes only the finite range; it does not discharge an infinite conjecture."
+          },
+          {
+            "id": "goldbach-exec-2",
+            "name": "formal target normalization",
+            "status": "not_formalized_open",
+            "input": "Lean-oriented theorem statement and forbidden assumptions",
+            "required_output": "kernel-checkable definitions with no sorry/admit/target-equivalent axiom",
+            "verifier": "Lean 4 replay required",
+            "proof_value": "Prevents finite evidence or conjectural imports from being mistaken for proof."
+          },
+          {
+            "id": "goldbach-exec-3",
+            "name": "decisive lemma attack",
+            "status": "active_not_proven",
+            "input": "For every even n >= N, the Goldbach representation count R(n) is positive, with an explicit threshold N no larger than the committed certificate limit.",
+            "required_output": "Derive explicit constants for a positive representation-count lower bound and bridge the analytic threshold to the certified finite range.",
+            "verifier": "formal theorem or accepted external theorem",
+            "proof_value": "The first infinite step that would close the main open milestones."
+          },
+          {
+            "id": "goldbach-exec-4",
+            "name": "gap work-order falsification",
+            "status": "proof_gaps_open",
+            "input": "Stress the thinnest bounded residue classes and derive candidate constants for an explicit lower-bound inequality.",
+            "required_output": "explicit representation-count lower-bound theorem",
+            "verifier": "A residue class makes the lower bound non-positive or the constants depend on unproved independence.",
+            "proof_value": "Turns the next research move into a testable success/failure condition."
+          },
+          {
+            "id": "goldbach-exec-5",
+            "name": "full proof promotion gate",
+            "status": "blocked_open_infinite_obligation",
+            "input": "all obligations, graph links, theorem bridges, lemma candidates, and formal contract",
+            "required_output": "eligible_for_independent_review",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "proof_value": "Blocks any public full-proof claim until every infinite bridge is independently checkable."
+          }
+        ],
+        "promotion_rule": "The conjecture page cannot claim solved status until every protocol stage is complete or formally verified and the proof-status gate is eligible_for_independent_review."
       }
     },
     {
@@ -1714,6 +1921,75 @@
         ],
         "formal_contract_status": "not_formalized_open",
         "machine_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      },
+      "proof_execution_protocol": {
+        "schema": "primeproject.proof-execution-protocol.v1",
+        "problem_id": "twin-prime",
+        "status": "blocked_before_full_proof",
+        "execution_mode": "bounded_certificate_plus_formal_infinite_obligation_tracking",
+        "current_frontier": "Replace Hardy-Littlewood-scale agreement with an unconditional exact gap-2 lower-bound theorem.",
+        "primary_open_gap": "TP-G1",
+        "primary_next_experiment": "Separate exact gap-2 counts from bounded-gap signals and test candidate lower-bound forms against wheel/residue stress cases.",
+        "primary_failure_signal": "The argument proves only bounded gaps larger than 2 or the exact gap-2 lower bound collapses to zero.",
+        "open_obligation_ids": [
+          "TP-O2",
+          "TP-O3"
+        ],
+        "blocking_reasons": [
+          "open_obligations",
+          "open_attack_graph_links",
+          "unsatisfied_known_theorem_bridges",
+          "unproved_lemma_candidates",
+          "formal_contract_not_verified"
+        ],
+        "stages": [
+          {
+            "id": "twin-prime-exec-1",
+            "name": "bounded certificate replay",
+            "status": "complete",
+            "input": "finite computation rows",
+            "required_output": "Merkle-rooted bounded theorem certificate",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "proof_value": "Closes only the finite range; it does not discharge an infinite conjecture."
+          },
+          {
+            "id": "twin-prime-exec-2",
+            "name": "formal target normalization",
+            "status": "not_formalized_open",
+            "input": "Lean-oriented theorem statement and forbidden assumptions",
+            "required_output": "kernel-checkable definitions with no sorry/admit/target-equivalent axiom",
+            "verifier": "Lean 4 replay required",
+            "proof_value": "Prevents finite evidence or conjectural imports from being mistaken for proof."
+          },
+          {
+            "id": "twin-prime-exec-3",
+            "name": "decisive lemma attack",
+            "status": "active_not_proven",
+            "input": "There is an explicit c > 0 such that the number of twin prime pairs up to x is at least c x / log(x)^2 for arbitrarily large x, without assuming Hardy-Littlewood.",
+            "required_output": "Prove an unconditional exact gap-2 lower bound strong enough to imply arbitrarily large twin prime pairs.",
+            "verifier": "formal theorem or accepted external theorem",
+            "proof_value": "The first infinite step that would close the main open milestones."
+          },
+          {
+            "id": "twin-prime-exec-4",
+            "name": "gap work-order falsification",
+            "status": "proof_gaps_open",
+            "input": "Separate exact gap-2 counts from bounded-gap signals and test candidate lower-bound forms against wheel/residue stress cases.",
+            "required_output": "unconditional exact gap-2 lower-bound theorem",
+            "verifier": "The argument proves only bounded gaps larger than 2 or the exact gap-2 lower bound collapses to zero.",
+            "proof_value": "Turns the next research move into a testable success/failure condition."
+          },
+          {
+            "id": "twin-prime-exec-5",
+            "name": "full proof promotion gate",
+            "status": "blocked_open_infinite_obligation",
+            "input": "all obligations, graph links, theorem bridges, lemma candidates, and formal contract",
+            "required_output": "eligible_for_independent_review",
+            "verifier": "scripts/verify_open_problem_workbench.py",
+            "proof_value": "Blocks any public full-proof claim until every infinite bridge is independently checkable."
+          }
+        ],
+        "promotion_rule": "The conjecture page cannot claim solved status until every protocol stage is complete or formally verified and the proof-status gate is eligible_for_independent_review."
       }
     }
   ]

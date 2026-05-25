@@ -229,6 +229,8 @@ async function main() {
           proofAttemptText: document.querySelector("#proofAttempt").textContent,
           proofMapText: document.querySelector("#proofMap").textContent,
           proofStatusGateText: document.querySelector("#proofStatusGate").textContent,
+          proofExecutionText: document.querySelector("#proofExecutionProtocol").textContent,
+          proofExecutionStages: document.querySelectorAll("#proofExecutionProtocol .execution-stage").length,
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
@@ -275,6 +277,12 @@ async function main() {
         !page.proofStatusGateText.includes("blocked open infinite obligation") ||
         !page.proofStatusGateText.includes("bounded theorem only") ||
         !page.proofStatusGateText.includes("Machine gate") ||
+        page.proofExecutionStages < 5 ||
+        !page.proofExecutionText.includes("blocked before full proof") ||
+        !page.proofExecutionText.includes("Current frontier") ||
+        !page.proofExecutionText.includes("Next experiment") ||
+        !page.proofExecutionText.includes("Failure signal") ||
+        !page.proofExecutionText.includes("full proof promotion gate") ||
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||

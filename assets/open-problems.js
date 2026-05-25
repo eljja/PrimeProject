@@ -292,6 +292,52 @@ function renderProofStatusGate(problem) {
   `;
 }
 
+function renderProofExecutionProtocol(problem) {
+  const protocol = problem.proof_execution_protocol || {};
+  const stages = protocol.stages || [];
+  return `
+    <div class="execution-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(protocol.status))}</strong>
+      </div>
+      <div>
+        <span>Mode</span>
+        <strong>${escapeHtml(statusText(protocol.execution_mode))}</strong>
+      </div>
+      <div>
+        <span>Primary gap</span>
+        <strong>${escapeHtml(protocol.primary_open_gap || "missing")}</strong>
+      </div>
+    </div>
+    <div class="execution-frontier">
+      <span>Current frontier</span>
+      <p>${escapeHtml(protocol.current_frontier || "")}</p>
+      <span>Next experiment</span>
+      <p>${escapeHtml(protocol.primary_next_experiment || "")}</p>
+      <span>Failure signal</span>
+      <p>${escapeHtml(protocol.primary_failure_signal || "")}</p>
+    </div>
+    <div class="execution-stage-list">
+      ${stages
+        .map(
+          (stage) => `
+            <article class="execution-stage is-${escapeHtml(stage.status || "missing")}">
+              <span>${escapeHtml(stage.id || "")}</span>
+              <strong>${escapeHtml(stage.name || "")}</strong>
+              <em>${escapeHtml(statusText(stage.status))}</em>
+              <p>${escapeHtml(stage.proof_value || "")}</p>
+              <small>Required output: ${escapeHtml(stage.required_output || "")}</small>
+              <small>Verifier: ${escapeHtml(stage.verifier || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="certificate-verifier">${escapeHtml(protocol.promotion_rule || "")}</p>
+  `;
+}
+
 function renderFormalContract(problem) {
   const contract = problem.formal_proof_contract || {};
   return `
@@ -536,6 +582,7 @@ function render(payload, problem) {
   document.querySelector("#proofAttempt").innerHTML = renderProofAttempt(problem);
   document.querySelector("#proofMap").innerHTML = renderProofMap(problem);
   document.querySelector("#proofStatusGate").innerHTML = renderProofStatusGate(problem);
+  document.querySelector("#proofExecutionProtocol").innerHTML = renderProofExecutionProtocol(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);

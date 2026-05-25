@@ -105,6 +105,20 @@ def main() -> int:
         if not all(gap.get("next_experiment") and gap.get("failure_signal") for gap in gaps):
             print(f"{problem.get('id')} proof gap taxonomy is missing work-order fields.", file=sys.stderr)
             return 1
+        protocol = problem.get("proof_execution_protocol", {})
+        stages = protocol.get("stages", []) if isinstance(protocol, dict) else []
+        if protocol.get("status") != "blocked_before_full_proof":
+            print(f"{problem.get('id')} proof execution protocol has unexpected status.", file=sys.stderr)
+            return 1
+        if len(stages) < 5 or not protocol.get("primary_next_experiment") or not protocol.get("primary_failure_signal"):
+            print(f"{problem.get('id')} proof execution protocol is missing execution steps.", file=sys.stderr)
+            return 1
+        if not any(stage.get("status") == "complete" for stage in stages):
+            print(f"{problem.get('id')} proof execution protocol is missing the bounded complete stage.", file=sys.stderr)
+            return 1
+        if not any(stage.get("status") == "blocked_open_infinite_obligation" for stage in stages):
+            print(f"{problem.get('id')} proof execution protocol is missing the full-proof gate stage.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

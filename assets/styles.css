@@ -1332,6 +1332,77 @@ canvas {
   line-height: 1.5;
 }
 
+.execution-head {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.45fr) minmax(240px, 0.75fr) minmax(140px, 0.35fr);
+  gap: 10px;
+}
+
+.execution-head div,
+.execution-frontier,
+.execution-stage {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.execution-head span,
+.execution-frontier span,
+.execution-stage span,
+.execution-stage small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.execution-head strong,
+.execution-stage strong,
+.execution-stage em {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.execution-stage em {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.execution-frontier {
+  margin-top: 10px;
+  border-left: 4px solid var(--accent);
+}
+
+.execution-frontier p,
+.execution-stage p,
+.execution-stage small {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.execution-stage-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.execution-stage {
+  border-top: 3px solid var(--danger);
+}
+
+.execution-stage.is-complete {
+  border-top-color: var(--ok);
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -4303,7 +4374,9 @@ tr:last-child td {
   .probe-observed,
   .probe-certificate,
   .proof-gap-head,
-  .proof-gap-list {
+  .proof-gap-list,
+  .execution-head,
+  .execution-stage-list {
     grid-template-columns: 1fr;
   }
 

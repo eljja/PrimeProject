@@ -17,6 +17,7 @@ PROOF_MILESTONE_SCHEMA = "primeproject.proof-milestone-queue.v1"
 DECISIVE_LEMMA_SCHEMA = "primeproject.decisive-lemma-lab.v1"
 PROBE_CERTIFICATE_SCHEMA = "primeproject.decisive-lemma-probe-certificate.v1"
 PROOF_GAP_TAXONOMY_SCHEMA = "primeproject.proof-gap-taxonomy.v1"
+PROOF_EXECUTION_PROTOCOL_SCHEMA = "primeproject.proof-execution-protocol.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -301,6 +302,86 @@ def proof_gap_taxonomy(*, problem_id: str, gaps: list[dict[str, str]]) -> dict[s
         "blocked_gap_count": sum(1 for gap in gaps if gap.get("status", "").startswith("blocked")),
         "gaps": gaps,
         "closure_rule": "All proof gaps must be closed by formal proof artifacts or accepted theorem references before the conjecture page can change status.",
+    }
+
+
+def proof_execution_protocol(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    certificate = problem.get("certificate", {}) if isinstance(problem.get("certificate"), dict) else {}
+    attempt = problem.get("proof_attempt", {}) if isinstance(problem.get("proof_attempt"), dict) else {}
+    gate = problem.get("proof_status_gate", {}) if isinstance(problem.get("proof_status_gate"), dict) else {}
+    contract = problem.get("formal_proof_contract", {}) if isinstance(problem.get("formal_proof_contract"), dict) else {}
+    queue = problem.get("proof_milestone_queue", {}) if isinstance(problem.get("proof_milestone_queue"), dict) else {}
+    lab = problem.get("decisive_lemma_lab", {}) if isinstance(problem.get("decisive_lemma_lab"), dict) else {}
+    taxonomy = lab.get("proof_gap_taxonomy", {}) if isinstance(lab.get("proof_gap_taxonomy"), dict) else {}
+    gaps = taxonomy.get("gaps", []) if isinstance(taxonomy.get("gaps"), list) else []
+    first_open_gap = next((gap for gap in gaps if isinstance(gap, dict) and str(gap.get("status", "")).startswith("open")), {})
+    open_obligations = attempt.get("obligations", []) if isinstance(attempt.get("obligations"), list) else []
+    open_obligation_ids = [
+        str(item.get("id"))
+        for item in open_obligations
+        if isinstance(item, dict) and item.get("status") not in {"proved_by_certificate", "formal_proof_verified", "accepted_theorem"}
+    ]
+    blockers = gate.get("blockers", []) if isinstance(gate.get("blockers"), list) else []
+    return {
+        "schema": PROOF_EXECUTION_PROTOCOL_SCHEMA,
+        "problem_id": problem_id,
+        "status": "blocked_before_full_proof",
+        "execution_mode": "bounded_certificate_plus_formal_infinite_obligation_tracking",
+        "current_frontier": queue.get("decisive_next_task", "missing decisive task"),
+        "primary_open_gap": first_open_gap.get("id", "missing"),
+        "primary_next_experiment": first_open_gap.get("next_experiment", "missing"),
+        "primary_failure_signal": first_open_gap.get("failure_signal", "missing"),
+        "open_obligation_ids": open_obligation_ids,
+        "blocking_reasons": blockers,
+        "stages": [
+            {
+                "id": f"{problem_id}-exec-1",
+                "name": "bounded certificate replay",
+                "status": "complete" if certificate.get("status") == "bounded_theorem_certified" else "blocked",
+                "input": "finite computation rows",
+                "required_output": "Merkle-rooted bounded theorem certificate",
+                "verifier": certificate.get("verifier", "missing"),
+                "proof_value": "Closes only the finite range; it does not discharge an infinite conjecture.",
+            },
+            {
+                "id": f"{problem_id}-exec-2",
+                "name": "formal target normalization",
+                "status": contract.get("status", "missing"),
+                "input": "Lean-oriented theorem statement and forbidden assumptions",
+                "required_output": "kernel-checkable definitions with no sorry/admit/target-equivalent axiom",
+                "verifier": "Lean 4 replay required",
+                "proof_value": "Prevents finite evidence or conjectural imports from being mistaken for proof.",
+            },
+            {
+                "id": f"{problem_id}-exec-3",
+                "name": "decisive lemma attack",
+                "status": lab.get("status", "missing"),
+                "input": lab.get("candidate_statement", "missing"),
+                "required_output": lab.get("proof_obligation", "missing"),
+                "verifier": "formal theorem or accepted external theorem",
+                "proof_value": "The first infinite step that would close the main open milestones.",
+            },
+            {
+                "id": f"{problem_id}-exec-4",
+                "name": "gap work-order falsification",
+                "status": taxonomy.get("status", "missing"),
+                "input": first_open_gap.get("next_experiment", "missing"),
+                "required_output": first_open_gap.get("required_artifact", "missing"),
+                "verifier": first_open_gap.get("failure_signal", "missing"),
+                "proof_value": "Turns the next research move into a testable success/failure condition.",
+            },
+            {
+                "id": f"{problem_id}-exec-5",
+                "name": "full proof promotion gate",
+                "status": gate.get("promotion_status", "missing"),
+                "input": "all obligations, graph links, theorem bridges, lemma candidates, and formal contract",
+                "required_output": "eligible_for_independent_review",
+                "verifier": "scripts/verify_open_problem_workbench.py",
+                "proof_value": "Blocks any public full-proof claim until every infinite bridge is independently checkable.",
+            },
+        ],
+        "promotion_rule": "The conjecture page cannot claim solved status until every protocol stage is complete or formally verified and the proof-status gate is eligible_for_independent_review.",
     }
 
 
@@ -1367,6 +1448,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
     ]
     for problem in problems:
         problem["proof_status_gate"] = proof_status_gate(problem)
+        problem["proof_execution_protocol"] = proof_execution_protocol(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
