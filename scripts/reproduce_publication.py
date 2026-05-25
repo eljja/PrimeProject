@@ -36,8 +36,10 @@ def main() -> int:
     generated_at = str(read_json(REPO_ROOT / "data/evidence_pack.json")["generated_at"])
     commands: list[list[str]] = []
     comparisons: list[dict[str, Any]] = []
+    tmp_root = ""
     with tempfile.TemporaryDirectory(prefix="primeproject-publication-") as tmp_dir:
         tmp = Path(tmp_dir)
+        tmp_root = str(tmp)
         outputs = {
             "evidence_pack": tmp / "evidence_pack.json",
             "claim_ledger": tmp / "claim_ledger.json",
@@ -119,7 +121,8 @@ def main() -> int:
         "generated_at": generated_at,
         "reproducible": not mismatches,
         "command_count": len(commands),
-        "commands": [format_command(command) for command in commands],
+        "command_path_policy": "Temporary output paths are normalized to {tmp}.",
+        "commands": [format_command(command, tmp_root=tmp_root) for command in commands],
         "comparisons": comparisons,
         "mismatches": mismatches,
     }
@@ -166,8 +169,14 @@ def run_cli(*args: str) -> list[str]:
     return command
 
 
-def format_command(command: list[str]) -> list[str]:
-    return ["python" if index == 0 else value for index, value in enumerate(command)]
+def format_command(command: list[str], *, tmp_root: str) -> list[str]:
+    normalized = []
+    for index, value in enumerate(command):
+        if index == 0:
+            normalized.append("python")
+            continue
+        normalized.append(value.replace(tmp_root, "{tmp}") if tmp_root else value)
+    return normalized
 
 
 if __name__ == "__main__":

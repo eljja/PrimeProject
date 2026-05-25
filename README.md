@@ -122,7 +122,7 @@ To audit the current publication bundle without overwriting files, run:
 python scripts/reproduce_publication.py
 ```
 
-Add `--report publication_reproduction_report.json` to save the compared artifact hashes and command trace.
+Add `--report publication_reproduction_report.json` to save the compared artifact hashes and command trace with temporary output paths normalized to `{tmp}`.
 
 The bundled Codex runtime Python can also run the same commands.
 
