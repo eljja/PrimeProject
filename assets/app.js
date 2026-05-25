@@ -809,7 +809,7 @@ const bundledEvidencePack = {
     { role: "feature_vectors", schema: "primeproject.generator-feature-vectors.v1", sha256: "fe1b9e5a443a4159b58bc87eaf10adaad396fe00ffd553439aa8821bbad1d538" },
     { role: "manifest", schema: "primeproject.real-world-baseline-manifest.v1", sha256: "fb55fabb2ddf378a3f2a7065cee7bf1d5db1b1eda7ca5c659fddc9e0e037b2c7" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "713cb99f855df7e8c12150211d879ed5eb5ad18c4c3129be2a6a9ab3a7f10b35" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", sha256: "0e753c327404fe32b36d0ca80d431b317890078dd72bbb2671249afee3f4db44" },
     { role: "provenance_audit", schema: "primeproject.provenance-audit.v1", sha256: "3862c5032dc3caed31ef7a2aa9b491e109bdbd846e9e485ea50e7f68784813dd" },
     { role: "provenance_requirements", schema: "primeproject.provenance-requirements.v1", sha256: "e08ad1eac816bbbd725abeab1702ae0b03b7af2281bf5b0581e5e0c7aa8642e0" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", sha256: "ed06deee979aa2845454739f1d8e67cdfe4128309b0867835a4d812d1f3e4c53" },
@@ -940,11 +940,11 @@ const bundledArtifactLineage = {
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", exists: true, sha256: "e8bb1a8812ba693f55c895ce300b43e28b38857939592eff9eecba83cb84a794" },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", exists: true, sha256: "df5faafc86dcedc8038166eb07eeee1576afd49443c95d0a56ec1c92b348837c" },
     { role: "readiness", schema: "primeproject.research-readiness.v1", exists: true, sha256: "ed06deee979aa2845454739f1d8e67cdfe4128309b0867835a4d812d1f3e4c53" },
-    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "3c11ae01206c599bcfc0a16ec4cffe05f176be236b4eaaf5f8cf7fb83d7b706e" },
+    { role: "evidence_pack", schema: "primeproject.evidence-pack.v1", exists: true, sha256: "8e74b6d4826d8d0e029ce6d3cbba02547bf5fdd77d3b74a2b531879b6958515e" },
     { role: "claim_ledger", schema: "primeproject.claim-ledger.v1", exists: true, sha256: "7422fa84450cfc214d1d9d14793666f3ddab8e0660c83d41d1749a5c8e82f32a" },
     { role: "null_calibration", schema: "primeproject.null-calibration.v1", exists: true, sha256: "9e71d4fe726202d2a7945aa3b18f28d665a2caea073aa4a1ed0ad0dd91262e40" },
     { role: "replication_audit", schema: "primeproject.replication-audit.v1", exists: true, sha256: "b37b9d357f5a02140ce61570d71aa93f2ad4eb616e7ea208ee447918c1212b1b" },
-    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "713cb99f855df7e8c12150211d879ed5eb5ad18c4c3129be2a6a9ab3a7f10b35" },
+    { role: "project_evolution", schema: "primeproject.project-evolution.v1", exists: true, sha256: "0e753c327404fe32b36d0ca80d431b317890078dd72bbb2671249afee3f4db44" },
   ],
   edges: [
     { from: "manifest", to: "collection_matrix", valid: true },
@@ -1255,6 +1255,11 @@ const bundledProjectEvolution = {
     falsification_checks: 5,
     falsification_failures: 0,
     falsification_claim_floor: "controlled_synthetic_only",
+    publication_consistency_checks: 5,
+    publication_consistency_failures: 0,
+    publication_consistency_status: "pass",
+    publication_guard_artifacts: 6,
+    publication_guard_checks: 10,
     null_calibration_iterations: 5000,
     null_familywise_survivors: 2,
     null_top_profile: "gap_only",
@@ -1269,7 +1274,7 @@ const bundledProjectEvolution = {
       { stage: "Fingerprint", phase_ids: ["fingerprint-baseline", "attribution-grid", "null-calibration", "replication-audit", "crypto-classifier"], status: "complete", signal: "controlled attribution, null calibration, 8-setting replication audit, and scoped classifier baseline" },
       { stage: "Sim-to-Real", phase_ids: ["real-world-registry", "collection-matrix", "collection-power", "collection-handoff", "collection-submission-contract", "collection-submission-lint", "collection-fixture-audit", "collection-intake"], status: "active", signal: "OpenSSL/BoringSSL/Go/Bitcoin collection targets, sample-power floors, handoff, submission contract, fixture audit, pre-intake lint, and intake validation" },
       { stage: "Govern", phase_ids: ["provenance-gate", "provenance-audit", "baseline-acceptance", "baseline-promotion", "collection-handoff", "collection-submission-contract", "collection-submission-lint", "collection-fixture-audit", "collection-intake"], status: "active", signal: "provenance, acceptance, promotion, handoff, submission-contract, lint-fixture, and intake gates before claims" },
-      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery"], status: "active", signal: "5 falsification checks and controlled-synthetic-only claim floor" },
+      { stage: "Publish", phase_ids: ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery", "publication-consistency"], status: "active", signal: "5 falsification checks, 5 consistency checks, and controlled-synthetic-only claim floor" },
     ],
     visual_rollup: {
       headline: "Visible change history: exploration scale, controlled signal, sim-to-real gates, and publication guardrails.",
@@ -1278,7 +1283,7 @@ const bundledProjectEvolution = {
         { marker: "02", title: "Scale lift", state: "complete", measure: "10M live + 1M/10M snapshots", proof: "larger local runs are visible on GitHub Pages without recomputation" },
         { marker: "03", title: "Controlled attribution", state: "complete", measure: "48 rows / 5,000 null iterations / 8 replication settings", proof: "signal must survive bit-length control, null calibration, and replication" },
         { marker: "04", title: "Sim-to-real gates", state: "blocked", measure: "10 targets / 9,028 P0 samples left", proof: "OpenSSL/BoringSSL/Go/Bitcoin baselines are registered but not accepted" },
-        { marker: "05", title: "Publication guardrails", state: "guarded", measure: "20 artifacts / 14 gates / 5 falsification checks", proof: "claim ledger, lineage, decision protocol, and falsification battery prevent overclaiming" },
+        { marker: "05", title: "Publication guardrails", state: "guarded", measure: "20 checked artifacts / 14 gates / 10 guard checks", proof: "claim ledger, lineage, decision protocol, falsification battery, and consistency audit prevent overclaiming" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },
@@ -1292,7 +1297,7 @@ const bundledProjectEvolution = {
         { layer: "Signal", score: 100, status: "complete", artifacts: ["data/attribution_confound_grid.json", "data/null_calibration.json", "data/replication_audit.json"], gate: "48 grid rows, 5,000 null iterations, 8 replication settings", proof: "Generator-fingerprint claims are limited to controlled synthetic evidence that survives confound checks." },
         { layer: "Sim-to-Real", score: 35, status: "blocked", artifacts: ["data/collection_handoff.json", "data/collection_submission_contract.json", "data/collection_fixture_audit.json", "data/collection_intake.json"], gate: "10 targets, 6 public-safe fixtures, 0 accepted real submissions", proof: "OpenSSL/BoringSSL/Go/Bitcoin collection is specified and lint-tested, but real aggregate baselines are not accepted yet." },
         { layer: "Governance", score: 65, status: "guarded", artifacts: ["data/provenance_requirements.json", "data/provenance_audit.json", "data/baseline_acceptance.json", "data/baseline_promotion_plan.json"], gate: "0 accepted baselines, 4 provenance rows blocked, 9,028 P0 samples projected", proof: "The project now states exactly why stronger real-world claims remain blocked." },
-        { layer: "Publication", score: 80, status: "guarded", artifacts: ["data/evidence_pack.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json"], gate: "20 artifacts, 14 gates, 22 lineage nodes, 5 falsification checks", proof: "Public statements are constrained by checksums, lineage, decision rules, and falsification guards." },
+        { layer: "Publication", score: 80, status: "guarded", artifacts: ["data/evidence_pack.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json", "data/publication_consistency.json"], gate: "20 checked artifacts, 14 gates, 22 lineage nodes, 10 guard checks", proof: "Public statements are constrained by checksums, lineage, decision rules, falsification guards, and consistency checks." },
       ],
     },
     latest_changes: [
@@ -1300,7 +1305,7 @@ const bundledProjectEvolution = {
       { label: "Controlled signal", impact: "Synthetic generator fingerprints must survive bit-length controls, null calibration, and replication before they count.", metric: "48 rows / 5,000 null / 8 settings" },
       { label: "Real-world gate", impact: "OpenSSL/BoringSSL/Go/Bitcoin targets are registered, but attribution remains blocked until accepted aggregate baselines arrive.", metric: "0 accepted / 10 blocked" },
       { label: "Submission discipline", impact: "Collection contract, lint fixtures, and intake validation define exactly what public-safe evidence must contain.", metric: "10 templates / 6 fixtures" },
-      { label: "Publication guardrail", impact: "Claim ledger, lineage, decision rules, and falsification checks keep the public page at demo/scaffold claim strength.", metric: "20 artifacts / 5 checks" },
+      { label: "Publication guardrail", impact: "Claim ledger, lineage, decision rules, falsification checks, and consistency checks keep the public page at demo/scaffold claim strength.", metric: "20 artifacts / 10 guard checks" },
     ],
     research_delta: {
       headline: "What changed from the original prime-regularity demo to the current research scaffold.",
@@ -1313,7 +1318,7 @@ const bundledProjectEvolution = {
         { track: "Scale", before: "300K-style browser exploration", current: "10M live compute and 1M/10M static snapshots", state: "complete" },
         { track: "Signal", before: "Residue and gap visual drift", current: "48-row attribution grid, 5,000 null iterations, 8-setting replication audit, 12 classifier vectors", state: "complete" },
         { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, pre-intake lint, 6 fixture cases, 10 intake blockers, 0 accepted baselines", state: "blocked" },
-        { track: "Publication", before: "Informal narrative claims", current: "20 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery", state: "guarded" },
+        { track: "Publication", before: "Informal narrative claims", current: "20 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery, consistency audit", state: "guarded" },
       ],
       claim_lanes: [
         { claim: "Public demo", status: "allowed", basis: "safe public artifact bundle" },
@@ -1351,6 +1356,7 @@ const bundledProjectEvolution = {
     { id: "artifact-lineage", label: "Artifact lineage", status: "active", layer: "reproducibility" },
     { id: "decision-protocol", label: "Decision protocol", status: "active", layer: "governance" },
     { id: "falsification-battery", label: "Falsification battery", status: "active", layer: "validation" },
+    { id: "publication-consistency", label: "Publication consistency", status: "active", layer: "publication" },
   ],
   connections: [
     ["regularity-plan", "conjecture-lab"],
@@ -1385,6 +1391,9 @@ const bundledProjectEvolution = {
     ["artifact-lineage", "decision-protocol"],
     ["attribution-grid", "falsification-battery"],
     ["decision-protocol", "falsification-battery"],
+    ["falsification-battery", "publication-consistency"],
+    ["evidence-pack", "publication-consistency"],
+    ["claim-ledger", "publication-consistency"],
   ],
   open_gaps: [
     { priority: "P0", track: "sim-to-real", gap: "Need at least two available aggregate generator baselines before real attribution claims." },
@@ -2424,7 +2433,7 @@ function renderProjectEvolution() {
     <div><span>Controlled signal</span><strong>${formatNumber(metrics.robust_controlled_profiles?.length || 0)} profiles</strong><small>${formatNumber(metrics.null_calibration_iterations || 0)} null iterations</small></div>
     <div><span>Generator baselines</span><strong>${formatNumber(metrics.available_real_baselines || 0)}</strong><small>${formatNumber(metrics.public_control_baselines || 0)} public control</small></div>
     <div><span>Collection</span><strong>${formatNumber(metrics.intake_accepted || 0)}</strong><small>${formatNumber(metrics.intake_blocked || 0)} intake blockers</small></div>
-    <div><span>Evidence</span><strong>${formatNumber(metrics.checksummed_artifacts || 0)}</strong><small>${formatNumber(metrics.falsification_checks || 0)} falsification checks</small></div>
+    <div><span>Evidence</span><strong>${formatNumber(metrics.checksummed_artifacts || 0)}</strong><small>${formatNumber(metrics.falsification_checks || 0)} falsification · ${formatNumber(metrics.publication_consistency_checks || 0)} consistency</small></div>
     <div><span>Claim level</span><strong>${escapeHtml(formatClaimLevel(metrics.publication_claim_level))}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
   `;
   renderEvolutionImpact(evolution);
@@ -2442,6 +2451,7 @@ function renderProjectEvolution() {
     "evidence-pack",
     "decision-protocol",
     "falsification-battery",
+    "publication-consistency",
   ]);
   const spotlightPhases = phases.filter((phase) => spotlightIds.has(phase.id));
   outputs.evolutionTimeline.innerHTML = spotlightPhases
@@ -2612,7 +2622,7 @@ function renderEvolutionDelta(evolution) {
 
 function renderEvolutionMap(evolution) {
   const svg = outputs.evolutionMap;
-  const width = 1210;
+  const width = 1340;
   const height = 410;
   const phases = evolution.phases || [];
   const columns = [
@@ -2625,6 +2635,7 @@ function renderEvolutionMap(evolution) {
     ["collection-handoff", "collection-submission-contract", "collection-submission-lint", "collection-fixture-audit", "collection-intake", "readiness-gates"],
     ["evidence-pack", "claim-ledger", "artifact-lineage"],
     ["decision-protocol", "falsification-battery"],
+    ["publication-consistency"],
   ];
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   const positions = new Map();

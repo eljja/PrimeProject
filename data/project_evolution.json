@@ -63,7 +63,12 @@
     "decision_protocol_blocked": 2,
     "falsification_checks": 5,
     "falsification_failures": 0,
-    "falsification_claim_floor": "controlled_synthetic_only"
+    "falsification_claim_floor": "controlled_synthetic_only",
+    "publication_consistency_checks": 5,
+    "publication_consistency_failures": 0,
+    "publication_consistency_status": "pass",
+    "publication_guard_artifacts": 6,
+    "publication_guard_checks": 10
   },
   "change_dashboard": {
     "headline": "PrimeProject moved from exploratory prime regularity visuals into publication-gated real-world generator fingerprint tooling.",
@@ -94,9 +99,9 @@
       },
       {
         "stage": "Publish",
-        "phase_ids": ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery"],
+        "phase_ids": ["readiness-gates", "evidence-pack", "claim-ledger", "artifact-lineage", "decision-protocol", "falsification-battery", "publication-consistency"],
         "status": "active",
-        "signal": "5 falsification checks and controlled-synthetic-only claim floor"
+        "signal": "5 falsification checks, 5 consistency checks, and controlled-synthetic-only claim floor"
       }
     ],
     "visual_rollup": {
@@ -134,8 +139,8 @@
           "marker": "05",
           "title": "Publication guardrails",
           "state": "guarded",
-          "measure": "20 artifacts / 14 gates / 5 falsification checks",
-          "proof": "claim ledger, lineage, decision protocol, and falsification battery prevent overclaiming"
+          "measure": "20 checked artifacts / 14 gates / 10 guard checks",
+          "proof": "claim ledger, lineage, decision protocol, falsification battery, and consistency audit prevent overclaiming"
         }
       ],
       "evidence_flow": [
@@ -207,9 +212,9 @@
           "layer": "Publication",
           "score": 80,
           "status": "guarded",
-          "artifacts": ["data/evidence_pack.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json"],
-          "gate": "20 artifacts, 14 gates, 22 lineage nodes, 5 falsification checks",
-          "proof": "Public statements are constrained by checksums, lineage, decision rules, and falsification guards."
+          "artifacts": ["data/evidence_pack.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json", "data/publication_consistency.json"],
+          "gate": "20 checked artifacts, 14 gates, 22 lineage nodes, 10 guard checks",
+          "proof": "Public statements are constrained by checksums, lineage, decision rules, falsification guards, and consistency checks."
         }
       ]
     },
@@ -236,8 +241,8 @@
       },
       {
         "label": "Publication guardrail",
-        "impact": "Claim ledger, lineage, decision rules, and falsification checks keep the public page at demo/scaffold claim strength.",
-        "metric": "20 artifacts / 5 checks"
+        "impact": "Claim ledger, lineage, decision rules, falsification checks, and consistency checks keep the public page at demo/scaffold claim strength.",
+        "metric": "20 artifacts / 10 guard checks"
       }
     ],
     "research_delta": {
@@ -269,7 +274,7 @@
         {
           "track": "Publication",
           "before": "Informal narrative claims",
-          "current": "20 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery",
+          "current": "20 checksummed artifacts, claim ledger, lineage DAG, decision protocol, falsification battery, consistency audit",
           "state": "guarded"
         }
       ],
@@ -513,6 +518,14 @@
       "layer": "validation",
       "summary": "Runs negative-control, bit-length confound, and claim-promotion checks before attribution claims can be upgraded.",
       "outputs": ["prime_audit/falsification.py", "data/falsification_battery.json"]
+    },
+    {
+      "id": "publication-consistency",
+      "label": "Publication consistency",
+      "status": "active",
+      "layer": "publication",
+      "summary": "Checks that evidence, claim, decision, and falsification artifacts agree on the same high-risk claim boundary.",
+      "outputs": ["prime_audit/publication_consistency.py", "data/publication_consistency.json"]
     }
   ],
   "connections": [
@@ -547,7 +560,10 @@
     ["claim-ledger", "decision-protocol"],
     ["artifact-lineage", "decision-protocol"],
     ["attribution-grid", "falsification-battery"],
-    ["decision-protocol", "falsification-battery"]
+    ["decision-protocol", "falsification-battery"],
+    ["falsification-battery", "publication-consistency"],
+    ["evidence-pack", "publication-consistency"],
+    ["claim-ledger", "publication-consistency"]
   ],
   "open_gaps": [
     {

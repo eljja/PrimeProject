@@ -1506,6 +1506,7 @@ class PrimeAuditTests(unittest.TestCase):
         lineage = load_repo_json("data/artifact_lineage.json")
         decision = load_repo_json("data/decision_protocol.json")
         falsification = load_repo_json("data/falsification_battery.json")
+        consistency = load_repo_json("data/publication_consistency.json")
 
         metrics = project["metrics"]
         sim_to_real = readiness["dimensions"]["sim_to_real"]
@@ -1534,6 +1535,15 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(metrics["decision_protocol_blocked"], decision["summary"]["blocked_count"])
         self.assertEqual(metrics["falsification_checks"], falsification["summary"]["check_count"])
         self.assertEqual(metrics["falsification_failures"], falsification["summary"]["fail_count"])
+        self.assertEqual(metrics["publication_consistency_checks"], consistency["summary"]["check_count"])
+        self.assertEqual(metrics["publication_consistency_failures"], consistency["summary"]["fail_count"])
+        self.assertEqual(metrics["publication_consistency_status"], consistency["summary"]["status"])
+        self.assertEqual(metrics["publication_guard_checks"], falsification["summary"]["check_count"] + consistency["summary"]["check_count"])
+        self.assertIn("publication-consistency", {phase["id"] for phase in project["phases"]})
+        self.assertIn(
+            ["falsification-battery", "publication-consistency"],
+            project["connections"],
+        )
 
     def test_public_evidence_pack_hashes_match_files(self) -> None:
         evidence = load_repo_json("data/evidence_pack.json")

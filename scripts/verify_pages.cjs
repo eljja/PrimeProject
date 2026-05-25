@@ -278,10 +278,12 @@ async function main() {
     !metrics.evolutionImpact.includes("Visual Change Trail") ||
     !metrics.evolutionImpact.includes("Scale lift") ||
     !metrics.evolutionImpact.includes("Publication guardrails") ||
+    !metrics.evolutionImpact.includes("10 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
     !metrics.evolutionSpine.includes("fixture audit") ||
-    !metrics.evolutionSpine.includes("20 artifacts") ||
+    !metrics.evolutionSpine.includes("20 checked artifacts") ||
+    !metrics.evolutionSpine.includes("publication consistency") ||
     !metrics.evolutionDelta.includes("Claim Boundaries") ||
     !metrics.evolutionDelta.includes("controlled grid + null + replication") ||
     !metrics.evolutionDelta.includes("Real-world generator attribution") ||
@@ -296,7 +298,8 @@ async function main() {
     !metrics.evolutionPanel.includes("collection matrix") ||
     !metrics.evolutionPanel.includes("Sample power") ||
     !metrics.evolutionPanel.includes("Provenance") ||
-    !metrics.evolutionPanel.includes("Evidence pack")
+    !metrics.evolutionPanel.includes("Evidence pack") ||
+    !metrics.evolutionPanel.includes("Publication consistency")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
@@ -524,7 +527,8 @@ function buildExpectedPublicText(data) {
         `${formatNumber(metrics.intake_blocked || 0)} intake blockers`,
       evidence:
         `${formatNumber(metrics.checksummed_artifacts || 0)}` +
-        `${formatNumber(metrics.falsification_checks || 0)} falsification checks`,
+        `${formatNumber(metrics.falsification_checks || 0)} falsification · ` +
+        `${formatNumber(metrics.publication_consistency_checks || 0)} consistency`,
       claimLevel:
         `${formatClaimLevel(metrics.publication_claim_level)}` +
         `${formatNumber(metrics.blocking_gaps || 0)} blocking gaps`,
