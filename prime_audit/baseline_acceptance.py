@@ -73,6 +73,7 @@ def acceptance_row(
     audit = audit_rows.get(baseline_id, {})
     blockers = blocking_reasons(entry, target, power, audit)
     power_tier = power.get("power_tier") or "unknown"
+    target_sample_count = sample_count_for_target(entry, target)
     if blockers:
         acceptance = "blocked"
     elif power_tier == "coarse":
@@ -85,8 +86,11 @@ def acceptance_row(
         "track": collection_row.get("track"),
         "object_type": target.get("object_type"),
         "bit_length": target.get("bit_length"),
-        "sample_count": entry.get("sample_count", 0),
+        "manifest_bit_length": entry.get("bit_length"),
+        "sample_count": target_sample_count,
+        "manifest_sample_count": entry.get("sample_count", 0),
         "sample_target": target.get("sample_target", 0),
+        "sample_gap": max(0, int(target.get("sample_target") or 0) - target_sample_count),
         "target_status": target.get("status", "planned"),
         "manifest_status": entry.get("status", "missing"),
         "provenance_status": audit.get("status", "missing"),
@@ -110,6 +114,11 @@ def blocking_reasons(
         reasons.append("manifest_not_available")
     if target.get("status") != "available":
         reasons.append("target_not_available")
+    if entry.get("status") == "available":
+        if entry.get("bit_length") != target.get("bit_length"):
+            reasons.append("bit_length_not_collected")
+        elif int(entry.get("sample_count") or 0) < int(target.get("sample_target") or 0):
+            reasons.append("insufficient_sample_count")
     if audit.get("status") != "pass":
         reasons.append("provenance_not_passed")
     if audit.get("forbidden_public_fields"):
@@ -117,6 +126,14 @@ def blocking_reasons(
     if not power:
         reasons.append("missing_power_row")
     return reasons
+
+
+def sample_count_for_target(entry: dict[str, Any], target: dict[str, Any]) -> int:
+    if entry.get("status") != "available":
+        return 0
+    if entry.get("bit_length") != target.get("bit_length"):
+        return 0
+    return int(entry.get("sample_count") or 0)
 
 
 def dominant_blockers(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -141,6 +158,10 @@ def next_actions(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             action = "Generate local aggregate fingerprints for planned OpenSSL, BoringSSL, Go, and Bitcoin metadata targets."
         elif reason == "forbidden_public_fields":
             action = "Remove forbidden sensitive fields from public records and publish only aggregate artifacts."
+        elif reason == "bit_length_not_collected":
+            action = "Collect separate aggregate fingerprints for each bit length; do not reuse one library baseline across sizes."
+        elif reason == "insufficient_sample_count":
+            action = "Raise collected aggregate sample counts until each accepted target meets its planned sample target."
         else:
             action = "Regenerate collection power and acceptance reports after baseline artifacts are added."
         actions.append({"priority": "P0", "blocker": reason, "count": blocker["count"], "action": action})

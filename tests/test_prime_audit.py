@@ -578,10 +578,17 @@ class PrimeAuditTests(unittest.TestCase):
             provenance_audit=audit,
         )
         openssl = next(row for row in acceptance["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 2048)
+        openssl_3072 = next(row for row in acceptance["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 3072)
 
         self.assertEqual(openssl["acceptance"], "screening_only")
         self.assertEqual(openssl["blocking_reasons"], [])
+        self.assertEqual(openssl["sample_count"], 500)
+        self.assertEqual(openssl["sample_gap"], 0)
+        self.assertEqual(openssl_3072["sample_count"], 0)
+        self.assertEqual(openssl_3072["sample_gap"], 500)
+        self.assertIn("bit_length_not_collected", openssl_3072["blocking_reasons"])
 
+        manifest["entries"][0]["sample_count"] = 5000
         for target in matrix["rows"][0]["targets"]:
             if target["bit_length"] == 2048:
                 target["sample_target"] = 5000
@@ -594,6 +601,30 @@ class PrimeAuditTests(unittest.TestCase):
         )
         promoted = next(row for row in stronger["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 2048)
         self.assertEqual(promoted["acceptance"], "accepted")
+
+    def test_baseline_acceptance_blocks_underpowered_available_targets(self) -> None:
+        manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
+        manifest["entries"][0]["status"] = "available"
+        manifest["entries"][0]["bit_length"] = 2048
+        manifest["entries"][0]["sample_count"] = 100
+        matrix = build_collection_matrix(manifest)
+        power = build_collection_power(matrix)
+        audit = build_provenance_audit(
+            build_provenance_requirements(manifest),
+            [complete_provenance_record("openssl-rsa-prime-owned")],
+        )
+        acceptance = build_baseline_acceptance(
+            manifest=manifest,
+            matrix=matrix,
+            power=power,
+            provenance_audit=audit,
+        )
+        openssl = next(row for row in acceptance["rows"] if row["baseline_id"] == "openssl-rsa-prime-owned" and row["bit_length"] == 2048)
+
+        self.assertEqual(openssl["acceptance"], "blocked")
+        self.assertEqual(openssl["sample_count"], 100)
+        self.assertEqual(openssl["sample_gap"], 400)
+        self.assertIn("insufficient_sample_count", openssl["blocking_reasons"])
 
     def test_baseline_promotion_plan_selects_minimal_rsa_unlock_path(self) -> None:
         manifest = build_real_baseline_manifest(created_at="2026-05-22T00:00:00+00:00")
