@@ -327,6 +327,48 @@ function renderFormalContract(problem) {
   `;
 }
 
+function renderMilestoneQueue(problem) {
+  const queue = problem.proof_milestone_queue || {};
+  const milestones = queue.milestones || [];
+  return `
+    <div class="milestone-summary">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(queue.status))}</strong>
+      </div>
+      <div>
+        <span>Complete</span>
+        <strong>${escapeHtml(formatValue(queue.completed_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Open</span>
+        <strong>${escapeHtml(formatValue(queue.open_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Blocked</span>
+        <strong>${escapeHtml(formatValue(queue.blocked_count || 0))}</strong>
+      </div>
+    </div>
+    <p class="attempt-route">${escapeHtml(queue.decisive_next_task || "")}</p>
+    <div class="milestone-list">
+      ${milestones
+        .map(
+          (item) => `
+            <article class="milestone-card is-${escapeHtml(item.status || "open")}">
+              <span>${escapeHtml(item.id || "")}</span>
+              <strong>${escapeHtml(item.title || "")}</strong>
+              <em>${escapeHtml(statusText(item.status))}</em>
+              <p>${escapeHtml(item.artifact || "")}</p>
+              <small>${escapeHtml(item.exit_criterion || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="certificate-verifier">${escapeHtml(queue.promotion_rule || "")}</p>
+  `;
+}
+
 function render(payload, problem) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
@@ -360,6 +402,7 @@ function render(payload, problem) {
   document.querySelector("#proofMap").innerHTML = renderProofMap(problem);
   document.querySelector("#proofStatusGate").innerHTML = renderProofStatusGate(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
+  document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#proofGates").innerHTML = list(problem.proof_gates || []);
   document.querySelector("#candidateStrategy").innerHTML = list(problem.candidate_strategy || []);
   document.querySelector("#blockedClaims").innerHTML = (payload.claim_policy.blocked_claims || [])

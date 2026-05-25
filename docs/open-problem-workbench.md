@@ -7,7 +7,7 @@ PrimeProject now has four GitHub Pages subpages for:
 - Goldbach Conjecture
 - Twin Prime Conjecture
 
-The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a Lean-oriented formal proof contract, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
+The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a Lean-oriented formal proof contract, a proof milestone queue, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
 ## Public Pages
 
@@ -56,6 +56,8 @@ The same ledger now includes an attack graph, known theorem bridges, and lemma c
 Each problem also includes a `primeproject.open-problem-proof-status-gate.v1` object. The gate is intentionally conservative: it blocks a full-proof claim while any obligation, attack-graph edge, theorem bridge, or lemma candidate remains open. `scripts/verify_open_problem_workbench.py` checks that all four pages remain blocked until the finite certificate is joined to an independently checkable infinite proof.
 
 Each problem also includes a `primeproject.formal-proof-contract.v1` object. The contract records a Lean 4 target theorem, required artifacts, forbidden assumptions, and acceptance rules. This is not a formal proof yet; it is the kernel-facing contract that any future proof must satisfy before the status gate can move.
+
+Each problem also includes a `primeproject.proof-milestone-queue.v1` object. The queue turns the proof contract into work items: the bounded certificate is the only completed milestone, while formal definitions, infinite bridge theorems, and independent kernel review remain open or blocked.
 
 ## Claim Boundary
 

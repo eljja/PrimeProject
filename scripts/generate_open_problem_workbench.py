@@ -13,6 +13,7 @@ CERTIFICATE_SCHEMA = "primeproject.bounded-proof-certificate.v1"
 PROOF_ATTEMPT_SCHEMA = "primeproject.proof-attempt-ledger.v1"
 PROOF_STATUS_GATE_SCHEMA = "primeproject.open-problem-proof-status-gate.v1"
 FORMAL_PROOF_CONTRACT_SCHEMA = "primeproject.formal-proof-contract.v1"
+PROOF_MILESTONE_SCHEMA = "primeproject.proof-milestone-queue.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -226,6 +227,28 @@ def formal_proof_contract(
     }
 
 
+def proof_milestone_queue(
+    *,
+    problem_id: str,
+    decisive_next_task: str,
+    milestones: list[dict[str, str]],
+) -> dict[str, object]:
+    completed = [item for item in milestones if item.get("status") == "complete"]
+    blocked = [item for item in milestones if item.get("status", "").startswith("blocked")]
+    open_items = [item for item in milestones if item.get("status", "").startswith("open")]
+    return {
+        "schema": PROOF_MILESTONE_SCHEMA,
+        "problem_id": problem_id,
+        "status": "bounded_only_infinite_proof_open",
+        "decisive_next_task": decisive_next_task,
+        "completed_count": len(completed),
+        "open_count": len(open_items),
+        "blocked_count": len(blocked),
+        "milestones": milestones,
+        "promotion_rule": "Only complete milestones backed by replayable artifacts can reduce the open_count. Heuristic evidence cannot close a milestone.",
+    }
+
+
 def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
     checkpoints = [10**k for k in range(2, int(math.log10(limit)) + 1)]
     rows = []
@@ -356,6 +379,47 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
                 "bounded theta/pi certificate",
                 "formal all-x prime-counting error theorem",
                 "formal RH-equivalence bridge",
+            ],
+        ),
+        "proof_milestone_queue": proof_milestone_queue(
+            problem_id="riemann",
+            decisive_next_task="Formalize an explicit all-x prime-counting error theorem strong enough to connect finite theta diagnostics to an RH-equivalent bridge.",
+            milestones=[
+                {
+                    "id": "RH-M1",
+                    "title": "Bounded theta/pi certificate",
+                    "status": "complete",
+                    "artifact": "bounded_certificate_merkle_root",
+                    "exit_criterion": "scripts/verify_open_problem_workbench.py reproduces the committed root.",
+                },
+                {
+                    "id": "RH-M2",
+                    "title": "Lean definitions for zeta zeros and theta diagnostics",
+                    "status": "open_formalization",
+                    "artifact": "Lean 4 definitions",
+                    "exit_criterion": "Kernel-checkable definitions compile without conjectural axioms.",
+                },
+                {
+                    "id": "RH-M3",
+                    "title": "All-x theta error theorem",
+                    "status": "open_infinite_bridge",
+                    "artifact": "formal theorem",
+                    "exit_criterion": "A theorem removes the finite search limit with explicit constants.",
+                },
+                {
+                    "id": "RH-M4",
+                    "title": "RH-equivalence bridge",
+                    "status": "open_infinite_bridge",
+                    "artifact": "formal bridge proof",
+                    "exit_criterion": "The all-x estimate implies every non-trivial zero lies on the critical line.",
+                },
+                {
+                    "id": "RH-M5",
+                    "title": "Independent kernel review",
+                    "status": "blocked_until_m2_m4_complete",
+                    "artifact": "external replay report",
+                    "exit_criterion": "A clean Lean replay passes outside PrimeProject.",
+                },
             ],
         ),
         "candidate_strategy": [
@@ -518,6 +582,47 @@ def build_collatz(limit: int) -> dict[str, object]:
                 "formal cycle and divergence exclusion theorem",
             ],
         ),
+        "proof_milestone_queue": proof_milestone_queue(
+            problem_id="collatz",
+            decisive_next_task="Construct a symbolic residue-block descent certificate that covers an infinite family, not only enumerated starts.",
+            milestones=[
+                {
+                    "id": "C-M1",
+                    "title": "Bounded trajectory certificate",
+                    "status": "complete",
+                    "artifact": "bounded_certificate_merkle_root",
+                    "exit_criterion": "Every start value through the committed limit replays to 1.",
+                },
+                {
+                    "id": "C-M2",
+                    "title": "Lean definitions for accelerated Collatz dynamics",
+                    "status": "open_formalization",
+                    "artifact": "Lean 4 definitions",
+                    "exit_criterion": "The odd-only map is proved equivalent to the ordinary trajectory relation.",
+                },
+                {
+                    "id": "C-M3",
+                    "title": "Residue-block descent theorem",
+                    "status": "open_infinite_bridge",
+                    "artifact": "formal theorem",
+                    "exit_criterion": "Every sufficiently large block descends to a smaller covered representative.",
+                },
+                {
+                    "id": "C-M4",
+                    "title": "Cycle and divergence exclusion",
+                    "status": "open_infinite_bridge",
+                    "artifact": "formal exclusion proof",
+                    "exit_criterion": "The descent theorem rules out non-trivial cycles and divergent branches.",
+                },
+                {
+                    "id": "C-M5",
+                    "title": "Independent kernel review",
+                    "status": "blocked_until_m2_m4_complete",
+                    "artifact": "external replay report",
+                    "exit_criterion": "A clean Lean replay passes outside PrimeProject.",
+                },
+            ],
+        ),
         "claim_boundary": "No proof claim. Current evidence is finite exhaustive replay plus blocker list.",
     }
 
@@ -659,6 +764,47 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
                 "formal threshold bridge below certificate limit",
             ],
         ),
+        "proof_milestone_queue": proof_milestone_queue(
+            problem_id="goldbach",
+            decisive_next_task="Prove an explicit positive Goldbach representation lower bound whose threshold is below the certified finite range.",
+            milestones=[
+                {
+                    "id": "G-M1",
+                    "title": "Bounded witness certificate",
+                    "status": "complete",
+                    "artifact": "bounded_certificate_merkle_root",
+                    "exit_criterion": "Every even number through the committed limit has a replayed prime-pair witness.",
+                },
+                {
+                    "id": "G-M2",
+                    "title": "Lean definitions for prime-pair representations",
+                    "status": "open_formalization",
+                    "artifact": "Lean 4 definitions",
+                    "exit_criterion": "Representation-count definitions compile and match bounded witnesses.",
+                },
+                {
+                    "id": "G-M3",
+                    "title": "Positive representation lower bound",
+                    "status": "open_infinite_bridge",
+                    "artifact": "formal theorem",
+                    "exit_criterion": "For all even n >= N, R(n) is formally proved positive.",
+                },
+                {
+                    "id": "G-M4",
+                    "title": "Threshold bridge",
+                    "status": "open_infinite_bridge",
+                    "artifact": "formal threshold proof",
+                    "exit_criterion": "The analytic threshold N is at or below the certified finite limit.",
+                },
+                {
+                    "id": "G-M5",
+                    "title": "Independent kernel review",
+                    "status": "blocked_until_m2_m4_complete",
+                    "artifact": "external replay report",
+                    "exit_criterion": "A clean Lean replay passes outside PrimeProject.",
+                },
+            ],
+        ),
         "claim_boundary": "No proof claim. Current evidence is bounded exhaustive verification.",
     }
 
@@ -796,6 +942,47 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
                 "bounded twin-pair certificate",
                 "formal exact gap-2 lower-bound theorem",
                 "formal infinitude bridge",
+            ],
+        ),
+        "proof_milestone_queue": proof_milestone_queue(
+            problem_id="twin-prime",
+            decisive_next_task="Replace Hardy-Littlewood-scale agreement with an unconditional exact gap-2 lower-bound theorem.",
+            milestones=[
+                {
+                    "id": "TP-M1",
+                    "title": "Bounded twin-pair certificate",
+                    "status": "complete",
+                    "artifact": "bounded_certificate_merkle_root",
+                    "exit_criterion": "The committed sieve replay reproduces every twin pair through the limit.",
+                },
+                {
+                    "id": "TP-M2",
+                    "title": "Lean definitions for exact gap-2 primes",
+                    "status": "open_formalization",
+                    "artifact": "Lean 4 definitions",
+                    "exit_criterion": "Exact gap-2 and twin-count definitions compile without heuristic assumptions.",
+                },
+                {
+                    "id": "TP-M3",
+                    "title": "Unconditional exact gap-2 lower bound",
+                    "status": "open_infinite_bridge",
+                    "artifact": "formal theorem",
+                    "exit_criterion": "A positive lower bound for exact twin pairs is proved for arbitrarily large x.",
+                },
+                {
+                    "id": "TP-M4",
+                    "title": "Infinitude bridge",
+                    "status": "open_infinite_bridge",
+                    "artifact": "formal infinitude proof",
+                    "exit_criterion": "The lower bound implies arbitrarily large twin prime pairs.",
+                },
+                {
+                    "id": "TP-M5",
+                    "title": "Independent kernel review",
+                    "status": "blocked_until_m2_m4_complete",
+                    "artifact": "external replay report",
+                    "exit_criterion": "A clean Lean replay passes outside PrimeProject.",
+                },
             ],
         ),
         "claim_boundary": "No proof claim. Current evidence is finite counting and heuristic comparison.",

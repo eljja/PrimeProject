@@ -1025,6 +1025,70 @@ canvas {
   margin-top: 8px;
 }
 
+.milestone-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.milestone-summary div,
+.milestone-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 11px;
+}
+
+.milestone-summary span,
+.milestone-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.milestone-summary strong,
+.milestone-card strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.milestone-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.milestone-card {
+  border-top: 3px solid var(--muted);
+}
+
+.milestone-card.is-complete {
+  border-top-color: var(--teal);
+}
+
+.milestone-card.is-open_formalization,
+.milestone-card.is-open_infinite_bridge,
+.milestone-card.is-blocked_until_m2_m4_complete {
+  border-top-color: var(--danger);
+}
+
+.milestone-card em,
+.milestone-card small,
+.milestone-card p {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -3988,7 +4052,9 @@ tr:last-child td {
   .proof-edge,
   .bridge-lemma-grid,
   .proof-gate-table,
-  .formal-contract-head {
+  .formal-contract-head,
+  .milestone-summary,
+  .milestone-list {
     grid-template-columns: 1fr;
   }
 }

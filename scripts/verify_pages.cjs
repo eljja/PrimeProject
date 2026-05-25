@@ -230,6 +230,8 @@ async function main() {
           proofMapText: document.querySelector("#proofMap").textContent,
           proofStatusGateText: document.querySelector("#proofStatusGate").textContent,
           formalContractText: document.querySelector("#formalContract").textContent,
+          milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
+          milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
           text: document.body.textContent,
         }), problemId),
@@ -275,6 +277,10 @@ async function main() {
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||
+        page.milestoneCount < 5 ||
+        !page.milestoneQueueText.includes("bounded only infinite proof open") ||
+        !page.milestoneQueueText.includes("complete") ||
+        !page.milestoneQueueText.includes("open infinite bridge") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||
         !page.text.includes("No proof claim"),

@@ -56,6 +56,14 @@ def main() -> int:
         if "sorry" not in " ".join(contract.get("acceptance_rules", [])):
             print(f"{problem.get('id')} formal proof contract does not ban unchecked proof holes.", file=sys.stderr)
             return 1
+        queue = problem.get("proof_milestone_queue", {})
+        milestones = queue.get("milestones", [])
+        if queue.get("status") != "bounded_only_infinite_proof_open":
+            print(f"{problem.get('id')} proof milestone queue has unexpected status.", file=sys.stderr)
+            return 1
+        if len(milestones) < 5 or queue.get("completed_count") != 1 or queue.get("open_count", 0) < 3:
+            print(f"{problem.get('id')} proof milestone queue does not expose the expected open work.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]
