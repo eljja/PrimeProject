@@ -373,6 +373,8 @@ function renderDecisiveLemmaLab(problem) {
   const lab = problem.decisive_lemma_lab || {};
   const probe = lab.finite_probe || {};
   const probeRows = Object.entries(probe);
+  const falsificationProbe = lab.automated_falsification_probe || {};
+  const strongestRows = Object.entries(falsificationProbe.strongest_observed || {});
   return `
     <div class="decisive-lab-head">
       <div>
@@ -415,6 +417,43 @@ function renderDecisiveLemmaLab(problem) {
         <h3>Falsification Test</h3>
         <p>${escapeHtml(lab.falsification_test || "")}</p>
       </section>
+    </div>
+    <div class="falsification-probe is-${escapeHtml(falsificationProbe.result_status || "missing")}">
+      <div class="falsification-probe-head">
+        <span>Automated Falsification Probe</span>
+        <strong>${escapeHtml(statusText(falsificationProbe.result_status))}</strong>
+      </div>
+      <div class="proof-gate-table">
+        <div>
+          <span>scope</span>
+          <strong>${escapeHtml(falsificationProbe.scope || "missing")}</strong>
+        </div>
+        <div>
+          <span>probe count</span>
+          <strong>${escapeHtml(formatValue(falsificationProbe.probe_count || 0))}</strong>
+        </div>
+        <div>
+          <span>violated count</span>
+          <strong>${escapeHtml(formatValue(falsificationProbe.violated_count || 0))}</strong>
+        </div>
+        <div>
+          <span>pass condition</span>
+          <strong>${escapeHtml(falsificationProbe.pass_condition || "missing")}</strong>
+        </div>
+      </div>
+      <div class="probe-observed">
+        ${strongestRows
+          .map(
+            ([label, value]) => `
+              <div>
+                <span>${escapeHtml(label.replaceAll("_", " "))}</span>
+                <strong>${escapeHtml(formatValue(value))}</strong>
+              </div>
+            `,
+          )
+          .join("")}
+      </div>
+      <p>${escapeHtml(falsificationProbe.proof_gap || "")}</p>
     </div>
     <div class="decisive-current">
       <strong>${escapeHtml(lab.current_result || "")}</strong>

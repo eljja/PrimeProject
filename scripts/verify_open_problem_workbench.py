@@ -74,6 +74,13 @@ def main() -> int:
         if not lab.get("closes_milestones") or not lab.get("finite_probe"):
             print(f"{problem.get('id')} decisive lemma lab is not tied to milestones and finite probes.", file=sys.stderr)
             return 1
+        probe = lab.get("automated_falsification_probe", {})
+        if probe.get("result_status") != "bounded_probe_passed_proof_open":
+            print(f"{problem.get('id')} decisive lemma falsification probe has unexpected status.", file=sys.stderr)
+            return 1
+        if not probe.get("pass_condition") or not probe.get("proof_gap"):
+            print(f"{problem.get('id')} decisive lemma falsification probe is missing pass/gap terms.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

@@ -286,6 +286,9 @@ async function main() {
         !page.decisiveLemmaText.includes("Candidate statement") ||
         !page.decisiveLemmaText.includes("Proof Obligation") ||
         !page.decisiveLemmaText.includes("Falsification Test") ||
+        !page.decisiveLemmaText.includes("Automated Falsification Probe") ||
+        !page.decisiveLemmaText.includes("bounded probe passed proof open") ||
+        !page.decisiveLemmaText.includes("proof") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||
         !page.text.includes("No proof claim"),

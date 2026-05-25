@@ -301,6 +301,20 @@
         },
         "proof_obligation": "Replace checkpoint agreement with a theorem over all real x beyond a stated threshold and prove the equivalence bridge without importing RH.",
         "falsification_test": "Search for a computed theta residual that violates the proposed envelope, then reject any envelope that fails to imply a known RH-equivalent statement.",
+        "automated_falsification_probe": {
+          "schema": "primeproject.decisive-lemma-falsification-probe.v1",
+          "result_status": "bounded_probe_passed_proof_open",
+          "scope": "decimal checkpoints up to 1000000",
+          "probe_count": 5,
+          "violated_count": 0,
+          "pass_condition": "scaled_theta_error <= 0.08 at every committed checkpoint",
+          "strongest_observed": {
+            "metric": "max_scaled_theta_error",
+            "value": 0.076725,
+            "threshold": 0.08
+          },
+          "proof_gap": "Checkpoint probes do not quantify every x and do not prove the RH-equivalence bridge."
+        },
         "current_result": "The bounded probe is compatible with the lemma but does not prove it.",
         "next_action": "Formalize the target inequality and enumerate which published equivalence theorem would be sufficient.",
         "promotion_rule": "The lab may upgrade a milestone only when the proof obligation is discharged by a formal theorem or accepted external proof, not by finite probe success."
@@ -700,6 +714,20 @@
         },
         "proof_obligation": "Prove the block cover is complete under lifting and that its descent measure is well-founded, excluding cycles and divergence.",
         "falsification_test": "Find a residue block with no certified descent path or a lifted block whose measure can increase indefinitely.",
+        "automated_falsification_probe": {
+          "schema": "primeproject.decisive-lemma-falsification-probe.v1",
+          "result_status": "bounded_probe_passed_proof_open",
+          "scope": "ordinary Collatz starts 1..1000000",
+          "probe_count": 1000000,
+          "violated_count": 0,
+          "pass_condition": "every committed start reaches 1 under replay",
+          "strongest_observed": {
+            "metric": "max_total_stopping_time",
+            "value": 524,
+            "at": 837799
+          },
+          "proof_gap": "A replay through the limit does not produce a symbolic residue-block cover or a well-founded descent proof."
+        },
         "current_result": "The bounded replay supports the search for descent certificates but still depends on finite enumeration.",
         "next_action": "Generate candidate odd-only residue transitions and rank uncovered blocks by descent failure risk.",
         "promotion_rule": "The lab may upgrade a milestone only when the proof obligation is discharged by a formal theorem or accepted external proof, not by finite probe success."
@@ -1068,6 +1096,21 @@
         },
         "proof_obligation": "Derive explicit constants for a positive representation-count lower bound and bridge the analytic threshold to the certified finite range.",
         "falsification_test": "Reject any proposed lower bound that becomes non-positive in a residue class or whose threshold exceeds the certificate limit.",
+        "automated_falsification_probe": {
+          "schema": "primeproject.decisive-lemma-falsification-probe.v1",
+          "result_status": "bounded_probe_passed_proof_open",
+          "scope": "even integers 4..1000000",
+          "probe_count": 499999,
+          "violated_count": 0,
+          "pass_condition": "every committed even integer has a displayed prime-pair witness",
+          "strongest_observed": {
+            "metric": "hardest_smallest_prime_decomposition",
+            "even": 503222,
+            "smallest_prime": 523,
+            "partner": 502699
+          },
+          "proof_gap": "Witnesses through the limit do not give an explicit positive lower bound for all large even integers."
+        },
         "current_result": "The bounded witness certificate closes the finite range only; the positive infinite lower bound is open.",
         "next_action": "Use the hardest bounded decompositions to prioritize residue classes for explicit lower-bound stress tests.",
         "promotion_rule": "The lab may upgrade a milestone only when the proof obligation is discharged by a formal theorem or accepted external proof, not by finite probe success."
@@ -1386,6 +1429,21 @@
         },
         "proof_obligation": "Prove an unconditional exact gap-2 lower bound strong enough to imply arbitrarily large twin prime pairs.",
         "falsification_test": "Reject any argument that proves only bounded gaps, assumes k-tuple independence, or lets the exact gap-2 lower bound collapse to zero.",
+        "automated_falsification_probe": {
+          "schema": "primeproject.decisive-lemma-falsification-probe.v1",
+          "result_status": "bounded_probe_passed_proof_open",
+          "scope": "twin prime pairs with p+2 <= 1000000",
+          "probe_count": 5,
+          "violated_count": 0,
+          "pass_condition": "observed twin-pair count remains positive at every committed checkpoint",
+          "strongest_observed": {
+            "metric": "final_count_vs_hardy_littlewood_estimate",
+            "observed": 8169,
+            "estimate": 6917.46,
+            "ratio": 1.180925
+          },
+          "proof_gap": "Positive bounded counts and heuristic-scale agreement do not prove infinitely many exact gap-2 pairs."
+        },
         "current_result": "The bounded count agrees with heuristic scale but does not establish infinitude.",
         "next_action": "Separate exact gap-2 requirements from bounded-gap evidence and formalize the missing lower-bound theorem.",
         "promotion_rule": "The lab may upgrade a milestone only when the proof obligation is discharged by a formal theorem or accepted external proof, not by finite probe success."
