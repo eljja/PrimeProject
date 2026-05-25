@@ -326,6 +326,45 @@
             "scope": "automated_falsification_probe_without_certificate"
           }
         },
+        "proof_gap_taxonomy": {
+          "schema": "primeproject.proof-gap-taxonomy.v1",
+          "problem_id": "riemann",
+          "status": "proof_gaps_open",
+          "gap_count": 4,
+          "open_gap_count": 3,
+          "blocked_gap_count": 1,
+          "gaps": [
+            {
+              "id": "RH-G1",
+              "type": "infinite_lift",
+              "status": "open_infinite_bridge",
+              "description": "Checkpoint control must become an all-x theta estimate with explicit constants.",
+              "required_artifact": "formal all-x theta theorem"
+            },
+            {
+              "id": "RH-G2",
+              "type": "equivalence_bridge",
+              "status": "open_infinite_bridge",
+              "description": "The all-x estimate must imply an accepted RH-equivalent zero-control criterion.",
+              "required_artifact": "formal RH-equivalence bridge"
+            },
+            {
+              "id": "RH-G3",
+              "type": "formalization",
+              "status": "open_formalization",
+              "description": "Zeta zero, theta, and explicit-bound objects must be kernel-checkable without conjectural imports.",
+              "required_artifact": "Lean 4 definitions and theorem skeleton"
+            },
+            {
+              "id": "RH-G4",
+              "type": "independent_review",
+              "status": "blocked_until_g1_g3_close",
+              "description": "An external replay must verify the proof without trusting PrimeProject code.",
+              "required_artifact": "external kernel replay report"
+            }
+          ],
+          "closure_rule": "All proof gaps must be closed by formal proof artifacts or accepted theorem references before the conjecture page can change status."
+        },
         "current_result": "The bounded probe is compatible with the lemma but does not prove it.",
         "next_action": "Formalize the target inequality and enumerate which published equivalence theorem would be sufficient.",
         "promotion_rule": "The lab may upgrade a milestone only when the proof obligation is discharged by a formal theorem or accepted external proof, not by finite probe success."
@@ -750,6 +789,45 @@
             "scope": "automated_falsification_probe_without_certificate"
           }
         },
+        "proof_gap_taxonomy": {
+          "schema": "primeproject.proof-gap-taxonomy.v1",
+          "problem_id": "collatz",
+          "status": "proof_gaps_open",
+          "gap_count": 4,
+          "open_gap_count": 3,
+          "blocked_gap_count": 1,
+          "gaps": [
+            {
+              "id": "C-G1",
+              "type": "symbolic_cover",
+              "status": "open_infinite_bridge",
+              "description": "Finite trajectories must be replaced by a complete symbolic residue-block cover.",
+              "required_artifact": "residue-block cover certificate"
+            },
+            {
+              "id": "C-G2",
+              "type": "well_founded_descent",
+              "status": "open_infinite_bridge",
+              "description": "The cover must provide a well-founded measure that cannot increase forever.",
+              "required_artifact": "formal descent theorem"
+            },
+            {
+              "id": "C-G3",
+              "type": "cycle_divergence_exclusion",
+              "status": "open_infinite_bridge",
+              "description": "The descent theorem must exclude both non-trivial cycles and divergent branches.",
+              "required_artifact": "cycle and divergence exclusion proof"
+            },
+            {
+              "id": "C-G4",
+              "type": "independent_review",
+              "status": "blocked_until_g1_g3_close",
+              "description": "A clean replay must verify the accelerated-map equivalence and descent proof.",
+              "required_artifact": "external kernel replay report"
+            }
+          ],
+          "closure_rule": "All proof gaps must be closed by formal proof artifacts or accepted theorem references before the conjecture page can change status."
+        },
         "current_result": "The bounded replay supports the search for descent certificates but still depends on finite enumeration.",
         "next_action": "Generate candidate odd-only residue transitions and rank uncovered blocks by descent failure risk.",
         "promotion_rule": "The lab may upgrade a milestone only when the proof obligation is discharged by a formal theorem or accepted external proof, not by finite probe success."
@@ -1144,6 +1222,45 @@
             "scope": "automated_falsification_probe_without_certificate"
           }
         },
+        "proof_gap_taxonomy": {
+          "schema": "primeproject.proof-gap-taxonomy.v1",
+          "problem_id": "goldbach",
+          "status": "proof_gaps_open",
+          "gap_count": 4,
+          "open_gap_count": 3,
+          "blocked_gap_count": 1,
+          "gaps": [
+            {
+              "id": "G-G1",
+              "type": "positive_lower_bound",
+              "status": "open_infinite_bridge",
+              "description": "The representation count must be proved positive for every sufficiently large even integer.",
+              "required_artifact": "explicit representation-count lower-bound theorem"
+            },
+            {
+              "id": "G-G2",
+              "type": "threshold_bridge",
+              "status": "open_infinite_bridge",
+              "description": "The analytic threshold must be at or below the certified bounded range.",
+              "required_artifact": "formal finite-to-infinite threshold comparison"
+            },
+            {
+              "id": "G-G3",
+              "type": "dependency_control",
+              "status": "open_formalization",
+              "description": "The proof must not assume unproved prime-pair independence or Hardy-Littlewood strength.",
+              "required_artifact": "assumption audit in formal contract"
+            },
+            {
+              "id": "G-G4",
+              "type": "independent_review",
+              "status": "blocked_until_g1_g3_close",
+              "description": "An external replay must verify the lower-bound and threshold bridge.",
+              "required_artifact": "external kernel replay report"
+            }
+          ],
+          "closure_rule": "All proof gaps must be closed by formal proof artifacts or accepted theorem references before the conjecture page can change status."
+        },
         "current_result": "The bounded witness certificate closes the finite range only; the positive infinite lower bound is open.",
         "next_action": "Use the hardest bounded decompositions to prioritize residue classes for explicit lower-bound stress tests.",
         "promotion_rule": "The lab may upgrade a milestone only when the proof obligation is discharged by a formal theorem or accepted external proof, not by finite probe success."
@@ -1487,6 +1604,45 @@
             "verifier": "scripts/verify_open_problem_workbench.py",
             "scope": "automated_falsification_probe_without_certificate"
           }
+        },
+        "proof_gap_taxonomy": {
+          "schema": "primeproject.proof-gap-taxonomy.v1",
+          "problem_id": "twin-prime",
+          "status": "proof_gaps_open",
+          "gap_count": 4,
+          "open_gap_count": 3,
+          "blocked_gap_count": 1,
+          "gaps": [
+            {
+              "id": "TP-G1",
+              "type": "exact_gap_lower_bound",
+              "status": "open_infinite_bridge",
+              "description": "A positive lower bound is needed for exact gap-2 pairs, not merely bounded prime gaps.",
+              "required_artifact": "unconditional exact gap-2 lower-bound theorem"
+            },
+            {
+              "id": "TP-G2",
+              "type": "heuristic_removal",
+              "status": "open_infinite_bridge",
+              "description": "Hardy-Littlewood k-tuple behavior cannot be used as an assumption.",
+              "required_artifact": "assumption-free distribution argument"
+            },
+            {
+              "id": "TP-G3",
+              "type": "infinitude_bridge",
+              "status": "open_infinite_bridge",
+              "description": "The exact gap-2 lower bound must imply arbitrarily large twin pairs.",
+              "required_artifact": "formal infinitude bridge"
+            },
+            {
+              "id": "TP-G4",
+              "type": "independent_review",
+              "status": "blocked_until_g1_g3_close",
+              "description": "A clean external replay must verify exact gap-2, not just bounded gaps.",
+              "required_artifact": "external kernel replay report"
+            }
+          ],
+          "closure_rule": "All proof gaps must be closed by formal proof artifacts or accepted theorem references before the conjecture page can change status."
         },
         "current_result": "The bounded count agrees with heuristic scale but does not establish infinitude.",
         "next_action": "Separate exact gap-2 requirements from bounded-gap evidence and formalize the missing lower-bound theorem.",

@@ -375,6 +375,8 @@ function renderDecisiveLemmaLab(problem) {
   const probeRows = Object.entries(probe);
   const falsificationProbe = lab.automated_falsification_probe || {};
   const probeCertificate = falsificationProbe.probe_certificate || {};
+  const taxonomy = lab.proof_gap_taxonomy || {};
+  const gaps = taxonomy.gaps || [];
   const strongestRows = Object.entries(falsificationProbe.strongest_observed || {});
   return `
     <div class="decisive-lab-head">
@@ -474,6 +476,28 @@ function renderDecisiveLemmaLab(problem) {
       <strong>${escapeHtml(lab.current_result || "")}</strong>
       <p>${escapeHtml(lab.next_action || "")}</p>
       <small>${escapeHtml(lab.promotion_rule || "")}</small>
+    </div>
+    <div class="proof-gap-taxonomy">
+      <div class="proof-gap-head">
+        <span>Proof Gap Taxonomy</span>
+        <strong>${escapeHtml(statusText(taxonomy.status))}</strong>
+        <em>${escapeHtml(formatValue(taxonomy.open_gap_count || 0))} open / ${escapeHtml(formatValue(taxonomy.blocked_gap_count || 0))} blocked</em>
+      </div>
+      <div class="proof-gap-list">
+        ${gaps
+          .map(
+            (gap) => `
+              <article class="proof-gap-card is-${escapeHtml(gap.status || "open")}">
+                <span>${escapeHtml(gap.id || "")} · ${escapeHtml(gap.type || "")}</span>
+                <strong>${escapeHtml(statusText(gap.status))}</strong>
+                <p>${escapeHtml(gap.description || "")}</p>
+                <small>Required artifact: ${escapeHtml(gap.required_artifact || "")}</small>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+      <p>${escapeHtml(taxonomy.closure_rule || "")}</p>
     </div>
   `;
 }

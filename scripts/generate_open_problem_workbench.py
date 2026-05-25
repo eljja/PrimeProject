@@ -16,6 +16,7 @@ FORMAL_PROOF_CONTRACT_SCHEMA = "primeproject.formal-proof-contract.v1"
 PROOF_MILESTONE_SCHEMA = "primeproject.proof-milestone-queue.v1"
 DECISIVE_LEMMA_SCHEMA = "primeproject.decisive-lemma-lab.v1"
 PROBE_CERTIFICATE_SCHEMA = "primeproject.decisive-lemma-probe-certificate.v1"
+PROOF_GAP_TAXONOMY_SCHEMA = "primeproject.proof-gap-taxonomy.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -264,6 +265,7 @@ def decisive_lemma_lab(
     current_result: str,
     next_action: str,
     automated_falsification_probe: dict[str, object],
+    proof_gap_taxonomy: dict[str, object],
 ) -> dict[str, object]:
     probe = attach_probe_certificate(
         problem_id=problem_id,
@@ -282,9 +284,23 @@ def decisive_lemma_lab(
         "proof_obligation": proof_obligation,
         "falsification_test": falsification_test,
         "automated_falsification_probe": probe,
+        "proof_gap_taxonomy": proof_gap_taxonomy,
         "current_result": current_result,
         "next_action": next_action,
         "promotion_rule": "The lab may upgrade a milestone only when the proof obligation is discharged by a formal theorem or accepted external proof, not by finite probe success.",
+    }
+
+
+def proof_gap_taxonomy(*, problem_id: str, gaps: list[dict[str, str]]) -> dict[str, object]:
+    return {
+        "schema": PROOF_GAP_TAXONOMY_SCHEMA,
+        "problem_id": problem_id,
+        "status": "proof_gaps_open",
+        "gap_count": len(gaps),
+        "open_gap_count": sum(1 for gap in gaps if gap.get("status", "").startswith("open")),
+        "blocked_gap_count": sum(1 for gap in gaps if gap.get("status", "").startswith("blocked")),
+        "gaps": gaps,
+        "closure_rule": "All proof gaps must be closed by formal proof artifacts or accepted theorem references before the conjecture page can change status.",
     }
 
 
@@ -509,6 +525,39 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
             },
             current_result="The bounded probe is compatible with the lemma but does not prove it.",
             next_action="Formalize the target inequality and enumerate which published equivalence theorem would be sufficient.",
+            proof_gap_taxonomy=proof_gap_taxonomy(
+                problem_id="riemann",
+                gaps=[
+                    {
+                        "id": "RH-G1",
+                        "type": "infinite_lift",
+                        "status": "open_infinite_bridge",
+                        "description": "Checkpoint control must become an all-x theta estimate with explicit constants.",
+                        "required_artifact": "formal all-x theta theorem",
+                    },
+                    {
+                        "id": "RH-G2",
+                        "type": "equivalence_bridge",
+                        "status": "open_infinite_bridge",
+                        "description": "The all-x estimate must imply an accepted RH-equivalent zero-control criterion.",
+                        "required_artifact": "formal RH-equivalence bridge",
+                    },
+                    {
+                        "id": "RH-G3",
+                        "type": "formalization",
+                        "status": "open_formalization",
+                        "description": "Zeta zero, theta, and explicit-bound objects must be kernel-checkable without conjectural imports.",
+                        "required_artifact": "Lean 4 definitions and theorem skeleton",
+                    },
+                    {
+                        "id": "RH-G4",
+                        "type": "independent_review",
+                        "status": "blocked_until_g1_g3_close",
+                        "description": "An external replay must verify the proof without trusting PrimeProject code.",
+                        "required_artifact": "external kernel replay report",
+                    },
+                ],
+            ),
         ),
         "candidate_strategy": [
             "Use generator-fingerprint residuals to look for structured departures from PNT-scale noise.",
@@ -743,6 +792,39 @@ def build_collatz(limit: int) -> dict[str, object]:
             },
             current_result="The bounded replay supports the search for descent certificates but still depends on finite enumeration.",
             next_action="Generate candidate odd-only residue transitions and rank uncovered blocks by descent failure risk.",
+            proof_gap_taxonomy=proof_gap_taxonomy(
+                problem_id="collatz",
+                gaps=[
+                    {
+                        "id": "C-G1",
+                        "type": "symbolic_cover",
+                        "status": "open_infinite_bridge",
+                        "description": "Finite trajectories must be replaced by a complete symbolic residue-block cover.",
+                        "required_artifact": "residue-block cover certificate",
+                    },
+                    {
+                        "id": "C-G2",
+                        "type": "well_founded_descent",
+                        "status": "open_infinite_bridge",
+                        "description": "The cover must provide a well-founded measure that cannot increase forever.",
+                        "required_artifact": "formal descent theorem",
+                    },
+                    {
+                        "id": "C-G3",
+                        "type": "cycle_divergence_exclusion",
+                        "status": "open_infinite_bridge",
+                        "description": "The descent theorem must exclude both non-trivial cycles and divergent branches.",
+                        "required_artifact": "cycle and divergence exclusion proof",
+                    },
+                    {
+                        "id": "C-G4",
+                        "type": "independent_review",
+                        "status": "blocked_until_g1_g3_close",
+                        "description": "A clean replay must verify the accelerated-map equivalence and descent proof.",
+                        "required_artifact": "external kernel replay report",
+                    },
+                ],
+            ),
         ),
         "claim_boundary": "No proof claim. Current evidence is finite exhaustive replay plus blocker list.",
     }
@@ -959,6 +1041,39 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
             },
             current_result="The bounded witness certificate closes the finite range only; the positive infinite lower bound is open.",
             next_action="Use the hardest bounded decompositions to prioritize residue classes for explicit lower-bound stress tests.",
+            proof_gap_taxonomy=proof_gap_taxonomy(
+                problem_id="goldbach",
+                gaps=[
+                    {
+                        "id": "G-G1",
+                        "type": "positive_lower_bound",
+                        "status": "open_infinite_bridge",
+                        "description": "The representation count must be proved positive for every sufficiently large even integer.",
+                        "required_artifact": "explicit representation-count lower-bound theorem",
+                    },
+                    {
+                        "id": "G-G2",
+                        "type": "threshold_bridge",
+                        "status": "open_infinite_bridge",
+                        "description": "The analytic threshold must be at or below the certified bounded range.",
+                        "required_artifact": "formal finite-to-infinite threshold comparison",
+                    },
+                    {
+                        "id": "G-G3",
+                        "type": "dependency_control",
+                        "status": "open_formalization",
+                        "description": "The proof must not assume unproved prime-pair independence or Hardy-Littlewood strength.",
+                        "required_artifact": "assumption audit in formal contract",
+                    },
+                    {
+                        "id": "G-G4",
+                        "type": "independent_review",
+                        "status": "blocked_until_g1_g3_close",
+                        "description": "An external replay must verify the lower-bound and threshold bridge.",
+                        "required_artifact": "external kernel replay report",
+                    },
+                ],
+            ),
         ),
         "claim_boundary": "No proof claim. Current evidence is bounded exhaustive verification.",
     }
@@ -1172,6 +1287,39 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
             },
             current_result="The bounded count agrees with heuristic scale but does not establish infinitude.",
             next_action="Separate exact gap-2 requirements from bounded-gap evidence and formalize the missing lower-bound theorem.",
+            proof_gap_taxonomy=proof_gap_taxonomy(
+                problem_id="twin-prime",
+                gaps=[
+                    {
+                        "id": "TP-G1",
+                        "type": "exact_gap_lower_bound",
+                        "status": "open_infinite_bridge",
+                        "description": "A positive lower bound is needed for exact gap-2 pairs, not merely bounded prime gaps.",
+                        "required_artifact": "unconditional exact gap-2 lower-bound theorem",
+                    },
+                    {
+                        "id": "TP-G2",
+                        "type": "heuristic_removal",
+                        "status": "open_infinite_bridge",
+                        "description": "Hardy-Littlewood k-tuple behavior cannot be used as an assumption.",
+                        "required_artifact": "assumption-free distribution argument",
+                    },
+                    {
+                        "id": "TP-G3",
+                        "type": "infinitude_bridge",
+                        "status": "open_infinite_bridge",
+                        "description": "The exact gap-2 lower bound must imply arbitrarily large twin pairs.",
+                        "required_artifact": "formal infinitude bridge",
+                    },
+                    {
+                        "id": "TP-G4",
+                        "type": "independent_review",
+                        "status": "blocked_until_g1_g3_close",
+                        "description": "A clean external replay must verify exact gap-2, not just bounded gaps.",
+                        "required_artifact": "external kernel replay report",
+                    },
+                ],
+            ),
         ),
         "claim_boundary": "No proof claim. Current evidence is finite counting and heuristic comparison.",
     }

@@ -290,6 +290,9 @@ async function main() {
         !page.decisiveLemmaText.includes("bounded probe passed proof open") ||
         !page.decisiveLemmaText.includes("probe payload certified") ||
         !page.decisiveLemmaText.includes("Merkle root") ||
+        !page.decisiveLemmaText.includes("Proof Gap Taxonomy") ||
+        !page.decisiveLemmaText.includes("proof gaps open") ||
+        !page.decisiveLemmaText.includes("Required artifact") ||
         !page.decisiveLemmaText.includes("proof") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||

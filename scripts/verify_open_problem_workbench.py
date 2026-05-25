@@ -91,6 +91,17 @@ def main() -> int:
         if certificate.get("payload_sha256") != expected_hash or certificate.get("merkle_root") != expected_hash:
             print(f"{problem.get('id')} decisive lemma probe certificate hash mismatch.", file=sys.stderr)
             return 1
+        taxonomy = lab.get("proof_gap_taxonomy", {})
+        gaps = taxonomy.get("gaps", [])
+        if taxonomy.get("status") != "proof_gaps_open":
+            print(f"{problem.get('id')} proof gap taxonomy has unexpected status.", file=sys.stderr)
+            return 1
+        if len(gaps) < 4 or taxonomy.get("open_gap_count", 0) < 3:
+            print(f"{problem.get('id')} proof gap taxonomy is missing open proof gaps.", file=sys.stderr)
+            return 1
+        if not all(gap.get("required_artifact") for gap in gaps):
+            print(f"{problem.get('id')} proof gap taxonomy is missing required artifacts.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

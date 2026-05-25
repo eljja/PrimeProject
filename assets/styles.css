@@ -1262,6 +1262,76 @@ canvas {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
+.proof-gap-taxonomy {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  padding: 12px;
+}
+
+.proof-gap-head {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.6fr) minmax(160px, 0.5fr) minmax(140px, 0.4fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.proof-gap-head span,
+.proof-gap-card span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.proof-gap-head strong,
+.proof-gap-card strong {
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.proof-gap-head em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  text-align: right;
+}
+
+.proof-gap-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.proof-gap-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--danger);
+  background: #f8fafb;
+  padding: 11px;
+}
+
+.proof-gap-card span,
+.proof-gap-card strong,
+.proof-gap-card small {
+  display: block;
+}
+
+.proof-gap-card strong {
+  margin-top: 5px;
+}
+
+.proof-gap-card p,
+.proof-gap-card small,
+.proof-gap-taxonomy > p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -4231,8 +4301,14 @@ tr:last-child td {
   .decisive-lab-head,
   .decisive-grid,
   .probe-observed,
-  .probe-certificate {
+  .probe-certificate,
+  .proof-gap-head,
+  .proof-gap-list {
     grid-template-columns: 1fr;
+  }
+
+  .proof-gap-head em {
+    text-align: left;
   }
 }
 
