@@ -1,5 +1,7 @@
 # PrimeProject
 
+[![PrimeProject CI](https://github.com/eljja/PrimeProject/actions/workflows/ci.yml/badge.svg)](https://github.com/eljja/PrimeProject/actions/workflows/ci.yml)
+
 `PrimeProject` explores practical regularity analysis for cryptographic primes. The current implementation focuses on defensive audits of owned key material, key-quality policy checks, and synthetic generator-bias experiments.
 
 ## What it does
@@ -135,6 +137,10 @@ node scripts/verify_pages.cjs
 The verifier serves the repository over local HTTP, so it exercises the same `data/*.json` fetch path used by GitHub Pages instead of the `file://` fallback constants.
 
 The bundled Codex runtime Python can also run the same commands.
+
+## Continuous Verification
+
+GitHub Actions now runs the publication guard on pushes and pull requests to `main`: Python compile checks, the full unit suite, publication artifact reproduction, JavaScript syntax checks, Playwright-based GitHub Pages verification, and a final committed-artifact drift check. This keeps the public research bundle from silently diverging from the audited evidence files.
 
 ## Boundary
 

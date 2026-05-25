@@ -1,0 +1,55 @@
+name: PrimeProject CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  publication-guard:
+    name: Publication Guard
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Compile Python sources
+        run: python -m compileall prime_audit scripts tests
+
+      - name: Run Python test suite
+        run: python -m unittest tests.test_prime_audit
+
+      - name: Reproduce publication artifacts
+        run: python scripts/reproduce_publication.py
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright
+          npx playwright install --with-deps chromium
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/app.js
+          node --check scripts/verify_pages.cjs
+
+      - name: Verify GitHub Pages surface
+        run: node scripts/verify_pages.cjs
+
+      - name: Ensure committed artifacts stay in sync
+        run: git diff --exit-code -- .
