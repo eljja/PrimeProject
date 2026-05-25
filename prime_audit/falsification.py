@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from typing import Any
 
 
@@ -35,7 +35,7 @@ def build_falsification_battery(
     claim_floor = "do_not_promote" if fail_count else "controlled_synthetic_only"
     return {
         "schema": FALSIFICATION_BATTERY_SCHEMA,
-        "generated_at": generated_at or datetime.now(UTC).replace(microsecond=0).isoformat(),
+        "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "source": {
             "attribution_grid_schema": attribution_grid.get("schema"),
             "decision_protocol_schema": decision_protocol.get("schema"),

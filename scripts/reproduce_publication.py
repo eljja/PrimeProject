@@ -176,14 +176,25 @@ def public_evidence_artifact_args() -> list[str]:
 def compare_artifact(name: str, reproduced: Path, public: Path) -> dict[str, Any]:
     reproduced_bytes = reproduced.read_bytes()
     public_bytes = public.read_bytes()
+    reproduced_json = read_json(reproduced)
+    public_json = read_json(public)
+    reproduced_canonical = canonical_json_bytes(reproduced_json)
+    public_canonical = canonical_json_bytes(public_json)
     return {
         "artifact": name,
         "public_path": str(public.relative_to(REPO_ROOT)).replace("\\", "/"),
-        "json_equal": read_json(reproduced) == read_json(public),
-        "byte_equal": reproduced_bytes == public_bytes,
-        "reproduced_sha256": hashlib.sha256(reproduced_bytes).hexdigest(),
-        "public_sha256": hashlib.sha256(public_bytes).hexdigest(),
+        "json_equal": reproduced_json == public_json,
+        "byte_equal": reproduced_canonical == public_canonical,
+        "raw_byte_equal": reproduced_bytes == public_bytes,
+        "reproduced_sha256": hashlib.sha256(reproduced_canonical).hexdigest(),
+        "public_sha256": hashlib.sha256(public_canonical).hexdigest(),
+        "reproduced_raw_sha256": hashlib.sha256(reproduced_bytes).hexdigest(),
+        "public_raw_sha256": hashlib.sha256(public_bytes).hexdigest(),
     }
+
+
+def canonical_json_bytes(payload: dict[str, Any]) -> bytes:
+    return json.dumps(payload, indent=2, sort_keys=True).encode("utf-8")
 
 
 def run_cli(*args: str) -> list[str]:

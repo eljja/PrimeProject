@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -115,7 +115,7 @@ def build_artifact_lineage(
 
     return {
         "schema": ARTIFACT_LINEAGE_SCHEMA,
-        "generated_at": generated_at or datetime.now(UTC).replace(microsecond=0).isoformat(),
+        "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "summary": {
             "node_count": len(nodes),
             "edge_count": len(edges),

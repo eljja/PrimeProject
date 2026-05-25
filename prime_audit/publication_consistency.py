@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from typing import Any
 
 
@@ -64,7 +64,7 @@ def build_publication_consistency_report(
     status = "fail" if fail_count else "warn" if warn_count else "pass"
     return {
         "schema": PUBLICATION_CONSISTENCY_SCHEMA,
-        "generated_at": generated_at or datetime.now(UTC).replace(microsecond=0).isoformat(),
+        "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "source": {
             "evidence_pack_schema": evidence_pack.get("schema"),
             "claim_ledger_schema": claim_ledger.get("schema"),

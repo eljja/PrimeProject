@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from typing import Any
 
 
@@ -103,7 +103,7 @@ def build_decision_protocol(
         counts[decision["status"]] = counts.get(decision["status"], 0) + 1
     return {
         "schema": DECISION_PROTOCOL_SCHEMA,
-        "generated_at": generated_at or datetime.now(UTC).replace(microsecond=0).isoformat(),
+        "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "source": {
             "evidence_pack_schema": evidence_pack.get("schema"),
             "claim_ledger_schema": claim_ledger.get("schema"),

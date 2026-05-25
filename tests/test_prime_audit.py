@@ -1859,6 +1859,8 @@ class PrimeAuditTests(unittest.TestCase):
         self.assertEqual(len(payload["comparisons"]), 6)
         self.assertTrue(all(row["json_equal"] for row in payload["comparisons"]))
         self.assertTrue(all(row["byte_equal"] for row in payload["comparisons"]))
+        self.assertTrue(all("raw_byte_equal" in row for row in payload["comparisons"]))
+        self.assertTrue(all("reproduced_raw_sha256" in row for row in payload["comparisons"]))
 
     def test_local_reproduction_reports_are_ignored(self) -> None:
         ignored = (REPO_ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()

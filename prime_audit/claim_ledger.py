@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from typing import Any
 
 
@@ -120,7 +120,7 @@ def build_claim_ledger(
     blocked = [claim for claim in claims if claim["status"] == "blocked"]
     return {
         "schema": CLAIM_LEDGER_SCHEMA,
-        "generated_at": generated_at or datetime.now(UTC).replace(microsecond=0).isoformat(),
+        "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "source": {
             "schema": evidence_pack.get("schema"),
             "claim_level": evidence_pack.get("claim_level", {}).get("level"),

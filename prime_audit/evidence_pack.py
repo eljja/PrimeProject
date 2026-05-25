@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -35,7 +35,7 @@ def build_evidence_pack(
     )
     return {
         "schema": EVIDENCE_PACK_SCHEMA,
-        "generated_at": generated_at or datetime.now(UTC).replace(microsecond=0).isoformat(),
+        "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "claim_level": claim_level(readiness, gates),
         "publication_gates": gates,
         "artifact_count": len(artifacts),
