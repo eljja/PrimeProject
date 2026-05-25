@@ -225,6 +225,7 @@ async function main() {
           heading: document.querySelector("#problemTitle").textContent,
           status: document.querySelector("#claimStatus").textContent,
           metricCount: document.querySelectorAll(".proof-metric").length,
+          certificateText: document.querySelector("#certificatePanel").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
           text: document.body.textContent,
         }), problemId),
@@ -256,6 +257,8 @@ async function main() {
         !page.status.includes("open not proven") ||
         page.metricCount < 3 ||
         page.blockedClaimCount < 4 ||
+        !page.certificateText.includes("bounded theorem certified") ||
+        !page.certificateText.includes("scripts/verify_open_problem_workbench.py") ||
         !page.text.includes("Proof Gates") ||
         !page.text.includes("Candidate Strategy") ||
         !page.text.includes("No proof claim"),
@@ -326,7 +329,7 @@ async function main() {
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
     !metrics.evolutionSpine.includes("fixture audit") ||
-    !metrics.evolutionSpine.includes("21 checked artifacts") ||
+    !metrics.evolutionSpine.includes("22 checked artifacts") ||
     !metrics.evolutionSpine.includes("publication consistency") ||
     !metrics.evolutionDelta.includes("Claim Boundaries") ||
     !metrics.evolutionDelta.includes("controlled grid + null + replication") ||
@@ -488,7 +491,7 @@ async function main() {
     !metrics.evidencePanel.includes("claim_promotion_guard") ||
     !metrics.evidencePanel.includes("controlled_synthetic_only") ||
     !metrics.evidencePanel.includes("reproducible") ||
-    !metrics.artifactLineageSummary.includes("23 nodes") ||
+    !metrics.artifactLineageSummary.includes("24 nodes") ||
     !metrics.evidencePanel.includes("real_world_generator_attribution") ||
     !metrics.evidencePanel.includes("bitcoin_nonce_risk_attribution") ||
     !metrics.evidencePanel.includes("blocked") ||

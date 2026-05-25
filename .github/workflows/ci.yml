@@ -54,6 +54,9 @@ jobs:
       - name: Unit check publication reproduction
         run: python -m unittest tests.test_prime_audit.PrimeAuditTests.test_publication_reproduction_script_succeeds
 
+      - name: Verify open problem certificates
+        run: python scripts/verify_open_problem_workbench.py
+
       - name: Reproduce publication artifacts
         run: python scripts/reproduce_publication.py
 
@@ -65,6 +68,7 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check assets/app.js
+          node --check assets/open-problems.js
           node --check scripts/verify_pages.cjs
 
       - name: Verify GitHub Pages surface

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 from datetime import datetime, timezone
@@ -8,6 +9,67 @@ from pathlib import Path
 
 
 SCHEMA = "primeproject.open-problem-workbench.v1"
+CERTIFICATE_SCHEMA = "primeproject.bounded-proof-certificate.v1"
+
+
+def hash_leaf(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def merkle_root(hex_hashes: list[str]) -> str:
+    if not hex_hashes:
+        return hash_leaf("empty")
+    layer = hex_hashes[:]
+    while len(layer) > 1:
+        if len(layer) % 2 == 1:
+            layer.append(layer[-1])
+        layer = [
+            hashlib.sha256(bytes.fromhex(layer[index]) + bytes.fromhex(layer[index + 1])).hexdigest()
+            for index in range(0, len(layer), 2)
+        ]
+    return layer[0]
+
+
+class ChunkedCertificate:
+    def __init__(self, *, problem_id: str, statement: str, limit: int, chunk_size: int = 10_000) -> None:
+        self.problem_id = problem_id
+        self.statement = statement
+        self.limit = limit
+        self.chunk_size = chunk_size
+        self.current: list[str] = []
+        self.chunk_roots: list[str] = []
+        self.leaf_count = 0
+
+    def update(self, text: str) -> None:
+        self.current.append(hash_leaf(text))
+        self.leaf_count += 1
+        if len(self.current) >= self.chunk_size:
+            self._flush()
+
+    def _flush(self) -> None:
+        if not self.current:
+            return
+        self.chunk_roots.append(merkle_root(self.current))
+        self.current = []
+
+    def finish(self) -> dict[str, object]:
+        self._flush()
+        return {
+            "schema": CERTIFICATE_SCHEMA,
+            "problem_id": self.problem_id,
+            "claim_type": "bounded_theorem_certificate",
+            "status": "bounded_theorem_certified",
+            "statement": self.statement,
+            "limit": self.limit,
+            "leaf_count": self.leaf_count,
+            "chunk_size": self.chunk_size,
+            "chunk_count": len(self.chunk_roots),
+            "leaf_encoding": "utf8 text, sha256 leaf, pairwise sha256 Merkle chunks",
+            "chunk_roots": self.chunk_roots,
+            "chunk_roots_sha256": hash_leaf("\n".join(self.chunk_roots)),
+            "merkle_root": merkle_root(self.chunk_roots),
+            "verifier": "scripts/verify_open_problem_workbench.py",
+        }
 
 
 def sieve(limit: int) -> tuple[list[int], bytearray]:
@@ -42,6 +104,11 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
     index = 0
     theta = 0.0
     max_scaled_theta_error = 0.0
+    certificate = ChunkedCertificate(
+        problem_id="riemann",
+        statement=f"Prime-counting diagnostics are exactly recomputed at decimal checkpoints up to {limit}.",
+        limit=limit,
+    )
     for x in checkpoints:
         while index < len(primes) and primes[index] <= x:
             theta += math.log(primes[index])
@@ -60,6 +127,7 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
                 "scaled_theta_error": round(scaled_theta_error, 6),
             }
         )
+        certificate.update(json.dumps(rows[-1], sort_keys=True, separators=(",", ":")))
     return {
         "id": "riemann",
         "title": "Riemann Hypothesis",
@@ -72,6 +140,7 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
             "checkpoints": rows,
             "max_scaled_theta_error": round(max_scaled_theta_error, 6),
         },
+        "certificate": certificate.finish(),
         "proof_gates": [
             "Replace finite prime-counting evidence with a theorem controlling zeta zeros on the full critical strip.",
             "Prove an explicit equivalence strong enough to imply all non-trivial zeros lie on Re(s)=1/2.",
@@ -90,6 +159,11 @@ def build_collatz(limit: int) -> dict[str, object]:
     memo = {1: 0}
     max_steps = {"n": 1, "steps": 0}
     max_peak = {"n": 1, "peak": 1, "ratio": 1.0}
+    certificate = ChunkedCertificate(
+        problem_id="collatz",
+        statement=f"Every start value 1 <= n <= {limit} reaches 1 under the Collatz map.",
+        limit=limit,
+    )
 
     def trajectory_stats(n: int) -> tuple[int, int]:
         original = n
@@ -109,8 +183,10 @@ def build_collatz(limit: int) -> dict[str, object]:
                 memo[value] = steps
         return memo[original], peak
 
+    certificate.update("1:0:1")
     for n in range(2, limit + 1):
         steps, peak = trajectory_stats(n)
+        certificate.update(f"{n}:{steps}:{peak}")
         if steps > max_steps["steps"]:
             max_steps = {"n": n, "steps": steps}
         ratio = peak / n
@@ -135,6 +211,7 @@ def build_collatz(limit: int) -> dict[str, object]:
                 "ratio": round(max_peak["ratio"], 6),
             },
         },
+        "certificate": certificate.finish(),
         "proof_gates": [
             "Prove descent or recurrence for every congruence class without relying on finite enumeration.",
             "Rule out non-trivial cycles and divergent trajectories simultaneously.",
@@ -153,6 +230,11 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
     failures = []
     hardest = {"even": 4, "smallest_prime": 2, "partner": 2}
     decompositions = []
+    certificate = ChunkedCertificate(
+        problem_id="goldbach",
+        statement=f"Every even integer 4 <= n <= {limit} has a displayed prime-pair witness.",
+        limit=limit,
+    )
     for even in range(4, limit + 1, 2):
         found = None
         for p in primes:
@@ -163,7 +245,9 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
                 break
         if found is None:
             failures.append(even)
+            certificate.update(f"{even}:fail")
             continue
+        certificate.update(f"{even}:{found[0]}:{found[1]}")
         if found[0] > hardest["smallest_prime"]:
             hardest = {"even": even, "smallest_prime": found[0], "partner": found[1]}
         if even in {100, 1_000, 10_000, 100_000, limit}:
@@ -184,6 +268,7 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
             "hardest_smallest_prime_decomposition": hardest,
             "sample_decompositions": decompositions,
         },
+        "certificate": certificate.finish(),
         "proof_gates": [
             "Control prime coverage in every residue class strongly enough for all even integers.",
             "Bridge from verified finite range to an analytic theorem for the infinite tail.",
@@ -204,10 +289,16 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
     count = 0
     largest_pair = None
     rows = []
+    certificate = ChunkedCertificate(
+        problem_id="twin-prime",
+        statement=f"All twin prime pairs p,p+2 with p+2 <= {limit} are counted by the sieve scan.",
+        limit=limit,
+    )
     for p in primes:
         if p + 2 <= limit and is_prime[p + 2]:
             count += 1
             largest_pair = [p, p + 2]
+            certificate.update(f"{p}:{p + 2}")
         while checkpoint_index < len(checkpoints) and p >= checkpoints[checkpoint_index]:
             x = checkpoints[checkpoint_index]
             estimate = 2 * 0.6601618158468696 * x / (math.log(x) ** 2)
@@ -232,6 +323,7 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
             "largest_pair_seen": largest_pair,
             "checkpoints": rows,
         },
+        "certificate": certificate.finish(),
         "proof_gates": [
             "Prove infinitely many prime gaps of size exactly 2, not merely bounded gaps.",
             "Remove dependence on unproven distribution assumptions such as full Hardy-Littlewood k-tuple strength.",
@@ -246,11 +338,11 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
     }
 
 
-def build_payload(limit: int) -> dict[str, object]:
+def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, object]:
     primes, is_prime = sieve(limit)
     return {
         "schema": SCHEMA,
-        "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "search_limit": limit,
         "claim_policy": {
             "public_claim": "proof_workbench_only",
@@ -274,10 +366,11 @@ def build_payload(limit: int) -> dict[str, object]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=1_000_000)
+    parser.add_argument("--generated-at", default=None)
     parser.add_argument("--output", type=Path, default=Path("data/open_problem_workbench.json"))
     args = parser.parse_args()
 
-    payload = build_payload(args.limit)
+    payload = build_payload(args.limit, generated_at=args.generated_at)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 

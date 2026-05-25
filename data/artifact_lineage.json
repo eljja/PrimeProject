@@ -2,8 +2,8 @@
   "schema": "primeproject.artifact-lineage.v1",
   "generated_at": "2026-05-24T16:56:40+00:00",
   "summary": {
-    "node_count": 23,
-    "edge_count": 53,
+    "node_count": 24,
+    "edge_count": 54,
     "missing_count": 0,
     "invalid_edge_count": 0,
     "checksum_mismatch_count": 0,
@@ -48,7 +48,7 @@
       "path": "data/claim_language_audit.json",
       "exists": true,
       "schema": "primeproject.claim-language-audit.v1",
-      "sha256": "506227802a32c2fed1917fc4b429717bc2d9ecd58143da56928669598968e9cf",
+      "sha256": "8af16cee71d4d59047258bcde242f0948e4883ad56ebb5163f4695e94abf176d",
       "bytes": 3648,
       "hash_policy": "canonical_json"
     },
@@ -57,7 +57,7 @@
       "path": "data/claim_ledger.json",
       "exists": true,
       "schema": "primeproject.claim-ledger.v1",
-      "sha256": "1272f16b3bcd87b65452dbb1fb8b70e5e9c930ec37b471bd50af7ddb91f79025",
+      "sha256": "d378b2526aa8dbe81619b23d477d15643a7eccaf1d00fe6e7a073d0d20fb2b40",
       "bytes": 9244,
       "hash_policy": "canonical_json"
     },
@@ -138,8 +138,8 @@
       "path": "data/evidence_pack.json",
       "exists": true,
       "schema": "primeproject.evidence-pack.v1",
-      "sha256": "916716fbacdffd30793b18be4ebd896ccd3effda8ba7fdd836a267b39fe68e4f",
-      "bytes": 15543,
+      "sha256": "e857b63375253f16e778d6bb029a5341a7553efdf5877ff338461d804fb9d5c7",
+      "bytes": 15870,
       "hash_policy": "canonical_json"
     },
     {
@@ -170,12 +170,21 @@
       "hash_policy": "canonical_json"
     },
     {
+      "role": "open_problem_workbench",
+      "path": "data/open_problem_workbench.json",
+      "exists": true,
+      "schema": "primeproject.open-problem-workbench.v1",
+      "sha256": "49dc1a3cd0dc58d6882198f431ec6f74e34e889090fbc5676eafdaa76d4709f1",
+      "bytes": 23751,
+      "hash_policy": "canonical_json"
+    },
+    {
       "role": "project_evolution",
       "path": "data/project_evolution.json",
       "exists": true,
       "schema": "primeproject.project-evolution.v1",
-      "sha256": "ba79f4cb007f91e95639eecdd0e12cb7c7b2140f9341c81fe34d2212fd795ee6",
-      "bytes": 30360,
+      "sha256": "73a085a61619291afaf219e558df09760318d15bd85864656468069ad1db1780",
+      "bytes": 30387,
       "hash_policy": "canonical_json"
     },
     {
@@ -396,6 +405,11 @@
       "valid": true
     },
     {
+      "from": "open_problem_workbench",
+      "to": "evidence_pack",
+      "valid": true
+    },
+    {
       "from": "snapshot_manifest",
       "to": "evidence_pack",
       "valid": true
@@ -516,8 +530,8 @@
     {
       "role": "claim_language_audit",
       "status": "match",
-      "expected_sha256": "506227802a32c2fed1917fc4b429717bc2d9ecd58143da56928669598968e9cf",
-      "actual_sha256": "506227802a32c2fed1917fc4b429717bc2d9ecd58143da56928669598968e9cf",
+      "expected_sha256": "8af16cee71d4d59047258bcde242f0948e4883ad56ebb5163f4695e94abf176d",
+      "actual_sha256": "8af16cee71d4d59047258bcde242f0948e4883ad56ebb5163f4695e94abf176d",
       "schema": "primeproject.claim-language-audit.v1"
     },
     {
@@ -598,10 +612,17 @@
       "schema": "primeproject.null-calibration.v1"
     },
     {
+      "role": "open_problem_workbench",
+      "status": "match",
+      "expected_sha256": "49dc1a3cd0dc58d6882198f431ec6f74e34e889090fbc5676eafdaa76d4709f1",
+      "actual_sha256": "49dc1a3cd0dc58d6882198f431ec6f74e34e889090fbc5676eafdaa76d4709f1",
+      "schema": "primeproject.open-problem-workbench.v1"
+    },
+    {
       "role": "project_evolution",
       "status": "match",
-      "expected_sha256": "ba79f4cb007f91e95639eecdd0e12cb7c7b2140f9341c81fe34d2212fd795ee6",
-      "actual_sha256": "ba79f4cb007f91e95639eecdd0e12cb7c7b2140f9341c81fe34d2212fd795ee6",
+      "expected_sha256": "73a085a61619291afaf219e558df09760318d15bd85864656468069ad1db1780",
+      "actual_sha256": "73a085a61619291afaf219e558df09760318d15bd85864656468069ad1db1780",
       "schema": "primeproject.project-evolution.v1"
     },
     {

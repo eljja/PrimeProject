@@ -120,6 +120,34 @@ function list(items) {
   return `<ol>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ol>`;
 }
 
+function renderCertificate(problem) {
+  const certificate = problem.certificate || {};
+  const merkleRoot = certificate.merkle_root || "n/a";
+  const status = String(certificate.status || "missing").replaceAll("_", " ");
+  return `
+    <div class="certificate-grid">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(status)}</strong>
+      </div>
+      <div>
+        <span>Leaves</span>
+        <strong>${escapeHtml(formatValue(certificate.leaf_count))}</strong>
+      </div>
+      <div>
+        <span>Chunks</span>
+        <strong>${escapeHtml(formatValue(certificate.chunk_count))}</strong>
+      </div>
+      <div>
+        <span>Merkle root</span>
+        <code>${escapeHtml(merkleRoot)}</code>
+      </div>
+    </div>
+    <p class="certificate-statement">${escapeHtml(certificate.statement || "")}</p>
+    <p class="certificate-verifier">Verifier: <code>${escapeHtml(certificate.verifier || "")}</code></p>
+  `;
+}
+
 function render(payload, problem) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
@@ -148,6 +176,7 @@ function render(payload, problem) {
     .join("");
 
   document.querySelector("#finiteEvidence").innerHTML = renderTable(problem);
+  document.querySelector("#certificatePanel").innerHTML = renderCertificate(problem);
   document.querySelector("#proofGates").innerHTML = list(problem.proof_gates || []);
   document.querySelector("#candidateStrategy").innerHTML = list(problem.candidate_strategy || []);
   document.querySelector("#blockedClaims").innerHTML = (payload.claim_policy.blocked_claims || [])
