@@ -10,6 +10,10 @@ from pathlib import Path
 from random import Random
 from unittest.mock import patch
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 from prime_audit.analysis import audit_records, evaluate_policy, report_to_dict
 from prime_audit.artifact_lineage import build_artifact_lineage
 from prime_audit.attribution import (
@@ -66,10 +70,6 @@ from prime_audit.simulators import (
     records_to_jsonable,
 )
 from prime_audit.snapshots import build_snapshot, render_snapshot_svgs
-
-
-REPO_ROOT = Path(__file__).resolve().parents[1]
-
 
 def intake_feature_vector(label: str, *, record_count: int = 5000, bit_length: int = 2048) -> dict[str, object]:
     features = {name: 0.1 for name in SCALAR_FEATURES}
