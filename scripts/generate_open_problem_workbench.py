@@ -18,6 +18,7 @@ DECISIVE_LEMMA_SCHEMA = "primeproject.decisive-lemma-lab.v1"
 PROBE_CERTIFICATE_SCHEMA = "primeproject.decisive-lemma-probe-certificate.v1"
 PROOF_GAP_TAXONOMY_SCHEMA = "primeproject.proof-gap-taxonomy.v1"
 PROOF_EXECUTION_PROTOCOL_SCHEMA = "primeproject.proof-execution-protocol.v1"
+PROOF_FRONTIER_PROBE_SCHEMA = "primeproject.proof-frontier-probe.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -253,6 +254,30 @@ def proof_milestone_queue(
     }
 
 
+def proof_frontier_probe(
+    *,
+    problem_id: str,
+    objective: str,
+    limit: int,
+    metrics: dict[str, object],
+    observations: list[dict[str, object]],
+    proof_pressure: str,
+    failure_signal: str,
+) -> dict[str, object]:
+    return {
+        "schema": PROOF_FRONTIER_PROBE_SCHEMA,
+        "problem_id": problem_id,
+        "status": "finite_probe_not_proof",
+        "objective": objective,
+        "limit": limit,
+        "metrics": metrics,
+        "observations": observations,
+        "proof_pressure": proof_pressure,
+        "failure_signal": failure_signal,
+        "promotion_rule": "Frontier probes can prioritize a proof path or falsify a candidate lemma, but cannot close an infinite conjecture without a formal theorem.",
+    }
+
+
 def decisive_lemma_lab(
     *,
     problem_id: str,
@@ -433,6 +458,18 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
             }
         )
         certificate.update(json.dumps(rows[-1], sort_keys=True, separators=(",", ":")))
+    theta_scan = 0.0
+    max_prime_scaled_error = {"x": 2, "value": 0.0}
+    candidate_threshold = 0.08
+    threshold_violations = 0
+    for prime in primes:
+        theta_scan += math.log(prime)
+        if prime >= 3:
+            value = abs(theta_scan - prime) / (math.sqrt(prime) * (math.log(prime) ** 2))
+            if value > max_prime_scaled_error["value"]:
+                max_prime_scaled_error = {"x": prime, "value": value}
+            if value > candidate_threshold:
+                threshold_violations += 1
     return {
         "id": "riemann",
         "title": "Riemann Hypothesis",
@@ -446,6 +483,34 @@ def build_riemann(limit: int, primes: list[int]) -> dict[str, object]:
             "max_scaled_theta_error": round(max_scaled_theta_error, 6),
         },
         "certificate": certificate.finish(),
+        "proof_frontier_probe": proof_frontier_probe(
+            problem_id="riemann",
+            objective="Stress the proposed theta-envelope lemma at every prime endpoint through the committed limit.",
+            limit=limit,
+            metrics={
+                "prime_endpoint_count": len(primes),
+                "candidate_scaled_theta_threshold": candidate_threshold,
+                "threshold_violation_count": threshold_violations,
+                "max_prime_endpoint_scaled_theta_error": round(max_prime_scaled_error["value"], 6),
+                "max_prime_endpoint_x": max_prime_scaled_error["x"],
+            },
+            observations=[
+                {
+                    "label": "worst prime endpoint",
+                    "value": f"{max_prime_scaled_error['x']} @ {max_prime_scaled_error['value']:.6f}",
+                },
+                {
+                    "label": "decimal checkpoint maximum",
+                    "value": round(max_scaled_theta_error, 6),
+                },
+                {
+                    "label": "candidate threshold violations",
+                    "value": threshold_violations,
+                },
+            ],
+            proof_pressure="A future all-x theta theorem must dominate both decimal checkpoints and every prime endpoint stress case, then connect to an RH-equivalent criterion.",
+            failure_signal="Any endpoint above the proposed explicit envelope falsifies that candidate before formalization.",
+        ),
         "proof_attempt": proof_attempt_ledger(
             problem_id="riemann",
             route="Prime-counting residuals -> explicit theta(x) envelope -> zero-free critical-strip control strong enough for RH.",
@@ -694,6 +759,24 @@ def build_collatz(limit: int) -> dict[str, object]:
         ratio = peak / n
         if ratio > max_peak["ratio"]:
             max_peak = {"n": n, "peak": peak, "ratio": ratio}
+    residue_modulus = 4096
+    residue_step_budget = 8
+    odd_residues = [residue for residue in range(1, residue_modulus, 2)]
+    uncovered_residues: list[int] = []
+    longest_descent_steps = 0
+    for residue in odd_residues:
+        value = residue
+        covered = residue == 1
+        for step in range(1, residue_step_budget + 1):
+            value = 3 * value + 1
+            while value % 2 == 0:
+                value //= 2
+            if value < residue:
+                covered = True
+                longest_descent_steps = max(longest_descent_steps, step)
+                break
+        if not covered:
+            uncovered_residues.append(residue)
 
     return {
         "id": "collatz",
@@ -714,6 +797,35 @@ def build_collatz(limit: int) -> dict[str, object]:
             },
         },
         "certificate": certificate.finish(),
+        "proof_frontier_probe": proof_frontier_probe(
+            problem_id="collatz",
+            objective=f"Search for accelerated odd residue descents modulo {residue_modulus} within {residue_step_budget} odd steps.",
+            limit=limit,
+            metrics={
+                "residue_modulus": residue_modulus,
+                "odd_residue_count": len(odd_residues),
+                "covered_residue_count": len(odd_residues) - len(uncovered_residues),
+                "uncovered_residue_count": len(uncovered_residues),
+                "step_budget": residue_step_budget,
+                "longest_observed_descent_steps": longest_descent_steps,
+            },
+            observations=[
+                {
+                    "label": "first uncovered residues",
+                    "value": uncovered_residues[:10],
+                },
+                {
+                    "label": "coverage ratio",
+                    "value": round((len(odd_residues) - len(uncovered_residues)) / len(odd_residues), 6),
+                },
+                {
+                    "label": "max stopping-time witness",
+                    "value": f"{max_steps['n']} in {max_steps['steps']} steps",
+                },
+            ],
+            proof_pressure="A real Collatz proof path needs a symbolic residue-block cover; uncovered residues identify where the current descent search is too weak.",
+            failure_signal="Any residue family that cannot be assigned a well-founded descent keeps the global proof blocked.",
+        ),
         "proof_attempt": proof_attempt_ledger(
             problem_id="collatz",
             route="Odd-only accelerated map -> residue-block descent certificate -> recursive coverage of every positive integer.",
@@ -931,6 +1043,11 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
     failures = []
     hardest = {"even": 4, "smallest_prime": 2, "partner": 2}
     decompositions = []
+    residue_modulus = 210
+    residue_stats: dict[int, dict[str, object]] = {
+        residue: {"tested": 0, "max_smallest_prime": 0, "hardest_even": None}
+        for residue in range(0, residue_modulus, 2)
+    }
     certificate = ChunkedCertificate(
         problem_id="goldbach",
         statement=f"Every even integer 4 <= n <= {limit} has a displayed prime-pair witness.",
@@ -949,10 +1066,29 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
             certificate.update(f"{even}:fail")
             continue
         certificate.update(f"{even}:{found[0]}:{found[1]}")
+        residue = even % residue_modulus
+        residue_stats[residue]["tested"] = int(residue_stats[residue]["tested"]) + 1
+        if found[0] > int(residue_stats[residue]["max_smallest_prime"]):
+            residue_stats[residue]["max_smallest_prime"] = found[0]
+            residue_stats[residue]["hardest_even"] = even
         if found[0] > hardest["smallest_prime"]:
             hardest = {"even": even, "smallest_prime": found[0], "partner": found[1]}
         if even in {100, 1_000, 10_000, 100_000, limit}:
             decompositions.append({"even": even, "p": found[0], "q": found[1]})
+    hardest_residues = sorted(
+        (
+            {
+                "residue": residue,
+                "tested": stats["tested"],
+                "max_smallest_prime": stats["max_smallest_prime"],
+                "hardest_even": stats["hardest_even"],
+            }
+            for residue, stats in residue_stats.items()
+            if int(stats["tested"]) > 0
+        ),
+        key=lambda item: int(item["max_smallest_prime"]),
+        reverse=True,
+    )[:8]
 
     return {
         "id": "goldbach",
@@ -970,6 +1106,34 @@ def build_goldbach(limit: int, primes: list[int], is_prime: bytearray) -> dict[s
             "sample_decompositions": decompositions,
         },
         "certificate": certificate.finish(),
+        "proof_frontier_probe": proof_frontier_probe(
+            problem_id="goldbach",
+            objective=f"Rank even residue classes modulo {residue_modulus} by hardest first-prime witness through the committed limit.",
+            limit=limit,
+            metrics={
+                "residue_modulus": residue_modulus,
+                "tested_residue_count": sum(1 for stats in residue_stats.values() if int(stats["tested"]) > 0),
+                "counterexample_count": len(failures),
+                "global_hardest_even": hardest["even"],
+                "global_hardest_smallest_prime": hardest["smallest_prime"],
+            },
+            observations=[
+                {
+                    "label": "hardest residue classes",
+                    "value": hardest_residues,
+                },
+                {
+                    "label": "global hardest witness",
+                    "value": f"{hardest['even']} = {hardest['smallest_prime']} + {hardest['partner']}",
+                },
+                {
+                    "label": "bounded counterexamples",
+                    "value": len(failures),
+                },
+            ],
+            proof_pressure="A positive representation-count theorem must survive the thinnest residue classes, not only aggregate no-counterexample evidence.",
+            failure_signal="If an explicit lower bound turns non-positive on a stressed residue class, that proof path is rejected.",
+        ),
         "proof_attempt": proof_attempt_ledger(
             problem_id="goldbach",
             route="Exhaustive bounded witnesses -> thinnest residue-class model -> explicit positive lower bound for all even n.",
@@ -1190,6 +1354,8 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
     count = 0
     largest_pair = None
     rows = []
+    residue_modulus = 210
+    twin_residue_counts = {residue: 0 for residue in range(residue_modulus) if math.gcd(residue, residue_modulus) == 1}
     certificate = ChunkedCertificate(
         problem_id="twin-prime",
         statement=f"All twin prime pairs p,p+2 with p+2 <= {limit} are counted by the sieve scan.",
@@ -1199,6 +1365,9 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
         if p + 2 <= limit and is_prime[p + 2]:
             count += 1
             largest_pair = [p, p + 2]
+            residue = p % residue_modulus
+            if residue in twin_residue_counts:
+                twin_residue_counts[residue] += 1
             certificate.update(f"{p}:{p + 2}")
         while checkpoint_index < len(checkpoints) and p >= checkpoints[checkpoint_index]:
             x = checkpoints[checkpoint_index]
@@ -1210,6 +1379,12 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
         estimate = 2 * 0.6601618158468696 * x / (math.log(x) ** 2)
         rows.append({"x": x, "twin_pairs": count, "hardy_littlewood_estimate": round(estimate, 2)})
         checkpoint_index += 1
+    nonzero_residues = [item for item in twin_residue_counts.items() if item[1] > 0]
+    top_twin_residues = [
+        {"residue": residue, "count": residue_count}
+        for residue, residue_count in sorted(nonzero_residues, key=lambda item: item[1], reverse=True)[:8]
+    ]
+    zero_residue_count = sum(1 for residue_count in twin_residue_counts.values() if residue_count == 0)
 
     return {
         "id": "twin-prime",
@@ -1225,6 +1400,35 @@ def build_twin_prime(limit: int, primes: list[int], is_prime: bytearray) -> dict
             "checkpoints": rows,
         },
         "certificate": certificate.finish(),
+        "proof_frontier_probe": proof_frontier_probe(
+            problem_id="twin-prime",
+            objective=f"Separate exact gap-2 residue persistence modulo {residue_modulus} from broader bounded-gap signals.",
+            limit=limit,
+            metrics={
+                "residue_modulus": residue_modulus,
+                "admissible_residue_count": len(twin_residue_counts),
+                "nonzero_residue_count": len(nonzero_residues),
+                "zero_residue_count": zero_residue_count,
+                "twin_pair_count": count,
+                "largest_pair_seen": largest_pair,
+            },
+            observations=[
+                {
+                    "label": "top exact gap-2 residues",
+                    "value": top_twin_residues,
+                },
+                {
+                    "label": "final count vs heuristic",
+                    "value": round(count / rows[-1]["hardy_littlewood_estimate"], 6) if rows and rows[-1]["hardy_littlewood_estimate"] else None,
+                },
+                {
+                    "label": "zero admissible residues",
+                    "value": zero_residue_count,
+                },
+            ],
+            proof_pressure="The exact gap-2 proof path must produce a positive lower bound for arbitrarily large x, not just bounded-gap or averaged residue evidence.",
+            failure_signal="A candidate argument that only proves bounded gaps or depends on k-tuple density remains insufficient.",
+        ),
         "proof_attempt": proof_attempt_ledger(
             problem_id="twin-prime",
             route="Certified finite twin pairs -> admissible two-point pattern analysis -> lower-bound theorem for exact gap 2.",

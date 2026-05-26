@@ -20,8 +20,9 @@ function formatValue(value) {
     if (Number.isInteger(value)) return formatter.format(value);
     return value.toLocaleString("en-US", { maximumFractionDigits: 6 });
   }
-  if (Array.isArray(value)) return value.map(formatValue).join(", ");
   if (value === null || value === undefined) return "n/a";
+  if (Array.isArray(value)) return value.map(formatValue).join(", ");
+  if (typeof value === "object") return JSON.stringify(value);
   return String(value);
 }
 
@@ -338,6 +339,67 @@ function renderProofExecutionProtocol(problem) {
   `;
 }
 
+function renderProofFrontierProbe(problem) {
+  const probe = problem.proof_frontier_probe || {};
+  const metrics = Object.entries(probe.metrics || {});
+  const observations = probe.observations || [];
+  return `
+    <div class="frontier-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(probe.status))}</strong>
+      </div>
+      <div>
+        <span>Limit</span>
+        <strong>${escapeHtml(formatValue(probe.limit))}</strong>
+      </div>
+      <div>
+        <span>Objective</span>
+        <strong>${escapeHtml(probe.objective || "")}</strong>
+      </div>
+    </div>
+    <div class="frontier-grid">
+      <section>
+        <h3>Stress Metrics</h3>
+        <div class="proof-gate-table">
+          ${metrics
+            .map(
+              ([label, value]) => `
+                <div>
+                  <span>${escapeHtml(label.replaceAll("_", " "))}</span>
+                  <strong>${escapeHtml(formatValue(value))}</strong>
+                </div>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+      <section>
+        <h3>Observations</h3>
+        <div class="frontier-observations">
+          ${observations
+            .map(
+              (item) => `
+                <div>
+                  <span>${escapeHtml(item.label || "")}</span>
+                  <strong>${escapeHtml(formatValue(item.value))}</strong>
+                </div>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+    </div>
+    <div class="frontier-pressure">
+      <strong>Proof pressure</strong>
+      <p>${escapeHtml(probe.proof_pressure || "")}</p>
+      <strong>Failure signal</strong>
+      <p>${escapeHtml(probe.failure_signal || "")}</p>
+      <small>${escapeHtml(probe.promotion_rule || "")}</small>
+    </div>
+  `;
+}
+
 function renderFormalContract(problem) {
   const contract = problem.formal_proof_contract || {};
   return `
@@ -583,6 +645,7 @@ function render(payload, problem) {
   document.querySelector("#proofMap").innerHTML = renderProofMap(problem);
   document.querySelector("#proofStatusGate").innerHTML = renderProofStatusGate(problem);
   document.querySelector("#proofExecutionProtocol").innerHTML = renderProofExecutionProtocol(problem);
+  document.querySelector("#proofFrontierProbe").innerHTML = renderProofFrontierProbe(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);

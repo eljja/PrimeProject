@@ -119,6 +119,16 @@ def main() -> int:
         if not any(stage.get("status") == "blocked_open_infinite_obligation" for stage in stages):
             print(f"{problem.get('id')} proof execution protocol is missing the full-proof gate stage.", file=sys.stderr)
             return 1
+        frontier = problem.get("proof_frontier_probe", {})
+        if frontier.get("status") != "finite_probe_not_proof":
+            print(f"{problem.get('id')} proof frontier probe has unexpected status.", file=sys.stderr)
+            return 1
+        if not frontier.get("metrics") or not frontier.get("observations"):
+            print(f"{problem.get('id')} proof frontier probe is missing metrics or observations.", file=sys.stderr)
+            return 1
+        if not frontier.get("proof_pressure") or not frontier.get("failure_signal"):
+            print(f"{problem.get('id')} proof frontier probe is missing pressure or failure terms.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

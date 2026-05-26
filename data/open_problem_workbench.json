@@ -92,6 +92,37 @@
         "merkle_root": "d2a11c74de18a21a2652a79f3ff5ab1b92356f18884c089a4a82127189a4c813",
         "verifier": "scripts/verify_open_problem_workbench.py"
       },
+      "proof_frontier_probe": {
+        "schema": "primeproject.proof-frontier-probe.v1",
+        "problem_id": "riemann",
+        "status": "finite_probe_not_proof",
+        "objective": "Stress the proposed theta-envelope lemma at every prime endpoint through the committed limit.",
+        "limit": 1000000,
+        "metrics": {
+          "prime_endpoint_count": 78498,
+          "candidate_scaled_theta_threshold": 0.08,
+          "threshold_violation_count": 10,
+          "max_prime_endpoint_scaled_theta_error": 0.577968,
+          "max_prime_endpoint_x": 3
+        },
+        "observations": [
+          {
+            "label": "worst prime endpoint",
+            "value": "3 @ 0.577968"
+          },
+          {
+            "label": "decimal checkpoint maximum",
+            "value": 0.076725
+          },
+          {
+            "label": "candidate threshold violations",
+            "value": 10
+          }
+        ],
+        "proof_pressure": "A future all-x theta theorem must dominate both decimal checkpoints and every prime endpoint stress case, then connect to an RH-equivalent criterion.",
+        "failure_signal": "Any endpoint above the proposed explicit envelope falsifies that candidate before formalization.",
+        "promotion_rule": "Frontier probes can prioritize a proof path or falsify a candidate lemma, but cannot close an infinite conjecture without a formal theorem."
+      },
       "proof_attempt": {
         "schema": "primeproject.proof-attempt-ledger.v1",
         "problem_id": "riemann",
@@ -625,6 +656,49 @@
         "merkle_root": "efda5adedc111cb14cdb476cd133ca278b19fec9cd94764e1c338b937f98857e",
         "verifier": "scripts/verify_open_problem_workbench.py"
       },
+      "proof_frontier_probe": {
+        "schema": "primeproject.proof-frontier-probe.v1",
+        "problem_id": "collatz",
+        "status": "finite_probe_not_proof",
+        "objective": "Search for accelerated odd residue descents modulo 4096 within 8 odd steps.",
+        "limit": 1000000,
+        "metrics": {
+          "residue_modulus": 4096,
+          "odd_residue_count": 2048,
+          "covered_residue_count": 1863,
+          "uncovered_residue_count": 185,
+          "step_budget": 8,
+          "longest_observed_descent_steps": 8
+        },
+        "observations": [
+          {
+            "label": "first uncovered residues",
+            "value": [
+              27,
+              31,
+              47,
+              63,
+              71,
+              91,
+              103,
+              111,
+              127,
+              155
+            ]
+          },
+          {
+            "label": "coverage ratio",
+            "value": 0.909668
+          },
+          {
+            "label": "max stopping-time witness",
+            "value": "837799 in 524 steps"
+          }
+        ],
+        "proof_pressure": "A real Collatz proof path needs a symbolic residue-block cover; uncovered residues identify where the current descent search is too weak.",
+        "failure_signal": "Any residue family that cannot be assigned a well-founded descent keeps the global proof blocked.",
+        "promotion_rule": "Frontier probes can prioritize a proof path or falsify a candidate lemma, but cannot close an infinite conjecture without a formal theorem."
+      },
       "proof_attempt": {
         "schema": "primeproject.proof-attempt-ledger.v1",
         "problem_id": "collatz",
@@ -1134,6 +1208,86 @@
         "merkle_root": "0e52db965ab01c1e8b828db9b67e917845214a64c4caa39388fc035d241f013b",
         "verifier": "scripts/verify_open_problem_workbench.py"
       },
+      "proof_frontier_probe": {
+        "schema": "primeproject.proof-frontier-probe.v1",
+        "problem_id": "goldbach",
+        "status": "finite_probe_not_proof",
+        "objective": "Rank even residue classes modulo 210 by hardest first-prime witness through the committed limit.",
+        "limit": 1000000,
+        "metrics": {
+          "residue_modulus": 210,
+          "tested_residue_count": 105,
+          "counterexample_count": 0,
+          "global_hardest_even": 503222,
+          "global_hardest_smallest_prime": 523
+        },
+        "observations": [
+          {
+            "label": "hardest residue classes",
+            "value": [
+              {
+                "residue": 62,
+                "tested": 4762,
+                "max_smallest_prime": 523,
+                "hardest_even": 503222
+              },
+              {
+                "residue": 188,
+                "tested": 4762,
+                "max_smallest_prime": 439,
+                "hardest_even": 880508
+              },
+              {
+                "residue": 2,
+                "tested": 4761,
+                "max_smallest_prime": 409,
+                "hardest_even": 850712
+              },
+              {
+                "residue": 56,
+                "tested": 4762,
+                "max_smallest_prime": 397,
+                "hardest_even": 743666
+              },
+              {
+                "residue": 146,
+                "tested": 4762,
+                "max_smallest_prime": 397,
+                "hardest_even": 732626
+              },
+              {
+                "residue": 82,
+                "tested": 4762,
+                "max_smallest_prime": 389,
+                "hardest_even": 413572
+              },
+              {
+                "residue": 136,
+                "tested": 4762,
+                "max_smallest_prime": 389,
+                "hardest_even": 612706
+              },
+              {
+                "residue": 208,
+                "tested": 4761,
+                "max_smallest_prime": 389,
+                "hardest_even": 456538
+              }
+            ]
+          },
+          {
+            "label": "global hardest witness",
+            "value": "503222 = 523 + 502699"
+          },
+          {
+            "label": "bounded counterexamples",
+            "value": 0
+          }
+        ],
+        "proof_pressure": "A positive representation-count theorem must survive the thinnest residue classes, not only aggregate no-counterexample evidence.",
+        "failure_signal": "If an explicit lower bound turns non-positive on a stressed residue class, that proof path is rejected.",
+        "promotion_rule": "Frontier probes can prioritize a proof path or falsify a candidate lemma, but cannot close an infinite conjecture without a formal theorem."
+      },
       "proof_attempt": {
         "schema": "primeproject.proof-attempt-ledger.v1",
         "problem_id": "goldbach",
@@ -1591,6 +1745,74 @@
         "chunk_roots_sha256": "18506d88715534f1883746f3b5da9b3a3e5e858453243c1bb74a82c1713fdb3c",
         "merkle_root": "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d",
         "verifier": "scripts/verify_open_problem_workbench.py"
+      },
+      "proof_frontier_probe": {
+        "schema": "primeproject.proof-frontier-probe.v1",
+        "problem_id": "twin-prime",
+        "status": "finite_probe_not_proof",
+        "objective": "Separate exact gap-2 residue persistence modulo 210 from broader bounded-gap signals.",
+        "limit": 1000000,
+        "metrics": {
+          "residue_modulus": 210,
+          "admissible_residue_count": 48,
+          "nonzero_residue_count": 15,
+          "zero_residue_count": 33,
+          "twin_pair_count": 8169,
+          "largest_pair_seen": [
+            999959,
+            999961
+          ]
+        },
+        "observations": [
+          {
+            "label": "top exact gap-2 residues",
+            "value": [
+              {
+                "residue": 17,
+                "count": 572
+              },
+              {
+                "residue": 29,
+                "count": 566
+              },
+              {
+                "residue": 11,
+                "count": 556
+              },
+              {
+                "residue": 71,
+                "count": 555
+              },
+              {
+                "residue": 197,
+                "count": 555
+              },
+              {
+                "residue": 191,
+                "count": 552
+              },
+              {
+                "residue": 107,
+                "count": 546
+              },
+              {
+                "residue": 137,
+                "count": 543
+              }
+            ]
+          },
+          {
+            "label": "final count vs heuristic",
+            "value": 1.180925
+          },
+          {
+            "label": "zero admissible residues",
+            "value": 33
+          }
+        ],
+        "proof_pressure": "The exact gap-2 proof path must produce a positive lower bound for arbitrarily large x, not just bounded-gap or averaged residue evidence.",
+        "failure_signal": "A candidate argument that only proves bounded gaps or depends on k-tuple density remains insufficient.",
+        "promotion_rule": "Frontier probes can prioritize a proof path or falsify a candidate lemma, but cannot close an infinite conjecture without a formal theorem."
       },
       "proof_attempt": {
         "schema": "primeproject.proof-attempt-ledger.v1",

@@ -1403,6 +1403,66 @@ canvas {
   border-top-color: var(--ok);
 }
 
+.frontier-head,
+.frontier-grid {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.3fr) minmax(120px, 0.22fr) minmax(320px, 1fr);
+  gap: 10px;
+}
+
+.frontier-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  margin-top: 10px;
+}
+
+.frontier-head div,
+.frontier-grid section,
+.frontier-pressure,
+.frontier-observations div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.frontier-head span,
+.frontier-observations span,
+.frontier-pressure strong {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.frontier-head strong,
+.frontier-observations strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.frontier-observations {
+  display: grid;
+  gap: 8px;
+}
+
+.frontier-pressure {
+  margin-top: 10px;
+  border-left: 4px solid var(--accent);
+}
+
+.frontier-pressure p,
+.frontier-pressure small {
+  display: block;
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -4376,7 +4436,9 @@ tr:last-child td {
   .proof-gap-head,
   .proof-gap-list,
   .execution-head,
-  .execution-stage-list {
+  .execution-stage-list,
+  .frontier-head,
+  .frontier-grid {
     grid-template-columns: 1fr;
   }
 

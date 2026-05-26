@@ -231,6 +231,7 @@ async function main() {
           proofStatusGateText: document.querySelector("#proofStatusGate").textContent,
           proofExecutionText: document.querySelector("#proofExecutionProtocol").textContent,
           proofExecutionStages: document.querySelectorAll("#proofExecutionProtocol .execution-stage").length,
+          proofFrontierText: document.querySelector("#proofFrontierProbe").textContent,
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
@@ -283,6 +284,10 @@ async function main() {
         !page.proofExecutionText.includes("Next experiment") ||
         !page.proofExecutionText.includes("Failure signal") ||
         !page.proofExecutionText.includes("full proof promotion gate") ||
+        !page.proofFrontierText.includes("finite probe not proof") ||
+        !page.proofFrontierText.includes("Stress Metrics") ||
+        !page.proofFrontierText.includes("Proof pressure") ||
+        !page.proofFrontierText.includes("Failure signal") ||
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||
