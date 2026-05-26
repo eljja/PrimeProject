@@ -239,6 +239,19 @@ def main() -> int:
         if "not a proof" not in skeleton.get("claim_boundary", ""):
             print(f"{problem.get('id')} formal skeleton audit is missing claim boundary.", file=sys.stderr)
             return 1
+        verdict = problem.get("proof_verdict", {})
+        if verdict.get("target_verdict") != "not_proved_by_primeproject":
+            print(f"{problem.get('id')} proof verdict overclaims the target.", file=sys.stderr)
+            return 1
+        if verdict.get("actual_proved_status") != "bounded_theorem_certified":
+            print(f"{problem.get('id')} proof verdict is missing the bounded theorem.", file=sys.stderr)
+            return 1
+        if "PrimeProject may display a proof only when" not in verdict.get("machine_rule", ""):
+            print(f"{problem.get('id')} proof verdict is missing the display rule.", file=sys.stderr)
+            return 1
+        if not verdict.get("full_proof_blocker") or not verdict.get("next_decisive_attempt"):
+            print(f"{problem.get('id')} proof verdict is missing blocker or next attempt.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

@@ -693,6 +693,51 @@ canvas {
   margin-top: 12px;
 }
 
+.verdict-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.verdict-grid div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--danger);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.verdict-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.verdict-grid strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.verdict-body {
+  margin-top: 12px;
+  border-left: 4px solid var(--teal);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.verdict-body p {
+  margin: 7px 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .certificate-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4972,6 +5017,7 @@ tr:last-child td {
 
   .proof-grid,
   .proof-metrics,
+  .verdict-grid,
   .attempt-summary,
   .obligation-list,
   .proof-map-grid,

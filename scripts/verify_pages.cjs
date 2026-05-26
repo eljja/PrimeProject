@@ -225,6 +225,7 @@ async function main() {
           heading: document.querySelector("#problemTitle").textContent,
           status: document.querySelector("#claimStatus").textContent,
           metricCount: document.querySelectorAll(".proof-metric").length,
+          proofVerdictText: document.querySelector("#proofVerdict").textContent,
           certificateText: document.querySelector("#certificatePanel").textContent,
           proofAttemptText: document.querySelector("#proofAttempt").textContent,
           proofMapText: document.querySelector("#proofMap").textContent,
@@ -284,6 +285,12 @@ async function main() {
         !page.status.includes("open not proven") ||
         page.metricCount < 3 ||
         page.blockedClaimCount < 4 ||
+        !page.proofVerdictText.includes("Target verdict") ||
+        !page.proofVerdictText.includes("not proved by primeproject") ||
+        !page.proofVerdictText.includes("Actual proved result") ||
+        !page.proofVerdictText.includes("bounded theorem certified") ||
+        !page.proofVerdictText.includes("Full proof blocker") ||
+        !page.proofVerdictText.includes("PrimeProject may display a proof only when") ||
         !page.certificateText.includes("bounded theorem certified") ||
         !page.certificateText.includes("scripts/verify_open_problem_workbench.py") ||
         !page.proofAttemptText.includes("open infinite obligation") ||

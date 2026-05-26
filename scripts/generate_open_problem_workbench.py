@@ -27,6 +27,7 @@ PROOF_CANDIDATE_INTAKE_SCHEMA = "primeproject.proof-candidate-intake.v1"
 PROOF_ATTEMPT_EXECUTION_LOG_SCHEMA = "primeproject.proof-attempt-execution-log.v1"
 PROOF_OBLIGATION_DAG_SCHEMA = "primeproject.proof-obligation-dag.v1"
 FORMAL_SKELETON_AUDIT_SCHEMA = "primeproject.formal-skeleton-audit.v1"
+PROOF_VERDICT_SCHEMA = "primeproject.proof-verdict.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -1115,6 +1116,26 @@ def formal_skeleton_audit(problem: dict[str, object]) -> dict[str, object]:
         "file_checks": checks,
         "forbidden_hits": forbidden_hits,
         "claim_boundary": "The skeleton files make the replay package concrete, but they are not a proof and do not discharge any infinite bridge.",
+    }
+
+
+def proof_verdict(problem: dict[str, object]) -> dict[str, object]:
+    certificate = problem.get("certificate", {}) if isinstance(problem.get("certificate"), dict) else {}
+    gate = problem.get("proof_status_gate", {}) if isinstance(problem.get("proof_status_gate"), dict) else {}
+    reduction = problem.get("proof_reduction_contract", {}) if isinstance(problem.get("proof_reduction_contract"), dict) else {}
+    decisive = reduction.get("decisive_reduction", {}) if isinstance(reduction.get("decisive_reduction"), dict) else {}
+    lab = problem.get("decisive_lemma_lab", {}) if isinstance(problem.get("decisive_lemma_lab"), dict) else {}
+    return {
+        "schema": PROOF_VERDICT_SCHEMA,
+        "problem_id": problem.get("id"),
+        "target_status": problem.get("status", "open_not_proven"),
+        "target_verdict": "not_proved_by_primeproject",
+        "actual_proved_result": certificate.get("statement", "bounded certificate missing"),
+        "actual_proved_status": certificate.get("status", "missing"),
+        "full_proof_blocker": decisive.get("missing_artifact", "missing infinite proof artifact"),
+        "gate_status": gate.get("promotion_status", "missing"),
+        "next_decisive_attempt": lab.get("next_action", lab.get("proof_obligation", "missing decisive attempt")),
+        "machine_rule": "PrimeProject may display a proof only when the bounded certificate, decisive reduction, formal contract, skeleton audit, and independent-review gate all pass without open infinite obligations.",
     }
 
 
@@ -2369,6 +2390,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["proof_attempt_execution_log"] = proof_attempt_execution_log(problem)
         problem["proof_obligation_dag"] = proof_obligation_dag(problem)
         problem["formal_skeleton_audit"] = formal_skeleton_audit(problem)
+        problem["proof_verdict"] = proof_verdict(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

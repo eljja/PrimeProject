@@ -981,6 +981,18 @@
         ],
         "forbidden_hits": [],
         "claim_boundary": "The skeleton files make the replay package concrete, but they are not a proof and do not discharge any infinite bridge."
+      },
+      "proof_verdict": {
+        "schema": "primeproject.proof-verdict.v1",
+        "problem_id": "riemann",
+        "target_status": "open_not_proven",
+        "target_verdict": "not_proved_by_primeproject",
+        "actual_proved_result": "Prime-counting diagnostics are exactly recomputed at decimal checkpoints up to 1000000.",
+        "actual_proved_status": "bounded_theorem_certified",
+        "full_proof_blocker": "formal all-x analytic estimate plus formal RH-equivalence bridge",
+        "gate_status": "blocked_open_infinite_obligation",
+        "next_decisive_attempt": "Formalize the target inequality and enumerate which published equivalence theorem would be sufficient.",
+        "machine_rule": "PrimeProject may display a proof only when the bounded certificate, decisive reduction, formal contract, skeleton audit, and independent-review gate all pass without open infinite obligations."
       }
     },
     {
@@ -2024,6 +2036,18 @@
         ],
         "forbidden_hits": [],
         "claim_boundary": "The skeleton files make the replay package concrete, but they are not a proof and do not discharge any infinite bridge."
+      },
+      "proof_verdict": {
+        "schema": "primeproject.proof-verdict.v1",
+        "problem_id": "collatz",
+        "target_status": "open_not_proven",
+        "target_verdict": "not_proved_by_primeproject",
+        "actual_proved_result": "Every start value 1 <= n <= 1000000 reaches 1 under the Collatz map.",
+        "actual_proved_status": "bounded_theorem_certified",
+        "full_proof_blocker": "formal residue-cover descent theorem",
+        "gate_status": "blocked_open_infinite_obligation",
+        "next_decisive_attempt": "Generate candidate odd-only residue transitions and rank uncovered blocks by descent failure risk.",
+        "machine_rule": "PrimeProject may display a proof only when the bounded certificate, decisive reduction, formal contract, skeleton audit, and independent-review gate all pass without open infinite obligations."
       }
     },
     {
@@ -3079,6 +3103,18 @@
         ],
         "forbidden_hits": [],
         "claim_boundary": "The skeleton files make the replay package concrete, but they are not a proof and do not discharge any infinite bridge."
+      },
+      "proof_verdict": {
+        "schema": "primeproject.proof-verdict.v1",
+        "problem_id": "goldbach",
+        "target_status": "open_not_proven",
+        "target_verdict": "not_proved_by_primeproject",
+        "actual_proved_result": "Every even integer 4 <= n <= 1000000 has a displayed prime-pair witness.",
+        "actual_proved_status": "bounded_theorem_certified",
+        "full_proof_blocker": "formal large-even threshold theorem with explicit cutoff",
+        "gate_status": "blocked_open_infinite_obligation",
+        "next_decisive_attempt": "Use the hardest bounded decompositions to prioritize residue classes for explicit lower-bound stress tests.",
+        "machine_rule": "PrimeProject may display a proof only when the bounded certificate, decisive reduction, formal contract, skeleton audit, and independent-review gate all pass without open infinite obligations."
       }
     },
     {
@@ -4072,6 +4108,18 @@
         ],
         "forbidden_hits": [],
         "claim_boundary": "The skeleton files make the replay package concrete, but they are not a proof and do not discharge any infinite bridge."
+      },
+      "proof_verdict": {
+        "schema": "primeproject.proof-verdict.v1",
+        "problem_id": "twin-prime",
+        "target_status": "open_not_proven",
+        "target_verdict": "not_proved_by_primeproject",
+        "actual_proved_result": "All twin prime pairs p,p+2 with p+2 <= 1000000 are counted by the sieve scan.",
+        "actual_proved_status": "bounded_theorem_certified",
+        "full_proof_blocker": "formal exact gap-2 lower-bound theorem",
+        "gate_status": "blocked_open_infinite_obligation",
+        "next_decisive_attempt": "Separate exact gap-2 requirements from bounded-gap evidence and formalize the missing lower-bound theorem.",
+        "machine_rule": "PrimeProject may display a proof only when the bounded certificate, decisive reduction, formal contract, skeleton audit, and independent-review gate all pass without open infinite obligations."
       }
     }
   ]

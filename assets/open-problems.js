@@ -191,6 +191,35 @@ function statusText(value) {
   return String(value || "missing").replaceAll("_", " ");
 }
 
+function renderProofVerdict(problem) {
+  const verdict = problem.proof_verdict || {};
+  return `
+    <div class="verdict-grid">
+      <div>
+        <span>Target verdict</span>
+        <strong>${escapeHtml(statusText(verdict.target_verdict))}</strong>
+      </div>
+      <div>
+        <span>Actual proved result</span>
+        <strong>${escapeHtml(statusText(verdict.actual_proved_status))}</strong>
+      </div>
+      <div>
+        <span>Full proof blocker</span>
+        <strong>${escapeHtml(verdict.full_proof_blocker || "missing")}</strong>
+      </div>
+      <div>
+        <span>Gate</span>
+        <strong>${escapeHtml(statusText(verdict.gate_status))}</strong>
+      </div>
+    </div>
+    <div class="verdict-body">
+      <p><strong>Bounded theorem:</strong> ${escapeHtml(verdict.actual_proved_result || "")}</p>
+      <p><strong>Next decisive attempt:</strong> ${escapeHtml(verdict.next_decisive_attempt || "")}</p>
+      <p>${escapeHtml(verdict.machine_rule || "")}</p>
+    </div>
+  `;
+}
+
 function renderProofMap(problem) {
   const attempt = problem.proof_attempt || {};
   const graph = attempt.attack_graph || {};
@@ -1068,6 +1097,7 @@ function render(payload, problem) {
     .map(([id, href]) => `<a class="${id === problem.id ? "is-active" : ""}" href="${href}">${labels[id]}</a>`)
     .join("");
 
+  document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#metricCards").innerHTML = metricCards(problem)
     .map(
       ([label, value]) => `
