@@ -196,6 +196,20 @@ def main() -> int:
         if "does not certify" not in intake.get("claim_boundary", ""):
             print(f"{problem.get('id')} proof candidate intake is missing claim boundary.", file=sys.stderr)
             return 1
+        execution_log = problem.get("proof_attempt_execution_log", {})
+        attempts = execution_log.get("attempts", []) if isinstance(execution_log, dict) else []
+        if execution_log.get("status") != "attempts_executed_no_full_proof":
+            print(f"{problem.get('id')} proof attempt execution log has unexpected status.", file=sys.stderr)
+            return 1
+        if len(attempts) < 2:
+            print(f"{problem.get('id')} proof attempt execution log is missing attempts.", file=sys.stderr)
+            return 1
+        if not all(attempt.get("failure_reason") and attempt.get("next_artifact") for attempt in attempts):
+            print(f"{problem.get('id')} proof attempt execution log is missing failure details.", file=sys.stderr)
+            return 1
+        if "infinite bridge" not in execution_log.get("machine_verdict", ""):
+            print(f"{problem.get('id')} proof attempt execution log is missing the infinite bridge verdict.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

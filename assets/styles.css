@@ -1787,6 +1787,87 @@ canvas {
   margin: 8px 0 0;
 }
 
+.execution-log-head,
+.execution-log-list,
+.execution-log-rules {
+  display: grid;
+  gap: 10px;
+}
+
+.execution-log-head {
+  grid-template-columns: minmax(170px, 0.32fr) minmax(120px, 0.2fr) minmax(420px, 1fr);
+}
+
+.execution-log-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 10px;
+}
+
+.execution-log-rules {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 10px;
+}
+
+.execution-log-head div,
+.execution-log-card,
+.execution-log-rules section {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.execution-log-card {
+  border-top: 3px solid var(--warn);
+}
+
+.execution-log-card.is-rejected_as_finite_only,
+.execution-log-card.is-rejected_as_average_only,
+.execution-log-card.is-rejected_as_wrong_target,
+.execution-log-card.is-rejected_as_weaker_theorem {
+  border-top-color: var(--danger);
+}
+
+.execution-log-head span,
+.execution-log-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.execution-log-head strong,
+.execution-log-card strong,
+.execution-log-card small,
+.execution-log-card em {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.execution-log-card small,
+.execution-log-card p,
+.execution-log-rules p,
+.execution-log-rules small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.execution-log-card p,
+.execution-log-rules p {
+  margin: 8px 0 0;
+}
+
+.execution-log-card em {
+  color: var(--warn);
+  font-style: normal;
+  font-weight: 850;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -4775,7 +4856,10 @@ tr:last-child td {
   .reduction-rules,
   .candidate-head,
   .candidate-grid,
-  .candidate-rules {
+  .candidate-rules,
+  .execution-log-head,
+  .execution-log-list,
+  .execution-log-rules {
     grid-template-columns: 1fr;
   }
 

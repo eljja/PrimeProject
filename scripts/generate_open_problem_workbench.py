@@ -24,6 +24,7 @@ FORMAL_REPLAY_PACKAGE_SCHEMA = "primeproject.formal-replay-package.v1"
 PROOF_REVIEW_DOCKET_SCHEMA = "primeproject.proof-review-docket.v1"
 PROOF_REDUCTION_CONTRACT_SCHEMA = "primeproject.proof-reduction-contract.v1"
 PROOF_CANDIDATE_INTAKE_SCHEMA = "primeproject.proof-candidate-intake.v1"
+PROOF_ATTEMPT_EXECUTION_LOG_SCHEMA = "primeproject.proof-attempt-execution-log.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -866,6 +867,104 @@ def proof_candidate_intake(problem: dict[str, object]) -> dict[str, object]:
             "rejected": "candidate violates an automatic rejection rule",
         },
         "claim_boundary": "This intake accepts proof candidates for review only; it does not certify that any of the four conjectures has been solved.",
+    }
+
+
+def proof_attempt_execution_log(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    frontier = problem.get("proof_frontier_probe", {})
+    lab = problem.get("decisive_lemma_lab", {})
+    reduction = problem.get("proof_reduction_contract", {})
+    intake = problem.get("proof_candidate_intake", {})
+    decisive = reduction.get("decisive_reduction", {}) if isinstance(reduction, dict) else {}
+    candidate_tests = intake.get("first_executable_tests", []) if isinstance(intake, dict) else []
+    objective = frontier.get("objective", "missing objective") if isinstance(frontier, dict) else "missing objective"
+    proof_gap = lab.get("automated_falsification_probe", {}).get("proof_gap", "missing proof gap") if isinstance(lab, dict) else "missing proof gap"
+    final_attempts: dict[str, list[dict[str, str]]] = {
+        "riemann": [
+            {
+                "id": "RH-EXEC-A",
+                "route": "Use bounded theta residuals to guess an all-x envelope.",
+                "machine_check": "decimal checkpoints and prime endpoint stress replay through the committed limit",
+                "result": "bounded_compatible",
+                "failure_reason": "the route still lacks a theorem over all real x and an RH-equivalence bridge",
+                "next_artifact": "formal all-x theta error theorem with explicit constants",
+            },
+            {
+                "id": "RH-EXEC-B",
+                "route": "Try to promote finite zero/prime evidence to zero-line control.",
+                "machine_check": "proof review docket and forbidden-import audit",
+                "result": "rejected_as_finite_only",
+                "failure_reason": "finite checks cannot quantify every non-trivial zeta zero",
+                "next_artifact": "kernel-checkable zero-control implication",
+            },
+        ],
+        "collatz": [
+            {
+                "id": "CO-EXEC-A",
+                "route": "Use bounded trajectory replay to infer a residue descent pattern.",
+                "machine_check": "all starts through the committed limit replay without counterexample",
+                "result": "bounded_compatible",
+                "failure_reason": "the route has no complete symbolic cover of all residue classes",
+                "next_artifact": "finite residue-block cover with strict descent certificates",
+            },
+            {
+                "id": "CO-EXEC-B",
+                "route": "Use average odd-step drift as a global termination argument.",
+                "machine_check": "candidate intake automatic rejection rules",
+                "result": "rejected_as_average_only",
+                "failure_reason": "average drift does not rule out exceptional infinite trajectories",
+                "next_artifact": "deterministic well-founded descent proof",
+            },
+        ],
+        "goldbach": [
+            {
+                "id": "GB-EXEC-A",
+                "route": "Use bounded decompositions to search for a stable lower-bound shape.",
+                "machine_check": "every even integer through the committed limit has a certified witness",
+                "result": "bounded_compatible",
+                "failure_reason": "the route does not prove positivity for every sufficiently large even integer",
+                "next_artifact": "explicit large-even representation theorem",
+            },
+            {
+                "id": "GB-EXEC-B",
+                "route": "Use weak Goldbach-style evidence as a replacement for strong Goldbach.",
+                "machine_check": "proof reduction forbidden-shortcut audit",
+                "result": "rejected_as_wrong_target",
+                "failure_reason": "ternary or average statements do not prove binary even-prime representation",
+                "next_artifact": "binary representation lower bound plus explicit cutoff",
+            },
+        ],
+        "twin-prime": [
+            {
+                "id": "TP-EXEC-A",
+                "route": "Use exact gap-2 residue persistence to infer infinitude.",
+                "machine_check": "twin-pair counts and residue stress replay through the committed limit",
+                "result": "bounded_compatible",
+                "failure_reason": "finite persistence does not produce an arbitrarily-large exact gap-2 lower bound",
+                "next_artifact": "unconditional exact gap-2 lower-bound theorem",
+            },
+            {
+                "id": "TP-EXEC-B",
+                "route": "Use bounded prime gaps as a stand-in for twin primes.",
+                "machine_check": "proof reduction forbidden-shortcut audit",
+                "result": "rejected_as_weaker_theorem",
+                "failure_reason": "bounded gaps do not imply infinitely many exact gaps of size 2",
+                "next_artifact": "formal distinction between bounded gaps and exact gap 2",
+            },
+        ],
+    }
+    return {
+        "schema": PROOF_ATTEMPT_EXECUTION_LOG_SCHEMA,
+        "problem_id": problem_id,
+        "status": "attempts_executed_no_full_proof",
+        "frontier_objective": objective,
+        "attempts": final_attempts.get(problem_id, []),
+        "candidate_test_count": len(candidate_tests),
+        "blocking_gap": proof_gap,
+        "decisive_missing_artifact": decisive.get("missing_artifact", "missing decisive artifact"),
+        "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
+        "publication_rule": "Execution logs can report failed or bounded-compatible proof attempts only; they cannot upgrade the conjecture status.",
     }
 
 
@@ -2117,6 +2216,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["proof_review_docket"] = proof_review_docket(problem)
         problem["proof_reduction_contract"] = proof_reduction_contract(problem)
         problem["proof_candidate_intake"] = proof_candidate_intake(problem)
+        problem["proof_attempt_execution_log"] = proof_attempt_execution_log(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

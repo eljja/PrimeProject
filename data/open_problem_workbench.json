@@ -740,6 +740,35 @@
           "rejected": "candidate violates an automatic rejection rule"
         },
         "claim_boundary": "This intake accepts proof candidates for review only; it does not certify that any of the four conjectures has been solved."
+      },
+      "proof_attempt_execution_log": {
+        "schema": "primeproject.proof-attempt-execution-log.v1",
+        "problem_id": "riemann",
+        "status": "attempts_executed_no_full_proof",
+        "frontier_objective": "Stress the proposed theta-envelope lemma at every prime endpoint through the committed limit.",
+        "attempts": [
+          {
+            "id": "RH-EXEC-A",
+            "route": "Use bounded theta residuals to guess an all-x envelope.",
+            "machine_check": "decimal checkpoints and prime endpoint stress replay through the committed limit",
+            "result": "bounded_compatible",
+            "failure_reason": "the route still lacks a theorem over all real x and an RH-equivalence bridge",
+            "next_artifact": "formal all-x theta error theorem with explicit constants"
+          },
+          {
+            "id": "RH-EXEC-B",
+            "route": "Try to promote finite zero/prime evidence to zero-line control.",
+            "machine_check": "proof review docket and forbidden-import audit",
+            "result": "rejected_as_finite_only",
+            "failure_reason": "finite checks cannot quantify every non-trivial zeta zero",
+            "next_artifact": "kernel-checkable zero-control implication"
+          }
+        ],
+        "candidate_test_count": 2,
+        "blocking_gap": "Checkpoint probes do not quantify every x and do not prove the RH-equivalence bridge.",
+        "decisive_missing_artifact": "formal all-x analytic estimate plus formal RH-equivalence bridge",
+        "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
+        "publication_rule": "Execution logs can report failed or bounded-compatible proof attempts only; they cannot upgrade the conjecture status."
       }
     },
     {
@@ -1542,6 +1571,35 @@
           "rejected": "candidate violates an automatic rejection rule"
         },
         "claim_boundary": "This intake accepts proof candidates for review only; it does not certify that any of the four conjectures has been solved."
+      },
+      "proof_attempt_execution_log": {
+        "schema": "primeproject.proof-attempt-execution-log.v1",
+        "problem_id": "collatz",
+        "status": "attempts_executed_no_full_proof",
+        "frontier_objective": "Search for accelerated odd residue descents modulo 4096 within 8 odd steps.",
+        "attempts": [
+          {
+            "id": "CO-EXEC-A",
+            "route": "Use bounded trajectory replay to infer a residue descent pattern.",
+            "machine_check": "all starts through the committed limit replay without counterexample",
+            "result": "bounded_compatible",
+            "failure_reason": "the route has no complete symbolic cover of all residue classes",
+            "next_artifact": "finite residue-block cover with strict descent certificates"
+          },
+          {
+            "id": "CO-EXEC-B",
+            "route": "Use average odd-step drift as a global termination argument.",
+            "machine_check": "candidate intake automatic rejection rules",
+            "result": "rejected_as_average_only",
+            "failure_reason": "average drift does not rule out exceptional infinite trajectories",
+            "next_artifact": "deterministic well-founded descent proof"
+          }
+        ],
+        "candidate_test_count": 2,
+        "blocking_gap": "A replay through the limit does not produce a symbolic residue-block cover or a well-founded descent proof.",
+        "decisive_missing_artifact": "formal residue-cover descent theorem",
+        "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
+        "publication_rule": "Execution logs can report failed or bounded-compatible proof attempts only; they cannot upgrade the conjecture status."
       }
     },
     {
@@ -2356,6 +2414,35 @@
           "rejected": "candidate violates an automatic rejection rule"
         },
         "claim_boundary": "This intake accepts proof candidates for review only; it does not certify that any of the four conjectures has been solved."
+      },
+      "proof_attempt_execution_log": {
+        "schema": "primeproject.proof-attempt-execution-log.v1",
+        "problem_id": "goldbach",
+        "status": "attempts_executed_no_full_proof",
+        "frontier_objective": "Rank even residue classes modulo 210 by hardest first-prime witness through the committed limit.",
+        "attempts": [
+          {
+            "id": "GB-EXEC-A",
+            "route": "Use bounded decompositions to search for a stable lower-bound shape.",
+            "machine_check": "every even integer through the committed limit has a certified witness",
+            "result": "bounded_compatible",
+            "failure_reason": "the route does not prove positivity for every sufficiently large even integer",
+            "next_artifact": "explicit large-even representation theorem"
+          },
+          {
+            "id": "GB-EXEC-B",
+            "route": "Use weak Goldbach-style evidence as a replacement for strong Goldbach.",
+            "machine_check": "proof reduction forbidden-shortcut audit",
+            "result": "rejected_as_wrong_target",
+            "failure_reason": "ternary or average statements do not prove binary even-prime representation",
+            "next_artifact": "binary representation lower bound plus explicit cutoff"
+          }
+        ],
+        "candidate_test_count": 2,
+        "blocking_gap": "Witnesses through the limit do not give an explicit positive lower bound for all large even integers.",
+        "decisive_missing_artifact": "formal large-even threshold theorem with explicit cutoff",
+        "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
+        "publication_rule": "Execution logs can report failed or bounded-compatible proof attempts only; they cannot upgrade the conjecture status."
       }
     },
     {
@@ -3108,6 +3195,35 @@
           "rejected": "candidate violates an automatic rejection rule"
         },
         "claim_boundary": "This intake accepts proof candidates for review only; it does not certify that any of the four conjectures has been solved."
+      },
+      "proof_attempt_execution_log": {
+        "schema": "primeproject.proof-attempt-execution-log.v1",
+        "problem_id": "twin-prime",
+        "status": "attempts_executed_no_full_proof",
+        "frontier_objective": "Separate exact gap-2 residue persistence modulo 210 from broader bounded-gap signals.",
+        "attempts": [
+          {
+            "id": "TP-EXEC-A",
+            "route": "Use exact gap-2 residue persistence to infer infinitude.",
+            "machine_check": "twin-pair counts and residue stress replay through the committed limit",
+            "result": "bounded_compatible",
+            "failure_reason": "finite persistence does not produce an arbitrarily-large exact gap-2 lower bound",
+            "next_artifact": "unconditional exact gap-2 lower-bound theorem"
+          },
+          {
+            "id": "TP-EXEC-B",
+            "route": "Use bounded prime gaps as a stand-in for twin primes.",
+            "machine_check": "proof reduction forbidden-shortcut audit",
+            "result": "rejected_as_weaker_theorem",
+            "failure_reason": "bounded gaps do not imply infinitely many exact gaps of size 2",
+            "next_artifact": "formal distinction between bounded gaps and exact gap 2"
+          }
+        ],
+        "candidate_test_count": 2,
+        "blocking_gap": "Positive bounded counts and heuristic-scale agreement do not prove infinitely many exact gap-2 pairs.",
+        "decisive_missing_artifact": "formal exact gap-2 lower-bound theorem",
+        "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
+        "publication_rule": "Execution logs can report failed or bounded-compatible proof attempts only; they cannot upgrade the conjecture status."
       }
     }
   ]

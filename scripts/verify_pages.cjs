@@ -242,6 +242,8 @@ async function main() {
           proofReductionPartials: document.querySelectorAll("#proofReductionContract .reduction-partials article").length,
           proofCandidateText: document.querySelector("#proofCandidateIntake").textContent,
           proofCandidateTests: document.querySelectorAll("#proofCandidateIntake .candidate-list article").length,
+          proofExecutionLogText: document.querySelector("#proofAttemptExecutionLog").textContent,
+          proofExecutionLogCards: document.querySelectorAll("#proofAttemptExecutionLog .execution-log-card").length,
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
@@ -322,6 +324,11 @@ async function main() {
         !page.proofCandidateText.includes("Required submission") ||
         !page.proofCandidateText.includes("First executable tests") ||
         !page.proofCandidateText.includes("Automatic rejection rules") ||
+        page.proofExecutionLogCards < 2 ||
+        !page.proofExecutionLogText.includes("attempts executed no full proof") ||
+        !page.proofExecutionLogText.includes("Machine check") ||
+        !page.proofExecutionLogText.includes("Next artifact") ||
+        !page.proofExecutionLogText.includes("Machine verdict") ||
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||

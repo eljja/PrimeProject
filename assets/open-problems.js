@@ -683,6 +683,58 @@ function renderProofCandidateIntake(problem) {
   `;
 }
 
+function renderProofAttemptExecutionLog(problem) {
+  const log = problem.proof_attempt_execution_log || {};
+  const attempts = log.attempts || [];
+  return `
+    <div class="execution-log-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(log.status))}</strong>
+      </div>
+      <div>
+        <span>Candidate tests</span>
+        <strong>${escapeHtml(formatValue(log.candidate_test_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Frontier objective</span>
+        <strong>${escapeHtml(log.frontier_objective || "")}</strong>
+      </div>
+    </div>
+    <div class="execution-log-list">
+      ${attempts
+        .map(
+          (item) => `
+            <article class="execution-log-card is-${escapeHtml(item.result || "open")}">
+              <span>${escapeHtml(item.id || "")}</span>
+              <strong>${escapeHtml(item.route || "")}</strong>
+              <small>Machine check: ${escapeHtml(item.machine_check || "")}</small>
+              <em>${escapeHtml(statusText(item.result))}</em>
+              <p>${escapeHtml(item.failure_reason || "")}</p>
+              <small>Next artifact: ${escapeHtml(item.next_artifact || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <div class="execution-log-rules">
+      <section>
+        <h3>Blocking gap</h3>
+        <p>${escapeHtml(log.blocking_gap || "")}</p>
+      </section>
+      <section>
+        <h3>Decisive missing artifact</h3>
+        <p>${escapeHtml(log.decisive_missing_artifact || "")}</p>
+      </section>
+      <section>
+        <h3>Machine verdict</h3>
+        <p>${escapeHtml(log.machine_verdict || "")}</p>
+        <small>${escapeHtml(log.publication_rule || "")}</small>
+      </section>
+    </div>
+  `;
+}
+
 function renderFormalContract(problem) {
   const contract = problem.formal_proof_contract || {};
   return `
@@ -934,6 +986,7 @@ function render(payload, problem) {
   document.querySelector("#proofReviewDocket").innerHTML = renderProofReviewDocket(problem);
   document.querySelector("#proofReductionContract").innerHTML = renderProofReductionContract(problem);
   document.querySelector("#proofCandidateIntake").innerHTML = renderProofCandidateIntake(problem);
+  document.querySelector("#proofAttemptExecutionLog").innerHTML = renderProofAttemptExecutionLog(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);
