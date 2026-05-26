@@ -25,6 +25,7 @@ PROOF_REVIEW_DOCKET_SCHEMA = "primeproject.proof-review-docket.v1"
 PROOF_REDUCTION_CONTRACT_SCHEMA = "primeproject.proof-reduction-contract.v1"
 PROOF_CANDIDATE_INTAKE_SCHEMA = "primeproject.proof-candidate-intake.v1"
 PROOF_ATTEMPT_EXECUTION_LOG_SCHEMA = "primeproject.proof-attempt-execution-log.v1"
+PROOF_OBLIGATION_DAG_SCHEMA = "primeproject.proof-obligation-dag.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -965,6 +966,113 @@ def proof_attempt_execution_log(problem: dict[str, object]) -> dict[str, object]
         "decisive_missing_artifact": decisive.get("missing_artifact", "missing decisive artifact"),
         "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
         "publication_rule": "Execution logs can report failed or bounded-compatible proof attempts only; they cannot upgrade the conjecture status.",
+    }
+
+
+def proof_obligation_dag(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    queue = problem.get("proof_milestone_queue", {})
+    lab = problem.get("decisive_lemma_lab", {})
+    reduction = problem.get("proof_reduction_contract", {})
+    execution_log = problem.get("proof_attempt_execution_log", {})
+    decisive = reduction.get("decisive_reduction", {}) if isinstance(reduction, dict) else {}
+    milestones = queue.get("milestones", []) if isinstance(queue, dict) else []
+    gaps = lab.get("proof_gap_taxonomy", {}).get("gaps", []) if isinstance(lab, dict) else []
+    attempts = execution_log.get("attempts", []) if isinstance(execution_log, dict) else []
+    problem_prefix = {
+        "riemann": "RH",
+        "collatz": "CO",
+        "goldbach": "GB",
+        "twin-prime": "TP",
+    }.get(problem_id, "OP")
+    nodes: list[dict[str, str]] = []
+    for item in milestones:
+        if isinstance(item, dict):
+            nodes.append(
+                {
+                    "id": str(item.get("id", "")),
+                    "type": "milestone",
+                    "label": str(item.get("title", "")),
+                    "status": str(item.get("status", "open")),
+                    "required_artifact": str(item.get("artifact", "")),
+                }
+            )
+    for item in gaps:
+        if isinstance(item, dict):
+            nodes.append(
+                {
+                    "id": str(item.get("id", "")),
+                    "type": "gap",
+                    "label": str(item.get("type", "")),
+                    "status": str(item.get("status", "open")),
+                    "required_artifact": str(item.get("required_artifact", "")),
+                }
+            )
+    for item in attempts:
+        if isinstance(item, dict):
+            nodes.append(
+                {
+                    "id": str(item.get("id", "")),
+                    "type": "attempt",
+                    "label": str(item.get("route", "")),
+                    "status": str(item.get("result", "open")),
+                    "required_artifact": str(item.get("next_artifact", "")),
+                }
+            )
+    reduction_node = f"{problem_prefix}-REDUCE"
+    nodes.append(
+        {
+            "id": reduction_node,
+            "type": "reduction",
+            "label": "decisive reduction theorem",
+            "status": "open_missing_infinite_bridge",
+            "required_artifact": str(decisive.get("missing_artifact", "missing decisive artifact")),
+        }
+    )
+    nodes.append(
+        {
+            "id": f"{problem_prefix}-TARGET",
+            "type": "target",
+            "label": str(problem.get("title", "target conjecture")),
+            "status": "open_not_proven",
+            "required_artifact": "independently checkable full proof",
+        }
+    )
+    milestone_ids = [node["id"] for node in nodes if node["type"] == "milestone"]
+    gap_ids = [node["id"] for node in nodes if node["type"] == "gap"]
+    attempt_ids = [node["id"] for node in nodes if node["type"] == "attempt"]
+    edges: list[dict[str, str]] = []
+    for attempt_id in attempt_ids:
+        edges.append({"from": attempt_id, "to": reduction_node, "status": "blocked_by_missing_artifact"})
+    for gap_id in gap_ids:
+        edges.append({"from": gap_id, "to": reduction_node, "status": "must_close"})
+    for milestone_id in milestone_ids:
+        if milestone_id.endswith("M1"):
+            edges.append({"from": milestone_id, "to": reduction_node, "status": "bounded_support_only"})
+        elif milestone_id.endswith("M5"):
+            edges.append({"from": reduction_node, "to": milestone_id, "status": "blocked_until_bridge_closes"})
+            edges.append({"from": milestone_id, "to": f"{problem_prefix}-TARGET", "status": "required_for_public_claim"})
+        else:
+            edges.append({"from": milestone_id, "to": reduction_node, "status": "required"})
+    edges.append({"from": reduction_node, "to": f"{problem_prefix}-TARGET", "status": "required_for_full_proof"})
+    open_nodes = [node["id"] for node in nodes if node["status"] not in {"complete", "proved_by_certificate", "bounded_compatible"}]
+    return {
+        "schema": PROOF_OBLIGATION_DAG_SCHEMA,
+        "problem_id": problem_id,
+        "status": "open_obligation_graph",
+        "node_count": len(nodes),
+        "edge_count": len(edges),
+        "open_node_count": len(open_nodes),
+        "nodes": nodes,
+        "edges": edges,
+        "critical_path": [
+            "bounded certificate is support only",
+            "close every named proof gap",
+            "prove the decisive reduction theorem",
+            "replay the formal package independently",
+            "then and only then review the full target claim",
+        ],
+        "machine_rule": "Every non-complete node on this DAG must be closed by a formal artifact or accepted theorem before the conjecture status can change.",
     }
 
 
@@ -2217,6 +2325,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["proof_reduction_contract"] = proof_reduction_contract(problem)
         problem["proof_candidate_intake"] = proof_candidate_intake(problem)
         problem["proof_attempt_execution_log"] = proof_attempt_execution_log(problem)
+        problem["proof_obligation_dag"] = proof_obligation_dag(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

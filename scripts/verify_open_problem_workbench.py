@@ -210,6 +210,21 @@ def main() -> int:
         if "infinite bridge" not in execution_log.get("machine_verdict", ""):
             print(f"{problem.get('id')} proof attempt execution log is missing the infinite bridge verdict.", file=sys.stderr)
             return 1
+        dag = problem.get("proof_obligation_dag", {})
+        nodes = dag.get("nodes", []) if isinstance(dag, dict) else []
+        edges = dag.get("edges", []) if isinstance(dag, dict) else []
+        if dag.get("status") != "open_obligation_graph":
+            print(f"{problem.get('id')} proof obligation DAG has unexpected status.", file=sys.stderr)
+            return 1
+        if len(nodes) < 10 or len(edges) < 10 or dag.get("open_node_count", 0) < 5:
+            print(f"{problem.get('id')} proof obligation DAG is missing graph coverage.", file=sys.stderr)
+            return 1
+        if not any(node.get("type") == "target" and node.get("status") == "open_not_proven" for node in nodes):
+            print(f"{problem.get('id')} proof obligation DAG is missing open target node.", file=sys.stderr)
+            return 1
+        if not dag.get("critical_path") or "formal artifact" not in dag.get("machine_rule", ""):
+            print(f"{problem.get('id')} proof obligation DAG is missing machine rule.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

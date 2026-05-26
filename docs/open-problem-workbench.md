@@ -7,7 +7,7 @@ PrimeProject now has four GitHub Pages subpages for:
 - Goldbach Conjecture
 - Twin Prime Conjecture
 
-The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
+The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
 ## Public Pages
 
@@ -70,6 +70,8 @@ Each problem also includes a `primeproject.proof-reduction-contract.v1` object. 
 Each problem also includes a `primeproject.proof-candidate-intake.v1` object. The intake rules say what a future proof candidate must submit, which executable tests run first, and which shortcuts cause automatic rejection before review.
 
 Each problem also includes a `primeproject.proof-attempt-execution-log.v1` object. The log records executed proof routes, the machine checks applied to each route, the bounded or rejected result, the failure reason, and the exact next artifact required before the route can be promoted.
+
+Each problem also includes a `primeproject.proof-obligation-dag.v1` object. The DAG links attempts, proof gaps, milestones, the decisive reduction theorem, and the open target claim so that every remaining proof obligation is visible as a node with a required artifact and dependency edge.
 
 Each problem also includes a `primeproject.formal-proof-contract.v1` object. The contract records a Lean 4 target theorem, required artifacts, forbidden assumptions, and acceptance rules. This is not a formal proof yet; it is the kernel-facing contract that any future proof must satisfy before the status gate can move.
 

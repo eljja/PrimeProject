@@ -244,6 +244,9 @@ async function main() {
           proofCandidateTests: document.querySelectorAll("#proofCandidateIntake .candidate-list article").length,
           proofExecutionLogText: document.querySelector("#proofAttemptExecutionLog").textContent,
           proofExecutionLogCards: document.querySelectorAll("#proofAttemptExecutionLog .execution-log-card").length,
+          proofDagText: document.querySelector("#proofObligationDag").textContent,
+          proofDagNodes: document.querySelectorAll("#proofObligationDag .dag-node").length,
+          proofDagEdges: document.querySelectorAll("#proofObligationDag .dag-edge-list article").length,
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
@@ -329,6 +332,11 @@ async function main() {
         !page.proofExecutionLogText.includes("Machine check") ||
         !page.proofExecutionLogText.includes("Next artifact") ||
         !page.proofExecutionLogText.includes("Machine verdict") ||
+        page.proofDagNodes < 10 ||
+        page.proofDagEdges < 10 ||
+        !page.proofDagText.includes("open obligation graph") ||
+        !page.proofDagText.includes("Critical path") ||
+        !page.proofDagText.includes("Machine rule") ||
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||

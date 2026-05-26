@@ -769,6 +769,182 @@
         "decisive_missing_artifact": "formal all-x analytic estimate plus formal RH-equivalence bridge",
         "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
         "publication_rule": "Execution logs can report failed or bounded-compatible proof attempts only; they cannot upgrade the conjecture status."
+      },
+      "proof_obligation_dag": {
+        "schema": "primeproject.proof-obligation-dag.v1",
+        "problem_id": "riemann",
+        "status": "open_obligation_graph",
+        "node_count": 13,
+        "edge_count": 13,
+        "open_node_count": 11,
+        "nodes": [
+          {
+            "id": "RH-M1",
+            "type": "milestone",
+            "label": "Bounded theta/pi certificate",
+            "status": "complete",
+            "required_artifact": "bounded_certificate_merkle_root"
+          },
+          {
+            "id": "RH-M2",
+            "type": "milestone",
+            "label": "Lean definitions for zeta zeros and theta diagnostics",
+            "status": "open_formalization",
+            "required_artifact": "Lean 4 definitions"
+          },
+          {
+            "id": "RH-M3",
+            "type": "milestone",
+            "label": "All-x theta error theorem",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal theorem"
+          },
+          {
+            "id": "RH-M4",
+            "type": "milestone",
+            "label": "RH-equivalence bridge",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal bridge proof"
+          },
+          {
+            "id": "RH-M5",
+            "type": "milestone",
+            "label": "Independent kernel review",
+            "status": "blocked_until_m2_m4_complete",
+            "required_artifact": "external replay report"
+          },
+          {
+            "id": "RH-G1",
+            "type": "gap",
+            "label": "infinite_lift",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal all-x theta theorem"
+          },
+          {
+            "id": "RH-G2",
+            "type": "gap",
+            "label": "equivalence_bridge",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal RH-equivalence bridge"
+          },
+          {
+            "id": "RH-G3",
+            "type": "gap",
+            "label": "formalization",
+            "status": "open_formalization",
+            "required_artifact": "Lean 4 definitions and theorem skeleton"
+          },
+          {
+            "id": "RH-G4",
+            "type": "gap",
+            "label": "independent_review",
+            "status": "blocked_until_g1_g3_close",
+            "required_artifact": "external kernel replay report"
+          },
+          {
+            "id": "RH-EXEC-A",
+            "type": "attempt",
+            "label": "Use bounded theta residuals to guess an all-x envelope.",
+            "status": "bounded_compatible",
+            "required_artifact": "formal all-x theta error theorem with explicit constants"
+          },
+          {
+            "id": "RH-EXEC-B",
+            "type": "attempt",
+            "label": "Try to promote finite zero/prime evidence to zero-line control.",
+            "status": "rejected_as_finite_only",
+            "required_artifact": "kernel-checkable zero-control implication"
+          },
+          {
+            "id": "RH-REDUCE",
+            "type": "reduction",
+            "label": "decisive reduction theorem",
+            "status": "open_missing_infinite_bridge",
+            "required_artifact": "formal all-x analytic estimate plus formal RH-equivalence bridge"
+          },
+          {
+            "id": "RH-TARGET",
+            "type": "target",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven",
+            "required_artifact": "independently checkable full proof"
+          }
+        ],
+        "edges": [
+          {
+            "from": "RH-EXEC-A",
+            "to": "RH-REDUCE",
+            "status": "blocked_by_missing_artifact"
+          },
+          {
+            "from": "RH-EXEC-B",
+            "to": "RH-REDUCE",
+            "status": "blocked_by_missing_artifact"
+          },
+          {
+            "from": "RH-G1",
+            "to": "RH-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "RH-G2",
+            "to": "RH-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "RH-G3",
+            "to": "RH-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "RH-G4",
+            "to": "RH-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "RH-M1",
+            "to": "RH-REDUCE",
+            "status": "bounded_support_only"
+          },
+          {
+            "from": "RH-M2",
+            "to": "RH-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "RH-M3",
+            "to": "RH-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "RH-M4",
+            "to": "RH-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "RH-REDUCE",
+            "to": "RH-M5",
+            "status": "blocked_until_bridge_closes"
+          },
+          {
+            "from": "RH-M5",
+            "to": "RH-TARGET",
+            "status": "required_for_public_claim"
+          },
+          {
+            "from": "RH-REDUCE",
+            "to": "RH-TARGET",
+            "status": "required_for_full_proof"
+          }
+        ],
+        "critical_path": [
+          "bounded certificate is support only",
+          "close every named proof gap",
+          "prove the decisive reduction theorem",
+          "replay the formal package independently",
+          "then and only then review the full target claim"
+        ],
+        "machine_rule": "Every non-complete node on this DAG must be closed by a formal artifact or accepted theorem before the conjecture status can change."
       }
     },
     {
@@ -1600,6 +1776,182 @@
         "decisive_missing_artifact": "formal residue-cover descent theorem",
         "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
         "publication_rule": "Execution logs can report failed or bounded-compatible proof attempts only; they cannot upgrade the conjecture status."
+      },
+      "proof_obligation_dag": {
+        "schema": "primeproject.proof-obligation-dag.v1",
+        "problem_id": "collatz",
+        "status": "open_obligation_graph",
+        "node_count": 13,
+        "edge_count": 13,
+        "open_node_count": 11,
+        "nodes": [
+          {
+            "id": "C-M1",
+            "type": "milestone",
+            "label": "Bounded trajectory certificate",
+            "status": "complete",
+            "required_artifact": "bounded_certificate_merkle_root"
+          },
+          {
+            "id": "C-M2",
+            "type": "milestone",
+            "label": "Lean definitions for accelerated Collatz dynamics",
+            "status": "open_formalization",
+            "required_artifact": "Lean 4 definitions"
+          },
+          {
+            "id": "C-M3",
+            "type": "milestone",
+            "label": "Residue-block descent theorem",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal theorem"
+          },
+          {
+            "id": "C-M4",
+            "type": "milestone",
+            "label": "Cycle and divergence exclusion",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal exclusion proof"
+          },
+          {
+            "id": "C-M5",
+            "type": "milestone",
+            "label": "Independent kernel review",
+            "status": "blocked_until_m2_m4_complete",
+            "required_artifact": "external replay report"
+          },
+          {
+            "id": "C-G1",
+            "type": "gap",
+            "label": "symbolic_cover",
+            "status": "open_infinite_bridge",
+            "required_artifact": "residue-block cover certificate"
+          },
+          {
+            "id": "C-G2",
+            "type": "gap",
+            "label": "well_founded_descent",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal descent theorem"
+          },
+          {
+            "id": "C-G3",
+            "type": "gap",
+            "label": "cycle_divergence_exclusion",
+            "status": "open_infinite_bridge",
+            "required_artifact": "cycle and divergence exclusion proof"
+          },
+          {
+            "id": "C-G4",
+            "type": "gap",
+            "label": "independent_review",
+            "status": "blocked_until_g1_g3_close",
+            "required_artifact": "external kernel replay report"
+          },
+          {
+            "id": "CO-EXEC-A",
+            "type": "attempt",
+            "label": "Use bounded trajectory replay to infer a residue descent pattern.",
+            "status": "bounded_compatible",
+            "required_artifact": "finite residue-block cover with strict descent certificates"
+          },
+          {
+            "id": "CO-EXEC-B",
+            "type": "attempt",
+            "label": "Use average odd-step drift as a global termination argument.",
+            "status": "rejected_as_average_only",
+            "required_artifact": "deterministic well-founded descent proof"
+          },
+          {
+            "id": "CO-REDUCE",
+            "type": "reduction",
+            "label": "decisive reduction theorem",
+            "status": "open_missing_infinite_bridge",
+            "required_artifact": "formal residue-cover descent theorem"
+          },
+          {
+            "id": "CO-TARGET",
+            "type": "target",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven",
+            "required_artifact": "independently checkable full proof"
+          }
+        ],
+        "edges": [
+          {
+            "from": "CO-EXEC-A",
+            "to": "CO-REDUCE",
+            "status": "blocked_by_missing_artifact"
+          },
+          {
+            "from": "CO-EXEC-B",
+            "to": "CO-REDUCE",
+            "status": "blocked_by_missing_artifact"
+          },
+          {
+            "from": "C-G1",
+            "to": "CO-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "C-G2",
+            "to": "CO-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "C-G3",
+            "to": "CO-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "C-G4",
+            "to": "CO-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "C-M1",
+            "to": "CO-REDUCE",
+            "status": "bounded_support_only"
+          },
+          {
+            "from": "C-M2",
+            "to": "CO-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "C-M3",
+            "to": "CO-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "C-M4",
+            "to": "CO-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "CO-REDUCE",
+            "to": "C-M5",
+            "status": "blocked_until_bridge_closes"
+          },
+          {
+            "from": "C-M5",
+            "to": "CO-TARGET",
+            "status": "required_for_public_claim"
+          },
+          {
+            "from": "CO-REDUCE",
+            "to": "CO-TARGET",
+            "status": "required_for_full_proof"
+          }
+        ],
+        "critical_path": [
+          "bounded certificate is support only",
+          "close every named proof gap",
+          "prove the decisive reduction theorem",
+          "replay the formal package independently",
+          "then and only then review the full target claim"
+        ],
+        "machine_rule": "Every non-complete node on this DAG must be closed by a formal artifact or accepted theorem before the conjecture status can change."
       }
     },
     {
@@ -2443,6 +2795,182 @@
         "decisive_missing_artifact": "formal large-even threshold theorem with explicit cutoff",
         "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
         "publication_rule": "Execution logs can report failed or bounded-compatible proof attempts only; they cannot upgrade the conjecture status."
+      },
+      "proof_obligation_dag": {
+        "schema": "primeproject.proof-obligation-dag.v1",
+        "problem_id": "goldbach",
+        "status": "open_obligation_graph",
+        "node_count": 13,
+        "edge_count": 13,
+        "open_node_count": 11,
+        "nodes": [
+          {
+            "id": "G-M1",
+            "type": "milestone",
+            "label": "Bounded witness certificate",
+            "status": "complete",
+            "required_artifact": "bounded_certificate_merkle_root"
+          },
+          {
+            "id": "G-M2",
+            "type": "milestone",
+            "label": "Lean definitions for prime-pair representations",
+            "status": "open_formalization",
+            "required_artifact": "Lean 4 definitions"
+          },
+          {
+            "id": "G-M3",
+            "type": "milestone",
+            "label": "Positive representation lower bound",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal theorem"
+          },
+          {
+            "id": "G-M4",
+            "type": "milestone",
+            "label": "Threshold bridge",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal threshold proof"
+          },
+          {
+            "id": "G-M5",
+            "type": "milestone",
+            "label": "Independent kernel review",
+            "status": "blocked_until_m2_m4_complete",
+            "required_artifact": "external replay report"
+          },
+          {
+            "id": "G-G1",
+            "type": "gap",
+            "label": "positive_lower_bound",
+            "status": "open_infinite_bridge",
+            "required_artifact": "explicit representation-count lower-bound theorem"
+          },
+          {
+            "id": "G-G2",
+            "type": "gap",
+            "label": "threshold_bridge",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal finite-to-infinite threshold comparison"
+          },
+          {
+            "id": "G-G3",
+            "type": "gap",
+            "label": "dependency_control",
+            "status": "open_formalization",
+            "required_artifact": "assumption audit in formal contract"
+          },
+          {
+            "id": "G-G4",
+            "type": "gap",
+            "label": "independent_review",
+            "status": "blocked_until_g1_g3_close",
+            "required_artifact": "external kernel replay report"
+          },
+          {
+            "id": "GB-EXEC-A",
+            "type": "attempt",
+            "label": "Use bounded decompositions to search for a stable lower-bound shape.",
+            "status": "bounded_compatible",
+            "required_artifact": "explicit large-even representation theorem"
+          },
+          {
+            "id": "GB-EXEC-B",
+            "type": "attempt",
+            "label": "Use weak Goldbach-style evidence as a replacement for strong Goldbach.",
+            "status": "rejected_as_wrong_target",
+            "required_artifact": "binary representation lower bound plus explicit cutoff"
+          },
+          {
+            "id": "GB-REDUCE",
+            "type": "reduction",
+            "label": "decisive reduction theorem",
+            "status": "open_missing_infinite_bridge",
+            "required_artifact": "formal large-even threshold theorem with explicit cutoff"
+          },
+          {
+            "id": "GB-TARGET",
+            "type": "target",
+            "label": "Goldbach Conjecture",
+            "status": "open_not_proven",
+            "required_artifact": "independently checkable full proof"
+          }
+        ],
+        "edges": [
+          {
+            "from": "GB-EXEC-A",
+            "to": "GB-REDUCE",
+            "status": "blocked_by_missing_artifact"
+          },
+          {
+            "from": "GB-EXEC-B",
+            "to": "GB-REDUCE",
+            "status": "blocked_by_missing_artifact"
+          },
+          {
+            "from": "G-G1",
+            "to": "GB-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "G-G2",
+            "to": "GB-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "G-G3",
+            "to": "GB-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "G-G4",
+            "to": "GB-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "G-M1",
+            "to": "GB-REDUCE",
+            "status": "bounded_support_only"
+          },
+          {
+            "from": "G-M2",
+            "to": "GB-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "G-M3",
+            "to": "GB-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "G-M4",
+            "to": "GB-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "GB-REDUCE",
+            "to": "G-M5",
+            "status": "blocked_until_bridge_closes"
+          },
+          {
+            "from": "G-M5",
+            "to": "GB-TARGET",
+            "status": "required_for_public_claim"
+          },
+          {
+            "from": "GB-REDUCE",
+            "to": "GB-TARGET",
+            "status": "required_for_full_proof"
+          }
+        ],
+        "critical_path": [
+          "bounded certificate is support only",
+          "close every named proof gap",
+          "prove the decisive reduction theorem",
+          "replay the formal package independently",
+          "then and only then review the full target claim"
+        ],
+        "machine_rule": "Every non-complete node on this DAG must be closed by a formal artifact or accepted theorem before the conjecture status can change."
       }
     },
     {
@@ -3224,6 +3752,182 @@
         "decisive_missing_artifact": "formal exact gap-2 lower-bound theorem",
         "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
         "publication_rule": "Execution logs can report failed or bounded-compatible proof attempts only; they cannot upgrade the conjecture status."
+      },
+      "proof_obligation_dag": {
+        "schema": "primeproject.proof-obligation-dag.v1",
+        "problem_id": "twin-prime",
+        "status": "open_obligation_graph",
+        "node_count": 13,
+        "edge_count": 13,
+        "open_node_count": 11,
+        "nodes": [
+          {
+            "id": "TP-M1",
+            "type": "milestone",
+            "label": "Bounded twin-pair certificate",
+            "status": "complete",
+            "required_artifact": "bounded_certificate_merkle_root"
+          },
+          {
+            "id": "TP-M2",
+            "type": "milestone",
+            "label": "Lean definitions for exact gap-2 primes",
+            "status": "open_formalization",
+            "required_artifact": "Lean 4 definitions"
+          },
+          {
+            "id": "TP-M3",
+            "type": "milestone",
+            "label": "Unconditional exact gap-2 lower bound",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal theorem"
+          },
+          {
+            "id": "TP-M4",
+            "type": "milestone",
+            "label": "Infinitude bridge",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal infinitude proof"
+          },
+          {
+            "id": "TP-M5",
+            "type": "milestone",
+            "label": "Independent kernel review",
+            "status": "blocked_until_m2_m4_complete",
+            "required_artifact": "external replay report"
+          },
+          {
+            "id": "TP-G1",
+            "type": "gap",
+            "label": "exact_gap_lower_bound",
+            "status": "open_infinite_bridge",
+            "required_artifact": "unconditional exact gap-2 lower-bound theorem"
+          },
+          {
+            "id": "TP-G2",
+            "type": "gap",
+            "label": "heuristic_removal",
+            "status": "open_infinite_bridge",
+            "required_artifact": "assumption-free distribution argument"
+          },
+          {
+            "id": "TP-G3",
+            "type": "gap",
+            "label": "infinitude_bridge",
+            "status": "open_infinite_bridge",
+            "required_artifact": "formal infinitude bridge"
+          },
+          {
+            "id": "TP-G4",
+            "type": "gap",
+            "label": "independent_review",
+            "status": "blocked_until_g1_g3_close",
+            "required_artifact": "external kernel replay report"
+          },
+          {
+            "id": "TP-EXEC-A",
+            "type": "attempt",
+            "label": "Use exact gap-2 residue persistence to infer infinitude.",
+            "status": "bounded_compatible",
+            "required_artifact": "unconditional exact gap-2 lower-bound theorem"
+          },
+          {
+            "id": "TP-EXEC-B",
+            "type": "attempt",
+            "label": "Use bounded prime gaps as a stand-in for twin primes.",
+            "status": "rejected_as_weaker_theorem",
+            "required_artifact": "formal distinction between bounded gaps and exact gap 2"
+          },
+          {
+            "id": "TP-REDUCE",
+            "type": "reduction",
+            "label": "decisive reduction theorem",
+            "status": "open_missing_infinite_bridge",
+            "required_artifact": "formal exact gap-2 lower-bound theorem"
+          },
+          {
+            "id": "TP-TARGET",
+            "type": "target",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven",
+            "required_artifact": "independently checkable full proof"
+          }
+        ],
+        "edges": [
+          {
+            "from": "TP-EXEC-A",
+            "to": "TP-REDUCE",
+            "status": "blocked_by_missing_artifact"
+          },
+          {
+            "from": "TP-EXEC-B",
+            "to": "TP-REDUCE",
+            "status": "blocked_by_missing_artifact"
+          },
+          {
+            "from": "TP-G1",
+            "to": "TP-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "TP-G2",
+            "to": "TP-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "TP-G3",
+            "to": "TP-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "TP-G4",
+            "to": "TP-REDUCE",
+            "status": "must_close"
+          },
+          {
+            "from": "TP-M1",
+            "to": "TP-REDUCE",
+            "status": "bounded_support_only"
+          },
+          {
+            "from": "TP-M2",
+            "to": "TP-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "TP-M3",
+            "to": "TP-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "TP-M4",
+            "to": "TP-REDUCE",
+            "status": "required"
+          },
+          {
+            "from": "TP-REDUCE",
+            "to": "TP-M5",
+            "status": "blocked_until_bridge_closes"
+          },
+          {
+            "from": "TP-M5",
+            "to": "TP-TARGET",
+            "status": "required_for_public_claim"
+          },
+          {
+            "from": "TP-REDUCE",
+            "to": "TP-TARGET",
+            "status": "required_for_full_proof"
+          }
+        ],
+        "critical_path": [
+          "bounded certificate is support only",
+          "close every named proof gap",
+          "prove the decisive reduction theorem",
+          "replay the formal package independently",
+          "then and only then review the full target claim"
+        ],
+        "machine_rule": "Every non-complete node on this DAG must be closed by a formal artifact or accepted theorem before the conjecture status can change."
       }
     }
   ]

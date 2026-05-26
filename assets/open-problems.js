@@ -735,6 +735,76 @@ function renderProofAttemptExecutionLog(problem) {
   `;
 }
 
+function renderProofObligationDag(problem) {
+  const dag = problem.proof_obligation_dag || {};
+  const nodes = dag.nodes || [];
+  const edges = dag.edges || [];
+  return `
+    <div class="dag-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(dag.status))}</strong>
+      </div>
+      <div>
+        <span>Nodes</span>
+        <strong>${escapeHtml(formatValue(dag.node_count || nodes.length))}</strong>
+      </div>
+      <div>
+        <span>Edges</span>
+        <strong>${escapeHtml(formatValue(dag.edge_count || edges.length))}</strong>
+      </div>
+      <div>
+        <span>Open nodes</span>
+        <strong>${escapeHtml(formatValue(dag.open_node_count || 0))}</strong>
+      </div>
+    </div>
+    <div class="dag-grid">
+      <section>
+        <h3>Obligation nodes</h3>
+        <div class="dag-node-list">
+          ${nodes
+            .map(
+              (node) => `
+                <article class="dag-node is-${escapeHtml(node.status || "open")}">
+                  <span>${escapeHtml(node.id || "")} · ${escapeHtml(node.type || "")}</span>
+                  <strong>${escapeHtml(node.label || "")}</strong>
+                  <em>${escapeHtml(statusText(node.status))}</em>
+                  <small>${escapeHtml(node.required_artifact || "")}</small>
+                </article>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+      <section>
+        <h3>Dependency edges</h3>
+        <div class="dag-edge-list">
+          ${edges
+            .map(
+              (edge) => `
+                <article>
+                  <span>${escapeHtml(edge.from || "")} -> ${escapeHtml(edge.to || "")}</span>
+                  <strong>${escapeHtml(statusText(edge.status))}</strong>
+                </article>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+    </div>
+    <div class="dag-rule">
+      <section>
+        <h3>Critical path</h3>
+        ${list(dag.critical_path || [])}
+      </section>
+      <section>
+        <h3>Machine rule</h3>
+        <p>${escapeHtml(dag.machine_rule || "")}</p>
+      </section>
+    </div>
+  `;
+}
+
 function renderFormalContract(problem) {
   const contract = problem.formal_proof_contract || {};
   return `
@@ -987,6 +1057,7 @@ function render(payload, problem) {
   document.querySelector("#proofReductionContract").innerHTML = renderProofReductionContract(problem);
   document.querySelector("#proofCandidateIntake").innerHTML = renderProofCandidateIntake(problem);
   document.querySelector("#proofAttemptExecutionLog").innerHTML = renderProofAttemptExecutionLog(problem);
+  document.querySelector("#proofObligationDag").innerHTML = renderProofObligationDag(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);
