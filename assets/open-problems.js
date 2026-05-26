@@ -497,6 +497,51 @@ function renderFormalReplayPackage(problem) {
   `;
 }
 
+function renderProofReviewDocket(problem) {
+  const docket = problem.proof_review_docket || {};
+  const verdicts = docket.verdicts || [];
+  return `
+    <div class="review-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(docket.status))}</strong>
+      </div>
+      <div>
+        <span>Stage</span>
+        <strong>${escapeHtml(statusText(docket.review_stage))}</strong>
+      </div>
+      <div>
+        <span>Reviewer stance</span>
+        <strong>${escapeHtml(docket.reviewer_stance || "")}</strong>
+      </div>
+    </div>
+    <div class="review-verdicts">
+      ${verdicts
+        .map(
+          (item) => `
+            <article class="review-card is-${escapeHtml(item.verdict || "missing")}">
+              <span>${escapeHtml(item.claim || "")}</span>
+              <strong>${escapeHtml(statusText(item.verdict))}</strong>
+              <code>${escapeHtml(formatValue(item.evidence))}</code>
+              <p>${escapeHtml(item.reason || "")}</p>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <div class="review-rules">
+      <section>
+        <h3>Minimum acceptance conditions</h3>
+        ${list(docket.minimum_acceptance_conditions || [])}
+      </section>
+      <section>
+        <h3>Rejection rule</h3>
+        <p>${escapeHtml(docket.rejection_rule || "")}</p>
+      </section>
+    </div>
+  `;
+}
+
 function renderFormalContract(problem) {
   const contract = problem.formal_proof_contract || {};
   return `
@@ -745,6 +790,7 @@ function render(payload, problem) {
   document.querySelector("#proofFrontierProbe").innerHTML = renderProofFrontierProbe(problem);
   document.querySelector("#knownBarrierAudit").innerHTML = renderKnownBarrierAudit(problem);
   document.querySelector("#formalReplayPackage").innerHTML = renderFormalReplayPackage(problem);
+  document.querySelector("#proofReviewDocket").innerHTML = renderProofReviewDocket(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);

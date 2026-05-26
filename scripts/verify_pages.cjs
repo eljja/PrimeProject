@@ -236,6 +236,8 @@ async function main() {
           knownBarrierCards: document.querySelectorAll("#knownBarrierAudit .barrier-card").length,
           formalReplayText: document.querySelector("#formalReplayPackage").textContent,
           formalReplayArtifacts: document.querySelectorAll("#formalReplayPackage .replay-artifacts > div").length,
+          proofReviewText: document.querySelector("#proofReviewDocket").textContent,
+          proofReviewCards: document.querySelectorAll("#proofReviewDocket .review-card").length,
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
@@ -301,6 +303,11 @@ async function main() {
         !page.formalReplayText.includes("Replay commands") ||
         !page.formalReplayText.includes("Forbidden tokens") ||
         !page.formalReplayText.includes("lake env lean") ||
+        page.proofReviewCards < 4 ||
+        !page.proofReviewText.includes("full proof not accepted") ||
+        !page.proofReviewText.includes("accepted for committed limit") ||
+        !page.proofReviewText.includes("rejected currently") ||
+        !page.proofReviewText.includes("Minimum acceptance conditions") ||
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||

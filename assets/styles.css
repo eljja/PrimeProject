@@ -1580,6 +1580,77 @@ canvas {
   font-size: 11px;
 }
 
+.review-head,
+.review-verdicts,
+.review-rules {
+  display: grid;
+  gap: 10px;
+}
+
+.review-head {
+  grid-template-columns: minmax(160px, 0.35fr) minmax(180px, 0.4fr) minmax(360px, 1fr);
+}
+
+.review-verdicts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 10px;
+}
+
+.review-rules {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+  margin-top: 10px;
+}
+
+.review-head div,
+.review-card,
+.review-rules section {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.review-card {
+  border-top: 3px solid var(--danger);
+}
+
+.review-card.is-accepted_for_committed_limit {
+  border-top-color: var(--ok);
+}
+
+.review-head span,
+.review-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.review-head strong,
+.review-card strong,
+.review-card code {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.review-card code {
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+}
+
+.review-card p,
+.review-rules p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -4559,7 +4630,10 @@ tr:last-child td {
   .barrier-head,
   .barrier-list,
   .replay-head,
-  .replay-grid {
+  .replay-grid,
+  .review-head,
+  .review-verdicts,
+  .review-rules {
     grid-template-columns: 1fr;
   }
 

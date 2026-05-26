@@ -14,10 +14,10 @@
     "public_claim": "proof_workbench_only",
     "reason": "These pages are allowed to show finite evidence, proof gates, and candidate strategies, but must not claim a proof until an independently checkable infinite argument exists.",
     "blocked_claims": [
-      "Riemann Hypothesis proven",
-      "Collatz Conjecture proven",
-      "Goldbach Conjecture proven",
-      "Twin Prime Conjecture proven"
+      "unverified full-proof claim for the Riemann Hypothesis",
+      "unverified full-proof claim for the Collatz conjecture",
+      "unverified full-proof claim for the Goldbach conjecture",
+      "unverified full-proof claim for the Twin Prime conjecture"
     ]
   },
   "problems": [
@@ -607,6 +607,47 @@
         ],
         "open_barriers": 4,
         "acceptance_rule": "The replay package is publishable only when all candidate files kernel-check and every required artifact is available without importing the target conjecture."
+      },
+      "proof_review_docket": {
+        "schema": "primeproject.proof-review-docket.v1",
+        "problem_id": "riemann",
+        "status": "full_proof_not_accepted",
+        "review_stage": "pre_submission_red_team",
+        "reviewer_stance": "accept bounded theorem, reject full conjecture claim until all infinite obligations replay",
+        "verdicts": [
+          {
+            "claim": "bounded finite theorem",
+            "verdict": "accepted_for_committed_limit",
+            "evidence": "d2a11c74de18a21a2652a79f3ff5ab1b92356f18884c089a4a82127189a4c813",
+            "reason": "The bounded certificate is reproducible and scoped to the public search limit."
+          },
+          {
+            "claim": "full conjecture solved",
+            "verdict": "rejected_currently",
+            "evidence": "blocked_open_infinite_obligation",
+            "reason": "The proof-status gate still reports open infinite obligations or unsatisfied bridges."
+          },
+          {
+            "claim": "formal replay ready",
+            "verdict": "blocked_currently",
+            "evidence": "not_replayable_until_barriers_clear",
+            "reason": "The formal package is not replayable while required infinite artifacts are missing."
+          },
+          {
+            "claim": "known barriers cleared",
+            "verdict": "rejected_currently",
+            "evidence": "4 open barriers",
+            "reason": "Every known barrier must be cleared by a formal artifact or accepted theorem reference."
+          }
+        ],
+        "minimum_acceptance_conditions": [
+          "proof_status_gate.promotion_status == eligible_for_independent_review",
+          "known_barrier_audit.open_count == 0",
+          "formal_replay_package.status == replayable",
+          "all replay commands pass in a clean environment",
+          "no forbidden token or conjecture-equivalent import appears in the replay package"
+        ],
+        "rejection_rule": "Any candidate proof that relies only on finite computation, heuristic density, unchecked axioms, or an imported target-equivalent theorem remains rejected."
       }
     },
     {
@@ -1276,6 +1317,47 @@
         ],
         "open_barriers": 4,
         "acceptance_rule": "The replay package is publishable only when all candidate files kernel-check and every required artifact is available without importing the target conjecture."
+      },
+      "proof_review_docket": {
+        "schema": "primeproject.proof-review-docket.v1",
+        "problem_id": "collatz",
+        "status": "full_proof_not_accepted",
+        "review_stage": "pre_submission_red_team",
+        "reviewer_stance": "accept bounded theorem, reject full conjecture claim until all infinite obligations replay",
+        "verdicts": [
+          {
+            "claim": "bounded finite theorem",
+            "verdict": "accepted_for_committed_limit",
+            "evidence": "efda5adedc111cb14cdb476cd133ca278b19fec9cd94764e1c338b937f98857e",
+            "reason": "The bounded certificate is reproducible and scoped to the public search limit."
+          },
+          {
+            "claim": "full conjecture solved",
+            "verdict": "rejected_currently",
+            "evidence": "blocked_open_infinite_obligation",
+            "reason": "The proof-status gate still reports open infinite obligations or unsatisfied bridges."
+          },
+          {
+            "claim": "formal replay ready",
+            "verdict": "blocked_currently",
+            "evidence": "not_replayable_until_barriers_clear",
+            "reason": "The formal package is not replayable while required infinite artifacts are missing."
+          },
+          {
+            "claim": "known barriers cleared",
+            "verdict": "rejected_currently",
+            "evidence": "4 open barriers",
+            "reason": "Every known barrier must be cleared by a formal artifact or accepted theorem reference."
+          }
+        ],
+        "minimum_acceptance_conditions": [
+          "proof_status_gate.promotion_status == eligible_for_independent_review",
+          "known_barrier_audit.open_count == 0",
+          "formal_replay_package.status == replayable",
+          "all replay commands pass in a clean environment",
+          "no forbidden token or conjecture-equivalent import appears in the replay package"
+        ],
+        "rejection_rule": "Any candidate proof that relies only on finite computation, heuristic density, unchecked axioms, or an imported target-equivalent theorem remains rejected."
       }
     },
     {
@@ -1957,6 +2039,47 @@
         ],
         "open_barriers": 4,
         "acceptance_rule": "The replay package is publishable only when all candidate files kernel-check and every required artifact is available without importing the target conjecture."
+      },
+      "proof_review_docket": {
+        "schema": "primeproject.proof-review-docket.v1",
+        "problem_id": "goldbach",
+        "status": "full_proof_not_accepted",
+        "review_stage": "pre_submission_red_team",
+        "reviewer_stance": "accept bounded theorem, reject full conjecture claim until all infinite obligations replay",
+        "verdicts": [
+          {
+            "claim": "bounded finite theorem",
+            "verdict": "accepted_for_committed_limit",
+            "evidence": "0e52db965ab01c1e8b828db9b67e917845214a64c4caa39388fc035d241f013b",
+            "reason": "The bounded certificate is reproducible and scoped to the public search limit."
+          },
+          {
+            "claim": "full conjecture solved",
+            "verdict": "rejected_currently",
+            "evidence": "blocked_open_infinite_obligation",
+            "reason": "The proof-status gate still reports open infinite obligations or unsatisfied bridges."
+          },
+          {
+            "claim": "formal replay ready",
+            "verdict": "blocked_currently",
+            "evidence": "not_replayable_until_barriers_clear",
+            "reason": "The formal package is not replayable while required infinite artifacts are missing."
+          },
+          {
+            "claim": "known barriers cleared",
+            "verdict": "rejected_currently",
+            "evidence": "4 open barriers",
+            "reason": "Every known barrier must be cleared by a formal artifact or accepted theorem reference."
+          }
+        ],
+        "minimum_acceptance_conditions": [
+          "proof_status_gate.promotion_status == eligible_for_independent_review",
+          "known_barrier_audit.open_count == 0",
+          "formal_replay_package.status == replayable",
+          "all replay commands pass in a clean environment",
+          "no forbidden token or conjecture-equivalent import appears in the replay package"
+        ],
+        "rejection_rule": "Any candidate proof that relies only on finite computation, heuristic density, unchecked axioms, or an imported target-equivalent theorem remains rejected."
       }
     },
     {
@@ -2576,6 +2699,47 @@
         ],
         "open_barriers": 4,
         "acceptance_rule": "The replay package is publishable only when all candidate files kernel-check and every required artifact is available without importing the target conjecture."
+      },
+      "proof_review_docket": {
+        "schema": "primeproject.proof-review-docket.v1",
+        "problem_id": "twin-prime",
+        "status": "full_proof_not_accepted",
+        "review_stage": "pre_submission_red_team",
+        "reviewer_stance": "accept bounded theorem, reject full conjecture claim until all infinite obligations replay",
+        "verdicts": [
+          {
+            "claim": "bounded finite theorem",
+            "verdict": "accepted_for_committed_limit",
+            "evidence": "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d",
+            "reason": "The bounded certificate is reproducible and scoped to the public search limit."
+          },
+          {
+            "claim": "full conjecture solved",
+            "verdict": "rejected_currently",
+            "evidence": "blocked_open_infinite_obligation",
+            "reason": "The proof-status gate still reports open infinite obligations or unsatisfied bridges."
+          },
+          {
+            "claim": "formal replay ready",
+            "verdict": "blocked_currently",
+            "evidence": "not_replayable_until_barriers_clear",
+            "reason": "The formal package is not replayable while required infinite artifacts are missing."
+          },
+          {
+            "claim": "known barriers cleared",
+            "verdict": "rejected_currently",
+            "evidence": "4 open barriers",
+            "reason": "Every known barrier must be cleared by a formal artifact or accepted theorem reference."
+          }
+        ],
+        "minimum_acceptance_conditions": [
+          "proof_status_gate.promotion_status == eligible_for_independent_review",
+          "known_barrier_audit.open_count == 0",
+          "formal_replay_package.status == replayable",
+          "all replay commands pass in a clean environment",
+          "no forbidden token or conjecture-equivalent import appears in the replay package"
+        ],
+        "rejection_rule": "Any candidate proof that relies only on finite computation, heuristic density, unchecked axioms, or an imported target-equivalent theorem remains rejected."
       }
     }
   ]

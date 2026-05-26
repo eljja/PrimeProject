@@ -150,6 +150,20 @@ def main() -> int:
         if not replay.get("required_artifacts") or not replay.get("forbidden_tokens"):
             print(f"{problem.get('id')} formal replay package is missing artifacts or forbidden tokens.", file=sys.stderr)
             return 1
+        docket = problem.get("proof_review_docket", {})
+        verdicts = docket.get("verdicts", []) if isinstance(docket, dict) else []
+        if docket.get("status") != "full_proof_not_accepted":
+            print(f"{problem.get('id')} proof review docket has unexpected status.", file=sys.stderr)
+            return 1
+        if len(verdicts) < 4 or not any(item.get("verdict") == "accepted_for_committed_limit" for item in verdicts):
+            print(f"{problem.get('id')} proof review docket is missing bounded acceptance.", file=sys.stderr)
+            return 1
+        if not any(item.get("verdict") == "rejected_currently" for item in verdicts):
+            print(f"{problem.get('id')} proof review docket is missing full-proof rejection.", file=sys.stderr)
+            return 1
+        if not docket.get("minimum_acceptance_conditions") or not docket.get("rejection_rule"):
+            print(f"{problem.get('id')} proof review docket is missing review rules.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

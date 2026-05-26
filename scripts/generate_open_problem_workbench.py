@@ -21,6 +21,7 @@ PROOF_EXECUTION_PROTOCOL_SCHEMA = "primeproject.proof-execution-protocol.v1"
 PROOF_FRONTIER_PROBE_SCHEMA = "primeproject.proof-frontier-probe.v1"
 KNOWN_BARRIER_AUDIT_SCHEMA = "primeproject.known-barrier-audit.v1"
 FORMAL_REPLAY_PACKAGE_SCHEMA = "primeproject.formal-replay-package.v1"
+PROOF_REVIEW_DOCKET_SCHEMA = "primeproject.proof-review-docket.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -561,6 +562,55 @@ def formal_replay_package(problem: dict[str, object]) -> dict[str, object]:
         ],
         "open_barriers": barrier_audit.get("open_count", 0),
         "acceptance_rule": "The replay package is publishable only when all candidate files kernel-check and every required artifact is available without importing the target conjecture.",
+    }
+
+
+def proof_review_docket(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    certificate = problem.get("certificate", {}) if isinstance(problem.get("certificate"), dict) else {}
+    gate = problem.get("proof_status_gate", {}) if isinstance(problem.get("proof_status_gate"), dict) else {}
+    barrier_audit = problem.get("known_barrier_audit", {}) if isinstance(problem.get("known_barrier_audit"), dict) else {}
+    replay = problem.get("formal_replay_package", {}) if isinstance(problem.get("formal_replay_package"), dict) else {}
+    return {
+        "schema": PROOF_REVIEW_DOCKET_SCHEMA,
+        "problem_id": problem_id,
+        "status": "full_proof_not_accepted",
+        "review_stage": "pre_submission_red_team",
+        "reviewer_stance": "accept bounded theorem, reject full conjecture claim until all infinite obligations replay",
+        "verdicts": [
+            {
+                "claim": "bounded finite theorem",
+                "verdict": "accepted_for_committed_limit",
+                "evidence": certificate.get("merkle_root", "missing bounded certificate"),
+                "reason": "The bounded certificate is reproducible and scoped to the public search limit.",
+            },
+            {
+                "claim": "full conjecture solved",
+                "verdict": "rejected_currently",
+                "evidence": gate.get("promotion_status", "missing promotion gate"),
+                "reason": "The proof-status gate still reports open infinite obligations or unsatisfied bridges.",
+            },
+            {
+                "claim": "formal replay ready",
+                "verdict": "blocked_currently",
+                "evidence": replay.get("status", "missing replay package"),
+                "reason": "The formal package is not replayable while required infinite artifacts are missing.",
+            },
+            {
+                "claim": "known barriers cleared",
+                "verdict": "rejected_currently",
+                "evidence": f"{barrier_audit.get('open_count', 'unknown')} open barriers",
+                "reason": "Every known barrier must be cleared by a formal artifact or accepted theorem reference.",
+            },
+        ],
+        "minimum_acceptance_conditions": [
+            "proof_status_gate.promotion_status == eligible_for_independent_review",
+            "known_barrier_audit.open_count == 0",
+            "formal_replay_package.status == replayable",
+            "all replay commands pass in a clean environment",
+            "no forbidden token or conjecture-equivalent import appears in the replay package",
+        ],
+        "rejection_rule": "Any candidate proof that relies only on finite computation, heuristic density, unchecked axioms, or an imported target-equivalent theorem remains rejected.",
     }
 
 
@@ -1809,6 +1859,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["proof_execution_protocol"] = proof_execution_protocol(problem)
         problem["known_barrier_audit"] = known_barrier_audit(problem)
         problem["formal_replay_package"] = formal_replay_package(problem)
+        problem["proof_review_docket"] = proof_review_docket(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
@@ -1829,10 +1880,10 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
             "public_claim": "proof_workbench_only",
             "reason": "These pages are allowed to show finite evidence, proof gates, and candidate strategies, but must not claim a proof until an independently checkable infinite argument exists.",
             "blocked_claims": [
-                "Riemann Hypothesis proven",
-                "Collatz Conjecture proven",
-                "Goldbach Conjecture proven",
-                "Twin Prime Conjecture proven",
+                "unverified full-proof claim for the Riemann Hypothesis",
+                "unverified full-proof claim for the Collatz conjecture",
+                "unverified full-proof claim for the Goldbach conjecture",
+                "unverified full-proof claim for the Twin Prime conjecture",
             ],
         },
         "problems": problems,
