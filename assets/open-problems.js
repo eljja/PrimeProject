@@ -261,6 +261,54 @@ function renderProofRouteTriage(problem) {
   `;
 }
 
+function renderDecisiveTheoremSpec(problem) {
+  const spec = problem.decisive_theorem_spec || {};
+  return `
+    <div class="theorem-spec-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(spec.status))}</strong>
+      </div>
+      <div>
+        <span>Target route</span>
+        <strong>${escapeHtml(spec.target_route || "missing")}</strong>
+      </div>
+      <div>
+        <span>Artifact</span>
+        <strong>${escapeHtml(statusText(spec.artifact_status))}</strong>
+      </div>
+      <div>
+        <span>Spec</span>
+        <strong>${escapeHtml(spec.spec_id || "missing")}</strong>
+      </div>
+    </div>
+    <article class="theorem-statement-card">
+      <span>${escapeHtml(spec.title || "")}</span>
+      <p>${escapeHtml(spec.candidate_statement || "")}</p>
+      <small>Blocking gap: ${escapeHtml(spec.blocking_gap || "")}</small>
+    </article>
+    <div class="theorem-spec-grid">
+      <section>
+        <h3>Allowed Inputs</h3>
+        ${list(spec.allowed_inputs || [])}
+      </section>
+      <section>
+        <h3>Forbidden Shortcuts</h3>
+        ${list(spec.forbidden_shortcuts || [])}
+      </section>
+      <section>
+        <h3>Machine Checks</h3>
+        ${list(spec.machine_checks || [])}
+      </section>
+      <section>
+        <h3>Would Close</h3>
+        ${list(spec.would_close || [])}
+      </section>
+    </div>
+    <p class="route-rule">${escapeHtml(spec.promotion_rule || "")}</p>
+  `;
+}
+
 function renderProofMap(problem) {
   const attempt = problem.proof_attempt || {};
   const graph = attempt.attack_graph || {};
@@ -1140,6 +1188,7 @@ function render(payload, problem) {
 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#proofRouteTriage").innerHTML = renderProofRouteTriage(problem);
+  document.querySelector("#decisiveTheoremSpec").innerHTML = renderDecisiveTheoremSpec(problem);
   document.querySelector("#metricCards").innerHTML = metricCards(problem)
     .map(
       ([label, value]) => `

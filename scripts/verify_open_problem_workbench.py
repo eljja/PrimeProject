@@ -269,6 +269,23 @@ def main() -> int:
         if "cannot change the page status" not in triage.get("machine_rule", ""):
             print(f"{problem.get('id')} proof route triage is missing the promotion rule.", file=sys.stderr)
             return 1
+        theorem_spec = problem.get("decisive_theorem_spec", {})
+        if theorem_spec.get("status") != "decisive_theorem_open":
+            print(f"{problem.get('id')} decisive theorem spec has unexpected status.", file=sys.stderr)
+            return 1
+        if theorem_spec.get("artifact_status") != "missing_formal_theorem":
+            print(f"{problem.get('id')} decisive theorem spec overstates artifact readiness.", file=sys.stderr)
+            return 1
+        if theorem_spec.get("target_route") != triage.get("current_decisive_route"):
+            print(f"{problem.get('id')} decisive theorem spec is not tied to route triage.", file=sys.stderr)
+            return 1
+        for field in ("allowed_inputs", "forbidden_shortcuts", "machine_checks", "would_close"):
+            if len(theorem_spec.get(field, [])) < 3:
+                print(f"{problem.get('id')} decisive theorem spec is missing {field}.", file=sys.stderr)
+                return 1
+        if "formal_proof_verified or accepted_theorem" not in theorem_spec.get("promotion_rule", ""):
+            print(f"{problem.get('id')} decisive theorem spec is missing the promotion rule.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

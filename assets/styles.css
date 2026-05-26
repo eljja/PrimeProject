@@ -833,6 +833,91 @@ canvas {
   font-weight: 720;
 }
 
+.theorem-spec-head {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.theorem-spec-head div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.theorem-spec-head span,
+.theorem-statement-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.theorem-spec-head strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.theorem-statement-card {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+  background: #fff;
+  padding: 12px;
+}
+
+.theorem-statement-card p {
+  margin: 8px 0 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.theorem-statement-card small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.theorem-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.theorem-spec-grid section {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.theorem-spec-grid h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.theorem-spec-grid ol {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.theorem-spec-grid li {
+  margin: 6px 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
 .certificate-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5115,6 +5200,8 @@ tr:last-child td {
   .verdict-grid,
   .route-triage-head,
   .route-triage-list,
+  .theorem-spec-head,
+  .theorem-spec-grid,
   .attempt-summary,
   .obligation-list,
   .proof-map-grid,

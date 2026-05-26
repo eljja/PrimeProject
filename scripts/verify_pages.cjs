@@ -228,6 +228,8 @@ async function main() {
           proofVerdictText: document.querySelector("#proofVerdict").textContent,
           proofRouteTriageText: document.querySelector("#proofRouteTriage").textContent,
           proofRouteCards: document.querySelectorAll("#proofRouteTriage .route-card").length,
+          decisiveTheoremText: document.querySelector("#decisiveTheoremSpec").textContent,
+          decisiveTheoremSections: document.querySelectorAll("#decisiveTheoremSpec .theorem-spec-grid section").length,
           certificateText: document.querySelector("#certificatePanel").textContent,
           proofAttemptText: document.querySelector("#proofAttempt").textContent,
           proofMapText: document.querySelector("#proofMap").textContent,
@@ -299,6 +301,13 @@ async function main() {
         !page.proofRouteTriageText.includes("Machine test") ||
         !page.proofRouteTriageText.includes("Required upgrade") ||
         !page.proofRouteTriageText.includes("cannot change the page status") ||
+        page.decisiveTheoremSections < 4 ||
+        !page.decisiveTheoremText.includes("decisive theorem open") ||
+        !page.decisiveTheoremText.includes("missing formal theorem") ||
+        !page.decisiveTheoremText.includes("Allowed Inputs") ||
+        !page.decisiveTheoremText.includes("Forbidden Shortcuts") ||
+        !page.decisiveTheoremText.includes("Machine Checks") ||
+        !page.decisiveTheoremText.includes("formal_proof_verified or accepted_theorem") ||
         !page.certificateText.includes("bounded theorem certified") ||
         !page.certificateText.includes("scripts/verify_open_problem_workbench.py") ||
         !page.proofAttemptText.includes("open infinite obligation") ||

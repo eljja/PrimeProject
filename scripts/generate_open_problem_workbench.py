@@ -29,6 +29,7 @@ PROOF_OBLIGATION_DAG_SCHEMA = "primeproject.proof-obligation-dag.v1"
 FORMAL_SKELETON_AUDIT_SCHEMA = "primeproject.formal-skeleton-audit.v1"
 PROOF_VERDICT_SCHEMA = "primeproject.proof-verdict.v1"
 PROOF_ROUTE_TRIAGE_SCHEMA = "primeproject.proof-route-triage.v1"
+DECISIVE_THEOREM_SPEC_SCHEMA = "primeproject.decisive-theorem-spec.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -1275,6 +1276,115 @@ def proof_route_triage(problem: dict[str, object]) -> dict[str, object]:
         "current_decisive_route": next((item["id"] for item in routes if item["status"] == "current_decisive_route"), "missing"),
         "routes": routes,
         "machine_rule": "Only a route marked current_decisive_route can drive the next proof attempt, and it still cannot change the page status until its required upgrade is a formal artifact or accepted theorem.",
+    }
+
+
+def decisive_theorem_spec(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    triage = problem.get("proof_route_triage", {}) if isinstance(problem.get("proof_route_triage"), dict) else {}
+    specs: dict[str, dict[str, object]] = {
+        "riemann": {
+            "spec_id": "RH-DT1",
+            "title": "Explicit all-x prime-counting error theorem",
+            "candidate_statement": "Prove an explicit all-x theta or psi error bound strong enough to pass an accepted RH-equivalence bridge, without importing RH or an equivalent zero theorem.",
+            "would_close": ["RH-M3", "RH-M4", "RH-G1", "RH-G2"],
+            "allowed_inputs": [
+                "bounded prime-counting certificate",
+                "published RH-equivalence theorem stated as a bridge, not assumed as the target",
+                "formal explicit-constant analytic inequalities",
+            ],
+            "forbidden_shortcuts": [
+                "finite zero verification",
+                "assuming RH under an equivalent theorem name",
+                "fitting a numerical envelope without an all-x proof",
+            ],
+            "machine_checks": [
+                "constants are explicit",
+                "domain covers all x beyond a stated threshold",
+                "bounded certificate covers the remaining finite interval",
+                "formal bridge does not import the target theorem",
+            ],
+            "blocking_gap": "No formal all-x prime-counting error theorem is available.",
+        },
+        "collatz": {
+            "spec_id": "CO-DT1",
+            "title": "Residue-block descent cover theorem",
+            "candidate_statement": "Prove that every positive integer belongs to a certified residue block whose accelerated Collatz trajectory reaches a smaller positive representative or 1.",
+            "would_close": ["CO-M3", "CO-M4", "CO-G1", "CO-G2", "CO-G3"],
+            "allowed_inputs": [
+                "bounded trajectory certificate",
+                "symbolic residue classes",
+                "formal descent measure",
+            ],
+            "forbidden_shortcuts": [
+                "random-walk drift as proof",
+                "checking only enumerated starts",
+                "cycle exclusion without divergence exclusion",
+            ],
+            "machine_checks": [
+                "residue blocks cover all positive integers",
+                "each block has a decreasing certified representative",
+                "descent measure is well-founded",
+                "cycle and divergence exclusions follow from the same cover",
+            ],
+            "blocking_gap": "No residue-block cover currently proves global descent.",
+        },
+        "goldbach": {
+            "spec_id": "GB-DT1",
+            "title": "Large-even two-prime representation lower-bound theorem",
+            "candidate_statement": "Prove an explicit positive lower bound for two-prime representations of every even n >= N0, with N0 below the bounded certificate limit.",
+            "would_close": ["GB-M3", "GB-M4", "GB-G1", "GB-G2"],
+            "allowed_inputs": [
+                "bounded Goldbach decomposition certificate",
+                "explicit circle-method estimates",
+                "verified cutoff comparison N0 <= certificate limit",
+            ],
+            "forbidden_shortcuts": [
+                "weak Goldbach substitution",
+                "sampled decompositions as a lower-bound theorem",
+                "analytic threshold above the certified range",
+            ],
+            "machine_checks": [
+                "lower bound is positive for every even n >= N0",
+                "N0 is explicit",
+                "finite certificate covers every even n below N0",
+                "proof is two-prime, not three-prime",
+            ],
+            "blocking_gap": "No explicit positive two-prime lower bound with compatible cutoff is formalized.",
+        },
+        "twin-prime": {
+            "spec_id": "TP-DT1",
+            "title": "Unconditional exact gap-2 lower-bound theorem",
+            "candidate_statement": "Prove a positive lower bound for exact twin-prime pairs up to arbitrarily large x, without assuming Hardy-Littlewood or replacing exact gap 2 by bounded gaps.",
+            "would_close": ["TP-M3", "TP-M4", "TP-G1", "TP-G2", "TP-G3"],
+            "allowed_inputs": [
+                "bounded twin-pair certificate",
+                "admissible two-point pattern analysis",
+                "assumption-free distribution theorem for exact gap 2",
+            ],
+            "forbidden_shortcuts": [
+                "bounded prime gaps as twin primes",
+                "Hardy-Littlewood k-tuple density as an axiom",
+                "finite twin-pair persistence as infinitude",
+            ],
+            "machine_checks": [
+                "statement is about exact gap 2",
+                "bound stays positive for arbitrarily large x",
+                "no unproved k-tuple independence assumption is imported",
+                "infinitude bridge is formalized",
+            ],
+            "blocking_gap": "No unconditional exact gap-2 lower-bound theorem is available.",
+        },
+    }
+    spec = specs.get(problem_id, {})
+    return {
+        "schema": DECISIVE_THEOREM_SPEC_SCHEMA,
+        "problem_id": problem_id,
+        "status": "decisive_theorem_open",
+        "target_route": triage.get("current_decisive_route", "missing"),
+        "artifact_status": "missing_formal_theorem",
+        **spec,
+        "promotion_rule": "This theorem spec can only upgrade the page when the theorem is formal_proof_verified or accepted_theorem and every listed machine check passes.",
     }
 
 
@@ -2531,6 +2641,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["formal_skeleton_audit"] = formal_skeleton_audit(problem)
         problem["proof_verdict"] = proof_verdict(problem)
         problem["proof_route_triage"] = proof_route_triage(problem)
+        problem["decisive_theorem_spec"] = decisive_theorem_spec(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
