@@ -28,6 +28,7 @@ PROOF_ATTEMPT_EXECUTION_LOG_SCHEMA = "primeproject.proof-attempt-execution-log.v
 PROOF_OBLIGATION_DAG_SCHEMA = "primeproject.proof-obligation-dag.v1"
 FORMAL_SKELETON_AUDIT_SCHEMA = "primeproject.formal-skeleton-audit.v1"
 PROOF_VERDICT_SCHEMA = "primeproject.proof-verdict.v1"
+PROOF_ROUTE_TRIAGE_SCHEMA = "primeproject.proof-route-triage.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -1136,6 +1137,144 @@ def proof_verdict(problem: dict[str, object]) -> dict[str, object]:
         "gate_status": gate.get("promotion_status", "missing"),
         "next_decisive_attempt": lab.get("next_action", lab.get("proof_obligation", "missing decisive attempt")),
         "machine_rule": "PrimeProject may display a proof only when the bounded certificate, decisive reduction, formal contract, skeleton audit, and independent-review gate all pass without open infinite obligations.",
+    }
+
+
+def proof_route_triage(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    route_bank: dict[str, list[dict[str, str]]] = {
+        "riemann": [
+            {
+                "id": "RH-R1",
+                "route": "finite zero or prime-count verification",
+                "status": "rejected_finite_to_infinite",
+                "machine_test": "bounded certificate cannot quantify over every non-trivial zero",
+                "required_upgrade": "all-height zero theorem or accepted RH-equivalent bridge",
+            },
+            {
+                "id": "RH-R2",
+                "route": "prime-counting residual fit",
+                "status": "bounded_support_only",
+                "machine_test": "numeric envelope must survive every x, not selected checkpoints",
+                "required_upgrade": "explicit all-x theta or psi error theorem",
+            },
+            {
+                "id": "RH-R3",
+                "route": "Hilbert-Polya operator program",
+                "status": "viable_requires_new_theorem",
+                "machine_test": "operator must be self-adjoint and have zeta zeros as spectrum",
+                "required_upgrade": "formal spectral construction and equivalence proof",
+            },
+            {
+                "id": "RH-R4",
+                "route": "explicit all-x theta bound plus RH-equivalence bridge",
+                "status": "current_decisive_route",
+                "machine_test": "derive an accepted RH-equivalent statement without importing RH",
+                "required_upgrade": "formal all-x prime-counting error theorem with explicit constants",
+            },
+        ],
+        "collatz": [
+            {
+                "id": "CO-R1",
+                "route": "finite trajectory replay",
+                "status": "rejected_finite_to_infinite",
+                "machine_test": "verified starts do not cover all natural numbers",
+                "required_upgrade": "symbolic cover over infinitely many residue blocks",
+            },
+            {
+                "id": "CO-R2",
+                "route": "parity random-walk drift",
+                "status": "heuristic_only",
+                "machine_test": "average drift does not exclude exceptional cycles or divergence",
+                "required_upgrade": "deterministic descent theorem",
+            },
+            {
+                "id": "CO-R3",
+                "route": "residue-block descent cover",
+                "status": "current_decisive_route",
+                "machine_test": "every residue block must map to a smaller certified representative",
+                "required_upgrade": "formal residue-cover descent theorem",
+            },
+            {
+                "id": "CO-R4",
+                "route": "cycle exclusion without descent",
+                "status": "insufficient_partial_result",
+                "machine_test": "cycle exclusion alone does not rule out divergent branches",
+                "required_upgrade": "joint cycle and divergence exclusion theorem",
+            },
+        ],
+        "goldbach": [
+            {
+                "id": "GB-R1",
+                "route": "finite decomposition search",
+                "status": "rejected_finite_to_infinite",
+                "machine_test": "bounded decompositions do not cover every even integer",
+                "required_upgrade": "explicit threshold theorem for the infinite tail",
+            },
+            {
+                "id": "GB-R2",
+                "route": "weak Goldbach substitution",
+                "status": "rejected_weaker_theorem",
+                "machine_test": "three-prime odd representation is not strong two-prime Goldbach",
+                "required_upgrade": "two-prime representation lower bound",
+            },
+            {
+                "id": "GB-R3",
+                "route": "circle-method lower bound with certified cutoff",
+                "status": "current_decisive_route",
+                "machine_test": "analytic threshold must start below the bounded certificate limit",
+                "required_upgrade": "formal large-even threshold theorem with explicit cutoff",
+            },
+            {
+                "id": "GB-R4",
+                "route": "sampled residue-class persistence",
+                "status": "heuristic_only",
+                "machine_test": "sampled classes cannot replace a uniform lower bound",
+                "required_upgrade": "uniform residue-sensitive representation bound",
+            },
+        ],
+        "twin-prime": [
+            {
+                "id": "TP-R1",
+                "route": "finite twin-pair counting",
+                "status": "rejected_finite_to_infinite",
+                "machine_test": "positive bounded counts do not force arbitrarily large pairs",
+                "required_upgrade": "exact gap-2 infinitude theorem",
+            },
+            {
+                "id": "TP-R2",
+                "route": "bounded prime gaps",
+                "status": "rejected_weaker_theorem",
+                "machine_test": "gap less than a constant is not exact gap 2",
+                "required_upgrade": "formal exact gap-2 lower-bound theorem",
+            },
+            {
+                "id": "TP-R3",
+                "route": "Hardy-Littlewood density match",
+                "status": "heuristic_only",
+                "machine_test": "k-tuple density cannot be assumed as the proof",
+                "required_upgrade": "assumption-free exact gap-2 lower bound",
+            },
+            {
+                "id": "TP-R4",
+                "route": "exact gap-2 lower bound",
+                "status": "current_decisive_route",
+                "machine_test": "lower bound must remain positive for arbitrarily large x",
+                "required_upgrade": "unconditional exact gap-2 lower-bound theorem",
+            },
+        ],
+    }
+    routes = route_bank.get(problem_id, [])
+    return {
+        "schema": PROOF_ROUTE_TRIAGE_SCHEMA,
+        "problem_id": problem_id,
+        "status": "routes_triaged_no_full_proof",
+        "route_count": len(routes),
+        "rejected_count": sum(1 for item in routes if item["status"].startswith("rejected")),
+        "heuristic_count": sum(1 for item in routes if item["status"] == "heuristic_only"),
+        "current_decisive_route": next((item["id"] for item in routes if item["status"] == "current_decisive_route"), "missing"),
+        "routes": routes,
+        "machine_rule": "Only a route marked current_decisive_route can drive the next proof attempt, and it still cannot change the page status until its required upgrade is a formal artifact or accepted theorem.",
     }
 
 
@@ -2391,6 +2530,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["proof_obligation_dag"] = proof_obligation_dag(problem)
         problem["formal_skeleton_audit"] = formal_skeleton_audit(problem)
         problem["proof_verdict"] = proof_verdict(problem)
+        problem["proof_route_triage"] = proof_route_triage(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

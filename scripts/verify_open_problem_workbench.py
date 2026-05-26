@@ -252,6 +252,23 @@ def main() -> int:
         if not verdict.get("full_proof_blocker") or not verdict.get("next_decisive_attempt"):
             print(f"{problem.get('id')} proof verdict is missing blocker or next attempt.", file=sys.stderr)
             return 1
+        triage = problem.get("proof_route_triage", {})
+        routes = triage.get("routes", []) if isinstance(triage, dict) else []
+        if triage.get("status") != "routes_triaged_no_full_proof":
+            print(f"{problem.get('id')} proof route triage has unexpected status.", file=sys.stderr)
+            return 1
+        if len(routes) < 4 or triage.get("rejected_count", 0) < 1:
+            print(f"{problem.get('id')} proof route triage is missing route coverage.", file=sys.stderr)
+            return 1
+        if not any(route.get("status") == "current_decisive_route" for route in routes):
+            print(f"{problem.get('id')} proof route triage is missing a decisive route.", file=sys.stderr)
+            return 1
+        if not all(route.get("machine_test") and route.get("required_upgrade") for route in routes):
+            print(f"{problem.get('id')} proof route triage is missing tests or upgrades.", file=sys.stderr)
+            return 1
+        if "cannot change the page status" not in triage.get("machine_rule", ""):
+            print(f"{problem.get('id')} proof route triage is missing the promotion rule.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

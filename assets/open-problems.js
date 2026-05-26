@@ -220,6 +220,47 @@ function renderProofVerdict(problem) {
   `;
 }
 
+function renderProofRouteTriage(problem) {
+  const triage = problem.proof_route_triage || {};
+  const routes = triage.routes || [];
+  return `
+    <div class="route-triage-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(triage.status))}</strong>
+      </div>
+      <div>
+        <span>Routes</span>
+        <strong>${escapeHtml(formatValue(triage.route_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Rejected</span>
+        <strong>${escapeHtml(formatValue(triage.rejected_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Current route</span>
+        <strong>${escapeHtml(triage.current_decisive_route || "missing")}</strong>
+      </div>
+    </div>
+    <div class="route-triage-list">
+      ${routes
+        .map(
+          (route) => `
+            <article class="route-card is-${escapeHtml(route.status || "unknown")}">
+              <span>${escapeHtml(route.id || "")}</span>
+              <strong>${escapeHtml(route.route || "")}</strong>
+              <em>${escapeHtml(statusText(route.status))}</em>
+              <p>Machine test: ${escapeHtml(route.machine_test || "")}</p>
+              <small>Required upgrade: ${escapeHtml(route.required_upgrade || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">${escapeHtml(triage.machine_rule || "")}</p>
+  `;
+}
+
 function renderProofMap(problem) {
   const attempt = problem.proof_attempt || {};
   const graph = attempt.attack_graph || {};
@@ -1098,6 +1139,7 @@ function render(payload, problem) {
     .join("");
 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
+  document.querySelector("#proofRouteTriage").innerHTML = renderProofRouteTriage(problem);
   document.querySelector("#metricCards").innerHTML = metricCards(problem)
     .map(
       ([label, value]) => `

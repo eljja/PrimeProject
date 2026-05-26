@@ -226,6 +226,8 @@ async function main() {
           status: document.querySelector("#claimStatus").textContent,
           metricCount: document.querySelectorAll(".proof-metric").length,
           proofVerdictText: document.querySelector("#proofVerdict").textContent,
+          proofRouteTriageText: document.querySelector("#proofRouteTriage").textContent,
+          proofRouteCards: document.querySelectorAll("#proofRouteTriage .route-card").length,
           certificateText: document.querySelector("#certificatePanel").textContent,
           proofAttemptText: document.querySelector("#proofAttempt").textContent,
           proofMapText: document.querySelector("#proofMap").textContent,
@@ -291,6 +293,12 @@ async function main() {
         !page.proofVerdictText.includes("bounded theorem certified") ||
         !page.proofVerdictText.includes("Full proof blocker") ||
         !page.proofVerdictText.includes("PrimeProject may display a proof only when") ||
+        page.proofRouteCards < 4 ||
+        !page.proofRouteTriageText.includes("routes triaged no full proof") ||
+        !page.proofRouteTriageText.includes("current decisive route") ||
+        !page.proofRouteTriageText.includes("Machine test") ||
+        !page.proofRouteTriageText.includes("Required upgrade") ||
+        !page.proofRouteTriageText.includes("cannot change the page status") ||
         !page.certificateText.includes("bounded theorem certified") ||
         !page.certificateText.includes("scripts/verify_open_problem_workbench.py") ||
         !page.proofAttemptText.includes("open infinite obligation") ||

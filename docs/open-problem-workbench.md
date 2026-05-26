@@ -7,7 +7,7 @@ PrimeProject now has four GitHub Pages subpages for:
 - Goldbach Conjecture
 - Twin Prime Conjecture
 
-The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
+The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, proof-route triage, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
 ## Public Pages
 
@@ -42,6 +42,8 @@ Current bounded checks:
 Each problem includes a `primeproject.bounded-proof-certificate.v1` object. The certificate hashes every bounded witness or diagnostic row, groups leaves into deterministic chunks, and exposes a Merkle root that CI recomputes. This is a real proof artifact for the bounded theorem only. It is intentionally not a proof of the unbounded conjecture.
 
 Each problem now also includes a `primeproject.proof-verdict.v1` object. The verdict is the first panel on every problem page: it names the target as `not_proved_by_primeproject`, names the bounded theorem that is actually certified, exposes the current full-proof blocker, and states the machine rule that must pass before any page may display a proof claim.
+
+Each problem also includes a `primeproject.proof-route-triage.v1` object. The triage panel lists candidate proof routes, rejects finite-to-infinite jumps and weaker-theorem substitutions, marks heuristic-only routes, and names the single current decisive route whose required upgrade would move the project closer to a real proof attempt.
 
 Each problem also includes a `primeproject.proof-attempt-ledger.v1` object. The ledger separates three things:
 
