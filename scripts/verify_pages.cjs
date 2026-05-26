@@ -238,6 +238,8 @@ async function main() {
           formalReplayArtifacts: document.querySelectorAll("#formalReplayPackage .replay-artifacts > div").length,
           proofReviewText: document.querySelector("#proofReviewDocket").textContent,
           proofReviewCards: document.querySelectorAll("#proofReviewDocket .review-card").length,
+          proofReductionText: document.querySelector("#proofReductionContract").textContent,
+          proofReductionPartials: document.querySelectorAll("#proofReductionContract .reduction-partials article").length,
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
@@ -308,6 +310,11 @@ async function main() {
         !page.proofReviewText.includes("accepted for committed limit") ||
         !page.proofReviewText.includes("rejected currently") ||
         !page.proofReviewText.includes("Minimum acceptance conditions") ||
+        page.proofReductionPartials < 2 ||
+        !page.proofReductionText.includes("target reduction open") ||
+        !page.proofReductionText.includes("Decisive reduction") ||
+        !page.proofReductionText.includes("Forbidden shortcuts") ||
+        !page.proofReductionText.includes("Promotion test") ||
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||

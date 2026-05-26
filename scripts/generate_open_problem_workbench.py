@@ -22,6 +22,7 @@ PROOF_FRONTIER_PROBE_SCHEMA = "primeproject.proof-frontier-probe.v1"
 KNOWN_BARRIER_AUDIT_SCHEMA = "primeproject.known-barrier-audit.v1"
 FORMAL_REPLAY_PACKAGE_SCHEMA = "primeproject.formal-replay-package.v1"
 PROOF_REVIEW_DOCKET_SCHEMA = "primeproject.proof-review-docket.v1"
+PROOF_REDUCTION_CONTRACT_SCHEMA = "primeproject.proof-reduction-contract.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -611,6 +612,141 @@ def proof_review_docket(problem: dict[str, object]) -> dict[str, object]:
             "no forbidden token or conjecture-equivalent import appears in the replay package",
         ],
         "rejection_rule": "Any candidate proof that relies only on finite computation, heuristic density, unchecked axioms, or an imported target-equivalent theorem remains rejected.",
+    }
+
+
+def proof_reduction_contract(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    reductions: dict[str, dict[str, object]] = {
+        "riemann": {
+            "decisive_reduction": {
+                "statement": "Prove an explicit all-x prime-counting or Chebyshev-error theorem whose formal implication is exactly strong enough to force every non-trivial zeta zero onto Re(s)=1/2.",
+                "would_promote_if": "the all-x theorem and the RH-equivalence bridge both replay in the formal package without importing RH",
+                "missing_artifact": "formal all-x analytic estimate plus formal RH-equivalence bridge",
+            },
+            "accepted_partial_results": [
+                {
+                    "name": "bounded prime-counting diagnostics",
+                    "allowed_use": "stress-test constants and candidate envelopes",
+                    "does_not_prove": "zero control outside the checked range",
+                },
+                {
+                    "name": "published RH-equivalent criteria",
+                    "allowed_use": "define the bridge target",
+                    "does_not_prove": "the criterion itself unless its hypotheses are independently established",
+                },
+            ],
+            "forbidden_shortcuts": [
+                "assume the Riemann Hypothesis under another theorem name",
+                "treat finite zero or prime-counting checks as an infinite zero theorem",
+                "use a prime-counting envelope weaker than an RH-equivalent criterion",
+            ],
+            "review_questions": [
+                "Which exact RH-equivalent criterion is being discharged?",
+                "Are all constants explicit and valid beyond the finite search range?",
+                "Can the zero-control bridge replay without conjectural imports?",
+            ],
+        },
+        "collatz": {
+            "decisive_reduction": {
+                "statement": "Construct a finite symbolic residue-block cover with a well-founded descent measure that covers every positive integer, not just enumerated starts.",
+                "would_promote_if": "every residue block has a verified descent certificate and the cover theorem proves all starts eventually enter 1",
+                "missing_artifact": "formal residue-cover descent theorem",
+            },
+            "accepted_partial_results": [
+                {
+                    "name": "bounded trajectory replay",
+                    "allowed_use": "detect counterexamples and guide residue block design",
+                    "does_not_prove": "termination for starts outside the checked range",
+                },
+                {
+                    "name": "accelerated odd-step residue analysis",
+                    "allowed_use": "propose symbolic descent blocks",
+                    "does_not_prove": "global well-founded descent without a complete cover",
+                },
+            ],
+            "forbidden_shortcuts": [
+                "infer global termination from a large finite replay",
+                "leave any residue class uncovered",
+                "use an average drift argument without a deterministic descent certificate",
+            ],
+            "review_questions": [
+                "Does the residue cover partition all positive starts?",
+                "Does every block strictly decrease a well-founded measure?",
+                "Does the proof handle the transitions between blocks without search-limit dependence?",
+            ],
+        },
+        "goldbach": {
+            "decisive_reduction": {
+                "statement": "Prove an explicit representation lower bound or threshold theorem for every sufficiently large even integer, then combine it with a bounded certificate below the threshold.",
+                "would_promote_if": "the threshold theorem covers the infinite tail and the bounded certificate covers every even integer below the threshold",
+                "missing_artifact": "formal large-even threshold theorem with explicit cutoff",
+            },
+            "accepted_partial_results": [
+                {
+                    "name": "bounded Goldbach decomposition certificate",
+                    "allowed_use": "cover the finite interval below a stated threshold",
+                    "does_not_prove": "all even integers without an infinite threshold theorem",
+                },
+                {
+                    "name": "weak Goldbach and density heuristics",
+                    "allowed_use": "inform candidate major/minor arc lemmas",
+                    "does_not_prove": "the binary even-prime representation target",
+                },
+            ],
+            "forbidden_shortcuts": [
+                "replace strong Goldbach with weak Goldbach",
+                "treat sampled decompositions as a lower-bound theorem",
+                "omit the explicit finite cutoff connecting the infinite theorem to the bounded certificate",
+            ],
+            "review_questions": [
+                "What explicit threshold begins the infinite theorem?",
+                "Does the bounded certificate cover every even integer below that threshold?",
+                "Is the representation lower bound positive for every large even integer, not only on average?",
+            ],
+        },
+        "twin-prime": {
+            "decisive_reduction": {
+                "statement": "Prove an unconditional exact gap-2 lower bound for arbitrarily large x, not merely a bounded-prime-gap theorem.",
+                "would_promote_if": "the exact gap-2 lower bound implies arbitrarily large twin prime pairs and replays without Hardy-Littlewood assumptions",
+                "missing_artifact": "formal exact gap-2 lower-bound theorem",
+            },
+            "accepted_partial_results": [
+                {
+                    "name": "bounded twin-pair certificate",
+                    "allowed_use": "stress-test residue patterns and exact gap-2 counts",
+                    "does_not_prove": "infinitely many twin pairs",
+                },
+                {
+                    "name": "bounded prime gaps",
+                    "allowed_use": "show that small gaps occur infinitely often under accepted bounded-gap theorems",
+                    "does_not_prove": "infinitely many exact gaps of size 2",
+                },
+            ],
+            "forbidden_shortcuts": [
+                "treat bounded gaps as exact gap 2",
+                "assume Hardy-Littlewood k-tuple density as a proof",
+                "infer infinitude from finite persistence of twin-pair counts",
+            ],
+            "review_questions": [
+                "Is the theorem about exact gap 2 rather than some bounded gap?",
+                "Does the lower bound stay positive at arbitrarily large x?",
+                "Is every distributional assumption either proved or removed?",
+            ],
+        },
+    }
+    reduction = reductions.get(problem_id, {})
+    return {
+        "schema": PROOF_REDUCTION_CONTRACT_SCHEMA,
+        "problem_id": problem_id,
+        "status": "target_reduction_open",
+        "bridge_status": "open_missing_infinite_bridge",
+        "goal": "Define the smallest theorem package that would make a full-proof claim reviewable without mistaking finite evidence or partial theorems for the target conjecture.",
+        "decisive_reduction": reduction.get("decisive_reduction", {}),
+        "accepted_partial_results": reduction.get("accepted_partial_results", []),
+        "forbidden_shortcuts": reduction.get("forbidden_shortcuts", []),
+        "review_questions": reduction.get("review_questions", []),
+        "promotion_test": "The page may move past open_not_proven only if this reduction contract, the proof review docket, the known barrier audit, and the formal replay package all report replayable or accepted status.",
     }
 
 
@@ -1860,6 +1996,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["known_barrier_audit"] = known_barrier_audit(problem)
         problem["formal_replay_package"] = formal_replay_package(problem)
         problem["proof_review_docket"] = proof_review_docket(problem)
+        problem["proof_reduction_contract"] = proof_reduction_contract(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

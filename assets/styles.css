@@ -1651,6 +1651,72 @@ canvas {
   line-height: 1.5;
 }
 
+.reduction-head,
+.reduction-main,
+.reduction-rules,
+.reduction-partials {
+  display: grid;
+  gap: 10px;
+}
+
+.reduction-head {
+  grid-template-columns: minmax(160px, 0.3fr) minmax(180px, 0.35fr) minmax(380px, 1fr);
+}
+
+.reduction-main {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+  margin-top: 10px;
+}
+
+.reduction-rules {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 10px;
+}
+
+.reduction-head div,
+.reduction-main section,
+.reduction-rules section,
+.reduction-partials article {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.reduction-head span,
+.reduction-partials span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.reduction-head strong,
+.reduction-partials strong,
+.reduction-main small,
+.reduction-partials small {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.reduction-main p,
+.reduction-rules p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.reduction-main small,
+.reduction-partials small {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -4633,7 +4699,10 @@ tr:last-child td {
   .replay-grid,
   .review-head,
   .review-verdicts,
-  .review-rules {
+  .review-rules,
+  .reduction-head,
+  .reduction-main,
+  .reduction-rules {
     grid-template-columns: 1fr;
   }
 

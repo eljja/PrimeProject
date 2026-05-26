@@ -164,6 +164,22 @@ def main() -> int:
         if not docket.get("minimum_acceptance_conditions") or not docket.get("rejection_rule"):
             print(f"{problem.get('id')} proof review docket is missing review rules.", file=sys.stderr)
             return 1
+        reduction = problem.get("proof_reduction_contract", {})
+        if reduction.get("status") != "target_reduction_open":
+            print(f"{problem.get('id')} proof reduction contract has unexpected status.", file=sys.stderr)
+            return 1
+        if reduction.get("bridge_status") != "open_missing_infinite_bridge":
+            print(f"{problem.get('id')} proof reduction contract is missing an open bridge.", file=sys.stderr)
+            return 1
+        if not reduction.get("decisive_reduction") or len(reduction.get("accepted_partial_results", [])) < 2:
+            print(f"{problem.get('id')} proof reduction contract is missing reduction details.", file=sys.stderr)
+            return 1
+        if len(reduction.get("forbidden_shortcuts", [])) < 3 or len(reduction.get("review_questions", [])) < 3:
+            print(f"{problem.get('id')} proof reduction contract is missing review guardrails.", file=sys.stderr)
+            return 1
+        if "open_not_proven" not in reduction.get("promotion_test", ""):
+            print(f"{problem.get('id')} proof reduction contract is missing the promotion gate.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

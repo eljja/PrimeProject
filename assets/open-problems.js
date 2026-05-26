@@ -542,6 +542,66 @@ function renderProofReviewDocket(problem) {
   `;
 }
 
+function renderProofReductionContract(problem) {
+  const contract = problem.proof_reduction_contract || {};
+  const reduction = contract.decisive_reduction || {};
+  const partials = contract.accepted_partial_results || [];
+  return `
+    <div class="reduction-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(contract.status))}</strong>
+      </div>
+      <div>
+        <span>Bridge</span>
+        <strong>${escapeHtml(statusText(contract.bridge_status))}</strong>
+      </div>
+      <div>
+        <span>Goal</span>
+        <strong>${escapeHtml(contract.goal || "")}</strong>
+      </div>
+    </div>
+    <div class="reduction-main">
+      <section>
+        <h3>Decisive reduction</h3>
+        <p>${escapeHtml(reduction.statement || "")}</p>
+        <small>Would promote if: ${escapeHtml(reduction.would_promote_if || "")}</small>
+        <small>Missing artifact: ${escapeHtml(reduction.missing_artifact || "")}</small>
+      </section>
+      <section>
+        <h3>Accepted partial results</h3>
+        <div class="reduction-partials">
+          ${partials
+            .map(
+              (item) => `
+                <article>
+                  <span>${escapeHtml(item.name || "")}</span>
+                  <strong>${escapeHtml(item.allowed_use || "")}</strong>
+                  <small>Does not prove: ${escapeHtml(item.does_not_prove || "")}</small>
+                </article>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+    </div>
+    <div class="reduction-rules">
+      <section>
+        <h3>Forbidden shortcuts</h3>
+        ${list(contract.forbidden_shortcuts || [])}
+      </section>
+      <section>
+        <h3>Review questions</h3>
+        ${list(contract.review_questions || [])}
+      </section>
+      <section>
+        <h3>Promotion test</h3>
+        <p>${escapeHtml(contract.promotion_test || "")}</p>
+      </section>
+    </div>
+  `;
+}
+
 function renderFormalContract(problem) {
   const contract = problem.formal_proof_contract || {};
   return `
@@ -791,6 +851,7 @@ function render(payload, problem) {
   document.querySelector("#knownBarrierAudit").innerHTML = renderKnownBarrierAudit(problem);
   document.querySelector("#formalReplayPackage").innerHTML = renderFormalReplayPackage(problem);
   document.querySelector("#proofReviewDocket").innerHTML = renderProofReviewDocket(problem);
+  document.querySelector("#proofReductionContract").innerHTML = renderProofReductionContract(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);

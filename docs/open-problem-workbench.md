@@ -7,7 +7,7 @@ PrimeProject now has four GitHub Pages subpages for:
 - Goldbach Conjecture
 - Twin Prime Conjecture
 
-The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
+The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
 ## Public Pages
 
@@ -64,6 +64,8 @@ Each problem also includes a `primeproject.known-barrier-audit.v1` object. This 
 Each problem also includes a `primeproject.formal-replay-package.v1` object. This package names the Lean-oriented files, replay commands, required artifacts, and forbidden tokens that would be needed before any candidate proof can be submitted for independent review. Its status remains `not_replayable_until_barriers_clear` while known barriers are open.
 
 Each problem also includes a `primeproject.proof-review-docket.v1` object. The docket acts like a reviewer checklist: the bounded theorem is accepted only for the committed finite limit, while the full conjecture claim, formal replay readiness, and barrier clearance remain rejected or blocked until the proof-status gate can be promoted.
+
+Each problem also includes a `primeproject.proof-reduction-contract.v1` object. The contract states the smallest theorem package that would make a full-proof claim reviewable, separates accepted partial results from the target conjecture, and lists forbidden shortcuts such as replacing strong Goldbach with weak Goldbach or replacing exact twin gaps with bounded gaps.
 
 Each problem also includes a `primeproject.formal-proof-contract.v1` object. The contract records a Lean 4 target theorem, required artifacts, forbidden assumptions, and acceptance rules. This is not a formal proof yet; it is the kernel-facing contract that any future proof must satisfy before the status gate can move.
 
