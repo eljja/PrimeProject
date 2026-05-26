@@ -1463,6 +1463,70 @@ canvas {
   line-height: 1.5;
 }
 
+.barrier-head,
+.barrier-list {
+  display: grid;
+  gap: 10px;
+}
+
+.barrier-head {
+  grid-template-columns: minmax(180px, 0.5fr) minmax(120px, 0.25fr) minmax(120px, 0.25fr);
+}
+
+.barrier-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 10px;
+}
+
+.barrier-head div,
+.barrier-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.barrier-card {
+  border-top: 3px solid var(--danger);
+}
+
+.barrier-card.is-cleared {
+  border-top-color: var(--ok);
+}
+
+.barrier-head span,
+.barrier-card span,
+.barrier-card small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.barrier-head strong,
+.barrier-card strong,
+.barrier-card em {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.barrier-card em {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.barrier-card p,
+.barrier-card small {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -4438,7 +4502,9 @@ tr:last-child td {
   .execution-head,
   .execution-stage-list,
   .frontier-head,
-  .frontier-grid {
+  .frontier-grid,
+  .barrier-head,
+  .barrier-list {
     grid-template-columns: 1fr;
   }
 

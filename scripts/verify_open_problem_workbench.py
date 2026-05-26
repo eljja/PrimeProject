@@ -129,6 +129,17 @@ def main() -> int:
         if not frontier.get("proof_pressure") or not frontier.get("failure_signal"):
             print(f"{problem.get('id')} proof frontier probe is missing pressure or failure terms.", file=sys.stderr)
             return 1
+        barrier_audit = problem.get("known_barrier_audit", {})
+        barriers = barrier_audit.get("barriers", []) if isinstance(barrier_audit, dict) else []
+        if barrier_audit.get("status") != "barriers_not_cleared":
+            print(f"{problem.get('id')} known barrier audit has unexpected status.", file=sys.stderr)
+            return 1
+        if len(barriers) < 4 or barrier_audit.get("open_count", 0) < 4:
+            print(f"{problem.get('id')} known barrier audit is missing open barriers.", file=sys.stderr)
+            return 1
+        if not all(barrier.get("why_it_matters") and barrier.get("required_clearance") for barrier in barriers):
+            print(f"{problem.get('id')} known barrier audit is missing barrier clearance terms.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

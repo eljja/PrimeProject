@@ -19,6 +19,7 @@ PROBE_CERTIFICATE_SCHEMA = "primeproject.decisive-lemma-probe-certificate.v1"
 PROOF_GAP_TAXONOMY_SCHEMA = "primeproject.proof-gap-taxonomy.v1"
 PROOF_EXECUTION_PROTOCOL_SCHEMA = "primeproject.proof-execution-protocol.v1"
 PROOF_FRONTIER_PROBE_SCHEMA = "primeproject.proof-frontier-probe.v1"
+KNOWN_BARRIER_AUDIT_SCHEMA = "primeproject.known-barrier-audit.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -407,6 +408,102 @@ def proof_execution_protocol(problem: dict[str, object]) -> dict[str, object]:
             },
         ],
         "promotion_rule": "The conjecture page cannot claim solved status until every protocol stage is complete or formally verified and the proof-status gate is eligible_for_independent_review.",
+    }
+
+
+def known_barrier_audit(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    common_rows = [
+        {
+            "id": f"{problem_id}-barrier-finite",
+            "barrier": "finite_to_infinite_lift",
+            "status": "not_cleared",
+            "why_it_matters": "A bounded certificate proves only the committed finite theorem.",
+            "required_clearance": "An explicit theorem removes the search limit and covers the infinite tail.",
+        },
+        {
+            "id": f"{problem_id}-barrier-formal",
+            "barrier": "kernel_checkable_formalization",
+            "status": "not_cleared",
+            "why_it_matters": "A convincing proof must replay without sorry/admit or conjecture-equivalent axioms.",
+            "required_clearance": "Lean 4 or equivalent kernel replay verifies all infinite steps.",
+        },
+    ]
+    specific: dict[str, list[dict[str, str]]] = {
+        "riemann": [
+            {
+                "id": "riemann-barrier-equivalence",
+                "barrier": "rh_equivalence_strength",
+                "status": "not_cleared",
+                "why_it_matters": "Prime-counting bounds must be strong enough to imply an accepted RH-equivalent zero statement.",
+                "required_clearance": "A formal bridge from the proposed theta envelope to critical-line zero control.",
+            },
+            {
+                "id": "riemann-barrier-zero-tail",
+                "barrier": "zero_tail_control",
+                "status": "not_cleared",
+                "why_it_matters": "Finite zero or prime tables do not control the infinite critical strip.",
+                "required_clearance": "A tail theorem independent of numerical cutoff.",
+            },
+        ],
+        "collatz": [
+            {
+                "id": "collatz-barrier-exceptional-classes",
+                "barrier": "uncovered_residue_classes",
+                "status": "not_cleared",
+                "why_it_matters": "A descent proof fails if any lifted residue family can avoid a smaller representative.",
+                "required_clearance": "A complete symbolic cover with a well-founded descent measure.",
+            },
+            {
+                "id": "collatz-barrier-cycle-divergence",
+                "barrier": "cycle_and_divergence_exclusion",
+                "status": "not_cleared",
+                "why_it_matters": "Reaching 1 through a finite range does not exclude non-trivial cycles or divergent branches.",
+                "required_clearance": "A theorem deriving both exclusions from the same descent certificate.",
+            },
+        ],
+        "goldbach": [
+            {
+                "id": "goldbach-barrier-lower-bound",
+                "barrier": "positive_representation_lower_bound",
+                "status": "not_cleared",
+                "why_it_matters": "No-counterexample evidence does not prove every large even integer has a representation.",
+                "required_clearance": "An explicit positive lower bound for the Goldbach representation count.",
+            },
+            {
+                "id": "goldbach-barrier-threshold",
+                "barrier": "finite_threshold_bridge",
+                "status": "not_cleared",
+                "why_it_matters": "An analytic theorem above the certified range leaves an unverified interval.",
+                "required_clearance": "The analytic threshold is at or below the bounded certificate limit.",
+            },
+        ],
+        "twin-prime": [
+            {
+                "id": "twin-prime-barrier-exact-gap",
+                "barrier": "exact_gap_2_lower_bound",
+                "status": "not_cleared",
+                "why_it_matters": "Bounded prime gaps do not imply infinitely many exact gaps of size 2.",
+                "required_clearance": "An unconditional lower bound for exact twin-prime pairs at arbitrarily large scale.",
+            },
+            {
+                "id": "twin-prime-barrier-k-tuple",
+                "barrier": "hardy_littlewood_dependency",
+                "status": "not_cleared",
+                "why_it_matters": "Hardy-Littlewood k-tuple density predicts twin primes but cannot be assumed as proof.",
+                "required_clearance": "An assumption-free distribution argument or accepted theorem replacing the heuristic.",
+            },
+        ],
+    }
+    barriers = [*common_rows, *specific.get(problem_id, [])]
+    return {
+        "schema": KNOWN_BARRIER_AUDIT_SCHEMA,
+        "problem_id": problem_id,
+        "status": "barriers_not_cleared",
+        "cleared_count": sum(1 for row in barriers if row["status"] == "cleared"),
+        "open_count": sum(1 for row in barriers if row["status"] != "cleared"),
+        "barriers": barriers,
+        "promotion_rule": "A conjecture page remains open_not_proven while any known barrier is not cleared by a formal artifact or accepted theorem.",
     }
 
 
@@ -1653,6 +1750,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
     for problem in problems:
         problem["proof_status_gate"] = proof_status_gate(problem)
         problem["proof_execution_protocol"] = proof_execution_protocol(problem)
+        problem["known_barrier_audit"] = known_barrier_audit(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

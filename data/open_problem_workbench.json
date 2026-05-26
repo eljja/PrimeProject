@@ -516,6 +516,44 @@
           }
         ],
         "promotion_rule": "The conjecture page cannot claim solved status until every protocol stage is complete or formally verified and the proof-status gate is eligible_for_independent_review."
+      },
+      "known_barrier_audit": {
+        "schema": "primeproject.known-barrier-audit.v1",
+        "problem_id": "riemann",
+        "status": "barriers_not_cleared",
+        "cleared_count": 0,
+        "open_count": 4,
+        "barriers": [
+          {
+            "id": "riemann-barrier-finite",
+            "barrier": "finite_to_infinite_lift",
+            "status": "not_cleared",
+            "why_it_matters": "A bounded certificate proves only the committed finite theorem.",
+            "required_clearance": "An explicit theorem removes the search limit and covers the infinite tail."
+          },
+          {
+            "id": "riemann-barrier-formal",
+            "barrier": "kernel_checkable_formalization",
+            "status": "not_cleared",
+            "why_it_matters": "A convincing proof must replay without sorry/admit or conjecture-equivalent axioms.",
+            "required_clearance": "Lean 4 or equivalent kernel replay verifies all infinite steps."
+          },
+          {
+            "id": "riemann-barrier-equivalence",
+            "barrier": "rh_equivalence_strength",
+            "status": "not_cleared",
+            "why_it_matters": "Prime-counting bounds must be strong enough to imply an accepted RH-equivalent zero statement.",
+            "required_clearance": "A formal bridge from the proposed theta envelope to critical-line zero control."
+          },
+          {
+            "id": "riemann-barrier-zero-tail",
+            "barrier": "zero_tail_control",
+            "status": "not_cleared",
+            "why_it_matters": "Finite zero or prime tables do not control the infinite critical strip.",
+            "required_clearance": "A tail theorem independent of numerical cutoff."
+          }
+        ],
+        "promotion_rule": "A conjecture page remains open_not_proven while any known barrier is not cleared by a formal artifact or accepted theorem."
       }
     },
     {
@@ -1094,6 +1132,44 @@
           }
         ],
         "promotion_rule": "The conjecture page cannot claim solved status until every protocol stage is complete or formally verified and the proof-status gate is eligible_for_independent_review."
+      },
+      "known_barrier_audit": {
+        "schema": "primeproject.known-barrier-audit.v1",
+        "problem_id": "collatz",
+        "status": "barriers_not_cleared",
+        "cleared_count": 0,
+        "open_count": 4,
+        "barriers": [
+          {
+            "id": "collatz-barrier-finite",
+            "barrier": "finite_to_infinite_lift",
+            "status": "not_cleared",
+            "why_it_matters": "A bounded certificate proves only the committed finite theorem.",
+            "required_clearance": "An explicit theorem removes the search limit and covers the infinite tail."
+          },
+          {
+            "id": "collatz-barrier-formal",
+            "barrier": "kernel_checkable_formalization",
+            "status": "not_cleared",
+            "why_it_matters": "A convincing proof must replay without sorry/admit or conjecture-equivalent axioms.",
+            "required_clearance": "Lean 4 or equivalent kernel replay verifies all infinite steps."
+          },
+          {
+            "id": "collatz-barrier-exceptional-classes",
+            "barrier": "uncovered_residue_classes",
+            "status": "not_cleared",
+            "why_it_matters": "A descent proof fails if any lifted residue family can avoid a smaller representative.",
+            "required_clearance": "A complete symbolic cover with a well-founded descent measure."
+          },
+          {
+            "id": "collatz-barrier-cycle-divergence",
+            "barrier": "cycle_and_divergence_exclusion",
+            "status": "not_cleared",
+            "why_it_matters": "Reaching 1 through a finite range does not exclude non-trivial cycles or divergent branches.",
+            "required_clearance": "A theorem deriving both exclusions from the same descent certificate."
+          }
+        ],
+        "promotion_rule": "A conjecture page remains open_not_proven while any known barrier is not cleared by a formal artifact or accepted theorem."
       }
     },
     {
@@ -1684,6 +1760,44 @@
           }
         ],
         "promotion_rule": "The conjecture page cannot claim solved status until every protocol stage is complete or formally verified and the proof-status gate is eligible_for_independent_review."
+      },
+      "known_barrier_audit": {
+        "schema": "primeproject.known-barrier-audit.v1",
+        "problem_id": "goldbach",
+        "status": "barriers_not_cleared",
+        "cleared_count": 0,
+        "open_count": 4,
+        "barriers": [
+          {
+            "id": "goldbach-barrier-finite",
+            "barrier": "finite_to_infinite_lift",
+            "status": "not_cleared",
+            "why_it_matters": "A bounded certificate proves only the committed finite theorem.",
+            "required_clearance": "An explicit theorem removes the search limit and covers the infinite tail."
+          },
+          {
+            "id": "goldbach-barrier-formal",
+            "barrier": "kernel_checkable_formalization",
+            "status": "not_cleared",
+            "why_it_matters": "A convincing proof must replay without sorry/admit or conjecture-equivalent axioms.",
+            "required_clearance": "Lean 4 or equivalent kernel replay verifies all infinite steps."
+          },
+          {
+            "id": "goldbach-barrier-lower-bound",
+            "barrier": "positive_representation_lower_bound",
+            "status": "not_cleared",
+            "why_it_matters": "No-counterexample evidence does not prove every large even integer has a representation.",
+            "required_clearance": "An explicit positive lower bound for the Goldbach representation count."
+          },
+          {
+            "id": "goldbach-barrier-threshold",
+            "barrier": "finite_threshold_bridge",
+            "status": "not_cleared",
+            "why_it_matters": "An analytic theorem above the certified range leaves an unverified interval.",
+            "required_clearance": "The analytic threshold is at or below the bounded certificate limit."
+          }
+        ],
+        "promotion_rule": "A conjecture page remains open_not_proven while any known barrier is not cleared by a formal artifact or accepted theorem."
       }
     },
     {
@@ -2212,6 +2326,44 @@
           }
         ],
         "promotion_rule": "The conjecture page cannot claim solved status until every protocol stage is complete or formally verified and the proof-status gate is eligible_for_independent_review."
+      },
+      "known_barrier_audit": {
+        "schema": "primeproject.known-barrier-audit.v1",
+        "problem_id": "twin-prime",
+        "status": "barriers_not_cleared",
+        "cleared_count": 0,
+        "open_count": 4,
+        "barriers": [
+          {
+            "id": "twin-prime-barrier-finite",
+            "barrier": "finite_to_infinite_lift",
+            "status": "not_cleared",
+            "why_it_matters": "A bounded certificate proves only the committed finite theorem.",
+            "required_clearance": "An explicit theorem removes the search limit and covers the infinite tail."
+          },
+          {
+            "id": "twin-prime-barrier-formal",
+            "barrier": "kernel_checkable_formalization",
+            "status": "not_cleared",
+            "why_it_matters": "A convincing proof must replay without sorry/admit or conjecture-equivalent axioms.",
+            "required_clearance": "Lean 4 or equivalent kernel replay verifies all infinite steps."
+          },
+          {
+            "id": "twin-prime-barrier-exact-gap",
+            "barrier": "exact_gap_2_lower_bound",
+            "status": "not_cleared",
+            "why_it_matters": "Bounded prime gaps do not imply infinitely many exact gaps of size 2.",
+            "required_clearance": "An unconditional lower bound for exact twin-prime pairs at arbitrarily large scale."
+          },
+          {
+            "id": "twin-prime-barrier-k-tuple",
+            "barrier": "hardy_littlewood_dependency",
+            "status": "not_cleared",
+            "why_it_matters": "Hardy-Littlewood k-tuple density predicts twin primes but cannot be assumed as proof.",
+            "required_clearance": "An assumption-free distribution argument or accepted theorem replacing the heuristic."
+          }
+        ],
+        "promotion_rule": "A conjecture page remains open_not_proven while any known barrier is not cleared by a formal artifact or accepted theorem."
       }
     }
   ]

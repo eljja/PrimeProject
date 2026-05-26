@@ -400,6 +400,43 @@ function renderProofFrontierProbe(problem) {
   `;
 }
 
+function renderKnownBarrierAudit(problem) {
+  const audit = problem.known_barrier_audit || {};
+  const barriers = audit.barriers || [];
+  return `
+    <div class="barrier-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(audit.status))}</strong>
+      </div>
+      <div>
+        <span>Open barriers</span>
+        <strong>${escapeHtml(formatValue(audit.open_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Cleared</span>
+        <strong>${escapeHtml(formatValue(audit.cleared_count || 0))}</strong>
+      </div>
+    </div>
+    <div class="barrier-list">
+      ${barriers
+        .map(
+          (barrier) => `
+            <article class="barrier-card is-${escapeHtml(barrier.status || "missing")}">
+              <span>${escapeHtml(barrier.id || "")}</span>
+              <strong>${escapeHtml(barrier.barrier || "")}</strong>
+              <em>${escapeHtml(statusText(barrier.status))}</em>
+              <p>${escapeHtml(barrier.why_it_matters || "")}</p>
+              <small>Clearance: ${escapeHtml(barrier.required_clearance || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="certificate-verifier">${escapeHtml(audit.promotion_rule || "")}</p>
+  `;
+}
+
 function renderFormalContract(problem) {
   const contract = problem.formal_proof_contract || {};
   return `
@@ -646,6 +683,7 @@ function render(payload, problem) {
   document.querySelector("#proofStatusGate").innerHTML = renderProofStatusGate(problem);
   document.querySelector("#proofExecutionProtocol").innerHTML = renderProofExecutionProtocol(problem);
   document.querySelector("#proofFrontierProbe").innerHTML = renderProofFrontierProbe(problem);
+  document.querySelector("#knownBarrierAudit").innerHTML = renderKnownBarrierAudit(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);

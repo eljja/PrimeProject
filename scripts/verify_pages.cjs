@@ -232,6 +232,8 @@ async function main() {
           proofExecutionText: document.querySelector("#proofExecutionProtocol").textContent,
           proofExecutionStages: document.querySelectorAll("#proofExecutionProtocol .execution-stage").length,
           proofFrontierText: document.querySelector("#proofFrontierProbe").textContent,
+          knownBarrierText: document.querySelector("#knownBarrierAudit").textContent,
+          knownBarrierCards: document.querySelectorAll("#knownBarrierAudit .barrier-card").length,
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
@@ -288,6 +290,10 @@ async function main() {
         !page.proofFrontierText.includes("Stress Metrics") ||
         !page.proofFrontierText.includes("Proof pressure") ||
         !page.proofFrontierText.includes("Failure signal") ||
+        page.knownBarrierCards < 4 ||
+        !page.knownBarrierText.includes("barriers not cleared") ||
+        !page.knownBarrierText.includes("Clearance") ||
+        !page.knownBarrierText.includes("finite_to_infinite_lift") ||
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||
