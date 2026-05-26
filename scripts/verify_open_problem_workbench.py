@@ -180,6 +180,22 @@ def main() -> int:
         if "open_not_proven" not in reduction.get("promotion_test", ""):
             print(f"{problem.get('id')} proof reduction contract is missing the promotion gate.", file=sys.stderr)
             return 1
+        intake = problem.get("proof_candidate_intake", {})
+        if intake.get("status") != "no_candidate_accepted":
+            print(f"{problem.get('id')} proof candidate intake has unexpected status.", file=sys.stderr)
+            return 1
+        if intake.get("intake_stage") != "candidate_required":
+            print(f"{problem.get('id')} proof candidate intake has unexpected stage.", file=sys.stderr)
+            return 1
+        if len(intake.get("required_submission", [])) < 4 or len(intake.get("first_executable_tests", [])) < 2:
+            print(f"{problem.get('id')} proof candidate intake is missing required tests.", file=sys.stderr)
+            return 1
+        if len(intake.get("automatic_rejection_rules", [])) < 4:
+            print(f"{problem.get('id')} proof candidate intake is missing rejection rules.", file=sys.stderr)
+            return 1
+        if "does not certify" not in intake.get("claim_boundary", ""):
+            print(f"{problem.get('id')} proof candidate intake is missing claim boundary.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

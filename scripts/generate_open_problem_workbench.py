@@ -23,6 +23,7 @@ KNOWN_BARRIER_AUDIT_SCHEMA = "primeproject.known-barrier-audit.v1"
 FORMAL_REPLAY_PACKAGE_SCHEMA = "primeproject.formal-replay-package.v1"
 PROOF_REVIEW_DOCKET_SCHEMA = "primeproject.proof-review-docket.v1"
 PROOF_REDUCTION_CONTRACT_SCHEMA = "primeproject.proof-reduction-contract.v1"
+PROOF_CANDIDATE_INTAKE_SCHEMA = "primeproject.proof-candidate-intake.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -747,6 +748,124 @@ def proof_reduction_contract(problem: dict[str, object]) -> dict[str, object]:
         "forbidden_shortcuts": reduction.get("forbidden_shortcuts", []),
         "review_questions": reduction.get("review_questions", []),
         "promotion_test": "The page may move past open_not_proven only if this reduction contract, the proof review docket, the known barrier audit, and the formal replay package all report replayable or accepted status.",
+    }
+
+
+def proof_candidate_intake(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    reduction = problem.get("proof_reduction_contract", {})
+    contract = problem.get("formal_proof_contract", {})
+    replay = problem.get("formal_replay_package", {})
+    decisive = reduction.get("decisive_reduction", {}) if isinstance(reduction, dict) else {}
+    theorem_name = contract.get("theorem_name", "missing theorem") if isinstance(contract, dict) else "missing theorem"
+    replay_commands = replay.get("replay_commands", []) if isinstance(replay, dict) else []
+    first_tests: dict[str, list[dict[str, str]]] = {
+        "riemann": [
+            {
+                "id": "RH-CI1",
+                "name": "theta envelope endpoint stress",
+                "input": "candidate C, x0, and all-x statement for |theta(x)-x|",
+                "pass_condition": "no committed endpoint violates the proposed explicit envelope",
+                "reject_if": "the envelope fails before the published search limit or is not RH-equivalent",
+            },
+            {
+                "id": "RH-CI2",
+                "name": "equivalence bridge audit",
+                "input": "named RH-equivalent criterion and formal implication outline",
+                "pass_condition": "the bridge target is stronger than a finite zero table",
+                "reject_if": "the argument imports RH or an equivalent theorem as an assumption",
+            },
+        ],
+        "collatz": [
+            {
+                "id": "CO-CI1",
+                "name": "residue cover completeness",
+                "input": "modulus, residue blocks, transition map, and descent measure",
+                "pass_condition": "every residue class is covered exactly once or by a justified refinement",
+                "reject_if": "any class is uncovered or relies on average drift only",
+            },
+            {
+                "id": "CO-CI2",
+                "name": "well-founded descent replay",
+                "input": "block certificate showing strict decrease after finite accelerated steps",
+                "pass_condition": "every block decreases a declared well-founded measure",
+                "reject_if": "a transition can return to an equal or larger unresolved block",
+            },
+        ],
+        "goldbach": [
+            {
+                "id": "GB-CI1",
+                "name": "threshold theorem cutoff audit",
+                "input": "explicit N0 and representation lower-bound theorem",
+                "pass_condition": "the lower bound is positive for every even n >= N0",
+                "reject_if": "the result is only average-case, ternary, or weak Goldbach",
+            },
+            {
+                "id": "GB-CI2",
+                "name": "below-threshold certificate coverage",
+                "input": "bounded certificate for every even 4 <= n < N0",
+                "pass_condition": "the bounded certificate covers the whole gap below the threshold",
+                "reject_if": "any even value below N0 lacks a certified decomposition",
+            },
+        ],
+        "twin-prime": [
+            {
+                "id": "TP-CI1",
+                "name": "exact gap-2 lower-bound audit",
+                "input": "candidate lower bound for twin prime pairs up to x",
+                "pass_condition": "the bound stays positive for arbitrarily large x",
+                "reject_if": "the theorem proves only bounded gaps or an averaged pair count",
+            },
+            {
+                "id": "TP-CI2",
+                "name": "Hardy-Littlewood dependency removal",
+                "input": "distributional assumptions and replacement lemmas",
+                "pass_condition": "no k-tuple conjecture or independence heuristic is used as an axiom",
+                "reject_if": "the proof assumes the density it must prove",
+            },
+        ],
+    }
+    return {
+        "schema": PROOF_CANDIDATE_INTAKE_SCHEMA,
+        "problem_id": problem_id,
+        "status": "no_candidate_accepted",
+        "intake_stage": "candidate_required",
+        "candidate_target": decisive.get("statement", "missing decisive reduction"),
+        "required_submission": [
+            {
+                "name": "formal theorem statement",
+                "format": "Lean-oriented theorem plus human-readable statement",
+                "minimum_content": theorem_name,
+            },
+            {
+                "name": "infinite bridge proof",
+                "format": "formal artifact or accepted theorem reference",
+                "minimum_content": decisive.get("missing_artifact", "missing infinite bridge artifact"),
+            },
+            {
+                "name": "replay bundle",
+                "format": "candidate files and commands",
+                "minimum_content": "; ".join(str(item) for item in replay_commands[:2]) or "lake env lean replay commands",
+            },
+            {
+                "name": "bounded compatibility report",
+                "format": "machine-readable JSON with checksum",
+                "minimum_content": "show that the candidate does not contradict the committed bounded certificate",
+            },
+        ],
+        "first_executable_tests": first_tests.get(problem_id, []),
+        "automatic_rejection_rules": [
+            "finite computation is used as a substitute for an infinite theorem",
+            "the target conjecture or an equivalent theorem is imported as an assumption",
+            "the proof contains sorry, admit, unchecked axiom, or an unverifiable external dependency",
+            "the candidate proves a weaker nearby theorem while claiming the original problem",
+        ],
+        "review_output": {
+            "accepted": "candidate can move to formal replay and independent review",
+            "revise": "candidate has a precise missing bridge or failed executable test",
+            "rejected": "candidate violates an automatic rejection rule",
+        },
+        "claim_boundary": "This intake accepts proof candidates for review only; it does not certify that any of the four conjectures has been solved.",
     }
 
 
@@ -1997,6 +2116,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["formal_replay_package"] = formal_replay_package(problem)
         problem["proof_review_docket"] = proof_review_docket(problem)
         problem["proof_reduction_contract"] = proof_reduction_contract(problem)
+        problem["proof_candidate_intake"] = proof_candidate_intake(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

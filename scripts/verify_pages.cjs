@@ -240,6 +240,8 @@ async function main() {
           proofReviewCards: document.querySelectorAll("#proofReviewDocket .review-card").length,
           proofReductionText: document.querySelector("#proofReductionContract").textContent,
           proofReductionPartials: document.querySelectorAll("#proofReductionContract .reduction-partials article").length,
+          proofCandidateText: document.querySelector("#proofCandidateIntake").textContent,
+          proofCandidateTests: document.querySelectorAll("#proofCandidateIntake .candidate-list article").length,
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
@@ -315,6 +317,11 @@ async function main() {
         !page.proofReductionText.includes("Decisive reduction") ||
         !page.proofReductionText.includes("Forbidden shortcuts") ||
         !page.proofReductionText.includes("Promotion test") ||
+        page.proofCandidateTests < 6 ||
+        !page.proofCandidateText.includes("no candidate accepted") ||
+        !page.proofCandidateText.includes("Required submission") ||
+        !page.proofCandidateText.includes("First executable tests") ||
+        !page.proofCandidateText.includes("Automatic rejection rules") ||
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||

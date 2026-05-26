@@ -1717,6 +1717,76 @@ canvas {
   line-height: 1.45;
 }
 
+.candidate-head,
+.candidate-grid,
+.candidate-rules,
+.candidate-list,
+.candidate-output {
+  display: grid;
+  gap: 10px;
+}
+
+.candidate-head {
+  grid-template-columns: minmax(150px, 0.28fr) minmax(160px, 0.3fr) minmax(380px, 1fr);
+}
+
+.candidate-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 10px;
+}
+
+.candidate-rules {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.75fr) minmax(280px, 0.75fr);
+  margin-top: 10px;
+}
+
+.candidate-output {
+  grid-template-columns: 1fr;
+}
+
+.candidate-head div,
+.candidate-grid section,
+.candidate-rules section,
+.candidate-list article,
+.candidate-output div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.candidate-head span,
+.candidate-list span,
+.candidate-output span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.candidate-head strong,
+.candidate-list strong,
+.candidate-list small,
+.candidate-output strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.candidate-list small,
+.candidate-rules p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.candidate-rules p {
+  margin: 8px 0 0;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -4702,7 +4772,10 @@ tr:last-child td {
   .review-rules,
   .reduction-head,
   .reduction-main,
-  .reduction-rules {
+  .reduction-rules,
+  .candidate-head,
+  .candidate-grid,
+  .candidate-rules {
     grid-template-columns: 1fr;
   }
 

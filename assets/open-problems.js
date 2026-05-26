@@ -602,6 +602,87 @@ function renderProofReductionContract(problem) {
   `;
 }
 
+function renderProofCandidateIntake(problem) {
+  const intake = problem.proof_candidate_intake || {};
+  const submissions = intake.required_submission || [];
+  const tests = intake.first_executable_tests || [];
+  return `
+    <div class="candidate-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(intake.status))}</strong>
+      </div>
+      <div>
+        <span>Stage</span>
+        <strong>${escapeHtml(statusText(intake.intake_stage))}</strong>
+      </div>
+      <div>
+        <span>Candidate target</span>
+        <strong>${escapeHtml(intake.candidate_target || "")}</strong>
+      </div>
+    </div>
+    <div class="candidate-grid">
+      <section>
+        <h3>Required submission</h3>
+        <div class="candidate-list">
+          ${submissions
+            .map(
+              (item) => `
+                <article>
+                  <span>${escapeHtml(item.name || "")}</span>
+                  <strong>${escapeHtml(item.format || "")}</strong>
+                  <small>${escapeHtml(item.minimum_content || "")}</small>
+                </article>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+      <section>
+        <h3>First executable tests</h3>
+        <div class="candidate-list">
+          ${tests
+            .map(
+              (item) => `
+                <article>
+                  <span>${escapeHtml(item.id || "")} · ${escapeHtml(item.name || "")}</span>
+                  <strong>${escapeHtml(item.pass_condition || "")}</strong>
+                  <small>Reject if: ${escapeHtml(item.reject_if || "")}</small>
+                </article>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+    </div>
+    <div class="candidate-rules">
+      <section>
+        <h3>Automatic rejection rules</h3>
+        ${list(intake.automatic_rejection_rules || [])}
+      </section>
+      <section>
+        <h3>Review output</h3>
+        <div class="candidate-output">
+          ${Object.entries(intake.review_output || {})
+            .map(
+              ([label, value]) => `
+                <div>
+                  <span>${escapeHtml(label)}</span>
+                  <strong>${escapeHtml(value)}</strong>
+                </div>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+      <section>
+        <h3>Claim boundary</h3>
+        <p>${escapeHtml(intake.claim_boundary || "")}</p>
+      </section>
+    </div>
+  `;
+}
+
 function renderFormalContract(problem) {
   const contract = problem.formal_proof_contract || {};
   return `
@@ -852,6 +933,7 @@ function render(payload, problem) {
   document.querySelector("#formalReplayPackage").innerHTML = renderFormalReplayPackage(problem);
   document.querySelector("#proofReviewDocket").innerHTML = renderProofReviewDocket(problem);
   document.querySelector("#proofReductionContract").innerHTML = renderProofReductionContract(problem);
+  document.querySelector("#proofCandidateIntake").innerHTML = renderProofCandidateIntake(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);

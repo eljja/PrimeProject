@@ -683,6 +683,63 @@
           "Can the zero-control bridge replay without conjectural imports?"
         ],
         "promotion_test": "The page may move past open_not_proven only if this reduction contract, the proof review docket, the known barrier audit, and the formal replay package all report replayable or accepted status."
+      },
+      "proof_candidate_intake": {
+        "schema": "primeproject.proof-candidate-intake.v1",
+        "problem_id": "riemann",
+        "status": "no_candidate_accepted",
+        "intake_stage": "candidate_required",
+        "candidate_target": "Prove an explicit all-x prime-counting or Chebyshev-error theorem whose formal implication is exactly strong enough to force every non-trivial zeta zero onto Re(s)=1/2.",
+        "required_submission": [
+          {
+            "name": "formal theorem statement",
+            "format": "Lean-oriented theorem plus human-readable statement",
+            "minimum_content": "primeproject_riemann_hypothesis"
+          },
+          {
+            "name": "infinite bridge proof",
+            "format": "formal artifact or accepted theorem reference",
+            "minimum_content": "formal all-x analytic estimate plus formal RH-equivalence bridge"
+          },
+          {
+            "name": "replay bundle",
+            "format": "candidate files and commands",
+            "minimum_content": "lake env lean formal/riemann/Definitions.lean; lake env lean formal/riemann/BoundedCertificate.lean"
+          },
+          {
+            "name": "bounded compatibility report",
+            "format": "machine-readable JSON with checksum",
+            "minimum_content": "show that the candidate does not contradict the committed bounded certificate"
+          }
+        ],
+        "first_executable_tests": [
+          {
+            "id": "RH-CI1",
+            "name": "theta envelope endpoint stress",
+            "input": "candidate C, x0, and all-x statement for |theta(x)-x|",
+            "pass_condition": "no committed endpoint violates the proposed explicit envelope",
+            "reject_if": "the envelope fails before the published search limit or is not RH-equivalent"
+          },
+          {
+            "id": "RH-CI2",
+            "name": "equivalence bridge audit",
+            "input": "named RH-equivalent criterion and formal implication outline",
+            "pass_condition": "the bridge target is stronger than a finite zero table",
+            "reject_if": "the argument imports RH or an equivalent theorem as an assumption"
+          }
+        ],
+        "automatic_rejection_rules": [
+          "finite computation is used as a substitute for an infinite theorem",
+          "the target conjecture or an equivalent theorem is imported as an assumption",
+          "the proof contains sorry, admit, unchecked axiom, or an unverifiable external dependency",
+          "the candidate proves a weaker nearby theorem while claiming the original problem"
+        ],
+        "review_output": {
+          "accepted": "candidate can move to formal replay and independent review",
+          "revise": "candidate has a precise missing bridge or failed executable test",
+          "rejected": "candidate violates an automatic rejection rule"
+        },
+        "claim_boundary": "This intake accepts proof candidates for review only; it does not certify that any of the four conjectures has been solved."
       }
     },
     {
@@ -1428,6 +1485,63 @@
           "Does the proof handle the transitions between blocks without search-limit dependence?"
         ],
         "promotion_test": "The page may move past open_not_proven only if this reduction contract, the proof review docket, the known barrier audit, and the formal replay package all report replayable or accepted status."
+      },
+      "proof_candidate_intake": {
+        "schema": "primeproject.proof-candidate-intake.v1",
+        "problem_id": "collatz",
+        "status": "no_candidate_accepted",
+        "intake_stage": "candidate_required",
+        "candidate_target": "Construct a finite symbolic residue-block cover with a well-founded descent measure that covers every positive integer, not just enumerated starts.",
+        "required_submission": [
+          {
+            "name": "formal theorem statement",
+            "format": "Lean-oriented theorem plus human-readable statement",
+            "minimum_content": "primeproject_collatz_conjecture"
+          },
+          {
+            "name": "infinite bridge proof",
+            "format": "formal artifact or accepted theorem reference",
+            "minimum_content": "formal residue-cover descent theorem"
+          },
+          {
+            "name": "replay bundle",
+            "format": "candidate files and commands",
+            "minimum_content": "lake env lean formal/collatz/Definitions.lean; lake env lean formal/collatz/BoundedCertificate.lean"
+          },
+          {
+            "name": "bounded compatibility report",
+            "format": "machine-readable JSON with checksum",
+            "minimum_content": "show that the candidate does not contradict the committed bounded certificate"
+          }
+        ],
+        "first_executable_tests": [
+          {
+            "id": "CO-CI1",
+            "name": "residue cover completeness",
+            "input": "modulus, residue blocks, transition map, and descent measure",
+            "pass_condition": "every residue class is covered exactly once or by a justified refinement",
+            "reject_if": "any class is uncovered or relies on average drift only"
+          },
+          {
+            "id": "CO-CI2",
+            "name": "well-founded descent replay",
+            "input": "block certificate showing strict decrease after finite accelerated steps",
+            "pass_condition": "every block decreases a declared well-founded measure",
+            "reject_if": "a transition can return to an equal or larger unresolved block"
+          }
+        ],
+        "automatic_rejection_rules": [
+          "finite computation is used as a substitute for an infinite theorem",
+          "the target conjecture or an equivalent theorem is imported as an assumption",
+          "the proof contains sorry, admit, unchecked axiom, or an unverifiable external dependency",
+          "the candidate proves a weaker nearby theorem while claiming the original problem"
+        ],
+        "review_output": {
+          "accepted": "candidate can move to formal replay and independent review",
+          "revise": "candidate has a precise missing bridge or failed executable test",
+          "rejected": "candidate violates an automatic rejection rule"
+        },
+        "claim_boundary": "This intake accepts proof candidates for review only; it does not certify that any of the four conjectures has been solved."
       }
     },
     {
@@ -2185,6 +2299,63 @@
           "Is the representation lower bound positive for every large even integer, not only on average?"
         ],
         "promotion_test": "The page may move past open_not_proven only if this reduction contract, the proof review docket, the known barrier audit, and the formal replay package all report replayable or accepted status."
+      },
+      "proof_candidate_intake": {
+        "schema": "primeproject.proof-candidate-intake.v1",
+        "problem_id": "goldbach",
+        "status": "no_candidate_accepted",
+        "intake_stage": "candidate_required",
+        "candidate_target": "Prove an explicit representation lower bound or threshold theorem for every sufficiently large even integer, then combine it with a bounded certificate below the threshold.",
+        "required_submission": [
+          {
+            "name": "formal theorem statement",
+            "format": "Lean-oriented theorem plus human-readable statement",
+            "minimum_content": "primeproject_goldbach_conjecture"
+          },
+          {
+            "name": "infinite bridge proof",
+            "format": "formal artifact or accepted theorem reference",
+            "minimum_content": "formal large-even threshold theorem with explicit cutoff"
+          },
+          {
+            "name": "replay bundle",
+            "format": "candidate files and commands",
+            "minimum_content": "lake env lean formal/goldbach/Definitions.lean; lake env lean formal/goldbach/BoundedCertificate.lean"
+          },
+          {
+            "name": "bounded compatibility report",
+            "format": "machine-readable JSON with checksum",
+            "minimum_content": "show that the candidate does not contradict the committed bounded certificate"
+          }
+        ],
+        "first_executable_tests": [
+          {
+            "id": "GB-CI1",
+            "name": "threshold theorem cutoff audit",
+            "input": "explicit N0 and representation lower-bound theorem",
+            "pass_condition": "the lower bound is positive for every even n >= N0",
+            "reject_if": "the result is only average-case, ternary, or weak Goldbach"
+          },
+          {
+            "id": "GB-CI2",
+            "name": "below-threshold certificate coverage",
+            "input": "bounded certificate for every even 4 <= n < N0",
+            "pass_condition": "the bounded certificate covers the whole gap below the threshold",
+            "reject_if": "any even value below N0 lacks a certified decomposition"
+          }
+        ],
+        "automatic_rejection_rules": [
+          "finite computation is used as a substitute for an infinite theorem",
+          "the target conjecture or an equivalent theorem is imported as an assumption",
+          "the proof contains sorry, admit, unchecked axiom, or an unverifiable external dependency",
+          "the candidate proves a weaker nearby theorem while claiming the original problem"
+        ],
+        "review_output": {
+          "accepted": "candidate can move to formal replay and independent review",
+          "revise": "candidate has a precise missing bridge or failed executable test",
+          "rejected": "candidate violates an automatic rejection rule"
+        },
+        "claim_boundary": "This intake accepts proof candidates for review only; it does not certify that any of the four conjectures has been solved."
       }
     },
     {
@@ -2880,6 +3051,63 @@
           "Is every distributional assumption either proved or removed?"
         ],
         "promotion_test": "The page may move past open_not_proven only if this reduction contract, the proof review docket, the known barrier audit, and the formal replay package all report replayable or accepted status."
+      },
+      "proof_candidate_intake": {
+        "schema": "primeproject.proof-candidate-intake.v1",
+        "problem_id": "twin-prime",
+        "status": "no_candidate_accepted",
+        "intake_stage": "candidate_required",
+        "candidate_target": "Prove an unconditional exact gap-2 lower bound for arbitrarily large x, not merely a bounded-prime-gap theorem.",
+        "required_submission": [
+          {
+            "name": "formal theorem statement",
+            "format": "Lean-oriented theorem plus human-readable statement",
+            "minimum_content": "primeproject_twin_prime_conjecture"
+          },
+          {
+            "name": "infinite bridge proof",
+            "format": "formal artifact or accepted theorem reference",
+            "minimum_content": "formal exact gap-2 lower-bound theorem"
+          },
+          {
+            "name": "replay bundle",
+            "format": "candidate files and commands",
+            "minimum_content": "lake env lean formal/twin-prime/Definitions.lean; lake env lean formal/twin-prime/BoundedCertificate.lean"
+          },
+          {
+            "name": "bounded compatibility report",
+            "format": "machine-readable JSON with checksum",
+            "minimum_content": "show that the candidate does not contradict the committed bounded certificate"
+          }
+        ],
+        "first_executable_tests": [
+          {
+            "id": "TP-CI1",
+            "name": "exact gap-2 lower-bound audit",
+            "input": "candidate lower bound for twin prime pairs up to x",
+            "pass_condition": "the bound stays positive for arbitrarily large x",
+            "reject_if": "the theorem proves only bounded gaps or an averaged pair count"
+          },
+          {
+            "id": "TP-CI2",
+            "name": "Hardy-Littlewood dependency removal",
+            "input": "distributional assumptions and replacement lemmas",
+            "pass_condition": "no k-tuple conjecture or independence heuristic is used as an axiom",
+            "reject_if": "the proof assumes the density it must prove"
+          }
+        ],
+        "automatic_rejection_rules": [
+          "finite computation is used as a substitute for an infinite theorem",
+          "the target conjecture or an equivalent theorem is imported as an assumption",
+          "the proof contains sorry, admit, unchecked axiom, or an unverifiable external dependency",
+          "the candidate proves a weaker nearby theorem while claiming the original problem"
+        ],
+        "review_output": {
+          "accepted": "candidate can move to formal replay and independent review",
+          "revise": "candidate has a precise missing bridge or failed executable test",
+          "rejected": "candidate violates an automatic rejection rule"
+        },
+        "claim_boundary": "This intake accepts proof candidates for review only; it does not certify that any of the four conjectures has been solved."
       }
     }
   ]
