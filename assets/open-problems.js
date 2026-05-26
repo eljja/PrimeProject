@@ -437,6 +437,66 @@ function renderKnownBarrierAudit(problem) {
   `;
 }
 
+function renderFormalReplayPackage(problem) {
+  const replay = problem.formal_replay_package || {};
+  const artifacts = replay.required_artifacts || [];
+  const files = replay.candidate_files || [];
+  const commands = replay.replay_commands || [];
+  const forbidden = replay.forbidden_tokens || [];
+  return `
+    <div class="replay-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(replay.status))}</strong>
+      </div>
+      <div>
+        <span>Kernel</span>
+        <strong>${escapeHtml(replay.target_kernel || "missing")}</strong>
+      </div>
+      <div>
+        <span>Package</span>
+        <strong>${escapeHtml(replay.package_dir || "missing")}</strong>
+      </div>
+      <div>
+        <span>Open barriers</span>
+        <strong>${escapeHtml(formatValue(replay.open_barriers || 0))}</strong>
+      </div>
+    </div>
+    <pre class="formal-statement"><code>${escapeHtml(replay.theorem_statement || "")}</code></pre>
+    <div class="replay-grid">
+      <section>
+        <h3>Candidate files</h3>
+        ${list(files)}
+      </section>
+      <section>
+        <h3>Replay commands</h3>
+        ${list(commands)}
+      </section>
+      <section>
+        <h3>Required artifacts</h3>
+        <div class="replay-artifacts">
+          ${artifacts
+            .map(
+              (artifact) => `
+                <div>
+                  <span>${escapeHtml(artifact.name || "")}</span>
+                  <strong>${escapeHtml(statusText(artifact.status))}</strong>
+                  <code>${escapeHtml(formatValue(artifact.value))}</code>
+                </div>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+      <section>
+        <h3>Forbidden tokens</h3>
+        ${list(forbidden)}
+      </section>
+    </div>
+    <p class="certificate-verifier">${escapeHtml(replay.acceptance_rule || "")}</p>
+  `;
+}
+
 function renderFormalContract(problem) {
   const contract = problem.formal_proof_contract || {};
   return `
@@ -684,6 +744,7 @@ function render(payload, problem) {
   document.querySelector("#proofExecutionProtocol").innerHTML = renderProofExecutionProtocol(problem);
   document.querySelector("#proofFrontierProbe").innerHTML = renderProofFrontierProbe(problem);
   document.querySelector("#knownBarrierAudit").innerHTML = renderKnownBarrierAudit(problem);
+  document.querySelector("#formalReplayPackage").innerHTML = renderFormalReplayPackage(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);

@@ -7,7 +7,7 @@ PrimeProject now has four GitHub Pages subpages for:
 - Goldbach Conjecture
 - Twin Prime Conjecture
 
-The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
+The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
 ## Public Pages
 
@@ -60,6 +60,8 @@ Each problem also includes a `primeproject.proof-execution-protocol.v1` object. 
 Each problem also includes a `primeproject.proof-frontier-probe.v1` object. This is the computational pressure test for the current proof frontier: Riemann stresses theta-envelope candidates at prime endpoints, Collatz stresses accelerated odd residue descents, Goldbach ranks hard residue classes by first-prime witness, and Twin Prime separates exact gap-2 residue persistence from bounded-gap evidence. The probe status is always `finite_probe_not_proof`; it can falsify or prioritize a proof path but cannot close the conjecture.
 
 Each problem also includes a `primeproject.known-barrier-audit.v1` object. This audit lists barriers that routinely invalidate attempted proofs: finite-to-infinite lifting, proof-assistant replay, RH-equivalence strength, Collatz exceptional residue classes, Goldbach positive lower bounds, Twin Prime exact-gap lower bounds, and heuristic dependencies. A page remains blocked while any barrier lacks a formal clearance artifact.
+
+Each problem also includes a `primeproject.formal-replay-package.v1` object. This package names the Lean-oriented files, replay commands, required artifacts, and forbidden tokens that would be needed before any candidate proof can be submitted for independent review. Its status remains `not_replayable_until_barriers_clear` while known barriers are open.
 
 Each problem also includes a `primeproject.formal-proof-contract.v1` object. The contract records a Lean 4 target theorem, required artifacts, forbidden assumptions, and acceptance rules. This is not a formal proof yet; it is the kernel-facing contract that any future proof must satisfy before the status gate can move.
 

@@ -20,6 +20,7 @@ PROOF_GAP_TAXONOMY_SCHEMA = "primeproject.proof-gap-taxonomy.v1"
 PROOF_EXECUTION_PROTOCOL_SCHEMA = "primeproject.proof-execution-protocol.v1"
 PROOF_FRONTIER_PROBE_SCHEMA = "primeproject.proof-frontier-probe.v1"
 KNOWN_BARRIER_AUDIT_SCHEMA = "primeproject.known-barrier-audit.v1"
+FORMAL_REPLAY_PACKAGE_SCHEMA = "primeproject.formal-replay-package.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -504,6 +505,62 @@ def known_barrier_audit(problem: dict[str, object]) -> dict[str, object]:
         "open_count": sum(1 for row in barriers if row["status"] != "cleared"),
         "barriers": barriers,
         "promotion_rule": "A conjecture page remains open_not_proven while any known barrier is not cleared by a formal artifact or accepted theorem.",
+    }
+
+
+def formal_replay_package(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    contract = problem.get("formal_proof_contract", {}) if isinstance(problem.get("formal_proof_contract"), dict) else {}
+    certificate = problem.get("certificate", {}) if isinstance(problem.get("certificate"), dict) else {}
+    barrier_audit = problem.get("known_barrier_audit", {}) if isinstance(problem.get("known_barrier_audit"), dict) else {}
+    required_artifacts = contract.get("required_artifacts", []) if isinstance(contract.get("required_artifacts"), list) else []
+    forbidden_assumptions = contract.get("forbidden_assumptions", []) if isinstance(contract.get("forbidden_assumptions"), list) else []
+    theorem_name = str(contract.get("theorem_name", f"primeproject_{problem_id}_conjecture"))
+    package_dir = f"formal/{problem_id}"
+    return {
+        "schema": FORMAL_REPLAY_PACKAGE_SCHEMA,
+        "problem_id": problem_id,
+        "status": "not_replayable_until_barriers_clear",
+        "package_dir": package_dir,
+        "target_kernel": contract.get("proof_assistant_target", "Lean 4"),
+        "theorem_name": theorem_name,
+        "theorem_statement": contract.get("lean_statement", "missing theorem statement"),
+        "candidate_files": [
+            f"{package_dir}/Definitions.lean",
+            f"{package_dir}/BoundedCertificate.lean",
+            f"{package_dir}/InfiniteBridge.lean",
+            f"{package_dir}/Main.lean",
+        ],
+        "replay_commands": [
+            f"lake env lean {package_dir}/Definitions.lean",
+            f"lake env lean {package_dir}/BoundedCertificate.lean",
+            f"lake env lean {package_dir}/InfiniteBridge.lean",
+            f"lake env lean {package_dir}/Main.lean",
+        ],
+        "required_artifacts": [
+            {
+                "name": "bounded_certificate_merkle_root",
+                "status": "available",
+                "value": certificate.get("merkle_root", "missing"),
+            },
+            *[
+                {
+                    "name": str(artifact),
+                    "status": "missing_formal_artifact",
+                    "value": "required before replay",
+                }
+                for artifact in required_artifacts
+                if str(artifact) != "bounded_certificate_merkle_root"
+            ],
+        ],
+        "forbidden_tokens": [
+            "sorry",
+            "admit",
+            "axiom " + theorem_name,
+            *[str(item) for item in forbidden_assumptions],
+        ],
+        "open_barriers": barrier_audit.get("open_count", 0),
+        "acceptance_rule": "The replay package is publishable only when all candidate files kernel-check and every required artifact is available without importing the target conjecture.",
     }
 
 
@@ -1751,6 +1808,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["proof_status_gate"] = proof_status_gate(problem)
         problem["proof_execution_protocol"] = proof_execution_protocol(problem)
         problem["known_barrier_audit"] = known_barrier_audit(problem)
+        problem["formal_replay_package"] = formal_replay_package(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

@@ -1527,6 +1527,59 @@ canvas {
   line-height: 1.5;
 }
 
+.replay-head,
+.replay-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.replay-head {
+  grid-template-columns: minmax(150px, 0.35fr) minmax(120px, 0.25fr) minmax(180px, 0.5fr) minmax(120px, 0.25fr);
+}
+
+.replay-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.replay-head div,
+.replay-grid section,
+.replay-artifacts div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.replay-head span,
+.replay-artifacts span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.replay-head strong,
+.replay-artifacts strong,
+.replay-artifacts code {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.replay-artifacts {
+  display: grid;
+  gap: 8px;
+}
+
+.replay-artifacts code {
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
@@ -4504,7 +4557,9 @@ tr:last-child td {
   .frontier-head,
   .frontier-grid,
   .barrier-head,
-  .barrier-list {
+  .barrier-list,
+  .replay-head,
+  .replay-grid {
     grid-template-columns: 1fr;
   }
 

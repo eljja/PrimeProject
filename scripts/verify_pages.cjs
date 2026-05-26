@@ -234,6 +234,8 @@ async function main() {
           proofFrontierText: document.querySelector("#proofFrontierProbe").textContent,
           knownBarrierText: document.querySelector("#knownBarrierAudit").textContent,
           knownBarrierCards: document.querySelectorAll("#knownBarrierAudit .barrier-card").length,
+          formalReplayText: document.querySelector("#formalReplayPackage").textContent,
+          formalReplayArtifacts: document.querySelectorAll("#formalReplayPackage .replay-artifacts > div").length,
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
@@ -294,6 +296,11 @@ async function main() {
         !page.knownBarrierText.includes("barriers not cleared") ||
         !page.knownBarrierText.includes("Clearance") ||
         !page.knownBarrierText.includes("finite_to_infinite_lift") ||
+        page.formalReplayArtifacts < 3 ||
+        !page.formalReplayText.includes("not replayable until barriers clear") ||
+        !page.formalReplayText.includes("Replay commands") ||
+        !page.formalReplayText.includes("Forbidden tokens") ||
+        !page.formalReplayText.includes("lake env lean") ||
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||

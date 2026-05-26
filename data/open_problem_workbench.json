@@ -554,6 +554,59 @@
           }
         ],
         "promotion_rule": "A conjecture page remains open_not_proven while any known barrier is not cleared by a formal artifact or accepted theorem."
+      },
+      "formal_replay_package": {
+        "schema": "primeproject.formal-replay-package.v1",
+        "problem_id": "riemann",
+        "status": "not_replayable_until_barriers_clear",
+        "package_dir": "formal/riemann",
+        "target_kernel": "Lean 4",
+        "theorem_name": "primeproject_riemann_hypothesis",
+        "theorem_statement": "theorem primeproject_riemann_hypothesis : forall rho, Zeta.NontrivialZero rho -> rho.re = (1/2 : Real) := by",
+        "candidate_files": [
+          "formal/riemann/Definitions.lean",
+          "formal/riemann/BoundedCertificate.lean",
+          "formal/riemann/InfiniteBridge.lean",
+          "formal/riemann/Main.lean"
+        ],
+        "replay_commands": [
+          "lake env lean formal/riemann/Definitions.lean",
+          "lake env lean formal/riemann/BoundedCertificate.lean",
+          "lake env lean formal/riemann/InfiniteBridge.lean",
+          "lake env lean formal/riemann/Main.lean"
+        ],
+        "required_artifacts": [
+          {
+            "name": "bounded_certificate_merkle_root",
+            "status": "available",
+            "value": "d2a11c74de18a21a2652a79f3ff5ab1b92356f18884c089a4a82127189a4c813"
+          },
+          {
+            "name": "bounded theta/pi certificate",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          },
+          {
+            "name": "formal all-x prime-counting error theorem",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          },
+          {
+            "name": "formal RH-equivalence bridge",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          }
+        ],
+        "forbidden_tokens": [
+          "sorry",
+          "admit",
+          "axiom primeproject_riemann_hypothesis",
+          "RiemannHypothesis",
+          "Zeta.nontrivialZeros_on_criticalLine",
+          "any axiom implying all non-trivial zeta zeros have real part 1/2"
+        ],
+        "open_barriers": 4,
+        "acceptance_rule": "The replay package is publishable only when all candidate files kernel-check and every required artifact is available without importing the target conjecture."
       }
     },
     {
@@ -1170,6 +1223,59 @@
           }
         ],
         "promotion_rule": "A conjecture page remains open_not_proven while any known barrier is not cleared by a formal artifact or accepted theorem."
+      },
+      "formal_replay_package": {
+        "schema": "primeproject.formal-replay-package.v1",
+        "problem_id": "collatz",
+        "status": "not_replayable_until_barriers_clear",
+        "package_dir": "formal/collatz",
+        "target_kernel": "Lean 4",
+        "theorem_name": "primeproject_collatz_conjecture",
+        "theorem_statement": "theorem primeproject_collatz_conjecture : forall n : Nat, 0 < n -> exists k, Collatz.iterate k n = 1 := by",
+        "candidate_files": [
+          "formal/collatz/Definitions.lean",
+          "formal/collatz/BoundedCertificate.lean",
+          "formal/collatz/InfiniteBridge.lean",
+          "formal/collatz/Main.lean"
+        ],
+        "replay_commands": [
+          "lake env lean formal/collatz/Definitions.lean",
+          "lake env lean formal/collatz/BoundedCertificate.lean",
+          "lake env lean formal/collatz/InfiniteBridge.lean",
+          "lake env lean formal/collatz/Main.lean"
+        ],
+        "required_artifacts": [
+          {
+            "name": "bounded_certificate_merkle_root",
+            "status": "available",
+            "value": "efda5adedc111cb14cdb476cd133ca278b19fec9cd94764e1c338b937f98857e"
+          },
+          {
+            "name": "bounded trajectory certificate",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          },
+          {
+            "name": "formal residue-block descent theorem",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          },
+          {
+            "name": "formal cycle and divergence exclusion theorem",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          }
+        ],
+        "forbidden_tokens": [
+          "sorry",
+          "admit",
+          "axiom primeproject_collatz_conjecture",
+          "CollatzConjecture",
+          "well_foundedness of Collatz trajectories without proof",
+          "any axiom excluding non-trivial cycles or divergent paths"
+        ],
+        "open_barriers": 4,
+        "acceptance_rule": "The replay package is publishable only when all candidate files kernel-check and every required artifact is available without importing the target conjecture."
       }
     },
     {
@@ -1798,6 +1904,59 @@
           }
         ],
         "promotion_rule": "A conjecture page remains open_not_proven while any known barrier is not cleared by a formal artifact or accepted theorem."
+      },
+      "formal_replay_package": {
+        "schema": "primeproject.formal-replay-package.v1",
+        "problem_id": "goldbach",
+        "status": "not_replayable_until_barriers_clear",
+        "package_dir": "formal/goldbach",
+        "target_kernel": "Lean 4",
+        "theorem_name": "primeproject_goldbach_conjecture",
+        "theorem_statement": "theorem primeproject_goldbach_conjecture : forall n : Nat, Even n -> 2 < n -> exists p q : Nat, Nat.Prime p /\\ Nat.Prime q /\\ n = p + q := by",
+        "candidate_files": [
+          "formal/goldbach/Definitions.lean",
+          "formal/goldbach/BoundedCertificate.lean",
+          "formal/goldbach/InfiniteBridge.lean",
+          "formal/goldbach/Main.lean"
+        ],
+        "replay_commands": [
+          "lake env lean formal/goldbach/Definitions.lean",
+          "lake env lean formal/goldbach/BoundedCertificate.lean",
+          "lake env lean formal/goldbach/InfiniteBridge.lean",
+          "lake env lean formal/goldbach/Main.lean"
+        ],
+        "required_artifacts": [
+          {
+            "name": "bounded_certificate_merkle_root",
+            "status": "available",
+            "value": "0e52db965ab01c1e8b828db9b67e917845214a64c4caa39388fc035d241f013b"
+          },
+          {
+            "name": "bounded witness certificate",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          },
+          {
+            "name": "formal positive representation-count lower bound",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          },
+          {
+            "name": "formal threshold bridge below certificate limit",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          }
+        ],
+        "forbidden_tokens": [
+          "sorry",
+          "admit",
+          "axiom primeproject_goldbach_conjecture",
+          "GoldbachConjecture",
+          "HardyLittlewood prime-pair independence as an axiom",
+          "any axiom asserting positive Goldbach representation counts"
+        ],
+        "open_barriers": 4,
+        "acceptance_rule": "The replay package is publishable only when all candidate files kernel-check and every required artifact is available without importing the target conjecture."
       }
     },
     {
@@ -2364,6 +2523,59 @@
           }
         ],
         "promotion_rule": "A conjecture page remains open_not_proven while any known barrier is not cleared by a formal artifact or accepted theorem."
+      },
+      "formal_replay_package": {
+        "schema": "primeproject.formal-replay-package.v1",
+        "problem_id": "twin-prime",
+        "status": "not_replayable_until_barriers_clear",
+        "package_dir": "formal/twin-prime",
+        "target_kernel": "Lean 4",
+        "theorem_name": "primeproject_twin_prime_conjecture",
+        "theorem_statement": "theorem primeproject_twin_prime_conjecture : forall N : Nat, exists p : Nat, N < p /\\ Nat.Prime p /\\ Nat.Prime (p + 2) := by",
+        "candidate_files": [
+          "formal/twin-prime/Definitions.lean",
+          "formal/twin-prime/BoundedCertificate.lean",
+          "formal/twin-prime/InfiniteBridge.lean",
+          "formal/twin-prime/Main.lean"
+        ],
+        "replay_commands": [
+          "lake env lean formal/twin-prime/Definitions.lean",
+          "lake env lean formal/twin-prime/BoundedCertificate.lean",
+          "lake env lean formal/twin-prime/InfiniteBridge.lean",
+          "lake env lean formal/twin-prime/Main.lean"
+        ],
+        "required_artifacts": [
+          {
+            "name": "bounded_certificate_merkle_root",
+            "status": "available",
+            "value": "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d"
+          },
+          {
+            "name": "bounded twin-pair certificate",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          },
+          {
+            "name": "formal exact gap-2 lower-bound theorem",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          },
+          {
+            "name": "formal infinitude bridge",
+            "status": "missing_formal_artifact",
+            "value": "required before replay"
+          }
+        ],
+        "forbidden_tokens": [
+          "sorry",
+          "admit",
+          "axiom primeproject_twin_prime_conjecture",
+          "TwinPrimeConjecture",
+          "HardyLittlewood k-tuple conjecture as an axiom",
+          "bounded gaps theorem treated as exact gap 2"
+        ],
+        "open_barriers": 4,
+        "acceptance_rule": "The replay package is publishable only when all candidate files kernel-check and every required artifact is available without importing the target conjecture."
       }
     }
   ]

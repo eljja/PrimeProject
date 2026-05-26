@@ -140,6 +140,16 @@ def main() -> int:
         if not all(barrier.get("why_it_matters") and barrier.get("required_clearance") for barrier in barriers):
             print(f"{problem.get('id')} known barrier audit is missing barrier clearance terms.", file=sys.stderr)
             return 1
+        replay = problem.get("formal_replay_package", {})
+        if replay.get("status") != "not_replayable_until_barriers_clear":
+            print(f"{problem.get('id')} formal replay package has unexpected status.", file=sys.stderr)
+            return 1
+        if len(replay.get("candidate_files", [])) < 4 or len(replay.get("replay_commands", [])) < 4:
+            print(f"{problem.get('id')} formal replay package is missing files or commands.", file=sys.stderr)
+            return 1
+        if not replay.get("required_artifacts") or not replay.get("forbidden_tokens"):
+            print(f"{problem.get('id')} formal replay package is missing artifacts or forbidden tokens.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]
