@@ -805,6 +805,41 @@ function renderProofObligationDag(problem) {
   `;
 }
 
+function renderFormalSkeletonAudit(problem) {
+  const audit = problem.formal_skeleton_audit || {};
+  const files = audit.file_checks || [];
+  return `
+    <div class="skeleton-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(audit.status))}</strong>
+      </div>
+      <div>
+        <span>Files present</span>
+        <strong>${escapeHtml(formatValue(audit.present_count || 0))} / ${escapeHtml(formatValue(audit.candidate_file_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Forbidden hits</span>
+        <strong>${escapeHtml(formatValue(audit.forbidden_hit_count || 0))}</strong>
+      </div>
+    </div>
+    <div class="skeleton-file-list">
+      ${files
+        .map(
+          (item) => `
+            <article class="skeleton-file is-${escapeHtml(item.status || "missing")}">
+              <span>${escapeHtml(item.path || "")}</span>
+              <strong>${escapeHtml(statusText(item.status))}</strong>
+              <small>${escapeHtml(formatValue(item.line_count || 0))} lines</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="skeleton-boundary">${escapeHtml(audit.claim_boundary || "")}</p>
+  `;
+}
+
 function renderFormalContract(problem) {
   const contract = problem.formal_proof_contract || {};
   return `
@@ -1058,6 +1093,7 @@ function render(payload, problem) {
   document.querySelector("#proofCandidateIntake").innerHTML = renderProofCandidateIntake(problem);
   document.querySelector("#proofAttemptExecutionLog").innerHTML = renderProofAttemptExecutionLog(problem);
   document.querySelector("#proofObligationDag").innerHTML = renderProofObligationDag(problem);
+  document.querySelector("#formalSkeletonAudit").innerHTML = renderFormalSkeletonAudit(problem);
   document.querySelector("#formalContract").innerHTML = renderFormalContract(problem);
   document.querySelector("#milestoneQueue").innerHTML = renderMilestoneQueue(problem);
   document.querySelector("#decisiveLemmaLab").innerHTML = renderDecisiveLemmaLab(problem);

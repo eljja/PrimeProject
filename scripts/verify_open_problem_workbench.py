@@ -225,6 +225,20 @@ def main() -> int:
         if not dag.get("critical_path") or "formal artifact" not in dag.get("machine_rule", ""):
             print(f"{problem.get('id')} proof obligation DAG is missing machine rule.", file=sys.stderr)
             return 1
+        skeleton = problem.get("formal_skeleton_audit", {})
+        file_checks = skeleton.get("file_checks", []) if isinstance(skeleton, dict) else []
+        if skeleton.get("status") != "skeleton_present_not_replayable":
+            print(f"{problem.get('id')} formal skeleton audit has unexpected status.", file=sys.stderr)
+            return 1
+        if len(file_checks) < 4 or skeleton.get("present_count") != skeleton.get("candidate_file_count"):
+            print(f"{problem.get('id')} formal skeleton audit is missing files.", file=sys.stderr)
+            return 1
+        if skeleton.get("forbidden_hit_count") != 0:
+            print(f"{problem.get('id')} formal skeleton audit found forbidden tokens.", file=sys.stderr)
+            return 1
+        if "not a proof" not in skeleton.get("claim_boundary", ""):
+            print(f"{problem.get('id')} formal skeleton audit is missing claim boundary.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

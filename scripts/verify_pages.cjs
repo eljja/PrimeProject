@@ -247,6 +247,8 @@ async function main() {
           proofDagText: document.querySelector("#proofObligationDag").textContent,
           proofDagNodes: document.querySelectorAll("#proofObligationDag .dag-node").length,
           proofDagEdges: document.querySelectorAll("#proofObligationDag .dag-edge-list article").length,
+          formalSkeletonText: document.querySelector("#formalSkeletonAudit").textContent,
+          formalSkeletonFiles: document.querySelectorAll("#formalSkeletonAudit .skeleton-file").length,
           formalContractText: document.querySelector("#formalContract").textContent,
           milestoneQueueText: document.querySelector("#milestoneQueue").textContent,
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
@@ -337,6 +339,10 @@ async function main() {
         !page.proofDagText.includes("open obligation graph") ||
         !page.proofDagText.includes("Critical path") ||
         !page.proofDagText.includes("Machine rule") ||
+        page.formalSkeletonFiles < 4 ||
+        !page.formalSkeletonText.includes("skeleton present not replayable") ||
+        !page.formalSkeletonText.includes("Forbidden hits") ||
+        !page.formalSkeletonText.includes("not a proof") ||
         !page.formalContractText.includes("Lean 4") ||
         !page.formalContractText.includes("Forbidden assumptions") ||
         !page.formalContractText.includes("No `sorry`") ||

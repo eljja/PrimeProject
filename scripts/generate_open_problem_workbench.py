@@ -26,6 +26,7 @@ PROOF_REDUCTION_CONTRACT_SCHEMA = "primeproject.proof-reduction-contract.v1"
 PROOF_CANDIDATE_INTAKE_SCHEMA = "primeproject.proof-candidate-intake.v1"
 PROOF_ATTEMPT_EXECUTION_LOG_SCHEMA = "primeproject.proof-attempt-execution-log.v1"
 PROOF_OBLIGATION_DAG_SCHEMA = "primeproject.proof-obligation-dag.v1"
+FORMAL_SKELETON_AUDIT_SCHEMA = "primeproject.formal-skeleton-audit.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -1073,6 +1074,47 @@ def proof_obligation_dag(problem: dict[str, object]) -> dict[str, object]:
             "then and only then review the full target claim",
         ],
         "machine_rule": "Every non-complete node on this DAG must be closed by a formal artifact or accepted theorem before the conjecture status can change.",
+    }
+
+
+def formal_skeleton_audit(problem: dict[str, object]) -> dict[str, object]:
+    replay = problem.get("formal_replay_package", {})
+    contract = problem.get("formal_proof_contract", {})
+    files = replay.get("candidate_files", []) if isinstance(replay, dict) else []
+    forbidden = replay.get("forbidden_tokens", []) if isinstance(replay, dict) else []
+    theorem_name = contract.get("theorem_name", "") if isinstance(contract, dict) else ""
+    checks = []
+    forbidden_hits: list[dict[str, str]] = []
+    for item in files:
+        path = Path(str(item))
+        exists = path.exists()
+        text = path.read_text(encoding="utf-8") if exists else ""
+        hits = [
+            token
+            for token in [*forbidden, theorem_name]
+            if token and token in text
+        ]
+        for token in hits:
+            forbidden_hits.append({"path": str(path), "token": str(token)})
+        checks.append(
+            {
+                "path": str(path),
+                "exists": exists,
+                "status": "skeleton_present_not_proof" if exists else "missing_skeleton",
+                "line_count": len(text.splitlines()) if exists else 0,
+            }
+        )
+    present_count = sum(1 for item in checks if item["exists"])
+    return {
+        "schema": FORMAL_SKELETON_AUDIT_SCHEMA,
+        "problem_id": problem.get("id"),
+        "status": "skeleton_present_not_replayable" if present_count == len(files) and not forbidden_hits else "skeleton_blocked",
+        "candidate_file_count": len(files),
+        "present_count": present_count,
+        "forbidden_hit_count": len(forbidden_hits),
+        "file_checks": checks,
+        "forbidden_hits": forbidden_hits,
+        "claim_boundary": "The skeleton files make the replay package concrete, but they are not a proof and do not discharge any infinite bridge.",
     }
 
 
@@ -2326,6 +2368,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["proof_candidate_intake"] = proof_candidate_intake(problem)
         problem["proof_attempt_execution_log"] = proof_attempt_execution_log(problem)
         problem["proof_obligation_dag"] = proof_obligation_dag(problem)
+        problem["formal_skeleton_audit"] = formal_skeleton_audit(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
