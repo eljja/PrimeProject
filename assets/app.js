@@ -809,7 +809,7 @@ const bundledEvidencePack = {
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "11bfcc840ff2cda806a9abca4c914475bd0f049cf9f5a5f930eafc5aec8657b3" },
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "4636041a732e84825a9c0af28075583927e1be1edbe25bbf988eb1333a509bd6" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
-    { role: "claim_language_audit", schema: "primeproject.claim-language-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", scanned_file_count: 15, scanned_line_count: 6807, claim_language_triggered_count: 88, claim_language_guarded_count: 88, claim_language_fail_count: 0 },
+    { role: "claim_language_audit", schema: "primeproject.claim-language-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", scanned_file_count: 15, scanned_line_count: 6998, claim_language_triggered_count: 89, claim_language_guarded_count: 89, claim_language_fail_count: 0 },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", sha256: "47e75e611e98837cac5ecc690cc49900a2b757a7b2d857d474988a4406a5f232" },
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", fixture_count: 10, failed_expectation_count: 0, public_safe_fixture_count: 10 },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "9179e93a350bcebc96db80f095b4966f5514ae53c9866264d2c8731408d9469b" },
@@ -1264,9 +1264,9 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 22,
     claim_language_scanned_files: 15,
-    claim_language_scanned_lines: 6807,
-    claim_language_triggered_mentions: 88,
-    claim_language_guarded_mentions: 88,
+    claim_language_scanned_lines: 6998,
+    claim_language_triggered_mentions: 89,
+    claim_language_guarded_mentions: 89,
     claim_language_failures: 0,
     blocking_gaps: 2,
     claim_ledger_allowed: 3,
@@ -1500,6 +1500,11 @@ const outputs = {
   evolutionMap: document.querySelector("#evolutionMap"),
   evolutionTimeline: document.querySelector("#evolutionTimeline"),
   evolutionGaps: document.querySelector("#evolutionGaps"),
+  atlasHero: document.querySelector("#atlasHero"),
+  atlasContributionGrid: document.querySelector("#atlasContributionGrid"),
+  atlasEvidenceLadder: document.querySelector("#atlasEvidenceLadder"),
+  atlasProofGrid: document.querySelector("#atlasProofGrid"),
+  atlasNextSteps: document.querySelector("#atlasNextSteps"),
   baselineRegistrySummary: document.querySelector("#baselineRegistrySummary"),
   baselineRegistryRows: document.querySelector("#baselineRegistryRows"),
   collectionMatrixStatus: document.querySelector("#collectionMatrixStatus"),
@@ -2471,6 +2476,7 @@ function renderProjectEvolution() {
     <div><span>Claim level</span><strong>${escapeHtml(formatClaimLevel(metrics.publication_claim_level))}</strong><small>${formatNumber(metrics.blocking_gaps || 0)} blocking gaps</small></div>
   `;
   renderEvolutionImpact(evolution);
+  renderResearchAtlas(evolution);
   renderEvolutionSpine(evolution);
   renderEvolutionDelta(evolution);
   renderEvolutionMap(evolution);
@@ -2506,6 +2512,176 @@ function renderProjectEvolution() {
       </div>
     `)
     .join("");
+}
+
+function renderResearchAtlas(evolution) {
+  if (!outputs.atlasHero || !outputs.atlasContributionGrid || !outputs.atlasEvidenceLadder) return;
+  const metrics = evolution.metrics || {};
+  const dashboard = evolution.change_dashboard || bundledProjectEvolution.change_dashboard || {};
+  const rollup = dashboard.visual_rollup || {};
+  const spine = rollup.evidence_spine || [];
+  const atlas = buildResearchAtlas(evolution);
+  outputs.atlasHero.innerHTML = `
+    <div class="atlas-hero-copy">
+      <span>Research claim map</span>
+      <strong>${escapeHtml(atlas.thesis)}</strong>
+      <p>${escapeHtml(atlas.boundary)}</p>
+    </div>
+    <div class="atlas-hero-metrics">
+      <div><span>Live scale</span><strong>${formatCompact(metrics.live_compute_limit || 0)}</strong><small>browser computation ceiling</small></div>
+      <div><span>Controlled signal</span><strong>${formatNumber(metrics.robust_controlled_profiles?.length || 0)}</strong><small>${formatNumber(metrics.null_calibration_iterations || 0)} null iterations</small></div>
+      <div><span>Publication artifacts</span><strong>${formatNumber(metrics.checksummed_artifacts || 0)}</strong><small>${formatNumber(metrics.publication_guard_checks || 0)} guard checks</small></div>
+      <div><span>Open problems</span><strong>4</strong><small>proof workbench pages</small></div>
+    </div>
+  `;
+  outputs.atlasContributionGrid.innerHTML = atlas.contributions
+    .map((item) => `
+      <article class="atlas-contribution is-${escapeHtml(item.status)}">
+        <span>${escapeHtml(item.statusLabel)}</span>
+        <strong>${escapeHtml(item.title)}</strong>
+        <p>${escapeHtml(item.value)}</p>
+        <em>${escapeHtml(item.evidence)}</em>
+      </article>
+    `)
+    .join("");
+  outputs.atlasEvidenceLadder.innerHTML = `
+    <div class="atlas-section-head">
+      <span>Evidence ladder</span>
+      <strong>Every strong claim must climb from computation to controls, then to real baselines and publication gates.</strong>
+    </div>
+    <div class="atlas-ladder-grid">
+      ${spine
+        .map((item, index) => {
+          const score = Math.max(0, Math.min(100, Number(item.score) || 0));
+          return `
+            <article class="atlas-ladder-step is-${escapeHtml(item.status || "active")}">
+              <i>${String(index + 1).padStart(2, "0")}</i>
+              <strong>${escapeHtml(item.layer || "Layer")}</strong>
+              <span>${formatNumber(score)}%</span>
+              <b><u style="width: ${score}%"></u></b>
+              <p>${escapeHtml(item.gate || "")}</p>
+            </article>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
+  outputs.atlasProofGrid.innerHTML = `
+    <div class="atlas-section-head">
+      <span>Proof workbench</span>
+      <strong>Finite certificates and attack tickets are useful only when they name the missing infinite theorem.</strong>
+    </div>
+    ${atlas.openProblems
+      .map((problem) => `
+        <a class="atlas-proof-card" href="${escapeHtml(problem.href)}">
+          <span>${escapeHtml(problem.status)}</span>
+          <strong>${escapeHtml(problem.name)}</strong>
+          <p>${escapeHtml(problem.route)}</p>
+          <em>${escapeHtml(problem.artifact)}</em>
+        </a>
+      `)
+      .join("")}
+  `;
+  outputs.atlasNextSteps.innerHTML = `
+    <div class="atlas-section-head">
+      <span>Next academic work</span>
+      <strong>The shortest path to stronger claims is explicit and still blocked.</strong>
+    </div>
+    ${atlas.nextSteps
+      .map((item) => `
+        <article class="atlas-next-card is-${escapeHtml(item.priority || "P1")}">
+          <span>${escapeHtml(item.priority || "P1")} · ${escapeHtml(item.track)}</span>
+          <strong>${escapeHtml(item.action)}</strong>
+          <p>${escapeHtml(item.unlock)}</p>
+        </article>
+      `)
+      .join("")}
+  `;
+}
+
+function buildResearchAtlas(evolution) {
+  const metrics = evolution.metrics || {};
+  const openGaps = evolution.open_gaps || [];
+  return {
+    thesis:
+      "PrimeProject is now best understood as a falsifiable generator-fingerprint and proof-obligation workbench, not a prime-prediction claim.",
+    boundary:
+      "The supported result is controlled synthetic signal plus reproducible bounded evidence; real-world attribution and the four open conjectures remain blocked until their named artifacts exist.",
+    contributions: [
+      {
+        title: "Scale made visible",
+        status: "complete",
+        statusLabel: "supported",
+        value: "10M live browser computation plus static 1M/10M snapshots make finite behavior inspectable without recomputing on GitHub Pages.",
+        evidence: `${formatCompact(metrics.live_compute_limit || 0)} live limit · ${(metrics.precomputed_snapshot_limits || []).length} snapshot tiers`,
+      },
+      {
+        title: "Generator fingerprints controlled",
+        status: "complete",
+        statusLabel: "supported",
+        value: "Residue, low-bit, and gap-context fingerprints are tested against bit-length controls, null calibration, and replication.",
+        evidence: `${formatNumber(metrics.attribution_grid_rows || 0)} grid rows · ${formatNumber(metrics.replication_setting_count || 0)} replication settings`,
+      },
+      {
+        title: "Sim-to-real boundary exposed",
+        status: "blocked",
+        statusLabel: "blocked",
+        value: "OpenSSL, BoringSSL, Go, Bitcoin Core, and wallet/library baselines are registered, but accepted aggregate submissions are still missing.",
+        evidence: `${formatNumber(metrics.baseline_acceptance_accepted || 0)} accepted baselines · ${formatNumber(metrics.intake_blocked || 0)} intake blockers`,
+      },
+      {
+        title: "Publication claims governed",
+        status: "guarded",
+        statusLabel: "guarded",
+        value: "Claim-language audit, claim ledger, lineage checks, decision protocol, falsification battery, and consistency audit constrain public statements.",
+        evidence: `${formatNumber(metrics.checksummed_artifacts || 0)} artifacts · ${formatNumber(metrics.claim_language_failures || 0)} language failures`,
+      },
+    ],
+    openProblems: [
+      {
+        name: "Riemann Hypothesis",
+        href: "open-problems/riemann.html",
+        status: "open not proven",
+        route: "Requires an all-x prime-counting or zero-equivalent theorem, not finite checkpoint agreement.",
+        artifact: "missing: formal all-x analytic theorem",
+      },
+      {
+        name: "Collatz Conjecture",
+        href: "open-problems/collatz.html",
+        status: "open not proven",
+        route: "Requires a symbolic residue-block descent cover, not trajectory replay through a limit.",
+        artifact: "missing: global descent cover",
+      },
+      {
+        name: "Goldbach Conjecture",
+        href: "open-problems/goldbach.html",
+        status: "open not proven",
+        route: "Requires a positive binary representation lower bound with explicit cutoff.",
+        artifact: "missing: compatible large-even theorem",
+      },
+      {
+        name: "Twin Prime Conjecture",
+        href: "open-problems/twin-prime.html",
+        status: "open not proven",
+        route: "Requires an exact gap-2 lower bound, not bounded-gap or Hardy-Littlewood-scale evidence.",
+        artifact: "missing: unconditional exact gap-2 theorem",
+      },
+    ],
+    nextSteps: [
+      ...openGaps.map((gap) => ({
+        priority: gap.priority || "P1",
+        track: gap.track || "research",
+        action: gap.gap || "Close open research gap.",
+        unlock: "Required before stronger public claims can move beyond the current scaffold.",
+      })),
+      {
+        priority: "P0",
+        track: "proof",
+        action: "Convert one breakthrough agenda item into a formal theorem statement with a falsification test.",
+        unlock: "Required before any open-problem page can move from proof workbench to proof candidate review.",
+      },
+    ],
+  };
 }
 
 function renderEvolutionSpine(evolution) {

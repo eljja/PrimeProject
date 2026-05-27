@@ -3282,6 +3282,271 @@ canvas {
   padding: 14px 20px 2px;
 }
 
+.research-atlas-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.atlas-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  gap: 16px;
+  padding: 0 20px;
+}
+
+.atlas-hero-copy {
+  min-width: 0;
+  border-left: 4px solid var(--teal);
+  background: linear-gradient(90deg, rgba(8, 127, 122, 0.09), rgba(70, 87, 216, 0.04));
+  padding: 18px 20px;
+}
+
+.atlas-hero-copy span,
+.atlas-section-head span,
+.atlas-contribution span,
+.atlas-ladder-step i,
+.atlas-proof-card span,
+.atlas-next-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.atlas-hero-copy strong {
+  display: block;
+  color: var(--ink);
+  font-size: 23px;
+  line-height: 1.18;
+}
+
+.atlas-hero-copy p {
+  max-width: 820px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.atlas-hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.atlas-hero-metrics div,
+.atlas-contribution,
+.atlas-ladder-step,
+.atlas-proof-card,
+.atlas-next-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 13px;
+}
+
+.atlas-hero-metrics span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.atlas-hero-metrics strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.atlas-hero-metrics small {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.atlas-contribution-grid,
+.atlas-proof-grid,
+.atlas-next-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0 20px;
+}
+
+.atlas-contribution {
+  border-top: 3px solid var(--teal);
+}
+
+.atlas-contribution.is-blocked,
+.atlas-next-card.is-P0 {
+  border-top-color: var(--danger);
+}
+
+.atlas-contribution.is-guarded {
+  border-top-color: var(--amber);
+}
+
+.atlas-contribution strong,
+.atlas-proof-card strong,
+.atlas-next-card strong {
+  display: block;
+  margin-top: 7px;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.atlas-contribution p,
+.atlas-proof-card p,
+.atlas-next-card p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+.atlas-contribution em,
+.atlas-proof-card em {
+  display: block;
+  margin-top: 9px;
+  color: var(--teal);
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 820;
+  line-height: 1.35;
+}
+
+.atlas-contribution.is-blocked em {
+  color: var(--danger);
+}
+
+.atlas-contribution.is-guarded em {
+  color: var(--amber);
+}
+
+.atlas-evidence-ladder {
+  display: grid;
+  gap: 12px;
+  padding: 0 20px;
+}
+
+.atlas-section-head {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px 14px;
+}
+
+.atlas-section-head strong {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.atlas-ladder-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.atlas-ladder-step {
+  border-top: 3px solid var(--teal);
+}
+
+.atlas-ladder-step.is-blocked {
+  border-top-color: var(--danger);
+}
+
+.atlas-ladder-step.is-guarded {
+  border-top-color: var(--amber);
+}
+
+.atlas-ladder-step strong,
+.atlas-ladder-step span,
+.atlas-ladder-step b,
+.atlas-ladder-step p {
+  display: block;
+}
+
+.atlas-ladder-step strong {
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.atlas-ladder-step span {
+  margin-top: 7px;
+  color: var(--teal);
+  font-size: 20px;
+  font-weight: 840;
+  line-height: 1;
+}
+
+.atlas-ladder-step.is-blocked span {
+  color: var(--danger);
+}
+
+.atlas-ladder-step.is-guarded span {
+  color: var(--amber);
+}
+
+.atlas-ladder-step b {
+  height: 7px;
+  margin-top: 9px;
+  background: var(--soft);
+  overflow: hidden;
+}
+
+.atlas-ladder-step b u {
+  display: block;
+  height: 100%;
+  background: var(--teal);
+  text-decoration: none;
+}
+
+.atlas-ladder-step.is-blocked b u {
+  background: var(--danger);
+}
+
+.atlas-ladder-step.is-guarded b u {
+  background: var(--amber);
+}
+
+.atlas-ladder-step p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.atlas-proof-card {
+  border-left: 3px solid var(--danger);
+  color: inherit;
+  text-decoration: none;
+}
+
+.atlas-proof-card:hover {
+  border-color: var(--indigo);
+}
+
+.atlas-next-steps {
+  padding-bottom: 18px;
+}
+
+.atlas-next-card {
+  grid-column: span 1;
+  border-top: 3px solid var(--amber);
+}
+
 .spine-heading {
   display: grid;
   gap: 6px;
@@ -5385,6 +5650,11 @@ tr:last-child td {
   .evolution-impact,
   .strategic-summary,
   .delta-state,
+  .atlas-hero,
+  .atlas-contribution-grid,
+  .atlas-ladder-grid,
+  .atlas-proof-grid,
+  .atlas-next-steps,
   .release-trail,
   .hardening-map,
   .spine-grid,
@@ -5411,6 +5681,11 @@ tr:last-child td {
 
   .maturity-ladder,
   .strategic-summary,
+  .atlas-hero-metrics,
+  .atlas-contribution-grid,
+  .atlas-ladder-grid,
+  .atlas-proof-grid,
+  .atlas-next-steps,
   .impact-change-list,
   .release-trail,
   .hardening-map,
@@ -5547,6 +5822,12 @@ tr:last-child td {
   .overview-grid,
   .prediction-metrics,
   .evolution-summary,
+  .atlas-hero,
+  .atlas-hero-metrics,
+  .atlas-contribution-grid,
+  .atlas-ladder-grid,
+  .atlas-proof-grid,
+  .atlas-next-steps,
   .evolution-impact,
   .evolution-delta,
   .strategic-summary,
@@ -5587,7 +5868,12 @@ tr:last-child td {
   .evolution-gaps,
   .evolution-impact,
   .evidence-spine,
-  .evolution-delta {
+  .evolution-delta,
+  .atlas-hero,
+  .atlas-contribution-grid,
+  .atlas-evidence-ladder,
+  .atlas-proof-grid,
+  .atlas-next-steps {
     grid-template-columns: 1fr;
     padding: 12px;
   }

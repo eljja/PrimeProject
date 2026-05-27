@@ -60,6 +60,9 @@ async function main() {
     );
     await page.click("#runPrediction");
     await page.waitForFunction(() => document.querySelectorAll("#predictionRows tr").length >= 8);
+    await page.click("[data-scroll-target='research-atlas-panel']");
+    await page.waitForFunction(() => document.querySelectorAll("#atlasContributionGrid .atlas-contribution").length >= 4);
+    await page.waitForFunction(() => document.querySelectorAll("#atlasProofGrid .atlas-proof-card").length >= 4);
     await page.click("[data-scroll-target='evolution-panel']");
     await page.waitForFunction(() => document.querySelectorAll("#evolutionTimeline .evolution-step").length >= 8);
     await page.waitForFunction(() => {
@@ -104,6 +107,11 @@ async function main() {
       ),
       predictionRows: document.querySelectorAll("#predictionRows tr").length,
       predictionMetrics: document.querySelector("#predictionMetrics").textContent,
+      atlasPanel: document.querySelector("#research-atlas-panel").textContent,
+      atlasContributions: document.querySelectorAll("#atlasContributionGrid .atlas-contribution").length,
+      atlasLadderSteps: document.querySelectorAll("#atlasEvidenceLadder .atlas-ladder-step").length,
+      atlasProofCards: document.querySelectorAll("#atlasProofGrid .atlas-proof-card").length,
+      atlasNextCards: document.querySelectorAll("#atlasNextSteps .atlas-next-card").length,
       evolutionPanel: document.querySelector("#evolution-panel").textContent,
       evolutionImpact: document.querySelector("#evolutionImpact").textContent,
       evolutionSpine: document.querySelector("#evolutionSpine").textContent,
@@ -458,6 +466,25 @@ async function main() {
     process.exit(1);
   }
   if (
+    metrics.atlasContributions < 4 ||
+    metrics.atlasLadderSteps < 5 ||
+    metrics.atlasProofCards < 4 ||
+    metrics.atlasNextCards < 4 ||
+    !metrics.atlasPanel.includes("Research Atlas") ||
+    !metrics.atlasPanel.includes("PrimeProject is now best understood") ||
+    !metrics.atlasPanel.includes("Scale made visible") ||
+    !metrics.atlasPanel.includes("Sim-to-real boundary exposed") ||
+    !metrics.atlasPanel.includes("Publication claims governed") ||
+    !metrics.atlasPanel.includes("Evidence ladder") ||
+    !metrics.atlasPanel.includes("Proof workbench") ||
+    !metrics.atlasPanel.includes("Riemann Hypothesis") ||
+    !metrics.atlasPanel.includes("Twin Prime Conjecture") ||
+    !metrics.atlasPanel.includes("Next academic work")
+  ) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (
     metrics.evolutionSteps < 8 ||
     metrics.evolutionNodes < 15 ||
     metrics.evolutionGaps < 2 ||
@@ -668,7 +695,7 @@ async function main() {
     !metrics.evidencePanel.includes("collection_fixture_audit_gate") ||
     !metrics.evidencePanel.includes("claim_language_audit") ||
     !metrics.evidencePanel.includes("claim_language_gate") ||
-    !metrics.evidencePanel.includes("88 guarded") ||
+    !metrics.evidencePanel.includes("89 guarded") ||
     !metrics.evidencePanel.includes("quality pass") ||
     !metrics.evidencePanel.includes("collection_intake") ||
     !metrics.evidencePanel.includes("null_calibration") ||
