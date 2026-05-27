@@ -21,83 +21,38 @@
           <span class="brand-mark" aria-hidden="true"></span>
           <span>PrimeProject Conjecture Lab</span>
         </a>
-        <nav class="topnav" aria-label="Lab views">
-          <button class="nav-button is-active" data-scroll-target="overview-panel">Overview</button>
-          <button class="nav-button" data-scroll-target="research-atlas-panel">Research Atlas</button>
-          <button class="nav-button" data-scroll-target="evolution-panel">Evolution</button>
-          <a class="nav-button" href="open-problems/riemann.html">Proof Workbench</a>
-          <a class="nav-button" href="open-problems/twin-prime.html">Twin Prime Workbench</a>
-          <button class="nav-button" data-scroll-target="gap-panel">Gap Measure</button>
-          <button class="nav-button" data-scroll-target="prediction-panel">Bias Ranking</button>
-          <button class="nav-button" data-scroll-target="bitcoin-panel">Bitcoin Lab</button>
-          <button class="nav-button" data-scroll-target="fingerprint-panel">Fingerprint Lab</button>
-          <button class="nav-button" data-scroll-target="baseline-panel">Baseline Lab</button>
-          <button class="nav-button" data-scroll-target="readiness-panel">Readiness</button>
-          <button class="nav-button" data-scroll-target="evidence-panel">Evidence</button>
-          <button class="nav-button" data-scroll-target="attribution-panel">Attribution Grid</button>
-          <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
-          <button class="nav-button" data-scroll-target="gap-distribution-panel">Gap Distribution</button>
-          <button class="nav-button" data-scroll-target="snapshots-panel">Research Snapshots</button>
-          <button class="nav-button" data-scroll-target="heatmap-panel">Heatmap</button>
-          <button class="nav-button" data-scroll-target="comparisons-panel">Comparisons</button>
-          <button class="nav-button" data-scroll-target="logs-panel">Logs</button>
-          <button class="nav-button" data-scroll-target="notes-panel">Conjecture Notes</button>
-        </nav>
         <span id="dataSourceBadge" class="data-source-badge">Loading data</span>
         <a class="repo-link" href="https://github.com/eljja/PrimeProject" rel="noreferrer">GitHub</a>
       </header>
 
       <main class="workspace">
-        <aside class="control-rail" aria-label="Experiment controls">
-          <h2 class="rail-title">Experiment Control</h2>
-          <section class="control-group">
-            <h2>Generator</h2>
-            <div class="segmented" role="group" aria-label="Generator">
-              <button class="segment is-active" data-generator="next_prime">next_prime</button>
-              <button class="segment" data-generator="rejection">rejection</button>
-              <button class="segment" data-generator="wheel30_next">wheel</button>
-            </div>
-          </section>
-
-          <section class="control-group">
-            <label for="limitRange">Search limit</label>
-            <input id="limitRange" type="range" min="0" max="1000" step="1" value="288" />
-            <output id="limitValue" for="limitRange">120,000</output>
-          </section>
-
-          <section class="control-group">
-            <label for="moduloSelect">Residue modulo</label>
-            <select id="moduloSelect">
-              <option value="30" selected>30</option>
-              <option value="42">42</option>
-              <option value="60">60</option>
-              <option value="210">210</option>
-            </select>
-          </section>
-
-          <section class="control-group">
-            <label for="sampleRange">Rendered samples</label>
-            <input id="sampleRange" type="range" min="400" max="5000" step="100" value="2200" />
-            <output id="sampleValue" for="sampleRange">2,200</output>
-          </section>
-
-          <section class="control-group">
-            <label for="weightingSelect">Weighting</label>
-            <select id="weightingSelect">
-              <option value="gap" selected>Gap-weighted</option>
-              <option value="inverse">Inverse gap</option>
-              <option value="normalized">Normalized by log p</option>
-            </select>
-          </section>
-
-          <button id="runExperiment" class="primary-action" type="button">Run Experiment</button>
-
-          <section class="control-status" aria-label="Experiment status">
-            <div><span>Status</span><strong id="controlStatus">Completed</strong></div>
-            <div><span>Primes Found</span><strong id="controlPrimeCount">0</strong></div>
-            <div><span>Max Prime</span><strong id="controlMaxPrime">0</strong></div>
-            <div><span>Throughput</span><strong id="controlThroughput">0/s</strong></div>
-          </section>
+        <aside class="navigation-rail" aria-label="Project navigation">
+          <h2 class="rail-title">PrimeProject Menu</h2>
+          <nav class="side-nav" aria-label="Lab views">
+            <button class="nav-button is-active" data-scroll-target="overview-panel">Overview</button>
+            <button class="nav-button" data-scroll-target="research-atlas-panel">Research Atlas</button>
+            <button class="nav-button" data-scroll-target="evolution-panel">Evolution</button>
+            <a class="nav-button" href="open-problems/index.html">Proof Workbench</a>
+            <a class="nav-button proof-link" href="open-problems/riemann.html">Riemann Hypothesis</a>
+            <a class="nav-button proof-link" href="open-problems/collatz.html">Collatz Conjecture</a>
+            <a class="nav-button proof-link" href="open-problems/goldbach.html">Goldbach Conjecture</a>
+            <a class="nav-button proof-link" href="open-problems/twin-prime.html">Twin Prime Workbench</a>
+            <button class="nav-button" data-scroll-target="gap-panel">Gap Measure</button>
+            <button class="nav-button" data-scroll-target="prediction-panel">Bias Ranking</button>
+            <button class="nav-button" data-scroll-target="bitcoin-panel">Bitcoin Lab</button>
+            <button class="nav-button" data-scroll-target="fingerprint-panel">Fingerprint Lab</button>
+            <button class="nav-button" data-scroll-target="baseline-panel">Baseline Lab</button>
+            <button class="nav-button" data-scroll-target="readiness-panel">Readiness</button>
+            <button class="nav-button" data-scroll-target="evidence-panel">Evidence</button>
+            <button class="nav-button" data-scroll-target="attribution-panel">Attribution Grid</button>
+            <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
+            <button class="nav-button" data-scroll-target="gap-distribution-panel">Gap Distribution</button>
+            <button class="nav-button" data-scroll-target="snapshots-panel">Research Snapshots</button>
+            <button class="nav-button" data-scroll-target="heatmap-panel">Heatmap</button>
+            <button class="nav-button" data-scroll-target="comparisons-panel">Comparisons</button>
+            <button class="nav-button" data-scroll-target="logs-panel">Logs</button>
+            <button class="nav-button" data-scroll-target="notes-panel">Conjecture Notes</button>
+          </nav>
         </aside>
 
         <section class="visual-area" aria-label="Prime measure visualizations">
@@ -607,6 +562,58 @@
         </section>
 
         <aside id="notes-panel" class="insight-panel" aria-label="Conjecture notes">
+          <section class="control-rail" aria-label="Experiment controls">
+            <h2 class="rail-title">Experiment Control</h2>
+            <section class="control-group">
+              <h2>Generator</h2>
+              <div class="segmented" role="group" aria-label="Generator">
+                <button class="segment is-active" data-generator="next_prime">next_prime</button>
+                <button class="segment" data-generator="rejection">rejection</button>
+                <button class="segment" data-generator="wheel30_next">wheel</button>
+              </div>
+            </section>
+
+            <section class="control-group">
+              <label for="limitRange">Search limit</label>
+              <input id="limitRange" type="range" min="0" max="1000" step="1" value="288" />
+              <output id="limitValue" for="limitRange">120,000</output>
+            </section>
+
+            <section class="control-group">
+              <label for="moduloSelect">Residue modulo</label>
+              <select id="moduloSelect">
+                <option value="30" selected>30</option>
+                <option value="42">42</option>
+                <option value="60">60</option>
+                <option value="210">210</option>
+              </select>
+            </section>
+
+            <section class="control-group">
+              <label for="sampleRange">Rendered samples</label>
+              <input id="sampleRange" type="range" min="400" max="5000" step="100" value="2200" />
+              <output id="sampleValue" for="sampleRange">2,200</output>
+            </section>
+
+            <section class="control-group">
+              <label for="weightingSelect">Weighting</label>
+              <select id="weightingSelect">
+                <option value="gap" selected>Gap-weighted</option>
+                <option value="inverse">Inverse gap</option>
+                <option value="normalized">Normalized by log p</option>
+              </select>
+            </section>
+
+            <button id="runExperiment" class="primary-action" type="button">Run Experiment</button>
+
+            <section class="control-status" aria-label="Experiment status">
+              <div><span>Status</span><strong id="controlStatus">Completed</strong></div>
+              <div><span>Primes Found</span><strong id="controlPrimeCount">0</strong></div>
+              <div><span>Max Prime</span><strong id="controlMaxPrime">0</strong></div>
+              <div><span>Throughput</span><strong id="controlThroughput">0/s</strong></div>
+            </section>
+          </section>
+
           <section class="note-block">
             <h2>Conjecture Notes</h2>
             <p id="activeClaim">

@@ -1304,9 +1304,12 @@ function render(payload, problem) {
   document.querySelector("#toolPosition").textContent = problem.tool_position;
   document.querySelector("#claimBoundary").textContent = problem.claim_boundary;
 
-  document.querySelector("#problemNav").innerHTML = Object.entries(pageLinks)
-    .map(([id, href]) => `<a class="${id === problem.id ? "is-active" : ""}" href="${href}">${labels[id]}</a>`)
-    .join("");
+  document.querySelector("#problemNav").innerHTML = [
+    `<a href="index.html">Workbench</a>`,
+    ...Object.entries(pageLinks).map(
+      ([id, href]) => `<a class="${id === problem.id ? "is-active" : ""}" href="${href}">${labels[id]}</a>`,
+    ),
+  ].join("");
 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#proofRouteTriage").innerHTML = renderProofRouteTriage(problem);

@@ -95,8 +95,15 @@ async function main() {
       pageProtocol: window.location.protocol,
       dataSourceBadge: document.querySelector("#dataSourceBadge").textContent,
       title: document.title,
-      topNavText: document.querySelector(".topnav").textContent,
-      twinPrimeNavHref: document.querySelector(".topnav a[href='open-problems/twin-prime.html']")?.textContent || "",
+      sideNavText: document.querySelector(".side-nav").textContent,
+      proofWorkbenchHref: document.querySelector(".side-nav a[href='open-problems/index.html']")?.textContent || "",
+      riemannNavHref: document.querySelector(".side-nav a[href='open-problems/riemann.html']")?.textContent || "",
+      collatzNavHref: document.querySelector(".side-nav a[href='open-problems/collatz.html']")?.textContent || "",
+      goldbachNavHref: document.querySelector(".side-nav a[href='open-problems/goldbach.html']")?.textContent || "",
+      twinPrimeNavHref:
+        document.querySelector(".side-nav a[href='open-problems/twin-prime.html']")?.textContent || "",
+      controlBeforeNotes:
+        document.querySelector(".insight-panel").firstElementChild?.classList.contains("control-rail") || false,
       primeCount: document.querySelector("#primeCount").textContent,
       drift: document.querySelector("#driftMetric").textContent,
       canvasWidth: document.querySelector("#gapCanvas").getBoundingClientRect().width,
@@ -216,6 +223,18 @@ async function main() {
     });
 
     metrics.openProblemPages = [];
+    const proofHub = await browser.newPage({
+      viewport: { width: 1280, height: 900 },
+      deviceScaleFactor: 1,
+    });
+    await proofHub.goto(new URL("open-problems/index.html", url).toString(), { waitUntil: "networkidle" });
+    metrics.proofHub = await proofHub.evaluate(() => ({
+      title: document.title,
+      heading: document.querySelector("h1").textContent,
+      linkCount: document.querySelectorAll(".proof-card-link").length,
+      links: [...document.querySelectorAll(".proof-card-link")].map((link) => link.getAttribute("href")),
+      boundary: document.body.textContent,
+    }));
     for (const [problemId, href] of [
       ["riemann", "open-problems/riemann.html"],
       ["collatz", "open-problems/collatz.html"],
@@ -295,6 +314,18 @@ async function main() {
     process.exit(1);
   }
   if (!metrics.dataSourceBadge.includes("Public JSON data")) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (
+    metrics.proofHub?.heading !== "Proof Workbench" ||
+    metrics.proofHub?.linkCount !== 4 ||
+    !metrics.proofHub?.links.includes("riemann.html") ||
+    !metrics.proofHub?.links.includes("collatz.html") ||
+    !metrics.proofHub?.links.includes("goldbach.html") ||
+    !metrics.proofHub?.links.includes("twin-prime.html") ||
+    !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
+  ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }
@@ -467,7 +498,15 @@ async function main() {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }
-  if (!metrics.topNavText.includes("Twin Prime Workbench") || metrics.twinPrimeNavHref !== "Twin Prime Workbench") {
+  if (
+    !metrics.sideNavText.includes("Research Atlas") ||
+    metrics.proofWorkbenchHref !== "Proof Workbench" ||
+    metrics.riemannNavHref !== "Riemann Hypothesis" ||
+    metrics.collatzNavHref !== "Collatz Conjecture" ||
+    metrics.goldbachNavHref !== "Goldbach Conjecture" ||
+    metrics.twinPrimeNavHref !== "Twin Prime Workbench" ||
+    !metrics.controlBeforeNotes
+  ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }
@@ -518,7 +557,7 @@ async function main() {
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
     !metrics.evolutionSpine.includes("fixture audit") ||
-    !metrics.evolutionSpine.includes("22 checked artifacts") ||
+    !metrics.evolutionSpine.includes("21 checked artifacts") ||
     !metrics.evolutionSpine.includes("publication consistency") ||
     !metrics.evolutionDelta.includes("Claim Boundaries") ||
     !metrics.evolutionDelta.includes("controlled grid + null + replication") ||
