@@ -95,6 +95,8 @@ async function main() {
       pageProtocol: window.location.protocol,
       dataSourceBadge: document.querySelector("#dataSourceBadge").textContent,
       title: document.title,
+      topNavText: document.querySelector(".topnav").textContent,
+      twinPrimeNavHref: document.querySelector(".topnav a[href='open-problems/twin-prime.html']")?.textContent || "",
       primeCount: document.querySelector("#primeCount").textContent,
       drift: document.querySelector("#driftMetric").textContent,
       canvasWidth: document.querySelector("#gapCanvas").getBoundingClientRect().width,
@@ -462,6 +464,10 @@ async function main() {
     process.exit(1);
   }
   if (metrics.predictionRows < 8 || !metrics.predictionMetrics.includes("Observed next")) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (!metrics.topNavText.includes("Twin Prime Workbench") || metrics.twinPrimeNavHref !== "Twin Prime Workbench") {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }
