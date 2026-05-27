@@ -286,6 +286,26 @@ def main() -> int:
         if "formal_proof_verified or accepted_theorem" not in theorem_spec.get("promotion_rule", ""):
             print(f"{problem.get('id')} decisive theorem spec is missing the promotion rule.", file=sys.stderr)
             return 1
+        subgoal_report = problem.get("decisive_theorem_subgoals", {})
+        subgoals = subgoal_report.get("subgoals", []) if isinstance(subgoal_report, dict) else []
+        if subgoal_report.get("status") != "subgoals_open":
+            print(f"{problem.get('id')} decisive theorem subgoals have unexpected status.", file=sys.stderr)
+            return 1
+        if subgoal_report.get("spec_id") != theorem_spec.get("spec_id"):
+            print(f"{problem.get('id')} decisive theorem subgoals are not tied to the spec.", file=sys.stderr)
+            return 1
+        if len(subgoals) < 5 or subgoal_report.get("complete_count") != 1:
+            print(f"{problem.get('id')} decisive theorem subgoals are missing coverage.", file=sys.stderr)
+            return 1
+        if subgoal_report.get("open_count", 0) < 3 or subgoal_report.get("blocked_count", 0) < 1:
+            print(f"{problem.get('id')} decisive theorem subgoals understate open work.", file=sys.stderr)
+            return 1
+        if not all(item.get("artifact") and item.get("closing_test") for item in subgoals):
+            print(f"{problem.get('id')} decisive theorem subgoals are missing artifacts or tests.", file=sys.stderr)
+            return 1
+        if "bounded support" not in subgoal_report.get("machine_rule", ""):
+            print(f"{problem.get('id')} decisive theorem subgoals are missing the bounded-support rule.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

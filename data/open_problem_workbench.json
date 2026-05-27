@@ -1067,6 +1067,54 @@
         ],
         "blocking_gap": "No formal all-x prime-counting error theorem is available.",
         "promotion_rule": "This theorem spec can only upgrade the page when the theorem is formal_proof_verified or accepted_theorem and every listed machine check passes."
+      },
+      "decisive_theorem_subgoals": {
+        "schema": "primeproject.decisive-theorem-subgoals.v1",
+        "problem_id": "riemann",
+        "status": "subgoals_open",
+        "spec_id": "RH-DT1",
+        "subgoal_count": 5,
+        "complete_count": 1,
+        "open_count": 3,
+        "blocked_count": 1,
+        "subgoals": [
+          {
+            "id": "RH-SG1",
+            "label": "Bounded prime-counting certificate",
+            "status": "complete_bounded_support",
+            "artifact": "certificate.merkle_root",
+            "closing_test": "replay decimal checkpoints and prime endpoint stress rows"
+          },
+          {
+            "id": "RH-SG2",
+            "label": "Explicit theta/psi inequality statement",
+            "status": "open_formal_statement",
+            "artifact": "Lean theorem statement with constants",
+            "closing_test": "all constants and domain thresholds are named"
+          },
+          {
+            "id": "RH-SG3",
+            "label": "All-x analytic proof",
+            "status": "open_infinite_bridge",
+            "artifact": "formal proof or accepted theorem",
+            "closing_test": "bound holds for every x beyond threshold"
+          },
+          {
+            "id": "RH-SG4",
+            "label": "Finite interval bridge",
+            "status": "open_bridge",
+            "artifact": "cutoff comparison certificate",
+            "closing_test": "bounded certificate covers every x below threshold"
+          },
+          {
+            "id": "RH-SG5",
+            "label": "RH-equivalence replay",
+            "status": "blocked_until_sg2_sg4",
+            "artifact": "independent kernel replay",
+            "closing_test": "bridge proves the target without importing RH"
+          }
+        ],
+        "machine_rule": "The decisive theorem remains missing while any subgoal is open or blocked; bounded support can guide but cannot close an infinite bridge."
       }
     },
     {
@@ -2197,6 +2245,54 @@
         ],
         "blocking_gap": "No residue-block cover currently proves global descent.",
         "promotion_rule": "This theorem spec can only upgrade the page when the theorem is formal_proof_verified or accepted_theorem and every listed machine check passes."
+      },
+      "decisive_theorem_subgoals": {
+        "schema": "primeproject.decisive-theorem-subgoals.v1",
+        "problem_id": "collatz",
+        "status": "subgoals_open",
+        "spec_id": "CO-DT1",
+        "subgoal_count": 5,
+        "complete_count": 1,
+        "open_count": 3,
+        "blocked_count": 1,
+        "subgoals": [
+          {
+            "id": "CO-SG1",
+            "label": "Bounded trajectory certificate",
+            "status": "complete_bounded_support",
+            "artifact": "certificate.merkle_root",
+            "closing_test": "replay all starts through committed limit"
+          },
+          {
+            "id": "CO-SG2",
+            "label": "Residue block cover",
+            "status": "open_infinite_bridge",
+            "artifact": "formal cover theorem",
+            "closing_test": "every positive integer belongs to at least one block"
+          },
+          {
+            "id": "CO-SG3",
+            "label": "Strict descent measure",
+            "status": "open_formal_statement",
+            "artifact": "well-founded measure proof",
+            "closing_test": "each block maps to a smaller representative or 1"
+          },
+          {
+            "id": "CO-SG4",
+            "label": "Cycle exclusion",
+            "status": "open_bridge",
+            "artifact": "cycle contradiction theorem",
+            "closing_test": "non-trivial cycles contradict descent"
+          },
+          {
+            "id": "CO-SG5",
+            "label": "Divergence exclusion",
+            "status": "blocked_until_sg2_sg3",
+            "artifact": "global convergence theorem",
+            "closing_test": "unbounded branches contradict well-founded descent"
+          }
+        ],
+        "machine_rule": "The decisive theorem remains missing while any subgoal is open or blocked; bounded support can guide but cannot close an infinite bridge."
       }
     },
     {
@@ -3338,6 +3434,54 @@
         ],
         "blocking_gap": "No explicit positive two-prime lower bound with compatible cutoff is formalized.",
         "promotion_rule": "This theorem spec can only upgrade the page when the theorem is formal_proof_verified or accepted_theorem and every listed machine check passes."
+      },
+      "decisive_theorem_subgoals": {
+        "schema": "primeproject.decisive-theorem-subgoals.v1",
+        "problem_id": "goldbach",
+        "status": "subgoals_open",
+        "spec_id": "GB-DT1",
+        "subgoal_count": 5,
+        "complete_count": 1,
+        "open_count": 3,
+        "blocked_count": 1,
+        "subgoals": [
+          {
+            "id": "GB-SG1",
+            "label": "Bounded decomposition certificate",
+            "status": "complete_bounded_support",
+            "artifact": "certificate.merkle_root",
+            "closing_test": "replay every even n through committed limit"
+          },
+          {
+            "id": "GB-SG2",
+            "label": "Explicit representation lower bound",
+            "status": "open_infinite_bridge",
+            "artifact": "formal lower-bound theorem",
+            "closing_test": "bound is positive for every even n >= N0"
+          },
+          {
+            "id": "GB-SG3",
+            "label": "Cutoff compatibility",
+            "status": "open_bridge",
+            "artifact": "N0 <= certificate limit proof",
+            "closing_test": "analytic threshold starts inside certified range"
+          },
+          {
+            "id": "GB-SG4",
+            "label": "Two-prime specificity",
+            "status": "open_formal_statement",
+            "artifact": "formal representation definition",
+            "closing_test": "theorem cannot be satisfied by ternary Goldbach"
+          },
+          {
+            "id": "GB-SG5",
+            "label": "Full interval union",
+            "status": "blocked_until_sg2_sg3",
+            "artifact": "finite plus infinite coverage theorem",
+            "closing_test": "every even n > 2 is covered exactly once by the proof split"
+          }
+        ],
+        "machine_rule": "The decisive theorem remains missing while any subgoal is open or blocked; bounded support can guide but cannot close an infinite bridge."
       }
     },
     {
@@ -4418,6 +4562,54 @@
         ],
         "blocking_gap": "No unconditional exact gap-2 lower-bound theorem is available.",
         "promotion_rule": "This theorem spec can only upgrade the page when the theorem is formal_proof_verified or accepted_theorem and every listed machine check passes."
+      },
+      "decisive_theorem_subgoals": {
+        "schema": "primeproject.decisive-theorem-subgoals.v1",
+        "problem_id": "twin-prime",
+        "status": "subgoals_open",
+        "spec_id": "TP-DT1",
+        "subgoal_count": 5,
+        "complete_count": 1,
+        "open_count": 3,
+        "blocked_count": 1,
+        "subgoals": [
+          {
+            "id": "TP-SG1",
+            "label": "Bounded twin-pair certificate",
+            "status": "complete_bounded_support",
+            "artifact": "certificate.merkle_root",
+            "closing_test": "replay exact gap-2 pairs through committed limit"
+          },
+          {
+            "id": "TP-SG2",
+            "label": "Exact gap-2 formal definition",
+            "status": "open_formal_statement",
+            "artifact": "Lean exact gap-2 predicate",
+            "closing_test": "bounded-gap theorems cannot satisfy the definition"
+          },
+          {
+            "id": "TP-SG3",
+            "label": "Unconditional lower bound",
+            "status": "open_infinite_bridge",
+            "artifact": "formal lower-bound theorem",
+            "closing_test": "bound stays positive for arbitrarily large x"
+          },
+          {
+            "id": "TP-SG4",
+            "label": "Heuristic removal",
+            "status": "open_bridge",
+            "artifact": "assumption-free distribution argument",
+            "closing_test": "no Hardy-Littlewood or k-tuple axiom is imported"
+          },
+          {
+            "id": "TP-SG5",
+            "label": "Infinitude bridge",
+            "status": "blocked_until_sg3_sg4",
+            "artifact": "formal infinitude theorem",
+            "closing_test": "positive lower bound implies arbitrarily large exact twins"
+          }
+        ],
+        "machine_rule": "The decisive theorem remains missing while any subgoal is open or blocked; bounded support can guide but cannot close an infinite bridge."
       }
     }
   ]

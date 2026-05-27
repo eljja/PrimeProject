@@ -30,6 +30,7 @@ FORMAL_SKELETON_AUDIT_SCHEMA = "primeproject.formal-skeleton-audit.v1"
 PROOF_VERDICT_SCHEMA = "primeproject.proof-verdict.v1"
 PROOF_ROUTE_TRIAGE_SCHEMA = "primeproject.proof-route-triage.v1"
 DECISIVE_THEOREM_SPEC_SCHEMA = "primeproject.decisive-theorem-spec.v1"
+DECISIVE_THEOREM_SUBGOALS_SCHEMA = "primeproject.decisive-theorem-subgoals.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -1388,6 +1389,177 @@ def decisive_theorem_spec(problem: dict[str, object]) -> dict[str, object]:
     }
 
 
+def decisive_theorem_subgoals(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    spec = problem.get("decisive_theorem_spec", {}) if isinstance(problem.get("decisive_theorem_spec"), dict) else {}
+    subgoal_bank: dict[str, list[dict[str, str]]] = {
+        "riemann": [
+            {
+                "id": "RH-SG1",
+                "label": "Bounded prime-counting certificate",
+                "status": "complete_bounded_support",
+                "artifact": "certificate.merkle_root",
+                "closing_test": "replay decimal checkpoints and prime endpoint stress rows",
+            },
+            {
+                "id": "RH-SG2",
+                "label": "Explicit theta/psi inequality statement",
+                "status": "open_formal_statement",
+                "artifact": "Lean theorem statement with constants",
+                "closing_test": "all constants and domain thresholds are named",
+            },
+            {
+                "id": "RH-SG3",
+                "label": "All-x analytic proof",
+                "status": "open_infinite_bridge",
+                "artifact": "formal proof or accepted theorem",
+                "closing_test": "bound holds for every x beyond threshold",
+            },
+            {
+                "id": "RH-SG4",
+                "label": "Finite interval bridge",
+                "status": "open_bridge",
+                "artifact": "cutoff comparison certificate",
+                "closing_test": "bounded certificate covers every x below threshold",
+            },
+            {
+                "id": "RH-SG5",
+                "label": "RH-equivalence replay",
+                "status": "blocked_until_sg2_sg4",
+                "artifact": "independent kernel replay",
+                "closing_test": "bridge proves the target without importing RH",
+            },
+        ],
+        "collatz": [
+            {
+                "id": "CO-SG1",
+                "label": "Bounded trajectory certificate",
+                "status": "complete_bounded_support",
+                "artifact": "certificate.merkle_root",
+                "closing_test": "replay all starts through committed limit",
+            },
+            {
+                "id": "CO-SG2",
+                "label": "Residue block cover",
+                "status": "open_infinite_bridge",
+                "artifact": "formal cover theorem",
+                "closing_test": "every positive integer belongs to at least one block",
+            },
+            {
+                "id": "CO-SG3",
+                "label": "Strict descent measure",
+                "status": "open_formal_statement",
+                "artifact": "well-founded measure proof",
+                "closing_test": "each block maps to a smaller representative or 1",
+            },
+            {
+                "id": "CO-SG4",
+                "label": "Cycle exclusion",
+                "status": "open_bridge",
+                "artifact": "cycle contradiction theorem",
+                "closing_test": "non-trivial cycles contradict descent",
+            },
+            {
+                "id": "CO-SG5",
+                "label": "Divergence exclusion",
+                "status": "blocked_until_sg2_sg3",
+                "artifact": "global convergence theorem",
+                "closing_test": "unbounded branches contradict well-founded descent",
+            },
+        ],
+        "goldbach": [
+            {
+                "id": "GB-SG1",
+                "label": "Bounded decomposition certificate",
+                "status": "complete_bounded_support",
+                "artifact": "certificate.merkle_root",
+                "closing_test": "replay every even n through committed limit",
+            },
+            {
+                "id": "GB-SG2",
+                "label": "Explicit representation lower bound",
+                "status": "open_infinite_bridge",
+                "artifact": "formal lower-bound theorem",
+                "closing_test": "bound is positive for every even n >= N0",
+            },
+            {
+                "id": "GB-SG3",
+                "label": "Cutoff compatibility",
+                "status": "open_bridge",
+                "artifact": "N0 <= certificate limit proof",
+                "closing_test": "analytic threshold starts inside certified range",
+            },
+            {
+                "id": "GB-SG4",
+                "label": "Two-prime specificity",
+                "status": "open_formal_statement",
+                "artifact": "formal representation definition",
+                "closing_test": "theorem cannot be satisfied by ternary Goldbach",
+            },
+            {
+                "id": "GB-SG5",
+                "label": "Full interval union",
+                "status": "blocked_until_sg2_sg3",
+                "artifact": "finite plus infinite coverage theorem",
+                "closing_test": "every even n > 2 is covered exactly once by the proof split",
+            },
+        ],
+        "twin-prime": [
+            {
+                "id": "TP-SG1",
+                "label": "Bounded twin-pair certificate",
+                "status": "complete_bounded_support",
+                "artifact": "certificate.merkle_root",
+                "closing_test": "replay exact gap-2 pairs through committed limit",
+            },
+            {
+                "id": "TP-SG2",
+                "label": "Exact gap-2 formal definition",
+                "status": "open_formal_statement",
+                "artifact": "Lean exact gap-2 predicate",
+                "closing_test": "bounded-gap theorems cannot satisfy the definition",
+            },
+            {
+                "id": "TP-SG3",
+                "label": "Unconditional lower bound",
+                "status": "open_infinite_bridge",
+                "artifact": "formal lower-bound theorem",
+                "closing_test": "bound stays positive for arbitrarily large x",
+            },
+            {
+                "id": "TP-SG4",
+                "label": "Heuristic removal",
+                "status": "open_bridge",
+                "artifact": "assumption-free distribution argument",
+                "closing_test": "no Hardy-Littlewood or k-tuple axiom is imported",
+            },
+            {
+                "id": "TP-SG5",
+                "label": "Infinitude bridge",
+                "status": "blocked_until_sg3_sg4",
+                "artifact": "formal infinitude theorem",
+                "closing_test": "positive lower bound implies arbitrarily large exact twins",
+            },
+        ],
+    }
+    subgoals = subgoal_bank.get(problem_id, [])
+    open_items = [item for item in subgoals if item["status"].startswith("open")]
+    blocked_items = [item for item in subgoals if item["status"].startswith("blocked")]
+    complete_items = [item for item in subgoals if item["status"].startswith("complete")]
+    return {
+        "schema": DECISIVE_THEOREM_SUBGOALS_SCHEMA,
+        "problem_id": problem_id,
+        "status": "subgoals_open",
+        "spec_id": spec.get("spec_id", "missing"),
+        "subgoal_count": len(subgoals),
+        "complete_count": len(complete_items),
+        "open_count": len(open_items),
+        "blocked_count": len(blocked_items),
+        "subgoals": subgoals,
+        "machine_rule": "The decisive theorem remains missing while any subgoal is open or blocked; bounded support can guide but cannot close an infinite bridge.",
+    }
+
+
 def attach_probe_certificate(*, problem_id: str, lemma_id: str, probe: dict[str, object]) -> dict[str, object]:
     certified_probe = dict(probe)
     payload = json.dumps(certified_probe, sort_keys=True, separators=(",", ":"))
@@ -2642,6 +2814,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["proof_verdict"] = proof_verdict(problem)
         problem["proof_route_triage"] = proof_route_triage(problem)
         problem["decisive_theorem_spec"] = decisive_theorem_spec(problem)
+        problem["decisive_theorem_subgoals"] = decisive_theorem_subgoals(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

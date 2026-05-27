@@ -230,6 +230,8 @@ async function main() {
           proofRouteCards: document.querySelectorAll("#proofRouteTriage .route-card").length,
           decisiveTheoremText: document.querySelector("#decisiveTheoremSpec").textContent,
           decisiveTheoremSections: document.querySelectorAll("#decisiveTheoremSpec .theorem-spec-grid section").length,
+          decisiveSubgoalText: document.querySelector("#decisiveTheoremSubgoals").textContent,
+          decisiveSubgoalCards: document.querySelectorAll("#decisiveTheoremSubgoals .subgoal-card").length,
           certificateText: document.querySelector("#certificatePanel").textContent,
           proofAttemptText: document.querySelector("#proofAttempt").textContent,
           proofMapText: document.querySelector("#proofMap").textContent,
@@ -308,6 +310,13 @@ async function main() {
         !page.decisiveTheoremText.includes("Forbidden Shortcuts") ||
         !page.decisiveTheoremText.includes("Machine Checks") ||
         !page.decisiveTheoremText.includes("formal_proof_verified or accepted_theorem") ||
+        page.decisiveSubgoalCards < 5 ||
+        !page.decisiveSubgoalText.includes("subgoals open") ||
+        !page.decisiveSubgoalText.includes("complete bounded support") ||
+        !page.decisiveSubgoalText.includes("open infinite bridge") ||
+        !page.decisiveSubgoalText.includes("blocked until") ||
+        !page.decisiveSubgoalText.includes("Closing test") ||
+        !page.decisiveSubgoalText.includes("bounded support") ||
         !page.certificateText.includes("bounded theorem certified") ||
         !page.certificateText.includes("scripts/verify_open_problem_workbench.py") ||
         !page.proofAttemptText.includes("open infinite obligation") ||

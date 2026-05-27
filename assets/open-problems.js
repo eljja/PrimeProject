@@ -309,6 +309,47 @@ function renderDecisiveTheoremSpec(problem) {
   `;
 }
 
+function renderDecisiveTheoremSubgoals(problem) {
+  const report = problem.decisive_theorem_subgoals || {};
+  const subgoals = report.subgoals || [];
+  return `
+    <div class="subgoal-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(report.status))}</strong>
+      </div>
+      <div>
+        <span>Complete</span>
+        <strong>${escapeHtml(formatValue(report.complete_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Open</span>
+        <strong>${escapeHtml(formatValue(report.open_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Blocked</span>
+        <strong>${escapeHtml(formatValue(report.blocked_count || 0))}</strong>
+      </div>
+    </div>
+    <div class="subgoal-list">
+      ${subgoals
+        .map(
+          (item) => `
+            <article class="subgoal-card is-${escapeHtml(item.status || "unknown")}">
+              <span>${escapeHtml(item.id || "")}</span>
+              <strong>${escapeHtml(item.label || "")}</strong>
+              <em>${escapeHtml(statusText(item.status))}</em>
+              <p>Artifact: ${escapeHtml(item.artifact || "")}</p>
+              <small>Closing test: ${escapeHtml(item.closing_test || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">${escapeHtml(report.machine_rule || "")}</p>
+  `;
+}
+
 function renderProofMap(problem) {
   const attempt = problem.proof_attempt || {};
   const graph = attempt.attack_graph || {};
@@ -1189,6 +1230,7 @@ function render(payload, problem) {
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#proofRouteTriage").innerHTML = renderProofRouteTriage(problem);
   document.querySelector("#decisiveTheoremSpec").innerHTML = renderDecisiveTheoremSpec(problem);
+  document.querySelector("#decisiveTheoremSubgoals").innerHTML = renderDecisiveTheoremSubgoals(problem);
   document.querySelector("#metricCards").innerHTML = metricCards(problem)
     .map(
       ([label, value]) => `
