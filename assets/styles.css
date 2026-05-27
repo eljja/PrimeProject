@@ -1080,6 +1080,77 @@ canvas {
   line-height: 1.45;
 }
 
+.breakthrough-head {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.breakthrough-head div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.breakthrough-head span,
+.breakthrough-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.breakthrough-head strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.breakthrough-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.breakthrough-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--teal);
+  background: #fff;
+  padding: 12px;
+}
+
+.breakthrough-card strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.breakthrough-card em {
+  display: inline-block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 760;
+}
+
+.breakthrough-card p,
+.breakthrough-card small {
+  display: block;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .certificate-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5368,6 +5439,8 @@ tr:last-child td {
   .subgoal-list,
   .attack-ticket-head,
   .attack-ticket-list,
+  .breakthrough-head,
+  .breakthrough-list,
   .attempt-summary,
   .obligation-list,
   .proof-map-grid,

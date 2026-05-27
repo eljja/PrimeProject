@@ -234,6 +234,8 @@ async function main() {
           decisiveSubgoalCards: document.querySelectorAll("#decisiveTheoremSubgoals .subgoal-card").length,
           decisiveTicketText: document.querySelector("#decisiveTheoremAttackTickets").textContent,
           decisiveTicketCards: document.querySelectorAll("#decisiveTheoremAttackTickets .attack-ticket-card").length,
+          breakthroughText: document.querySelector("#proofBreakthroughAgenda").textContent,
+          breakthroughCards: document.querySelectorAll("#proofBreakthroughAgenda .breakthrough-card").length,
           certificateText: document.querySelector("#certificatePanel").textContent,
           proofAttemptText: document.querySelector("#proofAttempt").textContent,
           proofMapText: document.querySelector("#proofMap").textContent,
@@ -326,6 +328,13 @@ async function main() {
         !page.decisiveTicketText.includes("Falsification test") ||
         !page.decisiveTicketText.includes("Required output") ||
         !page.decisiveTicketText.includes("planned tickets are not proof artifacts") ||
+        page.breakthroughCards < 3 ||
+        !page.breakthroughText.includes("breakthrough agenda open") ||
+        !page.breakthroughText.includes("research target not proof") ||
+        !page.breakthroughText.includes("Minimum new theorem") ||
+        !page.breakthroughText.includes("First artifact") ||
+        !page.breakthroughText.includes("Kill condition") ||
+        !page.breakthroughText.includes("not a proof claim") ||
         !page.certificateText.includes("bounded theorem certified") ||
         !page.certificateText.includes("scripts/verify_open_problem_workbench.py") ||
         !page.proofAttemptText.includes("open infinite obligation") ||

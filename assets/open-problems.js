@@ -388,6 +388,49 @@ function renderDecisiveTheoremAttackTickets(problem) {
   `;
 }
 
+function renderProofBreakthroughAgenda(problem) {
+  const agenda = problem.proof_breakthrough_agenda || {};
+  const routes = agenda.routes || [];
+  return `
+    <div class="breakthrough-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(agenda.status))}</strong>
+      </div>
+      <div>
+        <span>Routes</span>
+        <strong>${escapeHtml(formatValue(agenda.route_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Barriers</span>
+        <strong>${escapeHtml(formatValue(agenda.barrier_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Target spec</span>
+        <strong>${escapeHtml(agenda.target_spec || "missing")}</strong>
+      </div>
+    </div>
+    <div class="breakthrough-list">
+      ${routes
+        .map(
+          (route) => `
+            <article class="breakthrough-card">
+              <span>${escapeHtml(route.id || "")} · ${escapeHtml(route.barrier_target || "")}</span>
+              <strong>${escapeHtml(route.novelty_claim || "")}</strong>
+              <em>${escapeHtml(statusText(route.status))}</em>
+              <p>Minimum new theorem: ${escapeHtml(route.minimum_new_theorem || "")}</p>
+              <p>First artifact: ${escapeHtml(route.first_artifact || "")}</p>
+              <p>Kill condition: ${escapeHtml(route.kill_condition || "")}</p>
+              <small>Tools: ${escapeHtml(formatValue(route.uses_primeproject_tools || []))}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">${escapeHtml(agenda.machine_rule || "")}</p>
+  `;
+}
+
 function renderProofMap(problem) {
   const attempt = problem.proof_attempt || {};
   const graph = attempt.attack_graph || {};
@@ -1270,6 +1313,7 @@ function render(payload, problem) {
   document.querySelector("#decisiveTheoremSpec").innerHTML = renderDecisiveTheoremSpec(problem);
   document.querySelector("#decisiveTheoremSubgoals").innerHTML = renderDecisiveTheoremSubgoals(problem);
   document.querySelector("#decisiveTheoremAttackTickets").innerHTML = renderDecisiveTheoremAttackTickets(problem);
+  document.querySelector("#proofBreakthroughAgenda").innerHTML = renderProofBreakthroughAgenda(problem);
   document.querySelector("#metricCards").innerHTML = metricCards(problem)
     .map(
       ([label, value]) => `

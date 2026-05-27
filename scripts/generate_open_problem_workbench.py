@@ -32,6 +32,7 @@ PROOF_ROUTE_TRIAGE_SCHEMA = "primeproject.proof-route-triage.v1"
 DECISIVE_THEOREM_SPEC_SCHEMA = "primeproject.decisive-theorem-spec.v1"
 DECISIVE_THEOREM_SUBGOALS_SCHEMA = "primeproject.decisive-theorem-subgoals.v1"
 DECISIVE_THEOREM_ATTACK_TICKETS_SCHEMA = "primeproject.decisive-theorem-attack-tickets.v1"
+PROOF_BREAKTHROUGH_AGENDA_SCHEMA = "primeproject.proof-breakthrough-agenda.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -1594,6 +1595,154 @@ def decisive_theorem_attack_tickets(problem: dict[str, object]) -> dict[str, obj
     }
 
 
+def proof_breakthrough_agenda(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    triage = problem.get("proof_route_triage", {}) if isinstance(problem.get("proof_route_triage"), dict) else {}
+    theorem_spec = problem.get("decisive_theorem_spec", {}) if isinstance(problem.get("decisive_theorem_spec"), dict) else {}
+    agenda_bank: dict[str, list[dict[str, object]]] = {
+        "riemann": [
+            {
+                "id": "RH-BTA1",
+                "novelty_claim": "Turn prime-counting residual structure into an all-x explicit bound rather than another finite zero check.",
+                "barrier_target": "finite_to_infinite_lift",
+                "uses_primeproject_tools": ["bounded theta checkpoints", "Merkle replay", "route triage"],
+                "minimum_new_theorem": "explicit theta or psi error theorem with named constants and all-x domain",
+                "first_artifact": "Lean-ready inequality statement plus cutoff comparison certificate",
+                "kill_condition": "the bound is fitted only at checkpoints or silently assumes RH-equivalent zero placement",
+                "status": "research_target_not_proof",
+            },
+            {
+                "id": "RH-BTA2",
+                "novelty_claim": "Use Li-coefficient positivity as a machine-audited bridge only if the infinite positivity argument is independent.",
+                "barrier_target": "equivalent_target_import",
+                "uses_primeproject_tools": ["proof candidate intake", "forbidden shortcut audit", "formal skeleton audit"],
+                "minimum_new_theorem": "unconditional positivity theorem for every Li coefficient",
+                "first_artifact": "formal reduction showing the coefficient theorem is not merely RH renamed",
+                "kill_condition": "the proof imports a known RH-equivalent statement as an axiom",
+                "status": "research_target_not_proof",
+            },
+            {
+                "id": "RH-BTA3",
+                "novelty_claim": "Pursue a Hilbert-Polya construction only through a checkable self-adjoint operator and spectrum equivalence.",
+                "barrier_target": "spectral_realization_gap",
+                "uses_primeproject_tools": ["known barrier audit", "formal replay package", "proof obligation DAG"],
+                "minimum_new_theorem": "self-adjoint operator theorem whose spectrum is exactly the non-trivial zeta zeros",
+                "first_artifact": "operator domain, symmetry, self-adjointness, and spectral map definitions",
+                "kill_condition": "the construction is formal analogy without a spectrum equality theorem",
+                "status": "research_target_not_proof",
+            },
+        ],
+        "collatz": [
+            {
+                "id": "CO-BTA1",
+                "novelty_claim": "Replace probabilistic parity drift with a deterministic residue-block descent cover.",
+                "barrier_target": "global_descent_cover",
+                "uses_primeproject_tools": ["bounded trajectory replay", "residue stress probes", "attack tickets"],
+                "minimum_new_theorem": "every positive integer lies in a certified block that descends under the accelerated map",
+                "first_artifact": "symbolic residue cover generator with proof obligations for coverage and descent",
+                "kill_condition": "any residue block remains uncovered or maps without strict decrease",
+                "status": "research_target_not_proof",
+            },
+            {
+                "id": "CO-BTA2",
+                "novelty_claim": "Make divergence impossible by proving a well-founded measure decreases after bounded symbolic windows.",
+                "barrier_target": "divergence_exclusion",
+                "uses_primeproject_tools": ["frontier probe", "proof gap taxonomy", "formal proof contract"],
+                "minimum_new_theorem": "well-founded descent theorem over all accelerated trajectory windows",
+                "first_artifact": "candidate measure plus machine-generated counter-window search",
+                "kill_condition": "a symbolic window preserves or increases the measure indefinitely",
+                "status": "research_target_not_proof",
+            },
+            {
+                "id": "CO-BTA3",
+                "novelty_claim": "Treat cycle exclusion and convergence as one theorem, not two disconnected partial results.",
+                "barrier_target": "cycle_divergence_split",
+                "uses_primeproject_tools": ["obligation DAG", "candidate intake", "execution protocol"],
+                "minimum_new_theorem": "global convergence theorem deriving non-trivial cycle and divergence exclusion from the same descent cover",
+                "first_artifact": "formal implication graph from block cover to convergence",
+                "kill_condition": "the route excludes cycles but leaves unbounded branches possible",
+                "status": "research_target_not_proof",
+            },
+        ],
+        "goldbach": [
+            {
+                "id": "GB-BTA1",
+                "novelty_claim": "Couple bounded decomposition replay with an explicit analytic threshold below the replay limit.",
+                "barrier_target": "cutoff_compatibility",
+                "uses_primeproject_tools": ["Goldbach certificate", "cutoff comparison", "formal replay package"],
+                "minimum_new_theorem": "positive two-prime representation lower bound for every even n >= N0",
+                "first_artifact": "explicit N0 theorem plus proof that N0 is below the certified finite limit",
+                "kill_condition": "the analytic threshold exceeds the certified range or is not explicit",
+                "status": "research_target_not_proof",
+            },
+            {
+                "id": "GB-BTA2",
+                "novelty_claim": "Turn residue persistence into a uniform lower bound, not a sampled support chart.",
+                "barrier_target": "uniformity_gap",
+                "uses_primeproject_tools": ["residue drift", "representation stress rows", "falsification battery"],
+                "minimum_new_theorem": "uniform residue-sensitive lower bound for binary representations",
+                "first_artifact": "worst-class residue audit with explicit lower-bound candidate",
+                "kill_condition": "a residue class or interval family keeps the lower bound at zero",
+                "status": "research_target_not_proof",
+            },
+            {
+                "id": "GB-BTA3",
+                "novelty_claim": "Forbid weak-Goldbach substitution by making the two-prime predicate the kernel target.",
+                "barrier_target": "weaker_theorem_substitution",
+                "uses_primeproject_tools": ["formal skeleton audit", "proof candidate intake", "claim policy"],
+                "minimum_new_theorem": "binary Goldbach theorem over every even integer greater than two",
+                "first_artifact": "Lean binary representation predicate and rejection test for ternary proofs",
+                "kill_condition": "the proof succeeds only with three primes or density on average",
+                "status": "research_target_not_proof",
+            },
+        ],
+        "twin-prime": [
+            {
+                "id": "TP-BTA1",
+                "novelty_claim": "Separate exact gap-2 infinitude from all bounded-gap evidence before any sieve route is trusted.",
+                "barrier_target": "exact_gap_two_barrier",
+                "uses_primeproject_tools": ["twin-pair certificate", "proof route triage", "known barrier audit"],
+                "minimum_new_theorem": "positive exact gap-2 lower bound for arbitrarily large x",
+                "first_artifact": "formal exact-gap predicate plus bounded-gap rejection lemma",
+                "kill_condition": "the argument proves only gaps below a fixed constant larger than 2",
+                "status": "research_target_not_proof",
+            },
+            {
+                "id": "TP-BTA2",
+                "novelty_claim": "Convert admissible-pair residue persistence into an assumption-free lower bound.",
+                "barrier_target": "parity_and_distribution_barrier",
+                "uses_primeproject_tools": ["residue drift", "frontier probe", "attack tickets"],
+                "minimum_new_theorem": "distribution theorem for exact two-point prime patterns without Hardy-Littlewood as an axiom",
+                "first_artifact": "candidate lower-bound form stress-tested against wheel and residue controls",
+                "kill_condition": "the route depends on k-tuple independence or Hardy-Littlewood density",
+                "status": "research_target_not_proof",
+            },
+            {
+                "id": "TP-BTA3",
+                "novelty_claim": "Make the infinitude bridge explicit: positive lower bounds must force arbitrarily large twin pairs.",
+                "barrier_target": "infinitude_bridge",
+                "uses_primeproject_tools": ["obligation DAG", "formal proof contract", "review docket"],
+                "minimum_new_theorem": "formal implication from exact gap-2 lower bound to infinitely many twin primes",
+                "first_artifact": "kernel-checkable theorem linking lower-bound positivity to unbounded witnesses",
+                "kill_condition": "the lower bound applies only to bounded windows or averaged non-exact gaps",
+                "status": "research_target_not_proof",
+            },
+        ],
+    }
+    routes = agenda_bank.get(problem_id, [])
+    return {
+        "schema": PROOF_BREAKTHROUGH_AGENDA_SCHEMA,
+        "problem_id": problem_id,
+        "status": "breakthrough_agenda_open",
+        "route_count": len(routes),
+        "current_decisive_route": triage.get("current_decisive_route", "missing"),
+        "target_spec": theorem_spec.get("spec_id", "missing"),
+        "barrier_count": len({str(route.get("barrier_target", "")) for route in routes}),
+        "routes": routes,
+        "machine_rule": "A breakthrough agenda item is a research target, not a proof claim; it can close only by producing the minimum new theorem and surviving its kill condition.",
+    }
+
+
 def attach_probe_certificate(*, problem_id: str, lemma_id: str, probe: dict[str, object]) -> dict[str, object]:
     certified_probe = dict(probe)
     payload = json.dumps(certified_probe, sort_keys=True, separators=(",", ":"))
@@ -2850,6 +2999,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["decisive_theorem_spec"] = decisive_theorem_spec(problem)
         problem["decisive_theorem_subgoals"] = decisive_theorem_subgoals(problem)
         problem["decisive_theorem_attack_tickets"] = decisive_theorem_attack_tickets(problem)
+        problem["proof_breakthrough_agenda"] = proof_breakthrough_agenda(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

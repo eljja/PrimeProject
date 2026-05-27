@@ -323,6 +323,30 @@ def main() -> int:
         if "planned tickets are not proof artifacts" not in ticket_report.get("machine_rule", ""):
             print(f"{problem.get('id')} decisive theorem attack tickets are missing the claim boundary.", file=sys.stderr)
             return 1
+        breakthrough = problem.get("proof_breakthrough_agenda", {})
+        breakthrough_routes = breakthrough.get("routes", []) if isinstance(breakthrough, dict) else []
+        if breakthrough.get("status") != "breakthrough_agenda_open":
+            print(f"{problem.get('id')} breakthrough agenda has unexpected status.", file=sys.stderr)
+            return 1
+        if breakthrough.get("target_spec") != theorem_spec.get("spec_id"):
+            print(f"{problem.get('id')} breakthrough agenda is not tied to the theorem spec.", file=sys.stderr)
+            return 1
+        if len(breakthrough_routes) < 3 or breakthrough.get("barrier_count", 0) < 3:
+            print(f"{problem.get('id')} breakthrough agenda is missing barrier coverage.", file=sys.stderr)
+            return 1
+        if not all(route.get("status") == "research_target_not_proof" for route in breakthrough_routes):
+            print(f"{problem.get('id')} breakthrough agenda overstates proof status.", file=sys.stderr)
+            return 1
+        for route in breakthrough_routes:
+            if not route.get("minimum_new_theorem") or not route.get("first_artifact") or not route.get("kill_condition"):
+                print(f"{problem.get('id')} breakthrough agenda is missing theorem, artifact, or kill condition.", file=sys.stderr)
+                return 1
+            if len(route.get("uses_primeproject_tools", [])) < 3:
+                print(f"{problem.get('id')} breakthrough agenda is missing tool links.", file=sys.stderr)
+                return 1
+        if "not a proof claim" not in breakthrough.get("machine_rule", ""):
+            print(f"{problem.get('id')} breakthrough agenda is missing the claim boundary.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

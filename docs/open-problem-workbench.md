@@ -7,7 +7,7 @@ PrimeProject now has four GitHub Pages subpages for:
 - Goldbach Conjecture
 - Twin Prime Conjecture
 
-The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
+The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
 ## Public Pages
 
@@ -50,6 +50,8 @@ Each problem also includes a `primeproject.decisive-theorem-spec.v1` object. The
 Each problem also includes a `primeproject.decisive-theorem-subgoals.v1` object. The subgoal matrix decomposes that theorem spec into bounded support, formal statement, infinite bridge, finite/infinite glue, and independent replay work. It keeps the theorem open while any subgoal remains open or blocked.
 
 Each problem also includes a `primeproject.decisive-theorem-attack-tickets.v1` object. The ticket list turns every open or blocked subgoal into a planned experiment with a required output and falsification test. Planned tickets are explicitly not proof artifacts.
+
+Each problem also includes a `primeproject.proof-breakthrough-agenda.v1` object. The agenda names routes that would be genuinely novel enough to matter, the exact barrier each route attacks, which PrimeProject tools apply, the minimum new theorem required, the first artifact to produce, and the kill condition that rejects the route. Agenda entries are research targets, not proof claims.
 
 Each problem also includes a `primeproject.proof-attempt-ledger.v1` object. The ledger separates three things:
 
