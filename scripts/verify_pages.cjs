@@ -232,6 +232,8 @@ async function main() {
           decisiveTheoremSections: document.querySelectorAll("#decisiveTheoremSpec .theorem-spec-grid section").length,
           decisiveSubgoalText: document.querySelector("#decisiveTheoremSubgoals").textContent,
           decisiveSubgoalCards: document.querySelectorAll("#decisiveTheoremSubgoals .subgoal-card").length,
+          decisiveTicketText: document.querySelector("#decisiveTheoremAttackTickets").textContent,
+          decisiveTicketCards: document.querySelectorAll("#decisiveTheoremAttackTickets .attack-ticket-card").length,
           certificateText: document.querySelector("#certificatePanel").textContent,
           proofAttemptText: document.querySelector("#proofAttempt").textContent,
           proofMapText: document.querySelector("#proofMap").textContent,
@@ -317,6 +319,13 @@ async function main() {
         !page.decisiveSubgoalText.includes("blocked until") ||
         !page.decisiveSubgoalText.includes("Closing test") ||
         !page.decisiveSubgoalText.includes("bounded support") ||
+        page.decisiveTicketCards < 4 ||
+        !page.decisiveTicketText.includes("attack tickets open") ||
+        !page.decisiveTicketText.includes("planned not executed") ||
+        !page.decisiveTicketText.includes("First experiment") ||
+        !page.decisiveTicketText.includes("Falsification test") ||
+        !page.decisiveTicketText.includes("Required output") ||
+        !page.decisiveTicketText.includes("planned tickets are not proof artifacts") ||
         !page.certificateText.includes("bounded theorem certified") ||
         !page.certificateText.includes("scripts/verify_open_problem_workbench.py") ||
         !page.proofAttemptText.includes("open infinite obligation") ||

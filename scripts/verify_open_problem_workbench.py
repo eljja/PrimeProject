@@ -306,6 +306,23 @@ def main() -> int:
         if "bounded support" not in subgoal_report.get("machine_rule", ""):
             print(f"{problem.get('id')} decisive theorem subgoals are missing the bounded-support rule.", file=sys.stderr)
             return 1
+        ticket_report = problem.get("decisive_theorem_attack_tickets", {})
+        tickets = ticket_report.get("tickets", []) if isinstance(ticket_report, dict) else []
+        if ticket_report.get("status") != "attack_tickets_open":
+            print(f"{problem.get('id')} decisive theorem attack tickets have unexpected status.", file=sys.stderr)
+            return 1
+        if len(tickets) < 4 or ticket_report.get("p0_count", 0) < 1:
+            print(f"{problem.get('id')} decisive theorem attack tickets are missing coverage.", file=sys.stderr)
+            return 1
+        if not all(ticket.get("status") == "planned_not_executed" for ticket in tickets):
+            print(f"{problem.get('id')} decisive theorem attack tickets overstate execution.", file=sys.stderr)
+            return 1
+        if not all(ticket.get("falsification_test") and ticket.get("required_output") for ticket in tickets):
+            print(f"{problem.get('id')} decisive theorem attack tickets are missing falsification tests.", file=sys.stderr)
+            return 1
+        if "planned tickets are not proof artifacts" not in ticket_report.get("machine_rule", ""):
+            print(f"{problem.get('id')} decisive theorem attack tickets are missing the claim boundary.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

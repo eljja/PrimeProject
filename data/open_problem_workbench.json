@@ -1115,6 +1115,56 @@
           }
         ],
         "machine_rule": "The decisive theorem remains missing while any subgoal is open or blocked; bounded support can guide but cannot close an infinite bridge."
+      },
+      "decisive_theorem_attack_tickets": {
+        "schema": "primeproject.decisive-theorem-attack-tickets.v1",
+        "problem_id": "riemann",
+        "status": "attack_tickets_open",
+        "ticket_count": 4,
+        "p0_count": 2,
+        "tickets": [
+          {
+            "id": "RIEMANN-AT2",
+            "subgoal_id": "RH-SG2",
+            "priority": "P1",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Explicit theta/psi inequality statement can be reduced to Lean theorem statement with constants.",
+            "first_experiment": "all constants and domain thresholds are named",
+            "falsification_test": "Reject this route if it cannot produce Lean theorem statement with constants without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "Lean theorem statement with constants"
+          },
+          {
+            "id": "RIEMANN-AT3",
+            "subgoal_id": "RH-SG3",
+            "priority": "P0",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "All-x analytic proof can be reduced to formal proof or accepted theorem.",
+            "first_experiment": "bound holds for every x beyond threshold",
+            "falsification_test": "Reject this route if it cannot produce formal proof or accepted theorem without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "formal proof or accepted theorem"
+          },
+          {
+            "id": "RIEMANN-AT4",
+            "subgoal_id": "RH-SG4",
+            "priority": "P1",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Finite interval bridge can be reduced to cutoff comparison certificate.",
+            "first_experiment": "bounded certificate covers every x below threshold",
+            "falsification_test": "Reject this route if it cannot produce cutoff comparison certificate without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "cutoff comparison certificate"
+          },
+          {
+            "id": "RIEMANN-AT5",
+            "subgoal_id": "RH-SG5",
+            "priority": "P0",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "RH-equivalence replay can be reduced to independent kernel replay.",
+            "first_experiment": "bridge proves the target without importing RH",
+            "falsification_test": "Reject this route if it cannot produce independent kernel replay without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "independent kernel replay"
+          }
+        ],
+        "machine_rule": "A ticket can close only by producing its required output and passing its falsification test; planned tickets are not proof artifacts."
       }
     },
     {
@@ -2293,6 +2343,56 @@
           }
         ],
         "machine_rule": "The decisive theorem remains missing while any subgoal is open or blocked; bounded support can guide but cannot close an infinite bridge."
+      },
+      "decisive_theorem_attack_tickets": {
+        "schema": "primeproject.decisive-theorem-attack-tickets.v1",
+        "problem_id": "collatz",
+        "status": "attack_tickets_open",
+        "ticket_count": 4,
+        "p0_count": 2,
+        "tickets": [
+          {
+            "id": "COLLATZ-AT2",
+            "subgoal_id": "CO-SG2",
+            "priority": "P0",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Residue block cover can be reduced to formal cover theorem.",
+            "first_experiment": "every positive integer belongs to at least one block",
+            "falsification_test": "Reject this route if it cannot produce formal cover theorem without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "formal cover theorem"
+          },
+          {
+            "id": "COLLATZ-AT3",
+            "subgoal_id": "CO-SG3",
+            "priority": "P1",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Strict descent measure can be reduced to well-founded measure proof.",
+            "first_experiment": "each block maps to a smaller representative or 1",
+            "falsification_test": "Reject this route if it cannot produce well-founded measure proof without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "well-founded measure proof"
+          },
+          {
+            "id": "COLLATZ-AT4",
+            "subgoal_id": "CO-SG4",
+            "priority": "P1",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Cycle exclusion can be reduced to cycle contradiction theorem.",
+            "first_experiment": "non-trivial cycles contradict descent",
+            "falsification_test": "Reject this route if it cannot produce cycle contradiction theorem without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "cycle contradiction theorem"
+          },
+          {
+            "id": "COLLATZ-AT5",
+            "subgoal_id": "CO-SG5",
+            "priority": "P0",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Divergence exclusion can be reduced to global convergence theorem.",
+            "first_experiment": "unbounded branches contradict well-founded descent",
+            "falsification_test": "Reject this route if it cannot produce global convergence theorem without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "global convergence theorem"
+          }
+        ],
+        "machine_rule": "A ticket can close only by producing its required output and passing its falsification test; planned tickets are not proof artifacts."
       }
     },
     {
@@ -3482,6 +3582,56 @@
           }
         ],
         "machine_rule": "The decisive theorem remains missing while any subgoal is open or blocked; bounded support can guide but cannot close an infinite bridge."
+      },
+      "decisive_theorem_attack_tickets": {
+        "schema": "primeproject.decisive-theorem-attack-tickets.v1",
+        "problem_id": "goldbach",
+        "status": "attack_tickets_open",
+        "ticket_count": 4,
+        "p0_count": 2,
+        "tickets": [
+          {
+            "id": "GOLDBACH-AT2",
+            "subgoal_id": "GB-SG2",
+            "priority": "P0",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Explicit representation lower bound can be reduced to formal lower-bound theorem.",
+            "first_experiment": "bound is positive for every even n >= N0",
+            "falsification_test": "Reject this route if it cannot produce formal lower-bound theorem without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "formal lower-bound theorem"
+          },
+          {
+            "id": "GOLDBACH-AT3",
+            "subgoal_id": "GB-SG3",
+            "priority": "P1",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Cutoff compatibility can be reduced to N0 <= certificate limit proof.",
+            "first_experiment": "analytic threshold starts inside certified range",
+            "falsification_test": "Reject this route if it cannot produce N0 <= certificate limit proof without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "N0 <= certificate limit proof"
+          },
+          {
+            "id": "GOLDBACH-AT4",
+            "subgoal_id": "GB-SG4",
+            "priority": "P1",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Two-prime specificity can be reduced to formal representation definition.",
+            "first_experiment": "theorem cannot be satisfied by ternary Goldbach",
+            "falsification_test": "Reject this route if it cannot produce formal representation definition without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "formal representation definition"
+          },
+          {
+            "id": "GOLDBACH-AT5",
+            "subgoal_id": "GB-SG5",
+            "priority": "P0",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Full interval union can be reduced to finite plus infinite coverage theorem.",
+            "first_experiment": "every even n > 2 is covered exactly once by the proof split",
+            "falsification_test": "Reject this route if it cannot produce finite plus infinite coverage theorem without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "finite plus infinite coverage theorem"
+          }
+        ],
+        "machine_rule": "A ticket can close only by producing its required output and passing its falsification test; planned tickets are not proof artifacts."
       }
     },
     {
@@ -4610,6 +4760,56 @@
           }
         ],
         "machine_rule": "The decisive theorem remains missing while any subgoal is open or blocked; bounded support can guide but cannot close an infinite bridge."
+      },
+      "decisive_theorem_attack_tickets": {
+        "schema": "primeproject.decisive-theorem-attack-tickets.v1",
+        "problem_id": "twin-prime",
+        "status": "attack_tickets_open",
+        "ticket_count": 4,
+        "p0_count": 2,
+        "tickets": [
+          {
+            "id": "TWIN_PRIME-AT2",
+            "subgoal_id": "TP-SG2",
+            "priority": "P1",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Exact gap-2 formal definition can be reduced to Lean exact gap-2 predicate.",
+            "first_experiment": "bounded-gap theorems cannot satisfy the definition",
+            "falsification_test": "Reject this route if it cannot produce Lean exact gap-2 predicate without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "Lean exact gap-2 predicate"
+          },
+          {
+            "id": "TWIN_PRIME-AT3",
+            "subgoal_id": "TP-SG3",
+            "priority": "P0",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Unconditional lower bound can be reduced to formal lower-bound theorem.",
+            "first_experiment": "bound stays positive for arbitrarily large x",
+            "falsification_test": "Reject this route if it cannot produce formal lower-bound theorem without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "formal lower-bound theorem"
+          },
+          {
+            "id": "TWIN_PRIME-AT4",
+            "subgoal_id": "TP-SG4",
+            "priority": "P1",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Heuristic removal can be reduced to assumption-free distribution argument.",
+            "first_experiment": "no Hardy-Littlewood or k-tuple axiom is imported",
+            "falsification_test": "Reject this route if it cannot produce assumption-free distribution argument without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "assumption-free distribution argument"
+          },
+          {
+            "id": "TWIN_PRIME-AT5",
+            "subgoal_id": "TP-SG5",
+            "priority": "P0",
+            "status": "planned_not_executed",
+            "attack_hypothesis": "Infinitude bridge can be reduced to formal infinitude theorem.",
+            "first_experiment": "positive lower bound implies arbitrarily large exact twins",
+            "falsification_test": "Reject this route if it cannot produce formal infinitude theorem without using a forbidden shortcut or finite-only evidence.",
+            "required_output": "formal infinitude theorem"
+          }
+        ],
+        "machine_rule": "A ticket can close only by producing its required output and passing its falsification test; planned tickets are not proof artifacts."
       }
     }
   ]

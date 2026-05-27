@@ -1005,6 +1005,81 @@ canvas {
   line-height: 1.45;
 }
 
+.attack-ticket-head {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.attack-ticket-head div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #f8fafb;
+  padding: 12px;
+}
+
+.attack-ticket-head span,
+.attack-ticket-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.attack-ticket-head strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.attack-ticket-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.attack-ticket-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--amber);
+  background: #fff;
+  padding: 12px;
+}
+
+.attack-ticket-card.is-P0 {
+  border-top-color: var(--danger);
+}
+
+.attack-ticket-card strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.attack-ticket-card em {
+  display: inline-block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 760;
+}
+
+.attack-ticket-card p,
+.attack-ticket-card small {
+  display: block;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .certificate-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5291,6 +5366,8 @@ tr:last-child td {
   .theorem-spec-grid,
   .subgoal-head,
   .subgoal-list,
+  .attack-ticket-head,
+  .attack-ticket-list,
   .attempt-summary,
   .obligation-list,
   .proof-map-grid,

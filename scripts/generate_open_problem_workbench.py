@@ -31,6 +31,7 @@ PROOF_VERDICT_SCHEMA = "primeproject.proof-verdict.v1"
 PROOF_ROUTE_TRIAGE_SCHEMA = "primeproject.proof-route-triage.v1"
 DECISIVE_THEOREM_SPEC_SCHEMA = "primeproject.decisive-theorem-spec.v1"
 DECISIVE_THEOREM_SUBGOALS_SCHEMA = "primeproject.decisive-theorem-subgoals.v1"
+DECISIVE_THEOREM_ATTACK_TICKETS_SCHEMA = "primeproject.decisive-theorem-attack-tickets.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -1560,6 +1561,39 @@ def decisive_theorem_subgoals(problem: dict[str, object]) -> dict[str, object]:
     }
 
 
+def decisive_theorem_attack_tickets(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    subgoal_report = problem.get("decisive_theorem_subgoals", {}) if isinstance(problem.get("decisive_theorem_subgoals"), dict) else {}
+    subgoals = subgoal_report.get("subgoals", []) if isinstance(subgoal_report, dict) else []
+    tickets = []
+    for index, subgoal in enumerate(subgoals, start=1):
+        if not isinstance(subgoal, dict) or str(subgoal.get("status", "")).startswith("complete"):
+            continue
+        status = str(subgoal.get("status", "open"))
+        priority = "P0" if "infinite_bridge" in status or status.startswith("blocked") else "P1"
+        tickets.append(
+            {
+                "id": f"{problem_id.upper().replace('-', '_')}-AT{index}",
+                "subgoal_id": subgoal.get("id", "missing"),
+                "priority": priority,
+                "status": "planned_not_executed",
+                "attack_hypothesis": f"{subgoal.get('label', 'subgoal')} can be reduced to {subgoal.get('artifact', 'a formal artifact')}.",
+                "first_experiment": subgoal.get("closing_test", "missing closing test"),
+                "falsification_test": f"Reject this route if it cannot produce {subgoal.get('artifact', 'the required artifact')} without using a forbidden shortcut or finite-only evidence.",
+                "required_output": subgoal.get("artifact", "missing artifact"),
+            }
+        )
+    return {
+        "schema": DECISIVE_THEOREM_ATTACK_TICKETS_SCHEMA,
+        "problem_id": problem_id,
+        "status": "attack_tickets_open",
+        "ticket_count": len(tickets),
+        "p0_count": sum(1 for item in tickets if item["priority"] == "P0"),
+        "tickets": tickets,
+        "machine_rule": "A ticket can close only by producing its required output and passing its falsification test; planned tickets are not proof artifacts.",
+    }
+
+
 def attach_probe_certificate(*, problem_id: str, lemma_id: str, probe: dict[str, object]) -> dict[str, object]:
     certified_probe = dict(probe)
     payload = json.dumps(certified_probe, sort_keys=True, separators=(",", ":"))
@@ -2815,6 +2849,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["proof_route_triage"] = proof_route_triage(problem)
         problem["decisive_theorem_spec"] = decisive_theorem_spec(problem)
         problem["decisive_theorem_subgoals"] = decisive_theorem_subgoals(problem)
+        problem["decisive_theorem_attack_tickets"] = decisive_theorem_attack_tickets(problem)
     return {
         "schema": SCHEMA,
         "generated_at": generated_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

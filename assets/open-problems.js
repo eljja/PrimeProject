@@ -350,6 +350,44 @@ function renderDecisiveTheoremSubgoals(problem) {
   `;
 }
 
+function renderDecisiveTheoremAttackTickets(problem) {
+  const report = problem.decisive_theorem_attack_tickets || {};
+  const tickets = report.tickets || [];
+  return `
+    <div class="attack-ticket-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(report.status))}</strong>
+      </div>
+      <div>
+        <span>Tickets</span>
+        <strong>${escapeHtml(formatValue(report.ticket_count || 0))}</strong>
+      </div>
+      <div>
+        <span>P0</span>
+        <strong>${escapeHtml(formatValue(report.p0_count || 0))}</strong>
+      </div>
+    </div>
+    <div class="attack-ticket-list">
+      ${tickets
+        .map(
+          (ticket) => `
+            <article class="attack-ticket-card is-${escapeHtml(ticket.priority || "P1")}">
+              <span>${escapeHtml(ticket.id || "")} · ${escapeHtml(ticket.subgoal_id || "")}</span>
+              <strong>${escapeHtml(ticket.attack_hypothesis || "")}</strong>
+              <em>${escapeHtml(ticket.priority || "")} · ${escapeHtml(statusText(ticket.status))}</em>
+              <p>First experiment: ${escapeHtml(ticket.first_experiment || "")}</p>
+              <p>Falsification test: ${escapeHtml(ticket.falsification_test || "")}</p>
+              <small>Required output: ${escapeHtml(ticket.required_output || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">${escapeHtml(report.machine_rule || "")}</p>
+  `;
+}
+
 function renderProofMap(problem) {
   const attempt = problem.proof_attempt || {};
   const graph = attempt.attack_graph || {};
@@ -1231,6 +1269,7 @@ function render(payload, problem) {
   document.querySelector("#proofRouteTriage").innerHTML = renderProofRouteTriage(problem);
   document.querySelector("#decisiveTheoremSpec").innerHTML = renderDecisiveTheoremSpec(problem);
   document.querySelector("#decisiveTheoremSubgoals").innerHTML = renderDecisiveTheoremSubgoals(problem);
+  document.querySelector("#decisiveTheoremAttackTickets").innerHTML = renderDecisiveTheoremAttackTickets(problem);
   document.querySelector("#metricCards").innerHTML = metricCards(problem)
     .map(
       ([label, value]) => `
