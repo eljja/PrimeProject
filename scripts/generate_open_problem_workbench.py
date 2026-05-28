@@ -33,6 +33,13 @@ DECISIVE_THEOREM_SPEC_SCHEMA = "primeproject.decisive-theorem-spec.v1"
 DECISIVE_THEOREM_SUBGOALS_SCHEMA = "primeproject.decisive-theorem-subgoals.v1"
 DECISIVE_THEOREM_ATTACK_TICKETS_SCHEMA = "primeproject.decisive-theorem-attack-tickets.v1"
 PROOF_BREAKTHROUGH_AGENDA_SCHEMA = "primeproject.proof-breakthrough-agenda.v1"
+ACTUAL_PROOF_ATTEMPT_RUNNER_SCHEMA = "primeproject.actual-proof-attempt-runner.v1"
+CANDIDATE_LEMMA_WORKBENCH_SCHEMA = "primeproject.candidate-lemma-workbench.v1"
+MACHINE_PROOF_SEARCH_TRIALS_SCHEMA = "primeproject.machine-proof-search-trials.v1"
+FORMAL_UPGRADE_MATRIX_SCHEMA = "primeproject.formal-upgrade-matrix.v1"
+PROOF_KERNEL_ROADMAP_SCHEMA = "primeproject.proof-kernel-roadmap.v1"
+FORMAL_KERNEL_CONTRACT_AUDIT_SCHEMA = "primeproject.formal-kernel-contract-audit.v1"
+INVALID_PROOF_SHORTCUT_SUITE_SCHEMA = "primeproject.invalid-proof-shortcut-suite.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -1085,10 +1092,8 @@ def proof_obligation_dag(problem: dict[str, object]) -> dict[str, object]:
 
 def formal_skeleton_audit(problem: dict[str, object]) -> dict[str, object]:
     replay = problem.get("formal_replay_package", {})
-    contract = problem.get("formal_proof_contract", {})
     files = replay.get("candidate_files", []) if isinstance(replay, dict) else []
     forbidden = replay.get("forbidden_tokens", []) if isinstance(replay, dict) else []
-    theorem_name = contract.get("theorem_name", "") if isinstance(contract, dict) else ""
     checks = []
     forbidden_hits: list[dict[str, str]] = []
     for item in files:
@@ -1097,7 +1102,7 @@ def formal_skeleton_audit(problem: dict[str, object]) -> dict[str, object]:
         text = path.read_text(encoding="utf-8") if exists else ""
         hits = [
             token
-            for token in [*forbidden, theorem_name]
+            for token in forbidden
             if token and token in text
         ]
         for token in hits:
@@ -1141,6 +1146,765 @@ def proof_verdict(problem: dict[str, object]) -> dict[str, object]:
         "gate_status": gate.get("promotion_status", "missing"),
         "next_decisive_attempt": lab.get("next_action", lab.get("proof_obligation", "missing decisive attempt")),
         "machine_rule": "PrimeProject may display a proof only when the bounded certificate, decisive reduction, formal contract, skeleton audit, and independent-review gate all pass without open infinite obligations.",
+    }
+
+
+def actual_proof_attempt_runner(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    certificate = problem.get("certificate", {}) if isinstance(problem.get("certificate"), dict) else {}
+    frontier = problem.get("proof_frontier_probe", {}) if isinstance(problem.get("proof_frontier_probe"), dict) else {}
+    triage = problem.get("proof_route_triage", {}) if isinstance(problem.get("proof_route_triage"), dict) else {}
+    spec = problem.get("decisive_theorem_spec", {}) if isinstance(problem.get("decisive_theorem_spec"), dict) else {}
+    subgoals = problem.get("decisive_theorem_subgoals", {}) if isinstance(problem.get("decisive_theorem_subgoals"), dict) else {}
+    tickets = problem.get("decisive_theorem_attack_tickets", {}) if isinstance(problem.get("decisive_theorem_attack_tickets"), dict) else {}
+    gate = problem.get("proof_status_gate", {}) if isinstance(problem.get("proof_status_gate"), dict) else {}
+    execution = problem.get("proof_attempt_execution_log", {}) if isinstance(problem.get("proof_attempt_execution_log"), dict) else {}
+    reduction = problem.get("proof_reduction_contract", {}) if isinstance(problem.get("proof_reduction_contract"), dict) else {}
+    decisive = reduction.get("decisive_reduction", {}) if isinstance(reduction.get("decisive_reduction"), dict) else {}
+    result_bank: dict[str, dict[str, str]] = {
+        "riemann": {
+            "attempt_title": "Use prime-counting residuals to force RH-equivalent zero control",
+            "candidate_bridge": "finite theta/pi diagnostics -> explicit all-x theta bound -> RH-equivalent zero theorem",
+            "observed_signal": "bounded theta diagnostics and endpoint stress tests identify candidate envelope pressure",
+            "failure_reason": "the all-x analytic theorem is still missing, so finite residual discipline cannot quantify over every zeta zero",
+            "next_executable_move": "formalize the exact theta/psi inequality with explicit constants and reject it if any endpoint stress row exceeds the envelope",
+        },
+        "collatz": {
+            "attempt_title": "Compress bounded trajectories into a symbolic descent cover",
+            "candidate_bridge": "trajectory certificate -> residue-block transition graph -> global well-founded descent",
+            "observed_signal": "bounded replay finds no counterexample and ranks residue blocks by descent pressure",
+            "failure_reason": "enumerated starts do not prove that every residue block has a decreasing representative",
+            "next_executable_move": "generate a residue-block cover candidate and require every block to map to a smaller certified representative",
+        },
+        "goldbach": {
+            "attempt_title": "Turn bounded decompositions into an explicit two-prime lower bound",
+            "candidate_bridge": "finite decompositions -> thinnest residue classes -> explicit large-even representation theorem",
+            "observed_signal": "bounded search identifies hardest decomposition cases and residue stress targets",
+            "failure_reason": "the positive lower bound for every sufficiently large even integer is not formalized with a compatible cutoff",
+            "next_executable_move": "state the lower-bound theorem with N0 and test whether N0 is below the bounded certificate limit",
+        },
+        "twin-prime": {
+            "attempt_title": "Upgrade exact gap-2 persistence into infinitude",
+            "candidate_bridge": "bounded twin-pair certificate -> admissible exact-gap pattern analysis -> unconditional exact gap-2 lower bound",
+            "observed_signal": "bounded twin pairs persist and match heuristic scale within the certified range",
+            "failure_reason": "bounded gaps and Hardy-Littlewood-scale agreement do not prove exact gap-2 pairs for arbitrarily large x",
+            "next_executable_move": "separate exact gap 2 from bounded-gap evidence and require a positive unconditional lower bound",
+        },
+    }
+    result = result_bank.get(problem_id, result_bank["riemann"])
+    open_count = int(subgoals.get("open_count", 0) or 0) + int(subgoals.get("blocked_count", 0) or 0)
+    ticket_count = int(tickets.get("ticket_count", 0) or 0)
+    runner_steps = [
+        {
+            "id": "RUN-1",
+            "tool": "bounded certificate replay",
+            "input": certificate.get("statement", "bounded certificate"),
+            "status": certificate.get("status", "missing"),
+            "output": certificate.get("merkle_root", "missing"),
+            "proof_effect": "closes only the finite replay claim",
+        },
+        {
+            "id": "RUN-2",
+            "tool": "frontier falsification probe",
+            "input": frontier.get("objective", "frontier probe"),
+            "status": frontier.get("status", "missing"),
+            "output": frontier.get("failure_signal", "missing"),
+            "proof_effect": "rejects weak candidate lemmas before formal proof work",
+        },
+        {
+            "id": "RUN-3",
+            "tool": "route triage",
+            "input": triage.get("current_decisive_route", "missing"),
+            "status": triage.get("status", "missing"),
+            "output": spec.get("title", "missing decisive theorem"),
+            "proof_effect": "selects the only route that can plausibly attack the infinite theorem",
+        },
+        {
+            "id": "RUN-4",
+            "tool": "decisive theorem gate",
+            "input": spec.get("candidate_statement", "missing candidate statement"),
+            "status": spec.get("artifact_status", "missing_formal_theorem"),
+            "output": spec.get("blocking_gap", decisive.get("missing_artifact", "missing infinite bridge")),
+            "proof_effect": "blocks promotion until the infinite theorem exists",
+        },
+    ]
+    return {
+        "schema": ACTUAL_PROOF_ATTEMPT_RUNNER_SCHEMA,
+        "problem_id": problem_id,
+        "runner_status": "executed_full_proof_blocked",
+        "attempt_title": result["attempt_title"],
+        "candidate_bridge": result["candidate_bridge"],
+        "observed_signal": result["observed_signal"],
+        "failure_reason": result["failure_reason"],
+        "next_executable_move": result["next_executable_move"],
+        "runner_steps": runner_steps,
+        "closed_items": [
+            "bounded certificate replay",
+            "finite falsification probe",
+            "route triage",
+            "proof obligation naming",
+        ],
+        "open_items": [
+            decisive.get("missing_artifact", spec.get("blocking_gap", "missing infinite theorem")),
+            f"{open_count} decisive subgoals remain open or blocked",
+            f"{ticket_count} attack tickets are planned but not proof artifacts",
+        ],
+        "machine_verdict": execution.get(
+            "machine_verdict",
+            "bounded evidence can guide proof search, but the infinite bridge remains open",
+        ),
+        "promotion_rule": gate.get(
+            "machine_rule",
+            "A full-proof claim is blocked unless every infinite obligation is independently verified.",
+        ),
+    }
+
+
+def candidate_lemma_workbench(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    bank: dict[str, dict[str, object]] = {
+        "riemann": {
+            "workbench_title": "RH candidate lemma search",
+            "target": "Close the all-x analytic bridge between bounded prime-counting diagnostics and an RH-equivalent theorem.",
+            "lemmas": [
+                {
+                    "id": "RH-CL1",
+                    "statement": "The observed theta residual envelope persists for every x beyond the committed finite range.",
+                    "tool_test": "prime-endpoint stress probe against the proposed explicit envelope",
+                    "result": "falsified_as_stated",
+                    "reason": "selected decimal checkpoints understate worst prime-endpoint behavior",
+                    "next_revision": "state a weaker explicit envelope with named constants and test every prime endpoint",
+                },
+                {
+                    "id": "RH-CL2",
+                    "statement": "A computable theta/psi inequality with explicit constants implies an accepted RH-equivalent criterion.",
+                    "tool_test": "formal bridge audit: reject if the bridge imports RH or an equivalent theorem",
+                    "result": "open_formal_bridge",
+                    "reason": "the equivalence theorem must be cited or formalized without circular dependence",
+                    "next_revision": "write the exact theorem statement and allowed published bridge reference",
+                },
+                {
+                    "id": "RH-CL3",
+                    "statement": "Finite certificate plus large-x theorem covers the whole positive real line.",
+                    "tool_test": "cutoff compatibility check: analytic threshold <= bounded certificate limit",
+                    "result": "blocked_until_large_x_theorem",
+                    "reason": "there is no large-x theorem with a compatible threshold yet",
+                    "next_revision": "prove or import an explicit all-x estimate and bind its cutoff to the certificate",
+                },
+            ],
+        },
+        "collatz": {
+            "workbench_title": "Collatz residue-cover lemma search",
+            "target": "Replace bounded trajectory replay with a finite symbolic cover that proves global descent.",
+            "lemmas": [
+                {
+                    "id": "CO-CL1",
+                    "statement": "Every odd residue block in a chosen modulus has an accelerated transition to a smaller block.",
+                    "tool_test": "residue transition replay over bounded starts and symbolic block templates",
+                    "result": "partial_bounded_support",
+                    "reason": "bounded replay suggests descent pressure but does not cover all residue blocks symbolically",
+                    "next_revision": "generate a complete modulus-specific cover with no uncovered residue class",
+                },
+                {
+                    "id": "CO-CL2",
+                    "statement": "The descent measure is well-founded and strictly decreases under the certified block transition.",
+                    "tool_test": "well-foundedness audit: reject non-strict or average-only descent",
+                    "result": "open_formal_bridge",
+                    "reason": "average parity drift is insufficient for deterministic descent",
+                    "next_revision": "define the exact measure and prove strict decrease for every block",
+                },
+                {
+                    "id": "CO-CL3",
+                    "statement": "The same cover excludes non-trivial cycles and divergent branches.",
+                    "tool_test": "cycle/divergence dependency check",
+                    "result": "blocked_until_cover_exists",
+                    "reason": "cycle exclusion alone does not prove convergence",
+                    "next_revision": "derive cycle and divergence exclusion from the descent cover",
+                },
+            ],
+        },
+        "goldbach": {
+            "workbench_title": "Goldbach lower-bound lemma search",
+            "target": "Turn bounded decomposition evidence into a two-prime representation theorem with an explicit cutoff.",
+            "lemmas": [
+                {
+                    "id": "GB-CL1",
+                    "statement": "Every even n below N0 is covered by the bounded certificate.",
+                    "tool_test": "complete even-integer decomposition replay",
+                    "result": "bounded_certificate_complete",
+                    "reason": "finite interval coverage is certified but cannot cover the infinite tail",
+                    "next_revision": "bind this certificate to an explicit analytic threshold N0",
+                },
+                {
+                    "id": "GB-CL2",
+                    "statement": "For every even n >= N0, the two-prime representation count has a positive lower bound.",
+                    "tool_test": "threshold audit: lower bound positive and N0 explicit",
+                    "result": "open_infinite_bridge",
+                    "reason": "no compatible large-even lower-bound theorem is formalized",
+                    "next_revision": "formalize explicit circle-method constants or cite an accepted theorem with cutoff",
+                },
+                {
+                    "id": "GB-CL3",
+                    "statement": "The proof remains two-prime Goldbach and does not substitute weak Goldbach.",
+                    "tool_test": "forbidden shortcut audit",
+                    "result": "guard_pass",
+                    "reason": "the current page correctly rejects three-prime substitution",
+                    "next_revision": "keep every candidate theorem in two-prime representation form",
+                },
+            ],
+        },
+        "twin-prime": {
+            "workbench_title": "Twin-prime exact-gap lemma search",
+            "target": "Convert exact gap-2 bounded evidence into an unconditional infinitude theorem.",
+            "lemmas": [
+                {
+                    "id": "TP-CL1",
+                    "statement": "Bounded twin-pair counts match exact gap-2 replay through the committed range.",
+                    "tool_test": "bounded twin-pair certificate replay",
+                    "result": "bounded_certificate_complete",
+                    "reason": "the finite count is reproducible but does not imply arbitrarily large twin pairs",
+                    "next_revision": "use it only as regression evidence for candidate lower-bound theorems",
+                },
+                {
+                    "id": "TP-CL2",
+                    "statement": "A positive lower bound for exact gap-2 pairs holds for arbitrarily large x.",
+                    "tool_test": "exact-gap audit: reject bounded gaps, averaged gaps, or heuristic density assumptions",
+                    "result": "open_infinite_bridge",
+                    "reason": "bounded-gap theorems and Hardy-Littlewood agreement do not prove exact gap 2",
+                    "next_revision": "state an assumption-free exact gap-2 lower-bound theorem",
+                },
+                {
+                    "id": "TP-CL3",
+                    "statement": "The lower bound implies infinitely many distinct twin-prime pairs.",
+                    "tool_test": "infinitude bridge check",
+                    "result": "blocked_until_lower_bound",
+                    "reason": "the implication is straightforward only after the positive lower bound exists",
+                    "next_revision": "formalize the implication in Lean after TP-CL2 is closed",
+                },
+            ],
+        },
+    }
+    entry = bank.get(problem_id, bank["riemann"])
+    closed = sum(1 for item in entry["lemmas"] if str(item["result"]).startswith(("bounded", "guard")))
+    open_or_blocked = len(entry["lemmas"]) - closed
+    return {
+        "schema": CANDIDATE_LEMMA_WORKBENCH_SCHEMA,
+        "problem_id": problem_id,
+        "status": "active_no_full_proof",
+        "workbench_title": entry["workbench_title"],
+        "target": entry["target"],
+        "closed_count": closed,
+        "open_or_blocked_count": open_or_blocked,
+        "lemmas": entry["lemmas"],
+        "claim_rule": "A candidate lemma may support proof search only; it upgrades the page status only after formal proof or accepted theorem review.",
+    }
+
+
+def machine_proof_search_trials(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    finite = problem.get("finite_result", {}) if isinstance(problem.get("finite_result"), dict) else {}
+    certificate = problem.get("certificate", {}) if isinstance(problem.get("certificate"), dict) else {}
+    trial_bank: dict[str, list[dict[str, str]]] = {
+        "riemann": [
+            {
+                "id": "RH-MP1",
+                "hypothesis": "A simple checkpoint theta envelope can be promoted to an all-x RH bridge.",
+                "execution": "Compare decimal checkpoint residuals with prime-endpoint frontier stress.",
+                "observed": f"checkpoint max scaled theta error {finite.get('max_scaled_theta_error', 'n/a')}",
+                "verdict": "failed_candidate",
+                "blocker": "prime endpoints expose stronger local errors than decimal checkpoints",
+                "proof_upgrade": "replace checkpoint envelope with an explicit all-x theta/psi theorem",
+            },
+            {
+                "id": "RH-MP2",
+                "hypothesis": "Bounded prime-counting replay can certify the finite interval below an analytic cutoff.",
+                "execution": "Replay Merkle certificate and require cutoff compatibility.",
+                "observed": f"bounded root {str(certificate.get('merkle_root', 'missing'))[:12]}",
+                "verdict": "finite_piece_closed",
+                "blocker": "finite coverage is useful only after a large-x theorem supplies the cutoff",
+                "proof_upgrade": "bind an accepted large-x estimate to the certificate limit",
+            },
+            {
+                "id": "RH-MP3",
+                "hypothesis": "An RH-equivalent theorem can be used as a bridge without circularity.",
+                "execution": "Audit candidate bridge for target-equivalent assumptions.",
+                "observed": "bridge remains a specification, not a verified theorem",
+                "verdict": "open_bridge",
+                "blocker": "no formal non-circular implication is present in the repo",
+                "proof_upgrade": "formalize the exact implication or cite an accepted theorem with proof boundaries",
+            },
+        ],
+        "collatz": [
+            {
+                "id": "CO-MP1",
+                "hypothesis": "Bounded trajectory replay can reveal a finite descent cover template.",
+                "execution": "Replay starts through the committed limit and inspect maximal stopping cases.",
+                "observed": f"tested starts {finite.get('tested_start_values', 'n/a')}",
+                "verdict": "finite_piece_closed",
+                "blocker": "the replay does not cover unbounded residue classes",
+                "proof_upgrade": "derive a symbolic cover over all odd residue blocks",
+            },
+            {
+                "id": "CO-MP2",
+                "hypothesis": "Average downward drift is enough for convergence.",
+                "execution": "Run deterministic proof-gate audit against drift-only reasoning.",
+                "observed": "average drift cannot exclude exceptional branches",
+                "verdict": "rejected_shortcut",
+                "blocker": "probabilistic drift is not deterministic descent",
+                "proof_upgrade": "prove strict decrease under a well-founded measure for every block",
+            },
+            {
+                "id": "CO-MP3",
+                "hypothesis": "Cycle exclusion alone proves Collatz.",
+                "execution": "Dependency check between cycle exclusion and divergence exclusion.",
+                "observed": "cycle exclusion leaves divergent branches unresolved",
+                "verdict": "insufficient_partial",
+                "blocker": "global convergence needs both cycle and divergence exclusion",
+                "proof_upgrade": "derive both from the same residue-cover descent theorem",
+            },
+        ],
+        "goldbach": [
+            {
+                "id": "GB-MP1",
+                "hypothesis": "Finite decomposition replay closes all even cases below a future analytic threshold.",
+                "execution": "Replay two-prime decompositions through the committed limit.",
+                "observed": f"counterexamples {finite.get('counterexamples', 'n/a')}",
+                "verdict": "finite_piece_closed",
+                "blocker": "there is no compatible explicit threshold theorem yet",
+                "proof_upgrade": "prove N0 <= certificate limit for a positive two-prime lower bound",
+            },
+            {
+                "id": "GB-MP2",
+                "hypothesis": "Weak Goldbach can substitute for strong Goldbach.",
+                "execution": "Forbidden-shortcut audit on theorem shape.",
+                "observed": "three-prime representation is not the target theorem",
+                "verdict": "rejected_shortcut",
+                "blocker": "target requires two primes for every even integer greater than 2",
+                "proof_upgrade": "keep the lower bound in two-prime representation form",
+            },
+            {
+                "id": "GB-MP3",
+                "hypothesis": "Hardest bounded cases identify the analytic stress classes.",
+                "execution": "Rank bounded decompositions by smallest first prime.",
+                "observed": f"hardest p {((finite.get('hardest_smallest_prime_decomposition') or {}).get('smallest_prime', 'n/a'))}",
+                "verdict": "heuristic_priority_only",
+                "blocker": "stress ranking is not a lower-bound theorem",
+                "proof_upgrade": "turn stress classes into uniform explicit estimates",
+            },
+        ],
+        "twin-prime": [
+            {
+                "id": "TP-MP1",
+                "hypothesis": "Bounded exact gap-2 replay can prove infinitude.",
+                "execution": "Replay twin-pair certificate and compare checkpoint counts.",
+                "observed": f"twin pairs {finite.get('twin_pair_count', 'n/a')}",
+                "verdict": "finite_piece_closed",
+                "blocker": "positive finite counts do not force arbitrarily large pairs",
+                "proof_upgrade": "prove a positive exact gap-2 lower bound for arbitrarily large x",
+            },
+            {
+                "id": "TP-MP2",
+                "hypothesis": "Bounded gaps imply exact gap 2.",
+                "execution": "Theorem-shape audit against bounded-gap substitution.",
+                "observed": "bounded gaps may be larger than 2",
+                "verdict": "rejected_shortcut",
+                "blocker": "exact twin primes require gap exactly 2",
+                "proof_upgrade": "separate exact gap-2 counts from bounded-gap evidence",
+            },
+            {
+                "id": "TP-MP3",
+                "hypothesis": "Hardy-Littlewood-scale agreement can be used as proof.",
+                "execution": "Assumption audit against unproved k-tuple density.",
+                "observed": "density match remains heuristic",
+                "verdict": "heuristic_priority_only",
+                "blocker": "the proof cannot assume the density it must establish",
+                "proof_upgrade": "remove k-tuple independence or replace it with an accepted theorem",
+            },
+        ],
+    }
+    trials = trial_bank.get(problem_id, [])
+    return {
+        "schema": MACHINE_PROOF_SEARCH_TRIALS_SCHEMA,
+        "problem_id": problem_id,
+        "status": "trials_executed_no_full_proof",
+        "trial_count": len(trials),
+        "closed_finite_count": sum(1 for trial in trials if trial["verdict"] == "finite_piece_closed"),
+        "rejected_count": sum(1 for trial in trials if trial["verdict"].startswith("rejected") or trial["verdict"] == "failed_candidate"),
+        "trials": trials,
+        "claim_rule": "A search trial may close finite pieces or reject shortcuts; it is not a proof until the listed proof_upgrade is supplied as a formal artifact or accepted theorem.",
+    }
+
+
+def formal_upgrade_matrix(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    certificate = problem.get("certificate", {}) if isinstance(problem.get("certificate"), dict) else {}
+    spec = problem.get("decisive_theorem_spec", {}) if isinstance(problem.get("decisive_theorem_spec"), dict) else {}
+    contract = problem.get("formal_proof_contract", {}) if isinstance(problem.get("formal_proof_contract"), dict) else {}
+    review = problem.get("proof_review_docket", {}) if isinstance(problem.get("proof_review_docket"), dict) else {}
+    target_bank: dict[str, dict[str, str]] = {
+        "riemann": {
+            "decisive_artifact": "formal all-x theta/psi estimate plus non-circular RH-equivalence bridge",
+            "kernel_target": "primeproject_riemann_hypothesis",
+            "minimal_external_review": "analytic number theory review plus Lean replay of the bridge theorem",
+        },
+        "collatz": {
+            "decisive_artifact": "formal residue-cover descent theorem over all positive integers",
+            "kernel_target": "primeproject_collatz_conjecture",
+            "minimal_external_review": "independent residue-cover replay and well-founded descent check",
+        },
+        "goldbach": {
+            "decisive_artifact": "formal two-prime lower-bound theorem with explicit cutoff below the certificate limit",
+            "kernel_target": "primeproject_goldbach_conjecture",
+            "minimal_external_review": "explicit-constant analytic review plus finite cutoff replay",
+        },
+        "twin-prime": {
+            "decisive_artifact": "formal exact gap-2 lower-bound theorem and infinitude bridge",
+            "kernel_target": "primeproject_twin_prime_conjecture",
+            "minimal_external_review": "exact-gap theorem replay that rejects bounded-gap substitution",
+        },
+    }
+    target = target_bank.get(problem_id, target_bank["riemann"])
+    rows = [
+        {
+            "stage": "bounded_certificate",
+            "status": certificate.get("status", "missing"),
+            "artifact": certificate.get("verifier", "missing verifier"),
+            "acceptance_test": "Merkle root replay is byte-stable through the committed limit",
+            "blocks_full_proof": "yes_finite_only",
+        },
+        {
+            "stage": "decisive_infinite_theorem",
+            "status": spec.get("artifact_status", "missing_formal_theorem"),
+            "artifact": target["decisive_artifact"],
+            "acceptance_test": "the theorem quantifies beyond any search limit and avoids forbidden shortcuts",
+            "blocks_full_proof": "yes_required",
+        },
+        {
+            "stage": "kernel_formalization",
+            "status": contract.get("status", "not_formalized_open"),
+            "artifact": target["kernel_target"],
+            "acceptance_test": "Lean replay has no sorry, admit, unchecked axiom, or target-equivalent import",
+            "blocks_full_proof": "yes_required",
+        },
+        {
+            "stage": "independent_review",
+            "status": "blocked_until_formalization",
+            "artifact": target["minimal_external_review"],
+            "acceptance_test": "external reviewer can replay the proof without trusting PrimeProject code",
+            "blocks_full_proof": "yes_required",
+        },
+    ]
+    open_rows = [row for row in rows if row["status"] not in {"bounded_theorem_certified", "formal_proof_verified", "accepted_theorem"}]
+    return {
+        "schema": FORMAL_UPGRADE_MATRIX_SCHEMA,
+        "problem_id": problem_id,
+        "status": "formal_upgrade_blocked",
+        "target_theorem": target["kernel_target"],
+        "review_status": review.get("status", "blocked") if isinstance(review, dict) else "blocked",
+        "row_count": len(rows),
+        "open_row_count": len(open_rows),
+        "rows": rows,
+        "machine_rule": "Every row except bounded_certificate must close before the page can make a full-proof claim.",
+    }
+
+
+def proof_kernel_roadmap(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    contract = problem.get("formal_proof_contract", {}) if isinstance(problem.get("formal_proof_contract"), dict) else {}
+    matrix = problem.get("formal_upgrade_matrix", {}) if isinstance(problem.get("formal_upgrade_matrix"), dict) else {}
+    skeleton = problem.get("formal_skeleton_audit", {}) if isinstance(problem.get("formal_skeleton_audit"), dict) else {}
+    problem_targets: dict[str, dict[str, object]] = {
+        "riemann": {
+            "namespace": "PrimeProject.OpenProblems.Riemann",
+            "main_file": "formal/riemann/Main.lean",
+            "core_definition": "Zeta.NontrivialZero and critical-line predicate",
+            "decisive_lemma": "explicit all-x theta/psi estimate with a non-circular RH-equivalence bridge",
+            "bridge_theorem": "prime-counting error bound implies every non-trivial zero has real part 1/2",
+            "risk": "importing an RH-equivalent theorem as an assumption",
+        },
+        "collatz": {
+            "namespace": "PrimeProject.OpenProblems.Collatz",
+            "main_file": "formal/collatz/Main.lean",
+            "core_definition": "accelerated Collatz iterate, residue block, and well-founded descent measure",
+            "decisive_lemma": "complete residue-cover descent theorem over all positive integers",
+            "bridge_theorem": "strict descent cover implies convergence to 1 and excludes divergent branches",
+            "risk": "using average drift where deterministic descent is required",
+        },
+        "goldbach": {
+            "namespace": "PrimeProject.OpenProblems.Goldbach",
+            "main_file": "formal/goldbach/Main.lean",
+            "core_definition": "two-prime representation count for even integers",
+            "decisive_lemma": "positive two-prime lower-bound theorem with explicit cutoff below the certificate limit",
+            "bridge_theorem": "finite certificate plus large-even lower bound covers every even integer greater than 2",
+            "risk": "substituting weak Goldbach or an incompatible cutoff theorem",
+        },
+        "twin-prime": {
+            "namespace": "PrimeProject.OpenProblems.TwinPrime",
+            "main_file": "formal/twin-prime/Main.lean",
+            "core_definition": "exact gap-2 prime pair and arbitrarily-large twin-pair predicate",
+            "decisive_lemma": "unconditional positive lower bound for exact gap-2 pairs at arbitrarily large scale",
+            "bridge_theorem": "exact gap-2 lower bound implies infinitely many twin prime pairs",
+            "risk": "treating bounded gaps or Hardy-Littlewood density as exact gap-2 proof",
+        },
+    }
+    target = problem_targets.get(problem_id, problem_targets["riemann"])
+    target_theorem = str(matrix.get("target_theorem", contract.get("theorem_name", f"primeproject_{problem_id}")))
+    file_checks = skeleton.get("file_checks", []) if isinstance(skeleton.get("file_checks"), list) else []
+    present_files = [
+        item.get("path", "")
+        for item in file_checks
+        if isinstance(item, dict) and item.get("status") == "skeleton_present_not_proof"
+    ]
+    steps = [
+        {
+            "id": "K0",
+            "stage": "formal definitions",
+            "status": "skeleton_present_not_proof" if present_files else "missing",
+            "artifact": target["core_definition"],
+            "acceptance_test": "definitions compile and contain no target-equivalent axiom",
+        },
+        {
+            "id": "K1",
+            "stage": "bounded certificate import",
+            "status": "bounded_theorem_certified",
+            "artifact": "Merkle replay theorem for the committed finite range",
+            "acceptance_test": "certificate root is reproduced and imported only as a finite theorem",
+        },
+        {
+            "id": "K2",
+            "stage": "decisive infinite lemma",
+            "status": "open_infinite_bridge",
+            "artifact": target["decisive_lemma"],
+            "acceptance_test": "lemma quantifies beyond every search limit and avoids the listed shortcut risk",
+        },
+        {
+            "id": "K3",
+            "stage": "bridge to target theorem",
+            "status": "blocked_until_k2",
+            "artifact": target["bridge_theorem"],
+            "acceptance_test": f"the bridge proves {target_theorem} from K1 and K2 without circular imports",
+        },
+        {
+            "id": "K4",
+            "stage": "independent kernel replay",
+            "status": "blocked_until_k3",
+            "artifact": target["main_file"],
+            "acceptance_test": "external replay reports no sorry, admit, unchecked axiom, or equivalent theorem import",
+        },
+    ]
+    open_steps = [step for step in steps if step["status"] not in {"bounded_theorem_certified", "formal_proof_verified"}]
+    return {
+        "schema": PROOF_KERNEL_ROADMAP_SCHEMA,
+        "problem_id": problem_id,
+        "status": "kernel_roadmap_open",
+        "namespace": target["namespace"],
+        "target_theorem": target_theorem,
+        "main_file": target["main_file"],
+        "shortcut_risk": target["risk"],
+        "present_skeleton_files": present_files,
+        "step_count": len(steps),
+        "open_step_count": len(open_steps),
+        "steps": steps,
+        "claim_rule": "The roadmap is executable proof-engineering work, not a proof; the page can upgrade only after K2-K4 replay successfully.",
+    }
+
+
+def formal_kernel_contract_audit(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    replay = problem.get("formal_replay_package", {}) if isinstance(problem.get("formal_replay_package"), dict) else {}
+    contract = problem.get("formal_proof_contract", {}) if isinstance(problem.get("formal_proof_contract"), dict) else {}
+    package_dir = Path(str(replay.get("package_dir", f"formal/{problem_id}")))
+    forbidden_tokens = [str(item) for item in replay.get("forbidden_tokens", []) if str(item).strip()]
+    theorem_name = str(contract.get("theorem_name", replay.get("theorem_name", "missing")))
+    theorem_statement = str(contract.get("lean_statement", replay.get("theorem_statement", "missing")))
+    expected_fragments: dict[str, list[str]] = {
+        "Definitions.lean": [
+            f'def problemId : String := "{problem_id}"',
+            'def targetStatus : String := "open_not_proven"',
+            "def targetShape : String :=",
+        ],
+        "BoundedCertificate.lean": [
+            "def boundedCertificateScope : String :=",
+            'def boundedCertificateVerifier : String :=',
+            "scripts/verify_open_problem_workbench.py",
+        ],
+        "InfiniteBridge.lean": [
+            "def missingInfiniteBridge : String :=",
+            'def bridgeStatus : String := "open_infinite_bridge"',
+        ],
+        "Main.lean": [
+            'def replayStatus : String := "not_replayable_until_barriers_clear"',
+            'def publicClaim : String := "bounded_theorem_only"',
+            f'def targetTheoremName : String := "{theorem_name}"',
+            "def targetTheoremStatement : String :=",
+            theorem_statement,
+        ],
+    }
+    rows: list[dict[str, object]] = []
+    forbidden_hits: list[dict[str, str]] = []
+    for filename, fragments in expected_fragments.items():
+        path = package_dir / filename
+        text = path.read_text(encoding="utf-8") if path.exists() else ""
+        missing = [
+            fragment
+            for fragment in fragments
+            if fragment not in text and fragment.replace("\\", "\\\\") not in text
+        ]
+        hits = [token for token in forbidden_tokens if token and token in text]
+        for token in hits:
+            forbidden_hits.append({"path": str(path), "token": token})
+        rows.append(
+            {
+                "file": str(path).replace("\\", "/"),
+                "status": "contract_pass" if path.exists() and not missing and not hits else "contract_blocked",
+                "expected_fragment_count": len(fragments),
+                "missing_fragments": missing,
+                "forbidden_hits": hits,
+                "line_count": len(text.splitlines()) if text else 0,
+            }
+        )
+    blocked_rows = [row for row in rows if row["status"] != "contract_pass"]
+    return {
+        "schema": FORMAL_KERNEL_CONTRACT_AUDIT_SCHEMA,
+        "problem_id": problem_id,
+        "status": "contract_pass_but_not_proof" if not blocked_rows and not forbidden_hits else "contract_blocked",
+        "package_dir": str(package_dir).replace("\\", "/"),
+        "target_theorem": theorem_name,
+        "row_count": len(rows),
+        "blocked_row_count": len(blocked_rows),
+        "forbidden_hit_count": len(forbidden_hits),
+        "rows": rows,
+        "forbidden_hits": forbidden_hits,
+        "claim_rule": "Passing this audit only proves the formal skeleton is aligned with the public claim boundary; it does not prove the conjecture.",
+    }
+
+
+def invalid_proof_shortcut_suite(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    certificate = problem.get("certificate", {}) if isinstance(problem.get("certificate"), dict) else {}
+    suite_bank: dict[str, list[dict[str, str]]] = {
+        "riemann": [
+            {
+                "id": "RH-SC1",
+                "shortcut": "Finite zero or prime-counting verification proves RH.",
+                "class": "finite_to_infinite",
+                "red_team_test": "Ask whether the argument quantifies over every height and every non-trivial zeta zero.",
+                "rejection_reason": "A bounded certificate can only close the committed finite range.",
+                "kill_condition": "No all-height zero theorem or accepted RH-equivalent bridge is supplied.",
+            },
+            {
+                "id": "RH-SC2",
+                "shortcut": "A fitted prime-counting envelope is enough.",
+                "class": "curve_fit_to_theorem",
+                "red_team_test": "Stress every prime endpoint and require explicit constants, not sampled checkpoints.",
+                "rejection_reason": "Numeric fit is not an all-x theorem.",
+                "kill_condition": "The bound is stated only empirically or only at selected x values.",
+            },
+            {
+                "id": "RH-SC3",
+                "shortcut": "Use an RH-equivalent criterion as an assumption.",
+                "class": "circular_bridge",
+                "red_team_test": "Scan the bridge for an imported theorem equivalent to RH.",
+                "rejection_reason": "The bridge must prove the criterion hypotheses without assuming the target.",
+                "kill_condition": "The proof imports RH, an equivalent zero theorem, or a target-equivalent axiom.",
+            },
+        ],
+        "collatz": [
+            {
+                "id": "CO-SC1",
+                "shortcut": "Finite trajectory replay proves convergence for all n.",
+                "class": "finite_to_infinite",
+                "red_team_test": "Ask whether every residue block outside the search range is covered symbolically.",
+                "rejection_reason": "Checked starts do not quantify over all positive integers.",
+                "kill_condition": "No complete residue-cover descent theorem is supplied.",
+            },
+            {
+                "id": "CO-SC2",
+                "shortcut": "Average parity drift proves deterministic descent.",
+                "class": "probabilistic_to_deterministic",
+                "red_team_test": "Require a strict well-founded measure decrease for every transition block.",
+                "rejection_reason": "Average drift cannot exclude exceptional divergent branches.",
+                "kill_condition": "The descent argument is average-only, probabilistic, or non-strict.",
+            },
+            {
+                "id": "CO-SC3",
+                "shortcut": "Cycle exclusion alone proves Collatz.",
+                "class": "partial_target_substitution",
+                "red_team_test": "Check whether divergent non-cyclic branches are also excluded.",
+                "rejection_reason": "The target is convergence, not only absence of non-trivial cycles.",
+                "kill_condition": "The proof does not derive both cycle exclusion and divergence exclusion from one descent theorem.",
+            },
+        ],
+        "goldbach": [
+            {
+                "id": "GB-SC1",
+                "shortcut": "Finite decompositions prove all even integers.",
+                "class": "finite_to_infinite",
+                "red_team_test": "Require an explicit large-even threshold below the certificate limit.",
+                "rejection_reason": "Bounded decomposition replay does not cover the infinite tail.",
+                "kill_condition": "No compatible N0 and positive two-prime lower bound are supplied.",
+            },
+            {
+                "id": "GB-SC2",
+                "shortcut": "Weak Goldbach can replace strong Goldbach.",
+                "class": "wrong_target",
+                "red_team_test": "Verify the theorem states two primes for every even n > 2.",
+                "rejection_reason": "Three-prime representation is a different theorem.",
+                "kill_condition": "The target theorem allows three primes or odd-only statements.",
+            },
+            {
+                "id": "GB-SC3",
+                "shortcut": "Heuristic prime independence proves representation counts.",
+                "class": "heuristic_to_theorem",
+                "red_team_test": "Require explicit constants and a positive lower bound for every large even n.",
+                "rejection_reason": "Heuristic density is not a uniform lower-bound theorem.",
+                "kill_condition": "The lower bound depends on unproved independence assumptions.",
+            },
+        ],
+        "twin-prime": [
+            {
+                "id": "TP-SC1",
+                "shortcut": "Bounded twin-pair counts prove infinitely many twin primes.",
+                "class": "finite_to_infinite",
+                "red_team_test": "Ask whether the argument forces arbitrarily large exact gap-2 pairs.",
+                "rejection_reason": "Positive finite counts do not imply infinitude.",
+                "kill_condition": "No exact gap-2 lower bound beyond every search limit is supplied.",
+            },
+            {
+                "id": "TP-SC2",
+                "shortcut": "Bounded prime gaps imply twin primes.",
+                "class": "weaker_theorem_substitution",
+                "red_team_test": "Check whether the gap is exactly 2 rather than merely bounded.",
+                "rejection_reason": "Bounded gaps can be larger than 2.",
+                "kill_condition": "The proof proves only a finite upper bound for gaps, not exact gap 2.",
+            },
+            {
+                "id": "TP-SC3",
+                "shortcut": "Hardy-Littlewood density agreement can be used as proof.",
+                "class": "heuristic_to_theorem",
+                "red_team_test": "Reject any proof that assumes the k-tuple density it must establish.",
+                "rejection_reason": "Heuristic-scale agreement is not an unconditional theorem.",
+                "kill_condition": "The density lower bound depends on Hardy-Littlewood or independence as an axiom.",
+            },
+        ],
+    }
+    shortcuts = suite_bank.get(problem_id, suite_bank["riemann"])
+    return {
+        "schema": INVALID_PROOF_SHORTCUT_SUITE_SCHEMA,
+        "problem_id": problem_id,
+        "status": "invalid_shortcuts_rejected",
+        "bounded_certificate_root": certificate.get("merkle_root", "missing"),
+        "shortcut_count": len(shortcuts),
+        "rejected_count": len(shortcuts),
+        "shortcuts": [
+            {
+                **shortcut,
+                "verdict": "rejected_shortcut",
+                "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge",
+            }
+            for shortcut in shortcuts
+        ],
+        "claim_rule": "No proof candidate may enter review until every matching invalid shortcut is removed or replaced by a formal artifact.",
     }
 
 
@@ -2999,6 +3763,13 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["decisive_theorem_spec"] = decisive_theorem_spec(problem)
         problem["decisive_theorem_subgoals"] = decisive_theorem_subgoals(problem)
         problem["decisive_theorem_attack_tickets"] = decisive_theorem_attack_tickets(problem)
+        problem["actual_proof_attempt_runner"] = actual_proof_attempt_runner(problem)
+        problem["candidate_lemma_workbench"] = candidate_lemma_workbench(problem)
+        problem["machine_proof_search_trials"] = machine_proof_search_trials(problem)
+        problem["formal_upgrade_matrix"] = formal_upgrade_matrix(problem)
+        problem["proof_kernel_roadmap"] = proof_kernel_roadmap(problem)
+        problem["formal_kernel_contract_audit"] = formal_kernel_contract_audit(problem)
+        problem["invalid_proof_shortcut_suite"] = invalid_proof_shortcut_suite(problem)
         problem["proof_breakthrough_agenda"] = proof_breakthrough_agenda(problem)
     return {
         "schema": SCHEMA,

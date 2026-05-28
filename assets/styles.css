@@ -660,6 +660,461 @@ canvas {
   background: var(--teal-soft);
 }
 
+.runner-head,
+.runner-outcome {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.runner-head div,
+.runner-bridge,
+.runner-step,
+.runner-outcome section,
+.runner-verdict {
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.runner-head span,
+.runner-step span,
+.runner-bridge span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.runner-head strong,
+.runner-step strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.runner-bridge {
+  margin-top: 10px;
+  border-left: 4px solid var(--teal);
+}
+
+.runner-bridge p,
+.runner-verdict p {
+  margin: 8px 0 0;
+}
+
+.runner-step-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.runner-step p,
+.runner-step small,
+.runner-step em {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.runner-step em {
+  color: var(--teal);
+  font-style: normal;
+  font-weight: 720;
+}
+
+.runner-outcome {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 10px;
+}
+
+.runner-outcome h3 {
+  margin: 0 0 8px;
+  font-size: 12px;
+}
+
+.runner-verdict {
+  margin-top: 10px;
+  border-left: 4px solid var(--danger);
+}
+
+.lemma-workbench-head {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.lemma-workbench-head div,
+.lemma-workbench-target,
+.lemma-card {
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.lemma-workbench-head span,
+.lemma-workbench-target span,
+.lemma-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.lemma-workbench-head strong,
+.lemma-card strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.lemma-workbench-target {
+  margin-top: 10px;
+  border-left: 4px solid var(--indigo);
+}
+
+.lemma-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.lemma-card p,
+.lemma-card small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.lemma-card.is-open_infinite_bridge,
+.lemma-card.is-open_formal_bridge,
+.lemma-card.is-blocked_until_cover_exists,
+.lemma-card.is-blocked_until_large_x_theorem,
+.lemma-card.is-blocked_until_lower_bound {
+  border-left: 4px solid var(--danger);
+}
+
+.lemma-card.is-bounded_certificate_complete,
+.lemma-card.is-guard_pass {
+  border-left: 4px solid var(--teal);
+}
+
+.lemma-card.is-falsified_as_stated,
+.lemma-card.is-partial_bounded_support {
+  border-left: 4px solid var(--amber);
+}
+
+.search-trials-head {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.search-trials-head div,
+.search-trial {
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.search-trials-head span,
+.search-trial span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.search-trials-head strong,
+.search-trial strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.search-trial-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.search-trial p,
+.search-trial small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.search-trial.is-finite_piece_closed {
+  border-left: 4px solid var(--teal);
+}
+
+.search-trial.is-failed_candidate,
+.search-trial.is-rejected_shortcut {
+  border-left: 4px solid var(--danger);
+}
+
+.search-trial.is-open_bridge,
+.search-trial.is-insufficient_partial,
+.search-trial.is-heuristic_priority_only {
+  border-left: 4px solid var(--amber);
+}
+
+.upgrade-matrix-head {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 0.7fr 1fr;
+  gap: 10px;
+}
+
+.upgrade-matrix-head div,
+.upgrade-row {
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.upgrade-matrix-head span,
+.upgrade-row span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.upgrade-matrix-head strong,
+.upgrade-row strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.upgrade-matrix-table {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.upgrade-row p,
+.upgrade-row small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.upgrade-row.is-bounded_theorem_certified {
+  border-left: 4px solid var(--teal);
+}
+
+.upgrade-row:not(.is-bounded_theorem_certified) {
+  border-left: 4px solid var(--danger);
+}
+
+.kernel-roadmap-head {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1.4fr 0.7fr;
+  gap: 10px;
+}
+
+.kernel-roadmap-head div,
+.kernel-roadmap-risk,
+.kernel-step {
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.kernel-roadmap-head span,
+.kernel-roadmap-risk span,
+.kernel-step span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.kernel-roadmap-head strong,
+.kernel-step strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.kernel-roadmap-risk {
+  margin-top: 10px;
+  border-left: 4px solid var(--amber);
+}
+
+.kernel-roadmap-risk code {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.kernel-roadmap-risk p,
+.kernel-step p,
+.kernel-step small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.kernel-roadmap-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.kernel-step.is-bounded_theorem_certified {
+  border-left: 4px solid var(--teal);
+}
+
+.kernel-step:not(.is-bounded_theorem_certified) {
+  border-left: 4px solid var(--danger);
+}
+
+.kernel-audit-head {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.4fr 0.7fr;
+  gap: 10px;
+}
+
+.kernel-audit-head div,
+.kernel-audit-row {
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.kernel-audit-head span,
+.kernel-audit-row span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.kernel-audit-head strong,
+.kernel-audit-row strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.kernel-audit-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.kernel-audit-row p,
+.kernel-audit-row small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.kernel-audit-row.is-contract_pass {
+  border-left: 4px solid var(--teal);
+}
+
+.kernel-audit-row:not(.is-contract_pass) {
+  border-left: 4px solid var(--danger);
+}
+
+.shortcut-suite-head {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr 0.7fr 1.2fr;
+  gap: 10px;
+}
+
+.shortcut-suite-head div,
+.shortcut-card {
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.shortcut-suite-head span,
+.shortcut-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.shortcut-suite-head strong,
+.shortcut-suite-head code,
+.shortcut-card strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.shortcut-suite-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.shortcut-card {
+  border-left: 4px solid var(--danger);
+}
+
+.shortcut-card em {
+  display: inline-block;
+  margin-top: 7px;
+  color: var(--danger);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.shortcut-card p,
+.shortcut-card small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .proof-panel ol {
   margin: 0;
   padding-left: 20px;
@@ -5768,6 +6223,21 @@ tr:last-child td {
 
   .proof-grid,
   .proof-metrics,
+  .runner-head,
+  .runner-step-list,
+  .runner-outcome,
+  .lemma-workbench-head,
+  .lemma-card-list,
+  .search-trials-head,
+  .search-trial-list,
+  .upgrade-matrix-head,
+  .upgrade-matrix-table,
+  .kernel-roadmap-head,
+  .kernel-roadmap-list,
+  .kernel-audit-head,
+  .kernel-audit-list,
+  .shortcut-suite-head,
+  .shortcut-suite-list,
   .verdict-grid,
   .route-triage-head,
   .route-triage-list,

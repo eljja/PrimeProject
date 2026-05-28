@@ -976,7 +976,7 @@
             "path": "formal\\riemann\\Main.lean",
             "exists": true,
             "status": "skeleton_present_not_proof",
-            "line_count": 6
+            "line_count": 9
           }
         ],
         "forbidden_hits": [],
@@ -1165,6 +1165,319 @@
           }
         ],
         "machine_rule": "A ticket can close only by producing its required output and passing its falsification test; planned tickets are not proof artifacts."
+      },
+      "actual_proof_attempt_runner": {
+        "schema": "primeproject.actual-proof-attempt-runner.v1",
+        "problem_id": "riemann",
+        "runner_status": "executed_full_proof_blocked",
+        "attempt_title": "Use prime-counting residuals to force RH-equivalent zero control",
+        "candidate_bridge": "finite theta/pi diagnostics -> explicit all-x theta bound -> RH-equivalent zero theorem",
+        "observed_signal": "bounded theta diagnostics and endpoint stress tests identify candidate envelope pressure",
+        "failure_reason": "the all-x analytic theorem is still missing, so finite residual discipline cannot quantify over every zeta zero",
+        "next_executable_move": "formalize the exact theta/psi inequality with explicit constants and reject it if any endpoint stress row exceeds the envelope",
+        "runner_steps": [
+          {
+            "id": "RUN-1",
+            "tool": "bounded certificate replay",
+            "input": "Prime-counting diagnostics are exactly recomputed at decimal checkpoints up to 1000000.",
+            "status": "bounded_theorem_certified",
+            "output": "d2a11c74de18a21a2652a79f3ff5ab1b92356f18884c089a4a82127189a4c813",
+            "proof_effect": "closes only the finite replay claim"
+          },
+          {
+            "id": "RUN-2",
+            "tool": "frontier falsification probe",
+            "input": "Stress the proposed theta-envelope lemma at every prime endpoint through the committed limit.",
+            "status": "finite_probe_not_proof",
+            "output": "Any endpoint above the proposed explicit envelope falsifies that candidate before formalization.",
+            "proof_effect": "rejects weak candidate lemmas before formal proof work"
+          },
+          {
+            "id": "RUN-3",
+            "tool": "route triage",
+            "input": "RH-R4",
+            "status": "routes_triaged_no_full_proof",
+            "output": "Explicit all-x prime-counting error theorem",
+            "proof_effect": "selects the only route that can plausibly attack the infinite theorem"
+          },
+          {
+            "id": "RUN-4",
+            "tool": "decisive theorem gate",
+            "input": "Prove an explicit all-x theta or psi error bound strong enough to pass an accepted RH-equivalence bridge, without importing RH or an equivalent zero theorem.",
+            "status": "missing_formal_theorem",
+            "output": "No formal all-x prime-counting error theorem is available.",
+            "proof_effect": "blocks promotion until the infinite theorem exists"
+          }
+        ],
+        "closed_items": [
+          "bounded certificate replay",
+          "finite falsification probe",
+          "route triage",
+          "proof obligation naming"
+        ],
+        "open_items": [
+          "formal all-x analytic estimate plus formal RH-equivalence bridge",
+          "4 decisive subgoals remain open or blocked",
+          "4 attack tickets are planned but not proof artifacts"
+        ],
+        "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
+        "promotion_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      },
+      "candidate_lemma_workbench": {
+        "schema": "primeproject.candidate-lemma-workbench.v1",
+        "problem_id": "riemann",
+        "status": "active_no_full_proof",
+        "workbench_title": "RH candidate lemma search",
+        "target": "Close the all-x analytic bridge between bounded prime-counting diagnostics and an RH-equivalent theorem.",
+        "closed_count": 0,
+        "open_or_blocked_count": 3,
+        "lemmas": [
+          {
+            "id": "RH-CL1",
+            "statement": "The observed theta residual envelope persists for every x beyond the committed finite range.",
+            "tool_test": "prime-endpoint stress probe against the proposed explicit envelope",
+            "result": "falsified_as_stated",
+            "reason": "selected decimal checkpoints understate worst prime-endpoint behavior",
+            "next_revision": "state a weaker explicit envelope with named constants and test every prime endpoint"
+          },
+          {
+            "id": "RH-CL2",
+            "statement": "A computable theta/psi inequality with explicit constants implies an accepted RH-equivalent criterion.",
+            "tool_test": "formal bridge audit: reject if the bridge imports RH or an equivalent theorem",
+            "result": "open_formal_bridge",
+            "reason": "the equivalence theorem must be cited or formalized without circular dependence",
+            "next_revision": "write the exact theorem statement and allowed published bridge reference"
+          },
+          {
+            "id": "RH-CL3",
+            "statement": "Finite certificate plus large-x theorem covers the whole positive real line.",
+            "tool_test": "cutoff compatibility check: analytic threshold <= bounded certificate limit",
+            "result": "blocked_until_large_x_theorem",
+            "reason": "there is no large-x theorem with a compatible threshold yet",
+            "next_revision": "prove or import an explicit all-x estimate and bind its cutoff to the certificate"
+          }
+        ],
+        "claim_rule": "A candidate lemma may support proof search only; it upgrades the page status only after formal proof or accepted theorem review."
+      },
+      "machine_proof_search_trials": {
+        "schema": "primeproject.machine-proof-search-trials.v1",
+        "problem_id": "riemann",
+        "status": "trials_executed_no_full_proof",
+        "trial_count": 3,
+        "closed_finite_count": 1,
+        "rejected_count": 1,
+        "trials": [
+          {
+            "id": "RH-MP1",
+            "hypothesis": "A simple checkpoint theta envelope can be promoted to an all-x RH bridge.",
+            "execution": "Compare decimal checkpoint residuals with prime-endpoint frontier stress.",
+            "observed": "checkpoint max scaled theta error 0.076725",
+            "verdict": "failed_candidate",
+            "blocker": "prime endpoints expose stronger local errors than decimal checkpoints",
+            "proof_upgrade": "replace checkpoint envelope with an explicit all-x theta/psi theorem"
+          },
+          {
+            "id": "RH-MP2",
+            "hypothesis": "Bounded prime-counting replay can certify the finite interval below an analytic cutoff.",
+            "execution": "Replay Merkle certificate and require cutoff compatibility.",
+            "observed": "bounded root d2a11c74de18",
+            "verdict": "finite_piece_closed",
+            "blocker": "finite coverage is useful only after a large-x theorem supplies the cutoff",
+            "proof_upgrade": "bind an accepted large-x estimate to the certificate limit"
+          },
+          {
+            "id": "RH-MP3",
+            "hypothesis": "An RH-equivalent theorem can be used as a bridge without circularity.",
+            "execution": "Audit candidate bridge for target-equivalent assumptions.",
+            "observed": "bridge remains a specification, not a verified theorem",
+            "verdict": "open_bridge",
+            "blocker": "no formal non-circular implication is present in the repo",
+            "proof_upgrade": "formalize the exact implication or cite an accepted theorem with proof boundaries"
+          }
+        ],
+        "claim_rule": "A search trial may close finite pieces or reject shortcuts; it is not a proof until the listed proof_upgrade is supplied as a formal artifact or accepted theorem."
+      },
+      "formal_upgrade_matrix": {
+        "schema": "primeproject.formal-upgrade-matrix.v1",
+        "problem_id": "riemann",
+        "status": "formal_upgrade_blocked",
+        "target_theorem": "primeproject_riemann_hypothesis",
+        "review_status": "full_proof_not_accepted",
+        "row_count": 4,
+        "open_row_count": 3,
+        "rows": [
+          {
+            "stage": "bounded_certificate",
+            "status": "bounded_theorem_certified",
+            "artifact": "scripts/verify_open_problem_workbench.py",
+            "acceptance_test": "Merkle root replay is byte-stable through the committed limit",
+            "blocks_full_proof": "yes_finite_only"
+          },
+          {
+            "stage": "decisive_infinite_theorem",
+            "status": "missing_formal_theorem",
+            "artifact": "formal all-x theta/psi estimate plus non-circular RH-equivalence bridge",
+            "acceptance_test": "the theorem quantifies beyond any search limit and avoids forbidden shortcuts",
+            "blocks_full_proof": "yes_required"
+          },
+          {
+            "stage": "kernel_formalization",
+            "status": "not_formalized_open",
+            "artifact": "primeproject_riemann_hypothesis",
+            "acceptance_test": "Lean replay has no sorry, admit, unchecked axiom, or target-equivalent import",
+            "blocks_full_proof": "yes_required"
+          },
+          {
+            "stage": "independent_review",
+            "status": "blocked_until_formalization",
+            "artifact": "analytic number theory review plus Lean replay of the bridge theorem",
+            "acceptance_test": "external reviewer can replay the proof without trusting PrimeProject code",
+            "blocks_full_proof": "yes_required"
+          }
+        ],
+        "machine_rule": "Every row except bounded_certificate must close before the page can make a full-proof claim."
+      },
+      "proof_kernel_roadmap": {
+        "schema": "primeproject.proof-kernel-roadmap.v1",
+        "problem_id": "riemann",
+        "status": "kernel_roadmap_open",
+        "namespace": "PrimeProject.OpenProblems.Riemann",
+        "target_theorem": "primeproject_riemann_hypothesis",
+        "main_file": "formal/riemann/Main.lean",
+        "shortcut_risk": "importing an RH-equivalent theorem as an assumption",
+        "present_skeleton_files": [
+          "formal\\riemann\\Definitions.lean",
+          "formal\\riemann\\BoundedCertificate.lean",
+          "formal\\riemann\\InfiniteBridge.lean",
+          "formal\\riemann\\Main.lean"
+        ],
+        "step_count": 5,
+        "open_step_count": 4,
+        "steps": [
+          {
+            "id": "K0",
+            "stage": "formal definitions",
+            "status": "skeleton_present_not_proof",
+            "artifact": "Zeta.NontrivialZero and critical-line predicate",
+            "acceptance_test": "definitions compile and contain no target-equivalent axiom"
+          },
+          {
+            "id": "K1",
+            "stage": "bounded certificate import",
+            "status": "bounded_theorem_certified",
+            "artifact": "Merkle replay theorem for the committed finite range",
+            "acceptance_test": "certificate root is reproduced and imported only as a finite theorem"
+          },
+          {
+            "id": "K2",
+            "stage": "decisive infinite lemma",
+            "status": "open_infinite_bridge",
+            "artifact": "explicit all-x theta/psi estimate with a non-circular RH-equivalence bridge",
+            "acceptance_test": "lemma quantifies beyond every search limit and avoids the listed shortcut risk"
+          },
+          {
+            "id": "K3",
+            "stage": "bridge to target theorem",
+            "status": "blocked_until_k2",
+            "artifact": "prime-counting error bound implies every non-trivial zero has real part 1/2",
+            "acceptance_test": "the bridge proves primeproject_riemann_hypothesis from K1 and K2 without circular imports"
+          },
+          {
+            "id": "K4",
+            "stage": "independent kernel replay",
+            "status": "blocked_until_k3",
+            "artifact": "formal/riemann/Main.lean",
+            "acceptance_test": "external replay reports no sorry, admit, unchecked axiom, or equivalent theorem import"
+          }
+        ],
+        "claim_rule": "The roadmap is executable proof-engineering work, not a proof; the page can upgrade only after K2-K4 replay successfully."
+      },
+      "formal_kernel_contract_audit": {
+        "schema": "primeproject.formal-kernel-contract-audit.v1",
+        "problem_id": "riemann",
+        "status": "contract_pass_but_not_proof",
+        "package_dir": "formal/riemann",
+        "target_theorem": "primeproject_riemann_hypothesis",
+        "row_count": 4,
+        "blocked_row_count": 0,
+        "forbidden_hit_count": 0,
+        "rows": [
+          {
+            "file": "formal/riemann/Definitions.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 3,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 8
+          },
+          {
+            "file": "formal/riemann/BoundedCertificate.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 3,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 9
+          },
+          {
+            "file": "formal/riemann/InfiniteBridge.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 2,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 8
+          },
+          {
+            "file": "formal/riemann/Main.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 5,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 9
+          }
+        ],
+        "forbidden_hits": [],
+        "claim_rule": "Passing this audit only proves the formal skeleton is aligned with the public claim boundary; it does not prove the conjecture."
+      },
+      "invalid_proof_shortcut_suite": {
+        "schema": "primeproject.invalid-proof-shortcut-suite.v1",
+        "problem_id": "riemann",
+        "status": "invalid_shortcuts_rejected",
+        "bounded_certificate_root": "d2a11c74de18a21a2652a79f3ff5ab1b92356f18884c089a4a82127189a4c813",
+        "shortcut_count": 3,
+        "rejected_count": 3,
+        "shortcuts": [
+          {
+            "id": "RH-SC1",
+            "shortcut": "Finite zero or prime-counting verification proves RH.",
+            "class": "finite_to_infinite",
+            "red_team_test": "Ask whether the argument quantifies over every height and every non-trivial zeta zero.",
+            "rejection_reason": "A bounded certificate can only close the committed finite range.",
+            "kill_condition": "No all-height zero theorem or accepted RH-equivalent bridge is supplied.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          },
+          {
+            "id": "RH-SC2",
+            "shortcut": "A fitted prime-counting envelope is enough.",
+            "class": "curve_fit_to_theorem",
+            "red_team_test": "Stress every prime endpoint and require explicit constants, not sampled checkpoints.",
+            "rejection_reason": "Numeric fit is not an all-x theorem.",
+            "kill_condition": "The bound is stated only empirically or only at selected x values.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          },
+          {
+            "id": "RH-SC3",
+            "shortcut": "Use an RH-equivalent criterion as an assumption.",
+            "class": "circular_bridge",
+            "red_team_test": "Scan the bridge for an imported theorem equivalent to RH.",
+            "rejection_reason": "The bridge must prove the criterion hypotheses without assuming the target.",
+            "kill_condition": "The proof imports RH, an equivalent zero theorem, or a target-equivalent axiom.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          }
+        ],
+        "claim_rule": "No proof candidate may enter review until every matching invalid shortcut is removed or replaced by a formal artifact."
       },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",
@@ -2257,7 +2570,7 @@
             "path": "formal\\collatz\\Main.lean",
             "exists": true,
             "status": "skeleton_present_not_proof",
-            "line_count": 6
+            "line_count": 9
           }
         ],
         "forbidden_hits": [],
@@ -2447,6 +2760,319 @@
           }
         ],
         "machine_rule": "A ticket can close only by producing its required output and passing its falsification test; planned tickets are not proof artifacts."
+      },
+      "actual_proof_attempt_runner": {
+        "schema": "primeproject.actual-proof-attempt-runner.v1",
+        "problem_id": "collatz",
+        "runner_status": "executed_full_proof_blocked",
+        "attempt_title": "Compress bounded trajectories into a symbolic descent cover",
+        "candidate_bridge": "trajectory certificate -> residue-block transition graph -> global well-founded descent",
+        "observed_signal": "bounded replay finds no counterexample and ranks residue blocks by descent pressure",
+        "failure_reason": "enumerated starts do not prove that every residue block has a decreasing representative",
+        "next_executable_move": "generate a residue-block cover candidate and require every block to map to a smaller certified representative",
+        "runner_steps": [
+          {
+            "id": "RUN-1",
+            "tool": "bounded certificate replay",
+            "input": "Every start value 1 <= n <= 1000000 reaches 1 under the Collatz map.",
+            "status": "bounded_theorem_certified",
+            "output": "efda5adedc111cb14cdb476cd133ca278b19fec9cd94764e1c338b937f98857e",
+            "proof_effect": "closes only the finite replay claim"
+          },
+          {
+            "id": "RUN-2",
+            "tool": "frontier falsification probe",
+            "input": "Search for accelerated odd residue descents modulo 4096 within 8 odd steps.",
+            "status": "finite_probe_not_proof",
+            "output": "Any residue family that cannot be assigned a well-founded descent keeps the global proof blocked.",
+            "proof_effect": "rejects weak candidate lemmas before formal proof work"
+          },
+          {
+            "id": "RUN-3",
+            "tool": "route triage",
+            "input": "CO-R3",
+            "status": "routes_triaged_no_full_proof",
+            "output": "Residue-block descent cover theorem",
+            "proof_effect": "selects the only route that can plausibly attack the infinite theorem"
+          },
+          {
+            "id": "RUN-4",
+            "tool": "decisive theorem gate",
+            "input": "Prove that every positive integer belongs to a certified residue block whose accelerated Collatz trajectory reaches a smaller positive representative or 1.",
+            "status": "missing_formal_theorem",
+            "output": "No residue-block cover currently proves global descent.",
+            "proof_effect": "blocks promotion until the infinite theorem exists"
+          }
+        ],
+        "closed_items": [
+          "bounded certificate replay",
+          "finite falsification probe",
+          "route triage",
+          "proof obligation naming"
+        ],
+        "open_items": [
+          "formal residue-cover descent theorem",
+          "4 decisive subgoals remain open or blocked",
+          "4 attack tickets are planned but not proof artifacts"
+        ],
+        "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
+        "promotion_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      },
+      "candidate_lemma_workbench": {
+        "schema": "primeproject.candidate-lemma-workbench.v1",
+        "problem_id": "collatz",
+        "status": "active_no_full_proof",
+        "workbench_title": "Collatz residue-cover lemma search",
+        "target": "Replace bounded trajectory replay with a finite symbolic cover that proves global descent.",
+        "closed_count": 0,
+        "open_or_blocked_count": 3,
+        "lemmas": [
+          {
+            "id": "CO-CL1",
+            "statement": "Every odd residue block in a chosen modulus has an accelerated transition to a smaller block.",
+            "tool_test": "residue transition replay over bounded starts and symbolic block templates",
+            "result": "partial_bounded_support",
+            "reason": "bounded replay suggests descent pressure but does not cover all residue blocks symbolically",
+            "next_revision": "generate a complete modulus-specific cover with no uncovered residue class"
+          },
+          {
+            "id": "CO-CL2",
+            "statement": "The descent measure is well-founded and strictly decreases under the certified block transition.",
+            "tool_test": "well-foundedness audit: reject non-strict or average-only descent",
+            "result": "open_formal_bridge",
+            "reason": "average parity drift is insufficient for deterministic descent",
+            "next_revision": "define the exact measure and prove strict decrease for every block"
+          },
+          {
+            "id": "CO-CL3",
+            "statement": "The same cover excludes non-trivial cycles and divergent branches.",
+            "tool_test": "cycle/divergence dependency check",
+            "result": "blocked_until_cover_exists",
+            "reason": "cycle exclusion alone does not prove convergence",
+            "next_revision": "derive cycle and divergence exclusion from the descent cover"
+          }
+        ],
+        "claim_rule": "A candidate lemma may support proof search only; it upgrades the page status only after formal proof or accepted theorem review."
+      },
+      "machine_proof_search_trials": {
+        "schema": "primeproject.machine-proof-search-trials.v1",
+        "problem_id": "collatz",
+        "status": "trials_executed_no_full_proof",
+        "trial_count": 3,
+        "closed_finite_count": 1,
+        "rejected_count": 1,
+        "trials": [
+          {
+            "id": "CO-MP1",
+            "hypothesis": "Bounded trajectory replay can reveal a finite descent cover template.",
+            "execution": "Replay starts through the committed limit and inspect maximal stopping cases.",
+            "observed": "tested starts 1000000",
+            "verdict": "finite_piece_closed",
+            "blocker": "the replay does not cover unbounded residue classes",
+            "proof_upgrade": "derive a symbolic cover over all odd residue blocks"
+          },
+          {
+            "id": "CO-MP2",
+            "hypothesis": "Average downward drift is enough for convergence.",
+            "execution": "Run deterministic proof-gate audit against drift-only reasoning.",
+            "observed": "average drift cannot exclude exceptional branches",
+            "verdict": "rejected_shortcut",
+            "blocker": "probabilistic drift is not deterministic descent",
+            "proof_upgrade": "prove strict decrease under a well-founded measure for every block"
+          },
+          {
+            "id": "CO-MP3",
+            "hypothesis": "Cycle exclusion alone proves Collatz.",
+            "execution": "Dependency check between cycle exclusion and divergence exclusion.",
+            "observed": "cycle exclusion leaves divergent branches unresolved",
+            "verdict": "insufficient_partial",
+            "blocker": "global convergence needs both cycle and divergence exclusion",
+            "proof_upgrade": "derive both from the same residue-cover descent theorem"
+          }
+        ],
+        "claim_rule": "A search trial may close finite pieces or reject shortcuts; it is not a proof until the listed proof_upgrade is supplied as a formal artifact or accepted theorem."
+      },
+      "formal_upgrade_matrix": {
+        "schema": "primeproject.formal-upgrade-matrix.v1",
+        "problem_id": "collatz",
+        "status": "formal_upgrade_blocked",
+        "target_theorem": "primeproject_collatz_conjecture",
+        "review_status": "full_proof_not_accepted",
+        "row_count": 4,
+        "open_row_count": 3,
+        "rows": [
+          {
+            "stage": "bounded_certificate",
+            "status": "bounded_theorem_certified",
+            "artifact": "scripts/verify_open_problem_workbench.py",
+            "acceptance_test": "Merkle root replay is byte-stable through the committed limit",
+            "blocks_full_proof": "yes_finite_only"
+          },
+          {
+            "stage": "decisive_infinite_theorem",
+            "status": "missing_formal_theorem",
+            "artifact": "formal residue-cover descent theorem over all positive integers",
+            "acceptance_test": "the theorem quantifies beyond any search limit and avoids forbidden shortcuts",
+            "blocks_full_proof": "yes_required"
+          },
+          {
+            "stage": "kernel_formalization",
+            "status": "not_formalized_open",
+            "artifact": "primeproject_collatz_conjecture",
+            "acceptance_test": "Lean replay has no sorry, admit, unchecked axiom, or target-equivalent import",
+            "blocks_full_proof": "yes_required"
+          },
+          {
+            "stage": "independent_review",
+            "status": "blocked_until_formalization",
+            "artifact": "independent residue-cover replay and well-founded descent check",
+            "acceptance_test": "external reviewer can replay the proof without trusting PrimeProject code",
+            "blocks_full_proof": "yes_required"
+          }
+        ],
+        "machine_rule": "Every row except bounded_certificate must close before the page can make a full-proof claim."
+      },
+      "proof_kernel_roadmap": {
+        "schema": "primeproject.proof-kernel-roadmap.v1",
+        "problem_id": "collatz",
+        "status": "kernel_roadmap_open",
+        "namespace": "PrimeProject.OpenProblems.Collatz",
+        "target_theorem": "primeproject_collatz_conjecture",
+        "main_file": "formal/collatz/Main.lean",
+        "shortcut_risk": "using average drift where deterministic descent is required",
+        "present_skeleton_files": [
+          "formal\\collatz\\Definitions.lean",
+          "formal\\collatz\\BoundedCertificate.lean",
+          "formal\\collatz\\InfiniteBridge.lean",
+          "formal\\collatz\\Main.lean"
+        ],
+        "step_count": 5,
+        "open_step_count": 4,
+        "steps": [
+          {
+            "id": "K0",
+            "stage": "formal definitions",
+            "status": "skeleton_present_not_proof",
+            "artifact": "accelerated Collatz iterate, residue block, and well-founded descent measure",
+            "acceptance_test": "definitions compile and contain no target-equivalent axiom"
+          },
+          {
+            "id": "K1",
+            "stage": "bounded certificate import",
+            "status": "bounded_theorem_certified",
+            "artifact": "Merkle replay theorem for the committed finite range",
+            "acceptance_test": "certificate root is reproduced and imported only as a finite theorem"
+          },
+          {
+            "id": "K2",
+            "stage": "decisive infinite lemma",
+            "status": "open_infinite_bridge",
+            "artifact": "complete residue-cover descent theorem over all positive integers",
+            "acceptance_test": "lemma quantifies beyond every search limit and avoids the listed shortcut risk"
+          },
+          {
+            "id": "K3",
+            "stage": "bridge to target theorem",
+            "status": "blocked_until_k2",
+            "artifact": "strict descent cover implies convergence to 1 and excludes divergent branches",
+            "acceptance_test": "the bridge proves primeproject_collatz_conjecture from K1 and K2 without circular imports"
+          },
+          {
+            "id": "K4",
+            "stage": "independent kernel replay",
+            "status": "blocked_until_k3",
+            "artifact": "formal/collatz/Main.lean",
+            "acceptance_test": "external replay reports no sorry, admit, unchecked axiom, or equivalent theorem import"
+          }
+        ],
+        "claim_rule": "The roadmap is executable proof-engineering work, not a proof; the page can upgrade only after K2-K4 replay successfully."
+      },
+      "formal_kernel_contract_audit": {
+        "schema": "primeproject.formal-kernel-contract-audit.v1",
+        "problem_id": "collatz",
+        "status": "contract_pass_but_not_proof",
+        "package_dir": "formal/collatz",
+        "target_theorem": "primeproject_collatz_conjecture",
+        "row_count": 4,
+        "blocked_row_count": 0,
+        "forbidden_hit_count": 0,
+        "rows": [
+          {
+            "file": "formal/collatz/Definitions.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 3,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 8
+          },
+          {
+            "file": "formal/collatz/BoundedCertificate.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 3,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 9
+          },
+          {
+            "file": "formal/collatz/InfiniteBridge.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 2,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 8
+          },
+          {
+            "file": "formal/collatz/Main.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 5,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 9
+          }
+        ],
+        "forbidden_hits": [],
+        "claim_rule": "Passing this audit only proves the formal skeleton is aligned with the public claim boundary; it does not prove the conjecture."
+      },
+      "invalid_proof_shortcut_suite": {
+        "schema": "primeproject.invalid-proof-shortcut-suite.v1",
+        "problem_id": "collatz",
+        "status": "invalid_shortcuts_rejected",
+        "bounded_certificate_root": "efda5adedc111cb14cdb476cd133ca278b19fec9cd94764e1c338b937f98857e",
+        "shortcut_count": 3,
+        "rejected_count": 3,
+        "shortcuts": [
+          {
+            "id": "CO-SC1",
+            "shortcut": "Finite trajectory replay proves convergence for all n.",
+            "class": "finite_to_infinite",
+            "red_team_test": "Ask whether every residue block outside the search range is covered symbolically.",
+            "rejection_reason": "Checked starts do not quantify over all positive integers.",
+            "kill_condition": "No complete residue-cover descent theorem is supplied.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          },
+          {
+            "id": "CO-SC2",
+            "shortcut": "Average parity drift proves deterministic descent.",
+            "class": "probabilistic_to_deterministic",
+            "red_team_test": "Require a strict well-founded measure decrease for every transition block.",
+            "rejection_reason": "Average drift cannot exclude exceptional divergent branches.",
+            "kill_condition": "The descent argument is average-only, probabilistic, or non-strict.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          },
+          {
+            "id": "CO-SC3",
+            "shortcut": "Cycle exclusion alone proves Collatz.",
+            "class": "partial_target_substitution",
+            "red_team_test": "Check whether divergent non-cyclic branches are also excluded.",
+            "rejection_reason": "The target is convergence, not only absence of non-trivial cycles.",
+            "kill_condition": "The proof does not derive both cycle exclusion and divergence exclusion from one descent theorem.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          }
+        ],
+        "claim_rule": "No proof candidate may enter review until every matching invalid shortcut is removed or replaced by a formal artifact."
       },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",
@@ -3551,7 +4177,7 @@
             "path": "formal\\goldbach\\Main.lean",
             "exists": true,
             "status": "skeleton_present_not_proof",
-            "line_count": 6
+            "line_count": 9
           }
         ],
         "forbidden_hits": [],
@@ -3740,6 +4366,319 @@
           }
         ],
         "machine_rule": "A ticket can close only by producing its required output and passing its falsification test; planned tickets are not proof artifacts."
+      },
+      "actual_proof_attempt_runner": {
+        "schema": "primeproject.actual-proof-attempt-runner.v1",
+        "problem_id": "goldbach",
+        "runner_status": "executed_full_proof_blocked",
+        "attempt_title": "Turn bounded decompositions into an explicit two-prime lower bound",
+        "candidate_bridge": "finite decompositions -> thinnest residue classes -> explicit large-even representation theorem",
+        "observed_signal": "bounded search identifies hardest decomposition cases and residue stress targets",
+        "failure_reason": "the positive lower bound for every sufficiently large even integer is not formalized with a compatible cutoff",
+        "next_executable_move": "state the lower-bound theorem with N0 and test whether N0 is below the bounded certificate limit",
+        "runner_steps": [
+          {
+            "id": "RUN-1",
+            "tool": "bounded certificate replay",
+            "input": "Every even integer 4 <= n <= 1000000 has a displayed prime-pair witness.",
+            "status": "bounded_theorem_certified",
+            "output": "0e52db965ab01c1e8b828db9b67e917845214a64c4caa39388fc035d241f013b",
+            "proof_effect": "closes only the finite replay claim"
+          },
+          {
+            "id": "RUN-2",
+            "tool": "frontier falsification probe",
+            "input": "Rank even residue classes modulo 210 by hardest first-prime witness through the committed limit.",
+            "status": "finite_probe_not_proof",
+            "output": "If an explicit lower bound turns non-positive on a stressed residue class, that proof path is rejected.",
+            "proof_effect": "rejects weak candidate lemmas before formal proof work"
+          },
+          {
+            "id": "RUN-3",
+            "tool": "route triage",
+            "input": "GB-R3",
+            "status": "routes_triaged_no_full_proof",
+            "output": "Large-even two-prime representation lower-bound theorem",
+            "proof_effect": "selects the only route that can plausibly attack the infinite theorem"
+          },
+          {
+            "id": "RUN-4",
+            "tool": "decisive theorem gate",
+            "input": "Prove an explicit positive lower bound for two-prime representations of every even n >= N0, with N0 below the bounded certificate limit.",
+            "status": "missing_formal_theorem",
+            "output": "No explicit positive two-prime lower bound with compatible cutoff is formalized.",
+            "proof_effect": "blocks promotion until the infinite theorem exists"
+          }
+        ],
+        "closed_items": [
+          "bounded certificate replay",
+          "finite falsification probe",
+          "route triage",
+          "proof obligation naming"
+        ],
+        "open_items": [
+          "formal large-even threshold theorem with explicit cutoff",
+          "4 decisive subgoals remain open or blocked",
+          "4 attack tickets are planned but not proof artifacts"
+        ],
+        "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
+        "promotion_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      },
+      "candidate_lemma_workbench": {
+        "schema": "primeproject.candidate-lemma-workbench.v1",
+        "problem_id": "goldbach",
+        "status": "active_no_full_proof",
+        "workbench_title": "Goldbach lower-bound lemma search",
+        "target": "Turn bounded decomposition evidence into a two-prime representation theorem with an explicit cutoff.",
+        "closed_count": 2,
+        "open_or_blocked_count": 1,
+        "lemmas": [
+          {
+            "id": "GB-CL1",
+            "statement": "Every even n below N0 is covered by the bounded certificate.",
+            "tool_test": "complete even-integer decomposition replay",
+            "result": "bounded_certificate_complete",
+            "reason": "finite interval coverage is certified but cannot cover the infinite tail",
+            "next_revision": "bind this certificate to an explicit analytic threshold N0"
+          },
+          {
+            "id": "GB-CL2",
+            "statement": "For every even n >= N0, the two-prime representation count has a positive lower bound.",
+            "tool_test": "threshold audit: lower bound positive and N0 explicit",
+            "result": "open_infinite_bridge",
+            "reason": "no compatible large-even lower-bound theorem is formalized",
+            "next_revision": "formalize explicit circle-method constants or cite an accepted theorem with cutoff"
+          },
+          {
+            "id": "GB-CL3",
+            "statement": "The proof remains two-prime Goldbach and does not substitute weak Goldbach.",
+            "tool_test": "forbidden shortcut audit",
+            "result": "guard_pass",
+            "reason": "the current page correctly rejects three-prime substitution",
+            "next_revision": "keep every candidate theorem in two-prime representation form"
+          }
+        ],
+        "claim_rule": "A candidate lemma may support proof search only; it upgrades the page status only after formal proof or accepted theorem review."
+      },
+      "machine_proof_search_trials": {
+        "schema": "primeproject.machine-proof-search-trials.v1",
+        "problem_id": "goldbach",
+        "status": "trials_executed_no_full_proof",
+        "trial_count": 3,
+        "closed_finite_count": 1,
+        "rejected_count": 1,
+        "trials": [
+          {
+            "id": "GB-MP1",
+            "hypothesis": "Finite decomposition replay closes all even cases below a future analytic threshold.",
+            "execution": "Replay two-prime decompositions through the committed limit.",
+            "observed": "counterexamples 0",
+            "verdict": "finite_piece_closed",
+            "blocker": "there is no compatible explicit threshold theorem yet",
+            "proof_upgrade": "prove N0 <= certificate limit for a positive two-prime lower bound"
+          },
+          {
+            "id": "GB-MP2",
+            "hypothesis": "Weak Goldbach can substitute for strong Goldbach.",
+            "execution": "Forbidden-shortcut audit on theorem shape.",
+            "observed": "three-prime representation is not the target theorem",
+            "verdict": "rejected_shortcut",
+            "blocker": "target requires two primes for every even integer greater than 2",
+            "proof_upgrade": "keep the lower bound in two-prime representation form"
+          },
+          {
+            "id": "GB-MP3",
+            "hypothesis": "Hardest bounded cases identify the analytic stress classes.",
+            "execution": "Rank bounded decompositions by smallest first prime.",
+            "observed": "hardest p 523",
+            "verdict": "heuristic_priority_only",
+            "blocker": "stress ranking is not a lower-bound theorem",
+            "proof_upgrade": "turn stress classes into uniform explicit estimates"
+          }
+        ],
+        "claim_rule": "A search trial may close finite pieces or reject shortcuts; it is not a proof until the listed proof_upgrade is supplied as a formal artifact or accepted theorem."
+      },
+      "formal_upgrade_matrix": {
+        "schema": "primeproject.formal-upgrade-matrix.v1",
+        "problem_id": "goldbach",
+        "status": "formal_upgrade_blocked",
+        "target_theorem": "primeproject_goldbach_conjecture",
+        "review_status": "full_proof_not_accepted",
+        "row_count": 4,
+        "open_row_count": 3,
+        "rows": [
+          {
+            "stage": "bounded_certificate",
+            "status": "bounded_theorem_certified",
+            "artifact": "scripts/verify_open_problem_workbench.py",
+            "acceptance_test": "Merkle root replay is byte-stable through the committed limit",
+            "blocks_full_proof": "yes_finite_only"
+          },
+          {
+            "stage": "decisive_infinite_theorem",
+            "status": "missing_formal_theorem",
+            "artifact": "formal two-prime lower-bound theorem with explicit cutoff below the certificate limit",
+            "acceptance_test": "the theorem quantifies beyond any search limit and avoids forbidden shortcuts",
+            "blocks_full_proof": "yes_required"
+          },
+          {
+            "stage": "kernel_formalization",
+            "status": "not_formalized_open",
+            "artifact": "primeproject_goldbach_conjecture",
+            "acceptance_test": "Lean replay has no sorry, admit, unchecked axiom, or target-equivalent import",
+            "blocks_full_proof": "yes_required"
+          },
+          {
+            "stage": "independent_review",
+            "status": "blocked_until_formalization",
+            "artifact": "explicit-constant analytic review plus finite cutoff replay",
+            "acceptance_test": "external reviewer can replay the proof without trusting PrimeProject code",
+            "blocks_full_proof": "yes_required"
+          }
+        ],
+        "machine_rule": "Every row except bounded_certificate must close before the page can make a full-proof claim."
+      },
+      "proof_kernel_roadmap": {
+        "schema": "primeproject.proof-kernel-roadmap.v1",
+        "problem_id": "goldbach",
+        "status": "kernel_roadmap_open",
+        "namespace": "PrimeProject.OpenProblems.Goldbach",
+        "target_theorem": "primeproject_goldbach_conjecture",
+        "main_file": "formal/goldbach/Main.lean",
+        "shortcut_risk": "substituting weak Goldbach or an incompatible cutoff theorem",
+        "present_skeleton_files": [
+          "formal\\goldbach\\Definitions.lean",
+          "formal\\goldbach\\BoundedCertificate.lean",
+          "formal\\goldbach\\InfiniteBridge.lean",
+          "formal\\goldbach\\Main.lean"
+        ],
+        "step_count": 5,
+        "open_step_count": 4,
+        "steps": [
+          {
+            "id": "K0",
+            "stage": "formal definitions",
+            "status": "skeleton_present_not_proof",
+            "artifact": "two-prime representation count for even integers",
+            "acceptance_test": "definitions compile and contain no target-equivalent axiom"
+          },
+          {
+            "id": "K1",
+            "stage": "bounded certificate import",
+            "status": "bounded_theorem_certified",
+            "artifact": "Merkle replay theorem for the committed finite range",
+            "acceptance_test": "certificate root is reproduced and imported only as a finite theorem"
+          },
+          {
+            "id": "K2",
+            "stage": "decisive infinite lemma",
+            "status": "open_infinite_bridge",
+            "artifact": "positive two-prime lower-bound theorem with explicit cutoff below the certificate limit",
+            "acceptance_test": "lemma quantifies beyond every search limit and avoids the listed shortcut risk"
+          },
+          {
+            "id": "K3",
+            "stage": "bridge to target theorem",
+            "status": "blocked_until_k2",
+            "artifact": "finite certificate plus large-even lower bound covers every even integer greater than 2",
+            "acceptance_test": "the bridge proves primeproject_goldbach_conjecture from K1 and K2 without circular imports"
+          },
+          {
+            "id": "K4",
+            "stage": "independent kernel replay",
+            "status": "blocked_until_k3",
+            "artifact": "formal/goldbach/Main.lean",
+            "acceptance_test": "external replay reports no sorry, admit, unchecked axiom, or equivalent theorem import"
+          }
+        ],
+        "claim_rule": "The roadmap is executable proof-engineering work, not a proof; the page can upgrade only after K2-K4 replay successfully."
+      },
+      "formal_kernel_contract_audit": {
+        "schema": "primeproject.formal-kernel-contract-audit.v1",
+        "problem_id": "goldbach",
+        "status": "contract_pass_but_not_proof",
+        "package_dir": "formal/goldbach",
+        "target_theorem": "primeproject_goldbach_conjecture",
+        "row_count": 4,
+        "blocked_row_count": 0,
+        "forbidden_hit_count": 0,
+        "rows": [
+          {
+            "file": "formal/goldbach/Definitions.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 3,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 8
+          },
+          {
+            "file": "formal/goldbach/BoundedCertificate.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 3,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 9
+          },
+          {
+            "file": "formal/goldbach/InfiniteBridge.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 2,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 8
+          },
+          {
+            "file": "formal/goldbach/Main.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 5,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 9
+          }
+        ],
+        "forbidden_hits": [],
+        "claim_rule": "Passing this audit only proves the formal skeleton is aligned with the public claim boundary; it does not prove the conjecture."
+      },
+      "invalid_proof_shortcut_suite": {
+        "schema": "primeproject.invalid-proof-shortcut-suite.v1",
+        "problem_id": "goldbach",
+        "status": "invalid_shortcuts_rejected",
+        "bounded_certificate_root": "0e52db965ab01c1e8b828db9b67e917845214a64c4caa39388fc035d241f013b",
+        "shortcut_count": 3,
+        "rejected_count": 3,
+        "shortcuts": [
+          {
+            "id": "GB-SC1",
+            "shortcut": "Finite decompositions prove all even integers.",
+            "class": "finite_to_infinite",
+            "red_team_test": "Require an explicit large-even threshold below the certificate limit.",
+            "rejection_reason": "Bounded decomposition replay does not cover the infinite tail.",
+            "kill_condition": "No compatible N0 and positive two-prime lower bound are supplied.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          },
+          {
+            "id": "GB-SC2",
+            "shortcut": "Weak Goldbach can replace strong Goldbach.",
+            "class": "wrong_target",
+            "red_team_test": "Verify the theorem states two primes for every even n > 2.",
+            "rejection_reason": "Three-prime representation is a different theorem.",
+            "kill_condition": "The target theorem allows three primes or odd-only statements.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          },
+          {
+            "id": "GB-SC3",
+            "shortcut": "Heuristic prime independence proves representation counts.",
+            "class": "heuristic_to_theorem",
+            "red_team_test": "Require explicit constants and a positive lower bound for every large even n.",
+            "rejection_reason": "Heuristic density is not a uniform lower-bound theorem.",
+            "kill_condition": "The lower bound depends on unproved independence assumptions.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          }
+        ],
+        "claim_rule": "No proof candidate may enter review until every matching invalid shortcut is removed or replaced by a formal artifact."
       },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",
@@ -4782,7 +5721,7 @@
             "path": "formal\\twin-prime\\Main.lean",
             "exists": true,
             "status": "skeleton_present_not_proof",
-            "line_count": 6
+            "line_count": 9
           }
         ],
         "forbidden_hits": [],
@@ -4972,6 +5911,319 @@
           }
         ],
         "machine_rule": "A ticket can close only by producing its required output and passing its falsification test; planned tickets are not proof artifacts."
+      },
+      "actual_proof_attempt_runner": {
+        "schema": "primeproject.actual-proof-attempt-runner.v1",
+        "problem_id": "twin-prime",
+        "runner_status": "executed_full_proof_blocked",
+        "attempt_title": "Upgrade exact gap-2 persistence into infinitude",
+        "candidate_bridge": "bounded twin-pair certificate -> admissible exact-gap pattern analysis -> unconditional exact gap-2 lower bound",
+        "observed_signal": "bounded twin pairs persist and match heuristic scale within the certified range",
+        "failure_reason": "bounded gaps and Hardy-Littlewood-scale agreement do not prove exact gap-2 pairs for arbitrarily large x",
+        "next_executable_move": "separate exact gap 2 from bounded-gap evidence and require a positive unconditional lower bound",
+        "runner_steps": [
+          {
+            "id": "RUN-1",
+            "tool": "bounded certificate replay",
+            "input": "All twin prime pairs p,p+2 with p+2 <= 1000000 are counted by the sieve scan.",
+            "status": "bounded_theorem_certified",
+            "output": "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d",
+            "proof_effect": "closes only the finite replay claim"
+          },
+          {
+            "id": "RUN-2",
+            "tool": "frontier falsification probe",
+            "input": "Separate exact gap-2 residue persistence modulo 210 from broader bounded-gap signals.",
+            "status": "finite_probe_not_proof",
+            "output": "A candidate argument that only proves bounded gaps or depends on k-tuple density remains insufficient.",
+            "proof_effect": "rejects weak candidate lemmas before formal proof work"
+          },
+          {
+            "id": "RUN-3",
+            "tool": "route triage",
+            "input": "TP-R4",
+            "status": "routes_triaged_no_full_proof",
+            "output": "Unconditional exact gap-2 lower-bound theorem",
+            "proof_effect": "selects the only route that can plausibly attack the infinite theorem"
+          },
+          {
+            "id": "RUN-4",
+            "tool": "decisive theorem gate",
+            "input": "Prove a positive lower bound for exact twin-prime pairs up to arbitrarily large x, without assuming Hardy-Littlewood or replacing exact gap 2 by bounded gaps.",
+            "status": "missing_formal_theorem",
+            "output": "No unconditional exact gap-2 lower-bound theorem is available.",
+            "proof_effect": "blocks promotion until the infinite theorem exists"
+          }
+        ],
+        "closed_items": [
+          "bounded certificate replay",
+          "finite falsification probe",
+          "route triage",
+          "proof obligation naming"
+        ],
+        "open_items": [
+          "formal exact gap-2 lower-bound theorem",
+          "4 decisive subgoals remain open or blocked",
+          "4 attack tickets are planned but not proof artifacts"
+        ],
+        "machine_verdict": "bounded evidence can guide the proof search, but every executed route still leaves an infinite bridge open",
+        "promotion_rule": "A full-proof claim is blocked unless certificate status is bounded_theorem_certified and every obligation, graph link, theorem bridge, and lemma candidate is formal_proof_verified or accepted_theorem."
+      },
+      "candidate_lemma_workbench": {
+        "schema": "primeproject.candidate-lemma-workbench.v1",
+        "problem_id": "twin-prime",
+        "status": "active_no_full_proof",
+        "workbench_title": "Twin-prime exact-gap lemma search",
+        "target": "Convert exact gap-2 bounded evidence into an unconditional infinitude theorem.",
+        "closed_count": 1,
+        "open_or_blocked_count": 2,
+        "lemmas": [
+          {
+            "id": "TP-CL1",
+            "statement": "Bounded twin-pair counts match exact gap-2 replay through the committed range.",
+            "tool_test": "bounded twin-pair certificate replay",
+            "result": "bounded_certificate_complete",
+            "reason": "the finite count is reproducible but does not imply arbitrarily large twin pairs",
+            "next_revision": "use it only as regression evidence for candidate lower-bound theorems"
+          },
+          {
+            "id": "TP-CL2",
+            "statement": "A positive lower bound for exact gap-2 pairs holds for arbitrarily large x.",
+            "tool_test": "exact-gap audit: reject bounded gaps, averaged gaps, or heuristic density assumptions",
+            "result": "open_infinite_bridge",
+            "reason": "bounded-gap theorems and Hardy-Littlewood agreement do not prove exact gap 2",
+            "next_revision": "state an assumption-free exact gap-2 lower-bound theorem"
+          },
+          {
+            "id": "TP-CL3",
+            "statement": "The lower bound implies infinitely many distinct twin-prime pairs.",
+            "tool_test": "infinitude bridge check",
+            "result": "blocked_until_lower_bound",
+            "reason": "the implication is straightforward only after the positive lower bound exists",
+            "next_revision": "formalize the implication in Lean after TP-CL2 is closed"
+          }
+        ],
+        "claim_rule": "A candidate lemma may support proof search only; it upgrades the page status only after formal proof or accepted theorem review."
+      },
+      "machine_proof_search_trials": {
+        "schema": "primeproject.machine-proof-search-trials.v1",
+        "problem_id": "twin-prime",
+        "status": "trials_executed_no_full_proof",
+        "trial_count": 3,
+        "closed_finite_count": 1,
+        "rejected_count": 1,
+        "trials": [
+          {
+            "id": "TP-MP1",
+            "hypothesis": "Bounded exact gap-2 replay can prove infinitude.",
+            "execution": "Replay twin-pair certificate and compare checkpoint counts.",
+            "observed": "twin pairs 8169",
+            "verdict": "finite_piece_closed",
+            "blocker": "positive finite counts do not force arbitrarily large pairs",
+            "proof_upgrade": "prove a positive exact gap-2 lower bound for arbitrarily large x"
+          },
+          {
+            "id": "TP-MP2",
+            "hypothesis": "Bounded gaps imply exact gap 2.",
+            "execution": "Theorem-shape audit against bounded-gap substitution.",
+            "observed": "bounded gaps may be larger than 2",
+            "verdict": "rejected_shortcut",
+            "blocker": "exact twin primes require gap exactly 2",
+            "proof_upgrade": "separate exact gap-2 counts from bounded-gap evidence"
+          },
+          {
+            "id": "TP-MP3",
+            "hypothesis": "Hardy-Littlewood-scale agreement can be used as proof.",
+            "execution": "Assumption audit against unproved k-tuple density.",
+            "observed": "density match remains heuristic",
+            "verdict": "heuristic_priority_only",
+            "blocker": "the proof cannot assume the density it must establish",
+            "proof_upgrade": "remove k-tuple independence or replace it with an accepted theorem"
+          }
+        ],
+        "claim_rule": "A search trial may close finite pieces or reject shortcuts; it is not a proof until the listed proof_upgrade is supplied as a formal artifact or accepted theorem."
+      },
+      "formal_upgrade_matrix": {
+        "schema": "primeproject.formal-upgrade-matrix.v1",
+        "problem_id": "twin-prime",
+        "status": "formal_upgrade_blocked",
+        "target_theorem": "primeproject_twin_prime_conjecture",
+        "review_status": "full_proof_not_accepted",
+        "row_count": 4,
+        "open_row_count": 3,
+        "rows": [
+          {
+            "stage": "bounded_certificate",
+            "status": "bounded_theorem_certified",
+            "artifact": "scripts/verify_open_problem_workbench.py",
+            "acceptance_test": "Merkle root replay is byte-stable through the committed limit",
+            "blocks_full_proof": "yes_finite_only"
+          },
+          {
+            "stage": "decisive_infinite_theorem",
+            "status": "missing_formal_theorem",
+            "artifact": "formal exact gap-2 lower-bound theorem and infinitude bridge",
+            "acceptance_test": "the theorem quantifies beyond any search limit and avoids forbidden shortcuts",
+            "blocks_full_proof": "yes_required"
+          },
+          {
+            "stage": "kernel_formalization",
+            "status": "not_formalized_open",
+            "artifact": "primeproject_twin_prime_conjecture",
+            "acceptance_test": "Lean replay has no sorry, admit, unchecked axiom, or target-equivalent import",
+            "blocks_full_proof": "yes_required"
+          },
+          {
+            "stage": "independent_review",
+            "status": "blocked_until_formalization",
+            "artifact": "exact-gap theorem replay that rejects bounded-gap substitution",
+            "acceptance_test": "external reviewer can replay the proof without trusting PrimeProject code",
+            "blocks_full_proof": "yes_required"
+          }
+        ],
+        "machine_rule": "Every row except bounded_certificate must close before the page can make a full-proof claim."
+      },
+      "proof_kernel_roadmap": {
+        "schema": "primeproject.proof-kernel-roadmap.v1",
+        "problem_id": "twin-prime",
+        "status": "kernel_roadmap_open",
+        "namespace": "PrimeProject.OpenProblems.TwinPrime",
+        "target_theorem": "primeproject_twin_prime_conjecture",
+        "main_file": "formal/twin-prime/Main.lean",
+        "shortcut_risk": "treating bounded gaps or Hardy-Littlewood density as exact gap-2 proof",
+        "present_skeleton_files": [
+          "formal\\twin-prime\\Definitions.lean",
+          "formal\\twin-prime\\BoundedCertificate.lean",
+          "formal\\twin-prime\\InfiniteBridge.lean",
+          "formal\\twin-prime\\Main.lean"
+        ],
+        "step_count": 5,
+        "open_step_count": 4,
+        "steps": [
+          {
+            "id": "K0",
+            "stage": "formal definitions",
+            "status": "skeleton_present_not_proof",
+            "artifact": "exact gap-2 prime pair and arbitrarily-large twin-pair predicate",
+            "acceptance_test": "definitions compile and contain no target-equivalent axiom"
+          },
+          {
+            "id": "K1",
+            "stage": "bounded certificate import",
+            "status": "bounded_theorem_certified",
+            "artifact": "Merkle replay theorem for the committed finite range",
+            "acceptance_test": "certificate root is reproduced and imported only as a finite theorem"
+          },
+          {
+            "id": "K2",
+            "stage": "decisive infinite lemma",
+            "status": "open_infinite_bridge",
+            "artifact": "unconditional positive lower bound for exact gap-2 pairs at arbitrarily large scale",
+            "acceptance_test": "lemma quantifies beyond every search limit and avoids the listed shortcut risk"
+          },
+          {
+            "id": "K3",
+            "stage": "bridge to target theorem",
+            "status": "blocked_until_k2",
+            "artifact": "exact gap-2 lower bound implies infinitely many twin prime pairs",
+            "acceptance_test": "the bridge proves primeproject_twin_prime_conjecture from K1 and K2 without circular imports"
+          },
+          {
+            "id": "K4",
+            "stage": "independent kernel replay",
+            "status": "blocked_until_k3",
+            "artifact": "formal/twin-prime/Main.lean",
+            "acceptance_test": "external replay reports no sorry, admit, unchecked axiom, or equivalent theorem import"
+          }
+        ],
+        "claim_rule": "The roadmap is executable proof-engineering work, not a proof; the page can upgrade only after K2-K4 replay successfully."
+      },
+      "formal_kernel_contract_audit": {
+        "schema": "primeproject.formal-kernel-contract-audit.v1",
+        "problem_id": "twin-prime",
+        "status": "contract_pass_but_not_proof",
+        "package_dir": "formal/twin-prime",
+        "target_theorem": "primeproject_twin_prime_conjecture",
+        "row_count": 4,
+        "blocked_row_count": 0,
+        "forbidden_hit_count": 0,
+        "rows": [
+          {
+            "file": "formal/twin-prime/Definitions.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 3,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 8
+          },
+          {
+            "file": "formal/twin-prime/BoundedCertificate.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 3,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 9
+          },
+          {
+            "file": "formal/twin-prime/InfiniteBridge.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 2,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 8
+          },
+          {
+            "file": "formal/twin-prime/Main.lean",
+            "status": "contract_pass",
+            "expected_fragment_count": 5,
+            "missing_fragments": [],
+            "forbidden_hits": [],
+            "line_count": 9
+          }
+        ],
+        "forbidden_hits": [],
+        "claim_rule": "Passing this audit only proves the formal skeleton is aligned with the public claim boundary; it does not prove the conjecture."
+      },
+      "invalid_proof_shortcut_suite": {
+        "schema": "primeproject.invalid-proof-shortcut-suite.v1",
+        "problem_id": "twin-prime",
+        "status": "invalid_shortcuts_rejected",
+        "bounded_certificate_root": "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d",
+        "shortcut_count": 3,
+        "rejected_count": 3,
+        "shortcuts": [
+          {
+            "id": "TP-SC1",
+            "shortcut": "Bounded twin-pair counts prove infinitely many twin primes.",
+            "class": "finite_to_infinite",
+            "red_team_test": "Ask whether the argument forces arbitrarily large exact gap-2 pairs.",
+            "rejection_reason": "Positive finite counts do not imply infinitude.",
+            "kill_condition": "No exact gap-2 lower bound beyond every search limit is supplied.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          },
+          {
+            "id": "TP-SC2",
+            "shortcut": "Bounded prime gaps imply twin primes.",
+            "class": "weaker_theorem_substitution",
+            "red_team_test": "Check whether the gap is exactly 2 rather than merely bounded.",
+            "rejection_reason": "Bounded gaps can be larger than 2.",
+            "kill_condition": "The proof proves only a finite upper bound for gaps, not exact gap 2.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          },
+          {
+            "id": "TP-SC3",
+            "shortcut": "Hardy-Littlewood density agreement can be used as proof.",
+            "class": "heuristic_to_theorem",
+            "red_team_test": "Reject any proof that assumes the k-tuple density it must establish.",
+            "rejection_reason": "Heuristic-scale agreement is not an unconditional theorem.",
+            "kill_condition": "The density lower bound depends on Hardy-Littlewood or independence as an axiom.",
+            "verdict": "rejected_shortcut",
+            "required_upgrade": "replace the shortcut with a formal theorem, accepted theorem reference, or kernel-replayable bridge"
+          }
+        ],
+        "claim_rule": "No proof candidate may enter review until every matching invalid shortcut is removed or replaced by a formal artifact."
       },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",

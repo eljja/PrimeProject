@@ -255,6 +255,20 @@ async function main() {
           status: document.querySelector("#claimStatus").textContent,
           metricCount: document.querySelectorAll(".proof-metric").length,
           proofVerdictText: document.querySelector("#proofVerdict").textContent,
+          actualProofRunnerText: document.querySelector("#actualProofAttemptRunner").textContent,
+          actualProofRunnerSteps: document.querySelectorAll("#actualProofAttemptRunner .runner-step").length,
+          candidateLemmaText: document.querySelector("#candidateLemmaWorkbench").textContent,
+          candidateLemmaCards: document.querySelectorAll("#candidateLemmaWorkbench .lemma-card").length,
+          machineSearchText: document.querySelector("#machineProofSearchTrials").textContent,
+          machineSearchCards: document.querySelectorAll("#machineProofSearchTrials .search-trial").length,
+          formalUpgradeText: document.querySelector("#formalUpgradeMatrix").textContent,
+          formalUpgradeRows: document.querySelectorAll("#formalUpgradeMatrix .upgrade-row").length,
+          proofKernelText: document.querySelector("#proofKernelRoadmap").textContent,
+          proofKernelSteps: document.querySelectorAll("#proofKernelRoadmap .kernel-step").length,
+          formalKernelAuditText: document.querySelector("#formalKernelContractAudit").textContent,
+          formalKernelAuditRows: document.querySelectorAll("#formalKernelContractAudit .kernel-audit-row").length,
+          invalidShortcutText: document.querySelector("#invalidProofShortcutSuite").textContent,
+          invalidShortcutCards: document.querySelectorAll("#invalidProofShortcutSuite .shortcut-card").length,
           proofRouteTriageText: document.querySelector("#proofRouteTriage").textContent,
           proofRouteCards: document.querySelectorAll("#proofRouteTriage .route-card").length,
           decisiveTheoremText: document.querySelector("#decisiveTheoremSpec").textContent,
@@ -342,6 +356,32 @@ async function main() {
         !page.proofVerdictText.includes("bounded theorem certified") ||
         !page.proofVerdictText.includes("Full proof blocker") ||
         !page.proofVerdictText.includes("PrimeProject may display a proof only when") ||
+        !page.actualProofRunnerText.includes("Execution result") ||
+        !page.actualProofRunnerText.includes("Why this is not yet a proof") ||
+        !page.actualProofRunnerText.includes("Next executable move") ||
+        page.actualProofRunnerSteps < 4 ||
+        !page.candidateLemmaText.includes("Tool test") ||
+        !page.candidateLemmaText.includes("Next revision") ||
+        !page.candidateLemmaText.includes("upgrades the page status only after formal proof") ||
+        page.candidateLemmaCards < 3 ||
+        !page.machineSearchText.includes("Proof upgrade") ||
+        !page.machineSearchText.includes("it is not a proof until") ||
+        page.machineSearchCards < 3 ||
+        !page.formalUpgradeText.includes("Acceptance test") ||
+        !page.formalUpgradeText.includes("Every row except bounded_certificate") ||
+        page.formalUpgradeRows < 4 ||
+        !page.proofKernelText.includes("Shortcut risk") ||
+        !page.proofKernelText.includes("Acceptance test") ||
+        !page.proofKernelText.includes("K2-K4 replay successfully") ||
+        page.proofKernelSteps < 5 ||
+        !page.formalKernelAuditText.includes("contract pass but not proof") ||
+        !page.formalKernelAuditText.includes("Expected fragments") ||
+        !page.formalKernelAuditText.includes("does not prove the conjecture") ||
+        page.formalKernelAuditRows < 4 ||
+        !page.invalidShortcutText.includes("rejected shortcut") ||
+        !page.invalidShortcutText.includes("Kill condition") ||
+        !page.invalidShortcutText.includes("No proof candidate may enter review") ||
+        page.invalidShortcutCards < 3 ||
         page.proofRouteCards < 4 ||
         !page.proofRouteTriageText.includes("routes triaged no full proof") ||
         !page.proofRouteTriageText.includes("current decisive route") ||

@@ -220,6 +220,316 @@ function renderProofVerdict(problem) {
   `;
 }
 
+function renderActualProofAttemptRunner(problem) {
+  const runner = problem.actual_proof_attempt_runner || {};
+  const steps = runner.runner_steps || [];
+  return `
+    <div class="runner-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(runner.runner_status))}</strong>
+      </div>
+      <div>
+        <span>Problem</span>
+        <strong>${escapeHtml(problem.title || "")}</strong>
+      </div>
+      <div>
+        <span>Steps</span>
+        <strong>${escapeHtml(formatValue(steps.length))}</strong>
+      </div>
+    </div>
+    <article class="runner-bridge">
+      <span>${escapeHtml(runner.attempt_title || "")}</span>
+      <p>${escapeHtml(runner.candidate_bridge || "")}</p>
+      <small>Observed signal: ${escapeHtml(runner.observed_signal || "")}</small>
+    </article>
+    <div class="runner-step-list">
+      ${steps
+        .map(
+          (step) => `
+            <article class="runner-step">
+              <span>${escapeHtml(step.id || "")} · ${escapeHtml(step.tool || "")}</span>
+              <strong>${escapeHtml(statusText(step.status))}</strong>
+              <p>${escapeHtml(step.input || "")}</p>
+              <small>Output: ${escapeHtml(step.output || "")}</small>
+              <em>${escapeHtml(step.proof_effect || "")}</em>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <div class="runner-outcome">
+      <section>
+        <h3>Closed By Tools</h3>
+        ${list(runner.closed_items || [])}
+      </section>
+      <section>
+        <h3>Still Open</h3>
+        ${list(runner.open_items || [])}
+      </section>
+    </div>
+    <div class="runner-verdict">
+      <p><strong>Execution result:</strong> ${escapeHtml(runner.machine_verdict || "")}</p>
+      <p><strong>Why this is not yet a proof:</strong> ${escapeHtml(runner.failure_reason || "")}</p>
+      <p><strong>Next executable move:</strong> ${escapeHtml(runner.next_executable_move || "")}</p>
+      <p>${escapeHtml(runner.promotion_rule || "")}</p>
+    </div>
+  `;
+}
+
+function renderCandidateLemmaWorkbench(problem) {
+  const workbench = problem.candidate_lemma_workbench || {};
+  const lemmas = workbench.lemmas || [];
+  return `
+    <div class="lemma-workbench-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(workbench.status))}</strong>
+      </div>
+      <div>
+        <span>Closed</span>
+        <strong>${escapeHtml(formatValue(workbench.closed_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Open / blocked</span>
+        <strong>${escapeHtml(formatValue(workbench.open_or_blocked_count || 0))}</strong>
+      </div>
+    </div>
+    <article class="lemma-workbench-target">
+      <span>${escapeHtml(workbench.workbench_title || "")}</span>
+      <p>${escapeHtml(workbench.target || "")}</p>
+    </article>
+    <div class="lemma-card-list">
+      ${lemmas
+        .map(
+          (lemma) => `
+            <article class="lemma-card is-${escapeHtml(lemma.result || "unknown")}">
+              <span>${escapeHtml(lemma.id || "")} · ${escapeHtml(statusText(lemma.result))}</span>
+              <strong>${escapeHtml(lemma.statement || "")}</strong>
+              <p>Tool test: ${escapeHtml(lemma.tool_test || "")}</p>
+              <p>Result reason: ${escapeHtml(lemma.reason || "")}</p>
+              <small>Next revision: ${escapeHtml(lemma.next_revision || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">${escapeHtml(workbench.claim_rule || "")}</p>
+  `;
+}
+
+function renderMachineProofSearchTrials(problem) {
+  const report = problem.machine_proof_search_trials || {};
+  const trials = report.trials || [];
+  return `
+    <div class="search-trials-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(report.status))}</strong>
+      </div>
+      <div>
+        <span>Trials</span>
+        <strong>${escapeHtml(formatValue(report.trial_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Finite closed</span>
+        <strong>${escapeHtml(formatValue(report.closed_finite_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Rejected</span>
+        <strong>${escapeHtml(formatValue(report.rejected_count || 0))}</strong>
+      </div>
+    </div>
+    <div class="search-trial-list">
+      ${trials
+        .map(
+          (trial) => `
+            <article class="search-trial is-${escapeHtml(trial.verdict || "unknown")}">
+              <span>${escapeHtml(trial.id || "")} · ${escapeHtml(statusText(trial.verdict))}</span>
+              <strong>${escapeHtml(trial.hypothesis || "")}</strong>
+              <p>Execution: ${escapeHtml(trial.execution || "")}</p>
+              <p>Observed: ${escapeHtml(trial.observed || "")}</p>
+              <p>Blocker: ${escapeHtml(trial.blocker || "")}</p>
+              <small>Proof upgrade: ${escapeHtml(trial.proof_upgrade || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">${escapeHtml(report.claim_rule || "")}</p>
+  `;
+}
+
+function renderFormalUpgradeMatrix(problem) {
+  const matrix = problem.formal_upgrade_matrix || {};
+  const rows = matrix.rows || [];
+  return `
+    <div class="upgrade-matrix-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(matrix.status))}</strong>
+      </div>
+      <div>
+        <span>Target theorem</span>
+        <strong>${escapeHtml(matrix.target_theorem || "missing")}</strong>
+      </div>
+      <div>
+        <span>Open rows</span>
+        <strong>${escapeHtml(formatValue(matrix.open_row_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Review</span>
+        <strong>${escapeHtml(statusText(matrix.review_status))}</strong>
+      </div>
+    </div>
+    <div class="upgrade-matrix-table">
+      ${rows
+        .map(
+          (row) => `
+            <article class="upgrade-row is-${escapeHtml(row.status || "unknown")}">
+              <span>${escapeHtml(row.stage || "")}</span>
+              <strong>${escapeHtml(statusText(row.status))}</strong>
+              <p>Artifact: ${escapeHtml(row.artifact || "")}</p>
+              <p>Acceptance test: ${escapeHtml(row.acceptance_test || "")}</p>
+              <small>Blocks full proof: ${escapeHtml(statusText(row.blocks_full_proof))}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">${escapeHtml(matrix.machine_rule || "")}</p>
+  `;
+}
+
+function renderProofKernelRoadmap(problem) {
+  const roadmap = problem.proof_kernel_roadmap || {};
+  const steps = roadmap.steps || [];
+  return `
+    <div class="kernel-roadmap-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(roadmap.status))}</strong>
+      </div>
+      <div>
+        <span>Namespace</span>
+        <strong>${escapeHtml(roadmap.namespace || "missing")}</strong>
+      </div>
+      <div>
+        <span>Target theorem</span>
+        <strong>${escapeHtml(roadmap.target_theorem || "missing")}</strong>
+      </div>
+      <div>
+        <span>Open steps</span>
+        <strong>${escapeHtml(formatValue(roadmap.open_step_count || 0))}</strong>
+      </div>
+    </div>
+    <article class="kernel-roadmap-risk">
+      <span>Main file</span>
+      <code>${escapeHtml(roadmap.main_file || "missing")}</code>
+      <p>Shortcut risk: ${escapeHtml(roadmap.shortcut_risk || "")}</p>
+    </article>
+    <div class="kernel-roadmap-list">
+      ${steps
+        .map(
+          (step) => `
+            <article class="kernel-step is-${escapeHtml(step.status || "unknown")}">
+              <span>${escapeHtml(step.id || "")} · ${escapeHtml(step.stage || "")}</span>
+              <strong>${escapeHtml(statusText(step.status))}</strong>
+              <p>Artifact: ${escapeHtml(step.artifact || "")}</p>
+              <small>Acceptance test: ${escapeHtml(step.acceptance_test || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">${escapeHtml(roadmap.claim_rule || "")}</p>
+  `;
+}
+
+function renderFormalKernelContractAudit(problem) {
+  const audit = problem.formal_kernel_contract_audit || {};
+  const rows = audit.rows || [];
+  return `
+    <div class="kernel-audit-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(audit.status))}</strong>
+      </div>
+      <div>
+        <span>Package</span>
+        <strong>${escapeHtml(audit.package_dir || "missing")}</strong>
+      </div>
+      <div>
+        <span>Target theorem</span>
+        <strong>${escapeHtml(audit.target_theorem || "missing")}</strong>
+      </div>
+      <div>
+        <span>Blocked rows</span>
+        <strong>${escapeHtml(formatValue(audit.blocked_row_count || 0))}</strong>
+      </div>
+    </div>
+    <div class="kernel-audit-list">
+      ${rows
+        .map(
+          (row) => `
+            <article class="kernel-audit-row is-${escapeHtml(row.status || "unknown")}">
+              <span>${escapeHtml(row.file || "")}</span>
+              <strong>${escapeHtml(statusText(row.status))}</strong>
+              <p>Expected fragments: ${escapeHtml(formatValue(row.expected_fragment_count || 0))}</p>
+              <p>Missing: ${escapeHtml(formatValue(row.missing_fragments || []))}</p>
+              <small>Forbidden hits: ${escapeHtml(formatValue(row.forbidden_hits || []))}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">${escapeHtml(audit.claim_rule || "")}</p>
+  `;
+}
+
+function renderInvalidProofShortcutSuite(problem) {
+  const suite = problem.invalid_proof_shortcut_suite || {};
+  const shortcuts = suite.shortcuts || [];
+  return `
+    <div class="shortcut-suite-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(suite.status))}</strong>
+      </div>
+      <div>
+        <span>Shortcuts</span>
+        <strong>${escapeHtml(formatValue(suite.shortcut_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Rejected</span>
+        <strong>${escapeHtml(formatValue(suite.rejected_count || 0))}</strong>
+      </div>
+      <div>
+        <span>Certificate root</span>
+        <code>${escapeHtml(String(suite.bounded_certificate_root || "missing").slice(0, 16))}</code>
+      </div>
+    </div>
+    <div class="shortcut-suite-list">
+      ${shortcuts
+        .map(
+          (item) => `
+            <article class="shortcut-card is-${escapeHtml(item.verdict || "unknown")}">
+              <span>${escapeHtml(item.id || "")} · ${escapeHtml(item.class || "")}</span>
+              <strong>${escapeHtml(item.shortcut || "")}</strong>
+              <em>${escapeHtml(statusText(item.verdict))}</em>
+              <p>Red-team test: ${escapeHtml(item.red_team_test || "")}</p>
+              <p>Rejection reason: ${escapeHtml(item.rejection_reason || "")}</p>
+              <small>Kill condition: ${escapeHtml(item.kill_condition || "")}</small>
+              <small>Required upgrade: ${escapeHtml(item.required_upgrade || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">${escapeHtml(suite.claim_rule || "")}</p>
+  `;
+}
+
 function renderProofRouteTriage(problem) {
   const triage = problem.proof_route_triage || {};
   const routes = triage.routes || [];
@@ -1312,6 +1622,13 @@ function render(payload, problem) {
   ].join("");
 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
+  document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
+  document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
+  document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
+  document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
+  document.querySelector("#proofKernelRoadmap").innerHTML = renderProofKernelRoadmap(problem);
+  document.querySelector("#formalKernelContractAudit").innerHTML = renderFormalKernelContractAudit(problem);
+  document.querySelector("#invalidProofShortcutSuite").innerHTML = renderInvalidProofShortcutSuite(problem);
   document.querySelector("#proofRouteTriage").innerHTML = renderProofRouteTriage(problem);
   document.querySelector("#decisiveTheoremSpec").innerHTML = renderDecisiveTheoremSpec(problem);
   document.querySelector("#decisiveTheoremSubgoals").innerHTML = renderDecisiveTheoremSubgoals(problem);
