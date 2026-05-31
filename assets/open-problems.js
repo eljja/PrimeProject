@@ -34,6 +34,46 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
+function koGuide(title, items) {
+  return `
+    <div class="ko-helper">
+      <strong>${escapeHtml(title)}</strong>
+      <ul>
+        ${(items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+      </ul>
+    </div>
+  `;
+}
+
+function problemKoGuide(problem) {
+  const guides = {
+    riemann: [
+      "이 페이지는 리만가설을 증명했다고 주장하지 않습니다. 유한 계산과 필요한 무한 정리를 분리해 보여줍니다.",
+      "zero-line, explicit formula, positivity kernel 같은 영어 용어는 연구 문헌의 표준 표현입니다. 옆의 blocker와 gate가 아직 남은 이유를 설명합니다.",
+      "open_not_proven은 독립 검증 가능한 무한 논증이 없다는 뜻입니다.",
+    ],
+    collatz: [
+      "이 페이지는 콜라츠 추측의 궤적 계산과 전역 descent 증명을 구분합니다.",
+      "bounded trajectory는 정해진 범위에서 확인한 계산 결과이고, global descent cover는 모든 자연수를 덮는 별도 증명입니다.",
+      "ranking function은 값이 반드시 줄어드는 순서를 만들어 무한 반복을 막는 수학적 장치입니다.",
+    ],
+    goldbach: [
+      "이 페이지는 골드바흐 추측의 유한 검증과 큰 짝수 전체에 대한 정리를 구분합니다.",
+      "exception search는 반례 후보를 찾는 계산이고, lower-bound theorem은 모든 충분히 큰 짝수에 표현이 존재함을 보이는 증명입니다.",
+      "현재 계산은 반례를 찾지 못했다는 증거이지, 전체 추측의 증명은 아닙니다.",
+    ],
+    "twin-prime": [
+      "이 페이지는 쌍둥이 소수가 많이 관측된다는 사실과 무한히 많다는 증명을 분리합니다.",
+      "exact gap-2는 차이가 정확히 2인 소수쌍을 뜻합니다. bounded gap 정리는 더 약한 명제입니다.",
+      "필요한 핵심은 gap 2 소수쌍이 임의로 큰 범위까지 계속 존재한다는 무조건적 하한 정리입니다.",
+    ],
+  };
+  return koGuide("한국어 해설", guides[problem.id] || [
+    "이 페이지는 유한 계산, 후보 전략, 차단된 주장, 필요한 무한 증명을 분리해 보여줍니다.",
+    "영문 라벨은 논문/검증 스크립트와 맞추기 위한 표준 artifact 이름이며, 한국어 해설은 그 의미를 설명합니다.",
+  ]);
+}
+
 function metricCards(problem) {
   const result = problem.finite_result || {};
   if (problem.id === "riemann") {
@@ -1674,6 +1714,8 @@ function render(payload, problem) {
   document.querySelector("#claimPolicy").textContent = payload.claim_policy.reason;
   document.querySelector("#toolPosition").textContent = problem.tool_position;
   document.querySelector("#claimBoundary").textContent = problem.claim_boundary;
+  const existingGuide = document.querySelector("#problemKoGuide");
+  if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
 
   document.querySelector("#problemNav").innerHTML = [
     `<a href="index.html">Workbench</a>`,

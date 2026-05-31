@@ -1264,9 +1264,9 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
     claim_language_scanned_files: 16,
-    claim_language_scanned_lines: 7177,
-    claim_language_triggered_mentions: 112,
-    claim_language_guarded_mentions: 112,
+    claim_language_scanned_lines: 7244,
+    claim_language_triggered_mentions: 116,
+    claim_language_guarded_mentions: 116,
     claim_language_failures: 0,
     blocking_gaps: 2,
     claim_ledger_allowed: 3,
@@ -2475,6 +2475,11 @@ function renderProjectEvolution() {
   const metrics = evolution.metrics || {};
   const phases = evolution.phases || [];
   outputs.evolutionSummary.innerHTML = `
+    ${koGuide("프로젝트 진화 읽는 법", [
+      "Scale은 브라우저와 스냅샷이 다룰 수 있는 계산 범위입니다.",
+      "Controlled signal은 합성 데이터에서 편향 신호가 통계 검사를 통과했는지를 뜻합니다.",
+      "Claim level은 현재 공개적으로 주장해도 되는 최대 수준입니다. 지금은 실세계 attribution이나 난제 증명이 아닙니다.",
+    ])}
     <div><span>Scale</span><strong>${formatCompact(metrics.live_compute_limit || 0)}</strong><small>${(metrics.precomputed_snapshot_limits || []).map(formatCompact).join(", ")} snapshots</small></div>
     <div><span>Controlled signal</span><strong>${formatNumber(metrics.robust_controlled_profiles?.length || 0)} profiles</strong><small>${formatNumber(metrics.null_calibration_iterations || 0)} null iterations</small></div>
     <div><span>Generator baselines</span><strong>${formatNumber(metrics.available_real_baselines || 0)}</strong><small>${formatNumber(metrics.public_control_baselines || 0)} public control</small></div>
@@ -2529,6 +2534,11 @@ function renderResearchAtlas(evolution) {
   const spine = rollup.evidence_spine || [];
   const atlas = buildResearchAtlas(evolution);
   outputs.atlasHero.innerHTML = `
+    ${koGuide("연구 지도 요약", [
+      "이 페이지는 소수 예측기가 아니라 생성기 fingerprint와 증명 의무를 추적하는 연구 도구입니다.",
+      "supported는 현재 산출물로 뒷받침되는 내용이고, blocked는 아직 주장하면 안 되는 내용입니다.",
+      "real-world attribution은 OpenSSL/BoringSSL/Go 같은 실제 기준군이 accepted 상태가 되기 전까지 차단됩니다.",
+    ])}
     <div class="atlas-hero-copy">
       <span>Research claim map</span>
       <strong>${escapeHtml(atlas.thesis)}</strong>
@@ -2556,6 +2566,10 @@ function renderResearchAtlas(evolution) {
       <span>Evidence ladder</span>
       <strong>Every strong claim must climb from computation to controls, then to real baselines and publication gates.</strong>
     </div>
+    ${koGuide("Evidence ladder란?", [
+      "계산 결과만으로 강한 주장을 하지 않고, 통계 통제, 실세계 기준군, 출판 게이트를 차례로 통과해야 한다는 단계표입니다.",
+      "Sim-to-Real 단계가 낮으면 실제 라이브러리나 지갑을 단정하는 주장은 아직 불가능합니다.",
+    ])}
     <div class="atlas-ladder-grid">
       ${spine
         .map((item, index) => {
@@ -2578,6 +2592,10 @@ function renderResearchAtlas(evolution) {
       <span>Proof workbench</span>
       <strong>Finite certificates and attack tickets are useful only when they name the missing infinite theorem.</strong>
     </div>
+    ${koGuide("증명 워크벤치 해석", [
+      "finite certificate는 정해진 범위 안의 계산 증거입니다. 무한히 많은 경우를 증명하지 않습니다.",
+      "missing infinite theorem은 검색 한계를 제거하는 핵심 수학 정리입니다. 이것이 없으면 open_not_proven 상태가 유지됩니다.",
+    ])}
     ${atlas.openProblems
       .map((problem) => `
         <a class="atlas-proof-card" href="${escapeHtml(problem.href)}">
@@ -2594,6 +2612,10 @@ function renderResearchAtlas(evolution) {
       <span>Next academic work</span>
       <strong>The shortest path to stronger claims is explicit and still blocked.</strong>
     </div>
+    ${koGuide("다음 연구 과제", [
+      "P0는 논문 주장을 강화하기 전에 먼저 해결해야 하는 최우선 작업입니다.",
+      "classifier는 합성 데이터에서만 충분하지 않고, labelled real-world feature vector가 있어야 실세계 주장으로 이동할 수 있습니다.",
+    ])}
     ${atlas.nextSteps
       .map((item) => `
         <article class="atlas-next-card is-${escapeHtml(item.priority || "P1")}">
@@ -2948,6 +2970,11 @@ function renderRealBaselineManifest() {
   const counts = manifest.status_counts || {};
   const sensitiveCount = entries.filter((entry) => entry.sensitive).length;
   outputs.baselineRegistrySummary.innerHTML = `
+    ${koGuide("Baseline Lab 해설", [
+      "baseline은 비교 기준군입니다. 실제 라이브러리별 aggregate fingerprint가 있어야 의심 데이터셋과 거리를 비교할 수 있습니다.",
+      "local-sensitive는 raw key나 private prime을 공개하지 않고 로컬에서 집계값만 다뤄야 한다는 뜻입니다.",
+      "available이 0이면 실세계 attribution 주장은 아직 차단됩니다.",
+    ])}
     <div><span>Registered</span><strong>${formatNumber(entries.length)}</strong></div>
     <div><span>Available</span><strong>${formatNumber(counts.available || 0)}</strong></div>
     <div><span>Planned</span><strong>${formatNumber(counts.planned || 0)}</strong></div>
@@ -3009,6 +3036,11 @@ function renderCollectionPower() {
   outputs.collectionPowerStatus.textContent =
     `${formatNumber(summary.strong_count || 0)} strong · ${formatNumber(summary.coarse_count || 0)} coarse`;
   outputs.collectionPowerSummary.innerHTML = `
+    ${koGuide("Collection Power 해석", [
+      "sample floor는 통계적으로 의미 있는 차이를 보려면 최소 몇 개의 aggregate sample이 필요한지 추정한 값입니다.",
+      "coarse는 거친 선별만 가능하다는 뜻이고, strong은 더 강한 주장에 가까운 표본 규모를 뜻합니다.",
+      "이 표는 실제 키를 공개하라는 요구가 아니라, 공개 가능한 집계 fingerprint 수집량을 정하는 기준입니다.",
+    ])}
     <div><span>Method</span><strong>${escapeHtml(power.method?.name || "unknown")}</strong><small>${displayTvLabel(power.method?.interval_label, power.method?.interval_confidence)} interval</small></div>
     <div><span>Targets</span><strong>${formatNumber(summary.target_count || rows.length)}</strong><small>${formatNumber(summary.minimum_recommended_replicates || 0)} replicates</small></div>
     <div><span>Strong</span><strong>${formatNumber(summary.strong_count || 0)}</strong><small>claim-ready floor</small></div>
@@ -3567,6 +3599,11 @@ function renderResearchReadiness() {
   const dimensions = report.dimensions || {};
   const blocking = report.blocking_gaps || [];
   outputs.readinessSummary.innerHTML = `
+    ${koGuide("Readiness 해설", [
+      "readiness는 연구가 논문 주장으로 올라갈 준비가 얼마나 되었는지 보는 점수입니다.",
+      "blocking gap은 현재 주장을 강하게 만들 수 없게 막는 핵심 결손입니다.",
+      "Real baselines가 부족하면 실세계 라이브러리 attribution은 계속 blocked 상태입니다.",
+    ])}
     <div><span>Overall</span><strong>${formatPercent(overall.score || 0)}</strong><small>${escapeHtml(overall.label || "unknown")}</small></div>
     <div><span>Blocking gaps</span><strong>${formatNumber(blocking.length)}</strong><small>high priority</small></div>
     <div><span>Real baselines</span><strong>${formatNumber(dimensions.sim_to_real?.available_count || 0)}</strong><small>available</small></div>
@@ -3672,6 +3709,11 @@ function renderEvidencePack() {
   const gates = pack.publication_gates || [];
   const failed = gates.filter((gateItem) => !gateItem.passed);
   outputs.evidenceSummary.innerHTML = `
+    ${koGuide("Evidence Pack 읽는 법", [
+      "Claim level은 현재 공개 페이지와 README가 넘지 말아야 하는 주장 한계입니다.",
+      "Failed gates는 아직 논문/실세계 주장으로 승격하지 못하게 막는 안전장치입니다.",
+      "Artifacts는 JSON 산출물과 checksum입니다. 같은 결과가 재현되는지 확인하기 위한 공개 증거 묶음입니다.",
+    ])}
     <div><span>Claim level</span><strong>${escapeHtml(claim.level || "unknown")}</strong><small>${escapeHtml(claim.statement || "")}</small></div>
     <div><span>Failed gates</span><strong>${formatNumber(failed.length)}</strong><small>${formatNumber(claim.failed_high_gate_count || 0)} high</small></div>
     <div><span>Artifacts</span><strong>${formatNumber(pack.artifact_count || (pack.artifacts || []).length)}</strong><small>checksummed</small></div>
@@ -3757,7 +3799,11 @@ function renderClaimLedger() {
         </div>
       `;
     })
-    .join("");
+    .join("") + koGuide("Claim Ledger 해설", [
+      "allowed는 현재 evidence gate가 허용하는 공개 주장입니다.",
+      "blocked는 증거가 부족해 논문이나 GitHub Pages에서 강하게 말하면 안 되는 주장입니다.",
+      "missing 항목은 어떤 산출물이 추가되어야 차단이 풀리는지 보여줍니다.",
+    ]);
 }
 
 async function loadArtifactLineage() {
@@ -3789,6 +3835,11 @@ function renderArtifactLineage() {
     { label: "Evidence checks", value: (lineage.checksum_checks || []).length },
   ];
   outputs.artifactLineageRows.innerHTML = `
+    ${koGuide("Artifact Lineage 해설", [
+      "lineage는 공개 JSON 산출물이 어떤 순서로 서로 의존하는지 보여주는 그래프입니다.",
+      "cycle이 있으면 재현성 검사가 자기 자신을 참조하게 되므로 논문용 evidence bundle로 부적절합니다.",
+      "checksum mismatch가 0이어야 GitHub Pages의 숫자와 로컬 재현 결과가 같은 산출물을 가리킨다고 볼 수 있습니다.",
+    ])}
     <div class="lineage-health ${summary.reproducible ? "is-pass" : "is-fail"}">
       <strong>${summary.reproducible ? "reproducible" : "needs review"}</strong>
       <span>${escapeHtml(lineage.policy?.reason || "")}</span>
@@ -4017,6 +4068,11 @@ function renderAttributionGrid() {
   )[0];
   const strongestConfound = (grid.summary.most_confound_sensitive_profiles || [])[0];
   outputs.attributionSummary.innerHTML = `
+    ${koGuide("Attribution Grid 해설", [
+      "attribution은 의심 데이터셋이 어떤 생성기 계열과 통계적으로 가까운지 비교하는 작업입니다.",
+      "controlled accuracy는 bit length 같은 단순 confound를 통제한 뒤에도 분류 신호가 남는지 보는 값입니다.",
+      "여기서 좋은 결과가 나와도 현재 범위는 합성 데이터 검증이며, 실제 라이브러리 단정은 아닙니다.",
+    ])}
     <div><span>Runs</span><strong>${formatNumber((grid.rows || []).length || (grid.deltas || []).length)}</strong></div>
     <div><span>Repeats</span><strong>${formatNumber(grid.repeats || 1)}</strong></div>
     <div><span>Random baseline</span><strong>${formatPercent(grid.random_baseline_accuracy || 1 / 3)}</strong></div>
@@ -4365,6 +4421,17 @@ function escapeHtml(value) {
       "'": "&#39;",
     }[character]
   ));
+}
+
+function koGuide(title, items) {
+  return `
+    <div class="ko-helper">
+      <strong>${escapeHtml(title)}</strong>
+      <ul>
+        ${(items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+      </ul>
+    </div>
+  `;
 }
 
 function formatDimensionName(value) {
