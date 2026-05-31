@@ -40,6 +40,7 @@ FORMAL_UPGRADE_MATRIX_SCHEMA = "primeproject.formal-upgrade-matrix.v1"
 PROOF_KERNEL_ROADMAP_SCHEMA = "primeproject.proof-kernel-roadmap.v1"
 FORMAL_KERNEL_CONTRACT_AUDIT_SCHEMA = "primeproject.formal-kernel-contract-audit.v1"
 INVALID_PROOF_SHORTCUT_SUITE_SCHEMA = "primeproject.invalid-proof-shortcut-suite.v1"
+AI_SOLVER_FRONTIER_SCHEMA = "primeproject.ai-solver-frontier.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -1908,6 +1909,137 @@ def invalid_proof_shortcut_suite(problem: dict[str, object]) -> dict[str, object
     }
 
 
+def ai_solver_frontier(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    finite = problem.get("finite_result", {}) if isinstance(problem.get("finite_result"), dict) else {}
+    certificate = problem.get("certificate", {}) if isinstance(problem.get("certificate"), dict) else {}
+    gap_taxonomy = problem.get("proof_gap_taxonomy", {}) if isinstance(problem.get("proof_gap_taxonomy"), dict) else {}
+    open_gap_count = gap_taxonomy.get("open_gap_count", "unknown")
+    frontier_bank: dict[str, dict[str, object]] = {
+        "riemann": {
+            "engine": "positivity-kernel search over explicit-formula test functions",
+            "novel_attempt": "Search for a kernel family whose Weil-explicit-formula positivity is equivalent to RH, then let PrimeProject reject every kernel whose prime-side stress terms cannot be bounded with explicit constants.",
+            "search_space": [
+                "even compactly supported smooth kernels",
+                "Laguerre/Hermite spectral kernels",
+                "Li-coefficient positivity witnesses",
+                "prime-side interval-arithmetic envelopes",
+            ],
+            "best_current_candidate": "kernel template with nonnegative spectral side and bounded prime-side stress at committed theta checkpoints",
+            "machine_output": {
+                "bounded_signal": f"max scaled theta error {finite.get('max_scaled_theta_error', 'n/a')}",
+                "certificate_root": str(certificate.get("merkle_root", "missing"))[:16],
+                "open_gap_count": open_gap_count,
+            },
+            "blocking_obstruction": "No discovered kernel yet gives a non-circular all-height positivity theorem.",
+            "next_experiment": "Generate kernel candidates, compute symbolic positivity constraints, and reject any kernel needing RH-equivalent assumptions.",
+        },
+        "collatz": {
+            "engine": "residue-block descent cover search",
+            "novel_attempt": "Use AI to synthesize a finite residue cover and a ranking functional, then require every symbolic block to strictly descend under accelerated Collatz iteration.",
+            "search_space": [
+                "odd residue classes modulo 2^k",
+                "accelerated Collatz affine branches",
+                "piecewise-linear ranking functions",
+                "cycle/divergence exclusion certificates",
+            ],
+            "best_current_candidate": "sampled residue descent pressure suggests a modulus-specific cover may exist, but no complete symbolic cover is certified.",
+            "machine_output": {
+                "tested_start_values": finite.get("tested_start_values", "n/a"),
+                "max_total_stopping_time": finite.get("max_total_stopping_time", "n/a"),
+                "max_start": finite.get("max_start", "n/a"),
+            },
+            "blocking_obstruction": "Every residue block must be covered symbolically; sampled descent is not enough.",
+            "next_experiment": "Enumerate residue classes modulo 2^k, derive affine accelerated branches, and search for a strict well-founded ranking function.",
+        },
+        "goldbach": {
+            "engine": "explicit-cutoff optimizer for two-prime lower bounds",
+            "novel_attempt": "Treat strong Goldbach as a constant-optimization problem: lower the analytic cutoff N0 until the existing bounded certificate can cover the remaining finite interval.",
+            "search_space": [
+                "major-arc constants",
+                "minor-arc error budgets",
+                "worst residue classes",
+                "least-representation even integers",
+            ],
+            "best_current_candidate": "the bounded certificate supplies the finite half; the missing half is an explicit positive two-prime lower bound with N0 below the certificate limit.",
+            "machine_output": {
+                "checked_even_limit": finite.get("checked_even_limit", "n/a"),
+                "counterexamples": finite.get("counterexamples", "n/a"),
+                "hardest_decomposition": finite.get("hardest_smallest_prime_decomposition", {}),
+            },
+            "blocking_obstruction": "No explicit large-even lower-bound theorem with compatible cutoff is present.",
+            "next_experiment": "Optimize explicit constants and reject any bound whose N0 exceeds the committed certificate limit.",
+        },
+        "twin-prime": {
+            "engine": "exact-gap sieve-weight search",
+            "novel_attempt": "Search parity-sensitive sieve weights that force gap exactly 2 instead of merely producing bounded prime gaps.",
+            "search_space": [
+                "admissible tuple weights with a mandatory {0,2} pair",
+                "parity-barrier stress tests",
+                "exact-gap lower-bound candidates",
+                "Hardy-Littlewood-free density witnesses",
+            ],
+            "best_current_candidate": "bounded exact-gap counts are positive and heuristic-scale, but every current path still collapses to bounded-gap or heuristic evidence.",
+            "machine_output": {
+                "twin_pair_count": finite.get("twin_pair_count", "n/a"),
+                "largest_pair_seen": finite.get("largest_pair_seen", "n/a"),
+                "hardy_littlewood_ratio": (
+                    round(
+                        float(finite.get("twin_pair_count", 0))
+                        / float((finite.get("checkpoint_rows") or [{}])[-1].get("hardy_littlewood_estimate", 1)),
+                        6,
+                    )
+                    if finite.get("checkpoint_rows")
+                    else "n/a"
+                ),
+            },
+            "blocking_obstruction": "The parity barrier still prevents exact gap-2 infinitude from bounded-gap methods.",
+            "next_experiment": "Generate sieve weights and kill every candidate whose conclusion is only bounded gaps, averaged gaps, or Hardy-Littlewood-scale agreement.",
+        },
+    }
+    frontier = frontier_bank.get(problem_id, frontier_bank["riemann"])
+    solver_steps = [
+        {
+            "id": "AI-1",
+            "stage": "generate candidate",
+            "status": "active_search",
+            "acceptance_test": "candidate states a theorem stronger than finite evidence and avoids known shortcut classes",
+        },
+        {
+            "id": "AI-2",
+            "stage": "machine falsify",
+            "status": "active_search",
+            "acceptance_test": "PrimeProject stress tests fail weak, circular, heuristic, or finite-only candidates",
+        },
+        {
+            "id": "AI-3",
+            "stage": "compress obstruction",
+            "status": "open_research",
+            "acceptance_test": "remaining failures collapse into a finite family of symbolic obstruction classes",
+        },
+        {
+            "id": "AI-4",
+            "stage": "formalize survivor",
+            "status": "blocked_until_survivor",
+            "acceptance_test": "surviving theorem is replayable without sorry, admit, target-equivalent axiom, or unproved heuristic",
+        },
+    ]
+    return {
+        "schema": AI_SOLVER_FRONTIER_SCHEMA,
+        "problem_id": problem_id,
+        "status": "breakthrough_search_active_not_solved",
+        "engine": frontier["engine"],
+        "novel_attempt": frontier["novel_attempt"],
+        "search_space": frontier["search_space"],
+        "best_current_candidate": frontier["best_current_candidate"],
+        "machine_output": frontier["machine_output"],
+        "blocking_obstruction": frontier["blocking_obstruction"],
+        "next_experiment": frontier["next_experiment"],
+        "solver_steps": solver_steps,
+        "claim_rule": "This is a live AI-assisted attack plan for an unsolved problem; it can propose and falsify proof candidates, but status changes only after a replayable infinite theorem exists.",
+    }
+
+
 def proof_route_triage(problem: dict[str, object]) -> dict[str, object]:
     problem_id = str(problem.get("id", "unknown"))
     route_bank: dict[str, list[dict[str, str]]] = {
@@ -3770,6 +3902,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["proof_kernel_roadmap"] = proof_kernel_roadmap(problem)
         problem["formal_kernel_contract_audit"] = formal_kernel_contract_audit(problem)
         problem["invalid_proof_shortcut_suite"] = invalid_proof_shortcut_suite(problem)
+        problem["ai_solver_frontier"] = ai_solver_frontier(problem)
         problem["proof_breakthrough_agenda"] = proof_breakthrough_agenda(problem)
     return {
         "schema": SCHEMA,

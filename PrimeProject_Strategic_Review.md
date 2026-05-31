@@ -1,5 +1,11 @@
 # PrimeProject 전략적 검토 및 발전 방향 분석 보고서
 
+## Publication Scope / 논문 제출용 범위
+
+English: This strategic memo is a direction-setting document, not evidence that PrimeProject has solved open number-theory problems or completed real-world generator attribution. Claims in this memo are valid only when read with the current public evidence boundary: controlled synthetic fingerprints and bounded proof-workbench artifacts are supported; real-world attribution, Bitcoin wallet/library attribution, cryptographic prime prediction, and proofs of the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, or Twin Prime conjecture remain blocked.
+
+한국어: 이 전략 문서는 방향 설정 문서이며, PrimeProject가 미해결 수론 문제를 해결했거나 실세계 생성기 attribution을 완료했다는 증거가 아니다. 이 문서의 주장은 현재 공개 evidence boundary와 함께 읽어야 한다. 통제된 합성 fingerprint와 bounded proof-workbench 산출물은 지원되지만, 실세계 attribution, Bitcoin wallet/library attribution, 암호 소수 예측, 리만가설/콜라츠/골드바흐/Twin Prime 증명은 여전히 차단되어 있다.
+
 ## 1. 프로젝트 현황 요약 (Current Status Summary)
 
 현재 `PrimeProject`는 암호학적 소수(Cryptographic Primes)의 규칙성 분석 및 방어적 감사(Defensive Audit)를 위한 도구 모음이자 실험 환경입니다. 주요 기능과 구현 현황은 다음과 같습니다.

@@ -5,9 +5,15 @@
 
 ---
 
+## Publication Scope / 논문 제출용 범위
+
+English: This document is a strategic audit, not a validation paper. It may be cited as a roadmap for controlled synthetic fingerprinting, sim-to-real collection, and publication governance. It must not be read as evidence that PrimeProject has completed real-world attribution, broken cryptographic prime generation, or solved any open number-theory problem.
+
+한국어: 이 문서는 전략 감사 문서이며 검증 논문이 아니다. 통제된 합성 fingerprinting, sim-to-real 수집, publication governance의 로드맵으로 인용할 수 있다. 그러나 실세계 attribution을 완료했거나, 암호 소수 생성을 깼거나, 미해결 수론 문제를 해결했다는 증거로 읽으면 안 된다.
+
 ## 1. 최근 로컬 변경사항 분석: 거대한 패러다임 전환
 
-최근 PrimeProject 로컬 저장소에는 **8,000라인 이상의 핵심 코드 및 문서 추가**가 발생했습니다. 이는 단순한 버그 수정이나 기능 추가 수준을 넘어서는, 프로젝트의 아키텍처적 및 연구적 **대변혁(Paradigm Shift)**입니다.
+최근 PrimeProject 로컬 저장소에는 **8,000라인 이상의 핵심 코드 및 문서 추가**가 발생했습니다. 이는 단순한 버그 수정 수준을 넘어서는 연구 프레임워크 확장입니다. 다만 이 확장은 아직 실세계 attribution이나 미해결 난제 증명을 확정한 것이 아니라, 그런 주장을 검증하기 위한 장치와 차단 조건을 만든 단계입니다.
 
 ### 핵심 변경 모듈 및 역할
 1.  **`prime_audit/attribution.py` (신규):** 합성 소수 생성기(`rejection`, `next_prime`, `wheel30_next`)로부터 훈련/테스트 데이터셋을 분할(Train/Test Split)하고, 생성기 기원을 예측하는 대규모 벤치마크 및 통제 격자(Confound Grid) 연산 프레임워크 구축.
@@ -20,8 +26,8 @@
 ## 2. 최초 방향성과의 일치 여부 및 전략적 비판
 
 ### 2.1 최초 방향성과의 정렬 (Alignment)
-*   **완벽한 부합 및 초월:** 1차 보고서에서 강력하게 권고했던 **"수동적 취약점 스캐너에서 능동적 기원 분석(Library/Generator Fingerprinting) 엔진으로의 전환"**이 완벽하게 실현되었습니다.
-*   단순히 "이 키는 ROCA에 취약합니다"라는 수준을 넘어서서, **"이 키들의 집합은 `next_prime` 유형의 생성 편향을 담고 있을 확률이 95% 신뢰구간 내에서 유의미하게 감지됩니다"**라고 선언할 수 있는 정교한 암호 분석 프레임워크로 진화했습니다.
+*   **방향성 부합:** 1차 보고서에서 권고했던 **"수동적 취약점 스캐너에서 능동적 기원 분석(Library/Generator Fingerprinting) 엔진으로의 전환"** 방향과 대체로 일치합니다.
+*   단순히 "이 키는 ROCA에 취약합니다"라는 수준을 넘어서서, 통제된 합성 데이터에서는 생성 편향의 fingerprint를 측정하고 반증 조건을 붙일 수 있는 프레임워크로 확장되었습니다. 실세계 키 집합에 대한 attribution 선언은 accepted baseline과 provenance가 확보되기 전까지 차단됩니다.
 
 ### 2.2 비판적 평가 (Critical Evaluation)
 *   **장점 (Rigorous Science):** 
@@ -35,14 +41,14 @@
 
 ## 3. 실제 상업적 / 학문적 가치의 비약적 상승
 
-이번 변경사항을 통해 본 프로젝트의 가치는 이전 버전 대비 **수십 배 이상 비약적으로 상승**했습니다.
+이번 변경사항을 통해 본 프로젝트는 단순 감사 스크립트보다 논문형 실험 프레임워크에 가까워졌습니다. 다만 가치는 accepted real-world baseline, 독립 재현, formal review가 추가될 때만 강한 학술 주장으로 승격될 수 있습니다.
 
 ### 학문적 가치 (Academic Value): ★★★★★ (최상)
 *   **암호 해독 연구로서의 독창성:** 소수 자체의 무작위성 이면에 숨겨진 '알고리즘적 편향'을 정량화하고 이를 통계적으로 입증하는 프레임워크는 암호학 컨퍼런스(예: USENIX Security, CCS, Eurocrypt)의 실증적 연구 트랙에 바로 제출할 수 있는 수준의 학술적 방법론을 갖추었습니다.
 *   **재현성 및 투명성:** `attribution-grid`를 통해 실험의 모든 하이퍼파라미터 조건(Limit, Train/Test Count, Seeds)을 설정하고 재현할 수 있어 과학적 무결성이 매우 높습니다.
 
 ### 상업적 가치 (Commercial Value): ★★★★☆ (우수)
-*   **암호 포렌식(Cryptographic Forensics) 솔루션:** 침해 사고 대응이나 공급망 공격 조사 시 유출되거나 수집된 공개키 셋을 기반으로 **"이 키를 생성한 백도어 혹은 취약한 모바일 지갑 라이브러리는 무엇인가?"**를 추적하는 독보적인 핑거프린팅 엔진으로 상용화가 가능합니다.
+*   **암호 포렌식(Cryptographic Forensics) 솔루션:** 침해 사고 대응이나 공급망 공격 조사 시 유출되거나 수집된 공개키 셋을 기반으로 **"이 키 집합이 어떤 생성기 계열과 통계적으로 가까운가?"**를 검토하는 보조 분석 엔진으로 발전시킬 수 있습니다. 다만 특정 백도어, 모바일 지갑, 또는 라이브러리를 단정하려면 accepted real-world baseline, provenance, labelled feature vector, confound-controlled validation이 먼저 필요합니다.
 *   **품질 감사 자동화(Automated Compliance Audit):** 데이터셋 크기에 따른 신뢰도 분석 기능(`sample_quality`)이 제공되므로, 기업 보안 감사자가 "감사에 사용된 공개키 개수가 신뢰할 수 있는 수준인가?"를 직관적인 점수(`overall_confidence`)로 판별해낼 수 있어 엔터프라이즈 제품화의 중요한 기능적 기틀이 마련되었습니다.
 
 ---
@@ -64,4 +70,4 @@
 ---
 
 ### 결론
-본 프로젝트는 **"단순 취약점 스캐너"에서 "암호 알고리즘 기원 추적 포렌식 프레임워크"로 완벽하게 변모**했습니다. 최근의 거대한 변화는 최초의 피벗 방향과 소름 돋을 정도로 일치하며, 학술적 유의성 검정과 대조군 통제의 도입으로 인해 과학적 무결성 및 상업적 가치가 극적으로 도약했습니다. 향후 실제 라이브러리 데이터와의 결합 및 머신러닝 기반 분류기 보완만 이루어진다면, 업계 독보적인 암호 자산 분석 솔루션으로 자리매김할 것입니다.
+본 프로젝트는 알려진 취약점 스캐너에서 **claim-gated 암호 생성기 fingerprint 연구 프레임워크**로 확장되었습니다. 현재 강하게 주장할 수 있는 범위는 통제된 합성 generator fingerprint, 공개 안전 수집 계약, provenance/intake gate, claim-language audit, publication consistency audit까지입니다. 실세계 라이브러리 attribution과 Bitcoin wallet/library attribution은 아직 accepted baseline, provenance record, labelled feature vector, 독립 재현 실험이 부족하므로 차단 상태로 남아야 합니다. 다음 단계의 학술적 가치는 OpenSSL/BoringSSL/Go/Bitcoin Core/지갑 라이브러리의 공개 가능한 aggregate baseline을 수집하고, 비선형 분류기와 confound-controlled validation을 같은 evidence gate 안에서 재현 가능하게 통과시키는 데 있습니다.

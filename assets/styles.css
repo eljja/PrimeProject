@@ -1115,6 +1115,93 @@ canvas {
   line-height: 1.45;
 }
 
+.ai-frontier-head {
+  display: grid;
+  grid-template-columns: 0.8fr 2fr;
+  gap: 10px;
+}
+
+.ai-frontier-head div,
+.ai-frontier-thesis,
+.ai-frontier-grid section,
+.ai-step,
+.ai-output-list div {
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.ai-frontier-head span,
+.ai-frontier-thesis span,
+.ai-step span,
+.ai-output-list span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.ai-frontier-head strong,
+.ai-frontier-thesis strong,
+.ai-step strong,
+.ai-output-list strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.ai-frontier-thesis {
+  margin-top: 10px;
+  border-left: 4px solid var(--teal);
+}
+
+.ai-frontier-thesis p,
+.ai-frontier-thesis small,
+.ai-step p {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.ai-frontier-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ai-frontier-grid h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.ai-output-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ai-step-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ai-step {
+  border-left: 4px solid var(--amber);
+}
+
+.ai-step.is-blocked_until_survivor {
+  border-left-color: var(--danger);
+}
+
 .proof-panel ol {
   margin: 0;
   padding-left: 20px;
@@ -6238,6 +6325,10 @@ tr:last-child td {
   .kernel-audit-list,
   .shortcut-suite-head,
   .shortcut-suite-list,
+  .ai-frontier-head,
+  .ai-frontier-grid,
+  .ai-output-list,
+  .ai-step-list,
   .verdict-grid,
   .route-triage-head,
   .route-triage-list,

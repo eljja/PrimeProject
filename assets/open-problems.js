@@ -530,6 +530,67 @@ function renderInvalidProofShortcutSuite(problem) {
   `;
 }
 
+function renderAiSolverFrontier(problem) {
+  const frontier = problem.ai_solver_frontier || {};
+  const steps = frontier.solver_steps || [];
+  const searchSpace = frontier.search_space || [];
+  const machineOutput = Object.entries(frontier.machine_output || {});
+  return `
+    <div class="ai-frontier-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(frontier.status))}</strong>
+      </div>
+      <div>
+        <span>Engine</span>
+        <strong>${escapeHtml(frontier.engine || "missing")}</strong>
+      </div>
+    </div>
+    <article class="ai-frontier-thesis">
+      <span>Novel attempt</span>
+      <p>${escapeHtml(frontier.novel_attempt || "")}</p>
+      <strong>${escapeHtml(frontier.best_current_candidate || "")}</strong>
+      <small>Blocking obstruction: ${escapeHtml(frontier.blocking_obstruction || "")}</small>
+    </article>
+    <div class="ai-frontier-grid">
+      <section>
+        <h3>Search Space</h3>
+        ${list(searchSpace)}
+      </section>
+      <section>
+        <h3>Machine Output</h3>
+        <div class="ai-output-list">
+          ${machineOutput
+            .map(
+              ([label, value]) => `
+                <div>
+                  <span>${escapeHtml(label.replaceAll("_", " "))}</span>
+                  <strong>${escapeHtml(formatValue(value))}</strong>
+                </div>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+    </div>
+    <div class="ai-step-list">
+      ${steps
+        .map(
+          (step) => `
+            <article class="ai-step is-${escapeHtml(step.status || "unknown")}">
+              <span>${escapeHtml(step.id || "")} · ${escapeHtml(step.stage || "")}</span>
+              <strong>${escapeHtml(statusText(step.status))}</strong>
+              <p>Acceptance test: ${escapeHtml(step.acceptance_test || "")}</p>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">Next experiment: ${escapeHtml(frontier.next_experiment || "")}</p>
+    <p class="route-rule">${escapeHtml(frontier.claim_rule || "")}</p>
+  `;
+}
+
 function renderProofRouteTriage(problem) {
   const triage = problem.proof_route_triage || {};
   const routes = triage.routes || [];
@@ -1629,6 +1690,7 @@ function render(payload, problem) {
   document.querySelector("#proofKernelRoadmap").innerHTML = renderProofKernelRoadmap(problem);
   document.querySelector("#formalKernelContractAudit").innerHTML = renderFormalKernelContractAudit(problem);
   document.querySelector("#invalidProofShortcutSuite").innerHTML = renderInvalidProofShortcutSuite(problem);
+  document.querySelector("#aiSolverFrontier").innerHTML = renderAiSolverFrontier(problem);
   document.querySelector("#proofRouteTriage").innerHTML = renderProofRouteTriage(problem);
   document.querySelector("#decisiveTheoremSpec").innerHTML = renderDecisiveTheoremSpec(problem);
   document.querySelector("#decisiveTheoremSubgoals").innerHTML = renderDecisiveTheoremSubgoals(problem);

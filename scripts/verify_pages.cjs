@@ -269,6 +269,8 @@ async function main() {
           formalKernelAuditRows: document.querySelectorAll("#formalKernelContractAudit .kernel-audit-row").length,
           invalidShortcutText: document.querySelector("#invalidProofShortcutSuite").textContent,
           invalidShortcutCards: document.querySelectorAll("#invalidProofShortcutSuite .shortcut-card").length,
+          aiSolverText: document.querySelector("#aiSolverFrontier").textContent,
+          aiSolverSteps: document.querySelectorAll("#aiSolverFrontier .ai-step").length,
           proofRouteTriageText: document.querySelector("#proofRouteTriage").textContent,
           proofRouteCards: document.querySelectorAll("#proofRouteTriage .route-card").length,
           decisiveTheoremText: document.querySelector("#decisiveTheoremSpec").textContent,
@@ -382,6 +384,11 @@ async function main() {
         !page.invalidShortcutText.includes("Kill condition") ||
         !page.invalidShortcutText.includes("No proof candidate may enter review") ||
         page.invalidShortcutCards < 3 ||
+        !page.aiSolverText.includes("Novel attempt") ||
+        !page.aiSolverText.includes("Search Space") ||
+        !page.aiSolverText.includes("Machine Output") ||
+        !page.aiSolverText.includes("live AI-assisted attack plan") ||
+        page.aiSolverSteps < 4 ||
         page.proofRouteCards < 4 ||
         !page.proofRouteTriageText.includes("routes triaged no full proof") ||
         !page.proofRouteTriageText.includes("current decisive route") ||
@@ -780,7 +787,9 @@ async function main() {
     !metrics.evidencePanel.includes("collection_fixture_audit_gate") ||
     !metrics.evidencePanel.includes("claim_language_audit") ||
     !metrics.evidencePanel.includes("claim_language_gate") ||
-    !metrics.evidencePanel.includes("89 guarded") ||
+    !metrics.evidencePanel.includes(
+      `${formatNumber(publicData.evolution.metrics?.claim_language_guarded_mentions || 0)} guarded`,
+    ) ||
     !metrics.evidencePanel.includes("quality pass") ||
     !metrics.evidencePanel.includes("collection_intake") ||
     !metrics.evidencePanel.includes("null_calibration") ||

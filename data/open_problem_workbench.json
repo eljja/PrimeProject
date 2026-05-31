@@ -1479,6 +1479,54 @@
         ],
         "claim_rule": "No proof candidate may enter review until every matching invalid shortcut is removed or replaced by a formal artifact."
       },
+      "ai_solver_frontier": {
+        "schema": "primeproject.ai-solver-frontier.v1",
+        "problem_id": "riemann",
+        "status": "breakthrough_search_active_not_solved",
+        "engine": "positivity-kernel search over explicit-formula test functions",
+        "novel_attempt": "Search for a kernel family whose Weil-explicit-formula positivity is equivalent to RH, then let PrimeProject reject every kernel whose prime-side stress terms cannot be bounded with explicit constants.",
+        "search_space": [
+          "even compactly supported smooth kernels",
+          "Laguerre/Hermite spectral kernels",
+          "Li-coefficient positivity witnesses",
+          "prime-side interval-arithmetic envelopes"
+        ],
+        "best_current_candidate": "kernel template with nonnegative spectral side and bounded prime-side stress at committed theta checkpoints",
+        "machine_output": {
+          "bounded_signal": "max scaled theta error 0.076725",
+          "certificate_root": "d2a11c74de18a21a",
+          "open_gap_count": "unknown"
+        },
+        "blocking_obstruction": "No discovered kernel yet gives a non-circular all-height positivity theorem.",
+        "next_experiment": "Generate kernel candidates, compute symbolic positivity constraints, and reject any kernel needing RH-equivalent assumptions.",
+        "solver_steps": [
+          {
+            "id": "AI-1",
+            "stage": "generate candidate",
+            "status": "active_search",
+            "acceptance_test": "candidate states a theorem stronger than finite evidence and avoids known shortcut classes"
+          },
+          {
+            "id": "AI-2",
+            "stage": "machine falsify",
+            "status": "active_search",
+            "acceptance_test": "PrimeProject stress tests fail weak, circular, heuristic, or finite-only candidates"
+          },
+          {
+            "id": "AI-3",
+            "stage": "compress obstruction",
+            "status": "open_research",
+            "acceptance_test": "remaining failures collapse into a finite family of symbolic obstruction classes"
+          },
+          {
+            "id": "AI-4",
+            "stage": "formalize survivor",
+            "status": "blocked_until_survivor",
+            "acceptance_test": "surviving theorem is replayable without sorry, admit, target-equivalent axiom, or unproved heuristic"
+          }
+        ],
+        "claim_rule": "This is a live AI-assisted attack plan for an unsolved problem; it can propose and falsify proof candidates, but status changes only after a replayable infinite theorem exists."
+      },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",
         "problem_id": "riemann",
@@ -3073,6 +3121,57 @@
           }
         ],
         "claim_rule": "No proof candidate may enter review until every matching invalid shortcut is removed or replaced by a formal artifact."
+      },
+      "ai_solver_frontier": {
+        "schema": "primeproject.ai-solver-frontier.v1",
+        "problem_id": "collatz",
+        "status": "breakthrough_search_active_not_solved",
+        "engine": "residue-block descent cover search",
+        "novel_attempt": "Use AI to synthesize a finite residue cover and a ranking functional, then require every symbolic block to strictly descend under accelerated Collatz iteration.",
+        "search_space": [
+          "odd residue classes modulo 2^k",
+          "accelerated Collatz affine branches",
+          "piecewise-linear ranking functions",
+          "cycle/divergence exclusion certificates"
+        ],
+        "best_current_candidate": "sampled residue descent pressure suggests a modulus-specific cover may exist, but no complete symbolic cover is certified.",
+        "machine_output": {
+          "tested_start_values": 1000000,
+          "max_total_stopping_time": {
+            "n": 837799,
+            "steps": 524
+          },
+          "max_start": "n/a"
+        },
+        "blocking_obstruction": "Every residue block must be covered symbolically; sampled descent is not enough.",
+        "next_experiment": "Enumerate residue classes modulo 2^k, derive affine accelerated branches, and search for a strict well-founded ranking function.",
+        "solver_steps": [
+          {
+            "id": "AI-1",
+            "stage": "generate candidate",
+            "status": "active_search",
+            "acceptance_test": "candidate states a theorem stronger than finite evidence and avoids known shortcut classes"
+          },
+          {
+            "id": "AI-2",
+            "stage": "machine falsify",
+            "status": "active_search",
+            "acceptance_test": "PrimeProject stress tests fail weak, circular, heuristic, or finite-only candidates"
+          },
+          {
+            "id": "AI-3",
+            "stage": "compress obstruction",
+            "status": "open_research",
+            "acceptance_test": "remaining failures collapse into a finite family of symbolic obstruction classes"
+          },
+          {
+            "id": "AI-4",
+            "stage": "formalize survivor",
+            "status": "blocked_until_survivor",
+            "acceptance_test": "surviving theorem is replayable without sorry, admit, target-equivalent axiom, or unproved heuristic"
+          }
+        ],
+        "claim_rule": "This is a live AI-assisted attack plan for an unsolved problem; it can propose and falsify proof candidates, but status changes only after a replayable infinite theorem exists."
       },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",
@@ -4680,6 +4779,58 @@
         ],
         "claim_rule": "No proof candidate may enter review until every matching invalid shortcut is removed or replaced by a formal artifact."
       },
+      "ai_solver_frontier": {
+        "schema": "primeproject.ai-solver-frontier.v1",
+        "problem_id": "goldbach",
+        "status": "breakthrough_search_active_not_solved",
+        "engine": "explicit-cutoff optimizer for two-prime lower bounds",
+        "novel_attempt": "Treat strong Goldbach as a constant-optimization problem: lower the analytic cutoff N0 until the existing bounded certificate can cover the remaining finite interval.",
+        "search_space": [
+          "major-arc constants",
+          "minor-arc error budgets",
+          "worst residue classes",
+          "least-representation even integers"
+        ],
+        "best_current_candidate": "the bounded certificate supplies the finite half; the missing half is an explicit positive two-prime lower bound with N0 below the certificate limit.",
+        "machine_output": {
+          "checked_even_limit": "n/a",
+          "counterexamples": 0,
+          "hardest_decomposition": {
+            "even": 503222,
+            "smallest_prime": 523,
+            "partner": 502699
+          }
+        },
+        "blocking_obstruction": "No explicit large-even lower-bound theorem with compatible cutoff is present.",
+        "next_experiment": "Optimize explicit constants and reject any bound whose N0 exceeds the committed certificate limit.",
+        "solver_steps": [
+          {
+            "id": "AI-1",
+            "stage": "generate candidate",
+            "status": "active_search",
+            "acceptance_test": "candidate states a theorem stronger than finite evidence and avoids known shortcut classes"
+          },
+          {
+            "id": "AI-2",
+            "stage": "machine falsify",
+            "status": "active_search",
+            "acceptance_test": "PrimeProject stress tests fail weak, circular, heuristic, or finite-only candidates"
+          },
+          {
+            "id": "AI-3",
+            "stage": "compress obstruction",
+            "status": "open_research",
+            "acceptance_test": "remaining failures collapse into a finite family of symbolic obstruction classes"
+          },
+          {
+            "id": "AI-4",
+            "stage": "formalize survivor",
+            "status": "blocked_until_survivor",
+            "acceptance_test": "surviving theorem is replayable without sorry, admit, target-equivalent axiom, or unproved heuristic"
+          }
+        ],
+        "claim_rule": "This is a live AI-assisted attack plan for an unsolved problem; it can propose and falsify proof candidates, but status changes only after a replayable infinite theorem exists."
+      },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",
         "problem_id": "goldbach",
@@ -6224,6 +6375,57 @@
           }
         ],
         "claim_rule": "No proof candidate may enter review until every matching invalid shortcut is removed or replaced by a formal artifact."
+      },
+      "ai_solver_frontier": {
+        "schema": "primeproject.ai-solver-frontier.v1",
+        "problem_id": "twin-prime",
+        "status": "breakthrough_search_active_not_solved",
+        "engine": "exact-gap sieve-weight search",
+        "novel_attempt": "Search parity-sensitive sieve weights that force gap exactly 2 instead of merely producing bounded prime gaps.",
+        "search_space": [
+          "admissible tuple weights with a mandatory {0,2} pair",
+          "parity-barrier stress tests",
+          "exact-gap lower-bound candidates",
+          "Hardy-Littlewood-free density witnesses"
+        ],
+        "best_current_candidate": "bounded exact-gap counts are positive and heuristic-scale, but every current path still collapses to bounded-gap or heuristic evidence.",
+        "machine_output": {
+          "twin_pair_count": 8169,
+          "largest_pair_seen": [
+            999959,
+            999961
+          ],
+          "hardy_littlewood_ratio": "n/a"
+        },
+        "blocking_obstruction": "The parity barrier still prevents exact gap-2 infinitude from bounded-gap methods.",
+        "next_experiment": "Generate sieve weights and kill every candidate whose conclusion is only bounded gaps, averaged gaps, or Hardy-Littlewood-scale agreement.",
+        "solver_steps": [
+          {
+            "id": "AI-1",
+            "stage": "generate candidate",
+            "status": "active_search",
+            "acceptance_test": "candidate states a theorem stronger than finite evidence and avoids known shortcut classes"
+          },
+          {
+            "id": "AI-2",
+            "stage": "machine falsify",
+            "status": "active_search",
+            "acceptance_test": "PrimeProject stress tests fail weak, circular, heuristic, or finite-only candidates"
+          },
+          {
+            "id": "AI-3",
+            "stage": "compress obstruction",
+            "status": "open_research",
+            "acceptance_test": "remaining failures collapse into a finite family of symbolic obstruction classes"
+          },
+          {
+            "id": "AI-4",
+            "stage": "formalize survivor",
+            "status": "blocked_until_survivor",
+            "acceptance_test": "surviving theorem is replayable without sorry, admit, target-equivalent axiom, or unproved heuristic"
+          }
+        ],
+        "claim_rule": "This is a live AI-assisted attack plan for an unsolved problem; it can propose and falsify proof candidates, but status changes only after a replayable infinite theorem exists."
       },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",
