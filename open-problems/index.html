@@ -4,70 +4,75 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PrimeProject Proof Workbench</title>
-    <link rel="stylesheet" href="../assets/styles.css?v=proof-workbench-hub-20260528" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260601-i18n" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
       <header class="proof-hero">
-        <a class="proof-back" href="../index.html">PrimeProject</a>
+        <a class="proof-back" href="../index.html" data-i18n="proof.back">PrimeProject</a>
+        <div class="language-switch proof-language-switch" aria-label="Language switch">
+          <button type="button" data-lang-set="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-set="ko" aria-pressed="false">KO</button>
+        </div>
         <nav class="proof-nav" aria-label="Open problem pages">
-          <a href="riemann.html">Riemann</a>
-          <a href="collatz.html">Collatz</a>
-          <a href="goldbach.html">Goldbach</a>
-          <a href="twin-prime.html">Twin Prime</a>
+          <a href="riemann.html" data-i18n="proof.nav.riemann">Riemann</a>
+          <a href="collatz.html" data-i18n="proof.nav.collatz">Collatz</a>
+          <a href="goldbach.html" data-i18n="proof.nav.goldbach">Goldbach</a>
+          <a href="twin-prime.html" data-i18n="proof.nav.twinPrime">Twin Prime</a>
         </nav>
-        <p class="proof-eyebrow">Open Problem Proof Workbench</p>
-        <h1>Proof Workbench</h1>
-        <p>
+        <p class="proof-eyebrow" data-i18n="proof.hub.eyebrow">Open Problem Proof Workbench</p>
+        <h1 data-i18n="proof.hub.title">Proof Workbench</h1>
+        <p data-i18n="proof.hub.body">
           A bounded-evidence workspace for the four open problems tracked by PrimeProject. These pages separate
           finite computation, falsification checks, proof obligations, and unresolved barriers.
         </p>
         <div class="proof-status-strip">
-          <span>status <strong>open_not_proven</strong></span>
-          <span>claim level <strong>bounded evidence only</strong></span>
-          <span>pages <strong>4</strong></span>
+          <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
+          <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>bounded evidence only</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4</strong></span>
         </div>
       </header>
 
       <section class="proof-grid">
         <article class="proof-panel">
           <h2>Riemann Hypothesis</h2>
-          <p>
+          <p data-i18n="proof.card.riemann.body">
             Tracks zero-line evidence, equivalent criteria, proof obligations, and barriers that cannot be discharged
             by finite verification.
           </p>
-          <a class="proof-card-link" href="riemann.html">Open Riemann page</a>
+          <a class="proof-card-link" href="riemann.html" data-i18n="proof.open.riemann">Open Riemann page</a>
         </article>
         <article class="proof-panel">
           <h2>Collatz Conjecture</h2>
-          <p>
+          <p data-i18n="proof.card.collatz.body">
             Separates trajectory-scale computation from the missing global descent argument needed for a proof.
           </p>
-          <a class="proof-card-link" href="collatz.html">Open Collatz page</a>
+          <a class="proof-card-link" href="collatz.html" data-i18n="proof.open.collatz">Open Collatz page</a>
         </article>
         <article class="proof-panel">
           <h2>Goldbach Conjecture</h2>
-          <p>
+          <p data-i18n="proof.card.goldbach.body">
             Organizes even-integer verification, density heuristics, exception search, and the finite-to-infinite gap.
           </p>
-          <a class="proof-card-link" href="goldbach.html">Open Goldbach page</a>
+          <a class="proof-card-link" href="goldbach.html" data-i18n="proof.open.goldbach">Open Goldbach page</a>
         </article>
         <article class="proof-panel">
           <h2>Twin Prime Workbench</h2>
-          <p>
+          <p data-i18n="proof.card.twin.body">
             Focuses on prime-pair gaps, residue constraints, admissible patterns, and why bounded twin-prime counts are
             not yet infinitude.
           </p>
-          <a class="proof-card-link" href="twin-prime.html">Open Twin Prime page</a>
+          <a class="proof-card-link" href="twin-prime.html" data-i18n="proof.open.twin">Open Twin Prime page</a>
         </article>
         <section class="proof-panel proof-wide">
-          <h2>Research Boundary</h2>
-          <p>
+          <h2 data-i18n="proof.boundary.title">Research Boundary</h2>
+          <p data-i18n="proof.boundary.body">
             PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must
             not present a conjecture as solved until an infinite argument survives formal and peer review.
           </p>
         </section>
       </section>
     </main>
+    <script src="../assets/i18n.js?v=20260601-i18n"></script>
   </body>
 </html>

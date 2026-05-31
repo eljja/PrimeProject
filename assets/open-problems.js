@@ -1730,6 +1730,7 @@ function render(payload, problem) {
   document.querySelector("#blockedClaims").innerHTML = (payload.claim_policy.blocked_claims || [])
     .map((claim) => `<span>${escapeHtml(claim)}</span>`)
     .join("");
+  if (window.PrimeProjectI18n) window.PrimeProjectI18n.apply();
 }
 
 async function main() {

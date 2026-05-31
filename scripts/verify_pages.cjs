@@ -95,6 +95,8 @@ async function main() {
       pageProtocol: window.location.protocol,
       dataSourceBadge: document.querySelector("#dataSourceBadge").textContent,
       title: document.title,
+      languageSwitchButtons: document.querySelectorAll("[data-lang-set]").length,
+      languageNote: document.querySelector(".language-note")?.textContent || "",
       sideNavText: document.querySelector(".side-nav").textContent,
       proofWorkbenchHref: document.querySelector(".side-nav a[href='open-problems/index.html']")?.textContent || "",
       riemannNavHref: document.querySelector(".side-nav a[href='open-problems/riemann.html']")?.textContent || "",
@@ -326,6 +328,10 @@ async function main() {
   }
   const expected = buildExpectedPublicText(publicData);
   if (metrics.pageProtocol !== "http:" || metrics.fetchedDataJson < 20) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  if (metrics.languageSwitchButtons < 2 || !metrics.languageNote.includes("Language Coverage")) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }

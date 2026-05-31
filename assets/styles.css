@@ -56,6 +56,14 @@ select {
   z-index: 10;
 }
 
+.topbar-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  min-width: 0;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -137,6 +145,57 @@ select {
 .data-source-badge.is-fallback {
   border-color: rgba(215, 138, 17, 0.75);
   color: #ffdca3;
+}
+
+.language-switch {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(34px, 1fr));
+  gap: 2px;
+  border: 1px solid #3a4452;
+  border-radius: 999px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.language-switch button {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #b8c2cf;
+  min-height: 28px;
+  padding: 0 9px;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.language-switch button.is-active {
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.proof-language-switch {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+}
+
+.language-note {
+  display: grid;
+  grid-template-columns: minmax(120px, max-content) 1fr;
+  gap: 12px;
+  align-items: start;
+  margin: 12px 0 4px;
+  padding: 10px 12px;
+  border: 1px solid #d9eee9;
+  background: #f3fbf9;
+  color: #38505a;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.language-note strong {
+  color: var(--teal);
 }
 
 .repo-link {
@@ -527,6 +586,7 @@ canvas {
 }
 
 .proof-hero {
+  position: relative;
   display: grid;
   gap: 14px;
   padding: 22px;
@@ -6408,6 +6468,15 @@ tr:last-child td {
     align-self: flex-start;
   }
 
+  .topbar-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .language-note {
+    grid-template-columns: 1fr;
+  }
+
   .workspace {
     grid-template-columns: 1fr;
     padding: 10px;
@@ -6420,6 +6489,11 @@ tr:last-child td {
 
   .proof-hero h1 {
     font-size: 38px;
+  }
+
+  .proof-language-switch {
+    position: static;
+    width: max-content;
   }
 
   .navigation-rail,

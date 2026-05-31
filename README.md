@@ -2,7 +2,21 @@
 
 [![PrimeProject CI](https://github.com/eljja/PrimeProject/actions/workflows/ci.yml/badge.svg)](https://github.com/eljja/PrimeProject/actions/workflows/ci.yml)
 
+<p align="right">
+  <a href="#english"><strong>English</strong></a>
+  ·
+  <a href="#한국어"><strong>한국어</strong></a>
+  ·
+  <a href="https://eljja.github.io/PrimeProject/?lang=en"><strong>GitHub Pages EN</strong></a>
+  ·
+  <a href="https://eljja.github.io/PrimeProject/?lang=ko"><strong>GitHub Pages KO</strong></a>
+</p>
+
+## English
+
 `PrimeProject` explores practical regularity analysis for cryptographic primes. The current implementation focuses on defensive audits of owned key material, key-quality policy checks, and synthetic generator-bias experiments.
+
+Language support: the GitHub Pages app includes an `EN / KO` switch in the top bar. The switch localizes the page shell, navigation, main headings, proof workbench labels, and publication-boundary guidance while keeping canonical artifact schema labels in English for reproducibility.
 
 ## Publication claim boundary / 논문 제출용 주장 경계
 
@@ -75,6 +89,21 @@ The Baseline Lab panel reads `data/baselines/real_world/manifest.json`, `data/co
 The Research Readiness panel reads `data/research_readiness.json` and surfaces blocking gaps before any real-world attribution claim is treated as strong.
 
 The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_audit.json`, `data/claim_ledger.json`, `data/artifact_lineage.json`, `data/decision_protocol.json`, `data/falsification_battery.json`, and `data/publication_consistency.json` to show checksums, semantic publication gates, the maximum safe claim level, which public claims are currently allowed or blocked, whether public wording stays inside the evidence boundary, whether the public artifact dependency graph is acyclic and checksum-consistent, which claim-promotion decisions are pre-registered as allowed or blocked, which falsification checks prevent overclaiming, and whether all public governance artifacts agree on the same high-risk claim boundary. The fixture-audit gate now checks `quality_gate.status`, fixture count, public-safety count, and failed expectation count instead of only checking that the file exists.
+
+## 한국어
+
+`PrimeProject`는 암호 시스템이 만든 수학적 객체에서 생성기의 흔적과 약점을 찾기 위한 방어적 연구 도구입니다. 현재 구현은 보유 권한이 있는 키 자료의 품질 감사, 키 정책 검사, 합성 generator-bias 실험, 실세계 기준군 수집 계약, publication claim governance에 초점을 둡니다.
+
+언어 지원: [GitHub Pages KO](https://eljja.github.io/PrimeProject/?lang=ko)에서 `EN / KO` 전환 버튼을 사용할 수 있습니다. 전환 대상은 페이지 구조, 좌측 메뉴, 주요 제목, proof workbench 라벨, 논문 제출용 주장 경계 안내입니다. 재현 가능한 JSON artifact의 schema label은 논문/검증 스크립트와 맞추기 위해 영어 원문을 유지합니다.
+
+핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
+
+주요 진입점:
+
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): 소수 간극, residue drift, research atlas, evidence pack, baseline/readiness panel을 한 화면에서 봅니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 미해결 문제의 bounded evidence, missing theorem, proof gate를 분리해 봅니다.
+- [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
+- [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 
 ## Input format
 

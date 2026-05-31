@@ -1264,7 +1264,7 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
     claim_language_scanned_files: 16,
-    claim_language_scanned_lines: 7130,
+    claim_language_scanned_lines: 7177,
     claim_language_triggered_mentions: 112,
     claim_language_guarded_mentions: 112,
     claim_language_failures: 0,
@@ -1573,7 +1573,12 @@ const outputs = {
 function renderDataSourceBadge() {
   if (!outputs.dataSourceBadge) return;
   const isFileMode = window.location.protocol === "file:";
-  outputs.dataSourceBadge.textContent = isFileMode ? "Offline fallback data" : "Public JSON data";
+  const i18n = window.PrimeProjectI18n;
+  outputs.dataSourceBadge.textContent = i18n
+    ? i18n.t(isFileMode ? "top.offline" : "top.public")
+    : isFileMode
+      ? "Offline fallback data"
+      : "Public JSON data";
   outputs.dataSourceBadge.classList.toggle("is-fallback", isFileMode);
   outputs.dataSourceBadge.classList.toggle("is-public", !isFileMode);
   outputs.dataSourceBadge.title = isFileMode
@@ -1634,6 +1639,8 @@ controls.runExperiment.addEventListener("click", runExperiment);
 window.addEventListener("resize", () => {
   window.requestAnimationFrame(render);
 });
+
+window.addEventListener("primeproject:languagechange", renderDataSourceBadge);
 
 runExperiment();
 renderDataSourceBadge();

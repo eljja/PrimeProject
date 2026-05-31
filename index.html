@@ -12,46 +12,52 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260523-collection-handoff" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260601-i18n" />
   </head>
   <body>
     <div class="app-shell">
       <header class="topbar">
         <a class="brand" href="#" aria-label="PrimeProject Conjecture Lab">
           <span class="brand-mark" aria-hidden="true"></span>
-          <span>PrimeProject Conjecture Lab</span>
+          <span data-i18n="brand.title">PrimeProject Conjecture Lab</span>
         </a>
-        <span id="dataSourceBadge" class="data-source-badge">Loading data</span>
-        <a class="repo-link" href="https://github.com/eljja/PrimeProject" rel="noreferrer">GitHub</a>
+        <div class="topbar-actions">
+          <span id="dataSourceBadge" class="data-source-badge" data-i18n="top.loading">Loading data</span>
+          <div class="language-switch" aria-label="Language switch">
+            <button type="button" data-lang-set="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang-set="ko" aria-pressed="false">KO</button>
+          </div>
+          <a class="repo-link" href="https://github.com/eljja/PrimeProject" rel="noreferrer" data-i18n="top.github">GitHub</a>
+        </div>
       </header>
 
       <main class="workspace">
         <aside class="navigation-rail" aria-label="Project navigation">
-          <h2 class="rail-title">PrimeProject Menu</h2>
+          <h2 class="rail-title" data-i18n="menu.title">PrimeProject Menu</h2>
           <nav class="side-nav" aria-label="Lab views">
-            <button class="nav-button is-active" data-scroll-target="overview-panel">Overview</button>
-            <button class="nav-button" data-scroll-target="research-atlas-panel">Research Atlas</button>
-            <button class="nav-button" data-scroll-target="evolution-panel">Evolution</button>
-            <a class="nav-button" href="open-problems/index.html">Proof Workbench</a>
-            <a class="nav-button proof-link" href="open-problems/riemann.html">Riemann Hypothesis</a>
-            <a class="nav-button proof-link" href="open-problems/collatz.html">Collatz Conjecture</a>
-            <a class="nav-button proof-link" href="open-problems/goldbach.html">Goldbach Conjecture</a>
-            <a class="nav-button proof-link" href="open-problems/twin-prime.html">Twin Prime Workbench</a>
-            <button class="nav-button" data-scroll-target="gap-panel">Gap Measure</button>
-            <button class="nav-button" data-scroll-target="prediction-panel">Bias Ranking</button>
-            <button class="nav-button" data-scroll-target="bitcoin-panel">Bitcoin Lab</button>
-            <button class="nav-button" data-scroll-target="fingerprint-panel">Fingerprint Lab</button>
-            <button class="nav-button" data-scroll-target="baseline-panel">Baseline Lab</button>
-            <button class="nav-button" data-scroll-target="readiness-panel">Readiness</button>
-            <button class="nav-button" data-scroll-target="evidence-panel">Evidence</button>
-            <button class="nav-button" data-scroll-target="attribution-panel">Attribution Grid</button>
-            <button class="nav-button" data-scroll-target="residue-panel">Residue Drift</button>
-            <button class="nav-button" data-scroll-target="gap-distribution-panel">Gap Distribution</button>
-            <button class="nav-button" data-scroll-target="snapshots-panel">Research Snapshots</button>
-            <button class="nav-button" data-scroll-target="heatmap-panel">Heatmap</button>
-            <button class="nav-button" data-scroll-target="comparisons-panel">Comparisons</button>
-            <button class="nav-button" data-scroll-target="logs-panel">Logs</button>
-            <button class="nav-button" data-scroll-target="notes-panel">Conjecture Notes</button>
+            <button class="nav-button is-active" data-scroll-target="overview-panel" data-i18n="nav.overview">Overview</button>
+            <button class="nav-button" data-scroll-target="research-atlas-panel" data-i18n="nav.researchAtlas">Research Atlas</button>
+            <button class="nav-button" data-scroll-target="evolution-panel" data-i18n="nav.evolution">Evolution</button>
+            <a class="nav-button" href="open-problems/index.html" data-i18n="nav.proofWorkbench">Proof Workbench</a>
+            <a class="nav-button proof-link" href="open-problems/riemann.html" data-i18n="nav.riemann">Riemann Hypothesis</a>
+            <a class="nav-button proof-link" href="open-problems/collatz.html" data-i18n="nav.collatz">Collatz Conjecture</a>
+            <a class="nav-button proof-link" href="open-problems/goldbach.html" data-i18n="nav.goldbach">Goldbach Conjecture</a>
+            <a class="nav-button proof-link" href="open-problems/twin-prime.html" data-i18n="nav.twinPrime">Twin Prime Workbench</a>
+            <button class="nav-button" data-scroll-target="gap-panel" data-i18n="nav.gapMeasure">Gap Measure</button>
+            <button class="nav-button" data-scroll-target="prediction-panel" data-i18n="nav.biasRanking">Bias Ranking</button>
+            <button class="nav-button" data-scroll-target="bitcoin-panel" data-i18n="nav.bitcoinLab">Bitcoin Lab</button>
+            <button class="nav-button" data-scroll-target="fingerprint-panel" data-i18n="nav.fingerprintLab">Fingerprint Lab</button>
+            <button class="nav-button" data-scroll-target="baseline-panel" data-i18n="nav.baselineLab">Baseline Lab</button>
+            <button class="nav-button" data-scroll-target="readiness-panel" data-i18n="nav.readiness">Readiness</button>
+            <button class="nav-button" data-scroll-target="evidence-panel" data-i18n="nav.evidence">Evidence</button>
+            <button class="nav-button" data-scroll-target="attribution-panel" data-i18n="nav.attributionGrid">Attribution Grid</button>
+            <button class="nav-button" data-scroll-target="residue-panel" data-i18n="nav.residueDrift">Residue Drift</button>
+            <button class="nav-button" data-scroll-target="gap-distribution-panel" data-i18n="nav.gapDistribution">Gap Distribution</button>
+            <button class="nav-button" data-scroll-target="snapshots-panel" data-i18n="nav.snapshots">Research Snapshots</button>
+            <button class="nav-button" data-scroll-target="heatmap-panel" data-i18n="nav.heatmap">Heatmap</button>
+            <button class="nav-button" data-scroll-target="comparisons-panel" data-i18n="nav.comparisons">Comparisons</button>
+            <button class="nav-button" data-scroll-target="logs-panel" data-i18n="nav.logs">Logs</button>
+            <button class="nav-button" data-scroll-target="notes-panel" data-i18n="nav.notes">Conjecture Notes</button>
           </nav>
         </aside>
 
@@ -60,14 +66,18 @@
             <section class="panel main-panel">
               <div class="panel-heading">
                 <div>
-                  <h1>Prime Index vs Prime Value</h1>
-                  <p>Generator-weighted observations compared with the baseline p ≈ n log n.</p>
+                  <h1 data-i18n="overview.title">Prime Index vs Prime Value</h1>
+                  <p data-i18n="overview.subtitle">Generator-weighted observations compared with the baseline p ≈ n log n.</p>
                 </div>
                 <div class="chart-actions" aria-label="Scale controls">
                   <button class="is-active" type="button">Log-Log</button>
                   <button type="button">Semi-Log</button>
-                  <label><input id="densityToggle" type="checkbox" /> Density</label>
+                  <label><input id="densityToggle" type="checkbox" /> <span data-i18n="overview.density">Density</span></label>
                 </div>
+              </div>
+              <div class="language-note">
+                <strong data-i18n="language.note.title">Language Coverage</strong>
+                <span data-i18n="language.note.body">The switch localizes the page shell, navigation, core headings, and publication-boundary guidance. Research artifacts remain machine-readable and retain their canonical English schema labels.</span>
               </div>
               <div class="legend-row">
                 <span><i class="dot teal"></i>next_prime</span>
@@ -82,8 +92,8 @@
             <section id="gap-distribution-panel" class="panel side-chart-panel">
               <div class="panel-heading compact">
                 <div>
-                  <h2>Gap Distribution</h2>
-                  <p>Mass of Δ = p<sub>n+1</sub> - p<sub>n</sub> by generator.</p>
+                  <h2 data-i18n="gapDistribution.title">Gap Distribution</h2>
+                  <p data-i18n="gapDistribution.subtitle">Mass of Δ = p<sub>n+1</sub> - p<sub>n</sub> by generator.</p>
                 </div>
               </div>
               <svg id="gapDistribution" viewBox="0 0 520 420" role="img" aria-label="Gap distribution"></svg>
@@ -93,8 +103,8 @@
           <section id="research-atlas-panel" class="panel research-atlas-panel">
             <div class="panel-heading compact">
               <div>
-                <h2>Research Atlas</h2>
-                <p>Academic map of what PrimeProject currently supports, what remains blocked, and which proof targets would matter.</p>
+                <h2 data-i18n="atlas.title">Research Atlas</h2>
+                <p data-i18n="atlas.subtitle">Academic map of what PrimeProject currently supports, what remains blocked, and which proof targets would matter.</p>
               </div>
             </div>
             <div class="atlas-hero" id="atlasHero"></div>
@@ -107,8 +117,8 @@
           <section id="evolution-panel" class="panel evolution-panel">
             <div class="panel-heading compact">
               <div>
-                <h2>Project Evolution</h2>
-                <p>Visual history of the research stack, from prime-measure experiments to publication-gated evidence.</p>
+                <h2 data-i18n="evolution.title">Project Evolution</h2>
+                <p data-i18n="evolution.subtitle">Visual history of the research stack, from prime-measure experiments to publication-gated evidence.</p>
               </div>
             </div>
             <div class="evolution-summary" id="evolutionSummary"></div>
@@ -697,6 +707,7 @@
       </main>
     </div>
 
-    <script src="assets/app.js?v=20260524-promotion-order"></script>
+    <script src="assets/i18n.js?v=20260601-i18n"></script>
+    <script src="assets/app.js?v=20260601-i18n"></script>
   </body>
 </html>
