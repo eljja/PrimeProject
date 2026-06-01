@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.open-problem-workbench.v1",
-  "generated_at": "2026-06-01T15:45:20+00:00",
+  "generated_at": "2026-06-01T15:54:16+00:00",
   "search_limit": 1000000,
   "proof_status_gate_summary": {
     "schema": "primeproject.open-problem-proof-status-gate.v1",
@@ -1595,6 +1595,50 @@
         ],
         "upgrade_condition": "Do not change the public status until the candidate theorem is converted into a replayable formal proof or an accepted theorem that closes the infinite bridge.",
         "claim_rule": "This program is a serious AI-assisted attempt, not a proof claim. The page remains open_not_proven until the decisive success condition is met by a formal artifact or accepted theorem."
+      },
+      "ai_proof_forge": {
+        "schema": "primeproject.ai-proof-forge.v1",
+        "problem_id": "riemann",
+        "status": "active_unsolved_proof_forge",
+        "forge_title": "Spectral positivity object forge",
+        "minimal_breakthrough_theorem": "Construct a non-circular Hilbert-space or kernel-cone positivity theorem whose explicit-formula shadow implies the classical RH zero-line statement.",
+        "new_object": "A finite symbolic family of signed test kernels with a machine-checkable positivity certificate and a density map into the Weil/Li/Lagarias test universe.",
+        "search_grammar": [
+          "kernel := even compactly supported test family + Mellin transform constraints",
+          "certificate := symbolic positivity block + interval prime-side bound + circularity audit",
+          "bridge := density lemma from generated kernel cone to a known RH-equivalent criterion"
+        ],
+        "countermodel_battery": [
+          "Reject kernels that require RH-strength zero-free regions.",
+          "Reject finite Li-coefficient positivity as a substitute for all-n positivity.",
+          "Reject numerical zero checks unless they discharge an all-height theorem."
+        ],
+        "formal_target": "Lean theorem stub: generated kernel cone positivity implies the RH target theorem after importing only accepted explicit-formula lemmas.",
+        "experiments": [
+          {
+            "id": "riemann-forge-1",
+            "generator": "kernel := even compactly supported test family + Mellin transform constraints",
+            "artifact": "data/open-problem/riemann/forge-1.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          },
+          {
+            "id": "riemann-forge-2",
+            "generator": "certificate := symbolic positivity block + interval prime-side bound + circularity audit",
+            "artifact": "data/open-problem/riemann/forge-2.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          },
+          {
+            "id": "riemann-forge-3",
+            "generator": "bridge := density lemma from generated kernel cone to a known RH-equivalent criterion",
+            "artifact": "data/open-problem/riemann/forge-3.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          }
+        ],
+        "non_reproduction_rule": "The forge is only useful if it creates a new theorem object or rejects a route for a precise mathematical reason; reproducing known finite checks does not count as progress.",
+        "promotion_gate": "Promotion requires an independently replayable theorem artifact that closes the infinite bridge without weakening the original conjecture."
       },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",
@@ -3310,6 +3354,50 @@
         ],
         "upgrade_condition": "Do not change the public status until the candidate theorem is converted into a replayable formal proof or an accepted theorem that closes the infinite bridge.",
         "claim_rule": "This program is a serious AI-assisted attempt, not a proof claim. The page remains open_not_proven until the decisive success condition is met by a formal artifact or accepted theorem."
+      },
+      "ai_proof_forge": {
+        "schema": "primeproject.ai-proof-forge.v1",
+        "problem_id": "collatz",
+        "status": "active_unsolved_proof_forge",
+        "forge_title": "Residue automaton rank forge",
+        "minimal_breakthrough_theorem": "Find a finite accelerated-residue automaton and a well-founded ranking that covers every positive integer without exceptional residue leakage.",
+        "new_object": "A compressed odd-residue transition graph whose nodes carry affine branch data, residue masks, and a candidate ordinal-valued descent rank.",
+        "search_grammar": [
+          "node := residue block modulo 2^k with accelerated odd map",
+          "rank := lexicographic tuple of logarithmic scale, valuation debt, and residue potential",
+          "certificate := every edge decreases rank or enters a smaller certified basin"
+        ],
+        "countermodel_battery": [
+          "Generate uncovered residue blocks when the partition is incomplete.",
+          "Search cycles in the compressed automaton before accepting a rank.",
+          "Reject density-only descent because Collatz requires all starting values."
+        ],
+        "formal_target": "Lean theorem stub: every odd residue block descends under the rank, hence every positive orbit reaches the verified basin.",
+        "experiments": [
+          {
+            "id": "collatz-forge-1",
+            "generator": "node := residue block modulo 2^k with accelerated odd map",
+            "artifact": "data/open-problem/collatz/forge-1.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          },
+          {
+            "id": "collatz-forge-2",
+            "generator": "rank := lexicographic tuple of logarithmic scale, valuation debt, and residue potential",
+            "artifact": "data/open-problem/collatz/forge-2.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          },
+          {
+            "id": "collatz-forge-3",
+            "generator": "certificate := every edge decreases rank or enters a smaller certified basin",
+            "artifact": "data/open-problem/collatz/forge-3.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          }
+        ],
+        "non_reproduction_rule": "The forge is only useful if it creates a new theorem object or rejects a route for a precise mathematical reason; reproducing known finite checks does not count as progress.",
+        "promotion_gate": "Promotion requires an independently replayable theorem artifact that closes the infinite bridge without weakening the original conjecture."
       },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",
@@ -5038,6 +5126,50 @@
         "upgrade_condition": "Do not change the public status until the candidate theorem is converted into a replayable formal proof or an accepted theorem that closes the infinite bridge.",
         "claim_rule": "This program is a serious AI-assisted attempt, not a proof claim. The page remains open_not_proven until the decisive success condition is met by a formal artifact or accepted theorem."
       },
+      "ai_proof_forge": {
+        "schema": "primeproject.ai-proof-forge.v1",
+        "problem_id": "goldbach",
+        "status": "active_unsolved_proof_forge",
+        "forge_title": "Explicit cutoff inequality forge",
+        "minimal_breakthrough_theorem": "Lower an unconditional explicit two-prime representation cutoff below the verified finite Goldbach range.",
+        "new_object": "A ledger of major-arc contribution, minor-arc loss, exceptional-character loss, and finite verification overlap as one auditable inequality budget.",
+        "search_grammar": [
+          "budget := positive main term - explicit error terms",
+          "stress := worst residue class + least observed representation + cutoff sensitivity",
+          "certificate := N0 below finite range and every inequality source independently cited or formalized"
+        ],
+        "countermodel_battery": [
+          "Reject budgets whose N0 exceeds the certified finite range.",
+          "Reject any independence heuristic not converted into an explicit theorem.",
+          "Reject weak Goldbach or almost-all Goldbach as a substitute for strong Goldbach."
+        ],
+        "formal_target": "Lean theorem stub: explicit lower bound R_2(n) > 0 for all even n >= N0, plus bounded certificate for 4 <= n < N0.",
+        "experiments": [
+          {
+            "id": "goldbach-forge-1",
+            "generator": "budget := positive main term - explicit error terms",
+            "artifact": "data/open-problem/goldbach/forge-1.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          },
+          {
+            "id": "goldbach-forge-2",
+            "generator": "stress := worst residue class + least observed representation + cutoff sensitivity",
+            "artifact": "data/open-problem/goldbach/forge-2.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          },
+          {
+            "id": "goldbach-forge-3",
+            "generator": "certificate := N0 below finite range and every inequality source independently cited or formalized",
+            "artifact": "data/open-problem/goldbach/forge-3.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          }
+        ],
+        "non_reproduction_rule": "The forge is only useful if it creates a new theorem object or rejects a route for a precise mathematical reason; reproducing known finite checks does not count as progress.",
+        "promotion_gate": "Promotion requires an independently replayable theorem artifact that closes the infinite bridge without weakening the original conjecture."
+      },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",
         "problem_id": "goldbach",
@@ -6702,6 +6834,50 @@
         ],
         "upgrade_condition": "Do not change the public status until the candidate theorem is converted into a replayable formal proof or an accepted theorem that closes the infinite bridge.",
         "claim_rule": "This program is a serious AI-assisted attempt, not a proof claim. The page remains open_not_proven until the decisive success condition is met by a formal artifact or accepted theorem."
+      },
+      "ai_proof_forge": {
+        "schema": "primeproject.ai-proof-forge.v1",
+        "problem_id": "twin-prime",
+        "status": "active_unsolved_proof_forge",
+        "forge_title": "Exact-gap parity barrier forge",
+        "minimal_breakthrough_theorem": "Produce an unconditional exact-gap-2 lower-bound theorem that survives parity-barrier stress tests.",
+        "new_object": "A parity-sensitive weight ledger separating exact {0,2} contribution from wider bounded-gap contribution and heuristic k-tuple density.",
+        "search_grammar": [
+          "weight := admissible tuple weight with exact-pair selector",
+          "barrier-test := parity model where ordinary sieve cannot distinguish primes from semiprimes",
+          "certificate := positive exact-gap lower bound, not a positive bounded-gap lower bound"
+        ],
+        "countermodel_battery": [
+          "Reject any proof that still allows gap 4, 6, or 246 as the conclusion.",
+          "Reject Hardy-Littlewood k-tuple density as an axiom.",
+          "Reject averaged bounded intervals unless exact gap 2 is forced infinitely often."
+        ],
+        "formal_target": "Lean theorem stub: for every N there exists p > N with p and p+2 prime, derived from an exact-gap lower-bound theorem.",
+        "experiments": [
+          {
+            "id": "twin-prime-forge-1",
+            "generator": "weight := admissible tuple weight with exact-pair selector",
+            "artifact": "data/open-problem/twin-prime/forge-1.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          },
+          {
+            "id": "twin-prime-forge-2",
+            "generator": "barrier-test := parity model where ordinary sieve cannot distinguish primes from semiprimes",
+            "artifact": "data/open-problem/twin-prime/forge-2.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          },
+          {
+            "id": "twin-prime-forge-3",
+            "generator": "certificate := positive exact-gap lower bound, not a positive bounded-gap lower bound",
+            "artifact": "data/open-problem/twin-prime/forge-3.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion."
+          }
+        ],
+        "non_reproduction_rule": "The forge is only useful if it creates a new theorem object or rejects a route for a precise mathematical reason; reproducing known finite checks does not count as progress.",
+        "promotion_gate": "Promotion requires an independently replayable theorem artifact that closes the infinite bridge without weakening the original conjecture."
       },
       "proof_breakthrough_agenda": {
         "schema": "primeproject.proof-breakthrough-agenda.v1",

@@ -42,6 +42,7 @@ FORMAL_KERNEL_CONTRACT_AUDIT_SCHEMA = "primeproject.formal-kernel-contract-audit
 INVALID_PROOF_SHORTCUT_SUITE_SCHEMA = "primeproject.invalid-proof-shortcut-suite.v1"
 AI_SOLVER_FRONTIER_SCHEMA = "primeproject.ai-solver-frontier.v1"
 AI_BREAKTHROUGH_PROGRAM_SCHEMA = "primeproject.ai-breakthrough-program.v1"
+AI_PROOF_FORGE_SCHEMA = "primeproject.ai-proof-forge.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -2190,6 +2191,96 @@ def ai_breakthrough_program(problem: dict[str, object]) -> dict[str, object]:
     }
 
 
+def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    forge_bank: dict[str, dict[str, object]] = {
+        "riemann": {
+            "forge_title": "Spectral positivity object forge",
+            "minimal_breakthrough_theorem": "Construct a non-circular Hilbert-space or kernel-cone positivity theorem whose explicit-formula shadow implies the classical RH zero-line statement.",
+            "new_object": "A finite symbolic family of signed test kernels with a machine-checkable positivity certificate and a density map into the Weil/Li/Lagarias test universe.",
+            "search_grammar": [
+                "kernel := even compactly supported test family + Mellin transform constraints",
+                "certificate := symbolic positivity block + interval prime-side bound + circularity audit",
+                "bridge := density lemma from generated kernel cone to a known RH-equivalent criterion",
+            ],
+            "countermodel_battery": [
+                "Reject kernels that require RH-strength zero-free regions.",
+                "Reject finite Li-coefficient positivity as a substitute for all-n positivity.",
+                "Reject numerical zero checks unless they discharge an all-height theorem.",
+            ],
+            "formal_target": "Lean theorem stub: generated kernel cone positivity implies the RH target theorem after importing only accepted explicit-formula lemmas.",
+        },
+        "collatz": {
+            "forge_title": "Residue automaton rank forge",
+            "minimal_breakthrough_theorem": "Find a finite accelerated-residue automaton and a well-founded ranking that covers every positive integer without exceptional residue leakage.",
+            "new_object": "A compressed odd-residue transition graph whose nodes carry affine branch data, residue masks, and a candidate ordinal-valued descent rank.",
+            "search_grammar": [
+                "node := residue block modulo 2^k with accelerated odd map",
+                "rank := lexicographic tuple of logarithmic scale, valuation debt, and residue potential",
+                "certificate := every edge decreases rank or enters a smaller certified basin",
+            ],
+            "countermodel_battery": [
+                "Generate uncovered residue blocks when the partition is incomplete.",
+                "Search cycles in the compressed automaton before accepting a rank.",
+                "Reject density-only descent because Collatz requires all starting values.",
+            ],
+            "formal_target": "Lean theorem stub: every odd residue block descends under the rank, hence every positive orbit reaches the verified basin.",
+        },
+        "goldbach": {
+            "forge_title": "Explicit cutoff inequality forge",
+            "minimal_breakthrough_theorem": "Lower an unconditional explicit two-prime representation cutoff below the verified finite Goldbach range.",
+            "new_object": "A ledger of major-arc contribution, minor-arc loss, exceptional-character loss, and finite verification overlap as one auditable inequality budget.",
+            "search_grammar": [
+                "budget := positive main term - explicit error terms",
+                "stress := worst residue class + least observed representation + cutoff sensitivity",
+                "certificate := N0 below finite range and every inequality source independently cited or formalized",
+            ],
+            "countermodel_battery": [
+                "Reject budgets whose N0 exceeds the certified finite range.",
+                "Reject any independence heuristic not converted into an explicit theorem.",
+                "Reject weak Goldbach or almost-all Goldbach as a substitute for strong Goldbach.",
+            ],
+            "formal_target": "Lean theorem stub: explicit lower bound R_2(n) > 0 for all even n >= N0, plus bounded certificate for 4 <= n < N0.",
+        },
+        "twin-prime": {
+            "forge_title": "Exact-gap parity barrier forge",
+            "minimal_breakthrough_theorem": "Produce an unconditional exact-gap-2 lower-bound theorem that survives parity-barrier stress tests.",
+            "new_object": "A parity-sensitive weight ledger separating exact {0,2} contribution from wider bounded-gap contribution and heuristic k-tuple density.",
+            "search_grammar": [
+                "weight := admissible tuple weight with exact-pair selector",
+                "barrier-test := parity model where ordinary sieve cannot distinguish primes from semiprimes",
+                "certificate := positive exact-gap lower bound, not a positive bounded-gap lower bound",
+            ],
+            "countermodel_battery": [
+                "Reject any proof that still allows gap 4, 6, or 246 as the conclusion.",
+                "Reject Hardy-Littlewood k-tuple density as an axiom.",
+                "Reject averaged bounded intervals unless exact gap 2 is forced infinitely often.",
+            ],
+            "formal_target": "Lean theorem stub: for every N there exists p > N with p and p+2 prime, derived from an exact-gap lower-bound theorem.",
+        },
+    }
+    forge = forge_bank.get(problem_id, forge_bank["riemann"])
+    experiments = [
+        {
+            "id": f"{problem_id}-forge-{idx + 1}",
+            "generator": item,
+            "artifact": f"data/open-problem/{problem_id}/forge-{idx + 1}.json",
+            "success_rule": "A generated object survives all listed countermodel tests and closes one named infinite proof gap.",
+            "failure_rule": "The object is demoted if it proves only a bounded result, a weaker theorem, or a circular equivalent criterion.",
+        }
+        for idx, item in enumerate(forge.get("search_grammar", []))
+    ]
+    return {
+        "schema": AI_PROOF_FORGE_SCHEMA,
+        "problem_id": problem_id,
+        "status": "active_unsolved_proof_forge",
+        **forge,
+        "experiments": experiments,
+        "non_reproduction_rule": "The forge is only useful if it creates a new theorem object or rejects a route for a precise mathematical reason; reproducing known finite checks does not count as progress.",
+        "promotion_gate": "Promotion requires an independently replayable theorem artifact that closes the infinite bridge without weakening the original conjecture.",
+    }
+
+
 def proof_route_triage(problem: dict[str, object]) -> dict[str, object]:
     problem_id = str(problem.get("id", "unknown"))
     route_bank: dict[str, list[dict[str, str]]] = {
@@ -4054,6 +4145,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["invalid_proof_shortcut_suite"] = invalid_proof_shortcut_suite(problem)
         problem["ai_solver_frontier"] = ai_solver_frontier(problem)
         problem["ai_breakthrough_program"] = ai_breakthrough_program(problem)
+        problem["ai_proof_forge"] = ai_proof_forge(problem)
         problem["proof_breakthrough_agenda"] = proof_breakthrough_agenda(problem)
     return {
         "schema": SCHEMA,

@@ -276,6 +276,8 @@ async function main() {
           aiBreakthroughText: document.querySelector("#aiBreakthroughProgram").textContent,
           aiBreakthroughAnchors: document.querySelectorAll("#aiBreakthroughProgram .breakthrough-anchor").length,
           aiBreakthroughExperiments: document.querySelectorAll("#aiBreakthroughProgram .breakthrough-experiment").length,
+          aiProofForgeText: document.querySelector("#aiProofForge").textContent,
+          aiProofForgeExperiments: document.querySelectorAll("#aiProofForge .proof-forge-experiment").length,
           proofRouteTriageText: document.querySelector("#proofRouteTriage").textContent,
           proofRouteCards: document.querySelectorAll("#proofRouteTriage .route-card").length,
           decisiveTheoremText: document.querySelector("#decisiveTheoremSpec").textContent,
@@ -407,6 +409,12 @@ async function main() {
         !page.aiBreakthroughText.includes("not a proof claim") ||
         page.aiBreakthroughAnchors < 2 ||
         page.aiBreakthroughExperiments < 4 ||
+        !page.aiProofForgeText.includes("Non-reproduction target") ||
+        !page.aiProofForgeText.includes("Search grammar") ||
+        !page.aiProofForgeText.includes("Countermodel battery") ||
+        !page.aiProofForgeText.includes("reproducing known finite checks does not count") ||
+        !page.aiProofForgeText.includes("Promotion gate") ||
+        page.aiProofForgeExperiments < 3 ||
         page.proofRouteCards < 4 ||
         !page.proofRouteTriageText.includes("routes triaged no full proof") ||
         !page.proofRouteTriageText.includes("current decisive route") ||

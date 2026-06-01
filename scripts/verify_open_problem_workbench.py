@@ -365,6 +365,23 @@ def main() -> int:
         if "not a proof claim" not in ai_breakthrough.get("claim_rule", ""):
             print(f"{problem.get('id')} AI breakthrough program is missing the claim boundary.", file=sys.stderr)
             return 1
+        proof_forge = problem.get("ai_proof_forge", {})
+        forge_experiments = proof_forge.get("experiments", []) if isinstance(proof_forge, dict) else []
+        if proof_forge.get("status") != "active_unsolved_proof_forge":
+            print(f"{problem.get('id')} AI proof forge has unexpected status.", file=sys.stderr)
+            return 1
+        if len(proof_forge.get("search_grammar", [])) < 3 or len(proof_forge.get("countermodel_battery", [])) < 3:
+            print(f"{problem.get('id')} AI proof forge is missing grammar or countermodels.", file=sys.stderr)
+            return 1
+        if len(forge_experiments) < 3:
+            print(f"{problem.get('id')} AI proof forge is missing experiments.", file=sys.stderr)
+            return 1
+        if not proof_forge.get("minimal_breakthrough_theorem") or not proof_forge.get("new_object"):
+            print(f"{problem.get('id')} AI proof forge is missing theorem or object.", file=sys.stderr)
+            return 1
+        if "reproducing known finite checks does not count" not in proof_forge.get("non_reproduction_rule", ""):
+            print(f"{problem.get('id')} AI proof forge is missing the non-reproduction rule.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

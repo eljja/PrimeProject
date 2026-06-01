@@ -707,6 +707,56 @@ function renderAiBreakthroughProgram(problem) {
   `;
 }
 
+function renderAiProofForge(problem) {
+  const forge = problem.ai_proof_forge || {};
+  const experiments = forge.experiments || [];
+  return `
+    <div class="proof-forge-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(forge.status))}</strong>
+      </div>
+      <div>
+        <span>Forge</span>
+        <strong>${escapeHtml(forge.forge_title || "missing")}</strong>
+      </div>
+    </div>
+    <article class="proof-forge-thesis">
+      <span>Non-reproduction target</span>
+      <strong>${escapeHtml(forge.minimal_breakthrough_theorem || "")}</strong>
+      <p>${escapeHtml(forge.new_object || "")}</p>
+      <small>${escapeHtml(forge.non_reproduction_rule || "")}</small>
+    </article>
+    <div class="proof-forge-grid">
+      <section>
+        <h3>Search grammar</h3>
+        ${list(forge.search_grammar || [])}
+      </section>
+      <section>
+        <h3>Countermodel battery</h3>
+        ${list(forge.countermodel_battery || [])}
+      </section>
+    </div>
+    <div class="proof-forge-experiments">
+      ${experiments
+        .map(
+          (experiment) => `
+            <article class="proof-forge-experiment">
+              <span>${escapeHtml(experiment.id || "")}</span>
+              <strong>${escapeHtml(experiment.generator || "")}</strong>
+              <p>Artifact: ${escapeHtml(experiment.artifact || "")}</p>
+              <p>Success rule: ${escapeHtml(experiment.success_rule || "")}</p>
+              <small>Failure rule: ${escapeHtml(experiment.failure_rule || "")}</small>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+    <p class="route-rule">Formal target: ${escapeHtml(forge.formal_target || "")}</p>
+    <p class="route-rule">Promotion gate: ${escapeHtml(forge.promotion_gate || "")}</p>
+  `;
+}
+
 function renderProofRouteTriage(problem) {
   const triage = problem.proof_route_triage || {};
   const routes = triage.routes || [];
@@ -1810,6 +1860,7 @@ function render(payload, problem) {
   document.querySelector("#invalidProofShortcutSuite").innerHTML = renderInvalidProofShortcutSuite(problem);
   document.querySelector("#aiSolverFrontier").innerHTML = renderAiSolverFrontier(problem);
   document.querySelector("#aiBreakthroughProgram").innerHTML = renderAiBreakthroughProgram(problem);
+  document.querySelector("#aiProofForge").innerHTML = renderAiProofForge(problem);
   document.querySelector("#proofRouteTriage").innerHTML = renderProofRouteTriage(problem);
   document.querySelector("#decisiveTheoremSpec").innerHTML = renderDecisiveTheoremSpec(problem);
   document.querySelector("#decisiveTheoremSubgoals").innerHTML = renderDecisiveTheoremSubgoals(problem);

@@ -139,6 +139,7 @@
     "proof.section.shortcut": { en: "Invalid Proof Shortcut Suite", ko: "잘못된 증명 지름길 모음" },
     "proof.section.aiFrontier": { en: "AI Solver Frontier", ko: "AI 풀이 전선" },
     "proof.section.aiBreakthrough": { en: "AI Breakthrough Program", ko: "AI 돌파 프로그램" },
+    "proof.section.aiForge": { en: "AI Proof Forge", ko: "AI 증명 Forge" },
     "proof.section.route": { en: "Proof Route Triage", ko: "증명 경로 분류" },
     "proof.section.spec": { en: "Decisive Theorem Spec", ko: "결정적 정리 규격" },
     "proof.section.subgoals": { en: "Decisive Theorem Subgoals", ko: "결정적 정리 하위 목표" },
