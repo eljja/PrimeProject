@@ -717,6 +717,8 @@ function renderAiProofForge(problem) {
   const synthesis = discovery.cross_problem_synthesis || [];
   const portfolio = discovery.portfolio_decision || {};
   const rankedTracks = portfolio.ranked_tracks || [];
+  const decomposition = forge.theorem_decomposition || [];
+  const decompositionSummary = forge.decomposition_summary || {};
   return `
     <div class="proof-forge-head">
       <div>
@@ -740,6 +742,35 @@ function renderAiProofForge(problem) {
       <p>Lean statement draft: ${escapeHtml(forge.lean_statement_draft || "")}</p>
       <small>Proof objects needed: ${escapeHtml(formatValue(forge.proof_objects_needed || []))}</small>
     </article>
+    <div class="proof-forge-decomposition">
+      <div class="proof-forge-head">
+        <div>
+          <span>Theorem decomposition</span>
+          <strong>${escapeHtml(statusText(decompositionSummary.status))}</strong>
+        </div>
+        <div>
+          <span>Highest risk</span>
+          <strong>${escapeHtml(decompositionSummary.highest_risk || "missing")} · ${escapeHtml(decompositionSummary.highest_risk_lemma || "")}</strong>
+        </div>
+      </div>
+      <div class="proof-forge-decomposition-list">
+        ${decomposition
+          .map(
+            (lemma) => `
+              <article class="proof-forge-lemma is-${escapeHtml(lemma.status || "unknown")}">
+                <span>${escapeHtml(lemma.id || "")} · ${escapeHtml(statusText(lemma.status))}</span>
+                <strong>${escapeHtml(lemma.lemma || "")}</strong>
+                <p>Role: ${escapeHtml(lemma.role || "")}</p>
+                <p>Risk: ${escapeHtml(lemma.risk || "")}</p>
+                <p>Proof artifact: ${escapeHtml(lemma.proof_artifact || "")}</p>
+                <small>Failure test: ${escapeHtml(lemma.failure_test || "")}</small>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+      <p>${escapeHtml(decompositionSummary.closure_rule || "")}</p>
+    </div>
     <div class="proof-forge-grid">
       <section>
         <h3>Search grammar</h3>

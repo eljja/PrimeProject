@@ -14,4 +14,11 @@ def requiredProofObjects : List String := [
   "infinitude bridge from positive exact-gap lower bound"
 ]
 
+def theoremDecomposition : List String := [
+  "TP-TD1 ExactPairSelectorWeights",
+  "TP-TD2 ParityBarrierSurvival highest_risk_open",
+  "TP-TD3 PositiveExactGapLowerBound",
+  "TP-TD4 ExactGapInfinitudeBridge"
+]
+
 end PrimeProject.OpenProblems.TwinPrime

@@ -1397,6 +1397,7 @@ canvas {
 .proof-forge-head div,
 .proof-forge-thesis,
 .proof-forge-theorem-draft,
+.proof-forge-decomposition,
 .proof-forge-grid section,
 .proof-forge-experiment {
   border: 1px solid var(--line);
@@ -1407,6 +1408,7 @@ canvas {
 .proof-forge-head span,
 .proof-forge-thesis span,
 .proof-forge-theorem-draft span,
+.proof-forge-lemma span,
 .proof-forge-experiment span {
   display: block;
   color: var(--muted);
@@ -1418,6 +1420,7 @@ canvas {
 .proof-forge-head strong,
 .proof-forge-thesis strong,
 .proof-forge-theorem-draft strong,
+.proof-forge-lemma strong,
 .proof-forge-experiment strong {
   display: block;
   margin-top: 5px;
@@ -1436,10 +1439,45 @@ canvas {
   border-left: 4px solid var(--teal);
 }
 
+.proof-forge-decomposition {
+  margin-top: 10px;
+  border-left: 4px solid var(--amber);
+}
+
+.proof-forge-decomposition-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.proof-forge-lemma {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+  background: #fff;
+  padding: 12px;
+}
+
+.proof-forge-lemma.is-highest_risk_open {
+  border-left-color: var(--danger);
+  background: #fff8f7;
+}
+
+.proof-forge-lemma.is-open_infinite_bridge {
+  border-left-color: var(--amber);
+}
+
+.proof-forge-lemma.is-machine_check_required {
+  border-left-color: var(--violet);
+}
+
 .proof-forge-thesis p,
 .proof-forge-thesis small,
 .proof-forge-theorem-draft p,
 .proof-forge-theorem-draft small,
+.proof-forge-decomposition > p,
+.proof-forge-lemma p,
+.proof-forge-lemma small,
 .proof-forge-experiment p,
 .proof-forge-experiment small {
   display: block;
@@ -6750,6 +6788,7 @@ tr:last-child td {
   .ai-breakthrough-head,
   .ai-breakthrough-grid,
   .proof-forge-head,
+  .proof-forge-decomposition-list,
   .proof-forge-grid,
   .proof-forge-experiments,
   .proof-forge-mutations,

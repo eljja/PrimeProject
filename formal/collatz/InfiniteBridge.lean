@@ -14,4 +14,11 @@ def requiredProofObjects : List String := [
   "edge-by-edge exact descent certificate"
 ]
 
+def theoremDecomposition : List String := [
+  "CO-TD1 AcceleratedResiduePartition",
+  "CO-TD2 WellFoundedResidueRank",
+  "CO-TD3 EveryEdgeDescendsOrEntersBasin highest_risk_open",
+  "CO-TD4 CycleAndDivergenceExclusionBridge"
+]
+
 end PrimeProject.OpenProblems.Collatz

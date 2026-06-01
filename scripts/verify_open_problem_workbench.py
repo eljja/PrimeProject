@@ -385,6 +385,23 @@ def main() -> int:
         if len(proof_forge.get("proof_objects_needed", [])) < 3:
             print(f"{problem.get('id')} AI proof forge is missing proof objects.", file=sys.stderr)
             return 1
+        decomposition = proof_forge.get("theorem_decomposition", [])
+        decomposition_summary = proof_forge.get("decomposition_summary", {})
+        if len(decomposition) < 4:
+            print(f"{problem.get('id')} AI proof forge is missing theorem decomposition.", file=sys.stderr)
+            return 1
+        if decomposition_summary.get("status") != "open_decomposition_not_proof":
+            print(f"{problem.get('id')} AI proof forge decomposition has unexpected status.", file=sys.stderr)
+            return 1
+        if not decomposition_summary.get("highest_risk") or "open_not_proven" not in decomposition_summary.get("closure_rule", ""):
+            print(f"{problem.get('id')} AI proof forge decomposition is missing risk or closure rule.", file=sys.stderr)
+            return 1
+        if not any("highest_risk" in str(item.get("status", "")) for item in decomposition):
+            print(f"{problem.get('id')} AI proof forge decomposition has no highest-risk lemma.", file=sys.stderr)
+            return 1
+        if not all(item.get("proof_artifact") and item.get("failure_test") for item in decomposition):
+            print(f"{problem.get('id')} AI proof forge decomposition is missing artifacts or failure tests.", file=sys.stderr)
+            return 1
         if "reproducing known finite checks does not count" not in proof_forge.get("non_reproduction_rule", ""):
             print(f"{problem.get('id')} AI proof forge is missing the non-reproduction rule.", file=sys.stderr)
             return 1

@@ -14,4 +14,11 @@ def requiredProofObjects : List String := [
   "density bridge into the RH-equivalent test class"
 ]
 
+def theoremDecomposition : List String := [
+  "RH-TD1 AdmissibleKernelCone",
+  "RH-TD2 NonCircularExplicitFormulaPositivity highest_risk_open",
+  "RH-TD3 KernelConeDensityBridge",
+  "RH-TD4 TargetImportAudit"
+]
+
 end PrimeProject.OpenProblems.Riemann

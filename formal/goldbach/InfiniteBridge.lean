@@ -14,4 +14,11 @@ def requiredProofObjects : List String := [
   "N0 comparison below the certified finite range"
 ]
 
+def theoremDecomposition : List String := [
+  "GB-TD1 ExplicitTwoPrimeBudget",
+  "GB-TD2 ErrorTermsReplayable",
+  "GB-TD3 CutoffBelowFiniteCertificate highest_risk_open",
+  "GB-TD4 FiniteLargeNGlue"
+]
+
 end PrimeProject.OpenProblems.Goldbach
