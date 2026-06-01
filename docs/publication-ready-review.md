@@ -27,7 +27,7 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 | `docs/baseline-comparison-research.md` | baseline-comparison design | fingerprint distance framework | production attribution without baselines |
 | `docs/bitcoin-practical-research.md` | Bitcoin defensive track | public constants and nonce-risk audit framing | security break from predicting public constants |
 | `docs/conjecture-lab.md` | prime-measure experiment note | algorithm-induced observation measures | general prime prediction engine |
-| `docs/crypto-prime-catalog.md` | catalog of public cryptographic primes | provenance and parameter recognition | secret-prime recovery |
+| `docs/crypto-prime-catalog.md` | catalog of public cryptographic primes | provenance and parameter recognition | blocked secret-prime recovery |
 | `docs/generator-fingerprint-research.md` | generator fingerprint theory | feature extraction and defensive attribution scaffolding | definitive source attribution |
 | `docs/open-problem-workbench.md` | open-problem proof lab specification | bounded certificates, AI solver frontier, falsification and proof-obligation tracking | proof of the four open conjectures |
 | `docs/prime-regularity-and-crypto-prime-plan.md` | initial research plan | defensive interpretation of prime-generation traces | blocked operational exploitation or blocked private-key recovery |
@@ -48,16 +48,18 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 | `docs/crypto-prime-catalog.md` | 공개 암호 소수 카탈로그 | provenance와 parameter recognition | 비밀 소수 복원 |
 | `docs/generator-fingerprint-research.md` | 생성기 fingerprint 이론 | feature extraction 및 방어적 attribution scaffolding | 단정적 source attribution |
 | `docs/open-problem-workbench.md` | 미해결 문제 proof lab 규격 | bounded certificate, AI solver frontier, 반증/증명 의무 추적 | 네 개 난제의 증명 |
-| `docs/prime-regularity-and-crypto-prime-plan.md` | 초기 연구 계획 | 소수 생성 흔적의 방어적 해석 | 운영 공격 또는 키 복구 |
+| `docs/prime-regularity-and-crypto-prime-plan.md` | 초기 연구 계획 | 소수 생성 흔적의 방어적 해석 | 차단된 운영 공격 또는 차단된 private-key 복구 |
 | `docs/real-world-baseline-research.md` | sim-to-real baseline 프로토콜 | 수집, provenance, intake, publication gate | 제출 전 accepted baseline evidence가 이미 있다는 주장 |
 | `docs/validation-experiment-results.md` | 검증 결과 노트 | 합성 검증 결과 | 배포 수준 attribution |
 
 ## Logical Fixes Applied / 적용한 논리 수정
 
-1. `README.md` now points readers to this publication review and states the bilingual claim boundary near the entry point.
-2. `README.md` now describes the current Open Problem Proof Workbench as including the actual proof runner, candidate lemma workbench, machine proof trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, and AI solver frontier.
-3. `docs/open-problem-workbench.md` now has a bilingual abstract and includes the newest proof-workbench schemas, so the document no longer lags behind GitHub Pages.
-4. This review records the allowed and blocked claim for every Markdown document, reducing the risk that an older strategic or planning document is read as a proof or real-world attribution result.
+1. `README.md` points readers to this publication review and states the bilingual claim boundary near the entry point.
+2. `README.md` includes explicit English/Korean entry links for GitHub Pages and a Korean reader section that summarizes the supported scope, blocked claims, and main pages.
+3. GitHub Pages includes an `EN / KO` switch. The Korean mode localizes the page shell and adds Korean explanation boxes for research panels, but canonical artifact schema labels remain English for reproducibility.
+4. `docs/open-problem-workbench.md` has a bilingual abstract and includes the newest proof-workbench schemas, so the document no longer lags behind GitHub Pages.
+5. The reviewed-document tables now repeat `blocked`/`차단` inside sensitive blocked-claim cells, reducing the risk that an older planning phrase is read as an endorsed attack or recovery claim.
+6. This review records the allowed and blocked claim for every Markdown document, reducing the risk that an older strategic or planning document is read as a proof or real-world attribution result.
 
 ## Submission Boundary / 제출 경계
 

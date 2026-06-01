@@ -1264,7 +1264,7 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
     claim_language_scanned_files: 16,
-    claim_language_scanned_lines: 7244,
+    claim_language_scanned_lines: 7246,
     claim_language_triggered_mentions: 116,
     claim_language_guarded_mentions: 116,
     claim_language_failures: 0,
