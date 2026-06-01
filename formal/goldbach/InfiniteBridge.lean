@@ -24,4 +24,7 @@ def theoremDecomposition : List String := [
 def breakthroughObjectBlueprint : String :=
   "GB-TD3 explicit inequality budget with certified cutoff below finite range"
 
+def counterexampleGuidedSynthesis : String :=
+  "Goldbach CEGIS: generate explicit budgets, reject unsourced constants and cutoffs above finite range"
+
 end PrimeProject.OpenProblems.Goldbach

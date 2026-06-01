@@ -24,4 +24,7 @@ def theoremDecomposition : List String := [
 def breakthroughObjectBlueprint : String :=
   "CO-TD3 residue-debt automaton plus exact SCC descent certificate"
 
+def counterexampleGuidedSynthesis : String :=
+  "Collatz CEGIS: generate residue-rank candidates, reject uncovered blocks and nondecreasing SCCs"
+
 end PrimeProject.OpenProblems.Collatz

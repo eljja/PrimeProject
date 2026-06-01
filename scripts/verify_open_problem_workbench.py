@@ -424,6 +424,23 @@ def main() -> int:
         if len(blueprint.get("next_experiments", [])) < 3:
             print(f"{problem.get('id')} AI proof forge blueprint is missing next experiments.", file=sys.stderr)
             return 1
+        cegis = proof_forge.get("counterexample_guided_synthesis", {})
+        if cegis.get("status") != "cegis_active_no_candidate_proof":
+            print(f"{problem.get('id')} AI proof forge CEGIS loop has unexpected status.", file=sys.stderr)
+            return 1
+        if not cegis.get("candidate_schema") or not cegis.get("promotion_rule"):
+            print(f"{problem.get('id')} AI proof forge CEGIS loop is missing schema or promotion rule.", file=sys.stderr)
+            return 1
+        if len(cegis.get("forbidden_assumptions", [])) < 3 or len(cegis.get("oracle_pipeline", [])) < 4:
+            print(f"{problem.get('id')} AI proof forge CEGIS loop is missing assumptions or oracle steps.", file=sys.stderr)
+            return 1
+        seed_candidates = cegis.get("seed_candidates", [])
+        if len(seed_candidates) < 2:
+            print(f"{problem.get('id')} AI proof forge CEGIS loop is missing seed candidates.", file=sys.stderr)
+            return 1
+        if not all(item.get("expected_failure") and item.get("next_verifier") for item in seed_candidates):
+            print(f"{problem.get('id')} AI proof forge CEGIS candidates are incomplete.", file=sys.stderr)
+            return 1
         if "reproducing known finite checks does not count" not in proof_forge.get("non_reproduction_rule", ""):
             print(f"{problem.get('id')} AI proof forge is missing the non-reproduction rule.", file=sys.stderr)
             return 1

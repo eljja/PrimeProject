@@ -24,4 +24,7 @@ def theoremDecomposition : List String := [
 def breakthroughObjectBlueprint : String :=
   "RH-TD2 signed kernel cone plus non-circular positivity certificate"
 
+def counterexampleGuidedSynthesis : String :=
+  "RH CEGIS: generate kernel cone candidates, reject circular imports, search adversarial kernels"
+
 end PrimeProject.OpenProblems.Riemann

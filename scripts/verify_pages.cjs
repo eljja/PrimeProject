@@ -279,6 +279,7 @@ async function main() {
           aiProofForgeText: document.querySelector("#aiProofForge").textContent,
           aiProofForgeLemmaCards: document.querySelectorAll("#aiProofForge .proof-forge-lemma").length,
           aiProofForgeBlueprintSteps: document.querySelectorAll("#aiProofForge .proof-forge-blueprint-next em").length,
+          aiProofForgeCegisCandidates: document.querySelectorAll("#aiProofForge .proof-forge-cegis-candidates article").length,
           aiProofForgeExperiments: document.querySelectorAll("#aiProofForge .proof-forge-experiment").length,
           aiProofForgeMutations: document.querySelectorAll("#aiProofForge .proof-forge-mutation").length,
           aiProofForgeRunbook: document.querySelectorAll("#aiProofForge .proof-forge-runbook-step").length,
@@ -429,6 +430,12 @@ async function main() {
         !page.aiProofForgeText.includes("Minimal counterexample") ||
         !page.aiProofForgeText.includes("Falsification oracle") ||
         !page.aiProofForgeText.includes("Formalization seed") ||
+        !page.aiProofForgeText.includes("Counterexample-guided synthesis") ||
+        !page.aiProofForgeText.includes("Candidate schema") ||
+        !page.aiProofForgeText.includes("Forbidden assumptions") ||
+        !page.aiProofForgeText.includes("Oracle pipeline") ||
+        !page.aiProofForgeText.includes("Expected failure") ||
+        !page.aiProofForgeText.includes("cegis active no candidate proof") ||
         !page.aiProofForgeText.includes("Search grammar") ||
         !page.aiProofForgeText.includes("Countermodel battery") ||
         !page.aiProofForgeText.includes("reproducing known finite checks does not count") ||
@@ -448,6 +455,7 @@ async function main() {
         !page.aiProofForgeText.includes("Fail signal") ||
         page.aiProofForgeLemmaCards < 4 ||
         page.aiProofForgeBlueprintSteps < 3 ||
+        page.aiProofForgeCegisCandidates < 2 ||
         page.aiProofForgeExperiments < 3 ||
         page.aiProofForgeMutations < 3 ||
         page.aiProofForgeRunbook < 4 ||

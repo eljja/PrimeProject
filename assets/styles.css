@@ -1399,6 +1399,7 @@ canvas {
 .proof-forge-theorem-draft,
 .proof-forge-decomposition,
 .proof-forge-blueprint,
+.proof-forge-cegis,
 .proof-forge-grid section,
 .proof-forge-experiment {
   border: 1px solid var(--line);
@@ -1410,6 +1411,7 @@ canvas {
 .proof-forge-thesis span,
 .proof-forge-theorem-draft span,
 .proof-forge-blueprint span,
+.proof-forge-cegis span,
 .proof-forge-lemma span,
 .proof-forge-experiment span {
   display: block;
@@ -1423,6 +1425,7 @@ canvas {
 .proof-forge-thesis strong,
 .proof-forge-theorem-draft strong,
 .proof-forge-blueprint strong,
+.proof-forge-cegis strong,
 .proof-forge-lemma strong,
 .proof-forge-experiment strong {
   display: block;
@@ -1450,6 +1453,36 @@ canvas {
 .proof-forge-blueprint {
   margin-top: 10px;
   border-left: 4px solid var(--danger);
+}
+
+.proof-forge-cegis {
+  margin-top: 10px;
+  border-left: 4px solid var(--violet);
+}
+
+.proof-forge-cegis-grid,
+.proof-forge-cegis-candidates {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.proof-forge-cegis-grid section,
+.proof-forge-cegis-candidates article {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 12px;
+}
+
+.proof-forge-cegis-grid h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.proof-forge-cegis-candidates article {
+  border-left: 4px solid var(--violet);
 }
 
 .proof-forge-blueprint-next {
@@ -1503,6 +1536,8 @@ canvas {
 .proof-forge-theorem-draft small,
 .proof-forge-blueprint p,
 .proof-forge-blueprint small,
+.proof-forge-cegis p,
+.proof-forge-cegis small,
 .proof-forge-decomposition > p,
 .proof-forge-lemma p,
 .proof-forge-lemma small,
@@ -6817,6 +6852,8 @@ tr:last-child td {
   .ai-breakthrough-grid,
   .proof-forge-head,
   .proof-forge-blueprint-next,
+  .proof-forge-cegis-grid,
+  .proof-forge-cegis-candidates,
   .proof-forge-decomposition-list,
   .proof-forge-grid,
   .proof-forge-experiments,

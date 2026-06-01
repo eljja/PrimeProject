@@ -720,6 +720,7 @@ function renderAiProofForge(problem) {
   const decomposition = forge.theorem_decomposition || [];
   const decompositionSummary = forge.decomposition_summary || {};
   const blueprint = forge.breakthrough_object_blueprint || {};
+  const cegis = forge.counterexample_guided_synthesis || {};
   return `
     <div class="proof-forge-head">
       <div>
@@ -787,6 +788,36 @@ function renderAiProofForge(problem) {
           .join("")}
       </div>
       <small>${escapeHtml(blueprint.why_not_reproduction || "")}</small>
+    </article>
+    <article class="proof-forge-cegis">
+      <span>Counterexample-guided synthesis</span>
+      <strong>${escapeHtml(cegis.loop_name || "missing")} · ${escapeHtml(statusText(cegis.status))}</strong>
+      <p>Candidate schema: ${escapeHtml(cegis.candidate_schema || "")}</p>
+      <p>Promotion rule: ${escapeHtml(cegis.promotion_rule || "")}</p>
+      <div class="proof-forge-cegis-grid">
+        <section>
+          <h3>Forbidden assumptions</h3>
+          ${list(cegis.forbidden_assumptions || [])}
+        </section>
+        <section>
+          <h3>Oracle pipeline</h3>
+          ${list(cegis.oracle_pipeline || [])}
+        </section>
+      </div>
+      <div class="proof-forge-cegis-candidates">
+        ${(cegis.seed_candidates || [])
+          .map(
+            (candidate) => `
+              <article>
+                <span>${escapeHtml(candidate.id || "")}</span>
+                <strong>${escapeHtml(candidate.candidate || "")}</strong>
+                <p>Expected failure: ${escapeHtml(candidate.expected_failure || "")}</p>
+                <small>Next verifier: ${escapeHtml(candidate.next_verifier || "")}</small>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
     </article>
     <div class="proof-forge-grid">
       <section>

@@ -24,4 +24,7 @@ def theoremDecomposition : List String := [
 def breakthroughObjectBlueprint : String :=
   "TP-TD2 exact-pair parity witness that survives semiprime countermodels"
 
+def counterexampleGuidedSynthesis : String :=
+  "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
+
 end PrimeProject.OpenProblems.TwinPrime

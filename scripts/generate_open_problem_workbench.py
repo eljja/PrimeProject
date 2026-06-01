@@ -2618,6 +2618,133 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
         },
     }
     breakthrough_blueprint = breakthrough_blueprints.get(problem_id, breakthrough_blueprints["riemann"])
+    synthesis_loops: dict[str, dict[str, object]] = {
+        "riemann": {
+            "status": "cegis_active_no_candidate_proof",
+            "loop_name": "kernel-cone CEGIS",
+            "candidate_schema": "candidate := kernel_family(parameters) + positivity_certificate + dependency_strength_ledger + density_claim",
+            "forbidden_assumptions": [
+                "RiemannHypothesis",
+                "all-height zero-line conclusion",
+                "zero-free region strong enough to imply the target",
+            ],
+            "oracle_pipeline": [
+                "Check imported theorem strengths before numerical positivity is inspected.",
+                "Search adversarial kernels outside the generated cone.",
+                "Reject any density claim that is only sampled or frequency-bounded.",
+                "Emit a Lean-facing dependency ledger for surviving candidates.",
+            ],
+            "seed_candidates": [
+                {
+                    "id": "RH-CEGIS-1",
+                    "candidate": "two-parameter compact kernel cone with interval-certified positivity blocks",
+                    "expected_failure": "density may not reach the full Weil test class",
+                    "next_verifier": "adversarial test-kernel separation search",
+                },
+                {
+                    "id": "RH-CEGIS-2",
+                    "candidate": "prime-side selector kernel that penalizes averaged-only evidence",
+                    "expected_failure": "selector may be inadmissible for known explicit-formula criteria",
+                    "next_verifier": "admissibility and circularity audit",
+                },
+            ],
+            "promotion_rule": "A candidate can leave CEGIS only after the positivity proof, dependency audit, and density bridge are all theorem-level artifacts.",
+        },
+        "collatz": {
+            "status": "cegis_active_no_candidate_proof",
+            "loop_name": "residue-rank CEGIS",
+            "candidate_schema": "candidate := modulus + accelerated_blocks + exact_rank_tuple + edge_inequality_certificate + SCC_exit_certificate",
+            "forbidden_assumptions": [
+                "density drift implies all trajectories",
+                "finite trajectory replay as global convergence",
+                "empirical stopping-time potential",
+            ],
+            "oracle_pipeline": [
+                "Reject incomplete residue partitions before testing ranks.",
+                "Run SCC search for nondecreasing cycles.",
+                "Replay every branch inequality over exact rational coefficients.",
+                "Split only the SCCs that survive the counterexample search.",
+            ],
+            "seed_candidates": [
+                {
+                    "id": "CO-CEGIS-1",
+                    "candidate": "valuation-debt rank over accelerated odd residue blocks",
+                    "expected_failure": "one SCC may preserve or increase debt under exact replay",
+                    "next_verifier": "rational branch inequality audit",
+                },
+                {
+                    "id": "CO-CEGIS-2",
+                    "candidate": "lexicographic rank using scale, valuation debt, and residue potential",
+                    "expected_failure": "rank may depend on a sampled stopping basin",
+                    "next_verifier": "well-foundedness and basin-independence check",
+                },
+            ],
+            "promotion_rule": "A candidate can leave CEGIS only after every residue block is covered and every non-basin SCC has a strict certified descent.",
+        },
+        "goldbach": {
+            "status": "cegis_active_no_candidate_proof",
+            "loop_name": "explicit-cutoff CEGIS",
+            "candidate_schema": "candidate := budget_lines + theorem_sources + validity_ranges + cutoff_calculator + finite_overlap_bridge",
+            "forbidden_assumptions": [
+                "Hardy-Littlewood as an axiom",
+                "asymptotic positivity without explicit constants",
+                "finite verification as a substitute for a large-n theorem",
+            ],
+            "oracle_pipeline": [
+                "Reject every budget line without source, constant, and validity range.",
+                "Compute N0 exactly from the surviving budget.",
+                "Compare N0 against the finite certificate ceiling.",
+                "Run sensitivity analysis to identify the blocking term.",
+            ],
+            "seed_candidates": [
+                {
+                    "id": "GB-CEGIS-1",
+                    "candidate": "major-minor arc budget normalized into one explicit ledger",
+                    "expected_failure": "N0 may remain above the certified finite range",
+                    "next_verifier": "cutoff calculator and range audit",
+                },
+                {
+                    "id": "GB-CEGIS-2",
+                    "candidate": "exceptional-character loss budget with tightened validity ranges",
+                    "expected_failure": "one ineffective or uncited constant may block replay",
+                    "next_verifier": "theorem-source completeness check",
+                },
+            ],
+            "promotion_rule": "A candidate can leave CEGIS only after the explicit cutoff is below the finite certificate range with no heuristic budget lines.",
+        },
+        "twin-prime": {
+            "status": "cegis_active_no_candidate_proof",
+            "loop_name": "exact-pair parity CEGIS",
+            "candidate_schema": "candidate := exact_pair_weight + wider_gap_subtractor + parity_model + positive_exact_gap_mass_claim",
+            "forbidden_assumptions": [
+                "bounded gaps imply twin primes",
+                "Hardy-Littlewood k-tuple density as an axiom",
+                "positive interval mass without exact gap 2",
+            ],
+            "oracle_pipeline": [
+                "Replay the weight in a parity model before using prime data.",
+                "Measure leakage into gaps 4, 6, 246, and arbitrary H > 2.",
+                "Reject if positive mass can be reinterpreted as bounded-gap mass.",
+                "Require a scale-uniform exact-gap lower-bound statement.",
+            ],
+            "seed_candidates": [
+                {
+                    "id": "TP-CEGIS-1",
+                    "candidate": "exact-pair selector weight with explicit wider-gap subtraction",
+                    "expected_failure": "parity model may keep the weight positive without twin primes",
+                    "next_verifier": "semiprime parity countermodel replay",
+                },
+                {
+                    "id": "TP-CEGIS-2",
+                    "candidate": "scale-normalized exact-gap mass certificate",
+                    "expected_failure": "mass may collapse to a bounded-gap theorem under projection",
+                    "next_verifier": "exact-gap leakage audit",
+                },
+            ],
+            "promotion_rule": "A candidate can leave CEGIS only after exact gap-2 mass survives parity countermodels and cannot be weakened to bounded gaps.",
+        },
+    }
+    synthesis_loop = synthesis_loops.get(problem_id, synthesis_loops["riemann"])
     mutations = list(forge.get("candidate_mutations", []))
     experiments = [
         {
@@ -2761,6 +2888,7 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "closure_rule": "Every decomposition lemma must be formalized or replaced by an accepted theorem before the page can leave open_not_proven.",
         },
         "breakthrough_object_blueprint": breakthrough_blueprint,
+        "counterexample_guided_synthesis": synthesis_loop,
         "experiments": experiments,
         "discovery_loop": {
             "status": "candidate_generation_active_no_solution",
