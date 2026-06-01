@@ -712,6 +712,8 @@ function renderAiProofForge(problem) {
   const experiments = forge.experiments || [];
   const discovery = forge.discovery_loop || {};
   const mutations = discovery.candidate_mutations || [];
+  const attackRunbook = discovery.attack_runbook || [];
+  const scorecard = discovery.falsification_scorecard || [];
   return `
     <div class="proof-forge-head">
       <div>
@@ -780,6 +782,38 @@ function renderAiProofForge(problem) {
             `,
           )
           .join("")}
+      </div>
+      <div class="proof-forge-runbook">
+        <section>
+          <h3>Attack runbook</h3>
+          ${attackRunbook
+            .map(
+              (step) => `
+                <article class="proof-forge-runbook-step">
+                  <span>${escapeHtml(step.step || "")} · ${escapeHtml(step.name || "")}</span>
+                  <strong>${escapeHtml(step.action || "")}</strong>
+                  <p>Required output: ${escapeHtml(step.required_output || "")}</p>
+                  <small>Failure exit: ${escapeHtml(step.failure_exit || "")}</small>
+                </article>
+              `,
+            )
+            .join("")}
+        </section>
+        <section>
+          <h3>Falsification scorecard</h3>
+          ${scorecard
+            .map(
+              (row) => `
+                <article class="proof-forge-score">
+                  <span>${escapeHtml(row.test || "")} · ${escapeHtml(statusText(row.status))}</span>
+                  <strong>${escapeHtml(row.question || "")}</strong>
+                  <p>Pass signal: ${escapeHtml(row.pass_signal || "")}</p>
+                  <small>Fail signal: ${escapeHtml(row.fail_signal || "")}</small>
+                </article>
+              `,
+            )
+            .join("")}
+        </section>
       </div>
     </div>
     <p class="route-rule">Formal target: ${escapeHtml(forge.formal_target || "")}</p>

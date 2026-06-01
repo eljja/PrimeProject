@@ -1441,7 +1441,8 @@ canvas {
 
 .proof-forge-grid,
 .proof-forge-experiments,
-.proof-forge-mutations {
+.proof-forge-mutations,
+.proof-forge-runbook {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
@@ -1449,6 +1450,12 @@ canvas {
 }
 
 .proof-forge-grid h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.proof-forge-runbook h3 {
   margin: 0 0 10px;
   color: var(--ink);
   font-size: 13px;
@@ -1476,6 +1483,28 @@ canvas {
   padding: 12px;
 }
 
+.proof-forge-runbook section,
+.proof-forge-runbook-step,
+.proof-forge-score {
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.proof-forge-runbook section {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.proof-forge-runbook-step {
+  border-left: 4px solid var(--amber);
+}
+
+.proof-forge-score {
+  border-left: 4px solid var(--danger);
+}
+
 .proof-forge-mutation.is-blocked_by_all_n_gap,
 .proof-forge-mutation.is-blocked_by_uncovered_components,
 .proof-forge-mutation.is-blocked_by_missing_explicit_tail,
@@ -1483,7 +1512,9 @@ canvas {
   border-left-color: var(--danger);
 }
 
-.proof-forge-mutation span {
+.proof-forge-mutation span,
+.proof-forge-runbook-step span,
+.proof-forge-score span {
   display: block;
   color: var(--muted);
   font-size: 11px;
@@ -1491,7 +1522,9 @@ canvas {
   text-transform: uppercase;
 }
 
-.proof-forge-mutation strong {
+.proof-forge-mutation strong,
+.proof-forge-runbook-step strong,
+.proof-forge-score strong {
   display: block;
   margin-top: 5px;
   color: var(--ink);
@@ -1500,7 +1533,11 @@ canvas {
 }
 
 .proof-forge-mutation p,
-.proof-forge-mutation small {
+.proof-forge-mutation small,
+.proof-forge-runbook-step p,
+.proof-forge-runbook-step small,
+.proof-forge-score p,
+.proof-forge-score small {
   display: block;
   margin-top: 8px;
   color: var(--muted);
@@ -6641,6 +6678,7 @@ tr:last-child td {
   .proof-forge-grid,
   .proof-forge-experiments,
   .proof-forge-mutations,
+  .proof-forge-runbook,
   .verdict-grid,
   .route-triage-head,
   .route-triage-list,

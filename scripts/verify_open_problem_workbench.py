@@ -384,6 +384,8 @@ def main() -> int:
             return 1
         discovery_loop = proof_forge.get("discovery_loop", {}) if isinstance(proof_forge.get("discovery_loop"), dict) else {}
         mutations = discovery_loop.get("candidate_mutations", []) if isinstance(discovery_loop, dict) else []
+        attack_runbook = discovery_loop.get("attack_runbook", []) if isinstance(discovery_loop, dict) else []
+        scorecard = discovery_loop.get("falsification_scorecard", []) if isinstance(discovery_loop, dict) else []
         if discovery_loop.get("status") != "candidate_generation_active_no_solution":
             print(f"{problem.get('id')} AI proof forge discovery loop has unexpected status.", file=sys.stderr)
             return 1
@@ -395,6 +397,15 @@ def main() -> int:
             return 1
         if "replayable infinite-bridge artifacts" not in discovery_loop.get("iteration_contract", ""):
             print(f"{problem.get('id')} AI proof forge discovery loop is missing the infinite-bridge contract.", file=sys.stderr)
+            return 1
+        if len(attack_runbook) < 4 or len(scorecard) < 4:
+            print(f"{problem.get('id')} AI proof forge is missing runbook or scorecard coverage.", file=sys.stderr)
+            return 1
+        if not all(step.get("required_output") and step.get("failure_exit") for step in attack_runbook):
+            print(f"{problem.get('id')} AI proof forge runbook is missing outputs or failure exits.", file=sys.stderr)
+            return 1
+        if not all(row.get("pass_signal") and row.get("fail_signal") for row in scorecard):
+            print(f"{problem.get('id')} AI proof forge scorecard is missing pass/fail signals.", file=sys.stderr)
             return 1
 
     certificate_roots = {

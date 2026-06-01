@@ -2364,6 +2364,7 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
         },
     }
     forge = forge_bank.get(problem_id, forge_bank["riemann"])
+    mutations = list(forge.get("candidate_mutations", []))
     experiments = [
         {
             "id": f"{problem_id}-forge-{idx + 1}",
@@ -2374,6 +2375,66 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
         }
         for idx, item in enumerate(forge.get("search_grammar", []))
     ]
+    attack_runbook = [
+        {
+            "step": "A1",
+            "name": "object synthesis",
+            "action": "Generate the smallest theorem object matching one mutation and one grammar production.",
+            "required_output": f"data/open-problem/{problem_id}/candidate-object.json",
+            "failure_exit": "No theorem-shaped object with explicit assumptions is produced.",
+        },
+        {
+            "step": "A2",
+            "name": "countermodel stress",
+            "action": "Run every countermodel in the battery against the candidate before any positive claim is allowed.",
+            "required_output": f"data/open-problem/{problem_id}/countermodel-report.json",
+            "failure_exit": "A countermodel survives or the candidate falls back to finite-only evidence.",
+        },
+        {
+            "step": "A3",
+            "name": "infinite bridge extraction",
+            "action": "Extract the exact missing infinite theorem and separate it from bounded computation.",
+            "required_output": f"formal/{problem_id}/InfiniteBridge.lean",
+            "failure_exit": "The bridge imports the target conjecture, a heuristic, or a weaker theorem.",
+        },
+        {
+            "step": "A4",
+            "name": "independent replay package",
+            "action": "Prepare a replayable artifact that another reviewer can check without trusting the browser page.",
+            "required_output": f"data/open-problem/{problem_id}/replay-manifest.json",
+            "failure_exit": "The proof cannot be replayed from explicit assumptions and artifacts.",
+        },
+    ]
+    falsification_scorecard = [
+        {
+            "test": "novel-object test",
+            "question": "Does the candidate introduce a new theorem object rather than rephrasing a known finite check?",
+            "pass_signal": "New object, assumptions, and target theorem are all explicit.",
+            "fail_signal": "The candidate is only a computation replay, visualization, or heuristic restatement.",
+            "status": "required",
+        },
+        {
+            "test": "barrier-directness test",
+            "question": "Does the candidate attack the known barrier directly?",
+            "pass_signal": "The object names the finite-to-infinite, parity, positivity, or cutoff bridge it closes.",
+            "fail_signal": "The object proves only a weaker theorem or shifts the barrier into an unstated lemma.",
+            "status": "required",
+        },
+        {
+            "test": "countermodel survival test",
+            "question": "Can the object survive the listed countermodel battery?",
+            "pass_signal": "Every countermodel is rejected by a theorem-level reason.",
+            "fail_signal": "At least one countermodel survives or is not checked.",
+            "status": "required",
+        },
+        {
+            "test": "formal replay test",
+            "question": "Can the bridge be replayed independently from explicit artifacts?",
+            "pass_signal": "A proof assistant or accepted theorem reference discharges the infinite bridge.",
+            "fail_signal": "The proof requires trust in PrimeProject code, sampled data, or informal prose.",
+            "status": "blocked_until_candidate_survives",
+        },
+    ]
     return {
         "schema": AI_PROOF_FORGE_SCHEMA,
         "problem_id": problem_id,
@@ -2383,13 +2444,15 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
         "discovery_loop": {
             "status": "candidate_generation_active_no_solution",
             "iteration_contract": "Generate a mutated theorem object, run the countermodel battery, demote failures with a mathematical reason, and promote only replayable infinite-bridge artifacts.",
-            "candidate_mutations": forge.get("candidate_mutations", []),
+            "candidate_mutations": mutations,
             "survivor_count": sum(
-                1 for item in forge.get("candidate_mutations", []) if item.get("current_verdict") == "open_candidate_not_proof"
+                1 for item in mutations if item.get("current_verdict") == "open_candidate_not_proof"
             ),
             "blocked_count": sum(
-                1 for item in forge.get("candidate_mutations", []) if "blocked" in str(item.get("current_verdict", ""))
+                1 for item in mutations if "blocked" in str(item.get("current_verdict", ""))
             ),
+            "attack_runbook": attack_runbook,
+            "falsification_scorecard": falsification_scorecard,
         },
         "non_reproduction_rule": "The forge is only useful if it creates a new theorem object or rejects a route for a precise mathematical reason; reproducing known finite checks does not count as progress.",
         "promotion_gate": "Promotion requires an independently replayable theorem artifact that closes the infinite bridge without weakening the original conjecture.",
