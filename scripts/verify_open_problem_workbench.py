@@ -441,6 +441,19 @@ def main() -> int:
         if not all(item.get("expected_failure") and item.get("next_verifier") for item in seed_candidates):
             print(f"{problem.get('id')} AI proof forge CEGIS candidates are incomplete.", file=sys.stderr)
             return 1
+        if not all(isinstance(item.get("scores"), dict) and "priority_score" in item and item.get("decision") for item in seed_candidates):
+            print(f"{problem.get('id')} AI proof forge CEGIS candidates are missing scores or decisions.", file=sys.stderr)
+            return 1
+        ranked_candidates = cegis.get("ranked_candidates", [])
+        if len(ranked_candidates) < 2 or not cegis.get("top_candidate") or not cegis.get("ranking_rule"):
+            print(f"{problem.get('id')} AI proof forge CEGIS loop is missing ranked candidates.", file=sys.stderr)
+            return 1
+        if ranked_candidates[0].get("id") != cegis.get("top_candidate"):
+            print(f"{problem.get('id')} AI proof forge CEGIS top candidate is inconsistent.", file=sys.stderr)
+            return 1
+        if not any(item.get("decision") == "attack_next" for item in ranked_candidates):
+            print(f"{problem.get('id')} AI proof forge CEGIS loop has no next attack candidate.", file=sys.stderr)
+            return 1
         if "reproducing known finite checks does not count" not in proof_forge.get("non_reproduction_rule", ""):
             print(f"{problem.get('id')} AI proof forge is missing the non-reproduction rule.", file=sys.stderr)
             return 1

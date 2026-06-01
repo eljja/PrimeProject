@@ -280,6 +280,7 @@ async function main() {
           aiProofForgeLemmaCards: document.querySelectorAll("#aiProofForge .proof-forge-lemma").length,
           aiProofForgeBlueprintSteps: document.querySelectorAll("#aiProofForge .proof-forge-blueprint-next em").length,
           aiProofForgeCegisCandidates: document.querySelectorAll("#aiProofForge .proof-forge-cegis-candidates article").length,
+          aiProofForgeCegisRanking: document.querySelectorAll("#aiProofForge .proof-forge-cegis-ranking article").length,
           aiProofForgeExperiments: document.querySelectorAll("#aiProofForge .proof-forge-experiment").length,
           aiProofForgeMutations: document.querySelectorAll("#aiProofForge .proof-forge-mutation").length,
           aiProofForgeRunbook: document.querySelectorAll("#aiProofForge .proof-forge-runbook-step").length,
@@ -435,6 +436,10 @@ async function main() {
         !page.aiProofForgeText.includes("Forbidden assumptions") ||
         !page.aiProofForgeText.includes("Oracle pipeline") ||
         !page.aiProofForgeText.includes("Expected failure") ||
+        !page.aiProofForgeText.includes("Top CEGIS candidate") ||
+        !page.aiProofForgeText.includes("Ranking rule") ||
+        !page.aiProofForgeText.includes("Priority score") ||
+        !page.aiProofForgeText.includes("attack next") ||
         !page.aiProofForgeText.includes("cegis active no candidate proof") ||
         !page.aiProofForgeText.includes("Search grammar") ||
         !page.aiProofForgeText.includes("Countermodel battery") ||
@@ -456,6 +461,7 @@ async function main() {
         page.aiProofForgeLemmaCards < 4 ||
         page.aiProofForgeBlueprintSteps < 3 ||
         page.aiProofForgeCegisCandidates < 2 ||
+        page.aiProofForgeCegisRanking < 2 ||
         page.aiProofForgeExperiments < 3 ||
         page.aiProofForgeMutations < 3 ||
         page.aiProofForgeRunbook < 4 ||

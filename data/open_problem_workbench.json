@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.open-problem-workbench.v1",
-  "generated_at": "2026-06-01T23:19:40+00:00",
+  "generated_at": "2026-06-01T23:24:30+00:00",
   "search_limit": 1000000,
   "proof_status_gate_summary": {
     "schema": "primeproject.open-problem-proof-status-gate.v1",
@@ -970,7 +970,7 @@
             "path": "formal\\riemann\\InfiniteBridge.lean",
             "exists": true,
             "status": "skeleton_present_not_proof",
-            "line_count": 30
+            "line_count": 33
           },
           {
             "path": "formal\\riemann\\Main.lean",
@@ -1424,7 +1424,7 @@
             "expected_fragment_count": 2,
             "missing_fragments": [],
             "forbidden_hits": [],
-            "line_count": 30
+            "line_count": 33
           },
           {
             "file": "formal/riemann/Main.lean",
@@ -1728,16 +1728,52 @@
               "id": "RH-CEGIS-1",
               "candidate": "two-parameter compact kernel cone with interval-certified positivity blocks",
               "expected_failure": "density may not reach the full Weil test class",
-              "next_verifier": "adversarial test-kernel separation search"
+              "next_verifier": "adversarial test-kernel separation search",
+              "scores": {
+                "novelty": 4,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 4
+              },
+              "priority_score": 9,
+              "decision": "attack_next"
             },
             {
               "id": "RH-CEGIS-2",
               "candidate": "prime-side selector kernel that penalizes averaged-only evidence",
               "expected_failure": "selector may be inadmissible for known explicit-formula criteria",
+              "next_verifier": "admissibility and circularity audit",
+              "scores": {
+                "novelty": 5,
+                "barrier_hit": 3,
+                "formalizability": 2,
+                "counterexample_risk": 5
+              },
+              "priority_score": 5,
+              "decision": "keep_as_secondary_candidate"
+            }
+          ],
+          "promotion_rule": "A candidate can leave CEGIS only after the positivity proof, dependency audit, and density bridge are all theorem-level artifacts.",
+          "ranked_candidates": [
+            {
+              "rank": 1,
+              "id": "RH-CEGIS-1",
+              "candidate": "two-parameter compact kernel cone with interval-certified positivity blocks",
+              "priority_score": 9,
+              "decision": "attack_next",
+              "next_verifier": "adversarial test-kernel separation search"
+            },
+            {
+              "rank": 2,
+              "id": "RH-CEGIS-2",
+              "candidate": "prime-side selector kernel that penalizes averaged-only evidence",
+              "priority_score": 5,
+              "decision": "keep_as_secondary_candidate",
               "next_verifier": "admissibility and circularity audit"
             }
           ],
-          "promotion_rule": "A candidate can leave CEGIS only after the positivity proof, dependency audit, and density bridge are all theorem-level artifacts."
+          "top_candidate": "RH-CEGIS-1",
+          "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "experiments": [
           {
@@ -3052,7 +3088,7 @@
             "path": "formal\\collatz\\InfiniteBridge.lean",
             "exists": true,
             "status": "skeleton_present_not_proof",
-            "line_count": 30
+            "line_count": 33
           },
           {
             "path": "formal\\collatz\\Main.lean",
@@ -3507,7 +3543,7 @@
             "expected_fragment_count": 2,
             "missing_fragments": [],
             "forbidden_hits": [],
-            "line_count": 30
+            "line_count": 33
           },
           {
             "file": "formal/collatz/Main.lean",
@@ -3814,16 +3850,52 @@
               "id": "CO-CEGIS-1",
               "candidate": "valuation-debt rank over accelerated odd residue blocks",
               "expected_failure": "one SCC may preserve or increase debt under exact replay",
-              "next_verifier": "rational branch inequality audit"
+              "next_verifier": "rational branch inequality audit",
+              "scores": {
+                "novelty": 4,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 4
+              },
+              "priority_score": 10,
+              "decision": "attack_next"
             },
             {
               "id": "CO-CEGIS-2",
               "candidate": "lexicographic rank using scale, valuation debt, and residue potential",
               "expected_failure": "rank may depend on a sampled stopping basin",
+              "next_verifier": "well-foundedness and basin-independence check",
+              "scores": {
+                "novelty": 3,
+                "barrier_hit": 4,
+                "formalizability": 4,
+                "counterexample_risk": 3
+              },
+              "priority_score": 8,
+              "decision": "attack_next"
+            }
+          ],
+          "promotion_rule": "A candidate can leave CEGIS only after every residue block is covered and every non-basin SCC has a strict certified descent.",
+          "ranked_candidates": [
+            {
+              "rank": 1,
+              "id": "CO-CEGIS-1",
+              "candidate": "valuation-debt rank over accelerated odd residue blocks",
+              "priority_score": 10,
+              "decision": "attack_next",
+              "next_verifier": "rational branch inequality audit"
+            },
+            {
+              "rank": 2,
+              "id": "CO-CEGIS-2",
+              "candidate": "lexicographic rank using scale, valuation debt, and residue potential",
+              "priority_score": 8,
+              "decision": "attack_next",
               "next_verifier": "well-foundedness and basin-independence check"
             }
           ],
-          "promotion_rule": "A candidate can leave CEGIS only after every residue block is covered and every non-basin SCC has a strict certified descent."
+          "top_candidate": "CO-CEGIS-1",
+          "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "experiments": [
           {
@@ -5150,7 +5222,7 @@
             "path": "formal\\goldbach\\InfiniteBridge.lean",
             "exists": true,
             "status": "skeleton_present_not_proof",
-            "line_count": 30
+            "line_count": 33
           },
           {
             "path": "formal\\goldbach\\Main.lean",
@@ -5604,7 +5676,7 @@
             "expected_fragment_count": 2,
             "missing_fragments": [],
             "forbidden_hits": [],
-            "line_count": 30
+            "line_count": 33
           },
           {
             "file": "formal/goldbach/Main.lean",
@@ -5912,16 +5984,52 @@
               "id": "GB-CEGIS-1",
               "candidate": "major-minor arc budget normalized into one explicit ledger",
               "expected_failure": "N0 may remain above the certified finite range",
-              "next_verifier": "cutoff calculator and range audit"
+              "next_verifier": "cutoff calculator and range audit",
+              "scores": {
+                "novelty": 3,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 3
+              },
+              "priority_score": 10,
+              "decision": "attack_next"
             },
             {
               "id": "GB-CEGIS-2",
               "candidate": "exceptional-character loss budget with tightened validity ranges",
               "expected_failure": "one ineffective or uncited constant may block replay",
+              "next_verifier": "theorem-source completeness check",
+              "scores": {
+                "novelty": 4,
+                "barrier_hit": 4,
+                "formalizability": 3,
+                "counterexample_risk": 4
+              },
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate"
+            }
+          ],
+          "promotion_rule": "A candidate can leave CEGIS only after the explicit cutoff is below the finite certificate range with no heuristic budget lines.",
+          "ranked_candidates": [
+            {
+              "rank": 1,
+              "id": "GB-CEGIS-1",
+              "candidate": "major-minor arc budget normalized into one explicit ledger",
+              "priority_score": 10,
+              "decision": "attack_next",
+              "next_verifier": "cutoff calculator and range audit"
+            },
+            {
+              "rank": 2,
+              "id": "GB-CEGIS-2",
+              "candidate": "exceptional-character loss budget with tightened validity ranges",
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate",
               "next_verifier": "theorem-source completeness check"
             }
           ],
-          "promotion_rule": "A candidate can leave CEGIS only after the explicit cutoff is below the finite certificate range with no heuristic budget lines."
+          "top_candidate": "GB-CEGIS-1",
+          "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "experiments": [
           {
@@ -7186,7 +7294,7 @@
             "path": "formal\\twin-prime\\InfiniteBridge.lean",
             "exists": true,
             "status": "skeleton_present_not_proof",
-            "line_count": 30
+            "line_count": 33
           },
           {
             "path": "formal\\twin-prime\\Main.lean",
@@ -7641,7 +7749,7 @@
             "expected_fragment_count": 2,
             "missing_fragments": [],
             "forbidden_hits": [],
-            "line_count": 30
+            "line_count": 33
           },
           {
             "file": "formal/twin-prime/Main.lean",
@@ -7948,16 +8056,52 @@
               "id": "TP-CEGIS-1",
               "candidate": "exact-pair selector weight with explicit wider-gap subtraction",
               "expected_failure": "parity model may keep the weight positive without twin primes",
-              "next_verifier": "semiprime parity countermodel replay"
+              "next_verifier": "semiprime parity countermodel replay",
+              "scores": {
+                "novelty": 5,
+                "barrier_hit": 5,
+                "formalizability": 3,
+                "counterexample_risk": 5
+              },
+              "priority_score": 8,
+              "decision": "attack_next"
             },
             {
               "id": "TP-CEGIS-2",
               "candidate": "scale-normalized exact-gap mass certificate",
               "expected_failure": "mass may collapse to a bounded-gap theorem under projection",
+              "next_verifier": "exact-gap leakage audit",
+              "scores": {
+                "novelty": 4,
+                "barrier_hit": 4,
+                "formalizability": 3,
+                "counterexample_risk": 4
+              },
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate"
+            }
+          ],
+          "promotion_rule": "A candidate can leave CEGIS only after exact gap-2 mass survives parity countermodels and cannot be weakened to bounded gaps.",
+          "ranked_candidates": [
+            {
+              "rank": 1,
+              "id": "TP-CEGIS-1",
+              "candidate": "exact-pair selector weight with explicit wider-gap subtraction",
+              "priority_score": 8,
+              "decision": "attack_next",
+              "next_verifier": "semiprime parity countermodel replay"
+            },
+            {
+              "rank": 2,
+              "id": "TP-CEGIS-2",
+              "candidate": "scale-normalized exact-gap mass certificate",
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate",
               "next_verifier": "exact-gap leakage audit"
             }
           ],
-          "promotion_rule": "A candidate can leave CEGIS only after exact gap-2 mass survives parity countermodels and cannot be weakened to bounded gaps."
+          "top_candidate": "TP-CEGIS-1",
+          "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "experiments": [
           {

@@ -793,6 +793,8 @@ function renderAiProofForge(problem) {
       <span>Counterexample-guided synthesis</span>
       <strong>${escapeHtml(cegis.loop_name || "missing")} · ${escapeHtml(statusText(cegis.status))}</strong>
       <p>Candidate schema: ${escapeHtml(cegis.candidate_schema || "")}</p>
+      <p>Top CEGIS candidate: ${escapeHtml(cegis.top_candidate || "missing")}</p>
+      <p>Ranking rule: ${escapeHtml(cegis.ranking_rule || "")}</p>
       <p>Promotion rule: ${escapeHtml(cegis.promotion_rule || "")}</p>
       <div class="proof-forge-cegis-grid">
         <section>
@@ -811,8 +813,23 @@ function renderAiProofForge(problem) {
               <article>
                 <span>${escapeHtml(candidate.id || "")}</span>
                 <strong>${escapeHtml(candidate.candidate || "")}</strong>
+                <p>Priority score: ${escapeHtml(formatValue(candidate.priority_score ?? "n/a"))} · Decision: ${escapeHtml(statusText(candidate.decision))}</p>
                 <p>Expected failure: ${escapeHtml(candidate.expected_failure || "")}</p>
                 <small>Next verifier: ${escapeHtml(candidate.next_verifier || "")}</small>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+      <div class="proof-forge-cegis-ranking">
+        ${(cegis.ranked_candidates || [])
+          .map(
+            (candidate) => `
+              <article>
+                <span>#${escapeHtml(formatValue(candidate.rank || 0))} · ${escapeHtml(formatValue(candidate.priority_score ?? "n/a"))}</span>
+                <strong>${escapeHtml(candidate.id || "")} · ${escapeHtml(statusText(candidate.decision))}</strong>
+                <p>${escapeHtml(candidate.candidate || "")}</p>
+                <small>Verifier: ${escapeHtml(candidate.next_verifier || "")}</small>
               </article>
             `,
           )

@@ -27,4 +27,7 @@ def breakthroughObjectBlueprint : String :=
 def counterexampleGuidedSynthesis : String :=
   "Collatz CEGIS: generate residue-rank candidates, reject uncovered blocks and nondecreasing SCCs"
 
+def rankedCegisTarget : String :=
+  "CO-CEGIS-1 attack_next"
+
 end PrimeProject.OpenProblems.Collatz

@@ -27,4 +27,7 @@ def breakthroughObjectBlueprint : String :=
 def counterexampleGuidedSynthesis : String :=
   "RH CEGIS: generate kernel cone candidates, reject circular imports, search adversarial kernels"
 
+def rankedCegisTarget : String :=
+  "RH-CEGIS-1 attack_next"
+
 end PrimeProject.OpenProblems.Riemann

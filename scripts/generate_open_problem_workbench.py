@@ -2640,12 +2640,14 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
                     "candidate": "two-parameter compact kernel cone with interval-certified positivity blocks",
                     "expected_failure": "density may not reach the full Weil test class",
                     "next_verifier": "adversarial test-kernel separation search",
+                    "scores": {"novelty": 4, "barrier_hit": 5, "formalizability": 4, "counterexample_risk": 4},
                 },
                 {
                     "id": "RH-CEGIS-2",
                     "candidate": "prime-side selector kernel that penalizes averaged-only evidence",
                     "expected_failure": "selector may be inadmissible for known explicit-formula criteria",
                     "next_verifier": "admissibility and circularity audit",
+                    "scores": {"novelty": 5, "barrier_hit": 3, "formalizability": 2, "counterexample_risk": 5},
                 },
             ],
             "promotion_rule": "A candidate can leave CEGIS only after the positivity proof, dependency audit, and density bridge are all theorem-level artifacts.",
@@ -2671,12 +2673,14 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
                     "candidate": "valuation-debt rank over accelerated odd residue blocks",
                     "expected_failure": "one SCC may preserve or increase debt under exact replay",
                     "next_verifier": "rational branch inequality audit",
+                    "scores": {"novelty": 4, "barrier_hit": 5, "formalizability": 5, "counterexample_risk": 4},
                 },
                 {
                     "id": "CO-CEGIS-2",
                     "candidate": "lexicographic rank using scale, valuation debt, and residue potential",
                     "expected_failure": "rank may depend on a sampled stopping basin",
                     "next_verifier": "well-foundedness and basin-independence check",
+                    "scores": {"novelty": 3, "barrier_hit": 4, "formalizability": 4, "counterexample_risk": 3},
                 },
             ],
             "promotion_rule": "A candidate can leave CEGIS only after every residue block is covered and every non-basin SCC has a strict certified descent.",
@@ -2702,12 +2706,14 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
                     "candidate": "major-minor arc budget normalized into one explicit ledger",
                     "expected_failure": "N0 may remain above the certified finite range",
                     "next_verifier": "cutoff calculator and range audit",
+                    "scores": {"novelty": 3, "barrier_hit": 5, "formalizability": 5, "counterexample_risk": 3},
                 },
                 {
                     "id": "GB-CEGIS-2",
                     "candidate": "exceptional-character loss budget with tightened validity ranges",
                     "expected_failure": "one ineffective or uncited constant may block replay",
                     "next_verifier": "theorem-source completeness check",
+                    "scores": {"novelty": 4, "barrier_hit": 4, "formalizability": 3, "counterexample_risk": 4},
                 },
             ],
             "promotion_rule": "A candidate can leave CEGIS only after the explicit cutoff is below the finite certificate range with no heuristic budget lines.",
@@ -2733,18 +2739,51 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
                     "candidate": "exact-pair selector weight with explicit wider-gap subtraction",
                     "expected_failure": "parity model may keep the weight positive without twin primes",
                     "next_verifier": "semiprime parity countermodel replay",
+                    "scores": {"novelty": 5, "barrier_hit": 5, "formalizability": 3, "counterexample_risk": 5},
                 },
                 {
                     "id": "TP-CEGIS-2",
                     "candidate": "scale-normalized exact-gap mass certificate",
                     "expected_failure": "mass may collapse to a bounded-gap theorem under projection",
                     "next_verifier": "exact-gap leakage audit",
+                    "scores": {"novelty": 4, "barrier_hit": 4, "formalizability": 3, "counterexample_risk": 4},
                 },
             ],
             "promotion_rule": "A candidate can leave CEGIS only after exact gap-2 mass survives parity countermodels and cannot be weakened to bounded gaps.",
         },
     }
     synthesis_loop = synthesis_loops.get(problem_id, synthesis_loops["riemann"])
+    for candidate in synthesis_loop.get("seed_candidates", []):
+        scores = candidate.get("scores", {})
+        if isinstance(scores, dict):
+            candidate["priority_score"] = (
+                int(scores.get("novelty", 0))
+                + int(scores.get("barrier_hit", 0))
+                + int(scores.get("formalizability", 0))
+                - int(scores.get("counterexample_risk", 0))
+            )
+            candidate["decision"] = (
+                "attack_next"
+                if int(candidate["priority_score"]) >= 8
+                else "keep_as_secondary_candidate"
+            )
+    ranked_cegis_candidates = sorted(
+        synthesis_loop.get("seed_candidates", []),
+        key=lambda item: (-int(item.get("priority_score", -99)), str(item.get("id", ""))),
+    )
+    synthesis_loop["ranked_candidates"] = [
+        {
+            "rank": idx + 1,
+            "id": candidate.get("id"),
+            "candidate": candidate.get("candidate"),
+            "priority_score": candidate.get("priority_score"),
+            "decision": candidate.get("decision"),
+            "next_verifier": candidate.get("next_verifier"),
+        }
+        for idx, candidate in enumerate(ranked_cegis_candidates)
+    ]
+    synthesis_loop["top_candidate"] = ranked_cegis_candidates[0].get("id") if ranked_cegis_candidates else "missing"
+    synthesis_loop["ranking_rule"] = "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
     mutations = list(forge.get("candidate_mutations", []))
     experiments = [
         {

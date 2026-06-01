@@ -27,4 +27,7 @@ def breakthroughObjectBlueprint : String :=
 def counterexampleGuidedSynthesis : String :=
   "Goldbach CEGIS: generate explicit budgets, reject unsourced constants and cutoffs above finite range"
 
+def rankedCegisTarget : String :=
+  "GB-CEGIS-1 attack_next"
+
 end PrimeProject.OpenProblems.Goldbach

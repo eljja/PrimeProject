@@ -27,4 +27,7 @@ def breakthroughObjectBlueprint : String :=
 def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
+def rankedCegisTarget : String :=
+  "TP-CEGIS-1 attack_next"
+
 end PrimeProject.OpenProblems.TwinPrime
