@@ -857,6 +857,20 @@ function renderAiProofForge(problem) {
           ${list(theoremTicket.forbidden_premises || [])}
         </section>
       </div>
+      <div class="proof-forge-ticket-protocol">
+        ${(theoremTicket.proof_attempt_protocol || [])
+          .map(
+            (step) => `
+              <article>
+                <span>${escapeHtml(step.step || "")}</span>
+                <strong>${escapeHtml(step.action || "")}</strong>
+                <p>Output: ${escapeHtml(step.output || "")}</p>
+                <small>Fail exit: ${escapeHtml(step.fail_exit || "")}</small>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
     </article>
     <div class="proof-forge-grid">
       <section>

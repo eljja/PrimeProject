@@ -33,4 +33,7 @@ def rankedCegisTarget : String :=
 def topAttackTheoremTicket : String :=
   "TP-TICKET-1 ExactPairSelectorParitySurvival open ticket, not a proof"
 
+def topAttackProofAttemptProtocol : String :=
+  "define exact selector; replay parity model; state scale-uniform exact-gap mass"
+
 end PrimeProject.OpenProblems.TwinPrime

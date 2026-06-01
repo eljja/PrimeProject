@@ -2806,6 +2806,26 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "required_artifact": "data/open-problem/riemann/rh-cegis-1-kernel-cone-certificate.json",
             "lean_stub": "def compactKernelConePositivityTicket : String := \"open theorem ticket, not a proof\"",
             "success_condition": "All dependencies are weaker than RH and the positivity statement is quantified over the whole generated cone.",
+            "proof_attempt_protocol": [
+                {
+                    "step": "T1",
+                    "action": "Define the kernel cone and its admissibility constraints without importing any zero-line theorem.",
+                    "output": "KernelCone and AdmissibleKernelCone definitions",
+                    "fail_exit": "Admissibility requires RH-equivalent assumptions.",
+                },
+                {
+                    "step": "T2",
+                    "action": "Construct the semialgebraic positivity certificate over the whole generated cone.",
+                    "output": "positivity certificate payload",
+                    "fail_exit": "Positivity is only sampled or finite-height.",
+                },
+                {
+                    "step": "T3",
+                    "action": "Run dependency-strength and adversarial-kernel audits before any RH bridge is attempted.",
+                    "output": "non-circular dependency audit",
+                    "fail_exit": "A dependency or adversarial kernel breaks the ticket.",
+                },
+            ],
         },
         "collatz": {
             "status": "candidate_theorem_ticket_open",
@@ -2828,6 +2848,26 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "required_artifact": "data/open-problem/collatz/co-cegis-1-scc-descent-certificate.json",
             "lean_stub": "def valuationDebtSccDescentTicket : String := \"open theorem ticket, not a proof\"",
             "success_condition": "Every accelerated branch in every non-basin SCC has a replayable rational descent or certified exit.",
+            "proof_attempt_protocol": [
+                {
+                    "step": "T1",
+                    "action": "Build the accelerated residue partition and prove it covers every odd residue block.",
+                    "output": "complete residue partition certificate",
+                    "fail_exit": "Any residue block is missing, overlapping, or ambiguous.",
+                },
+                {
+                    "step": "T2",
+                    "action": "Compute SCCs and attach exact valuation-debt rank inequalities to every edge.",
+                    "output": "SCC edge inequality ledger",
+                    "fail_exit": "A non-basin SCC admits a nondecreasing closed path.",
+                },
+                {
+                    "step": "T3",
+                    "action": "Convert every surviving SCC exit into a formal descent statement.",
+                    "output": "formal SCC descent ticket",
+                    "fail_exit": "An exit depends on sampled stopping-time evidence.",
+                },
+            ],
         },
         "goldbach": {
             "status": "candidate_theorem_ticket_open",
@@ -2850,6 +2890,26 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "required_artifact": "data/open-problem/goldbach/gb-cegis-1-explicit-budget-cutoff.json",
             "lean_stub": "def explicitBudgetCutoffBelowCertificateTicket : String := \"open theorem ticket, not a proof\"",
             "success_condition": "Every budget line is theorem-backed and the exact cutoff is below the verified finite range.",
+            "proof_attempt_protocol": [
+                {
+                    "step": "T1",
+                    "action": "Normalize every major/minor arc and exceptional-character term into a budget line.",
+                    "output": "explicit budget ledger",
+                    "fail_exit": "A line has no theorem source, constant, or validity range.",
+                },
+                {
+                    "step": "T2",
+                    "action": "Compute N0 exactly from the surviving budget and compare it with the finite certificate ceiling.",
+                    "output": "cutoff comparison report",
+                    "fail_exit": "N0 is above the finite certificate ceiling.",
+                },
+                {
+                    "step": "T3",
+                    "action": "Check that finite and large-n intervals cover every even integer without gaps.",
+                    "output": "finite-large interval glue certificate",
+                    "fail_exit": "An even interval remains uncovered or depends on heuristic constants.",
+                },
+            ],
         },
         "twin-prime": {
             "status": "candidate_theorem_ticket_open",
@@ -2872,6 +2932,26 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "required_artifact": "data/open-problem/twin-prime/tp-cegis-1-parity-survival.json",
             "lean_stub": "def exactPairSelectorParitySurvivalTicket : String := \"open theorem ticket, not a proof\"",
             "success_condition": "The selector survives parity stress and wider-gap leakage audits while preserving exact gap-2 positivity.",
+            "proof_attempt_protocol": [
+                {
+                    "step": "T1",
+                    "action": "Define exact-pair selector weights and subtract explicit wider-gap contributions.",
+                    "output": "exact-pair selector and leakage ledger",
+                    "fail_exit": "The selector still permits a bounded-gap-only conclusion.",
+                },
+                {
+                    "step": "T2",
+                    "action": "Replay the selector in a semiprime parity model before using prime data.",
+                    "output": "parity countermodel report",
+                    "fail_exit": "Positive mass survives in the parity model without exact twins.",
+                },
+                {
+                    "step": "T3",
+                    "action": "State the scale-uniform exact-gap mass condition needed for infinitude.",
+                    "output": "exact gap-2 mass ticket",
+                    "fail_exit": "The lower bound collapses to averaged interval mass.",
+                },
+            ],
         },
     }
     top_attack_ticket = theorem_ticket_bank.get(problem_id, theorem_ticket_bank["riemann"])

@@ -282,6 +282,7 @@ async function main() {
           aiProofForgeCegisCandidates: document.querySelectorAll("#aiProofForge .proof-forge-cegis-candidates article").length,
           aiProofForgeCegisRanking: document.querySelectorAll("#aiProofForge .proof-forge-cegis-ranking article").length,
           aiProofForgeTicketSections: document.querySelectorAll("#aiProofForge .proof-forge-ticket-grid section").length,
+          aiProofForgeTicketProtocol: document.querySelectorAll("#aiProofForge .proof-forge-ticket-protocol article").length,
           aiProofForgeExperiments: document.querySelectorAll("#aiProofForge .proof-forge-experiment").length,
           aiProofForgeMutations: document.querySelectorAll("#aiProofForge .proof-forge-mutation").length,
           aiProofForgeRunbook: document.querySelectorAll("#aiProofForge .proof-forge-runbook-step").length,
@@ -447,6 +448,8 @@ async function main() {
         !page.aiProofForgeText.includes("First counterexample oracle") ||
         !page.aiProofForgeText.includes("Required artifact") ||
         !page.aiProofForgeText.includes("Forbidden premises") ||
+        !page.aiProofForgeText.includes("Output:") ||
+        !page.aiProofForgeText.includes("Fail exit") ||
         !page.aiProofForgeText.includes("not a proof") ||
         !page.aiProofForgeText.includes("Search grammar") ||
         !page.aiProofForgeText.includes("Countermodel battery") ||
@@ -470,6 +473,7 @@ async function main() {
         page.aiProofForgeCegisCandidates < 2 ||
         page.aiProofForgeCegisRanking < 2 ||
         page.aiProofForgeTicketSections < 2 ||
+        page.aiProofForgeTicketProtocol < 3 ||
         page.aiProofForgeExperiments < 3 ||
         page.aiProofForgeMutations < 3 ||
         page.aiProofForgeRunbook < 4 ||

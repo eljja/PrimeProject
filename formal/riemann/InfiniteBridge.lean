@@ -33,4 +33,7 @@ def rankedCegisTarget : String :=
 def topAttackTheoremTicket : String :=
   "RH-TICKET-1 CompactKernelConePositivity open ticket, not a proof"
 
+def topAttackProofAttemptProtocol : String :=
+  "define cone; build positivity certificate; audit dependencies and adversarial kernels"
+
 end PrimeProject.OpenProblems.Riemann

@@ -479,6 +479,13 @@ def main() -> int:
         if "not a proof" not in theorem_ticket.get("lean_stub", ""):
             print(f"{problem.get('id')} AI proof forge theorem ticket is missing the proof boundary.", file=sys.stderr)
             return 1
+        ticket_protocol = theorem_ticket.get("proof_attempt_protocol", [])
+        if len(ticket_protocol) < 3:
+            print(f"{problem.get('id')} AI proof forge theorem ticket is missing proof attempt protocol steps.", file=sys.stderr)
+            return 1
+        if not all(step.get("action") and step.get("output") and step.get("fail_exit") for step in ticket_protocol):
+            print(f"{problem.get('id')} AI proof forge theorem ticket protocol is incomplete.", file=sys.stderr)
+            return 1
         if "reproducing known finite checks does not count" not in proof_forge.get("non_reproduction_rule", ""):
             print(f"{problem.get('id')} AI proof forge is missing the non-reproduction rule.", file=sys.stderr)
             return 1

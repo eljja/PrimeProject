@@ -33,4 +33,7 @@ def rankedCegisTarget : String :=
 def topAttackTheoremTicket : String :=
   "GB-TICKET-1 ExplicitBudgetCutoffBelowCertificate open ticket, not a proof"
 
+def topAttackProofAttemptProtocol : String :=
+  "normalize budget lines; compute N0; prove finite-large interval glue"
+
 end PrimeProject.OpenProblems.Goldbach

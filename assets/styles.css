@@ -1478,10 +1478,18 @@ canvas {
   margin-top: 10px;
 }
 
+.proof-forge-ticket-protocol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
 .proof-forge-cegis-grid section,
 .proof-forge-cegis-candidates article,
 .proof-forge-cegis-ranking article,
-.proof-forge-ticket-grid section {
+.proof-forge-ticket-grid section,
+.proof-forge-ticket-protocol article {
   border: 1px solid var(--line);
   background: #fff;
   padding: 12px;
@@ -1497,6 +1505,10 @@ canvas {
   margin: 0 0 10px;
   color: var(--ink);
   font-size: 13px;
+}
+
+.proof-forge-ticket-protocol article {
+  border-left: 4px solid var(--amber);
 }
 
 .proof-forge-cegis-candidates article {
@@ -1564,6 +1576,8 @@ canvas {
 .proof-forge-cegis-ranking small,
 .proof-forge-ticket p,
 .proof-forge-ticket small,
+.proof-forge-ticket-protocol p,
+.proof-forge-ticket-protocol small,
 .proof-forge-decomposition > p,
 .proof-forge-lemma p,
 .proof-forge-lemma small,
@@ -6882,6 +6896,7 @@ tr:last-child td {
   .proof-forge-cegis-candidates,
   .proof-forge-cegis-ranking,
   .proof-forge-ticket-grid,
+  .proof-forge-ticket-protocol,
   .proof-forge-decomposition-list,
   .proof-forge-grid,
   .proof-forge-experiments,

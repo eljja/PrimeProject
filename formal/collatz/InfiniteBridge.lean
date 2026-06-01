@@ -33,4 +33,7 @@ def rankedCegisTarget : String :=
 def topAttackTheoremTicket : String :=
   "CO-TICKET-1 ValuationDebtSccDescent open ticket, not a proof"
 
+def topAttackProofAttemptProtocol : String :=
+  "cover residue blocks; audit SCC rank inequalities; formalize strict descent exits"
+
 end PrimeProject.OpenProblems.Collatz
