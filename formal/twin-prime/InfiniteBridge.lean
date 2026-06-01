@@ -30,4 +30,7 @@ def counterexampleGuidedSynthesis : String :=
 def rankedCegisTarget : String :=
   "TP-CEGIS-1 attack_next"
 
+def topAttackTheoremTicket : String :=
+  "TP-TICKET-1 ExactPairSelectorParitySurvival open ticket, not a proof"
+
 end PrimeProject.OpenProblems.TwinPrime

@@ -721,6 +721,7 @@ function renderAiProofForge(problem) {
   const decompositionSummary = forge.decomposition_summary || {};
   const blueprint = forge.breakthrough_object_blueprint || {};
   const cegis = forge.counterexample_guided_synthesis || {};
+  const theoremTicket = forge.top_attack_theorem_ticket || {};
   return `
     <div class="proof-forge-head">
       <div>
@@ -834,6 +835,27 @@ function renderAiProofForge(problem) {
             `,
           )
           .join("")}
+      </div>
+    </article>
+    <article class="proof-forge-ticket">
+      <span>Top attack theorem ticket</span>
+      <strong>${escapeHtml(theoremTicket.ticket_id || "missing")} · ${escapeHtml(statusText(theoremTicket.status))}</strong>
+      <p>Source candidate: ${escapeHtml(theoremTicket.source_candidate || "")}</p>
+      <p>Candidate theorem: ${escapeHtml(theoremTicket.candidate_theorem || "")}</p>
+      <p>Target conclusion: ${escapeHtml(theoremTicket.target_conclusion || "")}</p>
+      <p>First counterexample oracle: ${escapeHtml(theoremTicket.first_counterexample_oracle || "")}</p>
+      <p>Required artifact: ${escapeHtml(theoremTicket.required_artifact || "")}</p>
+      <p>Lean stub: ${escapeHtml(theoremTicket.lean_stub || "")}</p>
+      <small>Success condition: ${escapeHtml(theoremTicket.success_condition || "")}</small>
+      <div class="proof-forge-ticket-grid">
+        <section>
+          <h3>Input objects</h3>
+          ${list(theoremTicket.input_objects || [])}
+        </section>
+        <section>
+          <h3>Forbidden premises</h3>
+          ${list(theoremTicket.forbidden_premises || [])}
+        </section>
       </div>
     </article>
     <div class="proof-forge-grid">

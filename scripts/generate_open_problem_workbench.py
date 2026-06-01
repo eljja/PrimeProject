@@ -2784,6 +2784,99 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
     ]
     synthesis_loop["top_candidate"] = ranked_cegis_candidates[0].get("id") if ranked_cegis_candidates else "missing"
     synthesis_loop["ranking_rule"] = "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
+    theorem_ticket_bank: dict[str, dict[str, object]] = {
+        "riemann": {
+            "status": "candidate_theorem_ticket_open",
+            "ticket_id": "RH-TICKET-1",
+            "source_candidate": "RH-CEGIS-1",
+            "candidate_theorem": "CompactKernelConePositivity: every admissible kernel in the generated two-parameter compact cone has a non-circular positivity certificate whose explicit-formula image is valid for all heights.",
+            "input_objects": [
+                "two-parameter compact kernel cone",
+                "interval-certified semialgebraic positivity block",
+                "dependency-strength ledger",
+                "candidate density map into the Weil test class",
+            ],
+            "target_conclusion": "The positivity certificate survives dependency audit and becomes eligible for a KernelConeDensityBridge attempt.",
+            "forbidden_premises": [
+                "any zero-line assumption",
+                "any theorem documented as RH-equivalent",
+                "finite-height positivity as a replacement for all-height positivity",
+            ],
+            "first_counterexample_oracle": "Search a kernel outside the generated cone or an imported theorem dependency that is RH-equivalent.",
+            "required_artifact": "data/open-problem/riemann/rh-cegis-1-kernel-cone-certificate.json",
+            "lean_stub": "def compactKernelConePositivityTicket : String := \"open theorem ticket, not a proof\"",
+            "success_condition": "All dependencies are weaker than RH and the positivity statement is quantified over the whole generated cone.",
+        },
+        "collatz": {
+            "status": "candidate_theorem_ticket_open",
+            "ticket_id": "CO-TICKET-1",
+            "source_candidate": "CO-CEGIS-1",
+            "candidate_theorem": "ValuationDebtSccDescent: every non-basin SCC in the accelerated residue-debt automaton has an exact rational exit edge that strictly decreases valuation debt rank.",
+            "input_objects": [
+                "accelerated odd residue partition",
+                "valuation-debt rank tuple",
+                "SCC decomposition",
+                "edge-by-edge rational inequality certificate",
+            ],
+            "target_conclusion": "Every covered residue component either exits to a verified basin or has a strict rank descent.",
+            "forbidden_premises": [
+                "density drift over random branches",
+                "finite trajectory replay",
+                "rank values fitted from empirical stopping times",
+            ],
+            "first_counterexample_oracle": "Find a non-basin SCC with a closed path whose exact replay does not decrease valuation debt.",
+            "required_artifact": "data/open-problem/collatz/co-cegis-1-scc-descent-certificate.json",
+            "lean_stub": "def valuationDebtSccDescentTicket : String := \"open theorem ticket, not a proof\"",
+            "success_condition": "Every accelerated branch in every non-basin SCC has a replayable rational descent or certified exit.",
+        },
+        "goldbach": {
+            "status": "candidate_theorem_ticket_open",
+            "ticket_id": "GB-TICKET-1",
+            "source_candidate": "GB-CEGIS-1",
+            "candidate_theorem": "ExplicitBudgetCutoffBelowCertificate: the normalized major-minor arc budget gives R_2(n) > 0 for every even n >= N0, with N0 below the finite certificate ceiling.",
+            "input_objects": [
+                "major/minor arc budget ledger",
+                "theorem source table",
+                "validity range table",
+                "exact cutoff calculator",
+            ],
+            "target_conclusion": "The analytic large-n theorem and finite certificate overlap without gaps.",
+            "forbidden_premises": [
+                "asymptotic-only constants",
+                "Hardy-Littlewood independence as an axiom",
+                "uncited exceptional-character bounds",
+            ],
+            "first_counterexample_oracle": "Find any budget line with missing theorem source, invalid range, or computed N0 above the certificate ceiling.",
+            "required_artifact": "data/open-problem/goldbach/gb-cegis-1-explicit-budget-cutoff.json",
+            "lean_stub": "def explicitBudgetCutoffBelowCertificateTicket : String := \"open theorem ticket, not a proof\"",
+            "success_condition": "Every budget line is theorem-backed and the exact cutoff is below the verified finite range.",
+        },
+        "twin-prime": {
+            "status": "candidate_theorem_ticket_open",
+            "ticket_id": "TP-TICKET-1",
+            "source_candidate": "TP-CEGIS-1",
+            "candidate_theorem": "ExactPairSelectorParitySurvival: an exact-pair selector with explicit wider-gap subtraction has positive exact gap-2 mass after parity-model stress.",
+            "input_objects": [
+                "exact-pair selector weight",
+                "wider-gap subtraction ledger",
+                "semiprime parity countermodel",
+                "scale-uniform exact-gap mass statement",
+            ],
+            "target_conclusion": "Positive mass cannot be weakened to bounded gaps and remains specific to exact gap 2.",
+            "forbidden_premises": [
+                "bounded gaps theorem as a substitute",
+                "Hardy-Littlewood k-tuple density as an axiom",
+                "positive interval mass without exact gap identification",
+            ],
+            "first_counterexample_oracle": "Replay the selector in a parity model and reject it if positive mass remains without an exact twin-prime conclusion.",
+            "required_artifact": "data/open-problem/twin-prime/tp-cegis-1-parity-survival.json",
+            "lean_stub": "def exactPairSelectorParitySurvivalTicket : String := \"open theorem ticket, not a proof\"",
+            "success_condition": "The selector survives parity stress and wider-gap leakage audits while preserving exact gap-2 positivity.",
+        },
+    }
+    top_attack_ticket = theorem_ticket_bank.get(problem_id, theorem_ticket_bank["riemann"])
+    if top_attack_ticket["source_candidate"] != synthesis_loop["top_candidate"]:
+        top_attack_ticket["status"] = "candidate_theorem_ticket_rank_mismatch"
     mutations = list(forge.get("candidate_mutations", []))
     experiments = [
         {
@@ -2928,6 +3021,7 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
         },
         "breakthrough_object_blueprint": breakthrough_blueprint,
         "counterexample_guided_synthesis": synthesis_loop,
+        "top_attack_theorem_ticket": top_attack_ticket,
         "experiments": experiments,
         "discovery_loop": {
             "status": "candidate_generation_active_no_solution",

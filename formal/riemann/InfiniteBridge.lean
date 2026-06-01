@@ -30,4 +30,7 @@ def counterexampleGuidedSynthesis : String :=
 def rankedCegisTarget : String :=
   "RH-CEGIS-1 attack_next"
 
+def topAttackTheoremTicket : String :=
+  "RH-TICKET-1 CompactKernelConePositivity open ticket, not a proof"
+
 end PrimeProject.OpenProblems.Riemann

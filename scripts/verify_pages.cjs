@@ -281,6 +281,7 @@ async function main() {
           aiProofForgeBlueprintSteps: document.querySelectorAll("#aiProofForge .proof-forge-blueprint-next em").length,
           aiProofForgeCegisCandidates: document.querySelectorAll("#aiProofForge .proof-forge-cegis-candidates article").length,
           aiProofForgeCegisRanking: document.querySelectorAll("#aiProofForge .proof-forge-cegis-ranking article").length,
+          aiProofForgeTicketSections: document.querySelectorAll("#aiProofForge .proof-forge-ticket-grid section").length,
           aiProofForgeExperiments: document.querySelectorAll("#aiProofForge .proof-forge-experiment").length,
           aiProofForgeMutations: document.querySelectorAll("#aiProofForge .proof-forge-mutation").length,
           aiProofForgeRunbook: document.querySelectorAll("#aiProofForge .proof-forge-runbook-step").length,
@@ -441,6 +442,12 @@ async function main() {
         !page.aiProofForgeText.includes("Priority score") ||
         !page.aiProofForgeText.includes("attack next") ||
         !page.aiProofForgeText.includes("cegis active no candidate proof") ||
+        !page.aiProofForgeText.includes("Top attack theorem ticket") ||
+        !page.aiProofForgeText.includes("Candidate theorem") ||
+        !page.aiProofForgeText.includes("First counterexample oracle") ||
+        !page.aiProofForgeText.includes("Required artifact") ||
+        !page.aiProofForgeText.includes("Forbidden premises") ||
+        !page.aiProofForgeText.includes("not a proof") ||
         !page.aiProofForgeText.includes("Search grammar") ||
         !page.aiProofForgeText.includes("Countermodel battery") ||
         !page.aiProofForgeText.includes("reproducing known finite checks does not count") ||
@@ -462,6 +469,7 @@ async function main() {
         page.aiProofForgeBlueprintSteps < 3 ||
         page.aiProofForgeCegisCandidates < 2 ||
         page.aiProofForgeCegisRanking < 2 ||
+        page.aiProofForgeTicketSections < 2 ||
         page.aiProofForgeExperiments < 3 ||
         page.aiProofForgeMutations < 3 ||
         page.aiProofForgeRunbook < 4 ||

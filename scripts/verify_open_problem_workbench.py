@@ -454,6 +454,31 @@ def main() -> int:
         if not any(item.get("decision") == "attack_next" for item in ranked_candidates):
             print(f"{problem.get('id')} AI proof forge CEGIS loop has no next attack candidate.", file=sys.stderr)
             return 1
+        theorem_ticket = proof_forge.get("top_attack_theorem_ticket", {})
+        if theorem_ticket.get("status") != "candidate_theorem_ticket_open":
+            print(f"{problem.get('id')} AI proof forge theorem ticket has unexpected status.", file=sys.stderr)
+            return 1
+        if theorem_ticket.get("source_candidate") != cegis.get("top_candidate"):
+            print(f"{problem.get('id')} AI proof forge theorem ticket does not match the top CEGIS candidate.", file=sys.stderr)
+            return 1
+        required_ticket_fields = [
+            "ticket_id",
+            "candidate_theorem",
+            "target_conclusion",
+            "first_counterexample_oracle",
+            "required_artifact",
+            "lean_stub",
+            "success_condition",
+        ]
+        if not all(theorem_ticket.get(field) for field in required_ticket_fields):
+            print(f"{problem.get('id')} AI proof forge theorem ticket is missing required fields.", file=sys.stderr)
+            return 1
+        if len(theorem_ticket.get("input_objects", [])) < 4 or len(theorem_ticket.get("forbidden_premises", [])) < 3:
+            print(f"{problem.get('id')} AI proof forge theorem ticket is missing inputs or forbidden premises.", file=sys.stderr)
+            return 1
+        if "not a proof" not in theorem_ticket.get("lean_stub", ""):
+            print(f"{problem.get('id')} AI proof forge theorem ticket is missing the proof boundary.", file=sys.stderr)
+            return 1
         if "reproducing known finite checks does not count" not in proof_forge.get("non_reproduction_rule", ""):
             print(f"{problem.get('id')} AI proof forge is missing the non-reproduction rule.", file=sys.stderr)
             return 1
