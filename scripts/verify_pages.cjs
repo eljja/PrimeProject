@@ -281,6 +281,7 @@ async function main() {
           aiProofForgeMutations: document.querySelectorAll("#aiProofForge .proof-forge-mutation").length,
           aiProofForgeRunbook: document.querySelectorAll("#aiProofForge .proof-forge-runbook-step").length,
           aiProofForgeScorecard: document.querySelectorAll("#aiProofForge .proof-forge-score").length,
+          aiProofForgeSynthesis: document.querySelectorAll("#aiProofForge .proof-forge-synthesis-card").length,
           proofRouteTriageText: document.querySelector("#proofRouteTriage").textContent,
           proofRouteCards: document.querySelectorAll("#proofRouteTriage .route-card").length,
           decisiveTheoremText: document.querySelector("#decisiveTheoremSpec").textContent,
@@ -422,12 +423,16 @@ async function main() {
         !page.aiProofForgeText.includes("Theorem pressure") ||
         !page.aiProofForgeText.includes("Attack runbook") ||
         !page.aiProofForgeText.includes("Falsification scorecard") ||
+        !page.aiProofForgeText.includes("Cross-problem synthesis") ||
+        !page.aiProofForgeText.includes("Transfer test") ||
+        !page.aiProofForgeText.includes("Failure mode") ||
         !page.aiProofForgeText.includes("Required output") ||
         !page.aiProofForgeText.includes("Fail signal") ||
         page.aiProofForgeExperiments < 3 ||
         page.aiProofForgeMutations < 3 ||
         page.aiProofForgeRunbook < 4 ||
         page.aiProofForgeScorecard < 4 ||
+        page.aiProofForgeSynthesis < 4 ||
         page.proofRouteCards < 4 ||
         !page.proofRouteTriageText.includes("routes triaged no full proof") ||
         !page.proofRouteTriageText.includes("current decisive route") ||

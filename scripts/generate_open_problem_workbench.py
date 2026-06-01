@@ -2435,6 +2435,44 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "status": "blocked_until_candidate_survives",
         },
     ]
+    cross_problem_synthesis = [
+        {
+            "pattern": "positivity-to-descent transfer",
+            "source_problem": "riemann",
+            "target_problem": "collatz",
+            "hypothesis": "A positivity certificate can be reinterpreted as a well-founded descent potential if every local transition consumes a quantified debt.",
+            "transfer_test": "Convert one RH kernel positivity block into a Collatz residue potential template and check exact branch decrease.",
+            "failure_mode": "Positive average mass does not imply pointwise descent over every residue branch.",
+            "status": "experimental_transfer_not_proof",
+        },
+        {
+            "pattern": "cutoff-to-parity transfer",
+            "source_problem": "goldbach",
+            "target_problem": "twin-prime",
+            "hypothesis": "An explicit inequality budget may expose exactly which term must become parity-sensitive for exact gap 2.",
+            "transfer_test": "Rewrite the Goldbach main-term-minus-error ledger with an exact-pair selector and run parity countermodels.",
+            "failure_mode": "The budget can remain positive for bounded gaps while exact gap 2 still vanishes.",
+            "status": "experimental_transfer_not_proof",
+        },
+        {
+            "pattern": "automaton-to-cutoff transfer",
+            "source_problem": "collatz",
+            "target_problem": "goldbach",
+            "hypothesis": "Worst-case residue automata can rank obstruction classes before analytic constants are optimized.",
+            "transfer_test": "Treat least-witness Goldbach residues as states and rank them by required explicit error budget.",
+            "failure_mode": "A finite residue ranking does not produce the large-n lower-bound theorem.",
+            "status": "bounded_diagnostic_only",
+        },
+        {
+            "pattern": "exact-selector transfer",
+            "source_problem": "twin-prime",
+            "target_problem": "riemann",
+            "hypothesis": "Selector terms that isolate exact gap 2 may inspire non-averaged test functions for zero-side positivity.",
+            "transfer_test": "Build a prime-side test function that penalizes averaged gap evidence and rewards exact structure, then audit circularity.",
+            "failure_mode": "Exact prime-side selectors may not map to an admissible RH-equivalent positivity class.",
+            "status": "speculative_bridge_search",
+        },
+    ]
     return {
         "schema": AI_PROOF_FORGE_SCHEMA,
         "problem_id": problem_id,
@@ -2453,6 +2491,7 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             ),
             "attack_runbook": attack_runbook,
             "falsification_scorecard": falsification_scorecard,
+            "cross_problem_synthesis": cross_problem_synthesis,
         },
         "non_reproduction_rule": "The forge is only useful if it creates a new theorem object or rejects a route for a precise mathematical reason; reproducing known finite checks does not count as progress.",
         "promotion_gate": "Promotion requires an independently replayable theorem artifact that closes the infinite bridge without weakening the original conjecture.",

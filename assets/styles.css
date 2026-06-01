@@ -1461,6 +1461,22 @@ canvas {
   font-size: 13px;
 }
 
+.proof-forge-synthesis {
+  margin-top: 10px;
+}
+
+.proof-forge-synthesis h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.proof-forge-synthesis-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
 .proof-forge-experiment {
   border-left: 4px solid var(--violet);
 }
@@ -1505,6 +1521,13 @@ canvas {
   border-left: 4px solid var(--danger);
 }
 
+.proof-forge-synthesis-card {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
 .proof-forge-mutation.is-blocked_by_all_n_gap,
 .proof-forge-mutation.is-blocked_by_uncovered_components,
 .proof-forge-mutation.is-blocked_by_missing_explicit_tail,
@@ -1514,7 +1537,8 @@ canvas {
 
 .proof-forge-mutation span,
 .proof-forge-runbook-step span,
-.proof-forge-score span {
+.proof-forge-score span,
+.proof-forge-synthesis-card span {
   display: block;
   color: var(--muted);
   font-size: 11px;
@@ -1524,7 +1548,8 @@ canvas {
 
 .proof-forge-mutation strong,
 .proof-forge-runbook-step strong,
-.proof-forge-score strong {
+.proof-forge-score strong,
+.proof-forge-synthesis-card strong {
   display: block;
   margin-top: 5px;
   color: var(--ink);
@@ -1537,7 +1562,9 @@ canvas {
 .proof-forge-runbook-step p,
 .proof-forge-runbook-step small,
 .proof-forge-score p,
-.proof-forge-score small {
+.proof-forge-score small,
+.proof-forge-synthesis-card p,
+.proof-forge-synthesis-card small {
   display: block;
   margin-top: 8px;
   color: var(--muted);
@@ -6679,6 +6706,7 @@ tr:last-child td {
   .proof-forge-experiments,
   .proof-forge-mutations,
   .proof-forge-runbook,
+  .proof-forge-synthesis-grid,
   .verdict-grid,
   .route-triage-head,
   .route-triage-list,

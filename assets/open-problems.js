@@ -714,6 +714,7 @@ function renderAiProofForge(problem) {
   const mutations = discovery.candidate_mutations || [];
   const attackRunbook = discovery.attack_runbook || [];
   const scorecard = discovery.falsification_scorecard || [];
+  const synthesis = discovery.cross_problem_synthesis || [];
   return `
     <div class="proof-forge-head">
       <div>
@@ -814,6 +815,24 @@ function renderAiProofForge(problem) {
             )
             .join("")}
         </section>
+      </div>
+      <div class="proof-forge-synthesis">
+        <h3>Cross-problem synthesis</h3>
+        <div class="proof-forge-synthesis-grid">
+          ${synthesis
+            .map(
+              (item) => `
+                <article class="proof-forge-synthesis-card is-${escapeHtml(item.status || "unknown")}">
+                  <span>${escapeHtml(item.pattern || "")} · ${escapeHtml(statusText(item.status))}</span>
+                  <strong>${escapeHtml(item.source_problem || "")} -> ${escapeHtml(item.target_problem || "")}</strong>
+                  <p>Hypothesis: ${escapeHtml(item.hypothesis || "")}</p>
+                  <p>Transfer test: ${escapeHtml(item.transfer_test || "")}</p>
+                  <small>Failure mode: ${escapeHtml(item.failure_mode || "")}</small>
+                </article>
+              `,
+            )
+            .join("")}
+        </div>
       </div>
     </div>
     <p class="route-rule">Formal target: ${escapeHtml(forge.formal_target || "")}</p>

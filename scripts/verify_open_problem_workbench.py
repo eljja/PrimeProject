@@ -386,6 +386,7 @@ def main() -> int:
         mutations = discovery_loop.get("candidate_mutations", []) if isinstance(discovery_loop, dict) else []
         attack_runbook = discovery_loop.get("attack_runbook", []) if isinstance(discovery_loop, dict) else []
         scorecard = discovery_loop.get("falsification_scorecard", []) if isinstance(discovery_loop, dict) else []
+        synthesis = discovery_loop.get("cross_problem_synthesis", []) if isinstance(discovery_loop, dict) else []
         if discovery_loop.get("status") != "candidate_generation_active_no_solution":
             print(f"{problem.get('id')} AI proof forge discovery loop has unexpected status.", file=sys.stderr)
             return 1
@@ -406,6 +407,12 @@ def main() -> int:
             return 1
         if not all(row.get("pass_signal") and row.get("fail_signal") for row in scorecard):
             print(f"{problem.get('id')} AI proof forge scorecard is missing pass/fail signals.", file=sys.stderr)
+            return 1
+        if len(synthesis) < 4:
+            print(f"{problem.get('id')} AI proof forge is missing cross-problem synthesis.", file=sys.stderr)
+            return 1
+        if not all(item.get("transfer_test") and item.get("failure_mode") for item in synthesis):
+            print(f"{problem.get('id')} AI proof forge synthesis is missing transfer tests.", file=sys.stderr)
             return 1
 
     certificate_roots = {
