@@ -382,6 +382,20 @@ def main() -> int:
         if "reproducing known finite checks does not count" not in proof_forge.get("non_reproduction_rule", ""):
             print(f"{problem.get('id')} AI proof forge is missing the non-reproduction rule.", file=sys.stderr)
             return 1
+        discovery_loop = proof_forge.get("discovery_loop", {}) if isinstance(proof_forge.get("discovery_loop"), dict) else {}
+        mutations = discovery_loop.get("candidate_mutations", []) if isinstance(discovery_loop, dict) else []
+        if discovery_loop.get("status") != "candidate_generation_active_no_solution":
+            print(f"{problem.get('id')} AI proof forge discovery loop has unexpected status.", file=sys.stderr)
+            return 1
+        if len(mutations) < 3 or discovery_loop.get("survivor_count", 0) < 1:
+            print(f"{problem.get('id')} AI proof forge discovery loop is missing candidate mutations.", file=sys.stderr)
+            return 1
+        if not all(item.get("mutation") and item.get("verifier") and item.get("next_action") for item in mutations):
+            print(f"{problem.get('id')} AI proof forge mutation is incomplete.", file=sys.stderr)
+            return 1
+        if "replayable infinite-bridge artifacts" not in discovery_loop.get("iteration_contract", ""):
+            print(f"{problem.get('id')} AI proof forge discovery loop is missing the infinite-bridge contract.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

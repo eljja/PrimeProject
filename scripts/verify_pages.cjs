@@ -278,6 +278,7 @@ async function main() {
           aiBreakthroughExperiments: document.querySelectorAll("#aiBreakthroughProgram .breakthrough-experiment").length,
           aiProofForgeText: document.querySelector("#aiProofForge").textContent,
           aiProofForgeExperiments: document.querySelectorAll("#aiProofForge .proof-forge-experiment").length,
+          aiProofForgeMutations: document.querySelectorAll("#aiProofForge .proof-forge-mutation").length,
           proofRouteTriageText: document.querySelector("#proofRouteTriage").textContent,
           proofRouteCards: document.querySelectorAll("#proofRouteTriage .route-card").length,
           decisiveTheoremText: document.querySelector("#decisiveTheoremSpec").textContent,
@@ -414,7 +415,11 @@ async function main() {
         !page.aiProofForgeText.includes("Countermodel battery") ||
         !page.aiProofForgeText.includes("reproducing known finite checks does not count") ||
         !page.aiProofForgeText.includes("Promotion gate") ||
+        !page.aiProofForgeText.includes("Discovery loop") ||
+        !page.aiProofForgeText.includes("candidate generation active no solution") ||
+        !page.aiProofForgeText.includes("Theorem pressure") ||
         page.aiProofForgeExperiments < 3 ||
+        page.aiProofForgeMutations < 3 ||
         page.proofRouteCards < 4 ||
         !page.proofRouteTriageText.includes("routes triaged no full proof") ||
         !page.proofRouteTriageText.includes("current decisive route") ||

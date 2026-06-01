@@ -710,6 +710,8 @@ function renderAiBreakthroughProgram(problem) {
 function renderAiProofForge(problem) {
   const forge = problem.ai_proof_forge || {};
   const experiments = forge.experiments || [];
+  const discovery = forge.discovery_loop || {};
+  const mutations = discovery.candidate_mutations || [];
   return `
     <div class="proof-forge-head">
       <div>
@@ -751,6 +753,34 @@ function renderAiProofForge(problem) {
           `,
         )
         .join("")}
+    </div>
+    <div class="proof-forge-discovery">
+      <div class="proof-forge-head">
+        <div>
+          <span>Discovery loop</span>
+          <strong>${escapeHtml(statusText(discovery.status))}</strong>
+        </div>
+        <div>
+          <span>Survivors / blocked</span>
+          <strong>${escapeHtml(formatValue(discovery.survivor_count || 0))} / ${escapeHtml(formatValue(discovery.blocked_count || 0))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(discovery.iteration_contract || "")}</p>
+      <div class="proof-forge-mutations">
+        ${mutations
+          .map(
+            (mutation) => `
+              <article class="proof-forge-mutation is-${escapeHtml(mutation.current_verdict || "unknown")}">
+                <span>${escapeHtml(mutation.id || "")} · ${escapeHtml(statusText(mutation.current_verdict))}</span>
+                <strong>${escapeHtml(mutation.mutation || "")}</strong>
+                <p>Theorem pressure: ${escapeHtml(mutation.theorem_pressure || "")}</p>
+                <p>Verifier: ${escapeHtml(mutation.verifier || "")}</p>
+                <small>Next action: ${escapeHtml(mutation.next_action || "")}</small>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
     </div>
     <p class="route-rule">Formal target: ${escapeHtml(forge.formal_target || "")}</p>
     <p class="route-rule">Promotion gate: ${escapeHtml(forge.promotion_gate || "")}</p>

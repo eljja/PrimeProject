@@ -1440,7 +1440,8 @@ canvas {
 }
 
 .proof-forge-grid,
-.proof-forge-experiments {
+.proof-forge-experiments,
+.proof-forge-mutations {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
@@ -1455,6 +1456,56 @@ canvas {
 
 .proof-forge-experiment {
   border-left: 4px solid var(--violet);
+}
+
+.proof-forge-discovery {
+  margin-top: 10px;
+}
+
+.proof-forge-discovery > p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.proof-forge-mutation {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.proof-forge-mutation.is-blocked_by_all_n_gap,
+.proof-forge-mutation.is-blocked_by_uncovered_components,
+.proof-forge-mutation.is-blocked_by_missing_explicit_tail,
+.proof-forge-mutation.is-blocked_by_parity_barrier {
+  border-left-color: var(--danger);
+}
+
+.proof-forge-mutation span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.proof-forge-mutation strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.proof-forge-mutation p,
+.proof-forge-mutation small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .proof-panel ol {
@@ -6589,6 +6640,7 @@ tr:last-child td {
   .proof-forge-head,
   .proof-forge-grid,
   .proof-forge-experiments,
+  .proof-forge-mutations,
   .verdict-grid,
   .route-triage-head,
   .route-triage-list,
