@@ -41,6 +41,7 @@ PROOF_KERNEL_ROADMAP_SCHEMA = "primeproject.proof-kernel-roadmap.v1"
 FORMAL_KERNEL_CONTRACT_AUDIT_SCHEMA = "primeproject.formal-kernel-contract-audit.v1"
 INVALID_PROOF_SHORTCUT_SUITE_SCHEMA = "primeproject.invalid-proof-shortcut-suite.v1"
 AI_SOLVER_FRONTIER_SCHEMA = "primeproject.ai-solver-frontier.v1"
+AI_BREAKTHROUGH_PROGRAM_SCHEMA = "primeproject.ai-breakthrough-program.v1"
 
 
 def hash_leaf(text: str) -> str:
@@ -2040,6 +2041,155 @@ def ai_solver_frontier(problem: dict[str, object]) -> dict[str, object]:
     }
 
 
+def ai_breakthrough_program(problem: dict[str, object]) -> dict[str, object]:
+    problem_id = str(problem.get("id", "unknown"))
+    finite = problem.get("finite_result", {}) if isinstance(problem.get("finite_result"), dict) else {}
+    program_bank: dict[str, dict[str, object]] = {
+        "riemann": {
+            "program_title": "RH positivity-to-kernel bridge program",
+            "literature_anchor": [
+                {
+                    "source": "Weil explicit-formula positivity criteria",
+                    "url": "https://en.wikipedia.org/wiki/Weil%27s_criterion",
+                    "use": "Treat RH as a positivity problem instead of a zero-by-zero computation.",
+                    "limit": "Equivalent criteria do not solve RH unless positivity is proved for the whole admissible class.",
+                },
+                {
+                    "source": "Li-type positivity criteria",
+                    "url": "https://mathworld.wolfram.com/LisCriterion.html",
+                    "use": "Convert zero-location information into an infinite positivity sequence.",
+                    "limit": "Checking finitely many positive terms is not enough.",
+                },
+            ],
+            "new_hypothesis": "There may exist a finitely parameterized kernel cone whose explicit-formula prime side is interval-certifiable and whose spectral positivity implies RH without importing RH-equivalent assumptions.",
+            "candidate_theorem": "For a generated admissible kernel cone K, the Weil/Lagarias-equivalent positivity functional is nonnegative for every k in K, and K is dense enough in the test-function class required to imply RH.",
+            "ai_search_protocol": [
+                "Generate kernel families with symbolic positivity constraints.",
+                "Use interval arithmetic to bound prime-side stress terms against theta/psi frontier probes.",
+                "Reject kernels whose proof imports zero-free regions strong enough to be circular.",
+                "Promote only a kernel cone with a universal positivity proof to formal review.",
+            ],
+            "first_machine_artifact": "kernel-candidate ledger with symbolic constraints, failed circularity checks, and interval-certified prime-side bounds",
+            "decisive_success_condition": "A replayable theorem: every admissible kernel in the cone satisfies the required positivity and the cone is strong enough to imply RH.",
+            "current_obstruction": "No non-circular universal positivity theorem for the generated cone.",
+            "bounded_signal": f"theta stress certificate through {finite.get('limit', 'n/a')} remains only finite evidence.",
+        },
+        "collatz": {
+            "program_title": "Collatz residue-cover descent synthesis",
+            "literature_anchor": [
+                {
+                    "source": "Tao almost-bounded Collatz result",
+                    "url": "https://arxiv.org/abs/1909.03562",
+                    "use": "Use density-descent insight as a guide for residue-block compression.",
+                    "limit": "Almost-all logarithmic-density descent is not all-integer convergence.",
+                },
+                {
+                    "source": "2-adic/residue branch formulations",
+                    "url": "https://en.wikipedia.org/wiki/Collatz_conjecture",
+                    "use": "Represent accelerated Collatz steps as affine maps on residue classes.",
+                    "limit": "Finite residue sampling is not a global descent cover.",
+                },
+            ],
+            "new_hypothesis": "A finite set of accelerated odd-residue blocks may admit a strict well-founded ranking after branch compression, turning empirical descent into a symbolic cover.",
+            "candidate_theorem": "There exist k, a finite partition of odd residues modulo 2^k, and a well-founded rank R such that every accelerated Collatz branch either enters a smaller verified basin or strictly decreases R.",
+            "ai_search_protocol": [
+                "Enumerate residue classes modulo 2^k and derive accelerated affine branches.",
+                "Search piecewise-linear or logarithmic ranking functions that strictly decrease for every branch.",
+                "Use SMT-style counterexample search to kill uncovered residue blocks.",
+                "Iteratively split only the failing blocks until the cover either closes or shows structural obstruction.",
+            ],
+            "first_machine_artifact": "residue-cover certificate with every block mapped to a lower-ranked block or to a smaller verified basin",
+            "decisive_success_condition": "A finite symbolic cover for all odd residues plus a strict ranking function that excludes cycles and divergence.",
+            "current_obstruction": "No complete cover; sampled descent has not been compressed into a proof over all residues.",
+            "bounded_signal": f"bounded run tested starts through {finite.get('tested_start_values', 'n/a')}.",
+        },
+        "goldbach": {
+            "program_title": "Goldbach explicit-cutoff lowering program",
+            "literature_anchor": [
+                {
+                    "source": "Oliveira e Silva, Herzog, Pardi verification to 4*10^18",
+                    "url": "https://www.ams.org/mcom/2014-83-288/S0025-5718-2013-02787-1/S0025-5718-2013-02787-1.pdf",
+                    "use": "Use large finite verification as the finite half of a cutoff-plus-tail proof.",
+                    "limit": "Finite verification cannot cover the infinite tail.",
+                },
+                {
+                    "source": "Explicit circle-method lower-bound programs",
+                    "url": "https://mathworld.wolfram.com/GoldbachConjecture.html",
+                    "use": "Frame the missing theorem as a positive two-prime representation lower bound for all large even n.",
+                    "limit": "Heuristic prime independence is not a uniform lower-bound theorem.",
+                },
+            ],
+            "new_hypothesis": "AI-guided constant optimization can isolate a sharper explicit major/minor arc budget whose cutoff falls below the certified finite range.",
+            "candidate_theorem": "There is an explicit N0 below the certified finite limit such that every even n >= N0 has a positive two-prime representation count under a fully explicit major/minor arc inequality budget.",
+            "ai_search_protocol": [
+                "Model the proof as an inequality budget with explicit constants.",
+                "Search worst residue classes and least-representation even integers for stress cases.",
+                "Reject any budget whose cutoff exceeds the finite certificate limit.",
+                "Emit a formal inequality checklist before attempting theorem proof.",
+            ],
+            "first_machine_artifact": "explicit-constant budget table with every error term, cutoff N0, and the finite interval covered by certificate",
+            "decisive_success_condition": "A positive two-prime representation lower bound for every even n >= N0, with N0 below the verified finite limit.",
+            "current_obstruction": "No compatible explicit lower-bound theorem has been supplied.",
+            "bounded_signal": f"bounded certificate checked even integers through {finite.get('checked_even_limit', 'n/a')}.",
+        },
+        "twin-prime": {
+            "program_title": "Twin-prime parity-barrier breach search",
+            "literature_anchor": [
+                {
+                    "source": "Polymath8/Maynard-Tao bounded gaps",
+                    "url": "https://arxiv.org/abs/1409.8361",
+                    "use": "Use bounded-gap machinery as a scaffold for admissible tuple weight design.",
+                    "limit": "Bounded gaps do not imply exact gap 2.",
+                },
+                {
+                    "source": "Parity barrier in sieve methods",
+                    "url": "https://en.wikipedia.org/wiki/Twin_prime",
+                    "use": "Treat exact gap-2 forcing as the obstruction that must be attacked directly.",
+                    "limit": "Density agreement with Hardy-Littlewood is heuristic unless made unconditional.",
+                },
+            ],
+            "new_hypothesis": "A parity-sensitive weight certificate may isolate the {0,2} tuple strongly enough to prove an exact gap-2 lower bound rather than a bounded-gap statement.",
+            "candidate_theorem": "There exists an unconditional parity-sensitive sieve weight family whose limiting lower bound is positive for exact prime pairs (n, n+2), not merely for bounded gaps.",
+            "ai_search_protocol": [
+                "Generate admissible-tuple weights with a mandatory exact {0,2} pair.",
+                "Stress every candidate against parity-barrier countermodels.",
+                "Reject weights whose conclusion allows gaps larger than 2.",
+                "Promote only a weight family with an unconditional positive exact-gap lower bound.",
+            ],
+            "first_machine_artifact": "exact-gap weight ledger distinguishing exact gap 2, bounded gaps, averaged gaps, and heuristic-density failures",
+            "decisive_success_condition": "An unconditional positive lower bound for exact gap-2 prime pairs at arbitrarily large scale.",
+            "current_obstruction": "Current sieve routes still collapse to bounded-gap or heuristic evidence.",
+            "bounded_signal": f"bounded run saw {finite.get('twin_pair_count', 'n/a')} twin pairs.",
+        },
+    }
+    program = program_bank.get(problem_id, program_bank["riemann"])
+    protocols = list(program.get("ai_search_protocol", []))
+    machine_experiments = [
+        {
+            "id": f"{problem_id}-breakthrough-{idx + 1}",
+            "purpose": protocol,
+            "artifact": f"data/open-problem/{problem_id}/breakthrough-{idx + 1}.json",
+            "pass_condition": "The artifact closes one stated proof obligation without using an assumption equivalent to the target conjecture.",
+            "failure_signal": "The artifact is finite-only, circular, heuristic-only, or leaves an unquantified infinite tail.",
+        }
+        for idx, protocol in enumerate(protocols[:4])
+    ]
+    return {
+        "schema": AI_BREAKTHROUGH_PROGRAM_SCHEMA,
+        "problem_id": problem_id,
+        "status": "active_unsolved_research_program",
+        **program,
+        "machine_experiments": machine_experiments,
+        "red_team_rules": [
+            "Finite verification may falsify a universal claim but may not prove the infinite theorem.",
+            "Equivalent criteria are allowed only if the missing positivity, descent, or lower-bound theorem is proved without circular assumptions.",
+            "A candidate survives only when its first machine artifact can be replayed and its proof obligation is stated as a formal theorem.",
+        ],
+        "upgrade_condition": "Do not change the public status until the candidate theorem is converted into a replayable formal proof or an accepted theorem that closes the infinite bridge.",
+        "claim_rule": "This program is a serious AI-assisted attempt, not a proof claim. The page remains open_not_proven until the decisive success condition is met by a formal artifact or accepted theorem.",
+    }
+
+
 def proof_route_triage(problem: dict[str, object]) -> dict[str, object]:
     problem_id = str(problem.get("id", "unknown"))
     route_bank: dict[str, list[dict[str, str]]] = {
@@ -3903,6 +4053,7 @@ def build_payload(limit: int, *, generated_at: str | None = None) -> dict[str, o
         problem["formal_kernel_contract_audit"] = formal_kernel_contract_audit(problem)
         problem["invalid_proof_shortcut_suite"] = invalid_proof_shortcut_suite(problem)
         problem["ai_solver_frontier"] = ai_solver_frontier(problem)
+        problem["ai_breakthrough_program"] = ai_breakthrough_program(problem)
         problem["proof_breakthrough_agenda"] = proof_breakthrough_agenda(problem)
     return {
         "schema": SCHEMA,

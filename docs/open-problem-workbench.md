@@ -2,9 +2,9 @@
 
 ## Bilingual abstract / 한영 초록
 
-English: This document specifies a proof workbench for four still-open problems: the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. PrimeProject does not claim proofs. It records bounded evidence, proof obligations, invalid shortcuts, AI-assisted search frontiers, formal replay contracts, and the exact conditions required before any claim can move beyond `open_not_proven`.
+English: This document specifies a proof workbench for four still-open problems: the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. PrimeProject does not claim proofs. It records bounded evidence, proof obligations, invalid shortcuts, AI-assisted search frontiers, AI breakthrough programs, formal replay contracts, and the exact conditions required before any claim can move beyond `open_not_proven`.
 
-한국어: 이 문서는 아직 미해결인 네 문제, 즉 리만가설, 콜라츠 추측, 골드바흐 추측, Twin Prime 추측을 위한 proof workbench 규격이다. PrimeProject는 증명을 주장하지 않는다. 대신 bounded evidence, proof obligation, invalid shortcut, AI-assisted search frontier, formal replay contract, 그리고 `open_not_proven`을 넘기 위해 필요한 조건을 기록한다.
+한국어: 이 문서는 아직 미해결인 네 문제, 즉 리만가설, 콜라츠 추측, 골드바흐 추측, Twin Prime 추측을 위한 proof workbench 규격이다. PrimeProject는 증명을 주장하지 않는다. 대신 bounded evidence(유한 증거), proof obligation(증명 의무), invalid shortcut(잘못된 지름길), AI-assisted search frontier(AI 보조 탐색 전선), AI breakthrough program(AI 돌파 프로그램), formal replay contract(형식 재생 계약), 그리고 `open_not_proven`을 넘기 위해 필요한 조건을 기록한다.
 
 PrimeProject now has four GitHub Pages subpages for:
 
@@ -13,7 +13,7 @@ PrimeProject now has four GitHub Pages subpages for:
 - Goldbach Conjecture
 - Twin Prime Conjecture
 
-The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
+The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
 ## Public Pages
 
@@ -64,6 +64,8 @@ Each problem also includes a `primeproject.formal-kernel-contract-audit.v1` obje
 Each problem also includes a `primeproject.invalid-proof-shortcut-suite.v1` object. The suite rejects common false proof routes: finite-to-infinite jumps, heuristic-to-theorem substitutions, weak theorem substitution, circular bridge imports, and bounded-gap substitution for exact twin gaps.
 
 Each problem also includes a `primeproject.ai-solver-frontier.v1` object. This is the live AI-assisted attack plan: RH uses positivity-kernel search, Collatz uses residue-block descent cover search, Goldbach uses explicit-cutoff optimization for two-prime lower bounds, and Twin Prime uses exact-gap sieve-weight search. These are research frontiers, not solved results.
+
+Each problem also includes a `primeproject.ai-breakthrough-program.v1` object. This object turns the ambition of solving the open problem into a falsifiable research program: source-informed baselines, one new attack hypothesis, a candidate theorem, machine experiments, red-team rules, and an upgrade condition. The point is to make genuinely new approaches executable without weakening the claim boundary. 한국어로 말하면, AI 돌파 프로그램은 “증명 완료”가 아니라 “어떤 새 정리를 만들면 진짜 증명으로 이어질 수 있는가”를 기계가 검증 가능한 실험 단위로 쪼갠 것이다.
 
 Each problem also includes a `primeproject.proof-route-triage.v1` object. The triage panel lists candidate proof routes, rejects finite-to-infinite jumps and weaker-theorem substitutions, marks heuristic-only routes, and names the single current decisive route whose required upgrade would move the project closer to a real proof attempt.
 

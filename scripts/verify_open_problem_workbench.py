@@ -347,6 +347,24 @@ def main() -> int:
         if "not a proof claim" not in breakthrough.get("machine_rule", ""):
             print(f"{problem.get('id')} breakthrough agenda is missing the claim boundary.", file=sys.stderr)
             return 1
+        ai_breakthrough = problem.get("ai_breakthrough_program", {})
+        ai_anchors = ai_breakthrough.get("literature_anchor", []) if isinstance(ai_breakthrough, dict) else []
+        ai_experiments = ai_breakthrough.get("machine_experiments", []) if isinstance(ai_breakthrough, dict) else []
+        if ai_breakthrough.get("status") != "active_unsolved_research_program":
+            print(f"{problem.get('id')} AI breakthrough program has unexpected status.", file=sys.stderr)
+            return 1
+        if len(ai_anchors) < 2 or len(ai_experiments) < 4:
+            print(f"{problem.get('id')} AI breakthrough program is missing anchors or experiments.", file=sys.stderr)
+            return 1
+        if not ai_breakthrough.get("candidate_theorem") or not ai_breakthrough.get("new_hypothesis"):
+            print(f"{problem.get('id')} AI breakthrough program is missing the theorem or hypothesis.", file=sys.stderr)
+            return 1
+        if not all(experiment.get("pass_condition") and experiment.get("failure_signal") for experiment in ai_experiments):
+            print(f"{problem.get('id')} AI breakthrough experiments are missing pass/failure rules.", file=sys.stderr)
+            return 1
+        if "not a proof claim" not in ai_breakthrough.get("claim_rule", ""):
+            print(f"{problem.get('id')} AI breakthrough program is missing the claim boundary.", file=sys.stderr)
+            return 1
 
     certificate_roots = {
         problem["id"]: problem["certificate"]["merkle_root"]

@@ -273,6 +273,9 @@ async function main() {
           invalidShortcutCards: document.querySelectorAll("#invalidProofShortcutSuite .shortcut-card").length,
           aiSolverText: document.querySelector("#aiSolverFrontier").textContent,
           aiSolverSteps: document.querySelectorAll("#aiSolverFrontier .ai-step").length,
+          aiBreakthroughText: document.querySelector("#aiBreakthroughProgram").textContent,
+          aiBreakthroughAnchors: document.querySelectorAll("#aiBreakthroughProgram .breakthrough-anchor").length,
+          aiBreakthroughExperiments: document.querySelectorAll("#aiBreakthroughProgram .breakthrough-experiment").length,
           proofRouteTriageText: document.querySelector("#proofRouteTriage").textContent,
           proofRouteCards: document.querySelectorAll("#proofRouteTriage .route-card").length,
           decisiveTheoremText: document.querySelector("#decisiveTheoremSpec").textContent,
@@ -395,6 +398,15 @@ async function main() {
         !page.aiSolverText.includes("Machine Output") ||
         !page.aiSolverText.includes("live AI-assisted attack plan") ||
         page.aiSolverSteps < 4 ||
+        !page.aiBreakthroughText.includes("Source-informed baseline") ||
+        !page.aiBreakthroughText.includes("New attack") ||
+        !page.aiBreakthroughText.includes("Candidate theorem") ||
+        !page.aiBreakthroughText.includes("Machine experiments") ||
+        !page.aiBreakthroughText.includes("Red-team rules") ||
+        !page.aiBreakthroughText.includes("active unsolved research program") ||
+        !page.aiBreakthroughText.includes("not a proof claim") ||
+        page.aiBreakthroughAnchors < 2 ||
+        page.aiBreakthroughExperiments < 4 ||
         page.proofRouteCards < 4 ||
         !page.proofRouteTriageText.includes("routes triaged no full proof") ||
         !page.proofRouteTriageText.includes("current decisive route") ||

@@ -631,6 +631,82 @@ function renderAiSolverFrontier(problem) {
   `;
 }
 
+function renderAiBreakthroughProgram(problem) {
+  const program = problem.ai_breakthrough_program || {};
+  const anchors = program.literature_anchor || [];
+  const experiments = program.machine_experiments || [];
+  const redTeamRules = program.red_team_rules || [];
+  return `
+    <div class="ai-breakthrough-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(program.status))}</strong>
+      </div>
+      <div>
+        <span>Program</span>
+        <strong>${escapeHtml(program.program_title || "missing")}</strong>
+      </div>
+    </div>
+    <article class="ai-breakthrough-thesis">
+      <span>New attack</span>
+      <p>${escapeHtml(program.new_hypothesis || "")}</p>
+      <strong>Candidate theorem: ${escapeHtml(program.candidate_theorem || "")}</strong>
+      <small>Current obstruction: ${escapeHtml(program.current_obstruction || "")}</small>
+    </article>
+    <div class="ai-breakthrough-grid">
+      <section>
+        <h3>Source-informed baseline</h3>
+        <div class="breakthrough-anchor-list">
+          ${anchors
+            .map(
+              (anchor) => `
+                <article class="breakthrough-anchor">
+                  <span>${escapeHtml(anchor.source || "")}</span>
+                  <p>${escapeHtml(anchor.use || "")}</p>
+                  <small>Boundary: ${escapeHtml(anchor.limit || "")}</small>
+                  <a href="${escapeHtml(anchor.url || "#")}" target="_blank" rel="noreferrer">Source</a>
+                </article>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+      <section>
+        <h3>Machine experiments</h3>
+        <div class="breakthrough-experiment-list">
+          ${experiments
+            .map(
+              (experiment) => `
+                <article class="breakthrough-experiment">
+                  <span>${escapeHtml(experiment.id || "")}</span>
+                  <strong>${escapeHtml(experiment.purpose || "")}</strong>
+                  <p>Artifact: ${escapeHtml(experiment.artifact || "")}</p>
+                  <p>Pass condition: ${escapeHtml(experiment.pass_condition || "")}</p>
+                  <small>Failure signal: ${escapeHtml(experiment.failure_signal || "")}</small>
+                </article>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+    </div>
+    <div class="ai-breakthrough-grid">
+      <section>
+        <h3>AI search protocol</h3>
+        ${list(program.ai_search_protocol || [])}
+      </section>
+      <section>
+        <h3>Red-team rules</h3>
+        ${list(redTeamRules)}
+      </section>
+    </div>
+    <p class="route-rule">First machine artifact: ${escapeHtml(program.first_machine_artifact || "")}</p>
+    <p class="route-rule">Decisive success condition: ${escapeHtml(program.decisive_success_condition || "")}</p>
+    <p class="route-rule">Upgrade condition: ${escapeHtml(program.upgrade_condition || "")}</p>
+    <p class="route-rule">${escapeHtml(program.claim_rule || "")}</p>
+  `;
+}
+
 function renderProofRouteTriage(problem) {
   const triage = problem.proof_route_triage || {};
   const routes = triage.routes || [];
@@ -1733,6 +1809,7 @@ function render(payload, problem) {
   document.querySelector("#formalKernelContractAudit").innerHTML = renderFormalKernelContractAudit(problem);
   document.querySelector("#invalidProofShortcutSuite").innerHTML = renderInvalidProofShortcutSuite(problem);
   document.querySelector("#aiSolverFrontier").innerHTML = renderAiSolverFrontier(problem);
+  document.querySelector("#aiBreakthroughProgram").innerHTML = renderAiBreakthroughProgram(problem);
   document.querySelector("#proofRouteTriage").innerHTML = renderProofRouteTriage(problem);
   document.querySelector("#decisiveTheoremSpec").innerHTML = renderDecisiveTheoremSpec(problem);
   document.querySelector("#decisiveTheoremSubgoals").innerHTML = renderDecisiveTheoremSubgoals(problem);
