@@ -21,4 +21,7 @@ def theoremDecomposition : List String := [
   "RH-TD4 TargetImportAudit"
 ]
 
+def breakthroughObjectBlueprint : String :=
+  "RH-TD2 signed kernel cone plus non-circular positivity certificate"
+
 end PrimeProject.OpenProblems.Riemann

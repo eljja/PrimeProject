@@ -21,4 +21,7 @@ def theoremDecomposition : List String := [
   "TP-TD4 ExactGapInfinitudeBridge"
 ]
 
+def breakthroughObjectBlueprint : String :=
+  "TP-TD2 exact-pair parity witness that survives semiprime countermodels"
+
 end PrimeProject.OpenProblems.TwinPrime

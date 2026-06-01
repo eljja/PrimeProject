@@ -402,6 +402,28 @@ def main() -> int:
         if not all(item.get("proof_artifact") and item.get("failure_test") for item in decomposition):
             print(f"{problem.get('id')} AI proof forge decomposition is missing artifacts or failure tests.", file=sys.stderr)
             return 1
+        blueprint = proof_forge.get("breakthrough_object_blueprint", {})
+        if blueprint.get("status") != "blueprint_open_not_proof":
+            print(f"{problem.get('id')} AI proof forge blueprint has unexpected status.", file=sys.stderr)
+            return 1
+        if blueprint.get("target_lemma") != decomposition_summary.get("highest_risk"):
+            print(f"{problem.get('id')} AI proof forge blueprint does not target the highest-risk lemma.", file=sys.stderr)
+            return 1
+        required_blueprint_fields = [
+            "new_object_family",
+            "why_not_reproduction",
+            "ai_generation_prompt",
+            "minimal_counterexample",
+            "falsification_oracle",
+            "formalization_seed",
+            "success_upgrade",
+        ]
+        if not all(blueprint.get(field) for field in required_blueprint_fields):
+            print(f"{problem.get('id')} AI proof forge blueprint is missing required fields.", file=sys.stderr)
+            return 1
+        if len(blueprint.get("next_experiments", [])) < 3:
+            print(f"{problem.get('id')} AI proof forge blueprint is missing next experiments.", file=sys.stderr)
+            return 1
         if "reproducing known finite checks does not count" not in proof_forge.get("non_reproduction_rule", ""):
             print(f"{problem.get('id')} AI proof forge is missing the non-reproduction rule.", file=sys.stderr)
             return 1

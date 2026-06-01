@@ -278,6 +278,7 @@ async function main() {
           aiBreakthroughExperiments: document.querySelectorAll("#aiBreakthroughProgram .breakthrough-experiment").length,
           aiProofForgeText: document.querySelector("#aiProofForge").textContent,
           aiProofForgeLemmaCards: document.querySelectorAll("#aiProofForge .proof-forge-lemma").length,
+          aiProofForgeBlueprintSteps: document.querySelectorAll("#aiProofForge .proof-forge-blueprint-next em").length,
           aiProofForgeExperiments: document.querySelectorAll("#aiProofForge .proof-forge-experiment").length,
           aiProofForgeMutations: document.querySelectorAll("#aiProofForge .proof-forge-mutation").length,
           aiProofForgeRunbook: document.querySelectorAll("#aiProofForge .proof-forge-runbook-step").length,
@@ -423,6 +424,11 @@ async function main() {
         !page.aiProofForgeText.includes("Highest risk") ||
         !page.aiProofForgeText.includes("Failure test") ||
         !page.aiProofForgeText.includes("open decomposition not proof") ||
+        !page.aiProofForgeText.includes("Breakthrough object blueprint") ||
+        !page.aiProofForgeText.includes("AI generation prompt") ||
+        !page.aiProofForgeText.includes("Minimal counterexample") ||
+        !page.aiProofForgeText.includes("Falsification oracle") ||
+        !page.aiProofForgeText.includes("Formalization seed") ||
         !page.aiProofForgeText.includes("Search grammar") ||
         !page.aiProofForgeText.includes("Countermodel battery") ||
         !page.aiProofForgeText.includes("reproducing known finite checks does not count") ||
@@ -441,6 +447,7 @@ async function main() {
         !page.aiProofForgeText.includes("Required output") ||
         !page.aiProofForgeText.includes("Fail signal") ||
         page.aiProofForgeLemmaCards < 4 ||
+        page.aiProofForgeBlueprintSteps < 3 ||
         page.aiProofForgeExperiments < 3 ||
         page.aiProofForgeMutations < 3 ||
         page.aiProofForgeRunbook < 4 ||

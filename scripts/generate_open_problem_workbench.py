@@ -2551,6 +2551,73 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
         (item for item in theorem_decomposition if "highest_risk" in item.get("status", "")),
         theorem_decomposition[0],
     )
+    breakthrough_blueprints: dict[str, dict[str, object]] = {
+        "riemann": {
+            "status": "blueprint_open_not_proof",
+            "target_lemma": "RH-TD2",
+            "new_object_family": "Signed kernel cones whose positivity certificate is expressed as a finite semialgebraic block plus an explicit-formula dependency ledger.",
+            "why_not_reproduction": "Finite zero checks, finite Li-coefficient checks, and sampled prime-counting fits are excluded; the object must produce a theorem-level positivity mechanism.",
+            "ai_generation_prompt": "Generate the smallest admissible even test-kernel family with symbolic parameters, list every theorem dependency, and state a positivity lemma whose assumptions are weaker than RH.",
+            "minimal_counterexample": "A generated kernel that is positive on sampled intervals but needs an RH-equivalent zero-free region for the all-height step.",
+            "falsification_oracle": "Dependency-strength audit plus adversarial test-kernel search outside the generated cone.",
+            "formalization_seed": "Define KernelCone, ImportedTheoremStrength, and NonCircularPositivityCertificate before stating any RH bridge theorem.",
+            "success_upgrade": "Promote only if the positivity proof is non-circular and the density bridge covers an accepted RH-equivalent test class.",
+            "next_experiments": [
+                "Enumerate two-parameter kernel cones and record which assumptions prove positivity.",
+                "Build an import-strength ledger that flags zero-line or RH-equivalent premises.",
+                "Search adversarial test functions that separate the generated cone from the full Weil test class.",
+            ],
+        },
+        "collatz": {
+            "status": "blueprint_open_not_proof",
+            "target_lemma": "CO-TD3",
+            "new_object_family": "Residue-debt automata with exact rational rank certificates on strongly connected components.",
+            "why_not_reproduction": "Trajectory replay and density drift are excluded; the object must cover every residue branch with a well-founded descent certificate.",
+            "ai_generation_prompt": "Generate a finite accelerated odd-residue automaton, assign exact rank components, and prove every SCC has an outgoing strict descent or enters a verified basin.",
+            "minimal_counterexample": "A strongly connected component whose exact branch inequalities permit nondecreasing rank.",
+            "falsification_oracle": "SCC search over the compressed automaton plus rational inequality replay on every branch.",
+            "formalization_seed": "Define AcceleratedBlock, RankDebt, BranchInequality, and SCCExitCertificate before attempting global convergence.",
+            "success_upgrade": "Promote only if every residue class is covered and every non-basin SCC has a certified decreasing exit.",
+            "next_experiments": [
+                "Increase modulus only for SCCs that violate rank monotonicity.",
+                "Convert learned numeric potentials into rational rank tuples.",
+                "Emit a machine-checkable edge certificate for each accelerated branch.",
+            ],
+        },
+        "goldbach": {
+            "status": "blueprint_open_not_proof",
+            "target_lemma": "GB-TD3",
+            "new_object_family": "Explicit inequality budget ledgers that optimize analytic constants against a finite verification ceiling.",
+            "why_not_reproduction": "Finite Goldbach verification and asymptotic circle-method summaries are excluded; the object must lower a concrete unconditional cutoff.",
+            "ai_generation_prompt": "Generate a main-term-minus-error budget for R_2(n), attach a theorem source and validity range to every line, and compute the resulting N0.",
+            "minimal_counterexample": "Any unverified error term or validity range that pushes N0 above the finite certificate range.",
+            "falsification_oracle": "Exact constant replay, range coverage audit, and finite-overlap comparison against the certified bound.",
+            "formalization_seed": "Define BudgetLine, ValidityRange, CutoffCalculator, and FiniteOverlapBridge with no heuristic independence assumptions.",
+            "success_upgrade": "Promote only if the explicit N0 is below the verified finite range and every budget term is theorem-backed.",
+            "next_experiments": [
+                "Normalize published explicit constants into one machine-readable budget schema.",
+                "Run sensitivity analysis to identify the error term most responsible for N0.",
+                "Generate candidate tightened inequalities and reject any line without a theorem source.",
+            ],
+        },
+        "twin-prime": {
+            "status": "blueprint_open_not_proof",
+            "target_lemma": "TP-TD2",
+            "new_object_family": "Exact-pair parity witnesses that distinguish prime pairs from parity-model semiprime impostors.",
+            "why_not_reproduction": "Bounded gaps, Hardy-Littlewood-scale fits, and finite twin counts are excluded; the object must force exact gap 2 infinitely often.",
+            "ai_generation_prompt": "Generate an exact-pair weight plus a parity countermodel, then state the statistic that separates true prime pairs from the countermodel.",
+            "minimal_counterexample": "A parity model where the proposed weight remains positive but no exact twin-prime conclusion follows.",
+            "falsification_oracle": "Parity-model replay plus wider-gap leakage audit for gaps 4, 6, 246, and arbitrary H > 2.",
+            "formalization_seed": "Define ExactPairWeight, ParityModel, WiderGapLeakage, and PositiveExactGapMass before any infinitude bridge.",
+            "success_upgrade": "Promote only if positive mass survives the parity model and cannot be reinterpreted as a bounded-gap theorem.",
+            "next_experiments": [
+                "Generate weights that explicitly subtract wider-gap contributions.",
+                "Replay each weight in a semiprime parity model before inspecting primes.",
+                "Track whether the exact-gap lower bound remains positive as the scale parameter grows.",
+            ],
+        },
+    }
+    breakthrough_blueprint = breakthrough_blueprints.get(problem_id, breakthrough_blueprints["riemann"])
     mutations = list(forge.get("candidate_mutations", []))
     experiments = [
         {
@@ -2693,6 +2760,7 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "highest_risk_lemma": highest_risk.get("lemma"),
             "closure_rule": "Every decomposition lemma must be formalized or replaced by an accepted theorem before the page can leave open_not_proven.",
         },
+        "breakthrough_object_blueprint": breakthrough_blueprint,
         "experiments": experiments,
         "discovery_loop": {
             "status": "candidate_generation_active_no_solution",

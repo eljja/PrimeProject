@@ -1398,6 +1398,7 @@ canvas {
 .proof-forge-thesis,
 .proof-forge-theorem-draft,
 .proof-forge-decomposition,
+.proof-forge-blueprint,
 .proof-forge-grid section,
 .proof-forge-experiment {
   border: 1px solid var(--line);
@@ -1408,6 +1409,7 @@ canvas {
 .proof-forge-head span,
 .proof-forge-thesis span,
 .proof-forge-theorem-draft span,
+.proof-forge-blueprint span,
 .proof-forge-lemma span,
 .proof-forge-experiment span {
   display: block;
@@ -1420,6 +1422,7 @@ canvas {
 .proof-forge-head strong,
 .proof-forge-thesis strong,
 .proof-forge-theorem-draft strong,
+.proof-forge-blueprint strong,
 .proof-forge-lemma strong,
 .proof-forge-experiment strong {
   display: block;
@@ -1442,6 +1445,29 @@ canvas {
 .proof-forge-decomposition {
   margin-top: 10px;
   border-left: 4px solid var(--amber);
+}
+
+.proof-forge-blueprint {
+  margin-top: 10px;
+  border-left: 4px solid var(--danger);
+}
+
+.proof-forge-blueprint-next {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.proof-forge-blueprint-next em {
+  display: block;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 10px;
+  color: var(--ink);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.45;
 }
 
 .proof-forge-decomposition-list {
@@ -1475,6 +1501,8 @@ canvas {
 .proof-forge-thesis small,
 .proof-forge-theorem-draft p,
 .proof-forge-theorem-draft small,
+.proof-forge-blueprint p,
+.proof-forge-blueprint small,
 .proof-forge-decomposition > p,
 .proof-forge-lemma p,
 .proof-forge-lemma small,
@@ -6788,6 +6816,7 @@ tr:last-child td {
   .ai-breakthrough-head,
   .ai-breakthrough-grid,
   .proof-forge-head,
+  .proof-forge-blueprint-next,
   .proof-forge-decomposition-list,
   .proof-forge-grid,
   .proof-forge-experiments,

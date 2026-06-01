@@ -21,4 +21,7 @@ def theoremDecomposition : List String := [
   "GB-TD4 FiniteLargeNGlue"
 ]
 
+def breakthroughObjectBlueprint : String :=
+  "GB-TD3 explicit inequality budget with certified cutoff below finite range"
+
 end PrimeProject.OpenProblems.Goldbach

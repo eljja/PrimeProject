@@ -21,4 +21,7 @@ def theoremDecomposition : List String := [
   "CO-TD4 CycleAndDivergenceExclusionBridge"
 ]
 
+def breakthroughObjectBlueprint : String :=
+  "CO-TD3 residue-debt automaton plus exact SCC descent certificate"
+
 end PrimeProject.OpenProblems.Collatz

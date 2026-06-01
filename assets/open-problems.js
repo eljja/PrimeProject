@@ -719,6 +719,7 @@ function renderAiProofForge(problem) {
   const rankedTracks = portfolio.ranked_tracks || [];
   const decomposition = forge.theorem_decomposition || [];
   const decompositionSummary = forge.decomposition_summary || {};
+  const blueprint = forge.breakthrough_object_blueprint || {};
   return `
     <div class="proof-forge-head">
       <div>
@@ -771,6 +772,22 @@ function renderAiProofForge(problem) {
       </div>
       <p>${escapeHtml(decompositionSummary.closure_rule || "")}</p>
     </div>
+    <article class="proof-forge-blueprint">
+      <span>Breakthrough object blueprint</span>
+      <strong>${escapeHtml(blueprint.target_lemma || "missing")} · ${escapeHtml(statusText(blueprint.status))}</strong>
+      <p>New object family: ${escapeHtml(blueprint.new_object_family || "")}</p>
+      <p>AI generation prompt: ${escapeHtml(blueprint.ai_generation_prompt || "")}</p>
+      <p>Minimal counterexample: ${escapeHtml(blueprint.minimal_counterexample || "")}</p>
+      <p>Falsification oracle: ${escapeHtml(blueprint.falsification_oracle || "")}</p>
+      <p>Formalization seed: ${escapeHtml(blueprint.formalization_seed || "")}</p>
+      <small>Success upgrade: ${escapeHtml(blueprint.success_upgrade || "")}</small>
+      <div class="proof-forge-blueprint-next">
+        ${(blueprint.next_experiments || [])
+          .map((experiment) => `<em>${escapeHtml(experiment)}</em>`)
+          .join("")}
+      </div>
+      <small>${escapeHtml(blueprint.why_not_reproduction || "")}</small>
+    </article>
     <div class="proof-forge-grid">
       <section>
         <h3>Search grammar</h3>
