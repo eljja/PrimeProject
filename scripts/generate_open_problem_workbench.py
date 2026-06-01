@@ -2209,6 +2209,13 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
                 "Reject numerical zero checks unless they discharge an all-height theorem.",
             ],
             "formal_target": "Lean theorem stub: generated kernel cone positivity implies the RH target theorem after importing only accepted explicit-formula lemmas.",
+            "next_theorem_to_attempt": "KernelConePositivityBridge: a generated kernel cone is positive for the full admissible test class and implies the RH zero-line criterion.",
+            "lean_statement_draft": "def nextAIDiscoveryTheorem : String := \"KernelConePositivityBridge implies primeproject_riemann_hypothesis\"",
+            "proof_objects_needed": [
+                "admissible kernel cone definition",
+                "non-circular explicit-formula positivity lemma",
+                "density bridge into the RH-equivalent test class",
+            ],
             "candidate_mutations": [
                 {
                     "id": "RH-MUT-1",
@@ -2251,6 +2258,13 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
                 "Reject density-only descent because Collatz requires all starting values.",
             ],
             "formal_target": "Lean theorem stub: every odd residue block descends under the rank, hence every positive orbit reaches the verified basin.",
+            "next_theorem_to_attempt": "ResidueRankDescentCover: every accelerated Collatz residue block either enters a smaller verified basin or strictly decreases a well-founded rank.",
+            "lean_statement_draft": "def nextAIDiscoveryTheorem : String := \"ResidueRankDescentCover implies primeproject_collatz_conjecture\"",
+            "proof_objects_needed": [
+                "finite accelerated residue partition",
+                "well-founded rank definition",
+                "edge-by-edge exact descent certificate",
+            ],
             "candidate_mutations": [
                 {
                     "id": "CO-MUT-1",
@@ -2293,6 +2307,13 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
                 "Reject weak Goldbach or almost-all Goldbach as a substitute for strong Goldbach.",
             ],
             "formal_target": "Lean theorem stub: explicit lower bound R_2(n) > 0 for all even n >= N0, plus bounded certificate for 4 <= n < N0.",
+            "next_theorem_to_attempt": "ExplicitGoldbachCutoffBridge: an explicit two-prime lower bound holds for every even n above N0, with N0 below the certified finite range.",
+            "lean_statement_draft": "def nextAIDiscoveryTheorem : String := \"ExplicitGoldbachCutoffBridge implies primeproject_goldbach_conjecture\"",
+            "proof_objects_needed": [
+                "explicit major/minor arc inequality budget",
+                "verified finite overlap certificate",
+                "N0 comparison below the certified finite range",
+            ],
             "candidate_mutations": [
                 {
                     "id": "GB-MUT-1",
@@ -2335,6 +2356,13 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
                 "Reject averaged bounded intervals unless exact gap 2 is forced infinitely often.",
             ],
             "formal_target": "Lean theorem stub: for every N there exists p > N with p and p+2 prime, derived from an exact-gap lower-bound theorem.",
+            "next_theorem_to_attempt": "ExactGapTwoLowerBoundBridge: an unconditional lower bound for exact prime pairs (p, p+2) remains positive at arbitrarily large scale.",
+            "lean_statement_draft": "def nextAIDiscoveryTheorem : String := \"ExactGapTwoLowerBoundBridge implies primeproject_twin_prime_conjecture\"",
+            "proof_objects_needed": [
+                "exact-pair selector weight family",
+                "parity-barrier survival argument",
+                "infinitude bridge from positive exact-gap lower bound",
+            ],
             "candidate_mutations": [
                 {
                     "id": "TP-MUT-1",

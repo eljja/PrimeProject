@@ -734,6 +734,12 @@ function renderAiProofForge(problem) {
       <p>${escapeHtml(forge.new_object || "")}</p>
       <small>${escapeHtml(forge.non_reproduction_rule || "")}</small>
     </article>
+    <article class="proof-forge-theorem-draft">
+      <span>Next theorem to attempt</span>
+      <strong>${escapeHtml(forge.next_theorem_to_attempt || "")}</strong>
+      <p>Lean statement draft: ${escapeHtml(forge.lean_statement_draft || "")}</p>
+      <small>Proof objects needed: ${escapeHtml(formatValue(forge.proof_objects_needed || []))}</small>
+    </article>
     <div class="proof-forge-grid">
       <section>
         <h3>Search grammar</h3>

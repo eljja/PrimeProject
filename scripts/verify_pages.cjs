@@ -415,6 +415,9 @@ async function main() {
         page.aiBreakthroughAnchors < 2 ||
         page.aiBreakthroughExperiments < 4 ||
         !page.aiProofForgeText.includes("Non-reproduction target") ||
+        !page.aiProofForgeText.includes("Next theorem to attempt") ||
+        !page.aiProofForgeText.includes("Lean statement draft") ||
+        !page.aiProofForgeText.includes("Proof objects needed") ||
         !page.aiProofForgeText.includes("Search grammar") ||
         !page.aiProofForgeText.includes("Countermodel battery") ||
         !page.aiProofForgeText.includes("reproducing known finite checks does not count") ||

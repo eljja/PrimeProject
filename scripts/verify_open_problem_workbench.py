@@ -379,6 +379,12 @@ def main() -> int:
         if not proof_forge.get("minimal_breakthrough_theorem") or not proof_forge.get("new_object"):
             print(f"{problem.get('id')} AI proof forge is missing theorem or object.", file=sys.stderr)
             return 1
+        if not proof_forge.get("next_theorem_to_attempt") or "nextAIDiscoveryTheorem" not in proof_forge.get("lean_statement_draft", ""):
+            print(f"{problem.get('id')} AI proof forge is missing the next theorem draft.", file=sys.stderr)
+            return 1
+        if len(proof_forge.get("proof_objects_needed", [])) < 3:
+            print(f"{problem.get('id')} AI proof forge is missing proof objects.", file=sys.stderr)
+            return 1
         if "reproducing known finite checks does not count" not in proof_forge.get("non_reproduction_rule", ""):
             print(f"{problem.get('id')} AI proof forge is missing the non-reproduction rule.", file=sys.stderr)
             return 1
