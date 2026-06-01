@@ -387,6 +387,7 @@ def main() -> int:
         attack_runbook = discovery_loop.get("attack_runbook", []) if isinstance(discovery_loop, dict) else []
         scorecard = discovery_loop.get("falsification_scorecard", []) if isinstance(discovery_loop, dict) else []
         synthesis = discovery_loop.get("cross_problem_synthesis", []) if isinstance(discovery_loop, dict) else []
+        portfolio = discovery_loop.get("portfolio_decision", {}) if isinstance(discovery_loop, dict) else {}
         if discovery_loop.get("status") != "candidate_generation_active_no_solution":
             print(f"{problem.get('id')} AI proof forge discovery loop has unexpected status.", file=sys.stderr)
             return 1
@@ -413,6 +414,19 @@ def main() -> int:
             return 1
         if not all(item.get("transfer_test") and item.get("failure_mode") for item in synthesis):
             print(f"{problem.get('id')} AI proof forge synthesis is missing transfer tests.", file=sys.stderr)
+            return 1
+        if portfolio.get("status") != "ranked_unsolved_research_portfolio":
+            print(f"{problem.get('id')} AI proof forge portfolio has unexpected status.", file=sys.stderr)
+            return 1
+        ranked_tracks = portfolio.get("ranked_tracks", []) if isinstance(portfolio, dict) else []
+        if len(ranked_tracks) < 4 or not portfolio.get("top_candidate"):
+            print(f"{problem.get('id')} AI proof forge portfolio is missing ranked tracks.", file=sys.stderr)
+            return 1
+        if not all("priority_score" in track and track.get("decision") for track in ranked_tracks):
+            print(f"{problem.get('id')} AI proof forge portfolio lacks scores or decisions.", file=sys.stderr)
+            return 1
+        if "weaker theorem" not in portfolio.get("stop_rule", ""):
+            print(f"{problem.get('id')} AI proof forge portfolio is missing the weakening stop rule.", file=sys.stderr)
             return 1
 
     certificate_roots = {

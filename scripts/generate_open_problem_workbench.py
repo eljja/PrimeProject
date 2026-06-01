@@ -2444,6 +2444,8 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "transfer_test": "Convert one RH kernel positivity block into a Collatz residue potential template and check exact branch decrease.",
             "failure_mode": "Positive average mass does not imply pointwise descent over every residue branch.",
             "status": "experimental_transfer_not_proof",
+            "scores": {"novelty": 4, "barrier_directness": 5, "formalizability": 3, "countermodel_risk": 4},
+            "decision": "pursue_first_if_exact_branch_decrease_emerges",
         },
         {
             "pattern": "cutoff-to-parity transfer",
@@ -2453,6 +2455,8 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "transfer_test": "Rewrite the Goldbach main-term-minus-error ledger with an exact-pair selector and run parity countermodels.",
             "failure_mode": "The budget can remain positive for bounded gaps while exact gap 2 still vanishes.",
             "status": "experimental_transfer_not_proof",
+            "scores": {"novelty": 4, "barrier_directness": 5, "formalizability": 4, "countermodel_risk": 5},
+            "decision": "high_value_high_risk_requires_parity_break",
         },
         {
             "pattern": "automaton-to-cutoff transfer",
@@ -2462,6 +2466,8 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "transfer_test": "Treat least-witness Goldbach residues as states and rank them by required explicit error budget.",
             "failure_mode": "A finite residue ranking does not produce the large-n lower-bound theorem.",
             "status": "bounded_diagnostic_only",
+            "scores": {"novelty": 3, "barrier_directness": 3, "formalizability": 4, "countermodel_risk": 3},
+            "decision": "use_as_diagnostic_not_primary_solution_path",
         },
         {
             "pattern": "exact-selector transfer",
@@ -2471,8 +2477,22 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "transfer_test": "Build a prime-side test function that penalizes averaged gap evidence and rewards exact structure, then audit circularity.",
             "failure_mode": "Exact prime-side selectors may not map to an admissible RH-equivalent positivity class.",
             "status": "speculative_bridge_search",
+            "scores": {"novelty": 5, "barrier_directness": 3, "formalizability": 2, "countermodel_risk": 5},
+            "decision": "speculative_track_only_until_admissible_class_exists",
         },
     ]
+    for item in cross_problem_synthesis:
+        scores = item["scores"]
+        item["priority_score"] = (
+            scores["novelty"]
+            + scores["barrier_directness"]
+            + scores["formalizability"]
+            - scores["countermodel_risk"]
+        )
+    prioritized_synthesis = sorted(
+        cross_problem_synthesis,
+        key=lambda item: (-int(item["priority_score"]), str(item["pattern"])),
+    )
     return {
         "schema": AI_PROOF_FORGE_SCHEMA,
         "problem_id": problem_id,
@@ -2492,6 +2512,23 @@ def ai_proof_forge(problem: dict[str, object]) -> dict[str, object]:
             "attack_runbook": attack_runbook,
             "falsification_scorecard": falsification_scorecard,
             "cross_problem_synthesis": cross_problem_synthesis,
+            "portfolio_decision": {
+                "status": "ranked_unsolved_research_portfolio",
+                "ranking_rule": "priority = novelty + barrier_directness + formalizability - countermodel_risk; ties are broken by lower proof weakening risk.",
+                "top_candidate": prioritized_synthesis[0]["pattern"],
+                "stop_rule": "Stop or demote a track when it proves only a finite result, a weaker theorem, or a transfer test with surviving countermodels.",
+                "ranked_tracks": [
+                    {
+                        "rank": idx + 1,
+                        "pattern": item["pattern"],
+                        "source_problem": item["source_problem"],
+                        "target_problem": item["target_problem"],
+                        "priority_score": item["priority_score"],
+                        "decision": item["decision"],
+                    }
+                    for idx, item in enumerate(prioritized_synthesis)
+                ],
+            },
         },
         "non_reproduction_rule": "The forge is only useful if it creates a new theorem object or rejects a route for a precise mathematical reason; reproducing known finite checks does not count as progress.",
         "promotion_gate": "Promotion requires an independently replayable theorem artifact that closes the infinite bridge without weakening the original conjecture.",

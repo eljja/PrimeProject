@@ -1465,13 +1465,16 @@ canvas {
   margin-top: 10px;
 }
 
-.proof-forge-synthesis h3 {
+.proof-forge-synthesis h3,
+.proof-forge-portfolio h3 {
   margin: 0 0 10px;
   color: var(--ink);
   font-size: 13px;
 }
 
-.proof-forge-synthesis-grid {
+.proof-forge-synthesis-grid,
+.proof-forge-ranked-tracks,
+.proof-forge-portfolio-head {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
@@ -1528,6 +1531,35 @@ canvas {
   padding: 12px;
 }
 
+.proof-forge-portfolio {
+  margin-top: 10px;
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.proof-forge-portfolio > p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.proof-forge-portfolio-head div,
+.proof-forge-ranked-track {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 12px;
+}
+
+.proof-forge-ranked-tracks {
+  margin-top: 10px;
+}
+
+.proof-forge-ranked-track {
+  border-left: 4px solid var(--amber);
+}
+
 .proof-forge-mutation.is-blocked_by_all_n_gap,
 .proof-forge-mutation.is-blocked_by_uncovered_components,
 .proof-forge-mutation.is-blocked_by_missing_explicit_tail,
@@ -1538,7 +1570,9 @@ canvas {
 .proof-forge-mutation span,
 .proof-forge-runbook-step span,
 .proof-forge-score span,
-.proof-forge-synthesis-card span {
+.proof-forge-synthesis-card span,
+.proof-forge-portfolio-head span,
+.proof-forge-ranked-track span {
   display: block;
   color: var(--muted);
   font-size: 11px;
@@ -1549,7 +1583,9 @@ canvas {
 .proof-forge-mutation strong,
 .proof-forge-runbook-step strong,
 .proof-forge-score strong,
-.proof-forge-synthesis-card strong {
+.proof-forge-synthesis-card strong,
+.proof-forge-portfolio-head strong,
+.proof-forge-ranked-track strong {
   display: block;
   margin-top: 5px;
   color: var(--ink);
@@ -1564,7 +1600,9 @@ canvas {
 .proof-forge-score p,
 .proof-forge-score small,
 .proof-forge-synthesis-card p,
-.proof-forge-synthesis-card small {
+.proof-forge-synthesis-card small,
+.proof-forge-ranked-track p,
+.proof-forge-ranked-track small {
   display: block;
   margin-top: 8px;
   color: var(--muted);
@@ -6707,6 +6745,8 @@ tr:last-child td {
   .proof-forge-mutations,
   .proof-forge-runbook,
   .proof-forge-synthesis-grid,
+  .proof-forge-portfolio-head,
+  .proof-forge-ranked-tracks,
   .verdict-grid,
   .route-triage-head,
   .route-triage-list,

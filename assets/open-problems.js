@@ -715,6 +715,8 @@ function renderAiProofForge(problem) {
   const attackRunbook = discovery.attack_runbook || [];
   const scorecard = discovery.falsification_scorecard || [];
   const synthesis = discovery.cross_problem_synthesis || [];
+  const portfolio = discovery.portfolio_decision || {};
+  const rankedTracks = portfolio.ranked_tracks || [];
   return `
     <div class="proof-forge-head">
       <div>
@@ -822,12 +824,42 @@ function renderAiProofForge(problem) {
           ${synthesis
             .map(
               (item) => `
-                <article class="proof-forge-synthesis-card is-${escapeHtml(item.status || "unknown")}">
-                  <span>${escapeHtml(item.pattern || "")} · ${escapeHtml(statusText(item.status))}</span>
-                  <strong>${escapeHtml(item.source_problem || "")} -> ${escapeHtml(item.target_problem || "")}</strong>
-                  <p>Hypothesis: ${escapeHtml(item.hypothesis || "")}</p>
-                  <p>Transfer test: ${escapeHtml(item.transfer_test || "")}</p>
-                  <small>Failure mode: ${escapeHtml(item.failure_mode || "")}</small>
+              <article class="proof-forge-synthesis-card is-${escapeHtml(item.status || "unknown")}">
+                <span>${escapeHtml(item.pattern || "")} · ${escapeHtml(statusText(item.status))}</span>
+                <strong>${escapeHtml(item.source_problem || "")} -> ${escapeHtml(item.target_problem || "")}</strong>
+                <p>Hypothesis: ${escapeHtml(item.hypothesis || "")}</p>
+                <p>Transfer test: ${escapeHtml(item.transfer_test || "")}</p>
+                <p>Priority score: ${escapeHtml(formatValue(item.priority_score ?? "n/a"))} · Decision: ${escapeHtml(statusText(item.decision))}</p>
+                <small>Failure mode: ${escapeHtml(item.failure_mode || "")}</small>
+              </article>
+              `,
+            )
+            .join("")}
+        </div>
+      </div>
+      <div class="proof-forge-portfolio">
+        <h3>Portfolio decision</h3>
+        <div class="proof-forge-portfolio-head">
+          <div>
+            <span>Status</span>
+            <strong>${escapeHtml(statusText(portfolio.status))}</strong>
+          </div>
+          <div>
+            <span>Top candidate</span>
+            <strong>${escapeHtml(portfolio.top_candidate || "missing")}</strong>
+          </div>
+        </div>
+        <p>${escapeHtml(portfolio.ranking_rule || "")}</p>
+        <p>${escapeHtml(portfolio.stop_rule || "")}</p>
+        <div class="proof-forge-ranked-tracks">
+          ${rankedTracks
+            .map(
+              (track) => `
+                <article class="proof-forge-ranked-track">
+                  <span>#${escapeHtml(formatValue(track.rank || 0))} · ${escapeHtml(formatValue(track.priority_score ?? "n/a"))}</span>
+                  <strong>${escapeHtml(track.pattern || "")}</strong>
+                  <p>${escapeHtml(track.source_problem || "")} -> ${escapeHtml(track.target_problem || "")}</p>
+                  <small>${escapeHtml(statusText(track.decision))}</small>
                 </article>
               `,
             )
