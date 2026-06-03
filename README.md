@@ -26,6 +26,8 @@ English: PrimeProject is a reproducible defensive research framework. It support
 
 All Markdown documents are reviewed against this boundary in [Publication-Ready Document Review](docs/publication-ready-review.md).
 
+For transferring the open-problem workbench to another LLM, see [LLM Open-Problem Handoff](docs/llm-open-problem-handoff.md). It includes the current top attack tickets and copy-paste prompts for continuing the proof-search attempt without overstating the result.
+
 ## What it does
 
 - Loads RSA modulus and public prime records from JSON, CSV, PEM, DER, certificate, and CSR inputs.
