@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.open-problem-workbench.v1",
-  "generated_at": "2026-06-13T10:23:51+00:00",
+  "generated_at": "2026-06-16T15:06:49+00:00",
   "search_limit": 2000000,
   "proof_status_gate_summary": {
     "schema": "primeproject.open-problem-proof-status-gate.v1",
@@ -1891,12 +1891,34 @@
               },
               "priority_score": 22,
               "decision": "attack_next"
+            },
+            {
+              "id": "RH-CEGIS-13",
+              "candidate": "Riemann zeta Li conformal curvature spectral autocorrelation and phase fluctuations check",
+              "expected_failure": "finite conformal curvature spectral autocorrelation trends do not force global critical line convergence",
+              "next_verifier": "conformal curvature spectral autocorrelation and phase check",
+              "scores": {
+                "novelty": 15,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 23,
+              "decision": "attack_next"
             }
           ],
           "promotion_rule": "A candidate can leave CEGIS only after the positivity proof, dependency audit, and density bridge are all theorem-level artifacts.",
           "ranked_candidates": [
             {
               "rank": 1,
+              "id": "RH-CEGIS-13",
+              "candidate": "Riemann zeta Li conformal curvature spectral autocorrelation and phase fluctuations check",
+              "priority_score": 23,
+              "decision": "attack_next",
+              "next_verifier": "conformal curvature spectral autocorrelation and phase check"
+            },
+            {
+              "rank": 2,
               "id": "RH-CEGIS-12",
               "candidate": "Riemann zeta Li conformal curvature spectral complexity spectrum and higher Renyi dimension order 16 audit",
               "priority_score": 22,
@@ -1904,7 +1926,7 @@
               "next_verifier": "conformal curvature spectral complexity and higher Renyi dimension order 16 check"
             },
             {
-              "rank": 2,
+              "rank": 3,
               "id": "RH-CEGIS-11",
               "candidate": "Riemann zeta Li conformal curvature spectral density and higher Renyi dimension audit",
               "priority_score": 21,
@@ -1912,7 +1934,7 @@
               "next_verifier": "conformal curvature and higher Renyi dimension check"
             },
             {
-              "rank": 3,
+              "rank": 4,
               "id": "RH-CEGIS-10",
               "candidate": "Riemann zeta Li curvature multi-fractal spectrum and Renyi entropy bounds audit",
               "priority_score": 20,
@@ -1920,7 +1942,7 @@
               "next_verifier": "multi-fractal curvature and Renyi entropy bound check"
             },
             {
-              "rank": 4,
+              "rank": 5,
               "id": "RH-CEGIS-9",
               "candidate": "Riemann zeta Li curvature phase space and high-frequency entropy bounds audit",
               "priority_score": 19,
@@ -1928,7 +1950,7 @@
               "next_verifier": "curvature phase space and high-frequency entropy bound check"
             },
             {
-              "rank": 5,
+              "rank": 6,
               "id": "RH-CEGIS-8",
               "candidate": "Riemann zeta Stieltjes constants curvature perturbation and Laurent-Stieltjes curvature trajectory audit",
               "priority_score": 18,
@@ -1936,7 +1958,7 @@
               "next_verifier": "curvature perturbation and Laurent-Stieltjes curvature trajectory check"
             },
             {
-              "rank": 6,
+              "rank": 7,
               "id": "RH-CEGIS-5",
               "candidate": "explicit positivity for the first five Li constants using recursive Stieltjes constants",
               "priority_score": 9,
@@ -1944,7 +1966,7 @@
               "next_verifier": "generalized Stieltjes recurrence audit"
             },
             {
-              "rank": 7,
+              "rank": 8,
               "id": "RH-CEGIS-7",
               "candidate": "Riemann prime-zero duality and explicit formula spectral leakage audit",
               "priority_score": 8,
@@ -1952,7 +1974,7 @@
               "next_verifier": "prime-zero duality spectral audit and explicit formula leakage check"
             },
             {
-              "rank": 8,
+              "rank": 9,
               "id": "RH-CEGIS-4",
               "candidate": "explicit all-x density envelope using a generalized Selberg sieve kernel projected onto an infinite-dimensional Hilbert space with eigenvalue regularization",
               "priority_score": 7,
@@ -1960,7 +1982,7 @@
               "next_verifier": "eigenvalue regularization and infinite-dimensional leakage audit"
             },
             {
-              "rank": 9,
+              "rank": 10,
               "id": "RH-CEGIS-6",
               "candidate": "Riemann zeros spectral tail bound and Li criterion residue audit",
               "priority_score": 7,
@@ -1968,7 +1990,7 @@
               "next_verifier": "truncated zeros spectral audit and tail leakage check"
             },
             {
-              "rank": 10,
+              "rank": 11,
               "id": "RH-CEGIS-3",
               "candidate": "explicit all-x density envelope using a generalized Selberg sieve kernel projected onto a finite subspace",
               "priority_score": 6,
@@ -1976,7 +1998,7 @@
               "next_verifier": "subspace projection and density leakage audit"
             },
             {
-              "rank": 11,
+              "rank": 12,
               "id": "RH-CEGIS-2",
               "candidate": "prime-side selector kernel that penalizes averaged-only evidence",
               "priority_score": 5,
@@ -1984,7 +2006,7 @@
               "next_verifier": "admissibility and circularity audit"
             },
             {
-              "rank": 12,
+              "rank": 13,
               "id": "RH-CEGIS-1",
               "candidate": "two-parameter compact kernel cone with interval-certified positivity blocks",
               "priority_score": 4,
@@ -1992,48 +2014,48 @@
               "next_verifier": "adversarial test-kernel separation search"
             }
           ],
-          "top_candidate": "RH-CEGIS-12",
+          "top_candidate": "RH-CEGIS-13",
           "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "top_attack_theorem_ticket": {
           "status": "candidate_theorem_ticket_falsified",
-          "ticket_id": "RH-TICKET-12",
-          "source_candidate": "RH-CEGIS-12",
-          "candidate_theorem": "RiemannLiConformalRenyiDimension: Li constants conformal mapping, spectral complexity and higher Renyi dimension order 16 bounds satisfy critical line zero constraints.",
+          "ticket_id": "RH-TICKET-13",
+          "source_candidate": "RH-CEGIS-13",
+          "candidate_theorem": "RiemannLiConformalAutocorrelation: Li constants conformal mapping, spectral autocorrelation of curvature sequence up to order 18, and phase fluctuations satisfy critical line zero constraints.",
           "input_objects": [
-            "exact Li constants up to order 16",
-            "Stieltjes constants up to order 15",
-            "conformal curvature spectral complexity",
-            "curvature Renyi dimension order 16 audit report"
+            "exact Li constants up to order 18",
+            "Stieltjes constants up to order 17",
+            "conformal curvature spectral autocorrelation sequence",
+            "curvature spectral entropy and phase audit report"
           ],
-          "target_conclusion": "The conformal curvature higher Renyi dimension order 16 remains within theoretical critical line limits.",
+          "target_conclusion": "The conformal curvature spectral autocorrelation and phase fluctuations stay within critical line stability limits.",
           "forbidden_premises": [
             "any zero-line assumption",
             "any theorem documented as RH-equivalent",
-            "any conformal curvature approximation ignoring high-frequency Renyi dimension order 16 fluctuations"
+            "any conformal curvature approximation ignoring high-frequency autocorrelation fluctuations"
           ],
-          "first_counterexample_oracle": "Show that the conformal curvature Renyi dimension order 16 exceeds the stability limit at high checkpoints.",
-          "required_artifact": "data/open-problem/riemann/rh-cegis-12-li-conformal-renyi-dimension.json",
-          "lean_stub": "def riemannLiConformalRenyiDimensionTicket : String := \"open theorem ticket, falsified by conformal Renyi dimension order 16 leakage, not a proof\"",
-          "success_condition": "The conformal curvature Renyi dimension order 16 satisfies all critical line bounds without leakage.",
+          "first_counterexample_oracle": "Show that the conformal curvature spectral autocorrelation or phase fluctuations exceed the stability limit at high checkpoints.",
+          "required_artifact": "data/open-problem/riemann/rh-cegis-13-li-conformal-autocorrelation.json",
+          "lean_stub": "def riemannLiConformalAutocorrelationTicket : String := \"open theorem ticket, falsified by conformal curvature autocorrelation spectral complexity, not a proof\"",
+          "success_condition": "The conformal curvature spectral autocorrelation satisfies all critical line stability limits without leakage.",
           "proof_attempt_protocol": [
             {
               "step": "T1",
-              "action": "Compute exact Li constants up to order 16 and conformal curvature spectral complexity.",
-              "output": "exact Li constants and conformal curvature spectral complexity",
+              "action": "Compute exact Li constants up to order 18 and conformal curvature sequence.",
+              "output": "exact Li constants and conformal curvature sequence",
               "fail_exit": "Evaluation fails algebraic symmetry."
             },
             {
               "step": "T2",
-              "action": "Evaluate the Renyi dimension order 16 bounds of curvature sign fluctuations.",
-              "output": "curvature Renyi dimension order 16 bounds",
-              "fail_exit": "Renyi dimension order 16 exceeds the stability threshold."
+              "action": "Evaluate the spectral autocorrelation sequence and its entropy bounds.",
+              "output": "conformal curvature spectral autocorrelation and entropy",
+              "fail_exit": "Autocorrelation spectral entropy deviates from the regularized stability limit."
             },
             {
               "step": "T3",
-              "action": "Verify that the conformal curvature spectral complexity remains stable under all checkpoints.",
-              "output": "conformal curvature spectral complexity flow audit",
-              "fail_exit": "Conformal curvature flow deviates from critical line bounds."
+              "action": "Verify that the conformal phase fluctuations remain stable under all checkpoints.",
+              "output": "conformal phase fluctuation flow audit",
+              "fail_exit": "Phase fluctuations show unstable chaotic phase transitions."
             }
           ]
         },
@@ -4379,12 +4401,34 @@
               },
               "priority_score": 22,
               "decision": "attack_next"
+            },
+            {
+              "id": "CO-CEGIS-13",
+              "candidate": "Steiner's nine-circuit cycle algebraic Diophantine continued fractions exclusion and p-adic distance bounds",
+              "expected_failure": "excluding 9-cycles leaves general p-cycles and divergence open",
+              "next_verifier": "nine-circuit cycle continued fraction and p-adic solver",
+              "scores": {
+                "novelty": 15,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 23,
+              "decision": "attack_next"
             }
           ],
           "promotion_rule": "A candidate can leave CEGIS only after every residue block is covered and every non-basin SCC has a strict certified descent.",
           "ranked_candidates": [
             {
               "rank": 1,
+              "id": "CO-CEGIS-13",
+              "candidate": "Steiner's nine-circuit cycle algebraic Diophantine continued fractions exclusion and p-adic distance bounds",
+              "priority_score": 23,
+              "decision": "attack_next",
+              "next_verifier": "nine-circuit cycle continued fraction and p-adic solver"
+            },
+            {
+              "rank": 2,
               "id": "CO-CEGIS-12",
               "candidate": "Steiner's eight-circuit cycle algebraic Diophantine continued fractions exclusion",
               "priority_score": 22,
@@ -4392,7 +4436,7 @@
               "next_verifier": "eight-circuit cycle continued fraction solver"
             },
             {
-              "rank": 2,
+              "rank": 3,
               "id": "CO-CEGIS-11",
               "candidate": "Steiner's seven-circuit cycle algebraic Diophantine continued fractions exclusion",
               "priority_score": 21,
@@ -4400,7 +4444,7 @@
               "next_verifier": "seven-circuit cycle continued fraction solver"
             },
             {
-              "rank": 3,
+              "rank": 4,
               "id": "CO-CEGIS-10",
               "candidate": "Steiner's six-circuit cycle algebraic Diophantine continued fractions exclusion",
               "priority_score": 20,
@@ -4408,7 +4452,7 @@
               "next_verifier": "six-circuit cycle continued fraction solver"
             },
             {
-              "rank": 4,
+              "rank": 5,
               "id": "CO-CEGIS-9",
               "candidate": "Steiner's five-circuit cycle algebraic Diophantine continued fractions exclusion",
               "priority_score": 19,
@@ -4416,7 +4460,7 @@
               "next_verifier": "five-circuit cycle continued fraction solver"
             },
             {
-              "rank": 5,
+              "rank": 6,
               "id": "CO-CEGIS-8",
               "candidate": "Steiner's four-circuit cycle algebraic Diophantine continued fractions exclusion",
               "priority_score": 18,
@@ -4424,7 +4468,7 @@
               "next_verifier": "four-circuit cycle continued fraction solver"
             },
             {
-              "rank": 6,
+              "rank": 7,
               "id": "CO-CEGIS-5",
               "candidate": "Steiner's circuit cycle algebraic exclusion up to m <= 100000 odd steps",
               "priority_score": 9,
@@ -4432,7 +4476,7 @@
               "next_verifier": "arbitrary-precision Diophantine circuit solver"
             },
             {
-              "rank": 7,
+              "rank": 8,
               "id": "CO-CEGIS-7",
               "candidate": "Steiner's three-circuit cycle algebraic Diophantine continued fractions exclusion",
               "priority_score": 8,
@@ -4440,7 +4484,7 @@
               "next_verifier": "three-circuit cycle continued fraction solver"
             },
             {
-              "rank": 8,
+              "rank": 9,
               "id": "CO-CEGIS-4",
               "candidate": "piecewise logarithmic potential Lyapunov function optimized over modular classes using semidefinite programming",
               "priority_score": 7,
@@ -4448,7 +4492,7 @@
               "next_verifier": "semidefinite Lyapunov drift feasibility check"
             },
             {
-              "rank": 9,
+              "rank": 10,
               "id": "CO-CEGIS-6",
               "candidate": "Steiner's two-circuit cycle algebraic Diophantine continued fractions exclusion",
               "priority_score": 7,
@@ -4456,7 +4500,7 @@
               "next_verifier": "two-circuit cycle continued fraction solver"
             },
             {
-              "rank": 10,
+              "rank": 11,
               "id": "CO-CEGIS-3",
               "candidate": "back-tracking residue predecessor path tree from the basin of 1 using modular dynamic programming",
               "priority_score": 6,
@@ -4464,7 +4508,7 @@
               "next_verifier": "predecessor tree coverage and leakage audit"
             },
             {
-              "rank": 11,
+              "rank": 12,
               "id": "CO-CEGIS-1",
               "candidate": "valuation-debt rank over accelerated odd residue blocks",
               "priority_score": 5,
@@ -4472,7 +4516,7 @@
               "next_verifier": "rational branch inequality audit"
             },
             {
-              "rank": 12,
+              "rank": 13,
               "id": "CO-CEGIS-2",
               "candidate": "lexicographic rank using scale, valuation debt, and residue potential",
               "priority_score": 5,
@@ -4480,47 +4524,47 @@
               "next_verifier": "well-foundedness and basin-independence check"
             }
           ],
-          "top_candidate": "CO-CEGIS-12",
+          "top_candidate": "CO-CEGIS-13",
           "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "top_attack_theorem_ticket": {
           "status": "candidate_theorem_ticket_falsified",
-          "ticket_id": "CO-TICKET-12",
-          "source_candidate": "CO-CEGIS-12",
-          "candidate_theorem": "EightCircuitCycleDiophantineExclusion: Steiner's eight-circuit cycle equation has no positive integer solutions within the certified continued fractions limit.",
+          "ticket_id": "CO-TICKET-13",
+          "source_candidate": "CO-CEGIS-13",
+          "candidate_theorem": "NineCircuitCycleDiophantineExclusion: Steiner's nine-circuit cycle equation and p-adic distance bounds have no positive integer solutions within the certified continued fractions limit.",
           "input_objects": [
-            "eight-circuit cycle modular equation",
+            "nine-circuit cycle modular equation",
             "Diophantine continued fractions bounds",
-            "arbitrary-precision integer solver",
-            "eight-circuit cycle audit report"
+            "p-adic valuation distance bounds",
+            "nine-circuit cycle audit report"
           ],
-          "target_conclusion": "The continued fraction expansions of ln(3)/ln(2) exclude positive integer solutions for b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 <= 1500.",
+          "target_conclusion": "The continued fraction expansions of ln(3)/ln(2) and p-adic valuation distance bounds exclude positive integer solutions for b1 + ... + b9 <= 2000.",
           "forbidden_premises": [
             "empirical stopping times",
             "basin membership as a proof step for uncertified values",
             "piecewise descent without modular residue coverage"
           ],
-          "first_counterexample_oracle": "Find a tuple of block lengths (b1, b2, b3, b4, b5, b6, b7, b8) that satisfies the eight-circuit integer condition.",
-          "required_artifact": "data/open-problem/collatz/co-cegis-12-eight-circuit-cycle.json",
-          "lean_stub": "def eightCircuitCycleDiophantineExclusionTicket : String := \"open theorem ticket, falsified by eight-circuit cycle continued fraction limit, not a proof\"",
-          "success_condition": "No integer solutions exist for eight-circuit cycles within the certified continued fraction bound.",
+          "first_counterexample_oracle": "Find a tuple of block lengths (b1, ..., b9) that satisfies the nine-circuit integer condition.",
+          "required_artifact": "data/open-problem/collatz/co-cegis-13-nine-circuit-cycle.json",
+          "lean_stub": "def nineCircuitCycleDiophantineExclusionTicket : String := \"open theorem ticket, falsified by nine-circuit cycle continued fraction limit, not a proof\"",
+          "success_condition": "No integer solutions exist for nine-circuit cycles within the certified continued fraction and p-adic bounds.",
           "proof_attempt_protocol": [
             {
               "step": "T1",
-              "action": "Formulate the eight-circuit cycle equation with eight independent odd blocks.",
-              "output": "eight-circuit cycle modular coefficients",
+              "action": "Formulate the nine-circuit cycle equation with nine independent odd blocks.",
+              "output": "nine-circuit cycle modular coefficients",
               "fail_exit": "Equation formulation fails algebraic symmetry."
             },
             {
               "step": "T2",
-              "action": "Evaluate continued fraction convergents of ln(3)/ln(2) to establish Diophantine bounds.",
-              "output": "convergents table and denominator limits",
-              "fail_exit": "Convergents do not satisfy necessary growth bounds."
+              "action": "Evaluate continued fraction convergents of ln(3)/ln(2) and compute p-adic valuation bounds.",
+              "output": "convergents table and p-adic distance bounds",
+              "fail_exit": "Convergents or p-adic bounds do not satisfy necessary growth constraints."
             },
             {
               "step": "T3",
-              "action": "Verify that no integer solutions exist for b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 <= 1500 using arbitrary-precision solver.",
-              "output": "eight-circuit cycle solver audit",
+              "action": "Verify that no integer solutions exist for b1 + ... + b9 <= 2000 using arbitrary-precision solver.",
+              "output": "nine-circuit cycle solver audit",
               "fail_exit": "Arbitrary-precision solver returns a valid non-trivial integer solution."
             }
           ]
@@ -6825,12 +6869,34 @@
               },
               "priority_score": 22,
               "decision": "attack_next"
+            },
+            {
+              "id": "GB-CEGIS-13",
+              "candidate": "Circle Method Sieve Barrier with Siegel Zero and Montgomery-Vaughan-Gallagher Pair Correlation crossover audit",
+              "expected_failure": "Montgomery-Vaughan-Gallagher pair correlation crossovers on finite ranges do not prove global binary Goldbach representation positivity",
+              "next_verifier": "Montgomery-Vaughan-Gallagher pair correlation and sieve crossover check",
+              "scores": {
+                "novelty": 15,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 23,
+              "decision": "attack_next"
             }
           ],
           "promotion_rule": "A candidate can leave CEGIS only after the explicit cutoff is below the finite certificate range with no heuristic budget lines.",
           "ranked_candidates": [
             {
               "rank": 1,
+              "id": "GB-CEGIS-13",
+              "candidate": "Circle Method Sieve Barrier with Siegel Zero and Montgomery-Vaughan-Gallagher Pair Correlation crossover audit",
+              "priority_score": 23,
+              "decision": "attack_next",
+              "next_verifier": "Montgomery-Vaughan-Gallagher pair correlation and sieve crossover check"
+            },
+            {
+              "rank": 2,
               "id": "GB-CEGIS-12",
               "candidate": "Circle Method Sieve Barrier with Siegel Zero and Montgomery-Vaughan Pair Correlation crossover audit",
               "priority_score": 22,
@@ -6838,7 +6904,7 @@
               "next_verifier": "Montgomery-Vaughan pair correlation and sieve crossover check"
             },
             {
-              "rank": 2,
+              "rank": 3,
               "id": "GB-CEGIS-11",
               "candidate": "Circle Method Sieve Barrier with Siegel Zero and Montgomery Pair Correlation crossover audit",
               "priority_score": 21,
@@ -6846,7 +6912,7 @@
               "next_verifier": "Montgomery pair correlation and sieve crossover check"
             },
             {
-              "rank": 3,
+              "rank": 4,
               "id": "GB-CEGIS-10",
               "candidate": "Circle Method Selberg Sieve with explicit Deuring-Heilbronn phenomenon and exceptional zero envelope",
               "priority_score": 20,
@@ -6854,7 +6920,7 @@
               "next_verifier": "exceptional zero envelope and Deuring-Heilbronn phenomenon audit"
             },
             {
-              "rank": 4,
+              "rank": 5,
               "id": "GB-CEGIS-9",
               "candidate": "Circle Method L-function zero density fluctuation and GUE-GOE crossover scaling audit",
               "priority_score": 19,
@@ -6862,7 +6928,7 @@
               "next_verifier": "L-function zero density fluctuation and GUE-GOE crossover audit"
             },
             {
-              "rank": 5,
+              "rank": 6,
               "id": "GB-CEGIS-8",
               "candidate": "Circle Method Sieve Tracy-Widom fluctuation scaling audit",
               "priority_score": 18,
@@ -6870,7 +6936,7 @@
               "next_verifier": "circle method sieve barrier and Tracy-Widom scaling audit"
             },
             {
-              "rank": 6,
+              "rank": 7,
               "id": "GB-CEGIS-5",
               "candidate": "Hardy-Littlewood singular series integration and representation density statistics up to 50000",
               "priority_score": 9,
@@ -6878,7 +6944,7 @@
               "next_verifier": "numerical Simpson integrator and ratio variance audit"
             },
             {
-              "rank": 7,
+              "rank": 8,
               "id": "GB-CEGIS-7",
               "candidate": "Circle Method Sieve Barrier and GOE fluctuation scaling audit",
               "priority_score": 8,
@@ -6886,7 +6952,7 @@
               "next_verifier": "circle method sieve barrier and GOE scaling audit"
             },
             {
-              "rank": 8,
+              "rank": 9,
               "id": "GB-CEGIS-4",
               "candidate": "multiplicative LP arc sieve budget that optimizes weights dynamically over prime factor configurations",
               "priority_score": 7,
@@ -6894,7 +6960,7 @@
               "next_verifier": "multiplicative linear programming dual bound check"
             },
             {
-              "rank": 9,
+              "rank": 10,
               "id": "GB-CEGIS-6",
               "candidate": "Montgomery-Vaughan exceptional set lower envelope analysis",
               "priority_score": 7,
@@ -6902,7 +6968,7 @@
               "next_verifier": "exceptional set lower envelope audit"
             },
             {
-              "rank": 10,
+              "rank": 11,
               "id": "GB-CEGIS-3",
               "candidate": "linear programming arc sieve budget that optimizes major-minor arc weights dynamically",
               "priority_score": 6,
@@ -6910,7 +6976,7 @@
               "next_verifier": "linear programming dual feasibility and collapse check"
             },
             {
-              "rank": 11,
+              "rank": 12,
               "id": "GB-CEGIS-2",
               "candidate": "exceptional-character loss budget with tightened validity ranges",
               "priority_score": 5,
@@ -6918,7 +6984,7 @@
               "next_verifier": "theorem-source completeness check"
             },
             {
-              "rank": 12,
+              "rank": 13,
               "id": "GB-CEGIS-1",
               "candidate": "major-minor arc budget normalized into one explicit ledger",
               "priority_score": 4,
@@ -6926,48 +6992,48 @@
               "next_verifier": "cutoff calculator and range audit"
             }
           ],
-          "top_candidate": "GB-CEGIS-12",
+          "top_candidate": "GB-CEGIS-13",
           "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "top_attack_theorem_ticket": {
           "status": "candidate_theorem_ticket_falsified",
-          "ticket_id": "GB-TICKET-12",
-          "source_candidate": "GB-CEGIS-12",
-          "candidate_theorem": "CircleMethodSieveMontgomeryVaughan: Circle Method major arcs singular series combined with Selberg Sieve and Montgomery-Vaughan pair correlation defines an explicit lower bound barrier that controls exceptional zero and Deuring-Heilbronn envelopes.",
+          "ticket_id": "GB-TICKET-13",
+          "source_candidate": "GB-CEGIS-13",
+          "candidate_theorem": "CircleMethodSieveMontgomeryVaughanGallagher: Circle Method major arcs singular series combined with Selberg Sieve, Montgomery-Vaughan pair correlation, and Gallagher local density variations defines an explicit lower bound barrier that controls exceptional zero and Deuring-Heilbronn envelopes.",
           "input_objects": [
             "Circle Method major arcs singular series ledger",
             "Selberg Sieve lower bound barrier coefficients",
-            "Montgomery-Vaughan pair correlation tracker",
-            "circle method sieve Montgomery-Vaughan audit report"
+            "Montgomery-Vaughan-Gallagher pair correlation tracker",
+            "circle method sieve Montgomery-Vaughan-Gallagher audit report"
           ],
-          "target_conclusion": "The Goldbach partition counts stay strictly above the sieve lower bound barrier and error terms scale with Montgomery-Vaughan pair correlation statistics.",
+          "target_conclusion": "The Goldbach partition counts stay strictly above the sieve lower bound barrier and error terms scale with Montgomery-Vaughan-Gallagher pair correlation and local density statistics.",
           "forbidden_premises": [
             "ineffective Siegel zero bounds",
             "asymptotic-only constants",
             "sieve weights that suppress worst-case prime configurations"
           ],
-          "first_counterexample_oracle": "Identify even numbers near the limit that violate the Montgomery-Vaughan sieve lower bound barrier.",
-          "required_artifact": "data/open-problem/goldbach/gb-cegis-12-montgomery-vaughan-sieve.json",
-          "lean_stub": "def circleMethodSieveMontgomeryVaughanTicket : String := \"open theorem ticket, falsified by Montgomery-Vaughan statistic deviation, not a proof\"",
-          "success_condition": "The partition counts remain above the sieve barrier and fluctuations match Montgomery-Vaughan pair correlation statistics for all X <= 400000.",
+          "first_counterexample_oracle": "Identify even numbers near the limit that violate the Montgomery-Vaughan-Gallagher sieve lower bound barrier.",
+          "required_artifact": "data/open-problem/goldbach/gb-cegis-13-montgomery-vaughan-gallagher-sieve.json",
+          "lean_stub": "def circleMethodSieveMontgomeryVaughanGallagherTicket : String := \"open theorem ticket, falsified by Montgomery-Vaughan-Gallagher statistic deviation, not a proof\"",
+          "success_condition": "The partition counts remain above the sieve barrier and fluctuations match Montgomery-Vaughan-Gallagher statistics for all X <= 450000.",
           "proof_attempt_protocol": [
             {
               "step": "T1",
-              "action": "Formulate the Selberg Sieve explicit lower bound barrier coefficients with exceptional zero and Montgomery-Vaughan parameters.",
-              "output": "sieve lower bound Montgomery-Vaughan table",
+              "action": "Formulate the Selberg Sieve explicit lower bound barrier coefficients with exceptional zero and Montgomery-Vaughan-Gallagher parameters.",
+              "output": "sieve lower bound Montgomery-Vaughan-Gallagher table",
               "fail_exit": "Sieve formulation coefficients violate basic boundary conditions."
             },
             {
               "step": "T2",
-              "action": "Verify that the representation counts stay strictly above the sieve barrier up to 400000.",
-              "output": "sieve barrier Montgomery-Vaughan audit report",
-              "fail_exit": "Partition count falls below the Montgomery-Vaughan sieve lower barrier."
+              "action": "Verify that the representation counts stay strictly above the sieve barrier up to 450000.",
+              "output": "sieve barrier Montgomery-Vaughan-Gallagher audit report",
+              "fail_exit": "Partition count falls below the Montgomery-Vaughan-Gallagher sieve lower barrier."
             },
             {
               "step": "T3",
-              "action": "Audit Montgomery-Vaughan pair correlation fluctuation scaling statistics using Kolmogorov-Smirnov test.",
-              "output": "Montgomery-Vaughan scaling audit report",
-              "fail_exit": "Fluctuation distribution deviates from Montgomery-Vaughan statistics."
+              "action": "Audit Montgomery-Vaughan-Gallagher pair correlation fluctuation scaling statistics using Kolmogorov-Smirnov test.",
+              "output": "Montgomery-Vaughan-Gallagher scaling audit report",
+              "fail_exit": "Fluctuation distribution deviates from Montgomery-Vaughan-Gallagher statistics."
             }
           ]
         },
@@ -9160,12 +9226,34 @@
               },
               "priority_score": 22,
               "decision": "attack_next"
+            },
+            {
+              "id": "TP-CEGIS-13",
+              "candidate": "Polignac gaps Fredholm determinant Tracy-Widom Dyson circular ensemble scaling and spectral skewness audit",
+              "expected_failure": "gaps joint Dyson circular ensemble scaling and spectral skewness on finite ranges do not yield an infinite twin prime lower bound",
+              "next_verifier": "gaps Dyson circular ensemble and spectral skewness check",
+              "scores": {
+                "novelty": 15,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 23,
+              "decision": "attack_next"
             }
           ],
           "promotion_rule": "A candidate can leave CEGIS only after exact gap-2 mass survives parity countermodels and cannot be weakened to bounded gaps.",
           "ranked_candidates": [
             {
               "rank": 1,
+              "id": "TP-CEGIS-13",
+              "candidate": "Polignac gaps Fredholm determinant Tracy-Widom Dyson circular ensemble scaling and spectral skewness audit",
+              "priority_score": 23,
+              "decision": "attack_next",
+              "next_verifier": "gaps Dyson circular ensemble and spectral skewness check"
+            },
+            {
+              "rank": 2,
               "id": "TP-CEGIS-12",
               "candidate": "Polignac gaps Fredholm determinant Tracy-Widom Dyson circular ensemble scaling audit",
               "priority_score": 22,
@@ -9173,7 +9261,7 @@
               "next_verifier": "gaps Dyson circular ensemble and Fredholm determinant check"
             },
             {
-              "rank": 2,
+              "rank": 3,
               "id": "TP-CEGIS-11",
               "candidate": "Polignac gaps Fredholm determinant Tracy-Widom Dyson ensemble scaling audit",
               "priority_score": 21,
@@ -9181,7 +9269,7 @@
               "next_verifier": "gaps Dyson ensemble and Fredholm determinant check"
             },
             {
-              "rank": 3,
+              "rank": 4,
               "id": "TP-CEGIS-10",
               "candidate": "Polignac gaps Fredholm determinant Tracy-Widom beta-ensembles scaling audit",
               "priority_score": 20,
@@ -9189,7 +9277,7 @@
               "next_verifier": "gaps beta-ensembles and Fredholm determinant check"
             },
             {
-              "rank": 4,
+              "rank": 5,
               "id": "TP-CEGIS-9",
               "candidate": "Polignac gaps spectral operator trace formula and Fredholm determinant audit",
               "priority_score": 19,
@@ -9197,7 +9285,7 @@
               "next_verifier": "gaps spectral trace and Fredholm determinant check"
             },
             {
-              "rank": 5,
+              "rank": 6,
               "id": "TP-CEGIS-8",
               "candidate": "Polignac gaps spectral moments and GUE spectral scaling audit",
               "priority_score": 18,
@@ -9205,7 +9293,7 @@
               "next_verifier": "gaps spectral moments and GUE scaling audit"
             },
             {
-              "rank": 6,
+              "rank": 7,
               "id": "TP-CEGIS-5",
               "candidate": "Hardy-Littlewood twin prime density ratio and Brun's constant partial sum up to 1000000",
               "priority_score": 9,
@@ -9213,7 +9301,7 @@
               "next_verifier": "Brun sum calculator and error scaling regression"
             },
             {
-              "rank": 7,
+              "rank": 8,
               "id": "TP-CEGIS-7",
               "candidate": "Polignac gaps spectral correlation and GUE covariance audit",
               "priority_score": 8,
@@ -9221,7 +9309,7 @@
               "next_verifier": "gaps spectral correlation and GUE covariance audit"
             },
             {
-              "rank": 8,
+              "rank": 9,
               "id": "TP-CEGIS-4",
               "candidate": "bilinear Selberg-GPY weights with optimal residue filtration and eigenvalue regularization designed to vanish on parity models",
               "priority_score": 7,
@@ -9229,7 +9317,7 @@
               "next_verifier": "bilinear weight filtration, regularization, and signal collapse audit"
             },
             {
-              "rank": 9,
+              "rank": 10,
               "id": "TP-CEGIS-6",
               "candidate": "Polignac multi-gap joint convergence and error scaling regression",
               "priority_score": 7,
@@ -9237,7 +9325,7 @@
               "next_verifier": "multi-gap joint convergence audit"
             },
             {
-              "rank": 10,
+              "rank": 11,
               "id": "TP-CEGIS-3",
               "candidate": "bilinear Selberg-GPY weights with optimal residue filtration designed to vanish on parity countermodels",
               "priority_score": 6,
@@ -9245,7 +9333,7 @@
               "next_verifier": "bilinear weight filtration and signal collapse audit"
             },
             {
-              "rank": 11,
+              "rank": 12,
               "id": "TP-CEGIS-2",
               "candidate": "scale-normalized exact-gap mass certificate",
               "priority_score": 5,
@@ -9253,7 +9341,7 @@
               "next_verifier": "exact-gap leakage audit"
             },
             {
-              "rank": 12,
+              "rank": 13,
               "id": "TP-CEGIS-1",
               "candidate": "exact-pair selector weight with explicit wider-gap subtraction",
               "priority_score": 4,
@@ -9261,48 +9349,48 @@
               "next_verifier": "semiprime parity countermodel replay"
             }
           ],
-          "top_candidate": "TP-CEGIS-12",
+          "top_candidate": "TP-CEGIS-13",
           "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "top_attack_theorem_ticket": {
           "status": "candidate_theorem_ticket_falsified",
-          "ticket_id": "TP-TICKET-12",
-          "source_candidate": "TP-CEGIS-12",
-          "candidate_theorem": "PolignacGapsFredholmTracyWidomDysonCircular: Polignac multi-gap prime pairs satisfy joint Fredholm determinant Airy kernel Tracy-Widom Dyson circular ensemble scaling.",
+          "ticket_id": "TP-TICKET-13",
+          "source_candidate": "TP-CEGIS-13",
+          "candidate_theorem": "PolignacGapsFredholmTracyWidomDysonCircularSkewness: Polignac multi-gap prime pairs satisfy joint Fredholm determinant Airy kernel Tracy-Widom Dyson circular ensemble scaling and spectral skewness bounds.",
           "input_objects": [
             "Polignac multi-gap prime pair counts",
             "Hardy-Littlewood joint covariance matrix",
-            "Fredholm determinant Tracy-Widom Dyson circular regression tracker",
-            "gaps Tracy-Widom Dyson circular audit report"
+            "Fredholm determinant Tracy-Widom Dyson circular skewness regression tracker",
+            "gaps Tracy-Widom Dyson circular skewness audit report"
           ],
-          "target_conclusion": "The joint gaps covariance matrix eigenvalues trace satisfies the Fredholm determinant Airy kernel Tracy-Widom Dyson circular ensemble scaling without spectral leakage.",
+          "target_conclusion": "The joint gaps covariance matrix eigenvalues trace and spectral skewness satisfy the Fredholm determinant Airy kernel Tracy-Widom Dyson circular ensemble scaling without spectral leakage.",
           "forbidden_premises": [
             "bounded prime gaps as exact gap 2",
             "averaging over intervals",
             "suppression of wider gaps in joint density projections"
           ],
-          "first_counterexample_oracle": "Show that the joint covariance traces deviate from Tracy-Widom Dyson circular ensemble determinant predictions.",
-          "required_artifact": "data/open-problem/twin-prime/tp-cegis-12-fredholm-dyson-circular.json",
-          "lean_stub": "def polignacGapsFredholmDysonCircularTicket : String := \"open theorem ticket, falsified by Fredholm Dyson circular scaling divergence, not a proof\"",
-          "success_condition": "The joint gaps covariance eigenvalues trace scales with Fredholm determinant Tracy-Widom Dyson circular ensemble statistics for all gaps g <= 36.",
+          "first_counterexample_oracle": "Show that the joint covariance traces or spectral skewness deviate from Tracy-Widom Dyson circular ensemble determinant predictions.",
+          "required_artifact": "data/open-problem/twin-prime/tp-cegis-13-fredholm-dyson-circular-skewness.json",
+          "lean_stub": "def polignacGapsFredholmDysonCircularSkewnessTicket : String := \"open theorem ticket, falsified by Fredholm Dyson circular skewness scaling divergence, not a proof\"",
+          "success_condition": "The joint gaps covariance eigenvalues trace and spectral skewness scale with Fredholm determinant Tracy-Widom Dyson circular ensemble statistics for all gaps g <= 40.",
           "proof_attempt_protocol": [
             {
               "step": "T1",
-              "action": "Compute exact Polignac prime pair counts for gaps g in {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36}.",
+              "action": "Compute exact Polignac prime pair counts for gaps g in {2, 4, ..., 40}.",
               "output": "multi-gap prime counts array",
               "fail_exit": "Counts violate simple sieve upper bounds."
             },
             {
               "step": "T2",
-              "action": "Calculate the joint covariance matrix and its Dyson circular ensemble determinant.",
-              "output": "joint covariance matrix and determinant",
-              "fail_exit": "Covariance matrix is not positive semidefinite."
+              "action": "Evaluate the joint covariance matrix and its eigenvalues trace up to 20 gaps.",
+              "output": "eigenvalues and trace ratios",
+              "fail_exit": "Traces deviate from Fredholm determinant Airy kernel scaling bounds."
             },
             {
               "step": "T3",
-              "action": "Audit Fredholm trace scaling against GUE/GOE Airy kernel Dyson circular ensemble predictions.",
-              "output": "Fredholm Dyson circular ensemble audit report",
-              "fail_exit": "Traces deviate from Airy kernel Dyson circular ensemble predictions."
+              "action": "Verify that the spectral skewness matches the Dyson circular ensemble (mixed beta=1.65) prediction.",
+              "output": "spectral skewness audit report",
+              "fail_exit": "Spectral skewness falls outside the Dyson circular ensemble confidence interval."
             }
           ]
         },

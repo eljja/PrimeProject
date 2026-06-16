@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "RH CEGIS: generate kernel cone candidates, reject circular imports, search adversarial kernels"
 
 def rankedCegisTarget : String :=
-  "RH-CEGIS-12 attack_next"
+  "RH-CEGIS-13 attack_next"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-12 RiemannLiConformalRenyiDimension: Li constants conformal mapping, spectral complexity and higher Renyi dimension order 16 bounds satisfy critical line zero constraints."
+  "RH-TICKET-13 RiemannLiConformalAutocorrelation: Li constants conformal mapping, spectral autocorrelation of curvature sequence up to order 18, and phase fluctuations satisfy critical line zero constraints."
 
 def topAttackProofAttemptProtocol : String :=
-  "Compute exact Li constants up to order 16 and conformal curvature spectral complexity; evaluate the Renyi dimension order 16 bounds of curvature sign fluctuations; verify that the conformal curvature spectral complexity remains stable under all checkpoints."
+  "Compute exact Li constants up to order 18 and conformal curvature sequence; evaluate the spectral autocorrelation sequence and its entropy bounds; verify that the conformal phase fluctuations remain stable under all checkpoints."
 
 end PrimeProject.OpenProblems.Riemann
