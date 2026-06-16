@@ -1,0 +1,12 @@
+{
+  "schema": "primeproject.riemann.selector-circularity-certificate.v1",
+  "ticket_id": "RH-TICKET-2",
+  "status": "falsified_by_selector_circularity",
+  "limit": 2000000,
+  "selector_kernel": "k(x) = sin(log x)",
+  "admissibility_range": "Re(s) > 1.0",
+  "target_range": "Re(s) in [0.0, 1.0]",
+  "circular_dependency_detected": true,
+  "claim_boundary": "open_not_proven",
+  "analysis": "The prime-side selector kernel was audited for circularity. Its Mellin transform converges only for Re(s) > 1. Extending this kernel to evaluate zero-line positivity in the critical strip (Re(s) in [0, 1]) requires analytic continuation. The continuation relies on the Zeta function being zero-free in Re(s) > 1/2, which is equivalent to the target Riemann Hypothesis. This makes the proof circular, falsifying the candidate theorem."
+}

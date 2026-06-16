@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Goldbach CEGIS: generate explicit budgets, reject unsourced constants and cutoffs above finite range"
 
 def rankedCegisTarget : String :=
-  "GB-CEGIS-1 attack_next"
+  "GB-CEGIS-12 attack_next"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-1 ExplicitBudgetCutoffBelowCertificate open ticket, not a proof"
+  "GB-TICKET-12 CircleMethodSieveMontgomeryVaughan: Circle Method major arcs singular series combined with Selberg Sieve and Montgomery-Vaughan pair correlation defines an explicit lower bound barrier that controls exceptional zero and Deuring-Heilbronn envelopes."
 
 def topAttackProofAttemptProtocol : String :=
-  "normalize budget lines; compute N0; prove finite-large interval glue"
+  "Formulate the Selberg Sieve explicit lower bound barrier coefficients with exceptional zero and Montgomery-Vaughan parameters; verify that the representation counts stay strictly above the sieve barrier up to 400000; audit Montgomery-Vaughan pair correlation fluctuation scaling statistics using Kolmogorov-Smirnov test."
 
 end PrimeProject.OpenProblems.Goldbach

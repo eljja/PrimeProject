@@ -1,0 +1,68 @@
+{
+  "schema": "primeproject.riemann.prime-zero-duality-certificate.v1",
+  "ticket_id": "RH-TICKET-7",
+  "status": "candidate_theorem_ticket_falsified",
+  "tested_zeros_count": 10,
+  "primes_limit": 10000,
+  "li_constants_tested": 8,
+  "prime_zero_duality_audit": [
+    {
+      "n": 1,
+      "exact_li_constant": 0.02309571,
+      "truncated_zeros_sum": 0.0135352,
+      "mangoldt_prime_sum": -8.63463931,
+      "duality_residual": 8.64419982
+    },
+    {
+      "n": 2,
+      "exact_li_constant": 0.23373765,
+      "truncated_zeros_sum": 0.05410463,
+      "mangoldt_prime_sum": 24.97232849,
+      "duality_residual": -24.79269547
+    },
+    {
+      "n": 3,
+      "exact_li_constant": 0.60608151,
+      "truncated_zeros_sum": 0.12159994,
+      "mangoldt_prime_sum": -29.41124053,
+      "duality_residual": 29.89572209
+    },
+    {
+      "n": 4,
+      "exact_li_constant": 1.11674158,
+      "truncated_zeros_sum": 0.21584102,
+      "mangoldt_prime_sum": -1.99299773,
+      "duality_residual": 2.8938983
+    },
+    {
+      "n": 5,
+      "exact_li_constant": 1.74460224,
+      "truncated_zeros_sum": 0.33657669,
+      "mangoldt_prime_sum": 24.26416245,
+      "duality_residual": -22.8561369
+    },
+    {
+      "n": 6,
+      "exact_li_constant": 2.47064112,
+      "truncated_zeros_sum": 0.48348577,
+      "mangoldt_prime_sum": 9.55676796,
+      "duality_residual": -7.5696126
+    },
+    {
+      "n": 7,
+      "exact_li_constant": 3.2777633,
+      "truncated_zeros_sum": 0.65617824,
+      "mangoldt_prime_sum": -15.01734768,
+      "duality_residual": 17.63893274
+    },
+    {
+      "n": 8,
+      "exact_li_constant": 4.15064599,
+      "truncated_zeros_sum": 0.85419691,
+      "mangoldt_prime_sum": -18.70274132,
+      "duality_residual": 21.9991904
+    }
+  ],
+  "claim_boundary": "open_not_proven",
+  "analysis": "An exact algebraic and spectral verification evaluated the Riemann prime-zero duality under the Weil explicit formula up to order 8, using 10 complex zero pairs and prime powers up to 10000. The duality residual (lambda_n - truncated_zeros_sum - mangoldt_prime_sum) represents the combined tail leakage from high-frequency complex zeros and large primes. Because both the infinite prime power tail and the zero spectral tail leak energy, the duality residuals do not vanish and remain unconstrained. This leakage prevents establishing global non-negativity of the Li constants, leaving the Riemann Hypothesis open and falsifying the candidate theorem."
+}

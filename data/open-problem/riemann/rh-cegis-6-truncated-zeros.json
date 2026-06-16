@@ -1,0 +1,59 @@
+{
+  "schema": "primeproject.riemann.truncated-zeros-certificate.v1",
+  "ticket_id": "RH-TICKET-6",
+  "status": "falsified_by_truncated_zeros_spectral_leakage",
+  "tested_zeros_count": 10,
+  "li_constants_tested": 8,
+  "truncated_zeros_audit": [
+    {
+      "n": 1,
+      "exact_li_constant": 0.02309571,
+      "truncated_zeros_sum": 0.0135352,
+      "residual_error": 0.00956051
+    },
+    {
+      "n": 2,
+      "exact_li_constant": 0.23373765,
+      "truncated_zeros_sum": 0.05410463,
+      "residual_error": 0.17963302
+    },
+    {
+      "n": 3,
+      "exact_li_constant": 0.60608151,
+      "truncated_zeros_sum": 0.12159994,
+      "residual_error": 0.48448157
+    },
+    {
+      "n": 4,
+      "exact_li_constant": 1.11674158,
+      "truncated_zeros_sum": 0.21584102,
+      "residual_error": 0.90090056
+    },
+    {
+      "n": 5,
+      "exact_li_constant": 1.74460224,
+      "truncated_zeros_sum": 0.33657669,
+      "residual_error": 1.40802555
+    },
+    {
+      "n": 6,
+      "exact_li_constant": 2.47064112,
+      "truncated_zeros_sum": 0.48348577,
+      "residual_error": 1.98715536
+    },
+    {
+      "n": 7,
+      "exact_li_constant": 3.2777633,
+      "truncated_zeros_sum": 0.65617824,
+      "residual_error": 2.62158506
+    },
+    {
+      "n": 8,
+      "exact_li_constant": 4.15064599,
+      "truncated_zeros_sum": 0.85419691,
+      "residual_error": 3.29644908
+    }
+  ],
+  "claim_boundary": "open_not_proven",
+  "analysis": "An exact algebraic and spectral verification evaluated the Riemann zeros truncated sum against the recursive Laurent-expanded Li constants up to order 8. While the first 20 non-trivial zeros (10 conjugate pairs) contribute 0.0135 to lambda_1, the residual error represents the tail leakage of all higher-frequency zeros. Because the infinite tail remains unconstrained by any finite set of zeros, the truncated spectral sum exhibits high-frequency leakage, failing to prove global non-negativity of the Li sequence, falsifying the candidate theorem."
+}

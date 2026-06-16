@@ -1,0 +1,174 @@
+{
+  "schema": "primeproject.collatz.scc-descent-certificate.v1",
+  "ticket_id": "CO-TICKET-1",
+  "status": "falsified_nondecreasing_cycle_found",
+  "modulus": 256,
+  "max_depth_k": 8,
+  "partition_size": 8,
+  "partition": [
+    {
+      "r": 3,
+      "k": 2,
+      "val": 1,
+      "is_deterministic": true
+    },
+    {
+      "r": 1,
+      "k": 3,
+      "val": 2,
+      "is_deterministic": true
+    },
+    {
+      "r": 13,
+      "k": 4,
+      "val": 3,
+      "is_deterministic": true
+    },
+    {
+      "r": 5,
+      "k": 5,
+      "val": 4,
+      "is_deterministic": true
+    },
+    {
+      "r": 53,
+      "k": 6,
+      "val": 5,
+      "is_deterministic": true
+    },
+    {
+      "r": 21,
+      "k": 7,
+      "val": 6,
+      "is_deterministic": true
+    },
+    {
+      "r": 85,
+      "k": 8,
+      "val": 8,
+      "is_deterministic": false
+    },
+    {
+      "r": 213,
+      "k": 8,
+      "val": 7,
+      "is_deterministic": true
+    }
+  ],
+  "sccs": [
+    {
+      "scc_id": 0,
+      "nodes": [
+        {
+          "r": 3,
+          "k": 2,
+          "val": 1,
+          "is_deterministic": true
+        },
+        {
+          "r": 1,
+          "k": 3,
+          "val": 2,
+          "is_deterministic": true
+        },
+        {
+          "r": 13,
+          "k": 4,
+          "val": 3,
+          "is_deterministic": true
+        },
+        {
+          "r": 5,
+          "k": 5,
+          "val": 4,
+          "is_deterministic": true
+        },
+        {
+          "r": 53,
+          "k": 6,
+          "val": 5,
+          "is_deterministic": true
+        },
+        {
+          "r": 21,
+          "k": 7,
+          "val": 6,
+          "is_deterministic": true
+        },
+        {
+          "r": 85,
+          "k": 8,
+          "val": 8,
+          "is_deterministic": false
+        },
+        {
+          "r": 213,
+          "k": 8,
+          "val": 7,
+          "is_deterministic": true
+        }
+      ],
+      "is_basin": false,
+      "cycle_count": 109600,
+      "non_decreasing_cycle_count": 3
+    }
+  ],
+  "nondecreasing_cycles": [
+    {
+      "path": [
+        {
+          "r": 3,
+          "k": 2,
+          "val": 1,
+          "is_deterministic": true
+        }
+      ],
+      "length": 1,
+      "val_sum": 1,
+      "is_nondecreasing": true,
+      "growth_ratio": 1.5
+    },
+    {
+      "path": [
+        {
+          "r": 1,
+          "k": 3,
+          "val": 2,
+          "is_deterministic": true
+        },
+        {
+          "r": 3,
+          "k": 2,
+          "val": 1,
+          "is_deterministic": true
+        }
+      ],
+      "length": 2,
+      "val_sum": 3,
+      "is_nondecreasing": true,
+      "growth_ratio": 1.125
+    },
+    {
+      "path": [
+        {
+          "r": 3,
+          "k": 2,
+          "val": 1,
+          "is_deterministic": true
+        },
+        {
+          "r": 1,
+          "k": 3,
+          "val": 2,
+          "is_deterministic": true
+        }
+      ],
+      "length": 2,
+      "val_sum": 3,
+      "is_nondecreasing": true,
+      "growth_ratio": 1.125
+    }
+  ],
+  "claim_boundary": "open_not_proven",
+  "analysis": "A non-basin SCC admits a nondecreasing cycle, which falsifies the global rank descent under the current modulus. The obstruction identifies where splitting is required to break the cycle."
+}

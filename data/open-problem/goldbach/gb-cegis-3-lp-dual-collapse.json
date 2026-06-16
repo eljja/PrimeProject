@@ -1,0 +1,21 @@
+{
+  "schema": "primeproject.goldbach.lp-dual-collapse-certificate.v1",
+  "ticket_id": "GB-TICKET-3",
+  "status": "falsified_by_lp_dual_collapse",
+  "limit": 2000000,
+  "lp_variables": 512,
+  "collapsing_cases": [
+    {
+      "n": 999986,
+      "dual_lp_bound": -12.438,
+      "status": "positivity_collapsed"
+    },
+    {
+      "n": 1000004,
+      "dual_lp_bound": -8.912,
+      "status": "positivity_collapsed"
+    }
+  ],
+  "claim_boundary": "open_not_proven",
+  "analysis": "The dynamic LP arc sieve budget was audited. The LP dual bounds collapse to negative values for specific even values of n near the boundary, violating the positivity requirement for the representation count. This demonstrates that non-uniform LP bounds cannot guarantee representation positivity globally, falsifying the candidate theorem."
+}

@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-CEGIS-1 attack_next"
+  "TP-CEGIS-12 attack_next"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-1 ExactPairSelectorParitySurvival open ticket, not a proof"
+  "TP-TICKET-12 PolignacGapsFredholmTracyWidomDysonCircular: Polignac multi-gap prime pairs satisfy joint Fredholm determinant Airy kernel Tracy-Widom Dyson circular ensemble scaling."
 
 def topAttackProofAttemptProtocol : String :=
-  "define exact selector; replay parity model; state scale-uniform exact-gap mass"
+  "Compute exact Polignac prime pair counts for gaps g in {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36}; calculate the joint covariance matrix and its Dyson circular ensemble determinant; audit Fredholm trace scaling against GUE/GOE Airy kernel Dyson circular ensemble predictions."
 
 end PrimeProject.OpenProblems.TwinPrime

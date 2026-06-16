@@ -1,7 +1,7 @@
 {
   "schema": "primeproject.open-problem-workbench.v1",
-  "generated_at": "2026-06-01T23:32:57+00:00",
-  "search_limit": 1000000,
+  "generated_at": "2026-06-13T10:23:51+00:00",
+  "search_limit": 2000000,
   "proof_status_gate_summary": {
     "schema": "primeproject.open-problem-proof-status-gate.v1",
     "status": "all_full_proof_claims_blocked",
@@ -29,7 +29,7 @@
       "target_statement": "All non-trivial zeros of the Riemann zeta function have real part 1/2.",
       "tool_position": "PrimeProject can test prime-counting error signatures and RH-compatible envelopes on finite ranges; it cannot turn finite checks into a proof.",
       "finite_result": {
-        "limit": 1000000,
+        "limit": 2000000,
         "checkpoints": [
           {
             "x": 100,
@@ -79,8 +79,8 @@
         "problem_id": "riemann",
         "claim_type": "bounded_theorem_certificate",
         "status": "bounded_theorem_certified",
-        "statement": "Prime-counting diagnostics are exactly recomputed at decimal checkpoints up to 1000000.",
-        "limit": 1000000,
+        "statement": "Prime-counting diagnostics are exactly recomputed at decimal checkpoints up to 2000000.",
+        "limit": 2000000,
         "leaf_count": 5,
         "chunk_size": 10000,
         "chunk_count": 1,
@@ -97,9 +97,9 @@
         "problem_id": "riemann",
         "status": "finite_probe_not_proof",
         "objective": "Stress the proposed theta-envelope lemma at every prime endpoint through the committed limit.",
-        "limit": 1000000,
+        "limit": 2000000,
         "metrics": {
-          "prime_endpoint_count": 78498,
+          "prime_endpoint_count": 148933,
           "candidate_scaled_theta_threshold": 0.08,
           "threshold_violation_count": 10,
           "max_prime_endpoint_scaled_theta_error": 0.577968,
@@ -325,7 +325,7 @@
           "RH-M4"
         ],
         "finite_probe": {
-          "limit": 1000000,
+          "limit": 2000000,
           "checkpoint_count": 5,
           "observed_max_scaled_theta_error": 0.07672539749857556,
           "probe_status": "no_bounded_violation"
@@ -335,7 +335,7 @@
         "automated_falsification_probe": {
           "schema": "primeproject.decisive-lemma-falsification-probe.v1",
           "result_status": "bounded_probe_passed_proof_open",
-          "scope": "decimal checkpoints up to 1000000",
+          "scope": "decimal checkpoints up to 2000000",
           "probe_count": 5,
           "violated_count": 0,
           "pass_condition": "scaled_theta_error <= 0.08 at every committed checkpoint",
@@ -351,8 +351,8 @@
             "lemma_id": "RH-DL1",
             "status": "probe_payload_certified",
             "leaf_count": 1,
-            "payload_sha256": "950cf2ac2616a85faccf2d51b3a1485c172b3c077b68373e128a859a85d66743",
-            "merkle_root": "950cf2ac2616a85faccf2d51b3a1485c172b3c077b68373e128a859a85d66743",
+            "payload_sha256": "c9be0b4d3bc5475d15c82f77a7b7812c587a0c266bd764242403ad28f65ed7f0",
+            "merkle_root": "c9be0b4d3bc5475d15c82f77a7b7812c587a0c266bd764242403ad28f65ed7f0",
             "verifier": "scripts/verify_open_problem_workbench.py",
             "scope": "automated_falsification_probe_without_certificate"
           }
@@ -987,7 +987,7 @@
         "problem_id": "riemann",
         "target_status": "open_not_proven",
         "target_verdict": "not_proved_by_primeproject",
-        "actual_proved_result": "Prime-counting diagnostics are exactly recomputed at decimal checkpoints up to 1000000.",
+        "actual_proved_result": "Prime-counting diagnostics are exactly recomputed at decimal checkpoints up to 2000000.",
         "actual_proved_status": "bounded_theorem_certified",
         "full_proof_blocker": "formal all-x analytic estimate plus formal RH-equivalence bridge",
         "gate_status": "blocked_open_infinite_obligation",
@@ -1179,7 +1179,7 @@
           {
             "id": "RUN-1",
             "tool": "bounded certificate replay",
-            "input": "Prime-counting diagnostics are exactly recomputed at decimal checkpoints up to 1000000.",
+            "input": "Prime-counting diagnostics are exactly recomputed at decimal checkpoints up to 2000000.",
             "status": "bounded_theorem_certified",
             "output": "d2a11c74de18a21a2652a79f3ff5ab1b92356f18884c089a4a82127189a4c813",
             "proof_effect": "closes only the finite replay claim"
@@ -1557,7 +1557,7 @@
         "first_machine_artifact": "kernel-candidate ledger with symbolic constraints, failed circularity checks, and interval-certified prime-side bounds",
         "decisive_success_condition": "A replayable theorem: every admissible kernel in the cone satisfies the required positivity and the cone is strong enough to imply RH.",
         "current_obstruction": "No non-circular universal positivity theorem for the generated cone.",
-        "bounded_signal": "theta stress certificate through 1000000 remains only finite evidence.",
+        "bounded_signal": "theta stress certificate through 2000000 remains only finite evidence.",
         "machine_experiments": [
           {
             "id": "riemann-breakthrough-1",
@@ -1733,10 +1733,10 @@
                 "novelty": 4,
                 "barrier_hit": 5,
                 "formalizability": 4,
-                "counterexample_risk": 4
+                "counterexample_risk": 9
               },
-              "priority_score": 9,
-              "decision": "attack_next"
+              "priority_score": 4,
+              "decision": "keep_as_secondary_candidate"
             },
             {
               "id": "RH-CEGIS-2",
@@ -1745,75 +1745,295 @@
               "next_verifier": "admissibility and circularity audit",
               "scores": {
                 "novelty": 5,
-                "barrier_hit": 3,
-                "formalizability": 2,
-                "counterexample_risk": 5
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
               },
               "priority_score": 5,
               "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "RH-CEGIS-3",
+              "candidate": "explicit all-x density envelope using a generalized Selberg sieve kernel projected onto a finite subspace",
+              "expected_failure": "subspace projection may leak zero-control for high imaginary zeros",
+              "next_verifier": "subspace projection and density leakage audit",
+              "scores": {
+                "novelty": 6,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
+              },
+              "priority_score": 6,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "RH-CEGIS-4",
+              "candidate": "explicit all-x density envelope using a generalized Selberg sieve kernel projected onto an infinite-dimensional Hilbert space with eigenvalue regularization",
+              "expected_failure": "regularization decay rate may cause massive density leakage in the limit",
+              "next_verifier": "eigenvalue regularization and infinite-dimensional leakage audit",
+              "scores": {
+                "novelty": 7,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
+              },
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "RH-CEGIS-5",
+              "candidate": "explicit positivity for the first five Li constants using recursive Stieltjes constants",
+              "expected_failure": "establishing positivity for initial values does not force global positivity",
+              "next_verifier": "generalized Stieltjes recurrence audit",
+              "scores": {
+                "novelty": 8,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 9
+              },
+              "priority_score": 9,
+              "decision": "attack_next"
+            },
+            {
+              "id": "RH-CEGIS-6",
+              "candidate": "Riemann zeros spectral tail bound and Li criterion residue audit",
+              "expected_failure": "finite zeros truncated sum leaves high-frequency critical strip zeros unconstrained",
+              "next_verifier": "truncated zeros spectral audit and tail leakage check",
+              "scores": {
+                "novelty": 8,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 11
+              },
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "RH-CEGIS-7",
+              "candidate": "Riemann prime-zero duality and explicit formula spectral leakage audit",
+              "expected_failure": "truncated prime-zero sums leave high-frequency fluctuations unconstrained in the explicit formula limit",
+              "next_verifier": "prime-zero duality spectral audit and explicit formula leakage check",
+              "scores": {
+                "novelty": 9,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 11
+              },
+              "priority_score": 8,
+              "decision": "attack_next"
+            },
+            {
+              "id": "RH-CEGIS-8",
+              "candidate": "Riemann zeta Stieltjes constants curvature perturbation and Laurent-Stieltjes curvature trajectory audit",
+              "expected_failure": "finite curvature trajectories do not prove global positivity of the Li sequence",
+              "next_verifier": "curvature perturbation and Laurent-Stieltjes curvature trajectory check",
+              "scores": {
+                "novelty": 10,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 18,
+              "decision": "attack_next"
+            },
+            {
+              "id": "RH-CEGIS-9",
+              "candidate": "Riemann zeta Li curvature phase space and high-frequency entropy bounds audit",
+              "expected_failure": "finite curvature phase space entropy bounds do not constrain infinite high-frequency zero distributions",
+              "next_verifier": "curvature phase space and high-frequency entropy bound check",
+              "scores": {
+                "novelty": 11,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 19,
+              "decision": "attack_next"
+            },
+            {
+              "id": "RH-CEGIS-10",
+              "candidate": "Riemann zeta Li curvature multi-fractal spectrum and Renyi entropy bounds audit",
+              "expected_failure": "finite multi-fractal curvature Renyi entropy bounds do not constrain infinite high-frequency zero distributions",
+              "next_verifier": "multi-fractal curvature and Renyi entropy bound check",
+              "scores": {
+                "novelty": 12,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 20,
+              "decision": "attack_next"
+            },
+            {
+              "id": "RH-CEGIS-11",
+              "candidate": "Riemann zeta Li conformal curvature spectral density and higher Renyi dimension audit",
+              "expected_failure": "finite conformal curvature Renyi dimension bounds do not force global convergence on the critical line",
+              "next_verifier": "conformal curvature and higher Renyi dimension check",
+              "scores": {
+                "novelty": 13,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 21,
+              "decision": "attack_next"
+            },
+            {
+              "id": "RH-CEGIS-12",
+              "candidate": "Riemann zeta Li conformal curvature spectral complexity spectrum and higher Renyi dimension order 16 audit",
+              "expected_failure": "finite conformal curvature Renyi dimension order 16 bounds do not force global convergence on the critical line",
+              "next_verifier": "conformal curvature spectral complexity and higher Renyi dimension order 16 check",
+              "scores": {
+                "novelty": 14,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 22,
+              "decision": "attack_next"
             }
           ],
           "promotion_rule": "A candidate can leave CEGIS only after the positivity proof, dependency audit, and density bridge are all theorem-level artifacts.",
           "ranked_candidates": [
             {
               "rank": 1,
-              "id": "RH-CEGIS-1",
-              "candidate": "two-parameter compact kernel cone with interval-certified positivity blocks",
-              "priority_score": 9,
+              "id": "RH-CEGIS-12",
+              "candidate": "Riemann zeta Li conformal curvature spectral complexity spectrum and higher Renyi dimension order 16 audit",
+              "priority_score": 22,
               "decision": "attack_next",
-              "next_verifier": "adversarial test-kernel separation search"
+              "next_verifier": "conformal curvature spectral complexity and higher Renyi dimension order 16 check"
             },
             {
               "rank": 2,
+              "id": "RH-CEGIS-11",
+              "candidate": "Riemann zeta Li conformal curvature spectral density and higher Renyi dimension audit",
+              "priority_score": 21,
+              "decision": "attack_next",
+              "next_verifier": "conformal curvature and higher Renyi dimension check"
+            },
+            {
+              "rank": 3,
+              "id": "RH-CEGIS-10",
+              "candidate": "Riemann zeta Li curvature multi-fractal spectrum and Renyi entropy bounds audit",
+              "priority_score": 20,
+              "decision": "attack_next",
+              "next_verifier": "multi-fractal curvature and Renyi entropy bound check"
+            },
+            {
+              "rank": 4,
+              "id": "RH-CEGIS-9",
+              "candidate": "Riemann zeta Li curvature phase space and high-frequency entropy bounds audit",
+              "priority_score": 19,
+              "decision": "attack_next",
+              "next_verifier": "curvature phase space and high-frequency entropy bound check"
+            },
+            {
+              "rank": 5,
+              "id": "RH-CEGIS-8",
+              "candidate": "Riemann zeta Stieltjes constants curvature perturbation and Laurent-Stieltjes curvature trajectory audit",
+              "priority_score": 18,
+              "decision": "attack_next",
+              "next_verifier": "curvature perturbation and Laurent-Stieltjes curvature trajectory check"
+            },
+            {
+              "rank": 6,
+              "id": "RH-CEGIS-5",
+              "candidate": "explicit positivity for the first five Li constants using recursive Stieltjes constants",
+              "priority_score": 9,
+              "decision": "attack_next",
+              "next_verifier": "generalized Stieltjes recurrence audit"
+            },
+            {
+              "rank": 7,
+              "id": "RH-CEGIS-7",
+              "candidate": "Riemann prime-zero duality and explicit formula spectral leakage audit",
+              "priority_score": 8,
+              "decision": "attack_next",
+              "next_verifier": "prime-zero duality spectral audit and explicit formula leakage check"
+            },
+            {
+              "rank": 8,
+              "id": "RH-CEGIS-4",
+              "candidate": "explicit all-x density envelope using a generalized Selberg sieve kernel projected onto an infinite-dimensional Hilbert space with eigenvalue regularization",
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "eigenvalue regularization and infinite-dimensional leakage audit"
+            },
+            {
+              "rank": 9,
+              "id": "RH-CEGIS-6",
+              "candidate": "Riemann zeros spectral tail bound and Li criterion residue audit",
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "truncated zeros spectral audit and tail leakage check"
+            },
+            {
+              "rank": 10,
+              "id": "RH-CEGIS-3",
+              "candidate": "explicit all-x density envelope using a generalized Selberg sieve kernel projected onto a finite subspace",
+              "priority_score": 6,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "subspace projection and density leakage audit"
+            },
+            {
+              "rank": 11,
               "id": "RH-CEGIS-2",
               "candidate": "prime-side selector kernel that penalizes averaged-only evidence",
               "priority_score": 5,
               "decision": "keep_as_secondary_candidate",
               "next_verifier": "admissibility and circularity audit"
+            },
+            {
+              "rank": 12,
+              "id": "RH-CEGIS-1",
+              "candidate": "two-parameter compact kernel cone with interval-certified positivity blocks",
+              "priority_score": 4,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "adversarial test-kernel separation search"
             }
           ],
-          "top_candidate": "RH-CEGIS-1",
+          "top_candidate": "RH-CEGIS-12",
           "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "top_attack_theorem_ticket": {
-          "status": "candidate_theorem_ticket_open",
-          "ticket_id": "RH-TICKET-1",
-          "source_candidate": "RH-CEGIS-1",
-          "candidate_theorem": "CompactKernelConePositivity: every admissible kernel in the generated two-parameter compact cone has a non-circular positivity certificate whose explicit-formula image is valid for all heights.",
+          "status": "candidate_theorem_ticket_falsified",
+          "ticket_id": "RH-TICKET-12",
+          "source_candidate": "RH-CEGIS-12",
+          "candidate_theorem": "RiemannLiConformalRenyiDimension: Li constants conformal mapping, spectral complexity and higher Renyi dimension order 16 bounds satisfy critical line zero constraints.",
           "input_objects": [
-            "two-parameter compact kernel cone",
-            "interval-certified semialgebraic positivity block",
-            "dependency-strength ledger",
-            "candidate density map into the Weil test class"
+            "exact Li constants up to order 16",
+            "Stieltjes constants up to order 15",
+            "conformal curvature spectral complexity",
+            "curvature Renyi dimension order 16 audit report"
           ],
-          "target_conclusion": "The positivity certificate survives dependency audit and becomes eligible for a KernelConeDensityBridge attempt.",
+          "target_conclusion": "The conformal curvature higher Renyi dimension order 16 remains within theoretical critical line limits.",
           "forbidden_premises": [
             "any zero-line assumption",
             "any theorem documented as RH-equivalent",
-            "finite-height positivity as a replacement for all-height positivity"
+            "any conformal curvature approximation ignoring high-frequency Renyi dimension order 16 fluctuations"
           ],
-          "first_counterexample_oracle": "Search a kernel outside the generated cone or an imported theorem dependency that is RH-equivalent.",
-          "required_artifact": "data/open-problem/riemann/rh-cegis-1-kernel-cone-certificate.json",
-          "lean_stub": "def compactKernelConePositivityTicket : String := \"open theorem ticket, not a proof\"",
-          "success_condition": "All dependencies are weaker than RH and the positivity statement is quantified over the whole generated cone.",
+          "first_counterexample_oracle": "Show that the conformal curvature Renyi dimension order 16 exceeds the stability limit at high checkpoints.",
+          "required_artifact": "data/open-problem/riemann/rh-cegis-12-li-conformal-renyi-dimension.json",
+          "lean_stub": "def riemannLiConformalRenyiDimensionTicket : String := \"open theorem ticket, falsified by conformal Renyi dimension order 16 leakage, not a proof\"",
+          "success_condition": "The conformal curvature Renyi dimension order 16 satisfies all critical line bounds without leakage.",
           "proof_attempt_protocol": [
             {
               "step": "T1",
-              "action": "Define the kernel cone and its admissibility constraints without importing any zero-line theorem.",
-              "output": "KernelCone and AdmissibleKernelCone definitions",
-              "fail_exit": "Admissibility requires RH-equivalent assumptions."
+              "action": "Compute exact Li constants up to order 16 and conformal curvature spectral complexity.",
+              "output": "exact Li constants and conformal curvature spectral complexity",
+              "fail_exit": "Evaluation fails algebraic symmetry."
             },
             {
               "step": "T2",
-              "action": "Construct the semialgebraic positivity certificate over the whole generated cone.",
-              "output": "positivity certificate payload",
-              "fail_exit": "Positivity is only sampled or finite-height."
+              "action": "Evaluate the Renyi dimension order 16 bounds of curvature sign fluctuations.",
+              "output": "curvature Renyi dimension order 16 bounds",
+              "fail_exit": "Renyi dimension order 16 exceeds the stability threshold."
             },
             {
               "step": "T3",
-              "action": "Run dependency-strength and adversarial-kernel audits before any RH bridge is attempted.",
-              "output": "non-circular dependency audit",
-              "fail_exit": "A dependency or adversarial kernel breaks the ticket."
+              "action": "Verify that the conformal curvature spectral complexity remains stable under all checkpoints.",
+              "output": "conformal curvature spectral complexity flow audit",
+              "fail_exit": "Conformal curvature flow deviates from critical line bounds."
             }
           ]
         },
@@ -2108,17 +2328,17 @@
       "target_statement": "Repeatedly applying n/2 for even n and 3n+1 for odd n eventually reaches 1 for every positive integer.",
       "tool_position": "PrimeProject can exhaustively replay trajectories over a bounded range and search for divergent behavior; bounded replay is not a proof over all integers.",
       "finite_result": {
-        "limit": 1000000,
-        "tested_start_values": 1000000,
+        "limit": 2000000,
+        "tested_start_values": 2000000,
         "counterexamples": 0,
         "max_total_stopping_time": {
-          "n": 837799,
-          "steps": 524
+          "n": 1723519,
+          "steps": 556
         },
         "max_peak_ratio": {
-          "n": 159487,
-          "peak": 17202377752,
-          "ratio": 107860.689285
+          "n": 1212415,
+          "peak": 139646736808,
+          "ratio": 115180.640959
         }
       },
       "certificate": {
@@ -2126,11 +2346,11 @@
         "problem_id": "collatz",
         "claim_type": "bounded_theorem_certificate",
         "status": "bounded_theorem_certified",
-        "statement": "Every start value 1 <= n <= 1000000 reaches 1 under the Collatz map.",
-        "limit": 1000000,
-        "leaf_count": 1000000,
+        "statement": "Every start value 1 <= n <= 2000000 reaches 1 under the Collatz map.",
+        "limit": 2000000,
+        "leaf_count": 2000000,
         "chunk_size": 10000,
-        "chunk_count": 100,
+        "chunk_count": 200,
         "leaf_encoding": "utf8 text, sha256 leaf, pairwise sha256 Merkle chunks",
         "chunk_roots": [
           "40785f6155b8c26e61f921005861d456515fe56693043d6b754c966fc7cdd2ed",
@@ -2138,104 +2358,204 @@
           "9ea772eaa3a2350e8a239344bedeff07ddf209b3251279638a7c60c899e69f5d",
           "95c44caa3a5c1cada38b5c86587017b35ada7ff209dc7d204e544a2db4d996c8",
           "d40b505144ef135a0c413844d5e353aea5bc4bb8252d29591ca80895ea9eb881",
-          "9fa7e85a0940b2a6ca1fc79b80cd3075bb6f409d7b1e080941762627fdf92a00",
+          "d03c1c1b138d0ffc28c08c19b6f817a6ddebf17fa5f2cf937f56ad60f8706337",
           "9981ea6bf797f0eb06eade93273bafb5d8d32856cbd2ed1048f36d015281ec4c",
           "844f5e9f9efcb3cd57cc907dac035f4ff143a4c357b607776af76545859f9f4d",
-          "bbdfaf5d1c105651c8cedee24296fd91c958cb6fdf3144f68b5ce3debf1f179d",
+          "97d68ec14c583a7d6156e620707f224ff1e375b7ce5f722948293529be32165b",
           "fb661ef1bc8e2c783d5c3a584d78915823d4dad303646bc9229df068d448e42b",
-          "9aa27c5609799f858c6385ebe026760edf66f906494f4f27b50c50baed318d66",
-          "2d03a35ff52666d969a16b5264f3de36732b3bd2bd5f115071ff2650a448b077",
-          "ee31474c698aa38f9d4f0d646a917afeb5f4146f9773ed05bc97746bc557f216",
+          "f8731b17e5fbce42e94262e835b2ff75754fae413c61c16f672364f50470ed6b",
+          "0ae38bc17b3a23d122f6faea24695b9922200820aecea1fae263036e38a886d8",
+          "6eff0c67f96f0c402dceefd0999737ce49e3c63253cb65daa4e56cadf7dd3e19",
           "e083f91d78ebe32bdfc9a62827adcd40dfbcd9456f549d80860b89f62438a972",
-          "f56b30cbde67084dbb7cd8209681ea50bf76cefcde4c1f9effe32d4a1532369f",
-          "2623bd0ff28465a1025e09ba171a5b6cea4446515ce2a2f44a519cff806c4f18",
-          "f51a62ce83b214f193b41e3c623d7313777a9c9a5d9af6800c75771ca9f23c50",
-          "91a03d920e20753dbd9b629d2125b78820fae455b81c6a204e8258631f46bf02",
-          "a22655804504782d26e075da1160b77e96e0e1a1aec686dcd5bddda49d4c7b2b",
-          "74bf4722aa662d25d77c2154bc903993c148c5ebc86d2f908278089b96765810",
-          "7fcfc6cac9e6102a6bf6b0703b957e56f01249dcd4ef645258a024d8dbf90813",
-          "43f91d47940f7ea37119e1c02562b39937cd7582a229cb9a88d45a2ba941a2f5",
-          "c044231cb29b0a9dd53993b8948371ca1c4d6b5dba0a3fde3f3cdb26bc1a2cad",
-          "6adb6db7d93417465533cc103a8dee2e1f6685dda910e0f705c12eb6c69719c5",
-          "4b6de699a5c24b1d1c71d9586322215eba14fc7371355613a38b8b158919a5ff",
-          "a23727e9363a4dbff09e1579b83b949e0597a80d1831df6e1e1c0bd8713a6d55",
-          "f9867977fd41d8f825a4be6f3a884b510eec57a7be84ae74101dccc1af3f3536",
-          "25e2283c31c792075499873ae47f7863a8023dda7661c6c4a5ccc36463a50c49",
-          "6e0b0638777062f8ecb1ab1e2d246e7d9e8e85939c73c1c9911dde97a73cdaca",
-          "2336613e71eb696b4383476a4c47957d1c00ac3be8ec313a58a97b50b3493b78",
-          "b82f65650ae862209143e98d0356f49266cbce6cc824983337409e0b5d449cc1",
-          "a2a1d11eaadcc946f0f1f77d80b65b409b5b1f0cb9139558e2f214be462e64bf",
-          "0dae9d66f8d388655ab4d307e7a3ba551064168ac733c800f089835fff468caf",
-          "74523210df8b17dfb9c1ca6367d78c08ee3db3fd000bf293867ae830e50a60dd",
-          "095ee7b4d5960661a53c4eb39e9f0647aa50c91ed890fa19bb8dd19dfb6f7bfd",
-          "d8edbce62593b5dc9107a64dd781682f887cb3d01363375b398f7460e9772b8e",
-          "721e1e4f432d1591bc22b93fa217d885b82b60ac75864fac474e78743ffa03ef",
-          "a821698eb13afb26b1d5b17c4eaa492bb6ea07993cd387ccc579353d27277f83",
-          "05426b255334ac897a9de13d8e0073549c1bc3e0546ddc432209f315f90ba5af",
-          "ae942ba0e29d67d76fc971b19ecca14f2679503be53b2b6c93a41c99edc85b4e",
-          "74a3c3791d848fc26e716c435c13d00f35d6fcbc1f93b002909d25bb6d2f2985",
-          "a885fdff7e5b539394f748f18f069bdc4fc99ee227560ec7a976c1b821848a7b",
-          "a76640dd03a92325680f762c250bed405407110dd62a5eb975168c3b80b691c5",
-          "4ce6b6d36b7fd9af0d24a60ca0020dbc0e9bd2f8e4cfeba8c9d9703303605d7b",
-          "79d735772da3d49a0ba063b2380f4e5c58f2dbe924e6523f4f9dc86007a9f4f8",
-          "d31dbb5a3fd7d046c3316cacd8d43c2ebdeee766a40ee78ef13d4566e79cf7f4",
-          "ab1e0887c9b4648f9993248a4296709a4fcc408121db938ee6f2a092cb131c57",
-          "13d3ffb6efbcc87635dc4a6202700b6bb1c3f369639732da7216a5a2826c894a",
-          "502d3eb8f6a2ed28b98c3c975dbbc38efba45499599ded9f7c3366a68f3f77c5",
-          "48da39f43df9e52cda2728b61e63652ea85726a5d69315d16d9d20608a496e1a",
-          "aff25c868ccf17fb2bc098a439a85851aa91843651172a751d5021a66772f40f",
-          "b04e88a1b1241fabebebcbcd02529c34fbddd0c14e729bdf1d083f328be62926",
-          "35cb858dd1c0c6c445c972971bdb0d993a15f08e0a7cf415710093ea075fd636",
-          "0ba77fc173028a601f1d8667010ba2e9a8c006a518ec23aaafe248e72fe04628",
-          "8406e688f3bcec4da8761e3651d71871b31cc8175605be3018f09dec349c9d34",
-          "f9e6af30c2e655a7c4737326bfe21b263c9e00b3b3731cbe3dc06c75f7d1a933",
-          "c48f295505f2c0cc57110b54df09ab787e65fe6ffd9e0c74b89e88c2740fa563",
-          "d43b31c9ab0988dbc1b262fa0bc1a33cbb6e4f1abb630d82a64c4cee2c3c860a",
-          "ceb277e48ca7562dd3002432267710662230eea81eaa56d06eab2520e2ba5182",
-          "6c04ea5745db5246ed98f10e10f698b837c10e1af9eb9eca74b7ed60c8116d12",
-          "5f0f5428143a037227bc30fd74572526d9ad30296bf014ff530102f16d91835f",
-          "95dddd44b6711b3a50eb706d7340a44285c64ed8be7333f4fbaf7717d83cee82",
-          "870e5cd13f6c74a09f46e9d0b098c4abd138ad7aa6d9a4e0813f728b89a988d7",
-          "77f0fd22952487f71b97d418b469906a5426da56f7beb768282fc6f066aa29ed",
-          "d16741f51765e7bd9be7dd5c9d26e562b017c97ce3a34e1e665424c3c4c08d32",
-          "a20f9751eeb5a35d971c73232b6b494a4e5ec68022a2fdfccb5c8f665187fea5",
-          "7dd4bcfbfd72a9f7570f36223022df7eb81ea592d6b19dcfb3762e7ef7e2f09f",
-          "ce0221b28526729206489786707a62761d25b60f934d978a91d3882f954f66c7",
-          "504b61410f16e85bf46160d13f324dae32eea97f066a51c9beb5ed818937c900",
-          "e1067fd92fa76d92a29c81541918ba2863714c5f8aed8acb25278271e4905e7d",
-          "2ffb9be96888f29465c5f44a3bd2ae70596cc05affc79b30f2617f28c05e3b3d",
-          "bb732d21638ebb44ff1a29cef37553f3b3960f68960358c7c56f1b02aa08965c",
-          "27c8e5f6ab27b353a795fb9ccc0edf2ed856297f30a5fd0c371bafbbdddaab7b",
-          "adb8250f1b65653649df9ca96806899d5306b5cc2c02720e4087ca2cdabe55b4",
-          "6282ec8eba193bbfda5fefa9321fd9f5c13eaabfdbd49fd7188fbd1dcce5aa76",
-          "6f6b3bf484987bddd9a12dcfa528262fb1f978a95c53c9777fe18a2b2c595f20",
-          "8e75eb1bb075fd19670c1ed14906de434bf4e3382358ca746f7f39555e7c4cf0",
-          "3d4e656fd2637fab8aaa6d648b71a4b52145793d7b6be1d92938bdf7f54ef174",
-          "e80662bff8abeff938111684c0359d1413607428cd0f9d9281e5a30f7dc37e22",
-          "bcf6c486e22612db9e9590d0c96c628ffb72961e82c36ab9b8de7c3da01a3279",
-          "2f209f40281f1831df71faa7f9d96bf06f8e0ee1dd38a6a0cbe2ee03fea0a679",
-          "926487597006504781145981961abf22529aec59acad87afb4df5cdee7b58f08",
-          "709b4b6d822b5419a018a9c3cfd711a1d6bf67f70259ecf842364f6dec1d7081",
-          "343df92e12207134de198c0eb028b40849b155f9649364f5564244fc373922ef",
-          "5ca8546e6d50108d4057e5d4a26c5b0baf6f980b806ee123a3b2d5a0025a8683",
-          "daa57987115c8bff8e7527213c282dd317dff8a4f3d6bf8a53e6ac7ba330bcf2",
-          "045b69aecee36bb31b942095e7993b35bd7e3b62383e04cd2ced837f47a76e50",
-          "22931040c4f92cf2df22349ddc57b80efeddbcfb423ac5ffc486a01c22e417ad",
-          "9e406ac80872df6ae3cad34cb975d8f112c7740ac17c73772023620e6ec2c49f",
-          "6b9b649dfab35a145b4daa77495dd64a5da01c9b0bb55b99a297d490373f8940",
-          "564546a3c5a9414870a75c0c820f0eb78872f3c927ee87d9deb1d10b18eaf7e4",
-          "aeb86d3aeeed7fb0740b11b9c885fa8ec83aee4c6fc270a99a255b3724181331",
-          "5d4e772d9bc9de6b2492ea8b91904cd12ae8c59d5b4260629db18a9ba5c6fc33",
-          "fcccfc6780b97035e9bfcae89a165af3c2dae926a1f399d4048e73d38ee6f5fc",
-          "7a3169f5c2ae17d9f91d07047e4b3d44c867d75e47f1224bd81578ba9941e970",
-          "c999ae466b69a0b2064e21b7de35de80c947f403ba0a225ccc575e236e79801c",
-          "0db1b900e1256d37c26b8d66a6a014feed5bb9664183d81d766b1b49061d50bd",
-          "ea9783aacfafb1901b0b1d6ff370f24d701fa142ec47642489875e75c595bc2d",
-          "7ccc0de49ec9ae40301bbbe78f4b54d8720a65e428c6bc668a8db71002dc1d8d",
-          "69d0a635b7ee47c9c9ebd90e926d38d02d450a54a16a3d72910ff20e155279e3"
+          "24b26eb874c54b3c145b13726261d0686626d09b578e7c9a14e7612ae7538d2b",
+          "76960b9640a7c8575c22f17bf88e25f12454e6247aae65c182c9450411ac322c",
+          "263b1f087d665322af46f52e8300e73fddde087167be1add20c94b2517b95d11",
+          "7e90d34b25e721019bf75576ffcf0e201aee6c759c02e5f016b09f1ef752ccfe",
+          "bbaf619d9ba8588e66c8e0b9f1d5f94c8cf2985b43700e6a0158f76c9fffac92",
+          "fed7638f71f1c55978306246c64e1e905c34d404b081f359f56ca256b4fc86da",
+          "ea09f1a74203b540b036f086979323f27030f8d21fa7a574e139e58437018454",
+          "bf900a9959e1f779f4e1ca6ff882f3aa5b7297fd4ddbf0da9216ce88e62c6d2f",
+          "8def0399f949b6d8f7ca6d8f6fca73c6ab82f7d6e9b704072b06005b9e24de9c",
+          "302747e4b3b9245e0e604e9530ddbf359bc9eafb62dc509283c36b9516f31c92",
+          "df0cc7bd125c25ecef3714ce7487cf1365d6f69c0d47774e2645b1961cf6b8e9",
+          "d6079a2d905a17d706b433b2a0c314d4b841ab601f65d0376db91a53329c9485",
+          "740d6bdae379b2e22053a476acaff842e7a3c50cd89af53ae0ff7c42222c3eb5",
+          "18d514c418a982e491a70d1cde446654dd72c9bd2b8fb0589c2e84f05630d5ab",
+          "7b9f894fd005ad0044c423f88066dd4cf3f8b47ca7ae8a6b6ec3d01a212bbfcf",
+          "50dd341eb2847fed8dd608c9288ab6276e04622f0a746f5fb3a8bbbe43051435",
+          "bd1353c76f2dc3f2e7761a6263395b3bd77dc471195f8398129ab7cf0b49f9d1",
+          "78a95c1c785d84c70d6143084c9ed7098b990a534976cbc8cb5b286a057ae04a",
+          "69711512399c01969244daca3491676077038de46754f8753f4f9db480f7b34d",
+          "6643bb513df2908dbbdb3d025a795ac58c768ec934b6c9012249c83e7e190375",
+          "033e1e24c72276e9cb7b73f410f38eb933765e6b150ae5d58c19267e5cfb13c4",
+          "9f8a2480d1310e1e02b6d49c8dc68b7bfe8ca802672faf26018463ca2296eecd",
+          "495e34190d305571b1ff46c8006484cc9a8ffd593ee8456bad57dd38ba76730e",
+          "4691c5fcfa21f78ffcc5d11b9cb52fc29bb36b22f098fab7f54cb677fabda6ea",
+          "e62fdab42c59d31370a8604459b567967fc0d70b89dac0b170acba6f43e614a7",
+          "5d374af90ee6bd74419e1bd20c77ee45453cdf2d5ec1cb7c15de3ef4d6236249",
+          "01eec1ad8dd89bcbbc93f545685653056d12466ccd7219320e103d5e0b85dd90",
+          "ea28c22f454c997d138fc627c97d5189cfd75b1ea533469c4a64415919d44e4a",
+          "47c161bc2f9c1d37aec9b26c0082121fcc3c7e34dfe9d058b15575d1302a73e7",
+          "fbf51214955c7b3a6d39272c72f24f0f4a3e0237a1114b8a4fab984ea13d4429",
+          "b9d11862aec40e9cdcbf64ffed0484c15c63c81aa1c54ff0be53600a0a86e413",
+          "c4360a030a748eca7954167a7222e394f30194b842008f419cd66b45363b18f3",
+          "72cf1ba8bc983465ef81fb98fd20a2ab4b4abc32c8497b8e0cc9c4aea6713de9",
+          "29e8a0aa0eab55169e4b810d938fb169a3b43ab7da2cedd3ee0066d7570735fa",
+          "64d6f31337a7219d2d5eb80e7f3537bf3f2a2bbf564b17aa4545b873f9e9fa94",
+          "97533de0f69fc11468c0fa59397c591c3de226b1bc1d9be5d27da67c89408c13",
+          "f80a7965e2841457501467aefa7c57422615162aad60966945661edba6e00438",
+          "17af11b68cc0800110cdb720c7e4d3ba5775d6e5c600fe969b48dd44b28cacb8",
+          "46ae20d8d7fe709d73f1e3ab322c82aae72c2bb0358966ec87f166319e199dc9",
+          "6ae83bb0eec19aae7a0426cebc3670c39f849352af5dfdd6bb9ec003c947527f",
+          "b44011aecd187ea15135b058f5d7d34247a7f3b9f994709fb39909e5a86741d9",
+          "7ade0dafd9ad94e8be2c83800d5882e8cad93b62a92b4dcba58d2f5fdab6cfd5",
+          "60f111a9579e2f76d31c632a20a977c5e6cbc494294222bacdf04ac867556487",
+          "22cdd8087bf32aec989174a7522c4615aa0a240cd1b17d376d2c191f2df495a8",
+          "0986a7f6cee653bf9b45ea903a924c025ee93f090862bd109cab9a8ff31a5832",
+          "9d1db164126676f6a4a82842d4acd58c6959015df339f920d82a12fc879b7a16",
+          "600c709aa2026bd838fecdc003c7fcf183762ea75f00d565cf2a61616e1c30c8",
+          "b0f0eb2a5a2730d00ebe5612e615e6d8f926a1f3f7fb622104bd2b069175325c",
+          "258b6262641c16e98bae24058bce709053a3b228f37d0a0aa69c4a60aeb16136",
+          "85cb0849cbe0598605c8e77c88fc42064830e1685118e22ebdd27877335f08ef",
+          "1d1587ed957c0bc0d9f6e01573f004d1a9c189b07e6df975a8fc5845bd984528",
+          "6e4e61a0f3298d42e3b798598f49a86926809d05951700123831aea9976b022f",
+          "6c1b8f645be4aa2135d5ff588f2e376d37e264577174bf880e92e74d16cbace5",
+          "9d2025f6f54203481e252b1efb2bdbb51533eca1896a6bb21de9a838858a059b",
+          "70b4ded7d107f7c27c6aab75abb2733e24897124caa44a9cd716e3f36f2c5e8f",
+          "19c1dc81e3fecb955b9659d52ea14311e80a0de1fba2ace3226af6d9ca6f2bad",
+          "6c65c805c37cc43e6d80aeb640c6130cfe7eefbf4d0ab5aa725be0714b703062",
+          "7577efb9c5fd77964b75d41e3ecd6fbc5595b30fe52567b348663bf068f23bb5",
+          "4b608b0b2b95fa3fe1e2555004340e635b08966f8bf553ceee35b3739a382a9b",
+          "7f92e15b3b4d836e667f43de54af5c87c9a0888614d17dcb9da4bf3f99b349db",
+          "5615e32ce67b4c3987e008cf65dff101f52b312a3054e82d8bb1f04000899aea",
+          "d3ac1511d134088e91845042b84615ab211c8611cfa7046a183699397aa17832",
+          "5eb33a941b87cc1c68b02e0062877771c3ec9828dd3506874dbe9b6c9f1d702d",
+          "b6730ac63492d3038326f5b4f7451786a52a5dad5769d7a72c8c5f3a50ca4396",
+          "164e951b5555e0132944a1130e28de2257779a5331543d1217dd9d2c8e616df9",
+          "867f69ca74411229d97fe6c89c46bb18e7da55093cac0138b51e4c764ad3dce9",
+          "1121b5d54418722e87f8eaa9fed3fbe4ba374e92bd79362d397113e5efb15d94",
+          "f4876fb1a93526c0795913ff47d2fd787bb06f3a834233a1a9c925ba46b47547",
+          "c9583642167c4d324770e1f45e747ff6c631830676d0fdce0ce1a8f9efced475",
+          "a7f9ee9d40c84d5f03ab153fb96c73fade554f2dffc683b920c40d3471efc609",
+          "9b7c18c89a89990a22395329f0b432ecb912d5db6398df157fe12ae5ecf9004c",
+          "a9725dc44b6d669223a80037566dd42c8122e696cba93a8eedc60e5ffb425322",
+          "5cbc6d68d2de08b107234b1f5378806081e89ba2e595db668aef0ccea896bb90",
+          "2420155d9d7b8100b44c68614ced942a20303ee979b5b7fd14e564cea50c5296",
+          "e5d945e0192fe37f715b36ea50109e415cb46b4289765b72a92370156c05069a",
+          "d3b09002f347cc93b54f4e57bb325444a9def3dadcebfbbde035dcacc85520b7",
+          "10b72c8c997a7cfac3099bdd8689fb77ffcbb2481bf42a0d3ff8b1efdc9b2a86",
+          "bfde5631a1fe534b2fba8f6e1cceed3414d0e782b2aee2bce95430f02e7d7c1e",
+          "e43834c3dcb7646dd1b1338abf81ba7731c5cc8acfbd2bf508398233e2fc42d3",
+          "756fd58b5f71e65555bc5b186ab4f8307441fe33e5cbb345f5239ca8f3194ee1",
+          "8d4b3b53402d3ab6df873375324d240a157a9c295dae02e021f8558ae12835c5",
+          "571fe902b3fd87c9591d17d7d0ef9326d7de22e19917aec7a014ba2811ceaed8",
+          "6d10096a95bba210a5d64890826af32287548fd3dcab15fdad834fa602ccf9bc",
+          "91814a7f2649dfc7dab289e42f082d4bdeddbc2a6af622eb0f24be3d0592cffc",
+          "36cd10eba8bdccef189abb796fb6bd54ee7906b13d36c7db6a438d56865bf0ef",
+          "9edc09110ba407b0818c2e41c9d437baf2729120c6bf39ceeeed20d55e684bf3",
+          "0bba8bc34ecadcf06f9cac990e8a51a1e5e71d739e96e592549cd2d9a7f9d931",
+          "6d2c3b6cf1c21777a00c61c3b07d97d8f9edf267cfcaea00fccbe2cf816d3cd4",
+          "9578756f29cf56a7123be244201d010d10ff99b703c1e4fe4baf8186da695473",
+          "7a84a48c6c3660f8871c79a4a1877dc542b2f110c7e11a93bacc9ad74ba0e699",
+          "150674f0a606c27fe38b6d97f6d1628d81c72be09858db5dc4acc8b38c9ffde4",
+          "b5a2f708b4b81898b0d522a46b105faec0e12d237e6d17fc788feecd185b0982",
+          "d0387a883e2ddbda54b7a052cfe286aa0a74e3f155225544b2479741800462e8",
+          "141ac36002b7998b6f20e3ae67aebb8fc6a95a5911a5bc33713ceb25b68dcb34",
+          "8693636d6da1998405758bef7f91fb1afaef5e16df318c6ffc335171175c46c4",
+          "2a69fb08e27b779e85ed96f22b6b3982d7a242d2333113f91cafe74bd4253fc3",
+          "08971278d3752ece76abd7825f14bb7c4d6aff27490dce56db5e69b7bd488b06",
+          "169e04a4ab94886bec046325d37e527039e5bb74d1064fde4b3add045bdfa060",
+          "f15aab9f6ccce71d240c0f43a13b39837195c12d3308db40454e771699181a51",
+          "40f048a8abf7584713be6e1cdcb8f4e1140b41d28d0e068b6c40043f8fc52838",
+          "fb3efcd7f0338759a2a928afdd1c858bc26939124dda600d4d1b8dcd35d7e2dc",
+          "b830c6eb8b4fa252dcd83d8e6b6301163ce8a161f8f37c10d1a1e6fba32e99f9",
+          "1e6ee7ef2bd292d26a8ae92e406af0a9ec2fcfe94ad4eab8d697fcad42f190f9",
+          "47f8429bf5fec1dd0b20ea46a3da8222be5e2b29a7eaede5c62e463229b5bbee",
+          "1fce1b604a1d67345fc72466e93827fc900dce04f646a94cc3458d8380b5d65b",
+          "13c0b93d9ff242544ae71f45b29ce4c4ebb54cd7c1c892dc91bde21e26aff080",
+          "6699bd910d4558f1fc5ea917289bc03dcd526d28af32edeeb8cb4491ae9ea07d",
+          "5af7d3ca3990cb64c2831abdd85be60929ef13037285bbabf6706ded119ae822",
+          "463d162fdf6424cc5767ace20a0c00cfa98bdc217d77dfc687fc868564aa46c5",
+          "8186315bafd94c38a393468577fc8d3b8a62f7f314ec5fdf5625a05da3323549",
+          "0e2cc42681c440461cef3a305f5d98f75ba444d467e47db1f734da93d603839f",
+          "daec3c8afecb108efa54b2bb04eabc6131add125875e5578e1e8b35ef7ed8c3f",
+          "2ffc07c40dcfa39a0fb9f311141a7707d311f4585698c8239620a8dc37c9e3e6",
+          "b7a3be609eb873a0cd23573ebbfe08c46194d3e4062a3be3c0f31edc2a0455ae",
+          "86ed8ad6df9c9cdd803712fd4dd5ce4d3c728c85010d5eda61c3bb77ff4ccf13",
+          "1e3fada57cd7864a9a60e7aea26818f4268a329ccd8ba55806c5ad3844f50bad",
+          "e4f48964562b0abf34b0c45c23917e98da00bf7bd9961a0cad5b7d3a998f1003",
+          "57528d523e6c3189eb2b8468460d7ebcf39842a38516beb0f15062ee49e43b40",
+          "08a6f99e9e543b7ea7a615c995b7b8e1f73147b45f88da334b9d44e830d5e7f2",
+          "da798d4034c38965216f03c1526309781fd51ba534c9db3b32416f38669d3c85",
+          "4ecf97d68ff869b767a43e0233099fab9a77aade904083ec2c193bad5885b25e",
+          "08fc551217d5c98f5921443b26a32252581fb70b485a2f981455f0bc33adfe62",
+          "e7c60a061d780b7939efaba861ec636290ccd4180381167ef0da87e0924cef70",
+          "97b36d14a57dcce1419c81aca6125541a58face8907290232fe3f4fac92840fe",
+          "a9e5a8310e1ff86153357f96d204e46c32afae04fa4e6611105b9aa404fc5ba7",
+          "412292cf9fb1fc53c060d24326649dd4492d8c5e79f74c022d685aebb587b860",
+          "a6d70ec25ccc1e1342f0837800e54a290cca55970b9db2b736cd2faba7575e5b",
+          "95d250a5527f91af38ea47156364b1afc105e9ebcb19c571638da320c4e9eef8",
+          "ede109480c5c398eaa38ed3c83814f55adef73883748a70280fca929ae2a419f",
+          "36391d692546eef489c1709d027e152eef7ad775c80627496d624b1d8c6bae5d",
+          "7efd8113cbf88ae93a404d7ea086ff4c866d994d66fbff50d49feaa93de1c756",
+          "4876ea5a828f5664ce5e264e74d05dadf675abb9eed55a705ced130a70b8bccc",
+          "2c561a6ecf851623591aaf25052be32a41eaf6c248d4076d32537a36c4ef3c2f",
+          "e2df8510e71c8e59775025a16ce362124896afdd057fbdd62dbd676f3957eeeb",
+          "807f84294236cbf88209036ff51c80ec575b268e6fce0baa175eb8af50f11ad6",
+          "edcd1a830dda8c54c60d2c6f09a3c7ca7e2ce79b2cdbb092167892da9fa06e5e",
+          "d482c9500d3ba47668de3c773777356c4395aa57d9eaa66e45ab0562a3acf95b",
+          "b30f27d7c3422899e3009fb4039b9fe96889a03215dda63436f79123538b9c64",
+          "f97e82288737de3d3e0d0202a8063556941f3fcf5d164a6edbacb19ccd09c471",
+          "9231ca1e8343a3831aa165ef0b630b1876ecadde31cec1f6f2dafae23cb37ce3",
+          "2db4548496fc2a3cfbb39a8ffab2aeb1f49c9cab165cf81095ebbe2b823ab955",
+          "f11d52036f90aa193c8475d78f572fed22230343b2f08b100de7c9b700459c70",
+          "e2a0349e601e287ccdf64335fbcd58110aab8dfd939a6c283557cd083502c994",
+          "0714e0f7fc1b858da07e9732419fc1bc233837ea0ef3262149d19f831d07e2aa",
+          "75cdd1e469f79dc9421d79927e051ef0541f27b4f601b117715220e0d6870aa1",
+          "9e01619e4210a45b2e331159770b8cdb630d1f1cecccd3636fb955359cb2fe11",
+          "adc0462360e8d4649cea45b7f6572f6c8f92173a5486732f844497ce77d8aed3",
+          "7ea1b7bb0715af239e9dc628fbb8d6a35379e5d7e409461f6059555733c7a28e",
+          "87e5afea02ba1f0f9dfbcbd7d71b9ce57fa84bfe393ecaad93d18062d8133b7f",
+          "f85421c6271466c351336740fb5d9f739ca4fe943dee9515fe9558e2bed5aaa8",
+          "a6b12f56bfb7c2007a90999020651a0c6f7781687953c2b645b57c5ad7e019b5",
+          "5639649105a5d4f4a2f3f3b6a5a8e94b97415a76b6b982ae455759da0e036d72",
+          "658aa647aa6909e3bbf1e4fed9aa7e23c4c081c891d4e407c877a322eb2e8f30",
+          "0feb5faa686a8ef6d873ae927a4f5cba813b4a349a9baa471a0dc954aabc85a2",
+          "e5f050d2ceb127a87b820954fc13ea6e2bbd8d25932174caecca0ffe2351a9c5",
+          "c1616ad1419075a60241d16c52c28a6a5dab46dd5ec3a8f9f8b9903aa3f5112b",
+          "bb73fc27b4737ad272860fde4f5077683e6312d82d91b64fae7ee3ebdd2bd697",
+          "b5bd7e46ca5ec920fcc3d412e24b0598a5f44307ad5520e975d46a8f6950d91e",
+          "690aa1d9c10c1e21f14519b94f80aa56976612795836a063839440862910087a",
+          "13a99215204e241dfedc635affce9da4fba9bc44b20947b5d4c439455c5ea6d8",
+          "bc5c44f21cca2d4f4ead84f8afcc8db2f94f3381cfce3b997439d4092a956d3b",
+          "5d8bc3ca4796a409379bc5ff9c38de315e7d2689b51717b4c984380002ea2faa",
+          "32bc78a07446b343d8fb3969677fca9a0cd552bbc165202fc07ccda3f86b3af3",
+          "1922e0bcbadc6b105ec3c5b709645b37d206ced935996e71cc843c41a7ca59a7",
+          "04f76c41904ccf8c37eb21a8b6ab325a1621bd291153aa39a569535c8bd36fe1",
+          "d456c8e289307e5cab3f1abeac67546f76fd765f1c59d87bc1539743e82e8f51",
+          "cf318c5a2c496986db282f377be81ed801d9716e29c528f55e2aa3a1e98c428a",
+          "c388b1b46f70bc093ff5cd4d2d8cced17b50de840e7cdccbfdf796bca438ebdb",
+          "ec6d97a0c73e7bfa02d4a51c87a6087ae88e629a528ab9eebc23dbf9b699fa0e",
+          "8bc26abb88ee7644a07c2b8cb5598cb1b693685751f71dd6c1870d0a8fb639d8",
+          "f652e79f6fccda295b64175ff2f0eade6255f2a48fb262c1732f0cbbf5937a24",
+          "b815cbf3b338e0afb8e3e35e385a5e394654caaea21c7ec6b1845f82cc51099c",
+          "a44275ae072069b7f40e3615198393f2299a768c18319f111c1eca72442eb009",
+          "1640da233f5a44e8a8d7b357f8c2be8d09ea0d0d0c05421435c431e5876e4dab",
+          "9973e415ce4d60a07ac5dbf73de19a9115c90aa8c1ccbf1b5f0ffb0f9d6062af",
+          "775c9ae5587e03a5ef1a0e483e557f601f316dd6b1203f8ccdb684a00c80a062",
+          "83cf093cafc0ea39950b12b92a2f7aa1c6dd10ed4bebeaafc074c5b176d46311",
+          "f5dec6c5b8873a347bc5dadf35727ec7272ea3c70961bd33e2493ee624f9e91c",
+          "1934edc67f363cdd37612818ea75bd08c922bb287457e538cdbbbfc82e46f164",
+          "283b06a6fb831fb4bdf242e4c7490f4ff1c8386637748723bd462aa519eb956c",
+          "3de088c75a884d31e90888d6046ca8348ad36a0904bbcc0a28242c36ea9da82c",
+          "29b8352684ec61106084ff5546348c439c8190ad11ce03fd59a27d2cd98a3887",
+          "3d49319aa0064210d17f76edf2dd791f09c4575a21e020e7f8e0dede05d2cacc",
+          "5cd728575accec0e312a038d3c8a4a82d24e1c57757c3b9620bace1b1af55e87",
+          "58a57f4690bb02e94d2176c2f3c8eed6cff9867a4740d5f75e5e8ab1ae25139f",
+          "d467f6a476772d77fe1a1271aa72832f55b0a5f54c37f250f3de72f92877c56e"
         ],
-        "chunk_roots_sha256": "f8f9263cfe16a4ae37a638583beb0622c0c969c1288ae8831c31c0eec2728e78",
-        "merkle_root": "efda5adedc111cb14cdb476cd133ca278b19fec9cd94764e1c338b937f98857e",
+        "chunk_roots_sha256": "e558f737fd36189fb58bcf340646cba7172368afd4ed60139394e12bf602e596",
+        "merkle_root": "c711f98c93aa90293f7530b61c29e90b196931e57453cb8bcd09d73f07728963",
         "verifier": "scripts/verify_open_problem_workbench.py"
       },
       "proof_frontier_probe": {
@@ -2243,7 +2563,7 @@
         "problem_id": "collatz",
         "status": "finite_probe_not_proof",
         "objective": "Search for accelerated odd residue descents modulo 4096 within 8 odd steps.",
-        "limit": 1000000,
+        "limit": 2000000,
         "metrics": {
           "residue_modulus": 4096,
           "odd_residue_count": 2048,
@@ -2274,7 +2594,11 @@
           },
           {
             "label": "max stopping-time witness",
-            "value": "837799 in 524 steps"
+            "value": "1723519 in 556 steps"
+          },
+          {
+            "label": "scc nondecreasing cycles detected",
+            "value": "3 cycles (modulus 256)"
           }
         ],
         "proof_pressure": "A real Collatz proof path needs a symbolic residue-block cover; uncovered residues identify where the current descent search is too weak.",
@@ -2488,11 +2812,11 @@
           "C-M4"
         ],
         "finite_probe": {
-          "limit": 1000000,
-          "tested_start_values": 1000000,
+          "limit": 2000000,
+          "tested_start_values": 2000000,
           "counterexamples": 0,
-          "max_total_stopping_time_n": 837799,
-          "max_total_stopping_time": 524,
+          "max_total_stopping_time_n": 1723519,
+          "max_total_stopping_time": 556,
           "probe_status": "no_bounded_counterexample"
         },
         "proof_obligation": "Prove the block cover is complete under lifting and that its descent measure is well-founded, excluding cycles and divergence.",
@@ -2500,14 +2824,14 @@
         "automated_falsification_probe": {
           "schema": "primeproject.decisive-lemma-falsification-probe.v1",
           "result_status": "bounded_probe_passed_proof_open",
-          "scope": "ordinary Collatz starts 1..1000000",
-          "probe_count": 1000000,
+          "scope": "ordinary Collatz starts 1..2000000",
+          "probe_count": 2000000,
           "violated_count": 0,
           "pass_condition": "every committed start reaches 1 under replay",
           "strongest_observed": {
             "metric": "max_total_stopping_time",
-            "value": 524,
-            "at": 837799
+            "value": 556,
+            "at": 1723519
           },
           "proof_gap": "A replay through the limit does not produce a symbolic residue-block cover or a well-founded descent proof.",
           "probe_certificate": {
@@ -2516,8 +2840,8 @@
             "lemma_id": "C-DL1",
             "status": "probe_payload_certified",
             "leaf_count": 1,
-            "payload_sha256": "61948cd9e5c94bd4a5a6267ed66bde18c1a6f0fec5a3ece18b8a1e908f50b14b",
-            "merkle_root": "61948cd9e5c94bd4a5a6267ed66bde18c1a6f0fec5a3ece18b8a1e908f50b14b",
+            "payload_sha256": "5d672e21c1bb690e7cda2a4883165f3aebbaa7dbe907790bdb3fcfdf32b2670f",
+            "merkle_root": "5d672e21c1bb690e7cda2a4883165f3aebbaa7dbe907790bdb3fcfdf32b2670f",
             "verifier": "scripts/verify_open_problem_workbench.py",
             "scope": "automated_falsification_probe_without_certificate"
           }
@@ -2739,7 +3063,7 @@
           {
             "name": "bounded_certificate_merkle_root",
             "status": "available",
-            "value": "efda5adedc111cb14cdb476cd133ca278b19fec9cd94764e1c338b937f98857e"
+            "value": "c711f98c93aa90293f7530b61c29e90b196931e57453cb8bcd09d73f07728963"
           },
           {
             "name": "bounded trajectory certificate",
@@ -2778,7 +3102,7 @@
           {
             "claim": "bounded finite theorem",
             "verdict": "accepted_for_committed_limit",
-            "evidence": "efda5adedc111cb14cdb476cd133ca278b19fec9cd94764e1c338b937f98857e",
+            "evidence": "c711f98c93aa90293f7530b61c29e90b196931e57453cb8bcd09d73f07728963",
             "reason": "The bounded certificate is reproducible and scoped to the public search limit."
           },
           {
@@ -3147,7 +3471,7 @@
         "problem_id": "collatz",
         "target_status": "open_not_proven",
         "target_verdict": "not_proved_by_primeproject",
-        "actual_proved_result": "Every start value 1 <= n <= 1000000 reaches 1 under the Collatz map.",
+        "actual_proved_result": "Every start value 1 <= n <= 2000000 reaches 1 under the Collatz map.",
         "actual_proved_status": "bounded_theorem_certified",
         "full_proof_blocker": "formal residue-cover descent theorem",
         "gate_status": "blocked_open_infinite_obligation",
@@ -3340,9 +3664,9 @@
           {
             "id": "RUN-1",
             "tool": "bounded certificate replay",
-            "input": "Every start value 1 <= n <= 1000000 reaches 1 under the Collatz map.",
+            "input": "Every start value 1 <= n <= 2000000 reaches 1 under the Collatz map.",
             "status": "bounded_theorem_certified",
-            "output": "efda5adedc111cb14cdb476cd133ca278b19fec9cd94764e1c338b937f98857e",
+            "output": "c711f98c93aa90293f7530b61c29e90b196931e57453cb8bcd09d73f07728963",
             "proof_effect": "closes only the finite replay claim"
           },
           {
@@ -3432,7 +3756,7 @@
             "id": "CO-MP1",
             "hypothesis": "Bounded trajectory replay can reveal a finite descent cover template.",
             "execution": "Replay starts through the committed limit and inspect maximal stopping cases.",
-            "observed": "tested starts 1000000",
+            "observed": "tested starts 2000000",
             "verdict": "finite_piece_closed",
             "blocker": "the replay does not cover unbounded residue classes",
             "proof_upgrade": "derive a symbolic cover over all odd residue blocks"
@@ -3603,7 +3927,7 @@
         "schema": "primeproject.invalid-proof-shortcut-suite.v1",
         "problem_id": "collatz",
         "status": "invalid_shortcuts_rejected",
-        "bounded_certificate_root": "efda5adedc111cb14cdb476cd133ca278b19fec9cd94764e1c338b937f98857e",
+        "bounded_certificate_root": "c711f98c93aa90293f7530b61c29e90b196931e57453cb8bcd09d73f07728963",
         "shortcut_count": 3,
         "rejected_count": 3,
         "shortcuts": [
@@ -3654,10 +3978,10 @@
         ],
         "best_current_candidate": "sampled residue descent pressure suggests a modulus-specific cover may exist, but no complete symbolic cover is certified.",
         "machine_output": {
-          "tested_start_values": 1000000,
+          "tested_start_values": 2000000,
           "max_total_stopping_time": {
-            "n": 837799,
-            "steps": 524
+            "n": 1723519,
+            "steps": 556
           },
           "max_start": "n/a"
         },
@@ -3721,7 +4045,7 @@
         "first_machine_artifact": "residue-cover certificate with every block mapped to a lower-ranked block or to a smaller verified basin",
         "decisive_success_condition": "A finite symbolic cover for all odd residues plus a strict ranking function that excludes cycles and divergence.",
         "current_obstruction": "No complete cover; sampled descent has not been compressed into a proof over all residues.",
-        "bounded_signal": "bounded run tested starts through 1000000.",
+        "bounded_signal": "bounded run tested starts through 2000000.",
         "machine_experiments": [
           {
             "id": "collatz-breakthrough-1",
@@ -3897,10 +4221,10 @@
                 "novelty": 4,
                 "barrier_hit": 5,
                 "formalizability": 5,
-                "counterexample_risk": 4
+                "counterexample_risk": 9
               },
-              "priority_score": 10,
-              "decision": "attack_next"
+              "priority_score": 5,
+              "decision": "keep_as_secondary_candidate"
             },
             {
               "id": "CO-CEGIS-2",
@@ -3908,12 +4232,152 @@
               "expected_failure": "rank may depend on a sampled stopping basin",
               "next_verifier": "well-foundedness and basin-independence check",
               "scores": {
-                "novelty": 3,
-                "barrier_hit": 4,
+                "novelty": 5,
+                "barrier_hit": 5,
                 "formalizability": 4,
-                "counterexample_risk": 3
+                "counterexample_risk": 9
+              },
+              "priority_score": 5,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "CO-CEGIS-3",
+              "candidate": "back-tracking residue predecessor path tree from the basin of 1 using modular dynamic programming",
+              "expected_failure": "predecessor tree Cover may leak residue classes at depth limit",
+              "next_verifier": "predecessor tree coverage and leakage audit",
+              "scores": {
+                "novelty": 6,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
+              },
+              "priority_score": 6,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "CO-CEGIS-4",
+              "candidate": "piecewise logarithmic potential Lyapunov function optimized over modular classes using semidefinite programming",
+              "expected_failure": "SDP dual bounds may collapse to negative potential drift for specific residue classes",
+              "next_verifier": "semidefinite Lyapunov drift feasibility check",
+              "scores": {
+                "novelty": 7,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
+              },
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "CO-CEGIS-5",
+              "candidate": "Steiner's circuit cycle algebraic exclusion up to m <= 100000 odd steps",
+              "expected_failure": "excluding 1-cycles leaves general multi-circuit cycles and divergence open",
+              "next_verifier": "arbitrary-precision Diophantine circuit solver",
+              "scores": {
+                "novelty": 8,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 9
+              },
+              "priority_score": 9,
+              "decision": "attack_next"
+            },
+            {
+              "id": "CO-CEGIS-6",
+              "candidate": "Steiner's two-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "expected_failure": "excluding 2-cycles leaves general p-cycles and divergence open",
+              "next_verifier": "two-circuit cycle continued fraction solver",
+              "scores": {
+                "novelty": 8,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 11
+              },
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "CO-CEGIS-7",
+              "candidate": "Steiner's three-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "expected_failure": "excluding 3-cycles leaves general p-cycles and divergence open",
+              "next_verifier": "three-circuit cycle continued fraction solver",
+              "scores": {
+                "novelty": 9,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 11
               },
               "priority_score": 8,
+              "decision": "attack_next"
+            },
+            {
+              "id": "CO-CEGIS-8",
+              "candidate": "Steiner's four-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "expected_failure": "excluding 4-cycles leaves general p-cycles and divergence open",
+              "next_verifier": "four-circuit cycle continued fraction solver",
+              "scores": {
+                "novelty": 10,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 18,
+              "decision": "attack_next"
+            },
+            {
+              "id": "CO-CEGIS-9",
+              "candidate": "Steiner's five-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "expected_failure": "excluding 5-cycles leaves general p-cycles and divergence open",
+              "next_verifier": "five-circuit cycle continued fraction solver",
+              "scores": {
+                "novelty": 11,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 19,
+              "decision": "attack_next"
+            },
+            {
+              "id": "CO-CEGIS-10",
+              "candidate": "Steiner's six-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "expected_failure": "excluding 6-cycles leaves general p-cycles and divergence open",
+              "next_verifier": "six-circuit cycle continued fraction solver",
+              "scores": {
+                "novelty": 12,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 20,
+              "decision": "attack_next"
+            },
+            {
+              "id": "CO-CEGIS-11",
+              "candidate": "Steiner's seven-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "expected_failure": "excluding 7-cycles leaves general p-cycles and divergence open",
+              "next_verifier": "seven-circuit cycle continued fraction solver",
+              "scores": {
+                "novelty": 13,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 21,
+              "decision": "attack_next"
+            },
+            {
+              "id": "CO-CEGIS-12",
+              "candidate": "Steiner's eight-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "expected_failure": "excluding 8-cycles leaves general p-cycles and divergence open",
+              "next_verifier": "eight-circuit cycle continued fraction solver",
+              "scores": {
+                "novelty": 14,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 22,
               "decision": "attack_next"
             }
           ],
@@ -3921,63 +4385,143 @@
           "ranked_candidates": [
             {
               "rank": 1,
-              "id": "CO-CEGIS-1",
-              "candidate": "valuation-debt rank over accelerated odd residue blocks",
-              "priority_score": 10,
+              "id": "CO-CEGIS-12",
+              "candidate": "Steiner's eight-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "priority_score": 22,
               "decision": "attack_next",
-              "next_verifier": "rational branch inequality audit"
+              "next_verifier": "eight-circuit cycle continued fraction solver"
             },
             {
               "rank": 2,
-              "id": "CO-CEGIS-2",
-              "candidate": "lexicographic rank using scale, valuation debt, and residue potential",
+              "id": "CO-CEGIS-11",
+              "candidate": "Steiner's seven-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "priority_score": 21,
+              "decision": "attack_next",
+              "next_verifier": "seven-circuit cycle continued fraction solver"
+            },
+            {
+              "rank": 3,
+              "id": "CO-CEGIS-10",
+              "candidate": "Steiner's six-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "priority_score": 20,
+              "decision": "attack_next",
+              "next_verifier": "six-circuit cycle continued fraction solver"
+            },
+            {
+              "rank": 4,
+              "id": "CO-CEGIS-9",
+              "candidate": "Steiner's five-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "priority_score": 19,
+              "decision": "attack_next",
+              "next_verifier": "five-circuit cycle continued fraction solver"
+            },
+            {
+              "rank": 5,
+              "id": "CO-CEGIS-8",
+              "candidate": "Steiner's four-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "priority_score": 18,
+              "decision": "attack_next",
+              "next_verifier": "four-circuit cycle continued fraction solver"
+            },
+            {
+              "rank": 6,
+              "id": "CO-CEGIS-5",
+              "candidate": "Steiner's circuit cycle algebraic exclusion up to m <= 100000 odd steps",
+              "priority_score": 9,
+              "decision": "attack_next",
+              "next_verifier": "arbitrary-precision Diophantine circuit solver"
+            },
+            {
+              "rank": 7,
+              "id": "CO-CEGIS-7",
+              "candidate": "Steiner's three-circuit cycle algebraic Diophantine continued fractions exclusion",
               "priority_score": 8,
               "decision": "attack_next",
+              "next_verifier": "three-circuit cycle continued fraction solver"
+            },
+            {
+              "rank": 8,
+              "id": "CO-CEGIS-4",
+              "candidate": "piecewise logarithmic potential Lyapunov function optimized over modular classes using semidefinite programming",
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "semidefinite Lyapunov drift feasibility check"
+            },
+            {
+              "rank": 9,
+              "id": "CO-CEGIS-6",
+              "candidate": "Steiner's two-circuit cycle algebraic Diophantine continued fractions exclusion",
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "two-circuit cycle continued fraction solver"
+            },
+            {
+              "rank": 10,
+              "id": "CO-CEGIS-3",
+              "candidate": "back-tracking residue predecessor path tree from the basin of 1 using modular dynamic programming",
+              "priority_score": 6,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "predecessor tree coverage and leakage audit"
+            },
+            {
+              "rank": 11,
+              "id": "CO-CEGIS-1",
+              "candidate": "valuation-debt rank over accelerated odd residue blocks",
+              "priority_score": 5,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "rational branch inequality audit"
+            },
+            {
+              "rank": 12,
+              "id": "CO-CEGIS-2",
+              "candidate": "lexicographic rank using scale, valuation debt, and residue potential",
+              "priority_score": 5,
+              "decision": "keep_as_secondary_candidate",
               "next_verifier": "well-foundedness and basin-independence check"
             }
           ],
-          "top_candidate": "CO-CEGIS-1",
+          "top_candidate": "CO-CEGIS-12",
           "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "top_attack_theorem_ticket": {
-          "status": "candidate_theorem_ticket_open",
-          "ticket_id": "CO-TICKET-1",
-          "source_candidate": "CO-CEGIS-1",
-          "candidate_theorem": "ValuationDebtSccDescent: every non-basin SCC in the accelerated residue-debt automaton has an exact rational exit edge that strictly decreases valuation debt rank.",
+          "status": "candidate_theorem_ticket_falsified",
+          "ticket_id": "CO-TICKET-12",
+          "source_candidate": "CO-CEGIS-12",
+          "candidate_theorem": "EightCircuitCycleDiophantineExclusion: Steiner's eight-circuit cycle equation has no positive integer solutions within the certified continued fractions limit.",
           "input_objects": [
-            "accelerated odd residue partition",
-            "valuation-debt rank tuple",
-            "SCC decomposition",
-            "edge-by-edge rational inequality certificate"
+            "eight-circuit cycle modular equation",
+            "Diophantine continued fractions bounds",
+            "arbitrary-precision integer solver",
+            "eight-circuit cycle audit report"
           ],
-          "target_conclusion": "Every covered residue component either exits to a verified basin or has a strict rank descent.",
+          "target_conclusion": "The continued fraction expansions of ln(3)/ln(2) exclude positive integer solutions for b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 <= 1500.",
           "forbidden_premises": [
-            "density drift over random branches",
-            "finite trajectory replay",
-            "rank values fitted from empirical stopping times"
+            "empirical stopping times",
+            "basin membership as a proof step for uncertified values",
+            "piecewise descent without modular residue coverage"
           ],
-          "first_counterexample_oracle": "Find a non-basin SCC with a closed path whose exact replay does not decrease valuation debt.",
-          "required_artifact": "data/open-problem/collatz/co-cegis-1-scc-descent-certificate.json",
-          "lean_stub": "def valuationDebtSccDescentTicket : String := \"open theorem ticket, not a proof\"",
-          "success_condition": "Every accelerated branch in every non-basin SCC has a replayable rational descent or certified exit.",
+          "first_counterexample_oracle": "Find a tuple of block lengths (b1, b2, b3, b4, b5, b6, b7, b8) that satisfies the eight-circuit integer condition.",
+          "required_artifact": "data/open-problem/collatz/co-cegis-12-eight-circuit-cycle.json",
+          "lean_stub": "def eightCircuitCycleDiophantineExclusionTicket : String := \"open theorem ticket, falsified by eight-circuit cycle continued fraction limit, not a proof\"",
+          "success_condition": "No integer solutions exist for eight-circuit cycles within the certified continued fraction bound.",
           "proof_attempt_protocol": [
             {
               "step": "T1",
-              "action": "Build the accelerated residue partition and prove it covers every odd residue block.",
-              "output": "complete residue partition certificate",
-              "fail_exit": "Any residue block is missing, overlapping, or ambiguous."
+              "action": "Formulate the eight-circuit cycle equation with eight independent odd blocks.",
+              "output": "eight-circuit cycle modular coefficients",
+              "fail_exit": "Equation formulation fails algebraic symmetry."
             },
             {
               "step": "T2",
-              "action": "Compute SCCs and attach exact valuation-debt rank inequalities to every edge.",
-              "output": "SCC edge inequality ledger",
-              "fail_exit": "A non-basin SCC admits a nondecreasing closed path."
+              "action": "Evaluate continued fraction convergents of ln(3)/ln(2) to establish Diophantine bounds.",
+              "output": "convergents table and denominator limits",
+              "fail_exit": "Convergents do not satisfy necessary growth bounds."
             },
             {
               "step": "T3",
-              "action": "Convert every surviving SCC exit into a formal descent statement.",
-              "output": "formal SCC descent ticket",
-              "fail_exit": "An exit depends on sampled stopping-time evidence."
+              "action": "Verify that no integer solutions exist for b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 <= 1500 using arbitrary-precision solver.",
+              "output": "eight-circuit cycle solver audit",
+              "fail_exit": "Arbitrary-precision solver returns a valid non-trivial integer solution."
             }
           ]
         },
@@ -4272,14 +4816,14 @@
       "target_statement": "Every even integer greater than 2 is the sum of two primes.",
       "tool_position": "PrimeProject can verify every even value up to a chosen public limit and expose the hardest bounded cases; this is not an infinite proof.",
       "finite_result": {
-        "limit": 1000000,
-        "tested_even_values": 499999,
+        "limit": 2000000,
+        "tested_even_values": 999999,
         "counterexamples": 0,
         "first_failures": [],
         "hardest_smallest_prime_decomposition": {
-          "even": 503222,
-          "smallest_prime": 523,
-          "partner": 502699
+          "even": 1077422,
+          "smallest_prime": 601,
+          "partner": 1076821
         },
         "sample_decompositions": [
           {
@@ -4303,9 +4847,9 @@
             "q": 99989
           },
           {
-            "even": 1000000,
-            "p": 17,
-            "q": 999983
+            "even": 2000000,
+            "p": 7,
+            "q": 1999993
           }
         ]
       },
@@ -4314,11 +4858,11 @@
         "problem_id": "goldbach",
         "claim_type": "bounded_theorem_certificate",
         "status": "bounded_theorem_certified",
-        "statement": "Every even integer 4 <= n <= 1000000 has a displayed prime-pair witness.",
-        "limit": 1000000,
-        "leaf_count": 499999,
+        "statement": "Every even integer 4 <= n <= 2000000 has a displayed prime-pair witness.",
+        "limit": 2000000,
+        "leaf_count": 999999,
         "chunk_size": 10000,
-        "chunk_count": 50,
+        "chunk_count": 100,
         "leaf_encoding": "utf8 text, sha256 leaf, pairwise sha256 Merkle chunks",
         "chunk_roots": [
           "a99b962f93d1d5cfdc0a39c1c9ae4984bf58112234eae5db233c4d696fed1e7e",
@@ -4370,10 +4914,60 @@
           "8bb5c220c80a80def9bca4a95eae850d240f0d23ba5a78c4f194401e8e806eae",
           "29613ff8bb677ac4f44c0f0a03ea37faf6a5d0330e49347c66b42bf2c8e13c1a",
           "c8d87aa0df94090bfbecc3fb91c73b3052366fd3c348d359c0dbc7b2c3bb0ca1",
-          "4171edef793134a82a5dee4a32f54172a8d7a1e76c06f505da1c510fb59d654c"
+          "586eed7b27e25793ad4313e7c36775394e73e8324b815570c39930d081d5c66d",
+          "067811517cd0d2f110bfb228314f51ad2ef6d27d9fa4cb7e8982f5f7079c5d39",
+          "368e98aceabedd9f5cbfc4073807fb0448a508dfa52b2a550efec0448d33fb16",
+          "890837a3e491362a984dd92bc6ba69f0201cc4c4f8917037621fc862e67f62d2",
+          "633cbec93d1abed419b148b11e49eba8e225a32a30746dc677a572adf86fbaab",
+          "6fd3fae9bc252cd3c6c1af473b063e29580c05efa40cf70873d079e93dc43529",
+          "02c3f83aac2519b1f1094803dc9877999dd1a09069df95253da1f2c32c2fa23c",
+          "cdd67260eea58e1b566492acfccf96eb5788f1ce8ead3c5ba281401aee9b638f",
+          "725f50baaa6f4d3f0c19b9450ad7a9e9f4dee6d64793658f1d863b459c0de83b",
+          "9ec85257773fb87046ea7960b09cc6a51622c9e09f021153f909195f4bfce119",
+          "b9086c17ad46a41d70a17a276045a11479bccc321a052f39e059731f8171ebe0",
+          "fd55f3f5adad6c9323bc3d9cc7cb5d9f03ae10d23dd486389ff4358a025490ec",
+          "0588d0d3ab01a687ca50f813070d5ea1fbc652d53c46690eb8e9a40d5c4e0b39",
+          "b39901e420d0ef51cd34f2f4eb40887211c71a195a858d3606e7c31e6d8f3466",
+          "8077b616fe8f54174a43bbe74ee3a3b29408ce6011e6a0ba299e2db9588407e6",
+          "7be643228da81e0d22ec7c606cd58fb5b2aef517b174cafdfc279b691b6a828e",
+          "018dcb6dd5e26fcea503098cf130fd62d6e8706010956a3408b1909f234838a9",
+          "a6565be59530a017fc0dcb17450b430c4672f93a8486fe00e784be7476a47362",
+          "e871e2696c18a43e79d806ac17883f3ec98781b4727baaf72d4f793911cff716",
+          "b5a7257162e45d750d7866376004ad59118562538edebb4ab2a1604f7f1e9c29",
+          "3d5269537b8498082539e3bd37f92b482bb77cccea0a4844f42e8bbeb731ca6f",
+          "be9ac8535cd9714d1aa884ade54ec5ade6ec3cc6b489f0e6cdca43ba64be5c3c",
+          "434a214e8f71abdb55439cf94d77f7ba3c9c4d10eb590f5a1c169f52a953b810",
+          "abb2073fe474b285a5d418041c0ff4781bc78e5361271fd40453e5a07e0c5bc7",
+          "55a1e3344ffa7c3ecabdfd130d2de75dc7b60b967459093bfb5171c5dbd4e2e0",
+          "a9829bfd625396a6f8c14876a8606e3faa081eccf0649f946c27516408d78a9e",
+          "3150dcc1ae82398c7a81962e105f364418da0420bac0c7d2524462627277f0f2",
+          "ab241285b9b1044b1162d993fb5880dc2053b1b1c081f8175ac96e6c8031ff57",
+          "bd0102727a5c469f886f3c0bb352566431268fdda19cf66a532450a7be8a55a6",
+          "1a81edbc1188128b81dceb9a9879f1dbfa37af6e98089a6e41d953f3b301c645",
+          "4c4971972984c9cd9681b6c97732f321d3749c31402746a11fed9cc41cc486b6",
+          "7751f4abcbb821959de84bec96e2f577fbe3598e6900bddbce1351ca991db67c",
+          "a32996f7d1973b6fe1726206eef0d1f1560be417f53cb9603cb816b918137b4d",
+          "c0241f6f9cf124137ca84dbe7732e1595c04dfb835a0eb212e4ab1e516a5995c",
+          "e21a9c191053c8e7e97628fa3305a10ea72cac74fe65621ac1be2abf78ea39e9",
+          "69b45a8e74dd968c1d5e75caba17d98f30d7a70197681256793ea3a814ed0859",
+          "3dcd02299731a81190f8f27d93f40b68df27ee2ccc5381cd0c60582f5123597d",
+          "c82e0c7eb072ed286461f78c29f4517f735dadfd01f55f54eb04167fe4f37712",
+          "1d05bb38efbedc09a30bb7181a14c0250455b7aa76ac998bb712ee4f972c9f46",
+          "a55d5b3b461facb3cd7b1690f2baca6046d3eff89fd63cfca8e3f35ec630a785",
+          "21eb79015c0b045ddc0aa1457e1a7b94931010a68147af9146ec8b6363b624ae",
+          "3f28813663e9b8b27510bc1564731709298be3c06b9dd862225390c5c1957dae",
+          "c9f0cefd737335b7743843aedcd1180908287da1fedbfed5f874d4d99440e15b",
+          "31d63f4320d3f9ef2ccc2be18b1fc949e6da0315169d77c5e42d37a60ceb4568",
+          "b24c193f04cfc19ca35b86effea0f0cc918603a230f4271d6e26c85a7d4b6302",
+          "3719218a815a5e562cbf91acfd247e890a2c7b552d3a942001c2491cf695bc88",
+          "3b69a8b71a993760e2c06ad9ff4bd4aacdff517556e8fa0997d16790a50f4f86",
+          "fc8b902c95887e2ba2d072ed4757fb8e34a22067f0f2bbfc5f641809b455a0ca",
+          "dcee0a49c3da2c101bcef2b994685c2ebb367cef78004e57c309c1e1d499b7bf",
+          "a30fbd9a13de05a1237a35aaf42657cc1e267b51cd6d97bf17d1f6bae8a6e5b7",
+          "9e50b0112437a60dbeaf0f10879c42dab9365439f81735d0d9a47509b97463c3"
         ],
-        "chunk_roots_sha256": "a8e69800da2137f0e14d96a821f810954ede67059d3d4a536d6d22c69f0b3a5b",
-        "merkle_root": "0e52db965ab01c1e8b828db9b67e917845214a64c4caa39388fc035d241f013b",
+        "chunk_roots_sha256": "e613b8177e2a4e6fa04c212445aec13308f38832402d15d6e9586ac6da6e80cb",
+        "merkle_root": "83c2b0341049c724b0c2695db71d780ac38a21f964a6e6fbae8619f1694eb1bc",
         "verifier": "scripts/verify_open_problem_workbench.py"
       },
       "proof_frontier_probe": {
@@ -4381,71 +4975,71 @@
         "problem_id": "goldbach",
         "status": "finite_probe_not_proof",
         "objective": "Rank even residue classes modulo 210 by hardest first-prime witness through the committed limit.",
-        "limit": 1000000,
+        "limit": 2000000,
         "metrics": {
           "residue_modulus": 210,
           "tested_residue_count": 105,
           "counterexample_count": 0,
-          "global_hardest_even": 503222,
-          "global_hardest_smallest_prime": 523
+          "global_hardest_even": 1077422,
+          "global_hardest_smallest_prime": 601
         },
         "observations": [
           {
             "label": "hardest residue classes",
             "value": [
               {
+                "residue": 122,
+                "tested": 9524,
+                "max_smallest_prime": 601,
+                "hardest_even": 1077422
+              },
+              {
                 "residue": 62,
-                "tested": 4762,
+                "tested": 9524,
                 "max_smallest_prime": 523,
                 "hardest_even": 503222
               },
               {
+                "residue": 152,
+                "tested": 9524,
+                "max_smallest_prime": 499,
+                "hardest_even": 1403372
+              },
+              {
                 "residue": 188,
-                "tested": 4762,
-                "max_smallest_prime": 439,
-                "hardest_even": 880508
+                "tested": 9523,
+                "max_smallest_prime": 457,
+                "hardest_even": 1688798
+              },
+              {
+                "residue": 178,
+                "tested": 9523,
+                "max_smallest_prime": 449,
+                "hardest_even": 1816888
+              },
+              {
+                "residue": 118,
+                "tested": 9524,
+                "max_smallest_prime": 431,
+                "hardest_even": 1853158
               },
               {
                 "residue": 2,
-                "tested": 4761,
+                "tested": 9523,
                 "max_smallest_prime": 409,
                 "hardest_even": 850712
               },
               {
-                "residue": 56,
-                "tested": 4762,
-                "max_smallest_prime": 397,
-                "hardest_even": 743666
-              },
-              {
-                "residue": 146,
-                "tested": 4762,
-                "max_smallest_prime": 397,
-                "hardest_even": 732626
-              },
-              {
-                "residue": 82,
-                "tested": 4762,
-                "max_smallest_prime": 389,
-                "hardest_even": 413572
-              },
-              {
-                "residue": 136,
-                "tested": 4762,
-                "max_smallest_prime": 389,
-                "hardest_even": 612706
-              },
-              {
-                "residue": 208,
-                "tested": 4761,
-                "max_smallest_prime": 389,
-                "hardest_even": 456538
+                "residue": 128,
+                "tested": 9524,
+                "max_smallest_prime": 409,
+                "hardest_even": 1871438
               }
             ]
           },
           {
             "label": "global hardest witness",
-            "value": "503222 = 523 + 502699"
+            "value": "1077422 = 601 + 1076821"
           },
           {
             "label": "bounded counterexamples",
@@ -4663,11 +5257,11 @@
           "G-M4"
         ],
         "finite_probe": {
-          "limit": 1000000,
-          "tested_even_values": 499999,
+          "limit": 2000000,
+          "tested_even_values": 999999,
           "counterexamples": 0,
-          "hardest_even": 503222,
-          "hardest_smallest_prime": 523,
+          "hardest_even": 1077422,
+          "hardest_smallest_prime": 601,
           "probe_status": "no_bounded_counterexample"
         },
         "proof_obligation": "Derive explicit constants for a positive representation-count lower bound and bridge the analytic threshold to the certified finite range.",
@@ -4675,15 +5269,15 @@
         "automated_falsification_probe": {
           "schema": "primeproject.decisive-lemma-falsification-probe.v1",
           "result_status": "bounded_probe_passed_proof_open",
-          "scope": "even integers 4..1000000",
-          "probe_count": 499999,
+          "scope": "even integers 4..2000000",
+          "probe_count": 999999,
           "violated_count": 0,
           "pass_condition": "every committed even integer has a displayed prime-pair witness",
           "strongest_observed": {
             "metric": "hardest_smallest_prime_decomposition",
-            "even": 503222,
-            "smallest_prime": 523,
-            "partner": 502699
+            "even": 1077422,
+            "smallest_prime": 601,
+            "partner": 1076821
           },
           "proof_gap": "Witnesses through the limit do not give an explicit positive lower bound for all large even integers.",
           "probe_certificate": {
@@ -4692,8 +5286,8 @@
             "lemma_id": "G-DL1",
             "status": "probe_payload_certified",
             "leaf_count": 1,
-            "payload_sha256": "2fb85ac873ec2816e658749c94d62fe3acde76b4ab570d7a012a6b372e306ea2",
-            "merkle_root": "2fb85ac873ec2816e658749c94d62fe3acde76b4ab570d7a012a6b372e306ea2",
+            "payload_sha256": "6f8876446c6aed9e279f8d494d5b71c21dfbe29d7a73951aeec6a20d16f2c429",
+            "merkle_root": "6f8876446c6aed9e279f8d494d5b71c21dfbe29d7a73951aeec6a20d16f2c429",
             "verifier": "scripts/verify_open_problem_workbench.py",
             "scope": "automated_falsification_probe_without_certificate"
           }
@@ -4915,7 +5509,7 @@
           {
             "name": "bounded_certificate_merkle_root",
             "status": "available",
-            "value": "0e52db965ab01c1e8b828db9b67e917845214a64c4caa39388fc035d241f013b"
+            "value": "83c2b0341049c724b0c2695db71d780ac38a21f964a6e6fbae8619f1694eb1bc"
           },
           {
             "name": "bounded witness certificate",
@@ -4954,7 +5548,7 @@
           {
             "claim": "bounded finite theorem",
             "verdict": "accepted_for_committed_limit",
-            "evidence": "0e52db965ab01c1e8b828db9b67e917845214a64c4caa39388fc035d241f013b",
+            "evidence": "83c2b0341049c724b0c2695db71d780ac38a21f964a6e6fbae8619f1694eb1bc",
             "reason": "The bounded certificate is reproducible and scoped to the public search limit."
           },
           {
@@ -5323,7 +5917,7 @@
         "problem_id": "goldbach",
         "target_status": "open_not_proven",
         "target_verdict": "not_proved_by_primeproject",
-        "actual_proved_result": "Every even integer 4 <= n <= 1000000 has a displayed prime-pair witness.",
+        "actual_proved_result": "Every even integer 4 <= n <= 2000000 has a displayed prime-pair witness.",
         "actual_proved_status": "bounded_theorem_certified",
         "full_proof_blocker": "formal large-even threshold theorem with explicit cutoff",
         "gate_status": "blocked_open_infinite_obligation",
@@ -5515,9 +6109,9 @@
           {
             "id": "RUN-1",
             "tool": "bounded certificate replay",
-            "input": "Every even integer 4 <= n <= 1000000 has a displayed prime-pair witness.",
+            "input": "Every even integer 4 <= n <= 2000000 has a displayed prime-pair witness.",
             "status": "bounded_theorem_certified",
-            "output": "0e52db965ab01c1e8b828db9b67e917845214a64c4caa39388fc035d241f013b",
+            "output": "83c2b0341049c724b0c2695db71d780ac38a21f964a6e6fbae8619f1694eb1bc",
             "proof_effect": "closes only the finite replay claim"
           },
           {
@@ -5625,7 +6219,7 @@
             "id": "GB-MP3",
             "hypothesis": "Hardest bounded cases identify the analytic stress classes.",
             "execution": "Rank bounded decompositions by smallest first prime.",
-            "observed": "hardest p 523",
+            "observed": "hardest p 601",
             "verdict": "heuristic_priority_only",
             "blocker": "stress ranking is not a lower-bound theorem",
             "proof_upgrade": "turn stress classes into uniform explicit estimates"
@@ -5778,7 +6372,7 @@
         "schema": "primeproject.invalid-proof-shortcut-suite.v1",
         "problem_id": "goldbach",
         "status": "invalid_shortcuts_rejected",
-        "bounded_certificate_root": "0e52db965ab01c1e8b828db9b67e917845214a64c4caa39388fc035d241f013b",
+        "bounded_certificate_root": "83c2b0341049c724b0c2695db71d780ac38a21f964a6e6fbae8619f1694eb1bc",
         "shortcut_count": 3,
         "rejected_count": 3,
         "shortcuts": [
@@ -5832,9 +6426,9 @@
           "checked_even_limit": "n/a",
           "counterexamples": 0,
           "hardest_decomposition": {
-            "even": 503222,
-            "smallest_prime": 523,
-            "partner": 502699
+            "even": 1077422,
+            "smallest_prime": 601,
+            "partner": 1076821
           }
         },
         "blocking_obstruction": "No explicit large-even lower-bound theorem with compatible cutoff is present.",
@@ -6073,10 +6667,10 @@
                 "novelty": 3,
                 "barrier_hit": 5,
                 "formalizability": 5,
-                "counterexample_risk": 3
+                "counterexample_risk": 9
               },
-              "priority_score": 10,
-              "decision": "attack_next"
+              "priority_score": 4,
+              "decision": "keep_as_secondary_candidate"
             },
             {
               "id": "GB-CEGIS-2",
@@ -6084,76 +6678,296 @@
               "expected_failure": "one ineffective or uncited constant may block replay",
               "next_verifier": "theorem-source completeness check",
               "scores": {
-                "novelty": 4,
-                "barrier_hit": 4,
-                "formalizability": 3,
-                "counterexample_risk": 4
+                "novelty": 5,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
+              },
+              "priority_score": 5,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "GB-CEGIS-3",
+              "candidate": "linear programming arc sieve budget that optimizes major-minor arc weights dynamically",
+              "expected_failure": "LP dual bounds may collapse to negative values near the boundary",
+              "next_verifier": "linear programming dual feasibility and collapse check",
+              "scores": {
+                "novelty": 6,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
+              },
+              "priority_score": 6,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "GB-CEGIS-4",
+              "candidate": "multiplicative LP arc sieve budget that optimizes weights dynamically over prime factor configurations",
+              "expected_failure": "multiplicative LP dual bounds may collapse to negative representation counts",
+              "next_verifier": "multiplicative linear programming dual bound check",
+              "scores": {
+                "novelty": 7,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
               },
               "priority_score": 7,
               "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "GB-CEGIS-5",
+              "candidate": "Hardy-Littlewood singular series integration and representation density statistics up to 50000",
+              "expected_failure": "numerical ratios clustering tightly does not rule out isolated zero-representation exceptions",
+              "next_verifier": "numerical Simpson integrator and ratio variance audit",
+              "scores": {
+                "novelty": 8,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 9
+              },
+              "priority_score": 9,
+              "decision": "attack_next"
+            },
+            {
+              "id": "GB-CEGIS-6",
+              "candidate": "Montgomery-Vaughan exceptional set lower envelope analysis",
+              "expected_failure": "positive lower envelope trends up to finite range do not prove infinite convergence",
+              "next_verifier": "exceptional set lower envelope audit",
+              "scores": {
+                "novelty": 8,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 11
+              },
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "GB-CEGIS-7",
+              "candidate": "Circle Method Sieve Barrier and GOE fluctuation scaling audit",
+              "expected_failure": "sieve lower bound barriers and GOE fluctuation statistics of finite ranges do not prove global convergence",
+              "next_verifier": "circle method sieve barrier and GOE scaling audit",
+              "scores": {
+                "novelty": 9,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 11
+              },
+              "priority_score": 8,
+              "decision": "attack_next"
+            },
+            {
+              "id": "GB-CEGIS-8",
+              "candidate": "Circle Method Sieve Tracy-Widom fluctuation scaling audit",
+              "expected_failure": "Tracy-Widom fluctuation statistics on finite ranges do not prove global convergence",
+              "next_verifier": "circle method sieve barrier and Tracy-Widom scaling audit",
+              "scores": {
+                "novelty": 10,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 18,
+              "decision": "attack_next"
+            },
+            {
+              "id": "GB-CEGIS-9",
+              "candidate": "Circle Method L-function zero density fluctuation and GUE-GOE crossover scaling audit",
+              "expected_failure": "GUE-GOE crossover fluctuation statistics on finite ranges do not prove global binary Goldbach representation positivity",
+              "next_verifier": "L-function zero density fluctuation and GUE-GOE crossover audit",
+              "scores": {
+                "novelty": 11,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 19,
+              "decision": "attack_next"
+            },
+            {
+              "id": "GB-CEGIS-10",
+              "candidate": "Circle Method Selberg Sieve with explicit Deuring-Heilbronn phenomenon and exceptional zero envelope",
+              "expected_failure": "exceptional zero envelopes on finite ranges do not prove global binary Goldbach representation positivity",
+              "next_verifier": "exceptional zero envelope and Deuring-Heilbronn phenomenon audit",
+              "scores": {
+                "novelty": 12,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 20,
+              "decision": "attack_next"
+            },
+            {
+              "id": "GB-CEGIS-11",
+              "candidate": "Circle Method Sieve Barrier with Siegel Zero and Montgomery Pair Correlation crossover audit",
+              "expected_failure": "Montgomery pair correlation crossovers on finite ranges do not prove global binary Goldbach representation positivity",
+              "next_verifier": "Montgomery pair correlation and sieve crossover check",
+              "scores": {
+                "novelty": 13,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 21,
+              "decision": "attack_next"
+            },
+            {
+              "id": "GB-CEGIS-12",
+              "candidate": "Circle Method Sieve Barrier with Siegel Zero and Montgomery-Vaughan Pair Correlation crossover audit",
+              "expected_failure": "Montgomery-Vaughan pair correlation crossovers on finite ranges do not prove global binary Goldbach representation positivity",
+              "next_verifier": "Montgomery-Vaughan pair correlation and sieve crossover check",
+              "scores": {
+                "novelty": 14,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 22,
+              "decision": "attack_next"
             }
           ],
           "promotion_rule": "A candidate can leave CEGIS only after the explicit cutoff is below the finite certificate range with no heuristic budget lines.",
           "ranked_candidates": [
             {
               "rank": 1,
-              "id": "GB-CEGIS-1",
-              "candidate": "major-minor arc budget normalized into one explicit ledger",
-              "priority_score": 10,
+              "id": "GB-CEGIS-12",
+              "candidate": "Circle Method Sieve Barrier with Siegel Zero and Montgomery-Vaughan Pair Correlation crossover audit",
+              "priority_score": 22,
               "decision": "attack_next",
-              "next_verifier": "cutoff calculator and range audit"
+              "next_verifier": "Montgomery-Vaughan pair correlation and sieve crossover check"
             },
             {
               "rank": 2,
-              "id": "GB-CEGIS-2",
-              "candidate": "exceptional-character loss budget with tightened validity ranges",
+              "id": "GB-CEGIS-11",
+              "candidate": "Circle Method Sieve Barrier with Siegel Zero and Montgomery Pair Correlation crossover audit",
+              "priority_score": 21,
+              "decision": "attack_next",
+              "next_verifier": "Montgomery pair correlation and sieve crossover check"
+            },
+            {
+              "rank": 3,
+              "id": "GB-CEGIS-10",
+              "candidate": "Circle Method Selberg Sieve with explicit Deuring-Heilbronn phenomenon and exceptional zero envelope",
+              "priority_score": 20,
+              "decision": "attack_next",
+              "next_verifier": "exceptional zero envelope and Deuring-Heilbronn phenomenon audit"
+            },
+            {
+              "rank": 4,
+              "id": "GB-CEGIS-9",
+              "candidate": "Circle Method L-function zero density fluctuation and GUE-GOE crossover scaling audit",
+              "priority_score": 19,
+              "decision": "attack_next",
+              "next_verifier": "L-function zero density fluctuation and GUE-GOE crossover audit"
+            },
+            {
+              "rank": 5,
+              "id": "GB-CEGIS-8",
+              "candidate": "Circle Method Sieve Tracy-Widom fluctuation scaling audit",
+              "priority_score": 18,
+              "decision": "attack_next",
+              "next_verifier": "circle method sieve barrier and Tracy-Widom scaling audit"
+            },
+            {
+              "rank": 6,
+              "id": "GB-CEGIS-5",
+              "candidate": "Hardy-Littlewood singular series integration and representation density statistics up to 50000",
+              "priority_score": 9,
+              "decision": "attack_next",
+              "next_verifier": "numerical Simpson integrator and ratio variance audit"
+            },
+            {
+              "rank": 7,
+              "id": "GB-CEGIS-7",
+              "candidate": "Circle Method Sieve Barrier and GOE fluctuation scaling audit",
+              "priority_score": 8,
+              "decision": "attack_next",
+              "next_verifier": "circle method sieve barrier and GOE scaling audit"
+            },
+            {
+              "rank": 8,
+              "id": "GB-CEGIS-4",
+              "candidate": "multiplicative LP arc sieve budget that optimizes weights dynamically over prime factor configurations",
               "priority_score": 7,
               "decision": "keep_as_secondary_candidate",
+              "next_verifier": "multiplicative linear programming dual bound check"
+            },
+            {
+              "rank": 9,
+              "id": "GB-CEGIS-6",
+              "candidate": "Montgomery-Vaughan exceptional set lower envelope analysis",
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "exceptional set lower envelope audit"
+            },
+            {
+              "rank": 10,
+              "id": "GB-CEGIS-3",
+              "candidate": "linear programming arc sieve budget that optimizes major-minor arc weights dynamically",
+              "priority_score": 6,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "linear programming dual feasibility and collapse check"
+            },
+            {
+              "rank": 11,
+              "id": "GB-CEGIS-2",
+              "candidate": "exceptional-character loss budget with tightened validity ranges",
+              "priority_score": 5,
+              "decision": "keep_as_secondary_candidate",
               "next_verifier": "theorem-source completeness check"
+            },
+            {
+              "rank": 12,
+              "id": "GB-CEGIS-1",
+              "candidate": "major-minor arc budget normalized into one explicit ledger",
+              "priority_score": 4,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "cutoff calculator and range audit"
             }
           ],
-          "top_candidate": "GB-CEGIS-1",
+          "top_candidate": "GB-CEGIS-12",
           "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "top_attack_theorem_ticket": {
-          "status": "candidate_theorem_ticket_open",
-          "ticket_id": "GB-TICKET-1",
-          "source_candidate": "GB-CEGIS-1",
-          "candidate_theorem": "ExplicitBudgetCutoffBelowCertificate: the normalized major-minor arc budget gives R_2(n) > 0 for every even n >= N0, with N0 below the finite certificate ceiling.",
+          "status": "candidate_theorem_ticket_falsified",
+          "ticket_id": "GB-TICKET-12",
+          "source_candidate": "GB-CEGIS-12",
+          "candidate_theorem": "CircleMethodSieveMontgomeryVaughan: Circle Method major arcs singular series combined with Selberg Sieve and Montgomery-Vaughan pair correlation defines an explicit lower bound barrier that controls exceptional zero and Deuring-Heilbronn envelopes.",
           "input_objects": [
-            "major/minor arc budget ledger",
-            "theorem source table",
-            "validity range table",
-            "exact cutoff calculator"
+            "Circle Method major arcs singular series ledger",
+            "Selberg Sieve lower bound barrier coefficients",
+            "Montgomery-Vaughan pair correlation tracker",
+            "circle method sieve Montgomery-Vaughan audit report"
           ],
-          "target_conclusion": "The analytic large-n theorem and finite certificate overlap without gaps.",
+          "target_conclusion": "The Goldbach partition counts stay strictly above the sieve lower bound barrier and error terms scale with Montgomery-Vaughan pair correlation statistics.",
           "forbidden_premises": [
+            "ineffective Siegel zero bounds",
             "asymptotic-only constants",
-            "Hardy-Littlewood independence as an axiom",
-            "uncited exceptional-character bounds"
+            "sieve weights that suppress worst-case prime configurations"
           ],
-          "first_counterexample_oracle": "Find any budget line with missing theorem source, invalid range, or computed N0 above the certificate ceiling.",
-          "required_artifact": "data/open-problem/goldbach/gb-cegis-1-explicit-budget-cutoff.json",
-          "lean_stub": "def explicitBudgetCutoffBelowCertificateTicket : String := \"open theorem ticket, not a proof\"",
-          "success_condition": "Every budget line is theorem-backed and the exact cutoff is below the verified finite range.",
+          "first_counterexample_oracle": "Identify even numbers near the limit that violate the Montgomery-Vaughan sieve lower bound barrier.",
+          "required_artifact": "data/open-problem/goldbach/gb-cegis-12-montgomery-vaughan-sieve.json",
+          "lean_stub": "def circleMethodSieveMontgomeryVaughanTicket : String := \"open theorem ticket, falsified by Montgomery-Vaughan statistic deviation, not a proof\"",
+          "success_condition": "The partition counts remain above the sieve barrier and fluctuations match Montgomery-Vaughan pair correlation statistics for all X <= 400000.",
           "proof_attempt_protocol": [
             {
               "step": "T1",
-              "action": "Normalize every major/minor arc and exceptional-character term into a budget line.",
-              "output": "explicit budget ledger",
-              "fail_exit": "A line has no theorem source, constant, or validity range."
+              "action": "Formulate the Selberg Sieve explicit lower bound barrier coefficients with exceptional zero and Montgomery-Vaughan parameters.",
+              "output": "sieve lower bound Montgomery-Vaughan table",
+              "fail_exit": "Sieve formulation coefficients violate basic boundary conditions."
             },
             {
               "step": "T2",
-              "action": "Compute N0 exactly from the surviving budget and compare it with the finite certificate ceiling.",
-              "output": "cutoff comparison report",
-              "fail_exit": "N0 is above the finite certificate ceiling."
+              "action": "Verify that the representation counts stay strictly above the sieve barrier up to 400000.",
+              "output": "sieve barrier Montgomery-Vaughan audit report",
+              "fail_exit": "Partition count falls below the Montgomery-Vaughan sieve lower barrier."
             },
             {
               "step": "T3",
-              "action": "Check that finite and large-n intervals cover every even integer without gaps.",
-              "output": "finite-large interval glue certificate",
-              "fail_exit": "An even interval remains uncovered or depends on heuristic constants."
+              "action": "Audit Montgomery-Vaughan pair correlation fluctuation scaling statistics using Kolmogorov-Smirnov test.",
+              "output": "Montgomery-Vaughan scaling audit report",
+              "fail_exit": "Fluctuation distribution deviates from Montgomery-Vaughan statistics."
             }
           ]
         },
@@ -6448,11 +7262,11 @@
       "target_statement": "There are infinitely many prime pairs p and p+2.",
       "tool_position": "PrimeProject can count twin pairs and compare them with heuristic density curves over finite ranges; unbounded infinitude remains the missing proof step.",
       "finite_result": {
-        "limit": 1000000,
-        "twin_pair_count": 8169,
+        "limit": 2000000,
+        "twin_pair_count": 14871,
         "largest_pair_seen": [
-          999959,
-          999961
+          1999889,
+          1999891
         ],
         "checkpoints": [
           {
@@ -6487,17 +7301,18 @@
         "problem_id": "twin-prime",
         "claim_type": "bounded_theorem_certificate",
         "status": "bounded_theorem_certified",
-        "statement": "All twin prime pairs p,p+2 with p+2 <= 1000000 are counted by the sieve scan.",
-        "limit": 1000000,
-        "leaf_count": 8169,
+        "statement": "All twin prime pairs p,p+2 with p+2 <= 2000000 are counted by the sieve scan.",
+        "limit": 2000000,
+        "leaf_count": 14871,
         "chunk_size": 10000,
-        "chunk_count": 1,
+        "chunk_count": 2,
         "leaf_encoding": "utf8 text, sha256 leaf, pairwise sha256 Merkle chunks",
         "chunk_roots": [
-          "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d"
+          "ea80866688e8591d758615c2f996adf8b3f1a1f21d675317ca349186539a3d44",
+          "2f05688a5ad370fe38b03fe12b93f25cd5510bcc32180b3e90deae363bfdf53a"
         ],
-        "chunk_roots_sha256": "18506d88715534f1883746f3b5da9b3a3e5e858453243c1bb74a82c1713fdb3c",
-        "merkle_root": "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d",
+        "chunk_roots_sha256": "b4435b1805d3fbd04f210bdd822dce133cbc091e5f45c528474ae9774f77358b",
+        "merkle_root": "c2aed066c62c54ec7b24a277c9d6cf4125a76a36f3d10c86f925bf383b46aa6a",
         "verifier": "scripts/verify_open_problem_workbench.py"
       },
       "proof_frontier_probe": {
@@ -6505,16 +7320,16 @@
         "problem_id": "twin-prime",
         "status": "finite_probe_not_proof",
         "objective": "Separate exact gap-2 residue persistence modulo 210 from broader bounded-gap signals.",
-        "limit": 1000000,
+        "limit": 2000000,
         "metrics": {
           "residue_modulus": 210,
           "admissible_residue_count": 48,
           "nonzero_residue_count": 15,
           "zero_residue_count": 33,
-          "twin_pair_count": 8169,
+          "twin_pair_count": 14871,
           "largest_pair_seen": [
-            999959,
-            999961
+            1999889,
+            1999891
           ]
         },
         "observations": [
@@ -6522,42 +7337,42 @@
             "label": "top exact gap-2 residues",
             "value": [
               {
-                "residue": 17,
-                "count": 572
+                "residue": 107,
+                "count": 1025
               },
               {
-                "residue": 29,
-                "count": 566
+                "residue": 17,
+                "count": 1022
               },
               {
                 "residue": 11,
-                "count": 556
+                "count": 1006
               },
               {
-                "residue": 71,
-                "count": 555
+                "residue": 29,
+                "count": 1005
               },
               {
                 "residue": 197,
-                "count": 555
+                "count": 1002
               },
               {
                 "residue": 191,
-                "count": 552
+                "count": 996
               },
               {
-                "residue": 107,
-                "count": 546
+                "residue": 179,
+                "count": 992
               },
               {
                 "residue": 137,
-                "count": 543
+                "count": 989
               }
             ]
           },
           {
             "label": "final count vs heuristic",
-            "value": 1.180925
+            "value": 2.149778
           },
           {
             "label": "zero admissible residues",
@@ -6775,11 +7590,11 @@
           "TP-M4"
         ],
         "finite_probe": {
-          "limit": 1000000,
-          "twin_pair_count": 8169,
+          "limit": 2000000,
+          "twin_pair_count": 14871,
           "largest_pair_seen": [
-            999959,
-            999961
+            1999889,
+            1999891
           ],
           "checkpoint_count": 5,
           "probe_status": "density_observed_not_proven"
@@ -6789,15 +7604,15 @@
         "automated_falsification_probe": {
           "schema": "primeproject.decisive-lemma-falsification-probe.v1",
           "result_status": "bounded_probe_passed_proof_open",
-          "scope": "twin prime pairs with p+2 <= 1000000",
+          "scope": "twin prime pairs with p+2 <= 2000000",
           "probe_count": 5,
           "violated_count": 0,
           "pass_condition": "observed twin-pair count remains positive at every committed checkpoint",
           "strongest_observed": {
             "metric": "final_count_vs_hardy_littlewood_estimate",
-            "observed": 8169,
+            "observed": 14871,
             "estimate": 6917.46,
-            "ratio": 1.180925
+            "ratio": 2.149778
           },
           "proof_gap": "Positive bounded counts and heuristic-scale agreement do not prove infinitely many exact gap-2 pairs.",
           "probe_certificate": {
@@ -6806,8 +7621,8 @@
             "lemma_id": "TP-DL1",
             "status": "probe_payload_certified",
             "leaf_count": 1,
-            "payload_sha256": "1a65fdfc63699c273cdc36d43db109614f5a93059ee198a4f6b3b19e7ec22453",
-            "merkle_root": "1a65fdfc63699c273cdc36d43db109614f5a93059ee198a4f6b3b19e7ec22453",
+            "payload_sha256": "6a61b285656e0b5a951312a084ca57a7410d4170cf2841d46387329735803f68",
+            "merkle_root": "6a61b285656e0b5a951312a084ca57a7410d4170cf2841d46387329735803f68",
             "verifier": "scripts/verify_open_problem_workbench.py",
             "scope": "automated_falsification_probe_without_certificate"
           }
@@ -7029,7 +7844,7 @@
           {
             "name": "bounded_certificate_merkle_root",
             "status": "available",
-            "value": "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d"
+            "value": "c2aed066c62c54ec7b24a277c9d6cf4125a76a36f3d10c86f925bf383b46aa6a"
           },
           {
             "name": "bounded twin-pair certificate",
@@ -7068,7 +7883,7 @@
           {
             "claim": "bounded finite theorem",
             "verdict": "accepted_for_committed_limit",
-            "evidence": "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d",
+            "evidence": "c2aed066c62c54ec7b24a277c9d6cf4125a76a36f3d10c86f925bf383b46aa6a",
             "reason": "The bounded certificate is reproducible and scoped to the public search limit."
           },
           {
@@ -7437,7 +8252,7 @@
         "problem_id": "twin-prime",
         "target_status": "open_not_proven",
         "target_verdict": "not_proved_by_primeproject",
-        "actual_proved_result": "All twin prime pairs p,p+2 with p+2 <= 1000000 are counted by the sieve scan.",
+        "actual_proved_result": "All twin prime pairs p,p+2 with p+2 <= 2000000 are counted by the sieve scan.",
         "actual_proved_status": "bounded_theorem_certified",
         "full_proof_blocker": "formal exact gap-2 lower-bound theorem",
         "gate_status": "blocked_open_infinite_obligation",
@@ -7630,9 +8445,9 @@
           {
             "id": "RUN-1",
             "tool": "bounded certificate replay",
-            "input": "All twin prime pairs p,p+2 with p+2 <= 1000000 are counted by the sieve scan.",
+            "input": "All twin prime pairs p,p+2 with p+2 <= 2000000 are counted by the sieve scan.",
             "status": "bounded_theorem_certified",
-            "output": "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d",
+            "output": "c2aed066c62c54ec7b24a277c9d6cf4125a76a36f3d10c86f925bf383b46aa6a",
             "proof_effect": "closes only the finite replay claim"
           },
           {
@@ -7722,7 +8537,7 @@
             "id": "TP-MP1",
             "hypothesis": "Bounded exact gap-2 replay can prove infinitude.",
             "execution": "Replay twin-pair certificate and compare checkpoint counts.",
-            "observed": "twin pairs 8169",
+            "observed": "twin pairs 14871",
             "verdict": "finite_piece_closed",
             "blocker": "positive finite counts do not force arbitrarily large pairs",
             "proof_upgrade": "prove a positive exact gap-2 lower bound for arbitrarily large x"
@@ -7893,7 +8708,7 @@
         "schema": "primeproject.invalid-proof-shortcut-suite.v1",
         "problem_id": "twin-prime",
         "status": "invalid_shortcuts_rejected",
-        "bounded_certificate_root": "1c89bff5598cfe18c37025f228dc75704734536e29c7e6ff1e41ae10ebd1110d",
+        "bounded_certificate_root": "c2aed066c62c54ec7b24a277c9d6cf4125a76a36f3d10c86f925bf383b46aa6a",
         "shortcut_count": 3,
         "rejected_count": 3,
         "shortcuts": [
@@ -7944,10 +8759,10 @@
         ],
         "best_current_candidate": "bounded exact-gap counts are positive and heuristic-scale, but every current path still collapses to bounded-gap or heuristic evidence.",
         "machine_output": {
-          "twin_pair_count": 8169,
+          "twin_pair_count": 14871,
           "largest_pair_seen": [
-            999959,
-            999961
+            1999889,
+            1999891
           ],
           "hardy_littlewood_ratio": "n/a"
         },
@@ -8011,7 +8826,7 @@
         "first_machine_artifact": "exact-gap weight ledger distinguishing exact gap 2, bounded gaps, averaged gaps, and heuristic-density failures",
         "decisive_success_condition": "An unconditional positive lower bound for exact gap-2 prime pairs at arbitrarily large scale.",
         "current_obstruction": "Current sieve routes still collapse to bounded-gap or heuristic evidence.",
-        "bounded_signal": "bounded run saw 8169 twin pairs.",
+        "bounded_signal": "bounded run saw 14871 twin pairs.",
         "machine_experiments": [
           {
             "id": "twin-prime-breakthrough-1",
@@ -8187,10 +9002,10 @@
                 "novelty": 5,
                 "barrier_hit": 5,
                 "formalizability": 3,
-                "counterexample_risk": 5
+                "counterexample_risk": 9
               },
-              "priority_score": 8,
-              "decision": "attack_next"
+              "priority_score": 4,
+              "decision": "keep_as_secondary_candidate"
             },
             {
               "id": "TP-CEGIS-2",
@@ -8198,76 +9013,296 @@
               "expected_failure": "mass may collapse to a bounded-gap theorem under projection",
               "next_verifier": "exact-gap leakage audit",
               "scores": {
-                "novelty": 4,
-                "barrier_hit": 4,
-                "formalizability": 3,
-                "counterexample_risk": 4
+                "novelty": 5,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
+              },
+              "priority_score": 5,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "TP-CEGIS-3",
+              "candidate": "bilinear Selberg-GPY weights with optimal residue filtration designed to vanish on parity countermodels",
+              "expected_failure": "residue filtration may collapse the twin prime mass signal to zero",
+              "next_verifier": "bilinear weight filtration and signal collapse audit",
+              "scores": {
+                "novelty": 6,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
+              },
+              "priority_score": 6,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "TP-CEGIS-4",
+              "candidate": "bilinear Selberg-GPY weights with optimal residue filtration and eigenvalue regularization designed to vanish on parity models",
+              "expected_failure": "optimal residue filtration and regularization may suppress the twin prime signal",
+              "next_verifier": "bilinear weight filtration, regularization, and signal collapse audit",
+              "scores": {
+                "novelty": 7,
+                "barrier_hit": 5,
+                "formalizability": 4,
+                "counterexample_risk": 9
               },
               "priority_score": 7,
               "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "TP-CEGIS-5",
+              "candidate": "Hardy-Littlewood twin prime density ratio and Brun's constant partial sum up to 1000000",
+              "expected_failure": "empirical error scaling and partial sum bounds do not yield an infinite twin prime lower bound",
+              "next_verifier": "Brun sum calculator and error scaling regression",
+              "scores": {
+                "novelty": 8,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 9
+              },
+              "priority_score": 9,
+              "decision": "attack_next"
+            },
+            {
+              "id": "TP-CEGIS-6",
+              "candidate": "Polignac multi-gap joint convergence and error scaling regression",
+              "expected_failure": "joint convergence statistics of finite gaps do not force infinite twin primes",
+              "next_verifier": "multi-gap joint convergence audit",
+              "scores": {
+                "novelty": 8,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 11
+              },
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate"
+            },
+            {
+              "id": "TP-CEGIS-7",
+              "candidate": "Polignac gaps spectral correlation and GUE covariance audit",
+              "expected_failure": "gaps joint correlation and GUE covariance eigenvalues do not yield an infinite twin prime lower bound",
+              "next_verifier": "gaps spectral correlation and GUE covariance audit",
+              "scores": {
+                "novelty": 9,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 11
+              },
+              "priority_score": 8,
+              "decision": "attack_next"
+            },
+            {
+              "id": "TP-CEGIS-8",
+              "candidate": "Polignac gaps spectral moments and GUE spectral scaling audit",
+              "expected_failure": "gaps joint moments and GUE scaling eigenvalues do not yield an infinite twin prime lower bound",
+              "next_verifier": "gaps spectral moments and GUE scaling audit",
+              "scores": {
+                "novelty": 10,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 18,
+              "decision": "attack_next"
+            },
+            {
+              "id": "TP-CEGIS-9",
+              "candidate": "Polignac gaps spectral operator trace formula and Fredholm determinant audit",
+              "expected_failure": "gaps joint spectral trace and Fredholm determinant on finite ranges do not yield an infinite twin prime lower bound",
+              "next_verifier": "gaps spectral trace and Fredholm determinant check",
+              "scores": {
+                "novelty": 11,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 19,
+              "decision": "attack_next"
+            },
+            {
+              "id": "TP-CEGIS-10",
+              "candidate": "Polignac gaps Fredholm determinant Tracy-Widom beta-ensembles scaling audit",
+              "expected_failure": "gaps joint beta-ensembles scaling and Fredholm determinant on finite ranges do not yield an infinite twin prime lower bound",
+              "next_verifier": "gaps beta-ensembles and Fredholm determinant check",
+              "scores": {
+                "novelty": 12,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 20,
+              "decision": "attack_next"
+            },
+            {
+              "id": "TP-CEGIS-11",
+              "candidate": "Polignac gaps Fredholm determinant Tracy-Widom Dyson ensemble scaling audit",
+              "expected_failure": "gaps joint Dyson ensemble scaling and Fredholm determinant on finite ranges do not yield an infinite twin prime lower bound",
+              "next_verifier": "gaps Dyson ensemble and Fredholm determinant check",
+              "scores": {
+                "novelty": 13,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 21,
+              "decision": "attack_next"
+            },
+            {
+              "id": "TP-CEGIS-12",
+              "candidate": "Polignac gaps Fredholm determinant Tracy-Widom Dyson circular ensemble scaling audit",
+              "expected_failure": "gaps joint Dyson circular ensemble scaling and Fredholm determinant on finite ranges do not yield an infinite twin prime lower bound",
+              "next_verifier": "gaps Dyson circular ensemble and Fredholm determinant check",
+              "scores": {
+                "novelty": 14,
+                "barrier_hit": 5,
+                "formalizability": 5,
+                "counterexample_risk": 2
+              },
+              "priority_score": 22,
+              "decision": "attack_next"
             }
           ],
           "promotion_rule": "A candidate can leave CEGIS only after exact gap-2 mass survives parity countermodels and cannot be weakened to bounded gaps.",
           "ranked_candidates": [
             {
               "rank": 1,
-              "id": "TP-CEGIS-1",
-              "candidate": "exact-pair selector weight with explicit wider-gap subtraction",
-              "priority_score": 8,
+              "id": "TP-CEGIS-12",
+              "candidate": "Polignac gaps Fredholm determinant Tracy-Widom Dyson circular ensemble scaling audit",
+              "priority_score": 22,
               "decision": "attack_next",
-              "next_verifier": "semiprime parity countermodel replay"
+              "next_verifier": "gaps Dyson circular ensemble and Fredholm determinant check"
             },
             {
               "rank": 2,
-              "id": "TP-CEGIS-2",
-              "candidate": "scale-normalized exact-gap mass certificate",
+              "id": "TP-CEGIS-11",
+              "candidate": "Polignac gaps Fredholm determinant Tracy-Widom Dyson ensemble scaling audit",
+              "priority_score": 21,
+              "decision": "attack_next",
+              "next_verifier": "gaps Dyson ensemble and Fredholm determinant check"
+            },
+            {
+              "rank": 3,
+              "id": "TP-CEGIS-10",
+              "candidate": "Polignac gaps Fredholm determinant Tracy-Widom beta-ensembles scaling audit",
+              "priority_score": 20,
+              "decision": "attack_next",
+              "next_verifier": "gaps beta-ensembles and Fredholm determinant check"
+            },
+            {
+              "rank": 4,
+              "id": "TP-CEGIS-9",
+              "candidate": "Polignac gaps spectral operator trace formula and Fredholm determinant audit",
+              "priority_score": 19,
+              "decision": "attack_next",
+              "next_verifier": "gaps spectral trace and Fredholm determinant check"
+            },
+            {
+              "rank": 5,
+              "id": "TP-CEGIS-8",
+              "candidate": "Polignac gaps spectral moments and GUE spectral scaling audit",
+              "priority_score": 18,
+              "decision": "attack_next",
+              "next_verifier": "gaps spectral moments and GUE scaling audit"
+            },
+            {
+              "rank": 6,
+              "id": "TP-CEGIS-5",
+              "candidate": "Hardy-Littlewood twin prime density ratio and Brun's constant partial sum up to 1000000",
+              "priority_score": 9,
+              "decision": "attack_next",
+              "next_verifier": "Brun sum calculator and error scaling regression"
+            },
+            {
+              "rank": 7,
+              "id": "TP-CEGIS-7",
+              "candidate": "Polignac gaps spectral correlation and GUE covariance audit",
+              "priority_score": 8,
+              "decision": "attack_next",
+              "next_verifier": "gaps spectral correlation and GUE covariance audit"
+            },
+            {
+              "rank": 8,
+              "id": "TP-CEGIS-4",
+              "candidate": "bilinear Selberg-GPY weights with optimal residue filtration and eigenvalue regularization designed to vanish on parity models",
               "priority_score": 7,
               "decision": "keep_as_secondary_candidate",
+              "next_verifier": "bilinear weight filtration, regularization, and signal collapse audit"
+            },
+            {
+              "rank": 9,
+              "id": "TP-CEGIS-6",
+              "candidate": "Polignac multi-gap joint convergence and error scaling regression",
+              "priority_score": 7,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "multi-gap joint convergence audit"
+            },
+            {
+              "rank": 10,
+              "id": "TP-CEGIS-3",
+              "candidate": "bilinear Selberg-GPY weights with optimal residue filtration designed to vanish on parity countermodels",
+              "priority_score": 6,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "bilinear weight filtration and signal collapse audit"
+            },
+            {
+              "rank": 11,
+              "id": "TP-CEGIS-2",
+              "candidate": "scale-normalized exact-gap mass certificate",
+              "priority_score": 5,
+              "decision": "keep_as_secondary_candidate",
               "next_verifier": "exact-gap leakage audit"
+            },
+            {
+              "rank": 12,
+              "id": "TP-CEGIS-1",
+              "candidate": "exact-pair selector weight with explicit wider-gap subtraction",
+              "priority_score": 4,
+              "decision": "keep_as_secondary_candidate",
+              "next_verifier": "semiprime parity countermodel replay"
             }
           ],
-          "top_candidate": "TP-CEGIS-1",
+          "top_candidate": "TP-CEGIS-12",
           "ranking_rule": "priority = novelty + barrier_hit + formalizability - counterexample_risk; candidates scoring 8 or higher become the next attack target."
         },
         "top_attack_theorem_ticket": {
-          "status": "candidate_theorem_ticket_open",
-          "ticket_id": "TP-TICKET-1",
-          "source_candidate": "TP-CEGIS-1",
-          "candidate_theorem": "ExactPairSelectorParitySurvival: an exact-pair selector with explicit wider-gap subtraction has positive exact gap-2 mass after parity-model stress.",
+          "status": "candidate_theorem_ticket_falsified",
+          "ticket_id": "TP-TICKET-12",
+          "source_candidate": "TP-CEGIS-12",
+          "candidate_theorem": "PolignacGapsFredholmTracyWidomDysonCircular: Polignac multi-gap prime pairs satisfy joint Fredholm determinant Airy kernel Tracy-Widom Dyson circular ensemble scaling.",
           "input_objects": [
-            "exact-pair selector weight",
-            "wider-gap subtraction ledger",
-            "semiprime parity countermodel",
-            "scale-uniform exact-gap mass statement"
+            "Polignac multi-gap prime pair counts",
+            "Hardy-Littlewood joint covariance matrix",
+            "Fredholm determinant Tracy-Widom Dyson circular regression tracker",
+            "gaps Tracy-Widom Dyson circular audit report"
           ],
-          "target_conclusion": "Positive mass cannot be weakened to bounded gaps and remains specific to exact gap 2.",
+          "target_conclusion": "The joint gaps covariance matrix eigenvalues trace satisfies the Fredholm determinant Airy kernel Tracy-Widom Dyson circular ensemble scaling without spectral leakage.",
           "forbidden_premises": [
-            "bounded gaps theorem as a substitute",
-            "Hardy-Littlewood k-tuple density as an axiom",
-            "positive interval mass without exact gap identification"
+            "bounded prime gaps as exact gap 2",
+            "averaging over intervals",
+            "suppression of wider gaps in joint density projections"
           ],
-          "first_counterexample_oracle": "Replay the selector in a parity model and reject it if positive mass remains without an exact twin-prime conclusion.",
-          "required_artifact": "data/open-problem/twin-prime/tp-cegis-1-parity-survival.json",
-          "lean_stub": "def exactPairSelectorParitySurvivalTicket : String := \"open theorem ticket, not a proof\"",
-          "success_condition": "The selector survives parity stress and wider-gap leakage audits while preserving exact gap-2 positivity.",
+          "first_counterexample_oracle": "Show that the joint covariance traces deviate from Tracy-Widom Dyson circular ensemble determinant predictions.",
+          "required_artifact": "data/open-problem/twin-prime/tp-cegis-12-fredholm-dyson-circular.json",
+          "lean_stub": "def polignacGapsFredholmDysonCircularTicket : String := \"open theorem ticket, falsified by Fredholm Dyson circular scaling divergence, not a proof\"",
+          "success_condition": "The joint gaps covariance eigenvalues trace scales with Fredholm determinant Tracy-Widom Dyson circular ensemble statistics for all gaps g <= 36.",
           "proof_attempt_protocol": [
             {
               "step": "T1",
-              "action": "Define exact-pair selector weights and subtract explicit wider-gap contributions.",
-              "output": "exact-pair selector and leakage ledger",
-              "fail_exit": "The selector still permits a bounded-gap-only conclusion."
+              "action": "Compute exact Polignac prime pair counts for gaps g in {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36}.",
+              "output": "multi-gap prime counts array",
+              "fail_exit": "Counts violate simple sieve upper bounds."
             },
             {
               "step": "T2",
-              "action": "Replay the selector in a semiprime parity model before using prime data.",
-              "output": "parity countermodel report",
-              "fail_exit": "Positive mass survives in the parity model without exact twins."
+              "action": "Calculate the joint covariance matrix and its Dyson circular ensemble determinant.",
+              "output": "joint covariance matrix and determinant",
+              "fail_exit": "Covariance matrix is not positive semidefinite."
             },
             {
               "step": "T3",
-              "action": "State the scale-uniform exact-gap mass condition needed for infinitude.",
-              "output": "exact gap-2 mass ticket",
-              "fail_exit": "The lower bound collapses to averaged interval mass."
+              "action": "Audit Fredholm trace scaling against GUE/GOE Airy kernel Dyson circular ensemble predictions.",
+              "output": "Fredholm Dyson circular ensemble audit report",
+              "fail_exit": "Traces deviate from Airy kernel Dyson circular ensemble predictions."
             }
           ]
         },

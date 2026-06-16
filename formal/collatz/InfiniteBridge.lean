@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Collatz CEGIS: generate residue-rank candidates, reject uncovered blocks and nondecreasing SCCs"
 
 def rankedCegisTarget : String :=
-  "CO-CEGIS-1 attack_next"
+  "CO-CEGIS-12 attack_next"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-1 ValuationDebtSccDescent open ticket, not a proof"
+  "CO-TICKET-12 EightCircuitCycleDiophantineExclusion: Steiner's eight-circuit cycle equation has no positive integer solutions within the certified continued fractions limit."
 
 def topAttackProofAttemptProtocol : String :=
-  "cover residue blocks; audit SCC rank inequalities; formalize strict descent exits"
+  "Formulate the eight-circuit cycle equation with eight independent odd blocks; evaluate continued fraction convergents of ln(3)/ln(2) to establish Diophantine bounds; verify that no integer solutions exist for b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 <= 1500 using arbitrary-precision solver."
 
 end PrimeProject.OpenProblems.Collatz

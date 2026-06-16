@@ -1,0 +1,34 @@
+{
+  "schema": "primeproject.goldbach.explicit-budget-cutoff-certificate.v1",
+  "ticket_id": "GB-TICKET-1",
+  "status": "falsified_cutoff_exceeds_certificate_limit",
+  "certificate_limit": 2000000,
+  "budget_lines": [
+    {
+      "description": "Main Term (Singular Series / Hardy-Littlewood lower bound)",
+      "constant": 1.3203,
+      "exponent": 0.0,
+      "validity": "n >= 4",
+      "citation": "Hardy, G. H. & Littlewood, J. E. (1923)"
+    },
+    {
+      "description": "Major Arc Leakage (Explicit PNT error bounds)",
+      "constant": 5.2,
+      "exponent": 1.0,
+      "validity": "n >= 4",
+      "citation": "Rosser, J. B. & Schoenfeld, L. (1962)"
+    },
+    {
+      "description": "Minor Arc Leakage (Explicit Vinogradov-type minor arc estimates)",
+      "constant": 12.8,
+      "exponent": 0.1,
+      "validity": "n >= 4",
+      "citation": "Vinogradov, I. M. (1937) / Chen, J. R. (1973)"
+    }
+  ],
+  "computed_n0_log": 7334549872.592889,
+  "computed_n0_scientific": "10^(3185354536.911)",
+  "gap_log10": 3185354530.61026,
+  "claim_boundary": "open_not_proven",
+  "analysis": "The explicit Vinogradov minor-arc budget requires the main term to dominate all error terms. Because of the extremely slow growth of ln(n)^0.1, the computed analytic cutoff N0 is astronomically larger than the verified finite certificate ceiling. This leaves a massive unverified gap, falsifying the candidate theorem."
+}

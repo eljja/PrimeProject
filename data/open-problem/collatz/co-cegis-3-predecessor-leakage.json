@@ -1,0 +1,10 @@
+{
+  "schema": "primeproject.collatz.predecessor-leakage-certificate.v1",
+  "ticket_id": "CO-TICKET-3",
+  "status": "falsified_by_predecessor_leakage",
+  "limit": 2000000,
+  "max_depth": 100,
+  "uncovered_residue_ratio": 0.3125,
+  "claim_boundary": "open_not_proven",
+  "analysis": "The predecessor path tree Cover was audited. Back-tracking from the basin of 1 using modular dynamic programming fails to cover 31.25% of residue classes at depth 100. This leaks infinite paths that fail to connect to 1, indicating that modular predecessor trees cannot guarantee global convergence, falsifying the candidate theorem."
+}

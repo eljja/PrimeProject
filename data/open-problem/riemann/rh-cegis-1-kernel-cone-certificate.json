@@ -1,0 +1,87 @@
+{
+  "schema": "primeproject.riemann.kernel-cone-certificate.v1",
+  "ticket_id": "RH-TICKET-1",
+  "status": "falsified_by_adversarial_kernel",
+  "cone_parameters": {
+    "a_range": [
+      1.0,
+      2.0
+    ],
+    "b_range": [
+      3.0,
+      8.0
+    ]
+  },
+  "tested_zeros": [
+    14.1347,
+    21.022,
+    25.0109,
+    30.4249,
+    32.9351
+  ],
+  "adversarial_cases": [
+    {
+      "a": 1.0,
+      "b": 3.0,
+      "zero": 14.1347,
+      "evaluation": -0.009741
+    },
+    {
+      "a": 1.0,
+      "b": 3.0,
+      "zero": 21.022,
+      "evaluation": -0.00447
+    },
+    {
+      "a": 1.0,
+      "b": 3.0,
+      "zero": 25.0109,
+      "evaluation": -0.003169
+    },
+    {
+      "a": 1.0,
+      "b": 3.0,
+      "zero": 30.4249,
+      "evaluation": -0.002148
+    },
+    {
+      "a": 1.0,
+      "b": 3.0,
+      "zero": 32.9351,
+      "evaluation": -0.001834
+    },
+    {
+      "a": 1.0,
+      "b": 5.0,
+      "zero": 14.1347,
+      "evaluation": -0.019555
+    },
+    {
+      "a": 1.0,
+      "b": 5.0,
+      "zero": 21.022,
+      "evaluation": -0.008955
+    },
+    {
+      "a": 1.0,
+      "b": 5.0,
+      "zero": 25.0109,
+      "evaluation": -0.006346
+    },
+    {
+      "a": 1.0,
+      "b": 5.0,
+      "zero": 30.4249,
+      "evaluation": -0.004299
+    },
+    {
+      "a": 1.0,
+      "b": 5.0,
+      "zero": 32.9351,
+      "evaluation": -0.003671
+    }
+  ],
+  "total_violations_found": 45,
+  "claim_boundary": "open_not_proven",
+  "analysis": "A compact two-parameter kernel cone parameterized by a and b was evaluated against the imaginary parts of the first few non-trivial Riemann zeta zeros. For all grid combinations, the positivity condition H_{a,b}(gamma_k) >= 0 is violated at the zeros. This demonstrates that the compact kernel cone contains adversarial kernels that fail positivity, falsifying the candidate theorem."
+}

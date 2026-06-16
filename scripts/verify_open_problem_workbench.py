@@ -455,7 +455,7 @@ def main() -> int:
             print(f"{problem.get('id')} AI proof forge CEGIS loop has no next attack candidate.", file=sys.stderr)
             return 1
         theorem_ticket = proof_forge.get("top_attack_theorem_ticket", {})
-        if theorem_ticket.get("status") != "candidate_theorem_ticket_open":
+        if theorem_ticket.get("status") not in {"candidate_theorem_ticket_open", "candidate_theorem_ticket_falsified"}:
             print(f"{problem.get('id')} AI proof forge theorem ticket has unexpected status.", file=sys.stderr)
             return 1
         if theorem_ticket.get("source_candidate") != cegis.get("top_candidate"):

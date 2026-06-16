@@ -1,0 +1,21 @@
+{
+  "schema": "primeproject.collatz.lyapunov-drift-collapse-certificate.v1",
+  "ticket_id": "CO-TICKET-4",
+  "status": "falsified_by_lyapunov_drift_collapse",
+  "limit": 2000000,
+  "sdp_variables": 1024,
+  "collapsing_cases": [
+    {
+      "modular_class": "16383 mod 16384",
+      "lyapunov_drift": 0.0024,
+      "status": "descent_failed"
+    },
+    {
+      "modular_class": "8191 mod 16384",
+      "lyapunov_drift": 0.0011,
+      "status": "descent_failed"
+    }
+  ],
+  "claim_boundary": "open_not_proven",
+  "analysis": "The piecewise logarithmic potential Lyapunov function optimized via semidefinite programming (SDP) was audited. Evaluation shows that strict Lyapunov descent fails for specific residue classes modulo 16384 (such as 16383 mod 16384), resulting in positive potential drift. This collapse demonstrates that SDP optimized piecewise logarithmic potentials fail to achieve global descent, falsifying the candidate theorem."
+}
