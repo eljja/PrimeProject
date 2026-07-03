@@ -1,0 +1,205 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-16",
+  "status": "attempted_no_full_resolution",
+  "proof_modes": [
+    "finite_evidence_search",
+    "proof_shortcut_counterexample",
+    "contrapositive_exact_gap_lower_bound"
+  ],
+  "direct_counterexample": {
+    "finite_refutation_possible": false,
+    "reason": "The negation is an eventual statement: there exists N after which no twin primes occur.",
+    "searched_prime_limit": 200000,
+    "twin_pairs_found": 2160
+  },
+  "gap_distribution": {
+    "1": 1,
+    "2": 2160,
+    "4": 2134,
+    "6": 3455,
+    "8": 1391,
+    "10": 1705,
+    "12": 1821,
+    "14": 959,
+    "16": 637,
+    "18": 1035,
+    "20": 471,
+    "22": 443,
+    "24": 457,
+    "26": 198,
+    "28": 217,
+    "30": 319,
+    "32": 68,
+    "34": 90,
+    "36": 117,
+    "38": 57,
+    "40": 66
+  },
+  "largest_observed_twin_free_intervals": [
+    {
+      "from_twin_start": 187907,
+      "to_twin_start": 188831,
+      "distance": 924
+    },
+    {
+      "from_twin_start": 62297,
+      "to_twin_start": 62927,
+      "distance": 630
+    },
+    {
+      "from_twin_start": 120077,
+      "to_twin_start": 120689,
+      "distance": 612
+    },
+    {
+      "from_twin_start": 167861,
+      "to_twin_start": 168449,
+      "distance": 588
+    },
+    {
+      "from_twin_start": 165719,
+      "to_twin_start": 166301,
+      "distance": 582
+    },
+    {
+      "from_twin_start": 137339,
+      "to_twin_start": 137867,
+      "distance": 528
+    },
+    {
+      "from_twin_start": 122867,
+      "to_twin_start": 123377,
+      "distance": 510
+    },
+    {
+      "from_twin_start": 145007,
+      "to_twin_start": 145511,
+      "distance": 504
+    },
+    {
+      "from_twin_start": 172517,
+      "to_twin_start": 173021,
+      "distance": 504
+    },
+    {
+      "from_twin_start": 24419,
+      "to_twin_start": 24917,
+      "distance": 498
+    }
+  ],
+  "candidate_counterexamples_found": {
+    "target_claim": "Bounded prime gaps alone imply exact twin-prime gaps.",
+    "result": "falsified_by_wider_gaps",
+    "bounded_gap_mass": 17801,
+    "exact_gap_mass": 2160,
+    "wider_gap_mass": 15641,
+    "leakage_ratio": 0.8786585,
+    "examples": [
+      {
+        "p": 7,
+        "q": 11,
+        "gap": 4
+      },
+      {
+        "p": 13,
+        "q": 17,
+        "gap": 4
+      },
+      {
+        "p": 19,
+        "q": 23,
+        "gap": 4
+      },
+      {
+        "p": 23,
+        "q": 29,
+        "gap": 6
+      },
+      {
+        "p": 31,
+        "q": 37,
+        "gap": 6
+      },
+      {
+        "p": 37,
+        "q": 41,
+        "gap": 4
+      },
+      {
+        "p": 43,
+        "q": 47,
+        "gap": 4
+      },
+      {
+        "p": 47,
+        "q": 53,
+        "gap": 6
+      },
+      {
+        "p": 53,
+        "q": 59,
+        "gap": 6
+      },
+      {
+        "p": 61,
+        "q": 67,
+        "gap": 6
+      },
+      {
+        "p": 67,
+        "q": 71,
+        "gap": 4
+      },
+      {
+        "p": 73,
+        "q": 79,
+        "gap": 6
+      },
+      {
+        "p": 79,
+        "q": 83,
+        "gap": 4
+      },
+      {
+        "p": 83,
+        "q": 89,
+        "gap": 6
+      },
+      {
+        "p": 89,
+        "q": 97,
+        "gap": 8
+      },
+      {
+        "p": 97,
+        "q": 101,
+        "gap": 4
+      },
+      {
+        "p": 103,
+        "q": 107,
+        "gap": 4
+      },
+      {
+        "p": 109,
+        "q": 113,
+        "gap": 4
+      },
+      {
+        "p": 113,
+        "q": 127,
+        "gap": 14
+      },
+      {
+        "p": 127,
+        "q": 131,
+        "gap": 4
+      }
+    ]
+  },
+  "contrapositive_route": "If an exact gap-2 lower bound grows without bound, then the negation of the twin prime conjecture is impossible. Bounded-gap evidence must be separated from exact-gap evidence.",
+  "missing_infinite_bridge": "A parity-barrier-resistant lower bound for exact gap 2, not just some bounded gap.",
+  "next_theorem_to_attempt": "TP-TICKET-17 ExactGapTwoProjection",
+  "claim_boundary": "No Twin Prime proof. Finite data cannot refute the eventual no-more-twins negation."
+}

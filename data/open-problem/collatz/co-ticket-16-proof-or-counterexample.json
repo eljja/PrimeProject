@@ -1,0 +1,270 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-16",
+  "status": "attempted_no_full_resolution",
+  "proof_modes": [
+    "direct_counterexample_search",
+    "candidate_theorem_counterexample",
+    "contrapositive_rank_descent"
+  ],
+  "direct_counterexample": {
+    "searched_starts": 100000,
+    "max_steps": 10000,
+    "found": false,
+    "candidates": [],
+    "max_steps_seen": {
+      "n": 77031,
+      "steps": 350,
+      "peak": 21933016
+    }
+  },
+  "candidate_counterexamples_found": {
+    "target_claim": "Every odd accelerated Collatz step descends immediately.",
+    "result": "falsified",
+    "examples": [
+      {
+        "n": 1,
+        "accelerated_next": 1,
+        "v2_3n_plus_1": 2,
+        "log_drift": 0.0
+      },
+      {
+        "n": 3,
+        "accelerated_next": 5,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.51082562
+      },
+      {
+        "n": 7,
+        "accelerated_next": 11,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.45198512
+      },
+      {
+        "n": 11,
+        "accelerated_next": 17,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.43531807
+      },
+      {
+        "n": 15,
+        "accelerated_next": 23,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.42744401
+      },
+      {
+        "n": 19,
+        "accelerated_next": 29,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.42285685
+      },
+      {
+        "n": 23,
+        "accelerated_next": 35,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.41985385
+      },
+      {
+        "n": 27,
+        "accelerated_next": 41,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.4177352
+      },
+      {
+        "n": 31,
+        "accelerated_next": 47,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.4161604
+      },
+      {
+        "n": 35,
+        "accelerated_next": 53,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.41494385
+      },
+      {
+        "n": 39,
+        "accelerated_next": 59,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.4139758
+      },
+      {
+        "n": 43,
+        "accelerated_next": 65,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.41318715
+      },
+      {
+        "n": 47,
+        "accelerated_next": 71,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.41253228
+      },
+      {
+        "n": 51,
+        "accelerated_next": 77,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.41197979
+      },
+      {
+        "n": 55,
+        "accelerated_next": 83,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.41150742
+      },
+      {
+        "n": 59,
+        "accelerated_next": 89,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.41109893
+      },
+      {
+        "n": 63,
+        "accelerated_next": 95,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.41074217
+      },
+      {
+        "n": 67,
+        "accelerated_next": 101,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.4104279
+      },
+      {
+        "n": 71,
+        "accelerated_next": 107,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.41014896
+      },
+      {
+        "n": 75,
+        "accelerated_next": 113,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.40989971
+      },
+      {
+        "n": 79,
+        "accelerated_next": 119,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.40967564
+      },
+      {
+        "n": 83,
+        "accelerated_next": 125,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.40947313
+      },
+      {
+        "n": 87,
+        "accelerated_next": 131,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.4092892
+      },
+      {
+        "n": 91,
+        "accelerated_next": 137,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.40912142
+      },
+      {
+        "n": 95,
+        "accelerated_next": 143,
+        "v2_3n_plus_1": 1,
+        "log_drift": 0.40896774
+      }
+    ]
+  },
+  "residue_pressure": {
+    "modulus": 64,
+    "top_mean_drift_residues": [
+      {
+        "residue": 3,
+        "count": 1563,
+        "mean_log_drift": 0.40555868,
+        "max_log_drift": 0.51082562,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 7,
+        "count": 1563,
+        "mean_log_drift": 0.40552073,
+        "max_log_drift": 0.45198512,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 11,
+        "count": 1563,
+        "mean_log_drift": 0.40550979,
+        "max_log_drift": 0.43531807,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 15,
+        "count": 1563,
+        "mean_log_drift": 0.40550449,
+        "max_log_drift": 0.42744401,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 19,
+        "count": 1563,
+        "mean_log_drift": 0.40550131,
+        "max_log_drift": 0.42285685,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 23,
+        "count": 1563,
+        "mean_log_drift": 0.40549916,
+        "max_log_drift": 0.41985385,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 27,
+        "count": 1563,
+        "mean_log_drift": 0.40549759,
+        "max_log_drift": 0.4177352,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 31,
+        "count": 1563,
+        "mean_log_drift": 0.40549638,
+        "max_log_drift": 0.4161604,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 35,
+        "count": 1562,
+        "mean_log_drift": 0.40549542,
+        "max_log_drift": 0.41494385,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 39,
+        "count": 1562,
+        "mean_log_drift": 0.40549462,
+        "max_log_drift": 0.4139758,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 43,
+        "count": 1562,
+        "mean_log_drift": 0.40549395,
+        "max_log_drift": 0.41318715,
+        "min_log_drift": 0.40546844
+      },
+      {
+        "residue": 47,
+        "count": 1562,
+        "mean_log_drift": 0.40549336,
+        "max_log_drift": 0.41253228,
+        "min_log_drift": 0.40546844
+      }
+    ]
+  },
+  "contrapositive_route": "If a well-founded residue-debt rank strictly descends on every accelerated transition or enters the known basin, then any divergent orbit or non-trivial cycle is impossible.",
+  "missing_infinite_bridge": "A finite residue-debt certificate must be lifted from sampled residues to all integers.",
+  "next_theorem_to_attempt": "CO-TICKET-17 ResidueDebtAutomatonLift",
+  "claim_boundary": "No Collatz proof and no Collatz counterexample found in the bounded direct search."
+}

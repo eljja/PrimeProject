@@ -754,6 +754,63 @@ canvas {
   background: var(--teal-soft);
 }
 
+.poc-head,
+.poc-bridge {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.poc-head div,
+.poc-grid section,
+.poc-bridge section,
+.poc-examples {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: #fbfcfe;
+  padding: 12px;
+}
+
+.poc-head span,
+.poc-grid h3,
+.poc-bridge h3,
+.poc-examples h3 {
+  display: block;
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+.poc-head strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.poc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.poc-grid p,
+.poc-bridge p {
+  margin: 6px 0 0;
+}
+
+.poc-examples {
+  margin-top: 10px;
+}
+
+.poc-bridge {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 10px;
+}
+
 .runner-head,
 .runner-outcome {
   display: grid;
@@ -6872,6 +6929,9 @@ tr:last-child td {
   .runner-head,
   .runner-step-list,
   .runner-outcome,
+  .poc-head,
+  .poc-grid,
+  .poc-bridge,
   .lemma-workbench-head,
   .lemma-card-list,
   .search-trials-head,

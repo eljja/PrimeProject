@@ -1,0 +1,48 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-16",
+  "status": "attempted_no_full_resolution",
+  "proof_modes": [
+    "candidate_theorem_counterexample",
+    "contrapositive_zero_exclusion",
+    "finite_prefix_obstruction"
+  ],
+  "direct_counterexample": {
+    "searched": false,
+    "reason": "This lab does not implement certified zeta zero isolation; it attacks finite-prefix proof routes instead."
+  },
+  "surrogate_zero_model": {
+    "critical_line_zero_count": 8,
+    "off_critical_quartet": [
+      {
+        "real": 0.65,
+        "imag": 14.134725141734693
+      },
+      {
+        "real": 0.35,
+        "imag": 14.134725141734693
+      },
+      {
+        "real": 0.65,
+        "imag": -14.134725141734693
+      },
+      {
+        "real": 0.35,
+        "imag": -14.134725141734693
+      }
+    ],
+    "li_terms_checked": 80,
+    "min_li_coefficient": 0.019933117073,
+    "first_negative_li": null,
+    "finite_prefix_survives": true
+  },
+  "candidate_counterexamples_found": {
+    "target_claim": "A finite Li/Jensen/Hermite prefix can certify RH without a uniform all-index theorem.",
+    "result": "falsified_as_proof_strategy",
+    "reason": "The constructed symmetric surrogate includes off-critical zeros. Whether finite Li terms detect it or not, the lesson is the same: a bounded prefix only produces an oracle for candidate routes, not a theorem over all zeros."
+  },
+  "contrapositive_route": "Assume an off-critical zero exists. Construct a test kernel or Li-type coefficient that becomes negative. A valid proof must make this construction uniform over all heights and all off-critical displacements.",
+  "missing_infinite_bridge": "Uniform off-critical-zero detector over the full zero set, with no RH-equivalent axiom.",
+  "next_theorem_to_attempt": "RH-TICKET-17 UniformOffCriticalDetector",
+  "claim_boundary": "No RH proof and no certified RH counterexample. This is a counterexample to finite-prefix proof strategies."
+}

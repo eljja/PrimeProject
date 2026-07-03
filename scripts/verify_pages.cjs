@@ -259,6 +259,8 @@ async function main() {
           proofVerdictText: document.querySelector("#proofVerdict").textContent,
           actualProofRunnerText: document.querySelector("#actualProofAttemptRunner").textContent,
           actualProofRunnerSteps: document.querySelectorAll("#actualProofAttemptRunner .runner-step").length,
+          proofOrCounterexampleText: document.querySelector("#proofOrCounterexampleLab")?.textContent || "",
+          proofOrCounterexampleCards: document.querySelectorAll("#proofOrCounterexampleLab .poc-grid section").length,
           candidateLemmaText: document.querySelector("#candidateLemmaWorkbench").textContent,
           candidateLemmaCards: document.querySelectorAll("#candidateLemmaWorkbench .lemma-card").length,
           machineSearchText: document.querySelector("#machineProofSearchTrials").textContent,
@@ -357,11 +359,13 @@ async function main() {
   }
   if (
     metrics.proofHub?.heading !== "Proof Workbench" ||
-    metrics.proofHub?.linkCount !== 4 ||
+    metrics.proofHub?.linkCount !== 5 ||
     !metrics.proofHub?.links.includes("riemann.html") ||
     !metrics.proofHub?.links.includes("collatz.html") ||
     !metrics.proofHub?.links.includes("goldbach.html") ||
     !metrics.proofHub?.links.includes("twin-prime.html") ||
+    !metrics.proofHub?.links.includes("../docs/proof-or-counterexample-program.md") ||
+    !metrics.proofHub?.boundary.includes("Proof or Counterexample Program") ||
     !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
@@ -384,6 +388,11 @@ async function main() {
         !page.actualProofRunnerText.includes("Why this is not yet a proof") ||
         !page.actualProofRunnerText.includes("Next executable move") ||
         page.actualProofRunnerSteps < 4 ||
+        !page.proofOrCounterexampleText.includes("Proof modes") ||
+        !page.proofOrCounterexampleText.includes("Direct counterexample search") ||
+        !page.proofOrCounterexampleText.includes("Contrapositive route") ||
+        !page.proofOrCounterexampleText.includes("Claim boundary") ||
+        page.proofOrCounterexampleCards < 4 ||
         !page.candidateLemmaText.includes("Tool test") ||
         !page.candidateLemmaText.includes("Next revision") ||
         !page.candidateLemmaText.includes("upgrades the page status only after formal proof") ||

@@ -2082,7 +2082,77 @@ function renderDecisiveLemmaLab(problem) {
   `;
 }
 
-function render(payload, problem) {
+function renderProofOrCounterexample(ticket) {
+  if (!ticket) {
+    return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
+  }
+  const direct = ticket.direct_counterexample || {};
+  const candidate = ticket.candidate_counterexamples_found || {};
+  const directRows = Object.entries(direct)
+    .filter(([key]) => !["candidates"].includes(key))
+    .slice(0, 8);
+  const examples = candidate.examples || direct.candidates || [];
+  const exampleRows = Array.isArray(examples)
+    ? examples.slice(0, 6).map((item, index) => [
+        index + 1,
+        typeof item === "object" ? JSON.stringify(item) : item,
+      ])
+    : [];
+
+  return `
+    <div class="poc-head">
+      <div>
+        <span>Status</span>
+        <strong>${escapeHtml(statusText(ticket.status))}</strong>
+      </div>
+      <div>
+        <span>Ticket</span>
+        <strong>${escapeHtml(ticket.ticket_id || "missing")}</strong>
+      </div>
+      <div>
+        <span>Next theorem</span>
+        <strong>${escapeHtml(ticket.next_theorem_to_attempt || "missing")}</strong>
+      </div>
+    </div>
+    <div class="poc-grid">
+      <section>
+        <h3>Proof modes</h3>
+        ${list(ticket.proof_modes || [])}
+      </section>
+      <section>
+        <h3>Direct counterexample search</h3>
+        ${table(["Field", "Value"], directRows)}
+      </section>
+      <section>
+        <h3>Candidate-proof falsification</h3>
+        <p><strong>Target claim:</strong> ${escapeHtml(candidate.target_claim || "missing")}</p>
+        <p><strong>Result:</strong> ${escapeHtml(statusText(candidate.result))}</p>
+        <p>${escapeHtml(candidate.reason || "")}</p>
+      </section>
+      <section>
+        <h3>Contrapositive route</h3>
+        <p>${escapeHtml(ticket.contrapositive_route || "")}</p>
+      </section>
+    </div>
+    ${
+      exampleRows.length
+        ? `<div class="poc-examples"><h3>Counterexample or stress examples</h3>${table(["#", "Example"], exampleRows)}</div>`
+        : ""
+    }
+    <div class="poc-bridge">
+      <section>
+        <h3>Missing infinite bridge</h3>
+        <p>${escapeHtml(ticket.missing_infinite_bridge || "")}</p>
+      </section>
+      <section>
+        <h3>Claim boundary</h3>
+        <p>${escapeHtml(ticket.claim_boundary || "")}</p>
+      </section>
+    </div>
+  `;
+}
+
+function render(payload, problem, proofOrCounterexampleTicket) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -2105,6 +2175,8 @@ function render(payload, problem) {
 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
+  const pocPanel = document.querySelector("#proofOrCounterexampleLab");
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -2162,7 +2234,17 @@ async function main() {
   const payload = await response.json();
   const problem = payload.problems.find((item) => item.id === problemId);
   if (!problem) throw new Error(`Unknown problem: ${problemId}`);
-  render(payload, problem);
+  let proofOrCounterexampleTicket = null;
+  try {
+    const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
+    if (labResponse.ok) {
+      const labPayload = await labResponse.json();
+      proofOrCounterexampleTicket = (labPayload.problems || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    proofOrCounterexampleTicket = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket);
 }
 
 main().catch((error) => {

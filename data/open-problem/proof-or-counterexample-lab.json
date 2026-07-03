@@ -1,0 +1,794 @@
+{
+  "schema": "primeproject.proof-or-counterexample-lab.v1",
+  "generated_at": "2026-07-03T15:34:06+00:00",
+  "status": "attempted_no_full_resolution",
+  "claim_boundary": "The lab can find direct counterexamples if they occur inside the bounded search, and can falsify proof routes. It does not claim a proof of any open problem.",
+  "limits": {
+    "riemann_li_terms": 80,
+    "collatz_limit": 100000,
+    "collatz_residue_modulus": 64,
+    "goldbach_limit": 100000,
+    "twin_limit": 200000,
+    "twin_max_gap": 40
+  },
+  "problems": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-16",
+      "status": "attempted_no_full_resolution",
+      "proof_modes": [
+        "candidate_theorem_counterexample",
+        "contrapositive_zero_exclusion",
+        "finite_prefix_obstruction"
+      ],
+      "direct_counterexample": {
+        "searched": false,
+        "reason": "This lab does not implement certified zeta zero isolation; it attacks finite-prefix proof routes instead."
+      },
+      "surrogate_zero_model": {
+        "critical_line_zero_count": 8,
+        "off_critical_quartet": [
+          {
+            "real": 0.65,
+            "imag": 14.134725141734693
+          },
+          {
+            "real": 0.35,
+            "imag": 14.134725141734693
+          },
+          {
+            "real": 0.65,
+            "imag": -14.134725141734693
+          },
+          {
+            "real": 0.35,
+            "imag": -14.134725141734693
+          }
+        ],
+        "li_terms_checked": 80,
+        "min_li_coefficient": 0.019933117073,
+        "first_negative_li": null,
+        "finite_prefix_survives": true
+      },
+      "candidate_counterexamples_found": {
+        "target_claim": "A finite Li/Jensen/Hermite prefix can certify RH without a uniform all-index theorem.",
+        "result": "falsified_as_proof_strategy",
+        "reason": "The constructed symmetric surrogate includes off-critical zeros. Whether finite Li terms detect it or not, the lesson is the same: a bounded prefix only produces an oracle for candidate routes, not a theorem over all zeros."
+      },
+      "contrapositive_route": "Assume an off-critical zero exists. Construct a test kernel or Li-type coefficient that becomes negative. A valid proof must make this construction uniform over all heights and all off-critical displacements.",
+      "missing_infinite_bridge": "Uniform off-critical-zero detector over the full zero set, with no RH-equivalent axiom.",
+      "next_theorem_to_attempt": "RH-TICKET-17 UniformOffCriticalDetector",
+      "claim_boundary": "No RH proof and no certified RH counterexample. This is a counterexample to finite-prefix proof strategies."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-16",
+      "status": "attempted_no_full_resolution",
+      "proof_modes": [
+        "direct_counterexample_search",
+        "candidate_theorem_counterexample",
+        "contrapositive_rank_descent"
+      ],
+      "direct_counterexample": {
+        "searched_starts": 100000,
+        "max_steps": 10000,
+        "found": false,
+        "candidates": [],
+        "max_steps_seen": {
+          "n": 77031,
+          "steps": 350,
+          "peak": 21933016
+        }
+      },
+      "candidate_counterexamples_found": {
+        "target_claim": "Every odd accelerated Collatz step descends immediately.",
+        "result": "falsified",
+        "examples": [
+          {
+            "n": 1,
+            "accelerated_next": 1,
+            "v2_3n_plus_1": 2,
+            "log_drift": 0.0
+          },
+          {
+            "n": 3,
+            "accelerated_next": 5,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.51082562
+          },
+          {
+            "n": 7,
+            "accelerated_next": 11,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.45198512
+          },
+          {
+            "n": 11,
+            "accelerated_next": 17,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.43531807
+          },
+          {
+            "n": 15,
+            "accelerated_next": 23,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.42744401
+          },
+          {
+            "n": 19,
+            "accelerated_next": 29,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.42285685
+          },
+          {
+            "n": 23,
+            "accelerated_next": 35,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.41985385
+          },
+          {
+            "n": 27,
+            "accelerated_next": 41,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.4177352
+          },
+          {
+            "n": 31,
+            "accelerated_next": 47,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.4161604
+          },
+          {
+            "n": 35,
+            "accelerated_next": 53,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.41494385
+          },
+          {
+            "n": 39,
+            "accelerated_next": 59,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.4139758
+          },
+          {
+            "n": 43,
+            "accelerated_next": 65,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.41318715
+          },
+          {
+            "n": 47,
+            "accelerated_next": 71,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.41253228
+          },
+          {
+            "n": 51,
+            "accelerated_next": 77,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.41197979
+          },
+          {
+            "n": 55,
+            "accelerated_next": 83,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.41150742
+          },
+          {
+            "n": 59,
+            "accelerated_next": 89,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.41109893
+          },
+          {
+            "n": 63,
+            "accelerated_next": 95,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.41074217
+          },
+          {
+            "n": 67,
+            "accelerated_next": 101,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.4104279
+          },
+          {
+            "n": 71,
+            "accelerated_next": 107,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.41014896
+          },
+          {
+            "n": 75,
+            "accelerated_next": 113,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.40989971
+          },
+          {
+            "n": 79,
+            "accelerated_next": 119,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.40967564
+          },
+          {
+            "n": 83,
+            "accelerated_next": 125,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.40947313
+          },
+          {
+            "n": 87,
+            "accelerated_next": 131,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.4092892
+          },
+          {
+            "n": 91,
+            "accelerated_next": 137,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.40912142
+          },
+          {
+            "n": 95,
+            "accelerated_next": 143,
+            "v2_3n_plus_1": 1,
+            "log_drift": 0.40896774
+          }
+        ]
+      },
+      "residue_pressure": {
+        "modulus": 64,
+        "top_mean_drift_residues": [
+          {
+            "residue": 3,
+            "count": 1563,
+            "mean_log_drift": 0.40555868,
+            "max_log_drift": 0.51082562,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 7,
+            "count": 1563,
+            "mean_log_drift": 0.40552073,
+            "max_log_drift": 0.45198512,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 11,
+            "count": 1563,
+            "mean_log_drift": 0.40550979,
+            "max_log_drift": 0.43531807,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 15,
+            "count": 1563,
+            "mean_log_drift": 0.40550449,
+            "max_log_drift": 0.42744401,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 19,
+            "count": 1563,
+            "mean_log_drift": 0.40550131,
+            "max_log_drift": 0.42285685,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 23,
+            "count": 1563,
+            "mean_log_drift": 0.40549916,
+            "max_log_drift": 0.41985385,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 27,
+            "count": 1563,
+            "mean_log_drift": 0.40549759,
+            "max_log_drift": 0.4177352,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 31,
+            "count": 1563,
+            "mean_log_drift": 0.40549638,
+            "max_log_drift": 0.4161604,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 35,
+            "count": 1562,
+            "mean_log_drift": 0.40549542,
+            "max_log_drift": 0.41494385,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 39,
+            "count": 1562,
+            "mean_log_drift": 0.40549462,
+            "max_log_drift": 0.4139758,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 43,
+            "count": 1562,
+            "mean_log_drift": 0.40549395,
+            "max_log_drift": 0.41318715,
+            "min_log_drift": 0.40546844
+          },
+          {
+            "residue": 47,
+            "count": 1562,
+            "mean_log_drift": 0.40549336,
+            "max_log_drift": 0.41253228,
+            "min_log_drift": 0.40546844
+          }
+        ]
+      },
+      "contrapositive_route": "If a well-founded residue-debt rank strictly descends on every accelerated transition or enters the known basin, then any divergent orbit or non-trivial cycle is impossible.",
+      "missing_infinite_bridge": "A finite residue-debt certificate must be lifted from sampled residues to all integers.",
+      "next_theorem_to_attempt": "CO-TICKET-17 ResidueDebtAutomatonLift",
+      "claim_boundary": "No Collatz proof and no Collatz counterexample found in the bounded direct search."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-16",
+      "status": "attempted_no_full_resolution",
+      "proof_modes": [
+        "direct_counterexample_search",
+        "candidate_lower_bound_counterexample",
+        "contrapositive_cutoff_bridge"
+      ],
+      "direct_counterexample": {
+        "searched_even_limit": 100000,
+        "found": false,
+        "candidates": []
+      },
+      "hardest_even_numbers": [
+        {
+          "n": 12,
+          "representations": 1,
+          "normalized_margin": 0.51456342
+        },
+        {
+          "n": 6,
+          "representations": 1,
+          "normalized_margin": 0.535067
+        },
+        {
+          "n": 8,
+          "representations": 1,
+          "normalized_margin": 0.54050964
+        },
+        {
+          "n": 68,
+          "representations": 2,
+          "normalized_margin": 0.52365427
+        },
+        {
+          "n": 38,
+          "representations": 2,
+          "normalized_margin": 0.69642279
+        },
+        {
+          "n": 32,
+          "representations": 2,
+          "normalized_margin": 0.75070783
+        },
+        {
+          "n": 28,
+          "representations": 2,
+          "normalized_margin": 0.79311335
+        },
+        {
+          "n": 20,
+          "representations": 2,
+          "normalized_margin": 0.89744119
+        },
+        {
+          "n": 18,
+          "representations": 2,
+          "normalized_margin": 0.92824988
+        },
+        {
+          "n": 16,
+          "representations": 2,
+          "normalized_margin": 0.96090603
+        },
+        {
+          "n": 14,
+          "representations": 2,
+          "normalized_margin": 0.99494623
+        },
+        {
+          "n": 10,
+          "representations": 2,
+          "normalized_margin": 1.06037962
+        },
+        {
+          "n": 128,
+          "representations": 3,
+          "normalized_margin": 0.55177026
+        },
+        {
+          "n": 98,
+          "representations": 3,
+          "normalized_margin": 0.64352837
+        },
+        {
+          "n": 62,
+          "representations": 3,
+          "normalized_margin": 0.82418895
+        },
+        {
+          "n": 56,
+          "representations": 3,
+          "normalized_margin": 0.8680423
+        },
+        {
+          "n": 52,
+          "representations": 3,
+          "normalized_margin": 0.90071117
+        },
+        {
+          "n": 44,
+          "representations": 3,
+          "normalized_margin": 0.97636985
+        },
+        {
+          "n": 40,
+          "representations": 3,
+          "normalized_margin": 1.02058737
+        },
+        {
+          "n": 30,
+          "representations": 3,
+          "normalized_margin": 1.15681436
+        }
+      ],
+      "candidate_counterexamples_found": {
+        "target_claim": "A uniform representation lower bound can ignore residue-profile worst cases.",
+        "result": "stress_cases_found",
+        "examples": [
+          {
+            "n": 12,
+            "representations": 1,
+            "normalized_margin": 0.51456342
+          },
+          {
+            "n": 6,
+            "representations": 1,
+            "normalized_margin": 0.535067
+          },
+          {
+            "n": 8,
+            "representations": 1,
+            "normalized_margin": 0.54050964
+          },
+          {
+            "n": 68,
+            "representations": 2,
+            "normalized_margin": 0.52365427
+          },
+          {
+            "n": 38,
+            "representations": 2,
+            "normalized_margin": 0.69642279
+          },
+          {
+            "n": 32,
+            "representations": 2,
+            "normalized_margin": 0.75070783
+          },
+          {
+            "n": 28,
+            "representations": 2,
+            "normalized_margin": 0.79311335
+          },
+          {
+            "n": 20,
+            "representations": 2,
+            "normalized_margin": 0.89744119
+          },
+          {
+            "n": 18,
+            "representations": 2,
+            "normalized_margin": 0.92824988
+          },
+          {
+            "n": 16,
+            "representations": 2,
+            "normalized_margin": 0.96090603
+          }
+        ]
+      },
+      "residue_profile_minima": {
+        "mod30=0": {
+          "count": 3333,
+          "min_representations": 3,
+          "min_n": 30
+        },
+        "mod30=10": {
+          "count": 3334,
+          "min_representations": 2,
+          "min_n": 10
+        },
+        "mod30=12": {
+          "count": 3333,
+          "min_representations": 1,
+          "min_n": 12
+        },
+        "mod30=14": {
+          "count": 3333,
+          "min_representations": 2,
+          "min_n": 14
+        },
+        "mod30=16": {
+          "count": 3333,
+          "min_representations": 2,
+          "min_n": 16
+        },
+        "mod30=18": {
+          "count": 3333,
+          "min_representations": 2,
+          "min_n": 18
+        },
+        "mod30=2": {
+          "count": 3333,
+          "min_representations": 2,
+          "min_n": 32
+        },
+        "mod30=20": {
+          "count": 3333,
+          "min_representations": 2,
+          "min_n": 20
+        },
+        "mod30=22": {
+          "count": 3333,
+          "min_representations": 3,
+          "min_n": 22
+        },
+        "mod30=24": {
+          "count": 3333,
+          "min_representations": 3,
+          "min_n": 24
+        },
+        "mod30=26": {
+          "count": 3333,
+          "min_representations": 3,
+          "min_n": 26
+        },
+        "mod30=28": {
+          "count": 3333,
+          "min_representations": 2,
+          "min_n": 28
+        },
+        "mod30=4": {
+          "count": 3333,
+          "min_representations": 4,
+          "min_n": 34
+        },
+        "mod30=6": {
+          "count": 3334,
+          "min_representations": 1,
+          "min_n": 6
+        },
+        "mod30=8": {
+          "count": 3334,
+          "min_representations": 1,
+          "min_n": 8
+        }
+      },
+      "contrapositive_route": "If every even n >= N0 has an explicit positive lower bound for the Goldbach representation count and every even n < N0 is finitely certified, then a Goldbach counterexample cannot exist.",
+      "missing_infinite_bridge": "An unconditional explicit lower bound with cutoff below the finite certificate range.",
+      "next_theorem_to_attempt": "GB-TICKET-17 ResidueProfileExplicitCutoff",
+      "claim_boundary": "No Goldbach proof and no Goldbach counterexample found in the bounded direct search."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-16",
+      "status": "attempted_no_full_resolution",
+      "proof_modes": [
+        "finite_evidence_search",
+        "proof_shortcut_counterexample",
+        "contrapositive_exact_gap_lower_bound"
+      ],
+      "direct_counterexample": {
+        "finite_refutation_possible": false,
+        "reason": "The negation is an eventual statement: there exists N after which no twin primes occur.",
+        "searched_prime_limit": 200000,
+        "twin_pairs_found": 2160
+      },
+      "gap_distribution": {
+        "1": 1,
+        "2": 2160,
+        "4": 2134,
+        "6": 3455,
+        "8": 1391,
+        "10": 1705,
+        "12": 1821,
+        "14": 959,
+        "16": 637,
+        "18": 1035,
+        "20": 471,
+        "22": 443,
+        "24": 457,
+        "26": 198,
+        "28": 217,
+        "30": 319,
+        "32": 68,
+        "34": 90,
+        "36": 117,
+        "38": 57,
+        "40": 66
+      },
+      "largest_observed_twin_free_intervals": [
+        {
+          "from_twin_start": 187907,
+          "to_twin_start": 188831,
+          "distance": 924
+        },
+        {
+          "from_twin_start": 62297,
+          "to_twin_start": 62927,
+          "distance": 630
+        },
+        {
+          "from_twin_start": 120077,
+          "to_twin_start": 120689,
+          "distance": 612
+        },
+        {
+          "from_twin_start": 167861,
+          "to_twin_start": 168449,
+          "distance": 588
+        },
+        {
+          "from_twin_start": 165719,
+          "to_twin_start": 166301,
+          "distance": 582
+        },
+        {
+          "from_twin_start": 137339,
+          "to_twin_start": 137867,
+          "distance": 528
+        },
+        {
+          "from_twin_start": 122867,
+          "to_twin_start": 123377,
+          "distance": 510
+        },
+        {
+          "from_twin_start": 145007,
+          "to_twin_start": 145511,
+          "distance": 504
+        },
+        {
+          "from_twin_start": 172517,
+          "to_twin_start": 173021,
+          "distance": 504
+        },
+        {
+          "from_twin_start": 24419,
+          "to_twin_start": 24917,
+          "distance": 498
+        }
+      ],
+      "candidate_counterexamples_found": {
+        "target_claim": "Bounded prime gaps alone imply exact twin-prime gaps.",
+        "result": "falsified_by_wider_gaps",
+        "bounded_gap_mass": 17801,
+        "exact_gap_mass": 2160,
+        "wider_gap_mass": 15641,
+        "leakage_ratio": 0.8786585,
+        "examples": [
+          {
+            "p": 7,
+            "q": 11,
+            "gap": 4
+          },
+          {
+            "p": 13,
+            "q": 17,
+            "gap": 4
+          },
+          {
+            "p": 19,
+            "q": 23,
+            "gap": 4
+          },
+          {
+            "p": 23,
+            "q": 29,
+            "gap": 6
+          },
+          {
+            "p": 31,
+            "q": 37,
+            "gap": 6
+          },
+          {
+            "p": 37,
+            "q": 41,
+            "gap": 4
+          },
+          {
+            "p": 43,
+            "q": 47,
+            "gap": 4
+          },
+          {
+            "p": 47,
+            "q": 53,
+            "gap": 6
+          },
+          {
+            "p": 53,
+            "q": 59,
+            "gap": 6
+          },
+          {
+            "p": 61,
+            "q": 67,
+            "gap": 6
+          },
+          {
+            "p": 67,
+            "q": 71,
+            "gap": 4
+          },
+          {
+            "p": 73,
+            "q": 79,
+            "gap": 6
+          },
+          {
+            "p": 79,
+            "q": 83,
+            "gap": 4
+          },
+          {
+            "p": 83,
+            "q": 89,
+            "gap": 6
+          },
+          {
+            "p": 89,
+            "q": 97,
+            "gap": 8
+          },
+          {
+            "p": 97,
+            "q": 101,
+            "gap": 4
+          },
+          {
+            "p": 103,
+            "q": 107,
+            "gap": 4
+          },
+          {
+            "p": 109,
+            "q": 113,
+            "gap": 4
+          },
+          {
+            "p": 113,
+            "q": 127,
+            "gap": 14
+          },
+          {
+            "p": 127,
+            "q": 131,
+            "gap": 4
+          }
+        ]
+      },
+      "contrapositive_route": "If an exact gap-2 lower bound grows without bound, then the negation of the twin prime conjecture is impossible. Bounded-gap evidence must be separated from exact-gap evidence.",
+      "missing_infinite_bridge": "A parity-barrier-resistant lower bound for exact gap 2, not just some bounded gap.",
+      "next_theorem_to_attempt": "TP-TICKET-17 ExactGapTwoProjection",
+      "claim_boundary": "No Twin Prime proof. Finite data cannot refute the eventual no-more-twins negation."
+    }
+  ],
+  "payload_sha256": "0eed2a30562e7e8b15acf42742feb710b7b04a740b7a2ca2a21d3b53ee2e53cc"
+}
