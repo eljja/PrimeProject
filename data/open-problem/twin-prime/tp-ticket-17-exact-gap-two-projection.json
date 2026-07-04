@@ -1,0 +1,84 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-17",
+  "status": "breakthrough_attempt_open",
+  "route": "ExactGapTwoProjection",
+  "proof_or_counterexample_mode": "proof_shortcut_counterexample_plus_projection_target",
+  "attempt": "Quantify how much a sieve weight must suppress wider bounded gaps before a bounded-gap signal can be converted into an exact gap-2 lower-bound candidate.",
+  "bounded_result": {
+    "prime_limit": 300000,
+    "max_gap": 60,
+    "gap_distribution": {
+      "1": 1,
+      "2": 2994,
+      "4": 2974,
+      "6": 4849,
+      "8": 1981,
+      "10": 2479,
+      "12": 2631,
+      "14": 1396,
+      "16": 929,
+      "18": 1508,
+      "20": 715,
+      "22": 648,
+      "24": 750,
+      "26": 328,
+      "28": 334,
+      "30": 485,
+      "32": 119,
+      "34": 149,
+      "36": 184,
+      "38": 87,
+      "40": 111,
+      "42": 107,
+      "44": 33,
+      "46": 30,
+      "48": 37,
+      "50": 21,
+      "52": 13,
+      "54": 32,
+      "56": 9,
+      "58": 11,
+      "60": 21
+    },
+    "exact_gap_2": 2994,
+    "wider_bounded_gaps": 22971,
+    "required_wider_suppression": 0.13033825,
+    "checkpoints": [
+      {
+        "x": 1000,
+        "exact_gap_2": 35,
+        "wider_bounded_gaps": 131,
+        "required_wider_suppression": 0.26717557
+      },
+      {
+        "x": 10000,
+        "exact_gap_2": 205,
+        "wider_bounded_gaps": 1022,
+        "required_wider_suppression": 0.20058708
+      },
+      {
+        "x": 50000,
+        "exact_gap_2": 705,
+        "wider_bounded_gaps": 4424,
+        "required_wider_suppression": 0.15935805
+      },
+      {
+        "x": 100000,
+        "exact_gap_2": 1224,
+        "wider_bounded_gaps": 8363,
+        "required_wider_suppression": 0.14635896
+      },
+      {
+        "x": 300000,
+        "exact_gap_2": 2994,
+        "wider_bounded_gaps": 22971,
+        "required_wider_suppression": 0.13033825
+      }
+    ]
+  },
+  "obstruction": "Bounded gaps are dominated by wider gaps. Any proof route must create an exact-gap projection that survives parity models and does not assume Hardy-Littlewood k-tuple behavior.",
+  "candidate_theorem": "There exists a non-negative sieve projection whose exact gap-2 contribution remains positive after all wider admissible gap contributions are subtracted with certified error control.",
+  "next_experiment": "Search signed/orthogonalized gap projection weights and reject those that fail parity-model tests.",
+  "claim_boundary": "No Twin Prime proof. Finite data cannot refute the eventual no-more-twins negation."
+}

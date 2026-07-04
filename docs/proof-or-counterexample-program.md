@@ -229,3 +229,33 @@ The fourth priority is:
 ```text
 RH-TICKET-17 UniformOffCriticalDetector
 ```
+
+## Ticket 17 Breakthrough Attempt Results
+
+Generated artifact:
+
+```text
+data/open-problem/ticket17-breakthrough-attempts.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-17-uniform-offcritical-detector.json
+data/open-problem/collatz/co-ticket-17-residue-debt-automaton-lift.json
+data/open-problem/goldbach/gb-ticket-17-residue-profile-explicit-cutoff.json
+data/open-problem/twin-prime/tp-ticket-17-exact-gap-two-projection.json
+```
+
+Current verdict:
+
+```text
+breakthrough_attempts_open_no_resolution
+```
+
+한국어 요약: TICKET-17은 네 난제를 풀었다고 주장하지 않는다. 대신 각 문제의 다음 무한다리 정리를 더 날카롭게 만들었다.
+
+1. RH: finite Li-type detector가 off-critical surrogate를 충분히 빨리 잡는지 실험했다. 현재 결과는 finite detector만으로는 부족하며, 전역 effective detector theorem이 필요하다는 쪽이다.
+2. Collatz: accelerated odd trajectory의 residue-debt를 추적했다. 표본상 하강 압력은 보이지만, residue-debt state 전체를 덮는 lifting theorem이 없다.
+3. Goldbach: residue profile별 representation lower envelope를 추적했다. finite margin은 양수지만, profile별 analytic error term을 이겨야 한다.
+4. Twin Prime: exact gap 2 mass와 wider bounded-gap mass를 분리했다. bounded gap 신호는 wider gap에 크게 오염되므로 exact gap projection theorem이 필요하다.

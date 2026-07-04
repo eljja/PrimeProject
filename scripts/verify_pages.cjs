@@ -392,6 +392,9 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Direct counterexample search") ||
         !page.proofOrCounterexampleText.includes("Contrapositive route") ||
         !page.proofOrCounterexampleText.includes("Claim boundary") ||
+        !page.proofOrCounterexampleText.includes("Ticket 17 breakthrough attempt") ||
+        !page.proofOrCounterexampleText.includes("Candidate theorem") ||
+        !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
         !page.candidateLemmaText.includes("Tool test") ||
         !page.candidateLemmaText.includes("Next revision") ||

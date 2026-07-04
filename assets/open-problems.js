@@ -2082,7 +2082,47 @@ function renderDecisiveLemmaLab(problem) {
   `;
 }
 
-function renderProofOrCounterexample(ticket) {
+function renderTicket17Breakthrough(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const summaryRows = Object.entries(bounded)
+    .filter(([, value]) => typeof value !== "object" || value === null)
+    .slice(0, 8);
+  return `
+    <div class="poc-ticket17">
+      <h3>Ticket 17 breakthrough attempt</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["Bounded result", "Value"], summaryRows) : ""}
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -2149,10 +2189,11 @@ function renderProofOrCounterexample(ticket) {
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket17Breakthrough(breakthroughTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -2176,7 +2217,7 @@ function render(payload, problem, proofOrCounterexampleTicket) {
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -2235,6 +2276,7 @@ async function main() {
   const problem = payload.problems.find((item) => item.id === problemId);
   if (!problem) throw new Error(`Unknown problem: ${problemId}`);
   let proofOrCounterexampleTicket = null;
+  let ticket17Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -2244,7 +2286,16 @@ async function main() {
   } catch (error) {
     proofOrCounterexampleTicket = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket);
+  try {
+    const ticket17Response = await fetch("../data/open-problem/ticket17-breakthrough-attempts.json", { cache: "no-store" });
+    if (ticket17Response.ok) {
+      const ticket17Payload = await ticket17Response.json();
+      ticket17Attempt = (ticket17Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket17Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt);
 }
 
 main().catch((error) => {

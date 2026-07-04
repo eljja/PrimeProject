@@ -1,0 +1,794 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-17",
+  "status": "breakthrough_attempt_open",
+  "route": "ResidueDebtAutomatonLift",
+  "proof_or_counterexample_mode": "bounded_counterexample_search_plus_lift_target",
+  "attempt": "Track accumulated accelerated-map log debt until the odd trajectory descends below its start. A future theorem must turn finite residue-debt descent into a global well-founded rank.",
+  "bounded_result": {
+    "odd_starts_checked": 99999,
+    "modulus": 128,
+    "block_steps": 64,
+    "non_descending_blocks": 32,
+    "sample_failures": [
+      {
+        "start": 10087,
+        "end": 13667,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 10087,
+            "to": 15131,
+            "v2": 1,
+            "drift": 0.40549815
+          },
+          {
+            "from": 15131,
+            "to": 22697,
+            "v2": 1,
+            "drift": 0.40548714
+          },
+          {
+            "from": 22697,
+            "to": 17023,
+            "v2": 2,
+            "drift": -0.28766739
+          },
+          {
+            "from": 17023,
+            "to": 25535,
+            "v2": 1,
+            "drift": 0.40548469
+          },
+          {
+            "from": 25535,
+            "to": 38303,
+            "v2": 1,
+            "drift": 0.40547816
+          },
+          {
+            "from": 38303,
+            "to": 57455,
+            "v2": 1,
+            "drift": 0.40547381
+          },
+          {
+            "from": 57455,
+            "to": 86183,
+            "v2": 1,
+            "drift": 0.40547091
+          },
+          {
+            "from": 86183,
+            "to": 129275,
+            "v2": 1,
+            "drift": 0.40546898
+          }
+        ]
+      },
+      {
+        "start": 35655,
+        "end": 6181541,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 35655,
+            "to": 53483,
+            "v2": 1,
+            "drift": 0.40547446
+          },
+          {
+            "from": 53483,
+            "to": 80225,
+            "v2": 1,
+            "drift": 0.40547134
+          },
+          {
+            "from": 80225,
+            "to": 60169,
+            "v2": 2,
+            "drift": -0.28767792
+          },
+          {
+            "from": 60169,
+            "to": 45127,
+            "v2": 2,
+            "drift": -0.28767653
+          },
+          {
+            "from": 45127,
+            "to": 67691,
+            "v2": 1,
+            "drift": 0.40547249
+          },
+          {
+            "from": 67691,
+            "to": 101537,
+            "v2": 1,
+            "drift": 0.40547003
+          },
+          {
+            "from": 101537,
+            "to": 76153,
+            "v2": 2,
+            "drift": -0.28767879
+          },
+          {
+            "from": 76153,
+            "to": 57115,
+            "v2": 2,
+            "drift": -0.2876777
+          }
+        ]
+      },
+      {
+        "start": 37503,
+        "end": 812717,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 37503,
+            "to": 56255,
+            "v2": 1,
+            "drift": 0.405474
+          },
+          {
+            "from": 56255,
+            "to": 84383,
+            "v2": 1,
+            "drift": 0.40547103
+          },
+          {
+            "from": 84383,
+            "to": 126575,
+            "v2": 1,
+            "drift": 0.40546906
+          },
+          {
+            "from": 126575,
+            "to": 189863,
+            "v2": 1,
+            "drift": 0.40546774
+          },
+          {
+            "from": 189863,
+            "to": 284795,
+            "v2": 1,
+            "drift": 0.40546686
+          },
+          {
+            "from": 284795,
+            "to": 427193,
+            "v2": 1,
+            "drift": 0.40546628
+          },
+          {
+            "from": 427193,
+            "to": 320395,
+            "v2": 2,
+            "drift": -0.28768129
+          },
+          {
+            "from": 320395,
+            "to": 480593,
+            "v2": 1,
+            "drift": 0.40546615
+          }
+        ]
+      },
+      {
+        "start": 45055,
+        "end": 976373,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 45055,
+            "to": 67583,
+            "v2": 1,
+            "drift": 0.40547251
+          },
+          {
+            "from": 67583,
+            "to": 101375,
+            "v2": 1,
+            "drift": 0.40547004
+          },
+          {
+            "from": 101375,
+            "to": 152063,
+            "v2": 1,
+            "drift": 0.4054684
+          },
+          {
+            "from": 152063,
+            "to": 228095,
+            "v2": 1,
+            "drift": 0.4054673
+          },
+          {
+            "from": 228095,
+            "to": 342143,
+            "v2": 1,
+            "drift": 0.40546657
+          },
+          {
+            "from": 342143,
+            "to": 513215,
+            "v2": 1,
+            "drift": 0.40546608
+          },
+          {
+            "from": 513215,
+            "to": 769823,
+            "v2": 1,
+            "drift": 0.40546576
+          },
+          {
+            "from": 769823,
+            "to": 1154735,
+            "v2": 1,
+            "drift": 0.40546554
+          }
+        ]
+      },
+      {
+        "start": 45127,
+        "end": 3911759,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 45127,
+            "to": 67691,
+            "v2": 1,
+            "drift": 0.40547249
+          },
+          {
+            "from": 67691,
+            "to": 101537,
+            "v2": 1,
+            "drift": 0.40547003
+          },
+          {
+            "from": 101537,
+            "to": 76153,
+            "v2": 2,
+            "drift": -0.28767879
+          },
+          {
+            "from": 76153,
+            "to": 57115,
+            "v2": 2,
+            "drift": -0.2876777
+          },
+          {
+            "from": 57115,
+            "to": 85673,
+            "v2": 1,
+            "drift": 0.40547094
+          },
+          {
+            "from": 85673,
+            "to": 64255,
+            "v2": 2,
+            "drift": -0.28767818
+          },
+          {
+            "from": 64255,
+            "to": 96383,
+            "v2": 1,
+            "drift": 0.4054703
+          },
+          {
+            "from": 96383,
+            "to": 144575,
+            "v2": 1,
+            "drift": 0.40546857
+          }
+        ]
+      },
+      {
+        "start": 56255,
+        "end": 304769,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 56255,
+            "to": 84383,
+            "v2": 1,
+            "drift": 0.40547103
+          },
+          {
+            "from": 84383,
+            "to": 126575,
+            "v2": 1,
+            "drift": 0.40546906
+          },
+          {
+            "from": 126575,
+            "to": 189863,
+            "v2": 1,
+            "drift": 0.40546774
+          },
+          {
+            "from": 189863,
+            "to": 284795,
+            "v2": 1,
+            "drift": 0.40546686
+          },
+          {
+            "from": 284795,
+            "to": 427193,
+            "v2": 1,
+            "drift": 0.40546628
+          },
+          {
+            "from": 427193,
+            "to": 320395,
+            "v2": 2,
+            "drift": -0.28768129
+          },
+          {
+            "from": 320395,
+            "to": 480593,
+            "v2": 1,
+            "drift": 0.40546615
+          },
+          {
+            "from": 480593,
+            "to": 360445,
+            "v2": 2,
+            "drift": -0.28768138
+          }
+        ]
+      },
+      {
+        "start": 57115,
+        "end": 4950821,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 57115,
+            "to": 85673,
+            "v2": 1,
+            "drift": 0.40547094
+          },
+          {
+            "from": 85673,
+            "to": 64255,
+            "v2": 2,
+            "drift": -0.28767818
+          },
+          {
+            "from": 64255,
+            "to": 96383,
+            "v2": 1,
+            "drift": 0.4054703
+          },
+          {
+            "from": 96383,
+            "to": 144575,
+            "v2": 1,
+            "drift": 0.40546857
+          },
+          {
+            "from": 144575,
+            "to": 216863,
+            "v2": 1,
+            "drift": 0.40546741
+          },
+          {
+            "from": 216863,
+            "to": 325295,
+            "v2": 1,
+            "drift": 0.40546665
+          },
+          {
+            "from": 325295,
+            "to": 487943,
+            "v2": 1,
+            "drift": 0.40546613
+          },
+          {
+            "from": 487943,
+            "to": 731915,
+            "v2": 1,
+            "drift": 0.40546579
+          }
+        ]
+      },
+      {
+        "start": 60975,
+        "end": 21142037,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 60975,
+            "to": 91463,
+            "v2": 1,
+            "drift": 0.40547057
+          },
+          {
+            "from": 91463,
+            "to": 137195,
+            "v2": 1,
+            "drift": 0.40546875
+          },
+          {
+            "from": 137195,
+            "to": 205793,
+            "v2": 1,
+            "drift": 0.40546754
+          },
+          {
+            "from": 205793,
+            "to": 154345,
+            "v2": 2,
+            "drift": -0.28768045
+          },
+          {
+            "from": 154345,
+            "to": 115759,
+            "v2": 2,
+            "drift": -0.28767991
+          },
+          {
+            "from": 115759,
+            "to": 173639,
+            "v2": 1,
+            "drift": 0.40546799
+          },
+          {
+            "from": 173639,
+            "to": 260459,
+            "v2": 1,
+            "drift": 0.40546703
+          },
+          {
+            "from": 260459,
+            "to": 390689,
+            "v2": 1,
+            "drift": 0.40546639
+          }
+        ]
+      },
+      {
+        "start": 64255,
+        "end": 1392419,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 64255,
+            "to": 96383,
+            "v2": 1,
+            "drift": 0.4054703
+          },
+          {
+            "from": 96383,
+            "to": 144575,
+            "v2": 1,
+            "drift": 0.40546857
+          },
+          {
+            "from": 144575,
+            "to": 216863,
+            "v2": 1,
+            "drift": 0.40546741
+          },
+          {
+            "from": 216863,
+            "to": 325295,
+            "v2": 1,
+            "drift": 0.40546665
+          },
+          {
+            "from": 325295,
+            "to": 487943,
+            "v2": 1,
+            "drift": 0.40546613
+          },
+          {
+            "from": 487943,
+            "to": 731915,
+            "v2": 1,
+            "drift": 0.40546579
+          },
+          {
+            "from": 731915,
+            "to": 1097873,
+            "v2": 1,
+            "drift": 0.40546556
+          },
+          {
+            "from": 1097873,
+            "to": 823405,
+            "v2": 2,
+            "drift": -0.28768177
+          }
+        ]
+      },
+      {
+        "start": 67583,
+        "end": 91535,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 67583,
+            "to": 101375,
+            "v2": 1,
+            "drift": 0.40547004
+          },
+          {
+            "from": 101375,
+            "to": 152063,
+            "v2": 1,
+            "drift": 0.4054684
+          },
+          {
+            "from": 152063,
+            "to": 228095,
+            "v2": 1,
+            "drift": 0.4054673
+          },
+          {
+            "from": 228095,
+            "to": 342143,
+            "v2": 1,
+            "drift": 0.40546657
+          },
+          {
+            "from": 342143,
+            "to": 513215,
+            "v2": 1,
+            "drift": 0.40546608
+          },
+          {
+            "from": 513215,
+            "to": 769823,
+            "v2": 1,
+            "drift": 0.40546576
+          },
+          {
+            "from": 769823,
+            "to": 1154735,
+            "v2": 1,
+            "drift": 0.40546554
+          },
+          {
+            "from": 1154735,
+            "to": 1732103,
+            "v2": 1,
+            "drift": 0.4054654
+          }
+        ]
+      },
+      {
+        "start": 69535,
+        "end": 3013685,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 69535,
+            "to": 104303,
+            "v2": 1,
+            "drift": 0.4054699
+          },
+          {
+            "from": 104303,
+            "to": 156455,
+            "v2": 1,
+            "drift": 0.4054683
+          },
+          {
+            "from": 156455,
+            "to": 234683,
+            "v2": 1,
+            "drift": 0.40546724
+          },
+          {
+            "from": 234683,
+            "to": 352025,
+            "v2": 1,
+            "drift": 0.40546653
+          },
+          {
+            "from": 352025,
+            "to": 264019,
+            "v2": 2,
+            "drift": -0.28768113
+          },
+          {
+            "from": 264019,
+            "to": 396029,
+            "v2": 1,
+            "drift": 0.40546637
+          },
+          {
+            "from": 396029,
+            "to": 148511,
+            "v2": 3,
+            "drift": -0.98082841
+          },
+          {
+            "from": 148511,
+            "to": 222767,
+            "v2": 1,
+            "drift": 0.40546735
+          }
+        ]
+      },
+      {
+        "start": 75007,
+        "end": 812717,
+        "steps": 64,
+        "path_prefix": [
+          {
+            "from": 75007,
+            "to": 112511,
+            "v2": 1,
+            "drift": 0.40546955
+          },
+          {
+            "from": 112511,
+            "to": 168767,
+            "v2": 1,
+            "drift": 0.40546807
+          },
+          {
+            "from": 168767,
+            "to": 253151,
+            "v2": 1,
+            "drift": 0.40546708
+          },
+          {
+            "from": 253151,
+            "to": 379727,
+            "v2": 1,
+            "drift": 0.40546642
+          },
+          {
+            "from": 379727,
+            "to": 569591,
+            "v2": 1,
+            "drift": 0.40546599
+          },
+          {
+            "from": 569591,
+            "to": 854387,
+            "v2": 1,
+            "drift": 0.40546569
+          },
+          {
+            "from": 854387,
+            "to": 1281581,
+            "v2": 1,
+            "drift": 0.4054655
+          },
+          {
+            "from": 1281581,
+            "to": 480593,
+            "v2": 3,
+            "drift": -0.98082899
+          }
+        ]
+      }
+    ],
+    "worst_residue_debt": [
+      {
+        "residue": 103,
+        "start": 113383,
+        "descended_at": null,
+        "max_debt": 8.89523635,
+        "end": 153563
+      },
+      {
+        "residue": 27,
+        "start": 116507,
+        "descended_at": null,
+        "max_debt": 8.4105477,
+        "end": 315589
+      },
+      {
+        "residue": 63,
+        "start": 198079,
+        "descended_at": null,
+        "max_debt": 8.13641373,
+        "end": 536543
+      },
+      {
+        "residue": 79,
+        "start": 155343,
+        "descended_at": null,
+        "max_debt": 8.12286348,
+        "end": 420785
+      },
+      {
+        "residue": 47,
+        "start": 60975,
+        "descended_at": null,
+        "max_debt": 8.08434408,
+        "end": 21142037
+      },
+      {
+        "residue": 127,
+        "start": 159487,
+        "descended_at": 45,
+        "max_debt": 10.48998347,
+        "end": 1559
+      },
+      {
+        "residue": 31,
+        "start": 161439,
+        "descended_at": 58,
+        "max_debt": 8.54188045,
+        "end": 153563
+      },
+      {
+        "residue": 91,
+        "start": 170075,
+        "descended_at": 63,
+        "max_debt": 8.4897683,
+        "end": 153563
+      },
+      {
+        "residue": 111,
+        "start": 94959,
+        "descended_at": 57,
+        "max_debt": 7.83518623,
+        "end": 30109
+      },
+      {
+        "residue": 39,
+        "start": 31911,
+        "descended_at": 37,
+        "max_debt": 7.14208906,
+        "end": 779
+      },
+      {
+        "residue": 95,
+        "start": 189919,
+        "descended_at": 57,
+        "max_debt": 7.14203378,
+        "end": 30109
+      },
+      {
+        "residue": 123,
+        "start": 176379,
+        "descended_at": 59,
+        "max_debt": 6.85435245,
+        "end": 125831
+      },
+      {
+        "residue": 71,
+        "start": 183111,
+        "descended_at": 42,
+        "max_debt": 6.27899077,
+        "end": 67885
+      },
+      {
+        "residue": 15,
+        "start": 15,
+        "descended_at": 4,
+        "max_debt": 1.26224171,
+        "end": 5
+      },
+      {
+        "residue": 7,
+        "start": 7,
+        "descended_at": 4,
+        "max_debt": 0.8873032,
+        "end": 5
+      },
+      {
+        "residue": 23,
+        "start": 23,
+        "descended_at": 3,
+        "max_debt": 0.8347977,
+        "end": 5
+      }
+    ]
+  },
+  "obstruction": "Sampled descent is not a proof. The missing step is a lifting theorem showing that every representative inside a residue-debt state follows a certified descending block or enters the known basin.",
+  "candidate_theorem": "There exists a finite residue-debt automaton whose every SCC has strictly negative certified block drift; therefore no divergent Collatz orbit or non-trivial cycle can remain outside the basin.",
+  "next_experiment": "Replace sampled starts with interval arithmetic over residue-debt states and certify every transition.",
+  "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+}
