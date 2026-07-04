@@ -393,6 +393,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Contrapositive route") ||
         !page.proofOrCounterexampleText.includes("Claim boundary") ||
         !page.proofOrCounterexampleText.includes("Ticket 17 breakthrough attempt") ||
+        !page.proofOrCounterexampleText.includes("Ticket 18 reduction lab") ||
+        !page.proofOrCounterexampleText.includes("Reduction result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

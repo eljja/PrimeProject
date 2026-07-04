@@ -1,0 +1,154 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-18",
+  "status": "reduction_attempt_open",
+  "route": "FinitePrefixCamouflage",
+  "proof_or_counterexample_mode": "proof_shortcut_countermodel",
+  "attempt": "Attack finite Li-prefix proof routes by placing surrogate off-critical zero quartets at high height. For any bounded prefix, high-height off-critical zeros can have very small visible effect on those terms.",
+  "bounded_result": {
+    "li_terms_checked": 200,
+    "surrogate_quartets": 16,
+    "best_camouflage": {
+      "beta": 0.75,
+      "height": 1000000.0,
+      "terms_checked": 200,
+      "max_abs_li_prefix_contribution": 8e-08,
+      "min_li_prefix_contribution": 2e-12,
+      "max_li_prefix_contribution": 8e-08
+    },
+    "camouflage_rows": [
+      {
+        "beta": 0.55,
+        "height": 1000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 0.079733674797,
+        "min_li_prefix_contribution": 1.999999e-06,
+        "max_li_prefix_contribution": 0.079733674797
+      },
+      {
+        "beta": 0.55,
+        "height": 10000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 0.000799973332,
+        "min_li_prefix_contribution": 2e-08,
+        "max_li_prefix_contribution": 0.000799973332
+      },
+      {
+        "beta": 0.55,
+        "height": 100000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 7.999997e-06,
+        "min_li_prefix_contribution": 2e-10,
+        "max_li_prefix_contribution": 7.999997e-06
+      },
+      {
+        "beta": 0.55,
+        "height": 1000000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 8e-08,
+        "min_li_prefix_contribution": 2e-12,
+        "max_li_prefix_contribution": 8e-08
+      },
+      {
+        "beta": 0.65,
+        "height": 1000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 0.07973367005,
+        "min_li_prefix_contribution": 1.999999e-06,
+        "max_li_prefix_contribution": 0.07973367005
+      },
+      {
+        "beta": 0.65,
+        "height": 10000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 0.000799973332,
+        "min_li_prefix_contribution": 2e-08,
+        "max_li_prefix_contribution": 0.000799973332
+      },
+      {
+        "beta": 0.65,
+        "height": 100000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 7.999997e-06,
+        "min_li_prefix_contribution": 2e-10,
+        "max_li_prefix_contribution": 7.999997e-06
+      },
+      {
+        "beta": 0.65,
+        "height": 1000000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 8e-08,
+        "min_li_prefix_contribution": 2e-12,
+        "max_li_prefix_contribution": 8e-08
+      },
+      {
+        "beta": 0.75,
+        "height": 1000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 0.079733660557,
+        "min_li_prefix_contribution": 1.999999e-06,
+        "max_li_prefix_contribution": 0.079733660557
+      },
+      {
+        "beta": 0.75,
+        "height": 10000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 0.000799973331,
+        "min_li_prefix_contribution": 2e-08,
+        "max_li_prefix_contribution": 0.000799973331
+      },
+      {
+        "beta": 0.75,
+        "height": 100000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 7.999997e-06,
+        "min_li_prefix_contribution": 2e-10,
+        "max_li_prefix_contribution": 7.999997e-06
+      },
+      {
+        "beta": 0.75,
+        "height": 1000000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 8e-08,
+        "min_li_prefix_contribution": 2e-12,
+        "max_li_prefix_contribution": 8e-08
+      },
+      {
+        "beta": 0.85,
+        "height": 1000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 0.079733646316,
+        "min_li_prefix_contribution": 1.999999e-06,
+        "max_li_prefix_contribution": 0.079733646316
+      },
+      {
+        "beta": 0.85,
+        "height": 10000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 0.000799973329,
+        "min_li_prefix_contribution": 2e-08,
+        "max_li_prefix_contribution": 0.000799973329
+      },
+      {
+        "beta": 0.85,
+        "height": 100000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 7.999997e-06,
+        "min_li_prefix_contribution": 2e-10,
+        "max_li_prefix_contribution": 7.999997e-06
+      },
+      {
+        "beta": 0.85,
+        "height": 1000000.0,
+        "terms_checked": 200,
+        "max_abs_li_prefix_contribution": 8e-08,
+        "min_li_prefix_contribution": 2e-12,
+        "max_li_prefix_contribution": 8e-08
+      }
+    ]
+  },
+  "obstruction": "A proof cannot certify RH from any fixed finite Li/Jensen/Hermite prefix unless it adds a separate tail theorem controlling all unseen zeros and all higher coefficients.",
+  "candidate_theorem": "If an off-critical zeta zero exists, an all-index detector or explicit-formula functional must produce a contradiction with a bound uniform in height; finite prefix positivity alone is disallowed.",
+  "next_experiment": "Search for a height-uniform detector bound rather than increasing a finite prefix.",
+  "claim_boundary": "No RH proof and no certified RH counterexample."
+}

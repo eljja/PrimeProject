@@ -11,6 +11,7 @@ EXPECTED_TARGET_VERDICT = "not_proved_by_primeproject"
 EXPECTED_GATE_STATUS = "blocked_open_infinite_obligation"
 PROOF_OR_COUNTEREXAMPLE_SCHEMA = "primeproject.proof-or-counterexample-lab.v1"
 TICKET17_SCHEMA = "primeproject.ticket17-breakthrough-attempts.v1"
+TICKET18_SCHEMA = "primeproject.ticket18-reduction-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -152,6 +153,39 @@ def main() -> int:
         path = ticket17_paths.get(problem_id)
         if path is None or not path.exists():
             return fail(f"{problem_id}: missing ticket17 per-problem artifact")
+
+    ticket18_path = Path("data/open-problem/ticket18-reduction-lab.json")
+    if not ticket18_path.exists():
+        return fail("missing ticket18 reduction lab artifact")
+    ticket18 = read_json(ticket18_path)
+    if ticket18.get("schema") != TICKET18_SCHEMA:
+        return fail("ticket18 reduction lab artifact has unexpected schema")
+    if ticket18.get("status") != "reduction_attempts_open_no_resolution":
+        return fail("ticket18 reduction lab overstates resolution")
+    reductions = ticket18.get("attempts", [])
+    if not isinstance(reductions, list):
+        return fail("ticket18 attempts must be a list")
+    reductions_by_id = {str(attempt.get("problem_id")): attempt for attempt in reductions if isinstance(attempt, dict)}
+    missing_reductions = EXPECTED_PROBLEMS - set(reductions_by_id)
+    if missing_reductions:
+        return fail("ticket18 attempts missing problems: " + ", ".join(sorted(missing_reductions)))
+    ticket18_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-18-finite-prefix-camouflage.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-18-valuation-branch-cover.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-18-explicit-error-budget.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-18-bounded-gap-countermodel.json"),
+    }
+    for problem_id, attempt in reductions_by_id.items():
+        if attempt.get("status") != "reduction_attempt_open":
+            return fail(f"{problem_id}: ticket18 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket18 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket18 claim boundary is too weak")
+        path = ticket18_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket18 per-problem artifact")
 
     print("open problem structure verified")
     return 0

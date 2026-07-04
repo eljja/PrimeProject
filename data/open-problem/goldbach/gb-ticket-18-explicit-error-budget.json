@@ -1,0 +1,132 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-18",
+  "status": "reduction_attempt_open",
+  "route": "ExplicitErrorBudget",
+  "proof_or_counterexample_mode": "finite_certificate_plus_error_budget",
+  "attempt": "Turn finite Goldbach counts into an analytic proof target by measuring how much explicit major/minor-arc error a profile-wise lower-bound theorem would need to beat.",
+  "bounded_result": {
+    "even_limit": 200000,
+    "direct_counterexamples": [],
+    "direct_counterexample_count": 0,
+    "weakest_global_ratio": {
+      "n": 68,
+      "mod30": 8,
+      "representations": 2,
+      "hl_unordered_estimate": 2.68945616,
+      "observed_to_estimate_ratio": 0.74364477
+    },
+    "weakest_ratio_by_mod30_profile": [
+      {
+        "n": 185730,
+        "mod30": 0,
+        "representations": 2664,
+        "hl_unordered_estimate": 2293.68215091,
+        "observed_to_estimate_ratio": 1.16145125
+      },
+      {
+        "n": 2672,
+        "mod30": 2,
+        "representations": 28,
+        "hl_unordered_estimate": 28.50315042,
+        "observed_to_estimate_ratio": 0.98234755
+      },
+      {
+        "n": 58354,
+        "mod30": 4,
+        "representations": 358,
+        "hl_unordered_estimate": 323.67158964,
+        "observed_to_estimate_ratio": 1.10605939
+      },
+      {
+        "n": 170796,
+        "mod30": 6,
+        "representations": 1848,
+        "hl_unordered_estimate": 1596.22981573,
+        "observed_to_estimate_ratio": 1.15772803
+      },
+      {
+        "n": 1718,
+        "mod30": 8,
+        "representations": 21,
+        "hl_unordered_estimate": 20.46415708,
+        "observed_to_estimate_ratio": 1.02618446
+      },
+      {
+        "n": 47560,
+        "mod30": 10,
+        "representations": 439,
+        "hl_unordered_estimate": 383.89247961,
+        "observed_to_estimate_ratio": 1.14354936
+      },
+      {
+        "n": 3582,
+        "mod30": 12,
+        "representations": 80,
+        "hl_unordered_estimate": 70.97542905,
+        "observed_to_estimate_ratio": 1.12715064
+      },
+      {
+        "n": 8834,
+        "mod30": 14,
+        "representations": 93,
+        "hl_unordered_estimate": 84.89825459,
+        "observed_to_estimate_ratio": 1.09542888
+      },
+      {
+        "n": 9766,
+        "mod30": 16,
+        "representations": 90,
+        "hl_unordered_estimate": 81.20354526,
+        "observed_to_estimate_ratio": 1.10832599
+      },
+      {
+        "n": 6198,
+        "mod30": 18,
+        "representations": 119,
+        "hl_unordered_estimate": 107.43043716,
+        "observed_to_estimate_ratio": 1.10769353
+      },
+      {
+        "n": 3140,
+        "mod30": 20,
+        "representations": 47,
+        "hl_unordered_estimate": 42.90486284,
+        "observed_to_estimate_ratio": 1.09544692
+      },
+      {
+        "n": 37762,
+        "mod30": 22,
+        "representations": 258,
+        "hl_unordered_estimate": 228.3148922,
+        "observed_to_estimate_ratio": 1.13001827
+      },
+      {
+        "n": 78924,
+        "mod30": 24,
+        "representations": 945,
+        "hl_unordered_estimate": 819.64701368,
+        "observed_to_estimate_ratio": 1.15293533
+      },
+      {
+        "n": 2936,
+        "mod30": 26,
+        "representations": 31,
+        "hl_unordered_estimate": 30.48359754,
+        "observed_to_estimate_ratio": 1.01694034
+      },
+      {
+        "n": 158428,
+        "mod30": 28,
+        "representations": 826,
+        "hl_unordered_estimate": 729.5974611,
+        "observed_to_estimate_ratio": 1.13213113
+      }
+    ],
+    "required_error_budget_rule": "For each residue profile, a sourced explicit lower-bound theorem must keep total analytic error below the displayed observed-to-estimate margin before the finite certificate can close the range."
+  },
+  "obstruction": "Observed positive margins are not analytic lower bounds. The proof still needs explicit constants that dominate all exceptional-character, minor-arc, and sieve losses for every sufficiently large even n.",
+  "candidate_theorem": "There are explicit constants N0(profile) and epsilon(profile)>0 such that R(n) >= epsilon(profile) n/log(n)^2 for all even n in that profile above N0, with N0 below the finite certificate limit.",
+  "next_experiment": "Attach verifiable published explicit constants and compute whether their N0 falls below the certificate range.",
+  "claim_boundary": "No Goldbach proof and no Goldbach counterexample found in the bounded range."
+}
