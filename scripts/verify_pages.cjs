@@ -399,6 +399,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Proof pressure result") ||
         !page.proofOrCounterexampleText.includes("Ticket 20 valuation-prefix lab") ||
         !page.proofOrCounterexampleText.includes("Valuation-prefix result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 21 two-adic branch lab") ||
+        !page.proofOrCounterexampleText.includes("Two-adic branch result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

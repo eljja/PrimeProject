@@ -1,0 +1,78 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-21",
+  "status": "proof_pressure_open",
+  "route": "DeletionPersistenceLadder",
+  "proof_or_counterexample_mode": "bounded_gap_shortcut_countermodel_ladder",
+  "attempt": "Repeat the exact-gap deletion countermodel over increasing limits. A valid twin-prime proof must defeat this bounded-gap-only model, not merely show bounded gaps persist.",
+  "bounded_result": {
+    "limits": [
+      10000,
+      50000,
+      100000,
+      300000,
+      1000000
+    ],
+    "max_gap": 60,
+    "rows": [
+      {
+        "limit": 10000,
+        "original_exact_gap_2": 205,
+        "deletion_model_exact_gap_2": 0,
+        "original_bounded_gap_count": 1228,
+        "deletion_model_bounded_gap_count": 1023,
+        "bounded_gap_retention_ratio": 0.83306189,
+        "deleted_prime_count": 205
+      },
+      {
+        "limit": 50000,
+        "original_exact_gap_2": 705,
+        "deletion_model_exact_gap_2": 0,
+        "original_bounded_gap_count": 5130,
+        "deletion_model_bounded_gap_count": 4425,
+        "bounded_gap_retention_ratio": 0.8625731,
+        "deleted_prime_count": 705
+      },
+      {
+        "limit": 100000,
+        "original_exact_gap_2": 1224,
+        "deletion_model_exact_gap_2": 0,
+        "original_bounded_gap_count": 9588,
+        "deletion_model_bounded_gap_count": 8364,
+        "bounded_gap_retention_ratio": 0.87234043,
+        "deleted_prime_count": 1224
+      },
+      {
+        "limit": 300000,
+        "original_exact_gap_2": 2994,
+        "deletion_model_exact_gap_2": 0,
+        "original_bounded_gap_count": 25966,
+        "deletion_model_bounded_gap_count": 22970,
+        "bounded_gap_retention_ratio": 0.88461835,
+        "deleted_prime_count": 2994
+      },
+      {
+        "limit": 1000000,
+        "original_exact_gap_2": 8169,
+        "deletion_model_exact_gap_2": 0,
+        "original_bounded_gap_count": 78299,
+        "deletion_model_bounded_gap_count": 70119,
+        "bounded_gap_retention_ratio": 0.89552868,
+        "deleted_prime_count": 8169
+      }
+    ],
+    "last_row": {
+      "limit": 1000000,
+      "original_exact_gap_2": 8169,
+      "deletion_model_exact_gap_2": 0,
+      "original_bounded_gap_count": 78299,
+      "deletion_model_bounded_gap_count": 70119,
+      "bounded_gap_retention_ratio": 0.89552868,
+      "deleted_prime_count": 8169
+    }
+  },
+  "obstruction": "The countermodel keeps many bounded gaps while deleting exact gap 2 in every tested range. This blocks proof routes that silently replace exact gap 2 with bounded-gap mass.",
+  "candidate_theorem": "An exact-gap lower-bound functional remains positive for true primes but cannot be mimicked by deletion models that preserve wider bounded gaps.",
+  "next_experiment": "Optimize signed exact-gap projection weights against the deletion ladder.",
+  "claim_boundary": "No Twin Prime proof. Deletion persistence remains a countermodel to bounded-gap shortcut proofs."
+}

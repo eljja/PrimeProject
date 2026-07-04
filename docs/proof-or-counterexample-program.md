@@ -385,3 +385,45 @@ Reason:
 ```text
 The all-ones branch is visibly the positive-integer shadow of the 2-adic fixed point -1. A serious Collatz route must prove how such expanding 2-adic shadows are excluded or ranked down for all positive integers.
 ```
+
+## Ticket 21 Two-Adic Branch Lab Results
+
+Generated artifact:
+
+```text
+data/open-problem/ticket21-two-adic-branch-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-21-prefix-evasion-quantifier.json
+data/open-problem/collatz/co-ticket-21-two-adic-branch-exclusion.json
+data/open-problem/goldbach/gb-ticket-21-witness-spectrum.json
+data/open-problem/twin-prime/tp-ticket-21-deletion-persistence-ladder.json
+```
+
+Current verdict:
+
+```text
+proof_pressure_open_no_resolution
+```
+
+한국어 요약: TICKET-21은 Collatz의 가장 단순한 2-adic obstruction인 all-ones branch를 좁은 의미에서 배제한다. 이것은 전체 Collatz 증명이 아니라, 하나의 무한 2-adic branch가 양의 정수 반례가 될 수 없다는 부분 결과다.
+
+1. RH: finite Li-prefix countermodel pressure를 height별로 다시 계량했다. 결론은 동일하다. 유한 prefix 확인은 uniform tail theorem 없이는 RH 증명이 될 수 없다.
+2. Collatz: 양의 홀수 `n`에 대해 `s=v2(n+1)`이면 all-ones accelerated branch를 최대 `s-1`단계만 따라갈 수 있다. 길이 128 shadow `2^129-1`도 all-ones prefix 뒤 다음 valuation에서 탈출한다. 무한 all-ones branch는 2-adic `-1`이고 양의 정수가 아니다.
+3. Goldbach: 200,000 이하 직접 반례는 없고, hardest smallest-witness case는 `194470 = 383 + 194087`이다. 이 finite witness spectrum은 분석적 lower bound를 대체하지 않는다.
+4. Twin Prime: deletion countermodel을 1,000,000까지 ladder로 반복했다. exact gap 2는 `8169 -> 0`이 되지만 bounded gaps는 약 `89.55%` 유지된다. bounded-gap shortcut은 계속 차단된다.
+
+Next decisive target:
+
+```text
+CO-TICKET-22 MixedTwoAdicCylinderRank
+```
+
+Reason:
+
+```text
+The all-ones 2-adic branch is now isolated. The next useful Collatz step is to handle mixed expanding valuation cylinders and search for a rank that forces every such cylinder to escape into descent.
+```

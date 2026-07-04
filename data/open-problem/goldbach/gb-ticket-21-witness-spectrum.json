@@ -1,0 +1,73 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-21",
+  "status": "proof_pressure_open",
+  "route": "WitnessSpectrum",
+  "proof_or_counterexample_mode": "bounded_counterexample_search_plus_witness_distribution",
+  "attempt": "Search direct bounded counterexamples and measure the smallest-prime witness spectrum. This tests whether finite failures concentrate in rare witness classes, while keeping the finite-to-infinite boundary explicit.",
+  "bounded_result": {
+    "even_limit": 200000,
+    "direct_counterexample_count": 0,
+    "direct_counterexamples": [],
+    "distinct_smallest_witness_primes": 61,
+    "hardest_smallest_witness_case": {
+      "even": 194470,
+      "smallest_witness_prime": 383,
+      "partner": 194087
+    },
+    "top_smallest_witness_primes": [
+      {
+        "smallest_witness_prime": 3,
+        "even_count": 17982
+      },
+      {
+        "smallest_witness_prime": 5,
+        "even_count": 15822
+      },
+      {
+        "smallest_witness_prime": 7,
+        "even_count": 13688
+      },
+      {
+        "smallest_witness_prime": 11,
+        "even_count": 10206
+      },
+      {
+        "smallest_witness_prime": 13,
+        "even_count": 8322
+      },
+      {
+        "smallest_witness_prime": 17,
+        "even_count": 6037
+      },
+      {
+        "smallest_witness_prime": 19,
+        "even_count": 5794
+      },
+      {
+        "smallest_witness_prime": 23,
+        "even_count": 3935
+      },
+      {
+        "smallest_witness_prime": 31,
+        "even_count": 3287
+      },
+      {
+        "smallest_witness_prime": 29,
+        "even_count": 2916
+      },
+      {
+        "smallest_witness_prime": 37,
+        "even_count": 2222
+      },
+      {
+        "smallest_witness_prime": 41,
+        "even_count": 1621
+      }
+    ]
+  },
+  "obstruction": "A bounded witness spectrum is not a lower-bound theorem for all larger even integers. It can guide which minor-arc or exceptional cases matter, but it does not close the conjecture.",
+  "candidate_theorem": "An explicit analytic lower bound proves every sufficiently large even integer has at least one prime-pair witness, and finite witness certificates cover all smaller even integers.",
+  "next_experiment": "Use the hardest witness cases to stress explicit lower-bound constants.",
+  "claim_boundary": "No Goldbach proof and no Goldbach counterexample found."
+}

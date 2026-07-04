@@ -1,0 +1,363 @@
+{
+  "schema": "primeproject.ticket21-two-adic-branch-lab.v1",
+  "generated_at": "2026-07-04T17:00:37+00:00",
+  "status": "proof_pressure_open_no_resolution",
+  "claim_boundary": "Ticket 21 closes only narrow proof-pressure subgoals. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-21",
+      "status": "proof_pressure_open",
+      "route": "PrefixEvasionQuantifier",
+      "proof_or_counterexample_mode": "finite_prefix_countermodel_quantifier",
+      "attempt": "Quantify the countermodel pressure against finite Li-prefix proof routes: as surrogate off-critical zero height grows, its first-prefix effect becomes arbitrarily small in the tested family.",
+      "bounded_result": {
+        "li_terms_checked": 200,
+        "offcritical_beta": 0.75,
+        "height_rows": [
+          {
+            "height": 1000.0,
+            "max_abs_prefix_effect": 0.07973366055657882,
+            "height_times_max_abs": 79.733660556579,
+            "height_squared_times_max_abs": 79733.66055658
+          },
+          {
+            "height": 10000.0,
+            "max_abs_prefix_effect": 0.00079997333085835,
+            "height_times_max_abs": 7.999733308584,
+            "height_squared_times_max_abs": 79997.33308584
+          },
+          {
+            "height": 100000.0,
+            "max_abs_prefix_effect": 7.99999733303e-06,
+            "height_times_max_abs": 0.799999733303,
+            "height_squared_times_max_abs": 79999.9733303
+          },
+          {
+            "height": 1000000.0,
+            "max_abs_prefix_effect": 7.9999999514e-08,
+            "height_times_max_abs": 0.079999999514,
+            "height_squared_times_max_abs": 79999.9995138
+          },
+          {
+            "height": 10000000.0,
+            "max_abs_prefix_effect": 8.00044475e-10,
+            "height_times_max_abs": 0.008000444751,
+            "height_squared_times_max_abs": 80004.44751133
+          }
+        ],
+        "best_evasion_row": {
+          "height": 10000000.0,
+          "max_abs_prefix_effect": 8.00044475e-10,
+          "height_times_max_abs": 0.008000444751,
+          "height_squared_times_max_abs": 80004.44751133
+        },
+        "finite_prefix_claim_status": "blocked_without_uniform_tail_theorem"
+      },
+      "obstruction": "No fixed finite prefix can rule out sufficiently high off-critical behavior by itself. A proof must include a theorem that quantifies over the entire zero set or the entire Li sequence.",
+      "candidate_theorem": "For every off-critical zero, a height-uniform detector bound produces a contradiction in the Li/kernel sequence before any finite certificate is promoted.",
+      "next_experiment": "Turn the empirical height table into a symbolic N,H,Re(rho) inequality.",
+      "claim_boundary": "No RH proof and no certified RH counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-21",
+      "status": "proof_pressure_open",
+      "route": "TwoAdicBranchExclusion",
+      "proof_or_counterexample_mode": "partial_branch_theorem_plus_open_global_rank",
+      "attempt": "Prove the simplest 2-adic obstruction is not a positive-integer counterexample: finite positive shadows of the all-ones branch eventually leave that branch because v2(n+1) is finite.",
+      "bounded_result": {
+        "shadow_lengths_checked": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          96,
+          128
+        ],
+        "longest_shadow_length": 128,
+        "longest_shadow_seed_hex": "0x1ffffffffffffffffffffffffffffffff",
+        "longest_exit_valuation": 2,
+        "all_rows_match_exit_formula": true,
+        "branch_exclusion_statement": "If n is a positive odd integer and s=v2(n+1), then n can follow the all-ones accelerated branch for at most s-1 steps; an infinite all-ones branch would require n=-1 in the 2-adics, not a positive integer.",
+        "shadow_rows": [
+          {
+            "shadow_length": 1,
+            "seed_formula": "2^2 - 1",
+            "seed_hex": "0x3",
+            "all_ones_prefix_verified": true,
+            "state_after_prefix_formula": "2*3^1 - 1",
+            "state_after_prefix_hex": "0x5",
+            "exit_valuation": 4,
+            "predicted_exit_valuation": 4,
+            "exit_matches_formula": true,
+            "state_after_exit_hex": "0x1",
+            "asymptotic_multiplier": 1.5
+          },
+          {
+            "shadow_length": 2,
+            "seed_formula": "2^3 - 1",
+            "seed_hex": "0x7",
+            "all_ones_prefix_verified": true,
+            "state_after_prefix_formula": "2*3^2 - 1",
+            "state_after_prefix_hex": "0x11",
+            "exit_valuation": 2,
+            "predicted_exit_valuation": 2,
+            "exit_matches_formula": true,
+            "state_after_exit_hex": "0xd",
+            "asymptotic_multiplier": 2.25
+          },
+          {
+            "shadow_length": 4,
+            "seed_formula": "2^5 - 1",
+            "seed_hex": "0x1f",
+            "all_ones_prefix_verified": true,
+            "state_after_prefix_formula": "2*3^4 - 1",
+            "state_after_prefix_hex": "0xa1",
+            "exit_valuation": 2,
+            "predicted_exit_valuation": 2,
+            "exit_matches_formula": true,
+            "state_after_exit_hex": "0x79",
+            "asymptotic_multiplier": 5.0625
+          },
+          {
+            "shadow_length": 8,
+            "seed_formula": "2^9 - 1",
+            "seed_hex": "0x1ff",
+            "all_ones_prefix_verified": true,
+            "state_after_prefix_formula": "2*3^8 - 1",
+            "state_after_prefix_hex": "0x3341",
+            "exit_valuation": 2,
+            "predicted_exit_valuation": 2,
+            "exit_matches_formula": true,
+            "state_after_exit_hex": "0x2671",
+            "asymptotic_multiplier": 25.62890625
+          },
+          {
+            "shadow_length": 16,
+            "seed_formula": "2^17 - 1",
+            "seed_hex": "0x1ffff",
+            "all_ones_prefix_verified": true,
+            "state_after_prefix_formula": "2*3^16 - 1",
+            "state_after_prefix_hex": "0x521ae81",
+            "exit_valuation": 2,
+            "predicted_exit_valuation": 2,
+            "exit_matches_formula": true,
+            "state_after_exit_hex": "0x3d942e1",
+            "asymptotic_multiplier": 656.840835571289
+          },
+          {
+            "shadow_length": 32,
+            "seed_formula": "2^33 - 1",
+            "seed_hex": "0x1ffffffff",
+            "all_ones_prefix_verified": true,
+            "state_after_prefix_formula": "2*3^32 - 1",
+            "state_after_prefix_hex": "0xd2a9fc43c7d01",
+            "exit_valuation": 2,
+            "predicted_exit_valuation": 2,
+            "exit_matches_formula": true,
+            "state_after_exit_hex": "0x9dff7d32d5dc1",
+            "asymptotic_multiplier": 431439.8832739892
+          },
+          {
+            "shadow_length": 64,
+            "seed_formula": "2^65 - 1",
+            "seed_hex": "0x1ffffffffffffffff",
+            "all_ones_prefix_verified": true,
+            "state_after_prefix_formula": "2*3^64 - 1",
+            "state_after_prefix_hex": "0x56ada95f1ef2644f18f2fd7a01",
+            "exit_valuation": 2,
+            "predicted_exit_valuation": 2,
+            "exit_matches_formula": true,
+            "state_after_exit_hex": "0x41023f075735cb3b52b63e1b81",
+            "asymptotic_multiplier": 186140372879.47342
+          },
+          {
+            "shadow_length": 96,
+            "seed_formula": "2^97 - 1",
+            "seed_hex": "0x1ffffffffffffffffffffffff",
+            "all_ones_prefix_verified": true,
+            "state_after_prefix_formula": "2*3^96 - 1",
+            "state_after_prefix_hex": "0x23aa017f5e8158a089302f31b6bf673e582f701",
+            "exit_valuation": 2,
+            "predicted_exit_valuation": 2,
+            "exit_matches_formula": true,
+            "state_after_exit_hex": "0x1abf811f86e1027866e42365490f8d6ec223941",
+            "asymptotic_multiplier": 8.030838074769683e+16
+          },
+          {
+            "shadow_length": 128,
+            "seed_formula": "2^129 - 1",
+            "seed_hex": "0x1ffffffffffffffffffffffffffffffff",
+            "all_ones_prefix_verified": true,
+            "state_after_prefix_formula": "2*3^128 - 1",
+            "state_after_prefix_hex": "0xeac91cd21b4b49a5ddfc8b11ef9f6f7c6c900842903150cf401",
+            "exit_valuation": 2,
+            "predicted_exit_valuation": 2,
+            "exit_matches_formula": true,
+            "state_after_exit_hex": "0xb016d59d9478773c667d684d73b7939d516c0631ec24fc9b701",
+            "asymptotic_multiplier": 3.4648238415709404e+22
+          }
+        ]
+      },
+      "obstruction": "This closes only the all-ones 2-adic branch. Collatz still needs a global rank or cover for every other valuation-prefix branch and every possible branch switching pattern.",
+      "candidate_theorem": "Every expanding 2-adic branch shadow has finite positive-integer escape depth and escapes into a lower-ranked valuation-prefix state, yielding a global well-founded rank.",
+      "next_experiment": "Generalize from the all-ones branch to mixed expanding valuation-prefix cylinders.",
+      "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-21",
+      "status": "proof_pressure_open",
+      "route": "WitnessSpectrum",
+      "proof_or_counterexample_mode": "bounded_counterexample_search_plus_witness_distribution",
+      "attempt": "Search direct bounded counterexamples and measure the smallest-prime witness spectrum. This tests whether finite failures concentrate in rare witness classes, while keeping the finite-to-infinite boundary explicit.",
+      "bounded_result": {
+        "even_limit": 200000,
+        "direct_counterexample_count": 0,
+        "direct_counterexamples": [],
+        "distinct_smallest_witness_primes": 61,
+        "hardest_smallest_witness_case": {
+          "even": 194470,
+          "smallest_witness_prime": 383,
+          "partner": 194087
+        },
+        "top_smallest_witness_primes": [
+          {
+            "smallest_witness_prime": 3,
+            "even_count": 17982
+          },
+          {
+            "smallest_witness_prime": 5,
+            "even_count": 15822
+          },
+          {
+            "smallest_witness_prime": 7,
+            "even_count": 13688
+          },
+          {
+            "smallest_witness_prime": 11,
+            "even_count": 10206
+          },
+          {
+            "smallest_witness_prime": 13,
+            "even_count": 8322
+          },
+          {
+            "smallest_witness_prime": 17,
+            "even_count": 6037
+          },
+          {
+            "smallest_witness_prime": 19,
+            "even_count": 5794
+          },
+          {
+            "smallest_witness_prime": 23,
+            "even_count": 3935
+          },
+          {
+            "smallest_witness_prime": 31,
+            "even_count": 3287
+          },
+          {
+            "smallest_witness_prime": 29,
+            "even_count": 2916
+          },
+          {
+            "smallest_witness_prime": 37,
+            "even_count": 2222
+          },
+          {
+            "smallest_witness_prime": 41,
+            "even_count": 1621
+          }
+        ]
+      },
+      "obstruction": "A bounded witness spectrum is not a lower-bound theorem for all larger even integers. It can guide which minor-arc or exceptional cases matter, but it does not close the conjecture.",
+      "candidate_theorem": "An explicit analytic lower bound proves every sufficiently large even integer has at least one prime-pair witness, and finite witness certificates cover all smaller even integers.",
+      "next_experiment": "Use the hardest witness cases to stress explicit lower-bound constants.",
+      "claim_boundary": "No Goldbach proof and no Goldbach counterexample found."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-21",
+      "status": "proof_pressure_open",
+      "route": "DeletionPersistenceLadder",
+      "proof_or_counterexample_mode": "bounded_gap_shortcut_countermodel_ladder",
+      "attempt": "Repeat the exact-gap deletion countermodel over increasing limits. A valid twin-prime proof must defeat this bounded-gap-only model, not merely show bounded gaps persist.",
+      "bounded_result": {
+        "limits": [
+          10000,
+          50000,
+          100000,
+          300000,
+          1000000
+        ],
+        "max_gap": 60,
+        "rows": [
+          {
+            "limit": 10000,
+            "original_exact_gap_2": 205,
+            "deletion_model_exact_gap_2": 0,
+            "original_bounded_gap_count": 1228,
+            "deletion_model_bounded_gap_count": 1023,
+            "bounded_gap_retention_ratio": 0.83306189,
+            "deleted_prime_count": 205
+          },
+          {
+            "limit": 50000,
+            "original_exact_gap_2": 705,
+            "deletion_model_exact_gap_2": 0,
+            "original_bounded_gap_count": 5130,
+            "deletion_model_bounded_gap_count": 4425,
+            "bounded_gap_retention_ratio": 0.8625731,
+            "deleted_prime_count": 705
+          },
+          {
+            "limit": 100000,
+            "original_exact_gap_2": 1224,
+            "deletion_model_exact_gap_2": 0,
+            "original_bounded_gap_count": 9588,
+            "deletion_model_bounded_gap_count": 8364,
+            "bounded_gap_retention_ratio": 0.87234043,
+            "deleted_prime_count": 1224
+          },
+          {
+            "limit": 300000,
+            "original_exact_gap_2": 2994,
+            "deletion_model_exact_gap_2": 0,
+            "original_bounded_gap_count": 25966,
+            "deletion_model_bounded_gap_count": 22970,
+            "bounded_gap_retention_ratio": 0.88461835,
+            "deleted_prime_count": 2994
+          },
+          {
+            "limit": 1000000,
+            "original_exact_gap_2": 8169,
+            "deletion_model_exact_gap_2": 0,
+            "original_bounded_gap_count": 78299,
+            "deletion_model_bounded_gap_count": 70119,
+            "bounded_gap_retention_ratio": 0.89552868,
+            "deleted_prime_count": 8169
+          }
+        ],
+        "last_row": {
+          "limit": 1000000,
+          "original_exact_gap_2": 8169,
+          "deletion_model_exact_gap_2": 0,
+          "original_bounded_gap_count": 78299,
+          "deletion_model_bounded_gap_count": 70119,
+          "bounded_gap_retention_ratio": 0.89552868,
+          "deleted_prime_count": 8169
+        }
+      },
+      "obstruction": "The countermodel keeps many bounded gaps while deleting exact gap 2 in every tested range. This blocks proof routes that silently replace exact gap 2 with bounded-gap mass.",
+      "candidate_theorem": "An exact-gap lower-bound functional remains positive for true primes but cannot be mimicked by deletion models that preserve wider bounded gaps.",
+      "next_experiment": "Optimize signed exact-gap projection weights against the deletion ladder.",
+      "claim_boundary": "No Twin Prime proof. Deletion persistence remains a countermodel to bounded-gap shortcut proofs."
+    }
+  ]
+}

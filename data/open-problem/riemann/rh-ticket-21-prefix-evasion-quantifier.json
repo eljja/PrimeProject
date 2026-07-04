@@ -1,0 +1,55 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-21",
+  "status": "proof_pressure_open",
+  "route": "PrefixEvasionQuantifier",
+  "proof_or_counterexample_mode": "finite_prefix_countermodel_quantifier",
+  "attempt": "Quantify the countermodel pressure against finite Li-prefix proof routes: as surrogate off-critical zero height grows, its first-prefix effect becomes arbitrarily small in the tested family.",
+  "bounded_result": {
+    "li_terms_checked": 200,
+    "offcritical_beta": 0.75,
+    "height_rows": [
+      {
+        "height": 1000.0,
+        "max_abs_prefix_effect": 0.07973366055657882,
+        "height_times_max_abs": 79.733660556579,
+        "height_squared_times_max_abs": 79733.66055658
+      },
+      {
+        "height": 10000.0,
+        "max_abs_prefix_effect": 0.00079997333085835,
+        "height_times_max_abs": 7.999733308584,
+        "height_squared_times_max_abs": 79997.33308584
+      },
+      {
+        "height": 100000.0,
+        "max_abs_prefix_effect": 7.99999733303e-06,
+        "height_times_max_abs": 0.799999733303,
+        "height_squared_times_max_abs": 79999.9733303
+      },
+      {
+        "height": 1000000.0,
+        "max_abs_prefix_effect": 7.9999999514e-08,
+        "height_times_max_abs": 0.079999999514,
+        "height_squared_times_max_abs": 79999.9995138
+      },
+      {
+        "height": 10000000.0,
+        "max_abs_prefix_effect": 8.00044475e-10,
+        "height_times_max_abs": 0.008000444751,
+        "height_squared_times_max_abs": 80004.44751133
+      }
+    ],
+    "best_evasion_row": {
+      "height": 10000000.0,
+      "max_abs_prefix_effect": 8.00044475e-10,
+      "height_times_max_abs": 0.008000444751,
+      "height_squared_times_max_abs": 80004.44751133
+    },
+    "finite_prefix_claim_status": "blocked_without_uniform_tail_theorem"
+  },
+  "obstruction": "No fixed finite prefix can rule out sufficiently high off-critical behavior by itself. A proof must include a theorem that quantifies over the entire zero set or the entire Li sequence.",
+  "candidate_theorem": "For every off-critical zero, a height-uniform detector bound produces a contradiction in the Li/kernel sequence before any finite certificate is promoted.",
+  "next_experiment": "Turn the empirical height table into a symbolic N,H,Re(rho) inequality.",
+  "claim_boundary": "No RH proof and no certified RH counterexample."
+}
