@@ -1,0 +1,90 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-19",
+  "status": "proof_pressure_open",
+  "route": "TailUniformityPressure",
+  "proof_or_counterexample_mode": "finite_prefix_countermodel_family",
+  "attempt": "Pressure-test finite-prefix RH proof routes by moving an off-critical surrogate quartet to increasing heights and measuring how invisible it becomes to the first Li-type coefficients.",
+  "bounded_result": {
+    "li_terms_checked": 200,
+    "offcritical_beta": 0.75,
+    "height_grid": [
+      1000.0,
+      10000.0,
+      100000.0,
+      1000000.0,
+      10000000.0
+    ],
+    "epsilon_targets": [
+      {
+        "epsilon": 0.001,
+        "first_tested_height_below_epsilon": 10000.0,
+        "status": "witnessed_in_test_grid"
+      },
+      {
+        "epsilon": 1e-06,
+        "first_tested_height_below_epsilon": 1000000.0,
+        "status": "witnessed_in_test_grid"
+      },
+      {
+        "epsilon": 1e-09,
+        "first_tested_height_below_epsilon": 10000000.0,
+        "status": "witnessed_in_test_grid"
+      }
+    ],
+    "best_camouflage_row": {
+      "height": 10000000.0,
+      "beta": 0.75,
+      "terms_checked": 200,
+      "max_abs_prefix_effect": 8.0004e-10,
+      "min_prefix_effect": 2e-14,
+      "max_prefix_effect": 8.0004e-10
+    },
+    "camouflage_rows": [
+      {
+        "height": 1000.0,
+        "beta": 0.75,
+        "terms_checked": 200,
+        "max_abs_prefix_effect": 0.07973366055658,
+        "min_prefix_effect": 1.99999912e-06,
+        "max_prefix_effect": 0.07973366055658
+      },
+      {
+        "height": 10000.0,
+        "beta": 0.75,
+        "terms_checked": 200,
+        "max_abs_prefix_effect": 0.00079997333086,
+        "min_prefix_effect": 2e-08,
+        "max_prefix_effect": 0.00079997333086
+      },
+      {
+        "height": 100000.0,
+        "beta": 0.75,
+        "terms_checked": 200,
+        "max_abs_prefix_effect": 7.99999733e-06,
+        "min_prefix_effect": 2e-10,
+        "max_prefix_effect": 7.99999733e-06
+      },
+      {
+        "height": 1000000.0,
+        "beta": 0.75,
+        "terms_checked": 200,
+        "max_abs_prefix_effect": 8e-08,
+        "min_prefix_effect": 2e-12,
+        "max_prefix_effect": 8e-08
+      },
+      {
+        "height": 10000000.0,
+        "beta": 0.75,
+        "terms_checked": 200,
+        "max_abs_prefix_effect": 8.0004e-10,
+        "min_prefix_effect": 2e-14,
+        "max_prefix_effect": 8.0004e-10
+      }
+    ]
+  },
+  "obstruction": "For any fixed prefix, high-height off-critical surrogate data can be made weakly visible in that prefix. A valid RH proof must therefore include a uniform tail theorem, not only checked positivity.",
+  "candidate_theorem": "Every off-critical zero forces a Li/kernel contradiction with an explicit height-uniform bound, or the explicit formula tail is controlled strongly enough that finite-prefix camouflage is impossible.",
+  "next_experiment": "Derive a symbolic upper bound for finite-prefix visibility as a function of N and zero height.",
+  "claim_boundary": "No RH proof and no certified RH counterexample."
+}

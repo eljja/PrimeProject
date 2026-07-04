@@ -301,3 +301,45 @@ Reason:
 ```text
 Collatz now has the most concrete finite-to-infinite bridge candidate: exact valuation branches plus a possible well-founded rank over the branch graph.
 ```
+
+## Ticket 19 Proof Pressure Lab Results
+
+Generated artifact:
+
+```text
+data/open-problem/ticket19-proof-pressure-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-19-tail-uniformity-pressure.json
+data/open-problem/collatz/co-ticket-19-branch-graph-rank-search.json
+data/open-problem/goldbach/gb-ticket-19-local-obstruction-elimination.json
+data/open-problem/twin-prime/tp-ticket-19-admissibility-vs-exact-gap.json
+```
+
+Current verdict:
+
+```text
+proof_pressure_open_no_resolution
+```
+
+한국어 요약: TICKET-19는 직접 증명, 반례 탐색, 대우법 후보를 더 압박한다. 결론은 네 문제 모두 여전히 open이다.
+
+1. RH: off-critical surrogate quartet를 height `10,000,000`까지 올리면 첫 200개 Li-type prefix에서 최대 효과가 약 `8.0004e-10`까지 작아진다. 이는 finite prefix positivity가 RH 증명이 될 수 없고 height-uniform tail theorem이 필요하다는 점을 강화한다.
+2. Collatz: odd accelerated step 길이 32까지 exact valuation-word density를 계산했다. 32-step에서도 expanding word density가 약 `0.032454323536` 남고, all-ones valuation word는 모든 고정 길이에 대해 확장한다. 따라서 fixed-block contraction 증명은 실패하며 branch graph rank가 필요하다.
+3. Goldbach: mod `6, 30, 210, 2310`에서 unit prime residue sum이 모든 target residue를 덮는다. 즉 테스트한 범위에서는 local modular obstruction이 없고, 남은 문제는 explicit analytic lower bound다.
+4. Twin Prime: twin pattern은 prime modulus `2..47`에서 locally admissible이지만, 삭제형 countermodel은 exact gap 2를 `2994 -> 0`으로 만들면서 bounded gap의 약 `88.461835%`를 유지한다. 따라서 local admissibility와 bounded-gap 생존은 twin prime infinitude가 아니다.
+
+Next decisive target:
+
+```text
+CO-TICKET-20 ValuationPrefixRankCEGIS
+```
+
+Reason:
+
+```text
+The strongest current path is no longer fixed-length Collatz descent. It is a counterexample-guided search for a well-founded rank over exact valuation prefixes.
+```

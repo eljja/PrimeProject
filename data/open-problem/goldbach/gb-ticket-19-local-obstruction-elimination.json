@@ -1,0 +1,55 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-19",
+  "status": "proof_pressure_open",
+  "route": "LocalObstructionElimination",
+  "proof_or_counterexample_mode": "modular_counterexample_search",
+  "attempt": "Search for local modular obstructions to Goldbach using unit prime residues over primorial-style moduli. If an even residue cannot be expressed as a sum of two prime-eligible residues, that would identify a structural counterexample route.",
+  "bounded_result": {
+    "moduli_checked": [
+      6,
+      30,
+      210,
+      2310
+    ],
+    "rows": [
+      {
+        "modulus": 6,
+        "unit_residue_count": 2,
+        "target_residue_count": 3,
+        "covered_target_residue_count": 3,
+        "uncovered_target_residues": [],
+        "uncovered_count": 0
+      },
+      {
+        "modulus": 30,
+        "unit_residue_count": 8,
+        "target_residue_count": 15,
+        "covered_target_residue_count": 15,
+        "uncovered_target_residues": [],
+        "uncovered_count": 0
+      },
+      {
+        "modulus": 210,
+        "unit_residue_count": 48,
+        "target_residue_count": 105,
+        "covered_target_residue_count": 105,
+        "uncovered_target_residues": [],
+        "uncovered_count": 0
+      },
+      {
+        "modulus": 2310,
+        "unit_residue_count": 480,
+        "target_residue_count": 1155,
+        "covered_target_residue_count": 1155,
+        "uncovered_target_residues": [],
+        "uncovered_count": 0
+      }
+    ],
+    "total_uncovered_residue_classes": 0
+  },
+  "obstruction": "No tested local modular obstruction appears. This pushes the proof obligation back to analytic lower bounds for representation counts rather than congruence compatibility.",
+  "candidate_theorem": "After local compatibility is certified for primorial residue systems, an explicit circle-method or sieve lower bound proves every sufficiently large even integer has a positive representation count.",
+  "next_experiment": "Combine local compatibility with sourced explicit major/minor arc constants.",
+  "claim_boundary": "No Goldbach proof and no Goldbach counterexample found."
+}

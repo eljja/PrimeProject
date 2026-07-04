@@ -1,0 +1,114 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-19",
+  "status": "proof_pressure_open",
+  "route": "AdmissibilityVsExactGap",
+  "proof_or_counterexample_mode": "local_admissibility_plus_deletion_countermodel",
+  "attempt": "Separate two facts that are often conflated: the twin pattern is locally admissible, but local admissibility and bounded-gap survival do not force exact gap-2 infinitude.",
+  "bounded_result": {
+    "prime_limit": 300000,
+    "max_gap": 60,
+    "local_admissibility_rows": [
+      {
+        "prime_modulus": 2,
+        "forbidden_residue_count": 1,
+        "available_residue_count": 1,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 3,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 1,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 5,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 3,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 7,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 5,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 11,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 9,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 13,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 11,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 17,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 15,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 19,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 17,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 23,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 21,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 29,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 27,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 31,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 29,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 37,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 35,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 41,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 39,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 43,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 41,
+        "admissible": true
+      },
+      {
+        "prime_modulus": 47,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 45,
+        "admissible": true
+      }
+    ],
+    "all_tested_local_patterns_admissible": true,
+    "original_exact_gap_2": 2994,
+    "deletion_model_exact_gap_2": 0,
+    "original_bounded_gap_count": 25966,
+    "deletion_model_bounded_gap_count": 22970,
+    "bounded_gap_retention_ratio": 0.88461835
+  },
+  "obstruction": "Admissibility is necessary but far from sufficient. A finite deletion model can pass local pattern logic and retain many bounded gaps while killing every observed exact twin gap.",
+  "candidate_theorem": "An exact-gap projection theorem must prove positive gap-2 mass after all admissible wider-gap and parity countermodels are subtracted with unconditional error control.",
+  "next_experiment": "Search exact-gap projection weights that reject deletion countermodels and preserve certified prime mass.",
+  "claim_boundary": "No Twin Prime proof. Local admissibility and bounded gaps still do not prove exact gap-2 infinitude."
+}

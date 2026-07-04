@@ -395,6 +395,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Ticket 17 breakthrough attempt") ||
         !page.proofOrCounterexampleText.includes("Ticket 18 reduction lab") ||
         !page.proofOrCounterexampleText.includes("Reduction result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 19 proof pressure lab") ||
+        !page.proofOrCounterexampleText.includes("Proof pressure result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
