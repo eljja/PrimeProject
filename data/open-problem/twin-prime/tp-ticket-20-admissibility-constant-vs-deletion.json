@@ -1,0 +1,129 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-20",
+  "status": "proof_pressure_open",
+  "route": "AdmissibilityConstantVsDeletion",
+  "proof_or_counterexample_mode": "singular_series_pressure_plus_countermodel",
+  "attempt": "Compute the positive local singular-series pressure for the twin pattern, then compare it with a deletion countermodel that preserves many bounded gaps while eliminating observed exact gap-2 pairs.",
+  "bounded_result": {
+    "prime_limit": 300000,
+    "local_rows": [
+      {
+        "prime_modulus": 2,
+        "forbidden_residue_count": 1,
+        "available_residue_count": 1,
+        "admissible": true,
+        "singular_factor": null
+      },
+      {
+        "prime_modulus": 3,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 1,
+        "admissible": true,
+        "singular_factor": 0.75
+      },
+      {
+        "prime_modulus": 5,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 3,
+        "admissible": true,
+        "singular_factor": 0.9375
+      },
+      {
+        "prime_modulus": 7,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 5,
+        "admissible": true,
+        "singular_factor": 0.972222222222
+      },
+      {
+        "prime_modulus": 11,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 9,
+        "admissible": true,
+        "singular_factor": 0.99
+      },
+      {
+        "prime_modulus": 13,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 11,
+        "admissible": true,
+        "singular_factor": 0.993055555556
+      },
+      {
+        "prime_modulus": 17,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 15,
+        "admissible": true,
+        "singular_factor": 0.99609375
+      },
+      {
+        "prime_modulus": 19,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 17,
+        "admissible": true,
+        "singular_factor": 0.996913580247
+      },
+      {
+        "prime_modulus": 23,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 21,
+        "admissible": true,
+        "singular_factor": 0.997933884298
+      },
+      {
+        "prime_modulus": 29,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 27,
+        "admissible": true,
+        "singular_factor": 0.998724489796
+      },
+      {
+        "prime_modulus": 31,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 29,
+        "admissible": true,
+        "singular_factor": 0.998888888889
+      },
+      {
+        "prime_modulus": 37,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 35,
+        "admissible": true,
+        "singular_factor": 0.999228395062
+      },
+      {
+        "prime_modulus": 41,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 39,
+        "admissible": true,
+        "singular_factor": 0.999375
+      },
+      {
+        "prime_modulus": 43,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 41,
+        "admissible": true,
+        "singular_factor": 0.999433106576
+      },
+      {
+        "prime_modulus": 47,
+        "forbidden_residue_count": 2,
+        "available_residue_count": 45,
+        "admissible": true,
+        "singular_factor": 0.999527410208
+      }
+    ],
+    "partial_singular_product_without_factor_2": 0.662782280741,
+    "partial_two_c2_estimate": 1.325564561483,
+    "original_exact_gap_2": 2994,
+    "deletion_model_exact_gap_2": 0,
+    "original_bounded_gap_count": 25966,
+    "deletion_model_bounded_gap_count": 22970,
+    "bounded_gap_retention_ratio": 0.88461835
+  },
+  "obstruction": "Positive local singular-series pressure is heuristic support, not an unconditional lower bound. The deletion countermodel keeps this distinction visible by killing exact gap 2 in finite data.",
+  "candidate_theorem": "An unconditional exact-gap lower-bound theorem converts positive admissible local density into infinitely many actual gap-2 prime pairs while defeating deletion and parity countermodels.",
+  "next_experiment": "Search for an exact-gap lower-bound functional that has positive mass on primes and nonpositive mass on deletion models.",
+  "claim_boundary": "No Twin Prime proof. Positive local constants and bounded-gap retention still do not prove exact gap-2 infinitude."
+}

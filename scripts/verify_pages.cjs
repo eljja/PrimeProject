@@ -397,6 +397,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Reduction result") ||
         !page.proofOrCounterexampleText.includes("Ticket 19 proof pressure lab") ||
         !page.proofOrCounterexampleText.includes("Proof pressure result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 20 valuation-prefix lab") ||
+        !page.proofOrCounterexampleText.includes("Valuation-prefix result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

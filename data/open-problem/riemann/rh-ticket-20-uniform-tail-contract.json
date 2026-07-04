@@ -1,0 +1,55 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-20",
+  "status": "proof_pressure_open",
+  "route": "UniformTailContract",
+  "proof_or_counterexample_mode": "contrapositive_tail_requirement",
+  "attempt": "Convert finite-prefix camouflage into a proof obligation: any RH route using Li-type positivity must state a uniform tail contract strong enough to forbid high-height off-critical zero camouflage.",
+  "bounded_result": {
+    "li_terms_checked": 200,
+    "offcritical_beta": 0.75,
+    "height_rows": [
+      {
+        "height": 1000.0,
+        "max_abs_prefix_effect": 0.0797336605565788,
+        "scaled_by_height_squared": 79733.66055658,
+        "terms_checked": 200
+      },
+      {
+        "height": 10000.0,
+        "max_abs_prefix_effect": 0.0007999733308584,
+        "scaled_by_height_squared": 79997.33308584,
+        "terms_checked": 200
+      },
+      {
+        "height": 100000.0,
+        "max_abs_prefix_effect": 7.999997333e-06,
+        "scaled_by_height_squared": 79999.9733303,
+        "terms_checked": 200
+      },
+      {
+        "height": 1000000.0,
+        "max_abs_prefix_effect": 7.99999995e-08,
+        "scaled_by_height_squared": 79999.9995138,
+        "terms_checked": 200
+      },
+      {
+        "height": 10000000.0,
+        "max_abs_prefix_effect": 8.000445e-10,
+        "scaled_by_height_squared": 80004.44751133,
+        "terms_checked": 200
+      }
+    ],
+    "best_camouflage_row": {
+      "height": 10000000.0,
+      "max_abs_prefix_effect": 8.000445e-10,
+      "scaled_by_height_squared": 80004.44751133,
+      "terms_checked": 200
+    },
+    "observed_scaling": "prefix effect decays roughly with high zero height in this surrogate family"
+  },
+  "obstruction": "Finite computations can be made insensitive to sufficiently high surrogate off-critical zeros. The missing artifact is a symbolic tail bound tied to the actual zeta zero set.",
+  "candidate_theorem": "A height-uniform explicit-formula tail theorem proves that every off-critical zeta zero forces a detectable negative Li/kernel witness before any finite proof-status gate is allowed to close.",
+  "next_experiment": "Formalize the tail contract as an inequality over zero height, displacement, and Li index.",
+  "claim_boundary": "No RH proof and no certified RH counterexample."
+}

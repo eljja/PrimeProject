@@ -13,6 +13,7 @@ PROOF_OR_COUNTEREXAMPLE_SCHEMA = "primeproject.proof-or-counterexample-lab.v1"
 TICKET17_SCHEMA = "primeproject.ticket17-breakthrough-attempts.v1"
 TICKET18_SCHEMA = "primeproject.ticket18-reduction-lab.v1"
 TICKET19_SCHEMA = "primeproject.ticket19-proof-pressure-lab.v1"
+TICKET20_SCHEMA = "primeproject.ticket20-valuation-prefix-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -220,6 +221,39 @@ def main() -> int:
         path = ticket19_paths.get(problem_id)
         if path is None or not path.exists():
             return fail(f"{problem_id}: missing ticket19 per-problem artifact")
+
+    ticket20_path = Path("data/open-problem/ticket20-valuation-prefix-lab.json")
+    if not ticket20_path.exists():
+        return fail("missing ticket20 valuation-prefix lab artifact")
+    ticket20 = read_json(ticket20_path)
+    if ticket20.get("schema") != TICKET20_SCHEMA:
+        return fail("ticket20 valuation-prefix lab artifact has unexpected schema")
+    if ticket20.get("status") != "proof_pressure_open_no_resolution":
+        return fail("ticket20 valuation-prefix lab overstates resolution")
+    ticket20_attempts = ticket20.get("attempts", [])
+    if not isinstance(ticket20_attempts, list):
+        return fail("ticket20 attempts must be a list")
+    ticket20_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket20_attempts if isinstance(attempt, dict)}
+    missing_ticket20 = EXPECTED_PROBLEMS - set(ticket20_by_id)
+    if missing_ticket20:
+        return fail("ticket20 attempts missing problems: " + ", ".join(sorted(missing_ticket20)))
+    ticket20_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-20-uniform-tail-contract.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-20-valuation-prefix-rank-cegis.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-20-local-multiplicity-barrier.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-20-admissibility-constant-vs-deletion.json"),
+    }
+    for problem_id, attempt in ticket20_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket20 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket20 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket20 claim boundary is too weak")
+        path = ticket20_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket20 per-problem artifact")
 
     print("open problem structure verified")
     return 0

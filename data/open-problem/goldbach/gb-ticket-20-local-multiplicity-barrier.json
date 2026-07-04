@@ -1,0 +1,59 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-20",
+  "status": "proof_pressure_open",
+  "route": "LocalMultiplicityBarrier",
+  "proof_or_counterexample_mode": "local_counterexample_elimination",
+  "attempt": "Strengthen the local obstruction test by measuring how many ordered unit-residue prime pairs cover each even residue class. A local counterexample route would need uncovered or extremely thin classes.",
+  "bounded_result": {
+    "moduli_checked": [
+      6,
+      30,
+      210,
+      2310
+    ],
+    "rows": [
+      {
+        "modulus": 6,
+        "unit_residue_count": 2,
+        "target_residue_count": 3,
+        "uncovered_target_count": 0,
+        "min_ordered_unit_pair_count": 1,
+        "max_ordered_unit_pair_count": 2,
+        "mean_ordered_unit_pair_count": 1.33333333
+      },
+      {
+        "modulus": 30,
+        "unit_residue_count": 8,
+        "target_residue_count": 15,
+        "uncovered_target_count": 0,
+        "min_ordered_unit_pair_count": 3,
+        "max_ordered_unit_pair_count": 8,
+        "mean_ordered_unit_pair_count": 4.26666667
+      },
+      {
+        "modulus": 210,
+        "unit_residue_count": 48,
+        "target_residue_count": 105,
+        "uncovered_target_count": 0,
+        "min_ordered_unit_pair_count": 15,
+        "max_ordered_unit_pair_count": 48,
+        "mean_ordered_unit_pair_count": 21.94285714
+      },
+      {
+        "modulus": 2310,
+        "unit_residue_count": 480,
+        "target_residue_count": 1155,
+        "uncovered_target_count": 0,
+        "min_ordered_unit_pair_count": 135,
+        "max_ordered_unit_pair_count": 480,
+        "mean_ordered_unit_pair_count": 199.48051948
+      }
+    ],
+    "uncovered_total": 0
+  },
+  "obstruction": "The tested primorial residue systems have no uncovered even target classes. Goldbach remains an analytic lower-bound problem, not a local congruence obstruction in these systems.",
+  "candidate_theorem": "Local multiplicity plus explicit major/minor arc estimates gives a positive lower bound for every sufficiently large even integer, with the remaining small range covered by certificate.",
+  "next_experiment": "Attach explicit analytic constants to the strongest local multiplicity rows.",
+  "claim_boundary": "No Goldbach proof and no Goldbach counterexample found."
+}

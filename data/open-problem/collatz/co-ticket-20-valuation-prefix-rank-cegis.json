@@ -1,0 +1,125 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-20",
+  "status": "proof_pressure_open",
+  "route": "ValuationPrefixRankCEGIS",
+  "proof_or_counterexample_mode": "exact_expanding_prefix_certificate",
+  "attempt": "Construct exact residue certificates for the all-ones accelerated valuation prefix. This gives a concrete expanding branch at every tested finite length, so a proof must use rank/extension logic rather than fixed block contraction.",
+  "bounded_result": {
+    "prefix_lengths": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "longest_prefix_length": 64,
+    "longest_prefix_residue_hex": "0x1ffffffffffffffff",
+    "longest_prefix_multiplier": 186140372879.47342,
+    "longest_prefix_odd_density": "1 / 2^64",
+    "all_ones_rows": [
+      {
+        "prefix_length": 1,
+        "modulus_bits": 2,
+        "residue_count": 1,
+        "sample_residue_hex": "0x3",
+        "valuation_prefix_verified": true,
+        "asymptotic_multiplier": 1.5,
+        "odd_density_exact": "1 / 2^1",
+        "odd_density_float": 0.5,
+        "affine_constant_hex": "0x1",
+        "branch_formula": "T^1(n) = (3^1 n + (3^1 - 2^1)) / 2^1"
+      },
+      {
+        "prefix_length": 2,
+        "modulus_bits": 3,
+        "residue_count": 1,
+        "sample_residue_hex": "0x7",
+        "valuation_prefix_verified": true,
+        "asymptotic_multiplier": 2.25,
+        "odd_density_exact": "1 / 2^2",
+        "odd_density_float": 0.25,
+        "affine_constant_hex": "0x5",
+        "branch_formula": "T^2(n) = (3^2 n + (3^2 - 2^2)) / 2^2"
+      },
+      {
+        "prefix_length": 4,
+        "modulus_bits": 5,
+        "residue_count": 1,
+        "sample_residue_hex": "0x1f",
+        "valuation_prefix_verified": true,
+        "asymptotic_multiplier": 5.0625,
+        "odd_density_exact": "1 / 2^4",
+        "odd_density_float": 0.0625,
+        "affine_constant_hex": "0x41",
+        "branch_formula": "T^4(n) = (3^4 n + (3^4 - 2^4)) / 2^4"
+      },
+      {
+        "prefix_length": 8,
+        "modulus_bits": 9,
+        "residue_count": 1,
+        "sample_residue_hex": "0x1ff",
+        "valuation_prefix_verified": true,
+        "asymptotic_multiplier": 25.62890625,
+        "odd_density_exact": "1 / 2^8",
+        "odd_density_float": 0.00390625,
+        "affine_constant_hex": "0x18a1",
+        "branch_formula": "T^8(n) = (3^8 n + (3^8 - 2^8)) / 2^8"
+      },
+      {
+        "prefix_length": 16,
+        "modulus_bits": 17,
+        "residue_count": 1,
+        "sample_residue_hex": "0x1ffff",
+        "valuation_prefix_verified": true,
+        "asymptotic_multiplier": 656.840835571289,
+        "odd_density_exact": "1 / 2^16",
+        "odd_density_float": 1.52587890625e-05,
+        "affine_constant_hex": "0x28fd741",
+        "branch_formula": "T^16(n) = (3^16 n + (3^16 - 2^16)) / 2^16"
+      },
+      {
+        "prefix_length": 32,
+        "modulus_bits": 33,
+        "residue_count": 1,
+        "sample_residue_hex": "0x1ffffffff",
+        "valuation_prefix_verified": true,
+        "asymptotic_multiplier": 431439.8832739892,
+        "odd_density_exact": "1 / 2^32",
+        "odd_density_float": 2.3283064365386963e-10,
+        "affine_constant_hex": "0x6954ee21e3e81",
+        "branch_formula": "T^32(n) = (3^32 n + (3^32 - 2^32)) / 2^32"
+      },
+      {
+        "prefix_length": 64,
+        "modulus_bits": 65,
+        "residue_count": 1,
+        "sample_residue_hex": "0x1ffffffffffffffff",
+        "valuation_prefix_verified": true,
+        "asymptotic_multiplier": 186140372879.47342,
+        "odd_density_exact": "1 / 2^64",
+        "odd_density_float": 5.421010862427522e-20,
+        "affine_constant_hex": "0x2b56d4af8e7932278c797ebd01",
+        "branch_formula": "T^64(n) = (3^64 n + (3^64 - 2^64)) / 2^64"
+      }
+    ],
+    "longest_prefix": {
+      "prefix_length": 64,
+      "modulus_bits": 65,
+      "residue_count": 1,
+      "sample_residue_hex": "0x1ffffffffffffffff",
+      "valuation_prefix_verified": true,
+      "asymptotic_multiplier": 186140372879.47342,
+      "odd_density_exact": "1 / 2^64",
+      "odd_density_float": 5.421010862427522e-20,
+      "affine_constant_hex": "0x2b56d4af8e7932278c797ebd01",
+      "branch_formula": "T^64(n) = (3^64 n + (3^64 - 2^64)) / 2^64"
+    }
+  },
+  "obstruction": "Every finite tested length has an exact expanding residue branch. This does not create a Collatz counterexample, but it blocks any proof that claims a universal fixed-length contraction.",
+  "candidate_theorem": "The infinite all-ones 2-adic branch is excluded from positive integers by a well-founded valuation-prefix rank, and every finite expanding prefix has a certified extension into a lower-ranked descending branch.",
+  "next_experiment": "Run CEGIS over valuation-prefix states to synthesize the first nontrivial well-founded rank.",
+  "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+}
