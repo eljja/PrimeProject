@@ -1,0 +1,78 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-23",
+  "status": "proof_pressure_open",
+  "route": "ExceptionalSetCEGIS",
+  "proof_or_counterexample_mode": "direct_counterexample_search_plus_hardest_witness",
+  "attempt": "Search directly for a Goldbach counterexample up to the bound and record the hardest smallest-prime witness, because any proof candidate must explain those stress cases rather than only average behavior.",
+  "bounded_result": {
+    "search_limit": 1000000,
+    "tested_even_values": 499999,
+    "counterexamples_found": [],
+    "first_counterexample": null,
+    "hardest_smallest_prime_witness": {
+      "even": 503222,
+      "smallest_prime": 523,
+      "partner": 502699
+    },
+    "sample_decompositions": [
+      {
+        "even": 4,
+        "p": 2,
+        "q": 2
+      },
+      {
+        "even": 6,
+        "p": 3,
+        "q": 3
+      },
+      {
+        "even": 8,
+        "p": 3,
+        "q": 5
+      },
+      {
+        "even": 10,
+        "p": 3,
+        "q": 7
+      },
+      {
+        "even": 100,
+        "p": 3,
+        "q": 97
+      },
+      {
+        "even": 1000,
+        "p": 3,
+        "q": 997
+      },
+      {
+        "even": 10000,
+        "p": 59,
+        "q": 9941
+      },
+      {
+        "even": 100000,
+        "p": 11,
+        "q": 99989
+      },
+      {
+        "even": 1000000,
+        "p": 17,
+        "q": 999983
+      }
+    ],
+    "smallest_witness_bucket_counts": {
+      "smallest_p_le_3": 78498,
+      "smallest_p_le_5": 70328,
+      "smallest_p_le_11": 110767,
+      "smallest_p_le_101": 231724,
+      "smallest_p_le_1000": 8682
+    },
+    "exceptional_set_status": "empty_through_bound"
+  },
+  "obstruction": "An empty bounded exceptional set is not a proof. The proof gap is an explicit lower bound that remains positive for every sufficiently large even integer, plus finite verification below the cutoff.",
+  "candidate_theorem": "A quantitative circle-method or transference theorem proves the Goldbach representation count is positive for all even N >= N0, with a separately certified finite check below N0.",
+  "next_experiment": "Use the hardest smallest-prime witnesses as stress targets for explicit major/minor arc budgets.",
+  "claim_boundary": "No Goldbach proof and no Goldbach counterexample found."
+}

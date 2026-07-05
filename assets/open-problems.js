@@ -2322,7 +2322,95 @@ function renderTicket22NegationPressure(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket) {
+function renderTicket23Evidence(attempt) {
+  const bounded = attempt?.bounded_result || {};
+  if (Array.isArray(bounded.detector_rows)) {
+    return table(
+      ["beta", "height", "first negative", "first below threshold", "threshold seen"],
+      bounded.detector_rows.slice(0, 12).map((row) => [
+        row.offcritical_beta,
+        row.height,
+        row.first_negative_li_index,
+        row.first_below_threshold_index,
+        row.threshold_seen,
+      ]),
+    );
+  }
+  if (Array.isArray(bounded.modulus_rows)) {
+    return table(
+      ["bits", "states", "cycles", "false cycles", "integer rank nondecrease"],
+      bounded.modulus_rows.map((row) => [
+        row.modulus_bits,
+        row.odd_state_count,
+        row.cycle_component_count,
+        row.nontrivial_cycle_component_count,
+        row.integer_rank_nondecreasing_rate,
+      ]),
+    );
+  }
+  if (Array.isArray(bounded.sample_decompositions)) {
+    const hardest = bounded.hardest_smallest_prime_witness || {};
+    return [
+      table(["even", "p", "q"], bounded.sample_decompositions.map((row) => [row.even, row.p, row.q])),
+      `<p class="proof-note">Hardest bounded witness: ${escapeHtml(formatValue(hardest.even))} = ${escapeHtml(formatValue(hardest.smallest_prime))} + ${escapeHtml(formatValue(hardest.partner))}</p>`,
+    ].join("");
+  }
+  if (Array.isArray(bounded.projection_rows)) {
+    return table(
+      ["limit", "gap 2", "deletion gap 2", "bounded retention"],
+      bounded.projection_rows.map((row) => [
+        row.limit,
+        row.original_exact_gap_2,
+        row.deletion_model_exact_gap_2,
+        row.bounded_gap_retention_ratio,
+      ]),
+    );
+  }
+  return "";
+}
+
+function renderTicket23CegisRank(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const summaryRows = Object.entries(bounded)
+    .filter(([, value]) => typeof value !== "object" || value === null)
+    .slice(0, 10);
+  return `
+    <div class="poc-ticket17 poc-ticket23">
+      <h3>Ticket 23 CEGIS rank lab</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["CEGIS rank result", "Value"], summaryRows) : ""}
+      ${renderTicket23Evidence(attempt)}
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -2395,10 +2483,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket20ValuationPrefix(valuationPrefixTicket)}
     ${renderTicket21TwoAdicBranch(twoAdicBranchTicket)}
     ${renderTicket22NegationPressure(negationPressureTicket)}
+    ${renderTicket23CegisRank(cegisRankTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -2422,7 +2511,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -2487,6 +2576,7 @@ async function main() {
   let ticket20Attempt = null;
   let ticket21Attempt = null;
   let ticket22Attempt = null;
+  let ticket23Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -2550,7 +2640,16 @@ async function main() {
   } catch (error) {
     ticket22Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt);
+  try {
+    const ticket23Response = await fetch("../data/open-problem/ticket23-cegis-rank-lab.json", { cache: "no-store" });
+    if (ticket23Response.ok) {
+      const ticket23Payload = await ticket23Response.json();
+      ticket23Attempt = (ticket23Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket23Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt);
 }
 
 main().catch((error) => {

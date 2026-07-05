@@ -403,6 +403,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Two-adic branch result") ||
         !page.proofOrCounterexampleText.includes("Ticket 22 negation pressure lab") ||
         !page.proofOrCounterexampleText.includes("Negation pressure result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 23 CEGIS rank lab") ||
+        !page.proofOrCounterexampleText.includes("CEGIS rank result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

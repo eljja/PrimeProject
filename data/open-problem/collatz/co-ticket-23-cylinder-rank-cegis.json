@@ -1,0 +1,552 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-23",
+  "status": "proof_pressure_open",
+  "route": "CylinderRankCEGIS",
+  "proof_or_counterexample_mode": "rank_synthesis_counterexample_guided_search",
+  "attempt": "Build finite odd-residue quotient graphs for the accelerated Collatz map, search for SCC obstructions to simple rank descent, and audit whether quotient cycles lift to true positive integer cycles.",
+  "bounded_result": {
+    "modulus_bits_tested": [
+      8,
+      10,
+      12,
+      14
+    ],
+    "modulus_rows": [
+      {
+        "modulus_bits": 8,
+        "odd_state_count": 128,
+        "scc_count": 128,
+        "cycle_component_count": 1,
+        "nontrivial_cycle_component_count": 0,
+        "largest_cycle_component_size": 1,
+        "ambiguous_high_valuation_edges": 1,
+        "integer_rank_nondecreasing_edges": 43,
+        "integer_rank_nondecreasing_rate": 0.3359375,
+        "valuation_histogram_head": [
+          {
+            "valuation": 1,
+            "count": 64
+          },
+          {
+            "valuation": 2,
+            "count": 32
+          },
+          {
+            "valuation": 3,
+            "count": 16
+          },
+          {
+            "valuation": 4,
+            "count": 8
+          },
+          {
+            "valuation": 5,
+            "count": 4
+          },
+          {
+            "valuation": 6,
+            "count": 2
+          },
+          {
+            "valuation": 8,
+            "count": 1
+          },
+          {
+            "valuation": 7,
+            "count": 1
+          }
+        ],
+        "cycle_examples": [
+          {
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "valuation_sum": 2,
+            "expansion_multiplier": 0.75,
+            "candidate_value": 1,
+            "candidate_status": "valid_positive_cycle",
+            "total_shift": 2,
+            "validated_as_exact_cycle": true
+          }
+        ]
+      },
+      {
+        "modulus_bits": 10,
+        "odd_state_count": 512,
+        "scc_count": 487,
+        "cycle_component_count": 2,
+        "nontrivial_cycle_component_count": 1,
+        "largest_cycle_component_size": 26,
+        "ambiguous_high_valuation_edges": 1,
+        "integer_rank_nondecreasing_edges": 171,
+        "integer_rank_nondecreasing_rate": 0.33398438,
+        "valuation_histogram_head": [
+          {
+            "valuation": 1,
+            "count": 256
+          },
+          {
+            "valuation": 2,
+            "count": 128
+          },
+          {
+            "valuation": 3,
+            "count": 64
+          },
+          {
+            "valuation": 4,
+            "count": 32
+          },
+          {
+            "valuation": 5,
+            "count": 16
+          },
+          {
+            "valuation": 6,
+            "count": 8
+          },
+          {
+            "valuation": 7,
+            "count": 4
+          },
+          {
+            "valuation": 8,
+            "count": 2
+          }
+        ],
+        "cycle_examples": [
+          {
+            "cycle_length": 26,
+            "sample_residues": [
+              125,
+              47,
+              71,
+              107,
+              161,
+              121,
+              91,
+              137,
+              103,
+              155,
+              233,
+              175,
+              263,
+              395,
+              593,
+              445
+            ],
+            "valuation_word": [
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum": 37,
+            "expansion_multiplier": 18.494508027863,
+            "candidate_value": null,
+            "candidate_status": "no_positive_affine_fixed_point_expanding_word",
+            "total_shift": 37
+          },
+          {
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "valuation_sum": 2,
+            "expansion_multiplier": 0.75,
+            "candidate_value": 1,
+            "candidate_status": "valid_positive_cycle",
+            "total_shift": 2,
+            "validated_as_exact_cycle": true
+          }
+        ]
+      },
+      {
+        "modulus_bits": 12,
+        "odd_state_count": 2048,
+        "scc_count": 2037,
+        "cycle_component_count": 3,
+        "nontrivial_cycle_component_count": 2,
+        "largest_cycle_component_size": 7,
+        "ambiguous_high_valuation_edges": 1,
+        "integer_rank_nondecreasing_edges": 683,
+        "integer_rank_nondecreasing_rate": 0.33349609,
+        "valuation_histogram_head": [
+          {
+            "valuation": 1,
+            "count": 1024
+          },
+          {
+            "valuation": 2,
+            "count": 512
+          },
+          {
+            "valuation": 3,
+            "count": 256
+          },
+          {
+            "valuation": 4,
+            "count": 128
+          },
+          {
+            "valuation": 5,
+            "count": 64
+          },
+          {
+            "valuation": 6,
+            "count": 32
+          },
+          {
+            "valuation": 7,
+            "count": 16
+          },
+          {
+            "valuation": 8,
+            "count": 8
+          }
+        ],
+        "cycle_examples": [
+          {
+            "cycle_length": 7,
+            "sample_residues": [
+              937,
+              703,
+              1055,
+              1583,
+              2375,
+              3563,
+              1249
+            ],
+            "valuation_word": [
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2
+            ],
+            "valuation_sum": 9,
+            "expansion_multiplier": 4.271484375,
+            "candidate_value": null,
+            "candidate_status": "no_positive_affine_fixed_point_expanding_word",
+            "total_shift": 9
+          },
+          {
+            "cycle_length": 6,
+            "sample_residues": [
+              3311,
+              871,
+              1307,
+              1961,
+              1471,
+              2207
+            ],
+            "valuation_word": [
+              1,
+              1,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum": 7,
+            "expansion_multiplier": 5.6953125,
+            "candidate_value": null,
+            "candidate_status": "no_positive_affine_fixed_point_expanding_word",
+            "total_shift": 7
+          },
+          {
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "valuation_sum": 2,
+            "expansion_multiplier": 0.75,
+            "candidate_value": 1,
+            "candidate_status": "valid_positive_cycle",
+            "total_shift": 2,
+            "validated_as_exact_cycle": true
+          }
+        ]
+      },
+      {
+        "modulus_bits": 14,
+        "odd_state_count": 8192,
+        "scc_count": 8192,
+        "cycle_component_count": 1,
+        "nontrivial_cycle_component_count": 0,
+        "largest_cycle_component_size": 1,
+        "ambiguous_high_valuation_edges": 1,
+        "integer_rank_nondecreasing_edges": 2731,
+        "integer_rank_nondecreasing_rate": 0.33337402,
+        "valuation_histogram_head": [
+          {
+            "valuation": 1,
+            "count": 4096
+          },
+          {
+            "valuation": 2,
+            "count": 2048
+          },
+          {
+            "valuation": 3,
+            "count": 1024
+          },
+          {
+            "valuation": 4,
+            "count": 512
+          },
+          {
+            "valuation": 5,
+            "count": 256
+          },
+          {
+            "valuation": 6,
+            "count": 128
+          },
+          {
+            "valuation": 7,
+            "count": 64
+          },
+          {
+            "valuation": 8,
+            "count": 32
+          }
+        ],
+        "cycle_examples": [
+          {
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "valuation_sum": 2,
+            "expansion_multiplier": 0.75,
+            "candidate_value": 1,
+            "candidate_status": "valid_positive_cycle",
+            "total_shift": 2,
+            "validated_as_exact_cycle": true
+          }
+        ]
+      }
+    ],
+    "false_quotient_cycles_seen": [
+      {
+        "modulus_bits": 10,
+        "cycle_length": 26,
+        "sample_residues": [
+          125,
+          47,
+          71,
+          107,
+          161,
+          121,
+          91,
+          137,
+          103,
+          155,
+          233,
+          175,
+          263,
+          395,
+          593,
+          445
+        ],
+        "valuation_word": [
+          3,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "valuation_sum": 37,
+        "expansion_multiplier": 18.494508027863,
+        "candidate_value": null,
+        "candidate_status": "no_positive_affine_fixed_point_expanding_word",
+        "total_shift": 37
+      },
+      {
+        "modulus_bits": 12,
+        "cycle_length": 7,
+        "sample_residues": [
+          937,
+          703,
+          1055,
+          1583,
+          2375,
+          3563,
+          1249
+        ],
+        "valuation_word": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "valuation_sum": 9,
+        "expansion_multiplier": 4.271484375,
+        "candidate_value": null,
+        "candidate_status": "no_positive_affine_fixed_point_expanding_word",
+        "total_shift": 9
+      },
+      {
+        "modulus_bits": 12,
+        "cycle_length": 6,
+        "sample_residues": [
+          3311,
+          871,
+          1307,
+          1961,
+          1471,
+          2207
+        ],
+        "valuation_word": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        "valuation_sum": 7,
+        "expansion_multiplier": 5.6953125,
+        "candidate_value": null,
+        "candidate_status": "no_positive_affine_fixed_point_expanding_word",
+        "total_shift": 7
+      }
+    ],
+    "false_quotient_cycle_count": 3,
+    "positive_cycle_candidates_seen": [
+      {
+        "modulus_bits": 8,
+        "cycle_length": 1,
+        "sample_residues": [
+          1
+        ],
+        "valuation_word": [
+          2
+        ],
+        "valuation_sum": 2,
+        "expansion_multiplier": 0.75,
+        "candidate_value": 1,
+        "candidate_status": "valid_positive_cycle",
+        "total_shift": 2,
+        "validated_as_exact_cycle": true
+      },
+      {
+        "modulus_bits": 10,
+        "cycle_length": 1,
+        "sample_residues": [
+          1
+        ],
+        "valuation_word": [
+          2
+        ],
+        "valuation_sum": 2,
+        "expansion_multiplier": 0.75,
+        "candidate_value": 1,
+        "candidate_status": "valid_positive_cycle",
+        "total_shift": 2,
+        "validated_as_exact_cycle": true
+      },
+      {
+        "modulus_bits": 12,
+        "cycle_length": 1,
+        "sample_residues": [
+          1
+        ],
+        "valuation_word": [
+          2
+        ],
+        "valuation_sum": 2,
+        "expansion_multiplier": 0.75,
+        "candidate_value": 1,
+        "candidate_status": "valid_positive_cycle",
+        "total_shift": 2,
+        "validated_as_exact_cycle": true
+      },
+      {
+        "modulus_bits": 14,
+        "cycle_length": 1,
+        "sample_residues": [
+          1
+        ],
+        "valuation_word": [
+          2
+        ],
+        "valuation_sum": 2,
+        "expansion_multiplier": 0.75,
+        "candidate_value": 1,
+        "candidate_status": "valid_positive_cycle",
+        "total_shift": 2,
+        "validated_as_exact_cycle": true
+      }
+    ],
+    "nontrivial_positive_cycle_candidates_seen": [],
+    "rank_probe": "The ordinary integer residue rank has about one third nondecreasing edges on tested quotients, and finite quotient SCCs can be false cycles unless the rank is lift-aware."
+  },
+  "obstruction": "Finite quotient SCCs are useful CEGIS witnesses against naive rank functions, but false quotient cycles are not Collatz counterexamples. The missing theorem is a lift-aware well-founded rank over exact 2-adic cylinders.",
+  "candidate_theorem": "There exists a computable well-founded rank on exact accelerated valuation cylinders such that every positive integer branch either reaches the 1-cycle or eventually crosses to a strictly lower rank.",
+  "next_experiment": "Synthesize lift-aware rank features from exact residue, valuation debt, and escape depth.",
+  "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+}
