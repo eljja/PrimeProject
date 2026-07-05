@@ -1,0 +1,52 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-28",
+  "status": "proof_pressure_open",
+  "route": "WitnessCutoffTrichotomy",
+  "proof_or_counterexample_mode": "finite_witness_scan_plus_explicit_tail",
+  "attempt": "Treat Goldbach as a least-counterexample problem: scan the finite base for a direct counterexample, then isolate the exact large-even lower-bound theorem needed to prove no larger counterexample exists.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-27",
+    "trichotomy_routes": [
+      {
+        "mode": "direct_counterexample",
+        "closure_condition": "Find an even integer n>=4 with no representation n=p+q by primes p,q.",
+        "bounded_status": "no_counterexample_leq_2000000",
+        "open_blocker": "Finite search cannot rule out a larger counterexample."
+      },
+      {
+        "mode": "prove_no_counterexample",
+        "closure_condition": "Prove a positive lower bound for the Goldbach representation count for every even n above an explicit cutoff.",
+        "bounded_status": "tail_lower_bound_not_closed",
+        "open_blocker": "No explicit positive lower-bound theorem has been proved inside PrimeProject."
+      },
+      {
+        "mode": "contrapositive",
+        "closure_condition": "Assume the least Goldbach counterexample N exists; combine finite verification below B with a tail theorem forcing N<=B.",
+        "bounded_status": "least_counterexample_cutoff_bridge_open",
+        "open_blocker": "The analytic cutoff has not been pushed below the verified finite base."
+      }
+    ],
+    "finite_witness_scan": {
+      "even_limit": 2000000,
+      "checked_even_count": 999999,
+      "counterexample_found": null,
+      "no_counterexample_leq_limit": true,
+      "hardest_first_witness_row": {
+        "prime_scans_before_first_witness": 110,
+        "even_n": 1077422,
+        "first_witness": [
+          601,
+          1076821
+        ]
+      },
+      "interpretation": "This is a witness scan for the finite base region. It is not a Goldbach proof unless paired with an explicit theorem covering every even integer above the limit."
+    },
+    "global_route_status": "finite_base_extended_tail_open",
+    "strongest_closed_statement": "Every even integer 4<=n<=2,000,000 has a displayed first-prime witness in the scan."
+  },
+  "obstruction": "The project still lacks an explicit large-even lower-bound theorem with all constants effective.",
+  "candidate_theorem": "For every even n>N0, the Goldbach representation count is positive, and N0 is no larger than the committed finite witness scan limit.",
+  "next_experiment": "Build a constant ledger for main term minus error and reject any ineffective exceptional-zero dependency.",
+  "claim_boundary": "No Goldbach proof and no Goldbach counterexample found up to the finite scan limit."
+}

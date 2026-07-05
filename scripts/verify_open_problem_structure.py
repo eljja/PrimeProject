@@ -21,6 +21,7 @@ TICKET24_SCHEMA = "primeproject.ticket24-bridge-weight-lab.v1"
 TICKET25_SCHEMA = "primeproject.ticket25-formal-lemma-kernel.v1"
 TICKET26_SCHEMA = "primeproject.ticket26-micro-lemma-closure.v1"
 TICKET27_SCHEMA = "primeproject.ticket27-rank-frontier-lab.v1"
+TICKET28_SCHEMA = "primeproject.ticket28-trichotomy-descent-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -523,6 +524,69 @@ def main() -> int:
         return fail("collatz ticket27 rank frontier rows missing")
     if not any(row.get("sampled_lift_rank_violations_excluding_residue_one", 0) > 0 for row in rows27):
         return fail("collatz ticket27 lacks non-1 lift rank counterexamples")
+
+    ticket28_path = Path("data/open-problem/ticket28-trichotomy-descent-lab.json")
+    if not ticket28_path.exists():
+        return fail("missing ticket28 trichotomy descent artifact")
+    ticket28 = read_json(ticket28_path)
+    if ticket28.get("schema") != TICKET28_SCHEMA:
+        return fail("ticket28 trichotomy descent artifact has unexpected schema")
+    if ticket28.get("status") != "trichotomy_descent_open_no_resolution":
+        return fail("ticket28 trichotomy descent overstates resolution")
+    ticket28_attempts = ticket28.get("attempts", [])
+    if not isinstance(ticket28_attempts, list):
+        return fail("ticket28 attempts must be a list")
+    ticket28_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket28_attempts if isinstance(attempt, dict)}
+    missing_ticket28 = EXPECTED_PROBLEMS - set(ticket28_by_id)
+    if missing_ticket28:
+        return fail("ticket28 attempts missing problems: " + ", ".join(sorted(missing_ticket28)))
+    ticket28_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-28-mertens-tail-trichotomy.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-28-lift-coordinate-debt-rank-cegis.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-28-witness-cutoff-trichotomy.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-28-exact-gap-tail-trichotomy.json"),
+    }
+    for problem_id, attempt in ticket28_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket28 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket28 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket28 claim boundary is too weak")
+        path = ticket28_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket28 per-problem artifact")
+        bounded28 = attempt.get("bounded_result", {})
+        routes28 = bounded28.get("trichotomy_routes", []) if isinstance(bounded28, dict) else []
+        if not isinstance(routes28, list) or len(routes28) != 3:
+            return fail(f"{problem_id}: ticket28 must expose exactly three proof routes")
+
+    collatz_ticket28 = ticket28_by_id.get("collatz", {})
+    collatz28_bounded = collatz_ticket28.get("bounded_result", {})
+    if not isinstance(collatz28_bounded, dict):
+        return fail("collatz ticket28 bounded result must be an object")
+    stopping28 = collatz28_bounded.get("stopping_scan", {})
+    if not isinstance(stopping28, dict) or not stopping28.get("no_stopping_counterexample_leq_limit"):
+        return fail("collatz ticket28 must record no finite stopping counterexample in its scan")
+    cylinder28 = collatz28_bounded.get("cylinder_descent", {})
+    if not isinstance(cylinder28, dict):
+        return fail("collatz ticket28 cylinder descent result missing")
+    max_row28 = cylinder28.get("max_bits_row", {})
+    if not isinstance(max_row28, dict) or max_row28.get("needs_split_count", 0) <= 0:
+        return fail("collatz ticket28 must keep the global proof blocked by needs_split cylinders")
+    if cylinder28.get("all_nontrivial_cylinders_closed_at_max_bits"):
+        return fail("collatz ticket28 overstates cylinder closure")
+
+    goldbach_ticket28 = ticket28_by_id.get("goldbach", {})
+    goldbach28_scan = goldbach_ticket28.get("bounded_result", {}).get("finite_witness_scan", {})
+    if not isinstance(goldbach28_scan, dict) or not goldbach28_scan.get("no_counterexample_leq_limit"):
+        return fail("goldbach ticket28 finite witness scan must find no bounded counterexample")
+
+    twin_ticket28 = ticket28_by_id.get("twin-prime", {})
+    twin28_scan = twin_ticket28.get("bounded_result", {}).get("finite_exact_gap_scan", {})
+    if not isinstance(twin28_scan, dict) or int(twin28_scan.get("twin_pair_count", 0)) <= 0:
+        return fail("twin-prime ticket28 must record finite exact-gap pairs")
 
     print("open problem structure verified")
     return 0

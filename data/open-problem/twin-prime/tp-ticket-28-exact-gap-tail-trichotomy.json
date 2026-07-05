@@ -1,0 +1,52 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-28",
+  "status": "proof_pressure_open",
+  "route": "ExactGapTailTrichotomy",
+  "proof_or_counterexample_mode": "finite_exact_gap_scan_plus_tail_lower_bound",
+  "attempt": "Separate exact gap 2 from bounded-gap evidence. The finite scan records exact twin pairs, while the proof route demands a functional that remains positive on unbounded scales and fails under exact-gap deletion.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-27",
+    "trichotomy_routes": [
+      {
+        "mode": "direct_counterexample",
+        "closure_condition": "Certify a largest twin-prime pair and prove no larger pair exists.",
+        "bounded_status": "no_largest_twin_pair_certificate",
+        "open_blocker": "The finite scan cannot certify absence above the limit."
+      },
+      {
+        "mode": "prove_no_counterexample",
+        "closure_condition": "Prove a positive exact-gap-2 lower-bound functional on infinitely many scales.",
+        "bounded_status": "exact_gap_2_tail_lower_bound_not_closed",
+        "open_blocker": "Bounded-gap statistics remain insufficient unless they collapse under gap-2 deletion."
+      },
+      {
+        "mode": "contrapositive",
+        "closure_condition": "Assume a last twin pair exists; force contradiction by showing exact-gap-2 mass survives beyond that scale.",
+        "bounded_status": "last_pair_contradiction_bridge_open",
+        "open_blocker": "No exact-gap-2 lower-bound functional has been proved beyond finite data."
+      }
+    ],
+    "finite_exact_gap_scan": {
+      "prime_limit": 10000000,
+      "twin_pair_count": 58980,
+      "last_twin_pair_leq_limit": [
+        9999971,
+        9999973
+      ],
+      "max_gap_between_twin_pair_starts": {
+        "gap": 1722,
+        "from_start": 9923987,
+        "to_start": 9925709
+      },
+      "counterexample_found": null,
+      "interpretation": "A finite list of twin primes is evidence only. A Twin Prime counterexample would require a certified last twin pair, and a proof requires an exact-gap-2 lower bound at arbitrarily large scales."
+    },
+    "global_route_status": "finite_exact_gap_evidence_tail_open",
+    "strongest_closed_statement": "The scan finds exact twin-prime pairs up to 10,000,000, including the listed last pair."
+  },
+  "obstruction": "The scan does not imply infinitely many exact gap-2 pairs, and no last-pair contradiction theorem is closed.",
+  "candidate_theorem": "An exact-gap-2 lower-bound functional is positive on infinitely many dyadic intervals and is destroyed by deleting every exact gap-2 pair.",
+  "next_experiment": "Search sieve features whose finite value collapses under exact-gap deletion but remains stable under bounded-gap noise.",
+  "claim_boundary": "No Twin Prime proof and no certified largest twin-prime pair."
+}

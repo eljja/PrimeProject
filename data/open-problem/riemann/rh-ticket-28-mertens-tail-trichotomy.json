@@ -1,0 +1,59 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-28",
+  "status": "proof_pressure_open",
+  "route": "CounterexampleProofContrapositiveTrichotomy",
+  "proof_or_counterexample_mode": "finite_stress_plus_tail_obligation",
+  "attempt": "Use the user's proof trichotomy explicitly: search for a finite counterexample signal, identify the theorem needed to prove no counterexample exists, and state the contrapositive bridge that would turn an off-critical zero into a bounded contradiction.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-27",
+    "trichotomy_routes": [
+      {
+        "mode": "direct_counterexample",
+        "closure_condition": "Exhibit a certified non-trivial zeta zero with real part not equal to 1/2, or an equivalent failed RH theorem.",
+        "bounded_status": "no_certified_offcritical_zero_found_by_ticket28",
+        "open_blocker": "No zeta-zero certificate was generated."
+      },
+      {
+        "mode": "prove_no_counterexample",
+        "closure_condition": "Prove every non-trivial zero lies on the critical line with explicit control over all heights.",
+        "bounded_status": "finite_mertens_stress_only",
+        "open_blocker": "Finite Mertens data cannot control the zeta zero set."
+      },
+      {
+        "mode": "contrapositive",
+        "closure_condition": "Show that any off-critical zero forces a finite Li/kernel/correlator contradiction below a computable index.",
+        "bounded_status": "tail_uniform_bridge_open",
+        "open_blocker": "The project still lacks a uniform tail theorem converting an off-critical zero into a bounded contradiction."
+      }
+    ],
+    "mertens_stress": {
+      "stress_observable": "M(n)/sqrt(n), where M is the Mertens summatory function",
+      "limit": 5000000,
+      "mertens_at_limit": -709,
+      "max_abs_mertens_over_sqrt_n_from_100": {
+        "value": 0.567104964,
+        "n": 199,
+        "mertens": -8
+      },
+      "max_abs_mertens_over_sqrt_n_from_10000": {
+        "value": 0.4629770364,
+        "n": 24185,
+        "mertens": -72
+      },
+      "max_abs_mertens_over_sqrt_n_from_1000000": {
+        "value": 0.4182454758,
+        "n": 1066854,
+        "mertens": 432
+      },
+      "counterexample_found": null,
+      "interpretation": "This is an RH-compatible finite stress observable, not an RH-equivalent proof or counterexample. A certified RH counterexample still requires an off-critical zeta zero or an equivalent failed theorem."
+    },
+    "global_route_status": "all_global_routes_open",
+    "strongest_closed_statement": "No RH counterexample was produced by the finite Mertens stress scan."
+  },
+  "obstruction": "The finite stress scan is compatible with RH but does not see zeta zeros. The missing object is still a tail-uniform zero or positivity theorem.",
+  "candidate_theorem": "Every hypothetical off-critical zero produces a computably bounded violation of a formally verified positivity kernel, with all remaining zeros controlled by an explicit tail majorant.",
+  "next_experiment": "Synthesize the tail majorant as a symbolic inequality and run CEGIS against off-critical surrogate zeros.",
+  "claim_boundary": "No RH proof and no certified RH counterexample."
+}

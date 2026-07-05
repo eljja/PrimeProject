@@ -691,3 +691,51 @@ Reason:
 ```text
 The quotient-only Collatz rank is now refuted by explicit lift counterexamples. A viable rank must include the lift coordinate, valuation debt, or exact 2-adic cylinder data and must decrease after a bounded debt window.
 ```
+
+## Ticket 28 Trichotomy Descent Lab Results
+
+Generated artifact:
+
+```text
+data/open-problem/ticket28-trichotomy-descent-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-28-mertens-tail-trichotomy.json
+data/open-problem/collatz/co-ticket-28-lift-coordinate-debt-rank-cegis.json
+data/open-problem/goldbach/gb-ticket-28-witness-cutoff-trichotomy.json
+data/open-problem/twin-prime/tp-ticket-28-exact-gap-tail-trichotomy.json
+```
+
+Current verdict:
+
+```text
+trichotomy_descent_open_no_resolution
+```
+
+한국어 요약: TICKET-28은 사용자가 제시한 세 가지 증명 경로, 즉 반례 찾기, 반례가 없음을 증명하기, 대우법으로 증명하기를 각 난제에 명시적으로 적용한다. 이번 단계의 실질적 계산 진전은 Collatz exact cylinder descent다. 이는 단순 residue rank가 아니라 valuation word가 실제로 보장되는 `2^m` cylinder 전체에 대해 affine map을 계산하고, 그 cylinder의 모든 양의 lift가 시작값보다 작아지는지를 판정한다.
+
+1. RH: `M(n)/sqrt(n)` Mertens stress를 `5,000,000`까지 계산했다. `n>=10,000`에서 최대 관측값은 `0.4629770364`이고 위치는 `24,185`이다. 이것은 RH와 양립하는 finite stress일 뿐이며, RH 반례나 증명은 아니다. 전체 증명에는 off-critical zero를 배제하는 tail-uniform theorem 또는 동등한 positivity theorem이 필요하다.
+2. Collatz: `2^12, 2^14, 2^16, 2^18, 2^20, 2^22` exact cylinder를 검사했다. `2^22`에서는 `2,097,152`개 odd cylinder 중 `1,997,692`개가 all-lift descent로 닫혔고, `99,459`개는 `needs_split`으로 남았다. 또한 `1,000,000` 이하 odd start에서 자기보다 작아지지 않는 finite stopping counterexample은 발견되지 않았고, 최장 stopping-to-below-start는 `626,331`에서 `111` accelerated steps였다.
+3. Goldbach: `2,000,000` 이하 모든 짝수에 대해 첫 소수 witness를 찾았다. 반례는 없었고, 가장 늦게 첫 witness가 나온 행은 `1,077,422 = 601 + 1,076,821`이다. 하지만 finite witness scan은 큰 짝수 전체에 대한 explicit lower-bound theorem을 대체하지 못한다.
+4. Twin Prime: `10,000,000` 이하 exact gap-2 소수쌍은 `58,980`개이며 마지막 관측 pair는 `(9,999,971, 9,999,973)`이다. 이는 exact-gap finite evidence이지만, 무한히 많은 twin prime을 증명하려면 exact-gap-2 lower-bound functional이 필요하다.
+
+Closed partial theorem:
+
+```text
+For every Collatz cylinder marked all_lift_descent in TICKET-28, the exact accelerated affine map sends every positive odd lift in that cylinder below its starting value.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-29 AdaptiveCylinderSplitTermination
+```
+
+Reason:
+
+```text
+The exact cylinder method now proves many full lift families, but the proof cannot be promoted while needs_split cylinders remain. The next theorem must show that adaptive splitting of only those cylinders terminates or yields a well-founded valuation-debt descent.
+```
