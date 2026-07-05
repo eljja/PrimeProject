@@ -1,0 +1,49 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-25",
+  "status": "proof_pressure_open",
+  "route": "FiniteExceptionKernel",
+  "proof_or_counterexample_mode": "bounded_exception_elimination",
+  "attempt": "Extract the finite theorem-kernel from the Goldbach search: the checked range has no counterexample, and the weakest sampled windows identify where an eventual explicit lower-bound theorem must be stress-tested.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-24",
+    "finite_even_bound": 2000000,
+    "counterexample_count": 0,
+    "finite_exception_kernel_status": "empty_through_bound",
+    "hardest_first_witness": {
+      "even": 1077422,
+      "smallest_prime": 601,
+      "partner": 1076821
+    },
+    "weakest_sampled_count_to_scale_ratio": {
+      "even": 1732000,
+      "representation_count": 8515,
+      "n_over_log_squared_n": 8393.623485,
+      "count_to_scale_ratio": 1.01446056
+    },
+    "kernel_rows": [
+      {
+        "kernel": "finite_counterexample_search",
+        "bound": 2000000,
+        "counterexamples": 0
+      },
+      {
+        "kernel": "hardest_first_witness",
+        "even": 1077422,
+        "smallest_prime": 601,
+        "partner": 1076821
+      },
+      {
+        "kernel": "weakest_sampled_ratio",
+        "even": 1732000,
+        "representation_count": 8515,
+        "count_to_scale_ratio": 1.01446056
+      }
+    ]
+  },
+  "formal_kernel_statement": "A finite Goldbach verification kernel can close only N <= B. To prove the conjecture, it must be paired with an independent theorem proving r_2(N)>0 for every even N>B.",
+  "obstruction": "The finite kernel is useful but bounded. The missing proof remains an explicit positive lower bound beyond the verified range.",
+  "candidate_theorem": "There is an explicit B such that every even N>B has positive Goldbach representation count, and every even N<=B is certified by a reproducible finite verifier.",
+  "next_experiment": "Turn sampled weak windows into explicit error-budget constraints for a large-N theorem.",
+  "claim_boundary": "No Goldbach proof and no Goldbach counterexample found."
+}

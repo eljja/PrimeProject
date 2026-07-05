@@ -1,0 +1,57 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-25",
+  "status": "proof_pressure_open",
+  "route": "FormalAffineLiftLemma",
+  "proof_or_counterexample_mode": "quotient_cycle_elimination_lemma",
+  "attempt": "Promote the Ticket 24 Collatz lift audit into a theorem-kernel candidate. A quotient cycle is not a positive integer cycle unless its valuation word has a positive integral affine fixed point that validates exactly.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-24",
+    "tested_modulus_bits": [
+      8,
+      10,
+      12,
+      14,
+      16,
+      18
+    ],
+    "first_tested_clean_suffix_modulus_bits": 14,
+    "affine_lift_eliminated_cycle_count": 3,
+    "positive_cycle_candidate_count": 6,
+    "nontrivial_positive_cycle_candidate_count": 0,
+    "kernel_rows": [
+      {
+        "modulus_bits": 10,
+        "cycle_length": 26,
+        "total_shift": 37,
+        "expansion_multiplier": 18.494508027863,
+        "affine_cycle_status": "globally_eliminated_expanding_word",
+        "candidate_value": null
+      },
+      {
+        "modulus_bits": 12,
+        "cycle_length": 7,
+        "total_shift": 9,
+        "expansion_multiplier": 4.271484375,
+        "affine_cycle_status": "globally_eliminated_expanding_word",
+        "candidate_value": null
+      },
+      {
+        "modulus_bits": 12,
+        "cycle_length": 6,
+        "total_shift": 7,
+        "expansion_multiplier": 5.6953125,
+        "affine_cycle_status": "globally_eliminated_expanding_word",
+        "candidate_value": null
+      }
+    ],
+    "known_positive_cycle_values": [
+      1
+    ]
+  },
+  "formal_kernel_statement": "For an accelerated Collatz valuation word w of length k, total shift s, and affine constant c>0, a positive integer cycle with exact word w can exist only if 2^s-3^k>0, c is divisible by 2^s-3^k, and the resulting odd integer validates the exact valuations. Every listed false quotient cycle fails this kernel.",
+  "obstruction": "The lemma eliminates the tested false quotient cycles. It does not prove that all larger quotients have no nontrivial liftable SCC, and it does not prove descent for non-cyclic branches.",
+  "candidate_theorem": "Every finite quotient SCC of the accelerated Collatz map either fails the affine lift kernel or is the known 1-cycle; all remaining branches descend under a well-founded exact-cylinder rank.",
+  "next_experiment": "Move this affine lift kernel into a minimal formal proof file, then attack the non-cyclic branch rank.",
+  "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+}

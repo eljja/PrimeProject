@@ -2505,7 +2505,54 @@ function renderTicket24BridgeWeight(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket) {
+function renderTicket25FormalKernel(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const summaryRows = Object.entries(bounded)
+    .filter(([, value]) => typeof value !== "object" || value === null)
+    .slice(0, 10);
+  const kernelRows = Array.isArray(bounded.kernel_rows)
+    ? table(
+        ["#", "Kernel row"],
+        bounded.kernel_rows.slice(0, 8).map((row, index) => [index + 1, JSON.stringify(row)]),
+      )
+    : "";
+  return `
+    <div class="poc-ticket17 poc-ticket25">
+      <h3>Ticket 25 formal lemma kernel</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["Formal kernel result", "Value"], summaryRows) : ""}
+      ${kernelRows}
+      <div class="poc-bridge">
+        <section>
+          <h3>Formal kernel statement</h3>
+          <p>${escapeHtml(attempt.formal_kernel_statement || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -2580,10 +2627,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket22NegationPressure(negationPressureTicket)}
     ${renderTicket23CegisRank(cegisRankTicket)}
     ${renderTicket24BridgeWeight(bridgeWeightTicket)}
+    ${renderTicket25FormalKernel(formalKernelTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -2607,7 +2655,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -2674,6 +2722,7 @@ async function main() {
   let ticket22Attempt = null;
   let ticket23Attempt = null;
   let ticket24Attempt = null;
+  let ticket25Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -2755,7 +2804,16 @@ async function main() {
   } catch (error) {
     ticket24Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt);
+  try {
+    const ticket25Response = await fetch("../data/open-problem/ticket25-formal-lemma-kernel.json", { cache: "no-store" });
+    if (ticket25Response.ok) {
+      const ticket25Payload = await ticket25Response.json();
+      ticket25Attempt = (ticket25Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket25Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt);
 }
 
 main().catch((error) => {

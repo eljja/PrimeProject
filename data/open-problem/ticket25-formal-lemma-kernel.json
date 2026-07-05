@@ -1,0 +1,259 @@
+{
+  "schema": "primeproject.ticket25-formal-lemma-kernel.v1",
+  "generated_at": "2026-07-05T11:21:24+00:00",
+  "status": "formal_kernel_open_no_resolution",
+  "claim_boundary": "Ticket 25 extracts theorem-kernel candidates and shortcut counterkernels from Ticket 24. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-25",
+      "status": "proof_pressure_open",
+      "route": "FinitePrefixKernel",
+      "proof_or_counterexample_mode": "surrogate_fixed_prefix_refutation",
+      "attempt": "Extract a formal kernel from the detector-budget experiment: a proof route that verifies only a fixed finite Li-prefix is refuted by a surrogate off-critical zero whose threshold witness lies beyond the prefix.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-24",
+        "search_cap": 1000000,
+        "threshold": -1.0,
+        "missed_case_count": 1,
+        "fixed_prefix_kernel_status": "fixed_prefix_refuted_for_surrogate_family",
+        "kernel_rows": [
+          {
+            "offcritical_beta": 0.6,
+            "height": 500.0,
+            "search_cap": 1000000,
+            "threshold_seen": false,
+            "minimum_value_seen": -0.323649443227,
+            "minimum_index_seen": 999027
+          }
+        ],
+        "quadratic_budget_fit": [
+          {
+            "offcritical_beta": 0.6,
+            "seen_case_count": 2,
+            "mean_threshold_index_over_height_squared": 6.9582375,
+            "max_threshold_index_over_height_squared": 6.9737,
+            "projected_index_at_height_1000": 6973700
+          },
+          {
+            "offcritical_beta": 0.75,
+            "seen_case_count": 3,
+            "mean_threshold_index_over_height_squared": 2.79967367,
+            "max_threshold_index_over_height_squared": 2.8263,
+            "projected_index_at_height_1000": 2826300
+          },
+          {
+            "offcritical_beta": 0.9,
+            "seen_case_count": 3,
+            "mean_threshold_index_over_height_squared": 1.75038867,
+            "max_threshold_index_over_height_squared": 1.75875,
+            "projected_index_at_height_1000": 1758750
+          }
+        ]
+      },
+      "formal_kernel_statement": "In the surrogate detector family, finite prefix P is not a uniform RH proof certificate when there exists an off-critical surrogate row with threshold_seen=false up to P.",
+      "obstruction": "This is a kernel against a proof strategy, not an RH counterexample. The real target still requires a zeta-zero theorem with a uniform all-height explicit-formula bound.",
+      "candidate_theorem": "A valid contrapositive RH proof must provide an explicit N(delta,T) and a zero-interference bound for all off-critical zeros, not a finite prefix check.",
+      "next_experiment": "Formalize the surrogate prefix-refutation lemma and then replace the surrogate with zeta-zero bounds.",
+      "claim_boundary": "No RH proof and no certified RH counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-25",
+      "status": "proof_pressure_open",
+      "route": "FormalAffineLiftLemma",
+      "proof_or_counterexample_mode": "quotient_cycle_elimination_lemma",
+      "attempt": "Promote the Ticket 24 Collatz lift audit into a theorem-kernel candidate. A quotient cycle is not a positive integer cycle unless its valuation word has a positive integral affine fixed point that validates exactly.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-24",
+        "tested_modulus_bits": [
+          8,
+          10,
+          12,
+          14,
+          16,
+          18
+        ],
+        "first_tested_clean_suffix_modulus_bits": 14,
+        "affine_lift_eliminated_cycle_count": 3,
+        "positive_cycle_candidate_count": 6,
+        "nontrivial_positive_cycle_candidate_count": 0,
+        "kernel_rows": [
+          {
+            "modulus_bits": 10,
+            "cycle_length": 26,
+            "total_shift": 37,
+            "expansion_multiplier": 18.494508027863,
+            "affine_cycle_status": "globally_eliminated_expanding_word",
+            "candidate_value": null
+          },
+          {
+            "modulus_bits": 12,
+            "cycle_length": 7,
+            "total_shift": 9,
+            "expansion_multiplier": 4.271484375,
+            "affine_cycle_status": "globally_eliminated_expanding_word",
+            "candidate_value": null
+          },
+          {
+            "modulus_bits": 12,
+            "cycle_length": 6,
+            "total_shift": 7,
+            "expansion_multiplier": 5.6953125,
+            "affine_cycle_status": "globally_eliminated_expanding_word",
+            "candidate_value": null
+          }
+        ],
+        "known_positive_cycle_values": [
+          1
+        ]
+      },
+      "formal_kernel_statement": "For an accelerated Collatz valuation word w of length k, total shift s, and affine constant c>0, a positive integer cycle with exact word w can exist only if 2^s-3^k>0, c is divisible by 2^s-3^k, and the resulting odd integer validates the exact valuations. Every listed false quotient cycle fails this kernel.",
+      "obstruction": "The lemma eliminates the tested false quotient cycles. It does not prove that all larger quotients have no nontrivial liftable SCC, and it does not prove descent for non-cyclic branches.",
+      "candidate_theorem": "Every finite quotient SCC of the accelerated Collatz map either fails the affine lift kernel or is the known 1-cycle; all remaining branches descend under a well-founded exact-cylinder rank.",
+      "next_experiment": "Move this affine lift kernel into a minimal formal proof file, then attack the non-cyclic branch rank.",
+      "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-25",
+      "status": "proof_pressure_open",
+      "route": "FiniteExceptionKernel",
+      "proof_or_counterexample_mode": "bounded_exception_elimination",
+      "attempt": "Extract the finite theorem-kernel from the Goldbach search: the checked range has no counterexample, and the weakest sampled windows identify where an eventual explicit lower-bound theorem must be stress-tested.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-24",
+        "finite_even_bound": 2000000,
+        "counterexample_count": 0,
+        "finite_exception_kernel_status": "empty_through_bound",
+        "hardest_first_witness": {
+          "even": 1077422,
+          "smallest_prime": 601,
+          "partner": 1076821
+        },
+        "weakest_sampled_count_to_scale_ratio": {
+          "even": 1732000,
+          "representation_count": 8515,
+          "n_over_log_squared_n": 8393.623485,
+          "count_to_scale_ratio": 1.01446056
+        },
+        "kernel_rows": [
+          {
+            "kernel": "finite_counterexample_search",
+            "bound": 2000000,
+            "counterexamples": 0
+          },
+          {
+            "kernel": "hardest_first_witness",
+            "even": 1077422,
+            "smallest_prime": 601,
+            "partner": 1076821
+          },
+          {
+            "kernel": "weakest_sampled_ratio",
+            "even": 1732000,
+            "representation_count": 8515,
+            "count_to_scale_ratio": 1.01446056
+          }
+        ]
+      },
+      "formal_kernel_statement": "A finite Goldbach verification kernel can close only N <= B. To prove the conjecture, it must be paired with an independent theorem proving r_2(N)>0 for every even N>B.",
+      "obstruction": "The finite kernel is useful but bounded. The missing proof remains an explicit positive lower bound beyond the verified range.",
+      "candidate_theorem": "There is an explicit B such that every even N>B has positive Goldbach representation count, and every even N<=B is certified by a reproducible finite verifier.",
+      "next_experiment": "Turn sampled weak windows into explicit error-budget constraints for a large-N theorem.",
+      "claim_boundary": "No Goldbach proof and no Goldbach counterexample found."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-25",
+      "status": "proof_pressure_open",
+      "route": "BoundedGapCounterKernel",
+      "proof_or_counterexample_mode": "bounded_gap_only_shortcut_refutation",
+      "attempt": "Extract the counterkernel against bounded-gap-only proof shortcuts: deleting the right member of every twin pair destroys exact gap 2 while preserving almost all bounded-gap mass excluding gap 2.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-24",
+        "bounded_gap_counterkernel_status": "bounded_gap_only_statistic_refuted",
+        "max_gap": 60,
+        "kernel_rows": [
+          {
+            "limit": 100000,
+            "exact_gap_weight_margin": 1224,
+            "bounded_gap_retention_ratio": 0.87234043,
+            "bounded_without_gap_2_retention_ratio": 1.0,
+            "deletion_model_exact_gap_2": 0
+          },
+          {
+            "limit": 1000000,
+            "exact_gap_weight_margin": 8169,
+            "bounded_gap_retention_ratio": 0.89552868,
+            "bounded_without_gap_2_retention_ratio": 0.99984315,
+            "deletion_model_exact_gap_2": 0
+          },
+          {
+            "limit": 2000000,
+            "exact_gap_weight_margin": 14871,
+            "bounded_gap_retention_ratio": 0.89957324,
+            "bounded_without_gap_2_retention_ratio": 0.99981267,
+            "deletion_model_exact_gap_2": 0
+          },
+          {
+            "limit": 3000000,
+            "exact_gap_weight_margin": 20932,
+            "bounded_gap_retention_ratio": 0.90280346,
+            "bounded_without_gap_2_retention_ratio": 0.9997947,
+            "deletion_model_exact_gap_2": 0
+          }
+        ],
+        "last_row": {
+          "limit": 3000000,
+          "original_exact_gap_2": 20932,
+          "deletion_model_exact_gap_2": 0,
+          "exact_gap_weight_margin": 20932,
+          "bounded_gap_total": 215769,
+          "deletion_model_bounded_gap_total": 194797,
+          "bounded_gap_retention_ratio": 0.90280346,
+          "bounded_without_gap_2": 194837,
+          "deletion_bounded_without_gap_2": 194797,
+          "bounded_without_gap_2_retention_ratio": 0.9997947,
+          "gap_head": [
+            {
+              "gap": 2,
+              "original_count": 20932,
+              "deletion_model_count": 0
+            },
+            {
+              "gap": 4,
+              "original_count": 20825,
+              "deletion_model_count": 17552
+            },
+            {
+              "gap": 6,
+              "original_count": 34902,
+              "deletion_model_count": 35233
+            },
+            {
+              "gap": 8,
+              "original_count": 14687,
+              "deletion_model_count": 17629
+            },
+            {
+              "gap": 10,
+              "original_count": 18537,
+              "deletion_model_count": 14922
+            },
+            {
+              "gap": 12,
+              "original_count": 21934,
+              "deletion_model_count": 23116
+            }
+          ]
+        }
+      },
+      "formal_kernel_statement": "Any argument whose decisive statistic is invariant under removing exact gap-2 pairs while retaining bounded gaps cannot prove twin-prime infinitude. It must use an exact-gap-2 lower-bound functional.",
+      "obstruction": "The counterkernel refutes a proof shortcut, not the twin-prime negation. A proof still needs an unconditional exact gap-2 lower bound at arbitrarily large scales.",
+      "candidate_theorem": "An exact-gap-2 sieve weight has a positive lower bound for infinitely many scales and cannot be replaced by a bounded-gap-only statistic.",
+      "next_experiment": "Search for an exact-gap weight with explicit parity-error control.",
+      "claim_boundary": "No Twin Prime proof. The bounded-gap counterkernel only rejects weaker proof routes."
+    }
+  ]
+}

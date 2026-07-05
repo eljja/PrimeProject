@@ -553,3 +553,45 @@ Reason:
 ```text
 TICKET-24 produces the most theorem-like local object so far: a quotient Collatz cycle can be globally eliminated when its exact valuation word has no positive integral affine fixed point. This can be formalized independently before attempting the full Collatz rank theorem.
 ```
+
+## Ticket 25 Formal Lemma Kernel Results
+
+Generated artifact:
+
+```text
+data/open-problem/ticket25-formal-lemma-kernel.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-25-finite-prefix-kernel.json
+data/open-problem/collatz/co-ticket-25-affine-lift-lemma.json
+data/open-problem/goldbach/gb-ticket-25-finite-exception-kernel.json
+data/open-problem/twin-prime/tp-ticket-25-bounded-gap-counterkernel.json
+```
+
+Current verdict:
+
+```text
+formal_kernel_open_no_resolution
+```
+
+한국어 요약: TICKET-25는 TICKET-24의 계산을 “형식화 가능한 작은 kernel lemma”와 “깨진 shortcut”으로 추출한다. 결론은 여전히 네 난제의 증명이나 반증이 아니다. 하지만 Collatz 쪽에서는 실제로 독립 형식화가 가능한 부분 보조정리 후보가 나왔다.
+
+1. RH: finite Li-prefix만 확인하는 proof route는 surrogate family에서 refuted된다. beta `0.6`, height `500`, prefix `1,000,000` 안에서 threshold witness가 없다. 이것은 RH 반례가 아니라 fixed-prefix proof 전략에 대한 kernel counterexample다.
+2. Collatz: `2^10`, `2^12` quotient의 비자명 cycle 3개는 valuation word의 affine fixed point 조건을 통과하지 못한다. 모두 `globally_eliminated_expanding_word`이고, positive cycle 후보는 known `1`뿐이다. 이 kernel은 “해당 quotient false cycle은 양의 정수 cycle이 아니다”라는 부분 정리로 형식화할 수 있다.
+3. Goldbach: `2,000,000` 이하 finite exception kernel은 counterexample count `0`이다. 이 kernel은 finite range만 닫고, 전체 추측에는 큰 짝수 전체에 대한 explicit lower bound가 따로 필요하다.
+4. Twin Prime: bounded-gap-only 통계는 deletion counterkernel에 의해 refuted된다. exact gap 2를 모두 제거해도 gap 2 제외 bounded mass는 거의 보존된다. 따라서 twin-prime proof는 exact-gap-2 lower-bound functional을 사용해야 한다.
+
+Next decisive target:
+
+```text
+CO-TICKET-26 LeanAffineLiftMicroProof
+```
+
+Reason:
+
+```text
+The Collatz affine lift kernel is now small enough to formalize as a standalone micro-proof: derive the affine fixed-point condition for a valuation word and prove that the listed expanding quotient cycles cannot be positive integer cycles.
+```

@@ -1,0 +1,53 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-25",
+  "status": "proof_pressure_open",
+  "route": "FinitePrefixKernel",
+  "proof_or_counterexample_mode": "surrogate_fixed_prefix_refutation",
+  "attempt": "Extract a formal kernel from the detector-budget experiment: a proof route that verifies only a fixed finite Li-prefix is refuted by a surrogate off-critical zero whose threshold witness lies beyond the prefix.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-24",
+    "search_cap": 1000000,
+    "threshold": -1.0,
+    "missed_case_count": 1,
+    "fixed_prefix_kernel_status": "fixed_prefix_refuted_for_surrogate_family",
+    "kernel_rows": [
+      {
+        "offcritical_beta": 0.6,
+        "height": 500.0,
+        "search_cap": 1000000,
+        "threshold_seen": false,
+        "minimum_value_seen": -0.323649443227,
+        "minimum_index_seen": 999027
+      }
+    ],
+    "quadratic_budget_fit": [
+      {
+        "offcritical_beta": 0.6,
+        "seen_case_count": 2,
+        "mean_threshold_index_over_height_squared": 6.9582375,
+        "max_threshold_index_over_height_squared": 6.9737,
+        "projected_index_at_height_1000": 6973700
+      },
+      {
+        "offcritical_beta": 0.75,
+        "seen_case_count": 3,
+        "mean_threshold_index_over_height_squared": 2.79967367,
+        "max_threshold_index_over_height_squared": 2.8263,
+        "projected_index_at_height_1000": 2826300
+      },
+      {
+        "offcritical_beta": 0.9,
+        "seen_case_count": 3,
+        "mean_threshold_index_over_height_squared": 1.75038867,
+        "max_threshold_index_over_height_squared": 1.75875,
+        "projected_index_at_height_1000": 1758750
+      }
+    ]
+  },
+  "formal_kernel_statement": "In the surrogate detector family, finite prefix P is not a uniform RH proof certificate when there exists an off-critical surrogate row with threshold_seen=false up to P.",
+  "obstruction": "This is a kernel against a proof strategy, not an RH counterexample. The real target still requires a zeta-zero theorem with a uniform all-height explicit-formula bound.",
+  "candidate_theorem": "A valid contrapositive RH proof must provide an explicit N(delta,T) and a zero-interference bound for all off-critical zeros, not a finite prefix check.",
+  "next_experiment": "Formalize the surrogate prefix-refutation lemma and then replace the surrogate with zeta-zero bounds.",
+  "claim_boundary": "No RH proof and no certified RH counterexample."
+}

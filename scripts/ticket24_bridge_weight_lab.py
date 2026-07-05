@@ -264,17 +264,11 @@ def collatz_lift_aware_rank_probe(modulus_bits: list[int]) -> dict[str, object]:
     rows = []
     false_cycles = []
     positive_cycles = []
-    first_clean_bits = None
     for bits in modulus_bits:
         residues, edges, valuations, ambiguous_edges = build_collatz_graph(bits)
         components = tarjan_scc(edges)
         cycle_components = [component for component in components if len(component) > 1 or edges[component[0]] == component[0]]
         nontrivial_components = [component for component in cycle_components if len(component) > 1]
-        if first_clean_bits is None and len(cycle_components) == 1 and len(cycle_components[0]) == 1:
-            cycle_residues, word = ordered_cycle(cycle_components[0], edges, valuations, residues)
-            status = collatz_lift_status(word)
-            if status["candidate_value"] == 1:
-                first_clean_bits = bits
 
         cycle_examples = []
         for component in sorted(cycle_components, key=len, reverse=True)[:8]:
@@ -308,6 +302,18 @@ def collatz_lift_aware_rank_probe(modulus_bits: list[int]) -> dict[str, object]:
             }
         )
 
+    clean_suffix_start = None
+    for index, row in enumerate(rows):
+        suffix = rows[index:]
+        if all(
+            candidate["cycle_component_count"] == 1
+            and candidate["nontrivial_cycle_component_count"] == 0
+            and candidate["largest_cycle_component_size"] == 1
+            for candidate in suffix
+        ):
+            clean_suffix_start = row["modulus_bits"]
+            break
+
     return {
         "problem_id": "collatz",
         "ticket_id": "CO-TICKET-24",
@@ -321,7 +327,7 @@ def collatz_lift_aware_rank_probe(modulus_bits: list[int]) -> dict[str, object]:
         "bounded_result": {
             "modulus_bits_tested": modulus_bits,
             "lift_rows": rows,
-            "first_tested_modulus_with_only_known_cycle": first_clean_bits,
+            "first_tested_clean_suffix_modulus_bits": clean_suffix_start,
             "false_quotient_cycles_eliminated_by_affine_lift": false_cycles[:10],
             "false_quotient_cycle_count": len(false_cycles),
             "positive_cycle_candidates_seen": positive_cycles[:10],
