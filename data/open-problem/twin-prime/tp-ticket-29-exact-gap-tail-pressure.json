@@ -1,0 +1,32 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-29",
+  "status": "proof_pressure_open",
+  "route": "ExactGapTailPressure",
+  "proof_or_counterexample_mode": "last_pair_contradiction_search",
+  "attempt": "Extend exact gap-2 finite evidence while keeping the last-pair contrapositive honest. A finite last observed pair is not a certified largest pair.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-28",
+    "finite_exact_gap_scan": {
+      "prime_limit": 20000000,
+      "twin_pair_count": 107407,
+      "last_twin_pair_leq_limit": [
+        19999547,
+        19999549
+      ],
+      "max_gap_between_twin_pair_starts": {
+        "gap": 2190,
+        "from_start": 17382479,
+        "to_start": 17384669
+      },
+      "largest_pair_certificate_is_not_a_proof": true
+    },
+    "direct_counterexample_route": "No certified largest twin-prime pair was produced.",
+    "no_counterexample_route": "Infinitude still requires an exact-gap-2 lower bound on arbitrarily large scales.",
+    "contrapositive_route": "Assume a largest pair; force exact-gap-2 mass beyond it. The forcing theorem is open."
+  },
+  "obstruction": "Finite exact-gap persistence does not prove infinitely many exact gap-2 pairs.",
+  "candidate_theorem": "A deletion-sensitive exact-gap-2 lower-bound functional remains positive on unbounded intervals.",
+  "next_experiment": "Search exact-gap functionals that collapse under gap-2 deletion but not under bounded-gap noise.",
+  "claim_boundary": "No Twin Prime proof and no certified largest twin-prime pair."
+}

@@ -1,0 +1,32 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-29",
+  "status": "proof_pressure_open",
+  "route": "LeastCounterexampleCutoffPressure",
+  "proof_or_counterexample_mode": "finite_base_plus_tail_cutoff",
+  "attempt": "Extend the least-counterexample finite base and keep the proof obligation explicit: a larger finite base matters only if an analytic tail theorem forces every counterexample below it.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-28",
+    "finite_witness_scan": {
+      "even_limit": 5000000,
+      "checked_even_count": 2499999,
+      "counterexample_found": null,
+      "no_counterexample_leq_limit": true,
+      "hardest_first_witness_row": {
+        "prime_scans_before_first_witness": 133,
+        "even_n": 3807404,
+        "first_witness": [
+          751,
+          3806653
+        ]
+      }
+    },
+    "direct_counterexample_route": "No Goldbach counterexample was found in the finite scan.",
+    "no_counterexample_route": "The finite base must be paired with a positive representation lower bound above the cutoff.",
+    "contrapositive_route": "A least counterexample N must be forced below the verified base by an explicit tail theorem."
+  },
+  "obstruction": "The explicit large-even lower-bound theorem remains missing.",
+  "candidate_theorem": "For every even n>N0, the binary Goldbach representation count is positive, and N0<=5,000,000.",
+  "next_experiment": "Build a constant-complete main-term-minus-error ledger and reject ineffective exceptional-zero terms.",
+  "claim_boundary": "No Goldbach proof and no Goldbach counterexample found up to the finite scan limit."
+}

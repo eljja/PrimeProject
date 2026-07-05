@@ -739,3 +739,57 @@ Reason:
 ```text
 The exact cylinder method now proves many full lift families, but the proof cannot be promoted while needs_split cylinders remain. The next theorem must show that adaptive splitting of only those cylinders terminates or yields a well-founded valuation-debt descent.
 ```
+
+## Ticket 29 Adaptive Frontier Lab Results
+
+Generated artifact:
+
+```text
+data/open-problem/ticket29-adaptive-frontier-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-29-tail-bridge-frontier.json
+data/open-problem/collatz/co-ticket-29-adaptive-cylinder-split.json
+data/open-problem/goldbach/gb-ticket-29-least-counterexample-cutoff.json
+data/open-problem/twin-prime/tp-ticket-29-exact-gap-tail-pressure.json
+```
+
+Current verdict:
+
+```text
+adaptive_frontier_open_no_resolution
+```
+
+한국어 요약: TICKET-29는 TICKET-28의 `needs_split`을 직접 추적한다. Collatz에서는 전체 `2^28` odd cylinder를 전부 열거하지 않고, `2^12`에서 시작해 닫히지 않은 cylinder만 adaptive하게 쪼갰다. 이 접근은 계산량을 크게 줄이지만, 열린 frontier가 사라지지는 않았다. 따라서 “needs_split만 계속 쪼개면 자연스럽게 증명이 끝난다”는 순진한 전략은 현재 데이터로 지지되지 않는다.
+
+1. RH: Mertens stress를 `10,000,000`까지 확장했다. `M(10,000,000)=1,037`이고, `n>=1,000,000`에서 최대 `|M(n)|/sqrt(n)`는 `0.4182454758` at `1,066,854`이다. 이것은 RH-compatible finite stress이며, 여전히 off-critical zero를 배제하지 못한다.
+2. Collatz: adaptive split은 `base_bits=12`, `max_bits=28`에서 `8,687,144`개 상태를 처리했다. 이는 `2^28`의 full odd cylinder `134,217,728`개 중 약 `6.47%`만 본 것이다. 하지만 max depth에서 열린 frontier가 `3,618,400`개 남았고, full max space 기준 open fraction은 `0.02695918`이다. 이는 반례가 아니라, split termination theorem이 아직 없다는 정량적 장애물이다.
+3. Goldbach: finite witness scan을 `5,000,000`까지 확장했다. 반례는 없었고 `2,499,999`개 짝수를 확인했다. 가장 늦게 첫 witness가 나온 행은 `3,807,404 = 751 + 3,806,653`이다. 전체 증명은 여전히 large-even tail lower bound에 달려 있다.
+4. Twin Prime: exact gap-2 scan을 `20,000,000`까지 확장했다. twin pair count는 `107,407`, 마지막 관측 pair는 `(19,999,547, 19,999,549)`, 관측된 twin-start 간 최대 gap은 `2,190`이다. finite exact-gap persistence는 무한성을 증명하지 못한다.
+
+Closed partial theorem:
+
+```text
+Every all_lift_descent state in the Ticket 29 adaptive Collatz run is an exact cylinder whose every positive odd lift descends below its starting value.
+```
+
+Refuted shortcut:
+
+```text
+Naive adaptive splitting alone is enough evidence for Collatz proof completion.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-30 ValuationDebtPotentialSynthesis
+```
+
+Reason:
+
+```text
+The adaptive frontier is smaller than full enumeration but does not vanish. The next proof attempt must synthesize a well-founded potential on open needs_split cylinders, or find a genuine obstruction/counterexample pattern inside that frontier.
+```

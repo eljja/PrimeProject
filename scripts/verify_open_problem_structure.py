@@ -22,6 +22,7 @@ TICKET25_SCHEMA = "primeproject.ticket25-formal-lemma-kernel.v1"
 TICKET26_SCHEMA = "primeproject.ticket26-micro-lemma-closure.v1"
 TICKET27_SCHEMA = "primeproject.ticket27-rank-frontier-lab.v1"
 TICKET28_SCHEMA = "primeproject.ticket28-trichotomy-descent-lab.v1"
+TICKET29_SCHEMA = "primeproject.ticket29-adaptive-frontier-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -587,6 +588,72 @@ def main() -> int:
     twin28_scan = twin_ticket28.get("bounded_result", {}).get("finite_exact_gap_scan", {})
     if not isinstance(twin28_scan, dict) or int(twin28_scan.get("twin_pair_count", 0)) <= 0:
         return fail("twin-prime ticket28 must record finite exact-gap pairs")
+
+    ticket29_path = Path("data/open-problem/ticket29-adaptive-frontier-lab.json")
+    if not ticket29_path.exists():
+        return fail("missing ticket29 adaptive frontier artifact")
+    ticket29 = read_json(ticket29_path)
+    if ticket29.get("schema") != TICKET29_SCHEMA:
+        return fail("ticket29 adaptive frontier artifact has unexpected schema")
+    if ticket29.get("status") != "adaptive_frontier_open_no_resolution":
+        return fail("ticket29 adaptive frontier overstates resolution")
+    ticket29_attempts = ticket29.get("attempts", [])
+    if not isinstance(ticket29_attempts, list):
+        return fail("ticket29 attempts must be a list")
+    ticket29_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket29_attempts if isinstance(attempt, dict)}
+    missing_ticket29 = EXPECTED_PROBLEMS - set(ticket29_by_id)
+    if missing_ticket29:
+        return fail("ticket29 attempts missing problems: " + ", ".join(sorted(missing_ticket29)))
+    ticket29_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-29-tail-bridge-frontier.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-29-adaptive-cylinder-split.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-29-least-counterexample-cutoff.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-29-exact-gap-tail-pressure.json"),
+    }
+    for problem_id, attempt in ticket29_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket29 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket29 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket29 claim boundary is too weak")
+        path = ticket29_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket29 per-problem artifact")
+
+    collatz_ticket29 = ticket29_by_id.get("collatz", {})
+    collatz29_bounded = collatz_ticket29.get("bounded_result", {})
+    if not isinstance(collatz29_bounded, dict):
+        return fail("collatz ticket29 bounded result must be an object")
+    adaptive29 = collatz29_bounded.get("adaptive_cylinder_split", {})
+    if not isinstance(adaptive29, dict):
+        return fail("collatz ticket29 adaptive split result missing")
+    if int(adaptive29.get("processed_state_count", 0)) <= 0:
+        return fail("collatz ticket29 processed no adaptive states")
+    if int(adaptive29.get("open_frontier_count_at_max_bits", 0)) <= 0:
+        return fail("collatz ticket29 must keep the proof blocked by an open frontier")
+    if adaptive29.get("naive_termination_verdict") != "not_supported_by_ticket29":
+        return fail("collatz ticket29 must reject naive adaptive termination")
+
+    riemann_ticket29 = ticket29_by_id.get("riemann", {})
+    riemann29_stress = riemann_ticket29.get("bounded_result", {}).get("mertens_stress", {})
+    if not isinstance(riemann29_stress, dict) or int(riemann29_stress.get("limit", 0)) < 10_000_000:
+        return fail("riemann ticket29 must include the expanded Mertens stress limit")
+
+    goldbach_ticket29 = ticket29_by_id.get("goldbach", {})
+    goldbach29_scan = goldbach_ticket29.get("bounded_result", {}).get("finite_witness_scan", {})
+    if not isinstance(goldbach29_scan, dict) or not goldbach29_scan.get("no_counterexample_leq_limit"):
+        return fail("goldbach ticket29 finite witness scan must find no bounded counterexample")
+    if int(goldbach29_scan.get("even_limit", 0)) < 5_000_000:
+        return fail("goldbach ticket29 must extend the finite witness scan")
+
+    twin_ticket29 = ticket29_by_id.get("twin-prime", {})
+    twin29_scan = twin_ticket29.get("bounded_result", {}).get("finite_exact_gap_scan", {})
+    if not isinstance(twin29_scan, dict) or int(twin29_scan.get("twin_pair_count", 0)) <= 0:
+        return fail("twin-prime ticket29 must record finite exact-gap pairs")
+    if int(twin29_scan.get("prime_limit", 0)) < 20_000_000:
+        return fail("twin-prime ticket29 must extend the exact-gap scan")
 
     print("open problem structure verified")
     return 0

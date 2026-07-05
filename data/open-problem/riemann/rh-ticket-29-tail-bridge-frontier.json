@@ -1,0 +1,32 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-29",
+  "status": "proof_pressure_open",
+  "route": "TailBridgeFrontier",
+  "proof_or_counterexample_mode": "counterexample_or_tail_theorem_search",
+  "attempt": "Increase the finite RH-compatible stress observable and isolate the missing step: a theorem converting finite positivity or Mertens-type control into all-height zeta-zero control.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-28",
+    "mertens_stress": {
+      "limit": 10000000,
+      "mertens_at_limit": 1037,
+      "max_abs_mertens_over_sqrt_n_from_10000": {
+        "value": 0.4629770364,
+        "n": 24185,
+        "mertens": -72
+      },
+      "max_abs_mertens_over_sqrt_n_from_1000000": {
+        "value": 0.4182454758,
+        "n": 1066854,
+        "mertens": 432
+      }
+    },
+    "direct_counterexample_route": "No certified off-critical zeta zero was produced.",
+    "no_counterexample_route": "A full proof still requires a tail-uniform all-zero theorem.",
+    "contrapositive_route": "An off-critical zero must imply a bounded failed positivity witness; that bridge is open."
+  },
+  "obstruction": "Finite Mertens stress remains compatible with RH and cannot decide the zeta zero set.",
+  "candidate_theorem": "A formal tail bridge maps any off-critical zero to a finite positivity violation while controlling every remaining zero contribution.",
+  "next_experiment": "Search symbolic tail majorants that survive surrogate off-critical zero red-team tests.",
+  "claim_boundary": "No RH proof and no certified RH counterexample."
+}

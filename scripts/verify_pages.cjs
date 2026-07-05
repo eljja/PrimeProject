@@ -416,6 +416,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Rank frontier result") ||
         !page.proofOrCounterexampleText.includes("Ticket 28 trichotomy descent lab") ||
         !page.proofOrCounterexampleText.includes("Trichotomy result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 29 adaptive frontier lab") ||
+        !page.proofOrCounterexampleText.includes("Adaptive frontier result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
