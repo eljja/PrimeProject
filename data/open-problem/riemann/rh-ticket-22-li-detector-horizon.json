@@ -1,0 +1,80 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-22",
+  "status": "proof_pressure_open",
+  "route": "LiDetectorHorizon",
+  "proof_or_counterexample_mode": "contrapositive_detector_horizon",
+  "attempt": "Assume an off-critical zero quartet exists and ask when it must become visible as a negative Li-type signal. The computation measures how the detector horizon grows with the zero height.",
+  "bounded_result": {
+    "offcritical_beta": 0.75,
+    "threshold": -1.0,
+    "height_rows": [
+      {
+        "height": 10.0,
+        "search_limit": 1000,
+        "first_negative_li_index": 62,
+        "first_below_threshold_index": 312,
+        "threshold": -1.0,
+        "minimum_value_seen": -17.214692054036,
+        "minimum_index_seen": 944,
+        "threshold_index_over_height_squared": 3.12
+      },
+      {
+        "height": 20.0,
+        "search_limit": 1600,
+        "first_negative_li_index": 125,
+        "first_below_threshold_index": 1129,
+        "threshold": -1.0,
+        "minimum_value_seen": -1.909856027009,
+        "minimum_index_seen": 1509,
+        "threshold_index_over_height_squared": 2.8225
+      },
+      {
+        "height": 50.0,
+        "search_limit": 10000,
+        "first_negative_li_index": 313,
+        "first_below_threshold_index": 7217,
+        "threshold": -1.0,
+        "minimum_value_seen": -2.051325184192,
+        "minimum_index_seen": 9740,
+        "threshold_index_over_height_squared": 2.8868
+      },
+      {
+        "height": 100.0,
+        "search_limit": 40000,
+        "first_negative_li_index": 627,
+        "first_below_threshold_index": 28263,
+        "threshold": -1.0,
+        "minimum_value_seen": -2.123700966084,
+        "minimum_index_seen": 39585,
+        "threshold_index_over_height_squared": 2.8263
+      },
+      {
+        "height": 200.0,
+        "search_limit": 160000,
+        "first_negative_li_index": 1256,
+        "first_below_threshold_index": 111825,
+        "threshold": -1.0,
+        "minimum_value_seen": -2.160357461471,
+        "minimum_index_seen": 159594,
+        "threshold_index_over_height_squared": 2.795625
+      },
+      {
+        "height": 500.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 3141,
+        "first_below_threshold_index": 694274,
+        "threshold": -1.0,
+        "minimum_value_seen": -2.167745687625,
+        "minimum_index_seen": 999027,
+        "threshold_index_over_height_squared": 2.777096
+      }
+    ],
+    "horizon_pattern": "first strong negative signal grows on the tested height^2 scale",
+    "finite_prefix_strategy_status": "falsified_without_uniform_detector_bound"
+  },
+  "obstruction": "The contrapositive route is plausible only with an effective all-height detector theorem. Without that theorem, an arbitrary finite Li-prefix can miss sufficiently high off-critical behavior.",
+  "candidate_theorem": "Every off-critical zeta zero at height T and displacement beta-1/2 forces a certified negative Li/kernel witness before an explicit index N(T,beta), and the proof controls the contribution of all other zeros.",
+  "next_experiment": "Replace the empirical height^2 detector table by a symbolic explicit-formula inequality.",
+  "claim_boundary": "No RH proof and no certified RH counterexample."
+}

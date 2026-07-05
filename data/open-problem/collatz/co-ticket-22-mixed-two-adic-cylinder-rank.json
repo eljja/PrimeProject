@@ -1,0 +1,398 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-22",
+  "status": "proof_pressure_open",
+  "route": "MixedTwoAdicCylinderRank",
+  "proof_or_counterexample_mode": "mixed_branch_counterexample_pressure",
+  "attempt": "Enumerate realizable accelerated Collatz valuation cylinders and separate expanding branches from the known 1-cycle. This attacks proof strategies that try to prove a universal fixed-block descent.",
+  "bounded_result": {
+    "max_word_length": 12,
+    "valuation_alphabet": [
+      1,
+      2,
+      3
+    ],
+    "total_expanding_words": 42502,
+    "total_mixed_expanding_words": 42490,
+    "validated_expanding_words": 42502,
+    "invalid_expanding_words": 0,
+    "cycle_candidates_seen": [
+      {
+        "cycle_value": 1,
+        "word": [
+          2
+        ],
+        "word_length": 1,
+        "total_shift": 2
+      }
+    ],
+    "nontrivial_cycle_candidates_seen": [],
+    "length_rows": [
+      {
+        "word_length": 1,
+        "expanding_words": 1,
+        "mixed_expanding_words": 0,
+        "validated_expanding_words": 1,
+        "best_expanding_word": [
+          1
+        ],
+        "best_multiplier": 1.5,
+        "expansion_cutoff_sum_floor": 1
+      },
+      {
+        "word_length": 2,
+        "expanding_words": 3,
+        "mixed_expanding_words": 2,
+        "validated_expanding_words": 3,
+        "best_expanding_word": [
+          1,
+          1
+        ],
+        "best_multiplier": 2.25,
+        "expansion_cutoff_sum_floor": 3
+      },
+      {
+        "word_length": 3,
+        "expanding_words": 4,
+        "mixed_expanding_words": 3,
+        "validated_expanding_words": 4,
+        "best_expanding_word": [
+          1,
+          1,
+          1
+        ],
+        "best_multiplier": 3.375,
+        "expansion_cutoff_sum_floor": 4
+      },
+      {
+        "word_length": 4,
+        "expanding_words": 15,
+        "mixed_expanding_words": 14,
+        "validated_expanding_words": 15,
+        "best_expanding_word": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "best_multiplier": 5.0625,
+        "expansion_cutoff_sum_floor": 6
+      },
+      {
+        "word_length": 5,
+        "expanding_words": 21,
+        "mixed_expanding_words": 20,
+        "validated_expanding_words": 21,
+        "best_expanding_word": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "best_multiplier": 7.59375,
+        "expansion_cutoff_sum_floor": 7
+      },
+      {
+        "word_length": 6,
+        "expanding_words": 78,
+        "mixed_expanding_words": 77,
+        "validated_expanding_words": 78,
+        "best_expanding_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "best_multiplier": 11.390625,
+        "expansion_cutoff_sum_floor": 9
+      },
+      {
+        "word_length": 7,
+        "expanding_words": 274,
+        "mixed_expanding_words": 273,
+        "validated_expanding_words": 274,
+        "best_expanding_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "best_multiplier": 17.0859375,
+        "expansion_cutoff_sum_floor": 11
+      },
+      {
+        "word_length": 8,
+        "expanding_words": 423,
+        "mixed_expanding_words": 422,
+        "validated_expanding_words": 423,
+        "best_expanding_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "best_multiplier": 25.62890625,
+        "expansion_cutoff_sum_floor": 12
+      },
+      {
+        "word_length": 9,
+        "expanding_words": 1507,
+        "mixed_expanding_words": 1506,
+        "validated_expanding_words": 1507,
+        "best_expanding_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "best_multiplier": 38.443359375,
+        "expansion_cutoff_sum_floor": 14
+      },
+      {
+        "word_length": 10,
+        "expanding_words": 2343,
+        "mixed_expanding_words": 2342,
+        "validated_expanding_words": 2343,
+        "best_expanding_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "best_multiplier": 57.6650390625,
+        "expansion_cutoff_sum_floor": 15
+      },
+      {
+        "word_length": 11,
+        "expanding_words": 8427,
+        "mixed_expanding_words": 8426,
+        "validated_expanding_words": 8427,
+        "best_expanding_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "best_multiplier": 86.4975585938,
+        "expansion_cutoff_sum_floor": 17
+      },
+      {
+        "word_length": 12,
+        "expanding_words": 29406,
+        "mixed_expanding_words": 29405,
+        "validated_expanding_words": 29406,
+        "best_expanding_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "best_multiplier": 129.7463378906,
+        "expansion_cutoff_sum_floor": 19
+      }
+    ],
+    "mixed_expanding_examples": [
+      {
+        "word": [
+          1,
+          2
+        ],
+        "word_length": 2,
+        "total_shift": 3,
+        "exact_residue_modulus_bits": 4,
+        "residue_mod_2_to_exact_bits": 11,
+        "residue_hex": "0xb",
+        "expansion_multiplier": 1.125
+      },
+      {
+        "word": [
+          2,
+          1
+        ],
+        "word_length": 2,
+        "total_shift": 3,
+        "exact_residue_modulus_bits": 4,
+        "residue_mod_2_to_exact_bits": 9,
+        "residue_hex": "0x9",
+        "expansion_multiplier": 1.125
+      },
+      {
+        "word": [
+          1,
+          1,
+          2
+        ],
+        "word_length": 3,
+        "total_shift": 4,
+        "exact_residue_modulus_bits": 5,
+        "residue_mod_2_to_exact_bits": 7,
+        "residue_hex": "0x7",
+        "expansion_multiplier": 1.6875
+      },
+      {
+        "word": [
+          1,
+          2,
+          1
+        ],
+        "word_length": 3,
+        "total_shift": 4,
+        "exact_residue_modulus_bits": 5,
+        "residue_mod_2_to_exact_bits": 27,
+        "residue_hex": "0x1b",
+        "expansion_multiplier": 1.6875
+      },
+      {
+        "word": [
+          2,
+          1,
+          1
+        ],
+        "word_length": 3,
+        "total_shift": 4,
+        "exact_residue_modulus_bits": 5,
+        "residue_mod_2_to_exact_bits": 9,
+        "residue_hex": "0x9",
+        "expansion_multiplier": 1.6875
+      },
+      {
+        "word": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "word_length": 4,
+        "total_shift": 5,
+        "exact_residue_modulus_bits": 6,
+        "residue_mod_2_to_exact_bits": 47,
+        "residue_hex": "0x2f",
+        "expansion_multiplier": 2.53125
+      },
+      {
+        "word": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "word_length": 4,
+        "total_shift": 6,
+        "exact_residue_modulus_bits": 7,
+        "residue_mod_2_to_exact_bits": 79,
+        "residue_hex": "0x4f",
+        "expansion_multiplier": 1.265625
+      },
+      {
+        "word": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "word_length": 4,
+        "total_shift": 5,
+        "exact_residue_modulus_bits": 6,
+        "residue_mod_2_to_exact_bits": 39,
+        "residue_hex": "0x27",
+        "expansion_multiplier": 2.53125
+      },
+      {
+        "word": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "word_length": 4,
+        "total_shift": 6,
+        "exact_residue_modulus_bits": 7,
+        "residue_mod_2_to_exact_bits": 71,
+        "residue_hex": "0x47",
+        "expansion_multiplier": 1.265625
+      },
+      {
+        "word": [
+          1,
+          1,
+          3,
+          1
+        ],
+        "word_length": 4,
+        "total_shift": 6,
+        "exact_residue_modulus_bits": 7,
+        "residue_mod_2_to_exact_bits": 55,
+        "residue_hex": "0x37",
+        "expansion_multiplier": 1.265625
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "word_length": 4,
+        "total_shift": 5,
+        "exact_residue_modulus_bits": 6,
+        "residue_mod_2_to_exact_bits": 27,
+        "residue_hex": "0x1b",
+        "expansion_multiplier": 2.53125
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          2
+        ],
+        "word_length": 4,
+        "total_shift": 6,
+        "exact_residue_modulus_bits": 7,
+        "residue_mod_2_to_exact_bits": 123,
+        "residue_hex": "0x7b",
+        "expansion_multiplier": 1.265625
+      }
+    ]
+  },
+  "obstruction": "Many finite mixed valuation cylinders are exact and expanding. This does not produce a Collatz counterexample, but it blocks any proof that depends on a fixed finite descent block for every residue.",
+  "candidate_theorem": "There exists a well-founded rank on 2-adic valuation cylinders such that every expanding finite cylinder must exit into a strictly lower-ranked cylinder before it can form a positive integer cycle or divergent orbit.",
+  "next_experiment": "Search for a cylinder rank that decreases after branch switching, not after a fixed block.",
+  "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+}

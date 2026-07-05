@@ -1,0 +1,172 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-22",
+  "status": "proof_pressure_open",
+  "route": "ResidueDeletionObstruction",
+  "proof_or_counterexample_mode": "local_counterexample_pressure",
+  "attempt": "Treat a hypothetical Goldbach counterexample as a local obstruction problem. For each primorial modulus, measure how many prime residue classes must be deleted before an even residue loses all unit-sum witnesses.",
+  "bounded_result": {
+    "modulus_rows": [
+      {
+        "modulus": 30,
+        "unit_residue_count": 8,
+        "even_residue_count": 15,
+        "minimum_deletions_to_create_local_obstruction": 2,
+        "maximum_deletions_to_create_local_obstruction": 4,
+        "mean_deletion_cost": 2.4,
+        "weakest_even_residues": [
+          {
+            "even_residue": 2,
+            "minimum_residue_deletions": 2,
+            "pair_orbit_count": 2
+          },
+          {
+            "even_residue": 4,
+            "minimum_residue_deletions": 2,
+            "pair_orbit_count": 2
+          },
+          {
+            "even_residue": 8,
+            "minimum_residue_deletions": 2,
+            "pair_orbit_count": 2
+          },
+          {
+            "even_residue": 10,
+            "minimum_residue_deletions": 2,
+            "pair_orbit_count": 2
+          },
+          {
+            "even_residue": 14,
+            "minimum_residue_deletions": 2,
+            "pair_orbit_count": 2
+          },
+          {
+            "even_residue": 16,
+            "minimum_residue_deletions": 2,
+            "pair_orbit_count": 2
+          },
+          {
+            "even_residue": 20,
+            "minimum_residue_deletions": 2,
+            "pair_orbit_count": 2
+          },
+          {
+            "even_residue": 22,
+            "minimum_residue_deletions": 2,
+            "pair_orbit_count": 2
+          }
+        ],
+        "local_obstruction_exists_without_deletion": false
+      },
+      {
+        "modulus": 210,
+        "unit_residue_count": 48,
+        "even_residue_count": 105,
+        "minimum_deletions_to_create_local_obstruction": 8,
+        "maximum_deletions_to_create_local_obstruction": 24,
+        "mean_deletion_cost": 11.2,
+        "weakest_even_residues": [
+          {
+            "even_residue": 2,
+            "minimum_residue_deletions": 8,
+            "pair_orbit_count": 8
+          },
+          {
+            "even_residue": 4,
+            "minimum_residue_deletions": 8,
+            "pair_orbit_count": 8
+          },
+          {
+            "even_residue": 8,
+            "minimum_residue_deletions": 8,
+            "pair_orbit_count": 8
+          },
+          {
+            "even_residue": 16,
+            "minimum_residue_deletions": 8,
+            "pair_orbit_count": 8
+          },
+          {
+            "even_residue": 22,
+            "minimum_residue_deletions": 8,
+            "pair_orbit_count": 8
+          },
+          {
+            "even_residue": 26,
+            "minimum_residue_deletions": 8,
+            "pair_orbit_count": 8
+          },
+          {
+            "even_residue": 32,
+            "minimum_residue_deletions": 8,
+            "pair_orbit_count": 8
+          },
+          {
+            "even_residue": 34,
+            "minimum_residue_deletions": 8,
+            "pair_orbit_count": 8
+          }
+        ],
+        "local_obstruction_exists_without_deletion": false
+      },
+      {
+        "modulus": 2310,
+        "unit_residue_count": 480,
+        "even_residue_count": 1155,
+        "minimum_deletions_to_create_local_obstruction": 68,
+        "maximum_deletions_to_create_local_obstruction": 240,
+        "mean_deletion_cost": 99.948052,
+        "weakest_even_residues": [
+          {
+            "even_residue": 2,
+            "minimum_residue_deletions": 68,
+            "pair_orbit_count": 68
+          },
+          {
+            "even_residue": 4,
+            "minimum_residue_deletions": 68,
+            "pair_orbit_count": 68
+          },
+          {
+            "even_residue": 8,
+            "minimum_residue_deletions": 68,
+            "pair_orbit_count": 68
+          },
+          {
+            "even_residue": 16,
+            "minimum_residue_deletions": 68,
+            "pair_orbit_count": 68
+          },
+          {
+            "even_residue": 26,
+            "minimum_residue_deletions": 68,
+            "pair_orbit_count": 68
+          },
+          {
+            "even_residue": 32,
+            "minimum_residue_deletions": 68,
+            "pair_orbit_count": 68
+          },
+          {
+            "even_residue": 34,
+            "minimum_residue_deletions": 68,
+            "pair_orbit_count": 68
+          },
+          {
+            "even_residue": 38,
+            "minimum_residue_deletions": 68,
+            "pair_orbit_count": 68
+          }
+        ],
+        "local_obstruction_exists_without_deletion": false
+      }
+    ],
+    "strongest_tested_modulus": 2310,
+    "strongest_tested_minimum_deletion_cost": 68,
+    "local_obstruction_found": false
+  },
+  "obstruction": "Small local residue systems are robust, so a Goldbach counterexample is not explained by a simple modular missing-class obstruction. The missing proof remains an analytic lower bound for actual prime counts.",
+  "candidate_theorem": "A quantitative transference theorem converts residue robustness plus explicit prime distribution error bounds into a positive representation count for every sufficiently large even integer.",
+  "next_experiment": "Use the weakest residue rows as stress cases for explicit major/minor-arc error budgets.",
+  "claim_boundary": "No Goldbach proof and no Goldbach counterexample found."
+}

@@ -401,6 +401,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Valuation-prefix result") ||
         !page.proofOrCounterexampleText.includes("Ticket 21 two-adic branch lab") ||
         !page.proofOrCounterexampleText.includes("Two-adic branch result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 22 negation pressure lab") ||
+        !page.proofOrCounterexampleText.includes("Negation pressure result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

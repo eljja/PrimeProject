@@ -1,0 +1,84 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-22",
+  "status": "proof_pressure_open",
+  "route": "ExactGapProjection",
+  "proof_or_counterexample_mode": "exact_gap_selector_vs_deletion_model",
+  "attempt": "Construct the simplest exact-gap projection: it separates true prime data from the deletion model that preserves many bounded gaps while removing every exact gap-2 pair.",
+  "bounded_result": {
+    "limits": [
+      10000,
+      100000,
+      1000000,
+      2000000
+    ],
+    "max_gap": 60,
+    "projection_rows": [
+      {
+        "limit": 10000,
+        "original_exact_gap_2": 205,
+        "deletion_model_exact_gap_2": 0,
+        "exact_gap_projection_margin": 205,
+        "original_bounded_gap_count": 1228,
+        "deletion_model_bounded_gap_count": 1023,
+        "bounded_gap_retention_ratio": 0.83306189,
+        "exact_gap_to_bounded_ratio": 0.16693811,
+        "hardy_littlewood_scale_estimate": 155.6428,
+        "observed_to_hl_scale_ratio": 1.31711842
+      },
+      {
+        "limit": 100000,
+        "original_exact_gap_2": 1224,
+        "deletion_model_exact_gap_2": 0,
+        "exact_gap_projection_margin": 1224,
+        "original_bounded_gap_count": 9588,
+        "deletion_model_bounded_gap_count": 8364,
+        "bounded_gap_retention_ratio": 0.87234043,
+        "exact_gap_to_bounded_ratio": 0.12765957,
+        "hardy_littlewood_scale_estimate": 996.113923,
+        "observed_to_hl_scale_ratio": 1.22877511
+      },
+      {
+        "limit": 1000000,
+        "original_exact_gap_2": 8169,
+        "deletion_model_exact_gap_2": 0,
+        "exact_gap_projection_margin": 8169,
+        "original_bounded_gap_count": 78299,
+        "deletion_model_bounded_gap_count": 70119,
+        "bounded_gap_retention_ratio": 0.89552868,
+        "exact_gap_to_bounded_ratio": 0.10433083,
+        "hardy_littlewood_scale_estimate": 6917.457799,
+        "observed_to_hl_scale_ratio": 1.18092517
+      },
+      {
+        "limit": 2000000,
+        "original_exact_gap_2": 14871,
+        "deletion_model_exact_gap_2": 0,
+        "exact_gap_projection_margin": 14871,
+        "original_bounded_gap_count": 148327,
+        "deletion_model_bounded_gap_count": 133431,
+        "bounded_gap_retention_ratio": 0.89957324,
+        "exact_gap_to_bounded_ratio": 0.10025821,
+        "hardy_littlewood_scale_estimate": 12544.574085,
+        "observed_to_hl_scale_ratio": 1.18545276
+      }
+    ],
+    "last_row": {
+      "limit": 2000000,
+      "original_exact_gap_2": 14871,
+      "deletion_model_exact_gap_2": 0,
+      "exact_gap_projection_margin": 14871,
+      "original_bounded_gap_count": 148327,
+      "deletion_model_bounded_gap_count": 133431,
+      "bounded_gap_retention_ratio": 0.89957324,
+      "exact_gap_to_bounded_ratio": 0.10025821,
+      "hardy_littlewood_scale_estimate": 12544.574085,
+      "observed_to_hl_scale_ratio": 1.18545276
+    },
+    "deletion_model_rejected_by_exact_gap_projection": true
+  },
+  "obstruction": "The exact-gap projection cleanly rejects the deletion shortcut model, but it is still a finite statistic. A proof needs an unconditional lower bound showing the projection stays positive arbitrarily far out.",
+  "candidate_theorem": "There is an unconditional exact-gap-2 lower-bound functional whose value is positive for primes for arbitrarily large limits and zero on bounded-gap deletion countermodels.",
+  "next_experiment": "Search for sieve weights whose parity obstruction does not collapse the exact-gap projection.",
+  "claim_boundary": "No Twin Prime proof. Exact-gap projection evidence is finite and does not prove infinitude."
+}
