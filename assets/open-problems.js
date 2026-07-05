@@ -2552,7 +2552,70 @@ function renderTicket25FormalKernel(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket) {
+function renderTicket26MicroLemma(attempt) {
+  if (!attempt) return "";
+  const certificate = attempt.micro_lemma_certificate || {};
+  const summaryRows = Object.entries(certificate)
+    .filter(([, value]) => typeof value !== "object" || value === null)
+    .slice(0, 12);
+  const certificateRows = Array.isArray(certificate.false_cycle_certificates)
+    ? table(
+        ["#", "Status", "Reason", "Denominator", "Candidate"],
+        certificate.false_cycle_certificates.slice(0, 6).map((row, index) => [
+          index + 1,
+          row.independent_status,
+          row.reason,
+          row.denominator_2s_minus_3k,
+          row.candidate_value,
+        ]),
+      )
+    : Array.isArray(certificate.separation_rows)
+      ? table(
+          ["limit", "exact gap 2 after deletion", "bounded retention", "separates"],
+          certificate.separation_rows.map((row) => [
+            row.limit,
+            row.exact_gap_2_retention_after_deletion,
+            row.bounded_without_gap_2_retention_ratio,
+            row.separates_bounded_gap_from_exact_gap_2,
+          ]),
+        )
+      : "";
+  return `
+    <div class="poc-ticket17 poc-ticket26">
+      <h3>Ticket 26 micro-lemma closure</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Target</span>
+          <strong>${escapeHtml(statusText(attempt.target_status || "open_not_proven"))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["Micro-lemma certificate", "Value"], summaryRows) : ""}
+      ${certificateRows}
+      <div class="poc-bridge">
+        <section>
+          <h3>Closed micro-lemma</h3>
+          <p>${escapeHtml(attempt.formal_micro_lemma_statement || "")}</p>
+        </section>
+        <section>
+          <h3>Remaining obligation</h3>
+          <p>${escapeHtml(attempt.remaining_obligation || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -2628,10 +2691,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket23CegisRank(cegisRankTicket)}
     ${renderTicket24BridgeWeight(bridgeWeightTicket)}
     ${renderTicket25FormalKernel(formalKernelTicket)}
+    ${renderTicket26MicroLemma(microLemmaTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -2655,7 +2719,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -2723,6 +2787,7 @@ async function main() {
   let ticket23Attempt = null;
   let ticket24Attempt = null;
   let ticket25Attempt = null;
+  let ticket26Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -2813,7 +2878,16 @@ async function main() {
   } catch (error) {
     ticket25Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt);
+  try {
+    const ticket26Response = await fetch("../data/open-problem/ticket26-micro-lemma-closure.json", { cache: "no-store" });
+    if (ticket26Response.ok) {
+      const ticket26Payload = await ticket26Response.json();
+      ticket26Attempt = (ticket26Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket26Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt);
 }
 
 main().catch((error) => {

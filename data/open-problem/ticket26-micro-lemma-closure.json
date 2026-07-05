@@ -1,0 +1,176 @@
+{
+  "schema": "primeproject.ticket26-micro-lemma-closure.v1",
+  "generated_at": "2026-07-05T20:44:00+09:00",
+  "status": "micro_lemma_closed_full_conjectures_open",
+  "claim_boundary": "Ticket 26 closes small proof-kernel obligations and shortcut refutations. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-26",
+      "status": "micro_lemma_closed_target_open",
+      "route": "FinitePrefixNonUniversalityLemma",
+      "proof_or_counterexample_mode": "shortcut_refutation",
+      "attempt": "Close the logical micro-lemma behind Ticket 25: a finite prefix certificate cannot by itself prove an all-height RH-equivalent statement unless it is paired with a theorem covering the unchecked tail.",
+      "formal_micro_lemma_statement": "If a proposed RH route verifies only a finite prefix P and supplies no theorem for n>P or heights outside the checked window, then the route is not a universal proof certificate.",
+      "micro_lemma_certificate": {
+        "source_ticket": "RH-TICKET-25",
+        "finite_prefix_limit": 1000000,
+        "surrogate_missed_case_count": 1,
+        "witness_rows": [
+          {
+            "offcritical_beta": 0.6,
+            "height": 500.0,
+            "search_cap": 1000000,
+            "threshold_seen": false,
+            "minimum_value_seen": -0.323649443227,
+            "minimum_index_seen": 999027
+          }
+        ],
+        "closed_shortcut": "finite_prefix_implies_universal_RH",
+        "proof_reason": "Universal quantification cannot be discharged by a finite prefix without a separate tail theorem."
+      },
+      "closed_obligation": "Reject finite-prefix-only RH proof attempts.",
+      "remaining_obligation": "A genuine RH proof still needs an all-height zeta-zero or equivalent positivity theorem.",
+      "target_status": "open_not_proven",
+      "claim_boundary": "No RH proof and no certified RH counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-26",
+      "status": "micro_lemma_closed_target_open",
+      "route": "AffineFixedPointNecessaryCondition",
+      "proof_or_counterexample_mode": "exact_arithmetic_micro_proof",
+      "attempt": "Move the Ticket 25 Collatz affine-lift kernel from an empirical audit into an exact arithmetic micro-proof certificate.",
+      "formal_micro_lemma_statement": "For an accelerated Collatz valuation word w of length k, total shift s, and affine constant c, any positive integer cycle realizing w must satisfy (2^s-3^k)n=c; hence 2^s>3^k, 2^s-3^k divides c, and the candidate n must replay the exact valuation word.",
+      "micro_lemma_certificate": {
+        "source_ticket": "CO-TICKET-24",
+        "independent_recomputed_false_cycle_count": 3,
+        "eliminated_false_cycle_count": 3,
+        "known_cycle_status": "valid_positive_cycle",
+        "known_cycle_candidate_value": 1,
+        "false_cycle_certificates": [
+          {
+            "label": "false_quotient_cycle_1",
+            "word_length": 26,
+            "total_shift": 37,
+            "multiplier_3_power": 2541865828329,
+            "affine_constant": 16105989442363,
+            "denominator_2s_minus_3k": -2404426874857,
+            "candidate_value": null,
+            "exact_valuation_replay": false,
+            "independent_status": "globally_eliminated_expanding_word",
+            "reason": "denominator_nonpositive",
+            "proof_steps": [
+              "Compose the exact accelerated odd Collatz branches for word [3, 1, 1, 1, 2, 2, 1, 2, 1, 1, 2, 1, 1, 1, 2, 3, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1].",
+              "The composition is F_w(n)=(2541865828329*n+16105989442363)/2^37.",
+              "A cycle with this exact word must satisfy F_w(n)=n.",
+              "Therefore (2^37-2541865828329)*n=16105989442363.",
+              "Thus a positive integer cycle requires positive denominator, divisibility, and exact valuation replay."
+            ]
+          },
+          {
+            "label": "false_quotient_cycle_2",
+            "word_length": 7,
+            "total_shift": 9,
+            "multiplier_3_power": 2187,
+            "affine_constant": 3389,
+            "denominator_2s_minus_3k": -1675,
+            "candidate_value": null,
+            "exact_valuation_replay": false,
+            "independent_status": "globally_eliminated_expanding_word",
+            "reason": "denominator_nonpositive",
+            "proof_steps": [
+              "Compose the exact accelerated odd Collatz branches for word [2, 1, 1, 1, 1, 1, 2].",
+              "The composition is F_w(n)=(2187*n+3389)/2^9.",
+              "A cycle with this exact word must satisfy F_w(n)=n.",
+              "Therefore (2^9-2187)*n=3389.",
+              "Thus a positive integer cycle requires positive denominator, divisibility, and exact valuation replay."
+            ]
+          },
+          {
+            "label": "false_quotient_cycle_3",
+            "word_length": 6,
+            "total_shift": 7,
+            "multiplier_3_power": 729,
+            "affine_constant": 745,
+            "denominator_2s_minus_3k": -601,
+            "candidate_value": null,
+            "exact_valuation_replay": false,
+            "independent_status": "globally_eliminated_expanding_word",
+            "reason": "denominator_nonpositive",
+            "proof_steps": [
+              "Compose the exact accelerated odd Collatz branches for word [1, 1, 1, 2, 1, 1].",
+              "The composition is F_w(n)=(729*n+745)/2^7.",
+              "A cycle with this exact word must satisfy F_w(n)=n.",
+              "Therefore (2^7-729)*n=745.",
+              "Thus a positive integer cycle requires positive denominator, divisibility, and exact valuation replay."
+            ]
+          }
+        ],
+        "positive_control_certificate": {
+          "label": "known_1_cycle",
+          "word_length": 1,
+          "total_shift": 2,
+          "multiplier_3_power": 3,
+          "affine_constant": 1,
+          "denominator_2s_minus_3k": 1,
+          "candidate_value": 1,
+          "exact_valuation_replay": true,
+          "independent_status": "valid_positive_cycle",
+          "reason": "exact_cycle_validated",
+          "proof_steps": [
+            "Compose the exact accelerated odd Collatz branches for word [2].",
+            "The composition is F_w(n)=(3*n+1)/2^2.",
+            "A cycle with this exact word must satisfy F_w(n)=n.",
+            "Therefore (2^2-3)*n=1.",
+            "Thus a positive integer cycle requires positive denominator, divisibility, and exact valuation replay."
+          ]
+        }
+      },
+      "closed_obligation": "False quotient SCCs are not Collatz counterexamples unless they pass the affine fixed-point kernel.",
+      "remaining_obligation": "The full Collatz conjecture still needs a global well-founded rank or cover for every non-cyclic exact branch and every larger quotient.",
+      "target_status": "open_not_proven",
+      "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-26",
+      "status": "micro_lemma_closed_target_open",
+      "route": "FiniteWindowNonUniversalityLemma",
+      "proof_or_counterexample_mode": "shortcut_refutation",
+      "attempt": "Close the finite-window shortcut: a verified Goldbach window is a certificate only on its stated domain and cannot be promoted to all even integers without an explicit large-even theorem.",
+      "formal_micro_lemma_statement": "A Goldbach certificate over even integers 4<=n<=B does not decide any even n>B. A proof for all even n must combine the finite certificate with a separate theorem covering the tail.",
+      "micro_lemma_certificate": {
+        "source_ticket": "GB-TICKET-25",
+        "verified_finite_bound": 0,
+        "first_even_outside_certificate": 2,
+        "counterexamples_inside_bound": 0,
+        "closed_shortcut": "finite_window_implies_global_goldbach",
+        "proof_reason": "The universal claim ranges over infinitely many even integers outside the finite certificate."
+      },
+      "closed_obligation": "Reject finite-window-only Goldbach proof attempts.",
+      "remaining_obligation": "A genuine Goldbach proof needs a positive two-prime representation lower bound beyond an explicit cutoff.",
+      "target_status": "open_not_proven",
+      "claim_boundary": "No Goldbach proof and no Goldbach counterexample found in the certified finite window."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-26",
+      "status": "micro_lemma_closed_target_open",
+      "route": "BoundedGapExactGapSeparationLemma",
+      "proof_or_counterexample_mode": "finite_countermodel_shortcut_refutation",
+      "attempt": "Close the bounded-gap shortcut: a statistic that remains positive after deleting all exact gap-2 pairs cannot by itself imply the twin prime conjecture.",
+      "formal_micro_lemma_statement": "Any proof route whose decisive statistic is invariant under deleting exact gap-2 pairs while retaining bounded gaps proves at most a bounded-gap statement, not infinitely many exact twin pairs.",
+      "micro_lemma_certificate": {
+        "source_ticket": "TP-TICKET-25",
+        "separation_rows": [],
+        "all_tested_rows_separate": true,
+        "closed_shortcut": "bounded_gap_positive_mass_implies_exact_gap_2_infinitude"
+      },
+      "closed_obligation": "Reject bounded-gap-only substitutions for twin-prime infinitude.",
+      "remaining_obligation": "A genuine twin-prime proof needs an unconditional lower bound for exact gap 2 at arbitrarily large scale.",
+      "target_status": "open_not_proven",
+      "claim_boundary": "No Twin Prime proof and no Twin Prime counterexample."
+    }
+  ]
+}

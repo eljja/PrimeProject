@@ -409,6 +409,9 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Bridge-weight result") ||
         !page.proofOrCounterexampleText.includes("Ticket 25 formal lemma kernel") ||
         !page.proofOrCounterexampleText.includes("Formal kernel result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 26 micro-lemma closure") ||
+        !page.proofOrCounterexampleText.includes("Micro-lemma certificate") ||
+        !page.proofOrCounterexampleText.includes("Closed micro-lemma") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

@@ -595,3 +595,51 @@ Reason:
 ```text
 The Collatz affine lift kernel is now small enough to formalize as a standalone micro-proof: derive the affine fixed-point condition for a valuation word and prove that the listed expanding quotient cycles cannot be positive integer cycles.
 ```
+
+## Ticket 26 Micro-Lemma Closure Results
+
+Generated artifact:
+
+```text
+data/open-problem/ticket26-micro-lemma-closure.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-26-finite-universal-gap.json
+data/open-problem/collatz/co-ticket-26-affine-fixed-point-proof.json
+data/open-problem/goldbach/gb-ticket-26-finite-window-gap.json
+data/open-problem/twin-prime/tp-ticket-26-bounded-gap-model-separation.json
+```
+
+Current verdict:
+
+```text
+micro_lemma_closed_full_conjectures_open
+```
+
+한국어 요약: TICKET-26은 네 난제를 풀었다고 주장하지 않는다. 대신 증명 시도 중 실제로 닫을 수 있는 작은 명제를 닫는다. 가장 의미 있는 진전은 Collatz다. quotient graph에서 cycle처럼 보였던 후보가 양의 정수 cycle이 되려면 exact valuation word의 affine fixed point 조건을 통과해야 한다는 산술 lemma를 독립 재계산했다.
+
+1. RH: finite prefix만으로 universal RH-equivalent statement를 증명할 수 없다는 shortcut refutation을 닫았다. 남은 핵심은 unchecked tail을 덮는 all-height theorem이다.
+2. Collatz: valuation word `w`의 accelerated composition은 `F_w(n)=(3^k n+c)/2^s`이다. 만약 `F_w(n)=n`인 양의 정수 cycle이면 `(2^s-3^k)n=c`가 필요하다. Ticket 24의 false quotient cycle 3개는 모두 `2^s-3^k <= 0`라서 positive integer fixed point가 불가능하다. positive control인 word `[2]`는 candidate `1`로 정확히 검증된다.
+3. Goldbach: finite window certificate는 해당 범위만 닫는다. `2,000,000` 이하 반례 없음은 중요하지만, `2,000,002` 이후를 덮는 explicit large-even theorem 없이는 전체 증명이 아니다.
+4. Twin Prime: exact gap 2를 모두 지워도 bounded-gap statistic이 유지되는 finite model separation을 닫았다. 따라서 bounded-gap-only 증명은 twin-prime infinitude를 증명하지 못한다.
+
+Closed micro-lemma:
+
+```text
+CO-TICKET-26 AffineFixedPointNecessaryCondition
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-27 LiftAwareNonCyclicRankSearch
+```
+
+Reason:
+
+```text
+The false-cycle part is now a closed arithmetic micro-lemma. The next real Collatz barrier is not cyclic fixed points; it is proving that every non-cyclic exact branch eventually descends under a well-founded lift-aware rank.
+```

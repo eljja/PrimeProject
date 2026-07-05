@@ -1,0 +1,98 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-26",
+  "status": "micro_lemma_closed_target_open",
+  "route": "AffineFixedPointNecessaryCondition",
+  "proof_or_counterexample_mode": "exact_arithmetic_micro_proof",
+  "attempt": "Move the Ticket 25 Collatz affine-lift kernel from an empirical audit into an exact arithmetic micro-proof certificate.",
+  "formal_micro_lemma_statement": "For an accelerated Collatz valuation word w of length k, total shift s, and affine constant c, any positive integer cycle realizing w must satisfy (2^s-3^k)n=c; hence 2^s>3^k, 2^s-3^k divides c, and the candidate n must replay the exact valuation word.",
+  "micro_lemma_certificate": {
+    "source_ticket": "CO-TICKET-24",
+    "independent_recomputed_false_cycle_count": 3,
+    "eliminated_false_cycle_count": 3,
+    "known_cycle_status": "valid_positive_cycle",
+    "known_cycle_candidate_value": 1,
+    "false_cycle_certificates": [
+      {
+        "label": "false_quotient_cycle_1",
+        "word_length": 26,
+        "total_shift": 37,
+        "multiplier_3_power": 2541865828329,
+        "affine_constant": 16105989442363,
+        "denominator_2s_minus_3k": -2404426874857,
+        "candidate_value": null,
+        "exact_valuation_replay": false,
+        "independent_status": "globally_eliminated_expanding_word",
+        "reason": "denominator_nonpositive",
+        "proof_steps": [
+          "Compose the exact accelerated odd Collatz branches for word [3, 1, 1, 1, 2, 2, 1, 2, 1, 1, 2, 1, 1, 1, 2, 3, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1].",
+          "The composition is F_w(n)=(2541865828329*n+16105989442363)/2^37.",
+          "A cycle with this exact word must satisfy F_w(n)=n.",
+          "Therefore (2^37-2541865828329)*n=16105989442363.",
+          "Thus a positive integer cycle requires positive denominator, divisibility, and exact valuation replay."
+        ]
+      },
+      {
+        "label": "false_quotient_cycle_2",
+        "word_length": 7,
+        "total_shift": 9,
+        "multiplier_3_power": 2187,
+        "affine_constant": 3389,
+        "denominator_2s_minus_3k": -1675,
+        "candidate_value": null,
+        "exact_valuation_replay": false,
+        "independent_status": "globally_eliminated_expanding_word",
+        "reason": "denominator_nonpositive",
+        "proof_steps": [
+          "Compose the exact accelerated odd Collatz branches for word [2, 1, 1, 1, 1, 1, 2].",
+          "The composition is F_w(n)=(2187*n+3389)/2^9.",
+          "A cycle with this exact word must satisfy F_w(n)=n.",
+          "Therefore (2^9-2187)*n=3389.",
+          "Thus a positive integer cycle requires positive denominator, divisibility, and exact valuation replay."
+        ]
+      },
+      {
+        "label": "false_quotient_cycle_3",
+        "word_length": 6,
+        "total_shift": 7,
+        "multiplier_3_power": 729,
+        "affine_constant": 745,
+        "denominator_2s_minus_3k": -601,
+        "candidate_value": null,
+        "exact_valuation_replay": false,
+        "independent_status": "globally_eliminated_expanding_word",
+        "reason": "denominator_nonpositive",
+        "proof_steps": [
+          "Compose the exact accelerated odd Collatz branches for word [1, 1, 1, 2, 1, 1].",
+          "The composition is F_w(n)=(729*n+745)/2^7.",
+          "A cycle with this exact word must satisfy F_w(n)=n.",
+          "Therefore (2^7-729)*n=745.",
+          "Thus a positive integer cycle requires positive denominator, divisibility, and exact valuation replay."
+        ]
+      }
+    ],
+    "positive_control_certificate": {
+      "label": "known_1_cycle",
+      "word_length": 1,
+      "total_shift": 2,
+      "multiplier_3_power": 3,
+      "affine_constant": 1,
+      "denominator_2s_minus_3k": 1,
+      "candidate_value": 1,
+      "exact_valuation_replay": true,
+      "independent_status": "valid_positive_cycle",
+      "reason": "exact_cycle_validated",
+      "proof_steps": [
+        "Compose the exact accelerated odd Collatz branches for word [2].",
+        "The composition is F_w(n)=(3*n+1)/2^2.",
+        "A cycle with this exact word must satisfy F_w(n)=n.",
+        "Therefore (2^2-3)*n=1.",
+        "Thus a positive integer cycle requires positive denominator, divisibility, and exact valuation replay."
+      ]
+    }
+  },
+  "closed_obligation": "False quotient SCCs are not Collatz counterexamples unless they pass the affine fixed-point kernel.",
+  "remaining_obligation": "The full Collatz conjecture still needs a global well-founded rank or cover for every non-cyclic exact branch and every larger quotient.",
+  "target_status": "open_not_proven",
+  "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+}

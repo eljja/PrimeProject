@@ -19,6 +19,7 @@ TICKET22_SCHEMA = "primeproject.ticket22-negation-pressure-lab.v1"
 TICKET23_SCHEMA = "primeproject.ticket23-cegis-rank-lab.v1"
 TICKET24_SCHEMA = "primeproject.ticket24-bridge-weight-lab.v1"
 TICKET25_SCHEMA = "primeproject.ticket25-formal-lemma-kernel.v1"
+TICKET26_SCHEMA = "primeproject.ticket26-micro-lemma-closure.v1"
 
 
 def fail(message: str) -> int:
@@ -426,6 +427,57 @@ def main() -> int:
         path = ticket25_paths.get(problem_id)
         if path is None or not path.exists():
             return fail(f"{problem_id}: missing ticket25 per-problem artifact")
+
+    ticket26_path = Path("data/open-problem/ticket26-micro-lemma-closure.json")
+    if not ticket26_path.exists():
+        return fail("missing ticket26 micro-lemma closure artifact")
+    ticket26 = read_json(ticket26_path)
+    if ticket26.get("schema") != TICKET26_SCHEMA:
+        return fail("ticket26 micro-lemma closure artifact has unexpected schema")
+    if ticket26.get("status") != "micro_lemma_closed_full_conjectures_open":
+        return fail("ticket26 micro-lemma closure overstates resolution")
+    ticket26_attempts = ticket26.get("attempts", [])
+    if not isinstance(ticket26_attempts, list):
+        return fail("ticket26 attempts must be a list")
+    ticket26_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket26_attempts if isinstance(attempt, dict)}
+    missing_ticket26 = EXPECTED_PROBLEMS - set(ticket26_by_id)
+    if missing_ticket26:
+        return fail("ticket26 attempts missing problems: " + ", ".join(sorted(missing_ticket26)))
+    ticket26_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-26-finite-universal-gap.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-26-affine-fixed-point-proof.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-26-finite-window-gap.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-26-bounded-gap-model-separation.json"),
+    }
+    for problem_id, attempt in ticket26_by_id.items():
+        if attempt.get("status") != "micro_lemma_closed_target_open":
+            return fail(f"{problem_id}: ticket26 attempt overstates proof status")
+        if attempt.get("target_status") != "open_not_proven":
+            return fail(f"{problem_id}: ticket26 target status must remain open")
+        for field in (
+            "route",
+            "attempt",
+            "formal_micro_lemma_statement",
+            "micro_lemma_certificate",
+            "closed_obligation",
+            "remaining_obligation",
+            "claim_boundary",
+        ):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket26 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket26 claim boundary is too weak")
+        path = ticket26_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket26 per-problem artifact")
+    collatz_ticket26 = ticket26_by_id.get("collatz", {})
+    collatz_certificate = collatz_ticket26.get("micro_lemma_certificate", {})
+    if not isinstance(collatz_certificate, dict):
+        return fail("collatz ticket26 certificate must be an object")
+    if collatz_certificate.get("eliminated_false_cycle_count") != collatz_certificate.get("independent_recomputed_false_cycle_count"):
+        return fail("collatz ticket26 did not eliminate every recomputed false cycle")
+    if collatz_certificate.get("known_cycle_status") != "valid_positive_cycle":
+        return fail("collatz ticket26 positive control did not validate the known cycle")
 
     print("open problem structure verified")
     return 0

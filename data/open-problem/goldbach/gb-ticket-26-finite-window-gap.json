@@ -1,0 +1,21 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-26",
+  "status": "micro_lemma_closed_target_open",
+  "route": "FiniteWindowNonUniversalityLemma",
+  "proof_or_counterexample_mode": "shortcut_refutation",
+  "attempt": "Close the finite-window shortcut: a verified Goldbach window is a certificate only on its stated domain and cannot be promoted to all even integers without an explicit large-even theorem.",
+  "formal_micro_lemma_statement": "A Goldbach certificate over even integers 4<=n<=B does not decide any even n>B. A proof for all even n must combine the finite certificate with a separate theorem covering the tail.",
+  "micro_lemma_certificate": {
+    "source_ticket": "GB-TICKET-25",
+    "verified_finite_bound": 0,
+    "first_even_outside_certificate": 2,
+    "counterexamples_inside_bound": 0,
+    "closed_shortcut": "finite_window_implies_global_goldbach",
+    "proof_reason": "The universal claim ranges over infinitely many even integers outside the finite certificate."
+  },
+  "closed_obligation": "Reject finite-window-only Goldbach proof attempts.",
+  "remaining_obligation": "A genuine Goldbach proof needs a positive two-prime representation lower bound beyond an explicit cutoff.",
+  "target_status": "open_not_proven",
+  "claim_boundary": "No Goldbach proof and no Goldbach counterexample found in the certified finite window."
+}

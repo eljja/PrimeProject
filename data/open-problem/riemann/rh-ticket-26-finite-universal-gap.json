@@ -1,0 +1,30 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-26",
+  "status": "micro_lemma_closed_target_open",
+  "route": "FinitePrefixNonUniversalityLemma",
+  "proof_or_counterexample_mode": "shortcut_refutation",
+  "attempt": "Close the logical micro-lemma behind Ticket 25: a finite prefix certificate cannot by itself prove an all-height RH-equivalent statement unless it is paired with a theorem covering the unchecked tail.",
+  "formal_micro_lemma_statement": "If a proposed RH route verifies only a finite prefix P and supplies no theorem for n>P or heights outside the checked window, then the route is not a universal proof certificate.",
+  "micro_lemma_certificate": {
+    "source_ticket": "RH-TICKET-25",
+    "finite_prefix_limit": 1000000,
+    "surrogate_missed_case_count": 1,
+    "witness_rows": [
+      {
+        "offcritical_beta": 0.6,
+        "height": 500.0,
+        "search_cap": 1000000,
+        "threshold_seen": false,
+        "minimum_value_seen": -0.323649443227,
+        "minimum_index_seen": 999027
+      }
+    ],
+    "closed_shortcut": "finite_prefix_implies_universal_RH",
+    "proof_reason": "Universal quantification cannot be discharged by a finite prefix without a separate tail theorem."
+  },
+  "closed_obligation": "Reject finite-prefix-only RH proof attempts.",
+  "remaining_obligation": "A genuine RH proof still needs an all-height zeta-zero or equivalent positivity theorem.",
+  "target_status": "open_not_proven",
+  "claim_boundary": "No RH proof and no certified RH counterexample."
+}
