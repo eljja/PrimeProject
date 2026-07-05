@@ -20,6 +20,7 @@ TICKET23_SCHEMA = "primeproject.ticket23-cegis-rank-lab.v1"
 TICKET24_SCHEMA = "primeproject.ticket24-bridge-weight-lab.v1"
 TICKET25_SCHEMA = "primeproject.ticket25-formal-lemma-kernel.v1"
 TICKET26_SCHEMA = "primeproject.ticket26-micro-lemma-closure.v1"
+TICKET27_SCHEMA = "primeproject.ticket27-rank-frontier-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -478,6 +479,50 @@ def main() -> int:
         return fail("collatz ticket26 did not eliminate every recomputed false cycle")
     if collatz_certificate.get("known_cycle_status") != "valid_positive_cycle":
         return fail("collatz ticket26 positive control did not validate the known cycle")
+
+    ticket27_path = Path("data/open-problem/ticket27-rank-frontier-lab.json")
+    if not ticket27_path.exists():
+        return fail("missing ticket27 rank frontier artifact")
+    ticket27 = read_json(ticket27_path)
+    if ticket27.get("schema") != TICKET27_SCHEMA:
+        return fail("ticket27 rank frontier artifact has unexpected schema")
+    if ticket27.get("status") != "rank_frontier_open_no_resolution":
+        return fail("ticket27 rank frontier overstates resolution")
+    ticket27_attempts = ticket27.get("attempts", [])
+    if not isinstance(ticket27_attempts, list):
+        return fail("ticket27 attempts must be a list")
+    ticket27_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket27_attempts if isinstance(attempt, dict)}
+    missing_ticket27 = EXPECTED_PROBLEMS - set(ticket27_by_id)
+    if missing_ticket27:
+        return fail("ticket27 attempts missing problems: " + ", ".join(sorted(missing_ticket27)))
+    ticket27_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-27-tail-uniformity-frontier.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-27-lift-aware-noncyclic-rank.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-27-tail-cutoff-frontier.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-27-exact-gap-rank-frontier.json"),
+    }
+    for problem_id, attempt in ticket27_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket27 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket27 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket27 claim boundary is too weak")
+        path = ticket27_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket27 per-problem artifact")
+    collatz_ticket27 = ticket27_by_id.get("collatz", {})
+    collatz27_bounded = collatz_ticket27.get("bounded_result", {})
+    if not isinstance(collatz27_bounded, dict):
+        return fail("collatz ticket27 bounded result must be an object")
+    if not collatz27_bounded.get("all_clean_rows_refute_quotient_rank_lift"):
+        return fail("collatz ticket27 must refute quotient rank lift on clean rows")
+    rows27 = collatz27_bounded.get("rank_frontier_rows", [])
+    if not isinstance(rows27, list) or not rows27:
+        return fail("collatz ticket27 rank frontier rows missing")
+    if not any(row.get("sampled_lift_rank_violations_excluding_residue_one", 0) > 0 for row in rows27):
+        return fail("collatz ticket27 lacks non-1 lift rank counterexamples")
 
     print("open problem structure verified")
     return 0

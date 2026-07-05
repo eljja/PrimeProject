@@ -1,0 +1,18 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-27",
+  "status": "proof_pressure_open",
+  "route": "ExactGapRankFrontier",
+  "proof_or_counterexample_mode": "bounded_gap_shortcut_refinement",
+  "attempt": "Use the bounded-gap separation lemma as a filter: any proposed twin-prime rank or weight must measure exact gap 2 and fail on the deletion model.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-26",
+    "all_tested_rows_separate": true,
+    "frontier_test": "Does the proposed statistic collapse when all exact gap-2 pairs are deleted?",
+    "current_result": "exact_gap_2_lower_bound_not_closed"
+  },
+  "obstruction": "A positive bounded-gap statistic still does not force infinitely many exact gap-2 pairs.",
+  "candidate_theorem": "An unconditional exact-gap-2 lower-bound functional remains positive at arbitrarily large scales and collapses under exact-gap deletion countermodels.",
+  "next_experiment": "Search exact-gap-sensitive sieve features and reject any feature preserved by gap-2 deletion.",
+  "claim_boundary": "No Twin Prime proof and no Twin Prime counterexample."
+}

@@ -643,3 +643,51 @@ Reason:
 ```text
 The false-cycle part is now a closed arithmetic micro-lemma. The next real Collatz barrier is not cyclic fixed points; it is proving that every non-cyclic exact branch eventually descends under a well-founded lift-aware rank.
 ```
+
+## Ticket 27 Rank-Frontier Lab Results
+
+Generated artifact:
+
+```text
+data/open-problem/ticket27-rank-frontier-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-27-tail-uniformity-frontier.json
+data/open-problem/collatz/co-ticket-27-lift-aware-noncyclic-rank.json
+data/open-problem/goldbach/gb-ticket-27-tail-cutoff-frontier.json
+data/open-problem/twin-prime/tp-ticket-27-exact-gap-rank-frontier.json
+```
+
+Current verdict:
+
+```text
+rank_frontier_open_no_resolution
+```
+
+한국어 요약: TICKET-27은 TICKET-26에서 닫힌 작은 보조정리를 다음 proof frontier로 밀어붙인다. 가장 중요한 결과는 Collatz다. `mod 2^b` quotient graph에서 known `1` cycle까지의 거리 rank는 대표 residue edge에서는 감소하지만, 실제 integer lift에서는 대량으로 깨진다. 따라서 "finite quotient rank만으로 Collatz를 증명한다"는 전략은 반례로 기각된다.
+
+1. RH: finite prefix shortcut은 닫혔지만, 여전히 unchecked tail 전체를 덮는 uniform explicit-formula theorem이 없다. 다음 실험은 Li/kernel tail majorant의 symbolic separability counterexample 탐색이다.
+2. Collatz: `2^12, 2^14, 2^16, 2^18` quotient rank를 테스트했다. `2^14` 이상에서는 quotient가 known `1` cycle로 모두 도달하지만, sampled integer lift에서 rank violation이 각각 `91,591`, `362,379`, `1,447,879`개 발생했다. residue `1`을 제외해도 violation이 남는다. 예를 들어 `mod 2^14`에서 residue `3`, lift `1`, integer `16387`은 quotient rank가 `2`에서 다음 residue rank `56`으로 증가한다.
+3. Goldbach: finite window는 base case일 뿐이다. 전체 증명에는 finite certificate ceiling 아래로 내려오는 explicit large-even lower-bound theorem이 필요하다.
+4. Twin Prime: bounded-gap deletion model을 통과하는 statistic은 여전히 부적격이다. 다음 proof frontier는 exact gap 2 삭제 시 반드시 붕괴하는 lower-bound functional이다.
+
+Closed shortcut:
+
+```text
+finite quotient distance rank implies global Collatz descent
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-28 LiftCoordinateDebtRankCEGIS
+```
+
+Reason:
+
+```text
+The quotient-only Collatz rank is now refuted by explicit lift counterexamples. A viable rank must include the lift coordinate, valuation debt, or exact 2-adic cylinder data and must decrease after a bounded debt window.
+```

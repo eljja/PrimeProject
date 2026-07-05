@@ -412,6 +412,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Ticket 26 micro-lemma closure") ||
         !page.proofOrCounterexampleText.includes("Micro-lemma certificate") ||
         !page.proofOrCounterexampleText.includes("Closed micro-lemma") ||
+        !page.proofOrCounterexampleText.includes("Ticket 27 rank-frontier lab") ||
+        !page.proofOrCounterexampleText.includes("Rank frontier result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

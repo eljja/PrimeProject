@@ -1,0 +1,913 @@
+{
+  "schema": "primeproject.ticket27-rank-frontier-lab.v1",
+  "generated_at": "2026-07-05T22:40:00+09:00",
+  "status": "rank_frontier_open_no_resolution",
+  "claim_boundary": "Ticket 27 converts the latest micro-lemmas into next proof-frontier tests. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-27",
+      "status": "proof_pressure_open",
+      "route": "TailUniformityFrontier",
+      "proof_or_counterexample_mode": "contrapositive_obligation_refinement",
+      "attempt": "Push the finite-prefix shortcut refutation into the next proof obligation: any RH route must replace bounded detector evidence with a tail-uniform theorem.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-26",
+        "closed_shortcut": "Reject finite-prefix-only RH proof attempts.",
+        "remaining_obligation": "A genuine RH proof still needs an all-height zeta-zero or equivalent positivity theorem.",
+        "frontier_test": "Does the proposed proof provide a uniform tail theorem for every unchecked height and index?",
+        "current_result": "no_tail_uniform_theorem_in_primeproject"
+      },
+      "obstruction": "Finite detector evidence and surrogate refutations still leave the zeta zero set untouched.",
+      "candidate_theorem": "A tail-uniform explicit-formula theorem turns any off-critical zero into a bounded-index contradiction while controlling all remaining zeros.",
+      "next_experiment": "Try to generate symbolic majorants for the unchecked Li/kernel tail and search for a separability counterexample.",
+      "claim_boundary": "No RH proof and no certified RH counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-27",
+      "status": "proof_pressure_open",
+      "route": "LiftAwareNonCyclicRankSearch",
+      "proof_or_counterexample_mode": "candidate_rank_counterexample_guided_search",
+      "attempt": "After closing the affine fixed-point micro-lemma, test whether the remaining non-cyclic branch problem can be solved by the finite quotient distance-to-1 rank. The rank works on representative quotient edges but is tested against sampled integer lifts.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-26",
+        "modulus_bits_tested": [
+          12,
+          14,
+          16,
+          18
+        ],
+        "sample_lifts_per_residue": 32,
+        "rank_frontier_rows": [
+          {
+            "modulus_bits": 12,
+            "modulus": 4096,
+            "odd_state_count": 2048,
+            "reachable_to_known_1_cycle_count": 2023,
+            "unreachable_to_known_1_cycle_count": 25,
+            "max_quotient_distance_to_1_cycle": 64,
+            "ambiguous_high_valuation_edges": 1,
+            "representative_quotient_rank_violations": 0,
+            "sample_lifts_per_residue": 32,
+            "sampled_lift_count": 64736,
+            "sampled_lift_rank_violations": 22885,
+            "sampled_lift_rank_violation_rate": 0.35351273,
+            "sampled_lift_rank_violations_excluding_residue_one": 22854,
+            "unstable_lift_residue_count": 2023,
+            "unstable_lift_residue_rate": 1.0,
+            "counterexample_examples": [
+              {
+                "modulus_bits": 12,
+                "residue": 1,
+                "lift_index": 1,
+                "integer_value": 4097,
+                "valuation": 2,
+                "next_residue": 3073,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 38,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 1,
+                "lift_index": 2,
+                "integer_value": 8193,
+                "valuation": 2,
+                "next_residue": 2049,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 56,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 1,
+                "lift_index": 3,
+                "integer_value": 12289,
+                "valuation": 2,
+                "next_residue": 1025,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 10,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 1,
+                "lift_index": 4,
+                "integer_value": 16385,
+                "valuation": 2,
+                "next_residue": 1,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 0,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 1,
+                "lift_index": 5,
+                "integer_value": 20481,
+                "valuation": 2,
+                "next_residue": 3073,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 38,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 1,
+                "lift_index": 6,
+                "integer_value": 24577,
+                "valuation": 2,
+                "next_residue": 2049,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 56,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 1,
+                "lift_index": 7,
+                "integer_value": 28673,
+                "valuation": 2,
+                "next_residue": 1025,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 10,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 1,
+                "lift_index": 8,
+                "integer_value": 32769,
+                "valuation": 2,
+                "next_residue": 1,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 0,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              }
+            ],
+            "counterexample_examples_excluding_residue_one": [
+              {
+                "modulus_bits": 12,
+                "residue": 3,
+                "lift_index": 1,
+                "integer_value": 4099,
+                "valuation": 1,
+                "next_residue": 2053,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 10,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 3,
+                "lift_index": 3,
+                "integer_value": 12291,
+                "valuation": 1,
+                "next_residue": 2053,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 10,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 3,
+                "lift_index": 5,
+                "integer_value": 20483,
+                "valuation": 1,
+                "next_residue": 2053,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 10,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 3,
+                "lift_index": 7,
+                "integer_value": 28675,
+                "valuation": 1,
+                "next_residue": 2053,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 10,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 3,
+                "lift_index": 9,
+                "integer_value": 36867,
+                "valuation": 1,
+                "next_residue": 2053,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 10,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 3,
+                "lift_index": 11,
+                "integer_value": 45059,
+                "valuation": 1,
+                "next_residue": 2053,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 10,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 3,
+                "lift_index": 13,
+                "integer_value": 53251,
+                "valuation": 1,
+                "next_residue": 2053,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 10,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 12,
+                "residue": 3,
+                "lift_index": 15,
+                "integer_value": 61443,
+                "valuation": 1,
+                "next_residue": 2053,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 10,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              }
+            ]
+          },
+          {
+            "modulus_bits": 14,
+            "modulus": 16384,
+            "odd_state_count": 8192,
+            "reachable_to_known_1_cycle_count": 8192,
+            "unreachable_to_known_1_cycle_count": 0,
+            "max_quotient_distance_to_1_cycle": 87,
+            "ambiguous_high_valuation_edges": 1,
+            "representative_quotient_rank_violations": 0,
+            "sample_lifts_per_residue": 32,
+            "sampled_lift_count": 262144,
+            "sampled_lift_rank_violations": 91591,
+            "sampled_lift_rank_violation_rate": 0.34939194,
+            "sampled_lift_rank_violations_excluding_residue_one": 91560,
+            "unstable_lift_residue_count": 8192,
+            "unstable_lift_residue_rate": 1.0,
+            "counterexample_examples": [
+              {
+                "modulus_bits": 14,
+                "residue": 1,
+                "lift_index": 1,
+                "integer_value": 16385,
+                "valuation": 2,
+                "next_residue": 12289,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 14,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 1,
+                "lift_index": 2,
+                "integer_value": 32769,
+                "valuation": 2,
+                "next_residue": 8193,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 15,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 1,
+                "lift_index": 3,
+                "integer_value": 49153,
+                "valuation": 2,
+                "next_residue": 4097,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 39,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 1,
+                "lift_index": 4,
+                "integer_value": 65537,
+                "valuation": 2,
+                "next_residue": 1,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 0,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 1,
+                "lift_index": 5,
+                "integer_value": 81921,
+                "valuation": 2,
+                "next_residue": 12289,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 14,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 1,
+                "lift_index": 6,
+                "integer_value": 98305,
+                "valuation": 2,
+                "next_residue": 8193,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 15,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 1,
+                "lift_index": 7,
+                "integer_value": 114689,
+                "valuation": 2,
+                "next_residue": 4097,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 39,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 1,
+                "lift_index": 8,
+                "integer_value": 131073,
+                "valuation": 2,
+                "next_residue": 1,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 0,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              }
+            ],
+            "counterexample_examples_excluding_residue_one": [
+              {
+                "modulus_bits": 14,
+                "residue": 3,
+                "lift_index": 1,
+                "integer_value": 16387,
+                "valuation": 1,
+                "next_residue": 8197,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 56,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 3,
+                "lift_index": 3,
+                "integer_value": 49155,
+                "valuation": 1,
+                "next_residue": 8197,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 56,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 3,
+                "lift_index": 5,
+                "integer_value": 81923,
+                "valuation": 1,
+                "next_residue": 8197,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 56,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 3,
+                "lift_index": 7,
+                "integer_value": 114691,
+                "valuation": 1,
+                "next_residue": 8197,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 56,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 3,
+                "lift_index": 9,
+                "integer_value": 147459,
+                "valuation": 1,
+                "next_residue": 8197,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 56,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 3,
+                "lift_index": 11,
+                "integer_value": 180227,
+                "valuation": 1,
+                "next_residue": 8197,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 56,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 3,
+                "lift_index": 13,
+                "integer_value": 212995,
+                "valuation": 1,
+                "next_residue": 8197,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 56,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 14,
+                "residue": 3,
+                "lift_index": 15,
+                "integer_value": 245763,
+                "valuation": 1,
+                "next_residue": 8197,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 56,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              }
+            ]
+          },
+          {
+            "modulus_bits": 16,
+            "modulus": 65536,
+            "odd_state_count": 32768,
+            "reachable_to_known_1_cycle_count": 32768,
+            "unreachable_to_known_1_cycle_count": 0,
+            "max_quotient_distance_to_1_cycle": 126,
+            "ambiguous_high_valuation_edges": 1,
+            "representative_quotient_rank_violations": 0,
+            "sample_lifts_per_residue": 32,
+            "sampled_lift_count": 1048576,
+            "sampled_lift_rank_violations": 362379,
+            "sampled_lift_rank_violation_rate": 0.34559155,
+            "sampled_lift_rank_violations_excluding_residue_one": 362348,
+            "unstable_lift_residue_count": 32768,
+            "unstable_lift_residue_rate": 1.0,
+            "counterexample_examples": [
+              {
+                "modulus_bits": 16,
+                "residue": 1,
+                "lift_index": 1,
+                "integer_value": 65537,
+                "valuation": 2,
+                "next_residue": 49153,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 31,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 1,
+                "lift_index": 2,
+                "integer_value": 131073,
+                "valuation": 2,
+                "next_residue": 32769,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 32,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 1,
+                "lift_index": 3,
+                "integer_value": 196609,
+                "valuation": 2,
+                "next_residue": 16385,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 15,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 1,
+                "lift_index": 4,
+                "integer_value": 262145,
+                "valuation": 2,
+                "next_residue": 1,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 0,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 1,
+                "lift_index": 5,
+                "integer_value": 327681,
+                "valuation": 2,
+                "next_residue": 49153,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 31,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 1,
+                "lift_index": 6,
+                "integer_value": 393217,
+                "valuation": 2,
+                "next_residue": 32769,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 32,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 1,
+                "lift_index": 7,
+                "integer_value": 458753,
+                "valuation": 2,
+                "next_residue": 16385,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 15,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 1,
+                "lift_index": 8,
+                "integer_value": 524289,
+                "valuation": 2,
+                "next_residue": 1,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 0,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              }
+            ],
+            "counterexample_examples_excluding_residue_one": [
+              {
+                "modulus_bits": 16,
+                "residue": 3,
+                "lift_index": 1,
+                "integer_value": 65539,
+                "valuation": 1,
+                "next_residue": 32773,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 15,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 3,
+                "lift_index": 3,
+                "integer_value": 196611,
+                "valuation": 1,
+                "next_residue": 32773,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 15,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 3,
+                "lift_index": 5,
+                "integer_value": 327683,
+                "valuation": 1,
+                "next_residue": 32773,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 15,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 3,
+                "lift_index": 7,
+                "integer_value": 458755,
+                "valuation": 1,
+                "next_residue": 32773,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 15,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 3,
+                "lift_index": 9,
+                "integer_value": 589827,
+                "valuation": 1,
+                "next_residue": 32773,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 15,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 3,
+                "lift_index": 11,
+                "integer_value": 720899,
+                "valuation": 1,
+                "next_residue": 32773,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 15,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 3,
+                "lift_index": 13,
+                "integer_value": 851971,
+                "valuation": 1,
+                "next_residue": 32773,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 15,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 16,
+                "residue": 3,
+                "lift_index": 15,
+                "integer_value": 983043,
+                "valuation": 1,
+                "next_residue": 32773,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 15,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              }
+            ]
+          },
+          {
+            "modulus_bits": 18,
+            "modulus": 262144,
+            "odd_state_count": 131072,
+            "reachable_to_known_1_cycle_count": 131072,
+            "unreachable_to_known_1_cycle_count": 0,
+            "max_quotient_distance_to_1_cycle": 129,
+            "ambiguous_high_valuation_edges": 1,
+            "representative_quotient_rank_violations": 0,
+            "sample_lifts_per_residue": 32,
+            "sampled_lift_count": 4194304,
+            "sampled_lift_rank_violations": 1447879,
+            "sampled_lift_rank_violation_rate": 0.34520125,
+            "sampled_lift_rank_violations_excluding_residue_one": 1447848,
+            "unstable_lift_residue_count": 131072,
+            "unstable_lift_residue_rate": 1.0,
+            "counterexample_examples": [
+              {
+                "modulus_bits": 18,
+                "residue": 1,
+                "lift_index": 1,
+                "integer_value": 262145,
+                "valuation": 2,
+                "next_residue": 196609,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 31,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 1,
+                "lift_index": 2,
+                "integer_value": 524289,
+                "valuation": 2,
+                "next_residue": 131073,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 32,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 1,
+                "lift_index": 3,
+                "integer_value": 786433,
+                "valuation": 2,
+                "next_residue": 65537,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 32,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 1,
+                "lift_index": 4,
+                "integer_value": 1048577,
+                "valuation": 2,
+                "next_residue": 1,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 0,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 1,
+                "lift_index": 5,
+                "integer_value": 1310721,
+                "valuation": 2,
+                "next_residue": 196609,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 31,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 1,
+                "lift_index": 6,
+                "integer_value": 1572865,
+                "valuation": 2,
+                "next_residue": 131073,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 32,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 1,
+                "lift_index": 7,
+                "integer_value": 1835009,
+                "valuation": 2,
+                "next_residue": 65537,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 32,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 1,
+                "lift_index": 8,
+                "integer_value": 2097153,
+                "valuation": 2,
+                "next_residue": 1,
+                "source_quotient_rank": 0,
+                "target_quotient_rank": 0,
+                "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+              }
+            ],
+            "counterexample_examples_excluding_residue_one": [
+              {
+                "modulus_bits": 18,
+                "residue": 3,
+                "lift_index": 1,
+                "integer_value": 262147,
+                "valuation": 1,
+                "next_residue": 131077,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 32,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 3,
+                "lift_index": 3,
+                "integer_value": 786435,
+                "valuation": 1,
+                "next_residue": 131077,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 32,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 3,
+                "lift_index": 5,
+                "integer_value": 1310723,
+                "valuation": 1,
+                "next_residue": 131077,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 32,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 3,
+                "lift_index": 7,
+                "integer_value": 1835011,
+                "valuation": 1,
+                "next_residue": 131077,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 32,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 3,
+                "lift_index": 9,
+                "integer_value": 2359299,
+                "valuation": 1,
+                "next_residue": 131077,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 32,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 3,
+                "lift_index": 11,
+                "integer_value": 2883587,
+                "valuation": 1,
+                "next_residue": 131077,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 32,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 3,
+                "lift_index": 13,
+                "integer_value": 3407875,
+                "valuation": 1,
+                "next_residue": 131077,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 32,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              },
+              {
+                "modulus_bits": 18,
+                "residue": 3,
+                "lift_index": 15,
+                "integer_value": 3932163,
+                "valuation": 1,
+                "next_residue": 131077,
+                "source_quotient_rank": 2,
+                "target_quotient_rank": 32,
+                "interpretation": "non-1 residue lift also violates quotient distance rank"
+              }
+            ]
+          }
+        ],
+        "first_lift_rank_counterexamples": [
+          {
+            "modulus_bits": 12,
+            "residue": 1,
+            "lift_index": 1,
+            "integer_value": 4097,
+            "valuation": 2,
+            "next_residue": 3073,
+            "source_quotient_rank": 0,
+            "target_quotient_rank": 38,
+            "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+          },
+          {
+            "modulus_bits": 12,
+            "residue": 1,
+            "lift_index": 2,
+            "integer_value": 8193,
+            "valuation": 2,
+            "next_residue": 2049,
+            "source_quotient_rank": 0,
+            "target_quotient_rank": 56,
+            "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+          },
+          {
+            "modulus_bits": 12,
+            "residue": 1,
+            "lift_index": 3,
+            "integer_value": 12289,
+            "valuation": 2,
+            "next_residue": 1025,
+            "source_quotient_rank": 0,
+            "target_quotient_rank": 10,
+            "interpretation": "sampled lift does not decrease the finite quotient distance rank"
+          }
+        ],
+        "all_clean_rows_refute_quotient_rank_lift": true,
+        "cegis_interpretation": "Finite quotient distance is a valid rank for tested quotient representatives, but sampled lifts produce many counterexamples. A real rank must include lift coordinate, valuation debt, or exact 2-adic cylinder data."
+      },
+      "obstruction": "This refutes a simple finite-quotient rank proof. It does not refute Collatz; it identifies the missing rank features needed to control non-cyclic branches after the false-cycle kernel is closed.",
+      "candidate_theorem": "There exists a lift-aware well-founded rank R on exact accelerated Collatz cylinders such that every non-cycle branch either enters the known 1-cycle basin or strictly decreases R after a bounded debt window.",
+      "next_experiment": "Synthesize a rank with explicit lift coordinate and valuation-debt features, then run CEGIS against the counterexamples listed here.",
+      "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-27",
+      "status": "proof_pressure_open",
+      "route": "ExplicitCutoffFrontier",
+      "proof_or_counterexample_mode": "finite_exception_plus_tail_gap",
+      "attempt": "Use the finite-window closure as the base case and isolate the exact missing theorem: a positive two-prime representation lower bound beyond a computable cutoff.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-26",
+        "verified_finite_bound": 0,
+        "first_even_outside_certificate": 2,
+        "frontier_test": "Can the analytic lower-bound cutoff be pushed below the committed finite certificate?",
+        "current_result": "explicit_tail_cutoff_not_closed"
+      },
+      "obstruction": "The finite certificate does not cover the infinite tail, and the current project has no effective large-even lower bound.",
+      "candidate_theorem": "For every even n above an explicit N0, the binary Goldbach representation count is positive, with N0 below the finite certificate ceiling.",
+      "next_experiment": "Build a main-term-minus-error ledger with every constant named and reject any ineffective exceptional-zero term.",
+      "claim_boundary": "No Goldbach proof and no Goldbach counterexample found in the certified finite window."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-27",
+      "status": "proof_pressure_open",
+      "route": "ExactGapRankFrontier",
+      "proof_or_counterexample_mode": "bounded_gap_shortcut_refinement",
+      "attempt": "Use the bounded-gap separation lemma as a filter: any proposed twin-prime rank or weight must measure exact gap 2 and fail on the deletion model.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-26",
+        "all_tested_rows_separate": true,
+        "frontier_test": "Does the proposed statistic collapse when all exact gap-2 pairs are deleted?",
+        "current_result": "exact_gap_2_lower_bound_not_closed"
+      },
+      "obstruction": "A positive bounded-gap statistic still does not force infinitely many exact gap-2 pairs.",
+      "candidate_theorem": "An unconditional exact-gap-2 lower-bound functional remains positive at arbitrarily large scales and collapses under exact-gap deletion countermodels.",
+      "next_experiment": "Search exact-gap-sensitive sieve features and reject any feature preserved by gap-2 deletion.",
+      "claim_boundary": "No Twin Prime proof and no Twin Prime counterexample."
+    }
+  ]
+}
