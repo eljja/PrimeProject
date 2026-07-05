@@ -1,0 +1,494 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-24",
+  "status": "proof_pressure_open",
+  "route": "LiftAwareRankProbe",
+  "proof_or_counterexample_mode": "quotient_cycle_lift_elimination",
+  "attempt": "Push the Collatz quotient-cycle witnesses through an affine lift audit. A modular SCC is accepted as a true cycle candidate only if its valuation word has a positive integral fixed point that validates exactly.",
+  "bounded_result": {
+    "modulus_bits_tested": [
+      8,
+      10,
+      12,
+      14,
+      16,
+      18
+    ],
+    "lift_rows": [
+      {
+        "modulus_bits": 8,
+        "odd_state_count": 128,
+        "scc_count": 128,
+        "cycle_component_count": 1,
+        "nontrivial_cycle_component_count": 0,
+        "largest_cycle_component_size": 1,
+        "ambiguous_high_valuation_edges": 1,
+        "integer_rank_nondecreasing_edges": 43,
+        "integer_rank_nondecreasing_rate": 0.3359375,
+        "cycle_examples": [
+          {
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          }
+        ]
+      },
+      {
+        "modulus_bits": 10,
+        "odd_state_count": 512,
+        "scc_count": 487,
+        "cycle_component_count": 2,
+        "nontrivial_cycle_component_count": 1,
+        "largest_cycle_component_size": 26,
+        "ambiguous_high_valuation_edges": 1,
+        "integer_rank_nondecreasing_edges": 171,
+        "integer_rank_nondecreasing_rate": 0.33398438,
+        "cycle_examples": [
+          {
+            "cycle_length": 26,
+            "sample_residues": [
+              125,
+              47,
+              71,
+              107,
+              161,
+              121,
+              91,
+              137,
+              103,
+              155,
+              233,
+              175,
+              263,
+              395,
+              593,
+              445
+            ],
+            "valuation_word": [
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "affine_cycle_status": "globally_eliminated_expanding_word",
+            "candidate_value": null,
+            "validated_as_exact_cycle": false,
+            "total_shift": 37,
+            "expansion_multiplier": 18.494508027863
+          },
+          {
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          }
+        ]
+      },
+      {
+        "modulus_bits": 12,
+        "odd_state_count": 2048,
+        "scc_count": 2037,
+        "cycle_component_count": 3,
+        "nontrivial_cycle_component_count": 2,
+        "largest_cycle_component_size": 7,
+        "ambiguous_high_valuation_edges": 1,
+        "integer_rank_nondecreasing_edges": 683,
+        "integer_rank_nondecreasing_rate": 0.33349609,
+        "cycle_examples": [
+          {
+            "cycle_length": 7,
+            "sample_residues": [
+              937,
+              703,
+              1055,
+              1583,
+              2375,
+              3563,
+              1249
+            ],
+            "valuation_word": [
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2
+            ],
+            "affine_cycle_status": "globally_eliminated_expanding_word",
+            "candidate_value": null,
+            "validated_as_exact_cycle": false,
+            "total_shift": 9,
+            "expansion_multiplier": 4.271484375
+          },
+          {
+            "cycle_length": 6,
+            "sample_residues": [
+              3311,
+              871,
+              1307,
+              1961,
+              1471,
+              2207
+            ],
+            "valuation_word": [
+              1,
+              1,
+              1,
+              2,
+              1,
+              1
+            ],
+            "affine_cycle_status": "globally_eliminated_expanding_word",
+            "candidate_value": null,
+            "validated_as_exact_cycle": false,
+            "total_shift": 7,
+            "expansion_multiplier": 5.6953125
+          },
+          {
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          }
+        ]
+      },
+      {
+        "modulus_bits": 14,
+        "odd_state_count": 8192,
+        "scc_count": 8192,
+        "cycle_component_count": 1,
+        "nontrivial_cycle_component_count": 0,
+        "largest_cycle_component_size": 1,
+        "ambiguous_high_valuation_edges": 1,
+        "integer_rank_nondecreasing_edges": 2731,
+        "integer_rank_nondecreasing_rate": 0.33337402,
+        "cycle_examples": [
+          {
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          }
+        ]
+      },
+      {
+        "modulus_bits": 16,
+        "odd_state_count": 32768,
+        "scc_count": 32768,
+        "cycle_component_count": 1,
+        "nontrivial_cycle_component_count": 0,
+        "largest_cycle_component_size": 1,
+        "ambiguous_high_valuation_edges": 1,
+        "integer_rank_nondecreasing_edges": 10923,
+        "integer_rank_nondecreasing_rate": 0.33334351,
+        "cycle_examples": [
+          {
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          }
+        ]
+      },
+      {
+        "modulus_bits": 18,
+        "odd_state_count": 131072,
+        "scc_count": 131072,
+        "cycle_component_count": 1,
+        "nontrivial_cycle_component_count": 0,
+        "largest_cycle_component_size": 1,
+        "ambiguous_high_valuation_edges": 1,
+        "integer_rank_nondecreasing_edges": 43691,
+        "integer_rank_nondecreasing_rate": 0.33333588,
+        "cycle_examples": [
+          {
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          }
+        ]
+      }
+    ],
+    "first_tested_modulus_with_only_known_cycle": 8,
+    "false_quotient_cycles_eliminated_by_affine_lift": [
+      {
+        "modulus_bits": 10,
+        "cycle_length": 26,
+        "sample_residues": [
+          125,
+          47,
+          71,
+          107,
+          161,
+          121,
+          91,
+          137,
+          103,
+          155,
+          233,
+          175,
+          263,
+          395,
+          593,
+          445
+        ],
+        "valuation_word": [
+          3,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "affine_cycle_status": "globally_eliminated_expanding_word",
+        "candidate_value": null,
+        "validated_as_exact_cycle": false,
+        "total_shift": 37,
+        "expansion_multiplier": 18.494508027863
+      },
+      {
+        "modulus_bits": 12,
+        "cycle_length": 7,
+        "sample_residues": [
+          937,
+          703,
+          1055,
+          1583,
+          2375,
+          3563,
+          1249
+        ],
+        "valuation_word": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "affine_cycle_status": "globally_eliminated_expanding_word",
+        "candidate_value": null,
+        "validated_as_exact_cycle": false,
+        "total_shift": 9,
+        "expansion_multiplier": 4.271484375
+      },
+      {
+        "modulus_bits": 12,
+        "cycle_length": 6,
+        "sample_residues": [
+          3311,
+          871,
+          1307,
+          1961,
+          1471,
+          2207
+        ],
+        "valuation_word": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        "affine_cycle_status": "globally_eliminated_expanding_word",
+        "candidate_value": null,
+        "validated_as_exact_cycle": false,
+        "total_shift": 7,
+        "expansion_multiplier": 5.6953125
+      }
+    ],
+    "false_quotient_cycle_count": 3,
+    "positive_cycle_candidates_seen": [
+      {
+        "modulus_bits": 8,
+        "cycle_length": 1,
+        "sample_residues": [
+          1
+        ],
+        "valuation_word": [
+          2
+        ],
+        "affine_cycle_status": "valid_positive_cycle",
+        "candidate_value": 1,
+        "validated_as_exact_cycle": true,
+        "total_shift": 2,
+        "expansion_multiplier": 0.75
+      },
+      {
+        "modulus_bits": 10,
+        "cycle_length": 1,
+        "sample_residues": [
+          1
+        ],
+        "valuation_word": [
+          2
+        ],
+        "affine_cycle_status": "valid_positive_cycle",
+        "candidate_value": 1,
+        "validated_as_exact_cycle": true,
+        "total_shift": 2,
+        "expansion_multiplier": 0.75
+      },
+      {
+        "modulus_bits": 12,
+        "cycle_length": 1,
+        "sample_residues": [
+          1
+        ],
+        "valuation_word": [
+          2
+        ],
+        "affine_cycle_status": "valid_positive_cycle",
+        "candidate_value": 1,
+        "validated_as_exact_cycle": true,
+        "total_shift": 2,
+        "expansion_multiplier": 0.75
+      },
+      {
+        "modulus_bits": 14,
+        "cycle_length": 1,
+        "sample_residues": [
+          1
+        ],
+        "valuation_word": [
+          2
+        ],
+        "affine_cycle_status": "valid_positive_cycle",
+        "candidate_value": 1,
+        "validated_as_exact_cycle": true,
+        "total_shift": 2,
+        "expansion_multiplier": 0.75
+      },
+      {
+        "modulus_bits": 16,
+        "cycle_length": 1,
+        "sample_residues": [
+          1
+        ],
+        "valuation_word": [
+          2
+        ],
+        "affine_cycle_status": "valid_positive_cycle",
+        "candidate_value": 1,
+        "validated_as_exact_cycle": true,
+        "total_shift": 2,
+        "expansion_multiplier": 0.75
+      },
+      {
+        "modulus_bits": 18,
+        "cycle_length": 1,
+        "sample_residues": [
+          1
+        ],
+        "valuation_word": [
+          2
+        ],
+        "affine_cycle_status": "valid_positive_cycle",
+        "candidate_value": 1,
+        "validated_as_exact_cycle": true,
+        "total_shift": 2,
+        "expansion_multiplier": 0.75
+      }
+    ],
+    "nontrivial_positive_cycle_candidates_seen": []
+  },
+  "obstruction": "The affine lift audit removes the tested false quotient cycles and leaves only the known 1-cycle, but it does not prove that every larger modulus and every divergent branch admits a well-founded descent rank.",
+  "candidate_theorem": "Every finite quotient SCC of the accelerated Collatz map either fails the affine lift cycle condition or is the known 1-cycle, and all non-cyclic branches eventually enter a lower exact-cylinder rank.",
+  "next_experiment": "Formalize the affine lift elimination lemma and then attack the non-cyclic branch rank.",
+  "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+}

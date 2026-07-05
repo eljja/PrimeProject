@@ -1,0 +1,1121 @@
+{
+  "schema": "primeproject.ticket24-bridge-weight-lab.v1",
+  "generated_at": "2026-07-05T08:26:18+00:00",
+  "status": "bridge_weight_open_no_resolution",
+  "claim_boundary": "Ticket 24 tests proof-bridge candidates and exact-gap weights. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-24",
+      "status": "proof_pressure_open",
+      "route": "UniformDetectorBudget",
+      "proof_or_counterexample_mode": "finite_prefix_evasion_budget",
+      "attempt": "Convert the off-critical-zero detector experiment into a budget table: if the detector index grows like height squared, any fixed finite Li-prefix can be evaded by sufficiently high surrogate zeros.",
+      "bounded_result": {
+        "threshold": -1.0,
+        "search_cap": 1000000,
+        "detector_budget_rows": [
+          {
+            "offcritical_beta": 0.6,
+            "height": 100.0,
+            "search_limit": 1000000,
+            "first_negative_li_index": 628,
+            "first_below_threshold_index": 69737,
+            "threshold_seen": true,
+            "minimum_value_seen": -1.000355023746,
+            "minimum_index_seen": 69737,
+            "threshold_index_over_height_squared": 6.9737
+          },
+          {
+            "offcritical_beta": 0.6,
+            "height": 200.0,
+            "search_limit": 1000000,
+            "first_negative_li_index": 1257,
+            "first_below_threshold_index": 277711,
+            "threshold_seen": true,
+            "minimum_value_seen": -1.000788115178,
+            "minimum_index_seen": 277711,
+            "threshold_index_over_height_squared": 6.942775
+          },
+          {
+            "offcritical_beta": 0.6,
+            "height": 500.0,
+            "search_limit": 1000000,
+            "first_negative_li_index": 3141,
+            "first_below_threshold_index": null,
+            "threshold_seen": false,
+            "minimum_value_seen": -0.323649443227,
+            "minimum_index_seen": 999027,
+            "threshold_index_over_height_squared": null
+          },
+          {
+            "offcritical_beta": 0.75,
+            "height": 100.0,
+            "search_limit": 1000000,
+            "first_negative_li_index": 627,
+            "first_below_threshold_index": 28263,
+            "threshold_seen": true,
+            "minimum_value_seen": -1.005934782221,
+            "minimum_index_seen": 28263,
+            "threshold_index_over_height_squared": 2.8263
+          },
+          {
+            "offcritical_beta": 0.75,
+            "height": 200.0,
+            "search_limit": 1000000,
+            "first_negative_li_index": 1256,
+            "first_below_threshold_index": 111825,
+            "threshold_seen": true,
+            "minimum_value_seen": -1.001083211313,
+            "minimum_index_seen": 111825,
+            "threshold_index_over_height_squared": 2.795625
+          },
+          {
+            "offcritical_beta": 0.75,
+            "height": 500.0,
+            "search_limit": 1000000,
+            "first_negative_li_index": 3141,
+            "first_below_threshold_index": 694274,
+            "threshold_seen": true,
+            "minimum_value_seen": -1.000000349039,
+            "minimum_index_seen": 694274,
+            "threshold_index_over_height_squared": 2.777096
+          },
+          {
+            "offcritical_beta": 0.9,
+            "height": 100.0,
+            "search_limit": 1000000,
+            "first_negative_li_index": 626,
+            "first_below_threshold_index": 17583,
+            "threshold_seen": true,
+            "minimum_value_seen": -1.003785960415,
+            "minimum_index_seen": 17583,
+            "threshold_index_over_height_squared": 1.7583
+          },
+          {
+            "offcritical_beta": 0.9,
+            "height": 200.0,
+            "search_limit": 1000000,
+            "first_negative_li_index": 1255,
+            "first_below_threshold_index": 70350,
+            "threshold_seen": true,
+            "minimum_value_seen": -1.000610031118,
+            "minimum_index_seen": 70350,
+            "threshold_index_over_height_squared": 1.75875
+          },
+          {
+            "offcritical_beta": 0.9,
+            "height": 500.0,
+            "search_limit": 1000000,
+            "first_negative_li_index": 3140,
+            "first_below_threshold_index": 433529,
+            "threshold_seen": true,
+            "minimum_value_seen": -1.000238313748,
+            "minimum_index_seen": 433529,
+            "threshold_index_over_height_squared": 1.734116
+          }
+        ],
+        "missed_threshold_cases": [
+          {
+            "offcritical_beta": 0.6,
+            "height": 500.0,
+            "search_limit": 1000000,
+            "first_negative_li_index": 3141,
+            "first_below_threshold_index": null,
+            "threshold_seen": false,
+            "minimum_value_seen": -0.323649443227,
+            "minimum_index_seen": 999027,
+            "threshold_index_over_height_squared": null
+          }
+        ],
+        "missed_threshold_case_count": 1,
+        "quadratic_budget_fit": [
+          {
+            "offcritical_beta": 0.6,
+            "seen_case_count": 2,
+            "mean_threshold_index_over_height_squared": 6.9582375,
+            "max_threshold_index_over_height_squared": 6.9737,
+            "projected_index_at_height_1000": 6973700
+          },
+          {
+            "offcritical_beta": 0.75,
+            "seen_case_count": 3,
+            "mean_threshold_index_over_height_squared": 2.79967367,
+            "max_threshold_index_over_height_squared": 2.8263,
+            "projected_index_at_height_1000": 2826300
+          },
+          {
+            "offcritical_beta": 0.9,
+            "seen_case_count": 3,
+            "mean_threshold_index_over_height_squared": 1.75038867,
+            "max_threshold_index_over_height_squared": 1.75875,
+            "projected_index_at_height_1000": 1758750
+          }
+        ],
+        "finite_prefix_evasion_status": "observed_for_tested_surrogates"
+      },
+      "obstruction": "The budget table can refute a fixed-prefix proof strategy, but it cannot prove RH or produce a zeta counterexample. A valid proof still needs an explicit formula theorem that is uniform over all zeros.",
+      "candidate_theorem": "A uniform all-height detector theorem bounds the Li/kernel index needed to expose every off-critical zero and subtracts the contribution of the remaining zero set with explicit constants.",
+      "next_experiment": "Replace the empirical height-squared fit with a symbolic inequality in the explicit formula.",
+      "claim_boundary": "No RH proof and no certified RH counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-24",
+      "status": "proof_pressure_open",
+      "route": "LiftAwareRankProbe",
+      "proof_or_counterexample_mode": "quotient_cycle_lift_elimination",
+      "attempt": "Push the Collatz quotient-cycle witnesses through an affine lift audit. A modular SCC is accepted as a true cycle candidate only if its valuation word has a positive integral fixed point that validates exactly.",
+      "bounded_result": {
+        "modulus_bits_tested": [
+          8,
+          10,
+          12,
+          14,
+          16,
+          18
+        ],
+        "lift_rows": [
+          {
+            "modulus_bits": 8,
+            "odd_state_count": 128,
+            "scc_count": 128,
+            "cycle_component_count": 1,
+            "nontrivial_cycle_component_count": 0,
+            "largest_cycle_component_size": 1,
+            "ambiguous_high_valuation_edges": 1,
+            "integer_rank_nondecreasing_edges": 43,
+            "integer_rank_nondecreasing_rate": 0.3359375,
+            "cycle_examples": [
+              {
+                "cycle_length": 1,
+                "sample_residues": [
+                  1
+                ],
+                "valuation_word": [
+                  2
+                ],
+                "affine_cycle_status": "valid_positive_cycle",
+                "candidate_value": 1,
+                "validated_as_exact_cycle": true,
+                "total_shift": 2,
+                "expansion_multiplier": 0.75
+              }
+            ]
+          },
+          {
+            "modulus_bits": 10,
+            "odd_state_count": 512,
+            "scc_count": 487,
+            "cycle_component_count": 2,
+            "nontrivial_cycle_component_count": 1,
+            "largest_cycle_component_size": 26,
+            "ambiguous_high_valuation_edges": 1,
+            "integer_rank_nondecreasing_edges": 171,
+            "integer_rank_nondecreasing_rate": 0.33398438,
+            "cycle_examples": [
+              {
+                "cycle_length": 26,
+                "sample_residues": [
+                  125,
+                  47,
+                  71,
+                  107,
+                  161,
+                  121,
+                  91,
+                  137,
+                  103,
+                  155,
+                  233,
+                  175,
+                  263,
+                  395,
+                  593,
+                  445
+                ],
+                "valuation_word": [
+                  3,
+                  1,
+                  1,
+                  1,
+                  2,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  3,
+                  1,
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "affine_cycle_status": "globally_eliminated_expanding_word",
+                "candidate_value": null,
+                "validated_as_exact_cycle": false,
+                "total_shift": 37,
+                "expansion_multiplier": 18.494508027863
+              },
+              {
+                "cycle_length": 1,
+                "sample_residues": [
+                  1
+                ],
+                "valuation_word": [
+                  2
+                ],
+                "affine_cycle_status": "valid_positive_cycle",
+                "candidate_value": 1,
+                "validated_as_exact_cycle": true,
+                "total_shift": 2,
+                "expansion_multiplier": 0.75
+              }
+            ]
+          },
+          {
+            "modulus_bits": 12,
+            "odd_state_count": 2048,
+            "scc_count": 2037,
+            "cycle_component_count": 3,
+            "nontrivial_cycle_component_count": 2,
+            "largest_cycle_component_size": 7,
+            "ambiguous_high_valuation_edges": 1,
+            "integer_rank_nondecreasing_edges": 683,
+            "integer_rank_nondecreasing_rate": 0.33349609,
+            "cycle_examples": [
+              {
+                "cycle_length": 7,
+                "sample_residues": [
+                  937,
+                  703,
+                  1055,
+                  1583,
+                  2375,
+                  3563,
+                  1249
+                ],
+                "valuation_word": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2
+                ],
+                "affine_cycle_status": "globally_eliminated_expanding_word",
+                "candidate_value": null,
+                "validated_as_exact_cycle": false,
+                "total_shift": 9,
+                "expansion_multiplier": 4.271484375
+              },
+              {
+                "cycle_length": 6,
+                "sample_residues": [
+                  3311,
+                  871,
+                  1307,
+                  1961,
+                  1471,
+                  2207
+                ],
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1
+                ],
+                "affine_cycle_status": "globally_eliminated_expanding_word",
+                "candidate_value": null,
+                "validated_as_exact_cycle": false,
+                "total_shift": 7,
+                "expansion_multiplier": 5.6953125
+              },
+              {
+                "cycle_length": 1,
+                "sample_residues": [
+                  1
+                ],
+                "valuation_word": [
+                  2
+                ],
+                "affine_cycle_status": "valid_positive_cycle",
+                "candidate_value": 1,
+                "validated_as_exact_cycle": true,
+                "total_shift": 2,
+                "expansion_multiplier": 0.75
+              }
+            ]
+          },
+          {
+            "modulus_bits": 14,
+            "odd_state_count": 8192,
+            "scc_count": 8192,
+            "cycle_component_count": 1,
+            "nontrivial_cycle_component_count": 0,
+            "largest_cycle_component_size": 1,
+            "ambiguous_high_valuation_edges": 1,
+            "integer_rank_nondecreasing_edges": 2731,
+            "integer_rank_nondecreasing_rate": 0.33337402,
+            "cycle_examples": [
+              {
+                "cycle_length": 1,
+                "sample_residues": [
+                  1
+                ],
+                "valuation_word": [
+                  2
+                ],
+                "affine_cycle_status": "valid_positive_cycle",
+                "candidate_value": 1,
+                "validated_as_exact_cycle": true,
+                "total_shift": 2,
+                "expansion_multiplier": 0.75
+              }
+            ]
+          },
+          {
+            "modulus_bits": 16,
+            "odd_state_count": 32768,
+            "scc_count": 32768,
+            "cycle_component_count": 1,
+            "nontrivial_cycle_component_count": 0,
+            "largest_cycle_component_size": 1,
+            "ambiguous_high_valuation_edges": 1,
+            "integer_rank_nondecreasing_edges": 10923,
+            "integer_rank_nondecreasing_rate": 0.33334351,
+            "cycle_examples": [
+              {
+                "cycle_length": 1,
+                "sample_residues": [
+                  1
+                ],
+                "valuation_word": [
+                  2
+                ],
+                "affine_cycle_status": "valid_positive_cycle",
+                "candidate_value": 1,
+                "validated_as_exact_cycle": true,
+                "total_shift": 2,
+                "expansion_multiplier": 0.75
+              }
+            ]
+          },
+          {
+            "modulus_bits": 18,
+            "odd_state_count": 131072,
+            "scc_count": 131072,
+            "cycle_component_count": 1,
+            "nontrivial_cycle_component_count": 0,
+            "largest_cycle_component_size": 1,
+            "ambiguous_high_valuation_edges": 1,
+            "integer_rank_nondecreasing_edges": 43691,
+            "integer_rank_nondecreasing_rate": 0.33333588,
+            "cycle_examples": [
+              {
+                "cycle_length": 1,
+                "sample_residues": [
+                  1
+                ],
+                "valuation_word": [
+                  2
+                ],
+                "affine_cycle_status": "valid_positive_cycle",
+                "candidate_value": 1,
+                "validated_as_exact_cycle": true,
+                "total_shift": 2,
+                "expansion_multiplier": 0.75
+              }
+            ]
+          }
+        ],
+        "first_tested_modulus_with_only_known_cycle": 8,
+        "false_quotient_cycles_eliminated_by_affine_lift": [
+          {
+            "modulus_bits": 10,
+            "cycle_length": 26,
+            "sample_residues": [
+              125,
+              47,
+              71,
+              107,
+              161,
+              121,
+              91,
+              137,
+              103,
+              155,
+              233,
+              175,
+              263,
+              395,
+              593,
+              445
+            ],
+            "valuation_word": [
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "affine_cycle_status": "globally_eliminated_expanding_word",
+            "candidate_value": null,
+            "validated_as_exact_cycle": false,
+            "total_shift": 37,
+            "expansion_multiplier": 18.494508027863
+          },
+          {
+            "modulus_bits": 12,
+            "cycle_length": 7,
+            "sample_residues": [
+              937,
+              703,
+              1055,
+              1583,
+              2375,
+              3563,
+              1249
+            ],
+            "valuation_word": [
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2
+            ],
+            "affine_cycle_status": "globally_eliminated_expanding_word",
+            "candidate_value": null,
+            "validated_as_exact_cycle": false,
+            "total_shift": 9,
+            "expansion_multiplier": 4.271484375
+          },
+          {
+            "modulus_bits": 12,
+            "cycle_length": 6,
+            "sample_residues": [
+              3311,
+              871,
+              1307,
+              1961,
+              1471,
+              2207
+            ],
+            "valuation_word": [
+              1,
+              1,
+              1,
+              2,
+              1,
+              1
+            ],
+            "affine_cycle_status": "globally_eliminated_expanding_word",
+            "candidate_value": null,
+            "validated_as_exact_cycle": false,
+            "total_shift": 7,
+            "expansion_multiplier": 5.6953125
+          }
+        ],
+        "false_quotient_cycle_count": 3,
+        "positive_cycle_candidates_seen": [
+          {
+            "modulus_bits": 8,
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          },
+          {
+            "modulus_bits": 10,
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          },
+          {
+            "modulus_bits": 12,
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          },
+          {
+            "modulus_bits": 14,
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          },
+          {
+            "modulus_bits": 16,
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          },
+          {
+            "modulus_bits": 18,
+            "cycle_length": 1,
+            "sample_residues": [
+              1
+            ],
+            "valuation_word": [
+              2
+            ],
+            "affine_cycle_status": "valid_positive_cycle",
+            "candidate_value": 1,
+            "validated_as_exact_cycle": true,
+            "total_shift": 2,
+            "expansion_multiplier": 0.75
+          }
+        ],
+        "nontrivial_positive_cycle_candidates_seen": []
+      },
+      "obstruction": "The affine lift audit removes the tested false quotient cycles and leaves only the known 1-cycle, but it does not prove that every larger modulus and every divergent branch admits a well-founded descent rank.",
+      "candidate_theorem": "Every finite quotient SCC of the accelerated Collatz map either fails the affine lift cycle condition or is the known 1-cycle, and all non-cyclic branches eventually enter a lower exact-cylinder rank.",
+      "next_experiment": "Formalize the affine lift elimination lemma and then attack the non-cyclic branch rank.",
+      "claim_boundary": "No Collatz proof and no Collatz counterexample found."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-24",
+      "status": "proof_pressure_open",
+      "route": "ExplicitWindowBudget",
+      "proof_or_counterexample_mode": "counterexample_search_plus_lower_bound_stress",
+      "attempt": "Combine direct counterexample search with sampled representation-count stress tests. The aim is to see which finite windows are weakest for an eventual explicit positive lower bound.",
+      "bounded_result": {
+        "search_limit": 2000000,
+        "sample_stride": 2000,
+        "counterexamples_found": [],
+        "first_counterexample": null,
+        "hardest_first_witness": {
+          "even": 1077422,
+          "smallest_prime": 601,
+          "partner": 1076821
+        },
+        "sampled_count_rows": [
+          {
+            "even": 10000,
+            "representation_count": 127,
+            "n_over_log_squared_n": 117.882311,
+            "count_to_scale_ratio": 1.0773457
+          },
+          {
+            "even": 12000,
+            "representation_count": 302,
+            "n_over_log_squared_n": 136.020342,
+            "count_to_scale_ratio": 2.22025614
+          },
+          {
+            "even": 14000,
+            "representation_count": 196,
+            "n_over_log_squared_n": 153.607082,
+            "count_to_scale_ratio": 1.27598283
+          },
+          {
+            "even": 16000,
+            "representation_count": 191,
+            "n_over_log_squared_n": 170.741228,
+            "count_to_scale_ratio": 1.1186519
+          },
+          {
+            "even": 18000,
+            "representation_count": 419,
+            "n_over_log_squared_n": 187.493568,
+            "count_to_scale_ratio": 2.23474333
+          },
+          {
+            "even": 20000,
+            "representation_count": 231,
+            "n_over_log_squared_n": 203.917114,
+            "count_to_scale_ratio": 1.13281321
+          },
+          {
+            "even": 22000,
+            "representation_count": 272,
+            "n_over_log_squared_n": 220.052909,
+            "count_to_scale_ratio": 1.23606637
+          },
+          {
+            "even": 24000,
+            "representation_count": 518,
+            "n_over_log_squared_n": 235.933578,
+            "count_to_scale_ratio": 2.19553319
+          },
+          {
+            "even": 26000,
+            "representation_count": 301,
+            "n_over_log_squared_n": 251.585611,
+            "count_to_scale_ratio": 1.19641183
+          },
+          {
+            "even": 28000,
+            "representation_count": 370,
+            "n_over_log_squared_n": 267.030906,
+            "count_to_scale_ratio": 1.3856074
+          },
+          {
+            "even": 30000,
+            "representation_count": 602,
+            "n_over_log_squared_n": 282.287836,
+            "count_to_scale_ratio": 2.13257507
+          },
+          {
+            "even": 32000,
+            "representation_count": 312,
+            "n_over_log_squared_n": 297.372014,
+            "count_to_scale_ratio": 1.04919086
+          },
+          {
+            "even": 34000,
+            "representation_count": 370,
+            "n_over_log_squared_n": 312.296856,
+            "count_to_scale_ratio": 1.18477017
+          },
+          {
+            "even": 36000,
+            "representation_count": 708,
+            "n_over_log_squared_n": 327.074001,
+            "count_to_scale_ratio": 2.16464775
+          },
+          {
+            "even": 38000,
+            "representation_count": 388,
+            "n_over_log_squared_n": 341.713632,
+            "count_to_scale_ratio": 1.13545368
+          },
+          {
+            "even": 40000,
+            "representation_count": 389,
+            "n_over_log_squared_n": 356.224727,
+            "count_to_scale_ratio": 1.09200729
+          },
+          {
+            "even": 42000,
+            "representation_count": 984,
+            "n_over_log_squared_n": 370.615253,
+            "count_to_scale_ratio": 2.65504453
+          },
+          {
+            "even": 44000,
+            "representation_count": 452,
+            "n_over_log_squared_n": 384.892325,
+            "count_to_scale_ratio": 1.17435441
+          },
+          {
+            "even": 46000,
+            "representation_count": 451,
+            "n_over_log_squared_n": 399.06233,
+            "count_to_scale_ratio": 1.13014927
+          },
+          {
+            "even": 48000,
+            "representation_count": 869,
+            "n_over_log_squared_n": 413.13103,
+            "count_to_scale_ratio": 2.10344887
+          },
+          {
+            "even": 50000,
+            "representation_count": 450,
+            "n_over_log_squared_n": 427.103649,
+            "count_to_scale_ratio": 1.05360842
+          },
+          {
+            "even": 52000,
+            "representation_count": 522,
+            "n_over_log_squared_n": 440.984939,
+            "count_to_scale_ratio": 1.18371389
+          },
+          {
+            "even": 54000,
+            "representation_count": 983,
+            "n_over_log_squared_n": 454.779245,
+            "count_to_scale_ratio": 2.16148826
+          },
+          {
+            "even": 56000,
+            "representation_count": 603,
+            "n_over_log_squared_n": 468.490547,
+            "count_to_scale_ratio": 1.28711242
+          },
+          {
+            "even": 58000,
+            "representation_count": 538,
+            "n_over_log_squared_n": 482.122508,
+            "count_to_scale_ratio": 1.11589895
+          },
+          {
+            "even": 60000,
+            "representation_count": 1084,
+            "n_over_log_squared_n": 495.678506,
+            "count_to_scale_ratio": 2.18690136
+          },
+          {
+            "even": 62000,
+            "representation_count": 573,
+            "n_over_log_squared_n": 509.161667,
+            "count_to_scale_ratio": 1.1253793
+          },
+          {
+            "even": 64000,
+            "representation_count": 575,
+            "n_over_log_squared_n": 522.57489,
+            "count_to_scale_ratio": 1.10032076
+          },
+          {
+            "even": 66000,
+            "representation_count": 1284,
+            "n_over_log_squared_n": 535.920871,
+            "count_to_scale_ratio": 2.39587609
+          },
+          {
+            "even": 68000,
+            "representation_count": 624,
+            "n_over_log_squared_n": 549.202124,
+            "count_to_scale_ratio": 1.13619371
+          }
+        ],
+        "sampled_count_row_count": 996,
+        "weakest_sampled_representation_count": {
+          "even": 10000,
+          "representation_count": 127,
+          "n_over_log_squared_n": 117.882311,
+          "count_to_scale_ratio": 1.0773457
+        },
+        "weakest_sampled_count_to_scale_ratio": {
+          "even": 1732000,
+          "representation_count": 8515,
+          "n_over_log_squared_n": 8393.623485,
+          "count_to_scale_ratio": 1.01446056
+        },
+        "exceptional_set_status": "empty_through_bound"
+      },
+      "obstruction": "The sampled count budget can identify weak finite windows, but the conjecture needs a theorem proving a positive representation count for all sufficiently large even integers, not just sampled or bounded ones.",
+      "candidate_theorem": "An explicit circle-method lower bound proves r_2(N) > 0 for every even N >= N0, with finite verified coverage for all even N < N0.",
+      "next_experiment": "Use the weakest sampled windows to tune explicit major/minor-arc error budgets.",
+      "claim_boundary": "No Goldbach proof and no Goldbach counterexample found."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-24",
+      "status": "proof_pressure_open",
+      "route": "ExactGapWeightSearch",
+      "proof_or_counterexample_mode": "exact_gap_weight_vs_bounded_gap_shortcut",
+      "attempt": "Compare exact-gap-2 and bounded-gap-only weights on true prime data and a deletion model that removes every twin pair. This tests whether the proposed statistic is really an exact-gap statistic.",
+      "bounded_result": {
+        "limits": [
+          100000,
+          1000000,
+          2000000,
+          3000000
+        ],
+        "max_gap": 60,
+        "weight_rows": [
+          {
+            "limit": 100000,
+            "original_exact_gap_2": 1224,
+            "deletion_model_exact_gap_2": 0,
+            "exact_gap_weight_margin": 1224,
+            "bounded_gap_total": 9588,
+            "deletion_model_bounded_gap_total": 8364,
+            "bounded_gap_retention_ratio": 0.87234043,
+            "bounded_without_gap_2": 8364,
+            "deletion_bounded_without_gap_2": 8364,
+            "bounded_without_gap_2_retention_ratio": 1.0,
+            "gap_head": [
+              {
+                "gap": 2,
+                "original_count": 1224,
+                "deletion_model_count": 0
+              },
+              {
+                "gap": 4,
+                "original_count": 1215,
+                "deletion_model_count": 956
+              },
+              {
+                "gap": 6,
+                "original_count": 1940,
+                "deletion_model_count": 1974
+              },
+              {
+                "gap": 8,
+                "original_count": 773,
+                "deletion_model_count": 998
+              },
+              {
+                "gap": 10,
+                "original_count": 916,
+                "deletion_model_count": 669
+              },
+              {
+                "gap": 12,
+                "original_count": 964,
+                "deletion_model_count": 1047
+              }
+            ]
+          },
+          {
+            "limit": 1000000,
+            "original_exact_gap_2": 8169,
+            "deletion_model_exact_gap_2": 0,
+            "exact_gap_weight_margin": 8169,
+            "bounded_gap_total": 78299,
+            "deletion_model_bounded_gap_total": 70119,
+            "bounded_gap_retention_ratio": 0.89552868,
+            "bounded_without_gap_2": 70130,
+            "deletion_bounded_without_gap_2": 70119,
+            "bounded_without_gap_2_retention_ratio": 0.99984315,
+            "gap_head": [
+              {
+                "gap": 2,
+                "original_count": 8169,
+                "deletion_model_count": 0
+              },
+              {
+                "gap": 4,
+                "original_count": 8143,
+                "deletion_model_count": 6750
+              },
+              {
+                "gap": 6,
+                "original_count": 13549,
+                "deletion_model_count": 13681
+              },
+              {
+                "gap": 8,
+                "original_count": 5569,
+                "deletion_model_count": 6830
+              },
+              {
+                "gap": 10,
+                "original_count": 7079,
+                "deletion_model_count": 5573
+              },
+              {
+                "gap": 12,
+                "original_count": 8005,
+                "deletion_model_count": 8545
+              }
+            ]
+          },
+          {
+            "limit": 2000000,
+            "original_exact_gap_2": 14871,
+            "deletion_model_exact_gap_2": 0,
+            "exact_gap_weight_margin": 14871,
+            "bounded_gap_total": 148327,
+            "deletion_model_bounded_gap_total": 133431,
+            "bounded_gap_retention_ratio": 0.89957324,
+            "bounded_without_gap_2": 133456,
+            "deletion_bounded_without_gap_2": 133431,
+            "bounded_without_gap_2_retention_ratio": 0.99981267,
+            "gap_head": [
+              {
+                "gap": 2,
+                "original_count": 14871,
+                "deletion_model_count": 0
+              },
+              {
+                "gap": 4,
+                "original_count": 14741,
+                "deletion_model_count": 12361
+              },
+              {
+                "gap": 6,
+                "original_count": 24531,
+                "deletion_model_count": 24785
+              },
+              {
+                "gap": 8,
+                "original_count": 10280,
+                "deletion_model_count": 12406
+              },
+              {
+                "gap": 10,
+                "original_count": 12967,
+                "deletion_model_count": 10338
+              },
+              {
+                "gap": 12,
+                "original_count": 15141,
+                "deletion_model_count": 16017
+              }
+            ]
+          },
+          {
+            "limit": 3000000,
+            "original_exact_gap_2": 20932,
+            "deletion_model_exact_gap_2": 0,
+            "exact_gap_weight_margin": 20932,
+            "bounded_gap_total": 215769,
+            "deletion_model_bounded_gap_total": 194797,
+            "bounded_gap_retention_ratio": 0.90280346,
+            "bounded_without_gap_2": 194837,
+            "deletion_bounded_without_gap_2": 194797,
+            "bounded_without_gap_2_retention_ratio": 0.9997947,
+            "gap_head": [
+              {
+                "gap": 2,
+                "original_count": 20932,
+                "deletion_model_count": 0
+              },
+              {
+                "gap": 4,
+                "original_count": 20825,
+                "deletion_model_count": 17552
+              },
+              {
+                "gap": 6,
+                "original_count": 34902,
+                "deletion_model_count": 35233
+              },
+              {
+                "gap": 8,
+                "original_count": 14687,
+                "deletion_model_count": 17629
+              },
+              {
+                "gap": 10,
+                "original_count": 18537,
+                "deletion_model_count": 14922
+              },
+              {
+                "gap": 12,
+                "original_count": 21934,
+                "deletion_model_count": 23116
+              }
+            ]
+          }
+        ],
+        "last_row": {
+          "limit": 3000000,
+          "original_exact_gap_2": 20932,
+          "deletion_model_exact_gap_2": 0,
+          "exact_gap_weight_margin": 20932,
+          "bounded_gap_total": 215769,
+          "deletion_model_bounded_gap_total": 194797,
+          "bounded_gap_retention_ratio": 0.90280346,
+          "bounded_without_gap_2": 194837,
+          "deletion_bounded_without_gap_2": 194797,
+          "bounded_without_gap_2_retention_ratio": 0.9997947,
+          "gap_head": [
+            {
+              "gap": 2,
+              "original_count": 20932,
+              "deletion_model_count": 0
+            },
+            {
+              "gap": 4,
+              "original_count": 20825,
+              "deletion_model_count": 17552
+            },
+            {
+              "gap": 6,
+              "original_count": 34902,
+              "deletion_model_count": 35233
+            },
+            {
+              "gap": 8,
+              "original_count": 14687,
+              "deletion_model_count": 17629
+            },
+            {
+              "gap": 10,
+              "original_count": 18537,
+              "deletion_model_count": 14922
+            },
+            {
+              "gap": 12,
+              "original_count": 21934,
+              "deletion_model_count": 23116
+            }
+          ]
+        },
+        "bounded_only_weight_is_fooled": true,
+        "exact_gap_weight_separates_deletion_model": true
+      },
+      "obstruction": "The exact-gap weight separates the finite deletion model, but a proof needs a lower bound showing that this exact-gap weight remains positive arbitrarily far out without Hardy-Littlewood assumptions.",
+      "candidate_theorem": "There is an unconditional nonnegative exact-gap-2 sieve weight with a positive lower bound for infinitely many scales and with a fully explicit parity-error term.",
+      "next_experiment": "Search for exact-gap weights whose main term and parity-error budget can be written as a formal inequality.",
+      "claim_boundary": "No Twin Prime proof. Exact-gap weight evidence is finite and not an infinitude proof."
+    }
+  ]
+}

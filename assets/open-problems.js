@@ -2410,7 +2410,102 @@ function renderTicket23CegisRank(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket) {
+function renderTicket24Evidence(attempt) {
+  const bounded = attempt?.bounded_result || {};
+  if (Array.isArray(bounded.detector_budget_rows)) {
+    return table(
+      ["beta", "height", "search cap", "threshold index", "seen"],
+      bounded.detector_budget_rows.map((row) => [
+        row.offcritical_beta,
+        row.height,
+        row.search_limit,
+        row.first_below_threshold_index,
+        row.threshold_seen,
+      ]),
+    );
+  }
+  if (Array.isArray(bounded.lift_rows)) {
+    return table(
+      ["bits", "states", "nontrivial cycles", "largest cycle", "rank nondecrease"],
+      bounded.lift_rows.map((row) => [
+        row.modulus_bits,
+        row.odd_state_count,
+        row.nontrivial_cycle_component_count,
+        row.largest_cycle_component_size,
+        row.integer_rank_nondecreasing_rate,
+      ]),
+    );
+  }
+  if (Array.isArray(bounded.sampled_count_rows)) {
+    return [
+      table(
+        ["even", "representations", "N/log^2N", "ratio"],
+        bounded.sampled_count_rows.slice(0, 12).map((row) => [
+          row.even,
+          row.representation_count,
+          row.n_over_log_squared_n,
+          row.count_to_scale_ratio,
+        ]),
+      ),
+      `<p class="proof-note">Weakest sampled ratio: ${escapeHtml(formatValue(bounded.weakest_sampled_count_to_scale_ratio?.even))} with ratio ${escapeHtml(formatValue(bounded.weakest_sampled_count_to_scale_ratio?.count_to_scale_ratio))}</p>`,
+    ].join("");
+  }
+  if (Array.isArray(bounded.weight_rows)) {
+    return table(
+      ["limit", "gap 2 margin", "bounded retention", "bounded w/o gap 2 retention"],
+      bounded.weight_rows.map((row) => [
+        row.limit,
+        row.exact_gap_weight_margin,
+        row.bounded_gap_retention_ratio,
+        row.bounded_without_gap_2_retention_ratio,
+      ]),
+    );
+  }
+  return "";
+}
+
+function renderTicket24BridgeWeight(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const summaryRows = Object.entries(bounded)
+    .filter(([, value]) => typeof value !== "object" || value === null)
+    .slice(0, 10);
+  return `
+    <div class="poc-ticket17 poc-ticket24">
+      <h3>Ticket 24 bridge-weight lab</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["Bridge-weight result", "Value"], summaryRows) : ""}
+      ${renderTicket24Evidence(attempt)}
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -2484,10 +2579,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket21TwoAdicBranch(twoAdicBranchTicket)}
     ${renderTicket22NegationPressure(negationPressureTicket)}
     ${renderTicket23CegisRank(cegisRankTicket)}
+    ${renderTicket24BridgeWeight(bridgeWeightTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -2511,7 +2607,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -2577,6 +2673,7 @@ async function main() {
   let ticket21Attempt = null;
   let ticket22Attempt = null;
   let ticket23Attempt = null;
+  let ticket24Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -2649,7 +2746,16 @@ async function main() {
   } catch (error) {
     ticket23Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt);
+  try {
+    const ticket24Response = await fetch("../data/open-problem/ticket24-bridge-weight-lab.json", { cache: "no-store" });
+    if (ticket24Response.ok) {
+      const ticket24Payload = await ticket24Response.json();
+      ticket24Attempt = (ticket24Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket24Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt);
 }
 
 main().catch((error) => {

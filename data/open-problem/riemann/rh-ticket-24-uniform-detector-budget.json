@@ -1,0 +1,155 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-24",
+  "status": "proof_pressure_open",
+  "route": "UniformDetectorBudget",
+  "proof_or_counterexample_mode": "finite_prefix_evasion_budget",
+  "attempt": "Convert the off-critical-zero detector experiment into a budget table: if the detector index grows like height squared, any fixed finite Li-prefix can be evaded by sufficiently high surrogate zeros.",
+  "bounded_result": {
+    "threshold": -1.0,
+    "search_cap": 1000000,
+    "detector_budget_rows": [
+      {
+        "offcritical_beta": 0.6,
+        "height": 100.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 628,
+        "first_below_threshold_index": 69737,
+        "threshold_seen": true,
+        "minimum_value_seen": -1.000355023746,
+        "minimum_index_seen": 69737,
+        "threshold_index_over_height_squared": 6.9737
+      },
+      {
+        "offcritical_beta": 0.6,
+        "height": 200.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 1257,
+        "first_below_threshold_index": 277711,
+        "threshold_seen": true,
+        "minimum_value_seen": -1.000788115178,
+        "minimum_index_seen": 277711,
+        "threshold_index_over_height_squared": 6.942775
+      },
+      {
+        "offcritical_beta": 0.6,
+        "height": 500.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 3141,
+        "first_below_threshold_index": null,
+        "threshold_seen": false,
+        "minimum_value_seen": -0.323649443227,
+        "minimum_index_seen": 999027,
+        "threshold_index_over_height_squared": null
+      },
+      {
+        "offcritical_beta": 0.75,
+        "height": 100.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 627,
+        "first_below_threshold_index": 28263,
+        "threshold_seen": true,
+        "minimum_value_seen": -1.005934782221,
+        "minimum_index_seen": 28263,
+        "threshold_index_over_height_squared": 2.8263
+      },
+      {
+        "offcritical_beta": 0.75,
+        "height": 200.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 1256,
+        "first_below_threshold_index": 111825,
+        "threshold_seen": true,
+        "minimum_value_seen": -1.001083211313,
+        "minimum_index_seen": 111825,
+        "threshold_index_over_height_squared": 2.795625
+      },
+      {
+        "offcritical_beta": 0.75,
+        "height": 500.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 3141,
+        "first_below_threshold_index": 694274,
+        "threshold_seen": true,
+        "minimum_value_seen": -1.000000349039,
+        "minimum_index_seen": 694274,
+        "threshold_index_over_height_squared": 2.777096
+      },
+      {
+        "offcritical_beta": 0.9,
+        "height": 100.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 626,
+        "first_below_threshold_index": 17583,
+        "threshold_seen": true,
+        "minimum_value_seen": -1.003785960415,
+        "minimum_index_seen": 17583,
+        "threshold_index_over_height_squared": 1.7583
+      },
+      {
+        "offcritical_beta": 0.9,
+        "height": 200.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 1255,
+        "first_below_threshold_index": 70350,
+        "threshold_seen": true,
+        "minimum_value_seen": -1.000610031118,
+        "minimum_index_seen": 70350,
+        "threshold_index_over_height_squared": 1.75875
+      },
+      {
+        "offcritical_beta": 0.9,
+        "height": 500.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 3140,
+        "first_below_threshold_index": 433529,
+        "threshold_seen": true,
+        "minimum_value_seen": -1.000238313748,
+        "minimum_index_seen": 433529,
+        "threshold_index_over_height_squared": 1.734116
+      }
+    ],
+    "missed_threshold_cases": [
+      {
+        "offcritical_beta": 0.6,
+        "height": 500.0,
+        "search_limit": 1000000,
+        "first_negative_li_index": 3141,
+        "first_below_threshold_index": null,
+        "threshold_seen": false,
+        "minimum_value_seen": -0.323649443227,
+        "minimum_index_seen": 999027,
+        "threshold_index_over_height_squared": null
+      }
+    ],
+    "missed_threshold_case_count": 1,
+    "quadratic_budget_fit": [
+      {
+        "offcritical_beta": 0.6,
+        "seen_case_count": 2,
+        "mean_threshold_index_over_height_squared": 6.9582375,
+        "max_threshold_index_over_height_squared": 6.9737,
+        "projected_index_at_height_1000": 6973700
+      },
+      {
+        "offcritical_beta": 0.75,
+        "seen_case_count": 3,
+        "mean_threshold_index_over_height_squared": 2.79967367,
+        "max_threshold_index_over_height_squared": 2.8263,
+        "projected_index_at_height_1000": 2826300
+      },
+      {
+        "offcritical_beta": 0.9,
+        "seen_case_count": 3,
+        "mean_threshold_index_over_height_squared": 1.75038867,
+        "max_threshold_index_over_height_squared": 1.75875,
+        "projected_index_at_height_1000": 1758750
+      }
+    ],
+    "finite_prefix_evasion_status": "observed_for_tested_surrogates"
+  },
+  "obstruction": "The budget table can refute a fixed-prefix proof strategy, but it cannot prove RH or produce a zeta counterexample. A valid proof still needs an explicit formula theorem that is uniform over all zeros.",
+  "candidate_theorem": "A uniform all-height detector theorem bounds the Li/kernel index needed to expose every off-critical zero and subtracts the contribution of the remaining zero set with explicit constants.",
+  "next_experiment": "Replace the empirical height-squared fit with a symbolic inequality in the explicit formula.",
+  "claim_boundary": "No RH proof and no certified RH counterexample."
+}

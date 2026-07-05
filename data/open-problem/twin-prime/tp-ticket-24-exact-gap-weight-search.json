@@ -1,0 +1,245 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-24",
+  "status": "proof_pressure_open",
+  "route": "ExactGapWeightSearch",
+  "proof_or_counterexample_mode": "exact_gap_weight_vs_bounded_gap_shortcut",
+  "attempt": "Compare exact-gap-2 and bounded-gap-only weights on true prime data and a deletion model that removes every twin pair. This tests whether the proposed statistic is really an exact-gap statistic.",
+  "bounded_result": {
+    "limits": [
+      100000,
+      1000000,
+      2000000,
+      3000000
+    ],
+    "max_gap": 60,
+    "weight_rows": [
+      {
+        "limit": 100000,
+        "original_exact_gap_2": 1224,
+        "deletion_model_exact_gap_2": 0,
+        "exact_gap_weight_margin": 1224,
+        "bounded_gap_total": 9588,
+        "deletion_model_bounded_gap_total": 8364,
+        "bounded_gap_retention_ratio": 0.87234043,
+        "bounded_without_gap_2": 8364,
+        "deletion_bounded_without_gap_2": 8364,
+        "bounded_without_gap_2_retention_ratio": 1.0,
+        "gap_head": [
+          {
+            "gap": 2,
+            "original_count": 1224,
+            "deletion_model_count": 0
+          },
+          {
+            "gap": 4,
+            "original_count": 1215,
+            "deletion_model_count": 956
+          },
+          {
+            "gap": 6,
+            "original_count": 1940,
+            "deletion_model_count": 1974
+          },
+          {
+            "gap": 8,
+            "original_count": 773,
+            "deletion_model_count": 998
+          },
+          {
+            "gap": 10,
+            "original_count": 916,
+            "deletion_model_count": 669
+          },
+          {
+            "gap": 12,
+            "original_count": 964,
+            "deletion_model_count": 1047
+          }
+        ]
+      },
+      {
+        "limit": 1000000,
+        "original_exact_gap_2": 8169,
+        "deletion_model_exact_gap_2": 0,
+        "exact_gap_weight_margin": 8169,
+        "bounded_gap_total": 78299,
+        "deletion_model_bounded_gap_total": 70119,
+        "bounded_gap_retention_ratio": 0.89552868,
+        "bounded_without_gap_2": 70130,
+        "deletion_bounded_without_gap_2": 70119,
+        "bounded_without_gap_2_retention_ratio": 0.99984315,
+        "gap_head": [
+          {
+            "gap": 2,
+            "original_count": 8169,
+            "deletion_model_count": 0
+          },
+          {
+            "gap": 4,
+            "original_count": 8143,
+            "deletion_model_count": 6750
+          },
+          {
+            "gap": 6,
+            "original_count": 13549,
+            "deletion_model_count": 13681
+          },
+          {
+            "gap": 8,
+            "original_count": 5569,
+            "deletion_model_count": 6830
+          },
+          {
+            "gap": 10,
+            "original_count": 7079,
+            "deletion_model_count": 5573
+          },
+          {
+            "gap": 12,
+            "original_count": 8005,
+            "deletion_model_count": 8545
+          }
+        ]
+      },
+      {
+        "limit": 2000000,
+        "original_exact_gap_2": 14871,
+        "deletion_model_exact_gap_2": 0,
+        "exact_gap_weight_margin": 14871,
+        "bounded_gap_total": 148327,
+        "deletion_model_bounded_gap_total": 133431,
+        "bounded_gap_retention_ratio": 0.89957324,
+        "bounded_without_gap_2": 133456,
+        "deletion_bounded_without_gap_2": 133431,
+        "bounded_without_gap_2_retention_ratio": 0.99981267,
+        "gap_head": [
+          {
+            "gap": 2,
+            "original_count": 14871,
+            "deletion_model_count": 0
+          },
+          {
+            "gap": 4,
+            "original_count": 14741,
+            "deletion_model_count": 12361
+          },
+          {
+            "gap": 6,
+            "original_count": 24531,
+            "deletion_model_count": 24785
+          },
+          {
+            "gap": 8,
+            "original_count": 10280,
+            "deletion_model_count": 12406
+          },
+          {
+            "gap": 10,
+            "original_count": 12967,
+            "deletion_model_count": 10338
+          },
+          {
+            "gap": 12,
+            "original_count": 15141,
+            "deletion_model_count": 16017
+          }
+        ]
+      },
+      {
+        "limit": 3000000,
+        "original_exact_gap_2": 20932,
+        "deletion_model_exact_gap_2": 0,
+        "exact_gap_weight_margin": 20932,
+        "bounded_gap_total": 215769,
+        "deletion_model_bounded_gap_total": 194797,
+        "bounded_gap_retention_ratio": 0.90280346,
+        "bounded_without_gap_2": 194837,
+        "deletion_bounded_without_gap_2": 194797,
+        "bounded_without_gap_2_retention_ratio": 0.9997947,
+        "gap_head": [
+          {
+            "gap": 2,
+            "original_count": 20932,
+            "deletion_model_count": 0
+          },
+          {
+            "gap": 4,
+            "original_count": 20825,
+            "deletion_model_count": 17552
+          },
+          {
+            "gap": 6,
+            "original_count": 34902,
+            "deletion_model_count": 35233
+          },
+          {
+            "gap": 8,
+            "original_count": 14687,
+            "deletion_model_count": 17629
+          },
+          {
+            "gap": 10,
+            "original_count": 18537,
+            "deletion_model_count": 14922
+          },
+          {
+            "gap": 12,
+            "original_count": 21934,
+            "deletion_model_count": 23116
+          }
+        ]
+      }
+    ],
+    "last_row": {
+      "limit": 3000000,
+      "original_exact_gap_2": 20932,
+      "deletion_model_exact_gap_2": 0,
+      "exact_gap_weight_margin": 20932,
+      "bounded_gap_total": 215769,
+      "deletion_model_bounded_gap_total": 194797,
+      "bounded_gap_retention_ratio": 0.90280346,
+      "bounded_without_gap_2": 194837,
+      "deletion_bounded_without_gap_2": 194797,
+      "bounded_without_gap_2_retention_ratio": 0.9997947,
+      "gap_head": [
+        {
+          "gap": 2,
+          "original_count": 20932,
+          "deletion_model_count": 0
+        },
+        {
+          "gap": 4,
+          "original_count": 20825,
+          "deletion_model_count": 17552
+        },
+        {
+          "gap": 6,
+          "original_count": 34902,
+          "deletion_model_count": 35233
+        },
+        {
+          "gap": 8,
+          "original_count": 14687,
+          "deletion_model_count": 17629
+        },
+        {
+          "gap": 10,
+          "original_count": 18537,
+          "deletion_model_count": 14922
+        },
+        {
+          "gap": 12,
+          "original_count": 21934,
+          "deletion_model_count": 23116
+        }
+      ]
+    },
+    "bounded_only_weight_is_fooled": true,
+    "exact_gap_weight_separates_deletion_model": true
+  },
+  "obstruction": "The exact-gap weight separates the finite deletion model, but a proof needs a lower bound showing that this exact-gap weight remains positive arbitrarily far out without Hardy-Littlewood assumptions.",
+  "candidate_theorem": "There is an unconditional nonnegative exact-gap-2 sieve weight with a positive lower bound for infinitely many scales and with a fully explicit parity-error term.",
+  "next_experiment": "Search for exact-gap weights whose main term and parity-error budget can be written as a formal inequality.",
+  "claim_boundary": "No Twin Prime proof. Exact-gap weight evidence is finite and not an infinitude proof."
+}
