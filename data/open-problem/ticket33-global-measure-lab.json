@@ -1,0 +1,583 @@
+{
+  "schema": "primeproject.ticket33-global-measure-lab.v1",
+  "generated_at": "2026-07-07T01:00:00+09:00",
+  "status": "global_measure_open_no_resolution",
+  "claim_boundary": "Ticket 33 observes bounded Collatz frontier mass decay and high-branch obstruction. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-33",
+      "status": "proof_pressure_open",
+      "route": "GlobalTailCompactness",
+      "proof_or_counterexample_mode": "global_compactness_refinement",
+      "attempt": "Move from bounded stateful certificates to global compactness pressure: finite decreasing quantities matter only if they can be upgraded into a theorem that rules out all infinite obstruction paths.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-32",
+        "source_route": "StatefulTailCertificate",
+        "frontier_status": "open_infinite_bridge",
+        "ticket33_transfer": "GlobalTailCompactness"
+      },
+      "obstruction": "A bounded tail state certificate still needs a compactness theorem controlling infinitely many zero contributions.",
+      "candidate_theorem": "A global tail compactness theorem makes any off-critical zero produce a finite positivity failure.",
+      "next_experiment": "Search admissible kernel families whose tail bounds are monotone and independently replayable.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-33",
+      "status": "proof_pressure_open",
+      "route": "GlobalMeasureCompactnessOrHighBranchClosure",
+      "proof_or_counterexample_mode": "global_measure_counterexample_guided_synthesis",
+      "attempt": "Test whether the adaptive exact-cylinder frontier supports a global measure argument, and whether high-child branches close automatically after Ticket 32 handles same-signature low-child stutter.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-32",
+        "global_measure_audit": {
+          "base_modulus_bits": 12,
+          "max_modulus_bits": 28,
+          "frontier_rows": [
+            {
+              "bits": 12,
+              "open_frontier_count": 2048,
+              "open_frontier_mass": 1.0,
+              "transition_counts": {
+                "both_closed": 1788,
+                "both_open": 185,
+                "high_only_open": 36,
+                "low_only_open": 39
+              },
+              "low_open_child_count": 224,
+              "high_open_child_count": 221,
+              "low_open_child_mass": 0.0546875,
+              "high_open_child_mass": 0.053955078125,
+              "next_open_frontier_count": 445,
+              "next_open_frontier_mass": 0.108642578125,
+              "mass_ratio_to_next": 0.108642578125
+            },
+            {
+              "bits": 13,
+              "open_frontier_count": 445,
+              "open_frontier_mass": 0.108642578125,
+              "transition_counts": {
+                "both_closed": 39,
+                "both_open": 367,
+                "low_only_open": 39
+              },
+              "low_open_child_count": 406,
+              "high_open_child_count": 367,
+              "low_open_child_mass": 0.049560546875,
+              "high_open_child_mass": 0.044799804688,
+              "next_open_frontier_count": 773,
+              "next_open_frontier_mass": 0.094360351562,
+              "mass_ratio_to_next": 0.868539325843
+            },
+            {
+              "bits": 14,
+              "open_frontier_count": 773,
+              "open_frontier_mass": 0.094360351562,
+              "transition_counts": {
+                "both_closed": 24,
+                "both_open": 649,
+                "high_only_open": 44,
+                "low_only_open": 56
+              },
+              "low_open_child_count": 705,
+              "high_open_child_count": 693,
+              "low_open_child_mass": 0.043029785156,
+              "high_open_child_mass": 0.042297363281,
+              "next_open_frontier_count": 1398,
+              "next_open_frontier_mass": 0.085327148438,
+              "mass_ratio_to_next": 0.904269081501
+            },
+            {
+              "bits": 15,
+              "open_frontier_count": 1398,
+              "open_frontier_mass": 0.085327148438,
+              "transition_counts": {
+                "both_closed": 54,
+                "both_open": 1056,
+                "high_only_open": 118,
+                "low_only_open": 170
+              },
+              "low_open_child_count": 1226,
+              "high_open_child_count": 1174,
+              "low_open_child_mass": 0.037414550781,
+              "high_open_child_mass": 0.035827636719,
+              "next_open_frontier_count": 2400,
+              "next_open_frontier_mass": 0.0732421875,
+              "mass_ratio_to_next": 0.858369098712
+            },
+            {
+              "bits": 16,
+              "open_frontier_count": 2400,
+              "open_frontier_mass": 0.0732421875,
+              "transition_counts": {
+                "both_closed": 146,
+                "both_open": 2114,
+                "low_only_open": 140
+              },
+              "low_open_child_count": 2254,
+              "high_open_child_count": 2114,
+              "low_open_child_mass": 0.034393310547,
+              "high_open_child_mass": 0.032257080078,
+              "next_open_frontier_count": 4368,
+              "next_open_frontier_mass": 0.066650390625,
+              "mass_ratio_to_next": 0.91
+            },
+            {
+              "bits": 17,
+              "open_frontier_count": 4368,
+              "open_frontier_mass": 0.066650390625,
+              "transition_counts": {
+                "both_closed": 69,
+                "both_open": 3778,
+                "high_only_open": 236,
+                "low_only_open": 285
+              },
+              "low_open_child_count": 4063,
+              "high_open_child_count": 4014,
+              "low_open_child_mass": 0.03099822998,
+              "high_open_child_mass": 0.030624389648,
+              "next_open_frontier_count": 8077,
+              "next_open_frontier_mass": 0.061622619629,
+              "mass_ratio_to_next": 0.924565018315
+            },
+            {
+              "bits": 18,
+              "open_frontier_count": 8077,
+              "open_frontier_mass": 0.061622619629,
+              "transition_counts": {
+                "both_closed": 308,
+                "both_open": 7495,
+                "low_only_open": 274
+              },
+              "low_open_child_count": 7769,
+              "high_open_child_count": 7495,
+              "low_open_child_mass": 0.029636383057,
+              "high_open_child_mass": 0.028591156006,
+              "next_open_frontier_count": 15264,
+              "next_open_frontier_mass": 0.058227539062,
+              "mass_ratio_to_next": 0.944905286616
+            },
+            {
+              "bits": 19,
+              "open_frontier_count": 15264,
+              "open_frontier_mass": 0.058227539062,
+              "transition_counts": {
+                "both_closed": 137,
+                "both_open": 13662,
+                "high_only_open": 676,
+                "low_only_open": 789
+              },
+              "low_open_child_count": 14451,
+              "high_open_child_count": 14338,
+              "low_open_child_mass": 0.027563095093,
+              "high_open_child_mass": 0.027347564697,
+              "next_open_frontier_count": 28789,
+              "next_open_frontier_mass": 0.05491065979,
+              "mass_ratio_to_next": 0.943035901468
+            },
+            {
+              "bits": 20,
+              "open_frontier_count": 28789,
+              "open_frontier_mass": 0.05491065979,
+              "transition_counts": {
+                "both_closed": 726,
+                "both_open": 23312,
+                "high_only_open": 2020,
+                "low_only_open": 2731
+              },
+              "low_open_child_count": 26043,
+              "high_open_child_count": 25332,
+              "low_open_child_mass": 0.024836540222,
+              "high_open_child_mass": 0.024158477783,
+              "next_open_frontier_count": 51375,
+              "next_open_frontier_mass": 0.048995018005,
+              "mass_ratio_to_next": 0.892267880093
+            },
+            {
+              "bits": 21,
+              "open_frontier_count": 51375,
+              "open_frontier_mass": 0.048995018005,
+              "transition_counts": {
+                "both_closed": 2365,
+                "both_open": 46611,
+                "low_only_open": 2399
+              },
+              "low_open_child_count": 49010,
+              "high_open_child_count": 46611,
+              "low_open_child_mass": 0.023369789124,
+              "high_open_child_mass": 0.022225856781,
+              "next_open_frontier_count": 95621,
+              "next_open_frontier_mass": 0.045595645905,
+              "mass_ratio_to_next": 0.930618004866
+            },
+            {
+              "bits": 22,
+              "open_frontier_count": 95621,
+              "open_frontier_mass": 0.045595645905,
+              "transition_counts": {
+                "both_closed": 1208,
+                "both_open": 84438,
+                "high_only_open": 4366,
+                "low_only_open": 5609
+              },
+              "low_open_child_count": 90047,
+              "high_open_child_count": 88804,
+              "low_open_child_mass": 0.021468877792,
+              "high_open_child_mass": 0.021172523499,
+              "next_open_frontier_count": 178851,
+              "next_open_frontier_mass": 0.042641401291,
+              "mass_ratio_to_next": 0.935207747252
+            },
+            {
+              "bits": 23,
+              "open_frontier_count": 178851,
+              "open_frontier_mass": 0.042641401291,
+              "transition_counts": {
+                "both_closed": 4926,
+                "both_open": 143170,
+                "high_only_open": 12656,
+                "low_only_open": 18099
+              },
+              "low_open_child_count": 161269,
+              "high_open_child_count": 155826,
+              "low_open_child_mass": 0.019224762917,
+              "high_open_child_mass": 0.018575906754,
+              "next_open_frontier_count": 317095,
+              "next_open_frontier_mass": 0.03780066967,
+              "mass_ratio_to_next": 0.88647812984
+            },
+            {
+              "bits": 24,
+              "open_frontier_count": 317095,
+              "open_frontier_mass": 0.03780066967,
+              "transition_counts": {
+                "both_closed": 15255,
+                "both_open": 286581,
+                "low_only_open": 15259
+              },
+              "low_open_child_count": 301840,
+              "high_open_child_count": 286581,
+              "low_open_child_mass": 0.017991065979,
+              "high_open_child_mass": 0.017081558704,
+              "next_open_frontier_count": 588421,
+              "next_open_frontier_mass": 0.035072624683,
+              "mass_ratio_to_next": 0.927830776266
+            },
+            {
+              "bits": 25,
+              "open_frontier_count": 588421,
+              "open_frontier_mass": 0.035072624683,
+              "transition_counts": {
+                "both_closed": 7629,
+                "both_open": 518856,
+                "high_only_open": 27162,
+                "low_only_open": 34774
+              },
+              "low_open_child_count": 553630,
+              "high_open_child_count": 546018,
+              "low_open_child_mass": 0.016499459743,
+              "high_open_child_mass": 0.016272604465,
+              "next_open_frontier_count": 1099648,
+              "next_open_frontier_mass": 0.032772064209,
+              "mass_ratio_to_next": 0.934405808086
+            },
+            {
+              "bits": 26,
+              "open_frontier_count": 1099648,
+              "open_frontier_mass": 0.032772064209,
+              "transition_counts": {
+                "both_closed": 31181,
+                "both_open": 881330,
+                "high_only_open": 78135,
+                "low_only_open": 109002
+              },
+              "low_open_child_count": 990332,
+              "high_open_child_count": 959465,
+              "low_open_child_mass": 0.014757096767,
+              "high_open_child_mass": 0.014297142625,
+              "next_open_frontier_count": 1949797,
+              "next_open_frontier_mass": 0.029054239392,
+              "mass_ratio_to_next": 0.886555061256
+            },
+            {
+              "bits": 27,
+              "open_frontier_count": 1949797,
+              "open_frontier_mass": 0.029054239392,
+              "transition_counts": {
+                "both_closed": 93690,
+                "both_open": 1762293,
+                "low_only_open": 93814
+              },
+              "low_open_child_count": 1856107,
+              "high_open_child_count": 1762293,
+              "low_open_child_mass": 0.0138290748,
+              "high_open_child_mass": 0.013130106032,
+              "next_open_frontier_count": 3618400,
+              "next_open_frontier_mass": 0.026959180832,
+              "mass_ratio_to_next": 0.927891467676
+            },
+            {
+              "bits": 28,
+              "open_frontier_count": 3618400,
+              "open_frontier_mass": 0.026959180832
+            }
+          ],
+          "initial_open_frontier_mass": 1.0,
+          "final_open_frontier_count": 3618400,
+          "final_open_frontier_mass": 0.026959180832,
+          "monotone_open_mass_decrease": true,
+          "min_mass_ratio_to_next": 0.108642578125,
+          "max_mass_ratio_to_next": 0.944905286616,
+          "tail_log2_mass_fit": {
+            "status": "fit_computed",
+            "log2_mass_slope_per_bit": -0.125371154348,
+            "per_bit_factor": 0.916768160879,
+            "intercept": -1.6991960262,
+            "point_count": 8,
+            "interpretation": "A negative finite-range slope is evidence of pressure on the open frontier, not a proof that the frontier mass tends to zero for every future bit length."
+          },
+          "transition_totals": {
+            "both_closed": 159545,
+            "both_open": 3775897,
+            "high_only_open": 125449,
+            "low_only_open": 283479
+          },
+          "high_branch_obstruction": {
+            "high_open_child_edges": 3901346,
+            "high_only_open_child_edges": 125449,
+            "status": "high_branches_remain_open_in_bounded_frontier",
+            "high_open_examples": [
+              {
+                "parent_residue": 27,
+                "parent_bits": 12,
+                "high_child_residue": 4123,
+                "child_bits": 13,
+                "low_status": "needs_split",
+                "high_status": "needs_split",
+                "high_prefix_length": 8,
+                "high_consumed_bits": 11,
+                "high_next_valuation": 3
+              },
+              {
+                "parent_residue": 31,
+                "parent_bits": 12,
+                "high_child_residue": 4127,
+                "child_bits": 13,
+                "low_status": "needs_split",
+                "high_status": "needs_split",
+                "high_prefix_length": 9,
+                "high_consumed_bits": 13,
+                "high_next_valuation": 1
+              },
+              {
+                "parent_residue": 47,
+                "parent_bits": 12,
+                "high_child_residue": 4143,
+                "child_bits": 13,
+                "low_status": "needs_split",
+                "high_status": "needs_split",
+                "high_prefix_length": 8,
+                "high_consumed_bits": 11,
+                "high_next_valuation": 3
+              },
+              {
+                "parent_residue": 63,
+                "parent_bits": 12,
+                "high_child_residue": 4159,
+                "child_bits": 13,
+                "low_status": "needs_split",
+                "high_status": "needs_split",
+                "high_prefix_length": 7,
+                "high_consumed_bits": 10,
+                "high_next_valuation": 5
+              },
+              {
+                "parent_residue": 71,
+                "parent_bits": 12,
+                "high_child_residue": 4167,
+                "child_bits": 13,
+                "low_status": "needs_split",
+                "high_status": "needs_split",
+                "high_prefix_length": 9,
+                "high_consumed_bits": 12,
+                "high_next_valuation": 2
+              },
+              {
+                "parent_residue": 91,
+                "parent_bits": 12,
+                "high_child_residue": 4187,
+                "child_bits": 13,
+                "low_status": "needs_split",
+                "high_status": "needs_split",
+                "high_prefix_length": 8,
+                "high_consumed_bits": 10,
+                "high_next_valuation": 7
+              },
+              {
+                "parent_residue": 103,
+                "parent_bits": 12,
+                "high_child_residue": 4199,
+                "child_bits": 13,
+                "low_status": "needs_split",
+                "high_status": "needs_split",
+                "high_prefix_length": 7,
+                "high_consumed_bits": 9,
+                "high_next_valuation": 6
+              },
+              {
+                "parent_residue": 111,
+                "parent_bits": 12,
+                "high_child_residue": 4207,
+                "child_bits": 13,
+                "low_status": "needs_split",
+                "high_status": "needs_split",
+                "high_prefix_length": 9,
+                "high_consumed_bits": 11,
+                "high_next_valuation": 3
+              }
+            ],
+            "high_only_examples": [
+              {
+                "parent_residue": 151,
+                "parent_bits": 12,
+                "high_child_residue": 4247,
+                "child_bits": 13,
+                "low_status": "all_lift_descent",
+                "high_status": "needs_split",
+                "high_prefix_length": 2,
+                "high_consumed_bits": 2,
+                "high_next_valuation": 12
+              },
+              {
+                "parent_residue": 207,
+                "parent_bits": 12,
+                "high_child_residue": 4303,
+                "child_bits": 13,
+                "low_status": "all_lift_descent",
+                "high_status": "needs_split",
+                "high_prefix_length": 9,
+                "high_consumed_bits": 13,
+                "high_next_valuation": 1
+              },
+              {
+                "parent_residue": 255,
+                "parent_bits": 12,
+                "high_child_residue": 4351,
+                "child_bits": 13,
+                "low_status": "all_lift_descent",
+                "high_status": "needs_split",
+                "high_prefix_length": 9,
+                "high_consumed_bits": 13,
+                "high_next_valuation": 2
+              },
+              {
+                "parent_residue": 383,
+                "parent_bits": 12,
+                "high_child_residue": 4479,
+                "child_bits": 13,
+                "low_status": "all_lift_descent",
+                "high_status": "needs_split",
+                "high_prefix_length": 6,
+                "high_consumed_bits": 6,
+                "high_next_valuation": 9
+              },
+              {
+                "parent_residue": 539,
+                "parent_bits": 12,
+                "high_child_residue": 4635,
+                "child_bits": 13,
+                "low_status": "all_lift_descent",
+                "high_status": "needs_split",
+                "high_prefix_length": 9,
+                "high_consumed_bits": 13,
+                "high_next_valuation": 4
+              },
+              {
+                "parent_residue": 615,
+                "parent_bits": 12,
+                "high_child_residue": 4711,
+                "child_bits": 13,
+                "low_status": "all_lift_descent",
+                "high_status": "needs_split",
+                "high_prefix_length": 6,
+                "high_consumed_bits": 7,
+                "high_next_valuation": 7
+              },
+              {
+                "parent_residue": 679,
+                "parent_bits": 12,
+                "high_child_residue": 4775,
+                "child_bits": 13,
+                "low_status": "all_lift_descent",
+                "high_status": "needs_split",
+                "high_prefix_length": 9,
+                "high_consumed_bits": 13,
+                "high_next_valuation": 7
+              },
+              {
+                "parent_residue": 719,
+                "parent_bits": 12,
+                "high_child_residue": 4815,
+                "child_bits": 13,
+                "low_status": "all_lift_descent",
+                "high_status": "needs_split",
+                "high_prefix_length": 9,
+                "high_consumed_bits": 13,
+                "high_next_valuation": 5
+              }
+            ],
+            "refuted_shortcut": "High children do not automatically close in the tested frontier; some parents have a closed low child and an open high child."
+          },
+          "measure_certificate": {
+            "status": "bounded_measure_decay_observed",
+            "closed_partial_theorem": "In the tested adaptive Collatz frontier, normalized open cylinder mass decreases from the base level to the recorded maximum bit length.",
+            "compactness_status": "open_no_global_compactness_theorem",
+            "proof_boundary": "Finite monotone mass decrease and a negative fitted slope do not prove that open mass tends to zero. A full proof needs a global compactness theorem or a well-founded high-branch closure argument."
+          },
+          "next_candidate": "CO-TICKET-34 HighBranchAutomatonOrMassLimitTheorem"
+        }
+      },
+      "obstruction": "Normalized open frontier mass decreases on the tested range, but the final frontier mass is still positive and high-child branches remain open. A finite decay fit is not a compactness theorem.",
+      "candidate_theorem": "Prove either that normalized open cylinder mass tends to zero under adaptive splitting, or that every high-child obstruction is absorbed by a finite automaton/rank argument compatible with low-child stutter budgets.",
+      "next_experiment": "Synthesize a high-branch automaton and separately test a rigorous mass-limit theorem template.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-33",
+      "status": "proof_pressure_open",
+      "route": "GlobalCutoffCompactness",
+      "proof_or_counterexample_mode": "global_compactness_refinement",
+      "attempt": "Move from bounded stateful certificates to global compactness pressure: finite decreasing quantities matter only if they can be upgraded into a theorem that rules out all infinite obstruction paths.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-32",
+        "source_route": "StatefulCutoffLedger",
+        "frontier_status": "open_infinite_bridge",
+        "ticket33_transfer": "GlobalCutoffCompactness"
+      },
+      "obstruction": "A finite cutoff ledger still needs a theorem that no error term reopens beyond the cutoff.",
+      "candidate_theorem": "A global cutoff compactness theorem proves every ledger state beyond N0 has positive representation count.",
+      "next_experiment": "Audit whether major/minor arc error states form a monotone cone under increasing n.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-33",
+      "status": "proof_pressure_open",
+      "route": "GlobalParityCompactness",
+      "proof_or_counterexample_mode": "global_compactness_refinement",
+      "attempt": "Move from bounded stateful certificates to global compactness pressure: finite decreasing quantities matter only if they can be upgraded into a theorem that rules out all infinite obstruction paths.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-32",
+        "source_route": "StatefulParitySelector",
+        "frontier_status": "open_infinite_bridge",
+        "ticket33_transfer": "GlobalParityCompactness"
+      },
+      "obstruction": "A parity selector state machine still needs a compactness theorem preventing exact-gap mass from leaking into wider gaps.",
+      "candidate_theorem": "A global parity compactness theorem keeps exact gap-2 mass positive at arbitrarily large scale.",
+      "next_experiment": "Stress exact-gap selector states against wider-gap leakage and parity countermodels.",
+      "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+    }
+  ]
+}

@@ -964,3 +964,63 @@ Remaining decisive target:
 ```text
 CO-TICKET-33 GlobalMeasureCompactnessOrHighBranchClosure
 ```
+
+### Ticket 33: Global measure pressure and high-branch obstruction
+
+Generated artifact:
+
+```text
+data/open-problem/ticket33-global-measure-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-33-global-tail-compactness.json
+data/open-problem/collatz/co-ticket-33-global-measure-compactness.json
+data/open-problem/goldbach/gb-ticket-33-global-cutoff-compactness.json
+data/open-problem/twin-prime/tp-ticket-33-global-parity-compactness.json
+```
+
+Aggregate verdict:
+
+```text
+global_measure_open_no_resolution
+```
+
+한국어 요약: TICKET-33은 TICKET-32가 닫지 못한 high-child branch와 전역 compactness 문제를 직접 건드린다. Collatz exact-cylinder frontier를 `base_bits=12`에서 `max_bits=28`까지 level-by-level로 추적해 normalized open cylinder mass가 감소하는지 계산했다. 결과적으로 mass는 단조 감소했지만, 마지막 frontier mass는 양수이고 high-child branch도 계속 열려 있었다. 따라서 이것은 전역 증명이 아니라 “전역 measure theorem이 필요하다”는 정량적 증거이다.
+
+1. RH: bounded tail certificate가 있어도 infinitely many zero contribution을 제어하는 global tail compactness theorem이 필요하다.
+2. Collatz: open frontier mass는 `1.0`에서 `0.026959180832`까지 단조 감소했다. 마지막 frontier count는 `3,618,400`이다. 마지막 8개 level의 log2 mass fit은 per-bit factor `0.916768160879`를 보였다. 그러나 high-open child edge는 `3,901,346`개이고 high-only open child edge도 `125,449`개다. 즉 high branch가 자동으로 닫힌다는 shortcut은 반례를 갖는다.
+3. Goldbach: finite cutoff ledger가 있어도 error term이 cutoff 이후 다시 열리지 않는 global cutoff compactness theorem이 필요하다.
+4. Twin Prime: exact-gap selector가 있어도 parity state가 wider-gap leakage로 mass를 잃지 않는 global parity compactness theorem이 필요하다.
+
+Closed partial theorem:
+
+```text
+In the tested Collatz adaptive frontier from 12 to 28 bits, normalized open cylinder mass decreases monotonically from 1.0 to 0.026959180832.
+```
+
+Refuted shortcut:
+
+```text
+High-child branches automatically close once low-child feature stutter is budgeted.
+```
+
+Reason:
+
+```text
+The tested frontier contains high-only open child edges: the low child can close while the high child remains open. Therefore high-branch closure requires its own theorem or automaton, not just the low-child stutter budget.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-34 HighBranchAutomatonOrMassLimitTheorem
+```
+
+Proof boundary:
+
+```text
+Finite monotone mass decrease and a negative fitted slope do not prove that open mass tends to zero. A full proof must establish a global compactness or mass-limit theorem for every future bit length, or a high-branch automaton that closes all remaining obstruction paths.
+```

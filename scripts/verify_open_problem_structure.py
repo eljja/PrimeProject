@@ -26,6 +26,7 @@ TICKET29_SCHEMA = "primeproject.ticket29-adaptive-frontier-lab.v1"
 TICKET30_SCHEMA = "primeproject.ticket30-potential-synthesis-lab.v1"
 TICKET31_SCHEMA = "primeproject.ticket31-feature-stutter-lab.v1"
 TICKET32_SCHEMA = "primeproject.ticket32-stateful-measure-lab.v1"
+TICKET33_SCHEMA = "primeproject.ticket33-global-measure-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -822,6 +823,65 @@ def main() -> int:
         return fail("collatz ticket32 must include terminal stutter chains")
     if int(outcomes32.get("signature_changed", 0)) <= 0:
         return fail("collatz ticket32 must include signature-changing stutter chains")
+
+    ticket33_path = Path("data/open-problem/ticket33-global-measure-lab.json")
+    if not ticket33_path.exists():
+        return fail("missing ticket33 global measure artifact")
+    ticket33 = read_json(ticket33_path)
+    if ticket33.get("schema") != TICKET33_SCHEMA:
+        return fail("ticket33 global measure artifact has unexpected schema")
+    if ticket33.get("status") != "global_measure_open_no_resolution":
+        return fail("ticket33 global measure overstates resolution")
+    ticket33_attempts = ticket33.get("attempts", [])
+    if not isinstance(ticket33_attempts, list):
+        return fail("ticket33 attempts must be a list")
+    ticket33_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket33_attempts if isinstance(attempt, dict)}
+    missing_ticket33 = EXPECTED_PROBLEMS - set(ticket33_by_id)
+    if missing_ticket33:
+        return fail("ticket33 attempts missing problems: " + ", ".join(sorted(missing_ticket33)))
+    ticket33_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-33-global-tail-compactness.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-33-global-measure-compactness.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-33-global-cutoff-compactness.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-33-global-parity-compactness.json"),
+    }
+    for problem_id, attempt in ticket33_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket33 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket33 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket33 claim boundary is too weak")
+        path = ticket33_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket33 per-problem artifact")
+
+    collatz_ticket33 = ticket33_by_id.get("collatz", {})
+    collatz33_bounded = collatz_ticket33.get("bounded_result", {})
+    if not isinstance(collatz33_bounded, dict):
+        return fail("collatz ticket33 bounded result must be an object")
+    audit33 = collatz33_bounded.get("global_measure_audit", {})
+    if not isinstance(audit33, dict):
+        return fail("collatz ticket33 global measure audit missing")
+    if not audit33.get("monotone_open_mass_decrease"):
+        return fail("collatz ticket33 must observe monotone open mass decrease")
+    if float(audit33.get("final_open_frontier_mass", 0.0)) <= 0:
+        return fail("collatz ticket33 must keep a positive final open frontier mass")
+    measure33 = audit33.get("measure_certificate", {})
+    if not isinstance(measure33, dict):
+        return fail("collatz ticket33 measure certificate missing")
+    if measure33.get("status") != "bounded_measure_decay_observed":
+        return fail("collatz ticket33 must record bounded measure decay")
+    if measure33.get("compactness_status") != "open_no_global_compactness_theorem":
+        return fail("collatz ticket33 must keep compactness theorem open")
+    high33 = audit33.get("high_branch_obstruction", {})
+    if not isinstance(high33, dict):
+        return fail("collatz ticket33 high branch obstruction missing")
+    if int(high33.get("high_open_child_edges", 0)) <= 0:
+        return fail("collatz ticket33 must find open high-child edges")
+    if int(high33.get("high_only_open_child_edges", 0)) <= 0:
+        return fail("collatz ticket33 must find high-only open child edges")
 
     print("open problem structure verified")
     return 0

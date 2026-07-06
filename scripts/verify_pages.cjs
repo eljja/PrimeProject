@@ -424,6 +424,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Feature-stutter result") ||
         !page.proofOrCounterexampleText.includes("Ticket 32 stateful measure lab") ||
         !page.proofOrCounterexampleText.includes("Stateful measure result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 33 global measure lab") ||
+        !page.proofOrCounterexampleText.includes("Global measure result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
