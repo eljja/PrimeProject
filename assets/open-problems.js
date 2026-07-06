@@ -2909,7 +2909,88 @@ function renderTicket29AdaptiveFrontier(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket) {
+function renderTicket30PotentialSynthesis(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const summaryRows = Object.entries(bounded)
+    .filter(([, value]) => typeof value !== "object" || value === null)
+    .slice(0, 12);
+  const cegis = bounded.potential_cegis;
+  const potentialRows = cegis
+    ? table(
+        ["Potential CEGIS metric", "Value"],
+        [
+          ["candidate max bits", cegis.full_candidate_max_bits],
+          ["grid search max bits", cegis.grid_search_max_bits],
+          ["candidate parent edges", cegis.full_candidate_parent_edges],
+          ["grid parent edges", cegis.grid_parent_edges],
+          ["valid grid weights", cegis.valid_grid_weight_count],
+          ["linear potential status", cegis.linear_potential_status],
+        ],
+      )
+    : "";
+  const candidateRows = Array.isArray(cegis?.candidate_results)
+    ? table(
+        ["candidate", "weights", "violations", "rate", "valid"],
+        cegis.candidate_results.map((row) => [
+          row.name,
+          (row.weights || []).join(", "),
+          row.violation_count,
+          row.violation_rate,
+          row.valid_on_tested_edges,
+        ]),
+      )
+    : "";
+  const gridRows = Array.isArray(cegis?.best_grid_results)
+    ? table(
+        ["rank", "weights", "violations", "rate", "worst margin"],
+        cegis.best_grid_results.slice(0, 6).map((row, index) => [
+          index + 1,
+          (row.weights || []).join(", "),
+          row.violation_count,
+          row.violation_rate,
+          row.worst_margin,
+        ]),
+      )
+    : "";
+  return `
+    <div class="poc-ticket17 poc-ticket30">
+      <h3>Ticket 30 potential synthesis lab</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["Potential synthesis result", "Value"], summaryRows) : ""}
+      ${potentialRows}
+      ${candidateRows}
+      ${gridRows}
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -2989,10 +3070,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket27RankFrontier(rankFrontierTicket)}
     ${renderTicket28Trichotomy(trichotomyTicket)}
     ${renderTicket29AdaptiveFrontier(adaptiveFrontierTicket)}
+    ${renderTicket30PotentialSynthesis(potentialSynthesisTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -3016,7 +3098,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -3088,6 +3170,7 @@ async function main() {
   let ticket27Attempt = null;
   let ticket28Attempt = null;
   let ticket29Attempt = null;
+  let ticket30Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -3214,7 +3297,16 @@ async function main() {
   } catch (error) {
     ticket29Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt);
+  try {
+    const ticket30Response = await fetch("../data/open-problem/ticket30-potential-synthesis-lab.json", { cache: "no-store" });
+    if (ticket30Response.ok) {
+      const ticket30Payload = await ticket30Response.json();
+      ticket30Attempt = (ticket30Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket30Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt);
 }
 
 main().catch((error) => {

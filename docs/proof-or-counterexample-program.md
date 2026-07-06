@@ -793,3 +793,57 @@ Reason:
 ```text
 The adaptive frontier is smaller than full enumeration but does not vanish. The next proof attempt must synthesize a well-founded potential on open needs_split cylinders, or find a genuine obstruction/counterexample pattern inside that frontier.
 ```
+
+### Ticket 30: Potential synthesis and obstruction search
+
+Generated artifact:
+
+```text
+data/open-problem/ticket30-potential-synthesis-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-30-tail-majorant-synthesis.json
+data/open-problem/collatz/co-ticket-30-valuation-debt-potential.json
+data/open-problem/goldbach/gb-ticket-30-explicit-constant-ledger.json
+data/open-problem/twin-prime/tp-ticket-30-exact-gap-functional.json
+```
+
+Aggregate verdict:
+
+```text
+potential_synthesis_open_no_resolution
+```
+
+한국어 요약: TICKET-30은 네 난제를 증명했다고 주장하지 않는다. 이번 단계의 목표는 TICKET-29에서 남은 열린 경계를 대상으로 “증명으로 이어질 수 있어 보이는 자연스러운 후보”를 실제로 합성하거나, 반대로 그 후보군이 실패한다는 반례 구조를 찾는 것이다. Collatz에서는 `needs_split` 상태들 사이에 항상 감소하는 valuation-debt potential을 만들 수 있는지 검사했다. 결과적으로 단순한 scalar linear potential 계열은 bounded adaptive frontier에서 모두 탈락했다.
+
+1. RH: 더 큰 유한 Mertens scan 대신 tail majorant synthesis 문제로 목표를 바꿨다. 필요한 정리는 “off-critical zero가 있으면 유한 positivity violation으로 내려온다”는 tail-uniform bridge이다. 이 bridge는 아직 열려 있고, 유한 stress만으로 RH를 결정할 수 없다는 경계를 유지한다.
+2. Collatz: exact-cylinder frontier에서 네 개 특징량 `coefficient_log2_debt`, `prefix_length`, `consumed_bits`, `next_valuation`에 대한 scalar linear potential을 시험했다. `full_candidate_max_bits=20`에서 candidate parent edge는 `32,951`개이고, `grid_search_max_bits=18`에서 grid parent edge는 `9,610`개이다. 정수 가중치 `[-2,2]^4` 전체에서 살아남은 weight는 `0`개였다. 가장 좋은 weight `[2,-1,-2,-1]`도 `6,826`개 violation, violation rate `0.39157871`을 남겼다. 이것은 Collatz 반례가 아니라, 단순 선형 potential 증명 전략의 bounded falsification이다.
+3. Goldbach: finite witness scan의 확장이 아니라 explicit constant ledger로 전환했다. 필요한 남은 정리는 large-even tail에서 minor arc, major arc, exceptional character, singular series 하한을 하나의 검산 가능한 부등식 장부로 닫는 것이다.
+4. Twin Prime: 더 긴 exact gap scan 대신 exact-gap functional synthesis로 전환했다. 필요한 남은 정리는 gap-2 선택자가 sieve/RMT/Fredholm 유사량에서 무한히 양의 질량을 유지한다는 tail theorem이다.
+
+Closed partial theorem:
+
+```text
+No tested scalar linear valuation-debt potential over the four Ticket 30 Collatz features strictly decreases on every tested open adaptive-frontier edge.
+```
+
+Refuted shortcut:
+
+```text
+A simple one-dimensional linear potential in debt, prefix length, consumed bits, and next valuation is enough to close the Collatz adaptive frontier.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-31 LexicographicPiecewisePotentialCEGIS
+```
+
+Reason:
+
+```text
+The failed scalar potentials do not refute Collatz. They show that a viable proof, if it follows the current exact-cylinder path, probably needs a lexicographic, piecewise, nonlinear, or certificate-carrying descent invariant.
+```

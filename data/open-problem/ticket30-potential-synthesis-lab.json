@@ -1,0 +1,2204 @@
+{
+  "schema": "primeproject.ticket30-potential-synthesis-lab.v1",
+  "generated_at": "2026-07-06T03:05:00+09:00",
+  "status": "potential_synthesis_open_no_resolution",
+  "claim_boundary": "Ticket 30 falsifies a bounded family of simple Collatz frontier potentials and refines the next proof target. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-30",
+      "status": "proof_pressure_open",
+      "route": "TailMajorantSynthesis",
+      "proof_or_counterexample_mode": "frontier_refinement",
+      "attempt": "Carry forward the Ticket 29 trichotomy result while preserving the proof boundary: finite stress has not produced a proof or certified counterexample.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-29",
+        "source_route": "TailBridgeFrontier",
+        "source_bounded_result_summary": {
+          "source_ticket": "RH-TICKET-28",
+          "direct_counterexample_route": "No certified off-critical zeta zero was produced.",
+          "no_counterexample_route": "A full proof still requires a tail-uniform all-zero theorem.",
+          "contrapositive_route": "An off-critical zero must imply a bounded failed positivity witness; that bridge is open."
+        },
+        "frontier_status": "open_infinite_bridge"
+      },
+      "obstruction": "Finite Mertens stress remains compatible with RH and cannot decide the zeta zero set.",
+      "candidate_theorem": "A formal tail bridge maps any off-critical zero to a finite positivity violation while controlling every remaining zero contribution.",
+      "next_experiment": "Search admissible symbolic tail majorants rather than larger finite Mertens scans.",
+      "claim_boundary": "No RH proof and no certified RH counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-30",
+      "status": "proof_pressure_open",
+      "route": "ValuationDebtPotentialSynthesis",
+      "proof_or_counterexample_mode": "potential_counterexample_guided_synthesis",
+      "attempt": "Try to synthesize the well-founded valuation-debt potential required by Ticket 29. The test asks whether a scalar linear potential over natural exact-cylinder features strictly decreases from every needs_split parent to every needs_split child in the adaptive frontier.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-29",
+        "potential_cegis": {
+          "base_modulus_bits": 12,
+          "full_candidate_max_bits": 20,
+          "grid_search_max_bits": 18,
+          "features": [
+            "coefficient_log2_debt",
+            "prefix_length",
+            "consumed_bits",
+            "next_valuation"
+          ],
+          "full_candidate_parent_edges": 32951,
+          "grid_parent_edges": 9610,
+          "candidate_results": [
+            {
+              "name": "debt_only",
+              "weights": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "open_child_edges": 61485,
+              "violation_count": 38619,
+              "violation_rate": 0.62810442,
+              "worst_margin": -5.4150375,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 2.26466251
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 2.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 31,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": 2.26466251
+                  },
+                  "child": {
+                    "residue": 31,
+                    "bits": 13,
+                    "features": [
+                      2.84962501,
+                      10.0,
+                      13.0,
+                      2.0
+                    ],
+                    "potential": 2.84962501
+                  },
+                  "margin": -0.5849625
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 2.26466251
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 2.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 63,
+                    "bits": 12,
+                    "features": [
+                      0.67970001,
+                      8.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": 0.67970001
+                  },
+                  "child": {
+                    "residue": 63,
+                    "bits": 13,
+                    "features": [
+                      1.26466251,
+                      9.0,
+                      13.0,
+                      1.0
+                    ],
+                    "potential": 1.26466251
+                  },
+                  "margin": -0.5849625
+                }
+              ],
+              "valid_on_tested_edges": false
+            },
+            {
+              "name": "negative_debt",
+              "weights": [
+                -1,
+                0,
+                0,
+                0
+              ],
+              "open_child_edges": 61485,
+              "violation_count": 39414,
+              "violation_rate": 0.6410344,
+              "worst_margin": -5.830075,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -2.26466251
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -2.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -2.26466251
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -1.67970001
+                  },
+                  "margin": -0.5849625
+                },
+                {
+                  "parent": {
+                    "residue": 31,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": -2.26466251
+                  },
+                  "child": {
+                    "residue": 4127,
+                    "bits": 13,
+                    "features": [
+                      1.26466251,
+                      9.0,
+                      13.0,
+                      1.0
+                    ],
+                    "potential": -1.26466251
+                  },
+                  "margin": -1.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -2.26466251
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -2.26466251
+                  },
+                  "margin": 0.0
+                }
+              ],
+              "valid_on_tested_edges": false
+            },
+            {
+              "name": "prefix_only",
+              "weights": [
+                0,
+                1,
+                0,
+                0
+              ],
+              "open_child_edges": 61485,
+              "violation_count": 53641,
+              "violation_rate": 0.87242417,
+              "worst_margin": -2.0,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 9.0
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 9.0
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 31,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": 9.0
+                  },
+                  "child": {
+                    "residue": 31,
+                    "bits": 13,
+                    "features": [
+                      2.84962501,
+                      10.0,
+                      13.0,
+                      2.0
+                    ],
+                    "potential": 10.0
+                  },
+                  "margin": -1.0
+                },
+                {
+                  "parent": {
+                    "residue": 31,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": 9.0
+                  },
+                  "child": {
+                    "residue": 4127,
+                    "bits": 13,
+                    "features": [
+                      1.26466251,
+                      9.0,
+                      13.0,
+                      1.0
+                    ],
+                    "potential": 9.0
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 9.0
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 9.0
+                  },
+                  "margin": 0.0
+                }
+              ],
+              "valid_on_tested_edges": false
+            },
+            {
+              "name": "consumed_bits_only",
+              "weights": [
+                0,
+                0,
+                1,
+                0
+              ],
+              "open_child_edges": 61485,
+              "violation_count": 53641,
+              "violation_rate": 0.87242417,
+              "worst_margin": -9.0,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 12.0
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 12.0
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 31,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": 12.0
+                  },
+                  "child": {
+                    "residue": 31,
+                    "bits": 13,
+                    "features": [
+                      2.84962501,
+                      10.0,
+                      13.0,
+                      2.0
+                    ],
+                    "potential": 13.0
+                  },
+                  "margin": -1.0
+                },
+                {
+                  "parent": {
+                    "residue": 31,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": 12.0
+                  },
+                  "child": {
+                    "residue": 4127,
+                    "bits": 13,
+                    "features": [
+                      1.26466251,
+                      9.0,
+                      13.0,
+                      1.0
+                    ],
+                    "potential": 13.0
+                  },
+                  "margin": -1.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 12.0
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 12.0
+                  },
+                  "margin": 0.0
+                }
+              ],
+              "valid_on_tested_edges": false
+            },
+            {
+              "name": "next_valuation_only",
+              "weights": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "open_child_edges": 61485,
+              "violation_count": 45422,
+              "violation_rate": 0.73874929,
+              "worst_margin": -17.0,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 2.0
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 2.0
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": 2.0
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": 3.0
+                  },
+                  "margin": -1.0
+                },
+                {
+                  "parent": {
+                    "residue": 31,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": 1.0
+                  },
+                  "child": {
+                    "residue": 31,
+                    "bits": 13,
+                    "features": [
+                      2.84962501,
+                      10.0,
+                      13.0,
+                      2.0
+                    ],
+                    "potential": 2.0
+                  },
+                  "margin": -1.0
+                },
+                {
+                  "parent": {
+                    "residue": 31,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": 1.0
+                  },
+                  "child": {
+                    "residue": 4127,
+                    "bits": 13,
+                    "features": [
+                      1.26466251,
+                      9.0,
+                      13.0,
+                      1.0
+                    ],
+                    "potential": 1.0
+                  },
+                  "margin": 0.0
+                }
+              ],
+              "valid_on_tested_edges": false
+            },
+            {
+              "name": "debt_minus_prefix",
+              "weights": [
+                1,
+                -1,
+                0,
+                0
+              ],
+              "open_child_edges": 61485,
+              "violation_count": 24392,
+              "violation_rate": 0.39671465,
+              "worst_margin": -6.4150375,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -6.73533749
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -6.73533749
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -6.73533749
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -6.32029999
+                  },
+                  "margin": -0.4150375
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -6.73533749
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -6.73533749
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -6.73533749
+                  },
+                  "child": {
+                    "residue": 4143,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -6.32029999
+                  },
+                  "margin": -0.4150375
+                }
+              ],
+              "valid_on_tested_edges": false
+            },
+            {
+              "name": "debt_minus_consumed",
+              "weights": [
+                1,
+                0,
+                -1,
+                0
+              ],
+              "open_child_edges": 61485,
+              "violation_count": 24392,
+              "violation_rate": 0.39671465,
+              "worst_margin": -12.4150375,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -9.73533749
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -9.73533749
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -9.73533749
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -9.32029999
+                  },
+                  "margin": -0.4150375
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -9.73533749
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -9.73533749
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -9.73533749
+                  },
+                  "child": {
+                    "residue": 4143,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -9.32029999
+                  },
+                  "margin": -0.4150375
+                }
+              ],
+              "valid_on_tested_edges": false
+            },
+            {
+              "name": "ticket29_best_shape",
+              "weights": [
+                2,
+                -1,
+                -2,
+                -1
+              ],
+              "open_child_edges": 61485,
+              "violation_count": 23529,
+              "violation_rate": 0.3826787,
+              "worst_margin": -17.830075,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -29.64059998
+                  },
+                  "margin": -0.830075
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "child": {
+                    "residue": 4143,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -29.64059998
+                  },
+                  "margin": -0.830075
+                }
+              ],
+              "valid_on_tested_edges": false
+            }
+          ],
+          "best_grid_results": [
+            {
+              "weights": [
+                2,
+                -1,
+                -2,
+                -1
+              ],
+              "open_child_edges": 17432,
+              "violation_count": 6826,
+              "violation_rate": 0.39157871,
+              "worst_margin": -16.830075,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -29.64059998
+                  },
+                  "margin": -0.830075
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.47067498
+                  },
+                  "child": {
+                    "residue": 4143,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -29.64059998
+                  },
+                  "margin": -0.830075
+                }
+              ],
+              "valid_on_tested_edges": false,
+              "name": "grid_weight"
+            },
+            {
+              "weights": [
+                -1,
+                -1,
+                -2,
+                -2
+              ],
+              "open_child_edges": 17432,
+              "violation_count": 6864,
+              "violation_rate": 0.3937586,
+              "worst_margin": -27.0,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.26466251
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.26466251
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -37.67970001
+                  },
+                  "margin": -1.5849625
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.26466251
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.26466251
+                  },
+                  "child": {
+                    "residue": 4143,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -37.67970001
+                  },
+                  "margin": -1.5849625
+                }
+              ],
+              "valid_on_tested_edges": false,
+              "name": "grid_weight"
+            },
+            {
+              "weights": [
+                2,
+                0,
+                -2,
+                -1
+              ],
+              "open_child_edges": 17432,
+              "violation_count": 6884,
+              "violation_rate": 0.39490592,
+              "worst_margin": -15.830075,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -21.47067498
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -21.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -21.47067498
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -21.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 63,
+                    "bits": 12,
+                    "features": [
+                      0.67970001,
+                      8.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": -23.64059998
+                  },
+                  "child": {
+                    "residue": 4159,
+                    "bits": 13,
+                    "features": [
+                      1.09473751,
+                      7.0,
+                      10.0,
+                      5.0
+                    ],
+                    "potential": -22.81052498
+                  },
+                  "margin": -0.830075
+                },
+                {
+                  "parent": {
+                    "residue": 91,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      3.0
+                    ],
+                    "potential": -22.47067498
+                  },
+                  "child": {
+                    "residue": 91,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      3.0
+                    ],
+                    "potential": -22.47067498
+                  },
+                  "margin": 0.0
+                }
+              ],
+              "valid_on_tested_edges": false,
+              "name": "grid_weight"
+            },
+            {
+              "weights": [
+                2,
+                -2,
+                -1,
+                -1
+              ],
+              "open_child_edges": 17432,
+              "violation_count": 6938,
+              "violation_rate": 0.39800367,
+              "worst_margin": -11.830075,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -27.47067498
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -27.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -27.47067498
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -26.64059998
+                  },
+                  "margin": -0.830075
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -27.47067498
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -27.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -27.47067498
+                  },
+                  "child": {
+                    "residue": 4143,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -26.64059998
+                  },
+                  "margin": -0.830075
+                }
+              ],
+              "valid_on_tested_edges": false,
+              "name": "grid_weight"
+            },
+            {
+              "weights": [
+                -1,
+                0,
+                -2,
+                -2
+              ],
+              "open_child_edges": 17432,
+              "violation_count": 6951,
+              "violation_rate": 0.39874943,
+              "worst_margin": -27.0,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.26466251
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.26466251
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -29.67970001
+                  },
+                  "margin": -0.5849625
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.26466251
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -30.26466251
+                  },
+                  "child": {
+                    "residue": 4143,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -29.67970001
+                  },
+                  "margin": -0.5849625
+                }
+              ],
+              "valid_on_tested_edges": false,
+              "name": "grid_weight"
+            },
+            {
+              "weights": [
+                -1,
+                1,
+                -2,
+                -1
+              ],
+              "open_child_edges": 17432,
+              "violation_count": 6968,
+              "violation_rate": 0.39972464,
+              "worst_margin": -13.0,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -19.26466251
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -19.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -19.26466251
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -18.67970001
+                  },
+                  "margin": -0.5849625
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -19.26466251
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -19.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -19.26466251
+                  },
+                  "child": {
+                    "residue": 4143,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -18.67970001
+                  },
+                  "margin": -0.5849625
+                }
+              ],
+              "valid_on_tested_edges": false,
+              "name": "grid_weight"
+            },
+            {
+              "weights": [
+                2,
+                -1,
+                -1,
+                -1
+              ],
+              "open_child_edges": 17432,
+              "violation_count": 6975,
+              "violation_rate": 0.4001262,
+              "worst_margin": -12.169925,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -18.47067498
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -18.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -18.47067498
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -18.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 91,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      3.0
+                    ],
+                    "potential": -19.47067498
+                  },
+                  "child": {
+                    "residue": 91,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      3.0
+                    ],
+                    "potential": -19.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 103,
+                    "bits": 12,
+                    "features": [
+                      0.67970001,
+                      8.0,
+                      12.0,
+                      1.0
+                    ],
+                    "potential": -19.64059998
+                  },
+                  "child": {
+                    "residue": 4199,
+                    "bits": 13,
+                    "features": [
+                      2.09473751,
+                      7.0,
+                      9.0,
+                      6.0
+                    ],
+                    "potential": -17.81052498
+                  },
+                  "margin": -1.830075
+                }
+              ],
+              "valid_on_tested_edges": false,
+              "name": "grid_weight"
+            },
+            {
+              "weights": [
+                1,
+                0,
+                -2,
+                -1
+              ],
+              "open_child_edges": 17432,
+              "violation_count": 6993,
+              "violation_rate": 0.40115879,
+              "worst_margin": -11.5849625,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -23.73533749
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -23.73533749
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -23.73533749
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -23.32029999
+                  },
+                  "margin": -0.4150375
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -23.73533749
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -23.73533749
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -23.73533749
+                  },
+                  "child": {
+                    "residue": 4143,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -23.32029999
+                  },
+                  "margin": -0.4150375
+                }
+              ],
+              "valid_on_tested_edges": false,
+              "name": "grid_weight"
+            },
+            {
+              "weights": [
+                2,
+                -2,
+                -2,
+                -1
+              ],
+              "open_child_edges": 17432,
+              "violation_count": 7025,
+              "violation_rate": 0.40299449,
+              "worst_margin": -17.830075,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.47067498
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.47067498
+                  },
+                  "child": {
+                    "residue": 4123,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -37.64059998
+                  },
+                  "margin": -1.830075
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.47067498
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.47067498
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -39.47067498
+                  },
+                  "child": {
+                    "residue": 4143,
+                    "bits": 13,
+                    "features": [
+                      1.67970001,
+                      8.0,
+                      11.0,
+                      3.0
+                    ],
+                    "potential": -37.64059998
+                  },
+                  "margin": -1.830075
+                }
+              ],
+              "valid_on_tested_edges": false,
+              "name": "grid_weight"
+            },
+            {
+              "weights": [
+                -1,
+                2,
+                -2,
+                -1
+              ],
+              "open_child_edges": 17432,
+              "violation_count": 7053,
+              "violation_rate": 0.40460073,
+              "worst_margin": -13.0,
+              "first_violations": [
+                {
+                  "parent": {
+                    "residue": 27,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -10.26466251
+                  },
+                  "child": {
+                    "residue": 27,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -10.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 47,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -10.26466251
+                  },
+                  "child": {
+                    "residue": 47,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      2.0
+                    ],
+                    "potential": -10.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 91,
+                    "bits": 12,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      3.0
+                    ],
+                    "potential": -11.26466251
+                  },
+                  "child": {
+                    "residue": 91,
+                    "bits": 13,
+                    "features": [
+                      2.26466251,
+                      9.0,
+                      12.0,
+                      3.0
+                    ],
+                    "potential": -11.26466251
+                  },
+                  "margin": 0.0
+                },
+                {
+                  "parent": {
+                    "residue": 127,
+                    "bits": 12,
+                    "features": [
+                      0.67970001,
+                      8.0,
+                      12.0,
+                      3.0
+                    ],
+                    "potential": -11.67970001
+                  },
+                  "child": {
+                    "residue": 127,
+                    "bits": 13,
+                    "features": [
+                      0.67970001,
+                      8.0,
+                      12.0,
+                      3.0
+                    ],
+                    "potential": -11.67970001
+                  },
+                  "margin": 0.0
+                }
+              ],
+              "valid_on_tested_edges": false,
+              "name": "grid_weight"
+            }
+          ],
+          "valid_grid_weight_count": 0,
+          "linear_potential_status": "no_tested_linear_potential_survives",
+          "interpretation": "Natural scalar linear potentials over debt, prefix length, consumed bits, and next valuation have many open-child nondecrease counterexamples. The next Collatz attempt needs a nonlinear, lexicographic, or piecewise potential, or a different exact-cylinder invariant."
+        },
+        "direct_counterexample_route": "No Collatz divergent orbit or non-trivial positive cycle was produced.",
+        "no_counterexample_route": "The tested scalar linear potentials fail to prove termination of the open frontier.",
+        "contrapositive_route": "A minimal counterexample would have to evade every all-lift descent cylinder and remain in a frontier where the tested scalar potentials do not decrease.",
+        "strongest_closed_statement": "The tested scalar linear potential family is falsified on the bounded adaptive frontier."
+      },
+      "obstruction": "Scalar linear valuation-debt potentials are too weak for the observed open-child frontier transitions.",
+      "candidate_theorem": "A lexicographic or piecewise nonlinear potential over exact 2-adic cylinders strictly decreases after a bounded refinement window.",
+      "next_experiment": "Search lexicographic and piecewise potentials on the first violation families from Ticket 30.",
+      "claim_boundary": "No Collatz proof, no divergent orbit, and no non-trivial positive integer cycle found."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-30",
+      "status": "proof_pressure_open",
+      "route": "ExplicitConstantLedger",
+      "proof_or_counterexample_mode": "frontier_refinement",
+      "attempt": "Carry forward the Ticket 29 trichotomy result while preserving the proof boundary: finite stress has not produced a proof or certified counterexample.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-29",
+        "source_route": "LeastCounterexampleCutoffPressure",
+        "source_bounded_result_summary": {
+          "source_ticket": "GB-TICKET-28",
+          "direct_counterexample_route": "No Goldbach counterexample was found in the finite scan.",
+          "no_counterexample_route": "The finite base must be paired with a positive representation lower bound above the cutoff.",
+          "contrapositive_route": "A least counterexample N must be forced below the verified base by an explicit tail theorem."
+        },
+        "frontier_status": "open_infinite_bridge"
+      },
+      "obstruction": "The explicit large-even lower-bound theorem remains missing.",
+      "candidate_theorem": "For every even n>N0, the binary Goldbach representation count is positive, and N0<=5,000,000.",
+      "next_experiment": "Name every constant in a main-term-minus-error ledger and reject ineffective exceptional-zero dependencies.",
+      "claim_boundary": "No Goldbach proof and no Goldbach counterexample found up to the finite scan limit."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-30",
+      "status": "proof_pressure_open",
+      "route": "ExactGapFunctionalSynthesis",
+      "proof_or_counterexample_mode": "frontier_refinement",
+      "attempt": "Carry forward the Ticket 29 trichotomy result while preserving the proof boundary: finite stress has not produced a proof or certified counterexample.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-29",
+        "source_route": "ExactGapTailPressure",
+        "source_bounded_result_summary": {
+          "source_ticket": "TP-TICKET-28",
+          "direct_counterexample_route": "No certified largest twin-prime pair was produced.",
+          "no_counterexample_route": "Infinitude still requires an exact-gap-2 lower bound on arbitrarily large scales.",
+          "contrapositive_route": "Assume a largest pair; force exact-gap-2 mass beyond it. The forcing theorem is open."
+        },
+        "frontier_status": "open_infinite_bridge"
+      },
+      "obstruction": "Finite exact-gap persistence does not prove infinitely many exact gap-2 pairs.",
+      "candidate_theorem": "A deletion-sensitive exact-gap-2 lower-bound functional remains positive on unbounded intervals.",
+      "next_experiment": "Search deletion-sensitive exact-gap functionals that cannot be satisfied by bounded-gap-only evidence.",
+      "claim_boundary": "No Twin Prime proof and no certified largest twin-prime pair."
+    }
+  ]
+}

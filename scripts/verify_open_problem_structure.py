@@ -23,6 +23,7 @@ TICKET26_SCHEMA = "primeproject.ticket26-micro-lemma-closure.v1"
 TICKET27_SCHEMA = "primeproject.ticket27-rank-frontier-lab.v1"
 TICKET28_SCHEMA = "primeproject.ticket28-trichotomy-descent-lab.v1"
 TICKET29_SCHEMA = "primeproject.ticket29-adaptive-frontier-lab.v1"
+TICKET30_SCHEMA = "primeproject.ticket30-potential-synthesis-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -654,6 +655,54 @@ def main() -> int:
         return fail("twin-prime ticket29 must record finite exact-gap pairs")
     if int(twin29_scan.get("prime_limit", 0)) < 20_000_000:
         return fail("twin-prime ticket29 must extend the exact-gap scan")
+
+    ticket30_path = Path("data/open-problem/ticket30-potential-synthesis-lab.json")
+    if not ticket30_path.exists():
+        return fail("missing ticket30 potential synthesis artifact")
+    ticket30 = read_json(ticket30_path)
+    if ticket30.get("schema") != TICKET30_SCHEMA:
+        return fail("ticket30 potential synthesis artifact has unexpected schema")
+    if ticket30.get("status") != "potential_synthesis_open_no_resolution":
+        return fail("ticket30 potential synthesis overstates resolution")
+    ticket30_attempts = ticket30.get("attempts", [])
+    if not isinstance(ticket30_attempts, list):
+        return fail("ticket30 attempts must be a list")
+    ticket30_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket30_attempts if isinstance(attempt, dict)}
+    missing_ticket30 = EXPECTED_PROBLEMS - set(ticket30_by_id)
+    if missing_ticket30:
+        return fail("ticket30 attempts missing problems: " + ", ".join(sorted(missing_ticket30)))
+    ticket30_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-30-tail-majorant-synthesis.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-30-valuation-debt-potential.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-30-explicit-constant-ledger.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-30-exact-gap-functional.json"),
+    }
+    for problem_id, attempt in ticket30_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket30 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket30 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket30 claim boundary is too weak")
+        path = ticket30_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket30 per-problem artifact")
+
+    collatz_ticket30 = ticket30_by_id.get("collatz", {})
+    collatz30_bounded = collatz_ticket30.get("bounded_result", {})
+    if not isinstance(collatz30_bounded, dict):
+        return fail("collatz ticket30 bounded result must be an object")
+    potential30 = collatz30_bounded.get("potential_cegis", {})
+    if not isinstance(potential30, dict):
+        return fail("collatz ticket30 potential CEGIS result missing")
+    if potential30.get("linear_potential_status") != "no_tested_linear_potential_survives":
+        return fail("collatz ticket30 must reject the tested linear potential family")
+    if int(potential30.get("valid_grid_weight_count", -1)) != 0:
+        return fail("collatz ticket30 grid search must have zero surviving weights")
+    best30 = potential30.get("best_grid_results", [])
+    if not isinstance(best30, list) or not best30 or int(best30[0].get("violation_count", 0)) <= 0:
+        return fail("collatz ticket30 must keep potential synthesis blocked by violations")
 
     print("open problem structure verified")
     return 0
