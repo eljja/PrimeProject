@@ -2990,7 +2990,89 @@ function renderTicket30PotentialSynthesis(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket) {
+function renderTicket31FeatureStutter(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const cegis = bounded.feature_stutter_cegis || {};
+  const impossible = cegis.strict_descent_impossibility || {};
+  const summaryRows = Object.keys(cegis).length
+    ? [
+        ["base bits", cegis.base_modulus_bits],
+        ["max bits", cegis.max_modulus_bits],
+        ["parent edges", cegis.parent_edge_count],
+        ["feature-only status", cegis.feature_only_obstruction_status],
+        ["base stutter edges", impossible.base_four_indistinguishable_edges],
+        ["prefix+residue stutter edges", impossible.prefix_and_low_residue_indistinguishable_edges],
+        ["next candidate", cegis.next_candidate],
+      ]
+    : [
+        ["source ticket", bounded.source_ticket],
+        ["source route", bounded.source_route],
+        ["frontier status", bounded.frontier_status],
+        ["ticket31 transfer", bounded.ticket31_transfer],
+      ];
+  const familyRows = Array.isArray(cegis.feature_families)
+    ? table(
+        ["feature family", "open child edges", "indistinguishable", "rate"],
+        cegis.feature_families.map((row) => [
+          row.family,
+          row.open_child_edges,
+          row.indistinguishable_open_edges,
+          row.indistinguishable_rate,
+        ]),
+      )
+    : "";
+  const chainRows = Array.isArray(cegis.low_child_stutter_chains)
+    ? table(
+        ["residue", "start bits", "same-signature steps", "first change", "terminal"],
+        cegis.low_child_stutter_chains.map((row) => [
+          row.residue,
+          row.start_bits,
+          row.same_signature_low_child_steps,
+          row.first_signature_change ? `bits ${row.first_signature_change.bits}` : "none",
+          row.terminal_non_open_certificate
+            ? `${row.terminal_non_open_certificate.status} at bits ${row.terminal_non_open_certificate.bits}`
+            : "open or not reached",
+        ]),
+      )
+    : "";
+  return `
+    <div class="poc-ticket17 poc-ticket31">
+      <h3>Ticket 31 feature-stutter obstruction</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["Feature-stutter result", "Value"], summaryRows) : ""}
+      ${familyRows}
+      ${chainRows}
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -3071,10 +3153,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket28Trichotomy(trichotomyTicket)}
     ${renderTicket29AdaptiveFrontier(adaptiveFrontierTicket)}
     ${renderTicket30PotentialSynthesis(potentialSynthesisTicket)}
+    ${renderTicket31FeatureStutter(featureStutterTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -3098,7 +3181,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -3171,6 +3254,7 @@ async function main() {
   let ticket28Attempt = null;
   let ticket29Attempt = null;
   let ticket30Attempt = null;
+  let ticket31Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -3306,7 +3390,16 @@ async function main() {
   } catch (error) {
     ticket30Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt);
+  try {
+    const ticket31Response = await fetch("../data/open-problem/ticket31-feature-stutter-lab.json", { cache: "no-store" });
+    if (ticket31Response.ok) {
+      const ticket31Payload = await ticket31Response.json();
+      ticket31Attempt = (ticket31Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket31Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt);
 }
 
 main().catch((error) => {

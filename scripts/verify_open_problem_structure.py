@@ -24,6 +24,7 @@ TICKET27_SCHEMA = "primeproject.ticket27-rank-frontier-lab.v1"
 TICKET28_SCHEMA = "primeproject.ticket28-trichotomy-descent-lab.v1"
 TICKET29_SCHEMA = "primeproject.ticket29-adaptive-frontier-lab.v1"
 TICKET30_SCHEMA = "primeproject.ticket30-potential-synthesis-lab.v1"
+TICKET31_SCHEMA = "primeproject.ticket31-feature-stutter-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -703,6 +704,66 @@ def main() -> int:
     best30 = potential30.get("best_grid_results", [])
     if not isinstance(best30, list) or not best30 or int(best30[0].get("violation_count", 0)) <= 0:
         return fail("collatz ticket30 must keep potential synthesis blocked by violations")
+
+    ticket31_path = Path("data/open-problem/ticket31-feature-stutter-lab.json")
+    if not ticket31_path.exists():
+        return fail("missing ticket31 feature stutter artifact")
+    ticket31 = read_json(ticket31_path)
+    if ticket31.get("schema") != TICKET31_SCHEMA:
+        return fail("ticket31 feature stutter artifact has unexpected schema")
+    if ticket31.get("status") != "feature_stutter_open_no_resolution":
+        return fail("ticket31 feature stutter overstates resolution")
+    ticket31_attempts = ticket31.get("attempts", [])
+    if not isinstance(ticket31_attempts, list):
+        return fail("ticket31 attempts must be a list")
+    ticket31_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket31_attempts if isinstance(attempt, dict)}
+    missing_ticket31 = EXPECTED_PROBLEMS - set(ticket31_by_id)
+    if missing_ticket31:
+        return fail("ticket31 attempts missing problems: " + ", ".join(sorted(missing_ticket31)))
+    ticket31_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-31-finite-stress-stutter.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-31-feature-stutter-obstruction.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-31-cutoff-ledger-stutter.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-31-parity-selector-stutter.json"),
+    }
+    for problem_id, attempt in ticket31_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket31 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket31 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket31 claim boundary is too weak")
+        path = ticket31_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket31 per-problem artifact")
+
+    collatz_ticket31 = ticket31_by_id.get("collatz", {})
+    collatz31_bounded = collatz_ticket31.get("bounded_result", {})
+    if not isinstance(collatz31_bounded, dict):
+        return fail("collatz ticket31 bounded result must be an object")
+    stutter31 = collatz31_bounded.get("feature_stutter_cegis", {})
+    if not isinstance(stutter31, dict):
+        return fail("collatz ticket31 feature stutter result missing")
+    if stutter31.get("feature_only_obstruction_status") != "feature_stutter_blocks_all_strict_local_potentials":
+        return fail("collatz ticket31 must record the feature-only obstruction")
+    if int(stutter31.get("parent_edge_count", 0)) <= 0:
+        return fail("collatz ticket31 must process adaptive parent edges")
+    impossible31 = stutter31.get("strict_descent_impossibility", {})
+    if not isinstance(impossible31, dict):
+        return fail("collatz ticket31 strict descent impossibility missing")
+    if int(impossible31.get("base_four_indistinguishable_edges", 0)) <= 0:
+        return fail("collatz ticket31 must find base feature stutter edges")
+    if int(impossible31.get("prefix_and_low_residue_indistinguishable_edges", 0)) <= 0:
+        return fail("collatz ticket31 must find prefix-and-residue stutter edges")
+    families31 = stutter31.get("feature_families", [])
+    if not isinstance(families31, list) or len(families31) < 6:
+        return fail("collatz ticket31 must compare multiple feature families")
+    family_by_name31 = {str(row.get("family")): row for row in families31 if isinstance(row, dict)}
+    for family_name in ("base_plus_modulus_bits", "base_plus_cylinder_mass"):
+        row = family_by_name31.get(family_name)
+        if row is None or int(row.get("indistinguishable_open_edges", -1)) != 0:
+            return fail(f"collatz ticket31 scale family {family_name} must separate tested stutters")
 
     print("open problem structure verified")
     return 0

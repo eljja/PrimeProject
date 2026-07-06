@@ -847,3 +847,66 @@ Reason:
 ```text
 The failed scalar potentials do not refute Collatz. They show that a viable proof, if it follows the current exact-cylinder path, probably needs a lexicographic, piecewise, nonlinear, or certificate-carrying descent invariant.
 ```
+
+### Ticket 31: Feature-stutter obstruction
+
+Generated artifact:
+
+```text
+data/open-problem/ticket31-feature-stutter-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-31-finite-stress-stutter.json
+data/open-problem/collatz/co-ticket-31-feature-stutter-obstruction.json
+data/open-problem/goldbach/gb-ticket-31-cutoff-ledger-stutter.json
+data/open-problem/twin-prime/tp-ticket-31-parity-selector-stutter.json
+```
+
+Aggregate verdict:
+
+```text
+feature_stutter_open_no_resolution
+```
+
+한국어 요약: TICKET-31은 TICKET-30보다 더 강한 부정 결과를 준다. TICKET-30은 단순 선형 potential이 실패했다는 계산 결과였다. TICKET-31은 그 실패가 단순히 “선형이라서” 생긴 문제가 아님을 보인다. Collatz exact-cylinder frontier에는 부모와 자식이 같은 관측 특징량을 갖는 feature-stutter edge가 존재한다. 그러면 그 특징량만 입력으로 받는 어떤 함수도 부모와 자식을 구분할 수 없으므로, scalar, lexicographic, nonlinear, learned potential 모두 strict local descent를 만족할 수 없다.
+
+1. RH: finite stress가 아무리 RH-compatible하게 반복되어도 zero-side tail theorem이 없으면 증명으로 승격되지 않는다. TICKET-31에서는 이것을 finite-stress stutter obstruction으로 명시했다.
+2. Collatz: `base_bits=12`, `max_bits=21` adaptive frontier에서 parent edge `61,740`개, open child edge `112,860`개를 검사했다. 기본 네 특징량 `coefficient_log2_debt`, `prefix_length`, `consumed_bits`, `next_valuation`만 보면 indistinguishable edge가 `30,997`개, 비율 `0.27465001`이다. prefix word와 low residue까지 추가해도 같은 `30,997`개가 남는다. 따라서 이 local signature만 보는 strict descent proof는 불가능하다.
+3. Goldbach: finite witness persistence는 explicit large-even cutoff ledger를 대체하지 못한다. 필요한 대상은 major arc, minor arc, singular series, exceptional character error를 하나의 양의 하한 부등식으로 닫는 검산 가능한 장부이다.
+4. Twin Prime: bounded-gap 또는 averaged-pair 통계는 parity-blind stutter를 통과할 수 있다. exact gap 2를 강제하려면 wider gap-only countermodel을 배제하는 selector theorem이 필요하다.
+
+Closed partial theorem:
+
+```text
+If an open Collatz exact-cylinder parent and an open child have identical local signature, then no deterministic scalar, lexicographic, nonlinear, or learned potential depending only on that signature can strictly decrease on that edge.
+```
+
+Proof sketch:
+
+```text
+Let S be the chosen local signature and let P be any deterministic potential that depends only on S.
+For a feature-stutter edge, S(parent) = S(child). Therefore P(parent) = P(child).
+Strict descent requires P(parent) > P(child), contradiction.
+For a lexicographic tuple, the same equality holds componentwise.
+```
+
+Refuted shortcut:
+
+```text
+Replacing the failed Ticket 30 scalar linear potential with a black-box nonlinear or lexicographic function of the same local features is enough to close the Collatz frontier.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-32 StatefulMeasureOrAutomatonDescent
+```
+
+Reason:
+
+```text
+Scale-dependent features such as modulus bits or cylinder mass separate the tested stutters, but they are not by themselves well-founded pointwise descent proofs: bits may grow without a prior bound, and mass may tend to zero. The next proof candidate must supply either a compactness/measure theorem, a stateful automaton invariant, or an eventual-closure theorem for infinite stutter paths.
+```

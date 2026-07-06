@@ -420,6 +420,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Adaptive frontier result") ||
         !page.proofOrCounterexampleText.includes("Ticket 30 potential synthesis lab") ||
         !page.proofOrCounterexampleText.includes("Potential synthesis result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 31 feature-stutter obstruction") ||
+        !page.proofOrCounterexampleText.includes("Feature-stutter result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -1091,41 +1093,51 @@ main().catch((error) => {
 });
 
 function startStaticServer(root) {
-  const server = http.createServer((request, response) => {
-    try {
-      const requestUrl = new URL(request.url || "/", "http://127.0.0.1");
-      const pathname = decodeURIComponent(requestUrl.pathname);
-      const relativePath = pathname === "/" ? "index.html" : pathname.replace(/^\/+/, "");
-      const filePath = path.resolve(root, relativePath);
-      if (filePath !== root && !filePath.startsWith(`${root}${path.sep}`)) {
-        response.writeHead(403, { "Content-Type": "text/plain; charset=utf-8" });
-        response.end("Forbidden");
-        return;
-      }
-      if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
-        response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
-        response.end("Not found");
-        return;
-      }
-      response.writeHead(200, {
-        "Content-Type": contentType(filePath),
-        "Cache-Control": "no-store",
+  const candidatePorts = [41731, 41732, 41733, 41734, 41735, 41736, 41737, 41738, 41739];
+  const listenAt = (index) =>
+    new Promise((resolve, reject) => {
+      const server = http.createServer((request, response) => {
+        try {
+          const requestUrl = new URL(request.url || "/", "http://127.0.0.1");
+          const pathname = decodeURIComponent(requestUrl.pathname);
+          const relativePath = pathname === "/" ? "index.html" : pathname.replace(/^\/+/, "");
+          const filePath = path.resolve(root, relativePath);
+          if (filePath !== root && !filePath.startsWith(`${root}${path.sep}`)) {
+            response.writeHead(403, { "Content-Type": "text/plain; charset=utf-8" });
+            response.end("Forbidden");
+            return;
+          }
+          if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+            response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+            response.end("Not found");
+            return;
+          }
+          response.writeHead(200, {
+            "Content-Type": contentType(filePath),
+            "Cache-Control": "no-store",
+          });
+          fs.createReadStream(filePath).pipe(response);
+        } catch (error) {
+          response.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
+          response.end(String(error && error.message ? error.message : error));
+        }
       });
-      fs.createReadStream(filePath).pipe(response);
-    } catch (error) {
-      response.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
-      response.end(String(error && error.message ? error.message : error));
-    }
-  });
-
-  return new Promise((resolve, reject) => {
-    server.once("error", reject);
-    server.listen(0, "127.0.0.1", () => {
-      server.off("error", reject);
-      const address = server.address();
-      resolve({ server, url: `http://127.0.0.1:${address.port}/index.html` });
+      const onError = (error) => {
+        server.close(() => {});
+        if (error && error.code === "EADDRINUSE" && index + 1 < candidatePorts.length) {
+          listenAt(index + 1).then(resolve, reject);
+          return;
+        }
+        reject(error);
+      };
+      server.once("error", onError);
+      server.listen(candidatePorts[index], "127.0.0.1", () => {
+        server.off("error", onError);
+        const address = server.address();
+        resolve({ server, url: `http://127.0.0.1:${address.port}/index.html` });
+      });
     });
-  });
+  return listenAt(0);
 }
 
 function closeServer(server) {
