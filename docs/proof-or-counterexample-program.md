@@ -1024,3 +1024,74 @@ Proof boundary:
 ```text
 Finite monotone mass decrease and a negative fitted slope do not prove that open mass tends to zero. A full proof must establish a global compactness or mass-limit theorem for every future bit length, or a high-branch automaton that closes all remaining obstruction paths.
 ```
+
+### Ticket 34: High-branch automaton and mass-limit split
+
+Generated artifact:
+
+```text
+data/open-problem/ticket34-high-branch-automaton-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-34-tail-automaton-limit.json
+data/open-problem/collatz/co-ticket-34-high-branch-automaton.json
+data/open-problem/goldbach/gb-ticket-34-cutoff-automaton-limit.json
+data/open-problem/twin-prime/tp-ticket-34-parity-automaton-limit.json
+```
+
+Aggregate verdict:
+
+```text
+high_branch_automaton_open_no_resolution
+```
+
+한국어 요약: TICKET-34는 TICKET-33에서 남은 high-branch obstruction을 둘로 분해했다. 첫째, finite automaton state만으로 high branch가 자동으로 닫히는지 검사했다. 둘째, pointwise closure가 실패한다면 aggregate mass contraction이 남는지 finite quotient의 spectral pressure를 계산했다. 결과는 둘 다 조심스럽다. 단순 finite-feature automaton은 state collision 때문에 막혔고, aggregate mass는 계속 줄어드는 압력이 보였지만 이것은 아직 `limsup < 1` 정리가 아니다.
+
+1. RH: tail compactness는 tail automaton 또는 uniform zero-sum mass-limit theorem으로 분해된다. high-height surrogate zero 삽입에서 tail-kernel state collision을 검사해야 한다.
+2. Collatz: `base_bits=12`에서 `max_bits=24`까지 high-branch automaton audit를 실행했다. transition parent는 `387,587`개였고, high-open parent는 `346,972`개, high-only parent는 `20,135`개였다. 모든 level의 aggregate open-mass ratio는 1보다 작았고 최대 ratio는 `0.944905286616`이었다. 그러나 both-open parent가 존재해 pointwise contraction은 막혔다.
+3. Goldbach: cutoff compactness는 finite error-state automaton 또는 future error-state mass bound로 분해된다.
+4. Twin Prime: parity compactness는 exact-gap mass가 wider-gap leakage로 사라지지 않는 automaton 또는 exact-gap mass-limit theorem으로 분해된다.
+
+Finite automaton findings:
+
+```text
+coarse_debt: states=995, ambiguous=301, noncontracting=922, radius=0.675222044668
+tail2_debt: states=6,532, ambiguous=1,722, noncontracting=5,963, radius=0.692640682511
+tail4_debt: states=25,252, ambiguous=5,362, noncontracting=22,567, radius=0.685447084869
+tail4_residue64: states=75,871, ambiguous=12,940, noncontracting=66,299, radius=0.674244169297
+full_word_residue64: states=282,891, ambiguous=21,138, noncontracting=247,442, radius=0.533111158891
+```
+
+Closed partial theorem:
+
+```text
+In the tested Collatz frontier from 12 to 24 bits, every evaluated level has aggregate open-mass ratio below one.
+```
+
+Refuted shortcuts:
+
+```text
+A pointwise high-branch closure proof follows from low-child stutter budgets.
+A small finite feature automaton can decide high-branch closure without state collisions.
+```
+
+Reason:
+
+```text
+The tested quotient families contain ambiguous states: the same finite state can map to different closure labels, including high-open and high-only outcomes. They also contain many pointwise noncontracting states with both children open. Therefore a proof cannot rely on these finite states alone.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-35 LimsupMassContractionOrStateRefinementTheorem
+```
+
+Proof boundary:
+
+```text
+Finite aggregate spectral radius below one is evidence for a mass-limit route, not a proof. A full Collatz proof still needs a symbolic theorem that the limsup of all future adaptive open-mass ratios is strictly below one, or a refined well-founded state that eliminates the observed collisions for every cylinder.
+```

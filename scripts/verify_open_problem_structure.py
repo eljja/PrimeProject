@@ -27,6 +27,7 @@ TICKET30_SCHEMA = "primeproject.ticket30-potential-synthesis-lab.v1"
 TICKET31_SCHEMA = "primeproject.ticket31-feature-stutter-lab.v1"
 TICKET32_SCHEMA = "primeproject.ticket32-stateful-measure-lab.v1"
 TICKET33_SCHEMA = "primeproject.ticket33-global-measure-lab.v1"
+TICKET34_SCHEMA = "primeproject.ticket34-high-branch-automaton-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -882,6 +883,77 @@ def main() -> int:
         return fail("collatz ticket33 must find open high-child edges")
     if int(high33.get("high_only_open_child_edges", 0)) <= 0:
         return fail("collatz ticket33 must find high-only open child edges")
+
+    ticket34_path = Path("data/open-problem/ticket34-high-branch-automaton-lab.json")
+    if not ticket34_path.exists():
+        return fail("missing ticket34 high-branch automaton artifact")
+    ticket34 = read_json(ticket34_path)
+    if ticket34.get("schema") != TICKET34_SCHEMA:
+        return fail("ticket34 high-branch automaton artifact has unexpected schema")
+    if ticket34.get("status") != "high_branch_automaton_open_no_resolution":
+        return fail("ticket34 high-branch automaton overstates resolution")
+    ticket34_attempts = ticket34.get("attempts", [])
+    if not isinstance(ticket34_attempts, list):
+        return fail("ticket34 attempts must be a list")
+    ticket34_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket34_attempts if isinstance(attempt, dict)}
+    missing_ticket34 = EXPECTED_PROBLEMS - set(ticket34_by_id)
+    if missing_ticket34:
+        return fail("ticket34 attempts missing problems: " + ", ".join(sorted(missing_ticket34)))
+    ticket34_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-34-tail-automaton-limit.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-34-high-branch-automaton.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-34-cutoff-automaton-limit.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-34-parity-automaton-limit.json"),
+    }
+    for problem_id, attempt in ticket34_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket34 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket34 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket34 claim boundary is too weak")
+        path = ticket34_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket34 per-problem artifact")
+
+    collatz_ticket34 = ticket34_by_id.get("collatz", {})
+    collatz34_bounded = collatz_ticket34.get("bounded_result", {})
+    if not isinstance(collatz34_bounded, dict):
+        return fail("collatz ticket34 bounded result must be an object")
+    audit34 = collatz34_bounded.get("high_branch_automaton_audit", {})
+    if not isinstance(audit34, dict):
+        return fail("collatz ticket34 high-branch automaton audit missing")
+    if int(audit34.get("transition_parent_count", 0)) <= 0:
+        return fail("collatz ticket34 must audit transition parents")
+    if int(audit34.get("high_open_child_parent_count", 0)) <= 0:
+        return fail("collatz ticket34 must retain high-open obstruction")
+    if int(audit34.get("high_only_parent_count", 0)) <= 0:
+        return fail("collatz ticket34 must retain high-only obstruction")
+    if not audit34.get("pointwise_contraction_blocked"):
+        return fail("collatz ticket34 must block pointwise contraction shortcut")
+    max_ratio34 = audit34.get("max_mass_ratio_to_next")
+    if max_ratio34 is None or float(max_ratio34) >= 1.0:
+        return fail("collatz ticket34 must record bounded aggregate mass pressure below one")
+    certificate34 = audit34.get("automaton_certificate", {})
+    if not isinstance(certificate34, dict):
+        return fail("collatz ticket34 automaton certificate missing")
+    if certificate34.get("status") != "no_finite_automaton_closure_found":
+        return fail("collatz ticket34 must not claim finite automaton closure")
+    if certificate34.get("mass_limit_status") != "finite_aggregate_pressure_only":
+        return fail("collatz ticket34 must keep mass-limit theorem open")
+    families34 = audit34.get("automaton_families", [])
+    if not isinstance(families34, list) or len(families34) < 5:
+        return fail("collatz ticket34 must compare multiple automaton families")
+    if not any(int(row.get("ambiguous_state_count", 0)) > 0 for row in families34 if isinstance(row, dict)):
+        return fail("collatz ticket34 must expose automaton state collisions")
+    if not any(
+        isinstance(row, dict)
+        and isinstance(row.get("aggregate_spectral_pressure"), dict)
+        and float(row["aggregate_spectral_pressure"].get("estimated_radius", 1.0)) < 1.0
+        for row in families34
+    ):
+        return fail("collatz ticket34 must record finite aggregate spectral pressure")
 
     print("open problem structure verified")
     return 0

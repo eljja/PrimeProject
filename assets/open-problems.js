@@ -3247,7 +3247,107 @@ function renderTicket33GlobalMeasure(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket) {
+function renderTicket34HighBranchAutomaton(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.high_branch_automaton_audit || {};
+  const certificate = audit.automaton_certificate || {};
+  const bestRadius = audit.best_finite_quotient_radius || {};
+  const summaryRows = Object.keys(audit).length
+    ? [
+        ["base bits", audit.base_modulus_bits],
+        ["max bits", audit.max_modulus_bits],
+        ["transition parents", audit.transition_parent_count],
+        ["high-open parents", audit.high_open_child_parent_count],
+        ["high-only parents", audit.high_only_parent_count],
+        ["pointwise contraction blocked", audit.pointwise_contraction_blocked],
+        ["max mass ratio", audit.max_mass_ratio_to_next],
+        ["best finite quotient radius", bestRadius.estimated_radius],
+        ["automaton status", certificate.status],
+        ["mass-limit status", certificate.mass_limit_status],
+        ["next candidate", audit.next_candidate],
+      ]
+    : [
+        ["source ticket", bounded.source_ticket],
+        ["source route", bounded.source_route],
+        ["frontier status", bounded.frontier_status],
+        ["ticket34 transfer", bounded.ticket34_transfer],
+      ];
+  const transitionRows = audit.transition_totals
+    ? table(["transition", "count"], Object.entries(audit.transition_totals))
+    : "";
+  const levelRows = Array.isArray(audit.level_rows)
+    ? table(
+        ["bits", "parents", "next count", "mass ratio", "both-open rate", "high-only rate"],
+        audit.level_rows.slice(-8).map((row) => [
+          row.bits,
+          row.parent_frontier_count,
+          row.next_frontier_count,
+          row.mass_ratio_to_next,
+          row.both_open_parent_rate,
+          row.high_only_parent_rate,
+        ]),
+      )
+    : "";
+  const familyRows = Array.isArray(audit.automaton_families)
+    ? table(
+        ["family", "status", "states", "ambiguous", "noncontracting", "radius"],
+        audit.automaton_families.map((row) => [
+          row.family,
+          row.status,
+          row.state_count,
+          row.ambiguous_state_count,
+          row.pointwise_noncontracting_state_count,
+          row.aggregate_spectral_pressure?.estimated_radius ?? row.aggregate_spectral_pressure?.status,
+        ]),
+      )
+    : "";
+  const firstFamily = Array.isArray(audit.automaton_families) ? audit.automaton_families[0] || {} : {};
+  const collisionRows = Array.isArray(firstFamily.collision_examples)
+    ? table(
+        ["state", "labels"],
+        firstFamily.collision_examples.slice(0, 4).map((row) => [row.state, (row.labels || []).join(", ")]),
+      )
+    : "";
+  return `
+    <div class="poc-ticket17 poc-ticket34">
+      <h3>Ticket 34 high-branch automaton lab</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["High-branch automaton result", "Value"], summaryRows) : ""}
+      ${levelRows}
+      ${transitionRows}
+      ${familyRows}
+      ${collisionRows}
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -3331,10 +3431,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket31FeatureStutter(featureStutterTicket)}
     ${renderTicket32StatefulMeasure(statefulMeasureTicket)}
     ${renderTicket33GlobalMeasure(globalMeasureTicket)}
+    ${renderTicket34HighBranchAutomaton(highBranchAutomatonTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -3358,7 +3459,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -3434,6 +3535,7 @@ async function main() {
   let ticket31Attempt = null;
   let ticket32Attempt = null;
   let ticket33Attempt = null;
+  let ticket34Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -3596,7 +3698,16 @@ async function main() {
   } catch (error) {
     ticket33Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt);
+  try {
+    const ticket34Response = await fetch("../data/open-problem/ticket34-high-branch-automaton-lab.json", { cache: "no-store" });
+    if (ticket34Response.ok) {
+      const ticket34Payload = await ticket34Response.json();
+      ticket34Attempt = (ticket34Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket34Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt);
 }
 
 main().catch((error) => {

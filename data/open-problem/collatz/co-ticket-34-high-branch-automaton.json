@@ -1,0 +1,2356 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-34",
+  "status": "proof_pressure_open",
+  "route": "HighBranchAutomatonOrMassLimitTheorem",
+  "proof_or_counterexample_mode": "high_branch_automaton_counterexample_guided_synthesis",
+  "attempt": "Attack the Ticket 33 obstruction directly: test finite-state quotients for high-branch closure and separately test whether aggregate mass contraction is the only viable remaining proof route.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-33",
+    "high_branch_automaton_audit": {
+      "base_modulus_bits": 12,
+      "max_modulus_bits": 24,
+      "transition_parent_count": 387587,
+      "transition_totals": {
+        "both_closed": 9997,
+        "both_open": 326837,
+        "high_only_open": 20135,
+        "low_only_open": 30618
+      },
+      "level_rows": [
+        {
+          "bits": 12,
+          "parent_frontier_count": 2048,
+          "transition_counts": {
+            "both_closed": 12,
+            "both_open": 185,
+            "high_only_open": 19,
+            "low_only_open": 39
+          },
+          "next_frontier_count": 428,
+          "parent_mass": 1.0,
+          "next_mass": 0.1044921875,
+          "mass_ratio_to_next": 0.1044921875,
+          "both_open_parent_rate": 0.09033203125,
+          "high_only_parent_rate": 0.00927734375
+        },
+        {
+          "bits": 13,
+          "parent_frontier_count": 428,
+          "transition_counts": {
+            "both_closed": 28,
+            "both_open": 367,
+            "low_only_open": 33
+          },
+          "next_frontier_count": 767,
+          "parent_mass": 0.1044921875,
+          "next_mass": 0.093627929688,
+          "mass_ratio_to_next": 0.896028037383,
+          "both_open_parent_rate": 0.857476635514,
+          "high_only_parent_rate": 0.0
+        },
+        {
+          "bits": 14,
+          "parent_frontier_count": 767,
+          "transition_counts": {
+            "both_closed": 21,
+            "both_open": 649,
+            "high_only_open": 44,
+            "low_only_open": 53
+          },
+          "next_frontier_count": 1395,
+          "parent_mass": 0.093627929688,
+          "next_mass": 0.085144042969,
+          "mass_ratio_to_next": 0.909387222947,
+          "both_open_parent_rate": 0.846153846154,
+          "high_only_parent_rate": 0.057366362451
+        },
+        {
+          "bits": 15,
+          "parent_frontier_count": 1395,
+          "transition_counts": {
+            "both_closed": 53,
+            "both_open": 1056,
+            "high_only_open": 118,
+            "low_only_open": 168
+          },
+          "next_frontier_count": 2398,
+          "parent_mass": 0.085144042969,
+          "next_mass": 0.073181152344,
+          "mass_ratio_to_next": 0.859498207885,
+          "both_open_parent_rate": 0.756989247312,
+          "high_only_parent_rate": 0.08458781362
+        },
+        {
+          "bits": 16,
+          "parent_frontier_count": 2398,
+          "transition_counts": {
+            "both_closed": 145,
+            "both_open": 2114,
+            "low_only_open": 139
+          },
+          "next_frontier_count": 4367,
+          "parent_mass": 0.073181152344,
+          "next_mass": 0.066635131836,
+          "mass_ratio_to_next": 0.910550458716,
+          "both_open_parent_rate": 0.881567973311,
+          "high_only_parent_rate": 0.0
+        },
+        {
+          "bits": 17,
+          "parent_frontier_count": 4367,
+          "transition_counts": {
+            "both_closed": 68,
+            "both_open": 3778,
+            "high_only_open": 236,
+            "low_only_open": 285
+          },
+          "next_frontier_count": 8077,
+          "parent_mass": 0.066635131836,
+          "next_mass": 0.061622619629,
+          "mass_ratio_to_next": 0.9247767346,
+          "both_open_parent_rate": 0.865124799634,
+          "high_only_parent_rate": 0.054041676208
+        },
+        {
+          "bits": 18,
+          "parent_frontier_count": 8077,
+          "transition_counts": {
+            "both_closed": 308,
+            "both_open": 7495,
+            "low_only_open": 274
+          },
+          "next_frontier_count": 15264,
+          "parent_mass": 0.061622619629,
+          "next_mass": 0.058227539062,
+          "mass_ratio_to_next": 0.944905286616,
+          "both_open_parent_rate": 0.927943543395,
+          "high_only_parent_rate": 0.0
+        },
+        {
+          "bits": 19,
+          "parent_frontier_count": 15264,
+          "transition_counts": {
+            "both_closed": 137,
+            "both_open": 13662,
+            "high_only_open": 676,
+            "low_only_open": 789
+          },
+          "next_frontier_count": 28789,
+          "parent_mass": 0.058227539062,
+          "next_mass": 0.05491065979,
+          "mass_ratio_to_next": 0.943035901468,
+          "both_open_parent_rate": 0.895047169811,
+          "high_only_parent_rate": 0.04428721174
+        },
+        {
+          "bits": 20,
+          "parent_frontier_count": 28789,
+          "transition_counts": {
+            "both_closed": 726,
+            "both_open": 23312,
+            "high_only_open": 2020,
+            "low_only_open": 2731
+          },
+          "next_frontier_count": 51375,
+          "parent_mass": 0.05491065979,
+          "next_mass": 0.048995018005,
+          "mass_ratio_to_next": 0.892267880093,
+          "both_open_parent_rate": 0.809753725381,
+          "high_only_parent_rate": 0.070165688284
+        },
+        {
+          "bits": 21,
+          "parent_frontier_count": 51375,
+          "transition_counts": {
+            "both_closed": 2365,
+            "both_open": 46611,
+            "low_only_open": 2399
+          },
+          "next_frontier_count": 95621,
+          "parent_mass": 0.048995018005,
+          "next_mass": 0.045595645905,
+          "mass_ratio_to_next": 0.930618004866,
+          "both_open_parent_rate": 0.907270072993,
+          "high_only_parent_rate": 0.0
+        },
+        {
+          "bits": 22,
+          "parent_frontier_count": 95621,
+          "transition_counts": {
+            "both_closed": 1208,
+            "both_open": 84438,
+            "high_only_open": 4366,
+            "low_only_open": 5609
+          },
+          "next_frontier_count": 178851,
+          "parent_mass": 0.045595645905,
+          "next_mass": 0.042641401291,
+          "mass_ratio_to_next": 0.935207747252,
+          "both_open_parent_rate": 0.883048702691,
+          "high_only_parent_rate": 0.045659426277
+        },
+        {
+          "bits": 23,
+          "parent_frontier_count": 178851,
+          "transition_counts": {
+            "both_closed": 4926,
+            "both_open": 143170,
+            "high_only_open": 12656,
+            "low_only_open": 18099
+          },
+          "next_frontier_count": 317095,
+          "parent_mass": 0.042641401291,
+          "next_mass": 0.03780066967,
+          "mass_ratio_to_next": 0.88647812984,
+          "both_open_parent_rate": 0.800498739174,
+          "high_only_parent_rate": 0.070762813739
+        }
+      ],
+      "min_mass_ratio_to_next": 0.1044921875,
+      "max_mass_ratio_to_next": 0.944905286616,
+      "high_open_child_parent_count": 346972,
+      "high_only_parent_count": 20135,
+      "pointwise_contraction_blocked": true,
+      "automaton_families": [
+        {
+          "family": "coarse_debt",
+          "status": "blocked_by_state_collision",
+          "parent_instance_count": 387587,
+          "state_count": 995,
+          "transition_counts": {
+            "both_closed": 9997,
+            "both_open": 326837,
+            "high_only_open": 20135,
+            "low_only_open": 30618
+          },
+          "ambiguous_state_count": 301,
+          "ambiguous_state_rate": 0.302512562814,
+          "high_obstruction_state_count": 931,
+          "high_only_state_count": 51,
+          "both_open_state_count": 922,
+          "pointwise_noncontracting_state_count": 922,
+          "self_loop_example_count": 8,
+          "aggregate_spectral_pressure": {
+            "status": "finite_sample_estimate",
+            "estimated_radius": 0.675222044668,
+            "interpretation": "This is an aggregate finite-quotient pressure estimate. It is not a proof of a global mass limit, because unseen future states can change the quotient."
+          },
+          "collision_examples": [
+            {
+              "state": "[8,12,3,0.68]",
+              "labels": [
+                "both_open",
+                "high_only_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_open",
+                  "parent_residue": 127,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 127,
+                  "high_residue": 8319
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 1095,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 1095,
+                  "high_residue": 9287
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 5231,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 5231,
+                  "high_residue": 13423
+                }
+              ]
+            },
+            {
+              "state": "[7,11,3,0.095]",
+              "labels": [
+                "both_closed",
+                "both_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 4251,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 4251,
+                  "high_residue": 12443
+                },
+                {
+                  "label": "both_closed",
+                  "parent_residue": 191,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 191,
+                  "high_residue": 8383
+                },
+                {
+                  "label": "both_closed",
+                  "parent_residue": 4955,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 4955,
+                  "high_residue": 13147
+                }
+              ]
+            },
+            {
+              "state": "[6,8,6,1.51]",
+              "labels": [
+                "both_closed",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 231,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 231,
+                  "high_residue": 8423
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 231,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 231,
+                  "high_residue": 4327
+                }
+              ]
+            },
+            {
+              "state": "[7,11,4,0.095]",
+              "labels": [
+                "both_closed",
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 303,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 303,
+                  "high_residue": 16687
+                },
+                {
+                  "label": "both_closed",
+                  "parent_residue": 543,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 543,
+                  "high_residue": 16927
+                },
+                {
+                  "label": "both_closed",
+                  "parent_residue": 5607,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 5607,
+                  "high_residue": 21991
+                }
+              ]
+            },
+            {
+              "state": "[8,12,2,0.68]",
+              "labels": [
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_open",
+                  "parent_residue": 4399,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 4399,
+                  "high_residue": 12591
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 359,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 359,
+                  "high_residue": 8551
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 4639,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 4639,
+                  "high_residue": 12831
+                }
+              ]
+            },
+            {
+              "state": "[8,12,6,0.68]",
+              "labels": [
+                "both_closed",
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 411,
+                  "parent_bits": 17,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 411,
+                  "high_residue": 131483
+                },
+                {
+                  "label": "both_closed",
+                  "parent_residue": 25503,
+                  "parent_bits": 17,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 25503,
+                  "high_residue": 156575
+                },
+                {
+                  "label": "both_closed",
+                  "parent_residue": 25583,
+                  "parent_bits": 17,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 25583,
+                  "high_residue": 156655
+                }
+              ]
+            }
+          ],
+          "high_only_examples": [
+            {
+              "parent_residue": 207,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 207,
+              "high_residue": 4303
+            },
+            {
+              "parent_residue": 255,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 255,
+              "high_residue": 4351
+            },
+            {
+              "parent_residue": 539,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 539,
+              "high_residue": 4635
+            },
+            {
+              "parent_residue": 679,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 679,
+              "high_residue": 4775
+            },
+            {
+              "parent_residue": 719,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 719,
+              "high_residue": 4815
+            },
+            {
+              "parent_residue": 799,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 799,
+              "high_residue": 4895
+            },
+            {
+              "parent_residue": 1071,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 1071,
+              "high_residue": 5167
+            },
+            {
+              "parent_residue": 1191,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 1191,
+              "high_residue": 5287
+            }
+          ],
+          "both_open_examples": [
+            {
+              "parent_residue": 27,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 27,
+              "high_residue": 4123
+            },
+            {
+              "parent_residue": 31,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 31,
+              "high_residue": 4127
+            },
+            {
+              "parent_residue": 47,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 47,
+              "high_residue": 4143
+            },
+            {
+              "parent_residue": 63,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 63,
+              "high_residue": 4159
+            },
+            {
+              "parent_residue": 71,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 71,
+              "high_residue": 4167
+            },
+            {
+              "parent_residue": 91,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 91,
+              "high_residue": 4187
+            },
+            {
+              "parent_residue": 103,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 103,
+              "high_residue": 4199
+            },
+            {
+              "parent_residue": 111,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 111,
+              "high_residue": 4207
+            }
+          ],
+          "self_loop_examples": [
+            {
+              "direction": "low",
+              "parent_residue": 27,
+              "parent_bits": 12,
+              "child_residue": 27,
+              "child_bits": 13,
+              "state": "[9,12,2,2.265]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 47,
+              "parent_bits": 12,
+              "child_residue": 47,
+              "child_bits": 13,
+              "state": "[9,12,2,2.265]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 91,
+              "parent_bits": 12,
+              "child_residue": 91,
+              "child_bits": 13,
+              "state": "[9,12,3,2.265]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 127,
+              "parent_bits": 12,
+              "child_residue": 127,
+              "child_bits": 13,
+              "state": "[8,12,3,0.68]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 159,
+              "parent_bits": 12,
+              "child_residue": 159,
+              "child_bits": 13,
+              "state": "[9,10,4,4.265]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 167,
+              "parent_bits": 12,
+              "child_residue": 167,
+              "child_bits": 13,
+              "state": "[10,12,3,3.85]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 191,
+              "parent_bits": 12,
+              "child_residue": 191,
+              "child_bits": 13,
+              "state": "[7,11,3,0.095]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 231,
+              "parent_bits": 12,
+              "child_residue": 231,
+              "child_bits": 13,
+              "state": "[6,8,6,1.51]"
+            }
+          ]
+        },
+        {
+          "family": "tail2_debt",
+          "status": "blocked_by_state_collision",
+          "parent_instance_count": 387587,
+          "state_count": 6532,
+          "transition_counts": {
+            "both_closed": 9997,
+            "both_open": 326837,
+            "high_only_open": 20135,
+            "low_only_open": 30618
+          },
+          "ambiguous_state_count": 1722,
+          "ambiguous_state_rate": 0.263625229639,
+          "high_obstruction_state_count": 6084,
+          "high_only_state_count": 460,
+          "both_open_state_count": 5963,
+          "pointwise_noncontracting_state_count": 5963,
+          "self_loop_example_count": 8,
+          "aggregate_spectral_pressure": {
+            "status": "finite_sample_estimate",
+            "estimated_radius": 0.692640682511,
+            "interpretation": "This is an aggregate finite-quotient pressure estimate. It is not a proof of a global mass limit, because unseen future states can change the quotient."
+          },
+          "collision_examples": [
+            {
+              "state": "[8,12,3,0.6797,[2,4]]",
+              "labels": [
+                "both_open",
+                "high_only_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_open",
+                  "parent_residue": 127,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 127,
+                  "high_residue": 8319
+                },
+                {
+                  "label": "high_only_open",
+                  "parent_residue": 127,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "needs_split",
+                  "low_residue": 127,
+                  "high_residue": 16511
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 127,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 127,
+                  "high_residue": 4223
+                }
+              ]
+            },
+            {
+              "state": "[7,11,3,0.0947,[2,4]]",
+              "labels": [
+                "both_closed",
+                "both_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 191,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 191,
+                  "high_residue": 8383
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 191,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 191,
+                  "high_residue": 4287
+                }
+              ]
+            },
+            {
+              "state": "[6,8,6,1.5098,[1,2]]",
+              "labels": [
+                "both_closed",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 231,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 231,
+                  "high_residue": 8423
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 231,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 231,
+                  "high_residue": 4327
+                }
+              ]
+            },
+            {
+              "state": "[7,11,4,0.0947,[2,2]]",
+              "labels": [
+                "both_closed",
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 303,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 303,
+                  "high_residue": 16687
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 303,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 303,
+                  "high_residue": 4399
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 303,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 303,
+                  "high_residue": 8495
+                }
+              ]
+            },
+            {
+              "state": "[8,12,2,0.6797,[1,4]]",
+              "labels": [
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_open",
+                  "parent_residue": 359,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 359,
+                  "high_residue": 8551
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 6427,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 6427,
+                  "high_residue": 14619
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 359,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 359,
+                  "high_residue": 4455
+                }
+              ]
+            },
+            {
+              "state": "[8,12,6,0.6797,[1,2]]",
+              "labels": [
+                "both_closed",
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 411,
+                  "parent_bits": 17,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 411,
+                  "high_residue": 131483
+                },
+                {
+                  "label": "both_closed",
+                  "parent_residue": 4007,
+                  "parent_bits": 17,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 4007,
+                  "high_residue": 135079
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 411,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 411,
+                  "high_residue": 8603
+                }
+              ]
+            }
+          ],
+          "high_only_examples": [
+            {
+              "parent_residue": 207,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 207,
+              "high_residue": 4303
+            },
+            {
+              "parent_residue": 255,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 255,
+              "high_residue": 4351
+            },
+            {
+              "parent_residue": 539,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 539,
+              "high_residue": 4635
+            },
+            {
+              "parent_residue": 679,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 679,
+              "high_residue": 4775
+            },
+            {
+              "parent_residue": 719,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 719,
+              "high_residue": 4815
+            },
+            {
+              "parent_residue": 799,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 799,
+              "high_residue": 4895
+            },
+            {
+              "parent_residue": 1071,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 1071,
+              "high_residue": 5167
+            },
+            {
+              "parent_residue": 1191,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 1191,
+              "high_residue": 5287
+            }
+          ],
+          "both_open_examples": [
+            {
+              "parent_residue": 27,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 27,
+              "high_residue": 4123
+            },
+            {
+              "parent_residue": 31,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 31,
+              "high_residue": 4127
+            },
+            {
+              "parent_residue": 47,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 47,
+              "high_residue": 4143
+            },
+            {
+              "parent_residue": 63,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 63,
+              "high_residue": 4159
+            },
+            {
+              "parent_residue": 71,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 71,
+              "high_residue": 4167
+            },
+            {
+              "parent_residue": 91,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 91,
+              "high_residue": 4187
+            },
+            {
+              "parent_residue": 103,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 103,
+              "high_residue": 4199
+            },
+            {
+              "parent_residue": 111,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 111,
+              "high_residue": 4207
+            }
+          ],
+          "self_loop_examples": [
+            {
+              "direction": "low",
+              "parent_residue": 27,
+              "parent_bits": 12,
+              "child_residue": 27,
+              "child_bits": 13,
+              "state": "[9,12,2,2.2647,[2,1]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 47,
+              "parent_bits": 12,
+              "child_residue": 47,
+              "child_bits": 13,
+              "state": "[9,12,2,2.2647,[1,1]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 91,
+              "parent_bits": 12,
+              "child_residue": 91,
+              "child_bits": 13,
+              "state": "[9,12,3,2.2647,[1,2]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 127,
+              "parent_bits": 12,
+              "child_residue": 127,
+              "child_bits": 13,
+              "state": "[8,12,3,0.6797,[2,4]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 159,
+              "parent_bits": 12,
+              "child_residue": 159,
+              "child_bits": 13,
+              "state": "[9,10,4,4.2647,[1,1]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 167,
+              "parent_bits": 12,
+              "child_residue": 167,
+              "child_bits": 13,
+              "state": "[10,12,3,3.8496,[1,1]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 191,
+              "parent_bits": 12,
+              "child_residue": 191,
+              "child_bits": 13,
+              "state": "[7,11,3,0.0947,[2,4]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 231,
+              "parent_bits": 12,
+              "child_residue": 231,
+              "child_bits": 13,
+              "state": "[6,8,6,1.5098,[1,2]]"
+            }
+          ]
+        },
+        {
+          "family": "tail4_debt",
+          "status": "blocked_by_state_collision",
+          "parent_instance_count": 387587,
+          "state_count": 25252,
+          "transition_counts": {
+            "both_closed": 9997,
+            "both_open": 326837,
+            "high_only_open": 20135,
+            "low_only_open": 30618
+          },
+          "ambiguous_state_count": 5362,
+          "ambiguous_state_rate": 0.212339616664,
+          "high_obstruction_state_count": 23308,
+          "high_only_state_count": 2045,
+          "both_open_state_count": 22567,
+          "pointwise_noncontracting_state_count": 22567,
+          "self_loop_example_count": 8,
+          "aggregate_spectral_pressure": {
+            "status": "finite_sample_estimate",
+            "estimated_radius": 0.685447084869,
+            "interpretation": "This is an aggregate finite-quotient pressure estimate. It is not a proof of a global mass limit, because unseen future states can change the quotient."
+          },
+          "collision_examples": [
+            {
+              "state": "[8,12,3,0.6797,[1,1,2,4]]",
+              "labels": [
+                "both_open",
+                "high_only_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_open",
+                  "parent_residue": 127,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 127,
+                  "high_residue": 8319
+                },
+                {
+                  "label": "high_only_open",
+                  "parent_residue": 127,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "needs_split",
+                  "low_residue": 127,
+                  "high_residue": 16511
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 127,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 127,
+                  "high_residue": 4223
+                }
+              ]
+            },
+            {
+              "state": "[7,11,3,0.09474,[1,1,2,4]]",
+              "labels": [
+                "both_closed",
+                "both_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 191,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 191,
+                  "high_residue": 8383
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 191,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 191,
+                  "high_residue": 4287
+                }
+              ]
+            },
+            {
+              "state": "[6,8,6,1.50978,[2,1,1,2]]",
+              "labels": [
+                "both_closed",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 231,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 231,
+                  "high_residue": 8423
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 231,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 231,
+                  "high_residue": 4327
+                }
+              ]
+            },
+            {
+              "state": "[7,11,4,0.09474,[2,2,2,2]]",
+              "labels": [
+                "both_closed",
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 303,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 303,
+                  "high_residue": 16687
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 303,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 303,
+                  "high_residue": 4399
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 303,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 303,
+                  "high_residue": 8495
+                }
+              ]
+            },
+            {
+              "state": "[8,12,2,0.6797,[1,1,1,4]]",
+              "labels": [
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_open",
+                  "parent_residue": 359,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 359,
+                  "high_residue": 8551
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 6427,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 6427,
+                  "high_residue": 14619
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 359,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 359,
+                  "high_residue": 4455
+                }
+              ]
+            },
+            {
+              "state": "[8,12,6,0.6797,[1,3,1,2]]",
+              "labels": [
+                "both_closed",
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 411,
+                  "parent_bits": 17,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 411,
+                  "high_residue": 131483
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 411,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 411,
+                  "high_residue": 8603
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 411,
+                  "parent_bits": 14,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 411,
+                  "high_residue": 16795
+                }
+              ]
+            }
+          ],
+          "high_only_examples": [
+            {
+              "parent_residue": 207,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 207,
+              "high_residue": 4303
+            },
+            {
+              "parent_residue": 255,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 255,
+              "high_residue": 4351
+            },
+            {
+              "parent_residue": 539,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 539,
+              "high_residue": 4635
+            },
+            {
+              "parent_residue": 679,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 679,
+              "high_residue": 4775
+            },
+            {
+              "parent_residue": 719,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 719,
+              "high_residue": 4815
+            },
+            {
+              "parent_residue": 799,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 799,
+              "high_residue": 4895
+            },
+            {
+              "parent_residue": 1071,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 1071,
+              "high_residue": 5167
+            },
+            {
+              "parent_residue": 1191,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 1191,
+              "high_residue": 5287
+            }
+          ],
+          "both_open_examples": [
+            {
+              "parent_residue": 27,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 27,
+              "high_residue": 4123
+            },
+            {
+              "parent_residue": 31,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 31,
+              "high_residue": 4127
+            },
+            {
+              "parent_residue": 47,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 47,
+              "high_residue": 4143
+            },
+            {
+              "parent_residue": 63,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 63,
+              "high_residue": 4159
+            },
+            {
+              "parent_residue": 71,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 71,
+              "high_residue": 4167
+            },
+            {
+              "parent_residue": 91,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 91,
+              "high_residue": 4187
+            },
+            {
+              "parent_residue": 103,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 103,
+              "high_residue": 4199
+            },
+            {
+              "parent_residue": 111,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 111,
+              "high_residue": 4207
+            }
+          ],
+          "self_loop_examples": [
+            {
+              "direction": "low",
+              "parent_residue": 27,
+              "parent_bits": 12,
+              "child_residue": 27,
+              "child_bits": 13,
+              "state": "[9,12,2,2.26466,[1,2,2,1]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 47,
+              "parent_bits": 12,
+              "child_residue": 47,
+              "child_bits": 13,
+              "state": "[9,12,2,2.26466,[1,2,1,1]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 91,
+              "parent_bits": 12,
+              "child_residue": 91,
+              "child_bits": 13,
+              "state": "[9,12,3,2.26466,[1,1,1,2]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 127,
+              "parent_bits": 12,
+              "child_residue": 127,
+              "child_bits": 13,
+              "state": "[8,12,3,0.6797,[1,1,2,4]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 159,
+              "parent_bits": 12,
+              "child_residue": 159,
+              "child_bits": 13,
+              "state": "[9,10,4,4.26466,[1,1,1,1]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 167,
+              "parent_bits": 12,
+              "child_residue": 167,
+              "child_bits": 13,
+              "state": "[10,12,3,3.84963,[1,1,1,1]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 191,
+              "parent_bits": 12,
+              "child_residue": 191,
+              "child_bits": 13,
+              "state": "[7,11,3,0.09474,[1,1,2,4]]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 231,
+              "parent_bits": 12,
+              "child_residue": 231,
+              "child_bits": 13,
+              "state": "[6,8,6,1.50978,[2,1,1,2]]"
+            }
+          ]
+        },
+        {
+          "family": "tail4_residue64",
+          "status": "blocked_by_state_collision",
+          "parent_instance_count": 387587,
+          "state_count": 75871,
+          "transition_counts": {
+            "both_closed": 9997,
+            "both_open": 326837,
+            "high_only_open": 20135,
+            "low_only_open": 30618
+          },
+          "ambiguous_state_count": 12940,
+          "ambiguous_state_rate": 0.170552648575,
+          "high_obstruction_state_count": 69424,
+          "high_only_state_count": 6792,
+          "both_open_state_count": 66299,
+          "pointwise_noncontracting_state_count": 66299,
+          "self_loop_example_count": 8,
+          "aggregate_spectral_pressure": {
+            "status": "finite_sample_estimate",
+            "estimated_radius": 0.674244169297,
+            "interpretation": "This is an aggregate finite-quotient pressure estimate. It is not a proof of a global mass limit, because unseen future states can change the quotient."
+          },
+          "collision_examples": [
+            {
+              "state": "[8,12,3,0.6797,[1,1,2,4],63]",
+              "labels": [
+                "both_open",
+                "high_only_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_open",
+                  "parent_residue": 127,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 127,
+                  "high_residue": 8319
+                },
+                {
+                  "label": "high_only_open",
+                  "parent_residue": 127,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "needs_split",
+                  "low_residue": 127,
+                  "high_residue": 16511
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 127,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 127,
+                  "high_residue": 4223
+                }
+              ]
+            },
+            {
+              "state": "[7,11,3,0.09474,[1,1,2,4],63]",
+              "labels": [
+                "both_closed",
+                "both_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 191,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 191,
+                  "high_residue": 8383
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 191,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 191,
+                  "high_residue": 4287
+                }
+              ]
+            },
+            {
+              "state": "[6,8,6,1.50978,[2,1,1,2],39]",
+              "labels": [
+                "both_closed",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 231,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 231,
+                  "high_residue": 8423
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 231,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 231,
+                  "high_residue": 4327
+                }
+              ]
+            },
+            {
+              "state": "[7,11,4,0.09474,[2,2,2,2],47]",
+              "labels": [
+                "both_closed",
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 303,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 303,
+                  "high_residue": 16687
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 303,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 303,
+                  "high_residue": 4399
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 303,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 303,
+                  "high_residue": 8495
+                }
+              ]
+            },
+            {
+              "state": "[8,12,2,0.6797,[1,1,1,4],39]",
+              "labels": [
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_open",
+                  "parent_residue": 359,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 359,
+                  "high_residue": 8551
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 359,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 359,
+                  "high_residue": 4455
+                }
+              ]
+            },
+            {
+              "state": "[8,12,6,0.6797,[1,3,1,2],27]",
+              "labels": [
+                "both_closed",
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 411,
+                  "parent_bits": 17,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 411,
+                  "high_residue": 131483
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 411,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 411,
+                  "high_residue": 8603
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 411,
+                  "parent_bits": 14,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 411,
+                  "high_residue": 16795
+                }
+              ]
+            }
+          ],
+          "high_only_examples": [
+            {
+              "parent_residue": 207,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 207,
+              "high_residue": 4303
+            },
+            {
+              "parent_residue": 255,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 255,
+              "high_residue": 4351
+            },
+            {
+              "parent_residue": 539,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 539,
+              "high_residue": 4635
+            },
+            {
+              "parent_residue": 679,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 679,
+              "high_residue": 4775
+            },
+            {
+              "parent_residue": 719,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 719,
+              "high_residue": 4815
+            },
+            {
+              "parent_residue": 799,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 799,
+              "high_residue": 4895
+            },
+            {
+              "parent_residue": 1071,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 1071,
+              "high_residue": 5167
+            },
+            {
+              "parent_residue": 1191,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 1191,
+              "high_residue": 5287
+            }
+          ],
+          "both_open_examples": [
+            {
+              "parent_residue": 27,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 27,
+              "high_residue": 4123
+            },
+            {
+              "parent_residue": 31,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 31,
+              "high_residue": 4127
+            },
+            {
+              "parent_residue": 47,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 47,
+              "high_residue": 4143
+            },
+            {
+              "parent_residue": 63,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 63,
+              "high_residue": 4159
+            },
+            {
+              "parent_residue": 71,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 71,
+              "high_residue": 4167
+            },
+            {
+              "parent_residue": 91,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 91,
+              "high_residue": 4187
+            },
+            {
+              "parent_residue": 103,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 103,
+              "high_residue": 4199
+            },
+            {
+              "parent_residue": 111,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 111,
+              "high_residue": 4207
+            }
+          ],
+          "self_loop_examples": [
+            {
+              "direction": "low",
+              "parent_residue": 27,
+              "parent_bits": 12,
+              "child_residue": 27,
+              "child_bits": 13,
+              "state": "[9,12,2,2.26466,[1,2,2,1],27]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 47,
+              "parent_bits": 12,
+              "child_residue": 47,
+              "child_bits": 13,
+              "state": "[9,12,2,2.26466,[1,2,1,1],47]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 91,
+              "parent_bits": 12,
+              "child_residue": 91,
+              "child_bits": 13,
+              "state": "[9,12,3,2.26466,[1,1,1,2],27]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 127,
+              "parent_bits": 12,
+              "child_residue": 127,
+              "child_bits": 13,
+              "state": "[8,12,3,0.6797,[1,1,2,4],63]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 159,
+              "parent_bits": 12,
+              "child_residue": 159,
+              "child_bits": 13,
+              "state": "[9,10,4,4.26466,[1,1,1,1],31]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 167,
+              "parent_bits": 12,
+              "child_residue": 167,
+              "child_bits": 13,
+              "state": "[10,12,3,3.84963,[1,1,1,1],39]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 191,
+              "parent_bits": 12,
+              "child_residue": 191,
+              "child_bits": 13,
+              "state": "[7,11,3,0.09474,[1,1,2,4],63]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 231,
+              "parent_bits": 12,
+              "child_residue": 231,
+              "child_bits": 13,
+              "state": "[6,8,6,1.50978,[2,1,1,2],39]"
+            }
+          ]
+        },
+        {
+          "family": "full_word_residue64",
+          "status": "blocked_by_state_collision",
+          "parent_instance_count": 387587,
+          "state_count": 282891,
+          "transition_counts": {
+            "both_closed": 9997,
+            "both_open": 326837,
+            "high_only_open": 20135,
+            "low_only_open": 30618
+          },
+          "ambiguous_state_count": 21138,
+          "ambiguous_state_rate": 0.07472135911,
+          "high_obstruction_state_count": 260108,
+          "high_only_state_count": 20135,
+          "both_open_state_count": 247442,
+          "pointwise_noncontracting_state_count": 247442,
+          "self_loop_example_count": 8,
+          "aggregate_spectral_pressure": {
+            "status": "finite_sample_estimate",
+            "estimated_radius": 0.533111158891,
+            "interpretation": "This is an aggregate finite-quotient pressure estimate. It is not a proof of a global mass limit, because unseen future states can change the quotient."
+          },
+          "collision_examples": [
+            {
+              "state": "[8,12,3,0.6797,[1,1,1,1,1,1,2,4],63]",
+              "labels": [
+                "both_open",
+                "high_only_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_open",
+                  "parent_residue": 127,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 127,
+                  "high_residue": 8319
+                },
+                {
+                  "label": "high_only_open",
+                  "parent_residue": 127,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "needs_split",
+                  "low_residue": 127,
+                  "high_residue": 16511
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 127,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 127,
+                  "high_residue": 4223
+                }
+              ]
+            },
+            {
+              "state": "[7,11,3,0.094738,[1,1,1,1,1,2,4],63]",
+              "labels": [
+                "both_closed",
+                "both_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 191,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 191,
+                  "high_residue": 8383
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 191,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 191,
+                  "high_residue": 4287
+                }
+              ]
+            },
+            {
+              "state": "[6,8,6,1.509775,[1,1,2,1,1,2],39]",
+              "labels": [
+                "both_closed",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 231,
+                  "parent_bits": 13,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 231,
+                  "high_residue": 8423
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 231,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 231,
+                  "high_residue": 4327
+                }
+              ]
+            },
+            {
+              "state": "[7,11,4,0.094738,[1,1,1,2,2,2,2],47]",
+              "labels": [
+                "both_closed",
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 303,
+                  "parent_bits": 14,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 303,
+                  "high_residue": 16687
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 303,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 303,
+                  "high_residue": 4399
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 303,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 303,
+                  "high_residue": 8495
+                }
+              ]
+            },
+            {
+              "state": "[8,12,2,0.6797,[1,1,2,1,1,1,1,4],39]",
+              "labels": [
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_open",
+                  "parent_residue": 359,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 359,
+                  "high_residue": 8551
+                },
+                {
+                  "label": "low_only_open",
+                  "parent_residue": 359,
+                  "parent_bits": 12,
+                  "low_status": "needs_split",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 359,
+                  "high_residue": 4455
+                }
+              ]
+            },
+            {
+              "state": "[8,12,6,0.6797,[1,2,1,1,1,3,1,2],27]",
+              "labels": [
+                "both_closed",
+                "both_open",
+                "low_only_open"
+              ],
+              "examples": [
+                {
+                  "label": "both_closed",
+                  "parent_residue": 411,
+                  "parent_bits": 17,
+                  "low_status": "all_lift_descent",
+                  "high_status": "all_lift_descent",
+                  "low_residue": 411,
+                  "high_residue": 131483
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 411,
+                  "parent_bits": 13,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 411,
+                  "high_residue": 8603
+                },
+                {
+                  "label": "both_open",
+                  "parent_residue": 411,
+                  "parent_bits": 14,
+                  "low_status": "needs_split",
+                  "high_status": "needs_split",
+                  "low_residue": 411,
+                  "high_residue": 16795
+                }
+              ]
+            }
+          ],
+          "high_only_examples": [
+            {
+              "parent_residue": 207,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 207,
+              "high_residue": 4303
+            },
+            {
+              "parent_residue": 255,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 255,
+              "high_residue": 4351
+            },
+            {
+              "parent_residue": 539,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 539,
+              "high_residue": 4635
+            },
+            {
+              "parent_residue": 679,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 679,
+              "high_residue": 4775
+            },
+            {
+              "parent_residue": 719,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 719,
+              "high_residue": 4815
+            },
+            {
+              "parent_residue": 799,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 799,
+              "high_residue": 4895
+            },
+            {
+              "parent_residue": 1071,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 1071,
+              "high_residue": 5167
+            },
+            {
+              "parent_residue": 1191,
+              "parent_bits": 12,
+              "low_status": "all_lift_descent",
+              "high_status": "needs_split",
+              "low_residue": 1191,
+              "high_residue": 5287
+            }
+          ],
+          "both_open_examples": [
+            {
+              "parent_residue": 27,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 27,
+              "high_residue": 4123
+            },
+            {
+              "parent_residue": 31,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 31,
+              "high_residue": 4127
+            },
+            {
+              "parent_residue": 47,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 47,
+              "high_residue": 4143
+            },
+            {
+              "parent_residue": 63,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 63,
+              "high_residue": 4159
+            },
+            {
+              "parent_residue": 71,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 71,
+              "high_residue": 4167
+            },
+            {
+              "parent_residue": 91,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 91,
+              "high_residue": 4187
+            },
+            {
+              "parent_residue": 103,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 103,
+              "high_residue": 4199
+            },
+            {
+              "parent_residue": 111,
+              "parent_bits": 12,
+              "low_status": "needs_split",
+              "high_status": "needs_split",
+              "low_residue": 111,
+              "high_residue": 4207
+            }
+          ],
+          "self_loop_examples": [
+            {
+              "direction": "low",
+              "parent_residue": 27,
+              "parent_bits": 12,
+              "child_residue": 27,
+              "child_bits": 13,
+              "state": "[9,12,2,2.264663,[1,2,1,1,1,1,2,2,1],27]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 47,
+              "parent_bits": 12,
+              "child_residue": 47,
+              "child_bits": 13,
+              "state": "[9,12,2,2.264663,[1,1,1,2,2,1,2,1,1],47]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 91,
+              "parent_bits": 12,
+              "child_residue": 91,
+              "child_bits": 13,
+              "state": "[9,12,3,2.264663,[1,2,1,1,2,1,1,1,2],27]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 127,
+              "parent_bits": 12,
+              "child_residue": 127,
+              "child_bits": 13,
+              "state": "[8,12,3,0.6797,[1,1,1,1,1,1,2,4],63]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 159,
+              "parent_bits": 12,
+              "child_residue": 159,
+              "child_bits": 13,
+              "state": "[9,10,4,4.264663,[1,1,1,1,2,1,1,1,1],31]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 167,
+              "parent_bits": 12,
+              "child_residue": 167,
+              "child_bits": 13,
+              "state": "[10,12,3,3.849625,[1,1,2,1,2,1,1,1,1,1],39]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 191,
+              "parent_bits": 12,
+              "child_residue": 191,
+              "child_bits": 13,
+              "state": "[7,11,3,0.094738,[1,1,1,1,1,2,4],63]"
+            },
+            {
+              "direction": "low",
+              "parent_residue": 231,
+              "parent_bits": 12,
+              "child_residue": 231,
+              "child_bits": 13,
+              "state": "[6,8,6,1.509775,[1,1,2,1,1,2],39]"
+            }
+          ]
+        }
+      ],
+      "best_finite_quotient_radius": {
+        "status": "finite_sample_estimate",
+        "estimated_radius": 0.533111158891,
+        "interpretation": "This is an aggregate finite-quotient pressure estimate. It is not a proof of a global mass limit, because unseen future states can change the quotient."
+      },
+      "closed_partial_theorem": "In the tested Collatz frontier, every evaluated level has aggregate open-mass ratio below one.",
+      "refuted_shortcuts": [
+        "A pointwise high-branch closure proof follows from low-child stutter budgets.",
+        "A small finite feature automaton can decide high-branch closure without state collisions."
+      ],
+      "automaton_certificate": {
+        "status": "no_finite_automaton_closure_found",
+        "pointwise_status": "blocked_by_both_open_parents",
+        "mass_limit_status": "finite_aggregate_pressure_only",
+        "proof_boundary": "The audit can refute several finite-state shortcuts and can show bounded aggregate contraction, but it does not prove the required limsup contraction or a well-founded high-branch rank for all future cylinders."
+      },
+      "next_candidate": "CO-TICKET-35 LimsupMassContractionOrStateRefinementTheorem"
+    }
+  },
+  "obstruction": "Both-open parents and state-collision examples persist in the tested frontier. This blocks pointwise high-branch closure and simple finite-feature automata, leaving a limsup mass-contraction theorem or a stronger state refinement as the next target.",
+  "candidate_theorem": "Prove that the limsup of adaptive open-mass ratios is strictly below one, or construct a refined well-founded automaton state whose high and low open transitions strictly decrease on every possible cylinder.",
+  "next_experiment": "Search for a state refinement that eliminates collisions, or prove a symbolic limsup mass contraction bound.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

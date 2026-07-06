@@ -1,0 +1,18 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-34",
+  "status": "proof_pressure_open",
+  "route": "CutoffAutomatonOrErrorMassLimit",
+  "proof_or_counterexample_mode": "automaton_or_mass_limit_refinement",
+  "attempt": "Move from global compactness pressure to a sharper split: either find a finite automaton that closes the obstruction, or prove a mass-limit theorem that survives every future refinement level.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-33",
+    "source_route": "GlobalCutoffCompactness",
+    "frontier_status": "open_infinite_bridge",
+    "ticket34_transfer": "CutoffAutomatonOrErrorMassLimit"
+  },
+  "obstruction": "A cutoff compactness route still needs either a finite error-state automaton or a strict mass bound on all future error states.",
+  "candidate_theorem": "Every major/minor arc ledger state beyond the cutoff maps into a smaller certified error cone.",
+  "next_experiment": "Build a finite error-cone transition graph and reject states with conflicting positivity outcomes.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}

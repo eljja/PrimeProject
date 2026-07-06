@@ -426,6 +426,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Stateful measure result") ||
         !page.proofOrCounterexampleText.includes("Ticket 33 global measure lab") ||
         !page.proofOrCounterexampleText.includes("Global measure result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 34 high-branch automaton lab") ||
+        !page.proofOrCounterexampleText.includes("High-branch automaton result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
