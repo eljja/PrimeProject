@@ -1095,3 +1095,76 @@ Proof boundary:
 ```text
 Finite aggregate spectral radius below one is evidence for a mass-limit route, not a proof. A full Collatz proof still needs a symbolic theorem that the limsup of all future adaptive open-mass ratios is strictly below one, or a refined well-founded state that eliminates the observed collisions for every cylinder.
 ```
+
+### Ticket 35: Limsup mass refinement and null-set gap
+
+Generated artifact:
+
+```text
+data/open-problem/ticket35-limsup-mass-refinement-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-35-tail-nullset-exclusion.json
+data/open-problem/collatz/co-ticket-35-limsup-mass-refinement.json
+data/open-problem/goldbach/gb-ticket-35-exceptional-set-elimination.json
+data/open-problem/twin-prime/tp-ticket-35-exact-gap-nullset.json
+```
+
+Aggregate verdict:
+
+```text
+limsup_mass_refinement_open_no_resolution
+```
+
+한국어 요약: TICKET-35는 지금까지의 결과를 버리지 않고 정리했다. TICKET-31은 local feature-only descent를 막았고, TICKET-32는 bounded low-child stutter budget을 만들었고, TICKET-33/34는 high branch와 aggregate mass contraction을 분리했다. 이번 결론은 더 엄격하다. Mass contraction은 중요한 신호지만, 그것만으로는 Collatz 증명이 아니다. 왜냐하면 measure-zero 예외 집합 안에도 개별 자연수 counterexample이 있을 수 있기 때문이다.
+
+1. RH: finite-prefix나 measure-small tail failure가 아니라, 모든 off-critical zero를 uniform하게 배제하는 tail theorem이 필요하다.
+2. Collatz: exact mass window `12..28 bits`에서 final open mass는 `0.026959180832`, max mass ratio는 `0.944905286616`, tail-window max ratio는 `0.935207747252`, finite candidate epsilon은 `0.064792252748`이다. 그러나 `mass_zero_not_pointwise_proof`가 핵심 장애물로 남았다.
+3. Goldbach: almost-all positivity나 density evidence는 sparse exceptional even integer를 제거하지 못한다. pointwise cutoff theorem이 필요하다.
+4. Twin Prime: bounded statistics나 typical exact-gap mass는 arbitrarily large exact gap-2 pairs를 강제하지 못한다. uniform exact-gap lower bound가 필요하다.
+
+State refinement findings:
+
+```text
+full_word_residue64: blocked_by_state_collision, states=82,273, ambiguous=5,114, noncontracting=74,832
+full_word_residue1024_bits_mod16: blocked_by_pointwise_noncontraction, states=113,645, ambiguous=0, noncontracting=99,229
+full_word_residue4096_bits_mod32: blocked_by_pointwise_noncontraction, states=114,937, ambiguous=0, noncontracting=99,229
+exact_residue_and_bits: collision_free_but_unbounded_identity_state, states=114,937, ambiguous=0, noncontracting=99,229
+```
+
+Discarded routes:
+
+```text
+mass-only Collatz proof without an arithmetic null-set exclusion theorem
+fixed finite-feature automaton closure after observed state collisions
+pointwise high-branch closure inherited from low-child stutter budgets
+```
+
+Retained routes:
+
+```text
+limsup mass contraction as a useful but insufficient global pressure statement
+state refinement only if it becomes uniform and well-founded rather than identity-like
+contrapositive search for an infinite natural-number path inside the null frontier
+```
+
+Closed partial theorem:
+
+```text
+The tested Collatz frontier keeps aggregate mass ratios below one through the recorded exact window.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-36 NullSetArithmeticExclusionOrUniformRankTheorem
+```
+
+Proof boundary:
+
+```text
+Even a proved measure-zero limiting obstruction set would not by itself prove Collatz for every positive integer. A full proof must either exclude natural-number paths from that null set, or provide a uniform well-founded rank that decreases on every infinite adaptive path.
+```

@@ -428,6 +428,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Global measure result") ||
         !page.proofOrCounterexampleText.includes("Ticket 34 high-branch automaton lab") ||
         !page.proofOrCounterexampleText.includes("High-branch automaton result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 35 limsup mass refinement lab") ||
+        !page.proofOrCounterexampleText.includes("Limsup mass refinement result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

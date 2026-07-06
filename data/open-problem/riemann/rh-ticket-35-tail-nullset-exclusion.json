@@ -1,0 +1,18 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-35",
+  "status": "proof_pressure_open",
+  "route": "UniformTailNullSetExclusion",
+  "proof_or_counterexample_mode": "route_pruning_and_refinement",
+  "attempt": "Keep the useful bounded evidence, discard routes whose proof obligation is now known to be too weak, and restate the remaining target as a theorem that can in principle close the infinite gap.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-34",
+    "source_route": "TailAutomatonOrUniformMassLimit",
+    "frontier_status": "open_infinite_bridge",
+    "ticket35_transfer": "UniformTailNullSetExclusion"
+  },
+  "obstruction": "Finite or measure-small tail failures do not prove RH unless off-critical zeros are excluded uniformly.",
+  "candidate_theorem": "A uniform tail theorem excludes every off-critical zero, not only a positive-measure family of surrogate failures.",
+  "next_experiment": "Search for a tail-null-set analogue: can off-critical zero camouflage survive in a measure-zero family?",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

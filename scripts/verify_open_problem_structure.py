@@ -28,6 +28,7 @@ TICKET31_SCHEMA = "primeproject.ticket31-feature-stutter-lab.v1"
 TICKET32_SCHEMA = "primeproject.ticket32-stateful-measure-lab.v1"
 TICKET33_SCHEMA = "primeproject.ticket33-global-measure-lab.v1"
 TICKET34_SCHEMA = "primeproject.ticket34-high-branch-automaton-lab.v1"
+TICKET35_SCHEMA = "primeproject.ticket35-limsup-mass-refinement-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -954,6 +955,80 @@ def main() -> int:
         for row in families34
     ):
         return fail("collatz ticket34 must record finite aggregate spectral pressure")
+
+    ticket35_path = Path("data/open-problem/ticket35-limsup-mass-refinement-lab.json")
+    if not ticket35_path.exists():
+        return fail("missing ticket35 limsup mass refinement artifact")
+    ticket35 = read_json(ticket35_path)
+    if ticket35.get("schema") != TICKET35_SCHEMA:
+        return fail("ticket35 limsup mass refinement artifact has unexpected schema")
+    if ticket35.get("status") != "limsup_mass_refinement_open_no_resolution":
+        return fail("ticket35 limsup mass refinement overstates resolution")
+    ticket35_attempts = ticket35.get("attempts", [])
+    if not isinstance(ticket35_attempts, list):
+        return fail("ticket35 attempts must be a list")
+    ticket35_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket35_attempts if isinstance(attempt, dict)}
+    missing_ticket35 = EXPECTED_PROBLEMS - set(ticket35_by_id)
+    if missing_ticket35:
+        return fail("ticket35 attempts missing problems: " + ", ".join(sorted(missing_ticket35)))
+    ticket35_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-35-tail-nullset-exclusion.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-35-limsup-mass-refinement.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-35-exceptional-set-elimination.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-35-exact-gap-nullset.json"),
+    }
+    for problem_id, attempt in ticket35_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket35 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket35 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket35 claim boundary is too weak")
+        path = ticket35_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket35 per-problem artifact")
+
+    collatz_ticket35 = ticket35_by_id.get("collatz", {})
+    collatz35_bounded = collatz_ticket35.get("bounded_result", {})
+    if not isinstance(collatz35_bounded, dict):
+        return fail("collatz ticket35 bounded result must be an object")
+    audit35 = collatz35_bounded.get("limsup_mass_refinement_audit", {})
+    if not isinstance(audit35, dict):
+        return fail("collatz ticket35 limsup mass refinement audit missing")
+    mass35 = audit35.get("mass_envelope_audit", {})
+    if not isinstance(mass35, dict):
+        return fail("collatz ticket35 mass envelope missing")
+    if float(mass35.get("max_mass_ratio_to_next", 1.0)) >= 1.0:
+        return fail("collatz ticket35 must keep finite mass ratios below one")
+    if float(mass35.get("final_open_mass", 0.0)) <= 0.0:
+        return fail("collatz ticket35 must keep positive finite final open mass")
+    if not mass35.get("tail_window_candidate_epsilon"):
+        return fail("collatz ticket35 must record finite tail epsilon")
+    null35 = audit35.get("null_set_gap", {})
+    if not isinstance(null35, dict):
+        return fail("collatz ticket35 null-set gap missing")
+    if null35.get("status") != "mass_zero_not_pointwise_proof":
+        return fail("collatz ticket35 must not treat mass-zero as pointwise proof")
+    route35 = audit35.get("route_decision", {})
+    if not isinstance(route35, dict):
+        return fail("collatz ticket35 route decision missing")
+    discard35 = " ".join(str(item) for item in route35.get("discard", []))
+    if "mass-only" not in discard35 or "finite-feature" not in discard35:
+        return fail("collatz ticket35 must discard weak mass-only and finite-feature routes")
+    refinement35 = audit35.get("state_refinement_audit", {})
+    if not isinstance(refinement35, dict):
+        return fail("collatz ticket35 state refinement audit missing")
+    if refinement35.get("refinement_status") != "bounded_refinements_still_blocked_identity_state_not_uniform":
+        return fail("collatz ticket35 must keep refinement route open")
+    rows35 = refinement35.get("refinement_rows", [])
+    if not isinstance(rows35, list) or len(rows35) < 4:
+        return fail("collatz ticket35 must compare multiple state refinements")
+    identity_rows35 = [row for row in rows35 if isinstance(row, dict) and row.get("family") == "exact_residue_and_bits"]
+    if not identity_rows35 or identity_rows35[0].get("finite_uniform_candidate") is not False:
+        return fail("collatz ticket35 must reject exact identity state as finite uniform proof")
+    if not any(isinstance(row, dict) and int(row.get("pointwise_noncontracting_state_count", 0)) > 0 for row in rows35):
+        return fail("collatz ticket35 must retain pointwise noncontraction obstruction")
 
     print("open problem structure verified")
     return 0

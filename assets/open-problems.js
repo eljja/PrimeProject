@@ -3347,7 +3347,107 @@ function renderTicket34HighBranchAutomaton(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket) {
+function renderTicket35LimsupMassRefinement(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.limsup_mass_refinement_audit || {};
+  const mass = audit.mass_envelope_audit || {};
+  const refinement = audit.state_refinement_audit || {};
+  const nullSet = audit.null_set_gap || {};
+  const fit = mass.tail_log2_mass_fit || {};
+  const summaryRows = Object.keys(audit).length
+    ? [
+        ["mass bits", `${mass.base_modulus_bits}..${mass.max_modulus_bits}`],
+        ["final open count", mass.final_open_frontier_count],
+        ["final open mass", mass.final_open_mass],
+        ["max mass ratio", mass.max_mass_ratio_to_next],
+        ["tail max ratio", mass.tail_window_max_ratio],
+        ["tail candidate epsilon", mass.tail_window_candidate_epsilon],
+        ["tail per-bit factor", fit.per_bit_factor],
+        ["null-set gap", nullSet.status],
+        ["refinement status", refinement.refinement_status],
+        ["next candidate", audit.next_candidate],
+      ]
+    : [
+        ["source ticket", bounded.source_ticket],
+        ["source route", bounded.source_route],
+        ["frontier status", bounded.frontier_status],
+        ["ticket35 transfer", bounded.ticket35_transfer],
+      ];
+  const levelRows = Array.isArray(mass.level_rows)
+    ? table(
+        ["bits", "parents", "next count", "mass ratio", "both-open rate", "high-only rate"],
+        mass.level_rows.slice(-8).map((row) => [
+          row.bits,
+          row.parent_frontier_count,
+          row.next_frontier_count,
+          row.mass_ratio_to_next,
+          row.both_open_parent_rate,
+          row.high_only_parent_rate,
+        ]),
+      )
+    : "";
+  const refinementRows = Array.isArray(refinement.refinement_rows)
+    ? table(
+        ["family", "status", "states", "ambiguous", "noncontracting", "finite"],
+        refinement.refinement_rows.map((row) => [
+          row.family,
+          row.status,
+          row.state_count,
+          row.ambiguous_state_count,
+          row.pointwise_noncontracting_state_count,
+          row.finite_uniform_candidate,
+        ]),
+      )
+    : "";
+  const routeDecision = audit.route_decision || {};
+  return `
+    <div class="poc-ticket17 poc-ticket35">
+      <h3>Ticket 35 limsup mass refinement lab</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["Limsup mass refinement result", "Value"], summaryRows) : ""}
+      ${levelRows}
+      ${refinementRows}
+      <div class="poc-bridge">
+        <section>
+          <h3>Discard</h3>
+          ${list(routeDecision.discard || [])}
+        </section>
+        <section>
+          <h3>Retain</h3>
+          ${list(routeDecision.retain || [])}
+        </section>
+      </div>
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(nullSet.reason || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -3432,10 +3532,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket32StatefulMeasure(statefulMeasureTicket)}
     ${renderTicket33GlobalMeasure(globalMeasureTicket)}
     ${renderTicket34HighBranchAutomaton(highBranchAutomatonTicket)}
+    ${renderTicket35LimsupMassRefinement(limsupMassRefinementTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -3459,7 +3560,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -3536,6 +3637,7 @@ async function main() {
   let ticket32Attempt = null;
   let ticket33Attempt = null;
   let ticket34Attempt = null;
+  let ticket35Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -3707,7 +3809,16 @@ async function main() {
   } catch (error) {
     ticket34Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt);
+  try {
+    const ticket35Response = await fetch("../data/open-problem/ticket35-limsup-mass-refinement-lab.json", { cache: "no-store" });
+    if (ticket35Response.ok) {
+      const ticket35Payload = await ticket35Response.json();
+      ticket35Attempt = (ticket35Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket35Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt);
 }
 
 main().catch((error) => {
