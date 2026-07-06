@@ -25,6 +25,7 @@ TICKET28_SCHEMA = "primeproject.ticket28-trichotomy-descent-lab.v1"
 TICKET29_SCHEMA = "primeproject.ticket29-adaptive-frontier-lab.v1"
 TICKET30_SCHEMA = "primeproject.ticket30-potential-synthesis-lab.v1"
 TICKET31_SCHEMA = "primeproject.ticket31-feature-stutter-lab.v1"
+TICKET32_SCHEMA = "primeproject.ticket32-stateful-measure-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -764,6 +765,63 @@ def main() -> int:
         row = family_by_name31.get(family_name)
         if row is None or int(row.get("indistinguishable_open_edges", -1)) != 0:
             return fail(f"collatz ticket31 scale family {family_name} must separate tested stutters")
+
+    ticket32_path = Path("data/open-problem/ticket32-stateful-measure-lab.json")
+    if not ticket32_path.exists():
+        return fail("missing ticket32 stateful measure artifact")
+    ticket32 = read_json(ticket32_path)
+    if ticket32.get("schema") != TICKET32_SCHEMA:
+        return fail("ticket32 stateful measure artifact has unexpected schema")
+    if ticket32.get("status") != "stateful_measure_open_no_resolution":
+        return fail("ticket32 stateful measure overstates resolution")
+    ticket32_attempts = ticket32.get("attempts", [])
+    if not isinstance(ticket32_attempts, list):
+        return fail("ticket32 attempts must be a list")
+    ticket32_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket32_attempts if isinstance(attempt, dict)}
+    missing_ticket32 = EXPECTED_PROBLEMS - set(ticket32_by_id)
+    if missing_ticket32:
+        return fail("ticket32 attempts missing problems: " + ", ".join(sorted(missing_ticket32)))
+    ticket32_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-32-stateful-tail-certificate.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-32-stateful-measure-descent.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-32-stateful-cutoff-ledger.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-32-stateful-parity-selector.json"),
+    }
+    for problem_id, attempt in ticket32_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket32 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket32 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket32 claim boundary is too weak")
+        path = ticket32_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket32 per-problem artifact")
+
+    collatz_ticket32 = ticket32_by_id.get("collatz", {})
+    collatz32_bounded = collatz_ticket32.get("bounded_result", {})
+    if not isinstance(collatz32_bounded, dict):
+        return fail("collatz ticket32 bounded result must be an object")
+    audit32 = collatz32_bounded.get("stateful_measure_audit", {})
+    if not isinstance(audit32, dict):
+        return fail("collatz ticket32 stateful measure audit missing")
+    if int(audit32.get("stutter_edge_count", 0)) <= 0:
+        return fail("collatz ticket32 must audit stutter edges")
+    if int(audit32.get("max_same_signature_steps", 0)) <= 0:
+        return fail("collatz ticket32 must record nonzero stutter budget")
+    budget32 = audit32.get("stateful_budget_certificate", {})
+    if not isinstance(budget32, dict):
+        return fail("collatz ticket32 stateful budget certificate missing")
+    if budget32.get("status") != "bounded_certificate_found":
+        return fail("collatz ticket32 must find a bounded stutter budget certificate")
+    if int(budget32.get("unresolved_stutter_edges", -1)) != 0:
+        return fail("collatz ticket32 must have zero unresolved stutter edges")
+    outcomes32 = audit32.get("chain_outcome_counts", {})
+    if not isinstance(outcomes32, dict) or int(outcomes32.get("terminal", 0)) <= 0:
+        return fail("collatz ticket32 must include terminal stutter chains")
+    if int(outcomes32.get("signature_changed", 0)) <= 0:
+        return fail("collatz ticket32 must include signature-changing stutter chains")
 
     print("open problem structure verified")
     return 0

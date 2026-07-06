@@ -1,0 +1,18 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-32",
+  "status": "proof_pressure_open",
+  "route": "StatefulParitySelector",
+  "proof_or_counterexample_mode": "stateful_bridge_refinement",
+  "attempt": "Move from local feature tests to stateful certificates: finite computations are useful only when they identify the next state variable or global theorem needed to block infinite obstruction paths.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-31",
+    "source_route": "ParitySelectorStutterObstruction",
+    "frontier_status": "open_infinite_bridge",
+    "ticket32_transfer": "StatefulParitySelector"
+  },
+  "obstruction": "Parity-blind statistics can stutter across bounded-gap states without forcing exact gap 2.",
+  "candidate_theorem": "A parity-sensitive selector state machine keeps exact gap-2 mass positive while rejecting wider-gap-only models.",
+  "next_experiment": "Construct parity countermodel states and require exact-pair mass to survive every transition.",
+  "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+}

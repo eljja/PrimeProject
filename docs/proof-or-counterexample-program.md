@@ -910,3 +910,57 @@ Reason:
 ```text
 Scale-dependent features such as modulus bits or cylinder mass separate the tested stutters, but they are not by themselves well-founded pointwise descent proofs: bits may grow without a prior bound, and mass may tend to zero. The next proof candidate must supply either a compactness/measure theorem, a stateful automaton invariant, or an eventual-closure theorem for infinite stutter paths.
 ```
+
+### Ticket 32: Stateful measure and stutter-budget certificate
+
+Generated artifact:
+
+```text
+data/open-problem/ticket32-stateful-measure-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-32-stateful-tail-certificate.json
+data/open-problem/collatz/co-ticket-32-stateful-measure-descent.json
+data/open-problem/goldbach/gb-ticket-32-stateful-cutoff-ledger.json
+data/open-problem/twin-prime/tp-ticket-32-stateful-parity-selector.json
+```
+
+Aggregate verdict:
+
+```text
+stateful_measure_open_no_resolution
+```
+
+한국어 요약: TICKET-32는 TICKET-31이 막아낸 local feature-only descent를 우회하기 위해 stateful certificate를 시도한다. Collatz에서는 feature-stutter edge마다 “같은 signature가 앞으로 몇 단계 더 지속되는가”를 lookahead로 계산해 stutter budget으로 붙였다. 이 budget은 반복 low-child stutter 구간에서는 1씩 감소한다. 그러나 이것은 bounded frontier 안의 certificate이지, 모든 cylinder와 high-child/non-stutter branch를 닫는 전역 증명은 아니다.
+
+1. RH: finite stress 대신 tail state certificate가 필요하다는 방향으로 이동했다. off-critical zero가 있으면 finite replayable positivity violation으로 내려온다는 stateful tail bridge는 아직 없다.
+2. Collatz: `base_bits=12`, `adaptive_max_bits=22`, `max_chain_bits=96`에서 parent edge `113,115`개, open child edge `208,481`개를 검사했다. feature-stutter edge는 `56,714`개이고 비율은 `0.27203438`이다. 모든 stutter chain은 `signature_changed` `30,939`개 또는 `terminal` `25,775`개로 끝났고, unresolved는 `0`개였다. 최대 same-signature run은 `17`단계이다.
+3. Goldbach: finite witness가 아니라 major/minor arc와 error budget을 상태 전이로 보존하는 cutoff ledger state machine이 필요하다.
+4. Twin Prime: exact gap 2 mass가 parity countermodel 상태 전이에서 사라지지 않는 selector state machine이 필요하다.
+
+Closed partial theorem:
+
+```text
+Every tested same-signature low-child stutter chain in the Ticket 32 Collatz bounded frontier exits the same local signature within the recorded finite budget. A certificate-carrying budget strictly decreases along repeated same-signature low-child stutter moves in this bounded frontier.
+```
+
+Refuted shortcut:
+
+```text
+The bounded stutter-budget certificate alone proves Collatz.
+```
+
+Reason:
+
+```text
+The budget is lookahead-derived and bounded to the tested frontier. A full proof still needs a theorem showing that every possible exact-cylinder path has finite budget or zero obstruction mass, and it must also close high-child and non-stutter transitions.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-33 GlobalMeasureCompactnessOrHighBranchClosure
+```

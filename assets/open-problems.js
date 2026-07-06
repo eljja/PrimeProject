@@ -3072,7 +3072,90 @@ function renderTicket31FeatureStutter(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket) {
+function renderTicket32StatefulMeasure(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.stateful_measure_audit || {};
+  const budget = audit.stateful_budget_certificate || {};
+  const summaryRows = Object.keys(audit).length
+    ? [
+        ["base bits", audit.base_modulus_bits],
+        ["adaptive max bits", audit.adaptive_max_modulus_bits],
+        ["max chain bits", audit.max_chain_bits],
+        ["parent edges", audit.parent_edge_count],
+        ["open child edges", audit.open_child_edges],
+        ["stutter edges", audit.stutter_edge_count],
+        ["stutter rate", audit.stutter_edge_rate],
+        ["max same-signature steps", audit.max_same_signature_steps],
+        ["budget status", budget.status],
+        ["unresolved stutter edges", budget.unresolved_stutter_edges],
+        ["next candidate", audit.next_candidate],
+      ]
+    : [
+        ["source ticket", bounded.source_ticket],
+        ["source route", bounded.source_route],
+        ["frontier status", bounded.frontier_status],
+        ["ticket32 transfer", bounded.ticket32_transfer],
+      ];
+  const outcomeRows = audit.chain_outcome_counts
+    ? table(["outcome", "count"], Object.entries(audit.chain_outcome_counts))
+    : "";
+  const distributionRows = audit.same_signature_step_distribution
+    ? table(
+        ["same-signature steps", "count"],
+        Object.entries(audit.same_signature_step_distribution).slice(-8),
+      )
+    : "";
+  const examples = Array.isArray(audit.max_stutter_examples)
+    ? table(
+        ["residue", "bits", "steps", "outcome", "exit"],
+        audit.max_stutter_examples.slice(0, 6).map((row) => [
+          row.parent_residue,
+          row.parent_bits,
+          row.same_signature_steps,
+          row.outcome,
+          `${row.exit_status} at bits ${row.exit_bits}`,
+        ]),
+      )
+    : "";
+  return `
+    <div class="poc-ticket17 poc-ticket32">
+      <h3>Ticket 32 stateful measure lab</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["Stateful measure result", "Value"], summaryRows) : ""}
+      ${outcomeRows}
+      ${distributionRows}
+      ${examples}
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -3154,10 +3237,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket29AdaptiveFrontier(adaptiveFrontierTicket)}
     ${renderTicket30PotentialSynthesis(potentialSynthesisTicket)}
     ${renderTicket31FeatureStutter(featureStutterTicket)}
+    ${renderTicket32StatefulMeasure(statefulMeasureTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -3181,7 +3265,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -3255,6 +3339,7 @@ async function main() {
   let ticket29Attempt = null;
   let ticket30Attempt = null;
   let ticket31Attempt = null;
+  let ticket32Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -3399,7 +3484,16 @@ async function main() {
   } catch (error) {
     ticket31Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt);
+  try {
+    const ticket32Response = await fetch("../data/open-problem/ticket32-stateful-measure-lab.json", { cache: "no-store" });
+    if (ticket32Response.ok) {
+      const ticket32Payload = await ticket32Response.json();
+      ticket32Attempt = (ticket32Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket32Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt);
 }
 
 main().catch((error) => {

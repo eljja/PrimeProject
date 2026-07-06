@@ -1,0 +1,18 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-32",
+  "status": "proof_pressure_open",
+  "route": "StatefulCutoffLedger",
+  "proof_or_counterexample_mode": "stateful_bridge_refinement",
+  "attempt": "Move from local feature tests to stateful certificates: finite computations are useful only when they identify the next state variable or global theorem needed to block infinite obstruction paths.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-31",
+    "source_route": "CutoffLedgerStutterObstruction",
+    "frontier_status": "open_infinite_bridge",
+    "ticket32_transfer": "StatefulCutoffLedger"
+  },
+  "obstruction": "Finite witness scans need a stateful inequality ledger that cannot lose constants between major/minor arc states.",
+  "candidate_theorem": "A cutoff ledger state machine proves the representation count remains positive for every even n beyond N0.",
+  "next_experiment": "Build a constant-budget state machine with explicit pass/fail transitions for every analytic error term.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}

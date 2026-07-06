@@ -1,0 +1,18 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-32",
+  "status": "proof_pressure_open",
+  "route": "StatefulTailCertificate",
+  "proof_or_counterexample_mode": "stateful_bridge_refinement",
+  "attempt": "Move from local feature tests to stateful certificates: finite computations are useful only when they identify the next state variable or global theorem needed to block infinite obstruction paths.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-31",
+    "source_route": "FiniteStressStutterObstruction",
+    "frontier_status": "open_infinite_bridge",
+    "ticket32_transfer": "StatefulTailCertificate"
+  },
+  "obstruction": "Finite positivity checks need a stateful tail certificate that controls every zero contribution, not just sampled stress.",
+  "candidate_theorem": "A tail-state certificate proves that any off-critical zero forces a finite replayable positivity violation.",
+  "next_experiment": "Synthesize admissible tail states and reject any state whose proof imports RH-equivalent positivity.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

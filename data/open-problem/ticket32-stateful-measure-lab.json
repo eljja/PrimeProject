@@ -1,0 +1,375 @@
+{
+  "schema": "primeproject.ticket32-stateful-measure-lab.v1",
+  "generated_at": "2026-07-07T00:05:00+09:00",
+  "status": "stateful_measure_open_no_resolution",
+  "claim_boundary": "Ticket 32 finds a bounded stateful stutter-budget certificate for the tested Collatz frontier. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-32",
+      "status": "proof_pressure_open",
+      "route": "StatefulTailCertificate",
+      "proof_or_counterexample_mode": "stateful_bridge_refinement",
+      "attempt": "Move from local feature tests to stateful certificates: finite computations are useful only when they identify the next state variable or global theorem needed to block infinite obstruction paths.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-31",
+        "source_route": "FiniteStressStutterObstruction",
+        "frontier_status": "open_infinite_bridge",
+        "ticket32_transfer": "StatefulTailCertificate"
+      },
+      "obstruction": "Finite positivity checks need a stateful tail certificate that controls every zero contribution, not just sampled stress.",
+      "candidate_theorem": "A tail-state certificate proves that any off-critical zero forces a finite replayable positivity violation.",
+      "next_experiment": "Synthesize admissible tail states and reject any state whose proof imports RH-equivalent positivity.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-32",
+      "status": "proof_pressure_open",
+      "route": "StatefulMeasureOrAutomatonDescent",
+      "proof_or_counterexample_mode": "stateful_counterexample_guided_synthesis",
+      "attempt": "After Ticket 31 ruled out local feature-only strict descent, test whether each observed feature-stutter edge can be equipped with a finite stateful stutter budget that decreases along repeated low-child stutter.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-31",
+        "stateful_measure_audit": {
+          "base_modulus_bits": 12,
+          "adaptive_max_modulus_bits": 22,
+          "max_chain_bits": 96,
+          "parent_edge_count": 113115,
+          "open_child_edges": 208481,
+          "stutter_edge_count": 56714,
+          "stutter_edge_rate": 0.27203438,
+          "chain_outcome_counts": {
+            "signature_changed": 30939,
+            "terminal": 25775
+          },
+          "same_signature_step_distribution": {
+            "1": 28180,
+            "2": 14031,
+            "3": 7173,
+            "4": 3619,
+            "5": 1861,
+            "6": 920,
+            "7": 450,
+            "8": 240,
+            "9": 110,
+            "10": 58,
+            "11": 30,
+            "12": 20,
+            "13": 9,
+            "14": 7,
+            "15": 2,
+            "16": 2,
+            "17": 2
+          },
+          "max_same_signature_steps": 17,
+          "max_stutter_examples": [
+            {
+              "parent_residue": 424639,
+              "parent_bits": 19,
+              "child_bits": 20,
+              "same_signature_steps": 17,
+              "outcome": "terminal",
+              "exit_bits": 37,
+              "exit_status": "all_lift_descent",
+              "parent_features": [
+                4.77443751,
+                15.0,
+                19.0,
+                18.0
+              ],
+              "exit_features": [
+                0.0,
+                16.0,
+                37.0,
+                0.0
+              ],
+              "samples": [
+                {
+                  "bits": 20,
+                  "features": [
+                    4.77443751,
+                    15.0,
+                    19.0,
+                    18.0
+                  ],
+                  "prefix_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "bits": 21,
+                  "features": [
+                    4.77443751,
+                    15.0,
+                    19.0,
+                    18.0
+                  ],
+                  "prefix_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "bits": 22,
+                  "features": [
+                    4.77443751,
+                    15.0,
+                    19.0,
+                    18.0
+                  ],
+                  "prefix_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "bits": 23,
+                  "features": [
+                    4.77443751,
+                    15.0,
+                    19.0,
+                    18.0
+                  ],
+                  "prefix_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "parent_residue": 849279,
+              "parent_bits": 20,
+              "child_bits": 21,
+              "same_signature_steps": 17,
+              "outcome": "terminal",
+              "exit_bits": 38,
+              "exit_status": "all_lift_descent",
+              "parent_features": [
+                3.77443751,
+                15.0,
+                20.0,
+                18.0
+              ],
+              "exit_features": [
+                0.0,
+                16.0,
+                38.0,
+                0.0
+              ],
+              "samples": [
+                {
+                  "bits": 21,
+                  "features": [
+                    3.77443751,
+                    15.0,
+                    20.0,
+                    18.0
+                  ],
+                  "prefix_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    4,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "bits": 22,
+                  "features": [
+                    3.77443751,
+                    15.0,
+                    20.0,
+                    18.0
+                  ],
+                  "prefix_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    4,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "bits": 23,
+                  "features": [
+                    3.77443751,
+                    15.0,
+                    20.0,
+                    18.0
+                  ],
+                  "prefix_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    4,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "bits": 24,
+                  "features": [
+                    3.77443751,
+                    15.0,
+                    20.0,
+                    18.0
+                  ],
+                  "prefix_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    4,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            }
+          ],
+          "stateful_budget_certificate": {
+            "status": "bounded_certificate_found",
+            "certified_stutter_edges": 56714,
+            "unresolved_stutter_edges": 0,
+            "rank_definition": "For a tested feature-stutter edge, attach the computed remaining same-signature low-child steps as a certificate-carrying state. Along repeated same-signature low-child moves this integer decreases by one until the path either changes signature or reaches a non-open descent certificate.",
+            "closed_partial_theorem": "Every tested same-signature low-child stutter chain in the Ticket 32 bounded frontier exits the same local signature within the recorded finite budget.",
+            "proof_boundary": "The certificate is bounded and lookahead-derived. It does not prove that every possible cylinder has finite stutter budget, and it does not close non-stutter or high-child branches."
+          },
+          "next_candidate": "CO-TICKET-33 GlobalMeasureCompactnessOrHighBranchClosure"
+        }
+      },
+      "obstruction": "A bounded stutter budget exists on the tested frontier, but it is lookahead-derived and does not yet cover all cylinders, high-child branches, or non-stutter transitions.",
+      "candidate_theorem": "Prove a global compactness or automaton theorem: every infinite exact-cylinder path either accumulates zero obstruction mass, eventually reaches all_lift_descent, or has a stateful rank that decreases well-foundedly across both low and high branches.",
+      "next_experiment": "Search for a high-branch closure invariant and a global measure theorem for the remaining open frontier.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-32",
+      "status": "proof_pressure_open",
+      "route": "StatefulCutoffLedger",
+      "proof_or_counterexample_mode": "stateful_bridge_refinement",
+      "attempt": "Move from local feature tests to stateful certificates: finite computations are useful only when they identify the next state variable or global theorem needed to block infinite obstruction paths.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-31",
+        "source_route": "CutoffLedgerStutterObstruction",
+        "frontier_status": "open_infinite_bridge",
+        "ticket32_transfer": "StatefulCutoffLedger"
+      },
+      "obstruction": "Finite witness scans need a stateful inequality ledger that cannot lose constants between major/minor arc states.",
+      "candidate_theorem": "A cutoff ledger state machine proves the representation count remains positive for every even n beyond N0.",
+      "next_experiment": "Build a constant-budget state machine with explicit pass/fail transitions for every analytic error term.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-32",
+      "status": "proof_pressure_open",
+      "route": "StatefulParitySelector",
+      "proof_or_counterexample_mode": "stateful_bridge_refinement",
+      "attempt": "Move from local feature tests to stateful certificates: finite computations are useful only when they identify the next state variable or global theorem needed to block infinite obstruction paths.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-31",
+        "source_route": "ParitySelectorStutterObstruction",
+        "frontier_status": "open_infinite_bridge",
+        "ticket32_transfer": "StatefulParitySelector"
+      },
+      "obstruction": "Parity-blind statistics can stutter across bounded-gap states without forcing exact gap 2.",
+      "candidate_theorem": "A parity-sensitive selector state machine keeps exact gap-2 mass positive while rejecting wider-gap-only models.",
+      "next_experiment": "Construct parity countermodel states and require exact-pair mass to survive every transition.",
+      "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+    }
+  ]
+}

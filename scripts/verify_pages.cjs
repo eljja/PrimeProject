@@ -422,6 +422,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Potential synthesis result") ||
         !page.proofOrCounterexampleText.includes("Ticket 31 feature-stutter obstruction") ||
         !page.proofOrCounterexampleText.includes("Feature-stutter result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 32 stateful measure lab") ||
+        !page.proofOrCounterexampleText.includes("Stateful measure result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
