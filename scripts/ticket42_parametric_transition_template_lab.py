@@ -524,8 +524,9 @@ def collatz_attempt() -> dict[str, Any]:
             "otherwise a compatible infinite nondecreasing template cycle is the counterexample target."
         ),
         "next_experiment": (
-            "Lift the best template cycle into cylinder constraints. Either prove that the lift constraints are "
-            "inconsistent for all large levels, or produce a compatible infinite ray whose cumulative debt never decreases."
+            "No sampled template cycle was found through the audited horizon. The next step is therefore not "
+            "cycle lifting, but lift-closure plus a well-founded measure: prove that every future cylinder lift "
+            "preserves the template rank/debt descent, or find a future lift that breaks every such measure."
         ),
         "claim_boundary": "No Collatz proof and no certified Collatz counterexample.",
     }

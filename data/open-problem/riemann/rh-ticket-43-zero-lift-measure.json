@@ -1,0 +1,19 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-43",
+  "status": "proof_pressure_open",
+  "route": "ZeroLiftConstraintOrPositiveKernelMeasure",
+  "proof_or_counterexample_mode": "lift_constraint_or_measure_transfer",
+  "attempt": "Transfer Ticket 43's correction: when no bounded cycle is found, the proof route should not claim success. It must prove horizon-independent lift closure for the candidate measure, or find a future lift that violates the margin.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-42",
+    "source_route": "ParametricZeroTemplateOrOffCriticalCycle",
+    "discarded_shortcut": "bounded zero-template acyclicity treated as a zero-free theorem",
+    "retained_target": "Every off-critical zero template lift preserves a positive-kernel measure margin under all height and tail extensions.",
+    "counterexample_target": "a future zero-template lift that violates every proposed positive-kernel margin"
+  },
+  "obstruction": "A bounded measure candidate can be useful, but it is not a theorem until all future lifts preserve its margin. The counterexample route is a future symbolic lift that violates the proposed margin.",
+  "candidate_theorem": "Every off-critical zero template lift preserves a positive-kernel measure margin under all height and tail extensions.",
+  "next_experiment": "Turn the highest-risk zero-template edges into explicit-formula lift constraints and test margin preservation.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

@@ -36,6 +36,7 @@ TICKET39_SCHEMA = "primeproject.ticket39-phase-state-potential-lab.v1"
 TICKET40_SCHEMA = "primeproject.ticket40-transition-closure-lab.v1"
 TICKET41_SCHEMA = "primeproject.ticket41-rank-escape-normalization-lab.v1"
 TICKET42_SCHEMA = "primeproject.ticket42-parametric-transition-template-lab.v1"
+TICKET43_SCHEMA = "primeproject.ticket43-lift-constraint-measure-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1604,6 +1605,98 @@ def main() -> int:
         return fail("collatz ticket42 must retain lift, cycle, and well-founded proof routes")
     if "not a Collatz proof" not in str(audit42.get("proof_boundary", "")):
         return fail("collatz ticket42 proof boundary must block proof overclaim")
+
+    ticket43_path = Path("data/open-problem/ticket43-lift-constraint-measure-lab.json")
+    if not ticket43_path.exists():
+        return fail("missing ticket43 lift constraint measure artifact")
+    ticket43 = read_json(ticket43_path)
+    if ticket43.get("schema") != TICKET43_SCHEMA:
+        return fail("ticket43 lift constraint measure artifact has unexpected schema")
+    if ticket43.get("status") != "lift_constraint_measure_open_no_resolution":
+        return fail("ticket43 lift constraint measure overstates resolution")
+    ticket43_attempts = ticket43.get("attempts", [])
+    if not isinstance(ticket43_attempts, list):
+        return fail("ticket43 attempts must be a list")
+    ticket43_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket43_attempts if isinstance(attempt, dict)}
+    missing_ticket43 = EXPECTED_PROBLEMS - set(ticket43_by_id)
+    if missing_ticket43:
+        return fail("ticket43 attempts missing problems: " + ", ".join(sorted(missing_ticket43)))
+    ticket43_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-43-zero-lift-measure.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-43-lift-constraint-measure.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-43-error-lift-measure.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-43-gap-lift-measure.json"),
+    }
+    for problem_id, attempt in ticket43_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket43 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket43 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket43 claim boundary is too weak")
+        path = ticket43_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket43 per-problem artifact")
+
+    collatz_ticket43 = ticket43_by_id.get("collatz", {})
+    collatz43_bounded = collatz_ticket43.get("bounded_result", {})
+    if not isinstance(collatz43_bounded, dict):
+        return fail("collatz ticket43 bounded result must be an object")
+    audit43 = collatz43_bounded.get("lift_constraint_measure_audit", {})
+    if not isinstance(audit43, dict):
+        return fail("collatz ticket43 lift measure audit missing")
+    snapshots43 = audit43.get("snapshots", [])
+    if not isinstance(snapshots43, list) or [row.get("max_bits") for row in snapshots43] != [24, 25, 26]:
+        return fail("collatz ticket43 must audit the 24,25,26 lift snapshots")
+    final43 = snapshots43[-1]
+    if int(final43.get("template_node_count", 0)) < 160_000:
+        return fail("collatz ticket43 final snapshot must retain a large template graph")
+    if int(final43.get("template_edge_count", 0)) < 700_000:
+        return fail("collatz ticket43 final snapshot must retain many template edges")
+    if int(final43.get("raw_open_edge_count", 0)) < 2_300_000:
+        return fail("collatz ticket43 final snapshot must process the full raw open-edge frontier")
+    rank43 = final43.get("topological_template_rank", {})
+    if not isinstance(rank43, dict):
+        return fail("collatz ticket43 final rank summary missing")
+    if rank43.get("cycle_detected") is not False or int(rank43.get("rank_edge_violations", -1)) != 0:
+        return fail("collatz ticket43 final sampled rank must be acyclic with no rank violations")
+    if int(rank43.get("max_topological_rank", 0)) < 14:
+        return fail("collatz ticket43 final sampled rank unexpectedly shallow")
+    measure43 = final43.get("sampled_rank_debt_measure", {})
+    if not isinstance(measure43, dict):
+        return fail("collatz ticket43 sampled measure missing")
+    if measure43.get("status") != "sampled_measure_decreases_on_all_template_edges":
+        return fail("collatz ticket43 sampled measure must decrease on all sampled template edges")
+    if int(measure43.get("scale", 0)) < 1 or float(measure43.get("min_margin", 0.0)) <= 0.0:
+        return fail("collatz ticket43 sampled measure must have positive scale and margin")
+    if int(measure43.get("invalid_rank_gap_edges", -1)) != 0:
+        return fail("collatz ticket43 sampled measure must have no invalid rank-gap edges")
+    comparisons43 = audit43.get("extension_comparisons", [])
+    if not isinstance(comparisons43, list) or len(comparisons43) != 2:
+        return fail("collatz ticket43 must compare 24->25 and 25->26 extensions")
+    latest43 = comparisons43[-1]
+    if int(latest43.get("new_template_edge_count", 0)) < 200_000:
+        return fail("collatz ticket43 must expose substantial new template edges under horizon extension")
+    if int(latest43.get("rank_changed_previous_node_count", 0)) < 100_000:
+        return fail("collatz ticket43 must expose previous-rank instability under horizon extension")
+    if int(latest43.get("old_measure_unknown_rank_edges", 0)) < 200_000:
+        return fail("collatz ticket43 must expose old-measure unknown edges under horizon extension")
+    if latest43.get("closure_status") != "rank_lift_not_closed_under_horizon_extension":
+        return fail("collatz ticket43 must keep lift closure open")
+    route43 = audit43.get("route_decision", {})
+    if not isinstance(route43, dict):
+        return fail("collatz ticket43 route decision missing")
+    discard43 = " ".join(str(item) for item in route43.get("discard", []))
+    retain43 = " ".join(str(item) for item in route43.get("retain", []))
+    if "debt-only descent" not in discard43 or "previous horizon topological rank" not in discard43:
+        return fail("collatz ticket43 must discard debt-only and previous-rank overclaims")
+    if "sampled scale*rank+debt" not in discard43:
+        return fail("collatz ticket43 must block treating sampled measure as theorem")
+    if "sampled scale*template_rank+debt measure" not in retain43 or "parametric lift constraints" not in retain43:
+        return fail("collatz ticket43 must retain sampled measure and parametric lift constraints")
+    if "not a Collatz proof" not in str(audit43.get("proof_boundary", "")):
+        return fail("collatz ticket43 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

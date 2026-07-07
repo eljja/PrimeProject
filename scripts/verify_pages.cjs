@@ -444,6 +444,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Rank escape result") ||
         !page.proofOrCounterexampleText.includes("Ticket 42 parametric transition template lab") ||
         !page.proofOrCounterexampleText.includes("Template result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 43 lift constraint measure lab") ||
+        !page.proofOrCounterexampleText.includes("Lift measure result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

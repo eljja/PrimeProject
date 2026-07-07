@@ -1,0 +1,19 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-43",
+  "status": "proof_pressure_open",
+  "route": "ErrorLiftConstraintOrPositiveMarginMeasure",
+  "proof_or_counterexample_mode": "lift_constraint_or_measure_transfer",
+  "attempt": "Transfer Ticket 43's correction: when no bounded cycle is found, the proof route should not claim success. It must prove horizon-independent lift closure for the candidate measure, or find a future lift that violates the margin.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-42",
+    "source_route": "ParametricErrorTemplateOrExceptionalCycle",
+    "discarded_shortcut": "bounded error-template acyclicity treated as a Goldbach positivity theorem",
+    "retained_target": "Every large even-integer lift preserves a positive explicit margin after major/minor-arc error updates.",
+    "counterexample_target": "a future even-integer lift whose normalized margin remains nonpositive"
+  },
+  "obstruction": "A bounded measure candidate can be useful, but it is not a theorem until all future lifts preserve its margin. The counterexample route is a future symbolic lift that violates the proposed margin.",
+  "candidate_theorem": "Every large even-integer lift preserves a positive explicit margin after major/minor-arc error updates.",
+  "next_experiment": "Turn the highest-risk error-template edges into explicit cutoff constraints and test margin preservation.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}

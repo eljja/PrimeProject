@@ -1767,3 +1767,75 @@ Proof boundary:
 ```text
 TICKET-42 does not prove or disprove any of the four open problems. It preserves a promising bounded template-rank route because no sampled template cycle was found, but it rejects the shortcut from bounded acyclicity to truth. A proof now needs parametric lift closure plus a well-founded growth-coordinate measure; a disproof route needs a compatible infinite lift of a nondecreasing cycle.
 ```
+
+### Ticket 43: Lift constraint and measure lab
+
+Generated artifact:
+
+```text
+data/open-problem/ticket43-lift-constraint-measure-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-43-zero-lift-measure.json
+data/open-problem/collatz/co-ticket-43-lift-constraint-measure.json
+data/open-problem/goldbach/gb-ticket-43-error-lift-measure.json
+data/open-problem/twin-prime/tp-ticket-43-gap-lift-measure.json
+```
+
+Aggregate verdict:
+
+```text
+lift_constraint_measure_open_no_resolution
+```
+
+한국어 요약: TICKET-43은 TICKET-42의 약점을 직접 고친다. TICKET-42에서는 26-bit 표본에서 template cycle이 없었기 때문에 "best cycle을 lift한다"는 다음 단계가 논리적으로 맞지 않았다. TICKET-43은 방향을 바꿔, `M(template, debt) = scale * topological_rank(template) + debt` 형태의 bounded measure가 실제 샘플 template edge에서 감소하는지 검사하고, 그 측도가 horizon 확장에서도 닫히는지를 확인한다.
+
+Collatz lift snapshots:
+
+```text
+24 bits: nodes 97,806, edges 322,907, max rank 12, scale 11, min margin 0.584962500721
+25 bits: nodes 128,371, edges 480,873, max rank 13, scale 11, min margin 0.584962500721
+26 bits: nodes 165,841, edges 710,241, max rank 14, scale 11, min margin 0.584962500721
+```
+
+Important bounded result:
+
+```text
+sampled measure status: sampled_measure_decreases_on_all_template_edges
+candidate: M(template, debt) = scale * topological_rank(template) + debt
+scale: 11
+minimum sampled margin: 0.584962500721
+invalid rank-gap edges: 0
+```
+
+Important obstruction:
+
+```text
+24 -> 25: new template edges 157,966, previous ranks changed 94,080, old-measure unknown-rank edges 157,966
+25 -> 26: new template edges 229,368, previous ranks changed 124,027, old-measure unknown-rank edges 229,368
+closure status: rank_lift_not_closed_under_horizon_extension
+```
+
+Interpretation:
+
+1. The debt-only route is refuted as a proof strategy because many raw edges have nondecreasing debt.
+2. A stronger bounded certificate exists in the sampled graph: `scale * rank + debt` decreases on every sampled template edge through 26 bits.
+3. This is still not a Collatz proof, because the rank is recomputed when the horizon grows; 25 -> 26 changes 124,027 previous-node ranks and introduces 229,368 new template edges whose ranks were unknown to the old measure.
+4. The next theorem is therefore a lift-closure theorem: every future cylinder lift must preserve the template relation and a horizon-independent well-founded measure, or the search must find a future edge that violates all finite-rank extensions.
+
+English summary: TICKET-43 upgrades the Collatz track from finite acyclicity to finite measure synthesis. The sampled measure is a real bounded certificate, not a proof. The remaining infinite obligation is to replace horizon-specific topological rank with a lift-stable rank or another well-founded measure whose decrease can be proved for every future cylinder lift.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-44 HorizonIndependentLiftRankOrCounteredge
+```
+
+Proof boundary:
+
+```text
+TICKET-43 does not prove or disprove any of the four open problems. It improves the proof attempt by producing a bounded decreasing measure, and it improves the counterexample attempt by identifying exactly where future lift edges could break finite-rank extensions.
+```

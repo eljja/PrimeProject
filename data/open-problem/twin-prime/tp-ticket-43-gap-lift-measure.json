@@ -1,0 +1,19 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-43",
+  "status": "proof_pressure_open",
+  "route": "GapLiftConstraintOrExactMassMeasure",
+  "proof_or_counterexample_mode": "lift_constraint_or_measure_transfer",
+  "attempt": "Transfer Ticket 43's correction: when no bounded cycle is found, the proof route should not claim success. It must prove horizon-independent lift closure for the candidate measure, or find a future lift that violates the margin.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-42",
+    "source_route": "ParametricGapTemplateOrLeakageCycle",
+    "discarded_shortcut": "bounded exact-gap template acyclicity treated as twin-prime infinitude",
+    "retained_target": "Every future exact-gap lift preserves positive gap-2 residual mass after wider-gap leakage updates.",
+    "counterexample_target": "a future leakage lift that drives exact gap-2 residual mass to zero"
+  },
+  "obstruction": "A bounded measure candidate can be useful, but it is not a theorem until all future lifts preserve its margin. The counterexample route is a future symbolic lift that violates the proposed margin.",
+  "candidate_theorem": "Every future exact-gap lift preserves positive gap-2 residual mass after wider-gap leakage updates.",
+  "next_experiment": "Turn the highest-risk exact-gap template edges into sieve-weight lift constraints and test residual mass preservation.",
+  "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+}

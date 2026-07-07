@@ -1,0 +1,1303 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-43",
+  "status": "proof_pressure_open",
+  "route": "LiftConstraintSolverOrWellFoundedMeasure",
+  "proof_or_counterexample_mode": "horizon_lift_closure_and_measure_cegis",
+  "attempt": "Correct Ticket 42's next step: no sampled template cycle was found, so the immediate target is not cycle lifting. The target is to test whether the template rank and a debt-augmented measure survive horizon extension.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-42",
+    "lift_constraint_measure_audit": {
+      "family": "phase16_tail4_residue256_vexact",
+      "snapshots": [
+        {
+          "family": "phase16_tail4_residue256_vexact",
+          "base_bits": 12,
+          "max_bits": 24,
+          "template_node_count": 97806,
+          "template_edge_count": 322907,
+          "raw_open_edge_count": 704456,
+          "ambiguous_template_edge_count": 2469,
+          "sink_template_count": 25848,
+          "final_frontier_count": 317095,
+          "transition_totals": {
+            "both_closed": 11790,
+            "both_open": 326837,
+            "high_only_open": 20152,
+            "low_only_open": 30630
+          },
+          "topological_template_rank": {
+            "cycle_detected": false,
+            "topological_seen_count": 97806,
+            "cyclic_core_node_count": 0,
+            "max_topological_rank": 12,
+            "rank_positive_state_count": 71958,
+            "rank_sink_state_count": 25848,
+            "rank_edge_violations": 0,
+            "top_rank_examples": [
+              {
+                "rank": 12,
+                "state": "[12,[4,1,1,1],63,1]"
+              },
+              {
+                "rank": 12,
+                "state": "[12,[3,2,1,1],63,2]"
+              },
+              {
+                "rank": 12,
+                "state": "[12,[3,1,2,1],63,3]"
+              },
+              {
+                "rank": 12,
+                "state": "[12,[3,1,1,2],207,3]"
+              },
+              {
+                "rank": 12,
+                "state": "[12,[3,1,1,1],223,4]"
+              },
+              {
+                "rank": 12,
+                "state": "[12,[3,1,1,1],207,4]"
+              },
+              {
+                "rank": 12,
+                "state": "[12,[3,1,1,1],155,2]"
+              },
+              {
+                "rank": 12,
+                "state": "[12,[3,1,1,1],127,1]"
+              }
+            ]
+          },
+          "sampled_rank_debt_measure": {
+            "candidate": "M(template, debt) = scale * topological_rank(template) + debt",
+            "status": "sampled_measure_decreases_on_all_template_edges",
+            "scale": 11,
+            "min_margin": 0.584962500721,
+            "invalid_rank_gap_edges": 0,
+            "rank_gap_counts": {
+              "1": 702649,
+              "2": 357,
+              "3": 210,
+              "4": 489,
+              "5": 213,
+              "6": 93,
+              "7": 180,
+              "8": 58,
+              "9": 125,
+              "10": 48,
+              "11": 14,
+              "12": 20
+            },
+            "worst_margin_examples": [
+              {
+                "parent_template": "[12,[12],85,0]",
+                "child_template": "[13,[],85,14]",
+                "rank_gap": 1,
+                "max_delta_debt": 10.415037499279,
+                "margin_at_scale": 0.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 1365,
+                  "child_residue": 5461,
+                  "parent_template": "[12,[12],85,0]",
+                  "child_template": "[13,[],85,14]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -12,
+                  "delta_next_valuation": 14,
+                  "delta_debt": 10.415037499279
+                }
+              },
+              {
+                "parent_template": "[12,[1,1,10],151,0]",
+                "child_template": "[13,[1,1],151,12]",
+                "rank_gap": 1,
+                "max_delta_debt": 8.415037499279,
+                "margin_at_scale": 2.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 151,
+                  "child_residue": 4247,
+                  "parent_template": "[12,[1,1,10],151,0]",
+                  "child_template": "[13,[1,1],151,12]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -10,
+                  "delta_next_valuation": 12,
+                  "delta_debt": 8.415037499279
+                }
+              },
+              {
+                "parent_template": "[12,[1,2,1,8],59,0]",
+                "child_template": "[13,[1,2,1],59,10]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 3387,
+                  "child_residue": 7483,
+                  "parent_template": "[12,[1,2,1,8],59,0]",
+                  "child_template": "[13,[1,2,1],59,10]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 10,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[5,[1,1,1,8],255,1]",
+                "child_template": "[6,[1,1,1,1],255,10]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 21,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 1196031,
+                  "child_residue": 3293183,
+                  "parent_template": "[5,[1,1,1,8],255,1]",
+                  "child_template": "[6,[1,1,1,1],255,10]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 9,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[6,[2,1,1,8],255,1]",
+                "child_template": "[7,[1,2,1,1],255,12]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 22,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 2811903,
+                  "child_residue": 7006207,
+                  "parent_template": "[6,[2,1,1,8],255,1]",
+                  "child_template": "[7,[1,2,1,1],255,12]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 11,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[6,[1,1,1,8],127,1]",
+                "child_template": "[7,[1,1,1,1],127,11]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 22,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 1371775,
+                  "child_residue": 5566079,
+                  "parent_template": "[6,[1,1,1,8],127,1]",
+                  "child_template": "[7,[1,1,1,1],127,11]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 10,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[6,[1,1,1,8],255,1]",
+                "child_template": "[7,[1,1,1,1],255,10]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 22,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 1711871,
+                  "child_residue": 5906175,
+                  "parent_template": "[6,[1,1,1,8],255,1]",
+                  "child_template": "[7,[1,1,1,1],255,10]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 9,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[7,[1,1,1,8],239,4]",
+                "child_template": "[8,[1,1,1,1],239,12]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 23,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 3044591,
+                  "child_residue": 11433199,
+                  "parent_template": "[7,[1,1,1,8],239,4]",
+                  "child_template": "[8,[1,1,1,1],239,12]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 8,
+                  "delta_debt": 6.415037499279
+                }
+              }
+            ],
+            "proof_boundary": "This is a finite sampled measure, not a Collatz proof. It depends on the sampled template rank and therefore still needs a theorem that future lifts preserve the relation and rank order."
+          },
+          "tail_level_rows": [
+            {
+              "bits": 20,
+              "parent_frontier_count": 28789,
+              "next_frontier_count": 51375,
+              "transition_counts": {
+                "both_closed": 726,
+                "both_open": 23312,
+                "high_only_open": 2020,
+                "low_only_open": 2731
+              },
+              "survival_ratio": 0.892267880093
+            },
+            {
+              "bits": 21,
+              "parent_frontier_count": 51375,
+              "next_frontier_count": 95621,
+              "transition_counts": {
+                "both_closed": 2365,
+                "both_open": 46611,
+                "low_only_open": 2399
+              },
+              "survival_ratio": 0.930618004866
+            },
+            {
+              "bits": 22,
+              "parent_frontier_count": 95621,
+              "next_frontier_count": 178851,
+              "transition_counts": {
+                "both_closed": 1208,
+                "both_open": 84438,
+                "high_only_open": 4366,
+                "low_only_open": 5609
+              },
+              "survival_ratio": 0.935207747252
+            },
+            {
+              "bits": 23,
+              "parent_frontier_count": 178851,
+              "next_frontier_count": 317095,
+              "transition_counts": {
+                "both_closed": 4926,
+                "both_open": 143170,
+                "high_only_open": 12656,
+                "low_only_open": 18099
+              },
+              "survival_ratio": 0.88647812984
+            }
+          ]
+        },
+        {
+          "family": "phase16_tail4_residue256_vexact",
+          "base_bits": 12,
+          "max_bits": 25,
+          "template_node_count": 128371,
+          "template_edge_count": 480873,
+          "raw_open_edge_count": 1292877,
+          "ambiguous_template_edge_count": 3736,
+          "sink_template_count": 32942,
+          "final_frontier_count": 588421,
+          "transition_totals": {
+            "both_closed": 27045,
+            "both_open": 613418,
+            "high_only_open": 20152,
+            "low_only_open": 45889
+          },
+          "topological_template_rank": {
+            "cycle_detected": false,
+            "topological_seen_count": 128371,
+            "cyclic_core_node_count": 0,
+            "max_topological_rank": 13,
+            "rank_positive_state_count": 95429,
+            "rank_sink_state_count": 32942,
+            "rank_edge_violations": 0,
+            "top_rank_examples": [
+              {
+                "rank": 13,
+                "state": "[12,[4,1,1,1],63,1]"
+              },
+              {
+                "rank": 13,
+                "state": "[12,[3,2,1,1],63,2]"
+              },
+              {
+                "rank": 13,
+                "state": "[12,[3,1,2,1],63,3]"
+              },
+              {
+                "rank": 13,
+                "state": "[12,[3,1,1,2],207,3]"
+              },
+              {
+                "rank": 13,
+                "state": "[12,[3,1,1,1],223,4]"
+              },
+              {
+                "rank": 13,
+                "state": "[12,[3,1,1,1],207,4]"
+              },
+              {
+                "rank": 13,
+                "state": "[12,[3,1,1,1],155,2]"
+              },
+              {
+                "rank": 13,
+                "state": "[12,[3,1,1,1],127,1]"
+              }
+            ]
+          },
+          "sampled_rank_debt_measure": {
+            "candidate": "M(template, debt) = scale * topological_rank(template) + debt",
+            "status": "sampled_measure_decreases_on_all_template_edges",
+            "scale": 11,
+            "min_margin": 0.584962500721,
+            "invalid_rank_gap_edges": 0,
+            "rank_gap_counts": {
+              "1": 1290393,
+              "2": 677,
+              "3": 357,
+              "4": 210,
+              "5": 489,
+              "6": 213,
+              "7": 93,
+              "8": 180,
+              "9": 58,
+              "10": 125,
+              "11": 48,
+              "12": 14
+            },
+            "worst_margin_examples": [
+              {
+                "parent_template": "[12,[12],85,0]",
+                "child_template": "[13,[],85,14]",
+                "rank_gap": 1,
+                "max_delta_debt": 10.415037499279,
+                "margin_at_scale": 0.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 1365,
+                  "child_residue": 5461,
+                  "parent_template": "[12,[12],85,0]",
+                  "child_template": "[13,[],85,14]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -12,
+                  "delta_next_valuation": 14,
+                  "delta_debt": 10.415037499279
+                }
+              },
+              {
+                "parent_template": "[12,[1,1,10],151,0]",
+                "child_template": "[13,[1,1],151,12]",
+                "rank_gap": 1,
+                "max_delta_debt": 8.415037499279,
+                "margin_at_scale": 2.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 151,
+                  "child_residue": 4247,
+                  "parent_template": "[12,[1,1,10],151,0]",
+                  "child_template": "[13,[1,1],151,12]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -10,
+                  "delta_next_valuation": 12,
+                  "delta_debt": 8.415037499279
+                }
+              },
+              {
+                "parent_template": "[12,[1,2,1,8],59,0]",
+                "child_template": "[13,[1,2,1],59,10]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 3387,
+                  "child_residue": 7483,
+                  "parent_template": "[12,[1,2,1,8],59,0]",
+                  "child_template": "[13,[1,2,1],59,10]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 10,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[5,[1,1,1,8],255,1]",
+                "child_template": "[6,[1,1,1,1],255,10]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 21,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 1196031,
+                  "child_residue": 3293183,
+                  "parent_template": "[5,[1,1,1,8],255,1]",
+                  "child_template": "[6,[1,1,1,1],255,10]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 9,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[6,[2,1,1,8],255,1]",
+                "child_template": "[7,[1,2,1,1],255,12]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 22,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 2811903,
+                  "child_residue": 7006207,
+                  "parent_template": "[6,[2,1,1,8],255,1]",
+                  "child_template": "[7,[1,2,1,1],255,12]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 11,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[6,[1,1,1,8],127,1]",
+                "child_template": "[7,[1,1,1,1],127,11]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 22,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 1371775,
+                  "child_residue": 5566079,
+                  "parent_template": "[6,[1,1,1,8],127,1]",
+                  "child_template": "[7,[1,1,1,1],127,11]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 10,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[6,[1,1,1,8],255,1]",
+                "child_template": "[7,[1,1,1,1],255,10]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 22,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 1711871,
+                  "child_residue": 5906175,
+                  "parent_template": "[6,[1,1,1,8],255,1]",
+                  "child_template": "[7,[1,1,1,1],255,10]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 9,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[7,[1,1,1,8],239,4]",
+                "child_template": "[8,[1,1,1,1],239,12]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 23,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 3044591,
+                  "child_residue": 11433199,
+                  "parent_template": "[7,[1,1,1,8],239,4]",
+                  "child_template": "[8,[1,1,1,1],239,12]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 8,
+                  "delta_debt": 6.415037499279
+                }
+              }
+            ],
+            "proof_boundary": "This is a finite sampled measure, not a Collatz proof. It depends on the sampled template rank and therefore still needs a theorem that future lifts preserve the relation and rank order."
+          },
+          "tail_level_rows": [
+            {
+              "bits": 21,
+              "parent_frontier_count": 51375,
+              "next_frontier_count": 95621,
+              "transition_counts": {
+                "both_closed": 2365,
+                "both_open": 46611,
+                "low_only_open": 2399
+              },
+              "survival_ratio": 0.930618004866
+            },
+            {
+              "bits": 22,
+              "parent_frontier_count": 95621,
+              "next_frontier_count": 178851,
+              "transition_counts": {
+                "both_closed": 1208,
+                "both_open": 84438,
+                "high_only_open": 4366,
+                "low_only_open": 5609
+              },
+              "survival_ratio": 0.935207747252
+            },
+            {
+              "bits": 23,
+              "parent_frontier_count": 178851,
+              "next_frontier_count": 317095,
+              "transition_counts": {
+                "both_closed": 4926,
+                "both_open": 143170,
+                "high_only_open": 12656,
+                "low_only_open": 18099
+              },
+              "survival_ratio": 0.88647812984
+            },
+            {
+              "bits": 24,
+              "parent_frontier_count": 317095,
+              "next_frontier_count": 588421,
+              "transition_counts": {
+                "both_closed": 15255,
+                "both_open": 286581,
+                "low_only_open": 15259
+              },
+              "survival_ratio": 0.927830776266
+            }
+          ]
+        },
+        {
+          "family": "phase16_tail4_residue256_vexact",
+          "base_bits": 12,
+          "max_bits": 26,
+          "template_node_count": 165841,
+          "template_edge_count": 710241,
+          "raw_open_edge_count": 2392525,
+          "ambiguous_template_edge_count": 5393,
+          "sink_template_count": 40095,
+          "final_frontier_count": 1099648,
+          "transition_totals": {
+            "both_closed": 34674,
+            "both_open": 1132274,
+            "high_only_open": 47314,
+            "low_only_open": 80663
+          },
+          "topological_template_rank": {
+            "cycle_detected": false,
+            "topological_seen_count": 165841,
+            "cyclic_core_node_count": 0,
+            "max_topological_rank": 14,
+            "rank_positive_state_count": 125746,
+            "rank_sink_state_count": 40095,
+            "rank_edge_violations": 0,
+            "top_rank_examples": [
+              {
+                "rank": 14,
+                "state": "[12,[4,1,1,1],63,1]"
+              },
+              {
+                "rank": 14,
+                "state": "[12,[3,2,1,1],63,2]"
+              },
+              {
+                "rank": 14,
+                "state": "[12,[3,1,2,1],63,3]"
+              },
+              {
+                "rank": 14,
+                "state": "[12,[3,1,1,2],207,3]"
+              },
+              {
+                "rank": 14,
+                "state": "[12,[3,1,1,1],223,4]"
+              },
+              {
+                "rank": 14,
+                "state": "[12,[3,1,1,1],207,4]"
+              },
+              {
+                "rank": 14,
+                "state": "[12,[3,1,1,1],155,2]"
+              },
+              {
+                "rank": 14,
+                "state": "[12,[3,1,1,1],127,1]"
+              }
+            ]
+          },
+          "sampled_rank_debt_measure": {
+            "candidate": "M(template, debt) = scale * topological_rank(template) + debt",
+            "status": "sampled_measure_decreases_on_all_template_edges",
+            "scale": 11,
+            "min_margin": 0.584962500721,
+            "invalid_rank_gap_edges": 0,
+            "rank_gap_counts": {
+              "1": 2389779,
+              "2": 262,
+              "3": 677,
+              "4": 357,
+              "5": 210,
+              "6": 489,
+              "7": 213,
+              "8": 93,
+              "9": 180,
+              "10": 58,
+              "11": 125,
+              "12": 48
+            },
+            "worst_margin_examples": [
+              {
+                "parent_template": "[12,[12],85,0]",
+                "child_template": "[13,[],85,14]",
+                "rank_gap": 1,
+                "max_delta_debt": 10.415037499279,
+                "margin_at_scale": 0.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 1365,
+                  "child_residue": 5461,
+                  "parent_template": "[12,[12],85,0]",
+                  "child_template": "[13,[],85,14]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -12,
+                  "delta_next_valuation": 14,
+                  "delta_debt": 10.415037499279
+                }
+              },
+              {
+                "parent_template": "[12,[1,1,10],151,0]",
+                "child_template": "[13,[1,1],151,12]",
+                "rank_gap": 1,
+                "max_delta_debt": 8.415037499279,
+                "margin_at_scale": 2.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 151,
+                  "child_residue": 4247,
+                  "parent_template": "[12,[1,1,10],151,0]",
+                  "child_template": "[13,[1,1],151,12]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -10,
+                  "delta_next_valuation": 12,
+                  "delta_debt": 8.415037499279
+                }
+              },
+              {
+                "parent_template": "[9,[1,1,1,9],159,1]",
+                "child_template": "[10,[1,1,1,1],159,11]",
+                "rank_gap": 1,
+                "max_delta_debt": 7.415037499279,
+                "margin_at_scale": 3.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 25,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 18806943,
+                  "child_residue": 52361375,
+                  "parent_template": "[9,[1,1,1,9],159,1]",
+                  "child_template": "[10,[1,1,1,1],159,11]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -9,
+                  "delta_next_valuation": 10,
+                  "delta_debt": 7.415037499279
+                }
+              },
+              {
+                "parent_template": "[9,[1,1,1,9],255,1]",
+                "child_template": "[10,[1,1,1,1],255,13]",
+                "rank_gap": 1,
+                "max_delta_debt": 7.415037499279,
+                "margin_at_scale": 3.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 25,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 13658623,
+                  "child_residue": 47213055,
+                  "parent_template": "[9,[1,1,1,9],255,1]",
+                  "child_template": "[10,[1,1,1,1],255,13]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -9,
+                  "delta_next_valuation": 12,
+                  "delta_debt": 7.415037499279
+                }
+              },
+              {
+                "parent_template": "[9,[1,1,1,9],255,1]",
+                "child_template": "[10,[1,1,1,1],255,11]",
+                "rank_gap": 1,
+                "max_delta_debt": 7.415037499279,
+                "margin_at_scale": 3.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 25,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 24616703,
+                  "child_residue": 58171135,
+                  "parent_template": "[9,[1,1,1,9],255,1]",
+                  "child_template": "[10,[1,1,1,1],255,11]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -9,
+                  "delta_next_valuation": 10,
+                  "delta_debt": 7.415037499279
+                }
+              },
+              {
+                "parent_template": "[9,[1,1,1,9],255,1]",
+                "child_template": "[10,[2,1,1,1],255,11]",
+                "rank_gap": 1,
+                "max_delta_debt": 7.415037499279,
+                "margin_at_scale": 3.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 25,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 3207167,
+                  "child_residue": 36761599,
+                  "parent_template": "[9,[1,1,1,9],255,1]",
+                  "child_template": "[10,[2,1,1,1],255,11]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -9,
+                  "delta_next_valuation": 10,
+                  "delta_debt": 7.415037499279
+                }
+              },
+              {
+                "parent_template": "[12,[1,2,1,8],59,0]",
+                "child_template": "[13,[1,2,1],59,10]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 3387,
+                  "child_residue": 7483,
+                  "parent_template": "[12,[1,2,1,8],59,0]",
+                  "child_template": "[13,[1,2,1],59,10]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 10,
+                  "delta_debt": 6.415037499279
+                }
+              },
+              {
+                "parent_template": "[5,[1,1,1,8],255,1]",
+                "child_template": "[6,[1,1,1,1],255,10]",
+                "rank_gap": 1,
+                "max_delta_debt": 6.415037499279,
+                "margin_at_scale": 4.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 21,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 1196031,
+                  "child_residue": 3293183,
+                  "parent_template": "[5,[1,1,1,8],255,1]",
+                  "child_template": "[6,[1,1,1,1],255,10]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -8,
+                  "delta_next_valuation": 9,
+                  "delta_debt": 6.415037499279
+                }
+              }
+            ],
+            "proof_boundary": "This is a finite sampled measure, not a Collatz proof. It depends on the sampled template rank and therefore still needs a theorem that future lifts preserve the relation and rank order."
+          },
+          "tail_level_rows": [
+            {
+              "bits": 22,
+              "parent_frontier_count": 95621,
+              "next_frontier_count": 178851,
+              "transition_counts": {
+                "both_closed": 1208,
+                "both_open": 84438,
+                "high_only_open": 4366,
+                "low_only_open": 5609
+              },
+              "survival_ratio": 0.935207747252
+            },
+            {
+              "bits": 23,
+              "parent_frontier_count": 178851,
+              "next_frontier_count": 317095,
+              "transition_counts": {
+                "both_closed": 4926,
+                "both_open": 143170,
+                "high_only_open": 12656,
+                "low_only_open": 18099
+              },
+              "survival_ratio": 0.88647812984
+            },
+            {
+              "bits": 24,
+              "parent_frontier_count": 317095,
+              "next_frontier_count": 588421,
+              "transition_counts": {
+                "both_closed": 15255,
+                "both_open": 286581,
+                "low_only_open": 15259
+              },
+              "survival_ratio": 0.927830776266
+            },
+            {
+              "bits": 25,
+              "parent_frontier_count": 588421,
+              "next_frontier_count": 1099648,
+              "transition_counts": {
+                "both_closed": 7629,
+                "both_open": 518856,
+                "high_only_open": 27162,
+                "low_only_open": 34774
+              },
+              "survival_ratio": 0.934405808086
+            }
+          ]
+        }
+      ],
+      "extension_comparisons": [
+        {
+          "from_max_bits": 24,
+          "to_max_bits": 25,
+          "new_template_node_count": 30565,
+          "new_template_edge_count": 157966,
+          "known_parent_new_edge_count": 157966,
+          "known_known_new_edge_count": 0,
+          "previous_sink_reopened_count": 23471,
+          "previous_rank_invalidating_new_edge_count": 0,
+          "rank_changed_previous_node_count": 94080,
+          "rank_increase_previous_node_count": 94080,
+          "max_previous_rank_increase": 1,
+          "previous_max_rank": 12,
+          "current_max_rank": 13,
+          "previous_measure_scale": 11,
+          "old_measure_known_edge_violations": 0,
+          "old_measure_unknown_rank_edges": 157966,
+          "worst_old_measure_violation": null,
+          "new_edge_examples": [
+            {
+              "parent_template": "[8,[1,2,1,8],255,1]",
+              "child_template": "[9,[1,1,2,1],255,12]",
+              "count": 1,
+              "max_delta_debt": 6.415037499279,
+              "example": {
+                "bits": 24,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 13615103,
+                "child_residue": 30392319,
+                "parent_template": "[8,[1,2,1,8],255,1]",
+                "child_template": "[9,[1,1,2,1],255,12]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 11,
+                "delta_debt": 6.415037499279
+              }
+            },
+            {
+              "parent_template": "[8,[2,1,1,8],255,1]",
+              "child_template": "[9,[1,2,1,1],255,13]",
+              "count": 1,
+              "max_delta_debt": 6.415037499279,
+              "example": {
+                "bits": 24,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 16162815,
+                "child_residue": 32940031,
+                "parent_template": "[8,[2,1,1,8],255,1]",
+                "child_template": "[9,[1,2,1,1],255,13]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 12,
+                "delta_debt": 6.415037499279
+              }
+            },
+            {
+              "parent_template": "[8,[1,1,1,8],255,1]",
+              "child_template": "[9,[1,1,1,1],255,10]",
+              "count": 1,
+              "max_delta_debt": 6.415037499279,
+              "example": {
+                "bits": 24,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 760831,
+                "child_residue": 17538047,
+                "parent_template": "[8,[1,1,1,8],255,1]",
+                "child_template": "[9,[1,1,1,1],255,10]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 9,
+                "delta_debt": 6.415037499279
+              }
+            },
+            {
+              "parent_template": "[8,[1,1,1,8],27,1]",
+              "child_template": "[9,[1,1,1,1],27,10]",
+              "count": 1,
+              "max_delta_debt": 6.415037499279,
+              "example": {
+                "bits": 24,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 15976219,
+                "child_residue": 32753435,
+                "parent_template": "[8,[1,1,1,8],27,1]",
+                "child_template": "[9,[1,1,1,1],27,10]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 9,
+                "delta_debt": 6.415037499279
+              }
+            },
+            {
+              "parent_template": "[8,[1,1,1,8],255,2]",
+              "child_template": "[9,[1,1,1,1],255,10]",
+              "count": 1,
+              "max_delta_debt": 6.415037499279,
+              "example": {
+                "bits": 24,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 14024703,
+                "child_residue": 30801919,
+                "parent_template": "[8,[1,1,1,8],255,2]",
+                "child_template": "[9,[1,1,1,1],255,10]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 8,
+                "delta_debt": 6.415037499279
+              }
+            },
+            {
+              "parent_template": "[8,[1,2,1,7],103,1]",
+              "child_template": "[9,[1,1,2,1],103,12]",
+              "count": 1,
+              "max_delta_debt": 5.415037499279,
+              "example": {
+                "bits": 24,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 4239207,
+                "child_residue": 21016423,
+                "parent_template": "[8,[1,2,1,7],103,1]",
+                "child_template": "[9,[1,1,2,1],103,12]",
+                "delta_prefix": -1,
+                "delta_consumed": -7,
+                "delta_next_valuation": 11,
+                "delta_debt": 5.415037499279
+              }
+            },
+            {
+              "parent_template": "[8,[2,1,1,7],103,1]",
+              "child_template": "[9,[1,2,1,1],103,14]",
+              "count": 1,
+              "max_delta_debt": 5.415037499279,
+              "example": {
+                "bits": 24,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 9334631,
+                "child_residue": 26111847,
+                "parent_template": "[8,[2,1,1,7],103,1]",
+                "child_template": "[9,[1,2,1,1],103,14]",
+                "delta_prefix": -1,
+                "delta_consumed": -7,
+                "delta_next_valuation": 13,
+                "delta_debt": 5.415037499279
+              }
+            },
+            {
+              "parent_template": "[8,[1,2,2,7],255,1]",
+              "child_template": "[9,[1,1,2,2],255,10]",
+              "count": 1,
+              "max_delta_debt": 5.415037499279,
+              "example": {
+                "bits": 24,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 966655,
+                "child_residue": 17743871,
+                "parent_template": "[8,[1,2,2,7],255,1]",
+                "child_template": "[9,[1,1,2,2],255,10]",
+                "delta_prefix": -1,
+                "delta_consumed": -7,
+                "delta_next_valuation": 9,
+                "delta_debt": 5.415037499279
+              }
+            }
+          ],
+          "closure_status": "rank_lift_not_closed_under_horizon_extension"
+        },
+        {
+          "from_max_bits": 25,
+          "to_max_bits": 26,
+          "new_template_node_count": 37470,
+          "new_template_edge_count": 229368,
+          "known_parent_new_edge_count": 229368,
+          "known_known_new_edge_count": 0,
+          "previous_sink_reopened_count": 30317,
+          "previous_rank_invalidating_new_edge_count": 0,
+          "rank_changed_previous_node_count": 124027,
+          "rank_increase_previous_node_count": 124027,
+          "max_previous_rank_increase": 1,
+          "previous_max_rank": 13,
+          "current_max_rank": 14,
+          "previous_measure_scale": 11,
+          "old_measure_known_edge_violations": 0,
+          "old_measure_unknown_rank_edges": 229368,
+          "worst_old_measure_violation": null,
+          "new_edge_examples": [
+            {
+              "parent_template": "[9,[1,1,1,9],255,1]",
+              "child_template": "[10,[1,1,1,1],255,13]",
+              "count": 1,
+              "max_delta_debt": 7.415037499279,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 13658623,
+                "child_residue": 47213055,
+                "parent_template": "[9,[1,1,1,9],255,1]",
+                "child_template": "[10,[1,1,1,1],255,13]",
+                "delta_prefix": -1,
+                "delta_consumed": -9,
+                "delta_next_valuation": 12,
+                "delta_debt": 7.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[1,1,1,9],255,1]",
+              "child_template": "[10,[1,1,1,1],255,11]",
+              "count": 1,
+              "max_delta_debt": 7.415037499279,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 24616703,
+                "child_residue": 58171135,
+                "parent_template": "[9,[1,1,1,9],255,1]",
+                "child_template": "[10,[1,1,1,1],255,11]",
+                "delta_prefix": -1,
+                "delta_consumed": -9,
+                "delta_next_valuation": 10,
+                "delta_debt": 7.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[1,1,1,9],159,1]",
+              "child_template": "[10,[1,1,1,1],159,11]",
+              "count": 1,
+              "max_delta_debt": 7.415037499279,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 18806943,
+                "child_residue": 52361375,
+                "parent_template": "[9,[1,1,1,9],159,1]",
+                "child_template": "[10,[1,1,1,1],159,11]",
+                "delta_prefix": -1,
+                "delta_consumed": -9,
+                "delta_next_valuation": 10,
+                "delta_debt": 7.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[1,1,1,9],255,1]",
+              "child_template": "[10,[2,1,1,1],255,11]",
+              "count": 1,
+              "max_delta_debt": 7.415037499279,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 3207167,
+                "child_residue": 36761599,
+                "parent_template": "[9,[1,1,1,9],255,1]",
+                "child_template": "[10,[2,1,1,1],255,11]",
+                "delta_prefix": -1,
+                "delta_consumed": -9,
+                "delta_next_valuation": 10,
+                "delta_debt": 7.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[1,1,1,8],159,1]",
+              "child_template": "[10,[1,1,1,1],159,12]",
+              "count": 1,
+              "max_delta_debt": 6.415037499279,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 28586143,
+                "child_residue": 62140575,
+                "parent_template": "[9,[1,1,1,8],159,1]",
+                "child_template": "[10,[1,1,1,1],159,12]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 11,
+                "delta_debt": 6.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[2,1,1,8],191,1]",
+              "child_template": "[10,[1,2,1,1],191,10]",
+              "count": 1,
+              "max_delta_debt": 6.415037499279,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 5629375,
+                "child_residue": 39183807,
+                "parent_template": "[9,[2,1,1,8],191,1]",
+                "child_template": "[10,[1,2,1,1],191,10]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 9,
+                "delta_debt": 6.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[1,1,2,8],255,1]",
+              "child_template": "[10,[1,1,1,2],255,10]",
+              "count": 1,
+              "max_delta_debt": 6.415037499279,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 1010175,
+                "child_residue": 34564607,
+                "parent_template": "[9,[1,1,2,8],255,1]",
+                "child_template": "[10,[1,1,1,2],255,10]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 9,
+                "delta_debt": 6.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[1,2,1,8],127,1]",
+              "child_template": "[10,[1,1,2,1],127,11]",
+              "count": 1,
+              "max_delta_debt": 6.415037499279,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 9432703,
+                "child_residue": 42987135,
+                "parent_template": "[9,[1,2,1,8],127,1]",
+                "child_template": "[10,[1,1,2,1],127,11]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 10,
+                "delta_debt": 6.415037499279
+              }
+            }
+          ],
+          "closure_status": "rank_lift_not_closed_under_horizon_extension"
+        }
+      ],
+      "measure_synthesis_tests": [
+        {
+          "candidate": "debt alone strictly decreases",
+          "status": "refuted_by_raw_nondecreasing_debt_edges",
+          "evidence": "2392525 raw open edges include many nondecreasing debt transitions; see Ticket 42."
+        },
+        {
+          "candidate": "previous horizon rank is reusable without new lift constraints",
+          "status": "rank_lift_not_closed_under_horizon_extension",
+          "evidence": "229368 new template edges and 124027 previous-node rank changes appear by 26 bits."
+        },
+        {
+          "candidate": "M(template, debt) = scale * topological_rank(template) + debt",
+          "status": "sampled_measure_decreases_on_all_template_edges",
+          "evidence": "scale 11 gives sampled min margin 0.584962500721 on the 26-bit template graph."
+        }
+      ],
+      "route_decision": {
+        "discard": [
+          "debt-only descent as a Collatz proof",
+          "reusing a previous horizon topological rank as a closed infinite rank",
+          "treating the sampled scale*rank+debt measure as a theorem without lift closure"
+        ],
+        "retain": [
+          "sampled scale*template_rank+debt measure as the current bounded certificate target",
+          "parametric lift constraints for every future template edge",
+          "counterexample search for a future edge that violates all finite-rank extensions"
+        ]
+      },
+      "closed_bounded_statement": "A sampled measure M = scale * topological_template_rank + debt decreases on every template edge seen through 26 bits, but both the rank and edge set change as the horizon extends.",
+      "proof_boundary": "This is not a Collatz proof and not a Collatz counterexample. It finds a stronger bounded measure candidate than debt alone, but the measure is horizon-dependent. The missing theorem is parametric lift closure for all future template edges."
+    }
+  },
+  "obstruction": "The 26-bit sampled measure uses scale 11 and min margin 0.584962500721, but the 25->26 extension adds 229368 template edges and changes 124027 previous-node ranks. The bounded measure is therefore not yet an infinite theorem.",
+  "candidate_theorem": "There is a horizon-independent parametric lift relation and a well-founded measure whose finite specialization is M = scale * template_rank + debt, and every future lifted edge strictly decreases it.",
+  "next_experiment": "Convert the worst new template edges into symbolic congruence constraints and prove that no future edge can violate the scale*rank+debt margin, or exhibit the first violating lift.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}
