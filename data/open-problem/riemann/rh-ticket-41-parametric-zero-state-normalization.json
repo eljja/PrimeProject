@@ -1,0 +1,19 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-41",
+  "status": "proof_pressure_open",
+  "route": "ParametricZeroStateNormalizationOrEscape",
+  "proof_or_counterexample_mode": "parametric_normalization_or_counterexample_transfer",
+  "attempt": "Transfer Ticket 41's correction: a bounded graph can guide search, but a proof must replace it with a parametric transition system and a well-founded measure, or expose an escaping ray/cycle.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-40",
+    "source_route": "ZeroTransitionClosureOrOffCriticalCounterexample",
+    "discarded_shortcut": "finite-height zero-state DAG treated as closed under all future height and tail parameters",
+    "retained_target": "Every hypothetical off-critical zero configuration normalizes into a parametric positivity-state transition with a well-founded rank.",
+    "counterexample_target": "an escaping zero-configuration ray or positivity-state cycle that avoids every proposed rank"
+  },
+  "obstruction": "Fixed finite-window evidence keeps producing new states under extension. The missing mathematical object is a normalized symbolic transition theorem, not a larger enumeration.",
+  "candidate_theorem": "Every hypothetical off-critical zero configuration normalizes into a parametric positivity-state transition with a well-founded rank.",
+  "next_experiment": "Normalize zero-configuration coordinates under height shifts and search for nondecreasing kernel-state cycles.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

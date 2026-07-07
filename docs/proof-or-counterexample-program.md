@@ -1602,3 +1602,79 @@ Proof boundary:
 ```text
 TICKET-40 does not prove or disprove any of the four open problems. It is useful because it removes a specific false promotion path: a finite sampled rank cannot be treated as a deterministic closed transducer. The next step must either prove symbolic closure of the nondeterministic transition relation or find a reachable future cycle/counterexample state.
 ```
+
+### Ticket 41: Rank escape normalization
+
+Generated artifact:
+
+```text
+data/open-problem/ticket41-rank-escape-normalization-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-41-parametric-zero-state-normalization.json
+data/open-problem/collatz/co-ticket-41-rank-escape-normalization.json
+data/open-problem/goldbach/gb-ticket-41-parametric-error-cone-normalization.json
+data/open-problem/twin-prime/tp-ticket-41-parametric-gap-leakage-normalization.json
+```
+
+Aggregate verdict:
+
+```text
+rank_escape_normalization_open_no_resolution
+```
+
+한국어 요약: TICKET-41은 TICKET-40의 남은 길을 더 정밀하게 검토했다. 핵심 수정은 `phase_mod16_tail4_residue256`를 전역 finite quotient처럼 부르면 안 된다는 점이다. 이 state에는 `prefix_length`, `consumed_bits`, `rounded_debt` 같은 성장 좌표가 들어가므로 horizon을 늘리면 새 좌표와 새 edge가 계속 생긴다. 따라서 고정된 finite-window DAG는 증명 객체가 될 수 없다. 남는 길은 더 큰 계산이 아니라, 성장 좌표를 포함하는 parametric symbolic transition schema와 well-founded measure를 증명하거나, 그 schema 안에서 nondecreasing cycle 또는 escaping coordinate ray를 찾는 것이다.
+
+Collatz snapshots:
+
+```text
+12..24: nodes 282,660, edges 440,614, sinks 101,810, distinct coordinates 1,197, max rank 12
+12..25: nodes 413,343, edges 688,432, sinks 145,873, distinct coordinates 1,347, max rank 13
+12..26: nodes 590,519, edges 1,049,993, sinks 197,544, distinct coordinates 1,524, max rank 14
+```
+
+Fixed-relation escape:
+
+```text
+24 -> 25: new edges 247,818, reopened previous sinks 86,620, new coordinates 150
+25 -> 26: new edges 361,561, reopened previous sinks 125,505, new coordinates 177
+24 -> 26 total distinct coordinate delta: 327
+```
+
+Discarded Collatz routes:
+
+```text
+fixed finite-window DAG as a global proof object
+phase_mod16_tail4_residue256 described as a global finite quotient
+rank values computed on a horizon before checking future sink reopening
+```
+
+Retained Collatz routes:
+
+```text
+parametric symbolic transition schema over phase, tail, residue, and growth coordinates
+well-founded ordinal or lexicographic measure that can absorb coordinate growth
+counterexample search for reachable cycles, reopened sinks, or escaping coordinate rays
+```
+
+Cross-problem transfer:
+
+1. RH: a finite-height zero-state graph must be replaced by a parametric zero-configuration normalization theorem.
+2. Goldbach: a finite cutoff error-cone graph must be replaced by a parametric error-cone transition theorem for all large even integers.
+3. Twin Prime: a finite exact-gap leakage graph must be replaced by a scale-parametric exact-gap residual theorem.
+4. Collatz: a fixed sampled DAG must be replaced by symbolic templates plus a well-founded measure, or by an explicit escaping ray/cycle.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-42 ParametricTransitionTemplateOrNondecreasingCycle
+```
+
+Proof boundary:
+
+```text
+TICKET-41 does not prove or disprove any of the four open problems. It corrects a finite-quotient overstatement and gives a concrete counterexample to fixed finite-window closure. A future proof must normalize the growing coordinates symbolically, while a future disproof route would be a reachable nondecreasing cycle or escaping coordinate ray inside that normalized system.
+```

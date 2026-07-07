@@ -34,6 +34,7 @@ TICKET37_SCHEMA = "primeproject.ticket37-pointwise-rank-synthesis-lab.v1"
 TICKET38_SCHEMA = "primeproject.ticket38-symbolic-frontier-extension-lab.v1"
 TICKET39_SCHEMA = "primeproject.ticket39-phase-state-potential-lab.v1"
 TICKET40_SCHEMA = "primeproject.ticket40-transition-closure-lab.v1"
+TICKET41_SCHEMA = "primeproject.ticket41-rank-escape-normalization-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1425,6 +1426,97 @@ def main() -> int:
         return fail("collatz ticket40 must retain nondeterministic closure and cycle search")
     if "not a Collatz proof" not in str(audit40.get("proof_boundary", "")):
         return fail("collatz ticket40 proof boundary must block proof overclaim")
+
+    ticket41_path = Path("data/open-problem/ticket41-rank-escape-normalization-lab.json")
+    if not ticket41_path.exists():
+        return fail("missing ticket41 rank escape normalization artifact")
+    ticket41 = read_json(ticket41_path)
+    if ticket41.get("schema") != TICKET41_SCHEMA:
+        return fail("ticket41 rank escape normalization artifact has unexpected schema")
+    if ticket41.get("status") != "rank_escape_normalization_open_no_resolution":
+        return fail("ticket41 rank escape normalization overstates resolution")
+    ticket41_attempts = ticket41.get("attempts", [])
+    if not isinstance(ticket41_attempts, list):
+        return fail("ticket41 attempts must be a list")
+    ticket41_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket41_attempts if isinstance(attempt, dict)}
+    missing_ticket41 = EXPECTED_PROBLEMS - set(ticket41_by_id)
+    if missing_ticket41:
+        return fail("ticket41 attempts missing problems: " + ", ".join(sorted(missing_ticket41)))
+    ticket41_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-41-parametric-zero-state-normalization.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-41-rank-escape-normalization.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-41-parametric-error-cone-normalization.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-41-parametric-gap-leakage-normalization.json"),
+    }
+    for problem_id, attempt in ticket41_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket41 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket41 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket41 claim boundary is too weak")
+        path = ticket41_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket41 per-problem artifact")
+
+    collatz_ticket41 = ticket41_by_id.get("collatz", {})
+    collatz41_bounded = collatz_ticket41.get("bounded_result", {})
+    if not isinstance(collatz41_bounded, dict):
+        return fail("collatz ticket41 bounded result must be an object")
+    audit41 = collatz41_bounded.get("rank_escape_normalization_audit", {})
+    if not isinstance(audit41, dict):
+        return fail("collatz ticket41 rank escape audit missing")
+    snapshots41 = audit41.get("snapshots", [])
+    if not isinstance(snapshots41, list) or len(snapshots41) < 3:
+        return fail("collatz ticket41 must include 24, 25, and 26 bit snapshots")
+    by_bits41 = {int(row.get("max_bits", 0)): row for row in snapshots41 if isinstance(row, dict)}
+    for bits in (24, 25, 26):
+        if bits not in by_bits41:
+            return fail(f"collatz ticket41 missing {bits}-bit snapshot")
+    if int(by_bits41[26].get("state_edge_count", 0)) < 1_000_000:
+        return fail("collatz ticket41 26-bit snapshot must retain the large relation")
+    topo41 = by_bits41[26].get("topological_potential", {})
+    if not isinstance(topo41, dict) or topo41.get("cycle_detected") is not False:
+        return fail("collatz ticket41 sampled relation must remain acyclic through 26 bits")
+    if int(topo41.get("rank_edge_violations", -1)) != 0:
+        return fail("collatz ticket41 sampled rank must keep zero edge violations")
+    comparisons41 = audit41.get("extension_comparisons", [])
+    if not isinstance(comparisons41, list) or len(comparisons41) < 2:
+        return fail("collatz ticket41 must compare successive horizon extensions")
+    first41, second41 = comparisons41[0], comparisons41[1]
+    if int(first41.get("new_state_edge_count", 0)) < 200_000:
+        return fail("collatz ticket41 24->25 must expose many new edges")
+    if int(first41.get("previous_sink_reopened_count", 0)) < 80_000:
+        return fail("collatz ticket41 24->25 must expose many reopened previous sinks")
+    if int(second41.get("new_state_edge_count", 0)) < 300_000:
+        return fail("collatz ticket41 25->26 must expose many new edges")
+    if int(second41.get("previous_sink_reopened_count", 0)) < 120_000:
+        return fail("collatz ticket41 25->26 must expose many reopened previous sinks")
+    if first41.get("closure_status") != "refuted_for_fixed_window_relation":
+        return fail("collatz ticket41 must reject fixed 24-bit relation closure")
+    if second41.get("closure_status") != "refuted_for_fixed_window_relation":
+        return fail("collatz ticket41 must reject fixed 25-bit relation closure")
+    growth41 = audit41.get("coordinate_growth_after_primary", {})
+    if not isinstance(growth41, dict) or int(growth41.get("distinct_coordinate_delta", 0)) < 300:
+        return fail("collatz ticket41 must expose unbounded coordinate growth pressure")
+    fixed_tests41 = audit41.get("fixed_relation_tests", [])
+    if not isinstance(fixed_tests41, list):
+        return fail("collatz ticket41 fixed relation tests missing")
+    fixed_status41 = " ".join(str(row.get("status")) for row in fixed_tests41 if isinstance(row, dict))
+    if "refuted_by_unbounded_window_coordinates" not in fixed_status41:
+        return fail("collatz ticket41 must refute the global finite quotient shortcut")
+    route41 = collatz41_bounded.get("route_decision", {})
+    if not isinstance(route41, dict):
+        return fail("collatz ticket41 route decision missing")
+    discard41 = " ".join(str(item) for item in route41.get("discard", []))
+    retain41 = " ".join(str(item) for item in route41.get("retain", []))
+    if "fixed finite-window DAG" not in discard41 or "global finite quotient" not in discard41:
+        return fail("collatz ticket41 must discard fixed-window and finite-quotient overclaims")
+    if "parametric symbolic transition schema" not in retain41 or "counterexample search" not in retain41:
+        return fail("collatz ticket41 must retain parametric symbolic closure and counterexample search")
+    if "not a Collatz proof" not in str(audit41.get("proof_boundary", "")):
+        return fail("collatz ticket41 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

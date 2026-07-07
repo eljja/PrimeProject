@@ -1,0 +1,972 @@
+{
+  "schema": "primeproject.ticket41-rank-escape-normalization-lab.v1",
+  "generated_at": "2026-07-08T16:10:00+09:00",
+  "status": "rank_escape_normalization_open_no_resolution",
+  "claim_boundary": "Ticket 41 corrects the finite-quotient overstatement, refutes fixed finite-window closure, and promotes a parametric normalization target. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-41",
+      "status": "proof_pressure_open",
+      "route": "ParametricZeroStateNormalizationOrEscape",
+      "proof_or_counterexample_mode": "parametric_normalization_or_counterexample_transfer",
+      "attempt": "Transfer Ticket 41's correction: a bounded graph can guide search, but a proof must replace it with a parametric transition system and a well-founded measure, or expose an escaping ray/cycle.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-40",
+        "source_route": "ZeroTransitionClosureOrOffCriticalCounterexample",
+        "discarded_shortcut": "finite-height zero-state DAG treated as closed under all future height and tail parameters",
+        "retained_target": "Every hypothetical off-critical zero configuration normalizes into a parametric positivity-state transition with a well-founded rank.",
+        "counterexample_target": "an escaping zero-configuration ray or positivity-state cycle that avoids every proposed rank"
+      },
+      "obstruction": "Fixed finite-window evidence keeps producing new states under extension. The missing mathematical object is a normalized symbolic transition theorem, not a larger enumeration.",
+      "candidate_theorem": "Every hypothetical off-critical zero configuration normalizes into a parametric positivity-state transition with a well-founded rank.",
+      "next_experiment": "Normalize zero-configuration coordinates under height shifts and search for nondecreasing kernel-state cycles.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-41",
+      "status": "proof_pressure_open",
+      "route": "RankEscapeNormalizationOrReachableCycle",
+      "proof_or_counterexample_mode": "fixed_relation_escape_and_parametric_normalization",
+      "attempt": "Keep Ticket 40's nondeterministic rank evidence, but test the missing closure theorem directly. A fixed sampled relation is rejected if extending the horizon creates new edges, reopens sink states, or adds unbounded state coordinates.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-40",
+        "rank_escape_normalization_audit": {
+          "family": "phase_mod16_tail4_residue256",
+          "snapshots": [
+            {
+              "family": "phase_mod16_tail4_residue256",
+              "base_bits": 12,
+              "max_bits": 24,
+              "parent_state_count": 188651,
+              "node_count": 282660,
+              "state_edge_count": 440614,
+              "sink_state_count": 101810,
+              "final_frontier_count": 317095,
+              "transition_totals": {
+                "both_closed": 11790,
+                "both_open": 326837,
+                "high_only_open": 20152,
+                "low_only_open": 30630
+              },
+              "coordinate_summary": {
+                "node_count": 282660,
+                "distinct_coordinate_count": 1197,
+                "max_prefix_length": 23,
+                "max_consumed_bits": 24,
+                "max_next_valuation": 21,
+                "min_rounded_debt": -10.415,
+                "max_rounded_debt": 13.4541,
+                "distinct_phase_count": 13,
+                "distinct_tail4_count": 522,
+                "distinct_residue_mod256_count": 128
+              },
+              "topological_potential": {
+                "cycle_detected": false,
+                "topological_seen_count": 282660,
+                "cyclic_core_node_count": 0,
+                "max_topological_rank": 12,
+                "rank_positive_state_count": 180850,
+                "rank_sink_state_count": 101810,
+                "rank_edge_violations": 0,
+                "top_rank_examples": [
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,3,5.4346,[1,2,1,1],255]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,3,5.4346,[1,1,1,2],255]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,3,5.4346,[1,1,1,1],127]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,2,5.4346,[1,1,1,1],191]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,2,5.4346,[1,1,1,1],103]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,1,5.4346,[1,1,1,1],27]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,11,5,6.4346,[1,1,1,1],255]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,10,12,7,3.8496,[1,1,2,2],255]"
+                  }
+                ]
+              },
+              "tail_level_rows": [
+                {
+                  "bits": 20,
+                  "parent_frontier_count": 28789,
+                  "next_frontier_count": 51375,
+                  "transition_counts": {
+                    "both_closed": 726,
+                    "both_open": 23312,
+                    "high_only_open": 2020,
+                    "low_only_open": 2731
+                  },
+                  "survival_ratio": 0.892267880093
+                },
+                {
+                  "bits": 21,
+                  "parent_frontier_count": 51375,
+                  "next_frontier_count": 95621,
+                  "transition_counts": {
+                    "both_closed": 2365,
+                    "both_open": 46611,
+                    "low_only_open": 2399
+                  },
+                  "survival_ratio": 0.930618004866
+                },
+                {
+                  "bits": 22,
+                  "parent_frontier_count": 95621,
+                  "next_frontier_count": 178851,
+                  "transition_counts": {
+                    "both_closed": 1208,
+                    "both_open": 84438,
+                    "high_only_open": 4366,
+                    "low_only_open": 5609
+                  },
+                  "survival_ratio": 0.935207747252
+                },
+                {
+                  "bits": 23,
+                  "parent_frontier_count": 178851,
+                  "next_frontier_count": 317095,
+                  "transition_counts": {
+                    "both_closed": 4926,
+                    "both_open": 143170,
+                    "high_only_open": 12656,
+                    "low_only_open": 18099
+                  },
+                  "survival_ratio": 0.88647812984
+                }
+              ]
+            },
+            {
+              "family": "phase_mod16_tail4_residue256",
+              "base_bits": 12,
+              "max_bits": 25,
+              "parent_state_count": 282660,
+              "node_count": 413343,
+              "state_edge_count": 688432,
+              "sink_state_count": 145873,
+              "final_frontier_count": 588421,
+              "transition_totals": {
+                "both_closed": 27045,
+                "both_open": 613418,
+                "high_only_open": 20152,
+                "low_only_open": 45889
+              },
+              "coordinate_summary": {
+                "node_count": 413343,
+                "distinct_coordinate_count": 1347,
+                "max_prefix_length": 24,
+                "max_consumed_bits": 25,
+                "max_next_valuation": 21,
+                "min_rounded_debt": -10.415,
+                "max_rounded_debt": 14.0391,
+                "distinct_phase_count": 14,
+                "distinct_tail4_count": 623,
+                "distinct_residue_mod256_count": 128
+              },
+              "topological_potential": {
+                "cycle_detected": false,
+                "topological_seen_count": 413343,
+                "cyclic_core_node_count": 0,
+                "max_topological_rank": 13,
+                "rank_positive_state_count": 267470,
+                "rank_sink_state_count": 145873,
+                "rank_edge_violations": 0,
+                "top_rank_examples": [
+                  {
+                    "rank": 13,
+                    "state": "[12,11,12,3,5.4346,[1,2,1,1],255]"
+                  },
+                  {
+                    "rank": 13,
+                    "state": "[12,11,12,3,5.4346,[1,1,1,2],255]"
+                  },
+                  {
+                    "rank": 13,
+                    "state": "[12,11,12,3,5.4346,[1,1,1,1],127]"
+                  },
+                  {
+                    "rank": 13,
+                    "state": "[12,11,12,2,5.4346,[1,1,1,1],191]"
+                  },
+                  {
+                    "rank": 13,
+                    "state": "[12,11,12,2,5.4346,[1,1,1,1],103]"
+                  },
+                  {
+                    "rank": 13,
+                    "state": "[12,11,12,1,5.4346,[1,1,1,1],27]"
+                  },
+                  {
+                    "rank": 13,
+                    "state": "[12,11,11,5,6.4346,[1,1,1,1],255]"
+                  },
+                  {
+                    "rank": 13,
+                    "state": "[12,10,12,7,3.8496,[1,1,2,2],255]"
+                  }
+                ]
+              },
+              "tail_level_rows": [
+                {
+                  "bits": 21,
+                  "parent_frontier_count": 51375,
+                  "next_frontier_count": 95621,
+                  "transition_counts": {
+                    "both_closed": 2365,
+                    "both_open": 46611,
+                    "low_only_open": 2399
+                  },
+                  "survival_ratio": 0.930618004866
+                },
+                {
+                  "bits": 22,
+                  "parent_frontier_count": 95621,
+                  "next_frontier_count": 178851,
+                  "transition_counts": {
+                    "both_closed": 1208,
+                    "both_open": 84438,
+                    "high_only_open": 4366,
+                    "low_only_open": 5609
+                  },
+                  "survival_ratio": 0.935207747252
+                },
+                {
+                  "bits": 23,
+                  "parent_frontier_count": 178851,
+                  "next_frontier_count": 317095,
+                  "transition_counts": {
+                    "both_closed": 4926,
+                    "both_open": 143170,
+                    "high_only_open": 12656,
+                    "low_only_open": 18099
+                  },
+                  "survival_ratio": 0.88647812984
+                },
+                {
+                  "bits": 24,
+                  "parent_frontier_count": 317095,
+                  "next_frontier_count": 588421,
+                  "transition_counts": {
+                    "both_closed": 15255,
+                    "both_open": 286581,
+                    "low_only_open": 15259
+                  },
+                  "survival_ratio": 0.927830776266
+                }
+              ]
+            },
+            {
+              "family": "phase_mod16_tail4_residue256",
+              "base_bits": 12,
+              "max_bits": 26,
+              "parent_state_count": 413343,
+              "node_count": 590519,
+              "state_edge_count": 1049993,
+              "sink_state_count": 197544,
+              "final_frontier_count": 1099648,
+              "transition_totals": {
+                "both_closed": 34674,
+                "both_open": 1132274,
+                "high_only_open": 47314,
+                "low_only_open": 80663
+              },
+              "coordinate_summary": {
+                "node_count": 590519,
+                "distinct_coordinate_count": 1524,
+                "max_prefix_length": 25,
+                "max_consumed_bits": 26,
+                "max_next_valuation": 23,
+                "min_rounded_debt": -10.415,
+                "max_rounded_debt": 14.6241,
+                "distinct_phase_count": 15,
+                "distinct_tail4_count": 701,
+                "distinct_residue_mod256_count": 128
+              },
+              "topological_potential": {
+                "cycle_detected": false,
+                "topological_seen_count": 590519,
+                "cyclic_core_node_count": 0,
+                "max_topological_rank": 14,
+                "rank_positive_state_count": 392975,
+                "rank_sink_state_count": 197544,
+                "rank_edge_violations": 0,
+                "top_rank_examples": [
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,3,5.4346,[1,2,1,1],255]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,3,5.4346,[1,1,1,2],255]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,3,5.4346,[1,1,1,1],127]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,2,5.4346,[1,1,1,1],191]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,2,5.4346,[1,1,1,1],103]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,1,5.4346,[1,1,1,1],27]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,11,5,6.4346,[1,1,1,1],255]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,10,12,7,3.8496,[1,1,2,2],255]"
+                  }
+                ]
+              },
+              "tail_level_rows": [
+                {
+                  "bits": 22,
+                  "parent_frontier_count": 95621,
+                  "next_frontier_count": 178851,
+                  "transition_counts": {
+                    "both_closed": 1208,
+                    "both_open": 84438,
+                    "high_only_open": 4366,
+                    "low_only_open": 5609
+                  },
+                  "survival_ratio": 0.935207747252
+                },
+                {
+                  "bits": 23,
+                  "parent_frontier_count": 178851,
+                  "next_frontier_count": 317095,
+                  "transition_counts": {
+                    "both_closed": 4926,
+                    "both_open": 143170,
+                    "high_only_open": 12656,
+                    "low_only_open": 18099
+                  },
+                  "survival_ratio": 0.88647812984
+                },
+                {
+                  "bits": 24,
+                  "parent_frontier_count": 317095,
+                  "next_frontier_count": 588421,
+                  "transition_counts": {
+                    "both_closed": 15255,
+                    "both_open": 286581,
+                    "low_only_open": 15259
+                  },
+                  "survival_ratio": 0.927830776266
+                },
+                {
+                  "bits": 25,
+                  "parent_frontier_count": 588421,
+                  "next_frontier_count": 1099648,
+                  "transition_counts": {
+                    "both_closed": 7629,
+                    "both_open": 518856,
+                    "high_only_open": 27162,
+                    "low_only_open": 34774
+                  },
+                  "survival_ratio": 0.934405808086
+                }
+              ]
+            }
+          ],
+          "extension_comparisons": [
+            {
+              "from_max_bits": 24,
+              "to_max_bits": 25,
+              "new_node_count": 130683,
+              "new_parent_state_count": 94009,
+              "new_state_edge_count": 247818,
+              "known_parent_new_edge_count": 0,
+              "known_parent_to_new_node_edge_count": 0,
+              "previous_sink_reopened_count": 86620,
+              "new_coordinate_count": 150,
+              "rank_horizon_increase": 1,
+              "closure_status": "refuted_for_fixed_window_relation",
+              "reopened_sink_examples": [
+                {
+                  "state": "[8,18,24,3,4.5293,[3,1,2,2],191]",
+                  "coordinates": {
+                    "phase_mod16": 8,
+                    "prefix_length": 18,
+                    "consumed_bits": 24,
+                    "next_valuation": 3,
+                    "rounded_debt": 4.5293,
+                    "tail4": [
+                      3,
+                      1,
+                      2,
+                      2
+                    ],
+                    "residue_mod256": 191
+                  },
+                  "new_outgoing_edge_count": 2,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 24,
+                      "direction": "high",
+                      "parent_residue": 14803903,
+                      "child_residue": 31581119,
+                      "label": "both_open",
+                      "parent_state": "[8,18,24,3,4.5293,[3,1,2,2],191]",
+                      "child_state": "[9,18,25,1,3.5293,[3,1,2,3],191]"
+                    },
+                    {
+                      "bits": 24,
+                      "direction": "low",
+                      "parent_residue": 14803903,
+                      "child_residue": 14803903,
+                      "label": "both_open",
+                      "parent_state": "[8,18,24,3,4.5293,[3,1,2,2],191]",
+                      "child_state": "[9,18,24,3,4.5293,[3,1,2,2],191]"
+                    }
+                  ]
+                },
+                {
+                  "state": "[8,13,18,8,2.6045,[1,1,1,2],231]",
+                  "coordinates": {
+                    "phase_mod16": 8,
+                    "prefix_length": 13,
+                    "consumed_bits": 18,
+                    "next_valuation": 8,
+                    "rounded_debt": 2.6045,
+                    "tail4": [
+                      1,
+                      1,
+                      1,
+                      2
+                    ],
+                    "residue_mod256": 231
+                  },
+                  "new_outgoing_edge_count": 1,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 24,
+                      "direction": "low",
+                      "parent_residue": 1728999,
+                      "child_residue": 1728999,
+                      "label": "low_only_open",
+                      "parent_state": "[8,13,18,8,2.6045,[1,1,1,2],231]",
+                      "child_state": "[9,13,18,8,2.6045,[1,1,1,2],231]"
+                    }
+                  ]
+                },
+                {
+                  "state": "[8,15,21,6,2.7744,[1,4,1,1],251]",
+                  "coordinates": {
+                    "phase_mod16": 8,
+                    "prefix_length": 15,
+                    "consumed_bits": 21,
+                    "next_valuation": 6,
+                    "rounded_debt": 2.7744,
+                    "tail4": [
+                      1,
+                      4,
+                      1,
+                      1
+                    ],
+                    "residue_mod256": 251
+                  },
+                  "new_outgoing_edge_count": 2,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 24,
+                      "direction": "high",
+                      "parent_residue": 4544763,
+                      "child_residue": 21321979,
+                      "label": "both_open",
+                      "parent_state": "[8,15,21,6,2.7744,[1,4,1,1],251]",
+                      "child_state": "[9,16,24,2,1.3594,[4,1,1,3],251]"
+                    },
+                    {
+                      "bits": 24,
+                      "direction": "low",
+                      "parent_residue": 4544763,
+                      "child_residue": 4544763,
+                      "label": "both_open",
+                      "parent_state": "[8,15,21,6,2.7744,[1,4,1,1],251]",
+                      "child_state": "[9,15,21,6,2.7744,[1,4,1,1],251]"
+                    }
+                  ]
+                },
+                {
+                  "state": "[8,17,23,2,3.9444,[2,1,1,1],251]",
+                  "coordinates": {
+                    "phase_mod16": 8,
+                    "prefix_length": 17,
+                    "consumed_bits": 23,
+                    "next_valuation": 2,
+                    "rounded_debt": 3.9444,
+                    "tail4": [
+                      2,
+                      1,
+                      1,
+                      1
+                    ],
+                    "residue_mod256": 251
+                  },
+                  "new_outgoing_edge_count": 10,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 24,
+                      "direction": "low",
+                      "parent_residue": 9281787,
+                      "child_residue": 9281787,
+                      "label": "both_open",
+                      "parent_state": "[8,17,23,2,3.9444,[2,1,1,1],251]",
+                      "child_state": "[9,18,25,1,3.5293,[1,1,1,2],251]"
+                    },
+                    {
+                      "bits": 24,
+                      "direction": "high",
+                      "parent_residue": 14319867,
+                      "child_residue": 31097083,
+                      "label": "both_open",
+                      "parent_state": "[8,17,23,2,3.9444,[2,1,1,1],251]",
+                      "child_state": "[9,19,25,5,5.1143,[1,1,1,1],251]"
+                    },
+                    {
+                      "bits": 24,
+                      "direction": "low",
+                      "parent_residue": 641019,
+                      "child_residue": 641019,
+                      "label": "both_open",
+                      "parent_state": "[8,17,23,2,3.9444,[2,1,1,1],251]",
+                      "child_state": "[9,18,25,4,3.5293,[1,1,1,2],251]"
+                    }
+                  ]
+                },
+                {
+                  "state": "[8,16,23,4,2.3594,[3,2,2,1],223]",
+                  "coordinates": {
+                    "phase_mod16": 8,
+                    "prefix_length": 16,
+                    "consumed_bits": 23,
+                    "next_valuation": 4,
+                    "rounded_debt": 2.3594,
+                    "tail4": [
+                      3,
+                      2,
+                      2,
+                      1
+                    ],
+                    "residue_mod256": 223
+                  },
+                  "new_outgoing_edge_count": 2,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 24,
+                      "direction": "low",
+                      "parent_residue": 3639775,
+                      "child_residue": 3639775,
+                      "label": "both_open",
+                      "parent_state": "[8,16,23,4,2.3594,[3,2,2,1],223]",
+                      "child_state": "[9,16,23,4,2.3594,[3,2,2,1],223]"
+                    },
+                    {
+                      "bits": 24,
+                      "direction": "high",
+                      "parent_residue": 3639775,
+                      "child_residue": 20416991,
+                      "label": "both_open",
+                      "parent_state": "[8,16,23,4,2.3594,[3,2,2,1],223]",
+                      "child_state": "[9,18,25,2,3.5293,[2,1,1,1],223]"
+                    }
+                  ]
+                },
+                {
+                  "state": "[8,14,22,7,0.1895,[2,1,3,3],111]",
+                  "coordinates": {
+                    "phase_mod16": 8,
+                    "prefix_length": 14,
+                    "consumed_bits": 22,
+                    "next_valuation": 7,
+                    "rounded_debt": 0.1895,
+                    "tail4": [
+                      2,
+                      1,
+                      3,
+                      3
+                    ],
+                    "residue_mod256": 111
+                  },
+                  "new_outgoing_edge_count": 1,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 24,
+                      "direction": "low",
+                      "parent_residue": 14662255,
+                      "child_residue": 14662255,
+                      "label": "low_only_open",
+                      "parent_state": "[8,14,22,7,0.1895,[2,1,3,3],111]",
+                      "child_state": "[9,14,22,7,0.1895,[2,1,3,3],111]"
+                    }
+                  ]
+                }
+              ],
+              "known_parent_new_edge_examples": [],
+              "escape_chain_example": []
+            },
+            {
+              "from_max_bits": 25,
+              "to_max_bits": 26,
+              "new_node_count": 177176,
+              "new_parent_state_count": 130683,
+              "new_state_edge_count": 361561,
+              "known_parent_new_edge_count": 0,
+              "known_parent_to_new_node_edge_count": 0,
+              "previous_sink_reopened_count": 125505,
+              "new_coordinate_count": 177,
+              "rank_horizon_increase": 1,
+              "closure_status": "refuted_for_fixed_window_relation",
+              "reopened_sink_examples": [
+                {
+                  "state": "[9,16,24,2,1.3594,[2,1,4,1],251]",
+                  "coordinates": {
+                    "phase_mod16": 9,
+                    "prefix_length": 16,
+                    "consumed_bits": 24,
+                    "next_valuation": 2,
+                    "rounded_debt": 1.3594,
+                    "tail4": [
+                      2,
+                      1,
+                      4,
+                      1
+                    ],
+                    "residue_mod256": 251
+                  },
+                  "new_outgoing_edge_count": 6,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 25,
+                      "direction": "high",
+                      "parent_residue": 26185979,
+                      "child_residue": 59740411,
+                      "label": "both_open",
+                      "parent_state": "[9,16,24,2,1.3594,[2,1,4,1],251]",
+                      "child_state": "[10,17,25,4,1.9444,[1,4,1,1],251]"
+                    },
+                    {
+                      "bits": 25,
+                      "direction": "high",
+                      "parent_residue": 14721275,
+                      "child_residue": 48275707,
+                      "label": "both_open",
+                      "parent_state": "[9,16,24,2,1.3594,[2,1,4,1],251]",
+                      "child_state": "[10,17,25,2,1.9444,[1,4,1,1],251]"
+                    },
+                    {
+                      "bits": 25,
+                      "direction": "low",
+                      "parent_residue": 14721275,
+                      "child_residue": 14721275,
+                      "label": "both_open",
+                      "parent_state": "[9,16,24,2,1.3594,[2,1,4,1],251]",
+                      "child_state": "[10,17,26,1,0.9444,[1,4,1,2],251]"
+                    }
+                  ]
+                },
+                {
+                  "state": "[9,18,25,6,3.5293,[1,1,3,1],71]",
+                  "coordinates": {
+                    "phase_mod16": 9,
+                    "prefix_length": 18,
+                    "consumed_bits": 25,
+                    "next_valuation": 6,
+                    "rounded_debt": 3.5293,
+                    "tail4": [
+                      1,
+                      1,
+                      3,
+                      1
+                    ],
+                    "residue_mod256": 71
+                  },
+                  "new_outgoing_edge_count": 2,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 25,
+                      "direction": "low",
+                      "parent_residue": 26738759,
+                      "child_residue": 26738759,
+                      "label": "both_open",
+                      "parent_state": "[9,18,25,6,3.5293,[1,1,3,1],71]",
+                      "child_state": "[10,18,25,6,3.5293,[1,1,3,1],71]"
+                    },
+                    {
+                      "bits": 25,
+                      "direction": "high",
+                      "parent_residue": 26738759,
+                      "child_residue": 60293191,
+                      "label": "both_open",
+                      "parent_state": "[9,18,25,6,3.5293,[1,1,3,1],71]",
+                      "child_state": "[10,18,26,1,2.5293,[1,1,3,2],71]"
+                    }
+                  ]
+                },
+                {
+                  "state": "[9,15,20,10,3.7744,[1,1,2,1],111]",
+                  "coordinates": {
+                    "phase_mod16": 9,
+                    "prefix_length": 15,
+                    "consumed_bits": 20,
+                    "next_valuation": 10,
+                    "rounded_debt": 3.7744,
+                    "tail4": [
+                      1,
+                      1,
+                      2,
+                      1
+                    ],
+                    "residue_mod256": 111
+                  },
+                  "new_outgoing_edge_count": 2,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 25,
+                      "direction": "high",
+                      "parent_residue": 4676207,
+                      "child_residue": 38230639,
+                      "label": "both_open",
+                      "parent_state": "[9,15,20,10,3.7744,[1,1,2,1],111]",
+                      "child_state": "[10,16,25,2,0.3594,[1,2,1,5],111]"
+                    },
+                    {
+                      "bits": 25,
+                      "direction": "low",
+                      "parent_residue": 4676207,
+                      "child_residue": 4676207,
+                      "label": "both_open",
+                      "parent_state": "[9,15,20,10,3.7744,[1,1,2,1],111]",
+                      "child_state": "[10,15,20,10,3.7744,[1,1,2,1],111]"
+                    }
+                  ]
+                },
+                {
+                  "state": "[9,15,22,9,1.7744,[1,2,1,3],155]",
+                  "coordinates": {
+                    "phase_mod16": 9,
+                    "prefix_length": 15,
+                    "consumed_bits": 22,
+                    "next_valuation": 9,
+                    "rounded_debt": 1.7744,
+                    "tail4": [
+                      1,
+                      2,
+                      1,
+                      3
+                    ],
+                    "residue_mod256": 155
+                  },
+                  "new_outgoing_edge_count": 2,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 25,
+                      "direction": "low",
+                      "parent_residue": 13234843,
+                      "child_residue": 13234843,
+                      "label": "both_open",
+                      "parent_state": "[9,15,22,9,1.7744,[1,2,1,3],155]",
+                      "child_state": "[10,15,22,9,1.7744,[1,2,1,3],155]"
+                    },
+                    {
+                      "bits": 25,
+                      "direction": "high",
+                      "parent_residue": 13234843,
+                      "child_residue": 46789275,
+                      "label": "both_open",
+                      "parent_state": "[9,15,22,9,1.7744,[1,2,1,3],155]",
+                      "child_state": "[10,16,25,2,0.3594,[2,1,3,3],155]"
+                    }
+                  ]
+                },
+                {
+                  "state": "[9,15,23,7,0.7744,[2,1,2,1],191]",
+                  "coordinates": {
+                    "phase_mod16": 9,
+                    "prefix_length": 15,
+                    "consumed_bits": 23,
+                    "next_valuation": 7,
+                    "rounded_debt": 0.7744,
+                    "tail4": [
+                      2,
+                      1,
+                      2,
+                      1
+                    ],
+                    "residue_mod256": 191
+                  },
+                  "new_outgoing_edge_count": 2,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 25,
+                      "direction": "low",
+                      "parent_residue": 19373247,
+                      "child_residue": 19373247,
+                      "label": "both_open",
+                      "parent_state": "[9,15,23,7,0.7744,[2,1,2,1],191]",
+                      "child_state": "[10,15,23,7,0.7744,[2,1,2,1],191]"
+                    },
+                    {
+                      "bits": 25,
+                      "direction": "high",
+                      "parent_residue": 19373247,
+                      "child_residue": 52927679,
+                      "label": "both_open",
+                      "parent_state": "[9,15,23,7,0.7744,[2,1,2,1],191]",
+                      "child_state": "[10,16,25,2,0.3594,[1,2,1,2],191]"
+                    }
+                  ]
+                },
+                {
+                  "state": "[9,16,24,3,1.3594,[3,2,1,1],91]",
+                  "coordinates": {
+                    "phase_mod16": 9,
+                    "prefix_length": 16,
+                    "consumed_bits": 24,
+                    "next_valuation": 3,
+                    "rounded_debt": 1.3594,
+                    "tail4": [
+                      3,
+                      2,
+                      1,
+                      1
+                    ],
+                    "residue_mod256": 91
+                  },
+                  "new_outgoing_edge_count": 2,
+                  "new_outgoing_examples": [
+                    {
+                      "bits": 25,
+                      "direction": "low",
+                      "parent_residue": 5976155,
+                      "child_residue": 5976155,
+                      "label": "both_open",
+                      "parent_state": "[9,16,24,3,1.3594,[3,2,1,1],91]",
+                      "child_state": "[10,16,24,3,1.3594,[3,2,1,1],91]"
+                    },
+                    {
+                      "bits": 25,
+                      "direction": "high",
+                      "parent_residue": 5976155,
+                      "child_residue": 39530587,
+                      "label": "both_open",
+                      "parent_state": "[9,16,24,3,1.3594,[3,2,1,1],91]",
+                      "child_state": "[10,18,26,1,2.5293,[1,1,1,1],91]"
+                    }
+                  ]
+                }
+              ],
+              "known_parent_new_edge_examples": [],
+              "escape_chain_example": []
+            }
+          ],
+          "coordinate_growth_after_primary": {
+            "max_prefix_length_delta": 2,
+            "max_consumed_bits_delta": 2,
+            "distinct_coordinate_delta": 327
+          },
+          "fixed_relation_tests": [
+            {
+              "candidate": "TICKET40 12..24 relation is already closed",
+              "status": "refuted_for_fixed_window_relation",
+              "evidence": "247818 new edges and 86620 reopened previous sinks appear by 25 bits."
+            },
+            {
+              "candidate": "TICKET40 12..25 relation is already closed",
+              "status": "refuted_for_fixed_window_relation",
+              "evidence": "361561 new edges and 125505 reopened previous sinks appear by 26 bits."
+            },
+            {
+              "candidate": "phase_mod16_tail4_residue256 is a global finite quotient",
+              "status": "refuted_by_unbounded_window_coordinates",
+              "evidence": "distinct coordinate count grows by 327 between the 24-bit and 26-bit snapshots."
+            }
+          ],
+          "closed_bounded_statement": "The sampled relation remains acyclic through 26 bits, but each fixed finite-window relation escapes when the horizon is extended: new coordinates, new edges, and reopened sink states appear.",
+          "proof_boundary": "This is not a Collatz proof and not a Collatz counterexample. It is a counterexample to the shortcut that a finite sampled DAG can serve as a closed proof object. The surviving route must be a parametric symbolic transition theorem with a well-founded measure, or a reachable cycle/escape construction."
+        },
+        "route_decision": {
+          "discard": [
+            "fixed finite-window DAG as a global proof object",
+            "phase_mod16_tail4_residue256 described as a global finite quotient",
+            "rank values computed on a horizon before checking future sink reopening"
+          ],
+          "retain": [
+            "parametric symbolic transition schema over phase, tail, residue, and growth coordinates",
+            "well-founded ordinal or lexicographic measure that can absorb coordinate growth",
+            "counterexample search for reachable cycles, reopened sinks, or escaping coordinate rays"
+          ]
+        }
+      },
+      "obstruction": "The 24->25 extension creates 247818 new edges and reopens 86620 previous sinks; the 25->26 extension creates 361561 new edges and reopens 125505 previous sinks. A fixed sampled DAG is not closed.",
+      "candidate_theorem": "There exists a parametric transition schema S and a well-founded measure H on symbolic coordinates such that every reachable open-frontier transition instantiates an S-edge with strictly decreasing H; otherwise an infinite escaping coordinate ray or reachable cycle is the counterexample target.",
+      "next_experiment": "Replace enumerated state graphs with symbolic transition templates. Try to normalize prefix_length, consumed_bits, and rounded debt into a lexicographic or ordinal descent measure; reject the route if a template admits a nondecreasing cycle.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-41",
+      "status": "proof_pressure_open",
+      "route": "ParametricErrorConeNormalizationOrExceptionalRay",
+      "proof_or_counterexample_mode": "parametric_normalization_or_counterexample_transfer",
+      "attempt": "Transfer Ticket 41's correction: a bounded graph can guide search, but a proof must replace it with a parametric transition system and a well-founded measure, or expose an escaping ray/cycle.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-40",
+        "source_route": "ErrorConeTransitionClosureOrExceptionalEvenCounterexample",
+        "discarded_shortcut": "finite cutoff error-cone graph treated as closed for every larger even integer",
+        "retained_target": "Every large even integer maps into a normalized parametric error-cone transition system whose well-founded measure forces positive Goldbach margin.",
+        "counterexample_target": "an escaping even-integer ray whose normalized error margin remains nonpositive"
+      },
+      "obstruction": "Fixed finite-window evidence keeps producing new states under extension. The missing mathematical object is a normalized symbolic transition theorem, not a larger enumeration.",
+      "candidate_theorem": "Every large even integer maps into a normalized parametric error-cone transition system whose well-founded measure forces positive Goldbach margin.",
+      "next_experiment": "Normalize major/minor-arc error coordinates and search for nonpositive cycles under cutoff extension.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-41",
+      "status": "proof_pressure_open",
+      "route": "ParametricExactGapNormalizationOrLeakageRay",
+      "proof_or_counterexample_mode": "parametric_normalization_or_counterexample_transfer",
+      "attempt": "Transfer Ticket 41's correction: a bounded graph can guide search, but a proof must replace it with a parametric transition system and a well-founded measure, or expose an escaping ray/cycle.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-40",
+        "source_route": "ExactGapTransitionClosureOrLastTwinCounterexample",
+        "discarded_shortcut": "finite exact-gap leakage graph treated as closed across all scales",
+        "retained_target": "Every sufficiently large scale normalizes into a parametric exact-gap transition with positive gap-2 residual mass under a well-founded leakage measure.",
+        "counterexample_target": "an escaping scale ray that leaks all exact gap-2 mass into wider admissible gaps"
+      },
+      "obstruction": "Fixed finite-window evidence keeps producing new states under extension. The missing mathematical object is a normalized symbolic transition theorem, not a larger enumeration.",
+      "candidate_theorem": "Every sufficiently large scale normalizes into a parametric exact-gap transition with positive gap-2 residual mass under a well-founded leakage measure.",
+      "next_experiment": "Normalize exact-gap leakage coordinates and search for absorbing zero-gap-2 cycles.",
+      "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+    }
+  ]
+}

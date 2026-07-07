@@ -4008,7 +4008,132 @@ function renderTicket40TransitionClosure(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket) {
+function renderTicket41RankEscapeNormalization(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.rank_escape_normalization_audit || {};
+  const routeDecision = bounded.route_decision || {};
+  const snapshots = Array.isArray(audit.snapshots) ? audit.snapshots : [];
+  const comparisons = Array.isArray(audit.extension_comparisons) ? audit.extension_comparisons : [];
+  const growth = audit.coordinate_growth_after_primary || {};
+  const summaryRows = Object.keys(audit).length
+    ? [
+        ["family", audit.family],
+        ["snapshots", snapshots.map((row) => `${row.base_bits}..${row.max_bits}`).join(", ")],
+        ["24->25 new edges", comparisons[0]?.new_state_edge_count],
+        ["24->25 reopened sinks", comparisons[0]?.previous_sink_reopened_count],
+        ["25->26 new edges", comparisons[1]?.new_state_edge_count],
+        ["25->26 reopened sinks", comparisons[1]?.previous_sink_reopened_count],
+        ["coordinate delta", growth.distinct_coordinate_delta],
+        ["source ticket", bounded.source_ticket],
+      ]
+    : [
+        ["source ticket", bounded.source_ticket],
+        ["source route", bounded.source_route],
+        ["discarded shortcut", bounded.discarded_shortcut],
+        ["retained target", bounded.retained_target],
+        ["counterexample target", bounded.counterexample_target],
+      ];
+  const snapshotRows = snapshots.length
+    ? table(
+        ["bits", "nodes", "edges", "sinks", "coords", "max prefix", "max rank", "violations"],
+        snapshots.map((row) => [
+          `${row.base_bits}..${row.max_bits}`,
+          row.node_count,
+          row.state_edge_count,
+          row.sink_state_count,
+          row.coordinate_summary?.distinct_coordinate_count,
+          row.coordinate_summary?.max_prefix_length,
+          row.topological_potential?.max_topological_rank,
+          row.topological_potential?.rank_edge_violations,
+        ]),
+      )
+    : "";
+  const comparisonRows = comparisons.length
+    ? table(
+        ["extension", "status", "new nodes", "new edges", "known-parent new edges", "reopened sinks", "new coords", "rank +"],
+        comparisons.map((row) => [
+          `${row.from_max_bits}->${row.to_max_bits}`,
+          row.closure_status,
+          row.new_node_count,
+          row.new_state_edge_count,
+          row.known_parent_new_edge_count,
+          row.previous_sink_reopened_count,
+          row.new_coordinate_count,
+          row.rank_horizon_increase,
+        ]),
+      )
+    : "";
+  const fixedTests = Array.isArray(audit.fixed_relation_tests)
+    ? table(
+        ["fixed relation test", "status", "evidence"],
+        audit.fixed_relation_tests.map((row) => [row.candidate, row.status, row.evidence]),
+      )
+    : "";
+  const reopenedExamples = comparisons[0]?.reopened_sink_examples || [];
+  const reopenedRows = reopenedExamples.length
+    ? table(
+        ["reopened sink state", "new outgoing", "coordinate"],
+        reopenedExamples.slice(0, 4).map((row) => [
+          row.state,
+          row.new_outgoing_edge_count,
+          JSON.stringify(row.coordinates || {}),
+        ]),
+      )
+    : "";
+  return `
+    <div class="poc-ticket17 poc-ticket41">
+      <h3>Ticket 41 rank escape normalization lab</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["Rank escape result", "Value"], summaryRows) : ""}
+      ${snapshotRows}
+      ${comparisonRows}
+      ${fixedTests}
+      ${reopenedRows}
+      ${
+        routeDecision.discard || routeDecision.retain
+          ? `<div class="poc-bridge">
+              <section>
+                <h3>Discard</h3>
+                ${list(routeDecision.discard || [])}
+              </section>
+              <section>
+                <h3>Retain</h3>
+                ${list(routeDecision.retain || [])}
+              </section>
+            </div>`
+          : ""
+      }
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -4099,10 +4224,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket38SymbolicFrontierExtension(symbolicFrontierExtensionTicket)}
     ${renderTicket39PhaseStatePotential(phaseStatePotentialTicket)}
     ${renderTicket40TransitionClosure(transitionClosureTicket)}
+    ${renderTicket41RankEscapeNormalization(rankEscapeNormalizationTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -4126,7 +4252,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -4209,6 +4335,7 @@ async function main() {
   let ticket38Attempt = null;
   let ticket39Attempt = null;
   let ticket40Attempt = null;
+  let ticket41Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -4434,7 +4561,16 @@ async function main() {
   } catch (error) {
     ticket40Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt);
+  try {
+    const ticket41Response = await fetch("../data/open-problem/ticket41-rank-escape-normalization-lab.json", { cache: "no-store" });
+    if (ticket41Response.ok) {
+      const ticket41Payload = await ticket41Response.json();
+      ticket41Attempt = (ticket41Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket41Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt);
 }
 
 main().catch((error) => {
