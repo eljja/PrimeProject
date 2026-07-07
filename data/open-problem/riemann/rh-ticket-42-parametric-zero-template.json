@@ -1,0 +1,19 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-42",
+  "status": "proof_pressure_open",
+  "route": "ParametricZeroTemplateOrOffCriticalCycle",
+  "proof_or_counterexample_mode": "parametric_template_or_counterexample_transfer",
+  "attempt": "Transfer Ticket 42's lesson: finite template probes are useful, but neither cycle absence nor bounded acyclicity proves the target while growth coordinates remain unclosed. The useful object is either a parametric lift theorem with a well-founded measure, or a compatible escaping cycle that becomes a counterexample target.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-41",
+    "source_route": "ParametricZeroStateNormalizationOrEscape",
+    "discarded_shortcut": "finite zero-state template rank without height/tail growth coordinates",
+    "retained_target": "Every off-critical zero configuration has a parametric explicit-formula template lift whose positivity measure decreases across all height extensions.",
+    "counterexample_target": "a compatible off-critical zero-template cycle with nondecreasing positivity deficit"
+  },
+  "obstruction": "The template layer can contain cycles after finite coordinates are hidden. This blocks any proof that uses only the finite quotient, but it does not produce a counterexample until the cycle is lifted to a compatible infinite object.",
+  "candidate_theorem": "Every off-critical zero configuration has a parametric explicit-formula template lift whose positivity measure decreases across all height extensions.",
+  "next_experiment": "Lift zero-state template cycles into explicit-formula kernel constraints and test whether any cycle can remain off the critical line.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

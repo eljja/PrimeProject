@@ -442,6 +442,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Transition closure result") ||
         !page.proofOrCounterexampleText.includes("Ticket 41 rank escape normalization lab") ||
         !page.proofOrCounterexampleText.includes("Rank escape result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 42 parametric transition template lab") ||
+        !page.proofOrCounterexampleText.includes("Template result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

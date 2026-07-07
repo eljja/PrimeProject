@@ -1678,3 +1678,92 @@ Proof boundary:
 ```text
 TICKET-41 does not prove or disprove any of the four open problems. It corrects a finite-quotient overstatement and gives a concrete counterexample to fixed finite-window closure. A future proof must normalize the growing coordinates symbolically, while a future disproof route would be a reachable nondecreasing cycle or escaping coordinate ray inside that normalized system.
 ```
+
+### Ticket 42: Parametric transition template lab
+
+Generated artifact:
+
+```text
+data/open-problem/ticket42-parametric-transition-template-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-42-parametric-zero-template.json
+data/open-problem/collatz/co-ticket-42-parametric-transition-template.json
+data/open-problem/goldbach/gb-ticket-42-parametric-error-template.json
+data/open-problem/twin-prime/tp-ticket-42-parametric-gap-template.json
+```
+
+Aggregate verdict:
+
+```text
+parametric_template_open_no_resolution
+```
+
+한국어 요약: TICKET-42는 TICKET-41에서 남긴 숙제인 parametric transition schema를 실제로 만들기 시작한 단계다. 고정된 finite-window graph 대신 `phase`, valuation tail, residue, next valuation을 template node로 두고, `prefix_length`, `consumed_bits`, debt를 성장 좌표로 따로 기록했다. 중요한 결과는 예상과 달리 26-bit 표본에서 template cycle을 찾지 못했다는 점이다. 이것은 proof route를 살리는 좋은 신호지만, 증명은 아니다. 이유는 같은 template edge가 서로 다른 `delta_prefix`, `delta_consumed`, `delta_debt`를 가질 수 있기 때문이다. 따라서 다음 증명 의무는 bounded acyclicity가 아니라, template edge가 어떤 큰 cylinder에서 실제로 lift되는지와 그때 성장 좌표가 항상 well-founded measure를 감소시키는지 증명하는 것이다.
+
+Collatz template families:
+
+```text
+phase16_tail2_residue64_v8: nodes 14,357, edges 126,994, ambiguous template edges 8,218, sampled cycles 0
+phase16_tail3_residue128_v12: nodes 59,388, edges 352,790, ambiguous template edges 6,887, sampled cycles 0
+phase16_tail4_residue256_v16: nodes 165,812, edges 710,227, ambiguous template edges 5,393, sampled cycles 0
+phase16_tail4_residue256_vexact: nodes 165,841, edges 710,241, ambiguous template edges 5,393, sampled cycles 0
+```
+
+Raw frontier pressure:
+
+```text
+raw open edges processed: 2,392,525
+raw nondecreasing debt edges: 1,510,781
+sampled template cycle status: no_sampled_template_cycle_found_through_26_bits
+total ambiguous template edge count across families: 25,891
+```
+
+Parametric update schema:
+
+```text
+phase' = phase + 1 mod 16
+prefix_length' = prefix_length + delta_prefix
+consumed_bits' = consumed_bits + delta_consumed
+debt' = debt + delta_prefix * log2(3) - delta_consumed
+tail' = suffix(tail plus newly consumed valuation word)
+```
+
+Discarded Collatz routes:
+
+```text
+absence of sampled template cycles treated as a Collatz proof
+template cycle interpreted directly as a Collatz counterexample without a compatible lift
+finite template edge treated as deterministic without delta guards for prefix, consumed bits, and debt
+larger bounded horizon treated as a substitute for parametric lift closure
+```
+
+Retained Collatz routes:
+
+```text
+parametric transition schema with prefix_length, consumed_bits, and debt deltas
+cycle-lift search for a compatible infinite nondecreasing template ray
+well-founded measure that uses growth coordinates, not only the finite template node
+```
+
+Interpretation:
+
+1. The sampled template graph did not refute the proof route through 26 bits.
+2. The sampled graph also does not prove Collatz, because future lift closure is still missing.
+3. Ambiguous coordinate deltas show why a finite template node alone is not a deterministic transition theorem.
+4. A real counterexample route would need a compatible infinite lift of a nondecreasing cycle, not only a quotient cycle.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-43 LiftConstraintSolverOrWellFoundedMeasure
+```
+
+Proof boundary:
+
+```text
+TICKET-42 does not prove or disprove any of the four open problems. It preserves a promising bounded template-rank route because no sampled template cycle was found, but it rejects the shortcut from bounded acyclicity to truth. A proof now needs parametric lift closure plus a well-founded growth-coordinate measure; a disproof route needs a compatible infinite lift of a nondecreasing cycle.
+```

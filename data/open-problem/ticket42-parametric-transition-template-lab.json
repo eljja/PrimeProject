@@ -1,0 +1,1735 @@
+{
+  "schema": "primeproject.ticket42-parametric-transition-template-lab.v1",
+  "generated_at": "2026-07-08T18:05:00+09:00",
+  "status": "parametric_template_open_no_resolution",
+  "claim_boundary": "Ticket 42 keeps finite template ranks as bounded candidates, rejects the shortcut from sampled acyclicity to proof, and converts the next proof/disproof target into a parametric lift problem. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-42",
+      "status": "proof_pressure_open",
+      "route": "ParametricZeroTemplateOrOffCriticalCycle",
+      "proof_or_counterexample_mode": "parametric_template_or_counterexample_transfer",
+      "attempt": "Transfer Ticket 42's lesson: finite template probes are useful, but neither cycle absence nor bounded acyclicity proves the target while growth coordinates remain unclosed. The useful object is either a parametric lift theorem with a well-founded measure, or a compatible escaping cycle that becomes a counterexample target.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-41",
+        "source_route": "ParametricZeroStateNormalizationOrEscape",
+        "discarded_shortcut": "finite zero-state template rank without height/tail growth coordinates",
+        "retained_target": "Every off-critical zero configuration has a parametric explicit-formula template lift whose positivity measure decreases across all height extensions.",
+        "counterexample_target": "a compatible off-critical zero-template cycle with nondecreasing positivity deficit"
+      },
+      "obstruction": "The template layer can contain cycles after finite coordinates are hidden. This blocks any proof that uses only the finite quotient, but it does not produce a counterexample until the cycle is lifted to a compatible infinite object.",
+      "candidate_theorem": "Every off-critical zero configuration has a parametric explicit-formula template lift whose positivity measure decreases across all height extensions.",
+      "next_experiment": "Lift zero-state template cycles into explicit-formula kernel constraints and test whether any cycle can remain off the critical line.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-42",
+      "status": "proof_pressure_open",
+      "route": "ParametricTransitionTemplateOrNondecreasingCycle",
+      "proof_or_counterexample_mode": "template_rank_refutation_and_cycle_lift_search",
+      "attempt": "Continue from Ticket 41 by replacing fixed-window state graphs with finite transition templates. Then attack the proposed proof route: if a template quotient cycles, no strict rank can depend only on that finite template node. If a nondecreasing cycle also has a compatible infinite lift, it becomes a real counterexample target.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-41",
+        "parametric_transition_template_audit": {
+          "base_bits": 12,
+          "max_bits": 26,
+          "template_families": [
+            "phase16_tail2_residue64_v8",
+            "phase16_tail3_residue128_v12",
+            "phase16_tail4_residue256_v16",
+            "phase16_tail4_residue256_vexact"
+          ],
+          "transition_totals": {
+            "both_closed": 34674,
+            "both_open": 1132274,
+            "high_only_open": 47314,
+            "low_only_open": 80663
+          },
+          "tail_level_rows": [
+            {
+              "bits": 21,
+              "parent_frontier_count": 51375,
+              "next_frontier_count": 95621,
+              "transition_counts": {
+                "both_closed": 2365,
+                "both_open": 46611,
+                "low_only_open": 2399
+              },
+              "survival_ratio": 0.930618004866
+            },
+            {
+              "bits": 22,
+              "parent_frontier_count": 95621,
+              "next_frontier_count": 178851,
+              "transition_counts": {
+                "both_closed": 1208,
+                "both_open": 84438,
+                "high_only_open": 4366,
+                "low_only_open": 5609
+              },
+              "survival_ratio": 0.935207747252
+            },
+            {
+              "bits": 23,
+              "parent_frontier_count": 178851,
+              "next_frontier_count": 317095,
+              "transition_counts": {
+                "both_closed": 4926,
+                "both_open": 143170,
+                "high_only_open": 12656,
+                "low_only_open": 18099
+              },
+              "survival_ratio": 0.88647812984
+            },
+            {
+              "bits": 24,
+              "parent_frontier_count": 317095,
+              "next_frontier_count": 588421,
+              "transition_counts": {
+                "both_closed": 15255,
+                "both_open": 286581,
+                "low_only_open": 15259
+              },
+              "survival_ratio": 0.927830776266
+            },
+            {
+              "bits": 25,
+              "parent_frontier_count": 588421,
+              "next_frontier_count": 1099648,
+              "transition_counts": {
+                "both_closed": 7629,
+                "both_open": 518856,
+                "high_only_open": 27162,
+                "low_only_open": 34774
+              },
+              "survival_ratio": 0.934405808086
+            }
+          ],
+          "family_rows": [
+            {
+              "family": "phase16_tail2_residue64_v8",
+              "template_node_count": 14357,
+              "template_edge_count": 126994,
+              "raw_open_edge_count": 2392525,
+              "raw_nondecreasing_debt_edge_count": 1510781,
+              "raw_nondecreasing_debt_rate": 0.631458814432,
+              "delta_signature_totals": {
+                "dp=-1,dc=-12": 1,
+                "dp=-1,dc=-10": 1,
+                "dp=-1,dc=-9": 4,
+                "dp=-1,dc=-8": 50,
+                "dp=-1,dc=-7": 248,
+                "dp=-1,dc=-6": 1106,
+                "dp=-1,dc=-5": 4430,
+                "dp=-1,dc=-4": 13613,
+                "dp=-1,dc=-3": 36951,
+                "dp=-1,dc=-2": 86735,
+                "dp=-1,dc=-1": 163354,
+                "dp=0,dc=0": 647449,
+                "dp=0,dc=1": 259021,
+                "dp=1,dc=1": 470183,
+                "dp=1,dc=2": 245576,
+                "dp=1,dc=3": 103311,
+                "dp=1,dc=4": 37802,
+                "dp=1,dc=5": 11938,
+                "dp=1,dc=6": 3213,
+                "dp=1,dc=7": 708,
+                "dp=1,dc=8": 110,
+                "dp=1,dc=9": 14,
+                "dp=1,dc=10": 2,
+                "dp=2,dc=2": 163425,
+                "dp=2,dc=3": 86585,
+                "dp=2,dc=4": 37264,
+                "dp=2,dc=5": 13689,
+                "dp=2,dc=6": 4283,
+                "dp=2,dc=7": 1155,
+                "dp=2,dc=8": 257,
+                "dp=2,dc=9": 43,
+                "dp=2,dc=10": 4
+              },
+              "scc_count": 14357,
+              "cyclic_component_count": 0,
+              "cyclic_template_node_count": 0,
+              "largest_cyclic_component_size": 0,
+              "strict_template_rank_status": "not_refuted_in_sampled_template_graph",
+              "ambiguous_template_edge_count": 8218,
+              "ambiguous_template_edge_examples": [
+                {
+                  "parent_template": "[12,[1,1],47,2]",
+                  "child_template": "[13,[1,1],47,2]",
+                  "count": 3,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 1.169925001442,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 2,
+                    "dp=2,dc=2": 1
+                  },
+                  "example": {
+                    "bits": 12,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 47,
+                    "child_residue": 47,
+                    "parent_template": "[12,[1,1],47,2]",
+                    "child_template": "[13,[1,1],47,2]",
+                    "delta_prefix": 0,
+                    "delta_consumed": 0,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.0
+                  },
+                  "max_debt_example": {
+                    "bits": 12,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 495,
+                    "child_residue": 4591,
+                    "parent_template": "[12,[1,1],47,2]",
+                    "child_template": "[13,[1,1],47,2]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 1.169925001442
+                  }
+                },
+                {
+                  "parent_template": "[12,[1,1],47,1]",
+                  "child_template": "[13,[1,1],47,3]",
+                  "count": 2,
+                  "min_delta_debt": -0.584962500721,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 12,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 111,
+                    "child_residue": 111,
+                    "parent_template": "[12,[1,1],47,1]",
+                    "child_template": "[13,[1,1],47,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 12,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 111,
+                    "child_residue": 111,
+                    "parent_template": "[12,[1,1],47,1]",
+                    "child_template": "[13,[1,1],47,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[12,[1,1],47,2]",
+                  "child_template": "[13,[1,2],47,2]",
+                  "count": 4,
+                  "min_delta_debt": -1.0,
+                  "max_delta_debt": -0.415037499279,
+                  "delta_signatures": {
+                    "dp=0,dc=1": 1,
+                    "dp=1,dc=2": 3
+                  },
+                  "example": {
+                    "bits": 12,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 495,
+                    "child_residue": 495,
+                    "parent_template": "[12,[1,1],47,2]",
+                    "child_template": "[13,[1,2],47,2]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 0,
+                    "delta_debt": -0.415037499279
+                  },
+                  "max_debt_example": {
+                    "bits": 12,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 495,
+                    "child_residue": 495,
+                    "parent_template": "[12,[1,1],47,2]",
+                    "child_template": "[13,[1,2],47,2]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 0,
+                    "delta_debt": -0.415037499279
+                  }
+                },
+                {
+                  "parent_template": "[12,[2,1],27,1]",
+                  "child_template": "[13,[2,2],27,3]",
+                  "count": 2,
+                  "min_delta_debt": -1.0,
+                  "max_delta_debt": -0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=0,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 12,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 859,
+                    "child_residue": 4955,
+                    "parent_template": "[12,[2,1],27,1]",
+                    "child_template": "[13,[2,2],27,3]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": -0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 12,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 859,
+                    "child_residue": 4955,
+                    "parent_template": "[12,[2,1],27,1]",
+                    "child_template": "[13,[2,2],27,3]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": -0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[12,[1,1],31,2]",
+                  "child_template": "[13,[1,1],31,4]",
+                  "count": 2,
+                  "min_delta_debt": 0.584962500721,
+                  "max_delta_debt": 1.169925001442,
+                  "delta_signatures": {
+                    "dp=1,dc=1": 1,
+                    "dp=2,dc=2": 1
+                  },
+                  "example": {
+                    "bits": 12,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 1439,
+                    "child_residue": 5535,
+                    "parent_template": "[12,[1,1],31,2]",
+                    "child_template": "[13,[1,1],31,4]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 1.169925001442
+                  },
+                  "max_debt_example": {
+                    "bits": 12,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 1439,
+                    "child_residue": 5535,
+                    "parent_template": "[12,[1,1],31,2]",
+                    "child_template": "[13,[1,1],31,4]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 1.169925001442
+                  }
+                },
+                {
+                  "parent_template": "[12,[2,1],63,3]",
+                  "child_template": "[13,[2,1],63,3]",
+                  "count": 2,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 0.169925001442,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 1,
+                    "dp=2,dc=3": 1
+                  },
+                  "example": {
+                    "bits": 12,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 1791,
+                    "child_residue": 5887,
+                    "parent_template": "[12,[2,1],63,3]",
+                    "child_template": "[13,[2,1],63,3]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 3,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.169925001442
+                  },
+                  "max_debt_example": {
+                    "bits": 12,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 1791,
+                    "child_residue": 5887,
+                    "parent_template": "[12,[2,1],63,3]",
+                    "child_template": "[13,[2,1],63,3]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 3,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.169925001442
+                  }
+                }
+              ],
+              "cycle_example": {
+                "status": "no_cycle_example_found"
+              },
+              "greedy_nondecreasing_cycle_probe": {
+                "status": "no_cycle_found_by_greedy_probe"
+              },
+              "nondecreasing_debt_examples": [
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 27,
+                  "child_residue": 27,
+                  "parent_template": "[12,[2,1],27,2]",
+                  "child_template": "[13,[2,1],27,2]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 31,
+                  "child_residue": 31,
+                  "parent_template": "[12,[2,1],31,1]",
+                  "child_template": "[13,[1,1],31,2]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 1,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 47,
+                  "child_residue": 47,
+                  "parent_template": "[12,[1,1],47,2]",
+                  "child_template": "[13,[1,1],47,2]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 63,
+                  "child_residue": 63,
+                  "parent_template": "[12,[1,2],63,1]",
+                  "child_template": "[13,[2,1],63,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 63,
+                  "child_residue": 4159,
+                  "parent_template": "[12,[1,2],63,1]",
+                  "child_template": "[13,[4,1],63,5]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -2,
+                  "delta_next_valuation": 4,
+                  "delta_debt": 0.415037499279
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 71,
+                  "child_residue": 4167,
+                  "parent_template": "[12,[1,1],7,2]",
+                  "child_template": "[13,[1,1],7,2]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 91,
+                  "child_residue": 91,
+                  "parent_template": "[12,[1,2],27,3]",
+                  "child_template": "[13,[1,2],27,3]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 91,
+                  "child_residue": 4187,
+                  "parent_template": "[12,[1,2],27,3]",
+                  "child_template": "[13,[1,1],27,7]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -2,
+                  "delta_next_valuation": 4,
+                  "delta_debt": 0.415037499279
+                }
+              ],
+              "interpretation": "No directed cycle was seen in this sampled template quotient, but unseen parametric lifts remain open."
+            },
+            {
+              "family": "phase16_tail3_residue128_v12",
+              "template_node_count": 59388,
+              "template_edge_count": 352790,
+              "raw_open_edge_count": 2392525,
+              "raw_nondecreasing_debt_edge_count": 1510781,
+              "raw_nondecreasing_debt_rate": 0.631458814432,
+              "delta_signature_totals": {
+                "dp=-1,dc=-12": 1,
+                "dp=-1,dc=-10": 1,
+                "dp=-1,dc=-9": 4,
+                "dp=-1,dc=-8": 50,
+                "dp=-1,dc=-7": 248,
+                "dp=-1,dc=-6": 1106,
+                "dp=-1,dc=-5": 4430,
+                "dp=-1,dc=-4": 13613,
+                "dp=-1,dc=-3": 36951,
+                "dp=-1,dc=-2": 86735,
+                "dp=-1,dc=-1": 163354,
+                "dp=0,dc=0": 647449,
+                "dp=0,dc=1": 259021,
+                "dp=1,dc=1": 470183,
+                "dp=1,dc=2": 245576,
+                "dp=1,dc=3": 103311,
+                "dp=1,dc=4": 37802,
+                "dp=1,dc=5": 11938,
+                "dp=1,dc=6": 3213,
+                "dp=1,dc=7": 708,
+                "dp=1,dc=8": 110,
+                "dp=1,dc=9": 14,
+                "dp=1,dc=10": 2,
+                "dp=2,dc=2": 163425,
+                "dp=2,dc=3": 86585,
+                "dp=2,dc=4": 37264,
+                "dp=2,dc=5": 13689,
+                "dp=2,dc=6": 4283,
+                "dp=2,dc=7": 1155,
+                "dp=2,dc=8": 257,
+                "dp=2,dc=9": 43,
+                "dp=2,dc=10": 4
+              },
+              "scc_count": 59388,
+              "cyclic_component_count": 0,
+              "cyclic_template_node_count": 0,
+              "largest_cyclic_component_size": 0,
+              "strict_template_rank_status": "not_refuted_in_sampled_template_graph",
+              "ambiguous_template_edge_count": 6887,
+              "ambiguous_template_edge_examples": [
+                {
+                  "parent_template": "[12,[1,1,1],111,1]",
+                  "child_template": "[13,[1,1,1],111,3]",
+                  "count": 2,
+                  "min_delta_debt": -0.584962500721,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 12,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 111,
+                    "child_residue": 111,
+                    "parent_template": "[12,[1,1,1],111,1]",
+                    "child_template": "[13,[1,1,1],111,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 12,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 111,
+                    "child_residue": 111,
+                    "parent_template": "[12,[1,1,1],111,1]",
+                    "child_template": "[13,[1,1,1],111,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[13,[1,1,1],71,2]",
+                  "child_template": "[14,[1,1,1],71,2]",
+                  "count": 2,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 1.169925001442,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 1,
+                    "dp=2,dc=2": 1
+                  },
+                  "example": {
+                    "bits": 13,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 4167,
+                    "child_residue": 12359,
+                    "parent_template": "[13,[1,1,1],71,2]",
+                    "child_template": "[14,[1,1,1],71,2]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 1.169925001442
+                  },
+                  "max_debt_example": {
+                    "bits": 13,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 4167,
+                    "child_residue": 12359,
+                    "parent_template": "[13,[1,1,1],71,2]",
+                    "child_template": "[14,[1,1,1],71,2]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 1.169925001442
+                  }
+                },
+                {
+                  "parent_template": "[13,[1,1,1],111,3]",
+                  "child_template": "[14,[1,1,1],111,4]",
+                  "count": 2,
+                  "min_delta_debt": -0.584962500721,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 13,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 111,
+                    "child_residue": 8303,
+                    "parent_template": "[13,[1,1,1],111,3]",
+                    "child_template": "[14,[1,1,1],111,4]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -1,
+                    "delta_next_valuation": 1,
+                    "delta_debt": -0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 13,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 5359,
+                    "child_residue": 13551,
+                    "parent_template": "[13,[1,1,1],111,3]",
+                    "child_template": "[14,[1,1,1],111,4]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 1,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[13,[1,1,1],95,1]",
+                  "child_template": "[14,[1,1,1],95,3]",
+                  "count": 2,
+                  "min_delta_debt": -0.584962500721,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 13,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 223,
+                    "child_residue": 223,
+                    "parent_template": "[13,[1,1,1],95,1]",
+                    "child_template": "[14,[1,1,1],95,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 13,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 223,
+                    "child_residue": 223,
+                    "parent_template": "[13,[1,1,1],95,1]",
+                    "child_template": "[14,[1,1,1],95,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[13,[1,1,1],103,2]",
+                  "child_template": "[14,[1,1,1],103,2]",
+                  "count": 2,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 13,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 1639,
+                    "child_residue": 1639,
+                    "parent_template": "[13,[1,1,1],103,2]",
+                    "child_template": "[14,[1,1,1],103,2]",
+                    "delta_prefix": 0,
+                    "delta_consumed": 0,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.0
+                  },
+                  "max_debt_example": {
+                    "bits": 13,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 6887,
+                    "child_residue": 15079,
+                    "parent_template": "[13,[1,1,1],103,2]",
+                    "child_template": "[14,[1,1,1],103,2]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[13,[1,1,1],127,3]",
+                  "child_template": "[14,[1,1,1],127,3]",
+                  "count": 3,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 2,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 13,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 7423,
+                    "child_residue": 7423,
+                    "parent_template": "[13,[1,1,1],127,3]",
+                    "child_template": "[14,[1,1,1],127,3]",
+                    "delta_prefix": 0,
+                    "delta_consumed": 0,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.0
+                  },
+                  "max_debt_example": {
+                    "bits": 13,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 3711,
+                    "child_residue": 11903,
+                    "parent_template": "[13,[1,1,1],127,3]",
+                    "child_template": "[14,[1,1,1],127,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.584962500721
+                  }
+                }
+              ],
+              "cycle_example": {
+                "status": "no_cycle_example_found"
+              },
+              "greedy_nondecreasing_cycle_probe": {
+                "status": "no_cycle_found_by_greedy_probe"
+              },
+              "nondecreasing_debt_examples": [
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 27,
+                  "child_residue": 27,
+                  "parent_template": "[12,[2,2,1],27,2]",
+                  "child_template": "[13,[2,2,1],27,2]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 31,
+                  "child_residue": 31,
+                  "parent_template": "[12,[1,2,1],31,1]",
+                  "child_template": "[13,[2,1,1],31,2]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 1,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 47,
+                  "child_residue": 47,
+                  "parent_template": "[12,[2,1,1],47,2]",
+                  "child_template": "[13,[2,1,1],47,2]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 63,
+                  "child_residue": 63,
+                  "parent_template": "[12,[4,1,2],63,1]",
+                  "child_template": "[13,[1,2,1],63,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 63,
+                  "child_residue": 4159,
+                  "parent_template": "[12,[4,1,2],63,1]",
+                  "child_template": "[13,[1,4,1],63,5]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -2,
+                  "delta_next_valuation": 4,
+                  "delta_debt": 0.415037499279
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 71,
+                  "child_residue": 4167,
+                  "parent_template": "[12,[2,1,1],71,2]",
+                  "child_template": "[13,[1,1,1],71,2]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 91,
+                  "child_residue": 91,
+                  "parent_template": "[12,[1,1,2],91,3]",
+                  "child_template": "[13,[1,1,2],91,3]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 91,
+                  "child_residue": 4187,
+                  "parent_template": "[12,[1,1,2],91,3]",
+                  "child_template": "[13,[1,1,1],91,7]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -2,
+                  "delta_next_valuation": 4,
+                  "delta_debt": 0.415037499279
+                }
+              ],
+              "interpretation": "No directed cycle was seen in this sampled template quotient, but unseen parametric lifts remain open."
+            },
+            {
+              "family": "phase16_tail4_residue256_v16",
+              "template_node_count": 165812,
+              "template_edge_count": 710227,
+              "raw_open_edge_count": 2392525,
+              "raw_nondecreasing_debt_edge_count": 1510781,
+              "raw_nondecreasing_debt_rate": 0.631458814432,
+              "delta_signature_totals": {
+                "dp=-1,dc=-12": 1,
+                "dp=-1,dc=-10": 1,
+                "dp=-1,dc=-9": 4,
+                "dp=-1,dc=-8": 50,
+                "dp=-1,dc=-7": 248,
+                "dp=-1,dc=-6": 1106,
+                "dp=-1,dc=-5": 4430,
+                "dp=-1,dc=-4": 13613,
+                "dp=-1,dc=-3": 36951,
+                "dp=-1,dc=-2": 86735,
+                "dp=-1,dc=-1": 163354,
+                "dp=0,dc=0": 647449,
+                "dp=0,dc=1": 259021,
+                "dp=1,dc=1": 470183,
+                "dp=1,dc=2": 245576,
+                "dp=1,dc=3": 103311,
+                "dp=1,dc=4": 37802,
+                "dp=1,dc=5": 11938,
+                "dp=1,dc=6": 3213,
+                "dp=1,dc=7": 708,
+                "dp=1,dc=8": 110,
+                "dp=1,dc=9": 14,
+                "dp=1,dc=10": 2,
+                "dp=2,dc=2": 163425,
+                "dp=2,dc=3": 86585,
+                "dp=2,dc=4": 37264,
+                "dp=2,dc=5": 13689,
+                "dp=2,dc=6": 4283,
+                "dp=2,dc=7": 1155,
+                "dp=2,dc=8": 257,
+                "dp=2,dc=9": 43,
+                "dp=2,dc=10": 4
+              },
+              "scc_count": 165812,
+              "cyclic_component_count": 0,
+              "cyclic_template_node_count": 0,
+              "largest_cyclic_component_size": 0,
+              "strict_template_rank_status": "not_refuted_in_sampled_template_graph",
+              "ambiguous_template_edge_count": 5393,
+              "ambiguous_template_edge_examples": [
+                {
+                  "parent_template": "[13,[1,1,1,1],127,3]",
+                  "child_template": "[14,[1,1,1,1],127,3]",
+                  "count": 2,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 13,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 3711,
+                    "child_residue": 3711,
+                    "parent_template": "[13,[1,1,1,1],127,3]",
+                    "child_template": "[14,[1,1,1,1],127,3]",
+                    "delta_prefix": 0,
+                    "delta_consumed": 0,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.0
+                  },
+                  "max_debt_example": {
+                    "bits": 13,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 3711,
+                    "child_residue": 11903,
+                    "parent_template": "[13,[1,1,1,1],127,3]",
+                    "child_template": "[14,[1,1,1,1],127,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[14,[1,1,1,1],111,3]",
+                  "child_template": "[15,[1,1,1,1],111,3]",
+                  "count": 2,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 14,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 111,
+                    "child_residue": 111,
+                    "parent_template": "[14,[1,1,1,1],111,3]",
+                    "child_template": "[15,[1,1,1,1],111,3]",
+                    "delta_prefix": 0,
+                    "delta_consumed": 0,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.0
+                  },
+                  "max_debt_example": {
+                    "bits": 14,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 111,
+                    "child_residue": 16495,
+                    "parent_template": "[14,[1,1,1,1],111,3]",
+                    "child_template": "[15,[1,1,1,1],111,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[14,[1,1,1,1],167,1]",
+                  "child_template": "[15,[1,1,1,1],167,3]",
+                  "count": 2,
+                  "min_delta_debt": -0.584962500721,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 14,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 8359,
+                    "child_residue": 8359,
+                    "parent_template": "[14,[1,1,1,1],167,1]",
+                    "child_template": "[15,[1,1,1,1],167,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 14,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 8359,
+                    "child_residue": 8359,
+                    "parent_template": "[14,[1,1,1,1],167,1]",
+                    "child_template": "[15,[1,1,1,1],167,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[14,[1,1,1,1],223,3]",
+                  "child_template": "[15,[1,1,1,1],223,4]",
+                  "count": 2,
+                  "min_delta_debt": -0.584962500721,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 14,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 223,
+                    "child_residue": 16607,
+                    "parent_template": "[14,[1,1,1,1],223,3]",
+                    "child_template": "[15,[1,1,1,1],223,4]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -1,
+                    "delta_next_valuation": 1,
+                    "delta_debt": -0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 14,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 10719,
+                    "child_residue": 27103,
+                    "parent_template": "[14,[1,1,1,1],223,3]",
+                    "child_template": "[15,[1,1,1,1],223,4]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 1,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[14,[1,1,1,1],155,1]",
+                  "child_template": "[15,[1,1,1,1],155,3]",
+                  "count": 2,
+                  "min_delta_debt": -0.584962500721,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 14,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 4763,
+                    "child_residue": 4763,
+                    "parent_template": "[14,[1,1,1,1],155,1]",
+                    "child_template": "[15,[1,1,1,1],155,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 14,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 4763,
+                    "child_residue": 4763,
+                    "parent_template": "[14,[1,1,1,1],155,1]",
+                    "child_template": "[15,[1,1,1,1],155,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[14,[1,1,1,1],127,2]",
+                  "child_template": "[15,[1,1,1,1],127,2]",
+                  "count": 2,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 1.169925001442,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 1,
+                    "dp=2,dc=2": 1
+                  },
+                  "example": {
+                    "bits": 14,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 2943,
+                    "child_residue": 19327,
+                    "parent_template": "[14,[1,1,1,1],127,2]",
+                    "child_template": "[15,[1,1,1,1],127,2]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 1.169925001442
+                  },
+                  "max_debt_example": {
+                    "bits": 14,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 2943,
+                    "child_residue": 19327,
+                    "parent_template": "[14,[1,1,1,1],127,2]",
+                    "child_template": "[15,[1,1,1,1],127,2]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 1.169925001442
+                  }
+                }
+              ],
+              "cycle_example": {
+                "status": "no_cycle_example_found"
+              },
+              "greedy_nondecreasing_cycle_probe": {
+                "status": "no_cycle_found_by_greedy_probe"
+              },
+              "nondecreasing_debt_examples": [
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 27,
+                  "child_residue": 27,
+                  "parent_template": "[12,[1,2,2,1],27,2]",
+                  "child_template": "[13,[1,2,2,1],27,2]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 31,
+                  "child_residue": 31,
+                  "parent_template": "[12,[2,1,2,1],31,1]",
+                  "child_template": "[13,[1,2,1,1],31,2]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 1,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 47,
+                  "child_residue": 47,
+                  "parent_template": "[12,[1,2,1,1],47,2]",
+                  "child_template": "[13,[1,2,1,1],47,2]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 63,
+                  "child_residue": 63,
+                  "parent_template": "[12,[1,4,1,2],63,1]",
+                  "child_template": "[13,[4,1,2,1],63,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 63,
+                  "child_residue": 4159,
+                  "parent_template": "[12,[1,4,1,2],63,1]",
+                  "child_template": "[13,[1,1,4,1],63,5]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -2,
+                  "delta_next_valuation": 4,
+                  "delta_debt": 0.415037499279
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 71,
+                  "child_residue": 4167,
+                  "parent_template": "[12,[1,2,1,1],71,2]",
+                  "child_template": "[13,[2,1,1,1],71,2]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 91,
+                  "child_residue": 91,
+                  "parent_template": "[12,[1,1,1,2],91,3]",
+                  "child_template": "[13,[1,1,1,2],91,3]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 91,
+                  "child_residue": 4187,
+                  "parent_template": "[12,[1,1,1,2],91,3]",
+                  "child_template": "[13,[2,1,1,1],91,7]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -2,
+                  "delta_next_valuation": 4,
+                  "delta_debt": 0.415037499279
+                }
+              ],
+              "interpretation": "No directed cycle was seen in this sampled template quotient, but unseen parametric lifts remain open."
+            },
+            {
+              "family": "phase16_tail4_residue256_vexact",
+              "template_node_count": 165841,
+              "template_edge_count": 710241,
+              "raw_open_edge_count": 2392525,
+              "raw_nondecreasing_debt_edge_count": 1510781,
+              "raw_nondecreasing_debt_rate": 0.631458814432,
+              "delta_signature_totals": {
+                "dp=-1,dc=-12": 1,
+                "dp=-1,dc=-10": 1,
+                "dp=-1,dc=-9": 4,
+                "dp=-1,dc=-8": 50,
+                "dp=-1,dc=-7": 248,
+                "dp=-1,dc=-6": 1106,
+                "dp=-1,dc=-5": 4430,
+                "dp=-1,dc=-4": 13613,
+                "dp=-1,dc=-3": 36951,
+                "dp=-1,dc=-2": 86735,
+                "dp=-1,dc=-1": 163354,
+                "dp=0,dc=0": 647449,
+                "dp=0,dc=1": 259021,
+                "dp=1,dc=1": 470183,
+                "dp=1,dc=2": 245576,
+                "dp=1,dc=3": 103311,
+                "dp=1,dc=4": 37802,
+                "dp=1,dc=5": 11938,
+                "dp=1,dc=6": 3213,
+                "dp=1,dc=7": 708,
+                "dp=1,dc=8": 110,
+                "dp=1,dc=9": 14,
+                "dp=1,dc=10": 2,
+                "dp=2,dc=2": 163425,
+                "dp=2,dc=3": 86585,
+                "dp=2,dc=4": 37264,
+                "dp=2,dc=5": 13689,
+                "dp=2,dc=6": 4283,
+                "dp=2,dc=7": 1155,
+                "dp=2,dc=8": 257,
+                "dp=2,dc=9": 43,
+                "dp=2,dc=10": 4
+              },
+              "scc_count": 165841,
+              "cyclic_component_count": 0,
+              "cyclic_template_node_count": 0,
+              "largest_cyclic_component_size": 0,
+              "strict_template_rank_status": "not_refuted_in_sampled_template_graph",
+              "ambiguous_template_edge_count": 5393,
+              "ambiguous_template_edge_examples": [
+                {
+                  "parent_template": "[13,[1,1,1,1],127,3]",
+                  "child_template": "[14,[1,1,1,1],127,3]",
+                  "count": 2,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 13,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 3711,
+                    "child_residue": 3711,
+                    "parent_template": "[13,[1,1,1,1],127,3]",
+                    "child_template": "[14,[1,1,1,1],127,3]",
+                    "delta_prefix": 0,
+                    "delta_consumed": 0,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.0
+                  },
+                  "max_debt_example": {
+                    "bits": 13,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 3711,
+                    "child_residue": 11903,
+                    "parent_template": "[13,[1,1,1,1],127,3]",
+                    "child_template": "[14,[1,1,1,1],127,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[14,[1,1,1,1],111,3]",
+                  "child_template": "[15,[1,1,1,1],111,3]",
+                  "count": 2,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 14,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 111,
+                    "child_residue": 111,
+                    "parent_template": "[14,[1,1,1,1],111,3]",
+                    "child_template": "[15,[1,1,1,1],111,3]",
+                    "delta_prefix": 0,
+                    "delta_consumed": 0,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.0
+                  },
+                  "max_debt_example": {
+                    "bits": 14,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 111,
+                    "child_residue": 16495,
+                    "parent_template": "[14,[1,1,1,1],111,3]",
+                    "child_template": "[15,[1,1,1,1],111,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[14,[1,1,1,1],167,1]",
+                  "child_template": "[15,[1,1,1,1],167,3]",
+                  "count": 2,
+                  "min_delta_debt": -0.584962500721,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 14,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 8359,
+                    "child_residue": 8359,
+                    "parent_template": "[14,[1,1,1,1],167,1]",
+                    "child_template": "[15,[1,1,1,1],167,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 14,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 8359,
+                    "child_residue": 8359,
+                    "parent_template": "[14,[1,1,1,1],167,1]",
+                    "child_template": "[15,[1,1,1,1],167,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[14,[1,1,1,1],223,3]",
+                  "child_template": "[15,[1,1,1,1],223,4]",
+                  "count": 2,
+                  "min_delta_debt": -0.584962500721,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 14,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 223,
+                    "child_residue": 16607,
+                    "parent_template": "[14,[1,1,1,1],223,3]",
+                    "child_template": "[15,[1,1,1,1],223,4]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -1,
+                    "delta_next_valuation": 1,
+                    "delta_debt": -0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 14,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 10719,
+                    "child_residue": 27103,
+                    "parent_template": "[14,[1,1,1,1],223,3]",
+                    "child_template": "[15,[1,1,1,1],223,4]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 1,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[14,[1,1,1,1],155,1]",
+                  "child_template": "[15,[1,1,1,1],155,3]",
+                  "count": 2,
+                  "min_delta_debt": -0.584962500721,
+                  "max_delta_debt": 0.584962500721,
+                  "delta_signatures": {
+                    "dp=-1,dc=-1": 1,
+                    "dp=1,dc=1": 1
+                  },
+                  "example": {
+                    "bits": 14,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 4763,
+                    "child_residue": 4763,
+                    "parent_template": "[14,[1,1,1,1],155,1]",
+                    "child_template": "[15,[1,1,1,1],155,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  },
+                  "max_debt_example": {
+                    "bits": 14,
+                    "direction": "low",
+                    "label": "both_open",
+                    "parent_residue": 4763,
+                    "child_residue": 4763,
+                    "parent_template": "[14,[1,1,1,1],155,1]",
+                    "child_template": "[15,[1,1,1,1],155,3]",
+                    "delta_prefix": 1,
+                    "delta_consumed": 1,
+                    "delta_next_valuation": 2,
+                    "delta_debt": 0.584962500721
+                  }
+                },
+                {
+                  "parent_template": "[14,[1,1,1,1],127,2]",
+                  "child_template": "[15,[1,1,1,1],127,2]",
+                  "count": 2,
+                  "min_delta_debt": 0.0,
+                  "max_delta_debt": 1.169925001442,
+                  "delta_signatures": {
+                    "dp=0,dc=0": 1,
+                    "dp=2,dc=2": 1
+                  },
+                  "example": {
+                    "bits": 14,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 2943,
+                    "child_residue": 19327,
+                    "parent_template": "[14,[1,1,1,1],127,2]",
+                    "child_template": "[15,[1,1,1,1],127,2]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 1.169925001442
+                  },
+                  "max_debt_example": {
+                    "bits": 14,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_residue": 2943,
+                    "child_residue": 19327,
+                    "parent_template": "[14,[1,1,1,1],127,2]",
+                    "child_template": "[15,[1,1,1,1],127,2]",
+                    "delta_prefix": 2,
+                    "delta_consumed": 2,
+                    "delta_next_valuation": 0,
+                    "delta_debt": 1.169925001442
+                  }
+                }
+              ],
+              "cycle_example": {
+                "status": "no_cycle_example_found"
+              },
+              "greedy_nondecreasing_cycle_probe": {
+                "status": "no_cycle_found_by_greedy_probe"
+              },
+              "nondecreasing_debt_examples": [
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 27,
+                  "child_residue": 27,
+                  "parent_template": "[12,[1,2,2,1],27,2]",
+                  "child_template": "[13,[1,2,2,1],27,2]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 31,
+                  "child_residue": 31,
+                  "parent_template": "[12,[2,1,2,1],31,1]",
+                  "child_template": "[13,[1,2,1,1],31,2]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 1,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 47,
+                  "child_residue": 47,
+                  "parent_template": "[12,[1,2,1,1],47,2]",
+                  "child_template": "[13,[1,2,1,1],47,2]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 63,
+                  "child_residue": 63,
+                  "parent_template": "[12,[1,4,1,2],63,1]",
+                  "child_template": "[13,[4,1,2,1],63,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 63,
+                  "child_residue": 4159,
+                  "parent_template": "[12,[1,4,1,2],63,1]",
+                  "child_template": "[13,[1,1,4,1],63,5]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -2,
+                  "delta_next_valuation": 4,
+                  "delta_debt": 0.415037499279
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 71,
+                  "child_residue": 4167,
+                  "parent_template": "[12,[1,2,1,1],71,2]",
+                  "child_template": "[13,[2,1,1,1],71,2]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.584962500721
+                },
+                {
+                  "bits": 12,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_residue": 91,
+                  "child_residue": 91,
+                  "parent_template": "[12,[1,1,1,2],91,3]",
+                  "child_template": "[13,[1,1,1,2],91,3]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_next_valuation": 0,
+                  "delta_debt": 0.0
+                },
+                {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_residue": 91,
+                  "child_residue": 4187,
+                  "parent_template": "[12,[1,1,1,2],91,3]",
+                  "child_template": "[13,[2,1,1,1],91,7]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -2,
+                  "delta_next_valuation": 4,
+                  "delta_debt": 0.415037499279
+                }
+              ],
+              "interpretation": "No directed cycle was seen in this sampled template quotient, but unseen parametric lifts remain open."
+            }
+          ],
+          "parametric_schema": {
+            "state_variables": [
+              "phase = bits mod 16",
+              "tail valuation word",
+              "residue modulo 2^m",
+              "next 2-adic valuation",
+              "prefix_length",
+              "consumed_bits",
+              "debt = prefix_length * log2(3) - consumed_bits"
+            ],
+            "template_update": [
+              "phase' = phase + 1 mod 16",
+              "prefix_length' = prefix_length + delta_prefix",
+              "consumed_bits' = consumed_bits + delta_consumed",
+              "debt' = debt + delta_prefix * log2(3) - delta_consumed",
+              "tail' = suffix(tail plus newly consumed valuation word)"
+            ],
+            "missing_lift_theorem": "For every abstract template edge, prove exactly which larger cylinders instantiate it, or reject the edge as a quotient artifact."
+          },
+          "route_decision": {
+            "discard": [
+              "absence of sampled template cycles treated as a Collatz proof",
+              "template cycle interpreted directly as a Collatz counterexample without a compatible lift",
+              "finite template edge treated as deterministic without delta guards for prefix, consumed bits, and debt",
+              "larger bounded horizon treated as a substitute for parametric lift closure"
+            ],
+            "retain": [
+              "parametric transition schema with prefix_length, consumed_bits, and debt deltas",
+              "cycle-lift search for a compatible infinite nondecreasing template ray",
+              "well-founded measure that uses growth coordinates, not only the finite template node"
+            ]
+          },
+          "closed_bounded_statement": "Through the sampled 26-bit frontier, no directed cycle was found in the tested template quotients. This keeps the template-rank route alive as bounded evidence, but it is not a proof because future lift closure and ambiguous coordinate deltas remain unproved.",
+          "cycle_search_status": "no_sampled_template_cycle_found_through_26_bits",
+          "total_ambiguous_template_edge_count": 25891,
+          "sharp_family_status": "not_refuted_in_sampled_template_graph",
+          "proof_boundary": "This is not a Collatz proof and not a Collatz counterexample. It preserves a useful proof route because no sampled template cycle was found, but it rejects the shortcut from bounded acyclicity to truth. A proof now needs a parametric lift theorem plus a well-founded measure, while a disproof attempt needs a compatible infinite lift of a nondecreasing cycle."
+        }
+      },
+      "obstruction": "The sharp sampled family has 165841 template nodes, 710241 template edges, and status not_refuted_in_sampled_template_graph. No template cycle was found by the sampled probe, but 5393 sharp template edges have multiple coordinate deltas. The proof route therefore moves from finite acyclicity to parametric lift closure; the greedy cycle probe reports no_cycle_found_by_greedy_probe.",
+      "candidate_theorem": "Every reachable open-frontier transition is an instance of a parametric template edge and there exists a well-founded measure on template plus growth coordinates that strictly decreases on every instance; otherwise a compatible infinite nondecreasing template cycle is the counterexample target.",
+      "next_experiment": "Lift the best template cycle into cylinder constraints. Either prove that the lift constraints are inconsistent for all large levels, or produce a compatible infinite ray whose cumulative debt never decreases.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-42",
+      "status": "proof_pressure_open",
+      "route": "ParametricErrorTemplateOrExceptionalCycle",
+      "proof_or_counterexample_mode": "parametric_template_or_counterexample_transfer",
+      "attempt": "Transfer Ticket 42's lesson: finite template probes are useful, but neither cycle absence nor bounded acyclicity proves the target while growth coordinates remain unclosed. The useful object is either a parametric lift theorem with a well-founded measure, or a compatible escaping cycle that becomes a counterexample target.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-41",
+        "source_route": "ParametricErrorConeNormalizationOrExceptionalRay",
+        "discarded_shortcut": "finite error-cone template rank without cutoff-growth coordinates",
+        "retained_target": "Every sufficiently large even integer has a parametric major/minor-arc error template whose certified margin is forced positive by a well-founded measure.",
+        "counterexample_target": "a compatible exceptional even-integer cycle whose normalized margin stays nonpositive"
+      },
+      "obstruction": "The template layer can contain cycles after finite coordinates are hidden. This blocks any proof that uses only the finite quotient, but it does not produce a counterexample until the cycle is lifted to a compatible infinite object.",
+      "candidate_theorem": "Every sufficiently large even integer has a parametric major/minor-arc error template whose certified margin is forced positive by a well-founded measure.",
+      "next_experiment": "Lift error-cone template cycles into explicit cutoff constraints and test whether the margin can stay nonpositive.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-42",
+      "status": "proof_pressure_open",
+      "route": "ParametricGapTemplateOrLeakageCycle",
+      "proof_or_counterexample_mode": "parametric_template_or_counterexample_transfer",
+      "attempt": "Transfer Ticket 42's lesson: finite template probes are useful, but neither cycle absence nor bounded acyclicity proves the target while growth coordinates remain unclosed. The useful object is either a parametric lift theorem with a well-founded measure, or a compatible escaping cycle that becomes a counterexample target.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-41",
+        "source_route": "ParametricExactGapNormalizationOrLeakageRay",
+        "discarded_shortcut": "finite exact-gap template rank without scale/leakage growth coordinates",
+        "retained_target": "Every large scale has a parametric exact-gap template whose leakage measure leaves positive gap-2 mass after subtracting wider admissible gaps.",
+        "counterexample_target": "a compatible leakage cycle that absorbs exact gap-2 mass into wider gaps at every scale"
+      },
+      "obstruction": "The template layer can contain cycles after finite coordinates are hidden. This blocks any proof that uses only the finite quotient, but it does not produce a counterexample until the cycle is lifted to a compatible infinite object.",
+      "candidate_theorem": "Every large scale has a parametric exact-gap template whose leakage measure leaves positive gap-2 mass after subtracting wider admissible gaps.",
+      "next_experiment": "Lift exact-gap template cycles into parity-sensitive sieve constraints and test whether gap-2 mass can be preserved.",
+      "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+    }
+  ]
+}

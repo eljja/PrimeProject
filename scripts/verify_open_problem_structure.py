@@ -35,6 +35,7 @@ TICKET38_SCHEMA = "primeproject.ticket38-symbolic-frontier-extension-lab.v1"
 TICKET39_SCHEMA = "primeproject.ticket39-phase-state-potential-lab.v1"
 TICKET40_SCHEMA = "primeproject.ticket40-transition-closure-lab.v1"
 TICKET41_SCHEMA = "primeproject.ticket41-rank-escape-normalization-lab.v1"
+TICKET42_SCHEMA = "primeproject.ticket42-parametric-transition-template-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1517,6 +1518,92 @@ def main() -> int:
         return fail("collatz ticket41 must retain parametric symbolic closure and counterexample search")
     if "not a Collatz proof" not in str(audit41.get("proof_boundary", "")):
         return fail("collatz ticket41 proof boundary must block proof overclaim")
+
+    ticket42_path = Path("data/open-problem/ticket42-parametric-transition-template-lab.json")
+    if not ticket42_path.exists():
+        return fail("missing ticket42 parametric transition template artifact")
+    ticket42 = read_json(ticket42_path)
+    if ticket42.get("schema") != TICKET42_SCHEMA:
+        return fail("ticket42 parametric transition template artifact has unexpected schema")
+    if ticket42.get("status") != "parametric_template_open_no_resolution":
+        return fail("ticket42 parametric transition template overstates resolution")
+    ticket42_attempts = ticket42.get("attempts", [])
+    if not isinstance(ticket42_attempts, list):
+        return fail("ticket42 attempts must be a list")
+    ticket42_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket42_attempts if isinstance(attempt, dict)}
+    missing_ticket42 = EXPECTED_PROBLEMS - set(ticket42_by_id)
+    if missing_ticket42:
+        return fail("ticket42 attempts missing problems: " + ", ".join(sorted(missing_ticket42)))
+    ticket42_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-42-parametric-zero-template.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-42-parametric-transition-template.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-42-parametric-error-template.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-42-parametric-gap-template.json"),
+    }
+    for problem_id, attempt in ticket42_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket42 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket42 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket42 claim boundary is too weak")
+        path = ticket42_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket42 per-problem artifact")
+
+    collatz_ticket42 = ticket42_by_id.get("collatz", {})
+    collatz42_bounded = collatz_ticket42.get("bounded_result", {})
+    if not isinstance(collatz42_bounded, dict):
+        return fail("collatz ticket42 bounded result must be an object")
+    audit42 = collatz42_bounded.get("parametric_transition_template_audit", {})
+    if not isinstance(audit42, dict):
+        return fail("collatz ticket42 template audit missing")
+    if int(audit42.get("base_bits", 0)) != 12 or int(audit42.get("max_bits", 0)) != 26:
+        return fail("collatz ticket42 must audit the 12..26 frontier")
+    if audit42.get("cycle_search_status") != "no_sampled_template_cycle_found_through_26_bits":
+        return fail("collatz ticket42 must not invent a sampled template cycle")
+    if audit42.get("sharp_family_status") != "not_refuted_in_sampled_template_graph":
+        return fail("collatz ticket42 must preserve the bounded template-rank route")
+    if int(audit42.get("total_ambiguous_template_edge_count", 0)) < 25_000:
+        return fail("collatz ticket42 must expose ambiguous coordinate-delta pressure")
+    family_rows42 = audit42.get("family_rows", [])
+    if not isinstance(family_rows42, list) or len(family_rows42) < 4:
+        return fail("collatz ticket42 must include all template families")
+    sharp42 = family_rows42[-1]
+    if sharp42.get("family") != "phase16_tail4_residue256_vexact":
+        return fail("collatz ticket42 sharp template family mismatch")
+    if int(sharp42.get("template_node_count", 0)) < 160_000:
+        return fail("collatz ticket42 sharp family must retain a large template graph")
+    if int(sharp42.get("template_edge_count", 0)) < 700_000:
+        return fail("collatz ticket42 sharp family must retain many template edges")
+    if int(sharp42.get("raw_open_edge_count", 0)) < 2_300_000:
+        return fail("collatz ticket42 must process the full raw open-edge frontier")
+    if int(sharp42.get("raw_nondecreasing_debt_edge_count", 0)) < 1_500_000:
+        return fail("collatz ticket42 must expose raw nondecreasing debt pressure")
+    if int(sharp42.get("cyclic_component_count", -1)) != 0:
+        return fail("collatz ticket42 sharp family must report no sampled cycle")
+    if sharp42.get("strict_template_rank_status") != "not_refuted_in_sampled_template_graph":
+        return fail("collatz ticket42 sharp family status must avoid overclaim")
+    if int(sharp42.get("ambiguous_template_edge_count", 0)) < 5_000:
+        return fail("collatz ticket42 sharp family must expose ambiguous template deltas")
+    schema42 = audit42.get("parametric_schema", {})
+    if not isinstance(schema42, dict):
+        return fail("collatz ticket42 parametric schema missing")
+    schema_text42 = " ".join(str(item) for item in schema42.get("template_update", []))
+    if "debt'" not in schema_text42 or "delta_prefix" not in schema_text42:
+        return fail("collatz ticket42 schema must include debt and delta updates")
+    route42 = audit42.get("route_decision", {})
+    if not isinstance(route42, dict):
+        return fail("collatz ticket42 route decision missing")
+    discard42 = " ".join(str(item) for item in route42.get("discard", []))
+    retain42 = " ".join(str(item) for item in route42.get("retain", []))
+    if "absence of sampled template cycles" not in discard42 or "finite template edge" not in discard42:
+        return fail("collatz ticket42 must block acyclicity and deterministic-edge overclaims")
+    if "parametric transition schema" not in retain42 or "cycle-lift search" not in retain42 or "well-founded measure" not in retain42:
+        return fail("collatz ticket42 must retain lift, cycle, and well-founded proof routes")
+    if "not a Collatz proof" not in str(audit42.get("proof_boundary", "")):
+        return fail("collatz ticket42 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0
