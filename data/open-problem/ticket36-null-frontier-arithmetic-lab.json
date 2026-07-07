@@ -1,0 +1,1647 @@
+{
+  "schema": "primeproject.ticket36-null-frontier-arithmetic-lab.v1",
+  "generated_at": "2026-07-07T09:10:00+09:00",
+  "status": "null_frontier_arithmetic_open_no_resolution",
+  "claim_boundary": "Ticket 36 upgrades Ticket 35 from mass/null-set pressure to pointwise natural or sparse-exception exclusion tests. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-36",
+      "status": "proof_pressure_open",
+      "route": "OffCriticalNullExceptionExclusion",
+      "proof_or_counterexample_mode": "null_exception_or_pointwise_rank_transfer",
+      "attempt": "Carry Ticket 36's lesson across the problem: a proof route that only controls density, mass, or bounded statistics must be upgraded to a pointwise theorem, because a sparse exceptional object can still falsify the conjecture.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-35",
+        "source_route": "UniformTailNullSetExclusion",
+        "stress_result": "A hypothetical sparse off-critical zero family can evade finite-window or measure-small tests.",
+        "discarded_route": "tail-density or finite-zero-window evidence treated as RH proof",
+        "retained_route": "operator/kernel positivity strong enough to exclude each off-critical zero pointwise"
+      },
+      "obstruction": "Sparse or null exceptional sets are logically invisible to many aggregate metrics. A complete proof must eliminate every exceptional object, not merely show that exceptions are rare.",
+      "candidate_theorem": "Every nontrivial zero is forced onto Re(s)=1/2 by a pointwise positivity or de Branges-type invariant, not by aggregate statistics.",
+      "next_experiment": "Build adversarial off-critical-zero camouflage tests for each proposed kernel positivity certificate.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-36",
+      "status": "proof_pressure_open",
+      "route": "NullSetArithmeticExclusionOrUniformRank",
+      "proof_or_counterexample_mode": "natural_frontier_exit_and_rank_obstruction",
+      "attempt": "Translate the Ticket 35 null-set gap into a concrete natural-integer test: a Collatz counterexample would have to remain inside the adaptive open frontier forever. We probe natural exits, stress candidate rank bounds, and discard rank formulas that fail on bounded data.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-35",
+        "natural_null_frontier_audit": {
+          "sample_limit": 100000,
+          "tested_odd_integer_count": 50000,
+          "base_bits": 12,
+          "shallow_probe_bits": 96,
+          "deep_resolve_bits": 180,
+          "shallow_unresolved_count": 17,
+          "deep_unresolved_count": 0,
+          "all_direct_orbits_terminated_in_sample": true,
+          "exit_status_counts": {
+            "all_lift_descent": 49975,
+            "known_cycle_exception": 25
+          },
+          "max_exit_bits": 135,
+          "max_exit_slack_over_bit_length": 119,
+          "max_exit_minus_odd_steps": 27,
+          "max_exit_minus_total_steps": 12,
+          "top_exit_examples": [
+            {
+              "n": 35655,
+              "bit_length": 16,
+              "exit_bits": 135,
+              "exit_slack_over_bit_length": 119,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 85,
+              "consumed_bits": 135,
+              "coefficient_log2_margin": 0.27818744,
+              "threshold_min_n_for_descent": 17,
+              "direct_collatz": {
+                "total_steps": 323,
+                "odd_steps": 119,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 16,
+              "exit_minus_total_steps": -188
+            },
+            {
+              "n": 45127,
+              "bit_length": 16,
+              "exit_bits": 129,
+              "exit_slack_over_bit_length": 113,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 81,
+              "consumed_bits": 129,
+              "coefficient_log2_margin": 0.61803744,
+              "threshold_min_n_for_descent": 7,
+              "direct_collatz": {
+                "total_steps": 313,
+                "odd_steps": 115,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 14,
+              "exit_minus_total_steps": -184
+            },
+            {
+              "n": 37503,
+              "bit_length": 16,
+              "exit_bits": 127,
+              "exit_slack_over_bit_length": 111,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 79,
+              "consumed_bits": 127,
+              "coefficient_log2_margin": 1.78796244,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 305,
+                "odd_steps": 112,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 15,
+              "exit_minus_total_steps": -178
+            },
+            {
+              "n": 60975,
+              "bit_length": 16,
+              "exit_bits": 127,
+              "exit_slack_over_bit_length": 111,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 80,
+              "consumed_bits": 127,
+              "coefficient_log2_margin": 0.20299994,
+              "threshold_min_n_for_descent": 27,
+              "direct_collatz": {
+                "total_steps": 334,
+                "odd_steps": 123,
+                "terminated_at_one": true,
+                "max_orbit_value": 593279152
+              },
+              "exit_minus_odd_steps": 4,
+              "exit_minus_total_steps": -207
+            },
+            {
+              "n": 56255,
+              "bit_length": 16,
+              "exit_bits": 126,
+              "exit_slack_over_bit_length": 110,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 78,
+              "consumed_bits": 126,
+              "coefficient_log2_margin": 2.37292494,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 303,
+                "odd_steps": 111,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 15,
+              "exit_minus_total_steps": -177
+            },
+            {
+              "n": 75007,
+              "bit_length": 17,
+              "exit_bits": 124,
+              "exit_slack_over_bit_length": 107,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 78,
+              "consumed_bits": 124,
+              "coefficient_log2_margin": 0.37292494,
+              "threshold_min_n_for_descent": 16,
+              "direct_collatz": {
+                "total_steps": 306,
+                "odd_steps": 112,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 12,
+              "exit_minus_total_steps": -182
+            },
+            {
+              "n": 57115,
+              "bit_length": 16,
+              "exit_bits": 123,
+              "exit_slack_over_bit_length": 107,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 77,
+              "consumed_bits": 123,
+              "coefficient_log2_margin": 0.95788744,
+              "threshold_min_n_for_descent": 4,
+              "direct_collatz": {
+                "total_steps": 303,
+                "odd_steps": 111,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 12,
+              "exit_minus_total_steps": -180
+            },
+            {
+              "n": 84383,
+              "bit_length": 17,
+              "exit_bits": 121,
+              "exit_slack_over_bit_length": 104,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 76,
+              "consumed_bits": 121,
+              "coefficient_log2_margin": 0.54284995,
+              "threshold_min_n_for_descent": 11,
+              "direct_collatz": {
+                "total_steps": 301,
+                "odd_steps": 110,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 11,
+              "exit_minus_total_steps": -180
+            },
+            {
+              "n": 64255,
+              "bit_length": 16,
+              "exit_bits": 120,
+              "exit_slack_over_bit_length": 104,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 75,
+              "consumed_bits": 120,
+              "coefficient_log2_margin": 1.12781245,
+              "threshold_min_n_for_descent": 3,
+              "direct_collatz": {
+                "total_steps": 298,
+                "odd_steps": 109,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 11,
+              "exit_minus_total_steps": -178
+            },
+            {
+              "n": 96383,
+              "bit_length": 17,
+              "exit_bits": 116,
+              "exit_slack_over_bit_length": 99,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 73,
+              "consumed_bits": 116,
+              "coefficient_log2_margin": 0.29773745,
+              "threshold_min_n_for_descent": 16,
+              "direct_collatz": {
+                "total_steps": 296,
+                "odd_steps": 108,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 8,
+              "exit_minus_total_steps": -180
+            },
+            {
+              "n": 45055,
+              "bit_length": 16,
+              "exit_bits": 113,
+              "exit_slack_over_bit_length": 97,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 70,
+              "consumed_bits": 113,
+              "coefficient_log2_margin": 2.05262495,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 282,
+                "odd_steps": 103,
+                "terminated_at_one": true,
+                "max_orbit_value": 13699096
+              },
+              "exit_minus_odd_steps": 10,
+              "exit_minus_total_steps": -169
+            },
+            {
+              "n": 90111,
+              "bit_length": 17,
+              "exit_bits": 110,
+              "exit_slack_over_bit_length": 93,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 69,
+              "consumed_bits": 110,
+              "coefficient_log2_margin": 0.63758745,
+              "threshold_min_n_for_descent": 8,
+              "direct_collatz": {
+                "total_steps": 283,
+                "odd_steps": 103,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 7,
+              "exit_minus_total_steps": -173
+            },
+            {
+              "n": 10087,
+              "bit_length": 14,
+              "exit_bits": 108,
+              "exit_slack_over_bit_length": 94,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 108,
+              "coefficient_log2_margin": 3.39247495,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 223,
+                "odd_steps": 81,
+                "terminated_at_one": true,
+                "max_orbit_value": 2484916
+              },
+              "exit_minus_odd_steps": 27,
+              "exit_minus_total_steps": -115
+            },
+            {
+              "n": 67583,
+              "bit_length": 17,
+              "exit_bits": 108,
+              "exit_slack_over_bit_length": 91,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 68,
+              "consumed_bits": 108,
+              "coefficient_log2_margin": 0.22254995,
+              "threshold_min_n_for_descent": 22,
+              "direct_collatz": {
+                "total_steps": 280,
+                "odd_steps": 102,
+                "terminated_at_one": true,
+                "max_orbit_value": 13699096
+              },
+              "exit_minus_odd_steps": 6,
+              "exit_minus_total_steps": -172
+            },
+            {
+              "n": 69535,
+              "bit_length": 17,
+              "exit_bits": 105,
+              "exit_slack_over_bit_length": 88,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 105,
+              "coefficient_log2_margin": 0.39247495,
+              "threshold_min_n_for_descent": 8,
+              "direct_collatz": {
+                "total_steps": 298,
+                "odd_steps": 109,
+                "terminated_at_one": true,
+                "max_orbit_value": 593279152
+              },
+              "exit_minus_odd_steps": -4,
+              "exit_minus_total_steps": -193
+            },
+            {
+              "n": 77671,
+              "bit_length": 17,
+              "exit_bits": 105,
+              "exit_slack_over_bit_length": 88,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 105,
+              "coefficient_log2_margin": 0.39247495,
+              "threshold_min_n_for_descent": 7,
+              "direct_collatz": {
+                "total_steps": 231,
+                "odd_steps": 83,
+                "terminated_at_one": true,
+                "max_orbit_value": 1570824736
+              },
+              "exit_minus_odd_steps": 22,
+              "exit_minus_total_steps": -126
+            },
+            {
+              "n": 69375,
+              "bit_length": 17,
+              "exit_bits": 100,
+              "exit_slack_over_bit_length": 83,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 63,
+              "consumed_bits": 100,
+              "coefficient_log2_margin": 0.14736245,
+              "threshold_min_n_for_descent": 25,
+              "direct_collatz": {
+                "total_steps": 249,
+                "odd_steps": 90,
+                "terminated_at_one": true,
+                "max_orbit_value": 17557936
+              },
+              "exit_minus_odd_steps": 10,
+              "exit_minus_total_steps": -149
+            },
+            {
+              "n": 99007,
+              "bit_length": 17,
+              "exit_bits": 96,
+              "exit_slack_over_bit_length": 79,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 60,
+              "consumed_bits": 96,
+              "coefficient_log2_margin": 0.90224996,
+              "threshold_min_n_for_descent": 3,
+              "direct_collatz": {
+                "total_steps": 283,
+                "odd_steps": 103,
+                "terminated_at_one": true,
+                "max_orbit_value": 593279152
+              },
+              "exit_minus_odd_steps": -7,
+              "exit_minus_total_steps": -187
+            },
+            {
+              "n": 34239,
+              "bit_length": 16,
+              "exit_bits": 94,
+              "exit_slack_over_bit_length": 78,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 58,
+              "consumed_bits": 94,
+              "coefficient_log2_margin": 2.07217496,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 310,
+                "odd_steps": 114,
+                "terminated_at_one": true,
+                "max_orbit_value": 18976192
+              },
+              "exit_minus_odd_steps": -20,
+              "exit_minus_total_steps": -216
+            },
+            {
+              "n": 73575,
+              "bit_length": 17,
+              "exit_bits": 94,
+              "exit_slack_over_bit_length": 77,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 58,
+              "consumed_bits": 94,
+              "coefficient_log2_margin": 2.07217496,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 231,
+                "odd_steps": 83,
+                "terminated_at_one": true,
+                "max_orbit_value": 31423300
+              },
+              "exit_minus_odd_steps": 11,
+              "exit_minus_total_steps": -137
+            }
+          ],
+          "top_slack_examples": [
+            {
+              "n": 35655,
+              "bit_length": 16,
+              "exit_bits": 135,
+              "exit_slack_over_bit_length": 119,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 85,
+              "consumed_bits": 135,
+              "coefficient_log2_margin": 0.27818744,
+              "threshold_min_n_for_descent": 17,
+              "direct_collatz": {
+                "total_steps": 323,
+                "odd_steps": 119,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 16,
+              "exit_minus_total_steps": -188
+            },
+            {
+              "n": 45127,
+              "bit_length": 16,
+              "exit_bits": 129,
+              "exit_slack_over_bit_length": 113,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 81,
+              "consumed_bits": 129,
+              "coefficient_log2_margin": 0.61803744,
+              "threshold_min_n_for_descent": 7,
+              "direct_collatz": {
+                "total_steps": 313,
+                "odd_steps": 115,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 14,
+              "exit_minus_total_steps": -184
+            },
+            {
+              "n": 37503,
+              "bit_length": 16,
+              "exit_bits": 127,
+              "exit_slack_over_bit_length": 111,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 79,
+              "consumed_bits": 127,
+              "coefficient_log2_margin": 1.78796244,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 305,
+                "odd_steps": 112,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 15,
+              "exit_minus_total_steps": -178
+            },
+            {
+              "n": 60975,
+              "bit_length": 16,
+              "exit_bits": 127,
+              "exit_slack_over_bit_length": 111,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 80,
+              "consumed_bits": 127,
+              "coefficient_log2_margin": 0.20299994,
+              "threshold_min_n_for_descent": 27,
+              "direct_collatz": {
+                "total_steps": 334,
+                "odd_steps": 123,
+                "terminated_at_one": true,
+                "max_orbit_value": 593279152
+              },
+              "exit_minus_odd_steps": 4,
+              "exit_minus_total_steps": -207
+            },
+            {
+              "n": 56255,
+              "bit_length": 16,
+              "exit_bits": 126,
+              "exit_slack_over_bit_length": 110,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 78,
+              "consumed_bits": 126,
+              "coefficient_log2_margin": 2.37292494,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 303,
+                "odd_steps": 111,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 15,
+              "exit_minus_total_steps": -177
+            },
+            {
+              "n": 75007,
+              "bit_length": 17,
+              "exit_bits": 124,
+              "exit_slack_over_bit_length": 107,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 78,
+              "consumed_bits": 124,
+              "coefficient_log2_margin": 0.37292494,
+              "threshold_min_n_for_descent": 16,
+              "direct_collatz": {
+                "total_steps": 306,
+                "odd_steps": 112,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 12,
+              "exit_minus_total_steps": -182
+            },
+            {
+              "n": 57115,
+              "bit_length": 16,
+              "exit_bits": 123,
+              "exit_slack_over_bit_length": 107,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 77,
+              "consumed_bits": 123,
+              "coefficient_log2_margin": 0.95788744,
+              "threshold_min_n_for_descent": 4,
+              "direct_collatz": {
+                "total_steps": 303,
+                "odd_steps": 111,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 12,
+              "exit_minus_total_steps": -180
+            },
+            {
+              "n": 84383,
+              "bit_length": 17,
+              "exit_bits": 121,
+              "exit_slack_over_bit_length": 104,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 76,
+              "consumed_bits": 121,
+              "coefficient_log2_margin": 0.54284995,
+              "threshold_min_n_for_descent": 11,
+              "direct_collatz": {
+                "total_steps": 301,
+                "odd_steps": 110,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 11,
+              "exit_minus_total_steps": -180
+            },
+            {
+              "n": 64255,
+              "bit_length": 16,
+              "exit_bits": 120,
+              "exit_slack_over_bit_length": 104,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 75,
+              "consumed_bits": 120,
+              "coefficient_log2_margin": 1.12781245,
+              "threshold_min_n_for_descent": 3,
+              "direct_collatz": {
+                "total_steps": 298,
+                "odd_steps": 109,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 11,
+              "exit_minus_total_steps": -178
+            },
+            {
+              "n": 96383,
+              "bit_length": 17,
+              "exit_bits": 116,
+              "exit_slack_over_bit_length": 99,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 73,
+              "consumed_bits": 116,
+              "coefficient_log2_margin": 0.29773745,
+              "threshold_min_n_for_descent": 16,
+              "direct_collatz": {
+                "total_steps": 296,
+                "odd_steps": 108,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 8,
+              "exit_minus_total_steps": -180
+            },
+            {
+              "n": 45055,
+              "bit_length": 16,
+              "exit_bits": 113,
+              "exit_slack_over_bit_length": 97,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 70,
+              "consumed_bits": 113,
+              "coefficient_log2_margin": 2.05262495,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 282,
+                "odd_steps": 103,
+                "terminated_at_one": true,
+                "max_orbit_value": 13699096
+              },
+              "exit_minus_odd_steps": 10,
+              "exit_minus_total_steps": -169
+            },
+            {
+              "n": 10087,
+              "bit_length": 14,
+              "exit_bits": 108,
+              "exit_slack_over_bit_length": 94,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 108,
+              "coefficient_log2_margin": 3.39247495,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 223,
+                "odd_steps": 81,
+                "terminated_at_one": true,
+                "max_orbit_value": 2484916
+              },
+              "exit_minus_odd_steps": 27,
+              "exit_minus_total_steps": -115
+            },
+            {
+              "n": 90111,
+              "bit_length": 17,
+              "exit_bits": 110,
+              "exit_slack_over_bit_length": 93,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 69,
+              "consumed_bits": 110,
+              "coefficient_log2_margin": 0.63758745,
+              "threshold_min_n_for_descent": 8,
+              "direct_collatz": {
+                "total_steps": 283,
+                "odd_steps": 103,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 7,
+              "exit_minus_total_steps": -173
+            },
+            {
+              "n": 67583,
+              "bit_length": 17,
+              "exit_bits": 108,
+              "exit_slack_over_bit_length": 91,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 68,
+              "consumed_bits": 108,
+              "coefficient_log2_margin": 0.22254995,
+              "threshold_min_n_for_descent": 22,
+              "direct_collatz": {
+                "total_steps": 280,
+                "odd_steps": 102,
+                "terminated_at_one": true,
+                "max_orbit_value": 13699096
+              },
+              "exit_minus_odd_steps": 6,
+              "exit_minus_total_steps": -172
+            },
+            {
+              "n": 69535,
+              "bit_length": 17,
+              "exit_bits": 105,
+              "exit_slack_over_bit_length": 88,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 105,
+              "coefficient_log2_margin": 0.39247495,
+              "threshold_min_n_for_descent": 8,
+              "direct_collatz": {
+                "total_steps": 298,
+                "odd_steps": 109,
+                "terminated_at_one": true,
+                "max_orbit_value": 593279152
+              },
+              "exit_minus_odd_steps": -4,
+              "exit_minus_total_steps": -193
+            },
+            {
+              "n": 77671,
+              "bit_length": 17,
+              "exit_bits": 105,
+              "exit_slack_over_bit_length": 88,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 105,
+              "coefficient_log2_margin": 0.39247495,
+              "threshold_min_n_for_descent": 7,
+              "direct_collatz": {
+                "total_steps": 231,
+                "odd_steps": 83,
+                "terminated_at_one": true,
+                "max_orbit_value": 1570824736
+              },
+              "exit_minus_odd_steps": 22,
+              "exit_minus_total_steps": -126
+            },
+            {
+              "n": 69375,
+              "bit_length": 17,
+              "exit_bits": 100,
+              "exit_slack_over_bit_length": 83,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 63,
+              "consumed_bits": 100,
+              "coefficient_log2_margin": 0.14736245,
+              "threshold_min_n_for_descent": 25,
+              "direct_collatz": {
+                "total_steps": 249,
+                "odd_steps": 90,
+                "terminated_at_one": true,
+                "max_orbit_value": 17557936
+              },
+              "exit_minus_odd_steps": 10,
+              "exit_minus_total_steps": -149
+            },
+            {
+              "n": 99007,
+              "bit_length": 17,
+              "exit_bits": 96,
+              "exit_slack_over_bit_length": 79,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 60,
+              "consumed_bits": 96,
+              "coefficient_log2_margin": 0.90224996,
+              "threshold_min_n_for_descent": 3,
+              "direct_collatz": {
+                "total_steps": 283,
+                "odd_steps": 103,
+                "terminated_at_one": true,
+                "max_orbit_value": 593279152
+              },
+              "exit_minus_odd_steps": -7,
+              "exit_minus_total_steps": -187
+            },
+            {
+              "n": 34239,
+              "bit_length": 16,
+              "exit_bits": 94,
+              "exit_slack_over_bit_length": 78,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 58,
+              "consumed_bits": 94,
+              "coefficient_log2_margin": 2.07217496,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 310,
+                "odd_steps": 114,
+                "terminated_at_one": true,
+                "max_orbit_value": 18976192
+              },
+              "exit_minus_odd_steps": -20,
+              "exit_minus_total_steps": -216
+            },
+            {
+              "n": 73575,
+              "bit_length": 17,
+              "exit_bits": 94,
+              "exit_slack_over_bit_length": 77,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 58,
+              "consumed_bits": 94,
+              "coefficient_log2_margin": 2.07217496,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 231,
+                "odd_steps": 83,
+                "terminated_at_one": true,
+                "max_orbit_value": 31423300
+              },
+              "exit_minus_odd_steps": 11,
+              "exit_minus_total_steps": -137
+            }
+          ],
+          "top_exit_minus_odd_step_examples": [
+            {
+              "n": 10087,
+              "bit_length": 14,
+              "exit_bits": 108,
+              "exit_slack_over_bit_length": 94,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 108,
+              "coefficient_log2_margin": 3.39247495,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 223,
+                "odd_steps": 81,
+                "terminated_at_one": true,
+                "max_orbit_value": 2484916
+              },
+              "exit_minus_odd_steps": 27,
+              "exit_minus_total_steps": -115
+            },
+            {
+              "n": 1407,
+              "bit_length": 11,
+              "exit_bits": 84,
+              "exit_slack_over_bit_length": 73,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 51,
+              "consumed_bits": 84,
+              "coefficient_log2_margin": 3.16691246,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 171,
+                "odd_steps": 62,
+                "terminated_at_one": true,
+                "max_orbit_value": 250504
+              },
+              "exit_minus_odd_steps": 22,
+              "exit_minus_total_steps": -87
+            },
+            {
+              "n": 2111,
+              "bit_length": 12,
+              "exit_bits": 83,
+              "exit_slack_over_bit_length": 71,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 50,
+              "consumed_bits": 83,
+              "coefficient_log2_margin": 3.75187496,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 169,
+                "odd_steps": 61,
+                "terminated_at_one": true,
+                "max_orbit_value": 250504
+              },
+              "exit_minus_odd_steps": 22,
+              "exit_minus_total_steps": -86
+            },
+            {
+              "n": 15055,
+              "bit_length": 14,
+              "exit_bits": 75,
+              "exit_slack_over_bit_length": 61,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 46,
+              "consumed_bits": 75,
+              "coefficient_log2_margin": 2.09172497,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 151,
+                "odd_steps": 53,
+                "terminated_at_one": true,
+                "max_orbit_value": 846916
+              },
+              "exit_minus_odd_steps": 22,
+              "exit_minus_total_steps": -76
+            },
+            {
+              "n": 77671,
+              "bit_length": 17,
+              "exit_bits": 105,
+              "exit_slack_over_bit_length": 88,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 105,
+              "coefficient_log2_margin": 0.39247495,
+              "threshold_min_n_for_descent": 7,
+              "direct_collatz": {
+                "total_steps": 231,
+                "odd_steps": 83,
+                "terminated_at_one": true,
+                "max_orbit_value": 1570824736
+              },
+              "exit_minus_odd_steps": 22,
+              "exit_minus_total_steps": -126
+            },
+            {
+              "n": 84975,
+              "bit_length": 17,
+              "exit_bits": 91,
+              "exit_slack_over_bit_length": 74,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 56,
+              "consumed_bits": 91,
+              "coefficient_log2_margin": 2.24209996,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 195,
+                "odd_steps": 69,
+                "terminated_at_one": true,
+                "max_orbit_value": 37718440
+              },
+              "exit_minus_odd_steps": 22,
+              "exit_minus_total_steps": -104
+            },
+            {
+              "n": 703,
+              "bit_length": 10,
+              "exit_bits": 83,
+              "exit_slack_over_bit_length": 73,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 51,
+              "consumed_bits": 83,
+              "coefficient_log2_margin": 2.16691246,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 170,
+                "odd_steps": 62,
+                "terminated_at_one": true,
+                "max_orbit_value": 250504
+              },
+              "exit_minus_odd_steps": 21,
+              "exit_minus_total_steps": -87
+            },
+            {
+              "n": 1055,
+              "bit_length": 11,
+              "exit_bits": 82,
+              "exit_slack_over_bit_length": 71,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 50,
+              "consumed_bits": 82,
+              "coefficient_log2_margin": 2.75187496,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 168,
+                "odd_steps": 61,
+                "terminated_at_one": true,
+                "max_orbit_value": 250504
+              },
+              "exit_minus_odd_steps": 21,
+              "exit_minus_total_steps": -86
+            },
+            {
+              "n": 1583,
+              "bit_length": 11,
+              "exit_bits": 81,
+              "exit_slack_over_bit_length": 70,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 49,
+              "consumed_bits": 81,
+              "coefficient_log2_margin": 3.33683746,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 166,
+                "odd_steps": 60,
+                "terminated_at_one": true,
+                "max_orbit_value": 250504
+              },
+              "exit_minus_odd_steps": 21,
+              "exit_minus_total_steps": -85
+            },
+            {
+              "n": 7527,
+              "bit_length": 13,
+              "exit_bits": 74,
+              "exit_slack_over_bit_length": 61,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 46,
+              "consumed_bits": 74,
+              "coefficient_log2_margin": 1.09172497,
+              "threshold_min_n_for_descent": 3,
+              "direct_collatz": {
+                "total_steps": 150,
+                "odd_steps": 53,
+                "terminated_at_one": true,
+                "max_orbit_value": 846916
+              },
+              "exit_minus_odd_steps": 21,
+              "exit_minus_total_steps": -76
+            },
+            {
+              "n": 11291,
+              "bit_length": 14,
+              "exit_bits": 73,
+              "exit_slack_over_bit_length": 59,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 45,
+              "consumed_bits": 73,
+              "coefficient_log2_margin": 1.67668747,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 148,
+                "odd_steps": 52,
+                "terminated_at_one": true,
+                "max_orbit_value": 846916
+              },
+              "exit_minus_odd_steps": 21,
+              "exit_minus_total_steps": -75
+            },
+            {
+              "n": 16551,
+              "bit_length": 15,
+              "exit_bits": 62,
+              "exit_slack_over_bit_length": 47,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 38,
+              "consumed_bits": 62,
+              "coefficient_log2_margin": 1.77142497,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 120,
+                "odd_steps": 41,
+                "terminated_at_one": true,
+                "max_orbit_value": 2324752
+              },
+              "exit_minus_odd_steps": 21,
+              "exit_minus_total_steps": -58
+            },
+            {
+              "n": 68763,
+              "bit_length": 17,
+              "exit_bits": 48,
+              "exit_slack_over_bit_length": 31,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 23,
+              "consumed_bits": 48,
+              "coefficient_log2_margin": 11.54586248,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 86,
+                "odd_steps": 27,
+                "terminated_at_one": true,
+                "max_orbit_value": 1486996
+              },
+              "exit_minus_odd_steps": 21,
+              "exit_minus_total_steps": -38
+            },
+            {
+              "n": 12703,
+              "bit_length": 14,
+              "exit_bits": 70,
+              "exit_slack_over_bit_length": 56,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 43,
+              "consumed_bits": 70,
+              "coefficient_log2_margin": 1.84661247,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 143,
+                "odd_steps": 50,
+                "terminated_at_one": true,
+                "max_orbit_value": 846916
+              },
+              "exit_minus_odd_steps": 20,
+              "exit_minus_total_steps": -73
+            },
+            {
+              "n": 19055,
+              "bit_length": 15,
+              "exit_bits": 69,
+              "exit_slack_over_bit_length": 54,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 42,
+              "consumed_bits": 69,
+              "coefficient_log2_margin": 2.43157497,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 141,
+                "odd_steps": 49,
+                "terminated_at_one": true,
+                "max_orbit_value": 846916
+              },
+              "exit_minus_odd_steps": 20,
+              "exit_minus_total_steps": -72
+            },
+            {
+              "n": 95463,
+              "bit_length": 17,
+              "exit_bits": 87,
+              "exit_slack_over_bit_length": 70,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 54,
+              "consumed_bits": 87,
+              "coefficient_log2_margin": 1.41202496,
+              "threshold_min_n_for_descent": 3,
+              "direct_collatz": {
+                "total_steps": 190,
+                "odd_steps": 67,
+                "terminated_at_one": true,
+                "max_orbit_value": 17876536
+              },
+              "exit_minus_odd_steps": 20,
+              "exit_minus_total_steps": -103
+            },
+            {
+              "n": 13503,
+              "bit_length": 14,
+              "exit_bits": 81,
+              "exit_slack_over_bit_length": 67,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 49,
+              "consumed_bits": 81,
+              "coefficient_log2_margin": 3.33683746,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 174,
+                "odd_steps": 62,
+                "terminated_at_one": true,
+                "max_orbit_value": 1052512
+              },
+              "exit_minus_odd_steps": 19,
+              "exit_minus_total_steps": -93
+            },
+            {
+              "n": 28671,
+              "bit_length": 15,
+              "exit_bits": 77,
+              "exit_slack_over_bit_length": 62,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 47,
+              "consumed_bits": 77,
+              "coefficient_log2_margin": 2.50676247,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 165,
+                "odd_steps": 58,
+                "terminated_at_one": true,
+                "max_orbit_value": 30578632
+              },
+              "exit_minus_odd_steps": 19,
+              "exit_minus_total_steps": -88
+            },
+            {
+              "n": 27,
+              "bit_length": 5,
+              "exit_bits": 59,
+              "exit_slack_over_bit_length": 54,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 37,
+              "consumed_bits": 59,
+              "coefficient_log2_margin": 0.35638747,
+              "threshold_min_n_for_descent": 9,
+              "direct_collatz": {
+                "total_steps": 111,
+                "odd_steps": 41,
+                "terminated_at_one": true,
+                "max_orbit_value": 9232
+              },
+              "exit_minus_odd_steps": 18,
+              "exit_minus_total_steps": -52
+            },
+            {
+              "n": 31,
+              "bit_length": 5,
+              "exit_bits": 56,
+              "exit_slack_over_bit_length": 51,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 35,
+              "consumed_bits": 56,
+              "coefficient_log2_margin": 0.52631247,
+              "threshold_min_n_for_descent": 5,
+              "direct_collatz": {
+                "total_steps": 106,
+                "odd_steps": 39,
+                "terminated_at_one": true,
+                "max_orbit_value": 9232
+              },
+              "exit_minus_odd_steps": 17,
+              "exit_minus_total_steps": -50
+            }
+          ],
+          "shallow_unresolved_deep_resolution_examples": [
+            {
+              "n": 10087,
+              "bit_length": 14,
+              "exit_bits": 108,
+              "exit_slack_over_bit_length": 94,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 108,
+              "coefficient_log2_margin": 3.39247495,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 223,
+                "odd_steps": 81,
+                "terminated_at_one": true,
+                "max_orbit_value": 2484916
+              },
+              "exit_minus_odd_steps": 27,
+              "exit_minus_total_steps": -115
+            },
+            {
+              "n": 35655,
+              "bit_length": 16,
+              "exit_bits": 135,
+              "exit_slack_over_bit_length": 119,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 85,
+              "consumed_bits": 135,
+              "coefficient_log2_margin": 0.27818744,
+              "threshold_min_n_for_descent": 17,
+              "direct_collatz": {
+                "total_steps": 323,
+                "odd_steps": 119,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 16,
+              "exit_minus_total_steps": -188
+            },
+            {
+              "n": 37503,
+              "bit_length": 16,
+              "exit_bits": 127,
+              "exit_slack_over_bit_length": 111,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 79,
+              "consumed_bits": 127,
+              "coefficient_log2_margin": 1.78796244,
+              "threshold_min_n_for_descent": 2,
+              "direct_collatz": {
+                "total_steps": 305,
+                "odd_steps": 112,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 15,
+              "exit_minus_total_steps": -178
+            },
+            {
+              "n": 45055,
+              "bit_length": 16,
+              "exit_bits": 113,
+              "exit_slack_over_bit_length": 97,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 70,
+              "consumed_bits": 113,
+              "coefficient_log2_margin": 2.05262495,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 282,
+                "odd_steps": 103,
+                "terminated_at_one": true,
+                "max_orbit_value": 13699096
+              },
+              "exit_minus_odd_steps": 10,
+              "exit_minus_total_steps": -169
+            },
+            {
+              "n": 45127,
+              "bit_length": 16,
+              "exit_bits": 129,
+              "exit_slack_over_bit_length": 113,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 81,
+              "consumed_bits": 129,
+              "coefficient_log2_margin": 0.61803744,
+              "threshold_min_n_for_descent": 7,
+              "direct_collatz": {
+                "total_steps": 313,
+                "odd_steps": 115,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 14,
+              "exit_minus_total_steps": -184
+            },
+            {
+              "n": 56255,
+              "bit_length": 16,
+              "exit_bits": 126,
+              "exit_slack_over_bit_length": 110,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 78,
+              "consumed_bits": 126,
+              "coefficient_log2_margin": 2.37292494,
+              "threshold_min_n_for_descent": 1,
+              "direct_collatz": {
+                "total_steps": 303,
+                "odd_steps": 111,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 15,
+              "exit_minus_total_steps": -177
+            },
+            {
+              "n": 57115,
+              "bit_length": 16,
+              "exit_bits": 123,
+              "exit_slack_over_bit_length": 107,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 77,
+              "consumed_bits": 123,
+              "coefficient_log2_margin": 0.95788744,
+              "threshold_min_n_for_descent": 4,
+              "direct_collatz": {
+                "total_steps": 303,
+                "odd_steps": 111,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 12,
+              "exit_minus_total_steps": -180
+            },
+            {
+              "n": 60975,
+              "bit_length": 16,
+              "exit_bits": 127,
+              "exit_slack_over_bit_length": 111,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 80,
+              "consumed_bits": 127,
+              "coefficient_log2_margin": 0.20299994,
+              "threshold_min_n_for_descent": 27,
+              "direct_collatz": {
+                "total_steps": 334,
+                "odd_steps": 123,
+                "terminated_at_one": true,
+                "max_orbit_value": 593279152
+              },
+              "exit_minus_odd_steps": 4,
+              "exit_minus_total_steps": -207
+            },
+            {
+              "n": 64255,
+              "bit_length": 16,
+              "exit_bits": 120,
+              "exit_slack_over_bit_length": 104,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 75,
+              "consumed_bits": 120,
+              "coefficient_log2_margin": 1.12781245,
+              "threshold_min_n_for_descent": 3,
+              "direct_collatz": {
+                "total_steps": 298,
+                "odd_steps": 109,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 11,
+              "exit_minus_total_steps": -178
+            },
+            {
+              "n": 67583,
+              "bit_length": 17,
+              "exit_bits": 108,
+              "exit_slack_over_bit_length": 91,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 68,
+              "consumed_bits": 108,
+              "coefficient_log2_margin": 0.22254995,
+              "threshold_min_n_for_descent": 22,
+              "direct_collatz": {
+                "total_steps": 280,
+                "odd_steps": 102,
+                "terminated_at_one": true,
+                "max_orbit_value": 13699096
+              },
+              "exit_minus_odd_steps": 6,
+              "exit_minus_total_steps": -172
+            },
+            {
+              "n": 69375,
+              "bit_length": 17,
+              "exit_bits": 100,
+              "exit_slack_over_bit_length": 83,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 63,
+              "consumed_bits": 100,
+              "coefficient_log2_margin": 0.14736245,
+              "threshold_min_n_for_descent": 25,
+              "direct_collatz": {
+                "total_steps": 249,
+                "odd_steps": 90,
+                "terminated_at_one": true,
+                "max_orbit_value": 17557936
+              },
+              "exit_minus_odd_steps": 10,
+              "exit_minus_total_steps": -149
+            },
+            {
+              "n": 69535,
+              "bit_length": 17,
+              "exit_bits": 105,
+              "exit_slack_over_bit_length": 88,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 105,
+              "coefficient_log2_margin": 0.39247495,
+              "threshold_min_n_for_descent": 8,
+              "direct_collatz": {
+                "total_steps": 298,
+                "odd_steps": 109,
+                "terminated_at_one": true,
+                "max_orbit_value": 593279152
+              },
+              "exit_minus_odd_steps": -4,
+              "exit_minus_total_steps": -193
+            },
+            {
+              "n": 75007,
+              "bit_length": 17,
+              "exit_bits": 124,
+              "exit_slack_over_bit_length": 107,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 78,
+              "consumed_bits": 124,
+              "coefficient_log2_margin": 0.37292494,
+              "threshold_min_n_for_descent": 16,
+              "direct_collatz": {
+                "total_steps": 306,
+                "odd_steps": 112,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 12,
+              "exit_minus_total_steps": -182
+            },
+            {
+              "n": 77671,
+              "bit_length": 17,
+              "exit_bits": 105,
+              "exit_slack_over_bit_length": 88,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 66,
+              "consumed_bits": 105,
+              "coefficient_log2_margin": 0.39247495,
+              "threshold_min_n_for_descent": 7,
+              "direct_collatz": {
+                "total_steps": 231,
+                "odd_steps": 83,
+                "terminated_at_one": true,
+                "max_orbit_value": 1570824736
+              },
+              "exit_minus_odd_steps": 22,
+              "exit_minus_total_steps": -126
+            },
+            {
+              "n": 84383,
+              "bit_length": 17,
+              "exit_bits": 121,
+              "exit_slack_over_bit_length": 104,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 76,
+              "consumed_bits": 121,
+              "coefficient_log2_margin": 0.54284995,
+              "threshold_min_n_for_descent": 11,
+              "direct_collatz": {
+                "total_steps": 301,
+                "odd_steps": 110,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 11,
+              "exit_minus_total_steps": -180
+            },
+            {
+              "n": 90111,
+              "bit_length": 17,
+              "exit_bits": 110,
+              "exit_slack_over_bit_length": 93,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 69,
+              "consumed_bits": 110,
+              "coefficient_log2_margin": 0.63758745,
+              "threshold_min_n_for_descent": 8,
+              "direct_collatz": {
+                "total_steps": 283,
+                "odd_steps": 103,
+                "terminated_at_one": true,
+                "max_orbit_value": 35075104
+              },
+              "exit_minus_odd_steps": 7,
+              "exit_minus_total_steps": -173
+            },
+            {
+              "n": 96383,
+              "bit_length": 17,
+              "exit_bits": 116,
+              "exit_slack_over_bit_length": 99,
+              "exit_status": "all_lift_descent",
+              "prefix_length": 73,
+              "consumed_bits": 116,
+              "coefficient_log2_margin": 0.29773745,
+              "threshold_min_n_for_descent": 16,
+              "direct_collatz": {
+                "total_steps": 296,
+                "odd_steps": 108,
+                "terminated_at_one": true,
+                "max_orbit_value": 41163712
+              },
+              "exit_minus_odd_steps": 8,
+              "exit_minus_total_steps": -180
+            }
+          ],
+          "candidate_bit_length_slack_tests": [
+            {
+              "candidate_bound": "exit_bits <= bit_length(n) + 16",
+              "violations": 1091
+            },
+            {
+              "candidate_bound": "exit_bits <= bit_length(n) + 32",
+              "violations": 381
+            },
+            {
+              "candidate_bound": "exit_bits <= bit_length(n) + 48",
+              "violations": 153
+            },
+            {
+              "candidate_bound": "exit_bits <= bit_length(n) + 64",
+              "violations": 40
+            },
+            {
+              "candidate_bound": "exit_bits <= bit_length(n) + 80",
+              "violations": 17
+            },
+            {
+              "candidate_bound": "exit_bits <= bit_length(n) + 96",
+              "violations": 11
+            },
+            {
+              "candidate_bound": "exit_bits <= bit_length(n) + 112",
+              "violations": 2
+            }
+          ],
+          "candidate_stopping_proxy_tests": [
+            {
+              "candidate_bound": "exit_bits <= odd_collatz_steps(n) + 0",
+              "violations": 3425
+            },
+            {
+              "candidate_bound": "exit_bits <= odd_collatz_steps(n) + 4",
+              "violations": 1054
+            },
+            {
+              "candidate_bound": "exit_bits <= odd_collatz_steps(n) + 8",
+              "violations": 219
+            },
+            {
+              "candidate_bound": "exit_bits <= odd_collatz_steps(n) + 12",
+              "violations": 64
+            },
+            {
+              "candidate_bound": "exit_bits <= odd_collatz_steps(n) + 16",
+              "violations": 23
+            },
+            {
+              "candidate_bound": "exit_bits <= odd_collatz_steps(n) + 20",
+              "violations": 13
+            },
+            {
+              "candidate_bound": "exit_bits <= odd_collatz_steps(n) + 24",
+              "violations": 1
+            },
+            {
+              "candidate_bound": "exit_bits <= odd_collatz_steps(n) + 32",
+              "violations": 0
+            }
+          ],
+          "closed_bounded_statement": "Every tested odd n <= 100000 exits the adaptive null frontier by 135 bits and its direct Collatz orbit terminates within the recorded step limit.",
+          "proof_boundary": "This bounded natural-exit audit does not prove Collatz. It does refute simple small-constant slack bounds and shows that a stopping-time proxy would be circular unless replaced by an independent rank."
+        },
+        "route_decision": {
+          "discard": [
+            "measure-zero frontier proof without natural-integer exclusion",
+            "small constant slack theorem exit_bits <= bit_length(n) + C for C <= 112 in the tested range",
+            "stopping-time proxy proof unless stopping time is itself bounded by an independent rank"
+          ],
+          "retain": [
+            "contrapositive search for a natural n with no frontier exit",
+            "uniform well-founded rank that implies finite frontier exit without using the orbit termination as an oracle",
+            "deep arithmetic exclusion theorem for the limiting 2-adic null frontier"
+          ]
+        }
+      },
+      "obstruction": "The sample contains long finite natural residues: for n <= 100000, some exits require up to 135 bits and slack over bit length reaches 119. Therefore natural exclusion cannot be a shallow compactness argument.",
+      "candidate_theorem": "For every positive odd integer n, the adaptive frontier certificate eventually reaches all_lift_descent or a finite exception that is resolved by a strictly smaller integer; equivalently, no positive integer defines an infinite path through the limiting null frontier.",
+      "next_experiment": "Synthesize a non-circular rank R(n, certificate_prefix) that bounds exit_bits without using the already known Collatz stopping time, and search for natural paths whose required exit depth grows faster than that rank.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-36",
+      "status": "proof_pressure_open",
+      "route": "SparseEvenExceptionExclusion",
+      "proof_or_counterexample_mode": "null_exception_or_pointwise_rank_transfer",
+      "attempt": "Carry Ticket 36's lesson across the problem: a proof route that only controls density, mass, or bounded statistics must be upgraded to a pointwise theorem, because a sparse exceptional object can still falsify the conjecture.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-35",
+        "source_route": "ExceptionalSetEliminationOrUniformCutoffRank",
+        "stress_result": "An infinite zero-density set of even exceptions would pass almost-all and density tests while falsifying Goldbach.",
+        "discarded_route": "almost-all Goldbach positivity used as pointwise Goldbach proof",
+        "retained_route": "explicit pointwise lower bound for every even N beyond a verified cutoff"
+      },
+      "obstruction": "Sparse or null exceptional sets are logically invisible to many aggregate metrics. A complete proof must eliminate every exceptional object, not merely show that exceptions are rare.",
+      "candidate_theorem": "There exists an explicit N0 and positive lower bound G(N)>0 for every even N>N0, with all small N checked independently.",
+      "next_experiment": "Stress singular-series and minor-arc margins against adversarial sparse exceptional even integers.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-36",
+      "status": "proof_pressure_open",
+      "route": "SparseGapTwoExtinctionExclusion",
+      "proof_or_counterexample_mode": "null_exception_or_pointwise_rank_transfer",
+      "attempt": "Carry Ticket 36's lesson across the problem: a proof route that only controls density, mass, or bounded statistics must be upgraded to a pointwise theorem, because a sparse exceptional object can still falsify the conjecture.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-35",
+        "source_route": "ExactGapNullSetOrUniformPairMass",
+        "stress_result": "A model can preserve many bounded prime statistics while allowing only finitely many exact gap-2 pairs.",
+        "discarded_route": "bounded distributional resemblance treated as infinitely many twin primes",
+        "retained_route": "exact-gap lower bound or Maynard/GPY-style weight forcing gap 2 specifically, not merely bounded gaps"
+      },
+      "obstruction": "Sparse or null exceptional sets are logically invisible to many aggregate metrics. A complete proof must eliminate every exceptional object, not merely show that exceptions are rare.",
+      "candidate_theorem": "For arbitrarily large X, the exact gap-2 weighted count has a positive lower bound that cannot leak into other admissible gaps.",
+      "next_experiment": "Run exact-gap leakage adversaries against every candidate sieve weight and rank gap selector.",
+      "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+    }
+  ]
+}

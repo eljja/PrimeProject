@@ -1168,3 +1168,84 @@ Proof boundary:
 ```text
 Even a proved measure-zero limiting obstruction set would not by itself prove Collatz for every positive integer. A full proof must either exclude natural-number paths from that null set, or provide a uniform well-founded rank that decreases on every infinite adaptive path.
 ```
+
+### Ticket 36: Null-frontier arithmetic and pointwise exception exclusion
+
+Generated artifact:
+
+```text
+data/open-problem/ticket36-null-frontier-arithmetic-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-36-offcritical-null-exclusion.json
+data/open-problem/collatz/co-ticket-36-natural-null-frontier.json
+data/open-problem/goldbach/gb-ticket-36-sparse-exception-exclusion.json
+data/open-problem/twin-prime/tp-ticket-36-sparse-gap-exclusion.json
+```
+
+Aggregate verdict:
+
+```text
+null_frontier_arithmetic_open_no_resolution
+```
+
+한국어 요약: TICKET-36은 TICKET-35에서 남은 핵심 장애물인 `mass_zero_not_pointwise_proof`를 실제 산술 질문으로 바꿨다. 질량, 밀도, typical behavior가 아무리 좋아도 sparse/null exceptional object가 하나라도 무한히 남으면 난제는 깨진다. 따라서 네 난제 모두에서 필요한 것은 "예외가 드물다"가 아니라 "예외가 없다"는 pointwise theorem이다.
+
+Collatz bounded natural-exit audit:
+
+```text
+tested odd n: 50,000 values, all odd n <= 100,000
+base bits: 12
+shallow probe: up to 96 bits
+deep resolve: up to 180 bits
+shallow unresolved count: 17
+deep unresolved count: 0
+max exit bits: 135
+max exit slack over bit_length(n): 119
+max exit minus odd Collatz steps: 27
+direct sample termination: all tested direct orbits reached 1
+```
+
+Interpretation:
+
+```text
+Every tested odd integer exits the adaptive null frontier by 135 bits, so no bounded Collatz counterexample was found in the tested range. However, the audit refutes shallow natural-exclusion shortcuts: even n <= 100,000 can require much deeper certificate bits than its own bit length.
+```
+
+Discarded Collatz routes:
+
+```text
+measure-zero frontier proof without natural-integer exclusion
+small constant slack theorem exit_bits <= bit_length(n) + C for C <= 112 in the tested range
+stopping-time proxy proof unless stopping time is itself bounded by an independent rank
+```
+
+Retained Collatz routes:
+
+```text
+contrapositive search for a natural n with no frontier exit
+uniform well-founded rank that implies finite frontier exit without using orbit termination as an oracle
+deep arithmetic exclusion theorem for the limiting 2-adic null frontier
+```
+
+Cross-problem transfer:
+
+1. RH: finite-window and measure-small tail tests are insufficient. A proof must exclude every off-critical zero pointwise.
+2. Goldbach: almost-all positivity is insufficient. A zero-density infinite set of even exceptions would still falsify the conjecture.
+3. Twin Prime: bounded prime statistics are insufficient. A proof must force exact gap 2 infinitely often, not merely bounded gaps or typical pair mass.
+4. Collatz: mass decay is insufficient. A proof must exclude every positive integer from the limiting open frontier or give a non-circular decreasing rank.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-37 NaturalFrontierRankOrPointwiseExceptionElimination
+```
+
+Proof boundary:
+
+```text
+TICKET-36 does not prove or disprove any of the four open problems. It closes a methodological loophole: aggregate evidence is not enough. The next proof attempt must synthesize a pointwise rank/exclusion theorem, or deliberately search for a sparse/null counterexample object that survives all aggregate tests.
+```

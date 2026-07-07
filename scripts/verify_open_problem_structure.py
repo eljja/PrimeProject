@@ -29,6 +29,7 @@ TICKET32_SCHEMA = "primeproject.ticket32-stateful-measure-lab.v1"
 TICKET33_SCHEMA = "primeproject.ticket33-global-measure-lab.v1"
 TICKET34_SCHEMA = "primeproject.ticket34-high-branch-automaton-lab.v1"
 TICKET35_SCHEMA = "primeproject.ticket35-limsup-mass-refinement-lab.v1"
+TICKET36_SCHEMA = "primeproject.ticket36-null-frontier-arithmetic-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1029,6 +1030,72 @@ def main() -> int:
         return fail("collatz ticket35 must reject exact identity state as finite uniform proof")
     if not any(isinstance(row, dict) and int(row.get("pointwise_noncontracting_state_count", 0)) > 0 for row in rows35):
         return fail("collatz ticket35 must retain pointwise noncontraction obstruction")
+
+    ticket36_path = Path("data/open-problem/ticket36-null-frontier-arithmetic-lab.json")
+    if not ticket36_path.exists():
+        return fail("missing ticket36 null-frontier arithmetic artifact")
+    ticket36 = read_json(ticket36_path)
+    if ticket36.get("schema") != TICKET36_SCHEMA:
+        return fail("ticket36 null-frontier arithmetic artifact has unexpected schema")
+    if ticket36.get("status") != "null_frontier_arithmetic_open_no_resolution":
+        return fail("ticket36 null-frontier arithmetic overstates resolution")
+    ticket36_attempts = ticket36.get("attempts", [])
+    if not isinstance(ticket36_attempts, list):
+        return fail("ticket36 attempts must be a list")
+    ticket36_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket36_attempts if isinstance(attempt, dict)}
+    missing_ticket36 = EXPECTED_PROBLEMS - set(ticket36_by_id)
+    if missing_ticket36:
+        return fail("ticket36 attempts missing problems: " + ", ".join(sorted(missing_ticket36)))
+    ticket36_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-36-offcritical-null-exclusion.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-36-natural-null-frontier.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-36-sparse-exception-exclusion.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-36-sparse-gap-exclusion.json"),
+    }
+    for problem_id, attempt in ticket36_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket36 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket36 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket36 claim boundary is too weak")
+        path = ticket36_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket36 per-problem artifact")
+
+    collatz_ticket36 = ticket36_by_id.get("collatz", {})
+    collatz36_bounded = collatz_ticket36.get("bounded_result", {})
+    if not isinstance(collatz36_bounded, dict):
+        return fail("collatz ticket36 bounded result must be an object")
+    audit36 = collatz36_bounded.get("natural_null_frontier_audit", {})
+    if not isinstance(audit36, dict):
+        return fail("collatz ticket36 natural null-frontier audit missing")
+    if int(audit36.get("tested_odd_integer_count", 0)) < 50_000:
+        return fail("collatz ticket36 must test the intended natural integer sample")
+    if int(audit36.get("shallow_unresolved_count", 0)) <= 0:
+        return fail("collatz ticket36 must expose shallow natural frontier survivors")
+    if int(audit36.get("deep_unresolved_count", 1)) != 0:
+        return fail("collatz ticket36 bounded deep probe must resolve tested natural survivors")
+    if int(audit36.get("max_exit_bits", 0)) < 100:
+        return fail("collatz ticket36 must retain long natural exit-depth obstruction")
+    if int(audit36.get("max_exit_slack_over_bit_length", 0)) < 100:
+        return fail("collatz ticket36 must reject shallow bit-length slack proofs")
+    slack_tests36 = audit36.get("candidate_bit_length_slack_tests", [])
+    if not isinstance(slack_tests36, list) or not any(
+        isinstance(row, dict) and "112" in str(row.get("candidate_bound")) and int(row.get("violations", 0)) > 0
+        for row in slack_tests36
+    ):
+        return fail("collatz ticket36 must record violations of large constant slack bounds")
+    route36 = collatz36_bounded.get("route_decision", {})
+    if not isinstance(route36, dict):
+        return fail("collatz ticket36 route decision missing")
+    discard36 = " ".join(str(item) for item in route36.get("discard", []))
+    retain36 = " ".join(str(item) for item in route36.get("retain", []))
+    if "measure-zero" not in discard36 or "stopping-time proxy" not in discard36:
+        return fail("collatz ticket36 must discard non-pointwise and circular routes")
+    if "well-founded rank" not in retain36:
+        return fail("collatz ticket36 must retain the uniform rank route")
 
     print("open problem structure verified")
     return 0
