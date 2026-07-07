@@ -1,0 +1,19 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-40",
+  "status": "proof_pressure_open",
+  "route": "ErrorConeTransitionClosureOrExceptionalEvenCounterexample",
+  "proof_or_counterexample_mode": "transition_closure_or_counterexample_transfer",
+  "attempt": "Transfer Ticket 40's lesson: a proof route must distinguish deterministic closure, nondeterministic well-founded closure, and explicit counterexample search. Evidence that only works in a bounded window is retained as a target specification, not as a proof.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-39",
+    "source_route": "StateConePositivityPotential",
+    "discarded_deterministic_shortcut": "an averaged major/minor arc state whose future error update is assumed pointwise deterministic",
+    "retained_nondeterministic_target": "Every even integer beyond a finite seed interval enters a closed nondeterministic error-cone relation whose rank forces a positive representation margin.",
+    "counterexample_target": "an even integer state with nonpositive certified margin that survives all residue and error-cone refinements"
+  },
+  "obstruction": "The finite state object still lacks a theorem that all future symbolic states are closed under the proposed transition relation. Without that theorem, the route can only be evidence or a counterexample generator.",
+  "candidate_theorem": "Every even integer beyond a finite seed interval enters a closed nondeterministic error-cone relation whose rank forces a positive representation margin.",
+  "next_experiment": "Build error-cone transition formulas and search for closed nonpositive cycles or an explicit cutoff theorem.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}

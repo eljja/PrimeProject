@@ -1,0 +1,19 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-40",
+  "status": "proof_pressure_open",
+  "route": "ExactGapTransitionClosureOrLastTwinCounterexample",
+  "proof_or_counterexample_mode": "transition_closure_or_counterexample_transfer",
+  "attempt": "Transfer Ticket 40's lesson: a proof route must distinguish deterministic closure, nondeterministic well-founded closure, and explicit counterexample search. Evidence that only works in a bounded window is retained as a target specification, not as a proof.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-39",
+    "source_route": "ExactGapLeakagePotential",
+    "discarded_deterministic_shortcut": "a bounded-gap state that treats exact gap 2 leakage as a deterministic residue update",
+    "retained_nondeterministic_target": "At every sufficiently large scale, exact-gap states remain inside a closed nondeterministic leakage relation with positive gap-2 residual mass.",
+    "counterexample_target": "a scale transition that absorbs all exact gap-2 mass into wider admissible gaps, modelling a last-twin scenario"
+  },
+  "obstruction": "The finite state object still lacks a theorem that all future symbolic states are closed under the proposed transition relation. Without that theorem, the route can only be evidence or a counterexample generator.",
+  "candidate_theorem": "At every sufficiently large scale, exact-gap states remain inside a closed nondeterministic leakage relation with positive gap-2 residual mass.",
+  "next_experiment": "Derive exact-gap leakage transitions and search for absorbing zero-gap-2 cycles under admissible residues.",
+  "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+}

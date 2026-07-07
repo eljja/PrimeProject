@@ -1514,3 +1514,91 @@ Proof boundary:
 ```text
 TICKET-39 does not prove or disprove any of the four open problems. It is a stronger synthesis step than TICKET-38 because it produces a concrete finite rank candidate and separately rejects coarse cyclic quotients. The next step must either prove symbolic closure of the phase_mod16_tail4_residue256 transition system or find a reachable future cycle/counterexample state that defeats it.
 ```
+
+### Ticket 40: Transition closure or cycle counterexample
+
+Generated artifact:
+
+```text
+data/open-problem/ticket40-transition-closure-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-40-zero-transition-closure.json
+data/open-problem/collatz/co-ticket-40-transition-closure.json
+data/open-problem/goldbach/gb-ticket-40-error-cone-transition-closure.json
+data/open-problem/twin-prime/tp-ticket-40-gap-leakage-transition-closure.json
+```
+
+Aggregate verdict:
+
+```text
+transition_closure_open_no_resolution
+```
+
+한국어 요약: TICKET-40은 TICKET-39의 좋은 후보를 그대로 이어받아 “정말 닫힌 전이 정리로 승격 가능한가?”를 공격했다. 결과적으로 `phase_mod16_tail4_residue256` 상태가 branching label 자체는 안정적으로 결정하지만, exact child-state signature는 같은 parent state에서도 여러 방식으로 갈라진다. 따라서 deterministic finite transducer 방식의 증명은 버린다. 그러나 sampled nondeterministic transition relation은 26비트 extension probe까지 cycle 없이 유지되고 topological rank violation도 없었다. 그래서 남은 증명 목표는 결정적 전이가 아니라, 전역적으로 닫힌 비결정적 well-founded relation을 증명하거나 미래 reachable cycle을 찾아 반례 후보를 만드는 것이다.
+
+Collatz primary closure audit:
+
+```text
+frontier bits: 12..24
+parent instance count: 389,409
+state count: 188,651
+state edge count: 440,614
+ambiguous label states: 0
+ambiguous child-signature states: 39,077
+max child signatures for one state: 34
+deterministic exact-child closure: refuted_by_child_state_signature_collision
+```
+
+Collatz extension probe:
+
+```text
+frontier bits: 12..26
+parent instance count: 1,294,925
+state count: 413,343
+state edge count: 1,340,093
+final frontier count: 1,099,648
+ambiguous label states: 0
+ambiguous child-signature states: 97,019
+sampled cycle detected: false
+max topological rank: 14
+rank edge violations: 0
+```
+
+Discarded Collatz routes:
+
+```text
+deterministic exact-child finite transducer for phase_mod16_tail4_residue256
+finite-window acyclic rank treated as a global Collatz proof
+state quotients that do not state how all future reachable transitions are closed
+```
+
+Retained Collatz routes:
+
+```text
+label-level closure as a possible symbolic lemma, not yet a theorem
+nondeterministic acyclic transition relation with sampled topological rank
+contrapositive search for a future reachable cycle or escaping survivor state
+```
+
+Cross-problem transfer:
+
+1. RH: split a zero-exclusion route into deterministic zero-state closure, nondeterministic positivity-state rank, and explicit off-critical zero/cycle counterexample targets.
+2. Goldbach: split an error-cone route into deterministic error update rejection, nondeterministic pointwise positivity rank, and exceptional even-integer counterexample search.
+3. Twin Prime: split an exact-gap route into deterministic leakage rejection, nondeterministic exact-gap residual rank, and last-twin absorbing-cycle search.
+4. Collatz: reject deterministic child-state closure while retaining a nondeterministic acyclic rank candidate.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-41 SymbolicNondeterministicClosureOrReachableCycle
+```
+
+Proof boundary:
+
+```text
+TICKET-40 does not prove or disprove any of the four open problems. It is useful because it removes a specific false promotion path: a finite sampled rank cannot be treated as a deterministic closed transducer. The next step must either prove symbolic closure of the nondeterministic transition relation or find a reachable future cycle/counterexample state.
+```

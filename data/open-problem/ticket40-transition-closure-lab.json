@@ -1,0 +1,1302 @@
+{
+  "schema": "primeproject.ticket40-transition-closure-lab.v1",
+  "generated_at": "2026-07-08T13:20:00+09:00",
+  "status": "transition_closure_open_no_resolution",
+  "claim_boundary": "Ticket 40 refutes one deterministic closure shortcut and sharpens a nondeterministic closure target. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-40",
+      "status": "proof_pressure_open",
+      "route": "ZeroTransitionClosureOrOffCriticalCounterexample",
+      "proof_or_counterexample_mode": "transition_closure_or_counterexample_transfer",
+      "attempt": "Transfer Ticket 40's lesson: a proof route must distinguish deterministic closure, nondeterministic well-founded closure, and explicit counterexample search. Evidence that only works in a bounded window is retained as a target specification, not as a proof.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-39",
+        "source_route": "PhaseStateZeroExclusionPotential",
+        "discarded_deterministic_shortcut": "a finite-height zero detector whose next state is assumed deterministic without a tail-height closure theorem",
+        "retained_nondeterministic_target": "Every hypothetical off-critical zero induces a closed nondeterministic positivity-state transition with a strictly decreasing rank, or else a zero-configuration cycle becomes an explicit RH counterexample target.",
+        "counterexample_target": "a reproducible off-critical zero configuration or a positivity-state cycle that evades the proposed rank"
+      },
+      "obstruction": "The finite state object still lacks a theorem that all future symbolic states are closed under the proposed transition relation. Without that theorem, the route can only be evidence or a counterexample generator.",
+      "candidate_theorem": "Every hypothetical off-critical zero induces a closed nondeterministic positivity-state transition with a strictly decreasing rank, or else a zero-configuration cycle becomes an explicit RH counterexample target.",
+      "next_experiment": "Construct symbolic zero-state transitions from explicit-formula kernels and search for rank-preserving cycles.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-40",
+      "status": "proof_pressure_open",
+      "route": "PhaseStateTransitionClosureOrCycleCounterexample",
+      "proof_or_counterexample_mode": "transition_closure_refutation_and_nondeterministic_rank_search",
+      "attempt": "Continue from Ticket 39 without discarding its useful part: test whether the retained phase/state rank can be promoted into a closed transition theorem. The deterministic child-state closure is attacked first, because one collision there is enough to reject that proof route.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-39",
+        "transition_closure_audit": {
+          "base_bits": 12,
+          "max_bits": 26,
+          "primary_window": {
+            "family": "phase_mod16_tail4_residue256",
+            "base_bits": 12,
+            "max_bits": 24,
+            "parent_instance_count": 389409,
+            "state_count": 188651,
+            "node_count": 282660,
+            "state_edge_count": 440614,
+            "final_frontier_count": 317095,
+            "transition_totals": {
+              "both_closed": 11790,
+              "both_open": 326837,
+              "high_only_open": 20152,
+              "low_only_open": 30630
+            },
+            "tail_level_rows": [
+              {
+                "bits": 18,
+                "parent_frontier_count": 8077,
+                "next_frontier_count": 15264,
+                "transition_counts": {
+                  "both_closed": 308,
+                  "both_open": 7495,
+                  "low_only_open": 274
+                },
+                "survival_ratio": 0.944905286616
+              },
+              {
+                "bits": 19,
+                "parent_frontier_count": 15264,
+                "next_frontier_count": 28789,
+                "transition_counts": {
+                  "both_closed": 137,
+                  "both_open": 13662,
+                  "high_only_open": 676,
+                  "low_only_open": 789
+                },
+                "survival_ratio": 0.943035901468
+              },
+              {
+                "bits": 20,
+                "parent_frontier_count": 28789,
+                "next_frontier_count": 51375,
+                "transition_counts": {
+                  "both_closed": 726,
+                  "both_open": 23312,
+                  "high_only_open": 2020,
+                  "low_only_open": 2731
+                },
+                "survival_ratio": 0.892267880093
+              },
+              {
+                "bits": 21,
+                "parent_frontier_count": 51375,
+                "next_frontier_count": 95621,
+                "transition_counts": {
+                  "both_closed": 2365,
+                  "both_open": 46611,
+                  "low_only_open": 2399
+                },
+                "survival_ratio": 0.930618004866
+              },
+              {
+                "bits": 22,
+                "parent_frontier_count": 95621,
+                "next_frontier_count": 178851,
+                "transition_counts": {
+                  "both_closed": 1208,
+                  "both_open": 84438,
+                  "high_only_open": 4366,
+                  "low_only_open": 5609
+                },
+                "survival_ratio": 0.935207747252
+              },
+              {
+                "bits": 23,
+                "parent_frontier_count": 178851,
+                "next_frontier_count": 317095,
+                "transition_counts": {
+                  "both_closed": 4926,
+                  "both_open": 143170,
+                  "high_only_open": 12656,
+                  "low_only_open": 18099
+                },
+                "survival_ratio": 0.88647812984
+              }
+            ],
+            "ambiguous_label_state_count": 0,
+            "ambiguous_child_signature_state_count": 39077,
+            "ambiguous_child_signature_state_rate": 0.207139108725,
+            "max_child_signature_count_for_one_state": 34,
+            "child_signature_count_histogram": {
+              "1": 149574,
+              "2": 20458,
+              "3": 9055,
+              "4": 4260,
+              "5": 2153,
+              "6": 1134,
+              "7": 733,
+              "8": 407,
+              "9": 197,
+              "10": 151,
+              "11": 110,
+              "12": 72,
+              "13": 68,
+              "14": 49,
+              "15": 52,
+              "16": 26,
+              "17": 30,
+              "18": 26,
+              "19": 17,
+              "20": 24,
+              "21": 6,
+              "22": 11,
+              "23": 8,
+              "24": 9,
+              "25": 9,
+              "26": 3,
+              "27": 4,
+              "28": 3,
+              "29": 1,
+              "34": 1
+            },
+            "deterministic_transition_closure": {
+              "status": "refuted_by_child_state_signature_collision",
+              "tested_claim": "A phase_mod16/tail4/residue256 parent state determines one exact open-child state signature.",
+              "result": "The branching label is stable in this window, but many parent states have multiple exact child-state signatures. A deterministic finite transducer proof route is therefore not valid at this state resolution.",
+              "ambiguous_examples": [
+                {
+                  "state": "[14,11,14,1,3.4346,[1,1,1,1],231]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 14,
+                      "parent_residue": 4583,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 4583,
+                      "high_residue": 20967,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[15,12,15,5,4.0196,[1,1,1,1],231]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[15,11,15,1,2.4346,[1,1,1,2],231]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 14,
+                      "parent_residue": 13543,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 13543,
+                      "high_residue": 29927,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[15,12,15,1,4.0196,[1,1,1,1],231]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[15,11,15,4,2.4346,[1,1,1,2],231]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,12,15,1,4.0196,[1,1,1,2],239]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 4591,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 4591,
+                      "high_residue": 37359,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,1,4.6045,[1,1,2,1],239]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,11,13,7,4.4346,[1,1,1,1],239]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 29423,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 29423,
+                      "high_residue": 62191,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,2,4.6045,[1,1,2,1],239]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,11,13,4,4.4346,[2,1,1,1],239]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,13,15,1,5.6045,[1,1,1,1],239]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 20975,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 20975,
+                      "high_residue": 53743,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,14,16,1,6.1895,[1,1,1,1],239]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,16,4,4.6045,[1,1,1,2],239]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 18671,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 18671,
+                      "high_residue": 51439,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,14,16,1,6.1895,[1,1,1,1],239]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,16,2,4.6045,[1,1,1,2],239]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,13,15,2,5.6045,[1,1,1,1],127]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 17023,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 17023,
+                      "high_residue": 49791,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,15,2,5.6045,[1,1,1,1],127]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,12,14,3,5.0196,[2,1,1,1],127]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 19327,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 19327,
+                      "high_residue": 52095,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,15,2,5.6045,[1,1,1,1],127]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,12,14,3,5.0196,[1,1,1,1],127]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,12,14,2,5.0196,[1,1,1,1],191]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 703,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 703,
+                      "high_residue": 33471,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,1,4.6045,[1,1,1,2],191]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,15,2,5.6045,[1,1,1,1],191]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 25535,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 25535,
+                      "high_residue": 58303,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,3,4.6045,[1,1,1,2],191]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,15,3,5.6045,[1,1,1,1],191]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,13,15,1,5.6045,[1,1,1,1],103]",
+                  "occurrences": 3,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 3,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 871,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 871,
+                      "high_residue": 33639,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,14,16,2,6.1895,[1,1,1,1],103]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,16,1,4.6045,[1,1,1,2],103]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 3175,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 3175,
+                      "high_residue": 35943,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,14,16,3,6.1895,[1,1,1,1],103]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,16,1,4.6045,[1,1,1,2],103]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 28007,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 28007,
+                      "high_residue": 60775,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,14,16,1,6.1895,[1,1,1,1],103]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,16,4,4.6045,[1,1,1,2],103]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,12,15,1,4.0196,[1,1,1,1],91]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 13403,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 13403,
+                      "high_residue": 46171,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,2,4.6045,[1,1,1,1],91]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,11,14,3,3.4346,[2,1,1,1],91]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 20315,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 20315,
+                      "high_residue": 53083,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,5,4.6045,[1,1,1,1],91]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,11,14,3,3.4346,[1,1,1,1],91]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,12,15,2,4.0196,[1,1,1,1],111]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 22383,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 22383,
+                      "high_residue": 55151,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,12,15,2,4.0196,[1,1,1,1],111]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,12,16,2,3.0196,[1,1,1,2],111]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 15471,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 15471,
+                      "high_residue": 48239,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,12,15,2,4.0196,[1,1,1,1],111]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,12,16,6,3.0196,[1,1,1,2],111]"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "nondeterministic_transition_relation": {
+              "status": "finite_window_acyclic_relation_candidate",
+              "tested_claim": "The same state family may still define a finite nondeterministic transition relation admitting a strictly decreasing topological rank over sampled open edges.",
+              "topological_potential": {
+                "cycle_detected": false,
+                "topological_seen_count": 282660,
+                "cyclic_core_node_count": 0,
+                "max_topological_rank": 12,
+                "rank_positive_state_count": 180850,
+                "rank_sink_state_count": 101810,
+                "rank_edge_violations": 0,
+                "top_rank_examples": [
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,3,5.4346,[1,2,1,1],255]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,3,5.4346,[1,1,1,2],255]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,3,5.4346,[1,1,1,1],127]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,2,5.4346,[1,1,1,1],191]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,2,5.4346,[1,1,1,1],103]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,12,1,5.4346,[1,1,1,1],27]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,11,11,5,6.4346,[1,1,1,1],255]"
+                  },
+                  {
+                    "rank": 12,
+                    "state": "[12,10,12,7,3.8496,[1,1,2,2],255]"
+                  }
+                ]
+              }
+            }
+          },
+          "extension_probe": {
+            "family": "phase_mod16_tail4_residue256",
+            "base_bits": 12,
+            "max_bits": 26,
+            "parent_instance_count": 1294925,
+            "state_count": 413343,
+            "node_count": 590519,
+            "state_edge_count": 1049993,
+            "final_frontier_count": 1099648,
+            "transition_totals": {
+              "both_closed": 34674,
+              "both_open": 1132274,
+              "high_only_open": 47314,
+              "low_only_open": 80663
+            },
+            "tail_level_rows": [
+              {
+                "bits": 20,
+                "parent_frontier_count": 28789,
+                "next_frontier_count": 51375,
+                "transition_counts": {
+                  "both_closed": 726,
+                  "both_open": 23312,
+                  "high_only_open": 2020,
+                  "low_only_open": 2731
+                },
+                "survival_ratio": 0.892267880093
+              },
+              {
+                "bits": 21,
+                "parent_frontier_count": 51375,
+                "next_frontier_count": 95621,
+                "transition_counts": {
+                  "both_closed": 2365,
+                  "both_open": 46611,
+                  "low_only_open": 2399
+                },
+                "survival_ratio": 0.930618004866
+              },
+              {
+                "bits": 22,
+                "parent_frontier_count": 95621,
+                "next_frontier_count": 178851,
+                "transition_counts": {
+                  "both_closed": 1208,
+                  "both_open": 84438,
+                  "high_only_open": 4366,
+                  "low_only_open": 5609
+                },
+                "survival_ratio": 0.935207747252
+              },
+              {
+                "bits": 23,
+                "parent_frontier_count": 178851,
+                "next_frontier_count": 317095,
+                "transition_counts": {
+                  "both_closed": 4926,
+                  "both_open": 143170,
+                  "high_only_open": 12656,
+                  "low_only_open": 18099
+                },
+                "survival_ratio": 0.88647812984
+              },
+              {
+                "bits": 24,
+                "parent_frontier_count": 317095,
+                "next_frontier_count": 588421,
+                "transition_counts": {
+                  "both_closed": 15255,
+                  "both_open": 286581,
+                  "low_only_open": 15259
+                },
+                "survival_ratio": 0.927830776266
+              },
+              {
+                "bits": 25,
+                "parent_frontier_count": 588421,
+                "next_frontier_count": 1099648,
+                "transition_counts": {
+                  "both_closed": 7629,
+                  "both_open": 518856,
+                  "high_only_open": 27162,
+                  "low_only_open": 34774
+                },
+                "survival_ratio": 0.934405808086
+              }
+            ],
+            "ambiguous_label_state_count": 0,
+            "ambiguous_child_signature_state_count": 97019,
+            "ambiguous_child_signature_state_rate": 0.234717897727,
+            "max_child_signature_count_for_one_state": 55,
+            "child_signature_count_histogram": {
+              "1": 316324,
+              "2": 42684,
+              "3": 21838,
+              "4": 12184,
+              "5": 6718,
+              "6": 3905,
+              "7": 2672,
+              "8": 1819,
+              "9": 1159,
+              "10": 894,
+              "11": 644,
+              "12": 431,
+              "13": 342,
+              "14": 255,
+              "15": 262,
+              "16": 184,
+              "17": 185,
+              "18": 160,
+              "19": 119,
+              "20": 90,
+              "21": 54,
+              "22": 56,
+              "23": 59,
+              "24": 64,
+              "25": 47,
+              "26": 40,
+              "27": 36,
+              "28": 17,
+              "29": 19,
+              "30": 12,
+              "31": 5,
+              "32": 2,
+              "33": 7,
+              "34": 3,
+              "35": 5,
+              "36": 6,
+              "37": 9,
+              "38": 5,
+              "39": 11,
+              "40": 3,
+              "41": 3,
+              "42": 5,
+              "47": 1,
+              "49": 1,
+              "50": 1,
+              "51": 1,
+              "52": 1,
+              "55": 1
+            },
+            "deterministic_transition_closure": {
+              "status": "refuted_by_child_state_signature_collision",
+              "tested_claim": "A phase_mod16/tail4/residue256 parent state determines one exact open-child state signature.",
+              "result": "The branching label is stable in this window, but many parent states have multiple exact child-state signatures. A deterministic finite transducer proof route is therefore not valid at this state resolution.",
+              "ambiguous_examples": [
+                {
+                  "state": "[14,11,14,1,3.4346,[1,1,1,1],231]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 14,
+                      "parent_residue": 4583,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 4583,
+                      "high_residue": 20967,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[15,12,15,5,4.0196,[1,1,1,1],231]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[15,11,15,1,2.4346,[1,1,1,2],231]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 14,
+                      "parent_residue": 13543,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 13543,
+                      "high_residue": 29927,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[15,12,15,1,4.0196,[1,1,1,1],231]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[15,11,15,4,2.4346,[1,1,1,2],231]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,12,15,1,4.0196,[1,1,1,2],239]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 4591,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 4591,
+                      "high_residue": 37359,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,1,4.6045,[1,1,2,1],239]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,11,13,7,4.4346,[1,1,1,1],239]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 29423,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 29423,
+                      "high_residue": 62191,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,2,4.6045,[1,1,2,1],239]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,11,13,4,4.4346,[2,1,1,1],239]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,13,15,1,5.6045,[1,1,1,1],239]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 20975,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 20975,
+                      "high_residue": 53743,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,14,16,1,6.1895,[1,1,1,1],239]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,16,4,4.6045,[1,1,1,2],239]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 18671,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 18671,
+                      "high_residue": 51439,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,14,16,1,6.1895,[1,1,1,1],239]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,16,2,4.6045,[1,1,1,2],239]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,13,15,2,5.6045,[1,1,1,1],127]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 17023,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 17023,
+                      "high_residue": 49791,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,15,2,5.6045,[1,1,1,1],127]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,12,14,3,5.0196,[2,1,1,1],127]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 19327,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 19327,
+                      "high_residue": 52095,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,15,2,5.6045,[1,1,1,1],127]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,12,14,3,5.0196,[1,1,1,1],127]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,12,14,2,5.0196,[1,1,1,1],191]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 703,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 703,
+                      "high_residue": 33471,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,1,4.6045,[1,1,1,2],191]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,15,2,5.6045,[1,1,1,1],191]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 25535,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 25535,
+                      "high_residue": 58303,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,3,4.6045,[1,1,1,2],191]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,15,3,5.6045,[1,1,1,1],191]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,13,15,1,5.6045,[1,1,1,1],103]",
+                  "occurrences": 3,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 3,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 871,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 871,
+                      "high_residue": 33639,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,14,16,2,6.1895,[1,1,1,1],103]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,16,1,4.6045,[1,1,1,2],103]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 3175,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 3175,
+                      "high_residue": 35943,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,14,16,3,6.1895,[1,1,1,1],103]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,16,1,4.6045,[1,1,1,2],103]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 28007,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 28007,
+                      "high_residue": 60775,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,14,16,1,6.1895,[1,1,1,1],103]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,13,16,4,4.6045,[1,1,1,2],103]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,12,15,1,4.0196,[1,1,1,1],91]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 13403,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 13403,
+                      "high_residue": 46171,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,2,4.6045,[1,1,1,1],91]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,11,14,3,3.4346,[2,1,1,1],91]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 20315,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 20315,
+                      "high_residue": 53083,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,13,16,5,4.6045,[1,1,1,1],91]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,11,14,3,3.4346,[1,1,1,1],91]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "state": "[15,12,15,2,4.0196,[1,1,1,1],111]",
+                  "occurrences": 2,
+                  "labels": [
+                    "both_open"
+                  ],
+                  "signature_count": 2,
+                  "observations": [
+                    {
+                      "bits": 15,
+                      "parent_residue": 22383,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 22383,
+                      "high_residue": 55151,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,12,15,2,4.0196,[1,1,1,1],111]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,12,16,2,3.0196,[1,1,1,2],111]"
+                        }
+                      ]
+                    },
+                    {
+                      "bits": 15,
+                      "parent_residue": 15471,
+                      "label": "both_open",
+                      "low_status": "needs_split",
+                      "high_status": "needs_split",
+                      "low_residue": 15471,
+                      "high_residue": 48239,
+                      "child_signature": [
+                        {
+                          "direction": "low",
+                          "state": "[0,12,15,2,4.0196,[1,1,1,1],111]"
+                        },
+                        {
+                          "direction": "high",
+                          "state": "[0,12,16,6,3.0196,[1,1,1,2],111]"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "nondeterministic_transition_relation": {
+              "status": "finite_window_acyclic_relation_candidate",
+              "tested_claim": "The same state family may still define a finite nondeterministic transition relation admitting a strictly decreasing topological rank over sampled open edges.",
+              "topological_potential": {
+                "cycle_detected": false,
+                "topological_seen_count": 590519,
+                "cyclic_core_node_count": 0,
+                "max_topological_rank": 14,
+                "rank_positive_state_count": 392975,
+                "rank_sink_state_count": 197544,
+                "rank_edge_violations": 0,
+                "top_rank_examples": [
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,3,5.4346,[1,2,1,1],255]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,3,5.4346,[1,1,1,2],255]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,3,5.4346,[1,1,1,1],127]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,2,5.4346,[1,1,1,1],191]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,2,5.4346,[1,1,1,1],103]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,12,1,5.4346,[1,1,1,1],27]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,11,11,5,6.4346,[1,1,1,1],255]"
+                  },
+                  {
+                    "rank": 14,
+                    "state": "[12,10,12,7,3.8496,[1,1,2,2],255]"
+                  }
+                ]
+              }
+            }
+          },
+          "new_state_pressure_after_primary": {
+            "state_count_delta": 224692,
+            "node_count_delta": 307859,
+            "state_edge_count_delta": 609379,
+            "ambiguous_child_signature_state_delta": 57942,
+            "frontier_growth_factor": 3.467881865056
+          },
+          "closure_tests": [
+            {
+              "candidate": "deterministic exact child-state transition closure",
+              "status": "refuted_by_child_state_signature_collision",
+              "evidence": "39077 ambiguous child-signature states in the 12..24 window."
+            },
+            {
+              "candidate": "label-level transition closure",
+              "status": "supported_in_window_not_proved",
+              "evidence": "0 label-collision states through 12..26."
+            },
+            {
+              "candidate": "nondeterministic acyclic rank relation",
+              "status": "finite_window_acyclic_relation_candidate",
+              "evidence": "cycle=False, rank violations=0"
+            }
+          ],
+          "closed_bounded_statement": "For the generated symbolic frontier through the extension probe, phase_mod16_tail4_residue256 does not define a deterministic exact-child transition function, but its sampled nondeterministic open-edge relation remains acyclic and rank-decreasing.",
+          "proof_boundary": "This is not a Collatz proof. It refutes a deterministic closure shortcut and sharpens the remaining target to a symbolic theorem that every future reachable nondeterministic transition stays inside a globally well-founded relation, or else produces a reachable cycle/counterexample state."
+        },
+        "route_decision": {
+          "discard": [
+            "deterministic exact-child finite transducer for phase_mod16_tail4_residue256",
+            "finite-window acyclic rank treated as a global Collatz proof",
+            "state quotients that do not state how all future reachable transitions are closed"
+          ],
+          "retain": [
+            "label-level closure as a possible symbolic lemma, not yet a theorem",
+            "nondeterministic acyclic transition relation with sampled topological rank",
+            "contrapositive search for a future reachable cycle or escaping survivor state"
+          ]
+        }
+      },
+      "obstruction": "The primary window has 39077 parent states whose exact open-child signatures differ across occurrences, and the extension probe raises that count to 97019. This blocks a deterministic transducer proof at the retained state resolution.",
+      "candidate_theorem": "There exists a finite nondeterministic phase/state relation R and rank H such that every future reachable open-frontier transition is an R-edge and H strictly decreases on every R-edge; otherwise a reachable R-cycle or escaping state is a Collatz counterexample target.",
+      "next_experiment": "Derive symbolic formulas for the label-level transition relation, then either prove that the nondeterministic edge set is globally closed and acyclic or synthesize a future edge that closes a cycle.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-40",
+      "status": "proof_pressure_open",
+      "route": "ErrorConeTransitionClosureOrExceptionalEvenCounterexample",
+      "proof_or_counterexample_mode": "transition_closure_or_counterexample_transfer",
+      "attempt": "Transfer Ticket 40's lesson: a proof route must distinguish deterministic closure, nondeterministic well-founded closure, and explicit counterexample search. Evidence that only works in a bounded window is retained as a target specification, not as a proof.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-39",
+        "source_route": "StateConePositivityPotential",
+        "discarded_deterministic_shortcut": "an averaged major/minor arc state whose future error update is assumed pointwise deterministic",
+        "retained_nondeterministic_target": "Every even integer beyond a finite seed interval enters a closed nondeterministic error-cone relation whose rank forces a positive representation margin.",
+        "counterexample_target": "an even integer state with nonpositive certified margin that survives all residue and error-cone refinements"
+      },
+      "obstruction": "The finite state object still lacks a theorem that all future symbolic states are closed under the proposed transition relation. Without that theorem, the route can only be evidence or a counterexample generator.",
+      "candidate_theorem": "Every even integer beyond a finite seed interval enters a closed nondeterministic error-cone relation whose rank forces a positive representation margin.",
+      "next_experiment": "Build error-cone transition formulas and search for closed nonpositive cycles or an explicit cutoff theorem.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-40",
+      "status": "proof_pressure_open",
+      "route": "ExactGapTransitionClosureOrLastTwinCounterexample",
+      "proof_or_counterexample_mode": "transition_closure_or_counterexample_transfer",
+      "attempt": "Transfer Ticket 40's lesson: a proof route must distinguish deterministic closure, nondeterministic well-founded closure, and explicit counterexample search. Evidence that only works in a bounded window is retained as a target specification, not as a proof.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-39",
+        "source_route": "ExactGapLeakagePotential",
+        "discarded_deterministic_shortcut": "a bounded-gap state that treats exact gap 2 leakage as a deterministic residue update",
+        "retained_nondeterministic_target": "At every sufficiently large scale, exact-gap states remain inside a closed nondeterministic leakage relation with positive gap-2 residual mass.",
+        "counterexample_target": "a scale transition that absorbs all exact gap-2 mass into wider admissible gaps, modelling a last-twin scenario"
+      },
+      "obstruction": "The finite state object still lacks a theorem that all future symbolic states are closed under the proposed transition relation. Without that theorem, the route can only be evidence or a counterexample generator.",
+      "candidate_theorem": "At every sufficiently large scale, exact-gap states remain inside a closed nondeterministic leakage relation with positive gap-2 residual mass.",
+      "next_experiment": "Derive exact-gap leakage transitions and search for absorbing zero-gap-2 cycles under admissible residues.",
+      "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+    }
+  ]
+}

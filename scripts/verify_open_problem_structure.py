@@ -33,6 +33,7 @@ TICKET36_SCHEMA = "primeproject.ticket36-null-frontier-arithmetic-lab.v1"
 TICKET37_SCHEMA = "primeproject.ticket37-pointwise-rank-synthesis-lab.v1"
 TICKET38_SCHEMA = "primeproject.ticket38-symbolic-frontier-extension-lab.v1"
 TICKET39_SCHEMA = "primeproject.ticket39-phase-state-potential-lab.v1"
+TICKET40_SCHEMA = "primeproject.ticket40-transition-closure-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1333,6 +1334,97 @@ def main() -> int:
         return fail("collatz ticket39 must reject finite-window DAG overclaiming")
     if "transition-closure theorem" not in retain39:
         return fail("collatz ticket39 must retain transition closure as the next theorem target")
+
+    ticket40_path = Path("data/open-problem/ticket40-transition-closure-lab.json")
+    if not ticket40_path.exists():
+        return fail("missing ticket40 transition closure artifact")
+    ticket40 = read_json(ticket40_path)
+    if ticket40.get("schema") != TICKET40_SCHEMA:
+        return fail("ticket40 transition closure artifact has unexpected schema")
+    if ticket40.get("status") != "transition_closure_open_no_resolution":
+        return fail("ticket40 transition closure overstates resolution")
+    ticket40_attempts = ticket40.get("attempts", [])
+    if not isinstance(ticket40_attempts, list):
+        return fail("ticket40 attempts must be a list")
+    ticket40_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket40_attempts if isinstance(attempt, dict)}
+    missing_ticket40 = EXPECTED_PROBLEMS - set(ticket40_by_id)
+    if missing_ticket40:
+        return fail("ticket40 attempts missing problems: " + ", ".join(sorted(missing_ticket40)))
+    ticket40_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-40-zero-transition-closure.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-40-transition-closure.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-40-error-cone-transition-closure.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-40-gap-leakage-transition-closure.json"),
+    }
+    for problem_id, attempt in ticket40_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket40 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket40 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket40 claim boundary is too weak")
+        path = ticket40_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket40 per-problem artifact")
+
+    collatz_ticket40 = ticket40_by_id.get("collatz", {})
+    collatz40_bounded = collatz_ticket40.get("bounded_result", {})
+    if not isinstance(collatz40_bounded, dict):
+        return fail("collatz ticket40 bounded result must be an object")
+    audit40 = collatz40_bounded.get("transition_closure_audit", {})
+    if not isinstance(audit40, dict):
+        return fail("collatz ticket40 transition closure audit missing")
+    primary40 = audit40.get("primary_window", {})
+    extension40 = audit40.get("extension_probe", {})
+    if not isinstance(primary40, dict) or not isinstance(extension40, dict):
+        return fail("collatz ticket40 primary and extension windows must be objects")
+    if int(primary40.get("max_bits", 0)) < 24 or int(extension40.get("max_bits", 0)) < 26:
+        return fail("collatz ticket40 must include primary and extension transition windows")
+    if int(primary40.get("parent_instance_count", 0)) < 380_000:
+        return fail("collatz ticket40 primary window must reuse the large phase/state frontier")
+    if int(extension40.get("parent_instance_count", 0)) < 1_200_000:
+        return fail("collatz ticket40 extension probe must stress more than one million parent instances")
+    if int(primary40.get("ambiguous_label_state_count", -1)) != 0:
+        return fail("collatz ticket40 should preserve the sampled label-level closure fact")
+    if int(primary40.get("ambiguous_child_signature_state_count", 0)) < 30_000:
+        return fail("collatz ticket40 must refute deterministic child-state closure in the primary window")
+    if int(extension40.get("ambiguous_child_signature_state_count", 0)) < 90_000:
+        return fail("collatz ticket40 must show deterministic child-state collisions persist in the extension probe")
+    deterministic40 = primary40.get("deterministic_transition_closure", {})
+    if not isinstance(deterministic40, dict):
+        return fail("collatz ticket40 deterministic closure result missing")
+    if deterministic40.get("status") != "refuted_by_child_state_signature_collision":
+        return fail("collatz ticket40 must reject deterministic exact-child transition closure")
+    if not deterministic40.get("ambiguous_examples"):
+        return fail("collatz ticket40 must include ambiguous transition examples")
+    nondeterministic40 = extension40.get("nondeterministic_transition_relation", {})
+    if not isinstance(nondeterministic40, dict):
+        return fail("collatz ticket40 nondeterministic relation result missing")
+    topo40 = nondeterministic40.get("topological_potential", {})
+    if not isinstance(topo40, dict) or topo40.get("cycle_detected") is not False:
+        return fail("collatz ticket40 extension probe must remain acyclic in the sampled nondeterministic relation")
+    if int(topo40.get("rank_edge_violations", -1)) != 0:
+        return fail("collatz ticket40 sampled nondeterministic rank must have no edge violations")
+    if int(topo40.get("max_topological_rank", 0)) < 14:
+        return fail("collatz ticket40 extension probe must retain a nontrivial rank")
+    closure_tests40 = audit40.get("closure_tests", [])
+    if not isinstance(closure_tests40, list):
+        return fail("collatz ticket40 closure tests missing")
+    closure_status40 = " ".join(str(row.get("status")) for row in closure_tests40 if isinstance(row, dict))
+    if "refuted_by_child_state_signature_collision" not in closure_status40:
+        return fail("collatz ticket40 closure tests must record deterministic refutation")
+    route40 = collatz40_bounded.get("route_decision", {})
+    if not isinstance(route40, dict):
+        return fail("collatz ticket40 route decision missing")
+    discard40 = " ".join(str(item) for item in route40.get("discard", []))
+    retain40 = " ".join(str(item) for item in route40.get("retain", []))
+    if "deterministic exact-child" not in discard40 or "finite-window acyclic rank" not in discard40:
+        return fail("collatz ticket40 must discard deterministic closure and finite-window overclaims")
+    if "nondeterministic acyclic transition relation" not in retain40 or "cycle" not in retain40:
+        return fail("collatz ticket40 must retain nondeterministic closure and cycle search")
+    if "not a Collatz proof" not in str(audit40.get("proof_boundary", "")):
+        return fail("collatz ticket40 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

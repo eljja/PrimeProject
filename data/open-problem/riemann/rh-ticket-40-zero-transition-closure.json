@@ -1,0 +1,19 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-40",
+  "status": "proof_pressure_open",
+  "route": "ZeroTransitionClosureOrOffCriticalCounterexample",
+  "proof_or_counterexample_mode": "transition_closure_or_counterexample_transfer",
+  "attempt": "Transfer Ticket 40's lesson: a proof route must distinguish deterministic closure, nondeterministic well-founded closure, and explicit counterexample search. Evidence that only works in a bounded window is retained as a target specification, not as a proof.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-39",
+    "source_route": "PhaseStateZeroExclusionPotential",
+    "discarded_deterministic_shortcut": "a finite-height zero detector whose next state is assumed deterministic without a tail-height closure theorem",
+    "retained_nondeterministic_target": "Every hypothetical off-critical zero induces a closed nondeterministic positivity-state transition with a strictly decreasing rank, or else a zero-configuration cycle becomes an explicit RH counterexample target.",
+    "counterexample_target": "a reproducible off-critical zero configuration or a positivity-state cycle that evades the proposed rank"
+  },
+  "obstruction": "The finite state object still lacks a theorem that all future symbolic states are closed under the proposed transition relation. Without that theorem, the route can only be evidence or a counterexample generator.",
+  "candidate_theorem": "Every hypothetical off-critical zero induces a closed nondeterministic positivity-state transition with a strictly decreasing rank, or else a zero-configuration cycle becomes an explicit RH counterexample target.",
+  "next_experiment": "Construct symbolic zero-state transitions from explicit-formula kernels and search for rank-preserving cycles.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

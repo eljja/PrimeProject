@@ -438,6 +438,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Symbolic extension result") ||
         !page.proofOrCounterexampleText.includes("Ticket 39 phase/state potential synthesis lab") ||
         !page.proofOrCounterexampleText.includes("Phase/state potential result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 40 transition closure lab") ||
+        !page.proofOrCounterexampleText.includes("Transition closure result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
