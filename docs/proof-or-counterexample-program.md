@@ -1424,3 +1424,93 @@ Proof boundary:
 ```text
 TICKET-38 does not prove or disprove any of the four open problems. It removes three tempting but false proof shortcuts and narrows the next viable proof attempt to a stateful symbolic extension lemma. A future proof must either synthesize a verified phase/state potential with no nondecreasing open cycle, or construct a coherent infinite survivor/counterexample object.
 ```
+
+### Ticket 39: Phase/state potential synthesis
+
+Generated artifact:
+
+```text
+data/open-problem/ticket39-phase-state-potential-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-39-phase-state-zero-potential.json
+data/open-problem/collatz/co-ticket-39-phase-state-potential.json
+data/open-problem/goldbach/gb-ticket-39-state-cone-potential.json
+data/open-problem/twin-prime/tp-ticket-39-gap-leakage-potential.json
+```
+
+Aggregate verdict:
+
+```text
+phase_state_potential_open_no_resolution
+```
+
+한국어 요약: TICKET-39는 TICKET-38에서 실패한 scalar debt 방식을 버리고, phase/state quotient 위에서 실제 rank 후보를 합성했다. 거친 상태공간은 cycle이 남아서 폐기되었고, `phase_mod16_tail4_residue256` 상태공간은 finite window에서 DAG가 되어 topological rank를 갖는다. 더 긴 28비트 phase-wrap probe에서도 같은 후보는 sampled cycle 없이 유지되었다. 하지만 이것은 아직 Collatz 증명이 아니다. 빠진 정리는 “앞으로 나타날 모든 reachable state transition도 이 DAG 순서를 벗어나지 않는다”는 transition-closure theorem이다.
+
+Collatz primary phase/state audit:
+
+```text
+frontier bits: 12..24
+open edge count: 704,456
+final frontier count: 317,095
+```
+
+State-family comparison:
+
+```text
+phase_mod4_tail2_debt: cycle detected, cyclic core 16,245 nodes
+phase_mod8_tail4_residue64: cycle detected, cyclic core 63,270 nodes
+phase_mod16_tail4_residue256: finite DAG candidate, max topological rank 12, edge violations 0
+phase_mod32_tail6_residue1024: finite DAG candidate, max topological rank 12, edge violations 0
+identity_residue_bits: acyclic but identity-like and not a uniform proof object
+```
+
+Deep phase-wrap probe:
+
+```text
+family: phase_mod16_tail4_residue256
+frontier bits: 12..28
+open edge count: 7,960,722
+final frontier count: 3,618,400
+status: phase_wrapped_finite_dag_candidate
+max topological rank: 16
+rank edge violations: 0
+```
+
+Discarded Collatz routes:
+
+```text
+coarse phase/state quotient after a quotient cycle is detected
+identity-like residue+bits state as a uniform proof object
+finite-window DAG rank treated as a Collatz proof without future transition closure
+```
+
+Retained Collatz routes:
+
+```text
+phase_mod16_tail4_residue256 quotient as the current finite theorem candidate
+transition-closure theorem for every future reachable phase/state edge
+contrapositive search for a future wrap-around cycle or coherent infinite survivor state
+```
+
+Cross-problem transfer:
+
+1. RH: replace scalar or averaged zero pressure with a closed finite zero-configuration quotient and positivity rank.
+2. Goldbach: replace averaged representation margins with a finite error-cone quotient that keeps each even integer pointwise positive.
+3. Twin Prime: replace bounded-gap pressure with an exact-gap leakage quotient that prevents mass from escaping into wider admissible gaps.
+4. Collatz: replace scalar debt with a concrete phase/state DAG candidate, then prove closure or find a future state cycle.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-40 PhaseStateTransitionClosureOrCycleCounterexample
+```
+
+Proof boundary:
+
+```text
+TICKET-39 does not prove or disprove any of the four open problems. It is a stronger synthesis step than TICKET-38 because it produces a concrete finite rank candidate and separately rejects coarse cyclic quotients. The next step must either prove symbolic closure of the phase_mod16_tail4_residue256 transition system or find a reachable future cycle/counterexample state that defeats it.
+```

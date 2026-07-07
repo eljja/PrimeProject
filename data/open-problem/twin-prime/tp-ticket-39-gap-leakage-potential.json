@@ -1,0 +1,18 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-39",
+  "status": "proof_pressure_open",
+  "route": "ExactGapLeakagePotential",
+  "proof_or_counterexample_mode": "phase_state_transfer",
+  "attempt": "Transfer Ticket 39's lesson: after scalar or aggregate evidence fails, the only useful next object is a finite state quotient with a proved transition closure, or a counterexample cycle inside that quotient.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-38",
+    "source_route": "SymbolicExactGapExtension",
+    "discarded_state": "bounded-gap or aggregate pair state that does not separate exact gap 2 from wider admissible gaps",
+    "retained_state": "finite leakage quotient with a rank that prevents exact gap-2 mass from escaping into wider gaps"
+  },
+  "obstruction": "A bounded acyclic state graph is not enough. The missing theorem is closure over all future symbolic states, or a counterexample state cycle that survives the intended rank.",
+  "candidate_theorem": "Every sufficiently large scale has a closed exact-gap state whose leakage transitions leave positive gap-2 residual mass.",
+  "next_experiment": "Construct exact-gap leakage states and search for absorbing cycles with zero exact-gap residual.",
+  "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+}

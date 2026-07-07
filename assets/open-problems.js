@@ -3763,7 +3763,121 @@ function renderTicket38SymbolicFrontierExtension(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket) {
+function renderTicket39PhaseStatePotential(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.phase_state_potential_audit || {};
+  const routeDecision = bounded.route_decision || {};
+  const deep = audit.deep_wrap_probe || {};
+  const summaryRows = Object.keys(audit).length
+    ? [
+        ["frontier bits", `${audit.base_bits}..${audit.max_bits}`],
+        ["open edge count", audit.open_edge_count],
+        ["final frontier count", audit.final_frontier_count],
+        ["deep wrap bits", `${deep.base_bits || ""}..${deep.max_bits || ""}`],
+        ["deep wrap open edges", deep.open_edge_count],
+        ["source ticket", bounded.source_ticket],
+      ]
+    : [
+        ["source ticket", bounded.source_ticket],
+        ["source route", bounded.source_route],
+        ["discarded state", bounded.discarded_state],
+        ["retained state", bounded.retained_state],
+      ];
+  const familyRows = Array.isArray(audit.family_rows)
+    ? table(
+        ["family", "status", "nodes", "state edges", "cycle", "core", "rank", "violations"],
+        audit.family_rows.map((row) => [
+          row.family,
+          row.status,
+          row.node_count,
+          row.state_edge_count,
+          row.topological_potential?.cycle_detected,
+          row.topological_potential?.cyclic_core_node_count,
+          row.topological_potential?.max_topological_rank,
+          row.topological_potential?.rank_edge_violations,
+        ]),
+      )
+    : "";
+  const deepRows = Object.keys(deep).length
+    ? table(
+        ["deep probe", "value"],
+        [
+          ["family", deep.family],
+          ["status", deep.status],
+          ["open edges", deep.open_edge_count],
+          ["final frontier", deep.final_frontier_count],
+          ["nodes", deep.node_count],
+          ["state edges", deep.state_edge_count],
+          ["cycle detected", deep.topological_potential?.cycle_detected],
+          ["max rank", deep.topological_potential?.max_topological_rank],
+          ["rank violations", deep.topological_potential?.rank_edge_violations],
+        ],
+      )
+    : "";
+  const testRows = Array.isArray(audit.phase_state_tests)
+    ? table(
+        ["candidate", "family", "status", "detail"],
+        audit.phase_state_tests.map((row) => [
+          row.candidate,
+          row.family || "",
+          row.status,
+          row.reason || row.cyclic_core_node_count || row.max_topological_rank || "",
+        ]),
+      )
+    : "";
+  return `
+    <div class="poc-ticket17 poc-ticket39">
+      <h3>Ticket 39 phase/state potential synthesis lab</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${summaryRows.length ? table(["Phase/state potential result", "Value"], summaryRows) : ""}
+      ${familyRows}
+      ${deepRows}
+      ${testRows}
+      ${
+        routeDecision.discard || routeDecision.retain
+          ? `<div class="poc-bridge">
+              <section>
+                <h3>Discard</h3>
+                ${list(routeDecision.discard || [])}
+              </section>
+              <section>
+                <h3>Retain</h3>
+                ${list(routeDecision.retain || [])}
+              </section>
+            </div>`
+          : ""
+      }
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -3852,10 +3966,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket36NullFrontierArithmetic(nullFrontierArithmeticTicket)}
     ${renderTicket37PointwiseRankSynthesis(pointwiseRankSynthesisTicket)}
     ${renderTicket38SymbolicFrontierExtension(symbolicFrontierExtensionTicket)}
+    ${renderTicket39PhaseStatePotential(phaseStatePotentialTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -3879,7 +3994,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -3960,6 +4075,7 @@ async function main() {
   let ticket36Attempt = null;
   let ticket37Attempt = null;
   let ticket38Attempt = null;
+  let ticket39Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -4167,7 +4283,16 @@ async function main() {
   } catch (error) {
     ticket38Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt);
+  try {
+    const ticket39Response = await fetch("../data/open-problem/ticket39-phase-state-potential-lab.json", { cache: "no-store" });
+    if (ticket39Response.ok) {
+      const ticket39Payload = await ticket39Response.json();
+      ticket39Attempt = (ticket39Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket39Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt);
 }
 
 main().catch((error) => {

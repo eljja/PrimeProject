@@ -32,6 +32,7 @@ TICKET35_SCHEMA = "primeproject.ticket35-limsup-mass-refinement-lab.v1"
 TICKET36_SCHEMA = "primeproject.ticket36-null-frontier-arithmetic-lab.v1"
 TICKET37_SCHEMA = "primeproject.ticket37-pointwise-rank-synthesis-lab.v1"
 TICKET38_SCHEMA = "primeproject.ticket38-symbolic-frontier-extension-lab.v1"
+TICKET39_SCHEMA = "primeproject.ticket39-phase-state-potential-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1250,6 +1251,88 @@ def main() -> int:
         return fail("collatz ticket38 must discard scalar-debt and aggregate-mass shortcuts")
     if "phase/state" not in retain38:
         return fail("collatz ticket38 must retain the phase/state-dependent potential route")
+
+    ticket39_path = Path("data/open-problem/ticket39-phase-state-potential-lab.json")
+    if not ticket39_path.exists():
+        return fail("missing ticket39 phase/state potential artifact")
+    ticket39 = read_json(ticket39_path)
+    if ticket39.get("schema") != TICKET39_SCHEMA:
+        return fail("ticket39 phase/state potential artifact has unexpected schema")
+    if ticket39.get("status") != "phase_state_potential_open_no_resolution":
+        return fail("ticket39 phase/state potential overstates resolution")
+    ticket39_attempts = ticket39.get("attempts", [])
+    if not isinstance(ticket39_attempts, list):
+        return fail("ticket39 attempts must be a list")
+    ticket39_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket39_attempts if isinstance(attempt, dict)}
+    missing_ticket39 = EXPECTED_PROBLEMS - set(ticket39_by_id)
+    if missing_ticket39:
+        return fail("ticket39 attempts missing problems: " + ", ".join(sorted(missing_ticket39)))
+    ticket39_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-39-phase-state-zero-potential.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-39-phase-state-potential.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-39-state-cone-potential.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-39-gap-leakage-potential.json"),
+    }
+    for problem_id, attempt in ticket39_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket39 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket39 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket39 claim boundary is too weak")
+        path = ticket39_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket39 per-problem artifact")
+
+    collatz_ticket39 = ticket39_by_id.get("collatz", {})
+    collatz39_bounded = collatz_ticket39.get("bounded_result", {})
+    if not isinstance(collatz39_bounded, dict):
+        return fail("collatz ticket39 bounded result must be an object")
+    audit39 = collatz39_bounded.get("phase_state_potential_audit", {})
+    if not isinstance(audit39, dict):
+        return fail("collatz ticket39 phase/state audit missing")
+    if int(audit39.get("open_edge_count", 0)) < 700_000:
+        return fail("collatz ticket39 must reuse the large symbolic edge set")
+    family_rows39 = audit39.get("family_rows", [])
+    if not isinstance(family_rows39, list) or len(family_rows39) < 5:
+        return fail("collatz ticket39 must compare multiple state families")
+    family_by_name39 = {str(row.get("family")): row for row in family_rows39 if isinstance(row, dict)}
+    coarse39 = family_by_name39.get("phase_mod8_tail4_residue64", {})
+    coarse_topo39 = coarse39.get("topological_potential", {}) if isinstance(coarse39, dict) else {}
+    if coarse39.get("status") != "blocked_by_phase_state_cycle":
+        return fail("collatz ticket39 must reject the coarse phase/state quotient")
+    if not isinstance(coarse_topo39, dict) or int(coarse_topo39.get("cyclic_core_node_count", 0)) <= 0:
+        return fail("collatz ticket39 coarse quotient must expose a cyclic core")
+    candidate39 = family_by_name39.get("phase_mod16_tail4_residue256", {})
+    candidate_topo39 = candidate39.get("topological_potential", {}) if isinstance(candidate39, dict) else {}
+    if candidate39.get("status") != "finite_window_dag_rank_candidate":
+        return fail("collatz ticket39 must retain the phase_mod16 finite DAG candidate")
+    if not isinstance(candidate_topo39, dict) or candidate_topo39.get("cycle_detected") is not False:
+        return fail("collatz ticket39 phase_mod16 candidate must be acyclic in the finite window")
+    if int(candidate_topo39.get("max_topological_rank", 0)) < 12:
+        return fail("collatz ticket39 phase_mod16 candidate must synthesize a nontrivial rank")
+    if int(candidate_topo39.get("rank_edge_violations", -1)) != 0:
+        return fail("collatz ticket39 finite DAG rank must have no sampled edge violations")
+    deep39 = audit39.get("deep_wrap_probe", {})
+    if not isinstance(deep39, dict):
+        return fail("collatz ticket39 deep wrap probe missing")
+    if int(deep39.get("max_bits", 0)) < 28 or int(deep39.get("open_edge_count", 0)) < 7_000_000:
+        return fail("collatz ticket39 must include the deeper phase-wrap stress probe")
+    deep_topo39 = deep39.get("topological_potential", {})
+    if not isinstance(deep_topo39, dict) or deep_topo39.get("cycle_detected") is not False:
+        return fail("collatz ticket39 deep wrap probe must remain acyclic in the sampled quotient")
+    if int(deep_topo39.get("rank_edge_violations", -1)) != 0:
+        return fail("collatz ticket39 deep wrap rank must have no sampled edge violations")
+    route39 = collatz39_bounded.get("route_decision", {})
+    if not isinstance(route39, dict):
+        return fail("collatz ticket39 route decision missing")
+    discard39 = " ".join(str(item) for item in route39.get("discard", []))
+    retain39 = " ".join(str(item) for item in route39.get("retain", []))
+    if "finite-window DAG" not in discard39:
+        return fail("collatz ticket39 must reject finite-window DAG overclaiming")
+    if "transition-closure theorem" not in retain39:
+        return fail("collatz ticket39 must retain transition closure as the next theorem target")
 
     print("open problem structure verified")
     return 0
