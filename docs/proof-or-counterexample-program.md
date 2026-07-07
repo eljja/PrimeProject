@@ -1345,3 +1345,82 @@ Proof boundary:
 ```text
 TICKET-37 does not prove or disprove any of the four open problems. It improves the search by producing bounded counterexamples to weak rank candidates and by naming a sharper surviving theorem target. The next step is not more finite checking alone; it is a symbolic extension lemma or a new counterexample family that breaks the surviving rank.
 ```
+
+### Ticket 38: Symbolic frontier extension and shortcut rejection
+
+Generated artifact:
+
+```text
+data/open-problem/ticket38-symbolic-frontier-extension-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-38-symbolic-zero-extension.json
+data/open-problem/collatz/co-ticket-38-symbolic-frontier-extension.json
+data/open-problem/goldbach/gb-ticket-38-symbolic-cutoff-extension.json
+data/open-problem/twin-prime/tp-ticket-38-symbolic-gap-extension.json
+```
+
+Aggregate verdict:
+
+```text
+symbolic_frontier_extension_open_no_resolution
+```
+
+한국어 요약: TICKET-38은 TICKET-37에서 살아남은 “점별 rank” 후보를 실제 증명으로 끌어올리기 위해 필요한 symbolic extension lemma를 직접 공격했다. 결론은 중요하지만 부정적이다. 고정된 비트 윈도우 안에서 모든 open frontier가 닫힌다는 단순 보조정리와, 하나의 scalar debt 함수가 모든 open edge에서 엄격히 감소한다는 보조정리는 bounded symbolic graph에서 반례성 edge를 대량으로 만들며 실패했다. 따라서 다음 증명 시도는 더 많은 finite checking이 아니라 phase/state-dependent potential 또는 명시적 surviving frontier family 분석이어야 한다.
+
+Collatz symbolic frontier audit:
+
+```text
+frontier bits: 12..24
+open edge count: 704,456
+final frontier count: 317,095
+max survival ratio: 0.944905286616
+```
+
+Scalar debt falsification:
+
+```text
+lambda = 1.45: 427,227 nondecreasing open edges
+lambda = 1.50: 452,949 nondecreasing open edges
+lambda = log2(3): 452,949 nondecreasing open edges
+lambda = 1.60: 452,949 nondecreasing open edges
+lambda = 1.70: 452,949 nondecreasing open edges
+```
+
+Discarded Collatz routes:
+
+```text
+bounded local closure from 12 bits to a fixed later bit depth
+single scalar debt potential as a strict descent proof
+aggregate mass contraction treated as a pointwise rank extension theorem
+```
+
+Retained Collatz routes:
+
+```text
+finite seed handling for stutter-like residues
+phase/state-dependent potential instead of scalar debt alone
+symbolic extension lemma combining aggregate contraction with pointwise rank
+```
+
+Cross-problem transfer:
+
+1. RH: finite-height zero checks and averaged pressure are not enough. A proof needs a symbolic zero-exclusion certificate that rejects every hypothetical off-critical configuration.
+2. Goldbach: almost-all or averaged representation pressure is not enough. A proof needs a stateful lower-bound certificate that remains positive for every even integer beyond a finite seed interval.
+3. Twin Prime: bounded-gap pressure is not enough. A proof needs an exact-gap selector that prevents gap-2 mass from leaking into wider admissible gaps.
+4. Collatz: aggregate mass decay and scalar debt are not enough. A proof needs a phase/state extension theorem or an explicit infinite counterexample object.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-39 PhaseStatePotentialSynthesis
+```
+
+Proof boundary:
+
+```text
+TICKET-38 does not prove or disprove any of the four open problems. It removes three tempting but false proof shortcuts and narrows the next viable proof attempt to a stateful symbolic extension lemma. A future proof must either synthesize a verified phase/state potential with no nondecreasing open cycle, or construct a coherent infinite survivor/counterexample object.
+```

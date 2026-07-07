@@ -31,6 +31,7 @@ TICKET34_SCHEMA = "primeproject.ticket34-high-branch-automaton-lab.v1"
 TICKET35_SCHEMA = "primeproject.ticket35-limsup-mass-refinement-lab.v1"
 TICKET36_SCHEMA = "primeproject.ticket36-null-frontier-arithmetic-lab.v1"
 TICKET37_SCHEMA = "primeproject.ticket37-pointwise-rank-synthesis-lab.v1"
+TICKET38_SCHEMA = "primeproject.ticket38-symbolic-frontier-extension-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1173,6 +1174,82 @@ def main() -> int:
         return fail("collatz ticket37 must discard weak linear rank candidates")
     if "symbolic extension lemma" not in retain37:
         return fail("collatz ticket37 must retain the symbolic extension theorem route")
+
+    ticket38_path = Path("data/open-problem/ticket38-symbolic-frontier-extension-lab.json")
+    if not ticket38_path.exists():
+        return fail("missing ticket38 symbolic frontier extension artifact")
+    ticket38 = read_json(ticket38_path)
+    if ticket38.get("schema") != TICKET38_SCHEMA:
+        return fail("ticket38 symbolic frontier extension artifact has unexpected schema")
+    if ticket38.get("status") != "symbolic_frontier_extension_open_no_resolution":
+        return fail("ticket38 symbolic frontier extension overstates resolution")
+    ticket38_attempts = ticket38.get("attempts", [])
+    if not isinstance(ticket38_attempts, list):
+        return fail("ticket38 attempts must be a list")
+    ticket38_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket38_attempts if isinstance(attempt, dict)}
+    missing_ticket38 = EXPECTED_PROBLEMS - set(ticket38_by_id)
+    if missing_ticket38:
+        return fail("ticket38 attempts missing problems: " + ", ".join(sorted(missing_ticket38)))
+    ticket38_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-38-symbolic-zero-extension.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-38-symbolic-frontier-extension.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-38-symbolic-cutoff-extension.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-38-symbolic-gap-extension.json"),
+    }
+    for problem_id, attempt in ticket38_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket38 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket38 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket38 claim boundary is too weak")
+        path = ticket38_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket38 per-problem artifact")
+
+    collatz_ticket38 = ticket38_by_id.get("collatz", {})
+    collatz38_bounded = collatz_ticket38.get("bounded_result", {})
+    if not isinstance(collatz38_bounded, dict):
+        return fail("collatz ticket38 bounded result must be an object")
+    audit38 = collatz38_bounded.get("symbolic_frontier_extension_audit", {})
+    if not isinstance(audit38, dict):
+        return fail("collatz ticket38 symbolic frontier audit missing")
+    if int(audit38.get("open_edge_count", 0)) < 700_000:
+        return fail("collatz ticket38 must retain a large symbolic open-edge stress set")
+    if int(audit38.get("final_frontier_count", 0)) <= 0:
+        return fail("collatz ticket38 must retain surviving symbolic frontier cylinders")
+    if float(audit38.get("max_survival_ratio", 0.0)) < 0.9:
+        return fail("collatz ticket38 must record near-persistent frontier survival")
+    lambda_rows38 = audit38.get("lambda_potential_rows", [])
+    if not isinstance(lambda_rows38, list) or len(lambda_rows38) < 5:
+        return fail("collatz ticket38 must test multiple scalar debt potentials")
+    if not all(isinstance(row, dict) and row.get("status") == "scalar_debt_descent_refuted" for row in lambda_rows38):
+        return fail("collatz ticket38 must refute every tested scalar debt potential")
+    if not any(isinstance(row, dict) and int(row.get("nondecreasing_open_edges", 0)) > 400_000 for row in lambda_rows38):
+        return fail("collatz ticket38 must expose many nondecreasing scalar-debt edges")
+    extension_tests38 = audit38.get("simple_extension_tests", [])
+    if not isinstance(extension_tests38, list):
+        return fail("collatz ticket38 simple extension tests missing")
+    extension_statuses38 = {str(row.get("status")) for row in extension_tests38 if isinstance(row, dict)}
+    for required_status in (
+        "refuted_by_surviving_frontier",
+        "refuted_for_all_tested_lambdas",
+        "insufficient_even_when_mass_ratio_below_one",
+    ):
+        if required_status not in extension_statuses38:
+            return fail(f"collatz ticket38 must record {required_status}")
+    if "does not prove Collatz" not in str(audit38.get("proof_boundary", "")):
+        return fail("collatz ticket38 proof boundary must block proof overclaim")
+    route38 = collatz38_bounded.get("route_decision", {})
+    if not isinstance(route38, dict):
+        return fail("collatz ticket38 route decision missing")
+    discard38 = " ".join(str(item) for item in route38.get("discard", []))
+    retain38 = " ".join(str(item) for item in route38.get("retain", []))
+    if "scalar debt" not in discard38 or "aggregate mass" not in discard38:
+        return fail("collatz ticket38 must discard scalar-debt and aggregate-mass shortcuts")
+    if "phase/state" not in retain38:
+        return fail("collatz ticket38 must retain the phase/state-dependent potential route")
 
     print("open problem structure verified")
     return 0

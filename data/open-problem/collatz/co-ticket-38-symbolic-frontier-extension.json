@@ -1,0 +1,772 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-38",
+  "status": "proof_pressure_open",
+  "route": "SymbolicFrontierExtensionLemma",
+  "proof_or_counterexample_mode": "symbolic_extension_refutation_and_refinement",
+  "attempt": "Use Ticket 37's surviving pointwise rank candidate as the target, but test whether simple symbolic extension lemmas can actually support it. Fixed-window closure and scalar debt descent are attacked directly on the adaptive frontier.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-37",
+    "symbolic_frontier_extension_audit": {
+      "base_bits": 12,
+      "max_bits": 24,
+      "transition_rows": [
+        {
+          "bits": 12,
+          "parent_frontier_count": 2048,
+          "next_frontier_count": 445,
+          "survival_ratio": 0.108642578125,
+          "mass_ratio_to_next": 0.108642578125,
+          "transition_counts": {
+            "both_closed": 1788,
+            "both_open": 185,
+            "high_only_open": 36,
+            "low_only_open": 39
+          }
+        },
+        {
+          "bits": 13,
+          "parent_frontier_count": 445,
+          "next_frontier_count": 773,
+          "survival_ratio": 0.868539325843,
+          "mass_ratio_to_next": 0.868539325843,
+          "transition_counts": {
+            "both_closed": 39,
+            "both_open": 367,
+            "low_only_open": 39
+          }
+        },
+        {
+          "bits": 14,
+          "parent_frontier_count": 773,
+          "next_frontier_count": 1398,
+          "survival_ratio": 0.904269081501,
+          "mass_ratio_to_next": 0.904269081501,
+          "transition_counts": {
+            "both_closed": 24,
+            "both_open": 649,
+            "high_only_open": 44,
+            "low_only_open": 56
+          }
+        },
+        {
+          "bits": 15,
+          "parent_frontier_count": 1398,
+          "next_frontier_count": 2400,
+          "survival_ratio": 0.858369098712,
+          "mass_ratio_to_next": 0.858369098712,
+          "transition_counts": {
+            "both_closed": 54,
+            "both_open": 1056,
+            "high_only_open": 118,
+            "low_only_open": 170
+          }
+        },
+        {
+          "bits": 16,
+          "parent_frontier_count": 2400,
+          "next_frontier_count": 4368,
+          "survival_ratio": 0.91,
+          "mass_ratio_to_next": 0.91,
+          "transition_counts": {
+            "both_closed": 146,
+            "both_open": 2114,
+            "low_only_open": 140
+          }
+        },
+        {
+          "bits": 17,
+          "parent_frontier_count": 4368,
+          "next_frontier_count": 8077,
+          "survival_ratio": 0.924565018315,
+          "mass_ratio_to_next": 0.924565018315,
+          "transition_counts": {
+            "both_closed": 69,
+            "both_open": 3778,
+            "high_only_open": 236,
+            "low_only_open": 285
+          }
+        },
+        {
+          "bits": 18,
+          "parent_frontier_count": 8077,
+          "next_frontier_count": 15264,
+          "survival_ratio": 0.944905286616,
+          "mass_ratio_to_next": 0.944905286616,
+          "transition_counts": {
+            "both_closed": 308,
+            "both_open": 7495,
+            "low_only_open": 274
+          }
+        },
+        {
+          "bits": 19,
+          "parent_frontier_count": 15264,
+          "next_frontier_count": 28789,
+          "survival_ratio": 0.943035901468,
+          "mass_ratio_to_next": 0.943035901468,
+          "transition_counts": {
+            "both_closed": 137,
+            "both_open": 13662,
+            "high_only_open": 676,
+            "low_only_open": 789
+          }
+        },
+        {
+          "bits": 20,
+          "parent_frontier_count": 28789,
+          "next_frontier_count": 51375,
+          "survival_ratio": 0.892267880093,
+          "mass_ratio_to_next": 0.892267880093,
+          "transition_counts": {
+            "both_closed": 726,
+            "both_open": 23312,
+            "high_only_open": 2020,
+            "low_only_open": 2731
+          }
+        },
+        {
+          "bits": 21,
+          "parent_frontier_count": 51375,
+          "next_frontier_count": 95621,
+          "survival_ratio": 0.930618004866,
+          "mass_ratio_to_next": 0.930618004866,
+          "transition_counts": {
+            "both_closed": 2365,
+            "both_open": 46611,
+            "low_only_open": 2399
+          }
+        },
+        {
+          "bits": 22,
+          "parent_frontier_count": 95621,
+          "next_frontier_count": 178851,
+          "survival_ratio": 0.935207747252,
+          "mass_ratio_to_next": 0.935207747252,
+          "transition_counts": {
+            "both_closed": 1208,
+            "both_open": 84438,
+            "high_only_open": 4366,
+            "low_only_open": 5609
+          }
+        },
+        {
+          "bits": 23,
+          "parent_frontier_count": 178851,
+          "next_frontier_count": 317095,
+          "survival_ratio": 0.88647812984,
+          "mass_ratio_to_next": 0.88647812984,
+          "transition_counts": {
+            "both_closed": 4926,
+            "both_open": 143170,
+            "high_only_open": 12656,
+            "low_only_open": 18099
+          }
+        }
+      ],
+      "transition_totals": {
+        "both_closed": 11790,
+        "both_open": 326837,
+        "high_only_open": 20152,
+        "low_only_open": 30630
+      },
+      "open_edge_count": 704456,
+      "final_frontier_count": 317095,
+      "final_frontier_examples": [
+        27,
+        8388635,
+        4194331,
+        12582939,
+        2097179,
+        10485787,
+        6291483,
+        14680091,
+        1048603,
+        9437211,
+        5242907,
+        13631515
+      ],
+      "max_survival_ratio": 0.944905286616,
+      "max_survival_row": {
+        "bits": 18,
+        "parent_frontier_count": 8077,
+        "next_frontier_count": 15264,
+        "survival_ratio": 0.944905286616,
+        "mass_ratio_to_next": 0.944905286616,
+        "transition_counts": {
+          "both_closed": 308,
+          "both_open": 7495,
+          "low_only_open": 274
+        }
+      },
+      "lambda_potential_rows": [
+        {
+          "name": "lambda_1_45",
+          "lambda": 1.45,
+          "nondecreasing_open_edges": 427227,
+          "nondecreasing_open_edge_rate": 0.606463711005,
+          "status": "scalar_debt_descent_refuted",
+          "examples": [
+            {
+              "bits": 12,
+              "parent_residue": 27,
+              "child_residue": 27,
+              "delta": 0.0,
+              "parent_debt": 1.05,
+              "child_debt": 1.05,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 31,
+              "child_residue": 31,
+              "delta": 0.45,
+              "parent_debt": 1.05,
+              "child_debt": 1.5,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 10,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 13
+            },
+            {
+              "bits": 12,
+              "parent_residue": 47,
+              "child_residue": 47,
+              "delta": 0.0,
+              "parent_debt": 1.05,
+              "child_debt": 1.05,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 63,
+              "child_residue": 63,
+              "delta": 0.45,
+              "parent_debt": -0.4,
+              "child_debt": 0.05,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 13
+            },
+            {
+              "bits": 12,
+              "parent_residue": 63,
+              "child_residue": 4159,
+              "delta": 0.55,
+              "parent_debt": -0.4,
+              "child_debt": 0.15,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 7,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 10
+            },
+            {
+              "bits": 12,
+              "parent_residue": 71,
+              "child_residue": 4167,
+              "delta": 0.45,
+              "parent_debt": 0.6,
+              "child_debt": 1.05,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 11,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 91,
+              "child_residue": 91,
+              "delta": 0.0,
+              "parent_debt": 1.05,
+              "child_debt": 1.05,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 91,
+              "child_residue": 4187,
+              "delta": 0.55,
+              "parent_debt": 1.05,
+              "child_debt": 1.6,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 8,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 10
+            }
+          ]
+        },
+        {
+          "name": "lambda_1_50",
+          "lambda": 1.5,
+          "nondecreasing_open_edges": 452949,
+          "nondecreasing_open_edge_rate": 0.642976992176,
+          "status": "scalar_debt_descent_refuted",
+          "examples": [
+            {
+              "bits": 12,
+              "parent_residue": 27,
+              "child_residue": 27,
+              "delta": 0.0,
+              "parent_debt": 1.5,
+              "child_debt": 1.5,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 31,
+              "child_residue": 31,
+              "delta": 0.5,
+              "parent_debt": 1.5,
+              "child_debt": 2.0,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 10,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 13
+            },
+            {
+              "bits": 12,
+              "parent_residue": 47,
+              "child_residue": 47,
+              "delta": 0.0,
+              "parent_debt": 1.5,
+              "child_debt": 1.5,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 63,
+              "child_residue": 63,
+              "delta": 0.5,
+              "parent_debt": 0.0,
+              "child_debt": 0.5,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 13
+            },
+            {
+              "bits": 12,
+              "parent_residue": 63,
+              "child_residue": 4159,
+              "delta": 0.5,
+              "parent_debt": 0.0,
+              "child_debt": 0.5,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 7,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 10
+            },
+            {
+              "bits": 12,
+              "parent_residue": 71,
+              "child_residue": 4167,
+              "delta": 0.5,
+              "parent_debt": 1.0,
+              "child_debt": 1.5,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 11,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 91,
+              "child_residue": 91,
+              "delta": 0.0,
+              "parent_debt": 1.5,
+              "child_debt": 1.5,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 91,
+              "child_residue": 4187,
+              "delta": 0.5,
+              "parent_debt": 1.5,
+              "child_debt": 2.0,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 8,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 10
+            }
+          ]
+        },
+        {
+          "name": "lambda_log2_3",
+          "lambda": 1.584962500721,
+          "nondecreasing_open_edges": 452949,
+          "nondecreasing_open_edge_rate": 0.642976992176,
+          "status": "scalar_debt_descent_refuted",
+          "examples": [
+            {
+              "bits": 12,
+              "parent_residue": 27,
+              "child_residue": 27,
+              "delta": 0.0,
+              "parent_debt": 2.26466250649,
+              "child_debt": 2.26466250649,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 31,
+              "child_residue": 31,
+              "delta": 0.584962500721,
+              "parent_debt": 2.26466250649,
+              "child_debt": 2.849625007212,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 10,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 13
+            },
+            {
+              "bits": 12,
+              "parent_residue": 47,
+              "child_residue": 47,
+              "delta": 0.0,
+              "parent_debt": 2.26466250649,
+              "child_debt": 2.26466250649,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 63,
+              "child_residue": 63,
+              "delta": 0.584962500721,
+              "parent_debt": 0.679700005769,
+              "child_debt": 1.26466250649,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 13
+            },
+            {
+              "bits": 12,
+              "parent_residue": 63,
+              "child_residue": 4159,
+              "delta": 0.415037499279,
+              "parent_debt": 0.679700005769,
+              "child_debt": 1.094737505048,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 7,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 10
+            },
+            {
+              "bits": 12,
+              "parent_residue": 71,
+              "child_residue": 4167,
+              "delta": 0.584962500721,
+              "parent_debt": 1.679700005769,
+              "child_debt": 2.26466250649,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 11,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 91,
+              "child_residue": 91,
+              "delta": 0.0,
+              "parent_debt": 2.26466250649,
+              "child_debt": 2.26466250649,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 91,
+              "child_residue": 4187,
+              "delta": 0.415037499279,
+              "parent_debt": 2.26466250649,
+              "child_debt": 2.679700005769,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 8,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 10
+            }
+          ]
+        },
+        {
+          "name": "lambda_1_60",
+          "lambda": 1.6,
+          "nondecreasing_open_edges": 452949,
+          "nondecreasing_open_edge_rate": 0.642976992176,
+          "status": "scalar_debt_descent_refuted",
+          "examples": [
+            {
+              "bits": 12,
+              "parent_residue": 27,
+              "child_residue": 27,
+              "delta": 0.0,
+              "parent_debt": 2.4,
+              "child_debt": 2.4,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 31,
+              "child_residue": 31,
+              "delta": 0.6,
+              "parent_debt": 2.4,
+              "child_debt": 3.0,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 10,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 13
+            },
+            {
+              "bits": 12,
+              "parent_residue": 47,
+              "child_residue": 47,
+              "delta": 0.0,
+              "parent_debt": 2.4,
+              "child_debt": 2.4,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 63,
+              "child_residue": 63,
+              "delta": 0.6,
+              "parent_debt": 0.8,
+              "child_debt": 1.4,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 13
+            },
+            {
+              "bits": 12,
+              "parent_residue": 63,
+              "child_residue": 4159,
+              "delta": 0.4,
+              "parent_debt": 0.8,
+              "child_debt": 1.2,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 7,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 10
+            },
+            {
+              "bits": 12,
+              "parent_residue": 71,
+              "child_residue": 4167,
+              "delta": 0.6,
+              "parent_debt": 1.8,
+              "child_debt": 2.4,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 11,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 91,
+              "child_residue": 91,
+              "delta": 0.0,
+              "parent_debt": 2.4,
+              "child_debt": 2.4,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 91,
+              "child_residue": 4187,
+              "delta": 0.4,
+              "parent_debt": 2.4,
+              "child_debt": 2.8,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 8,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 10
+            }
+          ]
+        },
+        {
+          "name": "lambda_1_70",
+          "lambda": 1.7,
+          "nondecreasing_open_edges": 452949,
+          "nondecreasing_open_edge_rate": 0.642976992176,
+          "status": "scalar_debt_descent_refuted",
+          "examples": [
+            {
+              "bits": 12,
+              "parent_residue": 27,
+              "child_residue": 27,
+              "delta": 0.0,
+              "parent_debt": 3.3,
+              "child_debt": 3.3,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 31,
+              "child_residue": 31,
+              "delta": 0.7,
+              "parent_debt": 3.3,
+              "child_debt": 4.0,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 10,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 13
+            },
+            {
+              "bits": 12,
+              "parent_residue": 47,
+              "child_residue": 47,
+              "delta": 0.0,
+              "parent_debt": 3.3,
+              "child_debt": 3.3,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 63,
+              "child_residue": 63,
+              "delta": 0.7,
+              "parent_debt": 1.6,
+              "child_debt": 2.3,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 13
+            },
+            {
+              "bits": 12,
+              "parent_residue": 63,
+              "child_residue": 4159,
+              "delta": 0.3,
+              "parent_debt": 1.6,
+              "child_debt": 1.9,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 7,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 10
+            },
+            {
+              "bits": 12,
+              "parent_residue": 71,
+              "child_residue": 4167,
+              "delta": 0.7,
+              "parent_debt": 2.6,
+              "child_debt": 3.3,
+              "parent_prefix_length": 8,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 11,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 91,
+              "child_residue": 91,
+              "delta": 0.0,
+              "parent_debt": 3.3,
+              "child_debt": 3.3,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 9,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 12
+            },
+            {
+              "bits": 12,
+              "parent_residue": 91,
+              "child_residue": 4187,
+              "delta": 0.3,
+              "parent_debt": 3.3,
+              "child_debt": 3.6,
+              "parent_prefix_length": 9,
+              "child_prefix_length": 8,
+              "parent_consumed_bits": 12,
+              "child_consumed_bits": 10
+            }
+          ]
+        }
+      ],
+      "simple_extension_tests": [
+        {
+          "candidate": "all open cylinders at 12 bits close by 24 bits",
+          "status": "refuted_by_surviving_frontier",
+          "survivor_count": 317095
+        },
+        {
+          "candidate": "scalar debt lambda*prefix_length - consumed_bits strictly decreases on every open edge",
+          "status": "refuted_for_all_tested_lambdas",
+          "tested_lambdas": [
+            "lambda_1_45",
+            "lambda_1_50",
+            "lambda_log2_3",
+            "lambda_1_60",
+            "lambda_1_70"
+          ]
+        },
+        {
+          "candidate": "aggregate mass contraction alone supplies a pointwise extension lemma",
+          "status": "insufficient_even_when_mass_ratio_below_one",
+          "reason": "Open survivor cylinders and nondecreasing debt edges remain in the bounded symbolic frontier."
+        }
+      ],
+      "closed_bounded_statement": "In the tested symbolic frontier, aggregate mass pressure persists, but fixed-window closure and scalar debt descent are refuted by explicit open edges.",
+      "proof_boundary": "This audit does not prove Collatz. It removes overly simple symbolic-extension lemmas and leaves a seed-aware, phase/state-dependent extension lemma as the next target."
+    },
+    "route_decision": {
+      "discard": [
+        "bounded local closure from 12 bits to a fixed later bit depth",
+        "single scalar debt potential as a strict descent proof",
+        "aggregate mass contraction treated as a pointwise rank extension theorem"
+      ],
+      "retain": [
+        "finite seed handling for stutter-like residues",
+        "phase/state-dependent potential instead of scalar debt alone",
+        "symbolic extension lemma that combines aggregate contraction with pointwise rank"
+      ]
+    }
+  },
+  "obstruction": "The tested frontier still has surviving cylinders at the end of the symbolic window, and every tested scalar debt lambda has many nondecreasing open edges. A real proof needs more state than scalar debt.",
+  "candidate_theorem": "After a finite seed set is isolated, every adaptive open-frontier state admits a phase/state potential that either decreases within a bounded number of extensions or maps to a smaller verified seed class.",
+  "next_experiment": "Synthesize phase/state potentials over short valuation words and residue features, and reject any candidate that has a nondecreasing open cycle in the symbolic frontier graph.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

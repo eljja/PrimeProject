@@ -434,6 +434,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Natural frontier exit result") ||
         !page.proofOrCounterexampleText.includes("Ticket 37 pointwise rank synthesis lab") ||
         !page.proofOrCounterexampleText.includes("Pointwise rank synthesis result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 38 symbolic frontier extension lab") ||
+        !page.proofOrCounterexampleText.includes("Symbolic extension result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
