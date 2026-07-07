@@ -30,6 +30,7 @@ TICKET33_SCHEMA = "primeproject.ticket33-global-measure-lab.v1"
 TICKET34_SCHEMA = "primeproject.ticket34-high-branch-automaton-lab.v1"
 TICKET35_SCHEMA = "primeproject.ticket35-limsup-mass-refinement-lab.v1"
 TICKET36_SCHEMA = "primeproject.ticket36-null-frontier-arithmetic-lab.v1"
+TICKET37_SCHEMA = "primeproject.ticket37-pointwise-rank-synthesis-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1096,6 +1097,82 @@ def main() -> int:
         return fail("collatz ticket36 must discard non-pointwise and circular routes")
     if "well-founded rank" not in retain36:
         return fail("collatz ticket36 must retain the uniform rank route")
+
+    ticket37_path = Path("data/open-problem/ticket37-pointwise-rank-synthesis-lab.json")
+    if not ticket37_path.exists():
+        return fail("missing ticket37 pointwise rank synthesis artifact")
+    ticket37 = read_json(ticket37_path)
+    if ticket37.get("schema") != TICKET37_SCHEMA:
+        return fail("ticket37 pointwise rank synthesis artifact has unexpected schema")
+    if ticket37.get("status") != "pointwise_rank_synthesis_open_no_resolution":
+        return fail("ticket37 pointwise rank synthesis overstates resolution")
+    ticket37_attempts = ticket37.get("attempts", [])
+    if not isinstance(ticket37_attempts, list):
+        return fail("ticket37 attempts must be a list")
+    ticket37_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket37_attempts if isinstance(attempt, dict)}
+    missing_ticket37 = EXPECTED_PROBLEMS - set(ticket37_by_id)
+    if missing_ticket37:
+        return fail("ticket37 attempts missing problems: " + ", ".join(sorted(missing_ticket37)))
+    ticket37_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-37-pointwise-zero-rank.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-37-pointwise-rank-synthesis.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-37-pointwise-cutoff-rank.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-37-exact-gap-rank.json"),
+    }
+    for problem_id, attempt in ticket37_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket37 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket37 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket37 claim boundary is too weak")
+        path = ticket37_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket37 per-problem artifact")
+
+    collatz_ticket37 = ticket37_by_id.get("collatz", {})
+    collatz37_bounded = collatz_ticket37.get("bounded_result", {})
+    if not isinstance(collatz37_bounded, dict):
+        return fail("collatz ticket37 bounded result must be an object")
+    probe37 = collatz37_bounded.get("pointwise_rank_probe", {})
+    if not isinstance(probe37, dict):
+        return fail("collatz ticket37 pointwise rank probe missing")
+    if int(probe37.get("tested_odd_integer_count", 0)) < 2_500_000:
+        return fail("collatz ticket37 must test the extended rank sample")
+    if int(probe37.get("unresolved_count", 1)) != 0:
+        return fail("collatz ticket37 bounded probe must resolve tested natural integers")
+    if int(probe37.get("max_exit_bits", 0)) < 200:
+        return fail("collatz ticket37 must retain deep exit examples")
+    if float(probe37.get("max_exit_ratio_to_bit_length", 0.0)) < 10.0:
+        return fail("collatz ticket37 must retain high exit-ratio stress cases")
+    rank_tests37 = probe37.get("linear_rank_tests", [])
+    if not isinstance(rank_tests37, list) or len(rank_tests37) < 5:
+        return fail("collatz ticket37 must compare multiple linear rank candidates")
+    rank_by_bound37 = {str(row.get("candidate_bound")): row for row in rank_tests37 if isinstance(row, dict)}
+    for alpha in (8, 9, 10, 11):
+        row = rank_by_bound37.get(f"exit_bits <= {alpha} * bit_length(n)")
+        if not row or int(row.get("violations", 0)) <= 0 or row.get("bounded_status") != "sample_refuted":
+            return fail(f"collatz ticket37 must refute {alpha}x bit-length rank in sample")
+    alpha12 = rank_by_bound37.get("exit_bits <= 12 * bit_length(n)")
+    if not alpha12 or int(alpha12.get("violations", -1)) != 0 or alpha12.get("bounded_status") != "sample_holds":
+        return fail("collatz ticket37 must preserve but not prove the 12x bounded rank candidate")
+    piecewise37 = probe37.get("candidate_piecewise_linear_rank", {})
+    if not isinstance(piecewise37, dict):
+        return fail("collatz ticket37 piecewise rank candidate missing")
+    if piecewise37.get("sample_status") != "supported_in_bounded_sample_not_proved":
+        return fail("collatz ticket37 must not overstate the piecewise rank candidate")
+    if "not a Collatz proof" not in str(probe37.get("proof_boundary", "")):
+        return fail("collatz ticket37 proof boundary must block proof overclaim")
+    route37 = collatz37_bounded.get("route_decision", {})
+    if not isinstance(route37, dict):
+        return fail("collatz ticket37 route decision missing")
+    discard37 = " ".join(str(item) for item in route37.get("discard", []))
+    retain37 = " ".join(str(item) for item in route37.get("retain", []))
+    if "10 * bit_length" not in discard37 or "11 * bit_length" not in discard37:
+        return fail("collatz ticket37 must discard weak linear rank candidates")
+    if "symbolic extension lemma" not in retain37:
+        return fail("collatz ticket37 must retain the symbolic extension theorem route")
 
     print("open problem structure verified")
     return 0

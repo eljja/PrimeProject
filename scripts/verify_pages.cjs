@@ -432,6 +432,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Limsup mass refinement result") ||
         !page.proofOrCounterexampleText.includes("Ticket 36 null-frontier arithmetic lab") ||
         !page.proofOrCounterexampleText.includes("Natural frontier exit result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 37 pointwise rank synthesis lab") ||
+        !page.proofOrCounterexampleText.includes("Pointwise rank synthesis result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

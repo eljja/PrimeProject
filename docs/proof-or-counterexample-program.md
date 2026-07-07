@@ -1249,3 +1249,99 @@ Proof boundary:
 ```text
 TICKET-36 does not prove or disprove any of the four open problems. It closes a methodological loophole: aggregate evidence is not enough. The next proof attempt must synthesize a pointwise rank/exclusion theorem, or deliberately search for a sparse/null counterexample object that survives all aggregate tests.
 ```
+
+### Ticket 37: Pointwise rank synthesis and weak-rank counterexamples
+
+Generated artifact:
+
+```text
+data/open-problem/ticket37-pointwise-rank-synthesis-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-37-pointwise-zero-rank.json
+data/open-problem/collatz/co-ticket-37-pointwise-rank-synthesis.json
+data/open-problem/goldbach/gb-ticket-37-pointwise-cutoff-rank.json
+data/open-problem/twin-prime/tp-ticket-37-exact-gap-rank.json
+```
+
+Aggregate verdict:
+
+```text
+pointwise_rank_synthesis_open_no_resolution
+```
+
+한국어 요약: TICKET-37은 TICKET-36의 natural frontier exit audit을 rank synthesis 문제로 바꿨다. 즉, "모든 자연수가 언젠가 null frontier에서 빠져나간다"를 직접 증명하기 위해 `exit_bits`를 `bit_length(n)` 같은 비순환 양으로 제한할 수 있는지 시험했다. 약한 후보는 반례로 버리고, 아직 살아남은 후보는 증명 대상 정리로만 남겼다.
+
+Collatz bounded rank audit:
+
+```text
+tested odd n: 2,500,000 values, all odd n <= 5,000,000
+base bits: 12
+max probe bits: 320
+resolved count: 2,500,000
+unresolved count: 0
+max exit bits: 228
+max exit ratio to bit_length(n): 12.0
+max exit slack over bit_length(n): 206
+```
+
+Linear rank falsification:
+
+```text
+exit_bits <= 8 * bit_length(n): 61 violations
+exit_bits <= 9 * bit_length(n): 14 violations
+exit_bits <= 10 * bit_length(n): 9 violations
+exit_bits <= 11 * bit_length(n): 3 violations
+exit_bits <= 12 * bit_length(n): 0 violations in the bounded sample
+```
+
+Candidate retained, but not proved:
+
+```text
+n >= 128 implies exit_bits <= 11 * bit_length(n); all tested n imply exit_bits <= 12 * bit_length(n)
+```
+
+Interpretation:
+
+```text
+This is a stronger and more useful target than raw mass decay: it is a pointwise-looking rank statement. But it is still bounded evidence. A proof needs a symbolic extension lemma showing that unseen adaptive frontier states cannot exceed the same piecewise linear rank.
+```
+
+Discarded Collatz routes:
+
+```text
+exit_bits <= 8 * bit_length(n) as a global rank
+exit_bits <= 9 * bit_length(n) as a global rank
+exit_bits <= 10 * bit_length(n) as a global rank
+unqualified exit_bits <= 11 * bit_length(n) without finite seed handling
+```
+
+Retained Collatz routes:
+
+```text
+finite seed set plus exit_bits <= 11 * bit_length(n) for n >= 128 as a bounded theorem candidate
+global exit_bits <= 12 * bit_length(n) as a weaker bounded theorem candidate
+symbolic extension lemma over adaptive frontier states
+```
+
+Cross-problem transfer:
+
+1. RH: a pointwise zero-exclusion rank is needed; finite-height verification and smoothed averages remain support only.
+2. Goldbach: a pointwise even-cutoff rank is needed; density positivity cannot exclude a sparse exceptional set.
+3. Twin Prime: an exact-gap-2 rank is needed; bounded-gap mass must not leak into wider gaps.
+4. Collatz: a frontier-exit rank is needed; the bounded candidate is now concrete but still lacks the infinite extension theorem.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-38 SymbolicFrontierExtensionLemma
+```
+
+Proof boundary:
+
+```text
+TICKET-37 does not prove or disprove any of the four open problems. It improves the search by producing bounded counterexamples to weak rank candidates and by naming a sharper surviving theorem target. The next step is not more finite checking alone; it is a symbolic extension lemma or a new counterexample family that breaks the surviving rank.
+```
