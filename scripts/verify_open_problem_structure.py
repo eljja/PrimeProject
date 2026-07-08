@@ -43,6 +43,7 @@ TICKET46_SCHEMA = "primeproject.ticket46-stable-clause-grammar-lab.v1"
 TICKET47_SCHEMA = "primeproject.ticket47-periodic-state-lasso-lab.v1"
 TICKET48_SCHEMA = "primeproject.ticket48-automaton-reachability-lab.v1"
 TICKET49_SCHEMA = "primeproject.ticket49-symbolic-preimage-obstruction-lab.v1"
+TICKET50_SCHEMA = "primeproject.ticket50-phase-lift-exception-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2221,6 +2222,71 @@ def main() -> int:
         audit49.get("proof_boundary", "")
     ):
         return fail("collatz ticket49 must preserve all-future phase-compatible boundary")
+
+    ticket50_path = Path("data/open-problem/ticket50-phase-lift-exception-lab.json")
+    if not ticket50_path.exists():
+        return fail("missing ticket50 phase-lift exception artifact")
+    ticket50 = read_json(ticket50_path)
+    if ticket50.get("schema") != TICKET50_SCHEMA:
+        return fail("ticket50 phase-lift exception artifact has unexpected schema")
+    if ticket50.get("status") != "phase_lift_exception_open_no_resolution":
+        return fail("ticket50 phase-lift exception overstates resolution")
+    ticket50_attempts = ticket50.get("attempts", [])
+    if not isinstance(ticket50_attempts, list):
+        return fail("ticket50 attempts must be a list")
+    ticket50_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket50_attempts if isinstance(attempt, dict)}
+    missing_ticket50 = EXPECTED_PROBLEMS - set(ticket50_by_id)
+    if missing_ticket50:
+        return fail("ticket50 attempts missing problems: " + ", ".join(sorted(missing_ticket50)))
+    ticket50_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-50-zero-kernel-exception.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-50-phase-lift-exception.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-50-residue-margin-exception.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-50-gap-selector-exception.json"),
+    }
+    for problem_id, attempt in ticket50_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "candidate_obstruction_refuted_new_near_lasso_frontier_open",
+        }:
+            return fail(f"{problem_id}: ticket50 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket50 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket50 claim boundary is too weak")
+        path = ticket50_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket50 per-problem artifact")
+
+    collatz_ticket50 = ticket50_by_id.get("collatz", {})
+    audit50 = collatz_ticket50.get("bounded_result", {}).get("phase_lift_exception_audit", {})
+    if not isinstance(audit50, dict):
+        return fail("collatz ticket50 phase-lift exception audit missing")
+    scans50 = audit50.get("phase_scans", [])
+    if not isinstance(scans50, list) or len(scans50) != 2:
+        return fail("collatz ticket50 must expose 16-bit and 32-bit phase scans")
+    scans50_by_bits = {int(scan.get("bits", -1)): scan for scan in scans50 if isinstance(scan, dict)}
+    scan16 = scans50_by_bits.get(16, {})
+    scan32 = scans50_by_bits.get(32, {})
+    if int(scan16.get("start_template_match_count", -1)) != 4:
+        return fail("collatz ticket50 must reproduce four 16-bit start-template matches")
+    if int(scan16.get("four_consecutive_one_exception_count", -1)) != 0:
+        return fail("collatz ticket50 16-bit scan must preserve no four-one exception")
+    if int(scan16.get("max_lasso_prefix_depth", -1)) != 3:
+        return fail("collatz ticket50 16-bit max lasso depth changed")
+    if int(scan32.get("start_template_match_count", -1)) != 69092:
+        return fail("collatz ticket50 32-bit start-template match count changed")
+    if int(scan32.get("four_consecutive_one_exception_count", -1)) != 8684:
+        return fail("collatz ticket50 32-bit four-one exception count changed")
+    if int(scan32.get("max_lasso_prefix_depth", -1)) != 15:
+        return fail("collatz ticket50 32-bit max lasso depth changed")
+    if str(audit50.get("ticket49_candidate_theorem_status")) != "refuted_by_32bit_phase_compatible_exception":
+        return fail("collatz ticket50 must refute the ticket49 all-phase candidate theorem")
+    if "No Collatz proof" not in str(audit50.get("proof_boundary", "")):
+        return fail("collatz ticket50 proof boundary must block proof overclaim")
+    if "no periodic Collatz orbit" not in str(audit50.get("proof_boundary", "")):
+        return fail("collatz ticket50 must preserve no-counterexample boundary")
 
     print("open problem structure verified")
     return 0

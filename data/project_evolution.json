@@ -55,7 +55,7 @@
     "claim_language_scanned_files": 19,
     "claim_language_scanned_lines": 10127,
     "claim_language_triggered_mentions": 117,
-    "claim_language_guarded_mentions": 117,
+    "claim_language_guarded_mentions": 118,
     "claim_language_failures": 0,
     "blocking_gaps": 2,
     "claim_ledger_allowed": 3,
@@ -174,6 +174,13 @@
           "state": "open",
           "measure": "dead step 3 / next_valuation 5 vs 1",
           "proof": "TICKET-49 identifies the first local coordinate that blocks the concrete Collatz lasso prefix"
+        },
+        {
+          "marker": "10",
+          "title": "Phase-lift exception promoted",
+          "state": "open",
+          "measure": "32-bit: 69,092 starts / 8,684 exceptions / depth 15",
+          "proof": "TICKET-50 refutes the local all-phase obstruction and promotes two near-lasso witnesses instead"
         }
       ],
       "evidence_flow": [
@@ -293,11 +300,11 @@
         },
         {
           "layer": "Open-Proof",
-          "score": 49,
+          "score": 50,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "docs/proof-or-counterexample-program.md"],
-          "gate": "Finite quotient repairs are blocked and the first concrete lasso-prefix failure is localized to next_valuation; no full proof claim",
-          "proof": "The proof workbench now requires an all-phase next-valuation preimage theorem, a higher-bit exception, or an ordinal infinite bridge."
+          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "docs/proof-or-counterexample-program.md"],
+          "gate": "The 16-bit next-valuation obstruction is preserved but its all-phase version is refuted by 32-bit exceptions; no full proof claim",
+          "proof": "The proof workbench now targets the phase-15 terminal lift obstruction or a 48-bit full-lasso completion witness."
         }
       ]
     },
@@ -346,6 +353,11 @@
         "label": "Preimage obstruction isolated",
         "impact": "TICKET-49 classifies the first concrete lasso-prefix failure as a next_valuation mismatch: the unique two-step survivor reaches 5 where the lasso requires 1.",
         "metric": "dead step 3 / 5 != 1"
+      },
+      {
+        "label": "Phase-lift exception promoted",
+        "impact": "TICKET-50 refutes the TICKET-49 all-phase obstruction candidate at 32 bits and promotes two depth-15 near-lasso residues as the next terminal-lift targets.",
+        "metric": "69,092 / 8,684 / depth 15"
       }
     ],
     "research_delta": {
@@ -383,7 +395,7 @@
         {
           "track": "Open proof search",
           "before": "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.",
-          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation.",
+          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension and promotes two depth-15 near-lasso witnesses.",
           "state": "open"
         }
       ],

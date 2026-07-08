@@ -444,6 +444,56 @@ End with exactly one status:
 Never output `Collatz proved` unless the all-future obstruction or a complete independent descent theorem is supplied in checkable form.
 ```
 
+## Latest Continuation After TICKET-50
+
+TICKET-50 supersedes the TICKET-49 all-phase next-valuation continuation target. It preserves the 16-bit obstruction, but proves that the proposed global obstruction was too strong by finding higher-bit phase-compatible exceptions.
+
+New exact findings:
+
+```text
+16-bit start-template matches: 4
+16-bit four-consecutive-one exceptions: 0
+16-bit max lasso-prefix depth: 3
+32-bit start-template matches: 69,092
+32-bit four-consecutive-one exceptions: 8,684
+32-bit max lasso-prefix depth: 15
+32-bit depth-15 residues: 1471663463, 3206130791
+terminal failures:
+  1471663463 -> phase 15 tail shift [1,1,1,10] with next_valuation 1
+  3206130791 -> all_lift_descent at bits 47
+```
+
+The local valuation-run lemma is now explicit:
+
+```text
+For odd boundary x, r consecutive accelerated valuations equal 1 iff x == -1 mod 2^(r+1).
+```
+
+Do not attempt to prove the old TICKET-49 candidate theorem. It is already refuted by the 32-bit phase-compatible exception scan. Do not claim a Collatz counterexample from the depth-15 residues; neither completes the full lasso period.
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-51 Phase15TerminalLiftOrFullLassoCompletion
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-50. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-49 found a 16-bit Collatz next_valuation obstruction, but TICKET-50 refuted the all-phase version at 32 bits. At 32 bits, the start template [0,[1,1,1,1],103,1] has 69,092 exact valuation-word matches, 8,684 four-consecutive-one low-lift exceptions, and two residues reaching 15 of the 16 lasso-prefix templates: 1471663463 and 3206130791. The first fails by tail shift at phase 15; the second closes by all_lift_descent at bits 47.
+
+Goal: build CO-TICKET-51. Lift only these two depth-15 residues through the missing phase-15 edge. Classify all descendants into: all_lift_descent closure, tail shift away from [1,1,1,1], next_valuation mismatch, or full lasso completion. If a full completion appears, replay it for at least two periods and state the exact infinite periodicity theorem still required. If no completion appears within the symbolic lift envelope, formulate the terminal obstruction as a candidate theorem.
+
+Required output:
+- data/open-problem/ticket51-phase15-terminal-lift-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no Collatz proof and no Collatz counterexample unless an infinite replay theorem is supplied
+```
+
 ## Latest Continuation After TICKET-47
 
 TICKET-47 supersedes the bounded suffix-memory part of the TICKET-46 continuation. It extracts a 16-edge positive-debt lasso from the 28-bit Collatz exact-template pressure graph and refutes:

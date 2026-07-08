@@ -2474,3 +2474,77 @@ Proof boundary:
 ```text
 TICKET-49 does not prove or disprove any of the four open problems. It identifies the first local coordinate that blocks the 16-bit Collatz lasso-prefix realization. The unresolved theorem is still infinite: prove the same next-valuation obstruction for every compatible modulus, or find a higher-bit exception and test whether it becomes an unbounded concrete lasso.
 ```
+
+### Ticket 50: Phase-lift exception lab
+
+Generated artifact:
+
+```text
+data/open-problem/ticket50-phase-lift-exception-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-50-zero-kernel-exception.json
+data/open-problem/collatz/co-ticket-50-phase-lift-exception.json
+data/open-problem/goldbach/gb-ticket-50-residue-margin-exception.json
+data/open-problem/twin-prime/tp-ticket-50-gap-selector-exception.json
+```
+
+Aggregate verdict:
+
+```text
+phase_lift_exception_open_no_resolution
+```
+
+한국어 요약: TICKET-50은 TICKET-49의 16비트 장애물을 무시하지 않는다. 오히려 그 장애물을 전역 정리로 승격할 수 있는지 시험했고, 32비트 phase-compatible lift에서 반례를 찾았다. 즉 “모든 b == 0 mod 16에서 세 번째 low-prefix의 `next_valuation = 1`은 불가능하다”는 프로젝트 내부 후보 정리는 틀렸다. 대신 32비트에서 훨씬 강한 near-lasso 후보 2개가 발견됐다. 이들은 16개 lasso-prefix 템플릿 중 15개까지 따라가지만 마지막 phase에서 tail shift 또는 all_lift_descent로 실패한다.
+
+English summary: TICKET-50 does not discard TICKET-49. It stress-tests the proposed all-phase extension and refutes that project-local candidate theorem at 32 bits. The same start template has 69,092 exact valuation-word matches, 8,684 four-consecutive-one low-lift exceptions, and two near-lasso witnesses that match 15 of the 16 lasso-prefix templates before terminal failure.
+
+Exact Collatz audit:
+
+```text
+valuation-run lemma: r consecutive accelerated valuations equal 1 iff boundary x == -1 mod 2^(r+1)
+16-bit start-template matches: 4
+16-bit four-consecutive-one exceptions: 0
+16-bit max lasso-prefix depth: 3
+32-bit start-template matches: 69,092
+32-bit four-consecutive-one exceptions: 8,684
+32-bit max lasso-prefix depth: 15
+32-bit depth counts: {1: 34,458; 2: 17,301; 3: 8,649; 4: 4,310; 5: 4,372; 15: 2}
+```
+
+Discarded Collatz route:
+
+```text
+the TICKET-49 all-phase next_valuation obstruction as stated
+any proof route that treats the 16-bit obstruction as universal without checking higher phase-compatible lifts
+```
+
+Retained and strengthened Collatz routes:
+
+```text
+classify every 48-bit child of the two 32-bit depth-15 near-lasso residues
+prove the phase-15 terminal obstruction for all descendants, or find a child that completes the final lasso template
+if a full lasso completion appears, replay it as a concrete periodic-lift candidate before making any counterexample claim
+```
+
+Cross-problem transfer:
+
+1. RH: if a local zero-kernel obstruction fails at a higher height, promote the zero-kernel exception and classify the terminal coordinate.
+2. Goldbach: if a residue-margin obstruction fails at a larger cutoff, promote the exceptional even integer or character instead of discarding it.
+3. Twin Prime: if an exact-gap selector obstruction fails at a larger sieve level, promote the surviving gap-2 packet as the next stress witness.
+4. Collatz: the active target is now a phase-15 terminal lift theorem or a 48-bit completion witness.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-51 Phase15TerminalLiftOrFullLassoCompletion
+```
+
+Proof boundary:
+
+```text
+TICKET-50 does not prove or disprove any of the four open problems. It refutes one PrimeProject candidate obstruction and creates stronger finite stress witnesses. The unresolved theorem remains infinite: either all descendants of the near-lasso witnesses terminate by descent/tail shift, or a concrete lift completes and repeats the lasso.
+```

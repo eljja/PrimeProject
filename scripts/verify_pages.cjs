@@ -458,6 +458,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Automaton/reachability result") ||
         !page.proofOrCounterexampleText.includes("Ticket 49 symbolic preimage obstruction lab") ||
         !page.proofOrCounterexampleText.includes("Symbolic preimage result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 50 phase-lift exception lab") ||
+        !page.proofOrCounterexampleText.includes("Phase-lift result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
