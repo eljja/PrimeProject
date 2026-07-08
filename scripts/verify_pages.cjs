@@ -446,6 +446,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Template result") ||
         !page.proofOrCounterexampleText.includes("Ticket 43 lift constraint measure lab") ||
         !page.proofOrCounterexampleText.includes("Lift measure result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 44 feature-measure counteredge lab") ||
+        !page.proofOrCounterexampleText.includes("Feature measure result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

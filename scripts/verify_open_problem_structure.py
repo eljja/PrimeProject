@@ -37,6 +37,7 @@ TICKET40_SCHEMA = "primeproject.ticket40-transition-closure-lab.v1"
 TICKET41_SCHEMA = "primeproject.ticket41-rank-escape-normalization-lab.v1"
 TICKET42_SCHEMA = "primeproject.ticket42-parametric-transition-template-lab.v1"
 TICKET43_SCHEMA = "primeproject.ticket43-lift-constraint-measure-lab.v1"
+TICKET44_SCHEMA = "primeproject.ticket44-feature-measure-counteredge-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1697,6 +1698,94 @@ def main() -> int:
         return fail("collatz ticket43 must retain sampled measure and parametric lift constraints")
     if "not a Collatz proof" not in str(audit43.get("proof_boundary", "")):
         return fail("collatz ticket43 proof boundary must block proof overclaim")
+
+    ticket44_path = Path("data/open-problem/ticket44-feature-measure-counteredge-lab.json")
+    if not ticket44_path.exists():
+        return fail("missing ticket44 feature measure counteredge artifact")
+    ticket44 = read_json(ticket44_path)
+    if ticket44.get("schema") != TICKET44_SCHEMA:
+        return fail("ticket44 feature measure counteredge artifact has unexpected schema")
+    if ticket44.get("status") != "feature_measure_counteredge_open_no_resolution":
+        return fail("ticket44 feature measure counteredge overstates resolution")
+    ticket44_attempts = ticket44.get("attempts", [])
+    if not isinstance(ticket44_attempts, list):
+        return fail("ticket44 attempts must be a list")
+    ticket44_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket44_attempts if isinstance(attempt, dict)}
+    missing_ticket44 = EXPECTED_PROBLEMS - set(ticket44_by_id)
+    if missing_ticket44:
+        return fail("ticket44 attempts missing problems: " + ", ".join(sorted(missing_ticket44)))
+    ticket44_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-44-zero-feature-counteredge.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-44-feature-measure-counteredge.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-44-margin-feature-counteredge.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-44-gap-feature-counteredge.json"),
+    }
+    for problem_id, attempt in ticket44_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket44 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket44 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket44 claim boundary is too weak")
+        path = ticket44_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket44 per-problem artifact")
+
+    collatz_ticket44 = ticket44_by_id.get("collatz", {})
+    collatz44_bounded = collatz_ticket44.get("bounded_result", {})
+    if not isinstance(collatz44_bounded, dict):
+        return fail("collatz ticket44 bounded result must be an object")
+    audit44 = collatz44_bounded.get("feature_measure_counteredge_audit", {})
+    if not isinstance(audit44, dict):
+        return fail("collatz ticket44 feature measure audit missing")
+    if int(audit44.get("template_node_count", 0)) < 160_000:
+        return fail("collatz ticket44 must retain a large template graph")
+    if int(audit44.get("template_edge_count", 0)) < 700_000:
+        return fail("collatz ticket44 must retain many template edges")
+    if int(audit44.get("raw_open_edge_count", 0)) < 2_300_000:
+        return fail("collatz ticket44 must process the full raw open-edge frontier")
+    if int(audit44.get("exactly_refuted_feature_family_count", 0)) < 1:
+        return fail("collatz ticket44 must exactly refute at least one weak feature family")
+    feature_trials44 = audit44.get("feature_trials", [])
+    if not isinstance(feature_trials44, list) or len(feature_trials44) < 5:
+        return fail("collatz ticket44 must include the debt control and richer feature trials")
+    trial44_by_name = {str(trial.get("feature_family")): trial for trial in feature_trials44 if isinstance(trial, dict)}
+    debt_trial44 = trial44_by_name.get("debt_only_constant", {})
+    if debt_trial44.get("status") != "exact_zero_delta_counteredge_refutes_feature_measure":
+        return fail("collatz ticket44 must exactly refute debt-only descent")
+    if int(debt_trial44.get("zero_delta_refuter_count", 0)) < 300_000:
+        return fail("collatz ticket44 debt-only refuter count unexpectedly small")
+    rich_trial44 = trial44_by_name.get("phase_residue_onehot_tail_numeric", {})
+    rich_search44 = rich_trial44.get("sampled_affine_search", {}) if isinstance(rich_trial44, dict) else {}
+    if rich_trial44.get("status") != "not_certified_by_bounded_affine_search":
+        return fail("collatz ticket44 rich feature family must remain unproved")
+    if int(rich_search44.get("violating_unique_constraints", 0)) < 1:
+        return fail("collatz ticket44 rich affine search must expose unresolved constraints")
+    rank_baseline44 = audit44.get("rank_table_baseline", {})
+    if not isinstance(rank_baseline44, dict):
+        return fail("collatz ticket44 rank table baseline missing")
+    measure44 = rank_baseline44.get("sampled_rank_debt_measure", {})
+    if not isinstance(measure44, dict) or measure44.get("status") != "sampled_measure_decreases_on_all_template_edges":
+        return fail("collatz ticket44 must preserve the bounded rank-table certificate")
+    extension44 = audit44.get("horizon_extension_gate", {})
+    if not isinstance(extension44, dict):
+        return fail("collatz ticket44 horizon extension gate missing")
+    if int(extension44.get("new_template_edge_count", 0)) < 200_000:
+        return fail("collatz ticket44 must preserve the TICKET43 new-edge obstruction")
+    if extension44.get("closure_status") != "rank_lift_not_closed_under_horizon_extension":
+        return fail("collatz ticket44 must keep horizon closure open")
+    route44 = audit44.get("route_decision", {})
+    if not isinstance(route44, dict):
+        return fail("collatz ticket44 route decision missing")
+    discard44 = " ".join(str(item) for item in route44.get("discard", []))
+    retain44 = " ".join(str(item) for item in route44.get("retain", []))
+    if "debt-only" not in discard44 or "observed-node rank table" not in discard44:
+        return fail("collatz ticket44 must discard debt-only and observed rank-table overclaims")
+    if "exact counteredge extraction" not in retain44 or "horizon-independent symbolic rank" not in retain44:
+        return fail("collatz ticket44 must retain counteredge extraction and symbolic-rank route")
+    if "No Collatz proof" not in str(audit44.get("proof_boundary", "")):
+        return fail("collatz ticket44 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

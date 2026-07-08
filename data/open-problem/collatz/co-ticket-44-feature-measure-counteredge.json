@@ -1,0 +1,898 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-44",
+  "route": "HorizonIndependentFeatureMeasureOrCounteredge",
+  "status": "proof_pressure_open",
+  "proof_or_counterexample_mode": "feature-measure cegis plus counteredge extraction",
+  "attempt": "Try to replace the TICKET43 horizon-specific rank table with explicit feature measures. If a feature family cannot work, record exact counteredges so the proof route is discarded rather than repeated.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-43",
+    "feature_measure_counteredge_audit": {
+      "family": "phase16_tail4_residue256_vexact",
+      "max_bits": 26,
+      "template_node_count": 165841,
+      "template_edge_count": 710241,
+      "raw_open_edge_count": 2392525,
+      "rank_table_baseline": {
+        "status": "bounded_rank_table_available_not_horizon_independent",
+        "topological_rank": {
+          "cycle_detected": false,
+          "topological_seen_count": 165841,
+          "cyclic_core_node_count": 0,
+          "max_topological_rank": 14,
+          "rank_positive_state_count": 125746,
+          "rank_sink_state_count": 40095,
+          "rank_edge_violations": 0,
+          "top_rank_examples": [
+            {
+              "rank": 14,
+              "state": "[12,[4,1,1,1],63,1]"
+            },
+            {
+              "rank": 14,
+              "state": "[12,[3,2,1,1],63,2]"
+            },
+            {
+              "rank": 14,
+              "state": "[12,[3,1,2,1],63,3]"
+            },
+            {
+              "rank": 14,
+              "state": "[12,[3,1,1,2],207,3]"
+            },
+            {
+              "rank": 14,
+              "state": "[12,[3,1,1,1],223,4]"
+            },
+            {
+              "rank": 14,
+              "state": "[12,[3,1,1,1],207,4]"
+            },
+            {
+              "rank": 14,
+              "state": "[12,[3,1,1,1],155,2]"
+            },
+            {
+              "rank": 14,
+              "state": "[12,[3,1,1,1],127,1]"
+            }
+          ]
+        },
+        "sampled_rank_debt_measure": {
+          "candidate": "M(template, debt) = scale * topological_rank(template) + debt",
+          "status": "sampled_measure_decreases_on_all_template_edges",
+          "scale": 11,
+          "min_margin": 0.584962500721,
+          "invalid_rank_gap_edges": 0,
+          "rank_gap_counts": {
+            "1": 2389779,
+            "2": 262,
+            "3": 677,
+            "4": 357,
+            "5": 210,
+            "6": 489,
+            "7": 213,
+            "8": 93,
+            "9": 180,
+            "10": 58,
+            "11": 125,
+            "12": 48
+          },
+          "worst_margin_examples": [
+            {
+              "parent_template": "[12,[12],85,0]",
+              "child_template": "[13,[],85,14]",
+              "rank_gap": 1,
+              "max_delta_debt": 10.415037499279,
+              "margin_at_scale": 0.584962500721,
+              "count": 1,
+              "example": {
+                "bits": 12,
+                "direction": "high",
+                "label": "high_only_open",
+                "parent_residue": 1365,
+                "child_residue": 5461,
+                "parent_template": "[12,[12],85,0]",
+                "child_template": "[13,[],85,14]",
+                "delta_prefix": -1,
+                "delta_consumed": -12,
+                "delta_next_valuation": 14,
+                "delta_debt": 10.415037499279
+              }
+            },
+            {
+              "parent_template": "[12,[1,1,10],151,0]",
+              "child_template": "[13,[1,1],151,12]",
+              "rank_gap": 1,
+              "max_delta_debt": 8.415037499279,
+              "margin_at_scale": 2.584962500721,
+              "count": 1,
+              "example": {
+                "bits": 12,
+                "direction": "high",
+                "label": "high_only_open",
+                "parent_residue": 151,
+                "child_residue": 4247,
+                "parent_template": "[12,[1,1,10],151,0]",
+                "child_template": "[13,[1,1],151,12]",
+                "delta_prefix": -1,
+                "delta_consumed": -10,
+                "delta_next_valuation": 12,
+                "delta_debt": 8.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[1,1,1,9],159,1]",
+              "child_template": "[10,[1,1,1,1],159,11]",
+              "rank_gap": 1,
+              "max_delta_debt": 7.415037499279,
+              "margin_at_scale": 3.584962500721,
+              "count": 1,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 18806943,
+                "child_residue": 52361375,
+                "parent_template": "[9,[1,1,1,9],159,1]",
+                "child_template": "[10,[1,1,1,1],159,11]",
+                "delta_prefix": -1,
+                "delta_consumed": -9,
+                "delta_next_valuation": 10,
+                "delta_debt": 7.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[1,1,1,9],255,1]",
+              "child_template": "[10,[1,1,1,1],255,13]",
+              "rank_gap": 1,
+              "max_delta_debt": 7.415037499279,
+              "margin_at_scale": 3.584962500721,
+              "count": 1,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 13658623,
+                "child_residue": 47213055,
+                "parent_template": "[9,[1,1,1,9],255,1]",
+                "child_template": "[10,[1,1,1,1],255,13]",
+                "delta_prefix": -1,
+                "delta_consumed": -9,
+                "delta_next_valuation": 12,
+                "delta_debt": 7.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[1,1,1,9],255,1]",
+              "child_template": "[10,[1,1,1,1],255,11]",
+              "rank_gap": 1,
+              "max_delta_debt": 7.415037499279,
+              "margin_at_scale": 3.584962500721,
+              "count": 1,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 24616703,
+                "child_residue": 58171135,
+                "parent_template": "[9,[1,1,1,9],255,1]",
+                "child_template": "[10,[1,1,1,1],255,11]",
+                "delta_prefix": -1,
+                "delta_consumed": -9,
+                "delta_next_valuation": 10,
+                "delta_debt": 7.415037499279
+              }
+            },
+            {
+              "parent_template": "[9,[1,1,1,9],255,1]",
+              "child_template": "[10,[2,1,1,1],255,11]",
+              "rank_gap": 1,
+              "max_delta_debt": 7.415037499279,
+              "margin_at_scale": 3.584962500721,
+              "count": 1,
+              "example": {
+                "bits": 25,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 3207167,
+                "child_residue": 36761599,
+                "parent_template": "[9,[1,1,1,9],255,1]",
+                "child_template": "[10,[2,1,1,1],255,11]",
+                "delta_prefix": -1,
+                "delta_consumed": -9,
+                "delta_next_valuation": 10,
+                "delta_debt": 7.415037499279
+              }
+            },
+            {
+              "parent_template": "[12,[1,2,1,8],59,0]",
+              "child_template": "[13,[1,2,1],59,10]",
+              "rank_gap": 1,
+              "max_delta_debt": 6.415037499279,
+              "margin_at_scale": 4.584962500721,
+              "count": 1,
+              "example": {
+                "bits": 12,
+                "direction": "high",
+                "label": "high_only_open",
+                "parent_residue": 3387,
+                "child_residue": 7483,
+                "parent_template": "[12,[1,2,1,8],59,0]",
+                "child_template": "[13,[1,2,1],59,10]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 10,
+                "delta_debt": 6.415037499279
+              }
+            },
+            {
+              "parent_template": "[5,[1,1,1,8],255,1]",
+              "child_template": "[6,[1,1,1,1],255,10]",
+              "rank_gap": 1,
+              "max_delta_debt": 6.415037499279,
+              "margin_at_scale": 4.584962500721,
+              "count": 1,
+              "example": {
+                "bits": 21,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 1196031,
+                "child_residue": 3293183,
+                "parent_template": "[5,[1,1,1,8],255,1]",
+                "child_template": "[6,[1,1,1,1],255,10]",
+                "delta_prefix": -1,
+                "delta_consumed": -8,
+                "delta_next_valuation": 9,
+                "delta_debt": 6.415037499279
+              }
+            }
+          ],
+          "proof_boundary": "This is a finite sampled measure, not a Collatz proof. It depends on the sampled template rank and therefore still needs a theorem that future lifts preserve the relation and rank order."
+        },
+        "interpretation": "The observed template table can rank the sampled DAG, but it assigns values to observed nodes only. It does not define ranks for future templates introduced by larger horizons."
+      },
+      "horizon_extension_gate": {
+        "source_ticket": "CO-TICKET-43",
+        "from_max_bits": 25,
+        "to_max_bits": 26,
+        "new_template_edge_count": 229368,
+        "rank_changed_previous_node_count": 124027,
+        "old_measure_unknown_rank_edges": 229368,
+        "closure_status": "rank_lift_not_closed_under_horizon_extension",
+        "interpretation": "Any rank table over observed nodes must explain how new future nodes and edges receive compatible ranks. TICKET43 showed that this is the current infinite bridge."
+      },
+      "feature_trials": [
+        {
+          "feature_family": "debt_only_constant",
+          "description": "No template feature at all; this is the pure debt-only descent route.",
+          "proof_intent": "This is the weakest possible measure. It is included as a control because TICKET42/TICKET43 already showed that debt alone cannot prove Collatz descent.",
+          "status": "exact_zero_delta_counteredge_refutes_feature_measure",
+          "feature_dimension": 1,
+          "template_edge_count": 710241,
+          "unique_constraint_count": 1,
+          "positive_debt_pressure_edge_count": 390494,
+          "zero_delta_refuter_count": 390494,
+          "reverse_conflict_count": 0,
+          "zero_delta_refuters": [
+            {
+              "parent_template": "[12,[1,2,2,1],27,2]",
+              "child_template": "[13,[1,2,2,1],27,2]",
+              "count": 1,
+              "max_delta_debt": 0.0,
+              "min_delta_debt": 0.0,
+              "example": {
+                "bits": 12,
+                "direction": "low",
+                "label": "both_open",
+                "parent_residue": 27,
+                "child_residue": 27,
+                "parent_template": "[12,[1,2,2,1],27,2]",
+                "child_template": "[13,[1,2,2,1],27,2]",
+                "delta_prefix": 0,
+                "delta_consumed": 0,
+                "delta_next_valuation": 0,
+                "delta_debt": 0.0
+              },
+              "feature_delta": [
+                0.0
+              ],
+              "reason": "same feature vector but nonnegative debt pressure"
+            },
+            {
+              "parent_template": "[12,[2,1,2,1],31,1]",
+              "child_template": "[13,[1,2,1,1],31,2]",
+              "count": 1,
+              "max_delta_debt": 0.584962500721,
+              "min_delta_debt": 0.584962500721,
+              "example": {
+                "bits": 12,
+                "direction": "low",
+                "label": "both_open",
+                "parent_residue": 31,
+                "child_residue": 31,
+                "parent_template": "[12,[2,1,2,1],31,1]",
+                "child_template": "[13,[1,2,1,1],31,2]",
+                "delta_prefix": 1,
+                "delta_consumed": 1,
+                "delta_next_valuation": 1,
+                "delta_debt": 0.584962500721
+              },
+              "feature_delta": [
+                0.0
+              ],
+              "reason": "same feature vector but nonnegative debt pressure"
+            },
+            {
+              "parent_template": "[12,[1,2,1,1],47,2]",
+              "child_template": "[13,[1,2,1,1],47,2]",
+              "count": 1,
+              "max_delta_debt": 0.0,
+              "min_delta_debt": 0.0,
+              "example": {
+                "bits": 12,
+                "direction": "low",
+                "label": "both_open",
+                "parent_residue": 47,
+                "child_residue": 47,
+                "parent_template": "[12,[1,2,1,1],47,2]",
+                "child_template": "[13,[1,2,1,1],47,2]",
+                "delta_prefix": 0,
+                "delta_consumed": 0,
+                "delta_next_valuation": 0,
+                "delta_debt": 0.0
+              },
+              "feature_delta": [
+                0.0
+              ],
+              "reason": "same feature vector but nonnegative debt pressure"
+            },
+            {
+              "parent_template": "[12,[1,4,1,2],63,1]",
+              "child_template": "[13,[4,1,2,1],63,1]",
+              "count": 1,
+              "max_delta_debt": 0.584962500721,
+              "min_delta_debt": 0.584962500721,
+              "example": {
+                "bits": 12,
+                "direction": "low",
+                "label": "both_open",
+                "parent_residue": 63,
+                "child_residue": 63,
+                "parent_template": "[12,[1,4,1,2],63,1]",
+                "child_template": "[13,[4,1,2,1],63,1]",
+                "delta_prefix": 1,
+                "delta_consumed": 1,
+                "delta_next_valuation": 0,
+                "delta_debt": 0.584962500721
+              },
+              "feature_delta": [
+                0.0
+              ],
+              "reason": "same feature vector but nonnegative debt pressure"
+            },
+            {
+              "parent_template": "[12,[1,4,1,2],63,1]",
+              "child_template": "[13,[1,1,4,1],63,5]",
+              "count": 1,
+              "max_delta_debt": 0.415037499279,
+              "min_delta_debt": 0.415037499279,
+              "example": {
+                "bits": 12,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 63,
+                "child_residue": 4159,
+                "parent_template": "[12,[1,4,1,2],63,1]",
+                "child_template": "[13,[1,1,4,1],63,5]",
+                "delta_prefix": -1,
+                "delta_consumed": -2,
+                "delta_next_valuation": 4,
+                "delta_debt": 0.415037499279
+              },
+              "feature_delta": [
+                0.0
+              ],
+              "reason": "same feature vector but nonnegative debt pressure"
+            },
+            {
+              "parent_template": "[12,[1,2,1,1],71,2]",
+              "child_template": "[13,[2,1,1,1],71,2]",
+              "count": 1,
+              "max_delta_debt": 0.584962500721,
+              "min_delta_debt": 0.584962500721,
+              "example": {
+                "bits": 12,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 71,
+                "child_residue": 4167,
+                "parent_template": "[12,[1,2,1,1],71,2]",
+                "child_template": "[13,[2,1,1,1],71,2]",
+                "delta_prefix": 1,
+                "delta_consumed": 1,
+                "delta_next_valuation": 0,
+                "delta_debt": 0.584962500721
+              },
+              "feature_delta": [
+                0.0
+              ],
+              "reason": "same feature vector but nonnegative debt pressure"
+            },
+            {
+              "parent_template": "[12,[1,1,1,2],91,3]",
+              "child_template": "[13,[1,1,1,2],91,3]",
+              "count": 1,
+              "max_delta_debt": 0.0,
+              "min_delta_debt": 0.0,
+              "example": {
+                "bits": 12,
+                "direction": "low",
+                "label": "both_open",
+                "parent_residue": 91,
+                "child_residue": 91,
+                "parent_template": "[12,[1,1,1,2],91,3]",
+                "child_template": "[13,[1,1,1,2],91,3]",
+                "delta_prefix": 0,
+                "delta_consumed": 0,
+                "delta_next_valuation": 0,
+                "delta_debt": 0.0
+              },
+              "feature_delta": [
+                0.0
+              ],
+              "reason": "same feature vector but nonnegative debt pressure"
+            },
+            {
+              "parent_template": "[12,[1,1,1,2],91,3]",
+              "child_template": "[13,[2,1,1,1],91,7]",
+              "count": 1,
+              "max_delta_debt": 0.415037499279,
+              "min_delta_debt": 0.415037499279,
+              "example": {
+                "bits": 12,
+                "direction": "high",
+                "label": "both_open",
+                "parent_residue": 91,
+                "child_residue": 4187,
+                "parent_template": "[12,[1,1,1,2],91,3]",
+                "child_template": "[13,[2,1,1,1],91,7]",
+                "delta_prefix": -1,
+                "delta_consumed": -2,
+                "delta_next_valuation": 4,
+                "delta_debt": 0.415037499279
+              },
+              "feature_delta": [
+                0.0
+              ],
+              "reason": "same feature vector but nonnegative debt pressure"
+            }
+          ],
+          "reverse_conflicts": [],
+          "sampled_affine_search": {
+            "status": "sampled_affine_search_failed",
+            "passes": 6,
+            "updates": 0,
+            "violating_unique_constraints": 1,
+            "weight_l2": 0.0,
+            "weight_preview": [
+              0.0
+            ],
+            "worst_constraint": {
+              "gap": -10.415037499279,
+              "score": 0.0,
+              "required_bound": 10.415037499279,
+              "feature_delta": [
+                0.0
+              ],
+              "example": {
+                "parent_template": "[12,[12],85,0]",
+                "child_template": "[13,[],85,14]",
+                "count": 1,
+                "max_delta_debt": 10.415037499279,
+                "min_delta_debt": 10.415037499279,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 1365,
+                  "child_residue": 5461,
+                  "parent_template": "[12,[12],85,0]",
+                  "child_template": "[13,[],85,14]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -12,
+                  "delta_next_valuation": 14,
+                  "delta_debt": 10.415037499279
+                }
+              }
+            },
+            "proof_boundary": "This is a bounded numerical search over a chosen feature family. Failure is not a mathematical impossibility unless an exact zero-delta or reverse-constraint certificate is present."
+          },
+          "claim_boundary": "A refuted feature family is not a Collatz counterexample; it only rejects that proposed proof measure. A found sampled affine measure would still require a theorem covering all future lifts."
+        },
+        {
+          "feature_family": "phase_tail_scalar",
+          "description": "Small explicit scalar features: phase, tail summaries, residue bucket, popcount, clipped next valuation.",
+          "proof_intent": "If this worked, Collatz descent could be expressed by a compact closed-form feature measure rather than a horizon-specific rank table.",
+          "status": "not_certified_by_bounded_affine_search",
+          "feature_dimension": 7,
+          "template_edge_count": 710241,
+          "unique_constraint_count": 4748,
+          "positive_debt_pressure_edge_count": 390494,
+          "zero_delta_refuter_count": 0,
+          "reverse_conflict_count": 0,
+          "zero_delta_refuters": [],
+          "reverse_conflicts": [],
+          "sampled_affine_search": {
+            "status": "sampled_affine_search_failed",
+            "passes": 6,
+            "updates": 590,
+            "violating_unique_constraints": 2608,
+            "weight_l2": 0.07571716777,
+            "weight_preview": [
+              0.008772,
+              0.018657,
+              -0.029957,
+              -0.060451,
+              0.0,
+              0.0,
+              -0.027501
+            ],
+            "worst_constraint": {
+              "gap": -10.899809683842,
+              "score": -0.484772184563,
+              "required_bound": 10.415037499279,
+              "feature_delta": [
+                -1.0,
+                12.0,
+                12.0,
+                12.0,
+                0.0,
+                0.0,
+                -14.0
+              ],
+              "example": {
+                "parent_template": "[12,[12],85,0]",
+                "child_template": "[13,[],85,14]",
+                "count": 1,
+                "max_delta_debt": 10.415037499279,
+                "min_delta_debt": 10.415037499279,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 1365,
+                  "child_residue": 5461,
+                  "parent_template": "[12,[12],85,0]",
+                  "child_template": "[13,[],85,14]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -12,
+                  "delta_next_valuation": 14,
+                  "delta_debt": 10.415037499279
+                }
+              }
+            },
+            "proof_boundary": "This is a bounded numerical search over a chosen feature family. Failure is not a mathematical impossibility unless an exact zero-delta or reverse-constraint certificate is present."
+          },
+          "claim_boundary": "A refuted feature family is not a Collatz counterexample; it only rejects that proposed proof measure. A found sampled affine measure would still require a theorem covering all future lifts."
+        },
+        {
+          "feature_family": "numeric_template_coordinates",
+          "description": "Direct numeric coordinates of the template: phase, four tail valuations, residue mod 256, next valuation.",
+          "proof_intent": "If this worked, the observed template rank might be replaceable by a simple affine formula over the template coordinates.",
+          "status": "not_certified_by_bounded_affine_search",
+          "feature_dimension": 7,
+          "template_edge_count": 710241,
+          "unique_constraint_count": 23067,
+          "positive_debt_pressure_edge_count": 390494,
+          "zero_delta_refuter_count": 0,
+          "reverse_conflict_count": 0,
+          "zero_delta_refuters": [],
+          "reverse_conflicts": [],
+          "sampled_affine_search": {
+            "status": "sampled_affine_search_failed",
+            "passes": 6,
+            "updates": 1031,
+            "violating_unique_constraints": 12290,
+            "weight_l2": 0.285217064027,
+            "weight_preview": [
+              -0.026444,
+              0.123448,
+              0.172206,
+              0.081794,
+              0.159631,
+              0.0,
+              0.059857
+            ],
+            "worst_constraint": {
+              "gap": -9.311016043081,
+              "score": 1.104021456198,
+              "required_bound": 10.415037499279,
+              "feature_delta": [
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                12.0,
+                0.0,
+                -14.0
+              ],
+              "example": {
+                "parent_template": "[12,[12],85,0]",
+                "child_template": "[13,[],85,14]",
+                "count": 1,
+                "max_delta_debt": 10.415037499279,
+                "min_delta_debt": 10.415037499279,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 1365,
+                  "child_residue": 5461,
+                  "parent_template": "[12,[12],85,0]",
+                  "child_template": "[13,[],85,14]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -12,
+                  "delta_next_valuation": 14,
+                  "delta_debt": 10.415037499279
+                }
+              }
+            },
+            "proof_boundary": "This is a bounded numerical search over a chosen feature family. Failure is not a mathematical impossibility unless an exact zero-delta or reverse-constraint certificate is present."
+          },
+          "claim_boundary": "A refuted feature family is not a Collatz counterexample; it only rejects that proposed proof measure. A found sampled affine measure would still require a theorem covering all future lifts."
+        },
+        {
+          "feature_family": "residue_binary_coordinates",
+          "description": "Phase, four tail valuations, clipped next valuation, and the eight residue bits separately.",
+          "proof_intent": "This tests whether the residue obstruction is an artifact of treating residue as a scalar coordinate.",
+          "status": "not_certified_by_bounded_affine_search",
+          "feature_dimension": 14,
+          "template_edge_count": 710241,
+          "unique_constraint_count": 23067,
+          "positive_debt_pressure_edge_count": 390494,
+          "zero_delta_refuter_count": 0,
+          "reverse_conflict_count": 0,
+          "zero_delta_refuters": [],
+          "reverse_conflicts": [],
+          "sampled_affine_search": {
+            "status": "sampled_affine_search_failed",
+            "passes": 6,
+            "updates": 1031,
+            "violating_unique_constraints": 12290,
+            "weight_l2": 0.285217064027,
+            "weight_preview": [
+              -0.026444,
+              0.123448,
+              0.172206,
+              0.081794,
+              0.159631,
+              0.059857,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "worst_constraint": {
+              "gap": -9.311016043081,
+              "score": 1.104021456198,
+              "required_bound": 10.415037499279,
+              "feature_delta": [
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                12.0,
+                -14.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "example": {
+                "parent_template": "[12,[12],85,0]",
+                "child_template": "[13,[],85,14]",
+                "count": 1,
+                "max_delta_debt": 10.415037499279,
+                "min_delta_debt": 10.415037499279,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 1365,
+                  "child_residue": 5461,
+                  "parent_template": "[12,[12],85,0]",
+                  "child_template": "[13,[],85,14]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -12,
+                  "delta_next_valuation": 14,
+                  "delta_debt": 10.415037499279
+                }
+              }
+            },
+            "proof_boundary": "This is a bounded numerical search over a chosen feature family. Failure is not a mathematical impossibility unless an exact zero-delta or reverse-constraint certificate is present."
+          },
+          "claim_boundary": "A refuted feature family is not a Collatz counterexample; it only rejects that proposed proof measure. A found sampled affine measure would still require a theorem covering all future lifts."
+        },
+        {
+          "feature_family": "phase_residue_onehot_tail_numeric",
+          "description": "One-hot phase, one-hot residue mod 16, numeric tail, and clipped next valuation.",
+          "proof_intent": "This is a richer but still horizon-independent feature dictionary. It is intentionally weaker than a one-hot table over every observed template node.",
+          "status": "not_certified_by_bounded_affine_search",
+          "feature_dimension": 37,
+          "template_edge_count": 710241,
+          "unique_constraint_count": 74629,
+          "positive_debt_pressure_edge_count": 390494,
+          "zero_delta_refuter_count": 0,
+          "reverse_conflict_count": 0,
+          "zero_delta_refuters": [],
+          "reverse_conflicts": [],
+          "sampled_affine_search": {
+            "status": "sampled_affine_search_failed",
+            "passes": 6,
+            "updates": 1560,
+            "violating_unique_constraints": 1126,
+            "weight_l2": 16.50170320448,
+            "weight_preview": [
+              2.812755,
+              1.996661,
+              1.325459,
+              0.587036,
+              -0.171386,
+              -1.149611,
+              -2.156824,
+              -3.238196,
+              -4.91579,
+              -6.391562,
+              -8.514248,
+              0.0,
+              6.674772,
+              5.34281,
+              4.182602,
+              3.615521,
+              0.0,
+              0.0
+            ],
+            "worst_constraint": {
+              "gap": -1.739123552496,
+              "score": 8.675913946783,
+              "required_bound": 10.415037499279,
+              "feature_delta": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                -1.0,
+                "..."
+              ],
+              "example": {
+                "parent_template": "[12,[12],85,0]",
+                "child_template": "[13,[],85,14]",
+                "count": 1,
+                "max_delta_debt": 10.415037499279,
+                "min_delta_debt": 10.415037499279,
+                "example": {
+                  "bits": 12,
+                  "direction": "high",
+                  "label": "high_only_open",
+                  "parent_residue": 1365,
+                  "child_residue": 5461,
+                  "parent_template": "[12,[12],85,0]",
+                  "child_template": "[13,[],85,14]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -12,
+                  "delta_next_valuation": 14,
+                  "delta_debt": 10.415037499279
+                }
+              }
+            },
+            "proof_boundary": "This is a bounded numerical search over a chosen feature family. Failure is not a mathematical impossibility unless an exact zero-delta or reverse-constraint certificate is present."
+          },
+          "claim_boundary": "A refuted feature family is not a Collatz counterexample; it only rejects that proposed proof measure. A found sampled affine measure would still require a theorem covering all future lifts."
+        }
+      ],
+      "exactly_refuted_feature_family_count": 1,
+      "not_certified_or_open_feature_family_count": 4,
+      "strongest_counteredges": [
+        {
+          "feature_family": "debt_only_constant",
+          "status": "exact_zero_delta_counteredge_refutes_feature_measure",
+          "zero_delta_refuter_count": 390494,
+          "reverse_conflict_count": 0,
+          "first_zero_delta_refuter": {
+            "parent_template": "[12,[1,2,2,1],27,2]",
+            "child_template": "[13,[1,2,2,1],27,2]",
+            "count": 1,
+            "max_delta_debt": 0.0,
+            "min_delta_debt": 0.0,
+            "example": {
+              "bits": 12,
+              "direction": "low",
+              "label": "both_open",
+              "parent_residue": 27,
+              "child_residue": 27,
+              "parent_template": "[12,[1,2,2,1],27,2]",
+              "child_template": "[13,[1,2,2,1],27,2]",
+              "delta_prefix": 0,
+              "delta_consumed": 0,
+              "delta_next_valuation": 0,
+              "delta_debt": 0.0
+            },
+            "feature_delta": [
+              0.0
+            ],
+            "reason": "same feature vector but nonnegative debt pressure"
+          },
+          "first_reverse_conflict": null
+        },
+        {
+          "feature_family": "phase_tail_scalar",
+          "status": "not_certified_by_bounded_affine_search",
+          "zero_delta_refuter_count": 0,
+          "reverse_conflict_count": 0,
+          "first_zero_delta_refuter": null,
+          "first_reverse_conflict": null
+        },
+        {
+          "feature_family": "numeric_template_coordinates",
+          "status": "not_certified_by_bounded_affine_search",
+          "zero_delta_refuter_count": 0,
+          "reverse_conflict_count": 0,
+          "first_zero_delta_refuter": null,
+          "first_reverse_conflict": null
+        },
+        {
+          "feature_family": "residue_binary_coordinates",
+          "status": "not_certified_by_bounded_affine_search",
+          "zero_delta_refuter_count": 0,
+          "reverse_conflict_count": 0,
+          "first_zero_delta_refuter": null,
+          "first_reverse_conflict": null
+        },
+        {
+          "feature_family": "phase_residue_onehot_tail_numeric",
+          "status": "not_certified_by_bounded_affine_search",
+          "zero_delta_refuter_count": 0,
+          "reverse_conflict_count": 0,
+          "first_zero_delta_refuter": null,
+          "first_reverse_conflict": null
+        }
+      ],
+      "route_decision": {
+        "discard": [
+          "debt-only or low-dimensional scalar feature measure as a Collatz proof",
+          "numeric template-coordinate affine measure without counteredge clearance",
+          "observed-node rank table treated as a horizon-independent theorem"
+        ],
+        "retain": [
+          "exact counteredge extraction for every proposed feature measure",
+          "horizon-independent symbolic rank or lift theorem as the decisive proof target",
+          "future-edge search that violates every finite-rank extension as the disproof target"
+        ]
+      },
+      "closed_bounded_statement": "Debt-only descent is exactly refuted on the 26-bit sampled template graph. Richer compact affine feature families were not certified by the bounded search, while the observed rank table remains a bounded certificate only.",
+      "proof_boundary": "No Collatz proof and no Collatz counterexample. TICKET44 only prunes weak measure families and sharpens the next theorem: a horizon-independent symbolic rank or an explicit future counteredge."
+    }
+  },
+  "obstruction": "A compact explicit feature measure must survive exact counteredges and also assign compatible ranks to 229368 new 25->26 template edges. The current rank table does not.",
+  "candidate_theorem": "There exists a horizon-independent symbolic rank R(template) and scale c such that c*(R(parent)-R(child)) + debt(parent)-debt(child) is positive for every future lifted template edge.",
+  "next_experiment": "Generate TICKET45 by synthesizing symbolic rank clauses instead of numeric affine features, and search for the first future edge that violates every clause extension.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

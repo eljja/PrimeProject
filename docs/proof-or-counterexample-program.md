@@ -1839,3 +1839,139 @@ Proof boundary:
 ```text
 TICKET-43 does not prove or disprove any of the four open problems. It improves the proof attempt by producing a bounded decreasing measure, and it improves the counterexample attempt by identifying exactly where future lift edges could break finite-rank extensions.
 ```
+
+### Ticket 44: Feature-measure counteredge lab
+
+Generated artifact:
+
+```text
+data/open-problem/ticket44-feature-measure-counteredge-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-44-zero-feature-counteredge.json
+data/open-problem/collatz/co-ticket-44-feature-measure-counteredge.json
+data/open-problem/goldbach/gb-ticket-44-margin-feature-counteredge.json
+data/open-problem/twin-prime/tp-ticket-44-gap-feature-counteredge.json
+```
+
+Aggregate verdict:
+
+```text
+feature_measure_counteredge_open_no_resolution
+```
+
+한국어 요약: TICKET-44는 TICKET-43에서 남은 가장 위험한 논리적 틈을 공격한다. TICKET-43의 `scale * sampled_rank + debt` 측도는 26-bit 표본에서는 모든 template edge에서 감소하지만, 그 rank는 horizon을 늘릴 때 다시 계산된다. 따라서 이것을 무한 증명으로 승격하려면 horizon에 의존하지 않는 명시적 feature measure가 필요하다. TICKET-44는 여러 feature family를 제안하고, 각 family가 실제 edge에서 감소 측도로 작동하는지 counterexample-guided 방식으로 검사했다. 결과적으로 `debt_only_constant`는 390,494개의 zero-delta refuter로 정확히 반박되었다. 더 풍부한 feature family들은 bounded affine search에서 인증되지 않았지만, 이것은 불가능성 증명이 아니라 현재 feature와 solver의 한계다. 살아남은 방향은 explicit counteredge extraction과 horizon-independent symbolic rank theorem이다.
+
+English summary: TICKET-44 attacks the remaining promotion gap in TICKET-43. A sampled rank table is a useful bounded certificate, but it is not an invariant proof object if the rank changes under horizon extension. TICKET-44 therefore searches for explicit horizon-independent feature measures and records exact counteredges when a candidate family cannot work. The debt-only control is exactly refuted; richer compact affine feature families remain uncertified rather than impossible. This narrows the proof route to a symbolic rank or measure whose decrease is stable under every future cylinder lift.
+
+Collatz feature-measure audit:
+
+```text
+template family: phase16_tail4_residue256_vexact
+max bits: 26
+template nodes: 165,841
+template edges: 710,241
+raw open edges processed: 2,392,525
+exactly refuted feature families: 1
+not certified or still open feature families: 4
+```
+
+Feature trial summary:
+
+```text
+debt_only_constant:
+  status: exact_zero_delta_counteredge_refutes_feature_measure
+  feature dimension: 1
+  unique constraints: 1
+  positive-debt pressure edges: 390,494
+  zero-delta refuters: 390,494
+  affine violations: 1
+
+phase_tail_scalar:
+  status: not_certified_by_bounded_affine_search
+  feature dimension: 7
+  unique constraints: 4,748
+  positive-debt pressure edges: 390,494
+  zero-delta refuters: 0
+  affine violations: 2,608
+
+numeric_template_coordinates:
+  status: not_certified_by_bounded_affine_search
+  feature dimension: 7
+  unique constraints: 23,067
+  positive-debt pressure edges: 390,494
+  zero-delta refuters: 0
+  affine violations: 12,290
+
+residue_binary_coordinates:
+  status: not_certified_by_bounded_affine_search
+  feature dimension: 14
+  unique constraints: 23,067
+  positive-debt pressure edges: 390,494
+  zero-delta refuters: 0
+  affine violations: 12,290
+
+phase_residue_onehot_tail_numeric:
+  status: not_certified_by_bounded_affine_search
+  feature dimension: 37
+  unique constraints: 74,629
+  positive-debt pressure edges: 390,494
+  zero-delta refuters: 0
+  affine violations: 1,126
+```
+
+Preserved TICKET-43 baseline:
+
+```text
+sampled rank-debt measure: sampled_measure_decreases_on_all_template_edges
+scale: 11
+minimum sampled margin: 0.584962500721
+invalid rank-gap edges: 0
+```
+
+Horizon-extension obstruction:
+
+```text
+25 -> 26 new template edges: 229,368
+25 -> 26 changed previous-node ranks: 124,027
+25 -> 26 old-measure unknown-rank edges: 229,368
+closure status: rank_lift_not_closed_under_horizon_extension
+```
+
+Discarded Collatz routes:
+
+```text
+debt-only descent as a proof measure
+observed-node rank table treated as a horizon-independent theorem
+bounded affine feature search treated as an impossibility proof for richer nonlinear measures
+```
+
+Retained Collatz routes:
+
+```text
+exact counteredge extraction for every proposed feature family
+horizon-independent symbolic rank or ordinal-valued measure
+future-lift theorem proving that every cylinder edge preserves the symbolic decrease
+```
+
+Cross-problem transfer:
+
+1. RH: a zero-exclusion feature score must survive exact off-critical zero-lift counteredge extraction before it can be promoted to a positive-kernel theorem.
+2. Goldbach: an error-margin feature score must survive exceptional-residue counteredges before it can be promoted to an explicit positivity theorem.
+3. Twin Prime: an exact-gap feature score must survive leakage counteredges before it can be promoted to an infinite bounded-gap theorem.
+4. Collatz: a finite rank table must be replaced by a symbolic rank or measure, or by a future edge that violates every proposed symbolic measure.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-45 SymbolicRankClauseOrFutureCounteredge
+```
+
+Proof boundary:
+
+```text
+TICKET-44 does not prove or disprove any of the four open problems. It improves the proof attempt by exactly refuting weak horizon-independent measures, preserving the bounded rank-table certificate only as evidence, and isolating the next proof obligation: a symbolic, horizon-stable rank or an explicit future counteredge against it.
+```
