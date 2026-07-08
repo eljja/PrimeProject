@@ -53,7 +53,7 @@
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
     "claim_language_scanned_files": 19,
-    "claim_language_scanned_lines": 10637,
+    "claim_language_scanned_lines": 10762,
     "claim_language_triggered_mentions": 117,
     "claim_language_guarded_mentions": 117,
     "claim_language_failures": 0,
@@ -188,6 +188,13 @@
           "state": "open",
           "measure": "2 roots / 4 terminal branches / 0 survivors",
           "proof": "TICKET-51 closes both depth-15 near-lasso ancestries at phase 15 without claiming Collatz"
+        },
+        {
+          "marker": "12",
+          "title": "48-bit frontier exposed",
+          "state": "open",
+          "measure": "83.4B words / 1 sampled depth-15 root / 0 survivors",
+          "proof": "TICKET-52 finds and terminally closes one new 48-bit near-lasso witness while proving blind enumeration is no longer viable"
         }
       ],
       "evidence_flow": [
@@ -307,11 +314,11 @@
         },
         {
           "layer": "Open-Proof",
-          "score": 51,
+          "score": 52,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "docs/proof-or-counterexample-program.md"],
-          "gate": "The two known 32-bit near-lasso roots are terminally closed at phase 15; no full proof claim",
-          "proof": "The proof workbench now targets genuinely new 48/64-bit roots or a symbolic terminal-closure theorem."
+          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "docs/proof-or-counterexample-program.md"],
+          "gate": "The 48-bit frontier has 83,401,400,116 valuation words; one new sampled near-lasso root is terminally closed",
+          "proof": "The proof workbench now targets symbolic counting or SAT/SMT-style coverage of the 48-bit frontier rather than larger blind sampling."
         }
       ]
     },
@@ -370,6 +377,11 @@
         "label": "Terminal lift closed",
         "impact": "TICKET-51 opens all low/high terminal branches for the two TICKET-50 near-lasso roots and finds zero full-lasso completions.",
         "metric": "2 roots / 4 branches / 0 survivors"
+      },
+      {
+        "label": "48-bit frontier exposed",
+        "impact": "TICKET-52 quantifies the 48-bit valuation frontier, finds one new sampled depth-15 near-lasso root outside the closed ancestry, and terminally closes it.",
+        "metric": "83.4B words / 1 root / 0 survivors"
       }
     ],
     "research_delta": {
@@ -407,7 +419,7 @@
         {
           "track": "Open proof search",
           "before": "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.",
-          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15.",
+          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root, closes it terminally, and exposes the 83.4B-word frontier that now requires symbolic coverage.",
           "state": "open"
         }
       ],

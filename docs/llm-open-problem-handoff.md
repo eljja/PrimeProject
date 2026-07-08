@@ -537,6 +537,54 @@ Required output:
 - explicit proof boundary saying no Collatz proof and no Collatz counterexample unless an infinite replay theorem is supplied
 ```
 
+## Latest Continuation After TICKET-52
+
+TICKET-52 supersedes the TICKET-51 continuation target. It confirms that TICKET-51 was an ancestry-local closure, not a 48-bit theorem.
+
+Exact result:
+
+```text
+48-bit debt-valid valuation words: 83,401,400,116
+64-bit debt-valid valuation words: 2,216,134,944,775,156
+deterministic sample seed: 20,260,709
+sample count: 200,000
+verified open sample words: 100,026
+start-template sample matches: 3,184
+sampled depth-15 roots: 1
+new root: 171308122831719
+32-bit projection: 3352230759
+projection template: [0,[1,2,1,1],103,2]
+terminal step: 15
+terminal mismatch counts: {tail_word+next_valuation: 2}
+final surviving states: 0
+full lasso completions: 0
+```
+
+Do not promote TICKET-51 or TICKET-52 into a Collatz proof. TICKET-52 found and closed one sampled 48-bit near-lasso witness, but the sampler is not exhaustive. The key lesson is that the old valuation-word enumeration is no longer a viable main proof route at 48 bits.
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-53 Symbolic48BitFrontierCoverageOrFullLassoReplay
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-52. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-52 quantified the Collatz 48-bit frontier at 83,401,400,116 debt-valid valuation words and the 64-bit frontier at 2,216,134,944,775,156 words. A deterministic 200,000-word sampler found one new 48-bit depth-15 near-lasso root, 171308122831719, whose 32-bit projection has template [0,[1,2,1,1],103,2], outside the TICKET51 closed ancestry. A base-48 terminal lift audit closes this sampled root at phase 15 with tail_word+next_valuation mismatch and no full lasso completion.
+
+Goal: build CO-TICKET-53. Do not merely increase the random sample. Construct a symbolic coverage engine for the 48-bit start-template frontier. Acceptable routes include an automaton-counting DP, SAT/SMT encoding of valuation-word constraints, exact modular affine constraint solving, or a theorem proving that every depth-15 terminal branch must shift tail/next_valuation. If a full lasso completion is found, replay it for multiple periods and state the exact infinite periodicity theorem still required.
+
+Required output:
+- data/open-problem/ticket53-symbolic-frontier-coverage-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no Collatz proof and no Collatz counterexample unless an infinite replay theorem is supplied
+```
+
 ## Latest Continuation After TICKET-47
 
 TICKET-47 supersedes the bounded suffix-memory part of the TICKET-46 continuation. It extracts a 16-edge positive-debt lasso from the 28-bit Collatz exact-template pressure graph and refutes:

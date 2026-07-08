@@ -2616,3 +2616,78 @@ Proof boundary:
 ```text
 TICKET-51 does not prove or disprove any of the four open problems. It closes only the terminal lift tree descending from the two known 32-bit near-lasso roots. It does not exclude new 48-bit roots outside that ancestry and does not prove global Collatz descent.
 ```
+
+### Ticket 52: 48-bit frontier budget and sampled witness closure
+
+Generated artifact:
+
+```text
+data/open-problem/ticket52-frontier-budget-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-52-frontier-budget-contract.json
+data/open-problem/collatz/co-ticket-52-frontier-budget-sample-closure.json
+data/open-problem/goldbach/gb-ticket-52-frontier-budget-contract.json
+data/open-problem/twin-prime/tp-ticket-52-frontier-budget-contract.json
+```
+
+Aggregate verdict:
+
+```text
+frontier_budget_open_no_resolution
+```
+
+한국어 요약: TICKET-52는 TICKET-51의 한계를 정면으로 확인한다. TICKET-51은 두 개의 32비트 near-lasso ancestry를 닫았지만, 48비트 start-template root가 반드시 그 두 ancestry로 투영되는 것은 아니다. 실제로 재현 가능한 200,000개 debt-valid valuation-word 샘플에서 새 48비트 depth-15 near-lasso root `171308122831719`가 발견됐고, 이 root의 32비트 projection은 `[0,[1,2,1,1],103,2]`라서 기존 닫힌 start-template ancestry 밖에 있다. 이 새 후보도 base-48 terminal lift audit에서 phase 15에 닫혔다.
+
+English summary: TICKET-52 shows that the TICKET-51 closure is ancestry-local, not a 48-bit theorem. The exact 48-bit frontier has 83,401,400,116 debt-valid valuation words, and a deterministic 200,000-word sampler finds one new 48-bit depth-15 near-lasso root outside the closed 32-bit ancestry. A generalized base-48 terminal lift audit closes that witness at phase 15 with no full lasso completion.
+
+Exact Collatz audit:
+
+```text
+48-bit debt-valid valuation words: 83,401,400,116
+64-bit debt-valid valuation words: 2,216,134,944,775,156
+sample seed: 20,260,709
+sample count: 200,000
+verified open sample words: 100,026
+start-template sample matches: 3,184
+sampled depth counts: {1: 1,650; 2: 763; 3: 406; 4: 189; 5: 175; 15: 1}
+new sampled depth-15 root: 171308122831719
+32-bit projection: 3352230759
+projection template: [0,[1,2,1,1],103,2]
+terminal step: 15
+terminal mismatch counts: {tail_word+next_valuation: 2}
+final surviving states: 0
+full lasso completions: 0
+```
+
+Discarded Collatz route:
+
+```text
+promoting the TICKET51 two-root closure to a 48-bit theorem
+continuing with blind 48-bit or 64-bit valuation-word enumeration as the main proof route
+treating a sampled closure as evidence that all unsampled roots close
+```
+
+Retained Collatz routes:
+
+```text
+build a symbolic counter for all 48-bit start-template roots
+encode the valuation-word frontier as a SAT/SMT or automaton-counting problem
+prove a phase-15 terminal mismatch theorem for every depth-15 root
+if a future root completes the full lasso, replay it for multiple periods and then state the independent infinite periodicity theorem required
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-53 Symbolic48BitFrontierCoverageOrFullLassoReplay
+```
+
+Proof boundary:
+
+```text
+TICKET-52 does not prove or disprove any of the four open problems. It finds and closes one new sampled 48-bit Collatz near-lasso witness, and it proves that the old valuation-word enumeration has reached an infeasible frontier. The sampler is not exhaustive and cannot exclude unsampled 48-bit roots.
+```

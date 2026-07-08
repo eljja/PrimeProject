@@ -1,0 +1,19 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-52",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelFrontierBudget",
+  "proof_or_counterexample_mode": "frontier budget before witness promotion",
+  "attempt": "Transfer TICKET52's rule: before promoting a finite stress witness, quantify the unseen frontier and separate sampled closure from exhaustive or symbolic closure.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-51",
+    "source_route": "ZeroKernelTerminalWitnessClosure",
+    "ticket52_transfer": "ZeroKernelFrontierBudget",
+    "candidate_theorem": "Any off-critical zero-kernel packet must expose the size of the uncovered zero-search frontier before it can be promoted beyond sampled closure.",
+    "frontier_rule": "A witness closure is publishable only as local evidence unless the remaining frontier is either exhaustively covered or reduced by a symbolic theorem."
+  },
+  "obstruction": "This transfer is a claim-discipline upgrade. It does not solve the target problem; it blocks the common mistake of treating a closed sample witness as an infinite theorem.",
+  "candidate_theorem": "Any off-critical zero-kernel packet must expose the size of the uncovered zero-search frontier before it can be promoted beyond sampled closure.",
+  "next_experiment": "Attach a problem-specific frontier budget to the strongest unresolved witness family.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

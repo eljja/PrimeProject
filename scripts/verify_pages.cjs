@@ -462,6 +462,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Phase-lift result") ||
         !page.proofOrCounterexampleText.includes("Ticket 51 phase-15 terminal lift lab") ||
         !page.proofOrCounterexampleText.includes("Terminal lift result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 52 frontier budget lab") ||
+        !page.proofOrCounterexampleText.includes("Frontier budget result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

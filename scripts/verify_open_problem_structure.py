@@ -45,6 +45,7 @@ TICKET48_SCHEMA = "primeproject.ticket48-automaton-reachability-lab.v1"
 TICKET49_SCHEMA = "primeproject.ticket49-symbolic-preimage-obstruction-lab.v1"
 TICKET50_SCHEMA = "primeproject.ticket50-phase-lift-exception-lab.v1"
 TICKET51_SCHEMA = "primeproject.ticket51-phase15-terminal-lift-lab.v1"
+TICKET52_SCHEMA = "primeproject.ticket52-frontier-budget-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2346,6 +2347,103 @@ def main() -> int:
         return fail("collatz ticket51 proof boundary must block proof overclaim")
     if "does not exclude new 48-bit roots outside this ancestry" not in str(audit51.get("proof_boundary", "")):
         return fail("collatz ticket51 must preserve outside-ancestry boundary")
+
+    ticket52_path = Path("data/open-problem/ticket52-frontier-budget-lab.json")
+    if not ticket52_path.exists():
+        return fail("missing ticket52 frontier budget artifact")
+    ticket52 = read_json(ticket52_path)
+    if ticket52.get("schema") != TICKET52_SCHEMA:
+        return fail("ticket52 frontier budget artifact has unexpected schema")
+    if ticket52.get("status") != "frontier_budget_open_no_resolution":
+        return fail("ticket52 frontier budget overstates resolution")
+    ticket52_attempts = ticket52.get("attempts", [])
+    if not isinstance(ticket52_attempts, list):
+        return fail("ticket52 attempts must be a list")
+    ticket52_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket52_attempts if isinstance(attempt, dict)}
+    missing_ticket52 = EXPECTED_PROBLEMS - set(ticket52_by_id)
+    if missing_ticket52:
+        return fail("ticket52 attempts missing problems: " + ", ".join(sorted(missing_ticket52)))
+    ticket52_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-52-frontier-budget-contract.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-52-frontier-budget-sample-closure.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-52-frontier-budget-contract.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-52-frontier-budget-contract.json"),
+    }
+    for problem_id, attempt in ticket52_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "new_48bit_near_lasso_witness_terminally_closed_open_problem_open",
+        }:
+            return fail(f"{problem_id}: ticket52 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket52 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket52 claim boundary is too weak")
+        path = ticket52_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket52 per-problem artifact")
+
+    collatz_ticket52 = ticket52_by_id.get("collatz", {})
+    audit52 = collatz_ticket52.get("bounded_result", {}).get("frontier_budget_audit", {})
+    if not isinstance(audit52, dict):
+        return fail("collatz ticket52 frontier budget audit missing")
+    counts52 = audit52.get("exact_open_word_counts", [])
+    if not isinstance(counts52, list):
+        return fail("collatz ticket52 exact word counts missing")
+    counts52_by_bits = {int(row.get("bits", -1)): int(row.get("open_valuation_words_with_tail", -1)) for row in counts52 if isinstance(row, dict)}
+    if counts52_by_bits.get(48) != 83401400116:
+        return fail("collatz ticket52 48-bit frontier count changed")
+    if counts52_by_bits.get(64) != 2216134944775156:
+        return fail("collatz ticket52 64-bit frontier count changed")
+    sample52 = audit52.get("sampled_48bit_frontier", {})
+    if not isinstance(sample52, dict):
+        return fail("collatz ticket52 sampled frontier missing")
+    if int(sample52.get("sample_count", -1)) != 200000 or int(sample52.get("sample_seed", -1)) != 20260709:
+        return fail("collatz ticket52 sample contract changed")
+    stats52 = sample52.get("statistics", {})
+    if not isinstance(stats52, dict):
+        return fail("collatz ticket52 sample statistics missing")
+    if int(stats52.get("verified_open_word", -1)) != 100026:
+        return fail("collatz ticket52 verified sample count changed")
+    if int(stats52.get("start_template_match", -1)) != 3184:
+        return fail("collatz ticket52 start-template sample count changed")
+    depth52 = sample52.get("lasso_prefix_depth_counts", {})
+    if not isinstance(depth52, dict) or int(depth52.get("15", -1)) != 1:
+        return fail("collatz ticket52 must preserve the sampled depth-15 witness")
+    if int(sample52.get("max_sampled_lasso_prefix_depth", -1)) != 15:
+        return fail("collatz ticket52 max sampled depth changed")
+    roots52 = sample52.get("new_depth15_roots", [])
+    if not isinstance(roots52, list) or len(roots52) != 1:
+        return fail("collatz ticket52 must expose exactly one sampled depth-15 root")
+    root52 = roots52[0]
+    if int(root52.get("residue", -1)) != 171308122831719:
+        return fail("collatz ticket52 sampled depth-15 root changed")
+    projection52 = root52.get("projection32", {})
+    if not isinstance(projection52, dict):
+        return fail("collatz ticket52 projection audit missing")
+    if int(projection52.get("residue", -1)) != 3352230759:
+        return fail("collatz ticket52 projection residue changed")
+    if projection52.get("template") != "[0,[1,2,1,1],103,2]":
+        return fail("collatz ticket52 projection template must show non-ancestry root")
+    terminal52 = sample52.get("terminal_lift_audit", {})
+    if not isinstance(terminal52, dict):
+        return fail("collatz ticket52 terminal lift audit missing")
+    if int(terminal52.get("base_bits", -1)) != 48:
+        return fail("collatz ticket52 terminal audit must use base bits 48")
+    if int(terminal52.get("terminal_step", -1)) != 15:
+        return fail("collatz ticket52 terminal step changed")
+    if int(terminal52.get("final_surviving_states", -1)) != 0:
+        return fail("collatz ticket52 terminal audit must close sampled witness")
+    if int(terminal52.get("full_lasso_completion_count", -1)) != 0:
+        return fail("collatz ticket52 must not report a full lasso completion")
+    terminal_mismatch52 = terminal52.get("terminal_mismatch_counts", {})
+    if not isinstance(terminal_mismatch52, dict) or terminal_mismatch52.get("tail_word+next_valuation") != 2:
+        return fail("collatz ticket52 terminal mismatch classification changed")
+    if "No Collatz proof" not in str(audit52.get("proof_boundary", "")):
+        return fail("collatz ticket52 proof boundary must block proof overclaim")
+    if "not exhaustive" not in str(audit52.get("proof_boundary", "")):
+        return fail("collatz ticket52 must preserve sampler boundary")
 
     print("open problem structure verified")
     return 0

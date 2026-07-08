@@ -1,0 +1,1809 @@
+{
+  "schema": "primeproject.ticket52-frontier-budget-lab.v1",
+  "generated_at": "2026-07-09T06:40:00+09:00",
+  "status": "frontier_budget_open_no_resolution",
+  "claim_boundary": "Ticket 52 quantifies the 48/64-bit Collatz frontier and closes one new sampled 48-bit near-lasso witness. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-52",
+      "status": "proof_pressure_open",
+      "route": "ZeroKernelFrontierBudget",
+      "proof_or_counterexample_mode": "frontier budget before witness promotion",
+      "attempt": "Transfer TICKET52's rule: before promoting a finite stress witness, quantify the unseen frontier and separate sampled closure from exhaustive or symbolic closure.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-51",
+        "source_route": "ZeroKernelTerminalWitnessClosure",
+        "ticket52_transfer": "ZeroKernelFrontierBudget",
+        "candidate_theorem": "Any off-critical zero-kernel packet must expose the size of the uncovered zero-search frontier before it can be promoted beyond sampled closure.",
+        "frontier_rule": "A witness closure is publishable only as local evidence unless the remaining frontier is either exhaustively covered or reduced by a symbolic theorem."
+      },
+      "obstruction": "This transfer is a claim-discipline upgrade. It does not solve the target problem; it blocks the common mistake of treating a closed sample witness as an infinite theorem.",
+      "candidate_theorem": "Any off-critical zero-kernel packet must expose the size of the uncovered zero-search frontier before it can be promoted beyond sampled closure.",
+      "next_experiment": "Attach a problem-specific frontier budget to the strongest unresolved witness family.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-52",
+      "route": "FrontierBudgetAndNew48BitStressWitness",
+      "status": "new_48bit_near_lasso_witness_terminally_closed_open_problem_open",
+      "proof_or_counterexample_mode": "frontier budget plus sampled witness closure",
+      "attempt": "Do not relift only the two closed TICKET51 roots. First quantify the exact valuation-word frontier, then run a deterministic stress sampler for genuinely new 48-bit start-template roots and terminally classify any near-lasso witness it finds.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-51",
+        "frontier_budget_audit": {
+          "family": "phase16_tail4_residue256_vexact",
+          "exact_open_word_counts": [
+            {
+              "bits": 16,
+              "open_valuation_words_with_tail": 226
+            },
+            {
+              "bits": 32,
+              "open_valuation_words_with_tail": 3524586
+            },
+            {
+              "bits": 40,
+              "open_valuation_words_with_tail": 527682754
+            },
+            {
+              "bits": 48,
+              "open_valuation_words_with_tail": 83401400116
+            },
+            {
+              "bits": 56,
+              "open_valuation_words_with_tail": 13347201444304
+            },
+            {
+              "bits": 64,
+              "open_valuation_words_with_tail": 2216134944775156
+            }
+          ],
+          "direct_48bit_exhaustive_search_status": "blocked_by_83401400116_word_frontier",
+          "direct_64bit_exhaustive_search_status": "blocked_by_2216134944775156_word_frontier",
+          "frontier_growth_48_over_32": 23662.750778673013,
+          "projection_completeness_failure": "A 48-bit start-template root need not project to a 32-bit start-template root. The sampled depth-15 witness projects to template [0,[1,2,1,1],103,2], so TICKET51's two-root ancestry closure cannot be promoted to a 48-bit theorem.",
+          "sampled_48bit_frontier": {
+            "bits": 48,
+            "sample_seed": 20260709,
+            "sample_count": 200000,
+            "sampler": "debt_valid_weighted_random_valuation_words_not_uniform_not_exhaustive",
+            "target_template": "[0,[1,1,1,1],103,1]",
+            "statistics": {
+              "duplicate_residue": 2,
+              "start_template_match": 3184,
+              "unverified_canonical_word": 99972,
+              "verified_open_word": 100026
+            },
+            "lasso_prefix_depth_counts": {
+              "1": 1650,
+              "2": 763,
+              "3": 406,
+              "4": 189,
+              "5": 175,
+              "15": 1
+            },
+            "max_sampled_lasso_prefix_depth": 15,
+            "strongest_examples": [
+              {
+                "sample_index": 87274,
+                "residue": 171308122831719,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 3352230759,
+                  "status": "needs_split",
+                  "template": "[0,[1,2,1,1],103,2]",
+                  "next_valuation": 2,
+                  "tail_word": [
+                    5,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                },
+                "lasso_prefix_depth": 15,
+                "first_failure": {
+                  "offset": 15,
+                  "bits": 63,
+                  "expected": "[15,[1,1,1,1],103,10]",
+                  "observed": "[15,[1,1,1,10],103,1]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 63,
+                    "template": "[15,[1,1,1,10],103,1]",
+                    "prefix_length": 40,
+                    "consumed_bits": 63,
+                    "next_valuation": 1,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      10
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  1,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 1055,
+                "residue": 147020815230567,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 4084688487,
+                  "status": "needs_split",
+                  "template": "[0,[1,3,1,3],103,1]",
+                  "next_valuation": 1,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    3,
+                    1,
+                    3
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,1]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 147020815230567,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,1]",
+                    "prefix_length": 37,
+                    "consumed_bits": 53,
+                    "next_valuation": 1,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  3,
+                  2,
+                  1,
+                  2,
+                  1,
+                  3,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 1468,
+                "residue": 114345070877031,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 156555623,
+                  "status": "needs_split",
+                  "template": "[0,[1,1,2,1],103,1]",
+                  "next_valuation": 1,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,3]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 114345070877031,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,3]",
+                    "prefix_length": 38,
+                    "consumed_bits": 53,
+                    "next_valuation": 3,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  2,
+                  3,
+                  4,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 1547,
+                "residue": 251992243582055,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 2217358439,
+                  "status": "needs_split",
+                  "template": "[0,[1,2,1,2],103,2]",
+                  "next_valuation": 2,
+                  "tail_word": [
+                    4,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,4]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 251992243582055,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,4]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 4,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  1,
+                  2,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 2482,
+                "residue": 249478181923175,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 711567719,
+                  "status": "needs_split",
+                  "template": "[0,[1,1,1,3],103,5]",
+                  "next_valuation": 5,
+                  "tail_word": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,1]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 249478181923175,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,1]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 1,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  2,
+                  2,
+                  1,
+                  1,
+                  1,
+                  4,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 2547,
+                "residue": 251391205162599,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 2474360423,
+                  "status": "needs_split",
+                  "template": "[0,[1,1,2,1],103,3]",
+                  "next_valuation": 3,
+                  "tail_word": [
+                    3,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,4]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 251391205162599,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,4]",
+                    "prefix_length": 38,
+                    "consumed_bits": 53,
+                    "next_valuation": 4,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  1,
+                  3,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 2595,
+                "residue": 194092405770599,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 2833664359,
+                  "status": "needs_split",
+                  "template": "[0,[1,1,3,1],103,2]",
+                  "next_valuation": 2,
+                  "tail_word": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 194092405770599,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,2]",
+                    "prefix_length": 38,
+                    "consumed_bits": 53,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  3,
+                  1,
+                  1,
+                  3,
+                  1,
+                  2,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 2809,
+                "residue": 16011931137639,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 293058151,
+                  "status": "needs_split",
+                  "template": "[0,[2,1,1,1],103,4]",
+                  "next_valuation": 4,
+                  "tail_word": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,1]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 16011931137639,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,1]",
+                    "prefix_length": 38,
+                    "consumed_bits": 53,
+                    "next_valuation": 1,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  3,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 3447,
+                "residue": 101587418671207,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 2852186215,
+                  "status": "needs_split",
+                  "template": "[0,[1,3,2,2],103,5]",
+                  "next_valuation": 5,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    2,
+                    2
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,1]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 101587418671207,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,1]",
+                    "prefix_length": 38,
+                    "consumed_bits": 53,
+                    "next_valuation": 1,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  2,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 5304,
+                "residue": 200177248179047,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 1707414375,
+                  "status": "needs_split",
+                  "template": "[0,[2,1,3,1],103,2]",
+                  "next_valuation": 2,
+                  "tail_word": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    3,
+                    1
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,4]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 200177248179047,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,4]",
+                    "prefix_length": 38,
+                    "consumed_bits": 53,
+                    "next_valuation": 4,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  1,
+                  3,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 5318,
+                "residue": 261469131520615,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 112474727,
+                  "status": "needs_split",
+                  "template": "[0,[1,1,1,2],103,5]",
+                  "next_valuation": 5,
+                  "tail_word": [
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 261469131520615,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,2]",
+                    "prefix_length": 38,
+                    "consumed_bits": 53,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  2,
+                  2,
+                  5,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "sample_index": 6205,
+                "residue": 251556602011239,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 367484519,
+                  "status": "needs_split",
+                  "template": "[0,[2,1,1,1],103,3]",
+                  "next_valuation": 3,
+                  "tail_word": [
+                    2,
+                    4,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "lasso_prefix_depth": 5,
+                "first_failure": {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 251556602011239,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,2]",
+                    "prefix_length": 37,
+                    "consumed_bits": 53,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  3,
+                  1,
+                  3,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              }
+            ],
+            "new_depth15_root_count": 1,
+            "new_depth15_roots": [
+              {
+                "sample_index": 87274,
+                "residue": 171308122831719,
+                "bits": 48,
+                "projection32": {
+                  "bits": 32,
+                  "residue": 3352230759,
+                  "status": "needs_split",
+                  "template": "[0,[1,2,1,1],103,2]",
+                  "next_valuation": 2,
+                  "tail_word": [
+                    5,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                },
+                "lasso_prefix_depth": 15,
+                "first_failure": {
+                  "offset": 15,
+                  "bits": 63,
+                  "expected": "[15,[1,1,1,1],103,10]",
+                  "observed": "[15,[1,1,1,10],103,1]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 63,
+                    "template": "[15,[1,1,1,10],103,1]",
+                    "prefix_length": 40,
+                    "consumed_bits": 63,
+                    "next_valuation": 1,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      10
+                    ]
+                  }
+                },
+                "prefix_word_tail": [
+                  1,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              }
+            ],
+            "terminal_lift_audit": {
+              "family": "phase16_tail4_residue256_vexact",
+              "source_roots": [
+                171308122831719
+              ],
+              "base_bits": 48,
+              "target_prefix_length": 16,
+              "rows": [
+                {
+                  "step": 1,
+                  "expected_template": "[1,[1,1,1,1],103,1]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 1,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 452783099542375,
+                      "bits": 49,
+                      "expected_template": "[1,[1,1,1,1],103,1]",
+                      "observed": "[1,[2,1,1,1],103,4]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 452783099542375,
+                        "modulus_bits": 49,
+                        "template": "[1,[2,1,1,1],103,4]",
+                        "prefix_length": 33,
+                        "consumed_bits": 47,
+                        "next_valuation": 4,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          2,
+                          1,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 2,
+                  "expected_template": "[2,[1,1,1,1],103,1]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 2,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 734258076253031,
+                      "bits": 50,
+                      "expected_template": "[2,[1,1,1,1],103,1]",
+                      "observed": "[2,[1,1,1,2],103,3]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 734258076253031,
+                        "modulus_bits": 50,
+                        "template": "[2,[1,1,1,2],103,3]",
+                        "prefix_length": 35,
+                        "consumed_bits": 50,
+                        "next_valuation": 3,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          2,
+                          1,
+                          1,
+                          1,
+                          1,
+                          2
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 3,
+                  "expected_template": "[3,[1,1,1,1],103,1]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 3,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 1297208029674343,
+                      "bits": 51,
+                      "expected_template": "[3,[1,1,1,1],103,1]",
+                      "observed": "[3,[1,1,1,1],103,6]",
+                      "reason": "next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 1297208029674343,
+                        "modulus_bits": 51,
+                        "template": "[3,[1,1,1,1],103,6]",
+                        "prefix_length": 35,
+                        "consumed_bits": 49,
+                        "next_valuation": 6,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          2,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 4,
+                  "expected_template": "[4,[1,1,1,1],103,1]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 4,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 2423107936516967,
+                      "bits": 52,
+                      "expected_template": "[4,[1,1,1,1],103,1]",
+                      "observed": "[4,[1,1,1,2],103,4]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 2423107936516967,
+                        "modulus_bits": 52,
+                        "template": "[4,[1,1,1,2],103,4]",
+                        "prefix_length": 37,
+                        "consumed_bits": 52,
+                        "next_valuation": 4,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          2,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          2
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 5,
+                  "expected_template": "[5,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 5,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 4674907750202215,
+                      "bits": 53,
+                      "expected_template": "[5,[1,1,1,1],103,10]",
+                      "observed": "[5,[1,1,1,1],103,3]",
+                      "reason": "next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 4674907750202215,
+                        "modulus_bits": 53,
+                        "template": "[5,[1,1,1,1],103,3]",
+                        "prefix_length": 37,
+                        "consumed_bits": 51,
+                        "next_valuation": 3,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          2,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 6,
+                  "expected_template": "[6,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 6,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 9178507377572711,
+                      "bits": 54,
+                      "expected_template": "[6,[1,1,1,1],103,10]",
+                      "observed": "[6,[1,1,1,1],103,6]",
+                      "reason": "next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 9178507377572711,
+                        "modulus_bits": 54,
+                        "template": "[6,[1,1,1,1],103,6]",
+                        "prefix_length": 38,
+                        "consumed_bits": 52,
+                        "next_valuation": 6,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 7,
+                  "expected_template": "[7,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 7,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 18185706632313703,
+                      "bits": 55,
+                      "expected_template": "[7,[1,1,1,1],103,10]",
+                      "observed": "[7,[1,1,1,1],103,2]",
+                      "reason": "next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 18185706632313703,
+                        "modulus_bits": 55,
+                        "template": "[7,[1,1,1,1],103,2]",
+                        "prefix_length": 40,
+                        "consumed_bits": 54,
+                        "next_valuation": 2,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 8,
+                  "expected_template": "[8,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 8,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 36200105141795687,
+                      "bits": 56,
+                      "expected_template": "[8,[1,1,1,1],103,10]",
+                      "observed": "[8,[1,1,1,2],103,2]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 36200105141795687,
+                        "modulus_bits": 56,
+                        "template": "[8,[1,1,1,2],103,2]",
+                        "prefix_length": 40,
+                        "consumed_bits": 55,
+                        "next_valuation": 2,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          2
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 9,
+                  "expected_template": "[9,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 9,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 72228902160759655,
+                      "bits": 57,
+                      "expected_template": "[9,[1,1,1,1],103,10]",
+                      "observed": "[9,[1,1,1,3],103,2]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 72228902160759655,
+                        "modulus_bits": 57,
+                        "template": "[9,[1,1,1,3],103,2]",
+                        "prefix_length": 40,
+                        "consumed_bits": 56,
+                        "next_valuation": 2,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          3
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 10,
+                  "expected_template": "[10,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 10,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 144286496198687591,
+                      "bits": 58,
+                      "expected_template": "[10,[1,1,1,1],103,10]",
+                      "observed": "[10,[1,1,1,4],103,2]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 144286496198687591,
+                        "modulus_bits": 58,
+                        "template": "[10,[1,1,1,4],103,2]",
+                        "prefix_length": 40,
+                        "consumed_bits": 57,
+                        "next_valuation": 2,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          4
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 11,
+                  "expected_template": "[11,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 11,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 288401684274543463,
+                      "bits": 59,
+                      "expected_template": "[11,[1,1,1,1],103,10]",
+                      "observed": "[11,[1,1,1,5],103,2]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 288401684274543463,
+                        "modulus_bits": 59,
+                        "template": "[11,[1,1,1,5],103,2]",
+                        "prefix_length": 40,
+                        "consumed_bits": 58,
+                        "next_valuation": 2,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          5
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 12,
+                  "expected_template": "[12,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 12,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 576632060426255207,
+                      "bits": 60,
+                      "expected_template": "[12,[1,1,1,1],103,10]",
+                      "observed": "[12,[1,1,1,6],103,2]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 576632060426255207,
+                        "modulus_bits": 60,
+                        "template": "[12,[1,1,1,6],103,2]",
+                        "prefix_length": 40,
+                        "consumed_bits": 59,
+                        "next_valuation": 2,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          6
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 13,
+                  "expected_template": "[13,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 13,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 1153092812729678695,
+                      "bits": 61,
+                      "expected_template": "[13,[1,1,1,1],103,10]",
+                      "observed": "[13,[1,1,1,7],103,2]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 1153092812729678695,
+                        "modulus_bits": 61,
+                        "template": "[13,[1,1,1,7],103,2]",
+                        "prefix_length": 40,
+                        "consumed_bits": 60,
+                        "next_valuation": 2,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          7
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 14,
+                  "expected_template": "[14,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 1,
+                  "surviving_states": 1,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 1
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 14,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 2306014317336525671,
+                      "bits": 62,
+                      "expected_template": "[14,[1,1,1,1],103,10]",
+                      "observed": "[14,[1,1,1,8],103,3]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 2306014317336525671,
+                        "modulus_bits": 62,
+                        "template": "[14,[1,1,1,8],103,3]",
+                        "prefix_length": 40,
+                        "consumed_bits": 61,
+                        "next_valuation": 3,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          8
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step": 15,
+                  "expected_template": "[15,[1,1,1,1],103,10]",
+                  "input_states": 1,
+                  "tested_branches": 2,
+                  "matching_branches": 0,
+                  "surviving_states": 0,
+                  "mismatch_counts": {
+                    "tail_word+next_valuation": 2
+                  },
+                  "mismatch_examples": [
+                    {
+                      "step": 15,
+                      "direction": "low",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 171308122831719,
+                      "bits": 63,
+                      "expected_template": "[15,[1,1,1,1],103,10]",
+                      "observed": "[15,[1,1,1,10],103,1]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 171308122831719,
+                        "modulus_bits": 63,
+                        "template": "[15,[1,1,1,10],103,1]",
+                        "prefix_length": 40,
+                        "consumed_bits": 63,
+                        "next_valuation": 1,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          10
+                        ]
+                      }
+                    },
+                    {
+                      "step": 15,
+                      "direction": "high",
+                      "root_residue": 171308122831719,
+                      "parent_residue": 171308122831719,
+                      "child_residue": 4611857326550219623,
+                      "bits": 63,
+                      "expected_template": "[15,[1,1,1,1],103,10]",
+                      "observed": "[15,[1,1,9,1],103,1]",
+                      "reason": "tail_word+next_valuation",
+                      "certificate": {
+                        "status": "needs_split",
+                        "residue": 4611857326550219623,
+                        "modulus_bits": 63,
+                        "template": "[15,[1,1,9,1],103,1]",
+                        "prefix_length": 41,
+                        "consumed_bits": 63,
+                        "next_valuation": 1,
+                        "coefficient_log2_margin": null,
+                        "threshold_min_n_for_descent": null,
+                        "tail_word": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          9,
+                          1
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "terminal_step": 15,
+              "terminal_mismatch_counts": {
+                "tail_word+next_valuation": 2
+              },
+              "final_surviving_states": 0,
+              "full_lasso_completion_count": 0,
+              "best_edge_depth": 14,
+              "best_template_depth": 15,
+              "best_paths": [
+                {
+                  "root_residue": 171308122831719,
+                  "final_residue": 171308122831719,
+                  "final_bits": 62,
+                  "directions": [
+                    "low",
+                    "low",
+                    "low",
+                    "low",
+                    "low",
+                    "low",
+                    "low",
+                    "low",
+                    "low",
+                    "low",
+                    "low",
+                    "low",
+                    "low",
+                    "low"
+                  ],
+                  "path_sample": [
+                    {
+                      "step": 1,
+                      "direction": "low",
+                      "label": "both_open",
+                      "parent_residue": 171308122831719,
+                      "child_residue": 171308122831719,
+                      "bits": 49,
+                      "expected_template": "[1,[1,1,1,1],103,1]",
+                      "observed_template": "[1,[1,1,1,1],103,1]",
+                      "delta_prefix": 1,
+                      "delta_consumed": 1,
+                      "delta_next_valuation": 0,
+                      "delta_debt": 0.584962500721
+                    },
+                    {
+                      "step": 2,
+                      "direction": "low",
+                      "label": "both_open",
+                      "parent_residue": 171308122831719,
+                      "child_residue": 171308122831719,
+                      "bits": 50,
+                      "expected_template": "[2,[1,1,1,1],103,1]",
+                      "observed_template": "[2,[1,1,1,1],103,1]",
+                      "delta_prefix": 1,
+                      "delta_consumed": 1,
+                      "delta_next_valuation": 0,
+                      "delta_debt": 0.584962500721
+                    },
+                    {
+                      "step": 3,
+                      "direction": "low",
+                      "label": "both_open",
+                      "parent_residue": 171308122831719,
+                      "child_residue": 171308122831719,
+                      "bits": 51,
+                      "expected_template": "[3,[1,1,1,1],103,1]",
+                      "observed_template": "[3,[1,1,1,1],103,1]",
+                      "delta_prefix": 1,
+                      "delta_consumed": 1,
+                      "delta_next_valuation": 0,
+                      "delta_debt": 0.584962500721
+                    },
+                    {
+                      "step": 4,
+                      "direction": "low",
+                      "label": "both_open",
+                      "parent_residue": 171308122831719,
+                      "child_residue": 171308122831719,
+                      "bits": 52,
+                      "expected_template": "[4,[1,1,1,1],103,1]",
+                      "observed_template": "[4,[1,1,1,1],103,1]",
+                      "delta_prefix": 1,
+                      "delta_consumed": 1,
+                      "delta_next_valuation": 0,
+                      "delta_debt": 0.584962500721
+                    },
+                    {
+                      "step": 5,
+                      "direction": "low",
+                      "label": "both_open",
+                      "parent_residue": 171308122831719,
+                      "child_residue": 171308122831719,
+                      "bits": 53,
+                      "expected_template": "[5,[1,1,1,1],103,10]",
+                      "observed_template": "[5,[1,1,1,1],103,10]",
+                      "delta_prefix": 1,
+                      "delta_consumed": 1,
+                      "delta_next_valuation": 9,
+                      "delta_debt": 0.584962500721
+                    },
+                    {
+                      "step": 6,
+                      "direction": "low",
+                      "label": "both_open",
+                      "parent_residue": 171308122831719,
+                      "child_residue": 171308122831719,
+                      "bits": 54,
+                      "expected_template": "[6,[1,1,1,1],103,10]",
+                      "observed_template": "[6,[1,1,1,1],103,10]",
+                      "delta_prefix": 0,
+                      "delta_consumed": 0,
+                      "delta_next_valuation": 0,
+                      "delta_debt": 0.0
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "closed_bounded_statement": "The deterministic 200,000-word 48-bit sampler found one new depth-15 near-lasso witness outside the TICKET51 ancestry. A base-48 generalized terminal lift audit closes its low/high terminal branches at phase 15 by tail_word+next_valuation mismatch; no full lasso completion survives.",
+          "next_frontier": "The next serious route is not a larger blind sample. It is a symbolic or automaton-counting search that can cover the 83,401,400,116 48-bit valuation words without enumerating them.",
+          "proof_boundary": "No Collatz proof and no Collatz counterexample. TICKET52 finds and closes one new sampled 48-bit near-lasso witness, and proves that the 48-bit frontier is too large for the old valuation-word enumeration. The sampler is not exhaustive and cannot exclude unsampled roots."
+        }
+      },
+      "obstruction": "The prior closure was ancestry-local: new 48-bit near-lasso roots can project outside the two closed 32-bit roots. The new sampled witness closes terminally, but the unsampled 48-bit frontier remains open.",
+      "candidate_theorem": "A complete Collatz lasso-exclusion route now requires a symbolic counter of all 48-bit start-template roots, or a theorem proving every depth-15 terminal branch has the same tail/next-valuation mismatch.",
+      "next_experiment": "Build TICKET53 as a residue-automaton or SAT/SMT-style symbolic counter for all 48-bit start-template roots, rather than increasing the random sample.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-52",
+      "status": "proof_pressure_open",
+      "route": "ResidueMarginFrontierBudget",
+      "proof_or_counterexample_mode": "frontier budget before witness promotion",
+      "attempt": "Transfer TICKET52's rule: before promoting a finite stress witness, quantify the unseen frontier and separate sampled closure from exhaustive or symbolic closure.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-51",
+        "source_route": "ResidueMarginTerminalWitnessClosure",
+        "ticket52_transfer": "ResidueMarginFrontierBudget",
+        "candidate_theorem": "Any Goldbach residue-margin packet must quantify the uncovered even/residue frontier before a positive-margin sample can support a theorem route.",
+        "frontier_rule": "A witness closure is publishable only as local evidence unless the remaining frontier is either exhaustively covered or reduced by a symbolic theorem."
+      },
+      "obstruction": "This transfer is a claim-discipline upgrade. It does not solve the target problem; it blocks the common mistake of treating a closed sample witness as an infinite theorem.",
+      "candidate_theorem": "Any Goldbach residue-margin packet must quantify the uncovered even/residue frontier before a positive-margin sample can support a theorem route.",
+      "next_experiment": "Attach a problem-specific frontier budget to the strongest unresolved witness family.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-52",
+      "status": "proof_pressure_open",
+      "route": "GapSelectorFrontierBudget",
+      "proof_or_counterexample_mode": "frontier budget before witness promotion",
+      "attempt": "Transfer TICKET52's rule: before promoting a finite stress witness, quantify the unseen frontier and separate sampled closure from exhaustive or symbolic closure.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-51",
+        "source_route": "GapSelectorTerminalWitnessClosure",
+        "ticket52_transfer": "GapSelectorFrontierBudget",
+        "candidate_theorem": "Any exact-gap selector packet must quantify the uncovered gap-leakage frontier before sampled gap-2 persistence can be promoted.",
+        "frontier_rule": "A witness closure is publishable only as local evidence unless the remaining frontier is either exhaustively covered or reduced by a symbolic theorem."
+      },
+      "obstruction": "This transfer is a claim-discipline upgrade. It does not solve the target problem; it blocks the common mistake of treating a closed sample witness as an infinite theorem.",
+      "candidate_theorem": "Any exact-gap selector packet must quantify the uncovered gap-leakage frontier before sampled gap-2 persistence can be promoted.",
+      "next_experiment": "Attach a problem-specific frontier budget to the strongest unresolved witness family.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}
