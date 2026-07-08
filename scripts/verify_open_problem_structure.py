@@ -42,6 +42,7 @@ TICKET45_SCHEMA = "primeproject.ticket45-symbolic-rank-clause-lab.v1"
 TICKET46_SCHEMA = "primeproject.ticket46-stable-clause-grammar-lab.v1"
 TICKET47_SCHEMA = "primeproject.ticket47-periodic-state-lasso-lab.v1"
 TICKET48_SCHEMA = "primeproject.ticket48-automaton-reachability-lab.v1"
+TICKET49_SCHEMA = "primeproject.ticket49-symbolic-preimage-obstruction-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2146,6 +2147,80 @@ def main() -> int:
         return fail("collatz ticket48 proof boundary must block proof overclaim")
     if "unreachable in the true lift system" not in str(audit48.get("proof_boundary", "")):
         return fail("collatz ticket48 must preserve true reachability boundary")
+
+    ticket49_path = Path("data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json")
+    if not ticket49_path.exists():
+        return fail("missing ticket49 symbolic preimage obstruction artifact")
+    ticket49 = read_json(ticket49_path)
+    if ticket49.get("schema") != TICKET49_SCHEMA:
+        return fail("ticket49 symbolic preimage obstruction artifact has unexpected schema")
+    if ticket49.get("status") != "symbolic_preimage_obstruction_open_no_resolution":
+        return fail("ticket49 symbolic preimage obstruction overstates resolution")
+    ticket49_attempts = ticket49.get("attempts", [])
+    if not isinstance(ticket49_attempts, list):
+        return fail("ticket49 attempts must be a list")
+    ticket49_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket49_attempts if isinstance(attempt, dict)}
+    missing_ticket49 = EXPECTED_PROBLEMS - set(ticket49_by_id)
+    if missing_ticket49:
+        return fail("ticket49 attempts missing problems: " + ", ".join(sorted(missing_ticket49)))
+    ticket49_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-49-zero-kernel-preimage.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-49-symbolic-preimage-obstruction.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-49-residue-margin-preimage.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-49-gap-selector-preimage.json"),
+    }
+    for problem_id, attempt in ticket49_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "minimal_preimage_obstruction_found_open_problem_open",
+        }:
+            return fail(f"{problem_id}: ticket49 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket49 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket49 claim boundary is too weak")
+        path = ticket49_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket49 per-problem artifact")
+
+    collatz_ticket49 = ticket49_by_id.get("collatz", {})
+    collatz49_bounded = collatz_ticket49.get("bounded_result", {})
+    if not isinstance(collatz49_bounded, dict):
+        return fail("collatz ticket49 bounded result must be an object")
+    audit49 = collatz49_bounded.get("symbolic_preimage_obstruction_audit", {})
+    if not isinstance(audit49, dict):
+        return fail("collatz ticket49 symbolic preimage audit missing")
+    forced49 = audit49.get("forced_low_prefix", {})
+    if not isinstance(forced49, dict):
+        return fail("collatz ticket49 forced-low prefix audit missing")
+    if int(forced49.get("best_partial_depth", 0)) != 2:
+        return fail("collatz ticket49 must preserve the two-step concrete partial path")
+    starts49 = forced49.get("start_candidates", [])
+    if not isinstance(starts49, list) or starts49 != [26471, 28007, 34919, 48743]:
+        return fail("collatz ticket49 start candidates changed")
+    rows49 = forced49.get("rows", [])
+    if not isinstance(rows49, list) or len(rows49) != 3:
+        return fail("collatz ticket49 forced-low rows must expose three prefix steps")
+    expected_survivors49 = [2, 1, 0]
+    for row, expected_survivors in zip(rows49, expected_survivors49):
+        if int(row.get("surviving_states", -1)) != expected_survivors:
+            return fail("collatz ticket49 survivor sequence changed")
+        if "next_valuation" not in str(row.get("mismatch_counts", {})):
+            return fail("collatz ticket49 must classify failures by next_valuation")
+    minimal49 = audit49.get("minimal_obstruction", {})
+    if not isinstance(minimal49, dict):
+        return fail("collatz ticket49 minimal obstruction missing")
+    if int(minimal49.get("dead_step", 0)) != 3:
+        return fail("collatz ticket49 dead step changed")
+    if minimal49.get("obstruction_coordinate") != "next_valuation":
+        return fail("collatz ticket49 obstruction coordinate must be next_valuation")
+    if "No Collatz proof" not in str(audit49.get("proof_boundary", "")):
+        return fail("collatz ticket49 proof boundary must block proof overclaim")
+    if "does not prove the same next_valuation obstruction for every future phase-compatible modulus" not in str(
+        audit49.get("proof_boundary", "")
+    ):
+        return fail("collatz ticket49 must preserve all-future phase-compatible boundary")
 
     print("open problem structure verified")
     return 0

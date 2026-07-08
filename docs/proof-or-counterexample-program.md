@@ -2397,3 +2397,80 @@ Proof boundary:
 ```text
 TICKET-48 does not prove or disprove any of the four open problems. It proves a conditional abstract no-go for fixed finite total deterministic state repairs over the extracted Collatz template lasso and reports a bounded concrete reachability failure through one full period. The unresolved theorem is still infinite: either exclude the lasso family for all future residue lifts, or produce a certified unbounded concrete lift witness.
 ```
+
+### Ticket 49: Symbolic preimage obstruction lab
+
+Generated artifact:
+
+```text
+data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-49-zero-kernel-preimage.json
+data/open-problem/collatz/co-ticket-49-symbolic-preimage-obstruction.json
+data/open-problem/goldbach/gb-ticket-49-residue-margin-preimage.json
+data/open-problem/twin-prime/tp-ticket-49-gap-selector-preimage.json
+```
+
+Aggregate verdict:
+
+```text
+symbolic_preimage_obstruction_open_no_resolution
+```
+
+한국어 요약: TICKET-49는 TICKET-48의 concrete reachability 실패를 “왜 실패했는가”까지 좁힌다. 16-bit phase-compatible start template `[0,[1,1,1,1],103,1]`을 만족하는 residue는 정확히 4개다. forced-low lasso prefix에서 이들은 step 1 뒤 2개, step 2 뒤 1개, step 3 뒤 0개가 된다. 마지막 생존 residue는 세 번째 phase에서 phase, tail word, residue mod 256은 맞지만 `next_valuation = 5`가 되어, lasso가 요구하는 `next_valuation = 1`과 충돌한다.
+
+English summary: TICKET-49 turns the TICKET-48 reachability failure into a coordinate-level obstruction. The exact 16-bit phase-compatible start set has four residues. Along the forced-low lasso prefix, the survivor counts are 4 -> 2 -> 1 -> 0. The unique two-step survivor reaches the third phase with the correct phase, tail word, and residue mod 256, but with next valuation 5 rather than the lasso-required 1.
+
+Collatz symbolic-preimage audit:
+
+```text
+start template: [0,[1,1,1,1],103,1]
+start candidates: 26471, 28007, 34919, 48743
+forced-low survivors: 4 -> 2 -> 1 -> 0
+dead step: 3
+obstruction coordinate: next_valuation
+required third template: [3,[1,1,1,1],103,1]
+observed third template on the unique survivor: [3,[1,1,1,1],103,5]
+best partial depth: 2
+best partial debt: 1.169925001442
+```
+
+Discarded Collatz routes:
+
+```text
+blindly rerunning larger frontier probes without naming the failed coordinate
+claiming the abstract TICKET47/TICKET48 lasso is concrete after only two matching steps
+treating finite-state or bounded-prefix failure as a Collatz proof
+```
+
+Retained Collatz routes:
+
+```text
+prove the next_valuation obstruction for every b == 0 mod 16 compatible lift
+derive a symbolic preimage recurrence for the third low-prefix step
+search for a higher-bit exception that changes next_valuation 5 back to 1
+if such an exception exists, test whether it can complete and repeat the full lasso period
+```
+
+Cross-problem transfer:
+
+1. RH: after a zero-kernel lasso attempt fails, identify the first failed kernel coordinate before proposing a larger automaton.
+2. Goldbach: after a residue-margin lasso attempt fails, identify whether the obstruction is residue class, singular-series margin, or cutoff leakage.
+3. Twin Prime: after a gap-selector lasso attempt fails, identify whether exact gap-2 mass fails at selector state or leakage class.
+4. Collatz: the next theorem is now a next-valuation preimage theorem, not another finite-state wrapper.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-50 AllPhaseNextValuationPreimageOrHigherBitException
+```
+
+Proof boundary:
+
+```text
+TICKET-49 does not prove or disprove any of the four open problems. It identifies the first local coordinate that blocks the 16-bit Collatz lasso-prefix realization. The unresolved theorem is still infinite: prove the same next-valuation obstruction for every compatible modulus, or find a higher-bit exception and test whether it becomes an unbounded concrete lasso.
+```

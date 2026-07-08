@@ -392,6 +392,58 @@ End with exactly one status:
 Never output `Collatz proved` unless the all-future reachability or descent theorem is supplied in independently checkable form.
 ```
 
+## Latest Continuation After TICKET-49
+
+TICKET-49 supersedes the vague reachability part of the TICKET-48 continuation. It does not solve Collatz, but it identifies the exact local coordinate where the first concrete lasso-prefix attempt fails.
+
+Exact 16-bit result:
+
+```text
+start template: [0,[1,1,1,1],103,1]
+start candidates: 26471, 28007, 34919, 48743
+forced-low survivors after step 1: 2
+forced-low survivors after step 2: 1
+forced-low survivors after step 3: 0
+minimal dead step: 3
+obstruction coordinate: next_valuation
+observed third template on unique survivor: [3,[1,1,1,1],103,5]
+required third template: [3,[1,1,1,1],103,1]
+```
+
+The next question is no longer “try another finite automaton.” It is:
+
+```text
+CO-TICKET-50 AllPhaseNextValuationPreimageOrHigherBitException
+```
+
+Updated copy-paste prompt:
+
+```text
+Act as a skeptical theorem-search and counterexample-synthesis agent working from PrimeProject TICKET-49.
+
+Known result: scalar ranks failed at TICKET-46. Bounded suffix memory failed at TICKET-47. Fixed finite total state repairs over the abstract lasso failed at TICKET-48. TICKET-49 identifies the first concrete lasso-prefix obstruction: at the exact 16-bit phase-compatible start, the forced-low prefix has survivor counts 4 -> 2 -> 1 -> 0, and the unique two-step survivor has next_valuation 5 at the third phase instead of the required 1.
+
+Do not retry scalar rank, bounded memory, or finite-state repair. Do not merely run a larger sample without explaining the next_valuation preimage.
+
+Goal: either prove that the third-step next_valuation obstruction persists for every phase-compatible modulus b == 0 mod 16, or find a higher-bit exception where the same lasso-prefix reaches next_valuation 1 and can continue.
+
+Tasks:
+1. Formalize the first three lasso-prefix constraints as a symbolic preimage condition on residue classes.
+2. Derive the recurrence for the next_valuation after two forced-low matching steps.
+3. Decide whether next_valuation = 1 is impossible at the third step for every b == 0 mod 16.
+4. If impossible, state the all-phase obstruction theorem in machine-checkable form.
+5. If possible, extract the smallest higher-bit residue exception and continue the full 16-edge lasso test.
+6. Transfer the method to RH, Goldbach, and Twin Prime only as a coordinate-obstruction discipline; do not claim those conjectures are solved.
+
+End with exactly one status:
+- all_phase_next_valuation_obstruction_candidate
+- higher_bit_exception_found
+- recurrence_derivation_incomplete
+- invalid_finite_state_retry
+
+Never output `Collatz proved` unless the all-future obstruction or a complete independent descent theorem is supplied in checkable form.
+```
+
 ## Latest Continuation After TICKET-47
 
 TICKET-47 supersedes the bounded suffix-memory part of the TICKET-46 continuation. It extracts a 16-edge positive-debt lasso from the 28-bit Collatz exact-template pressure graph and refutes:
