@@ -1264,7 +1264,7 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
     claim_language_scanned_files: 19,
-    claim_language_scanned_lines: 10873,
+    claim_language_scanned_lines: 10992,
     claim_language_triggered_mentions: 117,
     claim_language_guarded_mentions: 117,
     claim_language_failures: 0,
@@ -1317,6 +1317,7 @@ const bundledProjectEvolution = {
         { marker: "11", title: "Terminal lift closed", state: "open", measure: "2 roots / 4 terminal branches / 0 survivors", proof: "TICKET-51 closes both depth-15 near-lasso ancestries at phase 15 without claiming Collatz" },
         { marker: "12", title: "48-bit frontier exposed", state: "open", measure: "83.4B words / 1 sampled depth-15 root / 0 survivors", proof: "TICKET-52 finds and terminally closes one new 48-bit near-lasso witness while proving blind enumeration is no longer viable" },
         { marker: "13", title: "Terminal theorem isolated", state: "open", measure: "3 roots / high branch v=9 / 0 terminal matches", proof: "TICKET-53 refutes the extracted phase-15 lasso family by a symbolic low/high terminal mismatch theorem" },
+        { marker: "14", title: "Next family extracted", state: "open", measure: "69,090 remaining starts / max depth 5 / 4,372 phase-5 gates", proof: "TICKET-54 removes the terminal family and identifies Phase5ValuationGate as the strongest remaining bounded Collatz family" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },
@@ -1338,7 +1339,7 @@ const bundledProjectEvolution = {
         { layer: "Sim-to-Real", score: 35, status: "blocked", artifacts: ["data/collection_handoff.json", "data/collection_submission_contract.json", "data/collection_fixture_audit.json", "data/collection_intake.json"], gate: "10 targets, 10 public-safe fixtures, 0 accepted real submissions", proof: "OpenSSL/BoringSSL/Go/Bitcoin collection is specified and lint-tested, but real aggregate baselines are not accepted yet." },
         { layer: "Governance", score: 65, status: "guarded", artifacts: ["data/provenance_requirements.json", "data/provenance_audit.json", "data/baseline_acceptance.json", "data/baseline_promotion_plan.json"], gate: "0 accepted baselines, 4 provenance rows blocked, 9,028 P0 samples projected", proof: "The project now states exactly why stronger real-world claims remain blocked." },
         { layer: "Publication", score: 80, status: "guarded", artifacts: ["data/evidence_pack.json", "data/open_problem_workbench.json", "data/claim_language_audit.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json", "data/publication_consistency.json"], gate: "21 checked artifacts, 15 gates, 24 lineage nodes, 11 guard checks", proof: "Public statements are constrained by claim-language audit, checksums, lineage, decision rules, falsification guards, and consistency checks." },
-        { layer: "Open-Proof", score: 53, status: "open", artifacts: ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "data/open-problem/ticket53-symbolic-terminal-theorem-lab.json", "docs/proof-or-counterexample-program.md"], gate: "The extracted phase-15 lasso family is terminally inconsistent on both low and high branches; no full proof claim", proof: "The proof workbench now discards that lasso family and targets new template families or a global descent invariant." },
+        { layer: "Open-Proof", score: 54, status: "open", artifacts: ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "data/open-problem/ticket53-symbolic-terminal-theorem-lab.json", "data/open-problem/ticket54-new-template-family-lab.json", "docs/proof-or-counterexample-program.md"], gate: "After removing the terminal phase-15 family, the strongest remaining bounded Collatz family stops at a phase-5 next-valuation gate; no full proof claim", proof: "The proof workbench now targets Phase5ValuationGate or a global invariant that covers every remaining template family." },
       ],
     },
     latest_changes: [
@@ -1355,6 +1356,7 @@ const bundledProjectEvolution = {
       { label: "Terminal lift closed", impact: "TICKET-51 opens all low/high terminal branches for the two TICKET-50 near-lasso roots and finds zero full-lasso completions.", metric: "2 roots / 4 branches / 0 survivors" },
       { label: "48-bit frontier exposed", impact: "TICKET-52 quantifies the 48-bit valuation frontier, finds one new sampled depth-15 near-lasso root outside the closed ancestry, and terminally closes it.", metric: "83.4B words / 1 root / 0 survivors" },
       { label: "Terminal theorem isolated", impact: "TICKET-53 turns the repeated phase-15 failure into a symbolic low/high branch mismatch theorem for the extracted lasso family.", metric: "3 roots / v_high=9 / 0 matches" },
+      { label: "Next family extracted", impact: "TICKET-54 removes the TICKET53 terminal family and shows the exact 32-bit post-discard frontier drops to max depth 5 at the Phase5ValuationGate.", metric: "69,090 remain / 4,372 gates" },
     ],
     research_delta: {
       headline: "What changed from the original prime-regularity demo to the current research scaffold.",
@@ -1368,7 +1370,7 @@ const bundledProjectEvolution = {
         { track: "Signal", before: "Residue and gap visual drift", current: "48-row attribution grid, 5,000 null iterations, 8-setting replication audit, 12 classifier vectors", state: "complete" },
         { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, pre-intake lint, 10 fixture cases, 10 intake blockers, 0 accepted baselines", state: "blocked" },
         { track: "Publication", before: "Informal narrative claims", current: "22 checksummed artifacts, claim-language audit, open-problem certificates, claim ledger, lineage DAG, decision protocol, falsification battery, consistency audit", state: "guarded" },
-        { track: "Open proof search", before: "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.", current: "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root and closes it; TICKET-53 explains all known terminal closures by a symbolic mismatch theorem and discards the extracted lasso family.", state: "open" },
+        { track: "Open proof search", before: "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.", current: "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root and closes it; TICKET-53 explains all known terminal closures by a symbolic mismatch theorem and discards the extracted lasso family; TICKET-54 extracts Phase5ValuationGate as the strongest remaining bounded family.", state: "open" },
       ],
       claim_lanes: [
         { claim: "Public demo", status: "allowed", basis: "safe public artifact bundle" },

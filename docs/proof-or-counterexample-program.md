@@ -2757,3 +2757,81 @@ Proof boundary:
 ```text
 TICKET-53 does not prove or disprove any of the four open problems. It refutes one extracted Collatz lasso family, including all currently known near-lasso witnesses for that family. A full Collatz proof still requires a global argument covering all trajectories or all remaining template families.
 ```
+
+### Ticket 54: Post-terminal new template family extraction
+
+Generated artifact:
+
+```text
+data/open-problem/ticket54-new-template-family-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-54-post-nogo-family-triage.json
+data/open-problem/collatz/co-ticket-54-new-template-family.json
+data/open-problem/goldbach/gb-ticket-54-post-nogo-family-triage.json
+data/open-problem/twin-prime/tp-ticket-54-post-nogo-family-triage.json
+```
+
+Aggregate verdict:
+
+```text
+new_template_family_extracted_open_no_resolution
+```
+
+한국어 요약: TICKET-54는 TICKET-53에서 폐기된 phase-15 terminal family를 더 이상 샘플링하지 않는다. 대신 그 family를 제거한 뒤 남는 Collatz frontier를 다시 세어, 다음으로 공격해야 할 family를 추출한다. exact 32-bit 시작 template은 69,092개이고, 이 중 TICKET-53이 폐기한 depth-15 root 2개를 제거하면 69,090개가 남는다. 남은 후보의 최대 lasso-prefix depth는 5로 내려가며, 4,372개가 phase-5 `next_valuation=10` gate에서 막힌다. 이 phase-5 실패군 안에서 observed next valuation이 10인 경우는 0개다.
+
+English summary: TICKET-54 stops spending search budget on the TICKET-53 terminal family. It removes that family, re-audits the remaining exact 32-bit start-template frontier, and extracts `Phase5ValuationGate` as the strongest remaining bounded Collatz family. The post-discard frontier has max depth 5, with 4,372 exact roots failing at the phase-5 next-valuation gate.
+
+Exact Collatz audit:
+
+```text
+exact 32-bit start-template matches: 69,092
+discarded TICKET-53 depth-15 roots: 2
+remaining exact starts: 69,090
+post-discard max exact depth: 5
+phase-5 gate exact roots: 4,372
+phase-5 failures with observed next_valuation=10: 0
+48-bit deterministic sample post-discard max depth: 5
+48-bit deterministic sample phase-5 gate roots: 175
+```
+
+New candidate family:
+
+```text
+Phase5ValuationGate
+```
+
+Candidate theorem:
+
+```text
+Every phase-compatible start that reaches the first five lasso templates either belongs to the discarded phase-15 terminal family, closes by descent, or fails the phase-5 next_valuation=10 gate.
+```
+
+Counterexample target:
+
+```text
+Find a root outside the TICKET-53 terminal family that reaches phase 5 with next_valuation=10 and then survives into a different replayable lasso template.
+```
+
+Discarded or deprioritized routes:
+
+```text
+repeating random samples inside the TICKET-53 terminal family
+treating the 26-bit finite template-rank measure as a Collatz proof
+blindly enlarging the template graph without a parametric closure theorem
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-55 Phase5ValuationGateTheoremOrCounterexample
+```
+
+Proof boundary:
+
+```text
+TICKET-54 does not prove or disprove any of the four open problems. It prunes one terminal family and extracts the next finite Collatz family to attack. A full Collatz proof still requires an all-lift phase-5 gate theorem, a global descent invariant, or a genuine replayable counterexample.
+```

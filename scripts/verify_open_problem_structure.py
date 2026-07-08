@@ -47,6 +47,7 @@ TICKET50_SCHEMA = "primeproject.ticket50-phase-lift-exception-lab.v1"
 TICKET51_SCHEMA = "primeproject.ticket51-phase15-terminal-lift-lab.v1"
 TICKET52_SCHEMA = "primeproject.ticket52-frontier-budget-lab.v1"
 TICKET53_SCHEMA = "primeproject.ticket53-symbolic-terminal-theorem-lab.v1"
+TICKET54_SCHEMA = "primeproject.ticket54-new-template-family-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2512,6 +2513,96 @@ def main() -> int:
         return fail("collatz ticket53 proof boundary must block proof overclaim")
     if "does not prove global Collatz descent" not in str(audit53.get("terminal_theorem_scope", "")):
         return fail("collatz ticket53 must preserve local theorem scope")
+
+    ticket54_path = Path("data/open-problem/ticket54-new-template-family-lab.json")
+    if not ticket54_path.exists():
+        return fail("missing ticket54 new template family artifact")
+    ticket54 = read_json(ticket54_path)
+    if ticket54.get("schema") != TICKET54_SCHEMA:
+        return fail("ticket54 new template family artifact has unexpected schema")
+    if ticket54.get("status") != "new_template_family_extracted_open_no_resolution":
+        return fail("ticket54 new template family artifact overstates resolution")
+    ticket54_attempts = ticket54.get("attempts", [])
+    if not isinstance(ticket54_attempts, list):
+        return fail("ticket54 attempts must be a list")
+    ticket54_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket54_attempts if isinstance(attempt, dict)}
+    missing_ticket54 = EXPECTED_PROBLEMS - set(ticket54_by_id)
+    if missing_ticket54:
+        return fail("ticket54 attempts missing problems: " + ", ".join(sorted(missing_ticket54)))
+    ticket54_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-54-post-nogo-family-triage.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-54-new-template-family.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-54-post-nogo-family-triage.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-54-post-nogo-family-triage.json"),
+    }
+    for problem_id, attempt in ticket54_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "post_terminal_family_pruned_new_gate_family_open_problem_open",
+        }:
+            return fail(f"{problem_id}: ticket54 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket54 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket54 claim boundary is too weak")
+        path = ticket54_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket54 per-problem artifact")
+
+    collatz_ticket54 = ticket54_by_id.get("collatz", {})
+    audit54 = collatz_ticket54.get("bounded_result", {}).get("new_template_family_audit", {})
+    if not isinstance(audit54, dict):
+        return fail("collatz ticket54 new template family audit missing")
+    discarded54 = audit54.get("discarded_family", {})
+    if not isinstance(discarded54, dict) or discarded54.get("source_theorem") != "Phase15TerminalMismatchForExtractedLasso":
+        return fail("collatz ticket54 must inherit the ticket53 discarded theorem")
+    if int(discarded54.get("terminal_target_match_count", -1)) != 0:
+        return fail("collatz ticket54 must preserve ticket53 terminal mismatch")
+    exact54 = audit54.get("exact_32bit_post_terminal_reaudit", {})
+    if not isinstance(exact54, dict):
+        return fail("collatz ticket54 exact 32-bit reaudit missing")
+    if int(exact54.get("exact_start_template_matches", -1)) != 69092:
+        return fail("collatz ticket54 exact 32-bit start count changed")
+    if int(exact54.get("discarded_depth15_family_count", -1)) != 2:
+        return fail("collatz ticket54 must discard the two exact 32-bit depth-15 roots")
+    if exact54.get("discarded_depth15_family_roots") != [1471663463, 3206130791]:
+        return fail("collatz ticket54 discarded 32-bit root set changed")
+    depth54 = exact54.get("depth_counts", {})
+    if not isinstance(depth54, dict) or int(depth54.get("15", -1)) != 2 or int(depth54.get("5", -1)) != 4372:
+        return fail("collatz ticket54 exact depth counts changed")
+    if int(exact54.get("remaining_after_ticket53_discard", -1)) != 69090:
+        return fail("collatz ticket54 remaining exact frontier count changed")
+    if int(exact54.get("max_remaining_depth_after_ticket53_discard", -1)) != 5:
+        return fail("collatz ticket54 post-discard max depth must be 5")
+    if int(exact54.get("phase5_gate_count", -1)) != 4372:
+        return fail("collatz ticket54 phase5 gate count changed")
+    if int(exact54.get("phase5_exact_next10_failure_count", -1)) != 0:
+        return fail("collatz ticket54 phase5 failures must not include next valuation 10")
+    phase5_counts54 = exact54.get("phase5_next_valuation_counts", {})
+    if not isinstance(phase5_counts54, dict) or int(phase5_counts54.get("1", -1)) != 2160:
+        return fail("collatz ticket54 phase5 next valuation distribution changed")
+    top_phase5_54 = exact54.get("top_phase5_gate_templates", [])
+    if not isinstance(top_phase5_54, list) or not top_phase5_54:
+        return fail("collatz ticket54 phase5 templates missing")
+    if top_phase5_54[0].get("observed_template") != "[5,[1,1,1,1],103,1]":
+        return fail("collatz ticket54 top phase5 template changed")
+    sample54 = audit54.get("sampled_48bit_post_terminal_summary", {})
+    if not isinstance(sample54, dict):
+        return fail("collatz ticket54 sampled 48-bit summary missing")
+    if int(sample54.get("sample_count", -1)) != 200000 or int(sample54.get("sample_seed", -1)) != 20260709:
+        return fail("collatz ticket54 sample contract changed")
+    if int(sample54.get("discarded_depth15_sample_count", -1)) != 1:
+        return fail("collatz ticket54 must discard one sampled depth-15 root")
+    if int(sample54.get("max_remaining_depth_after_ticket53_discard", -1)) != 5:
+        return fail("collatz ticket54 sampled post-discard max depth must be 5")
+    if int(sample54.get("phase5_gate_sample_count", -1)) != 175:
+        return fail("collatz ticket54 sampled phase5 gate count changed")
+    candidate54 = audit54.get("new_candidate_family", {})
+    if not isinstance(candidate54, dict) or candidate54.get("name") != "Phase5ValuationGate":
+        return fail("collatz ticket54 must extract Phase5ValuationGate")
+    if "No Collatz proof" not in str(audit54.get("proof_boundary", "")):
+        return fail("collatz ticket54 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

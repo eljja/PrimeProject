@@ -1,0 +1,19 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-54",
+  "status": "proof_pressure_open",
+  "route": "PostNoGoGapFamilyTriage",
+  "proof_or_counterexample_mode": "post-terminal family triage",
+  "attempt": "Transfer TICKET54's rule: after a local no-go theorem removes one witness family, recompute the remaining strongest family instead of continuing to sample the discarded route.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-53",
+    "source_route": "GapSelectorTerminalNoGoTheorem",
+    "ticket54_transfer": "PostNoGoGapFamilyTriage",
+    "candidate_theorem": "After a gap-selector family is locally excluded, identify the strongest remaining exact-gap family and prove an unconditional gap-2 lower bound for it.",
+    "frontier_rule": "The next theorem must be stated on the strongest remaining family after every known no-go family has been removed."
+  },
+  "obstruction": "This transfer is a proof-search discipline. It does not solve the target problem, but it prevents a closed witness family from consuming the next search budget.",
+  "candidate_theorem": "After a gap-selector family is locally excluded, identify the strongest remaining exact-gap family and prove an unconditional gap-2 lower bound for it.",
+  "next_experiment": "Extract the strongest remaining problem-specific family after excluding the current local no-go family.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

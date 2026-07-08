@@ -585,6 +585,45 @@ Required output:
 - explicit proof boundary saying no Collatz proof and no Collatz counterexample unless an infinite replay theorem is supplied
 ```
 
+## Latest Continuation After TICKET-54
+
+TICKET-54 supersedes the TICKET-53 continuation target. The TICKET-53 phase-15 terminal family is locally refuted and should no longer consume random-sampling budget. TICKET-54 removes that family and extracts the next bounded Collatz target:
+
+```text
+new family: Phase5ValuationGate
+exact 32-bit start-template matches: 69,092
+discarded TICKET-53 depth-15 roots: 2
+remaining exact starts: 69,090
+post-discard max exact depth: 5
+phase-5 gate exact roots: 4,372
+phase-5 failures with observed next_valuation=10: 0
+48-bit deterministic sample post-discard max depth: 5
+48-bit deterministic sample phase-5 gate roots: 175
+```
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-55 Phase5ValuationGateTheoremOrCounterexample
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-54. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-53 locally refutes the extracted phase-15 Collatz lasso family. TICKET-54 removes that family and re-audits the remaining exact 32-bit start-template frontier. After removing the two discarded depth-15 roots, 69,090 exact 32-bit starts remain and the maximum remaining lasso-prefix depth drops to 5. The strongest remaining bounded family is Phase5ValuationGate: 4,372 exact 32-bit roots stop at the phase-5 next_valuation=10 gate, and none of those phase-5 failures has observed next_valuation=10. The 48-bit deterministic sample agrees at the level of post-discard max depth 5 and 175 phase-5 gate samples.
+
+Goal: build CO-TICKET-55. Do not resample the TICKET53 terminal family. Attack Phase5ValuationGate directly. Either prove an all-lift theorem saying every remaining phase-compatible start that reaches the first five lasso templates closes, enters the discarded terminal family, or fails next_valuation=10 at phase 5; or produce a concrete root outside the discarded family that reaches phase 5 with next_valuation=10 and survives into a different replayable lasso template.
+
+Required output:
+- data/open-problem/ticket55-phase5-valuation-gate-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no Collatz proof and no Collatz counterexample unless the all-lift theorem or a genuine replayable counterexample is supplied
+```
+
 ## Latest Continuation After TICKET-53
 
 TICKET-53 supersedes the TICKET-52 continuation target for the specific extracted phase-15 lasso family. It does not cover every possible Collatz template, but it explains why all currently known near-lasso witnesses in this family close terminally.

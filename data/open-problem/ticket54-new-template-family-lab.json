@@ -1,0 +1,532 @@
+{
+  "schema": "primeproject.ticket54-new-template-family-lab.v1",
+  "generated_at": "2026-07-09T08:35:00+09:00",
+  "status": "new_template_family_extracted_open_no_resolution",
+  "claim_boundary": "Ticket 54 extracts the next finite family after TICKET53. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-54",
+      "status": "proof_pressure_open",
+      "route": "PostNoGoZeroFamilyTriage",
+      "proof_or_counterexample_mode": "post-terminal family triage",
+      "attempt": "Transfer TICKET54's rule: after a local no-go theorem removes one witness family, recompute the remaining strongest family instead of continuing to sample the discarded route.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-53",
+        "source_route": "ZeroKernelTerminalNoGoTheorem",
+        "ticket54_transfer": "PostNoGoZeroFamilyTriage",
+        "candidate_theorem": "After any off-critical zero-kernel family is locally excluded, prove the strongest remaining zero family is impossible or produce a replayable zero witness.",
+        "frontier_rule": "The next theorem must be stated on the strongest remaining family after every known no-go family has been removed."
+      },
+      "obstruction": "This transfer is a proof-search discipline. It does not solve the target problem, but it prevents a closed witness family from consuming the next search budget.",
+      "candidate_theorem": "After any off-critical zero-kernel family is locally excluded, prove the strongest remaining zero family is impossible or produce a replayable zero witness.",
+      "next_experiment": "Extract the strongest remaining problem-specific family after excluding the current local no-go family.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-54",
+      "route": "NewTemplateFamilyExtractionOrGlobalDescentInvariant",
+      "status": "post_terminal_family_pruned_new_gate_family_open_problem_open",
+      "proof_or_counterexample_mode": "post-terminal family extraction",
+      "attempt": "Do not re-sample the TICKET53 terminal family. Remove that family, then ask what the strongest remaining concrete family is and what theorem would be required to turn it into a proof or a counterexample.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-53",
+        "new_template_family_audit": {
+          "family": "phase16_tail4_residue256_vexact",
+          "discarded_family": {
+            "source_theorem": "Phase15TerminalMismatchForExtractedLasso",
+            "checked_roots": [
+              {
+                "base_bits": 32,
+                "residue": 1471663463
+              },
+              {
+                "base_bits": 32,
+                "residue": 3206130791
+              },
+              {
+                "base_bits": 48,
+                "residue": 171308122831719
+              }
+            ],
+            "terminal_target_match_count": 0,
+            "reason": "low branch consumes valuation 10; high branch forces valuation 9"
+          },
+          "exact_32bit_post_terminal_reaudit": {
+            "bits": 32,
+            "target_template": "[0,[1,1,1,1],103,1]",
+            "exact_start_template_matches": 69092,
+            "depth_counts": {
+              "1": 34458,
+              "2": 17301,
+              "3": 8649,
+              "4": 4310,
+              "5": 4372,
+              "15": 2
+            },
+            "discarded_depth15_family_roots": [
+              1471663463,
+              3206130791
+            ],
+            "discarded_depth15_family_count": 2,
+            "remaining_after_ticket53_discard": 69090,
+            "max_remaining_depth_after_ticket53_discard": 5,
+            "phase5_gate_count": 4372,
+            "phase5_expected_template": "[5,[1,1,1,1],103,10]",
+            "phase5_next_valuation_counts": {
+              "1": 2160,
+              "2": 1118,
+              "3": 535,
+              "4": 300,
+              "5": 116,
+              "6": 59,
+              "7": 41,
+              "8": 24,
+              "9": 15,
+              "11": 2,
+              "13": 2
+            },
+            "phase5_exact_next10_failure_count": 0,
+            "top_phase5_gate_templates": [
+              {
+                "observed_template": "[5,[1,1,1,1],103,1]",
+                "count": 2160
+              },
+              {
+                "observed_template": "[5,[1,1,1,1],103,2]",
+                "count": 1118
+              },
+              {
+                "observed_template": "[5,[1,1,1,1],103,3]",
+                "count": 535
+              },
+              {
+                "observed_template": "[5,[1,1,1,1],103,4]",
+                "count": 300
+              },
+              {
+                "observed_template": "[5,[1,1,1,1],103,5]",
+                "count": 116
+              },
+              {
+                "observed_template": "[5,[1,1,1,1],103,6]",
+                "count": 59
+              },
+              {
+                "observed_template": "[5,[1,1,1,1],103,7]",
+                "count": 41
+              },
+              {
+                "observed_template": "[5,[1,1,1,1],103,8]",
+                "count": 24
+              }
+            ],
+            "phase5_gate_examples": [
+              {
+                "residue": 2272866151,
+                "bits": 32,
+                "observed_template": "[5,[1,1,1,1],103,1]",
+                "observed_next_valuation": "1",
+                "failure_reason": "next_valuation",
+                "prefix_word_tail": [
+                  1,
+                  1,
+                  2,
+                  2,
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "residue": 2510892903,
+                "bits": 32,
+                "observed_template": "[5,[1,1,1,1],103,1]",
+                "observed_next_valuation": "1",
+                "failure_reason": "next_valuation",
+                "prefix_word_tail": [
+                  1,
+                  1,
+                  1,
+                  4,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "residue": 3566546791,
+                "bits": 32,
+                "observed_template": "[5,[1,1,1,1],103,2]",
+                "observed_next_valuation": "2",
+                "failure_reason": "next_valuation",
+                "prefix_word_tail": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "residue": 668282727,
+                "bits": 32,
+                "observed_template": "[5,[1,1,1,1],103,1]",
+                "observed_next_valuation": "1",
+                "failure_reason": "next_valuation",
+                "prefix_word_tail": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  3,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "residue": 1109733223,
+                "bits": 32,
+                "observed_template": "[5,[1,1,1,1],103,3]",
+                "observed_next_valuation": "3",
+                "failure_reason": "next_valuation",
+                "prefix_word_tail": [
+                  1,
+                  1,
+                  2,
+                  2,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "residue": 2672111463,
+                "bits": 32,
+                "observed_template": "[5,[1,1,1,1],103,1]",
+                "observed_next_valuation": "1",
+                "failure_reason": "next_valuation",
+                "prefix_word_tail": [
+                  1,
+                  2,
+                  3,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "residue": 4031065959,
+                "bits": 32,
+                "observed_template": "[5,[1,1,1,1],103,1]",
+                "observed_next_valuation": "1",
+                "failure_reason": "next_valuation",
+                "prefix_word_tail": [
+                  1,
+                  1,
+                  2,
+                  3,
+                  1,
+                  3,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "residue": 1466773351,
+                "bits": 32,
+                "observed_template": "[5,[1,1,1,1],103,1]",
+                "observed_next_valuation": "1",
+                "failure_reason": "next_valuation",
+                "prefix_word_tail": [
+                  1,
+                  1,
+                  1,
+                  4,
+                  1,
+                  3,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              }
+            ],
+            "strongest_remaining_examples": [
+              {
+                "residue": 3181457255,
+                "bits": 32,
+                "matched_prefix_templates": 1,
+                "failure_offset": 1,
+                "expected": "[1,[1,1,1,1],103,1]",
+                "observed": "[1,[1,1,1,1],103,3]",
+                "reason": "next_valuation"
+              },
+              {
+                "residue": 2443259751,
+                "bits": 32,
+                "matched_prefix_templates": 4,
+                "failure_offset": 4,
+                "expected": "[4,[1,1,1,1],103,1]",
+                "observed": "[4,[1,1,1,1],103,3]",
+                "reason": "next_valuation"
+              },
+              {
+                "residue": 2493591399,
+                "bits": 32,
+                "matched_prefix_templates": 4,
+                "failure_offset": 4,
+                "expected": "[4,[1,1,1,1],103,1]",
+                "observed": "[4,[1,1,1,1],103,2]",
+                "reason": "next_valuation"
+              },
+              {
+                "residue": 4067503975,
+                "bits": 32,
+                "matched_prefix_templates": 4,
+                "failure_offset": 4,
+                "expected": "[4,[1,1,1,1],103,1]",
+                "observed": "[4,[1,1,1,1],103,2]",
+                "reason": "next_valuation"
+              },
+              {
+                "residue": 4293996391,
+                "bits": 32,
+                "matched_prefix_templates": 4,
+                "failure_offset": 4,
+                "expected": "[4,[1,1,1,1],103,1]",
+                "observed": "[4,[1,1,1,1],103,2]",
+                "reason": "next_valuation"
+              },
+              {
+                "residue": 2463182695,
+                "bits": 32,
+                "matched_prefix_templates": 4,
+                "failure_offset": 4,
+                "expected": "[4,[1,1,1,1],103,1]",
+                "observed": "[4,[1,1,1,1],103,2]",
+                "reason": "next_valuation"
+              },
+              {
+                "residue": 1729703783,
+                "bits": 32,
+                "matched_prefix_templates": 4,
+                "failure_offset": 4,
+                "expected": "[4,[1,1,1,1],103,1]",
+                "observed": "[4,[1,1,1,1],103,3]",
+                "reason": "next_valuation"
+              },
+              {
+                "residue": 2272866151,
+                "bits": 32,
+                "matched_prefix_templates": 5,
+                "failure_offset": 5,
+                "expected": "[5,[1,1,1,1],103,10]",
+                "observed": "[5,[1,1,1,1],103,1]",
+                "reason": "next_valuation"
+              }
+            ]
+          },
+          "sampled_48bit_post_terminal_summary": {
+            "bits": 48,
+            "sample_seed": 20260709,
+            "sample_count": 200000,
+            "statistics": {
+              "duplicate_residue": 2,
+              "start_template_match": 3184,
+              "unverified_canonical_word": 99972,
+              "verified_open_word": 100026
+            },
+            "depth_counts": {
+              "1": 1650,
+              "2": 763,
+              "3": 406,
+              "4": 189,
+              "5": 175,
+              "15": 1
+            },
+            "discarded_depth15_sample_count": 1,
+            "remaining_after_ticket53_discard": 3183,
+            "max_remaining_depth_after_ticket53_discard": 5,
+            "phase5_gate_sample_count": 175,
+            "strongest_remaining_examples": [
+              {
+                "sample_index": 1055,
+                "residue": 147020815230567,
+                "bits": 48,
+                "matched_prefix_templates": 5,
+                "expected": "[5,[1,1,1,1],103,10]",
+                "observed": "[5,[1,1,1,1],103,1]",
+                "reason": "tail_word+next_valuation"
+              },
+              {
+                "sample_index": 1468,
+                "residue": 114345070877031,
+                "bits": 48,
+                "matched_prefix_templates": 5,
+                "expected": "[5,[1,1,1,1],103,10]",
+                "observed": "[5,[1,1,1,1],103,3]",
+                "reason": "tail_word+next_valuation"
+              },
+              {
+                "sample_index": 1547,
+                "residue": 251992243582055,
+                "bits": 48,
+                "matched_prefix_templates": 5,
+                "expected": "[5,[1,1,1,1],103,10]",
+                "observed": "[5,[1,1,1,1],103,4]",
+                "reason": "tail_word+next_valuation"
+              },
+              {
+                "sample_index": 2482,
+                "residue": 249478181923175,
+                "bits": 48,
+                "matched_prefix_templates": 5,
+                "expected": "[5,[1,1,1,1],103,10]",
+                "observed": "[5,[1,1,1,1],103,1]",
+                "reason": "tail_word+next_valuation"
+              },
+              {
+                "sample_index": 2547,
+                "residue": 251391205162599,
+                "bits": 48,
+                "matched_prefix_templates": 5,
+                "expected": "[5,[1,1,1,1],103,10]",
+                "observed": "[5,[1,1,1,1],103,4]",
+                "reason": "tail_word+next_valuation"
+              },
+              {
+                "sample_index": 2595,
+                "residue": 194092405770599,
+                "bits": 48,
+                "matched_prefix_templates": 5,
+                "expected": "[5,[1,1,1,1],103,10]",
+                "observed": "[5,[1,1,1,1],103,2]",
+                "reason": "tail_word+next_valuation"
+              },
+              {
+                "sample_index": 2809,
+                "residue": 16011931137639,
+                "bits": 48,
+                "matched_prefix_templates": 5,
+                "expected": "[5,[1,1,1,1],103,10]",
+                "observed": "[5,[1,1,1,1],103,1]",
+                "reason": "tail_word+next_valuation"
+              },
+              {
+                "sample_index": 3447,
+                "residue": 101587418671207,
+                "bits": 48,
+                "matched_prefix_templates": 5,
+                "expected": "[5,[1,1,1,1],103,10]",
+                "observed": "[5,[1,1,1,1],103,1]",
+                "reason": "tail_word+next_valuation"
+              }
+            ],
+            "sample_boundary": "The 48-bit numbers are a deterministic sample from TICKET52, not exhaustive coverage of the 48-bit frontier."
+          },
+          "new_candidate_family": {
+            "name": "Phase5ValuationGate",
+            "evidence": "After the TICKET53 phase-15 family is removed, the exact 32-bit start-template search has max remaining lasso-prefix depth 5, with 4372 roots stopped at the phase-5 next-valuation gate. The deterministic 48-bit sample shows the same post-discard max remaining depth 5.",
+            "candidate_theorem": "Every phase-compatible start that reaches the first five lasso templates either belongs to the discarded phase-15 terminal family, closes by descent, or fails the phase-5 next_valuation=10 gate.",
+            "counterexample_target": "Find a root outside the TICKET53 terminal family that reaches phase 5 with next_valuation=10 and then survives into a different replayable lasso template."
+          },
+          "global_invariant_candidate": {
+            "source": "TICKET43 finite template rank",
+            "status": "retained_as_bounded_measure_not_global_proof",
+            "needed_upgrade": "Prove that future template lifts preserve an acyclic rank order or replace the finite rank table with a parametric measure. A blind one-horizon extension was deprioritized because it does not by itself create an infinite theorem."
+          },
+          "discarded_routes": [
+            "repeating random samples inside the TICKET53 terminal family",
+            "treating the 26-bit finite template-rank measure as a Collatz proof",
+            "blindly enlarging the template graph without a parametric closure theorem"
+          ],
+          "next_frontier": "CO-TICKET-55 should attack the Phase5ValuationGate theorem directly: either prove the gate for every remaining phase-compatible lift or produce a concrete root outside the discarded family that crosses the gate.",
+          "proof_boundary": "No Collatz proof and no Collatz counterexample. TICKET54 only prunes one terminal family and extracts the next finite family to attack. The phase-5 gate still needs an all-lift theorem or a genuine counterexample witness."
+        }
+      },
+      "obstruction": "After removing the terminally impossible phase-15 family, the remaining bounded frontier collapses to a phase-5 next-valuation gate. That gate is still finite evidence, not an infinite descent theorem.",
+      "candidate_theorem": "Phase5ValuationGate: every remaining phase-compatible start either closes, enters the discarded terminal family, or fails next_valuation=10 at phase 5.",
+      "next_experiment": "Generate CO-TICKET-55 by proving or refuting the Phase5ValuationGate theorem.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-54",
+      "status": "proof_pressure_open",
+      "route": "PostNoGoExceptionalFamilyTriage",
+      "proof_or_counterexample_mode": "post-terminal family triage",
+      "attempt": "Transfer TICKET54's rule: after a local no-go theorem removes one witness family, recompute the remaining strongest family instead of continuing to sample the discarded route.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-53",
+        "source_route": "ResidueMarginTerminalNoGoTheorem",
+        "ticket54_transfer": "PostNoGoExceptionalFamilyTriage",
+        "candidate_theorem": "After a residue-margin family is locally excluded, identify the strongest remaining exceptional family and prove a positive lower bound for it.",
+        "frontier_rule": "The next theorem must be stated on the strongest remaining family after every known no-go family has been removed."
+      },
+      "obstruction": "This transfer is a proof-search discipline. It does not solve the target problem, but it prevents a closed witness family from consuming the next search budget.",
+      "candidate_theorem": "After a residue-margin family is locally excluded, identify the strongest remaining exceptional family and prove a positive lower bound for it.",
+      "next_experiment": "Extract the strongest remaining problem-specific family after excluding the current local no-go family.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-54",
+      "status": "proof_pressure_open",
+      "route": "PostNoGoGapFamilyTriage",
+      "proof_or_counterexample_mode": "post-terminal family triage",
+      "attempt": "Transfer TICKET54's rule: after a local no-go theorem removes one witness family, recompute the remaining strongest family instead of continuing to sample the discarded route.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-53",
+        "source_route": "GapSelectorTerminalNoGoTheorem",
+        "ticket54_transfer": "PostNoGoGapFamilyTriage",
+        "candidate_theorem": "After a gap-selector family is locally excluded, identify the strongest remaining exact-gap family and prove an unconditional gap-2 lower bound for it.",
+        "frontier_rule": "The next theorem must be stated on the strongest remaining family after every known no-go family has been removed."
+      },
+      "obstruction": "This transfer is a proof-search discipline. It does not solve the target problem, but it prevents a closed witness family from consuming the next search budget.",
+      "candidate_theorem": "After a gap-selector family is locally excluded, identify the strongest remaining exact-gap family and prove an unconditional gap-2 lower bound for it.",
+      "next_experiment": "Extract the strongest remaining problem-specific family after excluding the current local no-go family.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}
