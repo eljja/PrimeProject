@@ -460,6 +460,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Symbolic preimage result") ||
         !page.proofOrCounterexampleText.includes("Ticket 50 phase-lift exception lab") ||
         !page.proofOrCounterexampleText.includes("Phase-lift result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 51 phase-15 terminal lift lab") ||
+        !page.proofOrCounterexampleText.includes("Terminal lift result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

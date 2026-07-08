@@ -2548,3 +2548,71 @@ Proof boundary:
 ```text
 TICKET-50 does not prove or disprove any of the four open problems. It refutes one PrimeProject candidate obstruction and creates stronger finite stress witnesses. The unresolved theorem remains infinite: either all descendants of the near-lasso witnesses terminate by descent/tail shift, or a concrete lift completes and repeats the lasso.
 ```
+
+### Ticket 51: Phase-15 terminal lift closure
+
+Generated artifact:
+
+```text
+data/open-problem/ticket51-phase15-terminal-lift-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-51-terminal-witness-closure.json
+data/open-problem/collatz/co-ticket-51-phase15-terminal-lift.json
+data/open-problem/goldbach/gb-ticket-51-terminal-witness-closure.json
+data/open-problem/twin-prime/tp-ticket-51-terminal-witness-closure.json
+```
+
+Aggregate verdict:
+
+```text
+phase15_terminal_lift_closed_open_no_resolution
+```
+
+한국어 요약: TICKET-51은 TICKET-50에서 발견된 두 개의 32-bit depth-15 near-lasso residue를 반례 후보로 방치하지 않는다. 각 residue에서 phase-15로 가는 low/high lift를 모두 열어 terminal branch를 분류했다. 결과적으로 surviving branch는 0개다. 두 branch는 `tail_word+next_valuation` shift로 lasso template을 벗어나고, 두 branch는 `all_lift_descent`로 닫힌다.
+
+English summary: TICKET-51 terminally classifies the two strongest 32-bit near-lasso witnesses from TICKET-50. Opening every low/high branch through the missing phase-15 edge leaves zero survivors: two branches shift the tail and next valuation, and two branches close by all-lift descent.
+
+Exact Collatz audit:
+
+```text
+source roots: 1471663463, 3206130791
+base bits: 32
+terminal step: 15
+tested terminal branches: 4
+matching terminal branches: 0
+final surviving states: 0
+full lasso completions: 0
+best template depth: 15
+terminal mismatch counts: {all_lift_descent: 2, tail_word+next_valuation: 2}
+```
+
+Discarded Collatz route:
+
+```text
+using either TICKET-50 depth-15 residue as a concrete Collatz counterexample candidate
+relifting the same two roots without a new terminal theorem
+```
+
+Retained Collatz routes:
+
+```text
+search for genuinely new 48-bit or 64-bit start-template roots with lasso-prefix depth >= 15
+derive a symbolic theorem explaining why phase-15 terminal branches always shift or descend
+if a future root completes the full lasso, replay it for at least two periods before any counterexample claim
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-52 New48Or64BitRootSearchOrTerminalTheorem
+```
+
+Proof boundary:
+
+```text
+TICKET-51 does not prove or disprove any of the four open problems. It closes only the terminal lift tree descending from the two known 32-bit near-lasso roots. It does not exclude new 48-bit roots outside that ancestry and does not prove global Collatz descent.
+```

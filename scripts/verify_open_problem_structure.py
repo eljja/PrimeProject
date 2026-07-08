@@ -44,6 +44,7 @@ TICKET47_SCHEMA = "primeproject.ticket47-periodic-state-lasso-lab.v1"
 TICKET48_SCHEMA = "primeproject.ticket48-automaton-reachability-lab.v1"
 TICKET49_SCHEMA = "primeproject.ticket49-symbolic-preimage-obstruction-lab.v1"
 TICKET50_SCHEMA = "primeproject.ticket50-phase-lift-exception-lab.v1"
+TICKET51_SCHEMA = "primeproject.ticket51-phase15-terminal-lift-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2287,6 +2288,64 @@ def main() -> int:
         return fail("collatz ticket50 proof boundary must block proof overclaim")
     if "no periodic Collatz orbit" not in str(audit50.get("proof_boundary", "")):
         return fail("collatz ticket50 must preserve no-counterexample boundary")
+
+    ticket51_path = Path("data/open-problem/ticket51-phase15-terminal-lift-lab.json")
+    if not ticket51_path.exists():
+        return fail("missing ticket51 phase15 terminal lift artifact")
+    ticket51 = read_json(ticket51_path)
+    if ticket51.get("schema") != TICKET51_SCHEMA:
+        return fail("ticket51 phase15 terminal lift artifact has unexpected schema")
+    if ticket51.get("status") != "phase15_terminal_lift_closed_open_no_resolution":
+        return fail("ticket51 phase15 terminal lift overstates resolution")
+    ticket51_attempts = ticket51.get("attempts", [])
+    if not isinstance(ticket51_attempts, list):
+        return fail("ticket51 attempts must be a list")
+    ticket51_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket51_attempts if isinstance(attempt, dict)}
+    missing_ticket51 = EXPECTED_PROBLEMS - set(ticket51_by_id)
+    if missing_ticket51:
+        return fail("ticket51 attempts missing problems: " + ", ".join(sorted(missing_ticket51)))
+    ticket51_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-51-terminal-witness-closure.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-51-phase15-terminal-lift.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-51-terminal-witness-closure.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-51-terminal-witness-closure.json"),
+    }
+    for problem_id, attempt in ticket51_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "known_depth15_roots_terminally_closed_open_problem_open",
+        }:
+            return fail(f"{problem_id}: ticket51 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket51 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket51 claim boundary is too weak")
+        path = ticket51_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket51 per-problem artifact")
+
+    collatz_ticket51 = ticket51_by_id.get("collatz", {})
+    audit51 = collatz_ticket51.get("bounded_result", {}).get("phase15_terminal_lift_audit", {})
+    if not isinstance(audit51, dict):
+        return fail("collatz ticket51 terminal lift audit missing")
+    if audit51.get("source_roots") != [1471663463, 3206130791]:
+        return fail("collatz ticket51 source roots changed")
+    if int(audit51.get("terminal_step", -1)) != 15:
+        return fail("collatz ticket51 terminal step changed")
+    if int(audit51.get("final_surviving_states", -1)) != 0:
+        return fail("collatz ticket51 must close the two-root terminal lift tree")
+    if int(audit51.get("full_lasso_completion_count", -1)) != 0:
+        return fail("collatz ticket51 must not report a full lasso completion")
+    if int(audit51.get("best_template_depth", -1)) != 15:
+        return fail("collatz ticket51 best template depth changed")
+    terminal51 = audit51.get("terminal_mismatch_counts", {})
+    if terminal51.get("all_lift_descent") != 2 or terminal51.get("tail_word+next_valuation") != 2:
+        return fail("collatz ticket51 terminal mismatch classification changed")
+    if "No Collatz proof" not in str(audit51.get("proof_boundary", "")):
+        return fail("collatz ticket51 proof boundary must block proof overclaim")
+    if "does not exclude new 48-bit roots outside this ancestry" not in str(audit51.get("proof_boundary", "")):
+        return fail("collatz ticket51 must preserve outside-ancestry boundary")
 
     print("open problem structure verified")
     return 0

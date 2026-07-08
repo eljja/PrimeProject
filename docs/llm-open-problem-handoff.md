@@ -494,6 +494,49 @@ Required output:
 - explicit proof boundary saying no Collatz proof and no Collatz counterexample unless an infinite replay theorem is supplied
 ```
 
+## Latest Continuation After TICKET-51
+
+TICKET-51 supersedes the TICKET-50 terminal-lift continuation target. It starts only from the two 32-bit depth-15 near-lasso roots and opens every low/high branch through the missing phase-15 edge.
+
+Exact result:
+
+```text
+source roots: 1471663463, 3206130791
+terminal step: 15
+terminal branches tested: 4
+matching terminal branches: 0
+final surviving states: 0
+full lasso completions: 0
+terminal mismatch counts:
+  all_lift_descent: 2
+  tail_word+next_valuation: 2
+```
+
+Do not continue treating either TICKET-50 root as a live counterexample candidate. Both ancestries are terminally closed for the extracted lasso template. The remaining search must either find new roots outside this ancestry or prove a symbolic terminal-closure theorem.
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-52 New48Or64BitRootSearchOrTerminalTheorem
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-51. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-51 closes the terminal low/high lift tree for the two known 32-bit Collatz near-lasso roots 1471663463 and 3206130791. No branch completes the phase-15 template; two branches fail by tail_word+next_valuation shift and two by all_lift_descent. Therefore these two roots are no longer live counterexample candidates.
+
+Goal: build CO-TICKET-52. Search for genuinely new 48-bit or 64-bit start-template roots with lasso-prefix depth >= 15, without reusing the two closed TICKET-50 ancestries. Use exact valuation-word or symbolic lift constraints, not blind residue enumeration. If no new roots are found within the declared envelope, formulate the terminal-closure theorem that would be needed. If a full lasso completion is found, replay it for at least two periods and state the exact infinite periodicity theorem still required.
+
+Required output:
+- data/open-problem/ticket52-new-root-search-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no Collatz proof and no Collatz counterexample unless an infinite replay theorem is supplied
+```
+
 ## Latest Continuation After TICKET-47
 
 TICKET-47 supersedes the bounded suffix-memory part of the TICKET-46 continuation. It extracts a 16-edge positive-debt lasso from the 28-bit Collatz exact-template pressure graph and refutes:
