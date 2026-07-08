@@ -38,6 +38,7 @@ TICKET41_SCHEMA = "primeproject.ticket41-rank-escape-normalization-lab.v1"
 TICKET42_SCHEMA = "primeproject.ticket42-parametric-transition-template-lab.v1"
 TICKET43_SCHEMA = "primeproject.ticket43-lift-constraint-measure-lab.v1"
 TICKET44_SCHEMA = "primeproject.ticket44-feature-measure-counteredge-lab.v1"
+TICKET45_SCHEMA = "primeproject.ticket45-symbolic-rank-clause-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1786,6 +1787,104 @@ def main() -> int:
         return fail("collatz ticket44 must retain counteredge extraction and symbolic-rank route")
     if "No Collatz proof" not in str(audit44.get("proof_boundary", "")):
         return fail("collatz ticket44 proof boundary must block proof overclaim")
+
+    ticket45_path = Path("data/open-problem/ticket45-symbolic-rank-clause-lab.json")
+    if not ticket45_path.exists():
+        return fail("missing ticket45 symbolic rank clause artifact")
+    ticket45 = read_json(ticket45_path)
+    if ticket45.get("schema") != TICKET45_SCHEMA:
+        return fail("ticket45 symbolic rank clause artifact has unexpected schema")
+    if ticket45.get("status") != "symbolic_rank_clause_open_no_resolution":
+        return fail("ticket45 symbolic rank clause overstates resolution")
+    ticket45_attempts = ticket45.get("attempts", [])
+    if not isinstance(ticket45_attempts, list):
+        return fail("ticket45 attempts must be a list")
+    ticket45_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket45_attempts if isinstance(attempt, dict)}
+    missing_ticket45 = EXPECTED_PROBLEMS - set(ticket45_by_id)
+    if missing_ticket45:
+        return fail("ticket45 attempts missing problems: " + ", ".join(sorted(missing_ticket45)))
+    ticket45_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-45-symbolic-zero-clause.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-45-symbolic-rank-clause.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-45-symbolic-margin-clause.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-45-symbolic-gap-clause.json"),
+    }
+    for problem_id, attempt in ticket45_by_id.items():
+        if attempt.get("status") != "proof_pressure_open":
+            return fail(f"{problem_id}: ticket45 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket45 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket45 claim boundary is too weak")
+        path = ticket45_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket45 per-problem artifact")
+
+    collatz_ticket45 = ticket45_by_id.get("collatz", {})
+    collatz45_bounded = collatz_ticket45.get("bounded_result", {})
+    if not isinstance(collatz45_bounded, dict):
+        return fail("collatz ticket45 bounded result must be an object")
+    audit45 = collatz45_bounded.get("symbolic_rank_clause_audit", {})
+    if not isinstance(audit45, dict):
+        return fail("collatz ticket45 symbolic rank audit missing")
+    if int(audit45.get("template_node_count", 0)) < 160_000:
+        return fail("collatz ticket45 must retain a large template graph")
+    if int(audit45.get("template_edge_count", 0)) < 700_000:
+        return fail("collatz ticket45 must retain many template edges")
+    if int(audit45.get("raw_open_edge_count", 0)) < 2_300_000:
+        return fail("collatz ticket45 must process the full raw open-edge frontier")
+    if int(audit45.get("future_refuted_clause_family_count", 0)) < 1:
+        return fail("collatz ticket45 must refute a future symbolic clause family")
+    clause_trials45 = audit45.get("clause_trials", [])
+    if not isinstance(clause_trials45, list) or len(clause_trials45) < 5:
+        return fail("collatz ticket45 must include all symbolic clause trials")
+    trial45_by_name = {str(trial.get("clause_family")): trial for trial in clause_trials45 if isinstance(trial, dict)}
+    phase45 = trial45_by_name.get("phase_only", {})
+    if phase45.get("status") != "sampled_symbolic_clause_rank_found_not_proof":
+        return fail("collatz ticket45 phase-only 26-bit precursor status changed")
+    phase45_interval = phase45.get("scale_interval", {}) if isinstance(phase45, dict) else {}
+    if int(phase45_interval.get("selected_scale", 0)) != 11:
+        return fail("collatz ticket45 phase-only precursor must use scale 11")
+    if float(phase45_interval.get("min_margin_at_selected_scale", 0.0)) <= 0.0:
+        return fail("collatz ticket45 phase-only precursor must have positive bounded margin")
+    exact45 = trial45_by_name.get("phase_tail_residue256_vexact", {})
+    if exact45.get("status") != "not_certified_by_symbolic_clause_scale_interval":
+        return fail("collatz ticket45 exact-template pressure-rank interval must remain uncertified")
+    wrap45 = audit45.get("phase_wrap_probe_28", {})
+    if not isinstance(wrap45, dict):
+        return fail("collatz ticket45 phase-wrap probe missing")
+    wrap_analysis45 = wrap45.get("analysis", {})
+    wrap_extension45 = wrap45.get("extension", {})
+    if wrap_analysis45.get("status") != "pressure_cycle_counterexample_refutes_clause_rank":
+        return fail("collatz ticket45 must refute phase-only rank by pressure cycle")
+    if int(wrap_extension45.get("from_max_bits", 0)) != 27 or int(wrap_extension45.get("to_max_bits", 0)) != 28:
+        return fail("collatz ticket45 phase-wrap probe must audit 27->28")
+    if int(wrap_extension45.get("new_pressure_clause_edge_count", 0)) < 1:
+        return fail("collatz ticket45 phase-wrap probe must expose a new pressure edge")
+    wrap_examples45 = wrap_extension45.get("new_pressure_examples", [])
+    if not isinstance(wrap_examples45, list) or not wrap_examples45:
+        return fail("collatz ticket45 phase-wrap probe missing pressure example")
+    first_wrap45 = wrap_examples45[0]
+    if first_wrap45.get("parent_clause") != "[11]" or first_wrap45.get("child_clause") != "[12]":
+        return fail("collatz ticket45 phase-wrap counteredge must close 11->12")
+    if float(first_wrap45.get("max_delta_debt", 0.0)) <= 7.0:
+        return fail("collatz ticket45 phase-wrap counteredge unexpectedly weak")
+    if int(first_wrap45.get("count", 0)) < 3_000_000:
+        return fail("collatz ticket45 phase-wrap counteredge count unexpectedly small")
+    if int(audit45.get("exact_template_new_pressure_edge_count_25_to_26", 0)) < 100_000:
+        return fail("collatz ticket45 must preserve exact-template horizon pressure")
+    route45 = audit45.get("route_decision", {})
+    if not isinstance(route45, dict):
+        return fail("collatz ticket45 route decision missing")
+    discard45 = " ".join(str(item) for item in route45.get("discard", []))
+    retain45 = " ".join(str(item) for item in route45.get("retain", []))
+    if "phase-only rank" not in discard45 or "observed exact-template rank table" not in discard45:
+        return fail("collatz ticket45 must discard phase-only and observed-rank overclaims")
+    if "pressure-cycle extraction" not in retain45 or "future symbolic family" not in retain45:
+        return fail("collatz ticket45 must retain pressure-cycle and stable symbolic-family routes")
+    if "No Collatz proof" not in str(audit45.get("proof_boundary", "")):
+        return fail("collatz ticket45 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

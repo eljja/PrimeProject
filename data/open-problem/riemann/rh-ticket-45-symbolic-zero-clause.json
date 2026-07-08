@@ -1,0 +1,20 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-45",
+  "route": "SymbolicZeroClauseOrOffCriticalCounteredge",
+  "status": "proof_pressure_open",
+  "proof_or_counterexample_mode": "symbolic-clause counteredge transfer",
+  "attempt": "Transfer TICKET45's rule: a visual, numerical, or quotient pattern may be promoted only after its symbolic clauses survive same-clause pressure loops, pressure-cycle extraction, and future-lift closure.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-44",
+    "source_route": "ZeroFeatureMeasureOrOffCriticalCounteredge",
+    "discarded_shortcut": "finite zero-feature quotient treated as RH",
+    "retained_target": "A stable symbolic zero-clause grammar has no off-critical pressure cycle and yields a positive-kernel margin.",
+    "counterexample_target": "an off-critical zero-lift pressure cycle or same-clause nonpositive kernel loop",
+    "ticket45_transfer": "SymbolicZeroClauseOrOffCriticalCounteredge"
+  },
+  "obstruction": "The current artifact gives a sharper falsification protocol for proof candidates, but it does not close the infinite theorem and it does not produce a certified counterexample.",
+  "candidate_theorem": "A stable symbolic zero-clause grammar has no off-critical pressure cycle and yields a positive-kernel margin.",
+  "next_experiment": "Search symbolic zero clauses for pressure cycles before promoting any kernel-rank candidate.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

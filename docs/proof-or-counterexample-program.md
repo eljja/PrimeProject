@@ -1975,3 +1975,126 @@ Proof boundary:
 ```text
 TICKET-44 does not prove or disprove any of the four open problems. It improves the proof attempt by exactly refuting weak horizon-independent measures, preserving the bounded rank-table certificate only as evidence, and isolating the next proof obligation: a symbolic, horizon-stable rank or an explicit future counteredge against it.
 ```
+
+### Ticket 45: Symbolic rank clause lab
+
+Generated artifact:
+
+```text
+data/open-problem/ticket45-symbolic-rank-clause-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-45-symbolic-zero-clause.json
+data/open-problem/collatz/co-ticket-45-symbolic-rank-clause.json
+data/open-problem/goldbach/gb-ticket-45-symbolic-margin-clause.json
+data/open-problem/twin-prime/tp-ticket-45-symbolic-gap-clause.json
+```
+
+Aggregate verdict:
+
+```text
+symbolic_rank_clause_open_no_resolution
+```
+
+한국어 요약: TICKET-45는 TICKET-44에서 남은 목표인 `horizon-independent symbolic rank`를 실제로 압박한다. 핵심 아이디어는 상태들을 symbolic clause로 묶고, nonnegative-debt pressure edge가 같은 clause 안에서 돌거나 pressure graph에 cycle을 만들면 그 clause family는 어떤 scalar rank를 주어도 증명 측도가 될 수 없다는 것이다. 가장 중요한 발견은 `phase_only`가 26-bit와 27-bit에서는 scale 11로 통과하지만, 28-bit에서 phase `11 -> 12` edge가 추가되면서 modulo-16 pressure cycle이 닫힌다는 점이다. 따라서 phase-only rank는 좋은 후보처럼 보이다가 미래 horizon에서 정확히 폐기된다. 이것은 Collatz 반례가 아니라 phase-only 증명 전략의 반례다.
+
+English summary: TICKET-45 turns the remaining symbolic-rank obligation into a counterexample-guided clause test. A symbolic clause family is rejected when nonnegative-pressure edges force a same-clause loop or a pressure cycle. The phase-only family is especially useful as a diagnostic: it passes through 26 and 27 bits, then fails at 28 bits when a new `11 -> 12` pressure edge closes the phase cycle. This refutes the phase-only proof route, not Collatz.
+
+Collatz symbolic-clause audit:
+
+```text
+26-bit template nodes: 165,841
+26-bit template edges: 710,241
+raw open edges processed: 2,392,525
+26-bit exactly refuted clause families: 0
+future-wrap refuted clause families: 1
+sampled clause candidates through 26 bits: 1
+```
+
+Clause trial summary at 26 bits:
+
+```text
+phase_only:
+  status: sampled_symbolic_clause_rank_found_not_proof
+  clauses: 15
+  pressure clause edges: 14
+  selected scale: 11
+  minimum sampled margin: 0.584962500721
+
+phase_tail_mass_vbucket:
+  status: not_certified_by_symbolic_clause_scale_interval
+  clauses: 2,413
+  pressure clause edges: 25,530
+
+phase_tail_residue16_vbucket:
+  status: not_certified_by_symbolic_clause_scale_interval
+  clauses: 46,885
+  pressure clause edges: 149,685
+
+phase_tail_residue64_vbucket:
+  status: not_certified_by_symbolic_clause_scale_interval
+  clauses: 90,008
+  pressure clause edges: 248,120
+
+phase_tail_residue256_vexact:
+  status: not_certified_by_symbolic_clause_scale_interval
+  clauses: 165,841
+  pressure clause edges: 390,494
+```
+
+Phase-wrap counteredge:
+
+```text
+probe: 27 -> 28 bits
+status: pressure_cycle_counterexample_refutes_clause_rank
+new pressure clause edge: [11] -> [12]
+max delta debt: 7.415037499279
+edge count represented by this clause edge: 3,618,400
+example parent template: [11,[1,1,1,9],191,1]
+example child template: [12,[1,1,1,1],191,12]
+```
+
+Interpretation:
+
+1. The phase-only rank looked promising because the observed phase chain had not wrapped yet.
+2. Once the 28-bit horizon exposes the `11 -> 12` pressure edge, phase-only rank would require a strict decrease around a full modulo-16 cycle, which is impossible.
+3. Richer finite clause families were not certified by the current pressure-rank interval. This is not an impossibility proof for every nonlinear or ordinal-valued measure.
+4. The observed exact-template rank remains a bounded ceiling certificate, but its clause and pressure-edge sets change under horizon extension.
+
+Discarded Collatz routes:
+
+```text
+phase-only rank as a Collatz proof measure
+coarse symbolic quotients promoted before phase-wrap testing
+observed exact-template rank table treated as an infinite theorem
+```
+
+Retained Collatz routes:
+
+```text
+pressure-cycle extraction for proposed symbolic clauses
+stable symbolic family whose pressure graph remains acyclic under future lifts
+parametric clause grammar plus a proof that every future lifted edge keeps a nonempty scale interval
+```
+
+Cross-problem transfer:
+
+1. RH: a symbolic zero-clause grammar must survive off-critical pressure-cycle extraction before it can become a zero-free theorem.
+2. Goldbach: a symbolic margin-clause grammar must survive exceptional-residue pressure cycles before it can become a positivity theorem.
+3. Twin Prime: a symbolic exact-gap grammar must survive leakage pressure cycles before it can become an exact gap-2 lower-bound theorem.
+4. Collatz: any low-dimensional symbolic rank must be tested not only at the current horizon but also at the first horizon where its quotient cycles can close.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-46 StableClauseGrammarOr27PlusCounteredge
+```
+
+Proof boundary:
+
+```text
+TICKET-45 does not prove or disprove any of the four open problems. It improves the proof attempt by finding a concrete future-horizon counteredge against the tempting phase-only symbolic rank, and it improves the search protocol by requiring every proposed symbolic clause grammar to survive pressure-cycle extraction before formal promotion.
+```

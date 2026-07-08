@@ -4498,7 +4498,118 @@ function renderTicket44FeatureMeasureCounteredge(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket) {
+function renderTicket45SymbolicRankClause(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.symbolic_rank_clause_audit || {};
+  const trials = Array.isArray(audit.clause_trials) ? audit.clause_trials : [];
+  const routeDecision = audit.route_decision || {};
+  const phaseWrap = audit.phase_wrap_probe_28 || {};
+  const phaseWrapAnalysis = phaseWrap.analysis || {};
+  const phaseWrapExtension = phaseWrap.extension || {};
+  const wrapExample = Array.isArray(phaseWrapExtension.new_pressure_examples)
+    ? phaseWrapExtension.new_pressure_examples[0]
+    : null;
+  const resultRows = Object.keys(audit).length
+    ? [
+        ["max bits", audit.max_bits],
+        ["template nodes", audit.template_node_count],
+        ["template edges", audit.template_edge_count],
+        ["raw open edges", audit.raw_open_edge_count],
+        ["26-bit refuted clauses", audit.exactly_refuted_clause_family_count],
+        ["future-wrap refuted clauses", audit.future_refuted_clause_family_count],
+        ["sampled clause candidates", audit.sampled_clause_candidate_count],
+        ["exact template clause status", audit.exact_template_clause_status],
+        ["exact template 25->26 new clauses", audit.exact_template_new_clause_count_25_to_26],
+        ["exact template 25->26 new pressure edges", audit.exact_template_new_pressure_edge_count_25_to_26],
+      ]
+    : [
+        ["source ticket", bounded.source_ticket],
+        ["source route", bounded.source_route],
+        ["discarded shortcut", bounded.discarded_shortcut],
+        ["retained target", bounded.retained_target],
+        ["counterexample target", bounded.counterexample_target],
+      ];
+  const trialTable = trials.length
+    ? table(
+        ["clause family", "status", "clauses", "pressure edges", "scale", "min margin", "cycle"],
+        trials.map((row) => [
+          row.clause_family,
+          row.status,
+          row.clause_count,
+          row.pressure_clause_edge_count,
+          row.scale_interval?.selected_scale,
+          row.scale_interval?.min_margin_at_selected_scale,
+          row.pressure_topology?.cycle_detected,
+        ]),
+      )
+    : "";
+  const phaseWrapRows = Object.keys(phaseWrap).length
+    ? [
+        ["probe", phaseWrap.purpose],
+        ["from->to", `${phaseWrap.from_max_bits} -> ${phaseWrap.to_max_bits}`],
+        ["wrap status", phaseWrapAnalysis.status],
+        ["new pressure clause edges", phaseWrapExtension.new_pressure_clause_edge_count],
+        ["closure status", phaseWrapExtension.closure_status],
+        [
+          "first wrap edge",
+          wrapExample
+            ? `${wrapExample.parent_clause} -> ${wrapExample.child_clause}, delta ${formatValue(wrapExample.max_delta_debt)}`
+            : "n/a",
+        ],
+      ]
+    : [];
+  return `
+    <div class="poc-ticket17 poc-ticket45">
+      <h3>Ticket 45 symbolic rank clause lab</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${table(["Symbolic clause result", "Value"], resultRows)}
+      ${trialTable}
+      ${phaseWrapRows.length ? table(["Phase-wrap probe", "Value"], phaseWrapRows) : ""}
+      ${
+        routeDecision.discard || routeDecision.retain
+          ? `<div class="poc-bridge">
+              <section>
+                <h3>Discard</h3>
+                ${list(routeDecision.discard || [])}
+              </section>
+              <section>
+                <h3>Retain</h3>
+                ${list(routeDecision.retain || [])}
+              </section>
+            </div>`
+          : ""
+      }
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -4593,10 +4704,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket42ParametricTemplate(parametricTemplateTicket)}
     ${renderTicket43LiftConstraintMeasure(liftConstraintMeasureTicket)}
     ${renderTicket44FeatureMeasureCounteredge(featureMeasureCounteredgeTicket)}
+    ${renderTicket45SymbolicRankClause(symbolicRankClauseTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -4620,7 +4732,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -4707,6 +4819,7 @@ async function main() {
   let ticket42Attempt = null;
   let ticket43Attempt = null;
   let ticket44Attempt = null;
+  let ticket45Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -4968,7 +5081,16 @@ async function main() {
   } catch (error) {
     ticket44Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt);
+  try {
+    const ticket45Response = await fetch("../data/open-problem/ticket45-symbolic-rank-clause-lab.json", { cache: "no-store" });
+    if (ticket45Response.ok) {
+      const ticket45Payload = await ticket45Response.json();
+      ticket45Attempt = (ticket45Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket45Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt);
 }
 
 main().catch((error) => {

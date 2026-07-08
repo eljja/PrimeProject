@@ -448,6 +448,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Lift measure result") ||
         !page.proofOrCounterexampleText.includes("Ticket 44 feature-measure counteredge lab") ||
         !page.proofOrCounterexampleText.includes("Feature measure result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 45 symbolic rank clause lab") ||
+        !page.proofOrCounterexampleText.includes("Symbolic clause result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -665,6 +667,16 @@ async function main() {
         !page.text.includes("Candidate Strategy") ||
         !page.text.includes("No proof claim"),
     )
+  ) {
+    console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  const collatzPage = metrics.openProblemPages.find((page) => page.problemId === "collatz");
+  if (
+    !collatzPage ||
+    !collatzPage.proofOrCounterexampleText.includes("Phase-wrap probe") ||
+    !collatzPage.proofOrCounterexampleText.includes("pressure_cycle_counterexample_refutes_clause_rank") ||
+    !collatzPage.proofOrCounterexampleText.includes("[11] -> [12]")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
