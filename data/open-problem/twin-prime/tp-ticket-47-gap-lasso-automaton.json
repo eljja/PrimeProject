@@ -1,0 +1,20 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-47",
+  "status": "proof_pressure_open",
+  "route": "GapLassoReachabilityOrSelectorAutomaton",
+  "proof_or_counterexample_mode": "periodic-lasso transfer",
+  "attempt": "Transfer TICKET47's rule: a bounded state memory that closes on a positive-pressure lasso cannot be used as a proof object. Either prove the lasso is unreachable in the real system or use a stronger invariant whose state does not merely remember a bounded suffix.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-46",
+    "source_route": "StableGapGrammarOrLeakageEscapeAudit",
+    "discarded_shortcut": "bounded leakage memory that repeats on a wider-gap lasso",
+    "retained_target": "A fixed exact-gap selector automaton proves gap-2 mass cannot be absorbed by any periodic leakage lasso.",
+    "counterexample_target": "a wider-gap leakage lasso that returns every bounded selector memory to the same state",
+    "ticket47_transfer": "GapLassoReachabilityOrSelectorAutomaton"
+  },
+  "obstruction": "The transfer is a proof-search discipline rather than a theorem for the target problem. It blocks periodic finite-memory repairs but leaves the infinite bridge open.",
+  "candidate_theorem": "A fixed exact-gap selector automaton proves gap-2 mass cannot be absorbed by any periodic leakage lasso.",
+  "next_experiment": "Search for exact-gap leakage lassos before accepting any bounded-memory selector.",
+  "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+}

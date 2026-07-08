@@ -452,6 +452,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Symbolic clause result") ||
         !page.proofOrCounterexampleText.includes("Ticket 46 stable clause grammar lab") ||
         !page.proofOrCounterexampleText.includes("Stable grammar result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 47 periodic state lasso lab") ||
+        !page.proofOrCounterexampleText.includes("Periodic lasso result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

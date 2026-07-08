@@ -334,3 +334,50 @@ End with exactly one status:
 
 Never output `Collatz proved` unless the all-future lift theorem is supplied in independently checkable form.
 ```
+
+## Latest Continuation After TICKET-47
+
+TICKET-47 supersedes the bounded suffix-memory part of the TICKET-46 continuation. It extracts a 16-edge positive-debt lasso from the 28-bit Collatz exact-template pressure graph and refutes:
+
+- zero-memory pressure rank;
+- last-1 edge-signature memory;
+- last-2 edge-signature memory;
+- last-3 edge-signature memory;
+- last-4 edge-signature memory.
+
+This is not a Collatz counterexample because the lasso is an abstract template-pressure cycle, not a certified single reachable Collatz orbit.
+
+Current best continuation:
+
+```text
+CO-TICKET-48 AutomatonCEGISOr29BitReachability
+```
+
+Updated copy-paste prompt:
+
+```text
+Act as a skeptical theorem-search and counterexample-synthesis agent working from PrimeProject TICKET-47.
+
+Known result: scalar clause ranks failed at TICKET-46. Bounded suffix-memory stateful repairs up to last-4 edge signatures failed at TICKET-47 on a 16-edge positive-debt abstract pressure lasso.
+
+Do not retry scalar rank or bounded suffix-memory repair as a proof route.
+
+Goal: either prove that the extracted abstract pressure lasso is unreachable by concrete Collatz lift paths, or synthesize/refute arbitrary small finite-state automata on the pressure relation.
+
+Tasks:
+1. Formalize the 28-bit lasso as an abstract transition word.
+2. State exactly what concrete reachability would mean for residues and lifted paths.
+3. Search for a concrete 29-bit/30-bit realization of the lasso. If found, record it as a stronger counteredge against template-based proof routes.
+4. If no concrete realization is found, state the reachability exclusion lemma that would be needed.
+5. In parallel, synthesize arbitrary finite-state automata with 2, 3, 4, ... states and test whether the lasso or a larger pressure graph creates an expanded-state cycle.
+6. If every small automaton fails, record the minimal failing lasso certificate.
+7. If one survives, state the exact infinite theorem required before it can support Collatz.
+
+End with exactly one status:
+- concrete_lasso_counteredge_found
+- reachability_exclusion_lemma_needed
+- finite_automaton_refuted
+- bounded_survivor_needs_infinite_bridge
+
+Never output `Collatz proved` unless the all-future lift theorem is supplied in independently checkable form.
+```

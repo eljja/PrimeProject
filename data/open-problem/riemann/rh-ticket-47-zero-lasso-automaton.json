@@ -1,0 +1,20 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-47",
+  "status": "proof_pressure_open",
+  "route": "ZeroLassoReachabilityOrKernelAutomaton",
+  "proof_or_counterexample_mode": "periodic-lasso transfer",
+  "attempt": "Transfer TICKET47's rule: a bounded state memory that closes on a positive-pressure lasso cannot be used as a proof object. Either prove the lasso is unreachable in the real system or use a stronger invariant whose state does not merely remember a bounded suffix.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-46",
+    "source_route": "StableZeroGrammarOrEscapeCoordinateAudit",
+    "discarded_shortcut": "bounded zero-state memory that repeats on an off-critical kernel lasso",
+    "retained_target": "A kernel-state theorem proves every off-critical lasso is unreachable or strictly positivity-increasing.",
+    "counterexample_target": "an off-critical zero-pressure lasso that returns every bounded kernel memory to the same state",
+    "ticket47_transfer": "ZeroLassoReachabilityOrKernelAutomaton"
+  },
+  "obstruction": "The transfer is a proof-search discipline rather than a theorem for the target problem. It blocks periodic finite-memory repairs but leaves the infinite bridge open.",
+  "candidate_theorem": "A kernel-state theorem proves every off-critical lasso is unreachable or strictly positivity-increasing.",
+  "next_experiment": "Search for zero-kernel lassos before accepting any bounded-memory zero exclusion.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

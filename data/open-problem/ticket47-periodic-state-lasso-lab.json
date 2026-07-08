@@ -1,0 +1,424 @@
+{
+  "schema": "primeproject.ticket47-periodic-state-lasso-lab.v1",
+  "generated_at": "2026-07-09T00:20:00+09:00",
+  "status": "periodic_state_lasso_restricted_no_go_open_no_resolution",
+  "claim_boundary": "Ticket 47 refutes bounded suffix-memory repairs for the Collatz template pressure lasso and transfers the lasso test to the other open-problem pages. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-47",
+      "status": "proof_pressure_open",
+      "route": "ZeroLassoReachabilityOrKernelAutomaton",
+      "proof_or_counterexample_mode": "periodic-lasso transfer",
+      "attempt": "Transfer TICKET47's rule: a bounded state memory that closes on a positive-pressure lasso cannot be used as a proof object. Either prove the lasso is unreachable in the real system or use a stronger invariant whose state does not merely remember a bounded suffix.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-46",
+        "source_route": "StableZeroGrammarOrEscapeCoordinateAudit",
+        "discarded_shortcut": "bounded zero-state memory that repeats on an off-critical kernel lasso",
+        "retained_target": "A kernel-state theorem proves every off-critical lasso is unreachable or strictly positivity-increasing.",
+        "counterexample_target": "an off-critical zero-pressure lasso that returns every bounded kernel memory to the same state",
+        "ticket47_transfer": "ZeroLassoReachabilityOrKernelAutomaton"
+      },
+      "obstruction": "The transfer is a proof-search discipline rather than a theorem for the target problem. It blocks periodic finite-memory repairs but leaves the infinite bridge open.",
+      "candidate_theorem": "A kernel-state theorem proves every off-critical lasso is unreachable or strictly positivity-increasing.",
+      "next_experiment": "Search for zero-kernel lassos before accepting any bounded-memory zero exclusion.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-47",
+      "route": "PeriodicStateLassoOr29BitReachability",
+      "status": "bounded_suffix_stateful_routes_refuted_open_problem_open",
+      "proof_or_counterexample_mode": "stateful-lasso counterexample guided synthesis",
+      "attempt": "Convert the 28-bit exact-template pressure cycle into a periodic lasso and test whether bounded suffix-memory stateful repairs can make it well-founded. This attacks a stronger class than scalar clause rank, while still keeping the claim boundary below a Collatz proof or counterexample.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-46",
+        "periodic_state_lasso_audit": {
+          "family": "phase16_tail4_residue256_vexact",
+          "max_bits": 28,
+          "template_node_count_28": 261367,
+          "template_edge_count_28": 1370168,
+          "pressure_edge_count_28": 741372,
+          "raw_open_edge_count_28": 7960722,
+          "cycle_summary": {
+            "cycle_node_count": 16,
+            "cycle_edge_count": 16,
+            "cycle_nodes_sample": [
+              "[0,[1,1,1,1],103,1]",
+              "[1,[1,1,1,1],103,1]",
+              "[2,[1,1,1,1],103,1]",
+              "[3,[1,1,1,1],103,1]",
+              "[4,[1,1,1,1],103,1]",
+              "[5,[1,1,1,1],103,10]",
+              "[6,[1,1,1,1],103,10]",
+              "[7,[1,1,1,1],103,10]",
+              "[8,[1,1,1,1],103,10]",
+              "[9,[1,1,1,1],103,10]",
+              "[10,[1,1,1,1],103,10]",
+              "[11,[1,1,1,1],103,10]"
+            ],
+            "cycle_edges_sample": [
+              {
+                "parent_template": "[0,[1,1,1,1],103,1]",
+                "child_template": "[1,[1,1,1,1],103,1]",
+                "symbol": "dir=low|label=both_open|dp=1|dc=1|phase=0->1|v=1->1",
+                "max_delta_debt": 0.584962500721,
+                "count": 2,
+                "example": {
+                  "bits": 16,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[0,[1,1,1,1],103,1]",
+                  "child_template": "[1,[1,1,1,1],103,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              },
+              {
+                "parent_template": "[1,[1,1,1,1],103,1]",
+                "child_template": "[2,[1,1,1,1],103,1]",
+                "symbol": "dir=low|label=both_open|dp=1|dc=1|phase=1->2|v=1->1",
+                "max_delta_debt": 0.584962500721,
+                "count": 2,
+                "example": {
+                  "bits": 17,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[1,[1,1,1,1],103,1]",
+                  "child_template": "[2,[1,1,1,1],103,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              },
+              {
+                "parent_template": "[2,[1,1,1,1],103,1]",
+                "child_template": "[3,[1,1,1,1],103,1]",
+                "symbol": "dir=low|label=both_open|dp=1|dc=1|phase=2->3|v=1->1",
+                "max_delta_debt": 0.584962500721,
+                "count": 5,
+                "example": {
+                  "bits": 18,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[2,[1,1,1,1],103,1]",
+                  "child_template": "[3,[1,1,1,1],103,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              },
+              {
+                "parent_template": "[3,[1,1,1,1],103,1]",
+                "child_template": "[4,[1,1,1,1],103,1]",
+                "symbol": "dir=low|label=both_open|dp=1|dc=1|phase=3->4|v=1->1",
+                "max_delta_debt": 0.584962500721,
+                "count": 10,
+                "example": {
+                  "bits": 19,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[3,[1,1,1,1],103,1]",
+                  "child_template": "[4,[1,1,1,1],103,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              },
+              {
+                "parent_template": "[4,[1,1,1,1],103,1]",
+                "child_template": "[5,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=1|dc=1|phase=4->5|v=1->10",
+                "max_delta_debt": 0.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 20,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[4,[1,1,1,1],103,1]",
+                  "child_template": "[5,[1,1,1,1],103,10]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              },
+              {
+                "parent_template": "[5,[1,1,1,1],103,10]",
+                "child_template": "[6,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=5->6|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 5,
+                "example": {
+                  "bits": 21,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[5,[1,1,1,1],103,10]",
+                  "child_template": "[6,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[6,[1,1,1,1],103,10]",
+                "child_template": "[7,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=6->7|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 6,
+                "example": {
+                  "bits": 22,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[6,[1,1,1,1],103,10]",
+                  "child_template": "[7,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[7,[1,1,1,1],103,10]",
+                "child_template": "[8,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=7->8|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 9,
+                "example": {
+                  "bits": 23,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[7,[1,1,1,1],103,10]",
+                  "child_template": "[8,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[8,[1,1,1,1],103,10]",
+                "child_template": "[9,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=8->9|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 14,
+                "example": {
+                  "bits": 24,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[8,[1,1,1,1],103,10]",
+                  "child_template": "[9,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[9,[1,1,1,1],103,10]",
+                "child_template": "[10,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=9->10|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 22,
+                "example": {
+                  "bits": 25,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[9,[1,1,1,1],103,10]",
+                  "child_template": "[10,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[10,[1,1,1,1],103,10]",
+                "child_template": "[11,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=10->11|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 39,
+                "example": {
+                  "bits": 26,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[10,[1,1,1,1],103,10]",
+                  "child_template": "[11,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[11,[1,1,1,1],103,10]",
+                "child_template": "[12,[1,1,1,1],103,2]",
+                "symbol": "dir=high|label=both_open|dp=1|dc=1|phase=11->12|v=10->2",
+                "max_delta_debt": 0.584962500721,
+                "count": 4,
+                "example": {
+                  "bits": 27,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_template": "[11,[1,1,1,1],103,10]",
+                  "child_template": "[12,[1,1,1,1],103,2]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              }
+            ],
+            "cycle_symbols_sample": [
+              "dir=low|label=both_open|dp=1|dc=1|phase=0->1|v=1->1",
+              "dir=low|label=both_open|dp=1|dc=1|phase=1->2|v=1->1",
+              "dir=low|label=both_open|dp=1|dc=1|phase=2->3|v=1->1",
+              "dir=low|label=both_open|dp=1|dc=1|phase=3->4|v=1->1",
+              "dir=low|label=both_open|dp=1|dc=1|phase=4->5|v=1->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=5->6|v=10->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=6->7|v=10->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=7->8|v=10->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=8->9|v=10->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=9->10|v=10->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=10->11|v=10->10",
+              "dir=high|label=both_open|dp=1|dc=1|phase=11->12|v=10->2"
+            ],
+            "unique_symbol_count": 16,
+            "total_max_delta_debt": 5.84962500721,
+            "total_edge_count_lower_bound": 123,
+            "all_edges_nonnegative_pressure": true,
+            "has_positive_period_debt": true
+          },
+          "memory_automata": [
+            {
+              "automaton": "zero_memory_pressure_lasso",
+              "depth": 0,
+              "alphabet": "none",
+              "description": "No extra state beyond the exact template node.",
+              "periodic_lasso_status": "refuted_by_periodic_pressure_lasso",
+              "state_after_one_period": [],
+              "state_after_two_periods": [],
+              "returns_to_same_state_after_one_period": true,
+              "no_go_reason": "Repeating the same template pressure cycle returns the bounded suffix memory to the same expanded state while the pressure period has positive debt. A strict well-founded descent cannot hold on this expanded finite-state lasso."
+            },
+            {
+              "automaton": "last1_edge_signature",
+              "depth": 1,
+              "alphabet": "direction,label,delta_signature,phase_shift,next_v_shift",
+              "description": "Remember the last pressure-edge signature.",
+              "periodic_lasso_status": "refuted_by_periodic_pressure_lasso",
+              "state_after_one_period": [
+                "dir=low|label=both_open|dp=1|dc=1|phase=15->0|v=1->1"
+              ],
+              "state_after_two_periods": [
+                "dir=low|label=both_open|dp=1|dc=1|phase=15->0|v=1->1"
+              ],
+              "returns_to_same_state_after_one_period": true,
+              "no_go_reason": "Repeating the same template pressure cycle returns the bounded suffix memory to the same expanded state while the pressure period has positive debt. A strict well-founded descent cannot hold on this expanded finite-state lasso."
+            },
+            {
+              "automaton": "last2_edge_signature",
+              "depth": 2,
+              "alphabet": "direction,label,delta_signature,phase_shift,next_v_shift",
+              "description": "Remember the last two pressure-edge signatures.",
+              "periodic_lasso_status": "refuted_by_periodic_pressure_lasso",
+              "state_after_one_period": [
+                "dir=low|label=both_open|dp=1|dc=1|phase=14->15|v=1->1",
+                "dir=low|label=both_open|dp=1|dc=1|phase=15->0|v=1->1"
+              ],
+              "state_after_two_periods": [
+                "dir=low|label=both_open|dp=1|dc=1|phase=14->15|v=1->1",
+                "dir=low|label=both_open|dp=1|dc=1|phase=15->0|v=1->1"
+              ],
+              "returns_to_same_state_after_one_period": true,
+              "no_go_reason": "Repeating the same template pressure cycle returns the bounded suffix memory to the same expanded state while the pressure period has positive debt. A strict well-founded descent cannot hold on this expanded finite-state lasso."
+            },
+            {
+              "automaton": "last3_edge_signature",
+              "depth": 3,
+              "alphabet": "direction,label,delta_signature,phase_shift,next_v_shift",
+              "description": "Remember the last three pressure-edge signatures.",
+              "periodic_lasso_status": "refuted_by_periodic_pressure_lasso",
+              "state_after_one_period": [
+                "dir=high|label=both_open|dp=2|dc=2|phase=13->14|v=2->1",
+                "dir=low|label=both_open|dp=1|dc=1|phase=14->15|v=1->1",
+                "dir=low|label=both_open|dp=1|dc=1|phase=15->0|v=1->1"
+              ],
+              "state_after_two_periods": [
+                "dir=high|label=both_open|dp=2|dc=2|phase=13->14|v=2->1",
+                "dir=low|label=both_open|dp=1|dc=1|phase=14->15|v=1->1",
+                "dir=low|label=both_open|dp=1|dc=1|phase=15->0|v=1->1"
+              ],
+              "returns_to_same_state_after_one_period": true,
+              "no_go_reason": "Repeating the same template pressure cycle returns the bounded suffix memory to the same expanded state while the pressure period has positive debt. A strict well-founded descent cannot hold on this expanded finite-state lasso."
+            },
+            {
+              "automaton": "last4_edge_signature",
+              "depth": 4,
+              "alphabet": "direction,label,delta_signature,phase_shift,next_v_shift",
+              "description": "Remember the last four pressure-edge signatures.",
+              "periodic_lasso_status": "refuted_by_periodic_pressure_lasso",
+              "state_after_one_period": [
+                "dir=low|label=both_open|dp=0|dc=0|phase=12->13|v=2->2",
+                "dir=high|label=both_open|dp=2|dc=2|phase=13->14|v=2->1",
+                "dir=low|label=both_open|dp=1|dc=1|phase=14->15|v=1->1",
+                "dir=low|label=both_open|dp=1|dc=1|phase=15->0|v=1->1"
+              ],
+              "state_after_two_periods": [
+                "dir=low|label=both_open|dp=0|dc=0|phase=12->13|v=2->2",
+                "dir=high|label=both_open|dp=2|dc=2|phase=13->14|v=2->1",
+                "dir=low|label=both_open|dp=1|dc=1|phase=14->15|v=1->1",
+                "dir=low|label=both_open|dp=1|dc=1|phase=15->0|v=1->1"
+              ],
+              "returns_to_same_state_after_one_period": true,
+              "no_go_reason": "Repeating the same template pressure cycle returns the bounded suffix memory to the same expanded state while the pressure period has positive debt. A strict well-founded descent cannot hold on this expanded finite-state lasso."
+            }
+          ],
+          "tested_memory_automaton_count": 5,
+          "refuted_memory_automaton_count": 5,
+          "restricted_no_go_statement": "Every tested bounded suffix-memory stateful repair closes on the extracted periodic pressure lasso, so none can be promoted to a horizon-independent Collatz descent measure.",
+          "closed_bounded_statement": "At the 28-bit exact-template pressure abstraction, the extracted positive-debt cycle refutes zero-memory and last-1 through last-4 edge-signature stateful repairs.",
+          "proof_boundary": "No Collatz proof and no Collatz counterexample. TICKET47 refutes only bounded suffix-memory repairs over the abstract template pressure relation. It does not prove that the cycle is a single reachable Collatz orbit and it does not refute arbitrary finite automata or ordinal measures."
+        }
+      },
+      "obstruction": "The extracted exact-template pressure cycle can be repeated as an abstract transition word. Any repair that remembers only a bounded suffix of this word returns to the same expanded state, so a strict well-founded descent would have to decrease around a finite directed cycle.",
+      "candidate_theorem": "A viable Collatz proof route must either prove reachability constraints that forbid this abstract template lasso, or define an ordinal/stateful measure whose update is not merely bounded suffix memory and is fixed before every future lift.",
+      "next_experiment": "Generate TICKET48 by running automaton CEGIS: synthesize arbitrary small finite-state update rules on the 28-bit pressure relation, then push surviving candidates to 29-bit reachability and reject any candidate whose state secretly encodes horizon depth.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-47",
+      "status": "proof_pressure_open",
+      "route": "MarginLassoReachabilityOrCutoffAutomaton",
+      "proof_or_counterexample_mode": "periodic-lasso transfer",
+      "attempt": "Transfer TICKET47's rule: a bounded state memory that closes on a positive-pressure lasso cannot be used as a proof object. Either prove the lasso is unreachable in the real system or use a stronger invariant whose state does not merely remember a bounded suffix.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-46",
+        "source_route": "StableMarginGrammarOrExceptionalEscapeAudit",
+        "discarded_shortcut": "bounded cutoff ledger memory that repeats on an exceptional-residue margin lasso",
+        "retained_target": "A cutoff-independent margin automaton proves every exceptional-residue lasso has positive representation margin.",
+        "counterexample_target": "an exceptional-residue lasso whose margin debt repeats with every bounded ledger memory",
+        "ticket47_transfer": "MarginLassoReachabilityOrCutoffAutomaton"
+      },
+      "obstruction": "The transfer is a proof-search discipline rather than a theorem for the target problem. It blocks periodic finite-memory repairs but leaves the infinite bridge open.",
+      "candidate_theorem": "A cutoff-independent margin automaton proves every exceptional-residue lasso has positive representation margin.",
+      "next_experiment": "Search for residue-margin lassos before accepting any bounded-memory cutoff ledger.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-47",
+      "status": "proof_pressure_open",
+      "route": "GapLassoReachabilityOrSelectorAutomaton",
+      "proof_or_counterexample_mode": "periodic-lasso transfer",
+      "attempt": "Transfer TICKET47's rule: a bounded state memory that closes on a positive-pressure lasso cannot be used as a proof object. Either prove the lasso is unreachable in the real system or use a stronger invariant whose state does not merely remember a bounded suffix.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-46",
+        "source_route": "StableGapGrammarOrLeakageEscapeAudit",
+        "discarded_shortcut": "bounded leakage memory that repeats on a wider-gap lasso",
+        "retained_target": "A fixed exact-gap selector automaton proves gap-2 mass cannot be absorbed by any periodic leakage lasso.",
+        "counterexample_target": "a wider-gap leakage lasso that returns every bounded selector memory to the same state",
+        "ticket47_transfer": "GapLassoReachabilityOrSelectorAutomaton"
+      },
+      "obstruction": "The transfer is a proof-search discipline rather than a theorem for the target problem. It blocks periodic finite-memory repairs but leaves the infinite bridge open.",
+      "candidate_theorem": "A fixed exact-gap selector automaton proves gap-2 mass cannot be absorbed by any periodic leakage lasso.",
+      "next_experiment": "Search for exact-gap leakage lassos before accepting any bounded-memory selector.",
+      "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+    }
+  ]
+}

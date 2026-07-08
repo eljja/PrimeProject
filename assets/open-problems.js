@@ -4702,7 +4702,90 @@ function renderTicket46StableClauseGrammar(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket) {
+function renderTicket47PeriodicStateLasso(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.periodic_state_lasso_audit || {};
+  const cycle = audit.cycle_summary || {};
+  const automata = Array.isArray(audit.memory_automata) ? audit.memory_automata : [];
+  const firstEdge = Array.isArray(cycle.cycle_edges_sample) ? cycle.cycle_edges_sample[0] : null;
+  const resultRows = Object.keys(audit).length
+    ? [
+        ["max bits", audit.max_bits],
+        ["template nodes", audit.template_node_count_28],
+        ["template edges", audit.template_edge_count_28],
+        ["pressure edges", audit.pressure_edge_count_28],
+        ["raw open edges", audit.raw_open_edge_count_28],
+        ["cycle edges", cycle.cycle_edge_count],
+        ["unique symbols", cycle.unique_symbol_count],
+        ["period debt", cycle.total_max_delta_debt],
+        ["tested memory automata", audit.tested_memory_automaton_count],
+        ["refuted memory automata", audit.refuted_memory_automaton_count],
+        ["restricted no-go", audit.restricted_no_go_statement],
+      ]
+    : [
+        ["source ticket", bounded.source_ticket],
+        ["source route", bounded.source_route],
+        ["discarded shortcut", bounded.discarded_shortcut],
+        ["retained target", bounded.retained_target],
+        ["counterexample target", bounded.counterexample_target],
+      ];
+  const automataTable = automata.length
+    ? table(
+        ["automaton", "depth", "status", "returns after period"],
+        automata.map((row) => [
+          row.automaton,
+          row.depth,
+          row.periodic_lasso_status,
+          row.returns_to_same_state_after_one_period,
+        ]),
+      )
+    : "";
+  const edgeRows = firstEdge
+    ? [
+        ["edge", `${firstEdge.parent_template} -> ${firstEdge.child_template}`],
+        ["symbol", firstEdge.symbol],
+        ["max delta debt", firstEdge.max_delta_debt],
+        ["count", firstEdge.count],
+      ]
+    : [];
+  return `
+    <div class="poc-ticket17 poc-ticket45 poc-ticket47">
+      <h3>Ticket 47 periodic state lasso lab</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${table(["Periodic lasso result", "Value"], resultRows)}
+      ${automataTable}
+      ${edgeRows.length ? table(["First lasso edge", "Value"], edgeRows) : ""}
+      <div class="poc-bridge">
+        <section>
+          <h3>Candidate theorem</h3>
+          <p>${escapeHtml(attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Obstruction</h3>
+          <p>${escapeHtml(attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -4799,10 +4882,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket44FeatureMeasureCounteredge(featureMeasureCounteredgeTicket)}
     ${renderTicket45SymbolicRankClause(symbolicRankClauseTicket)}
     ${renderTicket46StableClauseGrammar(stableClauseGrammarTicket)}
+    ${renderTicket47PeriodicStateLasso(periodicStateLassoTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -4826,7 +4910,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -4915,6 +4999,7 @@ async function main() {
   let ticket44Attempt = null;
   let ticket45Attempt = null;
   let ticket46Attempt = null;
+  let ticket47Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -5194,7 +5279,16 @@ async function main() {
   } catch (error) {
     ticket46Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt);
+  try {
+    const ticket47Response = await fetch("../data/open-problem/ticket47-periodic-state-lasso-lab.json", { cache: "no-store" });
+    if (ticket47Response.ok) {
+      const ticket47Payload = await ticket47Response.json();
+      ticket47Attempt = (ticket47Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket47Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt);
 }
 
 main().catch((error) => {

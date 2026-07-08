@@ -1310,6 +1310,7 @@ const bundledProjectEvolution = {
         { marker: "04", title: "Sim-to-real gates", state: "blocked", measure: "10 targets / 9,028 P0 samples left", proof: "OpenSSL/BoringSSL/Go/Bitcoin baselines are registered but not accepted" },
         { marker: "05", title: "Publication guardrails", state: "guarded", measure: "21 checked artifacts / 15 gates / 11 guard checks", proof: "claim-language audit, claim ledger, lineage, decision protocol, falsification battery, and consistency audit prevent overclaiming" },
         { marker: "06", title: "Proof route pruning", state: "open", measure: "5/5 scalar clause-rank grammars refuted at 28 bits", proof: "TICKET-46 turns the Collatz scalar-rank route into a restricted no-go result, not a conjecture proof" },
+        { marker: "07", title: "Stateful lasso pruning", state: "open", measure: "5/5 bounded suffix-memory repairs refuted", proof: "TICKET-47 extracts a 16-edge positive-debt lasso and blocks zero-memory through last-4 edge-memory repairs" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },
@@ -1331,7 +1332,7 @@ const bundledProjectEvolution = {
         { layer: "Sim-to-Real", score: 35, status: "blocked", artifacts: ["data/collection_handoff.json", "data/collection_submission_contract.json", "data/collection_fixture_audit.json", "data/collection_intake.json"], gate: "10 targets, 10 public-safe fixtures, 0 accepted real submissions", proof: "OpenSSL/BoringSSL/Go/Bitcoin collection is specified and lint-tested, but real aggregate baselines are not accepted yet." },
         { layer: "Governance", score: 65, status: "guarded", artifacts: ["data/provenance_requirements.json", "data/provenance_audit.json", "data/baseline_acceptance.json", "data/baseline_promotion_plan.json"], gate: "0 accepted baselines, 4 provenance rows blocked, 9,028 P0 samples projected", proof: "The project now states exactly why stronger real-world claims remain blocked." },
         { layer: "Publication", score: 80, status: "guarded", artifacts: ["data/evidence_pack.json", "data/open_problem_workbench.json", "data/claim_language_audit.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json", "data/publication_consistency.json"], gate: "21 checked artifacts, 15 gates, 24 lineage nodes, 11 guard checks", proof: "Public statements are constrained by claim-language audit, checksums, lineage, decision rules, falsification guards, and consistency checks." },
-        { layer: "Open-Proof", score: 45, status: "open", artifacts: ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "docs/proof-or-counterexample-program.md"], gate: "5 tested scalar clause-rank grammars refuted at 28 bits; 0 stable scalar grammars remain", proof: "The proof workbench now discards the tested Collatz scalar-rank route and requires an ordinal/stateful infinite bridge." },
+        { layer: "Open-Proof", score: 45, status: "open", artifacts: ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "docs/proof-or-counterexample-program.md"], gate: "5 scalar clause-rank grammars and 5 bounded suffix-memory repairs refuted; no full proof claim", proof: "The proof workbench now discards the tested Collatz scalar-rank and bounded-memory routes and requires automaton CEGIS, reachability exclusion, or an ordinal infinite bridge." },
       ],
     },
     latest_changes: [
@@ -1341,6 +1342,7 @@ const bundledProjectEvolution = {
       { label: "Submission discipline", impact: "Collection contract, lint fixtures, and intake validation define exactly what public-safe evidence must contain.", metric: "10 templates / 10 fixtures" },
       { label: "Publication guardrail", impact: "Claim-language audit, claim ledger, lineage, decision rules, falsification checks, and consistency checks keep the public page at demo/scaffold claim strength.", metric: "21 artifacts / 11 guard checks" },
       { label: "Proof route pruning", impact: "TICKET-46 refutes all five tested Collatz scalar clause-rank grammars at 28 bits, so the remaining target is an ordinal/stateful infinite bridge.", metric: "5 refuted / 0 stable" },
+      { label: "Stateful lasso pruning", impact: "TICKET-47 refutes bounded suffix-memory repairs on a 16-edge positive-debt pressure lasso; arbitrary automaton CEGIS and reachability remain open.", metric: "16-edge lasso / 5 memory repairs" },
     ],
     research_delta: {
       headline: "What changed from the original prime-regularity demo to the current research scaffold.",
@@ -1354,7 +1356,7 @@ const bundledProjectEvolution = {
         { track: "Signal", before: "Residue and gap visual drift", current: "48-row attribution grid, 5,000 null iterations, 8-setting replication audit, 12 classifier vectors", state: "complete" },
         { track: "Reality", before: "No real-world generator baseline gate", current: "5 registered baseline families, 10 collection targets, 10 handoff tasks, 10 submission templates, pre-intake lint, 10 fixture cases, 10 intake blockers, 0 accepted baselines", state: "blocked" },
         { track: "Publication", before: "Informal narrative claims", current: "22 checksummed artifacts, claim-language audit, open-problem certificates, claim ledger, lineage DAG, decision protocol, falsification battery, consistency audit", state: "guarded" },
-        { track: "Open proof search", before: "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.", current: "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars at 28 bits and leaves only ordinal/stateful or counteredge routes.", state: "open" },
+        { track: "Open proof search", before: "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.", current: "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 also refutes bounded suffix-memory repairs on a 16-edge positive-debt pressure lasso.", state: "open" },
       ],
       claim_lanes: [
         { claim: "Public demo", status: "allowed", basis: "safe public artifact bundle" },

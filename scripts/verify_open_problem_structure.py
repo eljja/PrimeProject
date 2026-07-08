@@ -40,6 +40,7 @@ TICKET43_SCHEMA = "primeproject.ticket43-lift-constraint-measure-lab.v1"
 TICKET44_SCHEMA = "primeproject.ticket44-feature-measure-counteredge-lab.v1"
 TICKET45_SCHEMA = "primeproject.ticket45-symbolic-rank-clause-lab.v1"
 TICKET46_SCHEMA = "primeproject.ticket46-stable-clause-grammar-lab.v1"
+TICKET47_SCHEMA = "primeproject.ticket47-periodic-state-lasso-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1975,6 +1976,83 @@ def main() -> int:
         return fail("collatz ticket46 must state only a restricted no-go result")
     if "No Collatz proof" not in str(audit46.get("proof_boundary", "")):
         return fail("collatz ticket46 proof boundary must block proof overclaim")
+
+    ticket47_path = Path("data/open-problem/ticket47-periodic-state-lasso-lab.json")
+    if not ticket47_path.exists():
+        return fail("missing ticket47 periodic state lasso artifact")
+    ticket47 = read_json(ticket47_path)
+    if ticket47.get("schema") != TICKET47_SCHEMA:
+        return fail("ticket47 periodic state lasso artifact has unexpected schema")
+    if ticket47.get("status") != "periodic_state_lasso_restricted_no_go_open_no_resolution":
+        return fail("ticket47 periodic state lasso overstates resolution")
+    ticket47_attempts = ticket47.get("attempts", [])
+    if not isinstance(ticket47_attempts, list):
+        return fail("ticket47 attempts must be a list")
+    ticket47_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket47_attempts if isinstance(attempt, dict)}
+    missing_ticket47 = EXPECTED_PROBLEMS - set(ticket47_by_id)
+    if missing_ticket47:
+        return fail("ticket47 attempts missing problems: " + ", ".join(sorted(missing_ticket47)))
+    ticket47_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-47-zero-lasso-automaton.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-47-periodic-state-lasso.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-47-margin-lasso-automaton.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-47-gap-lasso-automaton.json"),
+    }
+    for problem_id, attempt in ticket47_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "bounded_suffix_stateful_routes_refuted_open_problem_open",
+        }:
+            return fail(f"{problem_id}: ticket47 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket47 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket47 claim boundary is too weak")
+        path = ticket47_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket47 per-problem artifact")
+
+    collatz_ticket47 = ticket47_by_id.get("collatz", {})
+    collatz47_bounded = collatz_ticket47.get("bounded_result", {})
+    if not isinstance(collatz47_bounded, dict):
+        return fail("collatz ticket47 bounded result must be an object")
+    audit47 = collatz47_bounded.get("periodic_state_lasso_audit", {})
+    if not isinstance(audit47, dict):
+        return fail("collatz ticket47 periodic state lasso audit missing")
+    if int(audit47.get("template_node_count_28", 0)) < 260_000:
+        return fail("collatz ticket47 must retain the 28-bit template graph")
+    if int(audit47.get("pressure_edge_count_28", 0)) < 700_000:
+        return fail("collatz ticket47 must retain the 28-bit pressure edge set")
+    cycle47 = audit47.get("cycle_summary", {})
+    if not isinstance(cycle47, dict):
+        return fail("collatz ticket47 cycle summary missing")
+    if int(cycle47.get("cycle_edge_count", 0)) < 2:
+        return fail("collatz ticket47 must expose a nontrivial pressure cycle")
+    if float(cycle47.get("total_max_delta_debt", 0.0)) <= 0.0:
+        return fail("collatz ticket47 lasso must have positive period debt")
+    if cycle47.get("has_positive_period_debt") is not True:
+        return fail("collatz ticket47 lasso must mark positive period debt")
+    if int(audit47.get("tested_memory_automaton_count", 0)) < 5:
+        return fail("collatz ticket47 must test bounded suffix-memory automata")
+    if int(audit47.get("refuted_memory_automaton_count", 0)) != int(audit47.get("tested_memory_automaton_count", -1)):
+        return fail("collatz ticket47 must refute every tested bounded suffix-memory automaton")
+    memory47 = audit47.get("memory_automata", [])
+    if not isinstance(memory47, list) or len(memory47) < 5:
+        return fail("collatz ticket47 memory automata table missing")
+    for row in memory47:
+        if not isinstance(row, dict):
+            return fail("collatz ticket47 memory automata rows must be objects")
+        if row.get("periodic_lasso_status") != "refuted_by_periodic_pressure_lasso":
+            return fail("collatz ticket47 memory automaton must be lasso-refuted")
+        if row.get("returns_to_same_state_after_one_period") is not True:
+            return fail("collatz ticket47 memory automaton must return after one lasso period")
+    if "bounded suffix-memory" not in str(audit47.get("restricted_no_go_statement", "")):
+        return fail("collatz ticket47 must state the bounded suffix-memory no-go boundary")
+    if "No Collatz proof" not in str(audit47.get("proof_boundary", "")):
+        return fail("collatz ticket47 proof boundary must block proof overclaim")
+    if "does not prove that the cycle is a single reachable Collatz orbit" not in str(audit47.get("proof_boundary", "")):
+        return fail("collatz ticket47 must preserve reachability boundary")
 
     print("open problem structure verified")
     return 0

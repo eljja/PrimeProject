@@ -2223,3 +2223,98 @@ Proof boundary:
 ```text
 TICKET-46 does not prove or disprove any of the four open problems. It proves a restricted no-go result for the tested finite scalar template-local clause-rank proof routes, and it moves the Collatz proof attempt to a sharper target: a horizon-independent ordinal/stateful measure or a future counteredge against such a measure.
 ```
+
+### Ticket 47: Periodic state lasso lab
+
+Generated artifact:
+
+```text
+data/open-problem/ticket47-periodic-state-lasso-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-47-zero-lasso-automaton.json
+data/open-problem/collatz/co-ticket-47-periodic-state-lasso.json
+data/open-problem/goldbach/gb-ticket-47-margin-lasso-automaton.json
+data/open-problem/twin-prime/tp-ticket-47-gap-lasso-automaton.json
+```
+
+Aggregate verdict:
+
+```text
+periodic_state_lasso_restricted_no_go_open_no_resolution
+```
+
+한국어 요약: TICKET-47은 TICKET-46의 scalar clause-rank 폐기 결과를 한 단계 더 밀어붙인다. 단순 scalar rank가 안 되면 bounded memory를 붙인 stateful automaton으로 살릴 수 있는지 묻는다. 28-bit exact-template pressure graph에서 16-edge positive-debt lasso를 추출했고, zero-memory 및 last-1부터 last-4 edge-signature memory까지 모두 한 period 뒤 같은 expanded state로 되돌아오는 것을 확인했다. 따라서 이 bounded suffix-memory 수리 계열은 strict well-founded descent가 될 수 없다. 하지만 이것도 Collatz 반례는 아니다. 이 cycle은 abstract template pressure relation의 lasso이며, 하나의 실제 Collatz orbit으로 reachable하다는 증명은 아직 없다.
+
+English summary: TICKET-47 upgrades the TICKET-46 scalar-rank obstruction to a bounded-memory stateful obstruction. It extracts a 16-edge positive-debt lasso from the 28-bit exact-template pressure graph. Zero-memory and last-1 through last-4 edge-signature memory automata all return to the same expanded state after one lasso period, so none of these bounded suffix-memory repairs can support a strict well-founded descent. This is still not a Collatz counterexample: the lasso is an abstract template-pressure object, not a certified single reachable orbit.
+
+Collatz periodic-lasso audit:
+
+```text
+28-bit template nodes: 261,367
+28-bit template edges: 1,370,168
+28-bit pressure edges: 741,372
+raw open edges processed: 7,960,722
+lasso cycle edges: 16
+unique edge symbols: 16
+total max delta debt over period: 5.84962500721
+tested bounded-memory automata: 5
+refuted bounded-memory automata: 5
+```
+
+Tested stateful repairs:
+
+```text
+zero_memory_pressure_lasso: refuted_by_periodic_pressure_lasso
+last1_edge_signature: refuted_by_periodic_pressure_lasso
+last2_edge_signature: refuted_by_periodic_pressure_lasso
+last3_edge_signature: refuted_by_periodic_pressure_lasso
+last4_edge_signature: refuted_by_periodic_pressure_lasso
+```
+
+First lasso edge:
+
+```text
+[0,[1,1,1,1],103,1] -> [1,[1,1,1,1],103,1]
+symbol: dir=low|label=both_open|dp=1|dc=1|phase=0->1|v=1->1
+max delta debt: 0.584962500721
+```
+
+Discarded Collatz routes:
+
+```text
+zero-memory exact-template pressure rank
+bounded suffix-memory stateful repair using last 1-4 pressure-edge signatures
+any proof object that silently treats a periodic bounded-memory lasso as a strict descent
+```
+
+Retained Collatz routes:
+
+```text
+prove that the abstract pressure lasso is unreachable by any concrete Collatz lift path
+synthesize arbitrary small finite-state automata and refute them by CEGIS rather than only suffix memory
+define a genuinely ordinal/stateful measure whose state is fixed before horizon extension and is not bounded suffix memory
+push surviving automata to 29-bit/30-bit reachability stress
+```
+
+Cross-problem transfer:
+
+1. RH: a bounded zero-state memory that repeats on an off-critical kernel lasso cannot prove zero exclusion.
+2. Goldbach: a bounded cutoff ledger that repeats on an exceptional-residue margin lasso cannot prove positivity.
+3. Twin Prime: a bounded leakage memory that repeats on a wider-gap lasso cannot prove exact gap-2 infinitude.
+4. Collatz: stateful repairs must now pass lasso reachability or arbitrary finite-automaton CEGIS, not just bounded suffix memory.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-48 AutomatonCEGISOr29BitReachability
+```
+
+Proof boundary:
+
+```text
+TICKET-47 does not prove or disprove any of the four open problems. It proves a restricted no-go result for bounded suffix-memory repairs over the 28-bit abstract template pressure lasso. It does not prove the lasso is a single reachable Collatz orbit and does not refute arbitrary finite automata or ordinal-valued measures.
+```
