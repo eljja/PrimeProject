@@ -41,6 +41,7 @@ TICKET44_SCHEMA = "primeproject.ticket44-feature-measure-counteredge-lab.v1"
 TICKET45_SCHEMA = "primeproject.ticket45-symbolic-rank-clause-lab.v1"
 TICKET46_SCHEMA = "primeproject.ticket46-stable-clause-grammar-lab.v1"
 TICKET47_SCHEMA = "primeproject.ticket47-periodic-state-lasso-lab.v1"
+TICKET48_SCHEMA = "primeproject.ticket48-automaton-reachability-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2053,6 +2054,98 @@ def main() -> int:
         return fail("collatz ticket47 proof boundary must block proof overclaim")
     if "does not prove that the cycle is a single reachable Collatz orbit" not in str(audit47.get("proof_boundary", "")):
         return fail("collatz ticket47 must preserve reachability boundary")
+
+    ticket48_path = Path("data/open-problem/ticket48-automaton-reachability-lab.json")
+    if not ticket48_path.exists():
+        return fail("missing ticket48 automaton reachability artifact")
+    ticket48 = read_json(ticket48_path)
+    if ticket48.get("schema") != TICKET48_SCHEMA:
+        return fail("ticket48 automaton reachability artifact has unexpected schema")
+    if ticket48.get("status") != "automaton_reachability_split_open_no_resolution":
+        return fail("ticket48 automaton reachability overstates resolution")
+    ticket48_attempts = ticket48.get("attempts", [])
+    if not isinstance(ticket48_attempts, list):
+        return fail("ticket48 attempts must be a list")
+    ticket48_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket48_attempts if isinstance(attempt, dict)}
+    missing_ticket48 = EXPECTED_PROBLEMS - set(ticket48_by_id)
+    if missing_ticket48:
+        return fail("ticket48 attempts missing problems: " + ", ".join(sorted(missing_ticket48)))
+    ticket48_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-48-kernel-period-map.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-48-automaton-reachability.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-48-margin-period-map.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-48-gap-period-map.json"),
+    }
+    for problem_id, attempt in ticket48_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "finite_state_abstract_no_go_reachability_open",
+        }:
+            return fail(f"{problem_id}: ticket48 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket48 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket48 claim boundary is too weak")
+        path = ticket48_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket48 per-problem artifact")
+
+    collatz_ticket48 = ticket48_by_id.get("collatz", {})
+    collatz48_bounded = collatz_ticket48.get("bounded_result", {})
+    if not isinstance(collatz48_bounded, dict):
+        return fail("collatz ticket48 bounded result must be an object")
+    audit48 = collatz48_bounded.get("automaton_reachability_audit", {})
+    if not isinstance(audit48, dict):
+        return fail("collatz ticket48 automaton reachability audit missing")
+    if int(audit48.get("template_node_count_28", 0)) < 260_000:
+        return fail("collatz ticket48 must retain the 28-bit template graph")
+    if int(audit48.get("pressure_edge_count_28", 0)) < 700_000:
+        return fail("collatz ticket48 must retain the 28-bit pressure edge set")
+    cycle48 = audit48.get("cycle_summary", {})
+    if not isinstance(cycle48, dict):
+        return fail("collatz ticket48 cycle summary missing")
+    if int(cycle48.get("cycle_edge_count", 0)) != 16:
+        return fail("collatz ticket48 must retain the 16-edge pressure lasso")
+    if float(cycle48.get("total_max_delta_debt", 0.0)) <= 0.0:
+        return fail("collatz ticket48 lasso must retain positive period debt")
+    finite48 = audit48.get("finite_state_period_map", {})
+    if not isinstance(finite48, dict):
+        return fail("collatz ticket48 finite-state period-map audit missing")
+    if finite48.get("status") != "abstract_total_finite_state_repairs_refuted_conditional_on_lasso_relation":
+        return fail("collatz ticket48 finite-state audit must remain abstract conditional no-go")
+    state_rows48 = finite48.get("state_rows", [])
+    if not isinstance(state_rows48, list) or len(state_rows48) < 8:
+        return fail("collatz ticket48 finite-state table too small")
+    for row in state_rows48:
+        if not isinstance(row, dict):
+            return fail("collatz ticket48 finite-state rows must be objects")
+        if row.get("status") != "abstract_lasso_refutes_total_finite_state_descent":
+            return fail("collatz ticket48 finite-state row must be lasso-refuted")
+        if int(row.get("period_map_cycle_bound", 0)) != int(row.get("finite_state_count", -2)) + 1:
+            return fail("collatz ticket48 period-map bound changed")
+    reach48 = audit48.get("reachability_probe", {})
+    if not isinstance(reach48, dict):
+        return fail("collatz ticket48 reachability probe missing")
+    if reach48.get("status") != "no_bounded_concrete_positive_pressure_lasso_realization_found":
+        return fail("collatz ticket48 bounded reachability result changed")
+    if int(reach48.get("tested_start_candidate_count", 0)) != 4:
+        return fail("collatz ticket48 must record the four bounded start candidates")
+    if int(reach48.get("completed_steps", 0)) != 3:
+        return fail("collatz ticket48 must stop at the third concrete lasso step")
+    if int(reach48.get("best_partial_depth", 0)) != 2:
+        return fail("collatz ticket48 best partial path depth changed")
+    start48 = audit48.get("start_candidate_scan", {})
+    if not isinstance(start48, dict):
+        return fail("collatz ticket48 start candidate scan missing")
+    if int(start48.get("total_start_template_matches", 0)) != 4:
+        return fail("collatz ticket48 start-template match count changed")
+    if start48.get("store_truncated") is not False:
+        return fail("collatz ticket48 start candidate scan must not be truncated")
+    if "No Collatz proof" not in str(audit48.get("proof_boundary", "")):
+        return fail("collatz ticket48 proof boundary must block proof overclaim")
+    if "unreachable in the true lift system" not in str(audit48.get("proof_boundary", "")):
+        return fail("collatz ticket48 must preserve true reachability boundary")
 
     print("open problem structure verified")
     return 0

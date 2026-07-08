@@ -454,6 +454,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Stable grammar result") ||
         !page.proofOrCounterexampleText.includes("Ticket 47 periodic state lasso lab") ||
         !page.proofOrCounterexampleText.includes("Periodic lasso result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 48 automaton reachability lab") ||
+        !page.proofOrCounterexampleText.includes("Automaton/reachability result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

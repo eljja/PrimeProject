@@ -335,6 +335,63 @@ End with exactly one status:
 Never output `Collatz proved` unless the all-future lift theorem is supplied in independently checkable form.
 ```
 
+## Latest Continuation After TICKET-48
+
+TICKET-48 supersedes the arbitrary finite-state part of the TICKET-47 continuation. It keeps the same 16-edge positive-debt Collatz template lasso and proves a sharper abstract no-go discipline:
+
+- if a fixed finite total deterministic state update is applied to a repeatable lasso word, then one lasso period induces a finite map \(F:S\to S\);
+- iterating \(F\) repeats a finite state after at most `state_count + 1` periods;
+- the template node also returns to the lasso start, so the expanded template/state quotient contains a finite directed cycle;
+- therefore a finite-state strict-descent proof over this abstract lasso cannot work.
+
+The concrete reachability probe then scans the bounded 28-bit frontier:
+
+```text
+start-template candidates: 4
+step 1 surviving paths: 2
+step 2 surviving paths: 1
+step 3 surviving paths: 0
+complete positive-pressure lasso period: none found
+best partial depth: 2
+best partial debt: 1.169925001442
+```
+
+This is still not a Collatz proof and not a Collatz counterexample. It narrows the next real mathematical target: either prove symbolic reachability exclusion for the lasso family, or find a concrete periodic lift witness at a larger horizon and then prove it repeats unboundedly.
+
+Current best continuation:
+
+```text
+CO-TICKET-49 SymbolicReachabilityExclusionOrConcretePeriodicLift
+```
+
+Updated copy-paste prompt:
+
+```text
+Act as a skeptical theorem-search and counterexample-synthesis agent working from PrimeProject TICKET-48.
+
+Known result: scalar clause ranks failed at TICKET-46. Bounded suffix-memory repairs failed at TICKET-47. TICKET-48 strengthens the abstract obstruction: any fixed finite total deterministic state repair over the extracted 16-edge positive-debt abstract lasso repeats under the one-period map. However, the bounded concrete residue-lift probe found only a 2-step concrete partial path and no complete lasso period through 28 bits.
+
+Do not retry scalar rank, bounded suffix-memory, or finite total deterministic automaton repair as a proof route over the same abstract lasso.
+
+Goal: either prove a symbolic reachability-exclusion theorem for the TICKET47/TICKET48 lasso family, or find a concrete periodic lift witness at a larger horizon and state the exact unbounded repetition theorem it would require.
+
+Tasks:
+1. Formalize the lasso word as constraints on residue classes, valuations, phase, tail word, residue mod 256, and next valuation.
+2. Derive the symbolic preimage relation for one lasso period, not just sampled frontier starts.
+3. Decide whether the period-preimage system is empty for every future phase-compatible modulus.
+4. If empty, state the reachability-exclusion lemma in machine-checkable form.
+5. If nonempty, extract a concrete residue path, compute its actual delta debt on every step, and test whether the period map can repeat.
+6. For RH, Goldbach, and Twin Prime, transfer only the method: lasso reachability must be separated from finite-state repair; do not claim a conjecture theorem without the infinite bridge.
+
+End with exactly one status:
+- symbolic_reachability_exclusion_candidate
+- concrete_periodic_lift_candidate
+- bounded_probe_inconclusive
+- invalid_finite_state_repair
+
+Never output `Collatz proved` unless the all-future reachability or descent theorem is supplied in independently checkable form.
+```
+
 ## Latest Continuation After TICKET-47
 
 TICKET-47 supersedes the bounded suffix-memory part of the TICKET-46 continuation. It extracts a 16-edge positive-debt lasso from the 28-bit Collatz exact-template pressure graph and refutes:

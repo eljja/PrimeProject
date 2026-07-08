@@ -2318,3 +2318,82 @@ Proof boundary:
 ```text
 TICKET-47 does not prove or disprove any of the four open problems. It proves a restricted no-go result for bounded suffix-memory repairs over the 28-bit abstract template pressure lasso. It does not prove the lasso is a single reachable Collatz orbit and does not refute arbitrary finite automata or ordinal-valued measures.
 ```
+
+### Ticket 48: Automaton reachability lab
+
+Generated artifact:
+
+```text
+data/open-problem/ticket48-automaton-reachability-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-48-kernel-period-map.json
+data/open-problem/collatz/co-ticket-48-automaton-reachability.json
+data/open-problem/goldbach/gb-ticket-48-margin-period-map.json
+data/open-problem/twin-prime/tp-ticket-48-gap-period-map.json
+```
+
+Aggregate verdict:
+
+```text
+automaton_reachability_split_open_no_resolution
+```
+
+한국어 요약: TICKET-48은 TICKET-47의 약한 고리를 둘로 나눴다. 첫째, 추상 template-pressure lasso가 반복 가능하다고 가정하면 bounded suffix-memory뿐 아니라 임의의 고정된 유한상태 total deterministic update도 strict descent를 만들 수 없다. 한 period가 finite state set 위의 함수 \(F:S\to S\)를 만들고, \(F\)를 반복하면 어떤 state가 다시 나타나므로 template/state expanded quotient에서 finite directed cycle이 생기기 때문이다. 둘째, 이 추상 lasso가 실제 Collatz residue lift path로 이어지는지를 별도 bounded probe로 검사했다. 28-bit frontier 안에서는 start-template candidate 4개를 찾았고, 그중 concrete positive step은 2단계까지 이어졌지만 3단계에서 surviving transition이 0개가 되어 한 period도 완성하지 못했다.
+
+English summary: TICKET-48 separates the abstract automaton obstruction from concrete Collatz reachability. Conditional on the repeatable abstract lasso, any fixed finite total deterministic state update induces a one-period map on a finite state set, and iterating that map eventually repeats the expanded template/state while the abstract lasso carries positive pressure debt. A bounded concrete lift probe then checks whether the same lasso can be realized by compatible residues. It finds four start-template candidates and two positive concrete steps, but no surviving transition at the third step and no complete positive-pressure period.
+
+Collatz automaton/reachability audit:
+
+```text
+28-bit template nodes: 261,367
+28-bit template edges: 1,370,168
+28-bit pressure edges: 741,372
+raw open edges processed: 7,960,722
+lasso cycle edges: 16
+total max delta debt over abstract period: 5.84962500721
+finite-state period-map rows: 9
+start-template candidates in bounded frontier: 4
+concrete lasso steps completed: 3 checked, 0 survivors at step 3
+best concrete partial depth: 2
+best concrete partial debt: 1.169925001442
+```
+
+Discarded Collatz routes:
+
+```text
+any fixed finite total deterministic state repair over the repeatable abstract lasso
+any finite quotient proof that silently treats the abstract lasso as a strict descent object
+any claim that TICKET47/TICKET48 already supplies a Collatz counterexample without concrete infinite reachability
+```
+
+Retained Collatz routes:
+
+```text
+prove the TICKET47/TICKET48 lasso family is unreachable by all concrete residue lifts
+find a concrete periodic lift witness at a larger horizon and test whether it repeats unboundedly
+define a genuinely ordinal or unbounded-state measure fixed before horizon extension
+turn the reachability probe into a symbolic preimage automaton rather than relying on sampled starts
+```
+
+Cross-problem transfer:
+
+1. RH: a finite kernel-state repair cannot certify zero exclusion if a repeatable off-critical zero lasso remains reachable.
+2. Goldbach: a finite cutoff-state repair cannot certify positivity if an exceptional-residue margin lasso remains reachable.
+3. Twin Prime: a finite selector-state repair cannot certify exact gap-2 infinitude if wider-gap leakage lassos remain reachable.
+4. Collatz: the next target is not another finite automaton wrapper; it is reachability exclusion, concrete periodic lift extraction, or a non-finite-state descent theorem.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-49 SymbolicReachabilityExclusionOrConcretePeriodicLift
+```
+
+Proof boundary:
+
+```text
+TICKET-48 does not prove or disprove any of the four open problems. It proves a conditional abstract no-go for fixed finite total deterministic state repairs over the extracted Collatz template lasso and reports a bounded concrete reachability failure through one full period. The unresolved theorem is still infinite: either exclude the lasso family for all future residue lifts, or produce a certified unbounded concrete lift witness.
+```

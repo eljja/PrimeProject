@@ -1,0 +1,591 @@
+{
+  "schema": "primeproject.ticket48-automaton-reachability-lab.v1",
+  "generated_at": "2026-07-09T02:05:00+09:00",
+  "status": "automaton_reachability_split_open_no_resolution",
+  "claim_boundary": "Ticket 48 strengthens the Collatz abstract lasso no-go to fixed finite total deterministic state repairs and records a separate bounded reachability probe. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-48",
+      "status": "proof_pressure_open",
+      "route": "KernelPeriodMapOrZeroReachabilityExclusion",
+      "proof_or_counterexample_mode": "period-map no-go transfer",
+      "attempt": "Transfer TICKET48's sharper discipline: once a proposed proof quotient admits a repeatable positive or zero-pressure lasso, a fixed finite total state update cannot rescue strict descent. The remaining work is a reachability exclusion theorem or a non-finite-state invariant.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-47",
+        "source_route": "ZeroLassoReachabilityOrKernelAutomaton",
+        "finite_state_no_go": "A finite kernel-state repair cannot certify RH if an off-critical zero lasso remains reachable.",
+        "retained_target": "Prove every off-critical kernel lasso is unreachable or positivity-improving under a nonlocal kernel invariant.",
+        "counterexample_target": "Find a zero-pressure off-critical lasso that survives all fixed finite kernel states.",
+        "ticket48_transfer": "KernelPeriodMapOrZeroReachabilityExclusion"
+      },
+      "obstruction": "This transfer is a proof-search filter, not a theorem for the target conjecture. It discards finite period-map repairs but leaves the real infinite bridge unresolved.",
+      "candidate_theorem": "Prove every off-critical kernel lasso is unreachable or positivity-improving under a nonlocal kernel invariant.",
+      "next_experiment": "Build a symbolic kernel-lasso reachability checker before accepting any finite kernel automaton.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-48",
+      "route": "AutomatonPeriodMapOrReachabilityExclusion",
+      "status": "finite_state_abstract_no_go_reachability_open",
+      "proof_or_counterexample_mode": "finite automaton no-go plus concrete lasso reachability probe",
+      "attempt": "Strengthen TICKET47 from bounded suffix-memory repairs to arbitrary fixed finite total deterministic state updates over the same abstract positive-pressure lasso, then separately test whether that abstract lasso is concretely realized by compatible Collatz residue lifts.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-47",
+        "automaton_reachability_audit": {
+          "family": "phase16_tail4_residue256_vexact",
+          "max_bits": 28,
+          "template_node_count_28": 261367,
+          "template_edge_count_28": 1370168,
+          "pressure_edge_count_28": 741372,
+          "raw_open_edge_count_28": 7960722,
+          "cycle_summary": {
+            "cycle_node_count": 16,
+            "cycle_edge_count": 16,
+            "cycle_nodes_sample": [
+              "[0,[1,1,1,1],103,1]",
+              "[1,[1,1,1,1],103,1]",
+              "[2,[1,1,1,1],103,1]",
+              "[3,[1,1,1,1],103,1]",
+              "[4,[1,1,1,1],103,1]",
+              "[5,[1,1,1,1],103,10]",
+              "[6,[1,1,1,1],103,10]",
+              "[7,[1,1,1,1],103,10]",
+              "[8,[1,1,1,1],103,10]",
+              "[9,[1,1,1,1],103,10]",
+              "[10,[1,1,1,1],103,10]",
+              "[11,[1,1,1,1],103,10]"
+            ],
+            "cycle_edges_sample": [
+              {
+                "parent_template": "[0,[1,1,1,1],103,1]",
+                "child_template": "[1,[1,1,1,1],103,1]",
+                "symbol": "dir=low|label=both_open|dp=1|dc=1|phase=0->1|v=1->1",
+                "max_delta_debt": 0.584962500721,
+                "count": 2,
+                "example": {
+                  "bits": 16,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[0,[1,1,1,1],103,1]",
+                  "child_template": "[1,[1,1,1,1],103,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              },
+              {
+                "parent_template": "[1,[1,1,1,1],103,1]",
+                "child_template": "[2,[1,1,1,1],103,1]",
+                "symbol": "dir=low|label=both_open|dp=1|dc=1|phase=1->2|v=1->1",
+                "max_delta_debt": 0.584962500721,
+                "count": 2,
+                "example": {
+                  "bits": 17,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[1,[1,1,1,1],103,1]",
+                  "child_template": "[2,[1,1,1,1],103,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              },
+              {
+                "parent_template": "[2,[1,1,1,1],103,1]",
+                "child_template": "[3,[1,1,1,1],103,1]",
+                "symbol": "dir=low|label=both_open|dp=1|dc=1|phase=2->3|v=1->1",
+                "max_delta_debt": 0.584962500721,
+                "count": 5,
+                "example": {
+                  "bits": 18,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[2,[1,1,1,1],103,1]",
+                  "child_template": "[3,[1,1,1,1],103,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              },
+              {
+                "parent_template": "[3,[1,1,1,1],103,1]",
+                "child_template": "[4,[1,1,1,1],103,1]",
+                "symbol": "dir=low|label=both_open|dp=1|dc=1|phase=3->4|v=1->1",
+                "max_delta_debt": 0.584962500721,
+                "count": 10,
+                "example": {
+                  "bits": 19,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[3,[1,1,1,1],103,1]",
+                  "child_template": "[4,[1,1,1,1],103,1]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              },
+              {
+                "parent_template": "[4,[1,1,1,1],103,1]",
+                "child_template": "[5,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=1|dc=1|phase=4->5|v=1->10",
+                "max_delta_debt": 0.584962500721,
+                "count": 1,
+                "example": {
+                  "bits": 20,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[4,[1,1,1,1],103,1]",
+                  "child_template": "[5,[1,1,1,1],103,10]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              },
+              {
+                "parent_template": "[5,[1,1,1,1],103,10]",
+                "child_template": "[6,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=5->6|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 5,
+                "example": {
+                  "bits": 21,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[5,[1,1,1,1],103,10]",
+                  "child_template": "[6,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[6,[1,1,1,1],103,10]",
+                "child_template": "[7,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=6->7|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 6,
+                "example": {
+                  "bits": 22,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[6,[1,1,1,1],103,10]",
+                  "child_template": "[7,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[7,[1,1,1,1],103,10]",
+                "child_template": "[8,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=7->8|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 9,
+                "example": {
+                  "bits": 23,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[7,[1,1,1,1],103,10]",
+                  "child_template": "[8,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[8,[1,1,1,1],103,10]",
+                "child_template": "[9,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=8->9|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 14,
+                "example": {
+                  "bits": 24,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[8,[1,1,1,1],103,10]",
+                  "child_template": "[9,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[9,[1,1,1,1],103,10]",
+                "child_template": "[10,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=9->10|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 22,
+                "example": {
+                  "bits": 25,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[9,[1,1,1,1],103,10]",
+                  "child_template": "[10,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[10,[1,1,1,1],103,10]",
+                "child_template": "[11,[1,1,1,1],103,10]",
+                "symbol": "dir=low|label=both_open|dp=0|dc=0|phase=10->11|v=10->10",
+                "max_delta_debt": 0.0,
+                "count": 39,
+                "example": {
+                  "bits": 26,
+                  "direction": "low",
+                  "label": "both_open",
+                  "parent_template": "[10,[1,1,1,1],103,10]",
+                  "child_template": "[11,[1,1,1,1],103,10]",
+                  "delta_prefix": 0,
+                  "delta_consumed": 0,
+                  "delta_debt": 0.0
+                }
+              },
+              {
+                "parent_template": "[11,[1,1,1,1],103,10]",
+                "child_template": "[12,[1,1,1,1],103,2]",
+                "symbol": "dir=high|label=both_open|dp=1|dc=1|phase=11->12|v=10->2",
+                "max_delta_debt": 0.584962500721,
+                "count": 4,
+                "example": {
+                  "bits": 27,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_template": "[11,[1,1,1,1],103,10]",
+                  "child_template": "[12,[1,1,1,1],103,2]",
+                  "delta_prefix": 1,
+                  "delta_consumed": 1,
+                  "delta_debt": 0.584962500721
+                }
+              }
+            ],
+            "cycle_symbols_sample": [
+              "dir=low|label=both_open|dp=1|dc=1|phase=0->1|v=1->1",
+              "dir=low|label=both_open|dp=1|dc=1|phase=1->2|v=1->1",
+              "dir=low|label=both_open|dp=1|dc=1|phase=2->3|v=1->1",
+              "dir=low|label=both_open|dp=1|dc=1|phase=3->4|v=1->1",
+              "dir=low|label=both_open|dp=1|dc=1|phase=4->5|v=1->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=5->6|v=10->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=6->7|v=10->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=7->8|v=10->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=8->9|v=10->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=9->10|v=10->10",
+              "dir=low|label=both_open|dp=0|dc=0|phase=10->11|v=10->10",
+              "dir=high|label=both_open|dp=1|dc=1|phase=11->12|v=10->2"
+            ],
+            "unique_symbol_count": 16,
+            "total_max_delta_debt": 5.84962500721,
+            "total_edge_count_lower_bound": 123,
+            "all_edges_nonnegative_pressure": true,
+            "has_positive_period_debt": true
+          },
+          "finite_state_period_map": {
+            "lemma_name": "finite_period_map_lasso_no_go",
+            "status": "abstract_total_finite_state_repairs_refuted_conditional_on_lasso_relation",
+            "cycle_edges": 16,
+            "period_debt": 5.84962500721,
+            "state_rows": [
+              {
+                "finite_state_count": 1,
+                "period_map_cycle_bound": 2,
+                "expanded_edge_bound": 32,
+                "status": "abstract_lasso_refutes_total_finite_state_descent",
+                "reason": "One full lasso period induces a total map F on the finite state set. Iterating F from any initial state repeats a finite state within at most state_count + 1 periods. Because the template node also returns to the lasso start and the abstract period has positive pressure debt, a strict descent on every abstract lasso edge would decrease around a finite directed cycle."
+              },
+              {
+                "finite_state_count": 2,
+                "period_map_cycle_bound": 3,
+                "expanded_edge_bound": 48,
+                "status": "abstract_lasso_refutes_total_finite_state_descent",
+                "reason": "One full lasso period induces a total map F on the finite state set. Iterating F from any initial state repeats a finite state within at most state_count + 1 periods. Because the template node also returns to the lasso start and the abstract period has positive pressure debt, a strict descent on every abstract lasso edge would decrease around a finite directed cycle."
+              },
+              {
+                "finite_state_count": 3,
+                "period_map_cycle_bound": 4,
+                "expanded_edge_bound": 64,
+                "status": "abstract_lasso_refutes_total_finite_state_descent",
+                "reason": "One full lasso period induces a total map F on the finite state set. Iterating F from any initial state repeats a finite state within at most state_count + 1 periods. Because the template node also returns to the lasso start and the abstract period has positive pressure debt, a strict descent on every abstract lasso edge would decrease around a finite directed cycle."
+              },
+              {
+                "finite_state_count": 4,
+                "period_map_cycle_bound": 5,
+                "expanded_edge_bound": 80,
+                "status": "abstract_lasso_refutes_total_finite_state_descent",
+                "reason": "One full lasso period induces a total map F on the finite state set. Iterating F from any initial state repeats a finite state within at most state_count + 1 periods. Because the template node also returns to the lasso start and the abstract period has positive pressure debt, a strict descent on every abstract lasso edge would decrease around a finite directed cycle."
+              },
+              {
+                "finite_state_count": 5,
+                "period_map_cycle_bound": 6,
+                "expanded_edge_bound": 96,
+                "status": "abstract_lasso_refutes_total_finite_state_descent",
+                "reason": "One full lasso period induces a total map F on the finite state set. Iterating F from any initial state repeats a finite state within at most state_count + 1 periods. Because the template node also returns to the lasso start and the abstract period has positive pressure debt, a strict descent on every abstract lasso edge would decrease around a finite directed cycle."
+              },
+              {
+                "finite_state_count": 8,
+                "period_map_cycle_bound": 9,
+                "expanded_edge_bound": 144,
+                "status": "abstract_lasso_refutes_total_finite_state_descent",
+                "reason": "One full lasso period induces a total map F on the finite state set. Iterating F from any initial state repeats a finite state within at most state_count + 1 periods. Because the template node also returns to the lasso start and the abstract period has positive pressure debt, a strict descent on every abstract lasso edge would decrease around a finite directed cycle."
+              },
+              {
+                "finite_state_count": 16,
+                "period_map_cycle_bound": 17,
+                "expanded_edge_bound": 272,
+                "status": "abstract_lasso_refutes_total_finite_state_descent",
+                "reason": "One full lasso period induces a total map F on the finite state set. Iterating F from any initial state repeats a finite state within at most state_count + 1 periods. Because the template node also returns to the lasso start and the abstract period has positive pressure debt, a strict descent on every abstract lasso edge would decrease around a finite directed cycle."
+              },
+              {
+                "finite_state_count": 32,
+                "period_map_cycle_bound": 33,
+                "expanded_edge_bound": 528,
+                "status": "abstract_lasso_refutes_total_finite_state_descent",
+                "reason": "One full lasso period induces a total map F on the finite state set. Iterating F from any initial state repeats a finite state within at most state_count + 1 periods. Because the template node also returns to the lasso start and the abstract period has positive pressure debt, a strict descent on every abstract lasso edge would decrease around a finite directed cycle."
+              },
+              {
+                "finite_state_count": 64,
+                "period_map_cycle_bound": 65,
+                "expanded_edge_bound": 1040,
+                "status": "abstract_lasso_refutes_total_finite_state_descent",
+                "reason": "One full lasso period induces a total map F on the finite state set. Iterating F from any initial state repeats a finite state within at most state_count + 1 periods. Because the template node also returns to the lasso start and the abstract period has positive pressure debt, a strict descent on every abstract lasso edge would decrease around a finite directed cycle."
+              }
+            ],
+            "formal_statement": "Let W be a repeatable positive-pressure template lasso and let S be any fixed finite state set with a total deterministic update over the edge labels of W. The one-period update F:S->S has an eventual cycle. Repeating W along that state cycle returns to the same expanded template/state while the strict-descent obligation has accumulated positive pressure, so no scalar value on the finite expanded quotient can strictly decrease on all W edges.",
+            "scope_boundary": "This is an abstract quotient no-go lemma. It does not rule out a proof that proves the lasso unreachable in the true Collatz lift system, and it does not rule out genuinely ordinal or unbounded-state measures."
+          },
+          "start_candidate_scan": {
+            "base_bits": 12,
+            "max_start_bits": 28,
+            "start_template": "[0,[1,1,1,1],103,1]",
+            "total_start_template_matches": 4,
+            "stored_start_candidate_count": 4,
+            "store_limit": 20000,
+            "store_truncated": false,
+            "level_rows": [
+              {
+                "bits": 12,
+                "frontier_count": 2048,
+                "open_parent_count": 255,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 13,
+                "frontier_count": 445,
+                "open_parent_count": 445,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 14,
+                "frontier_count": 773,
+                "open_parent_count": 773,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 15,
+                "frontier_count": 1398,
+                "open_parent_count": 1398,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 16,
+                "frontier_count": 2400,
+                "open_parent_count": 2400,
+                "start_template_match_count": 4
+              },
+              {
+                "bits": 17,
+                "frontier_count": 4368,
+                "open_parent_count": 4368,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 18,
+                "frontier_count": 8077,
+                "open_parent_count": 8077,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 19,
+                "frontier_count": 15264,
+                "open_parent_count": 15264,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 20,
+                "frontier_count": 28789,
+                "open_parent_count": 28789,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 21,
+                "frontier_count": 51375,
+                "open_parent_count": 51375,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 22,
+                "frontier_count": 95621,
+                "open_parent_count": 95621,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 23,
+                "frontier_count": 178851,
+                "open_parent_count": 178851,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 24,
+                "frontier_count": 317095,
+                "open_parent_count": 317095,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 25,
+                "frontier_count": 588421,
+                "open_parent_count": 588421,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 26,
+                "frontier_count": 1099648,
+                "open_parent_count": 1099648,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 27,
+                "frontier_count": 1949797,
+                "open_parent_count": 1949797,
+                "start_template_match_count": 0
+              },
+              {
+                "bits": 28,
+                "frontier_count": 3618400,
+                "open_parent_count": 3618400,
+                "start_template_match_count": 0
+              }
+            ]
+          },
+          "reachability_probe": {
+            "status": "no_bounded_concrete_positive_pressure_lasso_realization_found",
+            "tested_start_candidate_count": 4,
+            "period_length": 16,
+            "requested_periods": 2,
+            "completed_steps": 3,
+            "path_cap": 50000,
+            "path_cap_hit": false,
+            "step_rows_sample": [
+              {
+                "step": 1,
+                "from_template": "[0,[1,1,1,1],103,1]",
+                "to_template": "[1,[1,1,1,1],103,1]",
+                "input_paths": 4,
+                "matching_transitions": 2,
+                "nonnegative_step_transitions": 2,
+                "positive_step_transitions": 2,
+                "surviving_paths": 2
+              },
+              {
+                "step": 2,
+                "from_template": "[1,[1,1,1,1],103,1]",
+                "to_template": "[2,[1,1,1,1],103,1]",
+                "input_paths": 2,
+                "matching_transitions": 1,
+                "nonnegative_step_transitions": 1,
+                "positive_step_transitions": 1,
+                "surviving_paths": 1
+              },
+              {
+                "step": 3,
+                "from_template": "[2,[1,1,1,1],103,1]",
+                "to_template": "[3,[1,1,1,1],103,1]",
+                "input_paths": 1,
+                "matching_transitions": 0,
+                "nonnegative_step_transitions": 0,
+                "positive_step_transitions": 0,
+                "surviving_paths": 0
+              }
+            ],
+            "period_rows": [],
+            "final_surviving_paths": 0,
+            "final_period_summary": {},
+            "best_partial_depth": 2,
+            "best_partial_debt": 1.169925001442,
+            "best_partial_sample": [
+              {
+                "bits": 16,
+                "direction": "low",
+                "label": "both_open",
+                "parent_template": "[0,[1,1,1,1],103,1]",
+                "child_template": "[1,[1,1,1,1],103,1]",
+                "delta_prefix": 1,
+                "delta_consumed": 1,
+                "delta_debt": 0.584962500721
+              },
+              {
+                "bits": 17,
+                "direction": "low",
+                "label": "both_open",
+                "parent_template": "[1,[1,1,1,1],103,1]",
+                "child_template": "[2,[1,1,1,1],103,1]",
+                "delta_prefix": 1,
+                "delta_consumed": 1,
+                "delta_debt": 0.584962500721
+              }
+            ],
+            "interpretation": "Within the bounded stored frontier, the abstract positive-pressure lasso did not become a concrete positive-pressure Collatz lift lasso. The remaining proof route is now sharper: prove a general reachability exclusion for this lasso family, or find a concrete realization at a larger horizon."
+          },
+          "closed_bounded_statement": "For the extracted 28-bit abstract pressure lasso, every fixed finite total deterministic state repair has an eventual period-map repetition, so a finite expanded-state strict descent cannot certify this abstract relation.",
+          "proof_boundary": "No Collatz proof and no Collatz counterexample. TICKET48 strengthens the abstract no-go from bounded suffix memory to total deterministic finite-state repairs over the extracted template lasso, but Collatz itself can still escape if the lasso is unreachable in the true lift system or if the proof uses a genuinely ordinal/unbounded measure."
+        }
+      },
+      "obstruction": "Finite-state repairs cannot depend on an unbounded horizon. Repeating the lasso induces a finite period map on state, so some expanded template/state repeats while the abstract pressure period is positive.",
+      "candidate_theorem": "Prove a reachability-exclusion theorem for the TICKET47/TICKET48 lasso family, or construct a certified concrete positive-pressure lift realization and then test whether it can be repeated unboundedly.",
+      "next_experiment": "Generate TICKET49 by turning the bounded reachability probe into a symbolic preimage automaton: either prove the lasso word has no compatible residue class at every future phase, or extract a concrete periodic lift witness.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-48",
+      "status": "proof_pressure_open",
+      "route": "MarginPeriodMapOrResidueReachabilityExclusion",
+      "proof_or_counterexample_mode": "period-map no-go transfer",
+      "attempt": "Transfer TICKET48's sharper discipline: once a proposed proof quotient admits a repeatable positive or zero-pressure lasso, a fixed finite total state update cannot rescue strict descent. The remaining work is a reachability exclusion theorem or a non-finite-state invariant.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-47",
+        "source_route": "MarginLassoReachabilityOrCutoffAutomaton",
+        "finite_state_no_go": "A finite cutoff-state repair cannot certify Goldbach if an exceptional-residue margin lasso remains reachable.",
+        "retained_target": "Prove the residue-margin lasso family has a cutoff-independent positive representation margin.",
+        "counterexample_target": "Find a repeatable exceptional-residue lasso whose finite cutoff state repeats with nonpositive margin.",
+        "ticket48_transfer": "MarginPeriodMapOrResidueReachabilityExclusion"
+      },
+      "obstruction": "This transfer is a proof-search filter, not a theorem for the target conjecture. It discards finite period-map repairs but leaves the real infinite bridge unresolved.",
+      "candidate_theorem": "Prove the residue-margin lasso family has a cutoff-independent positive representation margin.",
+      "next_experiment": "Turn the margin lasso search into a symbolic residue-preimage exclusion engine.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-48",
+      "status": "proof_pressure_open",
+      "route": "GapPeriodMapOrSelectorReachabilityExclusion",
+      "proof_or_counterexample_mode": "period-map no-go transfer",
+      "attempt": "Transfer TICKET48's sharper discipline: once a proposed proof quotient admits a repeatable positive or zero-pressure lasso, a fixed finite total state update cannot rescue strict descent. The remaining work is a reachability exclusion theorem or a non-finite-state invariant.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-47",
+        "source_route": "GapLassoReachabilityOrSelectorAutomaton",
+        "finite_state_no_go": "A finite selector-state repair cannot certify Twin Prime if wider-gap leakage lassos remain reachable.",
+        "retained_target": "Prove exact gap-2 mass cannot be drained by any reachable periodic wider-gap leakage lasso.",
+        "counterexample_target": "Find a repeatable wider-gap leakage lasso that returns every finite selector state to itself.",
+        "ticket48_transfer": "GapPeriodMapOrSelectorReachabilityExclusion"
+      },
+      "obstruction": "This transfer is a proof-search filter, not a theorem for the target conjecture. It discards finite period-map repairs but leaves the real infinite bridge unresolved.",
+      "candidate_theorem": "Prove exact gap-2 mass cannot be drained by any reachable periodic wider-gap leakage lasso.",
+      "next_experiment": "Build a symbolic exact-gap selector preimage checker over periodic leakage words.",
+      "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+    }
+  ]
+}
