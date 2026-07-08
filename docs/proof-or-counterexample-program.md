@@ -2098,3 +2098,128 @@ Proof boundary:
 ```text
 TICKET-45 does not prove or disprove any of the four open problems. It improves the proof attempt by finding a concrete future-horizon counteredge against the tempting phase-only symbolic rank, and it improves the search protocol by requiring every proposed symbolic clause grammar to survive pressure-cycle extraction before formal promotion.
 ```
+
+### Ticket 46: Stable clause grammar lab
+
+Generated artifact:
+
+```text
+data/open-problem/ticket46-stable-clause-grammar-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-46-stable-zero-grammar.json
+data/open-problem/collatz/co-ticket-46-stable-clause-grammar.json
+data/open-problem/goldbach/gb-ticket-46-stable-margin-grammar.json
+data/open-problem/twin-prime/tp-ticket-46-stable-gap-grammar.json
+```
+
+Aggregate verdict:
+
+```text
+stable_clause_grammar_restricted_no_go_open_no_resolution
+```
+
+한국어 요약: TICKET-46은 TICKET-45에서 남은 질문을 더 강하게 압박한다. TICKET-45는 `phase_only`가 28-bit에서 깨진다는 것을 보였지만, 더 정교한 clause grammar들이 28-bit wrap 이후에도 버틸 수 있는지는 남아 있었다. TICKET-46은 같은 28-bit horizon에서 다섯 family 모두를 다시 검사했고, `phase_only`, `phase_tail_mass_vbucket`, `phase_tail_residue16_vbucket`, `phase_tail_residue64_vbucket`, `phase_tail_residue256_vexact` 전부가 nonnegative-pressure cycle을 갖는다는 결과를 얻었다. 따라서 이 다섯 종류의 finite template-local scalar clause-rank 증명 전략은 제한된 의미에서 모두 폐기된다. 이것은 Collatz의 반례도 아니고 Collatz 증명도 아니다. 정확한 결론은 “현재 테스트한 scalar clause-rank proof route는 더 이상 남아 있지 않다”이다.
+
+English summary: TICKET-46 strengthens the TICKET-45 obstruction. TICKET-45 showed that the phase-only rank fails at the first visible modulo-16 wrap. TICKET-46 reruns the clause-rank stress test at the same 28-bit horizon for all five TICKET45 families. Every tested finite template-local scalar clause grammar becomes pressure-cyclic, including the exact observed-template table. This is a restricted no-go theorem for those proof routes, not a proof or disproof of Collatz.
+
+Collatz stable-clause audit:
+
+```text
+28-bit template nodes: 261,367
+28-bit template edges: 1,370,168
+raw open edges processed: 7,960,722
+tested clause families: 5
+28-bit refuted clause families: 5
+28-bit stable clause families: 0
+```
+
+28-bit stress result:
+
+```text
+phase_only:
+  status: pressure_cycle_counterexample_refutes_clause_rank
+  clauses: 16
+  pressure clause edges: 16
+  new pressure edges from 27->28: 1
+
+phase_tail_mass_vbucket:
+  status: pressure_cycle_counterexample_refutes_clause_rank
+  clauses: 2,960
+  pressure clause edges: 37,948
+  new pressure edges from 27->28: 6,042
+
+phase_tail_residue16_vbucket:
+  status: pressure_cycle_counterexample_refutes_clause_rank
+  clauses: 70,498
+  pressure clause edges: 261,971
+  new pressure edges from 27->28: 58,393
+
+phase_tail_residue64_vbucket:
+  status: pressure_cycle_counterexample_refutes_clause_rank
+  clauses: 138,390
+  pressure clause edges: 448,510
+  new pressure edges from 27->28: 105,553
+
+phase_tail_residue256_vexact:
+  status: pressure_cycle_counterexample_refutes_clause_rank
+  clauses: 261,367
+  pressure clause edges: 741,372
+  new pressure edges from 27->28: 187,086
+```
+
+First shared phase-wrap pressure edge:
+
+```text
+edge: [11] -> [12]
+max delta debt: 7.415037499279
+edge count represented in phase-only quotient: 3,618,400
+example parent template: [11,[1,1,1,9],191,1]
+example child template: [12,[1,1,1,1],191,12]
+```
+
+Escape-coordinate audit:
+
+1. `unwrapped_phase_epoch`: 현재 template key에는 phase modulo 16만 있으므로, unwrapped epoch는 외부 lift depth나 path history를 끌어온다. 이 좌표는 아직 finite horizon-independent grammar가 아니다.
+2. `depth_or_max_bits_bucket`: bounded horizon을 기억하면 cycle을 깨는 것처럼 보일 수 있지만, 29-bit, 30-bit로 늘릴 때 다시 커지는 좌표라면 증명 객체가 아니다.
+3. `exact_observed_template_table`: 26-bit에서는 bounded ceiling certificate였지만, 28-bit에서는 새 clause와 pressure edge가 대량으로 추가되고 pressure graph도 cyclic이 된다.
+
+Discarded Collatz routes:
+
+```text
+phase-only scalar clause rank
+coarse tail-mass scalar clause rank
+low-residue scalar clause rank
+exact observed-template scalar clause rank treated as an infinite theorem
+horizon-depth or max_bits escape coordinate promoted before a well-founded theorem is proved
+```
+
+Retained Collatz routes:
+
+```text
+ordinal-valued or stateful measure with a template-local update rule
+explicit 29-bit/30-bit counteredge extraction against any proposed compact update rule
+a formal theorem that the measure is fixed before horizon extension and decreases under every future lift
+```
+
+Cross-problem transfer:
+
+1. RH: a zero grammar repaired by a height-dependent coordinate is not enough; it must become a compact positive-kernel theorem or yield an off-critical pressure counterexample.
+2. Goldbach: a margin grammar repaired by cutoff-dependent constants is not enough; constants must be fixed before extension or produce an exceptional-residue counterexample.
+3. Twin Prime: an exact-gap selector repaired by range-dependent leakage coordinates is not enough; fixed selector mass must survive extension or produce a leakage cycle.
+4. Collatz: the next real proof route is no longer scalar clause-rank; it must be ordinal/stateful and horizon-independent.
+
+Remaining decisive target:
+
+```text
+CO-TICKET-47 OrdinalStatefulMeasureOr29BitCounteredge
+```
+
+Proof boundary:
+
+```text
+TICKET-46 does not prove or disprove any of the four open problems. It proves a restricted no-go result for the tested finite scalar template-local clause-rank proof routes, and it moves the Collatz proof attempt to a sharper target: a horizon-independent ordinal/stateful measure or a future counteredge against such a measure.
+```

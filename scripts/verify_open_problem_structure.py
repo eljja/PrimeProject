@@ -39,6 +39,7 @@ TICKET42_SCHEMA = "primeproject.ticket42-parametric-transition-template-lab.v1"
 TICKET43_SCHEMA = "primeproject.ticket43-lift-constraint-measure-lab.v1"
 TICKET44_SCHEMA = "primeproject.ticket44-feature-measure-counteredge-lab.v1"
 TICKET45_SCHEMA = "primeproject.ticket45-symbolic-rank-clause-lab.v1"
+TICKET46_SCHEMA = "primeproject.ticket46-stable-clause-grammar-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -1885,6 +1886,95 @@ def main() -> int:
         return fail("collatz ticket45 must retain pressure-cycle and stable symbolic-family routes")
     if "No Collatz proof" not in str(audit45.get("proof_boundary", "")):
         return fail("collatz ticket45 proof boundary must block proof overclaim")
+
+    ticket46_path = Path("data/open-problem/ticket46-stable-clause-grammar-lab.json")
+    if not ticket46_path.exists():
+        return fail("missing ticket46 stable clause grammar artifact")
+    ticket46 = read_json(ticket46_path)
+    if ticket46.get("schema") != TICKET46_SCHEMA:
+        return fail("ticket46 stable clause grammar artifact has unexpected schema")
+    if ticket46.get("status") != "stable_clause_grammar_restricted_no_go_open_no_resolution":
+        return fail("ticket46 stable clause grammar overstates resolution")
+    ticket46_attempts = ticket46.get("attempts", [])
+    if not isinstance(ticket46_attempts, list):
+        return fail("ticket46 attempts must be a list")
+    ticket46_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket46_attempts if isinstance(attempt, dict)}
+    missing_ticket46 = EXPECTED_PROBLEMS - set(ticket46_by_id)
+    if missing_ticket46:
+        return fail("ticket46 attempts missing problems: " + ", ".join(sorted(missing_ticket46)))
+    ticket46_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-46-stable-zero-grammar.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-46-stable-clause-grammar.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-46-stable-margin-grammar.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-46-stable-gap-grammar.json"),
+    }
+    for problem_id, attempt in ticket46_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "restricted_proof_route_refuted_open_problem_open",
+        }:
+            return fail(f"{problem_id}: ticket46 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket46 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket46 claim boundary is too weak")
+        path = ticket46_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket46 per-problem artifact")
+
+    collatz_ticket46 = ticket46_by_id.get("collatz", {})
+    collatz46_bounded = collatz_ticket46.get("bounded_result", {})
+    if not isinstance(collatz46_bounded, dict):
+        return fail("collatz ticket46 bounded result must be an object")
+    audit46 = collatz46_bounded.get("stable_clause_grammar_audit", {})
+    if not isinstance(audit46, dict):
+        return fail("collatz ticket46 stable clause grammar audit missing")
+    if int(audit46.get("template_node_count_28", 0)) < 260_000:
+        return fail("collatz ticket46 must retain the 28-bit template graph")
+    if int(audit46.get("template_edge_count_28", 0)) < 1_300_000:
+        return fail("collatz ticket46 must retain the 28-bit template edge set")
+    if int(audit46.get("raw_open_edge_count_28", 0)) < 7_000_000:
+        return fail("collatz ticket46 must process the 28-bit raw open-edge frontier")
+    if int(audit46.get("tested_clause_family_count", 0)) != 5:
+        return fail("collatz ticket46 must test all TICKET45 clause families")
+    if int(audit46.get("refuted_clause_family_count_28", 0)) != 5:
+        return fail("collatz ticket46 must refute all tested 28-bit scalar clause families")
+    if int(audit46.get("stable_clause_family_count_28", 1)) != 0:
+        return fail("collatz ticket46 must not report a stable scalar clause family")
+    stability46 = audit46.get("stability_summary", [])
+    if not isinstance(stability46, list) or len(stability46) != 5:
+        return fail("collatz ticket46 stability summary must include five families")
+    stability46_by_name = {str(row.get("clause_family")): row for row in stability46 if isinstance(row, dict)}
+    for family_name, row in stability46_by_name.items():
+        if row.get("status") != "pressure_cycle_counterexample_refutes_clause_rank":
+            return fail(f"collatz ticket46 {family_name} must be pressure-cycle refuted")
+        if row.get("cycle_detected_28") is not True:
+            return fail(f"collatz ticket46 {family_name} must expose a 28-bit pressure cycle")
+    exact46 = stability46_by_name.get("phase_tail_residue256_vexact", {})
+    if int(exact46.get("new_pressure_edge_count_27_to_28", 0)) < 180_000:
+        return fail("collatz ticket46 exact-template grammar must expose large new 27->28 pressure")
+    first_wrap46 = audit46.get("first_phase_wrap_pressure_edge", {})
+    if not isinstance(first_wrap46, dict):
+        return fail("collatz ticket46 first phase-wrap edge missing")
+    if first_wrap46.get("parent_clause") != "[11]" or first_wrap46.get("child_clause") != "[12]":
+        return fail("collatz ticket46 phase-wrap edge must close 11->12")
+    if float(first_wrap46.get("max_delta_debt", 0.0)) <= 7.0:
+        return fail("collatz ticket46 phase-wrap edge unexpectedly weak")
+    if int(first_wrap46.get("count", 0)) < 3_000_000:
+        return fail("collatz ticket46 phase-wrap edge count unexpectedly small")
+    escape46 = audit46.get("escape_coordinate_audit", [])
+    if not isinstance(escape46, list) or len(escape46) < 3:
+        return fail("collatz ticket46 escape-coordinate audit missing")
+    escape46_text = " ".join(str(row) for row in escape46)
+    if "not_template_local" not in escape46_text or "horizon_dependent_escape_coordinate" not in escape46_text:
+        return fail("collatz ticket46 must reject horizon-dependent escape coordinates")
+    if "restricted no-go" not in str(audit46.get("proof_boundary", "")) and "restricted no-go" not in str(
+        audit46.get("restricted_no_go_statement", "")
+    ):
+        return fail("collatz ticket46 must state only a restricted no-go result")
+    if "No Collatz proof" not in str(audit46.get("proof_boundary", "")):
+        return fail("collatz ticket46 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

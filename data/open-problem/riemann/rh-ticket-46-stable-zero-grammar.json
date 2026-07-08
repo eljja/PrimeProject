@@ -1,0 +1,20 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-46",
+  "status": "proof_pressure_open",
+  "route": "StableZeroGrammarOrEscapeCoordinateAudit",
+  "proof_or_counterexample_mode": "stable-clause no-go transfer",
+  "attempt": "Transfer TICKET46's rule: a finite symbolic grammar that only works by adding a horizon/depth escape coordinate cannot be promoted to a proof. It must either become a compact invariant theorem or produce a genuine counterexample.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-45",
+    "source_route": "SymbolicZeroClauseOrOffCriticalCounteredge",
+    "discarded_shortcut": "finite zero grammar repaired by a height-dependent escape coordinate",
+    "retained_target": "A compact zero-clause grammar or positive kernel whose margin is invariant under all height extensions, not reselected from the checked height.",
+    "counterexample_target": "an off-critical zero or kernel-pressure cycle that survives every compact repair",
+    "ticket46_transfer": "StableZeroGrammarOrEscapeCoordinateAudit"
+  },
+  "obstruction": "The project has improved the falsification protocol for proposed proof grammars, but this transfer is not an infinite proof and not a certified counterexample.",
+  "candidate_theorem": "A compact zero-clause grammar or positive kernel whose margin is invariant under all height extensions, not reselected from the checked height.",
+  "next_experiment": "Audit whether zero-feature repairs depend on height; extract the first off-critical pressure cycle.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

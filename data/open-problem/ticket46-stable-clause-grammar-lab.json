@@ -1,0 +1,1656 @@
+{
+  "schema": "primeproject.ticket46-stable-clause-grammar-lab.v1",
+  "generated_at": "2026-07-08T23:59:00+09:00",
+  "status": "stable_clause_grammar_restricted_no_go_open_no_resolution",
+  "claim_boundary": "Ticket 46 refutes the tested finite scalar clause-rank proof routes and isolates the next ordinal or stateful-measure obligation. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-46",
+      "status": "proof_pressure_open",
+      "route": "StableZeroGrammarOrEscapeCoordinateAudit",
+      "proof_or_counterexample_mode": "stable-clause no-go transfer",
+      "attempt": "Transfer TICKET46's rule: a finite symbolic grammar that only works by adding a horizon/depth escape coordinate cannot be promoted to a proof. It must either become a compact invariant theorem or produce a genuine counterexample.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-45",
+        "source_route": "SymbolicZeroClauseOrOffCriticalCounteredge",
+        "discarded_shortcut": "finite zero grammar repaired by a height-dependent escape coordinate",
+        "retained_target": "A compact zero-clause grammar or positive kernel whose margin is invariant under all height extensions, not reselected from the checked height.",
+        "counterexample_target": "an off-critical zero or kernel-pressure cycle that survives every compact repair",
+        "ticket46_transfer": "StableZeroGrammarOrEscapeCoordinateAudit"
+      },
+      "obstruction": "The project has improved the falsification protocol for proposed proof grammars, but this transfer is not an infinite proof and not a certified counterexample.",
+      "candidate_theorem": "A compact zero-clause grammar or positive kernel whose margin is invariant under all height extensions, not reselected from the checked height.",
+      "next_experiment": "Audit whether zero-feature repairs depend on height; extract the first off-critical pressure cycle.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-46",
+      "route": "StableClauseGrammarOrEscapeCoordinateCounteredge",
+      "status": "restricted_proof_route_refuted_open_problem_open",
+      "proof_or_counterexample_mode": "stable-clause grammar stress test",
+      "attempt": "Stress-test every TICKET45 symbolic clause grammar at the first horizon where the modulo-16 phase wrap is visible. A grammar is discarded if its 28-bit nonnegative-pressure quotient is cyclic. Candidate repairs that require depth or unwrapped phase are audited as escape coordinates rather than accepted as proofs.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-45",
+        "stable_clause_grammar_audit": {
+          "family": "phase16_tail4_residue256_vexact",
+          "max_bits": 28,
+          "template_node_count_28": 261367,
+          "template_edge_count_28": 1370168,
+          "raw_open_edge_count_28": 7960722,
+          "tested_clause_family_count": 5,
+          "refuted_clause_family_count_28": 5,
+          "stable_clause_family_count_28": 0,
+          "wrap_stress_trials_28": [
+            {
+              "clause_family": "phase_only",
+              "description": "One rank clause per phase modulo 16.",
+              "proof_intent": "Test whether phase alone can define a horizon-independent rank.",
+              "status": "pressure_cycle_counterexample_refutes_clause_rank",
+              "clause_count": 16,
+              "clause_edge_count": 16,
+              "pressure_clause_edge_count": 16,
+              "same_clause_pressure_loop_count": 0,
+              "pressure_topology": {
+                "cycle_detected": true,
+                "topological_seen_count": 0,
+                "cyclic_core_node_count": 16,
+                "cyclic_core_examples": [
+                  "[6]",
+                  "[12]",
+                  "[2]",
+                  "[15]",
+                  "[5]",
+                  "[11]"
+                ]
+              },
+              "scale_interval": {
+                "status": "not_attempted_pressure_graph_cyclic",
+                "proof_boundary": "A nonnegative-pressure cycle in the clause graph blocks any scalar rank on this clause family."
+              },
+              "same_clause_pressure_examples": [],
+              "interpretation": "This refutes or supports only the named symbolic clause family on the bounded template graph. It is not a proof or disproof of Collatz."
+            },
+            {
+              "clause_family": "phase_tail_mass_vbucket",
+              "description": "Phase plus coarse valuation-tail mass and clipped next-valuation.",
+              "proof_intent": "Test a small symbolic rank family that ignores residue identity.",
+              "status": "pressure_cycle_counterexample_refutes_clause_rank",
+              "clause_count": 2960,
+              "clause_edge_count": 68596,
+              "pressure_clause_edge_count": 37948,
+              "same_clause_pressure_loop_count": 0,
+              "pressure_topology": {
+                "cycle_detected": true,
+                "topological_seen_count": 916,
+                "cyclic_core_node_count": 2044,
+                "cyclic_core_examples": [
+                  "[5,8,2,7]",
+                  "[11,6,2,4]",
+                  "[6,8,3,8]",
+                  "[15,6,2,7]",
+                  "[8,9,3,3]",
+                  "[6,10,4,2]"
+                ]
+              },
+              "scale_interval": {
+                "status": "not_attempted_pressure_graph_cyclic",
+                "proof_boundary": "A nonnegative-pressure cycle in the clause graph blocks any scalar rank on this clause family."
+              },
+              "same_clause_pressure_examples": [],
+              "interpretation": "This refutes or supports only the named symbolic clause family on the bounded template graph. It is not a proof or disproof of Collatz."
+            },
+            {
+              "clause_family": "phase_tail_residue16_vbucket",
+              "description": "Phase, exact four-symbol valuation tail, residue modulo 16, clipped next-valuation.",
+              "proof_intent": "Test whether low residue classes break the pressure cycles.",
+              "status": "pressure_cycle_counterexample_refutes_clause_rank",
+              "clause_count": 70498,
+              "clause_edge_count": 498372,
+              "pressure_clause_edge_count": 261971,
+              "same_clause_pressure_loop_count": 0,
+              "pressure_topology": {
+                "cycle_detected": true,
+                "topological_seen_count": 65375,
+                "cyclic_core_node_count": 5123,
+                "cyclic_core_examples": [
+                  "[14,2,1,1,1,7,2]",
+                  "[9,4,3,1,1,15,5]",
+                  "[7,2,2,1,1,11,3]",
+                  "[3,1,1,1,1,7,5]",
+                  "[7,3,1,1,1,15,1]",
+                  "[6,1,4,1,1,15,6]"
+                ]
+              },
+              "scale_interval": {
+                "status": "not_attempted_pressure_graph_cyclic",
+                "proof_boundary": "A nonnegative-pressure cycle in the clause graph blocks any scalar rank on this clause family."
+              },
+              "same_clause_pressure_examples": [],
+              "interpretation": "This refutes or supports only the named symbolic clause family on the bounded template graph. It is not a proof or disproof of Collatz."
+            },
+            {
+              "clause_family": "phase_tail_residue64_vbucket",
+              "description": "Phase, exact four-symbol valuation tail, residue modulo 64, clipped next-valuation.",
+              "proof_intent": "Test whether a medium residue quotient is enough for a symbolic rank.",
+              "status": "pressure_cycle_counterexample_refutes_clause_rank",
+              "clause_count": 138390,
+              "clause_edge_count": 840252,
+              "pressure_clause_edge_count": 448510,
+              "same_clause_pressure_loop_count": 0,
+              "pressure_topology": {
+                "cycle_detected": true,
+                "topological_seen_count": 132529,
+                "cyclic_core_node_count": 5861,
+                "cyclic_core_examples": [
+                  "[14,2,1,1,1,7,2]",
+                  "[3,1,1,1,1,7,5]",
+                  "[7,2,2,2,1,63,3]",
+                  "[3,2,2,2,1,31,3]",
+                  "[9,2,1,2,1,47,5]",
+                  "[9,1,1,2,1,39,2]"
+                ]
+              },
+              "scale_interval": {
+                "status": "not_attempted_pressure_graph_cyclic",
+                "proof_boundary": "A nonnegative-pressure cycle in the clause graph blocks any scalar rank on this clause family."
+              },
+              "same_clause_pressure_examples": [],
+              "interpretation": "This refutes or supports only the named symbolic clause family on the bounded template graph. It is not a proof or disproof of Collatz."
+            },
+            {
+              "clause_family": "phase_tail_residue256_vexact",
+              "description": "The observed 26-bit template identity used by TICKET43.",
+              "proof_intent": "Use the observed template table as a ceiling control: it may certify the bounded sample, but it is not a horizon-independent theorem.",
+              "status": "pressure_cycle_counterexample_refutes_clause_rank",
+              "clause_count": 261367,
+              "clause_edge_count": 1370168,
+              "pressure_clause_edge_count": 741372,
+              "same_clause_pressure_loop_count": 0,
+              "pressure_topology": {
+                "cycle_detected": true,
+                "topological_seen_count": 252802,
+                "cyclic_core_node_count": 8565,
+                "cyclic_core_examples": [
+                  "[8,1,2,1,1,231,3]",
+                  "[6,2,1,1,1,159,6]",
+                  "[9,2,1,2,1,47,5]",
+                  "[10,1,1,1,1,111,3]",
+                  "[11,1,1,2,1,167,6]",
+                  "[7,1,2,1,1,223,8]"
+                ]
+              },
+              "scale_interval": {
+                "status": "not_attempted_pressure_graph_cyclic",
+                "proof_boundary": "A nonnegative-pressure cycle in the clause graph blocks any scalar rank on this clause family."
+              },
+              "same_clause_pressure_examples": [],
+              "interpretation": "This refutes or supports only the named symbolic clause family on the bounded template graph. It is not a proof or disproof of Collatz."
+            }
+          ],
+          "extension_comparisons_26_to_27": [
+            {
+              "clause_family": "phase_only",
+              "from_max_bits": 26,
+              "to_max_bits": 27,
+              "previous_clause_count": 15,
+              "current_clause_count": 16,
+              "new_clause_count": 1,
+              "previous_clause_edge_count": 14,
+              "current_clause_edge_count": 15,
+              "new_clause_edge_count": 1,
+              "previous_pressure_clause_edge_count": 14,
+              "current_pressure_clause_edge_count": 15,
+              "new_pressure_clause_edge_count": 1,
+              "new_same_clause_pressure_edge_count": 0,
+              "closure_status": "symbolic_clause_relation_changes_under_horizon_extension",
+              "new_pressure_examples": [
+                {
+                  "parent_clause": "[10]",
+                  "child_clause": "[11]",
+                  "max_delta_debt": 8.415037499279,
+                  "count": 1949797,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,10],255,4]",
+                    "child_template": "[11,[1,1,1,1],255,13]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -10,
+                    "delta_debt": 8.415037499279
+                  }
+                }
+              ]
+            },
+            {
+              "clause_family": "phase_tail_mass_vbucket",
+              "from_max_bits": 26,
+              "to_max_bits": 27,
+              "previous_clause_count": 2413,
+              "current_clause_count": 2700,
+              "new_clause_count": 287,
+              "previous_clause_edge_count": 46373,
+              "current_clause_edge_count": 57264,
+              "new_clause_edge_count": 10891,
+              "previous_pressure_clause_edge_count": 25530,
+              "current_pressure_clause_edge_count": 31906,
+              "new_pressure_clause_edge_count": 6376,
+              "new_same_clause_pressure_edge_count": 0,
+              "closure_status": "symbolic_clause_relation_changes_under_horizon_extension",
+              "new_pressure_examples": [
+                {
+                  "parent_clause": "[10,13,8,4]",
+                  "child_clause": "[11,4,1,8]",
+                  "max_delta_debt": 8.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,10],255,4]",
+                    "child_template": "[11,[1,1,1,1],255,13]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -10,
+                    "delta_debt": 8.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,13,8,2]",
+                  "child_clause": "[11,5,2,8]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,2,1,9],255,2]",
+                    "child_template": "[11,[1,1,2,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,12,8,2]",
+                  "child_clause": "[11,4,1,8]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 4,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,9],159,2]",
+                    "child_template": "[11,[1,1,1,1],159,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,11,8,4]",
+                  "child_clause": "[11,4,1,8]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 2,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],127,4]",
+                    "child_template": "[11,[1,1,1,1],127,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,12,8,2]",
+                  "child_clause": "[11,6,2,8]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,2,8],255,2]",
+                    "child_template": "[11,[2,1,1,2],255,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,13,8,3]",
+                  "child_clause": "[11,6,2,8]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[2,1,2,8],255,3]",
+                    "child_template": "[11,[1,2,1,2],255,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,11,8,2]",
+                  "child_clause": "[11,5,2,8]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 4,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],239,2]",
+                    "child_template": "[11,[2,1,1,1],239,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,11,8,1]",
+                  "child_clause": "[11,4,1,8]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 5,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],239,1]",
+                    "child_template": "[11,[1,1,1,1],239,15]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                }
+              ]
+            },
+            {
+              "clause_family": "phase_tail_residue16_vbucket",
+              "from_max_bits": 26,
+              "to_max_bits": 27,
+              "previous_clause_count": 46885,
+              "current_clause_count": 57633,
+              "new_clause_count": 10748,
+              "previous_clause_edge_count": 281947,
+              "current_clause_edge_count": 380575,
+              "new_clause_edge_count": 98628,
+              "previous_pressure_clause_edge_count": 149685,
+              "current_pressure_clause_edge_count": 203578,
+              "new_pressure_clause_edge_count": 53893,
+              "new_same_clause_pressure_edge_count": 0,
+              "closure_status": "symbolic_clause_relation_changes_under_horizon_extension",
+              "new_pressure_examples": [
+                {
+                  "parent_clause": "[10,1,1,1,10,15,4]",
+                  "child_clause": "[11,1,1,1,1,15,13]",
+                  "max_delta_debt": 8.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,10],255,4]",
+                    "child_template": "[11,[1,1,1,1],255,13]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -10,
+                    "delta_debt": 8.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,2,1,9,15,2]",
+                  "child_clause": "[11,1,1,2,1,15,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,2,1,9],255,2]",
+                    "child_template": "[11,[1,1,2,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,9,15,2]",
+                  "child_clause": "[11,1,1,1,1,15,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 4,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,9],159,2]",
+                    "child_template": "[11,[1,1,1,1],159,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,2,1,2,8,15,3]",
+                  "child_clause": "[11,1,2,1,2,15,12]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[2,1,2,8],255,3]",
+                    "child_template": "[11,[1,2,1,2],255,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,8,7,1]",
+                  "child_clause": "[11,1,1,1,1,7,12]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],103,1]",
+                    "child_template": "[11,[1,1,1,1],103,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,8,11,2]",
+                  "child_clause": "[11,2,1,1,1,11,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],27,2]",
+                    "child_template": "[11,[2,1,1,1],27,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,8,15,4]",
+                  "child_clause": "[11,2,1,1,1,15,11]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],127,4]",
+                    "child_template": "[11,[2,1,1,1],127,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,8,7,2]",
+                  "child_clause": "[11,1,1,1,1,7,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],103,2]",
+                    "child_template": "[11,[1,1,1,1],103,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                }
+              ]
+            },
+            {
+              "clause_family": "phase_tail_residue64_vbucket",
+              "from_max_bits": 26,
+              "to_max_bits": 27,
+              "previous_clause_count": 90008,
+              "current_clause_count": 111894,
+              "new_clause_count": 21886,
+              "previous_clause_edge_count": 459180,
+              "current_clause_edge_count": 630365,
+              "new_clause_edge_count": 171185,
+              "previous_pressure_clause_edge_count": 248120,
+              "current_pressure_clause_edge_count": 342957,
+              "new_pressure_clause_edge_count": 94837,
+              "new_same_clause_pressure_edge_count": 0,
+              "closure_status": "symbolic_clause_relation_changes_under_horizon_extension",
+              "new_pressure_examples": [
+                {
+                  "parent_clause": "[10,1,1,1,10,63,4]",
+                  "child_clause": "[11,1,1,1,1,63,13]",
+                  "max_delta_debt": 8.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,10],255,4]",
+                    "child_template": "[11,[1,1,1,1],255,13]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -10,
+                    "delta_debt": 8.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,9,31,2]",
+                  "child_clause": "[11,1,1,1,1,31,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,9],159,2]",
+                    "child_template": "[11,[1,1,1,1],159,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,2,1,9,63,2]",
+                  "child_clause": "[11,1,1,2,1,63,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,2,1,9],255,2]",
+                    "child_template": "[11,[1,1,2,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,9,63,2]",
+                  "child_clause": "[11,1,1,1,1,63,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 3,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,9],255,2]",
+                    "child_template": "[11,[1,1,1,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,2,8,63,2]",
+                  "child_clause": "[11,1,1,1,2,63,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 2,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,2,8],255,2]",
+                    "child_template": "[11,[1,1,1,2],255,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,8,27,3]",
+                  "child_clause": "[11,1,1,1,1,27,14]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],91,3]",
+                    "child_template": "[11,[1,1,1,1],91,14]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,8,27,3]",
+                  "child_clause": "[11,1,1,1,1,27,12]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],27,3]",
+                    "child_template": "[11,[1,1,1,1],27,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,2,1,8,63,2]",
+                  "child_clause": "[11,1,1,2,1,63,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 2,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,2,1,8],255,2]",
+                    "child_template": "[11,[1,1,2,1],255,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                }
+              ]
+            },
+            {
+              "clause_family": "phase_tail_residue256_vexact",
+              "from_max_bits": 26,
+              "to_max_bits": 27,
+              "previous_clause_count": 165841,
+              "current_clause_count": 208820,
+              "new_clause_count": 42979,
+              "previous_clause_edge_count": 710241,
+              "current_clause_edge_count": 1002683,
+              "new_clause_edge_count": 292442,
+              "previous_pressure_clause_edge_count": 390494,
+              "current_pressure_clause_edge_count": 554286,
+              "new_pressure_clause_edge_count": 163792,
+              "new_same_clause_pressure_edge_count": 0,
+              "closure_status": "symbolic_clause_relation_changes_under_horizon_extension",
+              "new_pressure_examples": [
+                {
+                  "parent_clause": "[10,1,1,1,10,255,4]",
+                  "child_clause": "[11,1,1,1,1,255,13]",
+                  "max_delta_debt": 8.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,10],255,4]",
+                    "child_template": "[11,[1,1,1,1],255,13]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -10,
+                    "delta_debt": 8.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,2,1,9,255,2]",
+                  "child_clause": "[11,1,1,2,1,255,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,2,1,9],255,2]",
+                    "child_template": "[11,[1,1,2,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,9,159,2]",
+                  "child_clause": "[11,1,1,1,1,159,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,9],159,2]",
+                    "child_template": "[11,[1,1,1,1],159,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,9,255,2]",
+                  "child_clause": "[11,1,1,1,1,255,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 3,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,9],255,2]",
+                    "child_template": "[11,[1,1,1,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,8,223,2]",
+                  "child_clause": "[11,1,1,1,1,223,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],223,2]",
+                    "child_template": "[11,[1,1,1,1],223,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,2,1,2,8,255,3]",
+                  "child_clause": "[11,1,2,1,2,255,12]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[2,1,2,8],255,3]",
+                    "child_template": "[11,[1,2,1,2],255,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,1,1,1,8,239,2]",
+                  "child_clause": "[11,2,1,1,1,239,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[1,1,1,8],239,2]",
+                    "child_template": "[11,[2,1,1,1],239,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[10,2,1,1,8,255,2]",
+                  "child_clause": "[11,1,2,1,1,255,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 26,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[10,[2,1,1,8],255,2]",
+                    "child_template": "[11,[1,2,1,1],255,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                }
+              ]
+            }
+          ],
+          "extension_comparisons_27_to_28": [
+            {
+              "clause_family": "phase_only",
+              "from_max_bits": 27,
+              "to_max_bits": 28,
+              "previous_clause_count": 16,
+              "current_clause_count": 16,
+              "new_clause_count": 0,
+              "previous_clause_edge_count": 15,
+              "current_clause_edge_count": 16,
+              "new_clause_edge_count": 1,
+              "previous_pressure_clause_edge_count": 15,
+              "current_pressure_clause_edge_count": 16,
+              "new_pressure_clause_edge_count": 1,
+              "new_same_clause_pressure_edge_count": 0,
+              "closure_status": "symbolic_clause_relation_changes_under_horizon_extension",
+              "new_pressure_examples": [
+                {
+                  "parent_clause": "[11]",
+                  "child_clause": "[12]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 3618400,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,9],191,1]",
+                    "child_template": "[12,[1,1,1,1],191,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                }
+              ]
+            },
+            {
+              "clause_family": "phase_tail_mass_vbucket",
+              "from_max_bits": 27,
+              "to_max_bits": 28,
+              "previous_clause_count": 2700,
+              "current_clause_count": 2960,
+              "new_clause_count": 260,
+              "previous_clause_edge_count": 57264,
+              "current_clause_edge_count": 68596,
+              "new_clause_edge_count": 11332,
+              "previous_pressure_clause_edge_count": 31906,
+              "current_pressure_clause_edge_count": 37948,
+              "new_pressure_clause_edge_count": 6042,
+              "new_same_clause_pressure_edge_count": 0,
+              "closure_status": "symbolic_clause_relation_changes_under_horizon_extension",
+              "new_pressure_examples": [
+                {
+                  "parent_clause": "[11,12,8,1]",
+                  "child_clause": "[12,5,2,8]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 15,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,9],255,1]",
+                    "child_template": "[12,[2,1,1,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,13,8,1]",
+                  "child_clause": "[12,5,2,8]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,2,1,9],255,1]",
+                    "child_template": "[12,[1,1,2,1],255,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,12,8,1]",
+                  "child_clause": "[12,4,1,8]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,9],191,1]",
+                    "child_template": "[12,[1,1,1,1],191,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,11,8,2]",
+                  "child_clause": "[12,4,1,8]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 2,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],159,2]",
+                    "child_template": "[12,[1,1,1,1],159,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,13,8,1]",
+                  "child_clause": "[12,6,2,8]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 3,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[2,2,1,8],255,1]",
+                    "child_template": "[12,[1,2,2,1],255,17]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,11,8,3]",
+                  "child_clause": "[12,4,1,8]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 2,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],191,3]",
+                    "child_template": "[12,[1,1,1,1],191,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,11,8,1]",
+                  "child_clause": "[12,5,2,8]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 4,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],239,1]",
+                    "child_template": "[12,[2,1,1,1],239,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,12,8,3]",
+                  "child_clause": "[12,5,2,8]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[2,1,1,8],255,3]",
+                    "child_template": "[12,[1,2,1,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                }
+              ]
+            },
+            {
+              "clause_family": "phase_tail_residue16_vbucket",
+              "from_max_bits": 27,
+              "to_max_bits": 28,
+              "previous_clause_count": 57633,
+              "current_clause_count": 70498,
+              "new_clause_count": 12865,
+              "previous_clause_edge_count": 380575,
+              "current_clause_edge_count": 498372,
+              "new_clause_edge_count": 117797,
+              "previous_pressure_clause_edge_count": 203578,
+              "current_pressure_clause_edge_count": 261971,
+              "new_pressure_clause_edge_count": 58393,
+              "new_same_clause_pressure_edge_count": 0,
+              "closure_status": "symbolic_clause_relation_changes_under_horizon_extension",
+              "new_pressure_examples": [
+                {
+                  "parent_clause": "[11,1,2,1,9,15,1]",
+                  "child_clause": "[12,1,1,2,1,15,12]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,2,1,9],255,1]",
+                    "child_template": "[12,[1,1,2,1],255,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,9,15,1]",
+                  "child_clause": "[12,1,1,1,1,15,12]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,9],191,1]",
+                    "child_template": "[12,[1,1,1,1],191,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,9,15,1]",
+                  "child_clause": "[12,2,1,1,1,15,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,9],255,1]",
+                    "child_template": "[12,[2,1,1,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,8,11,1]",
+                  "child_clause": "[12,1,1,1,1,11,12]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 2,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],27,1]",
+                    "child_template": "[12,[1,1,1,1],27,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,8,15,1]",
+                  "child_clause": "[12,1,1,1,1,15,16]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],127,1]",
+                    "child_template": "[12,[1,1,1,1],127,16]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,2,1,8,15,1]",
+                  "child_clause": "[12,1,1,2,1,15,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 2,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,2,1,8],255,1]",
+                    "child_template": "[12,[1,1,2,1],255,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,2,1,8,15,1]",
+                  "child_clause": "[12,1,1,2,1,15,12]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,2,1,8],255,1]",
+                    "child_template": "[12,[1,1,2,1],255,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,8,15,1]",
+                  "child_clause": "[12,1,1,1,1,15,11]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 4,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],239,1]",
+                    "child_template": "[12,[1,1,1,1],239,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                }
+              ]
+            },
+            {
+              "clause_family": "phase_tail_residue64_vbucket",
+              "from_max_bits": 27,
+              "to_max_bits": 28,
+              "previous_clause_count": 111894,
+              "current_clause_count": 138390,
+              "new_clause_count": 26496,
+              "previous_clause_edge_count": 630365,
+              "current_clause_edge_count": 840252,
+              "new_clause_edge_count": 209887,
+              "previous_pressure_clause_edge_count": 342957,
+              "current_pressure_clause_edge_count": 448510,
+              "new_pressure_clause_edge_count": 105553,
+              "new_same_clause_pressure_edge_count": 0,
+              "closure_status": "symbolic_clause_relation_changes_under_horizon_extension",
+              "new_pressure_examples": [
+                {
+                  "parent_clause": "[11,1,2,1,9,63,1]",
+                  "child_clause": "[12,1,1,2,1,63,12]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,2,1,9],255,1]",
+                    "child_template": "[12,[1,1,2,1],255,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,9,63,1]",
+                  "child_clause": "[12,1,1,1,1,63,12]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,9],191,1]",
+                    "child_template": "[12,[1,1,1,1],191,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,9,63,1]",
+                  "child_clause": "[12,2,1,1,1,63,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,9],255,1]",
+                    "child_template": "[12,[2,1,1,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,8,47,1]",
+                  "child_clause": "[12,2,1,1,1,47,11]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],239,1]",
+                    "child_template": "[12,[2,1,1,1],239,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,2,2,8,63,1]",
+                  "child_clause": "[12,1,1,2,2,63,13]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,2,2,8],255,1]",
+                    "child_template": "[12,[1,1,2,2],255,13]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,2,2,1,8,63,1]",
+                  "child_clause": "[12,1,2,2,1,63,16]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[2,2,1,8],255,1]",
+                    "child_template": "[12,[1,2,2,1],255,17]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,8,63,2]",
+                  "child_clause": "[12,1,1,1,1,63,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],255,2]",
+                    "child_template": "[12,[1,1,1,1],255,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,2,8,63,1]",
+                  "child_clause": "[12,1,1,1,2,63,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,2,8],255,1]",
+                    "child_template": "[12,[1,1,1,2],255,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                }
+              ]
+            },
+            {
+              "clause_family": "phase_tail_residue256_vexact",
+              "from_max_bits": 27,
+              "to_max_bits": 28,
+              "previous_clause_count": 208820,
+              "current_clause_count": 261367,
+              "new_clause_count": 52547,
+              "previous_clause_edge_count": 1002683,
+              "current_clause_edge_count": 1370168,
+              "new_clause_edge_count": 367485,
+              "previous_pressure_clause_edge_count": 554286,
+              "current_pressure_clause_edge_count": 741372,
+              "new_pressure_clause_edge_count": 187086,
+              "new_same_clause_pressure_edge_count": 0,
+              "closure_status": "symbolic_clause_relation_changes_under_horizon_extension",
+              "new_pressure_examples": [
+                {
+                  "parent_clause": "[11,1,1,1,9,255,1]",
+                  "child_clause": "[12,2,1,1,1,255,11]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,9],255,1]",
+                    "child_template": "[12,[2,1,1,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,9,191,1]",
+                  "child_clause": "[12,1,1,1,1,191,12]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,9],191,1]",
+                    "child_template": "[12,[1,1,1,1],191,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,2,1,9,255,1]",
+                  "child_clause": "[12,1,1,2,1,255,12]",
+                  "max_delta_debt": 7.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,2,1,9],255,1]",
+                    "child_template": "[12,[1,1,2,1],255,12]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -9,
+                    "delta_debt": 7.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,8,255,1]",
+                  "child_clause": "[12,1,1,1,1,255,10]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 3,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],255,1]",
+                    "child_template": "[12,[1,1,1,1],255,10]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,2,1,1,8,255,1]",
+                  "child_clause": "[12,1,2,1,1,255,11]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[2,1,1,8],255,1]",
+                    "child_template": "[12,[1,2,1,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,8,127,1]",
+                  "child_clause": "[12,1,1,1,1,127,16]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],127,1]",
+                    "child_template": "[12,[1,1,1,1],127,16]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,8,103,1]",
+                  "child_clause": "[12,2,1,1,1,103,13]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],103,1]",
+                    "child_template": "[12,[2,1,1,1],103,13]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                },
+                {
+                  "parent_clause": "[11,1,1,1,8,255,3]",
+                  "child_clause": "[12,1,1,1,1,255,11]",
+                  "max_delta_debt": 6.415037499279,
+                  "count": 1,
+                  "example": {
+                    "bits": 27,
+                    "direction": "high",
+                    "label": "both_open",
+                    "parent_template": "[11,[1,1,1,8],255,3]",
+                    "child_template": "[12,[1,1,1,1],255,11]",
+                    "delta_prefix": -1,
+                    "delta_consumed": -8,
+                    "delta_debt": 6.415037499279
+                  }
+                }
+              ]
+            }
+          ],
+          "stability_summary": [
+            {
+              "clause_family": "phase_only",
+              "status": "pressure_cycle_counterexample_refutes_clause_rank",
+              "clause_count_28": 16,
+              "pressure_clause_edge_count_28": 16,
+              "same_clause_pressure_loop_count_28": 0,
+              "cycle_detected_28": true,
+              "cyclic_core_node_count_28": 16,
+              "new_clause_count_27_to_28": 0,
+              "new_pressure_edge_count_27_to_28": 1,
+              "first_new_pressure_edge_27_to_28": {
+                "parent_clause": "[11]",
+                "child_clause": "[12]",
+                "max_delta_debt": 7.415037499279,
+                "count": 3618400,
+                "example": {
+                  "bits": 27,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_template": "[11,[1,1,1,9],191,1]",
+                  "child_template": "[12,[1,1,1,1],191,12]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -9,
+                  "delta_debt": 7.415037499279
+                }
+              }
+            },
+            {
+              "clause_family": "phase_tail_mass_vbucket",
+              "status": "pressure_cycle_counterexample_refutes_clause_rank",
+              "clause_count_28": 2960,
+              "pressure_clause_edge_count_28": 37948,
+              "same_clause_pressure_loop_count_28": 0,
+              "cycle_detected_28": true,
+              "cyclic_core_node_count_28": 2044,
+              "new_clause_count_27_to_28": 260,
+              "new_pressure_edge_count_27_to_28": 6042,
+              "first_new_pressure_edge_27_to_28": {
+                "parent_clause": "[11,12,8,1]",
+                "child_clause": "[12,5,2,8]",
+                "max_delta_debt": 7.415037499279,
+                "count": 15,
+                "example": {
+                  "bits": 27,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_template": "[11,[1,1,1,9],255,1]",
+                  "child_template": "[12,[2,1,1,1],255,11]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -9,
+                  "delta_debt": 7.415037499279
+                }
+              }
+            },
+            {
+              "clause_family": "phase_tail_residue16_vbucket",
+              "status": "pressure_cycle_counterexample_refutes_clause_rank",
+              "clause_count_28": 70498,
+              "pressure_clause_edge_count_28": 261971,
+              "same_clause_pressure_loop_count_28": 0,
+              "cycle_detected_28": true,
+              "cyclic_core_node_count_28": 5123,
+              "new_clause_count_27_to_28": 12865,
+              "new_pressure_edge_count_27_to_28": 58393,
+              "first_new_pressure_edge_27_to_28": {
+                "parent_clause": "[11,1,2,1,9,15,1]",
+                "child_clause": "[12,1,1,2,1,15,12]",
+                "max_delta_debt": 7.415037499279,
+                "count": 1,
+                "example": {
+                  "bits": 27,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_template": "[11,[1,2,1,9],255,1]",
+                  "child_template": "[12,[1,1,2,1],255,12]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -9,
+                  "delta_debt": 7.415037499279
+                }
+              }
+            },
+            {
+              "clause_family": "phase_tail_residue64_vbucket",
+              "status": "pressure_cycle_counterexample_refutes_clause_rank",
+              "clause_count_28": 138390,
+              "pressure_clause_edge_count_28": 448510,
+              "same_clause_pressure_loop_count_28": 0,
+              "cycle_detected_28": true,
+              "cyclic_core_node_count_28": 5861,
+              "new_clause_count_27_to_28": 26496,
+              "new_pressure_edge_count_27_to_28": 105553,
+              "first_new_pressure_edge_27_to_28": {
+                "parent_clause": "[11,1,2,1,9,63,1]",
+                "child_clause": "[12,1,1,2,1,63,12]",
+                "max_delta_debt": 7.415037499279,
+                "count": 1,
+                "example": {
+                  "bits": 27,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_template": "[11,[1,2,1,9],255,1]",
+                  "child_template": "[12,[1,1,2,1],255,12]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -9,
+                  "delta_debt": 7.415037499279
+                }
+              }
+            },
+            {
+              "clause_family": "phase_tail_residue256_vexact",
+              "status": "pressure_cycle_counterexample_refutes_clause_rank",
+              "clause_count_28": 261367,
+              "pressure_clause_edge_count_28": 741372,
+              "same_clause_pressure_loop_count_28": 0,
+              "cycle_detected_28": true,
+              "cyclic_core_node_count_28": 8565,
+              "new_clause_count_27_to_28": 52547,
+              "new_pressure_edge_count_27_to_28": 187086,
+              "first_new_pressure_edge_27_to_28": {
+                "parent_clause": "[11,1,1,1,9,255,1]",
+                "child_clause": "[12,2,1,1,1,255,11]",
+                "max_delta_debt": 7.415037499279,
+                "count": 1,
+                "example": {
+                  "bits": 27,
+                  "direction": "high",
+                  "label": "both_open",
+                  "parent_template": "[11,[1,1,1,9],255,1]",
+                  "child_template": "[12,[2,1,1,1],255,11]",
+                  "delta_prefix": -1,
+                  "delta_consumed": -9,
+                  "delta_debt": 7.415037499279
+                }
+              }
+            }
+          ],
+          "first_phase_wrap_pressure_edge": {
+            "parent_clause": "[11]",
+            "child_clause": "[12]",
+            "max_delta_debt": 7.415037499279,
+            "count": 3618400,
+            "example": {
+              "bits": 27,
+              "direction": "high",
+              "label": "both_open",
+              "parent_template": "[11,[1,1,1,9],191,1]",
+              "child_template": "[12,[1,1,1,1],191,12]",
+              "delta_prefix": -1,
+              "delta_consumed": -9,
+              "delta_debt": 7.415037499279
+            }
+          },
+          "escape_coordinate_audit": [
+            {
+              "candidate": "unwrapped_phase_epoch",
+              "classification": "not_template_local",
+              "why_it_is_not_a_proof_yet": "The current template key stores phase modulo 16. An unwrapped epoch must be supplied by the external lift depth or path history, so it is not a finite horizon-independent clause grammar.",
+              "required_next_theorem": "Define a well-founded ordinal or monotone epoch generated by the Collatz transition itself, then prove every future lift decreases it without rechoosing the epoch from max_bits."
+            },
+            {
+              "candidate": "depth_or_max_bits_bucket",
+              "classification": "horizon_dependent_escape_coordinate",
+              "why_it_is_not_a_proof_yet": "A depth bucket can break the observed wrap cycle only because it remembers which bounded horizon created the edge. A proof needs one fixed object that does not grow when 29, 30, or later bits are added.",
+              "required_next_theorem": "Replace finite depth buckets by a compact transition rule with an invariant descent, or extract a future edge that refutes that compact rule."
+            },
+            {
+              "candidate": "exact_observed_template_table",
+              "classification": "grows_under_extension_and_is_now_pressure_cyclic",
+              "why_it_is_not_a_proof_yet": "The exact template table was a bounded ceiling certificate at 26 bits. At 28 bits it has 52547 new clauses and 187086 new nonnegative-pressure edges, and its 28-bit pressure graph is cyclic.",
+              "required_next_theorem": "Either compress the exact table into a stable symbolic grammar with acyclic pressure graph, or prove an ordinal-valued measure that tolerates the pressure cycles."
+            }
+          ],
+          "restricted_no_go_statement": "Within the five tested finite template-local scalar clause-rank grammars, no candidate remains after 28-bit wrap stress: every tested quotient has a nonnegative-pressure cycle.",
+          "closed_bounded_statement": "The 28-bit lift refutes phase-only, coarse tail mass, residue-16, residue-64, and exact observed template scalar clause-rank proof routes by pressure-cycle extraction.",
+          "proof_boundary": "No Collatz proof and no Collatz counterexample. TICKET46 proves only a restricted no-go theorem for the tested scalar, template-local clause-rank routes. Surviving approaches must introduce a rigorously defined ordinal/stateful measure or find a true Collatz counterexample."
+        }
+      },
+      "obstruction": "The phase-wrap edge does not merely defeat a coarse quotient. At 28 bits every tested template-local scalar clause grammar becomes pressure-cyclic, including the exact observed template table. The obvious repair is to add an epoch/depth coordinate, but that coordinate is horizon-dependent unless a new well-founded transition theorem is proved.",
+      "candidate_theorem": "There exists a compact, horizon-independent ordinal or stateful measure on Collatz lift templates that strictly decreases on every future lifted open edge, including phase-wrap edges, without rechoosing the measure at each max_bits.",
+      "next_experiment": "Generate TICKET47 by synthesizing ordinal/stateful measures whose state update is template-local and then extracting a 29-bit or 30-bit counteredge whenever the update secretly depends on horizon depth.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-46",
+      "status": "proof_pressure_open",
+      "route": "StableMarginGrammarOrExceptionalEscapeAudit",
+      "proof_or_counterexample_mode": "stable-clause no-go transfer",
+      "attempt": "Transfer TICKET46's rule: a finite symbolic grammar that only works by adding a horizon/depth escape coordinate cannot be promoted to a proof. It must either become a compact invariant theorem or produce a genuine counterexample.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-45",
+        "source_route": "SymbolicMarginClauseOrExceptionalCounteredge",
+        "discarded_shortcut": "finite residue margin grammar repaired by cutoff-dependent constants",
+        "retained_target": "A compact exceptional-residue margin theorem with explicit constants fixed before the cutoff is extended.",
+        "counterexample_target": "a large even integer or residue class whose pressure edge violates every fixed margin grammar",
+        "ticket46_transfer": "StableMarginGrammarOrExceptionalEscapeAudit"
+      },
+      "obstruction": "The project has improved the falsification protocol for proposed proof grammars, but this transfer is not an infinite proof and not a certified counterexample.",
+      "candidate_theorem": "A compact exceptional-residue margin theorem with explicit constants fixed before the cutoff is extended.",
+      "next_experiment": "Audit cutoff-dependent constants and convert them into explicit inequalities or counterexamples.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-46",
+      "status": "proof_pressure_open",
+      "route": "StableGapGrammarOrLeakageEscapeAudit",
+      "proof_or_counterexample_mode": "stable-clause no-go transfer",
+      "attempt": "Transfer TICKET46's rule: a finite symbolic grammar that only works by adding a horizon/depth escape coordinate cannot be promoted to a proof. It must either become a compact invariant theorem or produce a genuine counterexample.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-45",
+        "source_route": "SymbolicExactGapClauseOrLeakageCounteredge",
+        "discarded_shortcut": "finite exact-gap selector repaired by range-dependent leakage coordinates",
+        "retained_target": "A compact gap-2 selector or Maynard-type weight whose positive mass survives every range extension with fixed parameters.",
+        "counterexample_target": "a leakage pressure cycle where wider gaps absorb every fixed exact-gap selector margin",
+        "ticket46_transfer": "StableGapGrammarOrLeakageEscapeAudit"
+      },
+      "obstruction": "The project has improved the falsification protocol for proposed proof grammars, but this transfer is not an infinite proof and not a certified counterexample.",
+      "candidate_theorem": "A compact gap-2 selector or Maynard-type weight whose positive mass survives every range extension with fixed parameters.",
+      "next_experiment": "Audit range-dependent selector repairs and extract the first fixed-parameter leakage cycle.",
+      "claim_boundary": "No twin-prime proof and no certified twin-prime counterexample."
+    }
+  ]
+}

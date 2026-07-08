@@ -450,6 +450,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Feature measure result") ||
         !page.proofOrCounterexampleText.includes("Ticket 45 symbolic rank clause lab") ||
         !page.proofOrCounterexampleText.includes("Symbolic clause result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 46 stable clause grammar lab") ||
+        !page.proofOrCounterexampleText.includes("Stable grammar result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

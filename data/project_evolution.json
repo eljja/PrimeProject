@@ -53,7 +53,7 @@
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
     "claim_language_scanned_files": 19,
-    "claim_language_scanned_lines": 9798,
+    "claim_language_scanned_lines": 9983,
     "claim_language_triggered_mentions": 117,
     "claim_language_guarded_mentions": 117,
     "claim_language_failures": 0,
@@ -146,6 +146,13 @@
           "state": "guarded",
           "measure": "21 checked artifacts / 15 gates / 11 guard checks",
           "proof": "claim-language audit, claim ledger, lineage, decision protocol, falsification battery, and consistency audit prevent overclaiming"
+        },
+        {
+          "marker": "06",
+          "title": "Proof route pruning",
+          "state": "open",
+          "measure": "5/5 scalar clause-rank grammars refuted at 28 bits",
+          "proof": "TICKET-46 turns the Collatz scalar-rank route into a restricted no-go result, not a conjecture proof"
         }
       ],
       "evidence_flow": [
@@ -262,6 +269,14 @@
           "artifacts": ["data/evidence_pack.json", "data/claim_ledger.json", "data/artifact_lineage.json", "data/decision_protocol.json", "data/falsification_battery.json", "data/publication_consistency.json"],
           "gate": "21 checked artifacts, 15 gates, 24 lineage nodes, 11 guard checks",
           "proof": "Public statements are constrained by claim-language audit, checksums, lineage, decision rules, falsification guards, and consistency checks."
+        },
+        {
+          "layer": "Open-Proof",
+          "score": 45,
+          "status": "open",
+          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "docs/proof-or-counterexample-program.md"],
+          "gate": "5 tested scalar clause-rank grammars refuted at 28 bits; 0 stable scalar grammars remain",
+          "proof": "The proof workbench now discards the tested Collatz scalar-rank route and requires an ordinal/stateful infinite bridge."
         }
       ]
     },
@@ -290,6 +305,11 @@
         "label": "Publication guardrail",
         "impact": "Claim-language audit, claim ledger, lineage, decision rules, falsification checks, and consistency checks keep the public page at demo/scaffold claim strength.",
         "metric": "21 artifacts / 11 guard checks"
+      },
+      {
+        "label": "Proof route pruning",
+        "impact": "TICKET-46 refutes all five tested Collatz scalar clause-rank grammars at 28 bits, so the remaining target is an ordinal/stateful infinite bridge.",
+        "metric": "5 refuted / 0 stable"
       }
     ],
     "research_delta": {
@@ -323,6 +343,12 @@
           "before": "Informal narrative claims",
           "current": "22 checksummed artifacts, claim-language audit, open-problem certificates, claim ledger, lineage DAG, decision protocol, falsification battery, consistency audit",
           "state": "guarded"
+        },
+        {
+          "track": "Open proof search",
+          "before": "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.",
+          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars at 28 bits and leaves only ordinal/stateful or counteredge routes.",
+          "state": "open"
         }
       ],
       "claim_lanes": [

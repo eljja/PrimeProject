@@ -282,3 +282,55 @@ Define a small accelerated odd-residue system modulo `2^k`, attach a valuation-d
 Any future LLM must preserve this statement:
 
 > PrimeProject can organize proof search and falsification for these four open problems, but it does not prove any of them until an independently checkable infinite argument or formal proof artifact closes the missing infinite bridge.
+
+## Latest Continuation After TICKET-46
+
+TICKET-46 supersedes the earlier Collatz scalar-rank continuation target. The project pushed the Collatz lift-template stress test to 28 bits and found that every tested finite template-local scalar clause-rank grammar is pressure-cyclic:
+
+- `phase_only`
+- `phase_tail_mass_vbucket`
+- `phase_tail_residue16_vbucket`
+- `phase_tail_residue64_vbucket`
+- `phase_tail_residue256_vexact`
+
+The exact observed-template table is therefore no longer a viable scalar clause-rank proof route after 28-bit wrap stress. This is a restricted no-go theorem for the tested proof route, not a Collatz proof or counterexample.
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-47 OrdinalStatefulMeasureOr29BitCounteredge
+```
+
+Required direction:
+
+1. Do not retry a scalar rank on the five TICKET45/TICKET46 grammars.
+2. Propose an ordinal-valued or stateful measure whose update rule is template-local and fixed before increasing `max_bits`.
+3. Explicitly reject any repair that uses `max_bits`, lift depth, or an unwrapped phase epoch unless that coordinate is defined by a horizon-independent transition theorem.
+4. Search for a 29-bit or 30-bit counteredge against the proposed update rule before attempting proof.
+5. If a candidate survives bounded stress, state the exact infinite theorem needed to promote it.
+
+Updated copy-paste prompt:
+
+```text
+Act as a skeptical mathematical theorem-search agent working from PrimeProject TICKET-46.
+
+Known result: at 28 bits, all five tested finite template-local scalar Collatz clause-rank grammars are refuted by nonnegative-pressure cycles. Therefore you must not repeat phase-only, tail-mass, residue16, residue64, or exact observed-template scalar rank as a proof route.
+
+Goal: either find a genuinely stronger horizon-independent ordinal/stateful Collatz measure, or find a counteredge against such a candidate.
+
+Tasks:
+1. Define the candidate state space and measure in precise mathematical language.
+2. Prove that the state update is independent of max_bits and lift depth, or explicitly mark it as invalid.
+3. State the decrease inequality for every future lifted open edge.
+4. Try to falsify the inequality with a 29-bit/30-bit lift counteredge.
+5. If falsified, record the exact failing edge class.
+6. If not falsified, state the remaining infinite bridge theorem without claiming Collatz is proved.
+
+End with exactly one status:
+- invalid_horizon_dependent_coordinate
+- counteredge_found
+- bounded_survivor_needs_infinite_bridge
+- formal_theorem_candidate_ready
+
+Never output `Collatz proved` unless the all-future lift theorem is supplied in independently checkable form.
+```
