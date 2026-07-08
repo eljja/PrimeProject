@@ -1,0 +1,19 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-53",
+  "status": "proof_pressure_open",
+  "route": "GapSelectorTerminalNoGoTheorem",
+  "proof_or_counterexample_mode": "local terminal theorem before broader search",
+  "attempt": "Transfer TICKET53's rule: when a strong witness family closes for a structural reason, promote the local terminal theorem and remove that family from future counterexample search.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-52",
+    "source_route": "GapSelectorFrontierBudget",
+    "ticket53_transfer": "GapSelectorTerminalNoGoTheorem",
+    "candidate_theorem": "Any exact-gap selector family whose terminal leakage is structurally forced must be excluded before searching a new gap-2 witness family.",
+    "frontier_rule": "A closed witness family should become a local no-go theorem, not a repeated sampling target."
+  },
+  "obstruction": "This is a method-transfer artifact. It does not solve the target problem, but it forces the next search to exclude a locally refuted witness family.",
+  "candidate_theorem": "Any exact-gap selector family whose terminal leakage is structurally forced must be excluded before searching a new gap-2 witness family.",
+  "next_experiment": "State the problem-specific terminal no-go theorem and then search outside that family.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

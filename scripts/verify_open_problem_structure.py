@@ -46,6 +46,7 @@ TICKET49_SCHEMA = "primeproject.ticket49-symbolic-preimage-obstruction-lab.v1"
 TICKET50_SCHEMA = "primeproject.ticket50-phase-lift-exception-lab.v1"
 TICKET51_SCHEMA = "primeproject.ticket51-phase15-terminal-lift-lab.v1"
 TICKET52_SCHEMA = "primeproject.ticket52-frontier-budget-lab.v1"
+TICKET53_SCHEMA = "primeproject.ticket53-symbolic-terminal-theorem-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2444,6 +2445,73 @@ def main() -> int:
         return fail("collatz ticket52 proof boundary must block proof overclaim")
     if "not exhaustive" not in str(audit52.get("proof_boundary", "")):
         return fail("collatz ticket52 must preserve sampler boundary")
+
+    ticket53_path = Path("data/open-problem/ticket53-symbolic-terminal-theorem-lab.json")
+    if not ticket53_path.exists():
+        return fail("missing ticket53 symbolic terminal theorem artifact")
+    ticket53 = read_json(ticket53_path)
+    if ticket53.get("schema") != TICKET53_SCHEMA:
+        return fail("ticket53 symbolic terminal theorem artifact has unexpected schema")
+    if ticket53.get("status") != "symbolic_terminal_theorem_open_no_resolution":
+        return fail("ticket53 symbolic terminal theorem overstates resolution")
+    ticket53_attempts = ticket53.get("attempts", [])
+    if not isinstance(ticket53_attempts, list):
+        return fail("ticket53 attempts must be a list")
+    ticket53_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket53_attempts if isinstance(attempt, dict)}
+    missing_ticket53 = EXPECTED_PROBLEMS - set(ticket53_by_id)
+    if missing_ticket53:
+        return fail("ticket53 attempts missing problems: " + ", ".join(sorted(missing_ticket53)))
+    ticket53_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-53-terminal-no-go-theorem.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-53-symbolic-terminal-theorem.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-53-terminal-no-go-theorem.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-53-terminal-no-go-theorem.json"),
+    }
+    for problem_id, attempt in ticket53_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "extracted_lasso_family_terminally_refuted_open_problem_open",
+        }:
+            return fail(f"{problem_id}: ticket53 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket53 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket53 claim boundary is too weak")
+        path = ticket53_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket53 per-problem artifact")
+
+    collatz_ticket53 = ticket53_by_id.get("collatz", {})
+    audit53 = collatz_ticket53.get("bounded_result", {}).get("symbolic_terminal_theorem_audit", {})
+    if not isinstance(audit53, dict):
+        return fail("collatz ticket53 symbolic terminal theorem audit missing")
+    if audit53.get("theorem_name") != "Phase15TerminalMismatchForExtractedLasso":
+        return fail("collatz ticket53 theorem name changed")
+    if not audit53.get("all_checked_roots_satisfy_parent_premise"):
+        return fail("collatz ticket53 parent premise must hold for checked roots")
+    if int(audit53.get("terminal_target_match_count", -1)) != 0:
+        return fail("collatz ticket53 must refute terminal target for checked roots")
+    roots53 = audit53.get("machine_checked_roots", [])
+    if not isinstance(roots53, list) or len(roots53) != 3:
+        return fail("collatz ticket53 must check three known near-lasso roots")
+    expected_roots53 = {(32, 1471663463), (32, 3206130791), (48, 171308122831719)}
+    observed_roots53 = {(int(row.get("base_bits", -1)), int(row.get("residue", -1))) for row in roots53 if isinstance(row, dict)}
+    if observed_roots53 != expected_roots53:
+        return fail("collatz ticket53 checked root set changed")
+    for row in roots53:
+        if row.get("parent_template") != "[14,[1,1,1,1],103,10]":
+            return fail("collatz ticket53 parent template changed")
+        if int(row.get("low_next_valuation_before_terminal", -1)) != 10:
+            return fail("collatz ticket53 low branch valuation lemma changed")
+        if int(row.get("high_next_valuation_before_terminal", -1)) != 9:
+            return fail("collatz ticket53 high branch valuation lemma changed")
+        if row.get("terminal_target_matched"):
+            return fail("collatz ticket53 terminal target unexpectedly matched")
+    if "No Collatz proof" not in str(audit53.get("proof_boundary", "")):
+        return fail("collatz ticket53 proof boundary must block proof overclaim")
+    if "does not prove global Collatz descent" not in str(audit53.get("terminal_theorem_scope", "")):
+        return fail("collatz ticket53 must preserve local theorem scope")
 
     print("open problem structure verified")
     return 0

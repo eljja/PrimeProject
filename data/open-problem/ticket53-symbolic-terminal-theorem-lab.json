@@ -1,0 +1,315 @@
+{
+  "schema": "primeproject.ticket53-symbolic-terminal-theorem-lab.v1",
+  "generated_at": "2026-07-09T07:25:00+09:00",
+  "status": "symbolic_terminal_theorem_open_no_resolution",
+  "claim_boundary": "Ticket 53 refutes one extracted Collatz lasso family by a symbolic terminal mismatch theorem. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-53",
+      "status": "proof_pressure_open",
+      "route": "ZeroKernelTerminalNoGoTheorem",
+      "proof_or_counterexample_mode": "local terminal theorem before broader search",
+      "attempt": "Transfer TICKET53's rule: when a strong witness family closes for a structural reason, promote the local terminal theorem and remove that family from future counterexample search.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-52",
+        "source_route": "ZeroKernelFrontierBudget",
+        "ticket53_transfer": "ZeroKernelTerminalNoGoTheorem",
+        "candidate_theorem": "Any repeated off-critical zero-kernel family that closes by a terminal sign or boundary identity must be removed before searching new zero witnesses.",
+        "frontier_rule": "A closed witness family should become a local no-go theorem, not a repeated sampling target."
+      },
+      "obstruction": "This is a method-transfer artifact. It does not solve the target problem, but it forces the next search to exclude a locally refuted witness family.",
+      "candidate_theorem": "Any repeated off-critical zero-kernel family that closes by a terminal sign or boundary identity must be removed before searching new zero witnesses.",
+      "next_experiment": "State the problem-specific terminal no-go theorem and then search outside that family.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-53",
+      "route": "SymbolicPhase15TerminalMismatchTheorem",
+      "status": "extracted_lasso_family_terminally_refuted_open_problem_open",
+      "proof_or_counterexample_mode": "symbolic terminal mismatch theorem",
+      "attempt": "Do not enlarge the random sample. Prove the terminal obstruction that every root matching the extracted phase-14 lasso parent with next_valuation 10 must fail the phase-15 target on both low and high lifts.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-52",
+        "symbolic_terminal_theorem_audit": {
+          "family": "phase16_tail4_residue256_vexact",
+          "theorem_name": "Phase15TerminalMismatchForExtractedLasso",
+          "premises": [
+            "parent at bits b+14 has template [14,[1,1,1,1],103,10]",
+            "the parent certificate consumed b+5 bits, so the next valuation 10 exactly reaches b+15",
+            "the terminal target is [15,[1,1,1,1],103,10]"
+          ],
+          "low_branch_argument": "The low terminal branch consumes the pending valuation 10 exactly at b+15. The consumed valuation enters the prefix tail, so the terminal tail contains 10 and cannot equal [1,1,1,1].",
+          "high_branch_argument": "The high terminal branch adds 2^(b+14) to the parent residue. After the already-consumed prefix, this changes the boundary value by 3^m * 2^9. Since the low branch has v2(3x+1)=10, the high branch has v2(3x+1 + 3^(m+1)*2^9)=9. The terminal prefix therefore consumes a 9 before any remaining bit can be resolved, so its tail cannot be [1,1,1,1].",
+          "machine_checked_roots": [
+            {
+              "source_ticket": "TICKET-50",
+              "base_bits": 32,
+              "residue": 1471663463,
+              "parent_bits": 46,
+              "terminal_bits": 47,
+              "parent_template": "[14,[1,1,1,1],103,10]",
+              "parent_expected": "[14,[1,1,1,1],103,10]",
+              "parent_consumed_bits": 37,
+              "parent_prefix_length": 30,
+              "parent_next_valuation": 10,
+              "terminal_target": "[15,[1,1,1,1],103,10]",
+              "high_current_delta_v2": 9,
+              "low_next_valuation_before_terminal": 10,
+              "high_next_valuation_before_terminal": 9,
+              "transition_label": "both_open",
+              "low_terminal": {
+                "residue": 1471663463,
+                "status": "needs_split",
+                "observed": "[15,[1,1,1,10],103,1]",
+                "reason": "tail_word+next_valuation",
+                "certificate": {
+                  "status": "needs_split",
+                  "residue": 1471663463,
+                  "modulus_bits": 47,
+                  "template": "[15,[1,1,1,10],103,1]",
+                  "prefix_length": 31,
+                  "consumed_bits": 47,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    10
+                  ]
+                }
+              },
+              "high_terminal": {
+                "residue": 70370215841127,
+                "status": "needs_split",
+                "observed": "[15,[1,1,1,9],103,2]",
+                "reason": "tail_word+next_valuation",
+                "certificate": {
+                  "status": "needs_split",
+                  "residue": 70370215841127,
+                  "modulus_bits": 47,
+                  "template": "[15,[1,1,1,9],103,2]",
+                  "prefix_length": 31,
+                  "consumed_bits": 46,
+                  "next_valuation": 2,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    9
+                  ]
+                }
+              },
+              "terminal_target_matched": false
+            },
+            {
+              "source_ticket": "TICKET-50",
+              "base_bits": 32,
+              "residue": 3206130791,
+              "parent_bits": 46,
+              "terminal_bits": 47,
+              "parent_template": "[14,[1,1,1,1],103,10]",
+              "parent_expected": "[14,[1,1,1,1],103,10]",
+              "parent_consumed_bits": 37,
+              "parent_prefix_length": 27,
+              "parent_next_valuation": 10,
+              "terminal_target": "[15,[1,1,1,1],103,10]",
+              "high_current_delta_v2": 9,
+              "low_next_valuation_before_terminal": 10,
+              "high_next_valuation_before_terminal": 9,
+              "transition_label": "both_closed",
+              "low_terminal": {
+                "residue": 3206130791,
+                "status": "all_lift_descent",
+                "observed": "all_lift_descent",
+                "reason": "all_lift_descent",
+                "certificate": {
+                  "status": "all_lift_descent",
+                  "residue": 3206130791,
+                  "modulus_bits": 47,
+                  "template": null,
+                  "prefix_length": 28,
+                  "consumed_bits": 47,
+                  "next_valuation": null,
+                  "coefficient_log2_margin": 2.62104998,
+                  "threshold_min_n_for_descent": 1,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    10
+                  ]
+                }
+              },
+              "high_terminal": {
+                "residue": 70371950308455,
+                "status": "all_lift_descent",
+                "observed": "all_lift_descent",
+                "reason": "all_lift_descent",
+                "certificate": {
+                  "status": "all_lift_descent",
+                  "residue": 70371950308455,
+                  "modulus_bits": 47,
+                  "template": null,
+                  "prefix_length": 28,
+                  "consumed_bits": 46,
+                  "next_valuation": null,
+                  "coefficient_log2_margin": 1.62104998,
+                  "threshold_min_n_for_descent": 2,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    9
+                  ]
+                }
+              },
+              "terminal_target_matched": false
+            },
+            {
+              "source_ticket": "TICKET-52",
+              "base_bits": 48,
+              "residue": 171308122831719,
+              "parent_bits": 62,
+              "terminal_bits": 63,
+              "parent_template": "[14,[1,1,1,1],103,10]",
+              "parent_expected": "[14,[1,1,1,1],103,10]",
+              "parent_consumed_bits": 53,
+              "parent_prefix_length": 39,
+              "parent_next_valuation": 10,
+              "terminal_target": "[15,[1,1,1,1],103,10]",
+              "high_current_delta_v2": 9,
+              "low_next_valuation_before_terminal": 10,
+              "high_next_valuation_before_terminal": 9,
+              "transition_label": "both_open",
+              "low_terminal": {
+                "residue": 171308122831719,
+                "status": "needs_split",
+                "observed": "[15,[1,1,1,10],103,1]",
+                "reason": "tail_word+next_valuation",
+                "certificate": {
+                  "status": "needs_split",
+                  "residue": 171308122831719,
+                  "modulus_bits": 63,
+                  "template": "[15,[1,1,1,10],103,1]",
+                  "prefix_length": 40,
+                  "consumed_bits": 63,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    10
+                  ]
+                }
+              },
+              "high_terminal": {
+                "residue": 4611857326550219623,
+                "status": "needs_split",
+                "observed": "[15,[1,1,9,1],103,1]",
+                "reason": "tail_word+next_valuation",
+                "certificate": {
+                  "status": "needs_split",
+                  "residue": 4611857326550219623,
+                  "modulus_bits": 63,
+                  "template": "[15,[1,1,9,1],103,1]",
+                  "prefix_length": 41,
+                  "consumed_bits": 63,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    9,
+                    1
+                  ]
+                }
+              },
+              "terminal_target_matched": false
+            }
+          ],
+          "all_checked_roots_satisfy_parent_premise": true,
+          "terminal_target_match_count": 0,
+          "terminal_theorem_scope": "This theorem refutes the extracted low-lift lasso family used by TICKET50-TICKET52. It does not prove global Collatz descent and does not rule out a different lasso template.",
+          "closed_bounded_statement": "The known 32-bit and sampled 48-bit depth-15 near-lasso roots all satisfy the symbolic parent premise, and none can match the phase-15 terminal target. The failure follows from valuation arithmetic, not from larger sampling.",
+          "next_frontier": "Discard the extracted phase-15 lasso as a counterexample route. The next useful search is a new lasso template family, a global descent invariant, or a formalization of this local theorem inside the proof kernel.",
+          "proof_boundary": "No Collatz proof and no Collatz counterexample. TICKET53 refutes one extracted lasso family, including the known near-lasso witnesses, but a Collatz proof still requires a global argument covering every possible trajectory or every remaining template family."
+        }
+      },
+      "obstruction": "The extracted lasso template is internally terminal-inconsistent: the pending valuation 10 required from phases 5 through 14 is exactly consumed at phase 15, forcing a tail mismatch on the low branch and a valuation-9/tail mismatch on the high branch.",
+      "candidate_theorem": "Formalize Phase15TerminalMismatchForExtractedLasso and then search for a genuinely different lasso template or a global descent invariant; repeating the same phase-15 lasso family is now a dead route.",
+      "next_experiment": "Generate TICKET54 by extracting new lasso-template families from the frontier graph, excluding every family whose terminal mismatch follows from this theorem.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-53",
+      "status": "proof_pressure_open",
+      "route": "ResidueMarginTerminalNoGoTheorem",
+      "proof_or_counterexample_mode": "local terminal theorem before broader search",
+      "attempt": "Transfer TICKET53's rule: when a strong witness family closes for a structural reason, promote the local terminal theorem and remove that family from future counterexample search.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-52",
+        "source_route": "ResidueMarginFrontierBudget",
+        "ticket53_transfer": "ResidueMarginTerminalNoGoTheorem",
+        "candidate_theorem": "Any residue-margin family whose terminal packet is forced positive or forced off-target must become a local no-go theorem before new exceptional packets are searched.",
+        "frontier_rule": "A closed witness family should become a local no-go theorem, not a repeated sampling target."
+      },
+      "obstruction": "This is a method-transfer artifact. It does not solve the target problem, but it forces the next search to exclude a locally refuted witness family.",
+      "candidate_theorem": "Any residue-margin family whose terminal packet is forced positive or forced off-target must become a local no-go theorem before new exceptional packets are searched.",
+      "next_experiment": "State the problem-specific terminal no-go theorem and then search outside that family.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-53",
+      "status": "proof_pressure_open",
+      "route": "GapSelectorTerminalNoGoTheorem",
+      "proof_or_counterexample_mode": "local terminal theorem before broader search",
+      "attempt": "Transfer TICKET53's rule: when a strong witness family closes for a structural reason, promote the local terminal theorem and remove that family from future counterexample search.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-52",
+        "source_route": "GapSelectorFrontierBudget",
+        "ticket53_transfer": "GapSelectorTerminalNoGoTheorem",
+        "candidate_theorem": "Any exact-gap selector family whose terminal leakage is structurally forced must be excluded before searching a new gap-2 witness family.",
+        "frontier_rule": "A closed witness family should become a local no-go theorem, not a repeated sampling target."
+      },
+      "obstruction": "This is a method-transfer artifact. It does not solve the target problem, but it forces the next search to exclude a locally refuted witness family.",
+      "candidate_theorem": "Any exact-gap selector family whose terminal leakage is structurally forced must be excluded before searching a new gap-2 witness family.",
+      "next_experiment": "State the problem-specific terminal no-go theorem and then search outside that family.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

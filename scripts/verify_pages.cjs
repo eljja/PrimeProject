@@ -464,6 +464,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Terminal lift result") ||
         !page.proofOrCounterexampleText.includes("Ticket 52 frontier budget lab") ||
         !page.proofOrCounterexampleText.includes("Frontier budget result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 53 symbolic terminal theorem lab") ||
+        !page.proofOrCounterexampleText.includes("Symbolic terminal result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

@@ -2691,3 +2691,69 @@ Proof boundary:
 ```text
 TICKET-52 does not prove or disprove any of the four open problems. It finds and closes one new sampled 48-bit Collatz near-lasso witness, and it proves that the old valuation-word enumeration has reached an infeasible frontier. The sampler is not exhaustive and cannot exclude unsampled 48-bit roots.
 ```
+
+### Ticket 53: Symbolic phase-15 terminal mismatch theorem
+
+Generated artifact:
+
+```text
+data/open-problem/ticket53-symbolic-terminal-theorem-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-53-terminal-no-go-theorem.json
+data/open-problem/collatz/co-ticket-53-symbolic-terminal-theorem.json
+data/open-problem/goldbach/gb-ticket-53-terminal-no-go-theorem.json
+data/open-problem/twin-prime/tp-ticket-53-terminal-no-go-theorem.json
+```
+
+Aggregate verdict:
+
+```text
+symbolic_terminal_theorem_open_no_resolution
+```
+
+한국어 요약: TICKET-53은 TICKET-50부터 TICKET-52까지 반복된 phase-15 terminal failure를 더 큰 샘플로 밀어붙이지 않고, 상징 정리로 분리한다. 현재 추출된 lasso family에서 phase 14 parent가 `[14,[1,1,1,1],103,10]`이면, low terminal branch는 대기 중인 valuation `10`을 정확히 소비하므로 tail에 `10`이 들어간다. high terminal branch는 prefix 이후 boundary가 `3^m * 2^9`만큼 바뀌므로 next valuation이 `9`로 강제된다. 따라서 두 branch 모두 phase-15 target `[15,[1,1,1,1],103,10]`에 도달할 수 없다.
+
+English summary: TICKET-53 converts the repeated terminal failure into a local theorem. For the extracted lasso family, a phase-14 parent with template `[14,[1,1,1,1],103,10]` cannot reach the phase-15 target on either branch. The low branch consumes the pending valuation `10`, forcing a tail mismatch. The high branch shifts the boundary by `3^m * 2^9`, forcing next valuation `9`, so it also cannot match the target.
+
+Exact Collatz audit:
+
+```text
+theorem: Phase15TerminalMismatchForExtractedLasso
+checked roots: 1471663463 at 32 bits; 3206130791 at 32 bits; 171308122831719 at 48 bits
+all checked roots satisfy parent premise: true
+low branch next valuation before terminal: 10
+high branch next valuation before terminal: 9
+terminal target matches: 0
+```
+
+Discarded Collatz route:
+
+```text
+the extracted phase-15 lasso family as a counterexample route
+larger sampling inside the same terminal template family
+relifting known roots after the symbolic mismatch theorem already applies
+```
+
+Retained Collatz routes:
+
+```text
+extract genuinely new lasso-template families from the frontier graph
+search for a global descent invariant not based on the discarded phase-15 family
+formalize Phase15TerminalMismatchForExtractedLasso in the proof kernel as a local no-go lemma
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-54 NewTemplateFamilyExtractionOrGlobalDescentInvariant
+```
+
+Proof boundary:
+
+```text
+TICKET-53 does not prove or disprove any of the four open problems. It refutes one extracted Collatz lasso family, including all currently known near-lasso witnesses for that family. A full Collatz proof still requires a global argument covering all trajectories or all remaining template families.
+```

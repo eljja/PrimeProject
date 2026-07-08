@@ -1,0 +1,19 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-53",
+  "status": "proof_pressure_open",
+  "route": "ResidueMarginTerminalNoGoTheorem",
+  "proof_or_counterexample_mode": "local terminal theorem before broader search",
+  "attempt": "Transfer TICKET53's rule: when a strong witness family closes for a structural reason, promote the local terminal theorem and remove that family from future counterexample search.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-52",
+    "source_route": "ResidueMarginFrontierBudget",
+    "ticket53_transfer": "ResidueMarginTerminalNoGoTheorem",
+    "candidate_theorem": "Any residue-margin family whose terminal packet is forced positive or forced off-target must become a local no-go theorem before new exceptional packets are searched.",
+    "frontier_rule": "A closed witness family should become a local no-go theorem, not a repeated sampling target."
+  },
+  "obstruction": "This is a method-transfer artifact. It does not solve the target problem, but it forces the next search to exclude a locally refuted witness family.",
+  "candidate_theorem": "Any residue-margin family whose terminal packet is forced positive or forced off-target must become a local no-go theorem before new exceptional packets are searched.",
+  "next_experiment": "State the problem-specific terminal no-go theorem and then search outside that family.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}

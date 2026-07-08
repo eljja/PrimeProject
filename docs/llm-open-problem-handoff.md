@@ -585,6 +585,49 @@ Required output:
 - explicit proof boundary saying no Collatz proof and no Collatz counterexample unless an infinite replay theorem is supplied
 ```
 
+## Latest Continuation After TICKET-53
+
+TICKET-53 supersedes the TICKET-52 continuation target for the specific extracted phase-15 lasso family. It does not cover every possible Collatz template, but it explains why all currently known near-lasso witnesses in this family close terminally.
+
+Exact result:
+
+```text
+theorem: Phase15TerminalMismatchForExtractedLasso
+checked roots:
+  1471663463 at base bits 32
+  3206130791 at base bits 32
+  171308122831719 at base bits 48
+all checked roots satisfy parent premise: true
+terminal target matches: 0
+low branch terminal mechanism: pending valuation 10 is consumed and enters the tail
+high branch terminal mechanism: boundary shift 3^m * 2^9 forces next valuation 9
+```
+
+Do not keep sampling or relifting this same phase-15 lasso family as a counterexample route. The family is locally refuted. This is not a Collatz proof because it does not cover different lasso templates or all trajectories.
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-54 NewTemplateFamilyExtractionOrGlobalDescentInvariant
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-53. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-53 proves a local no-go theorem for the extracted Collatz phase-15 lasso family. If a phase-14 parent has template [14,[1,1,1,1],103,10] and consumed bits b+5, the low terminal branch must consume the pending valuation 10, causing a tail mismatch, and the high terminal branch must force next valuation 9 after the boundary shift 3^m * 2^9. Therefore the phase-15 target [15,[1,1,1,1],103,10] cannot be reached by either terminal branch. This refutes the current lasso family as a counterexample route but does not prove Collatz.
+
+Goal: build CO-TICKET-54. Do not resample the discarded lasso family. Extract new lasso-template families from the frontier graph, or build a global descent invariant that does not depend on the discarded phase-15 family. For every new family, first state the terminal/no-go theorem it must evade. If a family survives, produce a replayable witness and state the exact infinite theorem still required.
+
+Required output:
+- data/open-problem/ticket54-new-template-family-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no Collatz proof and no Collatz counterexample unless an infinite replay theorem is supplied
+```
+
 ## Latest Continuation After TICKET-47
 
 TICKET-47 supersedes the bounded suffix-memory part of the TICKET-46 continuation. It extracts a 16-edge positive-debt lasso from the 28-bit Collatz exact-template pressure graph and refutes:

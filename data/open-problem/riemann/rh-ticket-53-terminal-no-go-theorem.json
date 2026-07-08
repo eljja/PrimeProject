@@ -1,0 +1,19 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-53",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelTerminalNoGoTheorem",
+  "proof_or_counterexample_mode": "local terminal theorem before broader search",
+  "attempt": "Transfer TICKET53's rule: when a strong witness family closes for a structural reason, promote the local terminal theorem and remove that family from future counterexample search.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-52",
+    "source_route": "ZeroKernelFrontierBudget",
+    "ticket53_transfer": "ZeroKernelTerminalNoGoTheorem",
+    "candidate_theorem": "Any repeated off-critical zero-kernel family that closes by a terminal sign or boundary identity must be removed before searching new zero witnesses.",
+    "frontier_rule": "A closed witness family should become a local no-go theorem, not a repeated sampling target."
+  },
+  "obstruction": "This is a method-transfer artifact. It does not solve the target problem, but it forces the next search to exclude a locally refuted witness family.",
+  "candidate_theorem": "Any repeated off-critical zero-kernel family that closes by a terminal sign or boundary identity must be removed before searching new zero witnesses.",
+  "next_experiment": "State the problem-specific terminal no-go theorem and then search outside that family.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}
