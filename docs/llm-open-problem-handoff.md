@@ -61,6 +61,64 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
+## Latest Continuation After TICKET-61
+
+TICKET-61 supersedes the replay-derived separator route from TICKET-60.
+
+Known Collatz result:
+
+```text
+selected low40 cylinders: 162
+selected start-template lifts: 535
+mixed cylinders: 58
+mixed start-template lifts: 210
+low40-only failure-offset collisions: 58 groups / 210 ambiguous rows
+low40 + certificate_prefix_length: 36 groups / 81 ambiguous rows
+first pre-replay joint separator: low40_plus_high_extension_mod_2^4
+first top-bit joint separator: low40_plus_high_extension_top_6_bits
+proof status: open
+```
+
+Interpretation:
+
+```text
+TICKET-60 found low40 + failure_offset as a separator, but failure_offset is known only after replay. TICKET-61 forbids replay-derived keys and shows that low40 + high_extension mod 16 already predicts failure_offset, observed outcome, and boundary prediction label on the selected mixed-cylinder population.
+```
+
+Do not claim Collatz from this. The result is finite and selected. The next theorem must prove that the mod-16 high-extension coordinate has a symbolic transition law under lifts, or find a new lift/cylinder where mod16 separation fails.
+
+Current best continuation:
+
+```text
+CO-TICKET-62 Mod16FailureOffsetTransitionOrAutomatonCountedCover
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-61. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: In the selected Collatz low40-to-48 cylinder cover, 58 low40 cylinders remain mixed and contain 210 start-template lifts. TICKET-60 separated them with low40 + failure_offset, but that was replay-derived. TICKET-61 forbids replay-derived separator keys and finds that low40 + high_extension mod 16 is the first pre-replay joint deterministic separator for failure_offset, observed outcome, and boundary prediction label.
+
+Goal: build CO-TICKET-62. Derive the mod-16 high-extension transition table symbolically. Prove one of the following, or produce a concrete obstruction:
+1. The mod-16 separator is closed under the relevant lift transitions for the selected cylinder family.
+2. The selected family embeds into a counted automaton cover with no full-period nondecreasing cycle.
+3. A newly lifted cylinder or larger selected cover violates mod16 determinism and becomes the next counterexample target.
+
+Required discipline:
+- Do not use failure_offset, failure_observed, or first_failure certificate data as separator keys.
+- Treat finite deterministic separation as theorem-target evidence, not as proof.
+- State the exact quantified theorem before claiming progress.
+- If a counterexample is proposed, provide the residue/cylinder, replay certificate, and the violated separator condition.
+
+Required output:
+- data/open-problem/ticket62-mod16-transition-cover-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless a symbolic infinite bridge is supplied
+```
+
 ## Current Top Attack Tickets
 
 ### Riemann Hypothesis

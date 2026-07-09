@@ -480,6 +480,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Counted cylinder result") ||
         !page.proofOrCounterexampleText.includes("Ticket 60 mixed-cylinder separator lab") ||
         !page.proofOrCounterexampleText.includes("Separator result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 61 symbolic failure-offset lab") ||
+        !page.proofOrCounterexampleText.includes("Pre-replay separator result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
@@ -494,6 +496,9 @@ async function main() {
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("mixed_outcome_cylinder")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("uniform_boundary_mismatch_cylinder")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("low40_plus_failure_offset")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("low40_plus_high_extension_mod_2^4")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("Mod16FailureOffsetTransitionOrAutomatonCountedCover")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("58")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
@@ -823,6 +828,8 @@ async function main() {
     !metrics.evolutionImpact.includes("41,472 extensions") ||
     !metrics.evolutionImpact.includes("Failure-offset separator") ||
     !metrics.evolutionImpact.includes("58 mixed") ||
+    !metrics.evolutionImpact.includes("Pre-replay separator") ||
+    !metrics.evolutionImpact.includes("mod 16") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
@@ -848,7 +855,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-57") ||
     !metrics.evolutionPanel.includes("TICKET-58") ||
     !metrics.evolutionPanel.includes("TICKET-59") ||
-    !metrics.evolutionPanel.includes("TICKET-60")
+    !metrics.evolutionPanel.includes("TICKET-60") ||
+    !metrics.evolutionPanel.includes("TICKET-61")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

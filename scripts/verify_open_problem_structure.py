@@ -54,6 +54,7 @@ TICKET57_SCHEMA = "primeproject.ticket57-parametric-template-automaton-lab.v1"
 TICKET58_SCHEMA = "primeproject.ticket58-affine-boundary-lift-lab.v1"
 TICKET59_SCHEMA = "primeproject.ticket59-symbolic-lift-mismatch-lab.v1"
 TICKET60_SCHEMA = "primeproject.ticket60-mixed-cylinder-separator-lab.v1"
+TICKET61_SCHEMA = "primeproject.ticket61-symbolic-failure-offset-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -3183,6 +3184,89 @@ def main() -> int:
         return fail("collatz ticket60 failure-offset separator must be deterministic")
     if "does not prove Collatz" not in str(audit60.get("proof_boundary", "")):
         return fail("collatz ticket60 proof boundary must block proof overclaim")
+
+    ticket61_path = Path("data/open-problem/ticket61-symbolic-failure-offset-lab.json")
+    if not ticket61_path.exists():
+        return fail("missing ticket61 symbolic failure-offset artifact")
+    ticket61 = read_json(ticket61_path)
+    if ticket61.get("schema") != TICKET61_SCHEMA:
+        return fail("ticket61 symbolic failure-offset artifact has unexpected schema")
+    if ticket61.get("status") != "symbolic_failure_offset_open_no_resolution":
+        return fail("ticket61 symbolic failure-offset artifact overstates resolution")
+    ticket61_attempts = ticket61.get("attempts", [])
+    if not isinstance(ticket61_attempts, list):
+        return fail("ticket61 attempts must be a list")
+    ticket61_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket61_attempts if isinstance(attempt, dict)}
+    missing_ticket61 = EXPECTED_PROBLEMS - set(ticket61_by_id)
+    if missing_ticket61:
+        return fail("ticket61 attempts missing problems: " + ", ".join(sorted(missing_ticket61)))
+    ticket61_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-61-symbolic-separator.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-61-symbolic-failure-offset.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-61-symbolic-margin-separator.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-61-symbolic-sieve-separator.json"),
+    }
+    for problem_id, attempt in ticket61_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "symbolic_failure_offset_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket61 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket61 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket61 claim boundary is too weak")
+        path = ticket61_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket61 per-problem artifact")
+
+    collatz_ticket61 = ticket61_by_id.get("collatz", {})
+    audit61 = collatz_ticket61.get("bounded_result", {}).get("symbolic_failure_offset_audit", {})
+    if not isinstance(audit61, dict):
+        return fail("collatz ticket61 symbolic failure-offset audit missing")
+    if audit61.get("theorem_name") != "SymbolicFailureOffsetPredictorOrCountedCover":
+        return fail("collatz ticket61 theorem name changed")
+    expected_core61 = {
+        "selected_low40_cylinder_count": 162,
+        "selected_start_template_lift_count": 535,
+        "mixed_cylinder_count": 58,
+        "mixed_start_template_lift_count": 210,
+    }
+    observed_core61 = {str(key): int(audit61.get(key, -1)) for key in expected_core61}
+    if observed_core61 != expected_core61:
+        return fail("collatz ticket61 core counts changed")
+    mixed_ladder61 = audit61.get("mixed_pre_replay_separator_ladder", {})
+    if mixed_ladder61.get("first_joint_deterministic_separator") != "low40_plus_high_extension_mod_2^4":
+        return fail("collatz ticket61 first mixed pre-replay joint separator changed")
+    if mixed_ladder61.get("first_top_bit_joint_deterministic_separator") != "low40_plus_high_extension_top_6_bits":
+        return fail("collatz ticket61 top-bit separator changed")
+    all_ladder61 = audit61.get("all_selected_pre_replay_separator_ladder", {})
+    if all_ladder61.get("first_joint_deterministic_separator") != "low40_plus_high_extension_mod_2^4":
+        return fail("collatz ticket61 first all-selected pre-replay joint separator changed")
+    failure_ladder61 = mixed_ladder61.get("failure_offset_ladder", [])
+    if not isinstance(failure_ladder61, list) or len(failure_ladder61) < 10:
+        return fail("collatz ticket61 missing failure-offset separator ladder")
+    low40_only61 = next((row for row in failure_ladder61 if row.get("separator") == "low40_only"), None)
+    if not isinstance(low40_only61, dict) or int(low40_only61.get("collision_group_count", -1)) != 58:
+        return fail("collatz ticket61 low40-only failure collision count changed")
+    prefix61 = next((row for row in failure_ladder61 if row.get("separator") == "low40_plus_certificate_prefix_length"), None)
+    if (
+        not isinstance(prefix61, dict)
+        or int(prefix61.get("collision_group_count", -1)) != 36
+        or int(prefix61.get("ambiguous_row_count", -1)) != 81
+    ):
+        return fail("collatz ticket61 prefix-length failure collision count changed")
+    mod16_61 = next((row for row in failure_ladder61 if row.get("separator") == "low40_plus_high_extension_mod_2^4"), None)
+    if not isinstance(mod16_61, dict) or not mod16_61.get("deterministic"):
+        return fail("collatz ticket61 mod16 failure separator must be deterministic")
+    joint_mod16 = audit61.get("mod16_mixed_joint_row", {})
+    if not isinstance(joint_mod16, dict) or not joint_mod16.get("deterministic_for_all_labels"):
+        return fail("collatz ticket61 mod16 joint row must be deterministic")
+    if audit61.get("next_theorem_target") != "Mod16FailureOffsetTransitionOrAutomatonCountedCover":
+        return fail("collatz ticket61 next theorem target changed")
+    if "does not prove Collatz" not in str(audit61.get("proof_boundary", "")):
+        return fail("collatz ticket61 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

@@ -1,0 +1,21 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-61",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelSymbolicSeparatorTransition",
+  "proof_or_counterexample_mode": "pre-replay separator transfer",
+  "attempt": "Transfer TICKET61's stricter rule: a separator that is discovered after replay is not a proof coordinate. Replace it with a pre-observable symbolic coordinate, or promote the failure to a counterexample search target.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-60",
+    "source_route": "ZeroKernelMixedCylinderSeparator",
+    "ticket61_transfer": "ZeroKernelSymbolicSeparatorTransition",
+    "symbolic_gate": "spectral separator keys must be defined before zero-kernel replay or height-window evaluation",
+    "candidate_theorem": "Every mixed zero-kernel lift cylinder has a pre-replay spectral coordinate with a closed positivity transition law, or yields an off-critical packet with stable sign obstruction.",
+    "counterexample_target": "a zero-kernel cylinder whose positivity ambiguity survives all pre-replay symbolic separator keys",
+    "frontier_rule": "A finite separator is useful only when its key is available before replay and has a symbolic transition law. Otherwise it remains a diagnostic coordinate, not a proof bridge."
+  },
+  "obstruction": "This is a proof-discipline transfer and does not solve the target problem. It upgrades the next experiment from diagnostic separation to symbolic transition closure.",
+  "candidate_theorem": "Every mixed zero-kernel lift cylinder has a pre-replay spectral coordinate with a closed positivity transition law, or yields an off-critical packet with stable sign obstruction.",
+  "next_experiment": "Build the problem-specific pre-replay separator table and test symbolic transition closure.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

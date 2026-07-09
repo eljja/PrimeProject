@@ -1,0 +1,21 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-61",
+  "status": "proof_pressure_open",
+  "route": "TwinPrimeSymbolicSieveSeparator",
+  "proof_or_counterexample_mode": "pre-replay separator transfer",
+  "attempt": "Transfer TICKET61's stricter rule: a separator that is discovered after replay is not a proof coordinate. Replace it with a pre-observable symbolic coordinate, or promote the failure to a counterexample search target.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-60",
+    "source_route": "TwinPrimeMixedSieveSeparator",
+    "ticket61_transfer": "TwinPrimeSymbolicSieveSeparator",
+    "symbolic_gate": "sieve separator keys must be computable before measuring retained exact-gap mass",
+    "candidate_theorem": "Every mixed exact-gap sieve cylinder has a pre-replay parity/error coordinate with a closed sieve-level transition law, or yields a stable exact-gap mass leak.",
+    "counterexample_target": "a sieve cylinder whose gap-2 mass ambiguity survives all pre-replay parity/error keys",
+    "frontier_rule": "A finite separator is useful only when its key is available before replay and has a symbolic transition law. Otherwise it remains a diagnostic coordinate, not a proof bridge."
+  },
+  "obstruction": "This is a proof-discipline transfer and does not solve the target problem. It upgrades the next experiment from diagnostic separation to symbolic transition closure.",
+  "candidate_theorem": "Every mixed exact-gap sieve cylinder has a pre-replay parity/error coordinate with a closed sieve-level transition law, or yields a stable exact-gap mass leak.",
+  "next_experiment": "Build the problem-specific pre-replay separator table and test symbolic transition closure.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

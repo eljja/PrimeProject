@@ -3271,3 +3271,72 @@ Proof boundary:
 ```text
 TICKET-60 does not prove or disprove any of the four open problems. It names a replay-derived separator and refutes under-specified boundary proofs; the infinite symbolic transition theorem remains open.
 ```
+
+### Ticket 61: Symbolic failure-offset pre-replay separator audit
+
+CO-TICKET-61 SymbolicFailureOffsetPredictorOrCountedCover
+
+Artifacts:
+
+```text
+data/open-problem/ticket61-symbolic-failure-offset-lab.json
+data/open-problem/collatz/co-ticket-61-symbolic-failure-offset.json
+data/open-problem/riemann/rh-ticket-61-symbolic-separator.json
+data/open-problem/goldbach/gb-ticket-61-symbolic-margin-separator.json
+data/open-problem/twin-prime/tp-ticket-61-symbolic-sieve-separator.json
+```
+
+Status:
+
+```text
+symbolic_failure_offset_open_no_resolution
+```
+
+한국어 요약: TICKET-61은 TICKET-60의 가장 큰 약점인 `failure_offset`의 순환성을 제거하는 실험이다. `failure_offset`은 trajectory replay 후에 관측되는 값이므로 그대로는 증명 좌표가 될 수 없다. TICKET-61은 separator key에서 `failure_offset`, `failure_observed`, first-failure certificate를 금지하고, `low40`, certificate prefix length, high-extension bit처럼 replay 전에 알 수 있는 좌표만 사용한다. 결과적으로 mixed 58개 cylinder, 210개 start-template lift에서 `low40 + high_extension mod 16`이 failure offset, observed outcome, boundary prediction label을 모두 결정적으로 분리했다. 이는 증명 경로를 한 단계 강화하지만, 아직 선택된 유한 cylinder 집합 위의 결과다.
+
+English summary: TICKET-61 removes the circular coordinate from TICKET-60. It forbids replay-derived keys and tests whether pre-replay high-extension bits predict the same failure-offset separator. On the selected mixed population, `low40 + high_extension mod 16` is the first joint deterministic pre-replay separator for failure offset, observed outcome, and boundary prediction label. This is not a proof; it is a sharper theorem target.
+
+Key Collatz result:
+
+```text
+selected low40 cylinders: 162
+selected start-template lifts: 535
+mixed cylinders: 58
+mixed start-template lifts: 210
+low40-only failure-offset collisions: 58 groups / 210 ambiguous rows
+low40 + certificate_prefix_length: 36 failure-offset collision groups / 81 ambiguous rows
+first mixed pre-replay joint separator: low40_plus_high_extension_mod_2^4
+first all-selected pre-replay joint separator: low40_plus_high_extension_mod_2^4
+first top-bit joint separator: low40_plus_high_extension_top_6_bits
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Use low40+failure_offset from TICKET60 as if it were a proof coordinate. That is circular because failure_offset is learned only after replaying the trajectory to failure.
+```
+
+Candidate theorem still missing:
+
+```text
+For every selected mixed low40 cylinder, the mod-16 high-extension residue determines the first failure offset and the boundary prediction label; extend this to a symbolic transition theorem or an automaton-counted cover that excludes full-period nondecreasing cycles.
+```
+
+Counterexample target:
+
+```text
+A selected or newly lifted mixed cylinder whose failure_offset remains ambiguous under low40 plus high_extension mod 16, or a full-period replay inside a mod-16-separated cylinder.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-62 Mod16FailureOffsetTransitionOrAutomatonCountedCover
+```
+
+Proof boundary:
+
+```text
+TICKET-61 does not prove or disprove any of the four open problems. It turns a replay-derived separator into a pre-replay finite-coordinate theorem target, but the infinite symbolic transition theorem remains open.
+```
