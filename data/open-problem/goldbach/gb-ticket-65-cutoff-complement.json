@@ -1,0 +1,20 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-65",
+  "status": "proof_pressure_open",
+  "route": "CutoffBranchExtinctionOrComplementCover",
+  "proof_or_counterexample_mode": "branch-extinction transfer",
+  "attempt": "Transfer the TICKET65 lesson: a finite branch can be closed, but the proof route only improves if the complement is also covered by an explicit symbolic predicate or if a true counterexample branch is isolated.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-64",
+    "source_route": "GoldbachCutoffGatePredicateOrMarginCollision",
+    "ticket65_transfer": "CutoffBranchExtinctionOrComplementCover",
+    "candidate_theorem": "Every finite cutoff branch either exits the low-margin zone or is covered by an explicit positive lower-bound theorem for the complement.",
+    "counterexample_target": "a large-even cutoff branch whose margin remains low after the proposed complement cover should apply",
+    "frontier_rule": "Do not promote branch extinction to a theorem unless the complement is covered. A finite closed branch is useful pruning, not a proof of the open conjecture."
+  },
+  "obstruction": "This is a transfer discipline, not a solution.",
+  "candidate_theorem": "Every finite cutoff branch either exits the low-margin zone or is covered by an explicit positive lower-bound theorem for the complement.",
+  "next_experiment": "Construct the problem-specific complement cover or expose a branch that violates the proposed cover.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}

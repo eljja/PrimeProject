@@ -1,0 +1,20 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-65",
+  "status": "proof_pressure_open",
+  "route": "ExactGapBranchExtinctionOrParityComplementCover",
+  "proof_or_counterexample_mode": "branch-extinction transfer",
+  "attempt": "Transfer the TICKET65 lesson: a finite branch can be closed, but the proof route only improves if the complement is also covered by an explicit symbolic predicate or if a true counterexample branch is isolated.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-64",
+    "source_route": "TwinPrimeParityGatePredicateOrMassLeak",
+    "ticket65_transfer": "ExactGapBranchExtinctionOrParityComplementCover",
+    "candidate_theorem": "Every exact-gap sieve branch either exits the parity obstruction window or is covered by a parity-sensitive retained-mass lower-bound theorem.",
+    "counterexample_target": "a sieve branch that keeps exact-gap mass in the obstruction window while evading the complement cover",
+    "frontier_rule": "Do not promote branch extinction to a theorem unless the complement is covered. A finite closed branch is useful pruning, not a proof of the open conjecture."
+  },
+  "obstruction": "This is a transfer discipline, not a solution.",
+  "candidate_theorem": "Every exact-gap sieve branch either exits the parity obstruction window or is covered by a parity-sensitive retained-mass lower-bound theorem.",
+  "next_experiment": "Construct the problem-specific complement cover or expose a branch that violates the proposed cover.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

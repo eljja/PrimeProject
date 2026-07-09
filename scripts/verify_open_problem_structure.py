@@ -58,6 +58,7 @@ TICKET61_SCHEMA = "primeproject.ticket61-symbolic-failure-offset-lab.v1"
 TICKET62_SCHEMA = "primeproject.ticket62-mod16-transition-cover-lab.v1"
 TICKET63_SCHEMA = "primeproject.ticket63-mod16-automaton-cover-lab.v1"
 TICKET64_SCHEMA = "primeproject.ticket64-symbolic-mod16-transition-lab.v1"
+TICKET65_SCHEMA = "primeproject.ticket65-start-template-chain-extinction-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -3584,6 +3585,139 @@ def main() -> int:
         return fail("collatz ticket64 next theorem target changed")
     if "does not prove Collatz" not in str(audit64.get("proof_boundary", "")):
         return fail("collatz ticket64 proof boundary must block proof overclaim")
+
+    ticket65_path = Path("data/open-problem/ticket65-start-template-chain-extinction-lab.json")
+    if not ticket65_path.exists():
+        return fail("missing ticket65 start-template chain extinction artifact")
+    ticket65 = read_json(ticket65_path)
+    if ticket65.get("schema") != TICKET65_SCHEMA:
+        return fail("ticket65 start-template chain extinction artifact has unexpected schema")
+    if ticket65.get("status") != "start_template_chain_extinction_open_no_resolution":
+        return fail("ticket65 start-template chain extinction artifact overstates resolution")
+    ticket65_attempts = ticket65.get("attempts", [])
+    if not isinstance(ticket65_attempts, list):
+        return fail("ticket65 attempts must be a list")
+    ticket65_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket65_attempts if isinstance(attempt, dict)}
+    missing_ticket65 = EXPECTED_PROBLEMS - set(ticket65_by_id)
+    if missing_ticket65:
+        return fail("ticket65 attempts missing problems: " + ", ".join(sorted(missing_ticket65)))
+    ticket65_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-65-branch-extinction.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-65-start-template-chain-extinction.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-65-cutoff-complement.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-65-parity-complement.json"),
+    }
+    for problem_id, attempt in ticket65_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "targeted_start_template_chain_extinct_global_open_no_resolution",
+            "targeted_start_template_chain_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket65 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket65 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket65 claim boundary is too weak")
+        path = ticket65_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket65 per-problem artifact")
+
+    collatz_ticket65 = ticket65_by_id.get("collatz", {})
+    audit65 = collatz_ticket65.get("bounded_result", {}).get("start_template_chain_extinction_audit", {})
+    if not isinstance(audit65, dict):
+        return fail("collatz ticket65 start-template chain extinction audit missing")
+    if audit65.get("theorem_name") != "SymbolicStartTemplateGateAndOffsetTransition":
+        return fail("collatz ticket65 theorem name changed")
+    expected_sequence65 = [
+        {"bits": 56, "rows": 824},
+        {"bits": 60, "rows": 209},
+        {"bits": 64, "rows": 42},
+        {"bits": 68, "rows": 12},
+        {"bits": 72, "rows": 3},
+        {"bits": 76, "rows": 1},
+        {"bits": 80, "rows": 0},
+    ]
+    if audit65.get("survivor_sequence") != expected_sequence65:
+        return fail("collatz ticket65 survivor sequence changed")
+    if not audit65.get("extinction_observed"):
+        return fail("collatz ticket65 extinction flag missing")
+    if int(audit65.get("extinction_at_bits", -1)) != 80:
+        return fail("collatz ticket65 extinction bit changed")
+    if int(audit65.get("last_nonempty_bits", -1)) != 76 or int(audit65.get("last_nonempty_rows", -1)) != 1:
+        return fail("collatz ticket65 last nonempty state changed")
+    if int(audit65.get("full_lasso_period_replay_count", -1)) != 0:
+        return fail("collatz ticket65 full-period replay count changed")
+    if not audit65.get("bounded_branch_closed"):
+        return fail("collatz ticket65 bounded branch should be closed")
+    if not audit65.get("gate_compression_obstruction"):
+        return fail("collatz ticket65 gate-compression obstruction flag missing")
+    expected_steps65 = [
+        (56, 60, 824, 13184, 209, 12975, 0, 209),
+        (60, 64, 209, 3344, 42, 3302, 17, 25),
+        (64, 68, 42, 672, 12, 660, 0, 12),
+        (68, 72, 12, 192, 3, 189, 0, 3),
+        (72, 76, 3, 48, 1, 47, 0, 1),
+        (76, 80, 1, 16, 0, 16, 0, 0),
+    ]
+    steps65 = audit65.get("chain_steps", [])
+    if not isinstance(steps65, list) or len(steps65) != len(expected_steps65):
+        return fail("collatz ticket65 chain step count changed")
+    for row, expected in zip(steps65, expected_steps65):
+        parent_bits, target_bits, parents, tested, starts, nonstarts, matches, mismatches = expected
+        if int(row.get("parent_bits", -1)) != parent_bits or int(row.get("target_bits", -1)) != target_bits:
+            return fail("collatz ticket65 chain step bit range changed")
+        if int(row.get("parent_rows", -1)) != parents:
+            return fail(f"collatz ticket65 parent rows changed for {parent_bits}->{target_bits}")
+        if int(row.get("tested_chain_lifts", -1)) != tested:
+            return fail(f"collatz ticket65 tested lifts changed for {parent_bits}->{target_bits}")
+        if int(row.get("start_template_chain_lift", -1)) != starts:
+            return fail(f"collatz ticket65 start-template count changed for {parent_bits}->{target_bits}")
+        if int(row.get("non_start_template_chain_lift", -1)) != nonstarts:
+            return fail(f"collatz ticket65 non-start count changed for {parent_bits}->{target_bits}")
+        if int(row.get("boundary_match", -1)) != matches:
+            return fail(f"collatz ticket65 boundary match count changed for {parent_bits}->{target_bits}")
+        if int(row.get("boundary_mismatch", -1)) != mismatches:
+            return fail(f"collatz ticket65 boundary mismatch count changed for {parent_bits}->{target_bits}")
+        if int(row.get("full_lasso_period_replay", -1)) != 0:
+            return fail(f"collatz ticket65 full-period replay appeared for {parent_bits}->{target_bits}")
+    gate_audits65 = audit65.get("gate_audits", [])
+    if not isinstance(gate_audits65, list) or len(gate_audits65) != 2:
+        return fail("collatz ticket65 gate audit count changed")
+    gate64_65, gate68_65 = gate_audits65
+    expected_gates65 = [
+        (gate64_65, 60, 64, 3344, 42, 3302, "low40_parent_top_parent_high10_child_top4", "low40_parent_high10_child_top4", 3, 6),
+        (gate68_65, 64, 68, 672, 12, 660, "state20_base_mod16_child_top4", "low40_parent_high2_child_top4", 1, 2),
+    ]
+    for gate, parent_bits, target_bits, candidates, starts, nonstarts, row_unique, near_label, near_collisions, near_ambiguous in expected_gates65:
+        if int(gate.get("parent_bits", -1)) != parent_bits or int(gate.get("target_bits", -1)) != target_bits:
+            return fail("collatz ticket65 gate audit bit range changed")
+        if int(gate.get("candidate_child_rows", -1)) != candidates:
+            return fail(f"collatz ticket65 gate candidate count changed for {parent_bits}->{target_bits}")
+        if int(gate.get("start_template_count", -1)) != starts:
+            return fail(f"collatz ticket65 gate start count changed for {parent_bits}->{target_bits}")
+        if int(gate.get("non_start_template_count", -1)) != nonstarts:
+            return fail(f"collatz ticket65 gate non-start count changed for {parent_bits}->{target_bits}")
+        if gate.get("compressed_gate_found"):
+            return fail(f"collatz ticket65 should not find a compressed gate for {parent_bits}->{target_bits}")
+        if not gate.get("row_unique_gate_only"):
+            return fail(f"collatz ticket65 should report row-unique gate only for {parent_bits}->{target_bits}")
+        summary = gate.get("pre_replay_summary", {})
+        if summary.get("first_compressed_deterministic_separator") is not None:
+            return fail(f"collatz ticket65 compressed separator should stay absent for {parent_bits}->{target_bits}")
+        if summary.get("first_row_unique_deterministic_separator") != row_unique:
+            return fail(f"collatz ticket65 row-unique separator changed for {parent_bits}->{target_bits}")
+        near = summary.get("best_compressed_near_miss", {})
+        if near.get("separator") != near_label:
+            return fail(f"collatz ticket65 near-miss separator changed for {parent_bits}->{target_bits}")
+        if int(near.get("collision_group_count", -1)) != near_collisions:
+            return fail(f"collatz ticket65 near-miss collision count changed for {parent_bits}->{target_bits}")
+        if int(near.get("ambiguous_row_count", -1)) != near_ambiguous:
+            return fail(f"collatz ticket65 near-miss ambiguous row count changed for {parent_bits}->{target_bits}")
+    if audit65.get("next_theorem_target") != "StartTemplateChainExtinctionOrComplementCover":
+        return fail("collatz ticket65 next theorem target changed")
+    if "does not prove Collatz" not in str(audit65.get("proof_boundary", "")):
+        return fail("collatz ticket65 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

@@ -488,6 +488,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Automaton-cover result") ||
         !page.proofOrCounterexampleText.includes("Ticket 64 symbolic mod16 transition lab") ||
         !page.proofOrCounterexampleText.includes("Symbolic transition result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 65 start-template chain extinction lab") ||
+        !page.proofOrCounterexampleText.includes("Start-template extinction result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
@@ -519,6 +521,14 @@ async function main() {
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("3,344")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("0->1")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("0->5")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("56:824")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("80")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("StartTemplateChainExtinctionOrComplementCover")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("low40_parent_high10_child_top4")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("row-unique")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -884,7 +894,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-61") ||
     !metrics.evolutionPanel.includes("TICKET-62") ||
     !metrics.evolutionPanel.includes("TICKET-63") ||
-    !metrics.evolutionPanel.includes("TICKET-64")
+    !metrics.evolutionPanel.includes("TICKET-64") ||
+    !metrics.evolutionPanel.includes("TICKET-65")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

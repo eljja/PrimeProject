@@ -3548,3 +3548,70 @@ Proof boundary:
 ```text
 TICKET-64 does not prove or disprove any of the four open problems. It refutes one overly optimistic finite-to-symbolic promotion path and replaces it with a sharper gate-plus-offset theorem target.
 ```
+
+### Ticket 65: Start-template chain extinction and gate-compression obstruction
+
+CO-TICKET-65 StartTemplateChainExtinctionOrComplementCover
+
+Artifacts:
+
+```text
+data/open-problem/ticket65-start-template-chain-extinction-lab.json
+data/open-problem/collatz/co-ticket-65-start-template-chain-extinction.json
+data/open-problem/riemann/rh-ticket-65-branch-extinction.json
+data/open-problem/goldbach/gb-ticket-65-cutoff-complement.json
+data/open-problem/twin-prime/tp-ticket-65-parity-complement.json
+```
+
+Status:
+
+```text
+start_template_chain_extinction_open_no_resolution
+```
+
+한국어 요약: TICKET-65는 TICKET-64가 남긴 `SymbolicStartTemplateGateAndOffsetTransition` 목표를 직접 추적했다. 결과적으로 현재 추적 중인 start-template chain은 `56 bits:824 -> 60 bits:209 -> 64 bits:42 -> 68 bits:12 -> 72 bits:3 -> 76 bits:1 -> 80 bits:0`으로 소멸했다. full-period replay는 0개였다. 따라서 TICKET63/TICKET64에서 가장 강하게 남아 있던 구체 branch는 80비트에서 닫혔다. 그러나 gate separator 탐색은 좋은 소식만은 아니다. 64비트와 68비트에서 결정적 gate는 찾을 수 있지만, 그 결정성은 압축된 symbolic automaton이 아니라 row-unique state로 붕괴한다. 즉 이 결과는 “현재 branch closure”이지 “전역 Collatz proof”가 아니다.
+
+English summary: TICKET-65 follows the retained TICKET63/TICKET64 start-template chain until it becomes extinct at 80 bits. This is strong branch pruning, but not a global theorem. The audit also shows that the deterministic gate separators found at 64 and 68 bits are row-unique, so the compact finite-automaton route remains blocked.
+
+Key Collatz result:
+
+```text
+survivor sequence: 824 -> 209 -> 42 -> 12 -> 3 -> 1 -> 0
+extinction at bits: 80
+full-period replays: 0
+64-bit best compressed near miss: low40_parent_high10_child_top4, 3 collision groups, 6 ambiguous rows
+64-bit first deterministic gate: low40_parent_top_parent_high10_child_top4, row-unique
+68-bit best compressed near miss: low40_parent_high2_child_top4, 1 collision group, 2 ambiguous rows
+68-bit first deterministic gate: state20_base_mod16_child_top4, row-unique
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Treat the TICKET63/TICKET64 start-template survivor chain as a compact repeating automaton. TICKET65 closes that concrete chain by 80 bits and shows that the deterministic gate keys are row-unique rather than compressed.
+```
+
+Candidate theorem still missing:
+
+```text
+StartTemplateChainExtinctionOrComplementCover: every branch in the current start-template cover either exits the cover in finite symbolic time or is captured by a non-row-unique gate predicate with a well-founded offset transition.
+```
+
+Counterexample target:
+
+```text
+A 4-bit lift branch beyond the current cover that re-enters a start-template lasso with a repeated non-row-unique gate state, or a compact gate separator that remains deterministic beyond the 80-bit extinction audit.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-66 ComplementCoverForStartTemplateExit
+```
+
+Proof boundary:
+
+```text
+TICKET-65 does not prove or disprove any of the four open problems. It closes one tracked Collatz branch, but it does not prove that every integer enters that branch or that every branch leaving it descends.
+```

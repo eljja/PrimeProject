@@ -61,6 +61,59 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
+## Latest Continuation After TICKET-65
+
+TICKET-65 supersedes the immediate TICKET-64 continuation target. It still does not solve Collatz, but it closes the concrete start-template survivor chain that TICKET63/TICKET64 had isolated.
+
+Known Collatz result:
+
+```text
+Survivor sequence: 56 bits:824 -> 60 bits:209 -> 64 bits:42 -> 68 bits:12 -> 72 bits:3 -> 76 bits:1 -> 80 bits:0
+Full-period replays: 0
+64-bit gate best compressed near miss: low40_parent_high10_child_top4, 3 collision groups, 6 ambiguous rows
+64-bit first deterministic gate: low40_parent_top_parent_high10_child_top4, but it is row-unique
+68-bit best compressed near miss: low40_parent_high2_child_top4, 1 collision group, 2 ambiguous rows
+68-bit first deterministic gate: state20_base_mod16_child_top4, but it is row-unique
+```
+
+Interpretation:
+
+```text
+The tracked start-template branch dies by 80 bits. This is useful branch pruning, not a Collatz proof. It does not show that every integer enters this tracked branch, and it does not cover branches that exit the start-template chain. The compact-gate route also remains blocked because the deterministic gates found in this audit collapse to one state per candidate row.
+```
+
+Do not claim Collatz from this. The next theorem must cover the complement, not merely replay the extinct branch.
+
+Current best continuation:
+
+```text
+CO-TICKET-66 ComplementCoverForStartTemplateExit
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-65. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET65 follows the TICKET63/TICKET64 start-template chain through 80 bits and observes 824 -> 209 -> 42 -> 12 -> 3 -> 1 -> 0 survivors, with zero full-period replays. This closes the tracked branch only. It also shows that deterministic gate separators at 64 and 68 bits are row-unique, not compressed symbolic automata.
+
+Goal: build CO-TICKET-66. Construct a complement cover for branches that leave the start-template chain, or find a branch that re-enters a lasso-like state outside the current cover.
+
+Tasks:
+1. Define the exit classes for non-start-template children at each lift step.
+2. Track whether those exit classes fall into already closed terminal families from TICKET53/TICKET55/TICKET56, or require a new family.
+3. Search for a compact symbolic invariant that covers the complement without using post-replay fields.
+4. If a complement class cannot be closed, output the smallest witness branch and its exact missing coordinate.
+5. Keep the proof boundary explicit: branch extinction is not a global Collatz proof.
+
+Required output:
+- data/open-problem/ticket66-complement-cover-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless the infinite bridge is supplied
+```
+
 ## Latest Continuation After TICKET-64
 
 TICKET-64 supersedes the immediate TICKET-63 continuation target. It does not solve Collatz, but it is a useful negative result: the direct promotion from the TICKET63 finite automaton table to a simple symbolic transition theorem fails at the next 64-bit audit.
@@ -115,7 +168,7 @@ Required discipline:
 - A proof needs an infinite symbolic gate, a closed offset-transition relation, and a well-founded cycle exclusion argument.
 
 Required output:
-- data/open-problem/ticket65-start-template-gate-offset-lab.json
+- data/open-problem/ticket65-start-template-chain-extinction-lab.json
 - per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
 - docs/proof-or-counterexample-program.md update
 - GitHub Pages card update
