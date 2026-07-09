@@ -3682,3 +3682,81 @@ Proof boundary:
 ```text
 TICKET-66 does not prove or disprove any of the four open problems. It narrows the next Collatz proof/counterexample frontier to 491 open complement template families and explicitly blocks the claim that the TICKET-65 complement was already covered.
 ```
+
+### Ticket 67: Open-template rank audit and cyclic frontier extraction
+
+CO-TICKET-67 OpenTemplateFamilyRankOrComplementCounterexample
+
+Artifacts:
+
+```text
+data/open-problem/ticket67-open-template-rank-lab.json
+data/open-problem/collatz/co-ticket-67-open-template-rank.json
+data/open-problem/riemann/rh-ticket-67-rank-cycle-frontier.json
+data/open-problem/goldbach/gb-ticket-67-rank-cycle-frontier.json
+data/open-problem/twin-prime/tp-ticket-67-rank-cycle-frontier.json
+```
+
+Status:
+
+```text
+rank_cycle_frontier_open_no_resolution
+```
+
+한국어 요약: TICKET-67은 TICKET-66에서 남은 491개 열린 template family를 한 단계 더 공격한다. 각 열린 source instance를 4비트 더 lift하여 16개 child를 검사했고, 총 274,144개 child lift를 만들었다. 결과는 단순 rank route에 부정적이다. 17,134개 source instance 중 모든 child가 닫힌 것은 13개뿐이고, 17,121개는 계속 열린 child를 가진다. child 상태는 `needs_split = 265,812`, `all_lift_descent = 8,332`이다. open transition graph는 45,665개의 distinct edge와 265,812 edge weight를 가지며, 5,100개 node 중 429개 node가 하나의 cyclic SCC를 이룬다. source family 458개가 이 cycle에 도달한다. 또한 scalar debt rank도 실패한다. open child transition 중 96,433개가 debt를 감소시키지 않는다. 따라서 다음 정리는 단순 template rank가 아니라 429-node SCC를 더 세밀한 pre-replay coordinate로 분해하거나, 그 SCC 안에 무한히 머무는 compatible lift가 불가능함을 보여야 한다.
+
+English summary: TICKET-67 tests whether TICKET66's 491 open families close after one more 4-bit split or admit a simple rank. Both shortcuts fail. The finite quotient has a 429-node cyclic SCC and many nondecreasing debt edges. This is not a counterexample; it is a precise finite obstruction that must be refined or ruled out by an infinite compatibility theorem.
+
+Key Collatz result:
+
+```text
+source open instances: 17,134
+source open template families: 491
+child lift rows: 274,144
+child needs_split: 265,812
+child all_lift_descent: 8,332
+source instances closed after one split: 13
+source instances still open after one split: 17,121
+open transition edge count: 45,665
+open transition edge weight: 265,812
+transition nodes: 5,100
+child open template families: 5,056
+cyclic components: 1
+cyclic nodes: 429
+largest cyclic component: 429
+cycle edge weight: 89,222
+source families reaching cycle: 458
+debt nondecreasing edges: 96,433
+debt nondecreasing rate: 0.362786480671
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Try to close the 491 open template families by one 4-bit split or by a scalar debt rank. TICKET67 refutes both shortcuts: 17,121 of 17,134 source instances still have open children, the template graph has a large cyclic component, and many open child transitions do not decrease debt.
+```
+
+Candidate theorem still missing:
+
+```text
+CycleSCCRefinementOrInfiniteLiftExclusion: every edge inside the TICKET67 cyclic template SCC either exits under a finite pre-replay coordinate refinement with a well-founded rank, or no compatible infinite 2-adic lift can follow the SCC forever.
+```
+
+Counterexample target:
+
+```text
+A compatible infinite lift that stays inside the 429-node cyclic template SCC while avoiding all descent closures. The TICKET67 SCC is only a quotient-cycle candidate, not a Collatz counterexample.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-68 CycleSCCRefinementOrInfiniteLiftExclusion
+```
+
+Proof boundary:
+
+```text
+TICKET-67 does not prove or disprove any of the four open problems. It refutes two simpler rank routes and isolates a finite quotient-cycle obstruction that still requires an infinite compatibility theorem.
+```

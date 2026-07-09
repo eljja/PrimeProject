@@ -60,6 +60,7 @@ TICKET63_SCHEMA = "primeproject.ticket63-mod16-automaton-cover-lab.v1"
 TICKET64_SCHEMA = "primeproject.ticket64-symbolic-mod16-transition-lab.v1"
 TICKET65_SCHEMA = "primeproject.ticket65-start-template-chain-extinction-lab.v1"
 TICKET66_SCHEMA = "primeproject.ticket66-complement-cover-lab.v1"
+TICKET67_SCHEMA = "primeproject.ticket67-open-template-rank-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -3816,6 +3817,100 @@ def main() -> int:
             return fail(f"collatz ticket66 unique family count changed for {parent_bits}->{target_bits}")
     if "does not prove Collatz" not in str(audit66.get("proof_boundary", "")):
         return fail("collatz ticket66 proof boundary must block proof overclaim")
+
+    ticket67_path = Path("data/open-problem/ticket67-open-template-rank-lab.json")
+    if not ticket67_path.exists():
+        return fail("missing ticket67 open-template rank artifact")
+    ticket67 = read_json(ticket67_path)
+    if ticket67.get("schema") != TICKET67_SCHEMA:
+        return fail("ticket67 open-template rank artifact has unexpected schema")
+    if ticket67.get("status") != "rank_cycle_frontier_open_no_resolution":
+        return fail("ticket67 open-template rank artifact overstates resolution")
+    ticket67_attempts = ticket67.get("attempts", [])
+    if not isinstance(ticket67_attempts, list):
+        return fail("ticket67 attempts must be a list")
+    ticket67_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket67_attempts if isinstance(attempt, dict)}
+    missing_ticket67 = EXPECTED_PROBLEMS - set(ticket67_by_id)
+    if missing_ticket67:
+        return fail("ticket67 attempts missing problems: " + ", ".join(sorted(missing_ticket67)))
+    ticket67_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-67-rank-cycle-frontier.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-67-open-template-rank.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-67-rank-cycle-frontier.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-67-rank-cycle-frontier.json"),
+    }
+    for problem_id, attempt in ticket67_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "rank_candidate_refuted_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket67 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket67 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket67 claim boundary is too weak")
+        path = ticket67_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket67 per-problem artifact")
+
+    collatz_ticket67 = ticket67_by_id.get("collatz", {})
+    audit67 = collatz_ticket67.get("bounded_result", {}).get("open_template_rank_audit", {})
+    if not isinstance(audit67, dict):
+        return fail("collatz ticket67 open-template rank audit missing")
+    if audit67.get("theorem_name") != "OpenTemplateFamilyRankOrComplementCounterexample":
+        return fail("collatz ticket67 theorem name changed")
+    expected_counts67 = {
+        "source_open_instances": 17134,
+        "source_open_template_families": 491,
+        "child_lift_rows": 274144,
+        "closed_source_instances_after_one_split": 13,
+        "open_source_instances_after_one_split": 17121,
+        "open_transition_edge_count": 45665,
+        "open_transition_edge_weight": 265812,
+        "transition_node_count": 5100,
+        "child_open_template_families": 5056,
+    }
+    for key, expected in expected_counts67.items():
+        if int(audit67.get(key, -1)) != expected:
+            return fail(f"collatz ticket67 {key} changed")
+    child_status67 = audit67.get("child_status_counts", {})
+    if int(child_status67.get("needs_split", -1)) != 265812:
+        return fail("collatz ticket67 child needs_split count changed")
+    if int(child_status67.get("all_lift_descent", -1)) != 8332:
+        return fail("collatz ticket67 child descent count changed")
+    graph67 = audit67.get("graph_cycle_summary", {})
+    if graph67.get("strict_template_rank_status") != "refuted_by_template_transition_cycle":
+        return fail("collatz ticket67 graph cycle status changed")
+    if int(graph67.get("cyclic_component_count", -1)) != 1:
+        return fail("collatz ticket67 cyclic component count changed")
+    if int(graph67.get("cyclic_node_count", -1)) != 429:
+        return fail("collatz ticket67 cyclic node count changed")
+    if int(graph67.get("largest_cyclic_component_size", -1)) != 429:
+        return fail("collatz ticket67 largest cyclic component changed")
+    if int(graph67.get("cycle_edge_weight", -1)) != 89222:
+        return fail("collatz ticket67 cycle edge weight changed")
+    if int(graph67.get("source_families_reaching_cycle", -1)) != 458:
+        return fail("collatz ticket67 source family reachability changed")
+    debt67 = audit67.get("debt_rank_summary", {})
+    if debt67.get("scalar_debt_rank_status") != "refuted_by_nondecreasing_debt_edges":
+        return fail("collatz ticket67 debt rank status changed")
+    if int(debt67.get("nondecreasing_debt_edges", -1)) != 96433:
+        return fail("collatz ticket67 nondecreasing debt edge count changed")
+    delta67 = debt67.get("debt_delta_counts", {})
+    expected_delta67 = {"negative": 169379, "positive": 87840, "zero": 8593}
+    for key, expected in expected_delta67.items():
+        if int(delta67.get(key, -1)) != expected:
+            return fail(f"collatz ticket67 debt delta {key} changed")
+    top_source67 = audit67.get("top_source_families", [{}])[0]
+    if top_source67.get("family") != "[12,[1,1,1,1],103,5]":
+        return fail("collatz ticket67 top source family changed")
+    if int(top_source67.get("open_child_edge_weight", -1)) != 6638:
+        return fail("collatz ticket67 top source edge weight changed")
+    if audit67.get("next_theorem_target") != "CycleSCCRefinementOrInfiniteLiftExclusion":
+        return fail("collatz ticket67 next theorem target changed")
+    if "does not prove Collatz" not in str(audit67.get("proof_boundary", "")):
+        return fail("collatz ticket67 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

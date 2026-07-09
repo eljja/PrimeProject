@@ -61,6 +61,71 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
+## Latest Continuation After TICKET-67
+
+TICKET-67 supersedes the immediate TICKET-66 continuation target. It does not solve Collatz, but it tests the obvious next rank shortcuts and isolates a sharper finite quotient obstruction.
+
+Known Collatz result:
+
+```text
+Source open instances from TICKET66: 17,134
+Source open template families: 491
+4-bit child lift rows: 274,144
+Child needs_split: 265,812
+Child all_lift_descent: 8,332
+Source instances closed after one split: 13
+Source instances still open after one split: 17,121
+Open transition edge count: 45,665
+Open transition edge weight: 265,812
+Transition nodes: 5,100
+Child open template families: 5,056
+Cyclic SCC count: 1
+Cyclic SCC node count: 429
+Cycle edge weight: 89,222
+Source families reaching the SCC: 458
+Debt nondecreasing edges: 96,433
+Debt nondecreasing rate: 0.362786480671
+```
+
+Interpretation:
+
+```text
+The one-step split route and scalar debt-rank route are refuted. The 429-node SCC is not a Collatz counterexample, because it is only a finite quotient cycle. It becomes relevant only if a compatibility theorem constructs an infinite 2-adic lift through it, or if a refinement theorem proves every compatible path exits.
+```
+
+Do not claim Collatz from this. The next theorem must refine the cyclic SCC with additional pre-replay coordinates, or prove that no compatible infinite lift can remain inside the SCC.
+
+Current best continuation:
+
+```text
+CO-TICKET-68 CycleSCCRefinementOrInfiniteLiftExclusion
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-67. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET67 split TICKET66's 17,134 open source instances by one more 4-bit lift. Only 13 source instances close after that split, 17,121 remain open, and the open transition graph has a 429-node cyclic SCC with 89,222 internal edge weight. Scalar debt rank is also refuted by 96,433 nondecreasing open child transitions.
+
+Goal: build CO-TICKET-68. Refine the 429-node cyclic SCC with additional pre-replay coordinates, or prove that no compatible infinite 2-adic lift can stay inside that SCC forever.
+
+Tasks:
+1. Load data/open-problem/ticket67-open-template-rank-lab.json and extract the cycle_example plus top source families.
+2. Reconstruct the SCC transitions from scripts/ticket67_open_template_rank_lab.py.
+3. Add only pre-replay coordinates: low bits, high-extension residues, source/child top, prefix length, consumed bits, and template tail data. Do not use post-hoc failure labels.
+4. Test whether the SCC splits into acyclic components or smaller SCCs under each coordinate family.
+5. If a refined SCC remains, try to build a compatible infinite lift path through it and state exactly which congruence constraints must be solved.
+6. If all refined paths exit, state the finite refinement theorem and its missing infinite bridge.
+
+Required output:
+- data/open-problem/ticket68-cycle-scc-refinement-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless the infinite bridge is supplied
+```
+
 ## Latest Continuation After TICKET-66
 
 TICKET-66 supersedes the immediate TICKET-65 continuation target. It does not solve Collatz, but it checks the exact complement-cover shortcut demanded after the TICKET65 branch extinction and shows that the shortcut fails.

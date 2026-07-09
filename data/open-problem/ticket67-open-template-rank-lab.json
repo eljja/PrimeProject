@@ -1,0 +1,1349 @@
+{
+  "schema": "primeproject.ticket67-open-template-rank-lab.v1",
+  "generated_at": "2026-07-09T23:58:00+09:00",
+  "status": "rank_cycle_frontier_open_no_resolution",
+  "claim_boundary": "Ticket 67 refutes one-step split closure, strict template rank, and scalar debt rank shortcuts. It does not prove or disprove any of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-67",
+      "status": "proof_pressure_open",
+      "route": "KernelRankCycleOrPersistentOffCriticalBranch",
+      "proof_or_counterexample_mode": "rank-cycle transfer",
+      "attempt": "Transfer the TICKET67 lesson: when a complement frontier induces a cyclic quotient, the next theorem must refine that cycle or prove that no compatible infinite object can remain inside it.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-66",
+        "source_route": "ZeroKernelComplementCoverOrPersistentBranch",
+        "ticket67_transfer": "KernelRankCycleOrPersistentOffCriticalBranch",
+        "candidate_theorem": "Every zero-kernel quotient cycle is broken by a positivity-preserving refinement, or a compatible persistent off-critical branch remains.",
+        "counterexample_target": "a compatible off-critical zero-kernel branch that stays in the cyclic detector frontier under every refinement tested",
+        "frontier_rule": "A finite cyclic quotient is not a counterexample. It becomes useful only after a compatibility theorem lifts it to an infinite object, or after a refinement theorem proves all compatible paths exit."
+      },
+      "obstruction": "This is a transfer discipline and open theorem target, not a solution.",
+      "candidate_theorem": "Every zero-kernel quotient cycle is broken by a positivity-preserving refinement, or a compatible persistent off-critical branch remains.",
+      "next_experiment": "Refine the problem-specific cyclic frontier or prove no compatible infinite path remains inside it.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-67",
+      "route": "OpenTemplateFamilyRankOrComplementCounterexample",
+      "status": "rank_candidate_refuted_open_no_resolution",
+      "proof_or_counterexample_mode": "one-step split rank audit plus quotient-cycle extraction",
+      "attempt": "Take the 491 open template families from TICKET66, split every source instance by one more 4-bit lift, and test whether a one-step closure, strict template rank, or scalar debt rank survives.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-66",
+        "open_template_rank_audit": {
+          "theorem_name": "OpenTemplateFamilyRankOrComplementCounterexample",
+          "source_ticket": "CO-TICKET-66",
+          "source_open_instances": 17134,
+          "source_open_template_families": 491,
+          "child_lift_rows": 274144,
+          "child_status_counts": {
+            "needs_split": 265812,
+            "all_lift_descent": 8332
+          },
+          "closed_source_instances_after_one_split": 13,
+          "open_source_instances_after_one_split": 17121,
+          "one_step_split_closure_rate": 0.000758725341,
+          "open_transition_edge_count": 45665,
+          "open_transition_edge_weight": 265812,
+          "transition_node_count": 5100,
+          "child_open_template_families": 5056,
+          "top_transition_edges": [
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,1,2],103,4]",
+              "count": 162
+            },
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,1,1],103,5]",
+              "count": 160
+            },
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,2,1],103,3]",
+              "count": 149
+            },
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,1,1],103,4]",
+              "count": 147
+            },
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,1,1],103,3]",
+              "count": 145
+            },
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,1,1],103,6]",
+              "count": 144
+            },
+            {
+              "source": "[12,[1,2,1,1],103,2]",
+              "target": "[0,[1,1,1,1],103,3]",
+              "count": 135
+            },
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,1,3],103,3]",
+              "count": 130
+            },
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,1,4],103,2]",
+              "count": 129
+            },
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,3,1],103,2]",
+              "count": 127
+            },
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,1,2],103,2]",
+              "count": 124
+            },
+            {
+              "source": "[12,[1,1,1,1],103,2]",
+              "target": "[0,[1,1,1,3],103,2]",
+              "count": 121
+            }
+          ],
+          "top_source_families": [
+            {
+              "family": "[12,[1,1,1,1],103,5]",
+              "source_instances": 432,
+              "open_child_edge_weight": 6638,
+              "distinct_child_templates": 460,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 432,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,1,1],103,4]",
+              "source_instances": 405,
+              "open_child_edge_weight": 6443,
+              "distinct_child_templates": 351,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 405,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,2,1],103,3]",
+              "source_instances": 384,
+              "open_child_edge_weight": 6071,
+              "distinct_child_templates": 339,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 384,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,1,2],103,4]",
+              "source_instances": 396,
+              "open_child_edge_weight": 5986,
+              "distinct_child_templates": 472,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 396,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,1,1],103,3]",
+              "source_instances": 361,
+              "open_child_edge_weight": 5776,
+              "distinct_child_templates": 255,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 361,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,1,2],103,3]",
+              "source_instances": 353,
+              "open_child_edge_weight": 5585,
+              "distinct_child_templates": 397,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 353,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,1,3],103,3]",
+              "source_instances": 352,
+              "open_child_edge_weight": 5325,
+              "distinct_child_templates": 408,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 352,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,2,1],103,2]",
+              "source_instances": 321,
+              "open_child_edge_weight": 5130,
+              "distinct_child_templates": 265,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 321,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,1,1],103,2]",
+              "source_instances": 314,
+              "open_child_edge_weight": 5024,
+              "distinct_child_templates": 145,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 314,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,3,1],103,2]",
+              "source_instances": 305,
+              "open_child_edge_weight": 4807,
+              "distinct_child_templates": 297,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 305,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,2,2],103,2]",
+              "source_instances": 302,
+              "open_child_edge_weight": 4767,
+              "distinct_child_templates": 299,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 302,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            },
+            {
+              "family": "[12,[1,1,1,3],103,2]",
+              "source_instances": 305,
+              "open_child_edge_weight": 4766,
+              "distinct_child_templates": 336,
+              "instances_all_children_closed": 0,
+              "instances_with_open_child": 305,
+              "in_cyclic_component": true,
+              "reaches_cyclic_component": true
+            }
+          ],
+          "top_child_templates": [
+            {
+              "key": "[0,[1,1,1,1],103,1]",
+              "count": 3316
+            },
+            {
+              "key": "[0,[1,1,1,1],103,2]",
+              "count": 3236
+            },
+            {
+              "key": "[0,[1,1,1,1],103,3]",
+              "count": 2273
+            },
+            {
+              "key": "[0,[1,2,1,1],103,1]",
+              "count": 1766
+            },
+            {
+              "key": "[0,[2,1,1,1],103,2]",
+              "count": 1604
+            },
+            {
+              "key": "[0,[1,1,1,2],103,2]",
+              "count": 1587
+            },
+            {
+              "key": "[0,[1,1,1,2],103,1]",
+              "count": 1586
+            },
+            {
+              "key": "[0,[1,1,2,1],103,2]",
+              "count": 1581
+            },
+            {
+              "key": "[0,[1,1,2,1],103,1]",
+              "count": 1577
+            },
+            {
+              "key": "[0,[1,1,1,1],103,4]",
+              "count": 1567
+            },
+            {
+              "key": "[0,[2,1,1,1],103,1]",
+              "count": 1555
+            },
+            {
+              "key": "[0,[1,2,1,1],103,2]",
+              "count": 1481
+            }
+          ],
+          "graph_cycle_summary": {
+            "strict_template_rank_status": "refuted_by_template_transition_cycle",
+            "cyclic_component_count": 1,
+            "cyclic_node_count": 429,
+            "largest_cyclic_component_size": 429,
+            "cycle_edge_weight": 89222,
+            "source_families_reaching_cycle": 458,
+            "cycle_example": [
+              "[0,[1,1,1,1],103,10]",
+              "[4,[1,1,1,1],103,10]",
+              "[8,[1,1,1,3],103,5]",
+              "[12,[1,1,1,3],103,8]",
+              "[0,[1,1,1,1],103,2]",
+              "[4,[1,1,1,1],103,2]",
+              "[8,[1,1,1,1],103,2]",
+              "[12,[1,1,1,1],103,2]",
+              "[0,[1,1,1,1],103,10]"
+            ]
+          },
+          "debt_rank_summary": {
+            "scalar_debt_rank_status": "refuted_by_nondecreasing_debt_edges",
+            "debt_delta_counts": {
+              "negative": 169379,
+              "positive": 87840,
+              "zero": 8593
+            },
+            "nondecreasing_debt_edges": 96433,
+            "nondecreasing_debt_rate": 0.362786480671,
+            "max_delta_debt": 3.4150375,
+            "min_delta_debt": -7.4150375,
+            "max_delta_example": {
+              "source_template": "[12,[1,1,1,5],103,3]",
+              "child_template": "[0,[1,1,1,1],103,10]",
+              "source_bits": 60,
+              "source_residue": 411080137808289639,
+              "child_top": 11,
+              "child_bits": 64,
+              "child_residue": 13093216688483606375,
+              "source_debt": 6.56842503,
+              "child_debt": 9.98346253,
+              "delta_debt": 3.4150375,
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 411080137808289639,
+                "modulus_bits": 60,
+                "prefix_length": 42,
+                "consumed_bits": 60,
+                "next_valuation": 3,
+                "coefficient_log2_debt": 6.56842503,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  5
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 13093216688483606375,
+                "modulus_bits": 64,
+                "prefix_length": 41,
+                "consumed_bits": 55,
+                "next_valuation": 10,
+                "coefficient_log2_debt": 9.98346253,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              }
+            },
+            "min_delta_example": {
+              "source_template": "[12,[1,1,1,1],103,7]",
+              "child_template": "[0,[1,1,1,9],103,2]",
+              "source_bits": 60,
+              "source_residue": 402544629041864551,
+              "child_top": 4,
+              "child_bits": 64,
+              "child_residue": 5014230647469252455,
+              "source_debt": 9.98346253,
+              "child_debt": 2.56842503,
+              "delta_debt": -7.4150375,
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 402544629041864551,
+                "modulus_bits": 60,
+                "prefix_length": 41,
+                "consumed_bits": 55,
+                "next_valuation": 7,
+                "coefficient_log2_debt": 9.98346253,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 5014230647469252455,
+                "modulus_bits": 64,
+                "prefix_length": 42,
+                "consumed_bits": 64,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 2.56842503,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  9
+                ]
+              }
+            },
+            "nondecreasing_examples": [
+              {
+                "source_template": "[12,[1,1,2,1],103,2]",
+                "child_template": "[0,[1,1,1,2],103,8]",
+                "source_bits": 60,
+                "source_residue": 49331078157162855,
+                "child_top": 2,
+                "child_bits": 64,
+                "child_residue": 2355174087370856807,
+                "source_debt": 8.15338753,
+                "child_debt": 8.90827503,
+                "delta_debt": 0.7548875,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 49331078157162855,
+                  "modulus_bits": 60,
+                  "prefix_length": 43,
+                  "consumed_bits": 60,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 2355174087370856807,
+                  "modulus_bits": 64,
+                  "prefix_length": 46,
+                  "consumed_bits": 64,
+                  "next_valuation": 8,
+                  "coefficient_log2_debt": 8.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              },
+              {
+                "source_template": "[12,[1,1,2,1],103,2]",
+                "child_template": "[0,[2,2,1,1],103,3]",
+                "source_bits": 60,
+                "source_residue": 49331078157162855,
+                "child_top": 7,
+                "child_bits": 64,
+                "child_residue": 8119781610405091687,
+                "source_debt": 8.15338753,
+                "child_debt": 8.32331253,
+                "delta_debt": 0.169925,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 49331078157162855,
+                  "modulus_bits": 60,
+                  "prefix_length": 43,
+                  "consumed_bits": 60,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 8119781610405091687,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 63,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 8.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "source_template": "[12,[1,1,2,1],103,2]",
+                "child_template": "[0,[1,2,1,1],103,1]",
+                "source_bits": 60,
+                "source_residue": 49331078157162855,
+                "child_top": 8,
+                "child_bits": 64,
+                "child_residue": 9272703115011938663,
+                "source_debt": 8.15338753,
+                "child_debt": 8.90827503,
+                "delta_debt": 0.7548875,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 49331078157162855,
+                  "modulus_bits": 60,
+                  "prefix_length": 43,
+                  "consumed_bits": 60,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 9272703115011938663,
+                  "modulus_bits": 64,
+                  "prefix_length": 46,
+                  "consumed_bits": 64,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 8.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "source_template": "[12,[1,1,2,1],103,2]",
+                "child_template": "[0,[1,1,1,1],103,5]",
+                "source_bits": 60,
+                "source_residue": 49331078157162855,
+                "child_top": 10,
+                "child_bits": 64,
+                "child_residue": 11578546124225632615,
+                "source_debt": 8.15338753,
+                "child_debt": 10.49323753,
+                "delta_debt": 2.33985,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 49331078157162855,
+                  "modulus_bits": 60,
+                  "prefix_length": 43,
+                  "consumed_bits": 60,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 11578546124225632615,
+                  "modulus_bits": 64,
+                  "prefix_length": 47,
+                  "consumed_bits": 64,
+                  "next_valuation": 5,
+                  "coefficient_log2_debt": 10.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "source_template": "[12,[1,1,2,1],103,2]",
+                "child_template": "[0,[1,1,2,1],103,8]",
+                "source_bits": 60,
+                "source_residue": 49331078157162855,
+                "child_top": 12,
+                "child_bits": 64,
+                "child_residue": 13884389133439326567,
+                "source_debt": 8.15338753,
+                "child_debt": 8.15338753,
+                "delta_debt": 0.0,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 49331078157162855,
+                  "modulus_bits": 60,
+                  "prefix_length": 43,
+                  "consumed_bits": 60,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 13884389133439326567,
+                  "modulus_bits": 64,
+                  "prefix_length": 43,
+                  "consumed_bits": 60,
+                  "next_valuation": 8,
+                  "coefficient_log2_debt": 8.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                }
+              },
+              {
+                "source_template": "[12,[1,1,2,1],103,2]",
+                "child_template": "[0,[2,1,1,2],103,5]",
+                "source_bits": 60,
+                "source_residue": 49331078157162855,
+                "child_top": 14,
+                "child_bits": 64,
+                "child_residue": 16190232142653020519,
+                "source_debt": 8.15338753,
+                "child_debt": 8.32331253,
+                "delta_debt": 0.169925,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 49331078157162855,
+                  "modulus_bits": 60,
+                  "prefix_length": 43,
+                  "consumed_bits": 60,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 16190232142653020519,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 63,
+                  "next_valuation": 5,
+                  "coefficient_log2_debt": 8.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              },
+              {
+                "source_template": "[12,[1,3,1,1],103,2]",
+                "child_template": "[0,[1,1,2,1],103,3]",
+                "source_bits": 60,
+                "source_residue": 121388672195090791,
+                "child_top": 0,
+                "child_bits": 64,
+                "child_residue": 121388672195090791,
+                "source_debt": 6.56842503,
+                "child_debt": 6.73835003,
+                "delta_debt": 0.169925,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 121388672195090791,
+                  "modulus_bits": 60,
+                  "prefix_length": 42,
+                  "consumed_bits": 60,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.56842503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    3,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 121388672195090791,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 63,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 6.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                }
+              },
+              {
+                "source_template": "[12,[1,3,1,1],103,2]",
+                "child_template": "[0,[1,1,1,2],103,2]",
+                "source_bits": 60,
+                "source_residue": 121388672195090791,
+                "child_top": 2,
+                "child_bits": 64,
+                "child_residue": 2427231681408784743,
+                "source_debt": 6.56842503,
+                "child_debt": 6.73835003,
+                "delta_debt": 0.169925,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 121388672195090791,
+                  "modulus_bits": 60,
+                  "prefix_length": 42,
+                  "consumed_bits": 60,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.56842503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    3,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 2427231681408784743,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              }
+            ]
+          },
+          "open_transition_examples": [
+            {
+              "source_template": "[12,[1,1,2,1],103,2]",
+              "child_template": "[0,[1,2,1,2],103,3]",
+              "source_bits": 60,
+              "source_residue": 49331078157162855,
+              "child_top": 0,
+              "child_bits": 64,
+              "child_residue": 49331078157162855,
+              "source_debt": 8.15338753,
+              "child_debt": 7.73835003,
+              "delta_debt": -0.4150375,
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 49331078157162855,
+                "modulus_bits": 60,
+                "prefix_length": 43,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 8.15338753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 49331078157162855,
+                "modulus_bits": 64,
+                "prefix_length": 44,
+                "consumed_bits": 62,
+                "next_valuation": 3,
+                "coefficient_log2_debt": 7.73835003,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  2
+                ]
+              }
+            },
+            {
+              "source_template": "[12,[1,1,2,1],103,2]",
+              "child_template": "[0,[1,2,3,1],103,4]",
+              "source_bits": 60,
+              "source_residue": 49331078157162855,
+              "child_top": 1,
+              "child_bits": 64,
+              "child_residue": 1202252582764009831,
+              "source_debt": 8.15338753,
+              "child_debt": 6.73835003,
+              "delta_debt": -1.4150375,
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 49331078157162855,
+                "modulus_bits": 60,
+                "prefix_length": 43,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 8.15338753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 1202252582764009831,
+                "modulus_bits": 64,
+                "prefix_length": 44,
+                "consumed_bits": 63,
+                "next_valuation": 4,
+                "coefficient_log2_debt": 6.73835003,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  3,
+                  1
+                ]
+              }
+            },
+            {
+              "source_template": "[12,[1,1,2,1],103,2]",
+              "child_template": "[0,[1,1,1,2],103,8]",
+              "source_bits": 60,
+              "source_residue": 49331078157162855,
+              "child_top": 2,
+              "child_bits": 64,
+              "child_residue": 2355174087370856807,
+              "source_debt": 8.15338753,
+              "child_debt": 8.90827503,
+              "delta_debt": 0.7548875,
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 49331078157162855,
+                "modulus_bits": 60,
+                "prefix_length": 43,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 8.15338753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 2355174087370856807,
+                "modulus_bits": 64,
+                "prefix_length": 46,
+                "consumed_bits": 64,
+                "next_valuation": 8,
+                "coefficient_log2_debt": 8.90827503,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2
+                ]
+              }
+            },
+            {
+              "source_template": "[12,[1,1,2,1],103,2]",
+              "child_template": "[0,[1,2,2,2],103,2]",
+              "source_bits": 60,
+              "source_residue": 49331078157162855,
+              "child_top": 3,
+              "child_bits": 64,
+              "child_residue": 3508095591977703783,
+              "source_debt": 8.15338753,
+              "child_debt": 6.73835003,
+              "delta_debt": -1.4150375,
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 49331078157162855,
+                "modulus_bits": 60,
+                "prefix_length": 43,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 8.15338753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 3508095591977703783,
+                "modulus_bits": 64,
+                "prefix_length": 44,
+                "consumed_bits": 63,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 6.73835003,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  2,
+                  2
+                ]
+              }
+            },
+            {
+              "source_template": "[12,[1,1,2,1],103,2]",
+              "child_template": "[0,[2,1,3,1],103,1]",
+              "source_bits": 60,
+              "source_residue": 49331078157162855,
+              "child_top": 4,
+              "child_bits": 64,
+              "child_residue": 4661017096584550759,
+              "source_debt": 8.15338753,
+              "child_debt": 7.32331253,
+              "delta_debt": -0.830075,
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 49331078157162855,
+                "modulus_bits": 60,
+                "prefix_length": 43,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 8.15338753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 4661017096584550759,
+                "modulus_bits": 64,
+                "prefix_length": 45,
+                "consumed_bits": 64,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 7.32331253,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  3,
+                  1
+                ]
+              }
+            },
+            {
+              "source_template": "[12,[1,1,2,1],103,2]",
+              "child_template": "[0,[1,2,4,1],103,1]",
+              "source_bits": 60,
+              "source_residue": 49331078157162855,
+              "child_top": 5,
+              "child_bits": 64,
+              "child_residue": 5813938601191397735,
+              "source_debt": 8.15338753,
+              "child_debt": 5.73835003,
+              "delta_debt": -2.4150375,
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 49331078157162855,
+                "modulus_bits": 60,
+                "prefix_length": 43,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 8.15338753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 5813938601191397735,
+                "modulus_bits": 64,
+                "prefix_length": 44,
+                "consumed_bits": 64,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 5.73835003,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  4,
+                  1
+                ]
+              }
+            },
+            {
+              "source_template": "[12,[1,1,2,1],103,2]",
+              "child_template": "[0,[2,1,1,3],103,2]",
+              "source_bits": 60,
+              "source_residue": 49331078157162855,
+              "child_top": 6,
+              "child_bits": 64,
+              "child_residue": 6966860105798244711,
+              "source_debt": 8.15338753,
+              "child_debt": 7.32331253,
+              "delta_debt": -0.830075,
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 49331078157162855,
+                "modulus_bits": 60,
+                "prefix_length": 43,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 8.15338753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 6966860105798244711,
+                "modulus_bits": 64,
+                "prefix_length": 45,
+                "consumed_bits": 64,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 7.32331253,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  3
+                ]
+              }
+            },
+            {
+              "source_template": "[12,[1,1,2,1],103,2]",
+              "child_template": "[0,[2,2,1,1],103,3]",
+              "source_bits": 60,
+              "source_residue": 49331078157162855,
+              "child_top": 7,
+              "child_bits": 64,
+              "child_residue": 8119781610405091687,
+              "source_debt": 8.15338753,
+              "child_debt": 8.32331253,
+              "delta_debt": 0.169925,
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 49331078157162855,
+                "modulus_bits": 60,
+                "prefix_length": 43,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 8.15338753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 8119781610405091687,
+                "modulus_bits": 64,
+                "prefix_length": 45,
+                "consumed_bits": 63,
+                "next_valuation": 3,
+                "coefficient_log2_debt": 8.32331253,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  2,
+                  1,
+                  1
+                ]
+              }
+            }
+          ],
+          "rank_attempt_status": "simple_template_and_debt_rank_refuted_open_no_resolution",
+          "discarded_route": "Try to close TICKET66's 491 open template families by one 4-bit split or by a scalar debt rank. TICKET67 refutes both shortcuts: 17,121 of 17,134 source instances still have open children, the template graph has a large cyclic component, and many open child transitions do not decrease debt.",
+          "retained_route": "The next useful theorem must refine the 429-node cyclic SCC with additional pre-replay coordinates, or prove that no compatible infinite lift can remain inside that SCC.",
+          "candidate_theorem": "CycleSCCRefinementOrInfiniteLiftExclusion: every edge inside the TICKET67 cyclic template SCC either exits under a finite pre-replay coordinate refinement with a well-founded rank, or no compatible infinite 2-adic lift can follow the SCC forever.",
+          "counterexample_target": "A compatible infinite lift that stays inside the 429-node cyclic template SCC while avoiding all descent closures. The TICKET67 SCC is only a quotient-cycle candidate, not a Collatz counterexample.",
+          "next_theorem_target": "CycleSCCRefinementOrInfiniteLiftExclusion",
+          "proof_boundary": "TICKET67 does not prove Collatz and does not produce a certified counterexample. It refutes two simpler rank routes and isolates the next finite quotient obstruction."
+        }
+      },
+      "obstruction": "One 4-bit split closes only 13 of 17,134 open source instances. The induced template graph has a 429-node cyclic component, and 96,433 open child transitions have nondecreasing scalar debt.",
+      "candidate_theorem": "CycleSCCRefinementOrInfiniteLiftExclusion: every edge inside the TICKET67 cyclic template SCC either exits under a finite pre-replay coordinate refinement with a well-founded rank, or no compatible infinite 2-adic lift can follow the SCC forever.",
+      "next_experiment": "Refine the 429-node cyclic SCC with pre-replay coordinates, then either synthesize a decreasing rank or prove no compatible infinite lift can stay inside the SCC.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-67",
+      "status": "proof_pressure_open",
+      "route": "MarginRankCycleOrPersistentLowMarginBranch",
+      "proof_or_counterexample_mode": "rank-cycle transfer",
+      "attempt": "Transfer the TICKET67 lesson: when a complement frontier induces a cyclic quotient, the next theorem must refine that cycle or prove that no compatible infinite object can remain inside it.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-66",
+        "source_route": "GoldbachCutoffComplementCoverOrPersistentLowMargin",
+        "ticket67_transfer": "MarginRankCycleOrPersistentLowMarginBranch",
+        "candidate_theorem": "Every low-margin quotient cycle is broken by an explicit lower-bound refinement, or a compatible persistent low-margin branch remains below the cutoff budget.",
+        "counterexample_target": "a compatible large-even branch that stays in a low-margin quotient cycle after all current explicit refinements",
+        "frontier_rule": "A finite cyclic quotient is not a counterexample. It becomes useful only after a compatibility theorem lifts it to an infinite object, or after a refinement theorem proves all compatible paths exit."
+      },
+      "obstruction": "This is a transfer discipline and open theorem target, not a solution.",
+      "candidate_theorem": "Every low-margin quotient cycle is broken by an explicit lower-bound refinement, or a compatible persistent low-margin branch remains below the cutoff budget.",
+      "next_experiment": "Refine the problem-specific cyclic frontier or prove no compatible infinite path remains inside it.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-67",
+      "status": "proof_pressure_open",
+      "route": "ParityRankCycleOrPersistentGapLeak",
+      "proof_or_counterexample_mode": "rank-cycle transfer",
+      "attempt": "Transfer the TICKET67 lesson: when a complement frontier induces a cyclic quotient, the next theorem must refine that cycle or prove that no compatible infinite object can remain inside it.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-66",
+        "source_route": "TwinPrimeParityComplementCoverOrPersistentLeak",
+        "ticket67_transfer": "ParityRankCycleOrPersistentGapLeak",
+        "candidate_theorem": "Every parity-leakage quotient cycle is broken by a retained-mass refinement, or a compatible exact-gap leakage branch persists.",
+        "counterexample_target": "a compatible exact-gap branch that stays in a parity leakage cycle after all current sieve refinements",
+        "frontier_rule": "A finite cyclic quotient is not a counterexample. It becomes useful only after a compatibility theorem lifts it to an infinite object, or after a refinement theorem proves all compatible paths exit."
+      },
+      "obstruction": "This is a transfer discipline and open theorem target, not a solution.",
+      "candidate_theorem": "Every parity-leakage quotient cycle is broken by a retained-mass refinement, or a compatible exact-gap leakage branch persists.",
+      "next_experiment": "Refine the problem-specific cyclic frontier or prove no compatible infinite path remains inside it.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

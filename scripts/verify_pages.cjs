@@ -492,6 +492,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Start-template extinction result") ||
         !page.proofOrCounterexampleText.includes("Ticket 66 complement-cover audit") ||
         !page.proofOrCounterexampleText.includes("Complement-cover result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 67 open-template rank audit") ||
+        !page.proofOrCounterexampleText.includes("Open-template rank result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
@@ -537,6 +539,13 @@ async function main() {
           !page.proofOrCounterexampleText.includes("OpenTemplateFamilyRankOrComplementCounterexample")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("open_wrong_tail_target_residue_mod_256")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("274,144")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("429")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("96,433")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("CycleSCCRefinementOrInfiniteLiftExclusion")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("refuted_by_template_transition_cycle")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -904,7 +913,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-63") ||
     !metrics.evolutionPanel.includes("TICKET-64") ||
     !metrics.evolutionPanel.includes("TICKET-65") ||
-    !metrics.evolutionPanel.includes("TICKET-66")
+    !metrics.evolutionPanel.includes("TICKET-66") ||
+    !metrics.evolutionPanel.includes("TICKET-67")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
