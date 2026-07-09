@@ -1,0 +1,2251 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-70",
+  "route": "PrefixConsumedFrontierExpansionOrCycle",
+  "status": "frontier_expansion_refutes_direct_rank_closure_open_no_resolution",
+  "proof_or_counterexample_mode": "bounded frontier expansion and refined-cycle pressure test",
+  "attempt": "Expand every observed concrete representative of the TICKET69 rank-0 child-only prefix/consumed frontier one more 4-bit level. Classify whether each branch closes, exits the base cycle, re-enters the ranked DAG, or creates new unranked internal frontier pressure.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-69",
+    "prefix_frontier_expansion_audit": {
+      "theorem_name": "PrefixConsumedFrontierExpansionOrCycle",
+      "source_ticket": "CO-TICKET-69",
+      "coordinate_family": "base_prefix_consumed",
+      "source_rank_summary": {
+        "status": "observed_dag_rank_constructed",
+        "rank_map_state_count": 9616,
+        "source_state_count": 1577,
+        "sink_state_count": 6733,
+        "max_rank": 5,
+        "rank_level_state_counts": {
+          "0": 6733,
+          "1": 1506,
+          "2": 224,
+          "3": 388,
+          "4": 467,
+          "5": 298
+        },
+        "top_rank_states": [
+          {
+            "state": "[12,[1,1,1,1],103,10,43,57]",
+            "rank": 5
+          },
+          {
+            "state": "[12,[1,1,1,1],103,11,43,57]",
+            "rank": 5
+          },
+          {
+            "state": "[12,[1,1,1,1],103,11,43,59]",
+            "rank": 5
+          },
+          {
+            "state": "[12,[1,1,1,1],103,2,43,59]",
+            "rank": 5
+          },
+          {
+            "state": "[12,[1,1,1,1],103,2,44,59]",
+            "rank": 5
+          },
+          {
+            "state": "[12,[1,1,1,1],103,2,44,60]",
+            "rank": 5
+          },
+          {
+            "state": "[12,[1,1,1,1],103,2,45,59]",
+            "rank": 5
+          },
+          {
+            "state": "[12,[1,1,1,1],103,2,45,60]",
+            "rank": 5
+          }
+        ]
+      },
+      "source_child_only_frontier_states": 6649,
+      "frontier_representative_count": 49504,
+      "frontier_observed_child_representative_weight": 49504,
+      "expansion_edge_weight": 792064,
+      "frontier_internal_edge_weight": 214770,
+      "outcome_counts": {
+        "open_base_cycle_exit": 516176,
+        "internal_rank_equal_frontier_cycle_pressure": 123403,
+        "closed_or_terminal_all_lift_descent": 61118,
+        "internal_new_unranked_state": 59449,
+        "internal_rank_increase_frontier_cycle_pressure": 31918
+      },
+      "state_class_counts": {
+        "rank0_frontier_reenters_ranked_dag": 4498,
+        "rank0_frontier_enters_new_unranked_state": 1125,
+        "rank0_frontier_exits_or_closes": 1026
+      },
+      "top_state_outcome_profiles": [
+        {
+          "key": "open_base_cycle_exit:16",
+          "count": 464
+        },
+        {
+          "key": "internal_new_unranked_state:1,open_base_cycle_exit:15",
+          "count": 249
+        },
+        {
+          "key": "internal_rank_equal_frontier_cycle_pressure:1,open_base_cycle_exit:15",
+          "count": 167
+        },
+        {
+          "key": "open_base_cycle_exit:32",
+          "count": 135
+        },
+        {
+          "key": "internal_new_unranked_state:2,open_base_cycle_exit:14",
+          "count": 82
+        },
+        {
+          "key": "internal_rank_equal_frontier_cycle_pressure:1,open_base_cycle_exit:31",
+          "count": 78
+        },
+        {
+          "key": "internal_new_unranked_state:3,open_base_cycle_exit:13",
+          "count": 75
+        },
+        {
+          "key": "internal_new_unranked_state:4,open_base_cycle_exit:12",
+          "count": 68
+        }
+      ],
+      "destination_rank_counts": {
+        "0": 123403,
+        "unranked": 59449,
+        "1": 24665,
+        "2": 6419,
+        "3": 829,
+        "4": 5
+      },
+      "rank_delta_counts": {
+        "-4": 5,
+        "-3": 829,
+        "-2": 6419,
+        "-1": 24665,
+        "0": 123403
+      },
+      "known_rank_nondecreasing_edge_count": 155321,
+      "known_rank_increase_edge_count": 31918,
+      "known_rank_equal_edge_count": 123403,
+      "new_unranked_internal_edge_count": 59449,
+      "frontier_state_nondeterminism_count": 3537,
+      "frontier_state_examples": [
+        {
+          "state": "[0,[1,1,1,1],103,10,37,55]",
+          "representative_count": 10,
+          "observed_child_representative_weight": 10,
+          "state_class": "rank0_frontier_exits_or_closes",
+          "outcomes": {
+            "closed_or_terminal_all_lift_descent": 154,
+            "open_base_cycle_exit": 6
+          }
+        },
+        {
+          "state": "[0,[1,1,1,1],103,10,37,56]",
+          "representative_count": 5,
+          "observed_child_representative_weight": 5,
+          "state_class": "rank0_frontier_exits_or_closes",
+          "outcomes": {
+            "closed_or_terminal_all_lift_descent": 76,
+            "open_base_cycle_exit": 4
+          }
+        },
+        {
+          "state": "[0,[1,1,1,1],103,10,38,55]",
+          "representative_count": 26,
+          "observed_child_representative_weight": 26,
+          "state_class": "rank0_frontier_exits_or_closes",
+          "outcomes": {
+            "closed_or_terminal_all_lift_descent": 400,
+            "open_base_cycle_exit": 16
+          }
+        },
+        {
+          "state": "[0,[1,1,1,1],103,10,38,56]",
+          "representative_count": 11,
+          "observed_child_representative_weight": 11,
+          "state_class": "rank0_frontier_exits_or_closes",
+          "outcomes": {
+            "closed_or_terminal_all_lift_descent": 172,
+            "open_base_cycle_exit": 4
+          }
+        },
+        {
+          "state": "[0,[1,1,1,1],103,10,38,57]",
+          "representative_count": 7,
+          "observed_child_representative_weight": 7,
+          "state_class": "rank0_frontier_exits_or_closes",
+          "outcomes": {
+            "closed_or_terminal_all_lift_descent": 107,
+            "open_base_cycle_exit": 5
+          }
+        },
+        {
+          "state": "[0,[1,1,1,1],103,10,39,55]",
+          "representative_count": 38,
+          "observed_child_representative_weight": 38,
+          "state_class": "rank0_frontier_exits_or_closes",
+          "outcomes": {
+            "closed_or_terminal_all_lift_descent": 591,
+            "open_base_cycle_exit": 17
+          }
+        },
+        {
+          "state": "[0,[1,1,1,1],103,10,39,56]",
+          "representative_count": 24,
+          "observed_child_representative_weight": 24,
+          "state_class": "rank0_frontier_exits_or_closes",
+          "outcomes": {
+            "closed_or_terminal_all_lift_descent": 367,
+            "open_base_cycle_exit": 17
+          }
+        },
+        {
+          "state": "[0,[1,1,1,1],103,10,39,57]",
+          "representative_count": 10,
+          "observed_child_representative_weight": 10,
+          "state_class": "rank0_frontier_enters_new_unranked_state",
+          "outcomes": {
+            "closed_or_terminal_all_lift_descent": 155,
+            "internal_new_unranked_state": 3,
+            "open_base_cycle_exit": 2
+          }
+        }
+      ],
+      "outcome_examples": {
+        "closed_or_terminal_all_lift_descent": [
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[\"closed_or_unknown\",\"all_lift_descent\"]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 0,
+            "outcome": "closed_or_terminal_all_lift_descent",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 13102095573123561319,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "all_lift_descent",
+              "residue": 13102095573123561319,
+              "modulus_bits": 68,
+              "prefix_length": 38,
+              "consumed_bits": 65,
+              "next_valuation": null,
+              "coefficient_log2_debt": null,
+              "coefficient_log2_margin": 4.77142497,
+              "threshold_min_n_for_descent": 1,
+              "prefix_tail8": [
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                10
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[\"closed_or_unknown\",\"all_lift_descent\"]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 1,
+            "outcome": "closed_or_terminal_all_lift_descent",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 13102095573123561319,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "all_lift_descent",
+              "residue": 31548839646833112935,
+              "modulus_bits": 68,
+              "prefix_length": 38,
+              "consumed_bits": 64,
+              "next_valuation": null,
+              "coefficient_log2_debt": null,
+              "coefficient_log2_margin": 3.77142497,
+              "threshold_min_n_for_descent": 1,
+              "prefix_tail8": [
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                9
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[\"closed_or_unknown\",\"all_lift_descent\"]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 2,
+            "outcome": "closed_or_terminal_all_lift_descent",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 13102095573123561319,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "all_lift_descent",
+              "residue": 49995583720542664551,
+              "modulus_bits": 68,
+              "prefix_length": 38,
+              "consumed_bits": 67,
+              "next_valuation": null,
+              "coefficient_log2_debt": null,
+              "coefficient_log2_margin": 6.77142497,
+              "threshold_min_n_for_descent": 1,
+              "prefix_tail8": [
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                12
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[\"closed_or_unknown\",\"all_lift_descent\"]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 3,
+            "outcome": "closed_or_terminal_all_lift_descent",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 13102095573123561319,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "all_lift_descent",
+              "residue": 68442327794252216167,
+              "modulus_bits": 68,
+              "prefix_length": 38,
+              "consumed_bits": 64,
+              "next_valuation": null,
+              "coefficient_log2_debt": null,
+              "coefficient_log2_margin": 3.77142497,
+              "threshold_min_n_for_descent": 1,
+              "prefix_tail8": [
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                9
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[\"closed_or_unknown\",\"all_lift_descent\"]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 4,
+            "outcome": "closed_or_terminal_all_lift_descent",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 13102095573123561319,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "all_lift_descent",
+              "residue": 86889071867961767783,
+              "modulus_bits": 68,
+              "prefix_length": 38,
+              "consumed_bits": 65,
+              "next_valuation": null,
+              "coefficient_log2_debt": null,
+              "coefficient_log2_margin": 4.77142497,
+              "threshold_min_n_for_descent": 1,
+              "prefix_tail8": [
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                10
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[\"closed_or_unknown\",\"all_lift_descent\"]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 5,
+            "outcome": "closed_or_terminal_all_lift_descent",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 13102095573123561319,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "all_lift_descent",
+              "residue": 105335815941671319399,
+              "modulus_bits": 68,
+              "prefix_length": 38,
+              "consumed_bits": 64,
+              "next_valuation": null,
+              "coefficient_log2_debt": null,
+              "coefficient_log2_margin": 3.77142497,
+              "threshold_min_n_for_descent": 1,
+              "prefix_tail8": [
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                9
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[\"closed_or_unknown\",\"all_lift_descent\"]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 6,
+            "outcome": "closed_or_terminal_all_lift_descent",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 13102095573123561319,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "all_lift_descent",
+              "residue": 123782560015380871015,
+              "modulus_bits": 68,
+              "prefix_length": 38,
+              "consumed_bits": 66,
+              "next_valuation": null,
+              "coefficient_log2_debt": null,
+              "coefficient_log2_margin": 5.77142497,
+              "threshold_min_n_for_descent": 1,
+              "prefix_tail8": [
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                11
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[\"closed_or_unknown\",\"all_lift_descent\"]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 7,
+            "outcome": "closed_or_terminal_all_lift_descent",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 13102095573123561319,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "all_lift_descent",
+              "residue": 142229304089090422631,
+              "modulus_bits": 68,
+              "prefix_length": 38,
+              "consumed_bits": 64,
+              "next_valuation": null,
+              "coefficient_log2_debt": null,
+              "coefficient_log2_margin": 3.77142497,
+              "threshold_min_n_for_descent": 1,
+              "prefix_tail8": [
+                1,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                9
+              ]
+            }
+          }
+        ],
+        "internal_new_unranked_state": [
+          {
+            "source_state": "[0,[1,1,1,1],103,10,39,57]",
+            "child_state": "[4,[1,1,1,1],103,12,39,57]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 8,
+            "outcome": "internal_new_unranked_state",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 12113079239014184295,
+              "modulus_bits": 64,
+              "prefix_length": 39,
+              "consumed_bits": 57,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 4.81353753,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                3,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 159687031828690597223,
+              "modulus_bits": 68,
+              "prefix_length": 39,
+              "consumed_bits": 57,
+              "next_valuation": 12,
+              "coefficient_log2_debt": 4.81353753,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                3,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,39,57]",
+            "child_state": "[4,[1,1,1,1],103,12,39,57]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 8,
+            "outcome": "internal_new_unranked_state",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 333927651069611879,
+              "modulus_bits": 64,
+              "prefix_length": 39,
+              "consumed_bits": 57,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 4.81353753,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 147907880240746024807,
+              "modulus_bits": 68,
+              "prefix_length": 39,
+              "consumed_bits": 57,
+              "next_valuation": 12,
+              "coefficient_log2_debt": 4.81353753,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,39,57]",
+            "child_state": "[4,[1,1,1,1],103,12,39,57]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 8,
+            "outcome": "internal_new_unranked_state",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 6926784911973514599,
+              "modulus_bits": 64,
+              "prefix_length": 39,
+              "consumed_bits": 57,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 4.81353753,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 154500737501649927527,
+              "modulus_bits": 68,
+              "prefix_length": 39,
+              "consumed_bits": 57,
+              "next_valuation": 12,
+              "coefficient_log2_debt": 4.81353753,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,55]",
+            "child_state": "[4,[1,1,1,1],103,3,45,68]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 7,
+            "outcome": "internal_new_unranked_state",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 12623488886155221863,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 8.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 141750697402122083175,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                9,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,55]",
+            "child_state": "[4,[1,1,1,1],103,3,45,68]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 15,
+            "outcome": "internal_new_unranked_state",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 7185739430394714471,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 8.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 283886900536037988711,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                9,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,55]",
+            "child_state": "[4,[1,1,1,1],103,3,45,68]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 11,
+            "outcome": "internal_new_unranked_state",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 3391804088444894823,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 8.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 206305988899249962599,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                9,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,56]",
+            "child_state": "[4,[1,1,1,1],103,3,45,68]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 9,
+            "outcome": "internal_new_unranked_state",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 14909353979250072167,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 56,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 7.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 180930050642636036711,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                8,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,57]",
+            "child_state": "[4,[1,1,1,1],103,3,45,68]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 13,
+            "outcome": "internal_new_unranked_state",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 17347023746931102567,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 57,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 6.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                4,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 257154696705155273575,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                7,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        ],
+        "internal_rank_equal_frontier_cycle_pressure": [
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,55]",
+            "child_state": "[4,[1,1,1,1],103,2,45,68]",
+            "source_rank": 0,
+            "child_rank": 0,
+            "child_top": 15,
+            "outcome": "internal_rank_equal_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 17525934261238094183,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 8.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 294227095366881368423,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                9,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,55]",
+            "child_state": "[4,[1,1,1,1],103,2,45,68]",
+            "source_rank": 0,
+            "child_rank": 0,
+            "child_top": 7,
+            "outcome": "internal_rank_equal_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 13191290306448637543,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 8.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 142318498822415498855,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                9,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,55]",
+            "child_state": "[4,[1,1,1,1],103,5,45,68]",
+            "source_rank": 0,
+            "child_rank": 0,
+            "child_top": 15,
+            "outcome": "internal_rank_equal_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 16369547010361156967,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 8.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 293070708116004431207,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 5,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                9,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,55]",
+            "child_state": "[4,[1,1,1,1],103,2,45,68]",
+            "source_rank": 0,
+            "child_rank": 0,
+            "child_top": 3,
+            "outcome": "internal_rank_equal_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 4266724377117739879,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 8.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 59606956598246394727,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                9,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,55]",
+            "child_state": "[4,[1,1,1,1],103,4,45,68]",
+            "source_rank": 0,
+            "child_rank": 0,
+            "child_top": 3,
+            "outcome": "internal_rank_equal_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 10596416656994796647,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 8.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 65936648878123451495,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 4,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                9,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,56]",
+            "child_state": "[4,[1,1,1,1],103,2,45,68]",
+            "source_rank": 0,
+            "child_rank": 0,
+            "child_top": 9,
+            "outcome": "internal_rank_equal_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 3933610989973526887,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 56,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 7.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 169954307653359491431,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                8,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,56]",
+            "child_state": "[4,[1,1,1,1],103,2,45,68]",
+            "source_rank": 0,
+            "child_rank": 0,
+            "child_top": 9,
+            "outcome": "internal_rank_equal_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 13438743695303644007,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 56,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 7.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 179459440358689608551,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                8,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,40,56]",
+            "child_state": "[4,[1,1,1,1],103,2,45,68]",
+            "source_rank": 0,
+            "child_rank": 0,
+            "child_top": 1,
+            "outcome": "internal_rank_equal_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 2458411949959724647,
+              "modulus_bits": 64,
+              "prefix_length": 40,
+              "consumed_bits": 56,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 7.39850003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 20905156023669276263,
+              "modulus_bits": 68,
+              "prefix_length": 45,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 3.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                8,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        ],
+        "internal_rank_increase_frontier_cycle_pressure": [
+          {
+            "source_state": "[0,[1,1,1,1],103,10,44,56]",
+            "child_state": "[4,[1,1,1,1],103,2,49,68]",
+            "source_rank": 0,
+            "child_rank": 2,
+            "child_top": 9,
+            "outcome": "internal_rank_increase_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 2479948162117089639,
+              "modulus_bits": 64,
+              "prefix_length": 44,
+              "consumed_bits": 56,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 13.73835003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 168500644825503054183,
+              "modulus_bits": 68,
+              "prefix_length": 49,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 9.66316254,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                8,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,44,61]",
+            "child_state": "[4,[1,1,1,1],103,2,49,68]",
+            "source_rank": 0,
+            "child_rank": 2,
+            "child_top": 5,
+            "outcome": "internal_rank_increase_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 14381387765814615655,
+              "modulus_bits": 64,
+              "prefix_length": 44,
+              "consumed_bits": 61,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 8.73835003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 106615108134362373735,
+              "modulus_bits": 68,
+              "prefix_length": 49,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 9.66316254,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,44,61]",
+            "child_state": "[4,[1,1,1,1],103,2,49,68]",
+            "source_rank": 0,
+            "child_rank": 2,
+            "child_top": 5,
+            "outcome": "internal_rank_increase_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 18414233770916135783,
+              "modulus_bits": 64,
+              "prefix_length": 44,
+              "consumed_bits": 61,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 8.73835003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 110647954139463893863,
+              "modulus_bits": 68,
+              "prefix_length": 49,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 9.66316254,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,44,62]",
+            "child_state": "[4,[1,1,1,1],103,2,49,68]",
+            "source_rank": 0,
+            "child_rank": 2,
+            "child_top": 5,
+            "outcome": "internal_rank_increase_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 5674546218166291559,
+              "modulus_bits": 64,
+              "prefix_length": 44,
+              "consumed_bits": 62,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 7.73835003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 97908266586714049639,
+              "modulus_bits": 68,
+              "prefix_length": 49,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 9.66316254,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,44,63]",
+            "child_state": "[4,[1,1,1,1],103,2,49,68]",
+            "source_rank": 0,
+            "child_rank": 2,
+            "child_top": 5,
+            "outcome": "internal_rank_increase_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 10689364915844437351,
+              "modulus_bits": 64,
+              "prefix_length": 44,
+              "consumed_bits": 63,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 6.73835003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 102923085284392195431,
+              "modulus_bits": 68,
+              "prefix_length": 49,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 9.66316254,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,44,63]",
+            "child_state": "[4,[1,2,2,1],103,2,47,68]",
+            "source_rank": 0,
+            "child_rank": 1,
+            "child_top": 6,
+            "outcome": "internal_rank_increase_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 10689364915844437351,
+              "modulus_bits": 64,
+              "prefix_length": 44,
+              "consumed_bits": 63,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 6.73835003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 121369829358101747047,
+              "modulus_bits": 68,
+              "prefix_length": 47,
+              "consumed_bits": 68,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 6.49323753,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                2,
+                1,
+                1,
+                1,
+                1,
+                2,
+                2,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,44,63]",
+            "child_state": "[4,[1,1,1,2],103,2,47,67]",
+            "source_rank": 0,
+            "child_rank": 1,
+            "child_top": 9,
+            "outcome": "internal_rank_increase_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 10689364915844437351,
+              "modulus_bits": 64,
+              "prefix_length": 44,
+              "consumed_bits": 63,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 6.73835003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 176710061579230401895,
+              "modulus_bits": 68,
+              "prefix_length": 47,
+              "consumed_bits": 67,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 7.49323753,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                2
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,44,63]",
+            "child_state": "[4,[2,1,1,1],103,1,48,68]",
+            "source_rank": 0,
+            "child_rank": 1,
+            "child_top": 10,
+            "outcome": "internal_rank_increase_frontier_cycle_pressure",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 10689364915844437351,
+              "modulus_bits": 64,
+              "prefix_length": 44,
+              "consumed_bits": 63,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 6.73835003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 195156805652939953511,
+              "modulus_bits": 68,
+              "prefix_length": 48,
+              "consumed_bits": 68,
+              "next_valuation": 1,
+              "coefficient_log2_debt": 8.07820003,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        ],
+        "open_base_cycle_exit": [
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[4,[1,1,1,1],103,14,37,55]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 6,
+            "outcome": "open_base_cycle_exit",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 7037755214862479207,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 117718219657119788903,
+              "modulus_bits": 68,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 14,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[4,[1,1,1,1],103,14,37,55]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 6,
+            "outcome": "open_base_cycle_exit",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 5608032757474652007,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 116288497199731961703,
+              "modulus_bits": 68,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 14,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[4,[1,1,1,1],103,15,37,55]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 6,
+            "outcome": "open_base_cycle_exit",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 3546394846836226919,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 114226859289093536615,
+              "modulus_bits": 68,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 15,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[4,[1,1,1,1],103,16,37,55]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 14,
+            "outcome": "open_base_cycle_exit",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 6765272259807569255,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 265019689291741291879,
+              "modulus_bits": 68,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 16,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[4,[1,1,1,1],103,14,37,55]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 10,
+            "outcome": "open_base_cycle_exit",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 3567829942382055271,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 188035270679477571431,
+              "modulus_bits": 68,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 14,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                4,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,55]",
+            "child_state": "[4,[1,1,1,1],103,16,37,55]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 2,
+            "outcome": "open_base_cycle_exit",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 7875074108511714663,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 44768562255930817895,
+              "modulus_bits": 68,
+              "prefix_length": 37,
+              "consumed_bits": 55,
+              "next_valuation": 16,
+              "coefficient_log2_debt": 3.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,56]",
+            "child_state": "[4,[1,1,1,1],103,13,37,56]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 4,
+            "outcome": "open_base_cycle_exit",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 9718600562661297255,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 56,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 2.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 83505576857499503719,
+              "modulus_bits": 68,
+              "prefix_length": 37,
+              "consumed_bits": 56,
+              "next_valuation": 13,
+              "coefficient_log2_debt": 2.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "source_state": "[0,[1,1,1,1],103,10,37,56]",
+            "child_state": "[4,[1,1,1,1],103,16,37,56]",
+            "source_rank": 0,
+            "child_rank": null,
+            "child_top": 4,
+            "outcome": "open_base_cycle_exit",
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 7097603912026824551,
+              "modulus_bits": 64,
+              "prefix_length": 37,
+              "consumed_bits": 56,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 2.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 80884580206865031015,
+              "modulus_bits": 68,
+              "prefix_length": 37,
+              "consumed_bits": 56,
+              "next_valuation": 16,
+              "coefficient_log2_debt": 2.64361253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "new_frontier_edge_count": 67949,
+      "combined_graph_cycle_summary": {
+        "cyclic_component_count": 0,
+        "cyclic_node_count": 0,
+        "largest_cyclic_component_size": 0,
+        "cycle_example": []
+      },
+      "frontier_nodes_in_combined_cycles": 0,
+      "frontier_cycle_examples": [],
+      "frontier_expansion_status": "frontier_expansion_refutes_direct_rank_closure_open_no_resolution",
+      "discarded_route": "Treat the TICKET69 rank-0 frontier as automatically terminal. TICKET70 tests that shortcut directly by expanding every observed concrete representative of the child-only frontier one more 4-bit level.",
+      "retained_route": "If frontier expansion re-enters the ranked DAG or creates new unranked internal states, the next theorem must either add a stronger coordinate or prove that those re-entries cannot persist along compatible infinite lifts.",
+      "candidate_theorem": "PrefixConsumedFrontierExpansionOrCycle: every compatible representative of a rank-0 prefix/consumed frontier state exits the base cycle, closes by all-lift descent, or enters a refined transition system with a stronger well-founded rank; otherwise the expansion yields a persistent refined cycle candidate.",
+      "counterexample_target": "A compatible higher-lift path that starts in one of the rank-0 child-only prefix/consumed states and repeatedly re-enters ranked or newly unranked internal states without descent.",
+      "next_theorem_target": "StrongerFrontierCoordinateOrPersistentLiftCycle",
+      "proof_boundary": "TICKET70 does not prove Collatz and does not certify a counterexample. It expands the TICKET69 frontier representatives one step and reports whether the direct rank-0 closure shortcut survives."
+    }
+  },
+  "obstruction": "This is still a bounded representative expansion. A proof would need a theorem for all compatible frontier lifts, not only the concrete representatives observed in TICKET69.",
+  "candidate_theorem": "PrefixConsumedFrontierExpansionOrCycle: every compatible representative of a rank-0 prefix/consumed frontier state exits the base cycle, closes by all-lift descent, or enters a refined transition system with a stronger well-founded rank; otherwise the expansion yields a persistent refined cycle candidate.",
+  "next_experiment": "Strengthen the frontier coordinate or extract a persistent lift cycle from any re-entry pressure.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

@@ -3908,3 +3908,82 @@ Proof boundary:
 ```text
 TICKET-69 does not prove or disprove any of the four open problems. It validates strict rank descent on observed internal edges, but the unexpanded child-only frontier is the missing infinite bridge.
 ```
+
+### Ticket 70: Prefix/consumed frontier expansion and direct-rank closure refutation
+
+CO-TICKET-70 PrefixConsumedFrontierExpansionOrCycle
+
+Artifacts:
+
+```text
+data/open-problem/ticket70-prefix-frontier-expansion-lab.json
+data/open-problem/collatz/co-ticket-70-prefix-frontier-expansion.json
+data/open-problem/riemann/rh-ticket-70-frontier-expansion.json
+data/open-problem/goldbach/gb-ticket-70-frontier-expansion.json
+data/open-problem/twin-prime/tp-ticket-70-frontier-expansion.json
+```
+
+Status:
+
+```text
+prefix_frontier_expansion_open_no_resolution
+```
+
+한국어 요약: TICKET-70은 TICKET-69가 남긴 rank-0 child-only frontier를 실제로 한 단계 확장한다. 기준은 TICKET-69와 동일하다. frontier state는 6,649개이고, 그 state에 도달한 concrete representative는 49,504개다. 각 representative에 4비트 child 16개를 붙여 총 792,064개 branch를 검사했다. 결론은 직접 rank closure의 반박이다. 516,176개 branch는 base cycle 밖으로 exit하고 61,118개는 all-lift descent로 닫히지만, 123,403개는 rank 0으로 재진입하고 31,918개는 rank 1 이상으로 올라간다. 또한 59,449개 branch는 기존 DAG에 없던 unranked internal state로 들어간다. 따라서 "TICKET69 rank-0 sink는 자동 terminal"이라는 shortcut은 버려야 한다.
+
+English summary: TICKET-70 expands the TICKET69 rank-0 child-only frontier by one 4-bit lift. It does not find a combined refined cycle in this one-step audit, but it refutes the direct rank-0 closure shortcut. The expanded frontier has 155,321 known-rank nondecreasing re-entry edges, 59,449 new unranked internal edges, and 3,537 representative-nondeterministic frontier states.
+
+Key Collatz result:
+
+```text
+coordinate family: base_prefix_consumed
+source frontier states: 6,649
+frontier concrete representatives: 49,504
+expansion edge weight: 792,064
+frontier internal edge weight: 214,770
+open base-cycle exits: 516,176
+closed all-lift descent branches: 61,118
+known-rank nondecreasing re-entry edges: 155,321
+  rank-equal re-entry edges: 123,403
+  rank-increase re-entry edges: 31,918
+new unranked internal edges: 59,449
+representative-nondeterministic frontier states: 3,537
+combined one-step cycle components: 0
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Treat every TICKET69 rank-0 child-only state as a terminal sink. TICKET70 directly refutes this route: many concrete representatives re-enter ranked or new unranked internal states after one 4-bit expansion.
+```
+
+Retained route:
+
+```text
+The next useful theorem must add a stronger frontier coordinate, or prove that nondecreasing re-entry pressure cannot persist along compatible infinite lifts. If persistence is possible, extract it as a refined counterexample target.
+```
+
+Candidate theorem still missing:
+
+```text
+StrongerFrontierCoordinateOrPersistentLiftCycle: every compatible expansion of a TICKET70 rank-0 frontier state is separated by a pre-replay coordinate that supplies a well-founded rank, or it admits a compatible infinite lift cycle/re-entry chain.
+```
+
+Counterexample target:
+
+```text
+A compatible higher-lift path that starts in one of the rank-0 child-only prefix/consumed states and repeatedly re-enters known ranked or new unranked internal states without descent.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-71 StrongerFrontierCoordinateOrPersistentLiftCycle
+```
+
+Proof boundary:
+
+```text
+TICKET-70 does not prove or disprove any of the four open problems. It refutes a direct frontier-closure shortcut and narrows the next target to a stronger coordinate or a persistent lift-cycle extraction.
+```

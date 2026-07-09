@@ -61,7 +61,74 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-69
+## Latest Continuation After TICKET-70
+
+TICKET-70 supersedes the immediate TICKET-69 continuation target. It does not solve Collatz, but it tests the most direct rank-0 frontier closure shortcut and refutes it on the observed concrete representatives.
+
+Known Collatz result:
+
+```text
+Coordinate family: base_prefix_consumed
+Source frontier states: 6,649
+Concrete frontier representatives: 49,504
+Expansion edge weight: 792,064
+Frontier internal edge weight: 214,770
+Outcome counts:
+  open_base_cycle_exit = 516,176
+  internal_rank_equal_frontier_cycle_pressure = 123,403
+  closed_or_terminal_all_lift_descent = 61,118
+  internal_new_unranked_state = 59,449
+  internal_rank_increase_frontier_cycle_pressure = 31,918
+State classes:
+  rank0_frontier_reenters_ranked_dag = 4,498
+  rank0_frontier_enters_new_unranked_state = 1,125
+  rank0_frontier_exits_or_closes = 1,026
+Representative-nondeterministic frontier states: 3,537
+Combined one-step refined cycle components: 0
+```
+
+Interpretation:
+
+```text
+The direct proof shortcut "rank-0 frontier states are terminal sinks" is false. Many concrete representatives re-enter known ranked states without rank descent, and many enter internal states that are not in the TICKET69 DAG. However, the one-step combined graph still has no refined cycle, so this is not a Collatz counterexample. The proof target has moved to a stronger pre-replay frontier coordinate or to extraction of a persistent compatible lift cycle.
+```
+
+Do not claim Collatz from this. TICKET70 is a bounded representative expansion, not a theorem over all compatible lifts.
+
+Current best continuation:
+
+```text
+CO-TICKET-71 StrongerFrontierCoordinateOrPersistentLiftCycle
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-70. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET70 expands the TICKET69 rank-0 prefix/consumed frontier. It refutes direct rank-0 closure: among 792,064 one-step branches, 155,321 re-enter known ranked states without rank descent and 59,449 enter new unranked internal states. No one-step combined refined cycle was found.
+
+Goal: build CO-TICKET-71. Find the smallest pre-replay coordinate that separates the TICKET70 re-entry pressure, or extract a compatible higher-lift chain that keeps re-entering ranked/unranked internal states without descent.
+
+Tasks:
+1. Load data/open-problem/ticket70-prefix-frontier-expansion-lab.json.
+2. Reconstruct the TICKET70 re-entry examples from scripts/ticket70_prefix_frontier_expansion_lab.py.
+3. Split the pressure set into rank-equal, rank-increase, and new-unranked internal transitions.
+4. Test candidate coordinates that are available before replay: added low residue bits, tail word, high extension bits, next valuation, prefix/consumed deltas, and source-child transition labels.
+5. Reject any coordinate that only labels outcomes after replay.
+6. If a coordinate separates the pressure, build a new ranked transition graph and test for cycles.
+7. If no coordinate separates it, extract a persistent lift-chain candidate as a serious counterexample target.
+8. Keep the proof boundary explicit: a bounded coordinate separator is not a proof until it induces an infinite transition theorem.
+
+Required output:
+- data/open-problem/ticket71-stronger-frontier-coordinate-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless the infinite transition theorem or a certified counterexample is supplied
+```
+
+## Previous Continuation After TICKET-69
 
 TICKET-69 supersedes the immediate TICKET-68 continuation target. It does not solve Collatz, but it converts the TICKET68 prefix/consumed DAG into a stricter bounded rank certificate and identifies the precise frontier that blocks a proof.
 

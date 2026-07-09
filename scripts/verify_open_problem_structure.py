@@ -63,6 +63,7 @@ TICKET66_SCHEMA = "primeproject.ticket66-complement-cover-lab.v1"
 TICKET67_SCHEMA = "primeproject.ticket67-open-template-rank-lab.v1"
 TICKET68_SCHEMA = "primeproject.ticket68-cycle-scc-refinement-lab.v1"
 TICKET69_SCHEMA = "primeproject.ticket69-prefix-consumed-rank-lab.v1"
+TICKET70_SCHEMA = "primeproject.ticket70-prefix-frontier-expansion-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -4134,6 +4135,104 @@ def main() -> int:
         return fail("collatz ticket69 next theorem target changed")
     if "does not prove Collatz" not in str(audit69.get("proof_boundary", "")):
         return fail("collatz ticket69 proof boundary must block proof overclaim")
+
+    ticket70_path = Path("data/open-problem/ticket70-prefix-frontier-expansion-lab.json")
+    if not ticket70_path.exists():
+        return fail("missing ticket70 prefix frontier expansion artifact")
+    ticket70 = read_json(ticket70_path)
+    if ticket70.get("schema") != TICKET70_SCHEMA:
+        return fail("ticket70 prefix frontier expansion artifact has unexpected schema")
+    if ticket70.get("status") != "prefix_frontier_expansion_open_no_resolution":
+        return fail("ticket70 prefix frontier expansion artifact overstates resolution")
+    ticket70_attempts = ticket70.get("attempts", [])
+    if not isinstance(ticket70_attempts, list):
+        return fail("ticket70 attempts must be a list")
+    ticket70_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket70_attempts if isinstance(attempt, dict)}
+    missing_ticket70 = EXPECTED_PROBLEMS - set(ticket70_by_id)
+    if missing_ticket70:
+        return fail("ticket70 attempts missing problems: " + ", ".join(sorted(missing_ticket70)))
+    ticket70_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-70-frontier-expansion.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-70-prefix-frontier-expansion.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-70-frontier-expansion.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-70-frontier-expansion.json"),
+    }
+    for problem_id, attempt in ticket70_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "frontier_expansion_refutes_direct_rank_closure_open_no_resolution",
+            "frontier_expansion_finds_refined_cycle_candidates_no_resolution",
+            "frontier_representatives_exit_or_close_but_infinite_bridge_open",
+        }:
+            return fail(f"{problem_id}: ticket70 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket70 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket70 claim boundary is too weak")
+        path = ticket70_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket70 per-problem artifact")
+
+    collatz_ticket70 = ticket70_by_id.get("collatz", {})
+    audit70 = collatz_ticket70.get("bounded_result", {}).get("prefix_frontier_expansion_audit", {})
+    if not isinstance(audit70, dict):
+        return fail("collatz ticket70 prefix frontier expansion audit missing")
+    if audit70.get("theorem_name") != "PrefixConsumedFrontierExpansionOrCycle":
+        return fail("collatz ticket70 theorem name changed")
+    if audit70.get("coordinate_family") != "base_prefix_consumed":
+        return fail("collatz ticket70 coordinate family changed")
+    expected_ticket70_counts = {
+        "source_child_only_frontier_states": 6649,
+        "frontier_representative_count": 49504,
+        "frontier_observed_child_representative_weight": 49504,
+        "expansion_edge_weight": 792064,
+        "frontier_internal_edge_weight": 214770,
+        "known_rank_nondecreasing_edge_count": 155321,
+        "known_rank_increase_edge_count": 31918,
+        "known_rank_equal_edge_count": 123403,
+        "new_unranked_internal_edge_count": 59449,
+        "frontier_state_nondeterminism_count": 3537,
+    }
+    for key, expected in expected_ticket70_counts.items():
+        if int(audit70.get(key, -1)) != expected:
+            return fail(f"collatz ticket70 {key} changed")
+    outcomes70 = audit70.get("outcome_counts", {})
+    expected_outcomes70 = {
+        "open_base_cycle_exit": 516176,
+        "internal_rank_equal_frontier_cycle_pressure": 123403,
+        "closed_or_terminal_all_lift_descent": 61118,
+        "internal_new_unranked_state": 59449,
+        "internal_rank_increase_frontier_cycle_pressure": 31918,
+    }
+    for key, expected in expected_outcomes70.items():
+        if int(outcomes70.get(key, -1)) != expected:
+            return fail(f"collatz ticket70 outcome {key} changed")
+    state_classes70 = audit70.get("state_class_counts", {})
+    expected_state_classes70 = {
+        "rank0_frontier_reenters_ranked_dag": 4498,
+        "rank0_frontier_enters_new_unranked_state": 1125,
+        "rank0_frontier_exits_or_closes": 1026,
+    }
+    for key, expected in expected_state_classes70.items():
+        if int(state_classes70.get(key, -1)) != expected:
+            return fail(f"collatz ticket70 state class {key} changed")
+    delta70 = audit70.get("rank_delta_counts", {})
+    expected_delta70 = {"-4": 5, "-3": 829, "-2": 6419, "-1": 24665, "0": 123403}
+    for key, expected in expected_delta70.items():
+        if int(delta70.get(key, -1)) != expected:
+            return fail(f"collatz ticket70 rank delta {key} changed")
+    cycle70 = audit70.get("combined_graph_cycle_summary", {})
+    if int(cycle70.get("cyclic_component_count", -1)) != 0:
+        return fail("collatz ticket70 one-step cycle component count changed")
+    if int(audit70.get("frontier_nodes_in_combined_cycles", -1)) != 0:
+        return fail("collatz ticket70 frontier cycle node count changed")
+    if audit70.get("frontier_expansion_status") != "frontier_expansion_refutes_direct_rank_closure_open_no_resolution":
+        return fail("collatz ticket70 frontier expansion status changed")
+    if audit70.get("next_theorem_target") != "StrongerFrontierCoordinateOrPersistentLiftCycle":
+        return fail("collatz ticket70 next theorem target changed")
+    if "does not prove Collatz" not in str(audit70.get("proof_boundary", "")):
+        return fail("collatz ticket70 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0
