@@ -1,0 +1,26 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-57",
+  "status": "proof_pressure_open",
+  "route": "ExceptionalMarginBoundaryStateOrCounterexample",
+  "proof_or_counterexample_mode": "parametric-boundary-state transfer",
+  "attempt": "Transfer TICKET57's rule: a finite partition is not a proof until the boundary coordinates that make it deterministic are specified and proved stable under the natural lift. A counterexample candidate must replay under those same coordinates, not only under a quotient visualization.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-56",
+    "source_route": "ExceptionalResidueLiftEscapeOrParametricMarginModel",
+    "ticket57_transfer": "ExceptionalMarginBoundaryStateOrCounterexample",
+    "required_state_variables": [
+      "even cutoff scale",
+      "major/minor arc margin",
+      "exceptional residue class",
+      "singular-series lower-bound slack"
+    ],
+    "candidate_theorem": "Every exceptional-residue packet has a lift-closed positive-margin boundary state, or it yields an explicit even counterexample packet that survives cutoff lifting.",
+    "counterexample_target": "a cutoff-stable even packet whose certified Goldbach margin remains nonpositive",
+    "frontier_rule": "Promote neither a finite closure nor a stress witness unless it survives the parametric boundary state gate: lift-closure, deterministic transition, and replayable obstruction must be checked in the same coordinate system."
+  },
+  "obstruction": "This transfer is methodological and does not solve the target problem. It prevents quotient-level evidence from being mistaken for a theorem over the unbounded object.",
+  "candidate_theorem": "Every exceptional-residue packet has a lift-closed positive-margin boundary state, or it yields an explicit even counterexample packet that survives cutoff lifting.",
+  "next_experiment": "Build the problem-specific boundary-state transition relation or find a replayable escape object.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}

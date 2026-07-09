@@ -53,7 +53,7 @@
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
     "claim_language_scanned_files": 19,
-    "claim_language_scanned_lines": 11231,
+    "claim_language_scanned_lines": 11350,
     "claim_language_triggered_mentions": 117,
     "claim_language_guarded_mentions": 117,
     "claim_language_failures": 0,
@@ -223,6 +223,13 @@
           "state": "open",
           "measure": "69,092 exact starts / 1 sampled projection escape",
           "proof": "TICKET-56 closes the exact 32-bit lasso partition but refutes simple projection-closure globalization"
+        },
+        {
+          "marker": "17",
+          "title": "Boundary state obstruction",
+          "state": "open",
+          "measure": "2^28 first deterministic / 0 full replays",
+          "proof": "TICKET-57 shows exact32 outcomes need affine boundary coordinates and finds no full-period replay among known near-lasso roots"
         }
       ],
       "evidence_flow": [
@@ -342,11 +349,11 @@
         },
         {
           "layer": "Open-Proof",
-          "score": 56,
+          "score": 57,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "data/open-problem/ticket53-symbolic-terminal-theorem-lab.json", "data/open-problem/ticket54-new-template-family-lab.json", "data/open-problem/ticket55-phase5-valuation-gate-lab.json", "data/open-problem/ticket56-pre-gate-projection-escape-lab.json", "docs/proof-or-counterexample-program.md"],
-          "gate": "Exact 32-bit lasso route is partition-closed, but projection escape blocks simple globalization; no full proof claim",
-          "proof": "The proof workbench now targets a parametric template-state automaton or a higher-bit escape cycle outside known terminal tunnels."
+          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "data/open-problem/ticket53-symbolic-terminal-theorem-lab.json", "data/open-problem/ticket54-new-template-family-lab.json", "data/open-problem/ticket55-phase5-valuation-gate-lab.json", "data/open-problem/ticket56-pre-gate-projection-escape-lab.json", "data/open-problem/ticket57-parametric-template-automaton-lab.json", "docs/proof-or-counterexample-program.md"],
+          "gate": "Exact32 finite outcomes require affine boundary coordinates and projection escape still blocks globalization; no full proof claim",
+          "proof": "The proof workbench now targets lift stability of the first deterministic affine boundary or a full-period escape cycle."
         }
       ]
     },
@@ -430,6 +437,11 @@
         "label": "Projection escape isolated",
         "impact": "TICKET-56 closes the exact 32-bit start-template lasso partition, then discards simple projection closure because a sampled 48-bit depth-15 witness projects outside the 32-bit model.",
         "metric": "69,092 exact / 1 escape"
+      },
+      {
+        "label": "Boundary state obstruction",
+        "impact": "TICKET-57 shows the exact32 partition is not governed by template-only automata: 2^26 boundary still has 92 collisions, while 2^28 first becomes deterministic and known roots have 0 full-period replays.",
+        "metric": "2^28 boundary / 0 replay"
       }
     ],
     "research_delta": {
@@ -467,7 +479,7 @@
         {
           "track": "Open proof search",
           "before": "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.",
-          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root and closes it; TICKET-53 explains all known terminal closures by a symbolic mismatch theorem and discards the extracted lasso family; TICKET-54 extracts Phase5ValuationGate as the strongest remaining bounded family; TICKET-55 proves the known gate crossers tunnel into the terminal no-go; TICKET-56 closes the exact 32-bit partition but refutes simple projection-closure globalization.",
+          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root and closes it; TICKET-53 explains all known terminal closures by a symbolic mismatch theorem and discards the extracted lasso family; TICKET-54 extracts Phase5ValuationGate as the strongest remaining bounded family; TICKET-55 proves the known gate crossers tunnel into the terminal no-go; TICKET-56 closes the exact 32-bit partition but refutes simple projection-closure globalization; TICKET-57 shows exact32 outcomes need affine boundary coordinates and no known near-lasso root replays a full period.",
           "state": "open"
         }
       ],

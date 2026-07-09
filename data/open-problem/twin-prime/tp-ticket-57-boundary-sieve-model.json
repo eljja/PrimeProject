@@ -1,0 +1,26 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-57",
+  "status": "proof_pressure_open",
+  "route": "ParityBoundarySieveStateOrGapCycle",
+  "proof_or_counterexample_mode": "parametric-boundary-state transfer",
+  "attempt": "Transfer TICKET57's rule: a finite partition is not a proof until the boundary coordinates that make it deterministic are specified and proved stable under the natural lift. A counterexample candidate must replay under those same coordinates, not only under a quotient visualization.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-56",
+    "source_route": "GapSelectorLiftEscapeOrParametricSieveModel",
+    "ticket57_transfer": "ParityBoundarySieveStateOrGapCycle",
+    "required_state_variables": [
+      "sieve level",
+      "admissible residue selector",
+      "parity leakage mass",
+      "gap-2 retained mass versus wider-gap leakage"
+    ],
+    "candidate_theorem": "Every exact gap-2 selector has a lift-closed parity-boundary state with retained positive mass, or it yields a replayable leakage cycle that absorbs all gap-2 mass.",
+    "counterexample_target": "a sieve-lift-stable leakage cycle that keeps gap-2 mass nonpositive at every scale",
+    "frontier_rule": "Promote neither a finite closure nor a stress witness unless it survives the parametric boundary state gate: lift-closure, deterministic transition, and replayable obstruction must be checked in the same coordinate system."
+  },
+  "obstruction": "This transfer is methodological and does not solve the target problem. It prevents quotient-level evidence from being mistaken for a theorem over the unbounded object.",
+  "candidate_theorem": "Every exact gap-2 selector has a lift-closed parity-boundary state with retained positive mass, or it yields a replayable leakage cycle that absorbs all gap-2 mass.",
+  "next_experiment": "Build the problem-specific boundary-state transition relation or find a replayable escape object.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

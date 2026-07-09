@@ -1,0 +1,26 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-57",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelBoundaryStateOrOffCriticalEscapeCycle",
+  "proof_or_counterexample_mode": "parametric-boundary-state transfer",
+  "attempt": "Transfer TICKET57's rule: a finite partition is not a proof until the boundary coordinates that make it deterministic are specified and proved stable under the natural lift. A counterexample candidate must replay under those same coordinates, not only under a quotient visualization.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-56",
+    "source_route": "ZeroKernelProjectionEscapeOrParametricStateModel",
+    "ticket57_transfer": "ZeroKernelBoundaryStateOrOffCriticalEscapeCycle",
+    "required_state_variables": [
+      "zero height window",
+      "explicit-formula kernel boundary",
+      "positivity deficit",
+      "lift/projection height map"
+    ],
+    "candidate_theorem": "Every off-critical zero-kernel packet has a lift-closed boundary state whose positivity measure strictly improves, or it yields a replayable off-critical escape cycle.",
+    "counterexample_target": "a height-lift-stable off-critical zero packet with non-improving positivity deficit",
+    "frontier_rule": "Promote neither a finite closure nor a stress witness unless it survives the parametric boundary state gate: lift-closure, deterministic transition, and replayable obstruction must be checked in the same coordinate system."
+  },
+  "obstruction": "This transfer is methodological and does not solve the target problem. It prevents quotient-level evidence from being mistaken for a theorem over the unbounded object.",
+  "candidate_theorem": "Every off-critical zero-kernel packet has a lift-closed boundary state whose positivity measure strictly improves, or it yields a replayable off-critical escape cycle.",
+  "next_experiment": "Build the problem-specific boundary-state transition relation or find a replayable escape object.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

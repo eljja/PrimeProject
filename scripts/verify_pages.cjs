@@ -472,7 +472,14 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Gate-to-terminal result") ||
         !page.proofOrCounterexampleText.includes("Ticket 56 pre-gate projection escape lab") ||
         !page.proofOrCounterexampleText.includes("Pre-gate partition result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 57 parametric template automaton lab") ||
+        !page.proofOrCounterexampleText.includes("Parametric automaton result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("no_known_root_replays_full_lasso_period")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Replayable-cycle search")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -793,6 +800,8 @@ async function main() {
     !metrics.evolutionImpact.includes("feature_vector_path_public_relative") ||
     !metrics.evolutionImpact.includes("Scale lift") ||
     !metrics.evolutionImpact.includes("Publication guardrails") ||
+    !metrics.evolutionImpact.includes("Boundary state obstruction") ||
+    !metrics.evolutionImpact.includes("2^28 first deterministic") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
@@ -814,7 +823,8 @@ async function main() {
     !metrics.evolutionPanel.includes("Sample power") ||
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("Evidence pack") ||
-    !metrics.evolutionPanel.includes("Publication consistency")
+    !metrics.evolutionPanel.includes("Publication consistency") ||
+    !metrics.evolutionPanel.includes("TICKET-57")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

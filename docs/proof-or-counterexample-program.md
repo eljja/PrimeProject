@@ -2981,3 +2981,78 @@ Proof boundary:
 ```text
 TICKET-56 does not prove or disprove any of the four open problems. It proves only a finite partition for one extracted Collatz lasso route at 32 bits and identifies why simple projection-based globalization fails.
 ```
+
+### Ticket 57: Parametric boundary-state automaton audit
+
+Generated artifact:
+
+```text
+data/open-problem/ticket57-parametric-template-automaton-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-57-boundary-state-model.json
+data/open-problem/collatz/co-ticket-57-parametric-template-automaton.json
+data/open-problem/goldbach/gb-ticket-57-boundary-margin-model.json
+data/open-problem/twin-prime/tp-ticket-57-boundary-sieve-model.json
+```
+
+Aggregate verdict:
+
+```text
+parametric_boundary_state_open_no_resolution
+```
+
+한국어 요약: TICKET-57은 TICKET-56 이후의 가장 중요한 약한 지점을 공격한다. exact32 finite partition이 있더라도, 그 분기 결과가 단순 template state로 결정되지 않으면 전역 automaton 증명으로 올릴 수 없다. 계산 결과 template만으로는 6개의 coarse outcome이 한 상태에 섞이고, `template + prefix_length + residue mod 2^26`까지 추가해도 92개 collision group이 남는다. audited ladder에서 처음으로 exact32 coarse outcome이 결정되는 경계는 `template + prefix_length + residue mod 2^28`이다. 또한 알려진 near-lasso root 3개는 최대 depth 15까지만 재생되고 full lasso period replay는 0개다.
+
+English summary: TICKET-57 rejects the shortcut from a finite template quotient to a proof. The exact32 partition needs boundary coordinates before even its bounded outcomes become deterministic. The first deterministic audited boundary is `template + prefix_length + residue mod 2^28`, and no known near-lasso root replays a full lasso period.
+
+Exact Collatz audit:
+
+```text
+local theorem target: AffineBoundaryTemplateStateOrEscapeCycle
+exact 32-bit start-template matches: 69,092
+coarse outcomes: fail_offset_1 -> 34,458; fail_offset_2 -> 17,301; fail_offset_3 -> 8,649; fail_offset_4 -> 4,310; fail_offset_5 -> 4,372; phase5_gate_terminal_tunnel -> 2
+template-only max outcomes per state: 6
+template + prefix_length + residue mod 2^26 collision groups: 92
+first deterministic exact32 boundary: template + prefix_length + residue mod 2^28
+projection escape carried forward: sampled 48-bit depth-15 witness 171,308,122,831,719 projects to [0,[1,2,1,1],103,2]
+known near-lasso roots replayed: 3
+maximum replayed prefix depth: 15
+full lasso period replays: 0
+cycle status: no_known_root_replays_full_lasso_period
+```
+
+Discarded routes:
+
+```text
+template-only rank or transition relation
+exact32 finite partition promoted by simple projection closure
+near-lasso prefix treated as a counterexample without full-period replay and lift compatibility
+```
+
+Candidate theorem still missing:
+
+```text
+For every phase-compatible start cylinder, a boundary-state transition either reaches a finite next-valuation failure gate, enters the Phase5GateToTerminalTunnel, or strictly decreases a well-founded rank defined on the full affine boundary state.
+```
+
+Counterexample target:
+
+```text
+Find a higher-bit root whose full affine boundary state returns after one lasso period with nondecreasing rank and whose trajectory is not covered by TICKET53, TICKET55, or TICKET56.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-58 AffineBoundaryLiftStabilityOrFullPeriodEscape
+```
+
+Proof boundary:
+
+```text
+TICKET-57 does not prove or disprove any of the four open problems. It rejects weaker finite-state proof shortcuts and finds no replayable cycle among known near-lasso roots; the remaining obligation is a parametric affine-boundary lift theorem or a new full-period escape witness.
+```

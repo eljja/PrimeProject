@@ -634,6 +634,48 @@ Required artifacts:
 - updated GitHub Pages card
 ```
 
+## Latest Continuation After TICKET-57
+
+TICKET-57 supersedes the TICKET-56 continuation target. It does not solve Collatz, but it rejects another weak globalization route: a finite template quotient is too coarse unless the boundary coordinates that determine the finite partition are included and then proved stable under lifts.
+
+```text
+local theorem target: AffineBoundaryTemplateStateOrEscapeCycle
+exact 32-bit start-template matches: 69,092
+template-only coarse outcomes in one state: 6
+template + prefix_length + residue mod 2^26 collision groups: 92
+first deterministic exact32 boundary: template + prefix_length + residue mod 2^28
+projection escape witness carried forward: 171,308,122,831,719
+escape projection32 template: [0,[1,2,1,1],103,2]
+known near-lasso roots replayed: 3
+maximum replayed prefix depth: 15
+full lasso period replays: 0
+cycle status: no_known_root_replays_full_lasso_period
+```
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-58 AffineBoundaryLiftStabilityOrFullPeriodEscape
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-57. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-57 shows that the exact32 Collatz lasso partition is not governed by the extracted template alone. The template-only abstraction has 6 coarse outcomes, and even template + prefix_length + residue mod 2^26 leaves 92 collision groups. The first deterministic exact32 boundary in the audited ladder is template + prefix_length + residue mod 2^28. The sampled 48-bit depth-15 witness 171308122831719 still projects outside the exact32 start template, and none of the 3 known near-lasso roots replays a full lasso period.
+
+Goal: build CO-TICKET-58. Do not resample known terminal routes. Prove or falsify lift stability of the first deterministic affine-boundary state. Acceptable success outcomes are: (a) a machine-checkable transition relation showing that the exact32 deterministic boundary lifts to 40/48-bit cylinders with a well-founded decreasing rank, or (b) a full-period higher-bit escape witness whose affine boundary state returns after one lasso period with nondecreasing rank and is not covered by TICKET53/TICKET55/TICKET56/TICKET57.
+
+Required artifacts:
+- data/open-problem/ticket58-affine-boundary-lift-lab.json
+- data/open-problem/collatz/co-ticket-58-affine-boundary-lift.json
+- per-problem transfer artifacts for RH, Goldbach, Twin Prime
+- updated docs/proof-or-counterexample-program.md
+- updated GitHub Pages card
+- explicit proof boundary saying no Collatz proof and no Collatz counterexample unless the result covers all trajectories or supplies a genuine replayable counterexample
+```
+
 ## Latest Continuation After TICKET-55
 
 TICKET-55 supersedes the TICKET-54 continuation target for the current extracted low-lift Collatz family. It does not solve Collatz, but it closes the known phase-5 gate-crossing route into the TICKET53 terminal no-go.

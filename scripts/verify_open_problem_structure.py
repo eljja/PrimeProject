@@ -50,6 +50,7 @@ TICKET53_SCHEMA = "primeproject.ticket53-symbolic-terminal-theorem-lab.v1"
 TICKET54_SCHEMA = "primeproject.ticket54-new-template-family-lab.v1"
 TICKET55_SCHEMA = "primeproject.ticket55-phase5-valuation-gate-lab.v1"
 TICKET56_SCHEMA = "primeproject.ticket56-pre-gate-projection-escape-lab.v1"
+TICKET57_SCHEMA = "primeproject.ticket57-parametric-template-automaton-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2797,6 +2798,100 @@ def main() -> int:
         return fail("collatz ticket56 reused ticket55 tunnel must have no terminal target match")
     if "No Collatz proof" not in str(audit56.get("proof_boundary", "")):
         return fail("collatz ticket56 proof boundary must block proof overclaim")
+
+    ticket57_path = Path("data/open-problem/ticket57-parametric-template-automaton-lab.json")
+    if not ticket57_path.exists():
+        return fail("missing ticket57 parametric template automaton artifact")
+    ticket57 = read_json(ticket57_path)
+    if ticket57.get("schema") != TICKET57_SCHEMA:
+        return fail("ticket57 parametric template automaton artifact has unexpected schema")
+    if ticket57.get("status") != "parametric_boundary_state_open_no_resolution":
+        return fail("ticket57 parametric template automaton artifact overstates resolution")
+    ticket57_attempts = ticket57.get("attempts", [])
+    if not isinstance(ticket57_attempts, list):
+        return fail("ticket57 attempts must be a list")
+    ticket57_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket57_attempts if isinstance(attempt, dict)}
+    missing_ticket57 = EXPECTED_PROBLEMS - set(ticket57_by_id)
+    if missing_ticket57:
+        return fail("ticket57 attempts missing problems: " + ", ".join(sorted(missing_ticket57)))
+    ticket57_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-57-boundary-state-model.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-57-parametric-template-automaton.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-57-boundary-margin-model.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-57-boundary-sieve-model.json"),
+    }
+    for problem_id, attempt in ticket57_by_id.items():
+        if attempt.get("status") not in {"proof_pressure_open", "parametric_state_obstruction_open_no_resolution"}:
+            return fail(f"{problem_id}: ticket57 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket57 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket57 claim boundary is too weak")
+        path = ticket57_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket57 per-problem artifact")
+
+    collatz_ticket57 = ticket57_by_id.get("collatz", {})
+    audit57 = collatz_ticket57.get("bounded_result", {}).get("parametric_template_automaton_audit", {})
+    if not isinstance(audit57, dict):
+        return fail("collatz ticket57 parametric template automaton audit missing")
+    if audit57.get("theorem_name") != "AffineBoundaryTemplateStateOrEscapeCycle":
+        return fail("collatz ticket57 theorem name changed")
+    summary57 = audit57.get("exact32_outcome_summary", {})
+    if int(summary57.get("total", -1)) != 69092:
+        return fail("collatz ticket57 exact32 total changed")
+    expected_outcomes57 = {
+        "fail_offset_1": 34458,
+        "fail_offset_2": 17301,
+        "fail_offset_3": 8649,
+        "fail_offset_4": 4310,
+        "fail_offset_5": 4372,
+        "phase5_gate_terminal_tunnel": 2,
+    }
+    observed_outcomes57 = {
+        str(key): int(value)
+        for key, value in summary57.get("coarse_outcome_counts", {}).items()
+    }
+    if observed_outcomes57 != expected_outcomes57:
+        return fail("collatz ticket57 exact32 outcome partition changed")
+    determinism57 = audit57.get("exact32_state_determinism", {})
+    if int(determinism57.get("first_deterministic_low_bits", -1)) != 28:
+        return fail("collatz ticket57 first deterministic boundary width changed")
+    ladder57 = determinism57.get("ladder", [])
+    if not isinstance(ladder57, list) or len(ladder57) < 10:
+        return fail("collatz ticket57 determinism ladder too small")
+    template_only57 = next((row for row in ladder57 if row.get("abstraction") == "template_only"), None)
+    if not isinstance(template_only57, dict) or int(template_only57.get("max_outcomes_per_state", -1)) != 6:
+        return fail("collatz ticket57 template-only abstraction must remain nondeterministic")
+    low26_57 = next(
+        (row for row in ladder57 if row.get("abstraction") == "template_plus_prefix_length_residue_mod_2^26"),
+        None,
+    )
+    if not isinstance(low26_57, dict) or int(low26_57.get("collision_group_count", -1)) != 92:
+        return fail("collatz ticket57 26-bit boundary collision count changed")
+    low28_57 = next(
+        (row for row in ladder57 if row.get("abstraction") == "template_plus_prefix_length_residue_mod_2^28"),
+        None,
+    )
+    if not isinstance(low28_57, dict) or int(low28_57.get("collision_group_count", -1)) != 0:
+        return fail("collatz ticket57 28-bit boundary should be deterministic for exact32")
+    projection57 = audit57.get("projection_escape_carry_forward", {})
+    if projection57.get("simple_projection_closure_status") != "refuted_by_sampled_48bit_depth15_witness":
+        return fail("collatz ticket57 must carry forward projection escape")
+    if int(projection57.get("escape_witness_count", -1)) != 1:
+        return fail("collatz ticket57 escape witness count changed")
+    replay57 = audit57.get("known_root_replay_audit", {})
+    if int(replay57.get("known_root_count", -1)) != 3:
+        return fail("collatz ticket57 known root replay count changed")
+    if int(replay57.get("max_replayed_prefix_depth", -1)) != 15:
+        return fail("collatz ticket57 max replayed prefix depth changed")
+    if int(replay57.get("full_lasso_period_replay_count", -1)) != 0:
+        return fail("collatz ticket57 must not find a full lasso replay")
+    if replay57.get("cycle_status") != "no_known_root_replays_full_lasso_period":
+        return fail("collatz ticket57 cycle status changed")
+    if "No Collatz proof" not in str(audit57.get("proof_boundary", "")):
+        return fail("collatz ticket57 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

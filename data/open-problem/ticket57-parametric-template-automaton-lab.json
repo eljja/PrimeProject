@@ -1,0 +1,2763 @@
+{
+  "schema": "primeproject.ticket57-parametric-template-automaton-lab.v1",
+  "generated_at": "2026-07-09T12:10:00+09:00",
+  "status": "parametric_boundary_state_open_no_resolution",
+  "claim_boundary": "Ticket 57 hardens the proof/disproof program by rejecting finite quotient shortcuts and requiring boundary-state lift closure or replayable escape cycles. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-57",
+      "status": "proof_pressure_open",
+      "route": "ZeroKernelBoundaryStateOrOffCriticalEscapeCycle",
+      "proof_or_counterexample_mode": "parametric-boundary-state transfer",
+      "attempt": "Transfer TICKET57's rule: a finite partition is not a proof until the boundary coordinates that make it deterministic are specified and proved stable under the natural lift. A counterexample candidate must replay under those same coordinates, not only under a quotient visualization.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-56",
+        "source_route": "ZeroKernelProjectionEscapeOrParametricStateModel",
+        "ticket57_transfer": "ZeroKernelBoundaryStateOrOffCriticalEscapeCycle",
+        "required_state_variables": [
+          "zero height window",
+          "explicit-formula kernel boundary",
+          "positivity deficit",
+          "lift/projection height map"
+        ],
+        "candidate_theorem": "Every off-critical zero-kernel packet has a lift-closed boundary state whose positivity measure strictly improves, or it yields a replayable off-critical escape cycle.",
+        "counterexample_target": "a height-lift-stable off-critical zero packet with non-improving positivity deficit",
+        "frontier_rule": "Promote neither a finite closure nor a stress witness unless it survives the parametric boundary state gate: lift-closure, deterministic transition, and replayable obstruction must be checked in the same coordinate system."
+      },
+      "obstruction": "This transfer is methodological and does not solve the target problem. It prevents quotient-level evidence from being mistaken for a theorem over the unbounded object.",
+      "candidate_theorem": "Every off-critical zero-kernel packet has a lift-closed boundary state whose positivity measure strictly improves, or it yields a replayable off-critical escape cycle.",
+      "next_experiment": "Build the problem-specific boundary-state transition relation or find a replayable escape object.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-57",
+      "route": "ParametricTemplateAutomatonOrEscapeCycle",
+      "status": "parametric_state_obstruction_open_no_resolution",
+      "proof_or_counterexample_mode": "state-abstraction falsification plus replayable-cycle search",
+      "attempt": "Keep the TICKET56 local theorem, but attack its globalization route. Measure how much boundary state is needed even to make the exact 32-bit partition deterministic, carry forward the 48-bit projection escape, and test whether known near-lasso roots replay a full template period.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-56",
+        "parametric_template_automaton_audit": {
+          "family": "phase16_tail4_residue256_vexact",
+          "theorem_name": "AffineBoundaryTemplateStateOrEscapeCycle",
+          "exact32_outcome_summary": {
+            "total": 69092,
+            "coarse_outcome_counts": {
+              "fail_offset_1": 34458,
+              "fail_offset_2": 17301,
+              "fail_offset_3": 8649,
+              "fail_offset_4": 4310,
+              "fail_offset_5": 4372,
+              "phase5_gate_terminal_tunnel": 2
+            },
+            "top_fine_outcome_counts": [
+              {
+                "outcome": "fail_offset_1_next_2",
+                "count": 17299
+              },
+              {
+                "outcome": "fail_offset_2_next_2",
+                "count": 8599
+              },
+              {
+                "outcome": "fail_offset_1_next_3",
+                "count": 8583
+              },
+              {
+                "outcome": "fail_offset_3_next_2",
+                "count": 4348
+              },
+              {
+                "outcome": "fail_offset_1_next_4",
+                "count": 4308
+              },
+              {
+                "outcome": "fail_offset_2_next_3",
+                "count": 4274
+              },
+              {
+                "outcome": "fail_offset_2_next_4",
+                "count": 2180
+              },
+              {
+                "outcome": "fail_offset_4_next_2",
+                "count": 2162
+              },
+              {
+                "outcome": "fail_offset_5_next_1",
+                "count": 2160
+              },
+              {
+                "outcome": "fail_offset_3_next_3",
+                "count": 2136
+              },
+              {
+                "outcome": "fail_offset_1_next_5",
+                "count": 2122
+              },
+              {
+                "outcome": "fail_offset_2_next_5",
+                "count": 1157
+              }
+            ],
+            "prefix_length_range": {
+              "min": 22,
+              "max": 31
+            },
+            "top_prefix_lengths": [
+              {
+                "prefix_length": 23,
+                "count": 23953
+              },
+              {
+                "prefix_length": 24,
+                "count": 17799
+              },
+              {
+                "prefix_length": 22,
+                "count": 12626
+              },
+              {
+                "prefix_length": 25,
+                "count": 9330
+              },
+              {
+                "prefix_length": 26,
+                "count": 3808
+              },
+              {
+                "prefix_length": 27,
+                "count": 1259
+              },
+              {
+                "prefix_length": 28,
+                "count": 263
+              },
+              {
+                "prefix_length": 29,
+                "count": 48
+              },
+              {
+                "prefix_length": 30,
+                "count": 5
+              },
+              {
+                "prefix_length": 31,
+                "count": 1
+              }
+            ]
+          },
+          "exact32_state_determinism": {
+            "ladder": [
+              {
+                "abstraction": "template_only",
+                "state_count": 1,
+                "collision_group_count": 1,
+                "ambiguous_candidate_count": 69092,
+                "largest_group_size": 69092,
+                "max_outcomes_per_state": 6,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\"]",
+                    "outcome_counts": {
+                      "fail_offset_1": 34458,
+                      "fail_offset_2": 17301,
+                      "fail_offset_3": 8649,
+                      "fail_offset_4": 4310,
+                      "fail_offset_5": 4372,
+                      "phase5_gate_terminal_tunnel": 2
+                    },
+                    "examples": [
+                      {
+                        "residue": 3181457255,
+                        "prefix_length": 31,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2443259751,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_3",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 4020318055,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length",
+                "state_count": 10,
+                "collision_group_count": 9,
+                "ambiguous_candidate_count": 69091,
+                "largest_group_size": 23953,
+                "max_outcomes_per_state": 6,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",30]",
+                    "outcome_counts": {
+                      "fail_offset_1": 3,
+                      "fail_offset_4": 1,
+                      "fail_offset_5": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2443259751,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_3",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 260124519,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2659872615,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2399080295,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",29]",
+                    "outcome_counts": {
+                      "fail_offset_1": 20,
+                      "fail_offset_2": 13,
+                      "fail_offset_3": 6,
+                      "fail_offset_4": 4,
+                      "fail_offset_5": 5
+                    },
+                    "examples": [
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2493591399,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4067503975,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1876504423,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_3",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28]",
+                    "outcome_counts": {
+                      "fail_offset_1": 124,
+                      "fail_offset_2": 75,
+                      "fail_offset_3": 36,
+                      "fail_offset_4": 22,
+                      "fail_offset_5": 6
+                    },
+                    "examples": [
+                      {
+                        "residue": 4020318055,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 4095815527,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_4",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 316747623,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1843474279,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_5",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",26]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1934,
+                      "fail_offset_2": 936,
+                      "fail_offset_3": 450,
+                      "fail_offset_4": 248,
+                      "fail_offset_5": 240
+                    },
+                    "examples": [
+                      {
+                        "residue": 1109471079,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4200673127,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2824941415,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_4",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 73477991,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^8",
+                "state_count": 10,
+                "collision_group_count": 9,
+                "ambiguous_candidate_count": 69091,
+                "largest_group_size": 23953,
+                "max_outcomes_per_state": 6,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",30,8,103]",
+                    "outcome_counts": {
+                      "fail_offset_1": 3,
+                      "fail_offset_4": 1,
+                      "fail_offset_5": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2443259751,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_3",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 260124519,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2659872615,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2399080295,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",29,8,103]",
+                    "outcome_counts": {
+                      "fail_offset_1": 20,
+                      "fail_offset_2": 13,
+                      "fail_offset_3": 6,
+                      "fail_offset_4": 4,
+                      "fail_offset_5": 5
+                    },
+                    "examples": [
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2493591399,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4067503975,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1876504423,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_3",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,8,103]",
+                    "outcome_counts": {
+                      "fail_offset_1": 124,
+                      "fail_offset_2": 75,
+                      "fail_offset_3": 36,
+                      "fail_offset_4": 22,
+                      "fail_offset_5": 6
+                    },
+                    "examples": [
+                      {
+                        "residue": 4020318055,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 4095815527,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_4",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 316747623,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1843474279,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_5",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",26,8,103]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1934,
+                      "fail_offset_2": 936,
+                      "fail_offset_3": 450,
+                      "fail_offset_4": 248,
+                      "fail_offset_5": 240
+                    },
+                    "examples": [
+                      {
+                        "residue": 1109471079,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4200673127,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2824941415,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_4",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 73477991,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^10",
+                "state_count": 33,
+                "collision_group_count": 31,
+                "ambiguous_candidate_count": 69090,
+                "largest_group_size": 9680,
+                "max_outcomes_per_state": 6,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",30,10,871]",
+                    "outcome_counts": {
+                      "fail_offset_1": 3,
+                      "fail_offset_4": 1,
+                      "fail_offset_5": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2443259751,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_3",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 260124519,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2659872615,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2399080295,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",29,10,871]",
+                    "outcome_counts": {
+                      "fail_offset_1": 16,
+                      "fail_offset_2": 12,
+                      "fail_offset_3": 5,
+                      "fail_offset_4": 4,
+                      "fail_offset_5": 2
+                    },
+                    "examples": [
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2493591399,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4067503975,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1876504423,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_3",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,10,871]",
+                    "outcome_counts": {
+                      "fail_offset_1": 86,
+                      "fail_offset_2": 52,
+                      "fail_offset_3": 26,
+                      "fail_offset_4": 17,
+                      "fail_offset_5": 4
+                    },
+                    "examples": [
+                      {
+                        "residue": 4020318055,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 4095815527,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_4",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 316747623,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1843474279,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_5",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",26,10,871]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1079,
+                      "fail_offset_2": 513,
+                      "fail_offset_3": 245,
+                      "fail_offset_4": 134,
+                      "fail_offset_5": 140
+                    },
+                    "examples": [
+                      {
+                        "residue": 1109471079,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4200673127,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2824941415,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_4",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 73477991,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^12",
+                "state_count": 109,
+                "collision_group_count": 103,
+                "ambiguous_candidate_count": 69084,
+                "largest_group_size": 3158,
+                "max_outcomes_per_state": 6,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",30,12,3943]",
+                    "outcome_counts": {
+                      "fail_offset_1": 3,
+                      "fail_offset_4": 1,
+                      "fail_offset_5": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2443259751,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_3",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 260124519,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2659872615,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2399080295,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",29,12,3943]",
+                    "outcome_counts": {
+                      "fail_offset_1": 11,
+                      "fail_offset_2": 8,
+                      "fail_offset_3": 4,
+                      "fail_offset_4": 4,
+                      "fail_offset_5": 2
+                    },
+                    "examples": [
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2493591399,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4067503975,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1876504423,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_3",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,12,3943]",
+                    "outcome_counts": {
+                      "fail_offset_1": 59,
+                      "fail_offset_2": 36,
+                      "fail_offset_3": 18,
+                      "fail_offset_4": 9,
+                      "fail_offset_5": 2
+                    },
+                    "examples": [
+                      {
+                        "residue": 4020318055,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 4095815527,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_4",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 316747623,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1843474279,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_5",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",26,12,3943]",
+                    "outcome_counts": {
+                      "fail_offset_1": 559,
+                      "fail_offset_2": 272,
+                      "fail_offset_3": 111,
+                      "fail_offset_4": 63,
+                      "fail_offset_5": 76
+                    },
+                    "examples": [
+                      {
+                        "residue": 1109471079,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4200673127,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2824941415,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_4",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 73477991,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^14",
+                "state_count": 344,
+                "collision_group_count": 316,
+                "ambiguous_candidate_count": 69038,
+                "largest_group_size": 876,
+                "max_outcomes_per_state": 6,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",30,14,12135]",
+                    "outcome_counts": {
+                      "fail_offset_1": 2,
+                      "fail_offset_4": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2443259751,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_3",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 260124519,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2659872615,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",29,14,12135]",
+                    "outcome_counts": {
+                      "fail_offset_1": 7,
+                      "fail_offset_2": 6,
+                      "fail_offset_3": 3,
+                      "fail_offset_4": 3,
+                      "fail_offset_5": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2493591399,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4067503975,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1876504423,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_3",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,14,12135]",
+                    "outcome_counts": {
+                      "fail_offset_1": 41,
+                      "fail_offset_2": 24,
+                      "fail_offset_3": 13,
+                      "fail_offset_4": 8,
+                      "fail_offset_5": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 4020318055,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 4095815527,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_4",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 316747623,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1843474279,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_5",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",26,14,12135]",
+                    "outcome_counts": {
+                      "fail_offset_1": 253,
+                      "fail_offset_2": 123,
+                      "fail_offset_3": 42,
+                      "fail_offset_4": 32,
+                      "fail_offset_5": 35
+                    },
+                    "examples": [
+                      {
+                        "residue": 1109471079,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4200673127,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2824941415,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_4",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 73477991,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^16",
+                "state_count": 969,
+                "collision_group_count": 888,
+                "ambiguous_candidate_count": 68957,
+                "largest_group_size": 244,
+                "max_outcomes_per_state": 6,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",30,16,12135]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1,
+                      "fail_offset_4": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2443259751,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_3",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 260124519,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",29,16,12135]",
+                    "outcome_counts": {
+                      "fail_offset_1": 4,
+                      "fail_offset_2": 4,
+                      "fail_offset_3": 2,
+                      "fail_offset_4": 2,
+                      "fail_offset_5": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2493591399,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4067503975,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1876504423,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_3",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,16,12135]",
+                    "outcome_counts": {
+                      "fail_offset_1": 26,
+                      "fail_offset_2": 15,
+                      "fail_offset_3": 7,
+                      "fail_offset_4": 5,
+                      "fail_offset_5": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 4020318055,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 4095815527,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_4",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 316747623,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1843474279,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_5",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",26,16,12135]",
+                    "outcome_counts": {
+                      "fail_offset_1": 107,
+                      "fail_offset_2": 55,
+                      "fail_offset_3": 10,
+                      "fail_offset_4": 12,
+                      "fail_offset_5": 15
+                    },
+                    "examples": [
+                      {
+                        "residue": 1109471079,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4200673127,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2824941415,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_4",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 73477991,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^18",
+                "state_count": 3017,
+                "collision_group_count": 2716,
+                "ambiguous_candidate_count": 68650,
+                "largest_group_size": 70,
+                "max_outcomes_per_state": 5,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",30,18,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1,
+                      "fail_offset_4": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2443259751,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_3",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 260124519,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",29,18,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 2,
+                      "fail_offset_2": 2,
+                      "fail_offset_3": 2,
+                      "fail_offset_4": 2
+                    },
+                    "examples": [
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2493591399,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4067503975,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1876504423,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_3",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,18,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 16,
+                      "fail_offset_2": 8,
+                      "fail_offset_3": 4,
+                      "fail_offset_4": 3
+                    },
+                    "examples": [
+                      {
+                        "residue": 4020318055,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 4095815527,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_4",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 316747623,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1843474279,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_5",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",26,18,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 32,
+                      "fail_offset_2": 18,
+                      "fail_offset_3": 1,
+                      "fail_offset_4": 2,
+                      "fail_offset_5": 3
+                    },
+                    "examples": [
+                      {
+                        "residue": 1109471079,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4200673127,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2824941415,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_4",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 73477991,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^20",
+                "state_count": 9299,
+                "collision_group_count": 7545,
+                "ambiguous_candidate_count": 66095,
+                "largest_group_size": 22,
+                "max_outcomes_per_state": 5,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",30,20,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1,
+                      "fail_offset_4": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2443259751,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_3",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 260124519,
+                        "prefix_length": 30,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",29,20,77671]",
+                    "outcome_counts": {
+                      "fail_offset_2": 1,
+                      "fail_offset_4": 2
+                    },
+                    "examples": [
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2493591399,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4067503975,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,20,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 6,
+                      "fail_offset_2": 5,
+                      "fail_offset_4": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 4020318055,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 4095815527,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_4",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 316747623,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1843474279,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_5",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",26,20,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 9,
+                      "fail_offset_2": 6
+                    },
+                    "examples": [
+                      {
+                        "residue": 1109471079,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 4200673127,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2824941415,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_4",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 73477991,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^22",
+                "state_count": 25452,
+                "collision_group_count": 14415,
+                "ambiguous_candidate_count": 53548,
+                "largest_group_size": 9,
+                "max_outcomes_per_state": 5,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",29,22,2174823]",
+                    "outcome_counts": {
+                      "fail_offset_2": 1,
+                      "fail_offset_4": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2493591399,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,22,2174823]",
+                    "outcome_counts": {
+                      "fail_offset_1": 2,
+                      "fail_offset_2": 2
+                    },
+                    "examples": [
+                      {
+                        "residue": 4020318055,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 4095815527,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_4",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 316747623,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1843474279,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_5",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,22,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1,
+                      "fail_offset_2": 2
+                    },
+                    "examples": [
+                      {
+                        "residue": 1098985319,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_4",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "4"
+                      },
+                      {
+                        "residue": 3389075303,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1174482791,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",27,22,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 3,
+                      "fail_offset_2": 1,
+                      "fail_offset_3": 2
+                    },
+                    "examples": [
+                      {
+                        "residue": 2776706919,
+                        "prefix_length": 27,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_2",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2088841063,
+                        "prefix_length": 27,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 3691065191,
+                        "prefix_length": 27,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_6",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 3003199335,
+                        "prefix_length": 27,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_2",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "2"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^24",
+                "state_count": 55517,
+                "collision_group_count": 6471,
+                "ambiguous_candidate_count": 13517,
+                "largest_group_size": 4,
+                "max_outcomes_per_state": 3,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",29,24,10563431]",
+                    "outcome_counts": {
+                      "fail_offset_2": 1,
+                      "fail_offset_4": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 966864743,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 2493591399,
+                        "prefix_length": 29,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_2",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "2"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",27,24,8466279]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1,
+                      "fail_offset_3": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2776706919,
+                        "prefix_length": 27,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_2",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 2088841063,
+                        "prefix_length": 27,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,24,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1,
+                      "fail_offset_2": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 3389075303,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1174482791,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",27,24,77671]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1,
+                      "fail_offset_2": 1,
+                      "fail_offset_3": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 3691065191,
+                        "prefix_length": 27,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_6",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "6"
+                      },
+                      {
+                        "residue": 3003199335,
+                        "prefix_length": 27,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_2",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1627467623,
+                        "prefix_length": 27,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_2",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "2"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^26",
+                "state_count": 68813,
+                "collision_group_count": 92,
+                "ambiguous_candidate_count": 184,
+                "largest_group_size": 2,
+                "max_outcomes_per_state": 2,
+                "deterministic_for_exact32_coarse_outcome": false,
+                "collision_examples": [
+                  {
+                    "state_key": "[\"target\",28,26,33632103]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1,
+                      "fail_offset_2": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 3389075303,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_2",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1174482791,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_6",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "6"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,26,34680679]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1,
+                      "fail_offset_2": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2786144103,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_3",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 571551591,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_5",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",28,26,26816359]",
+                    "outcome_counts": {
+                      "fail_offset_1": 1,
+                      "fail_offset_2": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 3516477287,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_2",
+                        "fine_outcome": "fail_offset_2_next_2",
+                        "failure_offset": 2,
+                        "observed_next_valuation": "2"
+                      },
+                      {
+                        "residue": 1301884775,
+                        "prefix_length": 28,
+                        "coarse_outcome": "fail_offset_1",
+                        "fine_outcome": "fail_offset_1_next_3",
+                        "failure_offset": 1,
+                        "observed_next_valuation": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "state_key": "[\"target\",26,26,23408487]",
+                    "outcome_counts": {
+                      "fail_offset_3": 1,
+                      "fail_offset_4": 1
+                    },
+                    "examples": [
+                      {
+                        "residue": 2841980775,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_3",
+                        "fine_outcome": "fail_offset_3_next_3",
+                        "failure_offset": 3,
+                        "observed_next_valuation": "3"
+                      },
+                      {
+                        "residue": 90517351,
+                        "prefix_length": 26,
+                        "coarse_outcome": "fail_offset_4",
+                        "fine_outcome": "fail_offset_4_next_5",
+                        "failure_offset": 4,
+                        "observed_next_valuation": "5"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^28",
+                "state_count": 69092,
+                "collision_group_count": 0,
+                "ambiguous_candidate_count": 0,
+                "largest_group_size": 1,
+                "max_outcomes_per_state": 1,
+                "deterministic_for_exact32_coarse_outcome": true,
+                "collision_examples": []
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^30",
+                "state_count": 69092,
+                "collision_group_count": 0,
+                "ambiguous_candidate_count": 0,
+                "largest_group_size": 1,
+                "max_outcomes_per_state": 1,
+                "deterministic_for_exact32_coarse_outcome": true,
+                "collision_examples": []
+              },
+              {
+                "abstraction": "template_plus_prefix_length_residue_mod_2^32",
+                "state_count": 69092,
+                "collision_group_count": 0,
+                "ambiguous_candidate_count": 0,
+                "largest_group_size": 1,
+                "max_outcomes_per_state": 1,
+                "deterministic_for_exact32_coarse_outcome": true,
+                "collision_examples": []
+              }
+            ],
+            "first_deterministic_abstraction": "template_plus_prefix_length_residue_mod_2^28",
+            "first_deterministic_low_bits": 28,
+            "interpretation": "The exact 32-bit population is not deterministic under the extracted template alone. A proof route needs additional boundary coordinates, and those coordinates must then be proved stable under higher-bit lifts instead of fitted only to the 32-bit partition."
+          },
+          "projection_escape_carry_forward": {
+            "exact32_target_template": "[0,[1,1,1,1],103,1]",
+            "simple_projection_closure_status": "refuted_by_sampled_48bit_depth15_witness",
+            "sample_count": 200000,
+            "sample_start_template_matches": 3184,
+            "escape_witness_count": 1,
+            "escape_witnesses": [
+              {
+                "residue": 171308122831719,
+                "bits": 48,
+                "lasso_prefix_depth": 15,
+                "projection_template": "[0,[1,2,1,1],103,2]",
+                "projection_matches_exact32_target": false,
+                "escape_class": "tail_or_pending_valuation_projection_escape"
+              }
+            ],
+            "required_upgrade": "Replace fixed exact32 projection closure with a boundary-state relation that records how tail word and pending valuation transform under projection and lift."
+          },
+          "known_root_replay_audit": {
+            "known_root_count": 3,
+            "target_period_template_count": 17,
+            "max_replayed_prefix_depth": 15,
+            "full_lasso_period_replay_count": 0,
+            "replay_rows": [
+              {
+                "source": "TICKET-50",
+                "base_bits": 32,
+                "residue": 1471663463,
+                "matched_prefix_templates": 15,
+                "full_lasso_period_replayed": false,
+                "first_nonmatch": {
+                  "offset": 15,
+                  "bits": 47,
+                  "expected": "[15,[1,1,1,1],103,10]",
+                  "observed": "[15,[1,1,1,10],103,1]",
+                  "matches": false,
+                  "reason": "tail_word+next_valuation",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 47,
+                    "template": "[15,[1,1,1,10],103,1]",
+                    "prefix_length": 31,
+                    "consumed_bits": 47,
+                    "next_valuation": 1,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      10
+                    ]
+                  }
+                },
+                "prefix_sample": [
+                  {
+                    "offset": 0,
+                    "bits": 32,
+                    "expected": "[0,[1,1,1,1],103,1]",
+                    "observed": "[0,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 1471663463,
+                      "modulus_bits": 32,
+                      "template": "[0,[1,1,1,1],103,1]",
+                      "prefix_length": 25,
+                      "consumed_bits": 32,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 1,
+                    "bits": 33,
+                    "expected": "[1,[1,1,1,1],103,1]",
+                    "observed": "[1,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 1471663463,
+                      "modulus_bits": 33,
+                      "template": "[1,[1,1,1,1],103,1]",
+                      "prefix_length": 26,
+                      "consumed_bits": 33,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 2,
+                    "bits": 34,
+                    "expected": "[2,[1,1,1,1],103,1]",
+                    "observed": "[2,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 1471663463,
+                      "modulus_bits": 34,
+                      "template": "[2,[1,1,1,1],103,1]",
+                      "prefix_length": 27,
+                      "consumed_bits": 34,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 3,
+                    "bits": 35,
+                    "expected": "[3,[1,1,1,1],103,1]",
+                    "observed": "[3,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 1471663463,
+                      "modulus_bits": 35,
+                      "template": "[3,[1,1,1,1],103,1]",
+                      "prefix_length": 28,
+                      "consumed_bits": 35,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 4,
+                    "bits": 36,
+                    "expected": "[4,[1,1,1,1],103,1]",
+                    "observed": "[4,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 1471663463,
+                      "modulus_bits": 36,
+                      "template": "[4,[1,1,1,1],103,1]",
+                      "prefix_length": 29,
+                      "consumed_bits": 36,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 5,
+                    "bits": 37,
+                    "expected": "[5,[1,1,1,1],103,10]",
+                    "observed": "[5,[1,1,1,1],103,10]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 1471663463,
+                      "modulus_bits": 37,
+                      "template": "[5,[1,1,1,1],103,10]",
+                      "prefix_length": 30,
+                      "consumed_bits": 37,
+                      "next_valuation": 10,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "source": "TICKET-50",
+                "base_bits": 32,
+                "residue": 3206130791,
+                "matched_prefix_templates": 15,
+                "full_lasso_period_replayed": false,
+                "first_nonmatch": {
+                  "offset": 15,
+                  "bits": 47,
+                  "expected": "[15,[1,1,1,1],103,10]",
+                  "observed": "all_lift_descent",
+                  "matches": false,
+                  "reason": "all_lift_descent",
+                  "certificate": {
+                    "status": "all_lift_descent",
+                    "residue": 3206130791,
+                    "modulus_bits": 47,
+                    "template": null,
+                    "prefix_length": 28,
+                    "consumed_bits": 47,
+                    "next_valuation": null,
+                    "coefficient_log2_margin": 2.62104998,
+                    "threshold_min_n_for_descent": 1,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      10
+                    ]
+                  }
+                },
+                "prefix_sample": [
+                  {
+                    "offset": 0,
+                    "bits": 32,
+                    "expected": "[0,[1,1,1,1],103,1]",
+                    "observed": "[0,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 3206130791,
+                      "modulus_bits": 32,
+                      "template": "[0,[1,1,1,1],103,1]",
+                      "prefix_length": 22,
+                      "consumed_bits": 32,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        5,
+                        2,
+                        2,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 1,
+                    "bits": 33,
+                    "expected": "[1,[1,1,1,1],103,1]",
+                    "observed": "[1,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 3206130791,
+                      "modulus_bits": 33,
+                      "template": "[1,[1,1,1,1],103,1]",
+                      "prefix_length": 23,
+                      "consumed_bits": 33,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        5,
+                        2,
+                        2,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 2,
+                    "bits": 34,
+                    "expected": "[2,[1,1,1,1],103,1]",
+                    "observed": "[2,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 3206130791,
+                      "modulus_bits": 34,
+                      "template": "[2,[1,1,1,1],103,1]",
+                      "prefix_length": 24,
+                      "consumed_bits": 34,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        2,
+                        2,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 3,
+                    "bits": 35,
+                    "expected": "[3,[1,1,1,1],103,1]",
+                    "observed": "[3,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 3206130791,
+                      "modulus_bits": 35,
+                      "template": "[3,[1,1,1,1],103,1]",
+                      "prefix_length": 25,
+                      "consumed_bits": 35,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        2,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 4,
+                    "bits": 36,
+                    "expected": "[4,[1,1,1,1],103,1]",
+                    "observed": "[4,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 3206130791,
+                      "modulus_bits": 36,
+                      "template": "[4,[1,1,1,1],103,1]",
+                      "prefix_length": 26,
+                      "consumed_bits": 36,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 5,
+                    "bits": 37,
+                    "expected": "[5,[1,1,1,1],103,10]",
+                    "observed": "[5,[1,1,1,1],103,10]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 3206130791,
+                      "modulus_bits": 37,
+                      "template": "[5,[1,1,1,1],103,10]",
+                      "prefix_length": 27,
+                      "consumed_bits": 37,
+                      "next_valuation": 10,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "source": "ticket56_projection_escape_witness",
+                "base_bits": 48,
+                "residue": 171308122831719,
+                "matched_prefix_templates": 15,
+                "full_lasso_period_replayed": false,
+                "first_nonmatch": {
+                  "offset": 15,
+                  "bits": 63,
+                  "expected": "[15,[1,1,1,1],103,10]",
+                  "observed": "[15,[1,1,1,10],103,1]",
+                  "matches": false,
+                  "reason": "tail_word+next_valuation",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 63,
+                    "template": "[15,[1,1,1,10],103,1]",
+                    "prefix_length": 40,
+                    "consumed_bits": 63,
+                    "next_valuation": 1,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      10
+                    ]
+                  }
+                },
+                "prefix_sample": [
+                  {
+                    "offset": 0,
+                    "bits": 48,
+                    "expected": "[0,[1,1,1,1],103,1]",
+                    "observed": "[0,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 171308122831719,
+                      "modulus_bits": 48,
+                      "template": "[0,[1,1,1,1],103,1]",
+                      "prefix_length": 34,
+                      "consumed_bits": 48,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        2,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 1,
+                    "bits": 49,
+                    "expected": "[1,[1,1,1,1],103,1]",
+                    "observed": "[1,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 171308122831719,
+                      "modulus_bits": 49,
+                      "template": "[1,[1,1,1,1],103,1]",
+                      "prefix_length": 35,
+                      "consumed_bits": 49,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        2,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 2,
+                    "bits": 50,
+                    "expected": "[2,[1,1,1,1],103,1]",
+                    "observed": "[2,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 171308122831719,
+                      "modulus_bits": 50,
+                      "template": "[2,[1,1,1,1],103,1]",
+                      "prefix_length": 36,
+                      "consumed_bits": 50,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        2,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 3,
+                    "bits": 51,
+                    "expected": "[3,[1,1,1,1],103,1]",
+                    "observed": "[3,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 171308122831719,
+                      "modulus_bits": 51,
+                      "template": "[3,[1,1,1,1],103,1]",
+                      "prefix_length": 37,
+                      "consumed_bits": 51,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        2,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 4,
+                    "bits": 52,
+                    "expected": "[4,[1,1,1,1],103,1]",
+                    "observed": "[4,[1,1,1,1],103,1]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 171308122831719,
+                      "modulus_bits": 52,
+                      "template": "[4,[1,1,1,1],103,1]",
+                      "prefix_length": 38,
+                      "consumed_bits": 52,
+                      "next_valuation": 1,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "offset": 5,
+                    "bits": 53,
+                    "expected": "[5,[1,1,1,1],103,10]",
+                    "observed": "[5,[1,1,1,1],103,10]",
+                    "matches": true,
+                    "reason": "match",
+                    "certificate": {
+                      "status": "needs_split",
+                      "residue": 171308122831719,
+                      "modulus_bits": 53,
+                      "template": "[5,[1,1,1,1],103,10]",
+                      "prefix_length": 39,
+                      "consumed_bits": 53,
+                      "next_valuation": 10,
+                      "coefficient_log2_margin": null,
+                      "threshold_min_n_for_descent": null,
+                      "tail_word": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "cycle_status": "no_known_root_replays_full_lasso_period",
+            "interpretation": "The known near-lasso roots remain terminal or pre-terminal obstructions. None is a replayable Collatz counterexample cycle; a real disproof route would need a compatible infinite lift, not just a finite template prefix."
+          },
+          "discarded_routes": [
+            "template-only rank or transition relation",
+            "exact32 finite partition promoted by simple projection closure",
+            "near-lasso prefix treated as a counterexample without full-period replay and lift compatibility"
+          ],
+          "retained_route": "A parametric affine-boundary automaton over phase, tail word, residue modulo 2^k, prefix length, consumed-bit gap, and pending valuation; or a replayable escape cycle that survives one full lasso period and avoids known terminal tunnels.",
+          "candidate_theorem": "For every phase-compatible start cylinder, a boundary-state transition either reaches a finite next-valuation failure gate, enters the Phase5GateToTerminalTunnel, or strictly decreases a well-founded rank defined on the full affine boundary state.",
+          "counterexample_target": "Find a higher-bit root whose full affine boundary state returns after one lasso period with nondecreasing rank and whose trajectory is not covered by TICKET53, TICKET55, or TICKET56.",
+          "proof_boundary": "No Collatz proof and no certified Collatz counterexample. TICKET57 rejects weaker finite state abstractions and finds no replayable cycle among known near-lasso roots; the remaining obligation is a parametric affine-boundary lift theorem or a new full-period escape witness."
+        }
+      },
+      "obstruction": "The exact 32-bit partition needs hidden boundary coordinates to become deterministic, and the known 48-bit depth-15 witness projects outside the exact32 target template. The known near-lasso roots do not replay a full lasso period.",
+      "candidate_theorem": "AffineBoundaryTemplateStateOrEscapeCycle: prove deterministic, lift-closed transitions for the full boundary state with a decreasing rank, or produce a full-period escape cycle.",
+      "next_experiment": "Generate CO-TICKET-58 by synthesizing the affine-boundary transition relation and checking whether the first deterministic exact32 boundary level is stable under 40/48-bit lifts.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-57",
+      "status": "proof_pressure_open",
+      "route": "ExceptionalMarginBoundaryStateOrCounterexample",
+      "proof_or_counterexample_mode": "parametric-boundary-state transfer",
+      "attempt": "Transfer TICKET57's rule: a finite partition is not a proof until the boundary coordinates that make it deterministic are specified and proved stable under the natural lift. A counterexample candidate must replay under those same coordinates, not only under a quotient visualization.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-56",
+        "source_route": "ExceptionalResidueLiftEscapeOrParametricMarginModel",
+        "ticket57_transfer": "ExceptionalMarginBoundaryStateOrCounterexample",
+        "required_state_variables": [
+          "even cutoff scale",
+          "major/minor arc margin",
+          "exceptional residue class",
+          "singular-series lower-bound slack"
+        ],
+        "candidate_theorem": "Every exceptional-residue packet has a lift-closed positive-margin boundary state, or it yields an explicit even counterexample packet that survives cutoff lifting.",
+        "counterexample_target": "a cutoff-stable even packet whose certified Goldbach margin remains nonpositive",
+        "frontier_rule": "Promote neither a finite closure nor a stress witness unless it survives the parametric boundary state gate: lift-closure, deterministic transition, and replayable obstruction must be checked in the same coordinate system."
+      },
+      "obstruction": "This transfer is methodological and does not solve the target problem. It prevents quotient-level evidence from being mistaken for a theorem over the unbounded object.",
+      "candidate_theorem": "Every exceptional-residue packet has a lift-closed positive-margin boundary state, or it yields an explicit even counterexample packet that survives cutoff lifting.",
+      "next_experiment": "Build the problem-specific boundary-state transition relation or find a replayable escape object.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-57",
+      "status": "proof_pressure_open",
+      "route": "ParityBoundarySieveStateOrGapCycle",
+      "proof_or_counterexample_mode": "parametric-boundary-state transfer",
+      "attempt": "Transfer TICKET57's rule: a finite partition is not a proof until the boundary coordinates that make it deterministic are specified and proved stable under the natural lift. A counterexample candidate must replay under those same coordinates, not only under a quotient visualization.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-56",
+        "source_route": "GapSelectorLiftEscapeOrParametricSieveModel",
+        "ticket57_transfer": "ParityBoundarySieveStateOrGapCycle",
+        "required_state_variables": [
+          "sieve level",
+          "admissible residue selector",
+          "parity leakage mass",
+          "gap-2 retained mass versus wider-gap leakage"
+        ],
+        "candidate_theorem": "Every exact gap-2 selector has a lift-closed parity-boundary state with retained positive mass, or it yields a replayable leakage cycle that absorbs all gap-2 mass.",
+        "counterexample_target": "a sieve-lift-stable leakage cycle that keeps gap-2 mass nonpositive at every scale",
+        "frontier_rule": "Promote neither a finite closure nor a stress witness unless it survives the parametric boundary state gate: lift-closure, deterministic transition, and replayable obstruction must be checked in the same coordinate system."
+      },
+      "obstruction": "This transfer is methodological and does not solve the target problem. It prevents quotient-level evidence from being mistaken for a theorem over the unbounded object.",
+      "candidate_theorem": "Every exact gap-2 selector has a lift-closed parity-boundary state with retained positive mass, or it yields a replayable leakage cycle that absorbs all gap-2 mass.",
+      "next_experiment": "Build the problem-specific boundary-state transition relation or find a replayable escape object.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}
