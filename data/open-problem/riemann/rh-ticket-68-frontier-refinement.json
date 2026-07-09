@@ -1,0 +1,20 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-68",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelRefinementDAGOrPersistentOffCriticalCycle",
+  "proof_or_counterexample_mode": "cycle-refinement transfer",
+  "attempt": "Transfer the TICKET68 lesson: a coarse cyclic quotient is not decisive if a theorem-plausible refinement turns it into a DAG. The problem-specific task is to prove refinement completeness or expose a persistent refined cycle.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-67",
+    "source_route": "KernelRankCycleOrPersistentOffCriticalBranch",
+    "ticket68_transfer": "ZeroKernelRefinementDAGOrPersistentOffCriticalCycle",
+    "candidate_theorem": "Every zero-kernel quotient cycle is either broken by a positivity-preserving refined coordinate DAG, or a compatible off-critical refined cycle persists.",
+    "counterexample_target": "a compatible off-critical branch that remains cyclic after the refined zero-kernel coordinates are added",
+    "frontier_rule": "A finite cyclic quotient is not a proof obstruction by itself. It must survive theorem-plausible refinement and be compatible with an infinite object."
+  },
+  "obstruction": "This is a transferred theorem target, not a solution.",
+  "candidate_theorem": "Every zero-kernel quotient cycle is either broken by a positivity-preserving refined coordinate DAG, or a compatible off-critical refined cycle persists.",
+  "next_experiment": "Build the problem-specific refined frontier and test whether cycles persist after the added coordinates.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

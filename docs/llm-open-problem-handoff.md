@@ -61,7 +61,70 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-67
+## Latest Continuation After TICKET-68
+
+TICKET-68 supersedes the immediate TICKET-67 continuation target. It does not solve Collatz, but it tests whether the TICKET67 429-node cyclic quotient survives theorem-plausible coordinate refinements.
+
+Known Collatz result:
+
+```text
+Source base transition nodes: 5,100
+Source base transition edges: 45,665
+Source base transition weight: 265,812
+Source cyclic nodes: 429
+Source cycle edge weight: 89,222
+Open exits from cycle: 174,589
+Tested refinement families: 7
+Strongest acyclic refinement: base_prefix_consumed
+base_prefix_consumed states: 9,616
+base_prefix_consumed edges: 41,283
+base_prefix_consumed cyclic nodes: 0
+base_prefix_consumed observed topological rank: 5
+Best tail/residue-only refinement: tail8_res4096_vexact
+tail8_res4096_vexact cyclic nodes: 26
+tail8_res4096_vexact cyclic edge weight: 129
+```
+
+Interpretation:
+
+```text
+The TICKET67 429-node quotient cycle is not an unavoidable obstruction. It disappears on the observed transition set once exact prefix_length and consumed_bits are added to the base template. However, this is still bounded evidence. It becomes a proof only if the prefix/consumed refined transition system is shown to be complete for all compatible higher lifts and its DAG rank is well-founded beyond the observed horizon.
+```
+
+Do not claim Collatz from this. The next theorem must prove transition-completeness and rank descent for the prefix/consumed DAG, or find a higher-lift refined cycle that survives this coordinate.
+
+Current best continuation:
+
+```text
+CO-TICKET-69 PrefixConsumedDAGCompletenessOrPersistentRefinedCycle
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-68. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET68 refines the TICKET67 429-node cyclic SCC with seven coordinate families. The base quotient remains cyclic, but base_template + prefix_length + consumed_bits turns the observed internal SCC transition graph into a DAG with 9,616 states, 41,283 edges, zero cyclic nodes, and observed topological rank 5. Tail/residue-only refinement still leaves 26 cyclic nodes and 129 cyclic edge weight.
+
+Goal: build CO-TICKET-69. Prove that the base_prefix_consumed DAG is transition-complete for all compatible higher lifts and supports a well-founded rank, or find a higher-lift refined cycle that reappears under the same coordinate.
+
+Tasks:
+1. Load data/open-problem/ticket68-cycle-scc-refinement-lab.json.
+2. Reconstruct the base_prefix_consumed refined graph from scripts/ticket68_cycle_scc_refinement_lab.py.
+3. Formalize the exact state variables: base template, prefix_length, consumed_bits, source bits phase, child top, and certificate transition rule.
+4. Test one more lift horizon without adding post-hoc replay labels. The only acceptable failure signal is a refined cycle, a transition-completeness violation, or a rank nondecrease inside the refined DAG theorem candidate.
+5. If no cycle reappears, state the finite theorem precisely and list every infinite bridge still missing.
+6. If a refined cycle reappears, extract the congruence constraints needed for a compatible infinite 2-adic lift.
+
+Required output:
+- data/open-problem/ticket69-prefix-consumed-dag-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless the infinite transition-completeness theorem is supplied
+```
+
+## Previous Continuation After TICKET-67
 
 TICKET-67 supersedes the immediate TICKET-66 continuation target. It does not solve Collatz, but it tests the obvious next rank shortcuts and isolates a sharper finite quotient obstruction.
 

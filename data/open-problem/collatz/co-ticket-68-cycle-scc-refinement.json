@@ -1,0 +1,1084 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-68",
+  "route": "CycleSCCRefinementOrInfiniteLiftExclusion",
+  "status": "bounded_refinement_breaks_observed_scc_open_no_resolution",
+  "proof_or_counterexample_mode": "cycle-SCC coordinate refinement and bounded DAG extraction",
+  "attempt": "Take the 429-node cyclic SCC isolated by TICKET67 and test whether stronger pre-replay coordinates still contain a cycle. The goal is either a refined rank candidate or a sharper infinite-lift counterexample target.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-67",
+    "cycle_scc_refinement_audit": {
+      "theorem_name": "CycleSCCRefinementOrInfiniteLiftExclusion",
+      "source_ticket": "CO-TICKET-67",
+      "source_cycle_summary": {
+        "base_transition_nodes": 5100,
+        "base_transition_edges": 45665,
+        "base_transition_weight": 265812,
+        "cyclic_component_count": 1,
+        "cyclic_node_count": 429,
+        "largest_cyclic_component_size": 429,
+        "cycle_edge_weight": 89222,
+        "cycle_example": [
+          "[0,[1,1,1,1],103,10]",
+          "[4,[1,1,1,1],103,10]",
+          "[8,[1,1,1,3],103,5]",
+          "[12,[1,1,1,3],103,8]",
+          "[0,[1,1,1,1],103,2]",
+          "[4,[1,1,1,1],103,2]",
+          "[8,[1,1,1,1],103,2]",
+          "[12,[1,1,1,1],103,2]",
+          "[0,[1,1,1,1],103,10]"
+        ]
+      },
+      "source_internal_cycle_transition_weight": 89222,
+      "source_open_exits_from_cycle_weight": 174589,
+      "tested_refinement_family_count": 7,
+      "refinement_rows": [
+        {
+          "family_id": "base_template",
+          "description": "TICKET67 quotient: phase16 + tail4 + residue mod 256 + exact next valuation.",
+          "state_count": 429,
+          "edge_count": 10596,
+          "transition_weight": 89222,
+          "cyclic_component_count": 1,
+          "cyclic_node_count": 429,
+          "largest_cyclic_component_size": 429,
+          "cyclic_edge_weight": 89222,
+          "cyclic_edge_weight_rate": 1.0,
+          "graph_status": "refined_cycle_persists",
+          "cycle_example": [
+            "[0,[1,1,1,1],103,10]",
+            "[4,[1,1,1,1],103,10]",
+            "[8,[1,1,1,3],103,5]",
+            "[12,[1,1,1,3],103,8]",
+            "[0,[1,1,1,1],103,2]",
+            "[4,[1,1,1,1],103,2]",
+            "[8,[1,1,1,1],103,2]",
+            "[12,[1,1,1,1],103,2]",
+            "[0,[1,1,1,1],103,10]"
+          ],
+          "debt_delta_counts": {
+            "positive": 47000,
+            "negative": 35576,
+            "zero": 6646
+          },
+          "max_delta_debt": 3.4150375,
+          "min_delta_debt": -4.0,
+          "max_delta_example": {
+            "source_state": "[12,[1,1,1,5],103,3]",
+            "child_state": "[0,[1,1,1,1],103,10]",
+            "source_template": "[12,[1,1,1,5],103,3]",
+            "child_template": "[0,[1,1,1,1],103,10]",
+            "source_bits": 60,
+            "child_top": 11,
+            "delta_debt": 3.4150375,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 411080137808289639,
+              "modulus_bits": 60,
+              "prefix_length": 42,
+              "consumed_bits": 60,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 6.56842503,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 13093216688483606375,
+              "modulus_bits": 64,
+              "prefix_length": 41,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 9.98346253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "min_delta_example": {
+            "source_state": "[12,[1,1,1,1],103,2]",
+            "child_state": "[0,[1,1,1,5],103,1]",
+            "source_template": "[12,[1,1,1,1],103,2]",
+            "child_template": "[0,[1,1,1,5],103,1]",
+            "source_bits": 60,
+            "child_top": 5,
+            "delta_debt": -4.0,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 592399662325029223,
+              "modulus_bits": 60,
+              "prefix_length": 45,
+              "consumed_bits": 60,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 11.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 6357007185359264103,
+              "modulus_bits": 64,
+              "prefix_length": 45,
+              "consumed_bits": 64,
+              "next_valuation": 1,
+              "coefficient_log2_debt": 7.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            }
+          },
+          "dag_rank_summary": {
+            "status": "cyclic_refined_graph"
+          }
+        },
+        {
+          "family_id": "base_prefix_consumed",
+          "description": "TICKET67 quotient plus exact certificate prefix_length and consumed_bits.",
+          "state_count": 9616,
+          "edge_count": 41283,
+          "transition_weight": 89222,
+          "cyclic_component_count": 0,
+          "cyclic_node_count": 0,
+          "largest_cyclic_component_size": 0,
+          "cyclic_edge_weight": 0,
+          "cyclic_edge_weight_rate": 0.0,
+          "graph_status": "observed_scc_broken_by_refinement",
+          "cycle_example": [],
+          "debt_delta_counts": {
+            "positive": 47000,
+            "negative": 35576,
+            "zero": 6646
+          },
+          "max_delta_debt": 3.4150375,
+          "min_delta_debt": -4.0,
+          "max_delta_example": {
+            "source_state": "[12,[1,1,1,5],103,3,42,60]",
+            "child_state": "[0,[1,1,1,1],103,10,41,55]",
+            "source_template": "[12,[1,1,1,5],103,3]",
+            "child_template": "[0,[1,1,1,1],103,10]",
+            "source_bits": 60,
+            "child_top": 11,
+            "delta_debt": 3.4150375,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 411080137808289639,
+              "modulus_bits": 60,
+              "prefix_length": 42,
+              "consumed_bits": 60,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 6.56842503,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 13093216688483606375,
+              "modulus_bits": 64,
+              "prefix_length": 41,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 9.98346253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "min_delta_example": {
+            "source_state": "[12,[1,1,1,1],103,2,45,60]",
+            "child_state": "[0,[1,1,1,5],103,1,45,64]",
+            "source_template": "[12,[1,1,1,1],103,2]",
+            "child_template": "[0,[1,1,1,5],103,1]",
+            "source_bits": 60,
+            "child_top": 5,
+            "delta_debt": -4.0,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 592399662325029223,
+              "modulus_bits": 60,
+              "prefix_length": 45,
+              "consumed_bits": 60,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 11.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 6357007185359264103,
+              "modulus_bits": 64,
+              "prefix_length": 45,
+              "consumed_bits": 64,
+              "next_valuation": 1,
+              "coefficient_log2_debt": 7.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            }
+          },
+          "dag_rank_summary": {
+            "status": "acyclic_observed_graph",
+            "source_state_count": 1577,
+            "sink_state_count": 6733,
+            "max_observed_topological_rank": 5,
+            "top_rank_states": [
+              {
+                "state": "[12,[1,1,1,1],103,10,43,57]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,11,43,57]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,11,43,59]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,43,59]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,44,59]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,44,60]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,45,59]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,45,60]",
+                "rank": 5
+              }
+            ]
+          }
+        },
+        {
+          "family_id": "tail5_res512_vexact",
+          "description": "phase16 + tail5 + residue mod 512 + exact next valuation.",
+          "state_count": 2311,
+          "edge_count": 19896,
+          "transition_weight": 89222,
+          "cyclic_component_count": 2,
+          "cyclic_node_count": 502,
+          "largest_cyclic_component_size": 320,
+          "cyclic_edge_weight": 37708,
+          "cyclic_edge_weight_rate": 0.422631189617,
+          "graph_status": "refined_cycle_persists",
+          "cycle_example": [
+            "[0,[1,1,1,1,1],359,10]",
+            "[4,[1,1,1,1,1],359,3]",
+            "[8,[1,1,1,1,1],359,2]",
+            "[12,[1,1,1,1,1],359,2]",
+            "[0,[1,1,1,1,1],359,10]"
+          ],
+          "debt_delta_counts": {
+            "positive": 47000,
+            "negative": 35576,
+            "zero": 6646
+          },
+          "max_delta_debt": 3.4150375,
+          "min_delta_debt": -4.0,
+          "max_delta_example": {
+            "source_state": "[12,[1,1,1,1,5],359,3]",
+            "child_state": "[0,[1,1,1,1,1],359,10]",
+            "source_template": "[12,[1,1,1,5],103,3]",
+            "child_template": "[0,[1,1,1,1],103,10]",
+            "source_bits": 60,
+            "child_top": 11,
+            "delta_debt": 3.4150375,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 411080137808289639,
+              "modulus_bits": 60,
+              "prefix_length": 42,
+              "consumed_bits": 60,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 6.56842503,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 13093216688483606375,
+              "modulus_bits": 64,
+              "prefix_length": 41,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 9.98346253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "min_delta_example": {
+            "source_state": "[12,[1,1,1,1,1],359,2]",
+            "child_state": "[0,[1,1,1,1,5],359,1]",
+            "source_template": "[12,[1,1,1,1],103,2]",
+            "child_template": "[0,[1,1,1,5],103,1]",
+            "source_bits": 60,
+            "child_top": 5,
+            "delta_debt": -4.0,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 592399662325029223,
+              "modulus_bits": 60,
+              "prefix_length": 45,
+              "consumed_bits": 60,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 11.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 6357007185359264103,
+              "modulus_bits": 64,
+              "prefix_length": 45,
+              "consumed_bits": 64,
+              "next_valuation": 1,
+              "coefficient_log2_debt": 7.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            }
+          },
+          "dag_rank_summary": {
+            "status": "cyclic_refined_graph"
+          }
+        },
+        {
+          "family_id": "tail6_res1024_vexact",
+          "description": "phase16 + tail6 + residue mod 1024 + exact next valuation.",
+          "state_count": 6902,
+          "edge_count": 34622,
+          "transition_weight": 89222,
+          "cyclic_component_count": 4,
+          "cyclic_node_count": 383,
+          "largest_cyclic_component_size": 154,
+          "cyclic_edge_weight": 8519,
+          "cyclic_edge_weight_rate": 0.095480935195,
+          "graph_status": "refined_cycle_persists",
+          "cycle_example": [
+            "[0,[1,1,1,1,1,1],871,10]",
+            "[4,[1,1,1,1,1,1],871,3]",
+            "[8,[1,1,1,1,1,1],871,2]",
+            "[12,[1,1,1,1,1,1],871,2]",
+            "[0,[1,1,1,1,1,1],871,10]"
+          ],
+          "debt_delta_counts": {
+            "positive": 47000,
+            "negative": 35576,
+            "zero": 6646
+          },
+          "max_delta_debt": 3.4150375,
+          "min_delta_debt": -4.0,
+          "max_delta_example": {
+            "source_state": "[12,[1,1,1,1,1,5],871,3]",
+            "child_state": "[0,[1,1,1,1,1,1],871,10]",
+            "source_template": "[12,[1,1,1,5],103,3]",
+            "child_template": "[0,[1,1,1,1],103,10]",
+            "source_bits": 60,
+            "child_top": 11,
+            "delta_debt": 3.4150375,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 411080137808289639,
+              "modulus_bits": 60,
+              "prefix_length": 42,
+              "consumed_bits": 60,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 6.56842503,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 13093216688483606375,
+              "modulus_bits": 64,
+              "prefix_length": 41,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 9.98346253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "min_delta_example": {
+            "source_state": "[12,[1,1,1,1,1,1],359,2]",
+            "child_state": "[0,[1,1,1,1,1,5],359,1]",
+            "source_template": "[12,[1,1,1,1],103,2]",
+            "child_template": "[0,[1,1,1,5],103,1]",
+            "source_bits": 60,
+            "child_top": 5,
+            "delta_debt": -4.0,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 592399662325029223,
+              "modulus_bits": 60,
+              "prefix_length": 45,
+              "consumed_bits": 60,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 11.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 6357007185359264103,
+              "modulus_bits": 64,
+              "prefix_length": 45,
+              "consumed_bits": 64,
+              "next_valuation": 1,
+              "coefficient_log2_debt": 7.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            }
+          },
+          "dag_rank_summary": {
+            "status": "cyclic_refined_graph"
+          }
+        },
+        {
+          "family_id": "tail8_res4096_vexact",
+          "description": "phase16 + tail8 + residue mod 4096 + exact next valuation.",
+          "state_count": 25967,
+          "edge_count": 72341,
+          "transition_weight": 89222,
+          "cyclic_component_count": 2,
+          "cyclic_node_count": 26,
+          "largest_cyclic_component_size": 14,
+          "cyclic_edge_weight": 129,
+          "cyclic_edge_weight_rate": 0.001445831746,
+          "graph_status": "refined_cycle_persists",
+          "cycle_example": [
+            "[0,[1,1,1,1,1,1,1,1],1383,2]",
+            "[4,[1,1,1,1,1,1,1,1],1383,2]",
+            "[8,[1,1,1,1,1,1,1,1],1383,2]",
+            "[12,[1,1,1,1,1,1,1,1],1383,2]",
+            "[0,[1,1,1,1,1,1,1,1],1383,2]"
+          ],
+          "debt_delta_counts": {
+            "positive": 47000,
+            "negative": 35576,
+            "zero": 6646
+          },
+          "max_delta_debt": 3.4150375,
+          "min_delta_debt": -4.0,
+          "max_delta_example": {
+            "source_state": "[12,[1,1,1,1,1,1,1,5],3943,3]",
+            "child_state": "[0,[1,1,1,1,1,1,1,1],3943,10]",
+            "source_template": "[12,[1,1,1,5],103,3]",
+            "child_template": "[0,[1,1,1,1],103,10]",
+            "source_bits": 60,
+            "child_top": 11,
+            "delta_debt": 3.4150375,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 411080137808289639,
+              "modulus_bits": 60,
+              "prefix_length": 42,
+              "consumed_bits": 60,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 6.56842503,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 13093216688483606375,
+              "modulus_bits": 64,
+              "prefix_length": 41,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 9.98346253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "min_delta_example": {
+            "source_state": "[12,[1,1,1,1,1,1,1,1],2407,2]",
+            "child_state": "[0,[1,1,1,1,1,1,1,5],2407,1]",
+            "source_template": "[12,[1,1,1,1],103,2]",
+            "child_template": "[0,[1,1,1,5],103,1]",
+            "source_bits": 60,
+            "child_top": 5,
+            "delta_debt": -4.0,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 592399662325029223,
+              "modulus_bits": 60,
+              "prefix_length": 45,
+              "consumed_bits": 60,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 11.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 6357007185359264103,
+              "modulus_bits": 64,
+              "prefix_length": 45,
+              "consumed_bits": 64,
+              "next_valuation": 1,
+              "coefficient_log2_debt": 7.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            }
+          },
+          "dag_rank_summary": {
+            "status": "cyclic_refined_graph"
+          }
+        },
+        {
+          "family_id": "tail8_res4096_prefix_consumed",
+          "description": "tail8/residue4096 refinement plus exact prefix_length and consumed_bits.",
+          "state_count": 68637,
+          "edge_count": 86171,
+          "transition_weight": 89222,
+          "cyclic_component_count": 0,
+          "cyclic_node_count": 0,
+          "largest_cyclic_component_size": 0,
+          "cyclic_edge_weight": 0,
+          "cyclic_edge_weight_rate": 0.0,
+          "graph_status": "observed_scc_broken_by_refinement",
+          "cycle_example": [],
+          "debt_delta_counts": {
+            "positive": 47000,
+            "negative": 35576,
+            "zero": 6646
+          },
+          "max_delta_debt": 3.4150375,
+          "min_delta_debt": -4.0,
+          "max_delta_example": {
+            "source_state": "[12,[1,1,1,1,1,1,1,5],3943,3,42,60]",
+            "child_state": "[0,[1,1,1,1,1,1,1,1],3943,10,41,55]",
+            "source_template": "[12,[1,1,1,5],103,3]",
+            "child_template": "[0,[1,1,1,1],103,10]",
+            "source_bits": 60,
+            "child_top": 11,
+            "delta_debt": 3.4150375,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 411080137808289639,
+              "modulus_bits": 60,
+              "prefix_length": 42,
+              "consumed_bits": 60,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 6.56842503,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 13093216688483606375,
+              "modulus_bits": 64,
+              "prefix_length": 41,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 9.98346253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "min_delta_example": {
+            "source_state": "[12,[1,1,1,1,1,1,1,1],2407,2,45,60]",
+            "child_state": "[0,[1,1,1,1,1,1,1,5],2407,1,45,64]",
+            "source_template": "[12,[1,1,1,1],103,2]",
+            "child_template": "[0,[1,1,1,5],103,1]",
+            "source_bits": 60,
+            "child_top": 5,
+            "delta_debt": -4.0,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 592399662325029223,
+              "modulus_bits": 60,
+              "prefix_length": 45,
+              "consumed_bits": 60,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 11.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 6357007185359264103,
+              "modulus_bits": 64,
+              "prefix_length": 45,
+              "consumed_bits": 64,
+              "next_valuation": 1,
+              "coefficient_log2_debt": 7.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            }
+          },
+          "dag_rank_summary": {
+            "status": "acyclic_observed_graph",
+            "source_state_count": 12119,
+            "sink_state_count": 54877,
+            "max_observed_topological_rank": 4,
+            "top_rank_states": [
+              {
+                "state": "[12,[1,1,1,1,1,1,1,1],2919,2,42,59]",
+                "rank": 4
+              },
+              {
+                "state": "[12,[1,1,1,1,1,1,1,1],2919,2,43,60]",
+                "rank": 4
+              },
+              {
+                "state": "[12,[1,1,1,1,1,1,1,1],2919,3,43,60]",
+                "rank": 4
+              },
+              {
+                "state": "[12,[1,1,1,1,1,1,1,1],2919,5,43,60]",
+                "rank": 4
+              },
+              {
+                "state": "[0,[1,1,1,1,1,1,1,1],2919,2,46,63]",
+                "rank": 3
+              },
+              {
+                "state": "[12,[1,1,1,1,1,1,1,1],1383,2,43,59]",
+                "rank": 3
+              },
+              {
+                "state": "[12,[1,1,1,1,1,1,1,1],1383,3,42,59]",
+                "rank": 3
+              },
+              {
+                "state": "[12,[1,1,1,1,1,1,1,1],1383,3,42,60]",
+                "rank": 3
+              }
+            ]
+          }
+        },
+        {
+          "family_id": "full_word_res4096_vexact",
+          "description": "phase16 + full observed prefix word + residue mod 4096 + exact next valuation.",
+          "state_count": 105031,
+          "edge_count": 89222,
+          "transition_weight": 89222,
+          "cyclic_component_count": 0,
+          "cyclic_node_count": 0,
+          "largest_cyclic_component_size": 0,
+          "cyclic_edge_weight": 0,
+          "cyclic_edge_weight_rate": 0.0,
+          "graph_status": "observed_scc_broken_by_refinement",
+          "cycle_example": [],
+          "debt_delta_counts": {
+            "positive": 47000,
+            "negative": 35576,
+            "zero": 6646
+          },
+          "max_delta_debt": 3.4150375,
+          "min_delta_debt": -4.0,
+          "max_delta_example": {
+            "source_state": "[12,[1,1,2,1,1,1,1,1,1,1,3,5,1,1,1,3,1,2,1,1,1,3,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,1,1,1,5],3943,3]",
+            "child_state": "[0,[1,1,2,1,1,1,1,1,1,1,3,5,1,1,1,3,1,2,1,1,1,3,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,1,1,1],3943,10]",
+            "source_template": "[12,[1,1,1,5],103,3]",
+            "child_template": "[0,[1,1,1,1],103,10]",
+            "source_bits": 60,
+            "child_top": 11,
+            "delta_debt": 3.4150375,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 411080137808289639,
+              "modulus_bits": 60,
+              "prefix_length": 42,
+              "consumed_bits": 60,
+              "next_valuation": 3,
+              "coefficient_log2_debt": 6.56842503,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 13093216688483606375,
+              "modulus_bits": 64,
+              "prefix_length": 41,
+              "consumed_bits": 55,
+              "next_valuation": 10,
+              "coefficient_log2_debt": 9.98346253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          "min_delta_example": {
+            "source_state": "[12,[1,1,2,1,1,1,1,3,3,1,2,1,2,1,2,1,1,1,2,1,1,1,1,3,3,1,1,2,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1],2407,2]",
+            "child_state": "[0,[1,1,2,1,1,1,1,3,3,1,2,1,2,1,2,1,1,1,2,1,1,1,1,3,3,1,1,2,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,5],2407,1]",
+            "source_template": "[12,[1,1,1,1],103,2]",
+            "child_template": "[0,[1,1,1,5],103,1]",
+            "source_bits": 60,
+            "child_top": 5,
+            "delta_debt": -4.0,
+            "source_certificate": {
+              "status": "needs_split",
+              "residue": 592399662325029223,
+              "modulus_bits": 60,
+              "prefix_length": 45,
+              "consumed_bits": 60,
+              "next_valuation": 2,
+              "coefficient_log2_debt": 11.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "child_certificate": {
+              "status": "needs_split",
+              "residue": 6357007185359264103,
+              "modulus_bits": 64,
+              "prefix_length": 45,
+              "consumed_bits": 64,
+              "next_valuation": 1,
+              "coefficient_log2_debt": 7.32331253,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5
+              ]
+            }
+          },
+          "dag_rank_summary": {
+            "status": "acyclic_observed_graph",
+            "source_state_count": 15809,
+            "sink_state_count": 89222,
+            "max_observed_topological_rank": 1,
+            "top_rank_states": [
+              {
+                "state": "[0,[1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,4,4,1,1,1,1,3,1,1,1,1,2,3,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,2],3943,1]",
+                "rank": 1
+              },
+              {
+                "state": "[0,[1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,4,4,1,1,1,1,3,1,1,1,1,2,3,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,2],3943,4]",
+                "rank": 1
+              },
+              {
+                "state": "[0,[1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,4,4,1,1,1,1,3,1,1,1,1,2,3,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,3],3943,3]",
+                "rank": 1
+              },
+              {
+                "state": "[0,[1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,4,4,1,1,1,1,3,1,1,1,1,2,3,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,2,1],3943,5]",
+                "rank": 1
+              },
+              {
+                "state": "[0,[1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,4,4,1,1,1,1,3,1,1,1,1,2,3,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,2],3943,6]",
+                "rank": 1
+              },
+              {
+                "state": "[0,[1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,4,4,1,1,1,1,3,1,1,1,1,2,3,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,3],3943,10]",
+                "rank": 1
+              },
+              {
+                "state": "[0,[1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,4,4,1,1,1,1,3,1,1,1,1,2,3,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,4],3943,1]",
+                "rank": 1
+              },
+              {
+                "state": "[0,[1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,4,4,1,1,1,1,3,1,1,1,1,2,3,1,1,1,1,1,1,3,1,1,1,1,1,1,1,2,1,1,1],3943,5]",
+                "rank": 1
+              }
+            ]
+          }
+        }
+      ],
+      "strongest_acyclic_refinement": {
+        "family_id": "base_prefix_consumed",
+        "state_count": 9616,
+        "edge_count": 41283,
+        "max_observed_topological_rank": 5
+      },
+      "strongest_tail_residue_refinement_without_prefix_consumed": {
+        "family_id": "tail8_res4096_vexact",
+        "cyclic_node_count": 26,
+        "largest_cyclic_component_size": 14,
+        "cyclic_edge_weight": 129
+      },
+      "refinement_status": "bounded_prefix_consumed_refinement_breaks_observed_scc",
+      "discarded_route": "Treat the 429-node TICKET67 cycle as an unavoidable obstruction at every finite refinement. TICKET68 refutes that overstatement on the observed transition set: adding prefix_length and consumed_bits makes the observed internal cycle graph acyclic.",
+      "retained_route": "The useful theorem is now narrower: prove that the prefix/consumed refinement is transition-complete for all compatible higher lifts and supplies a well-founded rank, or find a new higher-lift cycle that reappears after this refinement.",
+      "candidate_theorem": "PrefixConsumedDAGCompletenessOrPersistentRefinedCycle: every compatible lift inside the TICKET67 SCC is represented by the base_template + prefix_length + consumed_bits refined transition system and decreases its observed DAG rank, or a new persistent refined cycle appears at a higher lift.",
+      "counterexample_target": "A compatible infinite 2-adic lift whose refined state either escapes the observed prefix/consumed DAG completeness conditions or creates a new refined cycle beyond the current bounded horizon.",
+      "next_theorem_target": "PrefixConsumedDAGCompletenessOrPersistentRefinedCycle",
+      "proof_boundary": "TICKET68 does not prove Collatz and does not certify a counterexample. It breaks the observed TICKET67 SCC under a stronger coordinate, but the missing infinite bridge is transition-completeness and well-foundedness for all higher lifts."
+    }
+  },
+  "obstruction": "The observed SCC is broken by the base_prefix_consumed refinement, but this is still bounded evidence. A proof now needs to show that the base_prefix_consumed DAG is transition-complete for all compatible lifts.",
+  "candidate_theorem": "PrefixConsumedDAGCompletenessOrPersistentRefinedCycle: every compatible lift inside the TICKET67 SCC is represented by the base_template + prefix_length + consumed_bits refined transition system and decreases its observed DAG rank, or a new persistent refined cycle appears at a higher lift.",
+  "next_experiment": "Stress-test prefix/consumed transition-completeness at the next lift horizon and search specifically for a reappearing refined cycle.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

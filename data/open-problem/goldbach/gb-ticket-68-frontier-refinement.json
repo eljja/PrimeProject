@@ -1,0 +1,20 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-68",
+  "status": "proof_pressure_open",
+  "route": "LowMarginRefinementDAGOrPersistentExceptionalCycle",
+  "proof_or_counterexample_mode": "cycle-refinement transfer",
+  "attempt": "Transfer the TICKET68 lesson: a coarse cyclic quotient is not decisive if a theorem-plausible refinement turns it into a DAG. The problem-specific task is to prove refinement completeness or expose a persistent refined cycle.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-67",
+    "source_route": "MarginRankCycleOrPersistentLowMarginBranch",
+    "ticket68_transfer": "LowMarginRefinementDAGOrPersistentExceptionalCycle",
+    "candidate_theorem": "Every low-margin quotient cycle is either broken by an explicit margin-refinement DAG, or a compatible exceptional low-margin cycle persists beyond the cutoff budget.",
+    "counterexample_target": "a compatible large-even branch that remains in a refined low-margin cycle after all current explicit corrections",
+    "frontier_rule": "A finite cyclic quotient is not a proof obstruction by itself. It must survive theorem-plausible refinement and be compatible with an infinite object."
+  },
+  "obstruction": "This is a transferred theorem target, not a solution.",
+  "candidate_theorem": "Every low-margin quotient cycle is either broken by an explicit margin-refinement DAG, or a compatible exceptional low-margin cycle persists beyond the cutoff budget.",
+  "next_experiment": "Build the problem-specific refined frontier and test whether cycles persist after the added coordinates.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}

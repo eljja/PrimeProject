@@ -3760,3 +3760,78 @@ Proof boundary:
 ```text
 TICKET-67 does not prove or disprove any of the four open problems. It refutes two simpler rank routes and isolates a finite quotient-cycle obstruction that still requires an infinite compatibility theorem.
 ```
+
+### Ticket 68: Cycle-SCC refinement and bounded DAG extraction
+
+CO-TICKET-68 CycleSCCRefinementOrInfiniteLiftExclusion
+
+Artifacts:
+
+```text
+data/open-problem/ticket68-cycle-scc-refinement-lab.json
+data/open-problem/collatz/co-ticket-68-cycle-scc-refinement.json
+data/open-problem/riemann/rh-ticket-68-frontier-refinement.json
+data/open-problem/goldbach/gb-ticket-68-frontier-refinement.json
+data/open-problem/twin-prime/tp-ticket-68-frontier-refinement.json
+```
+
+Status:
+
+```text
+cycle_scc_refined_open_no_resolution
+```
+
+한국어 요약: TICKET-68은 TICKET-67에서 나온 429-node cyclic SCC를 실제 반례 후보처럼 취급하지 않고, 더 세밀한 pre-replay coordinate로 다시 분해한다. 총 7개 refinement family를 시험했다. `base_template` 좌표에서는 429개 cyclic node와 89,222 cycle edge weight가 그대로 남는다. 그러나 `base_template + prefix_length + consumed_bits` 좌표를 추가하면 관측된 SCC 내부 transition graph가 9,616개 state, 41,283개 edge의 DAG로 깨지고 cyclic node는 0개가 된다. 더 약한 tail/residue-only refinement 중 가장 강한 `tail8_res4096_vexact`도 cyclic node를 429개에서 26개, cyclic edge weight를 89,222에서 129로 줄인다. 이 결과는 증명이 아니다. 하지만 TICKET-67의 순환이 피할 수 없는 구조라는 해석은 버려야 하며, 다음 증명 목표는 prefix/consumed DAG가 모든 compatible higher lift에 대해 transition-complete인지 증명하는 것이다.
+
+English summary: TICKET-68 refines the TICKET67 429-node quotient cycle instead of treating it as a counterexample. The observed cycle disappears under the `base_prefix_consumed` coordinate: 9,616 refined states, 41,283 refined edges, zero cyclic nodes, and observed topological rank 5. Tail/residue-only refinement still leaves 26 cyclic nodes, so the missing theorem is not merely "more residue bits"; it is a transition-completeness and well-foundedness theorem for the prefix/consumed DAG.
+
+Key Collatz result:
+
+```text
+source base transition nodes: 5,100
+source base transition edges: 45,665
+source base transition weight: 265,812
+source cyclic nodes: 429
+source cycle edge weight: 89,222
+open exits from cycle: 174,589
+tested refinement families: 7
+strongest acyclic refinement: base_prefix_consumed
+base_prefix_consumed states: 9,616
+base_prefix_consumed edges: 41,283
+base_prefix_consumed cyclic nodes: 0
+base_prefix_consumed observed topological rank: 5
+best tail/residue-only refinement: tail8_res4096_vexact
+tail8_res4096_vexact cyclic nodes: 26
+tail8_res4096_vexact cyclic edge weight: 129
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Treat the 429-node TICKET67 cycle as an unavoidable obstruction at every finite refinement. TICKET68 refutes that overstatement on the observed transition set: adding prefix_length and consumed_bits makes the observed internal cycle graph acyclic.
+```
+
+Candidate theorem still missing:
+
+```text
+PrefixConsumedDAGCompletenessOrPersistentRefinedCycle: every compatible lift inside the TICKET67 SCC is represented by the base_template + prefix_length + consumed_bits refined transition system and decreases its observed DAG rank, or a new persistent refined cycle appears at a higher lift.
+```
+
+Counterexample target:
+
+```text
+A compatible infinite 2-adic lift whose refined state either escapes the observed prefix/consumed DAG completeness conditions or creates a new refined cycle beyond the current bounded horizon.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-69 PrefixConsumedDAGCompletenessOrPersistentRefinedCycle
+```
+
+Proof boundary:
+
+```text
+TICKET-68 does not prove or disprove any of the four open problems. It breaks the observed TICKET67 SCC under a stronger coordinate, but the missing infinite bridge is transition-completeness and well-foundedness for all higher lifts.
+```

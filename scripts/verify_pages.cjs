@@ -494,6 +494,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Complement-cover result") ||
         !page.proofOrCounterexampleText.includes("Ticket 67 open-template rank audit") ||
         !page.proofOrCounterexampleText.includes("Open-template rank result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 68 cycle-SCC refinement") ||
+        !page.proofOrCounterexampleText.includes("Cycle refinement result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
@@ -546,6 +548,13 @@ async function main() {
           !page.proofOrCounterexampleText.includes("CycleSCCRefinementOrInfiniteLiftExclusion")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("refuted_by_template_transition_cycle")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("base_prefix_consumed")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("9,616")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("41,283")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("tail8_res4096_vexact")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("PrefixConsumedDAGCompletenessOrPersistentRefinedCycle")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("observed_scc_broken_by_refinement")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -882,6 +891,9 @@ async function main() {
     !metrics.evolutionImpact.includes("60-bit chain") ||
     !metrics.evolutionImpact.includes("Symbolic gate obstruction") ||
     !metrics.evolutionImpact.includes("64-bit gate") ||
+    !metrics.evolutionImpact.includes("Refined DAG frontier") ||
+    !metrics.evolutionImpact.includes("9,616 states") ||
+    !metrics.evolutionImpact.includes("tail/residue-only") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
@@ -914,7 +926,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-64") ||
     !metrics.evolutionPanel.includes("TICKET-65") ||
     !metrics.evolutionPanel.includes("TICKET-66") ||
-    !metrics.evolutionPanel.includes("TICKET-67")
+    !metrics.evolutionPanel.includes("TICKET-67") ||
+    !metrics.evolutionPanel.includes("TICKET-68")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

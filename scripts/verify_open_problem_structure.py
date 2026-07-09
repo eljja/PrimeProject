@@ -61,6 +61,7 @@ TICKET64_SCHEMA = "primeproject.ticket64-symbolic-mod16-transition-lab.v1"
 TICKET65_SCHEMA = "primeproject.ticket65-start-template-chain-extinction-lab.v1"
 TICKET66_SCHEMA = "primeproject.ticket66-complement-cover-lab.v1"
 TICKET67_SCHEMA = "primeproject.ticket67-open-template-rank-lab.v1"
+TICKET68_SCHEMA = "primeproject.ticket68-cycle-scc-refinement-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -3911,6 +3912,118 @@ def main() -> int:
         return fail("collatz ticket67 next theorem target changed")
     if "does not prove Collatz" not in str(audit67.get("proof_boundary", "")):
         return fail("collatz ticket67 proof boundary must block proof overclaim")
+
+    ticket68_path = Path("data/open-problem/ticket68-cycle-scc-refinement-lab.json")
+    if not ticket68_path.exists():
+        return fail("missing ticket68 cycle-SCC refinement artifact")
+    ticket68 = read_json(ticket68_path)
+    if ticket68.get("schema") != TICKET68_SCHEMA:
+        return fail("ticket68 cycle-SCC refinement artifact has unexpected schema")
+    if ticket68.get("status") != "cycle_scc_refined_open_no_resolution":
+        return fail("ticket68 cycle-SCC refinement artifact overstates resolution")
+    ticket68_attempts = ticket68.get("attempts", [])
+    if not isinstance(ticket68_attempts, list):
+        return fail("ticket68 attempts must be a list")
+    ticket68_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket68_attempts if isinstance(attempt, dict)}
+    missing_ticket68 = EXPECTED_PROBLEMS - set(ticket68_by_id)
+    if missing_ticket68:
+        return fail("ticket68 attempts missing problems: " + ", ".join(sorted(missing_ticket68)))
+    ticket68_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-68-frontier-refinement.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-68-cycle-scc-refinement.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-68-frontier-refinement.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-68-frontier-refinement.json"),
+    }
+    for problem_id, attempt in ticket68_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "bounded_refinement_breaks_observed_scc_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket68 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket68 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket68 claim boundary is too weak")
+        path = ticket68_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket68 per-problem artifact")
+
+    collatz_ticket68 = ticket68_by_id.get("collatz", {})
+    audit68 = collatz_ticket68.get("bounded_result", {}).get("cycle_scc_refinement_audit", {})
+    if not isinstance(audit68, dict):
+        return fail("collatz ticket68 cycle-SCC refinement audit missing")
+    if audit68.get("theorem_name") != "CycleSCCRefinementOrInfiniteLiftExclusion":
+        return fail("collatz ticket68 theorem name changed")
+    source68 = audit68.get("source_cycle_summary", {})
+    expected_source68 = {
+        "base_transition_nodes": 5100,
+        "base_transition_edges": 45665,
+        "base_transition_weight": 265812,
+        "cyclic_component_count": 1,
+        "cyclic_node_count": 429,
+        "largest_cyclic_component_size": 429,
+        "cycle_edge_weight": 89222,
+    }
+    for key, expected in expected_source68.items():
+        if int(source68.get(key, -1)) != expected:
+            return fail(f"collatz ticket68 source cycle {key} changed")
+    if int(audit68.get("source_internal_cycle_transition_weight", -1)) != 89222:
+        return fail("collatz ticket68 internal cycle transition weight changed")
+    if int(audit68.get("source_open_exits_from_cycle_weight", -1)) != 174589:
+        return fail("collatz ticket68 open exits from cycle changed")
+    if int(audit68.get("tested_refinement_family_count", -1)) != 7:
+        return fail("collatz ticket68 refinement family count changed")
+    if audit68.get("refinement_status") != "bounded_prefix_consumed_refinement_breaks_observed_scc":
+        return fail("collatz ticket68 refinement status changed")
+    strongest68 = audit68.get("strongest_acyclic_refinement", {})
+    if strongest68.get("family_id") != "base_prefix_consumed":
+        return fail("collatz ticket68 strongest acyclic family changed")
+    if int(strongest68.get("state_count", -1)) != 9616:
+        return fail("collatz ticket68 strongest state count changed")
+    if int(strongest68.get("edge_count", -1)) != 41283:
+        return fail("collatz ticket68 strongest edge count changed")
+    if int(strongest68.get("max_observed_topological_rank", -1)) != 5:
+        return fail("collatz ticket68 topological rank changed")
+    tail68 = audit68.get("strongest_tail_residue_refinement_without_prefix_consumed", {})
+    if tail68.get("family_id") != "tail8_res4096_vexact":
+        return fail("collatz ticket68 strongest tail/residue family changed")
+    if int(tail68.get("cyclic_node_count", -1)) != 26:
+        return fail("collatz ticket68 tail/residue cyclic node count changed")
+    if int(tail68.get("cyclic_edge_weight", -1)) != 129:
+        return fail("collatz ticket68 tail/residue cyclic weight changed")
+    rows68 = audit68.get("refinement_rows", [])
+    if len(rows68) != 7:
+        return fail("collatz ticket68 refinement rows changed")
+    by_family68 = {str(row.get("family_id")): row for row in rows68 if isinstance(row, dict)}
+    expected_families68 = {
+        "base_template": (429, 10596, 429, 1, 429, 89222),
+        "base_prefix_consumed": (9616, 41283, 0, 0, 0, 0),
+        "tail5_res512_vexact": (2311, 19896, 502, 2, 320, 37708),
+        "tail6_res1024_vexact": (6902, 34622, 383, 4, 154, 8519),
+        "tail8_res4096_vexact": (25967, 72341, 26, 2, 14, 129),
+        "tail8_res4096_prefix_consumed": (68637, 86171, 0, 0, 0, 0),
+        "full_word_res4096_vexact": (105031, 89222, 0, 0, 0, 0),
+    }
+    for family, expected in expected_families68.items():
+        row = by_family68.get(family)
+        if row is None:
+            return fail(f"collatz ticket68 missing refinement family {family}")
+        keys = (
+            "state_count",
+            "edge_count",
+            "cyclic_node_count",
+            "cyclic_component_count",
+            "largest_cyclic_component_size",
+            "cyclic_edge_weight",
+        )
+        for key, expected_value in zip(keys, expected):
+            if int(row.get(key, -1)) != expected_value:
+                return fail(f"collatz ticket68 {family} {key} changed")
+    if audit68.get("next_theorem_target") != "PrefixConsumedDAGCompletenessOrPersistentRefinedCycle":
+        return fail("collatz ticket68 next theorem target changed")
+    if "does not prove Collatz" not in str(audit68.get("proof_boundary", "")):
+        return fail("collatz ticket68 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0
