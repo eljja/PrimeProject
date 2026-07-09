@@ -3479,3 +3479,72 @@ Proof boundary:
 ```text
 TICKET-63 does not prove or disprove any of the four open problems. It extracts deterministic finite state tables and a stronger quotient separator, but the infinite symbolic transition theorem and any independent formal proof remain open.
 ```
+
+### Ticket 64: Symbolic mod16 transition gate obstruction
+
+CO-TICKET-64 SymbolicMod16AutomatonTransitionProof
+
+Artifacts:
+
+```text
+data/open-problem/ticket64-symbolic-mod16-transition-lab.json
+data/open-problem/collatz/co-ticket-64-symbolic-mod16-transition.json
+data/open-problem/riemann/rh-ticket-64-gate-predicate.json
+data/open-problem/goldbach/gb-ticket-64-cutoff-gate.json
+data/open-problem/twin-prime/tp-ticket-64-parity-gate.json
+```
+
+Status:
+
+```text
+symbolic_mod16_transition_open_no_resolution
+```
+
+한국어 요약: TICKET-64는 TICKET-63의 다음 목표였던 `SymbolicMod16AutomatonTransitionProof`를 직접 압박했다. TICKET63에서 얻은 60비트 survivor row 209개 각각에 대해 64비트 후보 자식 16개씩, 총 3,344개를 만들었다. 이 중 start-template child는 42개뿐이고, non-start child는 3,302개였다. 기존 quotient state `low40 mod 2^20 + base_mod16`는 start-template gate를 결정하지 못했다. 같은 state 안에서 start-template/non-start-template이 갈라지는 gate collision group이 42개 나왔다. 더 중요하게, admitted 64비트 child 자체도 더 이상 낙관적 `0->0` 전이를 따르지 않았다. transition label은 `0->1` 20개, `0->2` 11개, `0->3` 5개, `0->5` 3개, `0->4` 3개로 갈라졌다. 따라서 TICKET64는 증명이 아니라, TICKET63의 직접 승격 경로를 반박하고 “symbolic start-template gate + offset-transition relation”을 다음 정리 목표로 만든다.
+
+English summary: TICKET-64 tests the symbolic transition target produced by TICKET63. It extends the 209 retained 60-bit rows to 3,344 candidate 64-bit children. Only 42 are admitted start-template children. The retained quotient state cannot decide the admissibility gate, and the optimistic admitted-child `0->0` transition already fails at 64 bits. This is a useful obstruction to a shortcut, not a proof or counterexample to Collatz.
+
+Key Collatz result:
+
+```text
+60-bit parent rows: 209
+64-bit candidate children: 3,344
+64-bit start-template children: 42
+64-bit non-start children: 3,302
+state20 gate collision groups: 42
+state20+top4 gate collision groups: 24
+64-bit admitted transition labels: 0->1:20, 0->2:11, 0->3:5, 0->5:3, 0->4:3
+first admitted-child quotient separator: low40_mod_2^16_plus_base_mod16
+optimistic 0->0 admitted-child formula: refuted at 64 bits
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Promote the TICKET63 quotient state and the 60-bit 0->0 transition directly to an infinite symbolic theorem. TICKET64 rejects this shortcut because both the next admissibility gate and the admitted-child transition split at 64 bits.
+```
+
+Candidate theorem still missing:
+
+```text
+For every admissible lift, a symbolic start-template gate first selects the valid children; inside that selected subcover, an explicit offset-transition relation is closed and a well-founded cover excludes full-period nondecreasing cycles.
+```
+
+Counterexample target:
+
+```text
+A pair of candidate children sharing the refined symbolic gate state but disagreeing on start-template admissibility, or a pair of admitted children sharing the refined transition state but disagreeing on the offset-transition label.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-65 SymbolicStartTemplateGateAndOffsetTransition
+```
+
+Proof boundary:
+
+```text
+TICKET-64 does not prove or disprove any of the four open problems. It refutes one overly optimistic finite-to-symbolic promotion path and replaces it with a sharper gate-plus-offset theorem target.
+```

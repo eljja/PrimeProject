@@ -61,6 +61,67 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
+## Latest Continuation After TICKET-64
+
+TICKET-64 supersedes the immediate TICKET-63 continuation target. It does not solve Collatz, but it is a useful negative result: the direct promotion from the TICKET63 finite automaton table to a simple symbolic transition theorem fails at the next 64-bit audit.
+
+Known Collatz result:
+
+```text
+60-bit parent rows: 209
+64-bit candidate children: 3,344
+64-bit start-template children: 42
+64-bit non-start children: 3,302
+state20 gate collision groups: 42
+state20+top4 gate collision groups: 24
+64-bit admitted transition labels: 0->1:20, 0->2:11, 0->3:5, 0->5:3, 0->4:3
+first admitted-child quotient separator: low40_mod_2^16_plus_base_mod16
+```
+
+Interpretation:
+
+```text
+TICKET-63 suggested a finite automaton-cover route. TICKET-64 tests the missing symbolic gate. The retained quotient state low40 mod 2^20 + base_mod16 cannot decide which 64-bit children remain in the start-template cover. The admitted children also refute the optimistic 0->0 transition continuation. The next theorem must include both an admissibility gate predicate and an offset-transition relation.
+```
+
+Do not claim Collatz from this. It is neither a Collatz proof nor a Collatz counterexample. It is a concrete obstruction to an over-simple proof route and a sharper specification for the next theorem.
+
+Current best continuation:
+
+```text
+CO-TICKET-65 SymbolicStartTemplateGateAndOffsetTransition
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-64. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: The TICKET63 finite automaton table cannot be promoted directly. TICKET64 extends 209 retained 60-bit rows to 3,344 candidate 64-bit children. Only 42 are start-template children. The state low40 mod 2^20 + base_mod16 has 42 gate collision groups, and even state20+top4 has 24 gate collision groups. Among admitted 64-bit children, transition labels split into 0->1, 0->2, 0->3, 0->4, and 0->5, so the optimistic 0->0 formula is refuted.
+
+Goal: build CO-TICKET-65. Derive a symbolic start-template gate and offset-transition relation, or find the first refined-state collision.
+
+Tasks:
+1. Define candidate gate states that include the minimum necessary coordinates beyond low40 mod 2^20 + base_mod16.
+2. Test whether the gate state deterministically selects start-template children across 64-bit candidate children.
+3. Separately test whether admitted children have deterministic offset-transition labels under a refined state.
+4. If a deterministic state is found, state the symbolic gate theorem and the symbolic offset-transition theorem separately.
+5. If no deterministic state is found, output the smallest collision examples and the exact coordinate that failed.
+
+Required discipline:
+- Do not treat finite deterministic rows as proof.
+- Do not use post-replay fields as gate keys.
+- A gate collision refutes only the proposed abstraction, not Collatz.
+- A proof needs an infinite symbolic gate, a closed offset-transition relation, and a well-founded cycle exclusion argument.
+
+Required output:
+- data/open-problem/ticket65-start-template-gate-offset-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless the infinite bridge is supplied
+```
+
 ## Latest Continuation After TICKET-63
 
 TICKET-63 supersedes the immediate TICKET-62 continuation target. It still does not solve Collatz or any of the other three open problems, but it turns the bounded mod16 lift-survival signal into an explicit finite automaton-table audit and a sharper symbolic theorem target.

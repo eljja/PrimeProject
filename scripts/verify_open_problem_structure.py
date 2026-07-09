@@ -57,6 +57,7 @@ TICKET60_SCHEMA = "primeproject.ticket60-mixed-cylinder-separator-lab.v1"
 TICKET61_SCHEMA = "primeproject.ticket61-symbolic-failure-offset-lab.v1"
 TICKET62_SCHEMA = "primeproject.ticket62-mod16-transition-cover-lab.v1"
 TICKET63_SCHEMA = "primeproject.ticket63-mod16-automaton-cover-lab.v1"
+TICKET64_SCHEMA = "primeproject.ticket64-symbolic-mod16-transition-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -3471,6 +3472,118 @@ def main() -> int:
         return fail("collatz ticket63 next theorem target changed")
     if "does not prove Collatz" not in str(audit63.get("proof_boundary", "")):
         return fail("collatz ticket63 proof boundary must block proof overclaim")
+
+    ticket64_path = Path("data/open-problem/ticket64-symbolic-mod16-transition-lab.json")
+    if not ticket64_path.exists():
+        return fail("missing ticket64 symbolic mod16 transition artifact")
+    ticket64 = read_json(ticket64_path)
+    if ticket64.get("schema") != TICKET64_SCHEMA:
+        return fail("ticket64 symbolic mod16 transition artifact has unexpected schema")
+    if ticket64.get("status") != "symbolic_mod16_transition_open_no_resolution":
+        return fail("ticket64 symbolic mod16 transition artifact overstates resolution")
+    ticket64_attempts = ticket64.get("attempts", [])
+    if not isinstance(ticket64_attempts, list):
+        return fail("ticket64 attempts must be a list")
+    ticket64_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket64_attempts if isinstance(attempt, dict)}
+    missing_ticket64 = EXPECTED_PROBLEMS - set(ticket64_by_id)
+    if missing_ticket64:
+        return fail("ticket64 attempts missing problems: " + ", ".join(sorted(missing_ticket64)))
+    ticket64_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-64-gate-predicate.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-64-symbolic-mod16-transition.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-64-cutoff-gate.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-64-parity-gate.json"),
+    }
+    for problem_id, attempt in ticket64_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "symbolic_transition_candidate_open_no_resolution",
+            "symbolic_transition_gate_and_formula_obstruction_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket64 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket64 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket64 claim boundary is too weak")
+        path = ticket64_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket64 per-problem artifact")
+
+    collatz_ticket64 = ticket64_by_id.get("collatz", {})
+    audit64 = collatz_ticket64.get("bounded_result", {}).get("symbolic_mod16_transition_audit", {})
+    if not isinstance(audit64, dict):
+        return fail("collatz ticket64 symbolic mod16 transition audit missing")
+    if audit64.get("theorem_name") != "SymbolicMod16AutomatonTransitionProof":
+        return fail("collatz ticket64 theorem name changed")
+    if int(audit64.get("parent_60_rows", -1)) != 209:
+        return fail("collatz ticket64 parent row count changed")
+    if int(audit64.get("target_64_rows", -1)) != 42:
+        return fail("collatz ticket64 target row count changed")
+    if int(audit64.get("candidate_child_rows", -1)) != 3344:
+        return fail("collatz ticket64 candidate child row count changed")
+    expected_stats64 = {
+        "tested_chain_lifts": 3344,
+        "start_template_chain_lift": 42,
+        "non_start_template_chain_lift": 3302,
+        "boundary_match": 17,
+        "boundary_mismatch": 25,
+    }
+    stats64 = audit64.get("chain_64_statistics", {})
+    for key, expected in expected_stats64.items():
+        if int(stats64.get(key, -1)) != expected:
+            return fail(f"collatz ticket64 chain statistic {key} changed")
+    if int(audit64.get("chain_64_parent_rows_with_start_template_lift", -1)) != 42:
+        return fail("collatz ticket64 parent survivor count changed")
+    gate64 = audit64.get("gate_ladder", {})
+    if int(gate64.get("start_template_count", -1)) != 42:
+        return fail("collatz ticket64 gate start count changed")
+    if int(gate64.get("non_start_template_count", -1)) != 3302:
+        return fail("collatz ticket64 gate non-start count changed")
+    if gate64.get("first_gate_deterministic_separator") is not None:
+        return fail("collatz ticket64 should not report a deterministic gate separator")
+    state20_gate = gate64.get("state20_gate_row", {})
+    if int(state20_gate.get("collision_group_count", -1)) != 42:
+        return fail("collatz ticket64 state20 gate collision count changed")
+    if int(state20_gate.get("ambiguous_row_count", -1)) != 1168:
+        return fail("collatz ticket64 state20 gate ambiguous row count changed")
+    state20_top4_gate = gate64.get("state20_top4_gate_row", {})
+    if int(state20_top4_gate.get("collision_group_count", -1)) != 24:
+        return fail("collatz ticket64 state20+top4 gate collision count changed")
+    if int(state20_top4_gate.get("ambiguous_row_count", -1)) != 55:
+        return fail("collatz ticket64 state20+top4 ambiguous row count changed")
+    admitted64 = audit64.get("admitted_child_audit", {})
+    if admitted64.get("label") != "64_bit_chained_from_60_survivors":
+        return fail("collatz ticket64 admitted-child audit label changed")
+    if int(admitted64.get("row_count", -1)) != 42:
+        return fail("collatz ticket64 admitted-child row count changed")
+    if admitted64.get("first_quotient_separator") != "low40_mod_2^16_plus_base_mod16":
+        return fail("collatz ticket64 first admitted-child quotient changed")
+    table64 = admitted64.get("state_table", {})
+    if not isinstance(table64, dict) or not table64.get("deterministic"):
+        return fail("collatz ticket64 admitted-child state table must remain deterministic")
+    if int(table64.get("state_count", -1)) != 42:
+        return fail("collatz ticket64 admitted-child state count changed")
+    if int(table64.get("collision_state_count", -1)) != 0:
+        return fail("collatz ticket64 admitted-child collision count changed")
+    expected_transitions64 = {"0->1": 20, "0->2": 11, "0->3": 5, "0->5": 3, "0->4": 3}
+    transition_counts64 = table64.get("transition_label_counts", {})
+    for key, expected in expected_transitions64.items():
+        if int(transition_counts64.get(key, -1)) != expected:
+            return fail(f"collatz ticket64 transition count {key} changed")
+    formula64 = audit64.get("symbolic_formula_pressure", {})
+    if formula64.get("admitted_child_formula_holds"):
+        return fail("collatz ticket64 must refute the optimistic 0->0 admitted-child formula")
+    if not formula64.get("admitted_child_formula_fails"):
+        return fail("collatz ticket64 formula obstruction flag missing")
+    if not audit64.get("state20_gate_obstruction"):
+        return fail("collatz ticket64 state20 gate obstruction flag missing")
+    if not audit64.get("admitted_child_formula_obstruction"):
+        return fail("collatz ticket64 admitted-child formula obstruction flag missing")
+    if audit64.get("next_theorem_target") != "SymbolicStartTemplateGateAndOffsetTransition":
+        return fail("collatz ticket64 next theorem target changed")
+    if "does not prove Collatz" not in str(audit64.get("proof_boundary", "")):
+        return fail("collatz ticket64 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

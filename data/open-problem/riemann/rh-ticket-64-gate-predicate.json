@@ -1,0 +1,21 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-64",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelGatePredicateOrHeightCollision",
+  "proof_or_counterexample_mode": "symbolic-gate transfer",
+  "attempt": "Transfer TICKET64's lesson: a finite automaton table is not enough unless the next admissibility gate is also symbolically closed or an explicit gate collision is reported.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-63",
+    "source_route": "ZeroKernelAutomatonCoverOrHeightCollision",
+    "ticket64_transfer": "ZeroKernelGatePredicateOrHeightCollision",
+    "gate_name": "zero-kernel admissible height gate",
+    "candidate_theorem": "Every admissible height lift is selected by a symbolic zero-kernel gate and then follows a positivity-preserving transition, or a height collision is produced.",
+    "counterexample_target": "two height lifts with the same zero-kernel gate state but different admissibility or positivity labels",
+    "frontier_rule": "A proof route must prove the gate predicate and the transition relation together. A gate collision refutes the proposed abstraction even when no conjecture counterexample exists."
+  },
+  "obstruction": "This is a transfer discipline, not a solution.",
+  "candidate_theorem": "Every admissible height lift is selected by a symbolic zero-kernel gate and then follows a positivity-preserving transition, or a height collision is produced.",
+  "next_experiment": "Build the problem-specific gate predicate or expose the first gate collision.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

@@ -486,6 +486,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Transition-cover result") ||
         !page.proofOrCounterexampleText.includes("Ticket 63 mod16 automaton-cover lab") ||
         !page.proofOrCounterexampleText.includes("Automaton-cover result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 64 symbolic mod16 transition lab") ||
+        !page.proofOrCounterexampleText.includes("Symbolic transition result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
@@ -512,6 +514,11 @@ async function main() {
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("13,184")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("low40_mod_2^20_plus_base_mod16")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("SymbolicStartTemplateGateAndOffsetTransition")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("3,344")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("0->1")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("0->5")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -846,6 +853,8 @@ async function main() {
     !metrics.evolutionImpact.includes("52/56-bit lifts") ||
     !metrics.evolutionImpact.includes("Mod16 automaton table") ||
     !metrics.evolutionImpact.includes("60-bit chain") ||
+    !metrics.evolutionImpact.includes("Symbolic gate obstruction") ||
+    !metrics.evolutionImpact.includes("64-bit gate") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
@@ -874,7 +883,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-60") ||
     !metrics.evolutionPanel.includes("TICKET-61") ||
     !metrics.evolutionPanel.includes("TICKET-62") ||
-    !metrics.evolutionPanel.includes("TICKET-63")
+    !metrics.evolutionPanel.includes("TICKET-63") ||
+    !metrics.evolutionPanel.includes("TICKET-64")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
