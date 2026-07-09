@@ -490,6 +490,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Symbolic transition result") ||
         !page.proofOrCounterexampleText.includes("Ticket 65 start-template chain extinction lab") ||
         !page.proofOrCounterexampleText.includes("Start-template extinction result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 66 complement-cover audit") ||
+        !page.proofOrCounterexampleText.includes("Complement-cover result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
@@ -529,6 +531,12 @@ async function main() {
           !page.proofOrCounterexampleText.includes("low40_parent_high10_child_top4")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("row-unique")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("17,134")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("491")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("OpenTemplateFamilyRankOrComplementCounterexample")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("open_wrong_tail_target_residue_mod_256")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -895,7 +903,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-62") ||
     !metrics.evolutionPanel.includes("TICKET-63") ||
     !metrics.evolutionPanel.includes("TICKET-64") ||
-    !metrics.evolutionPanel.includes("TICKET-65")
+    !metrics.evolutionPanel.includes("TICKET-65") ||
+    !metrics.evolutionPanel.includes("TICKET-66")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

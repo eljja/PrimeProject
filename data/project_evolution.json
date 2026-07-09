@@ -53,7 +53,7 @@
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
     "claim_language_scanned_files": 19,
-    "claim_language_scanned_lines": 12228,
+    "claim_language_scanned_lines": 12475,
     "claim_language_triggered_mentions": 118,
     "claim_language_guarded_mentions": 118,
     "claim_language_failures": 0,
@@ -286,6 +286,13 @@
           "state": "open",
           "measure": "56->80 bits / 824->0 survivors",
           "proof": "TICKET-65 closes the tracked start-template chain by 80 bits while showing compact gate separators collapse to row-unique states"
+        },
+        {
+          "marker": "26",
+          "title": "Complement frontier isolated",
+          "state": "open",
+          "measure": "17,134 open instances / 491 families",
+          "proof": "TICKET-66 refutes the already-covered complement shortcut and turns the next target into a rank theorem or compatible infinite lift"
         }
       ],
       "evidence_flow": [
@@ -405,11 +412,11 @@
         },
         {
           "layer": "Open-Proof",
-          "score": 66,
+          "score": 67,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "data/open-problem/ticket53-symbolic-terminal-theorem-lab.json", "data/open-problem/ticket54-new-template-family-lab.json", "data/open-problem/ticket55-phase5-valuation-gate-lab.json", "data/open-problem/ticket56-pre-gate-projection-escape-lab.json", "data/open-problem/ticket57-parametric-template-automaton-lab.json", "data/open-problem/ticket58-affine-boundary-lift-lab.json", "data/open-problem/ticket59-symbolic-lift-mismatch-lab.json", "data/open-problem/ticket60-mixed-cylinder-separator-lab.json", "data/open-problem/ticket61-symbolic-failure-offset-lab.json", "data/open-problem/ticket62-mod16-transition-cover-lab.json", "data/open-problem/ticket63-mod16-automaton-cover-lab.json", "data/open-problem/ticket64-symbolic-mod16-transition-lab.json", "data/open-problem/ticket65-start-template-chain-extinction-lab.json", "docs/proof-or-counterexample-program.md"],
-          "gate": "The tracked TICKET63/TICKET64 start-template chain closes by 80 bits, but the complement-cover theorem is still missing.",
-          "proof": "The proof workbench now targets StartTemplateChainExtinctionOrComplementCover."
+          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "data/open-problem/ticket53-symbolic-terminal-theorem-lab.json", "data/open-problem/ticket54-new-template-family-lab.json", "data/open-problem/ticket55-phase5-valuation-gate-lab.json", "data/open-problem/ticket56-pre-gate-projection-escape-lab.json", "data/open-problem/ticket57-parametric-template-automaton-lab.json", "data/open-problem/ticket58-affine-boundary-lift-lab.json", "data/open-problem/ticket59-symbolic-lift-mismatch-lab.json", "data/open-problem/ticket60-mixed-cylinder-separator-lab.json", "data/open-problem/ticket61-symbolic-failure-offset-lab.json", "data/open-problem/ticket62-mod16-transition-cover-lab.json", "data/open-problem/ticket63-mod16-automaton-cover-lab.json", "data/open-problem/ticket64-symbolic-mod16-transition-lab.json", "data/open-problem/ticket65-start-template-chain-extinction-lab.json", "data/open-problem/ticket66-complement-cover-lab.json", "docs/proof-or-counterexample-program.md"],
+          "gate": "TICKET66 refutes the already-covered complement shortcut: 17,134 open needs_split instances remain across 491 template families.",
+          "proof": "The proof workbench now targets OpenTemplateFamilyRankOrComplementCounterexample."
         }
       ]
     },
@@ -538,6 +545,11 @@
         "label": "Start-template chain extinction",
         "impact": "TICKET-65 follows the retained start-template chain through 80 bits and finds the survivor sequence 824->209->42->12->3->1->0, while compact gate separators collapse to row-unique states.",
         "metric": "80-bit extinction / 0 full periods"
+      },
+      {
+        "label": "Complement frontier isolated",
+        "impact": "TICKET-66 tests the missing complement cover and finds 17,134 open needs_split instances across 491 template families, so the next target is a rank theorem or compatible infinite lift.",
+        "metric": "17,134 open / 491 families"
       }
     ],
     "research_delta": {
@@ -575,7 +587,7 @@
         {
           "track": "Open proof search",
           "before": "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.",
-          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root and closes it; TICKET-53 explains all known terminal closures by a symbolic mismatch theorem and discards the extracted lasso family; TICKET-54 extracts Phase5ValuationGate as the strongest remaining bounded family; TICKET-55 proves the known gate crossers tunnel into the terminal no-go; TICKET-56 closes the exact 32-bit partition but refutes simple projection-closure globalization; TICKET-57 shows exact32 outcomes need affine boundary coordinates; TICKET-58 refutes unchanged exact32 affine-boundary lifting in the replayed 48-bit sample; TICKET-59 counts selected low40-to-48 cylinders and shows the next missing coordinate is inside mixed cylinders; TICKET-60 identifies replay-derived failure_offset as a separator; TICKET-61 replaces it with the pre-replay coordinate low40 + high_extension mod 16; TICKET-62 tests 52/56-bit lifts and finds no mod16 collision among surviving start-template lifts; TICKET-63 extracts deterministic automaton state tables and reduces the chained 60-bit quotient to low40 mod 2^20 + base_mod16; TICKET-64 refutes the direct 0->0 symbolic transition shortcut at 64 bits; TICKET-65 closes the tracked start-template chain by 80 bits and leaves the complement-cover theorem open.",
+          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root and closes it; TICKET-53 explains all known terminal closures by a symbolic mismatch theorem and discards the extracted lasso family; TICKET-54 extracts Phase5ValuationGate as the strongest remaining bounded family; TICKET-55 proves the known gate crossers tunnel into the terminal no-go; TICKET-56 closes the exact 32-bit partition but refutes simple projection-closure globalization; TICKET-57 shows exact32 outcomes need affine boundary coordinates; TICKET-58 refutes unchanged exact32 affine-boundary lifting in the replayed 48-bit sample; TICKET-59 counts selected low40-to-48 cylinders and shows the next missing coordinate is inside mixed cylinders; TICKET-60 identifies replay-derived failure_offset as a separator; TICKET-61 replaces it with the pre-replay coordinate low40 + high_extension mod 16; TICKET-62 tests 52/56-bit lifts and finds no mod16 collision among surviving start-template lifts; TICKET-63 extracts deterministic automaton state tables and reduces the chained 60-bit quotient to low40 mod 2^20 + base_mod16; TICKET-64 refutes the direct 0->0 symbolic transition shortcut at 64 bits; TICKET-65 closes the tracked start-template chain by 80 bits; TICKET-66 refutes the already-covered complement shortcut and isolates 491 open template families for the next rank-or-counterexample theorem.",
           "state": "open"
         }
       ],

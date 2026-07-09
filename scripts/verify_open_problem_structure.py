@@ -59,6 +59,7 @@ TICKET62_SCHEMA = "primeproject.ticket62-mod16-transition-cover-lab.v1"
 TICKET63_SCHEMA = "primeproject.ticket63-mod16-automaton-cover-lab.v1"
 TICKET64_SCHEMA = "primeproject.ticket64-symbolic-mod16-transition-lab.v1"
 TICKET65_SCHEMA = "primeproject.ticket65-start-template-chain-extinction-lab.v1"
+TICKET66_SCHEMA = "primeproject.ticket66-complement-cover-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -3718,6 +3719,103 @@ def main() -> int:
         return fail("collatz ticket65 next theorem target changed")
     if "does not prove Collatz" not in str(audit65.get("proof_boundary", "")):
         return fail("collatz ticket65 proof boundary must block proof overclaim")
+
+    ticket66_path = Path("data/open-problem/ticket66-complement-cover-lab.json")
+    if not ticket66_path.exists():
+        return fail("missing ticket66 complement-cover artifact")
+    ticket66 = read_json(ticket66_path)
+    if ticket66.get("schema") != TICKET66_SCHEMA:
+        return fail("ticket66 complement-cover artifact has unexpected schema")
+    if ticket66.get("status") != "complement_cover_open_no_resolution":
+        return fail("ticket66 complement-cover artifact overstates resolution")
+    ticket66_attempts = ticket66.get("attempts", [])
+    if not isinstance(ticket66_attempts, list):
+        return fail("ticket66 attempts must be a list")
+    ticket66_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket66_attempts if isinstance(attempt, dict)}
+    missing_ticket66 = EXPECTED_PROBLEMS - set(ticket66_by_id)
+    if missing_ticket66:
+        return fail("ticket66 attempts missing problems: " + ", ".join(sorted(missing_ticket66)))
+    ticket66_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-66-complement-cover.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-66-complement-cover.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-66-complement-cover.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-66-complement-cover.json"),
+    }
+    for problem_id, attempt in ticket66_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "complement_cover_failed_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket66 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket66 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket66 claim boundary is too weak")
+        path = ticket66_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket66 per-problem artifact")
+
+    collatz_ticket66 = ticket66_by_id.get("collatz", {})
+    audit66 = collatz_ticket66.get("bounded_result", {}).get("complement_cover_audit", {})
+    if not isinstance(audit66, dict):
+        return fail("collatz ticket66 complement-cover audit missing")
+    if audit66.get("theorem_name") != "ComplementCoverForStartTemplateExit":
+        return fail("collatz ticket66 theorem name changed")
+    if int(audit66.get("total_non_start_template_candidates", -1)) != 17189:
+        return fail("collatz ticket66 total complement count changed")
+    if int(audit66.get("descent_closed_count", -1)) != 55:
+        return fail("collatz ticket66 descent-closed count changed")
+    if int(audit66.get("open_needs_split_count", -1)) != 17134:
+        return fail("collatz ticket66 open needs_split count changed")
+    if int(audit66.get("unique_open_template_count", -1)) != 491:
+        return fail("collatz ticket66 open template family count changed")
+    if audit66.get("complement_cover_status") != "open_complement_not_covered":
+        return fail("collatz ticket66 complement-cover status changed")
+    if audit66.get("next_theorem_target") != "OpenTemplateFamilyRankOrComplementCounterexample":
+        return fail("collatz ticket66 next theorem target changed")
+    expected_reasons66 = {
+        "open_wrong_tail_target_residue_mod_256": 14244,
+        "open_target_tail_wrong_next_valuation": 2890,
+        "closed_all_lift_descent": 55,
+    }
+    reason66 = audit66.get("global_reason_counts", {})
+    for key, expected in expected_reasons66.items():
+        if int(reason66.get(key, -1)) != expected:
+            return fail(f"collatz ticket66 reason count {key} changed")
+    largest66 = audit66.get("largest_open_template_family", {})
+    if largest66.get("key") != "[12,[1,1,1,1],103,5]" or int(largest66.get("count", -1)) != 432:
+        return fail("collatz ticket66 largest open template changed")
+    expected_steps66 = [
+        (56, 60, 13184, 209, 12975, 12920, 55, 188),
+        (60, 64, 3344, 42, 3302, 3302, 0, 135),
+        (64, 68, 672, 12, 660, 660, 0, 98),
+        (68, 72, 192, 3, 189, 189, 0, 70),
+        (72, 76, 48, 1, 47, 47, 0, 34),
+        (76, 80, 16, 0, 16, 16, 0, 15),
+    ]
+    steps66 = audit66.get("per_lift", [])
+    if not isinstance(steps66, list) or len(steps66) != len(expected_steps66):
+        return fail("collatz ticket66 per-lift step count changed")
+    for row, expected in zip(steps66, expected_steps66):
+        parent_bits, target_bits, candidates, starts, nonstarts, needs_split, descent, families = expected
+        if int(row.get("parent_bits", -1)) != parent_bits or int(row.get("target_bits", -1)) != target_bits:
+            return fail("collatz ticket66 per-lift bit range changed")
+        if int(row.get("candidate_child_rows", -1)) != candidates:
+            return fail(f"collatz ticket66 candidate count changed for {parent_bits}->{target_bits}")
+        if int(row.get("start_template_count", -1)) != starts:
+            return fail(f"collatz ticket66 start count changed for {parent_bits}->{target_bits}")
+        if int(row.get("non_start_template_count", -1)) != nonstarts:
+            return fail(f"collatz ticket66 non-start count changed for {parent_bits}->{target_bits}")
+        status_counts = row.get("status_counts", {})
+        if int(status_counts.get("needs_split", 0)) != needs_split:
+            return fail(f"collatz ticket66 needs_split count changed for {parent_bits}->{target_bits}")
+        if int(status_counts.get("all_lift_descent", 0)) != descent:
+            return fail(f"collatz ticket66 descent count changed for {parent_bits}->{target_bits}")
+        if int(row.get("unique_open_templates", -1)) != families:
+            return fail(f"collatz ticket66 unique family count changed for {parent_bits}->{target_bits}")
+    if "does not prove Collatz" not in str(audit66.get("proof_boundary", "")):
+        return fail("collatz ticket66 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

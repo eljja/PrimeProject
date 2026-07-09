@@ -1,0 +1,20 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-66",
+  "status": "proof_pressure_open",
+  "route": "GoldbachCutoffComplementCoverOrPersistentLowMargin",
+  "proof_or_counterexample_mode": "complement-cover frontier transfer",
+  "attempt": "Transfer the TICKET66 lesson: a closed branch is useful only after its complement is either covered by a symbolic theorem or converted into an explicit counterexample-search frontier.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-65",
+    "source_route": "CutoffBranchExtinctionOrComplementCover",
+    "ticket66_transfer": "GoldbachCutoffComplementCoverOrPersistentLowMargin",
+    "candidate_theorem": "Every large-even branch outside the closed cutoff window has an explicit positive margin cover, or a persistent low-margin branch survives the cutoff theorem.",
+    "counterexample_target": "a large-even branch whose local margin remains below the explicit lower-bound budget after the complement cover should apply",
+    "frontier_rule": "Do not promote a branch closure, cutoff, or finite detector into a proof unless the complement is explicitly covered. The complement must have its own rank theorem, positivity theorem, or counterexample construction."
+  },
+  "obstruction": "This is a transfer discipline and open theorem target, not a solution.",
+  "candidate_theorem": "Every large-even branch outside the closed cutoff window has an explicit positive margin cover, or a persistent low-margin branch survives the cutoff theorem.",
+  "next_experiment": "Construct the problem-specific complement frontier and rank/positivity theorem, or find a branch that evades it.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}

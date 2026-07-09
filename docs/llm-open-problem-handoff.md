@@ -61,6 +61,62 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
+## Latest Continuation After TICKET-66
+
+TICKET-66 supersedes the immediate TICKET-65 continuation target. It does not solve Collatz, but it checks the exact complement-cover shortcut demanded after the TICKET65 branch extinction and shows that the shortcut fails.
+
+Known Collatz result:
+
+```text
+Complement audit lifts: 56->60, 60->64, 64->68, 68->72, 72->76, 76->80
+Non-start complement candidates: 17,189
+Closed by immediate all-lift descent: 55
+Open needs_split instances: 17,134
+Descent coverage rate: 0.003199720752
+Unique open template families: 491
+Largest open family: [12,[1,1,1,1],103,5] with 432 instances
+Main exit pressure: open_wrong_tail_target_residue_mod_256 = 14,244; open_target_tail_wrong_next_valuation = 2,890
+```
+
+Interpretation:
+
+```text
+The tracked TICKET65 branch is closed, but its complement is not. TICKET66 refutes the idea that every non-start-template exit branch is already handled by existing descent or terminal-family closures. The useful next object is no longer a generic complement cover; it is a rank theorem over 491 open template families, or a compatible infinite lift through one family that becomes a genuine counterexample target.
+```
+
+Do not claim Collatz from this. The next theorem must either close the 491 open families with a symbolic rank/measure argument or construct a compatible infinite lift through one family.
+
+Current best continuation:
+
+```text
+CO-TICKET-67 OpenTemplateFamilyRankOrComplementCounterexample
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-66. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET65 closed the tracked Collatz start-template chain by 80 bits. TICKET66 then audited the complement: 17,189 non-start-template exit candidates were found, only 55 close by immediate all-lift descent, and 17,134 remain open needs_split instances across 491 template families. The largest family is [12,[1,1,1,1],103,5] with 432 instances. The complement-cover shortcut is refuted.
+
+Goal: build CO-TICKET-67. Either prove a symbolic rank/measure theorem over the 491 open complement template families, or construct a compatible infinite lift through one family that becomes a serious counterexample target.
+
+Tasks:
+1. Load data/open-problem/ticket66-complement-cover-lab.json and extract the 491 open template families.
+2. Start with the largest families and the smallest open residue witness.
+3. Define a pre-replay symbolic state that does not depend on post-hoc failure labels.
+4. Search for a well-founded rank that decreases under all compatible lifts of each family.
+5. If rank synthesis fails, try to construct a compatible infinite lift through one nondecreasing family and record the exact obstruction to making it a true counterexample.
+6. Transfer the same complement-discipline to RH, Goldbach, and Twin Prime: no finite branch closure can become a proof until its complement is covered.
+
+Required output:
+- data/open-problem/ticket67-open-template-rank-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless the infinite bridge is supplied
+```
+
 ## Latest Continuation After TICKET-65
 
 TICKET-65 supersedes the immediate TICKET-64 continuation target. It still does not solve Collatz, but it closes the concrete start-template survivor chain that TICKET63/TICKET64 had isolated.

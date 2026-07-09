@@ -1,0 +1,20 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-66",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelComplementCoverOrPersistentBranch",
+  "proof_or_counterexample_mode": "complement-cover frontier transfer",
+  "attempt": "Transfer the TICKET66 lesson: a closed branch is useful only after its complement is either covered by a symbolic theorem or converted into an explicit counterexample-search frontier.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-65",
+    "source_route": "ZeroKernelBranchExtinctionOrComplementCover",
+    "ticket66_transfer": "ZeroKernelComplementCoverOrPersistentBranch",
+    "candidate_theorem": "Every zero-kernel branch outside the currently pruned window has a uniform positivity/rank cover, or there is a persistent off-critical branch candidate that the detector cannot eliminate.",
+    "counterexample_target": "a persistent zero-kernel branch that survives the complement cover while remaining compatible with all tested positivity constraints",
+    "frontier_rule": "Do not promote a branch closure, cutoff, or finite detector into a proof unless the complement is explicitly covered. The complement must have its own rank theorem, positivity theorem, or counterexample construction."
+  },
+  "obstruction": "This is a transfer discipline and open theorem target, not a solution.",
+  "candidate_theorem": "Every zero-kernel branch outside the currently pruned window has a uniform positivity/rank cover, or there is a persistent off-critical branch candidate that the detector cannot eliminate.",
+  "next_experiment": "Construct the problem-specific complement frontier and rank/positivity theorem, or find a branch that evades it.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

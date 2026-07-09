@@ -1,0 +1,1460 @@
+{
+  "schema": "primeproject.ticket66-complement-cover-lab.v1",
+  "generated_at": "2026-07-09T23:40:00+09:00",
+  "status": "complement_cover_open_no_resolution",
+  "claim_boundary": "Ticket 66 refutes the shortcut that TICKET65's complement is already covered. It does not prove or disprove any of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-66",
+      "status": "proof_pressure_open",
+      "route": "ZeroKernelComplementCoverOrPersistentBranch",
+      "proof_or_counterexample_mode": "complement-cover frontier transfer",
+      "attempt": "Transfer the TICKET66 lesson: a closed branch is useful only after its complement is either covered by a symbolic theorem or converted into an explicit counterexample-search frontier.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-65",
+        "source_route": "ZeroKernelBranchExtinctionOrComplementCover",
+        "ticket66_transfer": "ZeroKernelComplementCoverOrPersistentBranch",
+        "candidate_theorem": "Every zero-kernel branch outside the currently pruned window has a uniform positivity/rank cover, or there is a persistent off-critical branch candidate that the detector cannot eliminate.",
+        "counterexample_target": "a persistent zero-kernel branch that survives the complement cover while remaining compatible with all tested positivity constraints",
+        "frontier_rule": "Do not promote a branch closure, cutoff, or finite detector into a proof unless the complement is explicitly covered. The complement must have its own rank theorem, positivity theorem, or counterexample construction."
+      },
+      "obstruction": "This is a transfer discipline and open theorem target, not a solution.",
+      "candidate_theorem": "Every zero-kernel branch outside the currently pruned window has a uniform positivity/rank cover, or there is a persistent off-critical branch candidate that the detector cannot eliminate.",
+      "next_experiment": "Construct the problem-specific complement frontier and rank/positivity theorem, or find a branch that evades it.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-66",
+      "route": "ComplementCoverForStartTemplateExit",
+      "status": "complement_cover_failed_open_no_resolution",
+      "proof_or_counterexample_mode": "bounded complement-cover falsification plus open-template frontier",
+      "attempt": "Test the theorem demanded by TICKET65: whether branches that exit the start-template chain are already covered by the known descent/terminal machinery, or whether they form new open template families.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-65",
+        "complement_cover_audit": {
+          "theorem_name": "ComplementCoverForStartTemplateExit",
+          "source_ticket": "CO-TICKET-65",
+          "tested_lifts": [
+            {
+              "parent_bits": 56,
+              "target_bits": 60
+            },
+            {
+              "parent_bits": 60,
+              "target_bits": 64
+            },
+            {
+              "parent_bits": 64,
+              "target_bits": 68
+            },
+            {
+              "parent_bits": 68,
+              "target_bits": 72
+            },
+            {
+              "parent_bits": 72,
+              "target_bits": 76
+            },
+            {
+              "parent_bits": 76,
+              "target_bits": 80
+            }
+          ],
+          "total_non_start_template_candidates": 17189,
+          "descent_closed_count": 55,
+          "open_needs_split_count": 17134,
+          "descent_coverage_rate": 0.003199720752,
+          "open_needs_split_rate": 0.996800279248,
+          "unique_open_template_count": 491,
+          "global_status_counts": {
+            "needs_split": 17134,
+            "all_lift_descent": 55
+          },
+          "global_reason_counts": {
+            "open_wrong_tail_target_residue_mod_256": 14244,
+            "open_target_tail_wrong_next_valuation": 2890,
+            "closed_all_lift_descent": 55
+          },
+          "top_global_templates": [
+            {
+              "key": "[12,[1,1,1,1],103,5]",
+              "count": 432
+            },
+            {
+              "key": "[12,[1,1,1,1],103,4]",
+              "count": 405
+            },
+            {
+              "key": "[12,[1,1,1,2],103,4]",
+              "count": 396
+            },
+            {
+              "key": "[12,[1,1,2,1],103,3]",
+              "count": 384
+            },
+            {
+              "key": "[12,[1,1,1,1],103,3]",
+              "count": 361
+            },
+            {
+              "key": "[12,[1,1,1,2],103,3]",
+              "count": 353
+            },
+            {
+              "key": "[12,[1,1,1,3],103,3]",
+              "count": 352
+            },
+            {
+              "key": "[12,[1,1,2,1],103,2]",
+              "count": 321
+            },
+            {
+              "key": "[12,[1,1,1,1],103,2]",
+              "count": 314
+            },
+            {
+              "key": "[12,[1,1,1,3],103,2]",
+              "count": 305
+            },
+            {
+              "key": "[12,[1,1,3,1],103,2]",
+              "count": 305
+            },
+            {
+              "key": "[12,[1,1,2,2],103,2]",
+              "count": 302
+            }
+          ],
+          "top_global_tail4": [
+            {
+              "key": "1,1,1,1",
+              "count": 2890
+            },
+            {
+              "key": "1,1,1,2",
+              "count": 2168
+            },
+            {
+              "key": "1,1,2,1",
+              "count": 1663
+            },
+            {
+              "key": "1,1,1,3",
+              "count": 1588
+            },
+            {
+              "key": "1,1,2,2",
+              "count": 1139
+            },
+            {
+              "key": "1,1,3,1",
+              "count": 1081
+            },
+            {
+              "key": "1,2,1,1",
+              "count": 1057
+            },
+            {
+              "key": "1,1,1,4",
+              "count": 1045
+            },
+            {
+              "key": "2,1,1,1",
+              "count": 668
+            },
+            {
+              "key": "1,1,3,2",
+              "count": 556
+            },
+            {
+              "key": "1,1,4,1",
+              "count": 552
+            },
+            {
+              "key": "1,3,1,1",
+              "count": 534
+            }
+          ],
+          "global_next_valuation_counts": [
+            {
+              "key": "2",
+              "count": 4282
+            },
+            {
+              "key": "1",
+              "count": 3987
+            },
+            {
+              "key": "3",
+              "count": 3231
+            },
+            {
+              "key": "4",
+              "count": 2217
+            },
+            {
+              "key": "5",
+              "count": 1428
+            },
+            {
+              "key": "6",
+              "count": 966
+            },
+            {
+              "key": "7",
+              "count": 521
+            },
+            {
+              "key": "8",
+              "count": 244
+            },
+            {
+              "key": "9",
+              "count": 127
+            },
+            {
+              "key": "10",
+              "count": 73
+            },
+            {
+              "key": "11",
+              "count": 35
+            },
+            {
+              "key": "12",
+              "count": 9
+            }
+          ],
+          "largest_open_template_family": {
+            "key": "[12,[1,1,1,1],103,5]",
+            "count": 432
+          },
+          "per_lift": [
+            {
+              "parent_bits": 56,
+              "target_bits": 60,
+              "candidate_child_rows": 13184,
+              "start_template_count": 209,
+              "non_start_template_count": 12975,
+              "status_counts": {
+                "needs_split": 12920,
+                "all_lift_descent": 55
+              },
+              "reason_counts": {
+                "open_wrong_tail_target_residue_mod_256": 10800,
+                "open_target_tail_wrong_next_valuation": 2120,
+                "closed_all_lift_descent": 55
+              },
+              "unique_open_templates": 188,
+              "top_open_templates": [
+                {
+                  "key": "[12,[1,1,1,1],103,5]",
+                  "count": 430
+                },
+                {
+                  "key": "[12,[1,1,1,1],103,4]",
+                  "count": 403
+                },
+                {
+                  "key": "[12,[1,1,1,2],103,4]",
+                  "count": 395
+                },
+                {
+                  "key": "[12,[1,1,2,1],103,3]",
+                  "count": 384
+                },
+                {
+                  "key": "[12,[1,1,1,1],103,3]",
+                  "count": 360
+                },
+                {
+                  "key": "[12,[1,1,1,2],103,3]",
+                  "count": 353
+                },
+                {
+                  "key": "[12,[1,1,1,3],103,3]",
+                  "count": 351
+                },
+                {
+                  "key": "[12,[1,1,2,1],103,2]",
+                  "count": 320
+                }
+              ],
+              "top_tail4": [
+                {
+                  "key": "1,1,1,1",
+                  "count": 2120
+                },
+                {
+                  "key": "1,1,1,2",
+                  "count": 1638
+                },
+                {
+                  "key": "1,1,2,1",
+                  "count": 1264
+                },
+                {
+                  "key": "1,1,1,3",
+                  "count": 1199
+                },
+                {
+                  "key": "1,1,2,2",
+                  "count": 871
+                },
+                {
+                  "key": "1,1,3,1",
+                  "count": 819
+                },
+                {
+                  "key": "1,2,1,1",
+                  "count": 794
+                },
+                {
+                  "key": "1,1,1,4",
+                  "count": 783
+                }
+              ],
+              "next_valuation_counts": [
+                {
+                  "key": "2",
+                  "count": 3214
+                },
+                {
+                  "key": "1",
+                  "count": 3009
+                },
+                {
+                  "key": "3",
+                  "count": 2451
+                },
+                {
+                  "key": "4",
+                  "count": 1669
+                },
+                {
+                  "key": "5",
+                  "count": 1078
+                },
+                {
+                  "key": "6",
+                  "count": 728
+                },
+                {
+                  "key": "7",
+                  "count": 391
+                },
+                {
+                  "key": "8",
+                  "count": 182
+                }
+              ]
+            },
+            {
+              "parent_bits": 60,
+              "target_bits": 64,
+              "candidate_child_rows": 3344,
+              "start_template_count": 42,
+              "non_start_template_count": 3302,
+              "status_counts": {
+                "needs_split": 3302
+              },
+              "reason_counts": {
+                "open_wrong_tail_target_residue_mod_256": 2691,
+                "open_target_tail_wrong_next_valuation": 611
+              },
+              "unique_open_templates": 135,
+              "top_open_templates": [
+                {
+                  "key": "[0,[1,1,1,1],103,4]",
+                  "count": 110
+                },
+                {
+                  "key": "[0,[1,1,1,1],103,5]",
+                  "count": 108
+                },
+                {
+                  "key": "[0,[1,1,1,1],103,6]",
+                  "count": 102
+                },
+                {
+                  "key": "[0,[1,1,1,1],103,3]",
+                  "count": 92
+                },
+                {
+                  "key": "[0,[1,1,1,2],103,4]",
+                  "count": 92
+                },
+                {
+                  "key": "[0,[1,1,2,1],103,3]",
+                  "count": 91
+                },
+                {
+                  "key": "[0,[1,1,2,1],103,2]",
+                  "count": 87
+                },
+                {
+                  "key": "[0,[1,1,1,2],103,2]",
+                  "count": 86
+                }
+              ],
+              "top_tail4": [
+                {
+                  "key": "1,1,1,1",
+                  "count": 611
+                },
+                {
+                  "key": "1,1,1,2",
+                  "count": 416
+                },
+                {
+                  "key": "1,1,2,1",
+                  "count": 309
+                },
+                {
+                  "key": "1,1,1,3",
+                  "count": 303
+                },
+                {
+                  "key": "1,1,2,2",
+                  "count": 214
+                },
+                {
+                  "key": "1,1,1,4",
+                  "count": 205
+                },
+                {
+                  "key": "1,1,3,1",
+                  "count": 205
+                },
+                {
+                  "key": "1,2,1,1",
+                  "count": 204
+                }
+              ],
+              "next_valuation_counts": [
+                {
+                  "key": "2",
+                  "count": 824
+                },
+                {
+                  "key": "1",
+                  "count": 764
+                },
+                {
+                  "key": "3",
+                  "count": 607
+                },
+                {
+                  "key": "4",
+                  "count": 441
+                },
+                {
+                  "key": "5",
+                  "count": 281
+                },
+                {
+                  "key": "6",
+                  "count": 184
+                },
+                {
+                  "key": "7",
+                  "count": 105
+                },
+                {
+                  "key": "8",
+                  "count": 49
+                }
+              ]
+            },
+            {
+              "parent_bits": 64,
+              "target_bits": 68,
+              "candidate_child_rows": 672,
+              "start_template_count": 12,
+              "non_start_template_count": 660,
+              "status_counts": {
+                "needs_split": 660
+              },
+              "reason_counts": {
+                "open_wrong_tail_target_residue_mod_256": 543,
+                "open_target_tail_wrong_next_valuation": 117
+              },
+              "unique_open_templates": 98,
+              "top_open_templates": [
+                {
+                  "key": "[4,[1,1,1,1],103,5]",
+                  "count": 25
+                },
+                {
+                  "key": "[4,[1,1,3,1],103,2]",
+                  "count": 24
+                },
+                {
+                  "key": "[4,[1,1,1,3],103,2]",
+                  "count": 23
+                },
+                {
+                  "key": "[4,[1,1,2,1],103,3]",
+                  "count": 23
+                },
+                {
+                  "key": "[4,[1,1,1,3],103,3]",
+                  "count": 22
+                },
+                {
+                  "key": "[4,[1,1,1,2],103,2]",
+                  "count": 20
+                },
+                {
+                  "key": "[4,[1,1,1,1],103,3]",
+                  "count": 19
+                },
+                {
+                  "key": "[4,[1,1,2,2],103,2]",
+                  "count": 19
+                }
+              ],
+              "top_tail4": [
+                {
+                  "key": "1,1,1,1",
+                  "count": 117
+                },
+                {
+                  "key": "1,1,1,2",
+                  "count": 80
+                },
+                {
+                  "key": "1,1,2,1",
+                  "count": 65
+                },
+                {
+                  "key": "1,1,1,3",
+                  "count": 62
+                },
+                {
+                  "key": "1,1,3,1",
+                  "count": 42
+                },
+                {
+                  "key": "1,2,1,1",
+                  "count": 40
+                },
+                {
+                  "key": "1,1,2,2",
+                  "count": 40
+                },
+                {
+                  "key": "1,1,1,4",
+                  "count": 38
+                }
+              ],
+              "next_valuation_counts": [
+                {
+                  "key": "2",
+                  "count": 184
+                },
+                {
+                  "key": "1",
+                  "count": 155
+                },
+                {
+                  "key": "3",
+                  "count": 126
+                },
+                {
+                  "key": "4",
+                  "count": 72
+                },
+                {
+                  "key": "5",
+                  "count": 54
+                },
+                {
+                  "key": "6",
+                  "count": 33
+                },
+                {
+                  "key": "7",
+                  "count": 16
+                },
+                {
+                  "key": "8",
+                  "count": 11
+                }
+              ]
+            },
+            {
+              "parent_bits": 68,
+              "target_bits": 72,
+              "candidate_child_rows": 192,
+              "start_template_count": 3,
+              "non_start_template_count": 189,
+              "status_counts": {
+                "needs_split": 189
+              },
+              "reason_counts": {
+                "open_wrong_tail_target_residue_mod_256": 158,
+                "open_target_tail_wrong_next_valuation": 31
+              },
+              "unique_open_templates": 70,
+              "top_open_templates": [
+                {
+                  "key": "[8,[1,1,1,1],103,6]",
+                  "count": 9
+                },
+                {
+                  "key": "[8,[1,1,2,1],103,4]",
+                  "count": 7
+                },
+                {
+                  "key": "[8,[1,1,2,1],103,2]",
+                  "count": 6
+                },
+                {
+                  "key": "[8,[1,1,1,2],103,2]",
+                  "count": 6
+                },
+                {
+                  "key": "[8,[1,1,1,3],103,3]",
+                  "count": 6
+                },
+                {
+                  "key": "[8,[1,1,1,2],103,3]",
+                  "count": 5
+                },
+                {
+                  "key": "[8,[1,1,3,1],103,1]",
+                  "count": 5
+                },
+                {
+                  "key": "[8,[1,1,1,4],103,2]",
+                  "count": 5
+                }
+              ],
+              "top_tail4": [
+                {
+                  "key": "1,1,1,1",
+                  "count": 31
+                },
+                {
+                  "key": "1,1,1,2",
+                  "count": 27
+                },
+                {
+                  "key": "1,1,2,1",
+                  "count": 21
+                },
+                {
+                  "key": "1,1,1,3",
+                  "count": 17
+                },
+                {
+                  "key": "1,1,1,4",
+                  "count": 15
+                },
+                {
+                  "key": "1,2,1,1",
+                  "count": 13
+                },
+                {
+                  "key": "1,3,1,1",
+                  "count": 10
+                },
+                {
+                  "key": "1,1,3,1",
+                  "count": 10
+                }
+              ],
+              "next_valuation_counts": [
+                {
+                  "key": "2",
+                  "count": 43
+                },
+                {
+                  "key": "1",
+                  "count": 42
+                },
+                {
+                  "key": "3",
+                  "count": 37
+                },
+                {
+                  "key": "4",
+                  "count": 31
+                },
+                {
+                  "key": "6",
+                  "count": 15
+                },
+                {
+                  "key": "5",
+                  "count": 8
+                },
+                {
+                  "key": "7",
+                  "count": 7
+                },
+                {
+                  "key": "9",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "parent_bits": 72,
+              "target_bits": 76,
+              "candidate_child_rows": 48,
+              "start_template_count": 1,
+              "non_start_template_count": 47,
+              "status_counts": {
+                "needs_split": 47
+              },
+              "reason_counts": {
+                "open_wrong_tail_target_residue_mod_256": 38,
+                "open_target_tail_wrong_next_valuation": 9
+              },
+              "unique_open_templates": 34,
+              "top_open_templates": [
+                {
+                  "key": "[12,[1,1,2,2],103,3]",
+                  "count": 3
+                },
+                {
+                  "key": "[12,[1,1,1,1],103,6]",
+                  "count": 3
+                },
+                {
+                  "key": "[12,[1,1,1,1],103,4]",
+                  "count": 2
+                },
+                {
+                  "key": "[12,[1,1,1,4],103,2]",
+                  "count": 2
+                },
+                {
+                  "key": "[12,[1,1,2,1],103,1]",
+                  "count": 2
+                },
+                {
+                  "key": "[12,[1,1,1,1],103,5]",
+                  "count": 2
+                },
+                {
+                  "key": "[12,[1,2,2,1],103,2]",
+                  "count": 2
+                },
+                {
+                  "key": "[12,[1,2,1,2],103,1]",
+                  "count": 2
+                }
+              ],
+              "top_tail4": [
+                {
+                  "key": "1,1,1,1",
+                  "count": 9
+                },
+                {
+                  "key": "1,1,1,3",
+                  "count": 6
+                },
+                {
+                  "key": "1,1,1,2",
+                  "count": 4
+                },
+                {
+                  "key": "1,2,1,1",
+                  "count": 4
+                },
+                {
+                  "key": "1,1,2,2",
+                  "count": 4
+                },
+                {
+                  "key": "1,1,1,4",
+                  "count": 3
+                },
+                {
+                  "key": "1,1,2,1",
+                  "count": 3
+                },
+                {
+                  "key": "1,1,3,1",
+                  "count": 3
+                }
+              ],
+              "next_valuation_counts": [
+                {
+                  "key": "2",
+                  "count": 13
+                },
+                {
+                  "key": "1",
+                  "count": 11
+                },
+                {
+                  "key": "3",
+                  "count": 7
+                },
+                {
+                  "key": "5",
+                  "count": 5
+                },
+                {
+                  "key": "6",
+                  "count": 5
+                },
+                {
+                  "key": "4",
+                  "count": 4
+                },
+                {
+                  "key": "7",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "parent_bits": 76,
+              "target_bits": 80,
+              "candidate_child_rows": 16,
+              "start_template_count": 0,
+              "non_start_template_count": 16,
+              "status_counts": {
+                "needs_split": 16
+              },
+              "reason_counts": {
+                "open_wrong_tail_target_residue_mod_256": 14,
+                "open_target_tail_wrong_next_valuation": 2
+              },
+              "unique_open_templates": 15,
+              "top_open_templates": [
+                {
+                  "key": "[0,[1,1,1,2],103,3]",
+                  "count": 2
+                },
+                {
+                  "key": "[0,[1,1,1,1],103,2]",
+                  "count": 1
+                },
+                {
+                  "key": "[0,[1,1,1,2],103,5]",
+                  "count": 1
+                },
+                {
+                  "key": "[0,[1,1,1,4],103,1]",
+                  "count": 1
+                },
+                {
+                  "key": "[0,[1,1,1,1],103,6]",
+                  "count": 1
+                },
+                {
+                  "key": "[0,[1,1,2,1],103,1]",
+                  "count": 1
+                },
+                {
+                  "key": "[0,[1,2,1,2],103,2]",
+                  "count": 1
+                },
+                {
+                  "key": "[0,[1,1,3,1],103,3]",
+                  "count": 1
+                }
+              ],
+              "top_tail4": [
+                {
+                  "key": "1,1,1,2",
+                  "count": 3
+                },
+                {
+                  "key": "1,1,1,1",
+                  "count": 2
+                },
+                {
+                  "key": "1,1,3,1",
+                  "count": 2
+                },
+                {
+                  "key": "1,2,1,1",
+                  "count": 2
+                },
+                {
+                  "key": "1,1,1,4",
+                  "count": 1
+                },
+                {
+                  "key": "1,1,2,1",
+                  "count": 1
+                },
+                {
+                  "key": "1,2,1,2",
+                  "count": 1
+                },
+                {
+                  "key": "1,1,2,2",
+                  "count": 1
+                }
+              ],
+              "next_valuation_counts": [
+                {
+                  "key": "1",
+                  "count": 6
+                },
+                {
+                  "key": "2",
+                  "count": 4
+                },
+                {
+                  "key": "3",
+                  "count": 3
+                },
+                {
+                  "key": "5",
+                  "count": 2
+                },
+                {
+                  "key": "6",
+                  "count": 1
+                }
+              ]
+            }
+          ],
+          "descent_closed_examples": [
+            {
+              "lift": "56->60",
+              "parent_index": 8,
+              "child_top": 3,
+              "residue": 253325669481699687,
+              "certificate": {
+                "status": "all_lift_descent",
+                "residue": 253325669481699687,
+                "modulus_bits": 60,
+                "prefix_length": 37,
+                "consumed_bits": 59,
+                "next_valuation": null,
+                "coefficient_log2_debt": null,
+                "coefficient_log2_margin": 0.35638747,
+                "threshold_min_n_for_descent": 16,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  5,
+                  1,
+                  1,
+                  1,
+                  4
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 8,
+              "child_top": 11,
+              "residue": 829786421785123175,
+              "certificate": {
+                "status": "all_lift_descent",
+                "residue": 829786421785123175,
+                "modulus_bits": 60,
+                "prefix_length": 37,
+                "consumed_bits": 60,
+                "next_valuation": null,
+                "coefficient_log2_debt": null,
+                "coefficient_log2_margin": 1.35638747,
+                "threshold_min_n_for_descent": 3,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  5,
+                  1,
+                  1,
+                  1,
+                  5
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 17,
+              "child_top": 7,
+              "residue": 550367638216366695,
+              "certificate": {
+                "status": "all_lift_descent",
+                "residue": 550367638216366695,
+                "modulus_bits": 60,
+                "prefix_length": 37,
+                "consumed_bits": 59,
+                "next_valuation": null,
+                "coefficient_log2_debt": null,
+                "coefficient_log2_margin": 0.35638747,
+                "threshold_min_n_for_descent": 17,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  5,
+                  1,
+                  1,
+                  1,
+                  4
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 28,
+              "child_top": 7,
+              "residue": 512758842988288615,
+              "certificate": {
+                "status": "all_lift_descent",
+                "residue": 512758842988288615,
+                "modulus_bits": 60,
+                "prefix_length": 37,
+                "consumed_bits": 59,
+                "next_valuation": null,
+                "coefficient_log2_debt": null,
+                "coefficient_log2_margin": 0.35638747,
+                "threshold_min_n_for_descent": 20,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  4
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 28,
+              "child_top": 15,
+              "residue": 1089219595291712103,
+              "certificate": {
+                "status": "all_lift_descent",
+                "residue": 1089219595291712103,
+                "modulus_bits": 60,
+                "prefix_length": 37,
+                "consumed_bits": 60,
+                "next_valuation": null,
+                "coefficient_log2_debt": null,
+                "coefficient_log2_margin": 1.35638747,
+                "threshold_min_n_for_descent": 4,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  5
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 78,
+              "child_top": 3,
+              "residue": 265652113082159975,
+              "certificate": {
+                "status": "all_lift_descent",
+                "residue": 265652113082159975,
+                "modulus_bits": 60,
+                "prefix_length": 37,
+                "consumed_bits": 59,
+                "next_valuation": null,
+                "coefficient_log2_debt": null,
+                "coefficient_log2_margin": 0.35638747,
+                "threshold_min_n_for_descent": 13,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  5,
+                  1,
+                  1,
+                  1,
+                  4
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 134,
+              "child_top": 3,
+              "residue": 275643595889407335,
+              "certificate": {
+                "status": "all_lift_descent",
+                "residue": 275643595889407335,
+                "modulus_bits": 60,
+                "prefix_length": 37,
+                "consumed_bits": 59,
+                "next_valuation": null,
+                "coefficient_log2_debt": null,
+                "coefficient_log2_margin": 0.35638747,
+                "threshold_min_n_for_descent": 14,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  5,
+                  1,
+                  1,
+                  1,
+                  4
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 149,
+              "child_top": 7,
+              "residue": 575303395411850599,
+              "certificate": {
+                "status": "all_lift_descent",
+                "residue": 575303395411850599,
+                "modulus_bits": 60,
+                "prefix_length": 37,
+                "consumed_bits": 60,
+                "next_valuation": null,
+                "coefficient_log2_debt": null,
+                "coefficient_log2_margin": 1.35638747,
+                "threshold_min_n_for_descent": 3,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  5,
+                  1,
+                  1,
+                  1,
+                  5
+                ]
+              }
+            }
+          ],
+          "open_template_examples": [
+            {
+              "lift": "56->60",
+              "parent_index": 0,
+              "child_top": 0,
+              "residue": 49331078157162855,
+              "template": "[12,[1,1,2,1],103,2]",
+              "reason": "open_wrong_tail_target_residue_mod_256",
+              "certificate": {
+                "status": "needs_split",
+                "residue": 49331078157162855,
+                "modulus_bits": 60,
+                "prefix_length": 43,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 8.15338753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 0,
+              "child_top": 1,
+              "residue": 121388672195090791,
+              "template": "[12,[1,3,1,1],103,2]",
+              "reason": "open_wrong_tail_target_residue_mod_256",
+              "certificate": {
+                "status": "needs_split",
+                "residue": 121388672195090791,
+                "modulus_bits": 60,
+                "prefix_length": 42,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 6.56842503,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 0,
+              "child_top": 2,
+              "residue": 193446266233018727,
+              "template": "[12,[1,1,3,1],103,1]",
+              "reason": "open_wrong_tail_target_residue_mod_256",
+              "certificate": {
+                "status": "needs_split",
+                "residue": 193446266233018727,
+                "modulus_bits": 60,
+                "prefix_length": 42,
+                "consumed_bits": 60,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 6.56842503,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  1
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 0,
+              "child_top": 3,
+              "residue": 265503860270946663,
+              "template": "[12,[2,1,1,1],103,2]",
+              "reason": "open_wrong_tail_target_residue_mod_256",
+              "certificate": {
+                "status": "needs_split",
+                "residue": 265503860270946663,
+                "modulus_bits": 60,
+                "prefix_length": 43,
+                "consumed_bits": 60,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 8.15338753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 0,
+              "child_top": 5,
+              "residue": 409619048346802535,
+              "template": "[12,[2,1,1,1],103,6]",
+              "reason": "open_wrong_tail_target_residue_mod_256",
+              "certificate": {
+                "status": "needs_split",
+                "residue": 409619048346802535,
+                "modulus_bits": 60,
+                "prefix_length": 39,
+                "consumed_bits": 55,
+                "next_valuation": 6,
+                "coefficient_log2_debt": 6.81353753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 0,
+              "child_top": 6,
+              "residue": 481676642384730471,
+              "template": "[12,[1,1,2,2],103,5]",
+              "reason": "open_wrong_tail_target_residue_mod_256",
+              "certificate": {
+                "status": "needs_split",
+                "residue": 481676642384730471,
+                "modulus_bits": 60,
+                "prefix_length": 42,
+                "consumed_bits": 60,
+                "next_valuation": 5,
+                "coefficient_log2_debt": 6.56842503,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 0,
+              "child_top": 7,
+              "residue": 553734236422658407,
+              "template": "[12,[1,1,2,2],103,4]",
+              "reason": "open_wrong_tail_target_residue_mod_256",
+              "certificate": {
+                "status": "needs_split",
+                "residue": 553734236422658407,
+                "modulus_bits": 60,
+                "prefix_length": 41,
+                "consumed_bits": 59,
+                "next_valuation": 4,
+                "coefficient_log2_debt": 5.98346253,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              }
+            },
+            {
+              "lift": "56->60",
+              "parent_index": 0,
+              "child_top": 8,
+              "residue": 625791830460586343,
+              "template": "[12,[1,1,1,1],103,4]",
+              "reason": "open_target_tail_wrong_next_valuation",
+              "certificate": {
+                "status": "needs_split",
+                "residue": 625791830460586343,
+                "modulus_bits": 60,
+                "prefix_length": 41,
+                "consumed_bits": 57,
+                "next_valuation": 4,
+                "coefficient_log2_debt": 7.98346253,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              }
+            }
+          ],
+          "smallest_open_residue": {
+            "lift": "56->60",
+            "parent_index": 183,
+            "child_top": 0,
+            "residue": 182182354619495,
+            "template": "[12,[1,1,1,2],103,4]",
+            "reason": "open_wrong_tail_target_residue_mod_256",
+            "certificate": {
+              "status": "needs_split",
+              "residue": 182182354619495,
+              "modulus_bits": 60,
+              "prefix_length": 42,
+              "consumed_bits": 59,
+              "next_valuation": 4,
+              "coefficient_log2_debt": 7.56842503,
+              "coefficient_log2_margin": null,
+              "threshold_min_n_for_descent": null,
+              "prefix_tail8": [
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                2
+              ]
+            }
+          },
+          "complement_cover_status": "open_complement_not_covered",
+          "discarded_route": "Assume that every branch leaving the TICKET65 start-template chain is already handled by the existing descent or terminal-family closures. The audit refutes that shortcut: only 55 of 17,189 complement candidates close by immediate all-lift descent.",
+          "retained_route": "Treat the 17,134 open complement instances as a finite template frontier. A useful next proof attempt must either prove a rank/measure theorem over these 491 template families or extract a compatible infinite lift that would become a true counterexample target.",
+          "candidate_theorem": "OpenTemplateFamilyRankOrComplementCounterexample: every open template family left by ComplementCoverForStartTemplateExit admits a well-founded symbolic rank after a finite split, or there exists a compatible infinite lift preserving one nondecreasing template family.",
+          "counterexample_target": "A compatible infinite lift through one of the 491 open complement template families, starting with the smallest open residue or one of the largest families such as [12,[1,1,1,1],103,5].",
+          "next_theorem_target": "OpenTemplateFamilyRankOrComplementCounterexample",
+          "proof_boundary": "TICKET66 does not prove Collatz. It shows that the currently available complement cover is insufficient: most branches leaving the TICKET65 start-template chain remain open needs_split template families."
+        }
+      },
+      "obstruction": "The complement is not closed by the current machinery. Among 17,189 non-start-template candidates, only 55 are immediate all-lift descent closures and 17,134 remain needs_split instances across 491 open template families.",
+      "candidate_theorem": "OpenTemplateFamilyRankOrComplementCounterexample: every open template family left by ComplementCoverForStartTemplateExit admits a well-founded symbolic rank after a finite split, or there exists a compatible infinite lift preserving one nondecreasing template family.",
+      "next_experiment": "Attack the 491 open template families with a rank search that uses only pre-replay symbolic coordinates, then try to lift the surviving family into either a proof obligation or a counterexample candidate.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-66",
+      "status": "proof_pressure_open",
+      "route": "GoldbachCutoffComplementCoverOrPersistentLowMargin",
+      "proof_or_counterexample_mode": "complement-cover frontier transfer",
+      "attempt": "Transfer the TICKET66 lesson: a closed branch is useful only after its complement is either covered by a symbolic theorem or converted into an explicit counterexample-search frontier.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-65",
+        "source_route": "CutoffBranchExtinctionOrComplementCover",
+        "ticket66_transfer": "GoldbachCutoffComplementCoverOrPersistentLowMargin",
+        "candidate_theorem": "Every large-even branch outside the closed cutoff window has an explicit positive margin cover, or a persistent low-margin branch survives the cutoff theorem.",
+        "counterexample_target": "a large-even branch whose local margin remains below the explicit lower-bound budget after the complement cover should apply",
+        "frontier_rule": "Do not promote a branch closure, cutoff, or finite detector into a proof unless the complement is explicitly covered. The complement must have its own rank theorem, positivity theorem, or counterexample construction."
+      },
+      "obstruction": "This is a transfer discipline and open theorem target, not a solution.",
+      "candidate_theorem": "Every large-even branch outside the closed cutoff window has an explicit positive margin cover, or a persistent low-margin branch survives the cutoff theorem.",
+      "next_experiment": "Construct the problem-specific complement frontier and rank/positivity theorem, or find a branch that evades it.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-66",
+      "status": "proof_pressure_open",
+      "route": "TwinPrimeParityComplementCoverOrPersistentLeak",
+      "proof_or_counterexample_mode": "complement-cover frontier transfer",
+      "attempt": "Transfer the TICKET66 lesson: a closed branch is useful only after its complement is either covered by a symbolic theorem or converted into an explicit counterexample-search frontier.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-65",
+        "source_route": "ExactGapBranchExtinctionOrParityComplementCover",
+        "ticket66_transfer": "TwinPrimeParityComplementCoverOrPersistentLeak",
+        "candidate_theorem": "Every exact-gap branch outside the closed selector window has a parity-sensitive retained-mass cover, or a persistent selector leak survives all current parity filters.",
+        "counterexample_target": "an exact-gap branch that keeps retained mass in the parity obstruction window while evading the complement cover",
+        "frontier_rule": "Do not promote a branch closure, cutoff, or finite detector into a proof unless the complement is explicitly covered. The complement must have its own rank theorem, positivity theorem, or counterexample construction."
+      },
+      "obstruction": "This is a transfer discipline and open theorem target, not a solution.",
+      "candidate_theorem": "Every exact-gap branch outside the closed selector window has a parity-sensitive retained-mass cover, or a persistent selector leak survives all current parity filters.",
+      "next_experiment": "Construct the problem-specific complement frontier and rank/positivity theorem, or find a branch that evades it.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

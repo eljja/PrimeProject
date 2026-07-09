@@ -3615,3 +3615,70 @@ Proof boundary:
 ```text
 TICKET-65 does not prove or disprove any of the four open problems. It closes one tracked Collatz branch, but it does not prove that every integer enters that branch or that every branch leaving it descends.
 ```
+
+### Ticket 66: Complement-cover audit and open-template frontier
+
+CO-TICKET-66 ComplementCoverForStartTemplateExit
+
+Artifacts:
+
+```text
+data/open-problem/ticket66-complement-cover-lab.json
+data/open-problem/collatz/co-ticket-66-complement-cover.json
+data/open-problem/riemann/rh-ticket-66-complement-cover.json
+data/open-problem/goldbach/gb-ticket-66-complement-cover.json
+data/open-problem/twin-prime/tp-ticket-66-complement-cover.json
+```
+
+Status:
+
+```text
+complement_cover_open_no_resolution
+```
+
+한국어 요약: TICKET-66은 TICKET-65가 요구한 보완 덮개 정리를 직접 검사한다. TICKET-65에서 추적한 start-template chain은 80비트에서 닫혔지만, 그것만으로는 전역 Collatz 증명이 되지 않는다. 따라서 모든 non-start-template exit branch가 이미 descent/terminal machinery로 닫히는지 확인해야 한다. 계산 결과는 부정적이다. 56->60, 60->64, 64->68, 68->72, 72->76, 76->80 lift에서 나온 non-start-template 후보는 총 17,189개이고, 그중 55개만 즉시 all-lift descent로 닫힌다. 나머지 17,134개는 491개 열린 `needs_split` template family로 남는다. 이는 “보완 덮개가 이미 있다”는 지름길을 반박하고, 다음 표적을 열린 template family rank theorem 또는 실제 무한 lift 반례 후보로 좁힌다.
+
+English summary: TICKET-66 audits the complement theorem required after TICKET-65. The result is not a proof. It refutes the shortcut that every branch outside the tracked start-template chain is already covered by existing descent or terminal-family arguments. The next decisive object is a rank theorem over the 491 open template families, or a compatible infinite lift through one of them.
+
+Key Collatz result:
+
+```text
+non-start complement candidates: 17,189
+closed by immediate all-lift descent: 55
+open needs_split instances: 17,134
+descent coverage rate: 0.003199720752
+unique open template families: 491
+largest open family: [12,[1,1,1,1],103,5] with 432 instances
+exit pressure: open_wrong_tail_target_residue_mod_256 = 14,244; open_target_tail_wrong_next_valuation = 2,890
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Assume that every branch leaving the TICKET65 start-template chain is already handled by the existing descent or terminal-family closures. TICKET66 refutes that shortcut: only 55 of 17,189 complement candidates close by immediate all-lift descent.
+```
+
+Candidate theorem still missing:
+
+```text
+OpenTemplateFamilyRankOrComplementCounterexample: every open template family left by ComplementCoverForStartTemplateExit admits a well-founded symbolic rank after a finite split, or there exists a compatible infinite lift preserving one nondecreasing template family.
+```
+
+Counterexample target:
+
+```text
+A compatible infinite lift through one of the 491 open complement template families, starting with the smallest open residue or one of the largest families such as [12,[1,1,1,1],103,5].
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-67 OpenTemplateFamilyRankOrComplementCounterexample
+```
+
+Proof boundary:
+
+```text
+TICKET-66 does not prove or disprove any of the four open problems. It narrows the next Collatz proof/counterexample frontier to 491 open complement template families and explicitly blocks the claim that the TICKET-65 complement was already covered.
+```
