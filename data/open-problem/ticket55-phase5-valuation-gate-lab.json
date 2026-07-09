@@ -1,0 +1,1115 @@
+{
+  "schema": "primeproject.ticket55-phase5-valuation-gate-lab.v1",
+  "generated_at": "2026-07-09T09:20:00+09:00",
+  "status": "phase5_gate_tunnel_open_no_resolution",
+  "claim_boundary": "Ticket 55 proves a local gate-to-terminal tunnel for the extracted Collatz family. It does not prove or disprove RH, Collatz, Goldbach, or Twin Prime.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-55",
+      "status": "proof_pressure_open",
+      "route": "ZeroGateToTerminalNoGoTunnel",
+      "proof_or_counterexample_mode": "gate-to-terminal tunnel transfer",
+      "attempt": "Transfer TICKET55's rule: if the strongest remaining family crosses a finite gate, prove whether that gate forces it into a known terminal no-go family before searching a larger sample.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-54",
+        "source_route": "PostNoGoZeroFamilyTriage",
+        "ticket55_transfer": "ZeroGateToTerminalNoGoTunnel",
+        "candidate_theorem": "If a strongest off-critical zero family crosses its finite gate, prove it tunnels into a known sign or boundary no-go family, or produce a zero witness that avoids that tunnel.",
+        "frontier_rule": "A gate-crosser should be promoted only if it avoids every known terminal no-go tunnel."
+      },
+      "obstruction": "This transfer is methodological. It does not solve the target problem; it turns a gate crossing into a terminal/no-go theorem obligation before treating it as a counterexample candidate.",
+      "candidate_theorem": "If a strongest off-critical zero family crosses its finite gate, prove it tunnels into a known sign or boundary no-go family, or produce a zero witness that avoids that tunnel.",
+      "next_experiment": "Prove the problem-specific gate-to-terminal tunnel or exhibit a gate-crosser that avoids all known no-go tunnels.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-55",
+      "route": "Phase5ValuationGateTheoremOrCounterexample",
+      "status": "local_phase5_gate_tunnel_closed_open_problem_open",
+      "proof_or_counterexample_mode": "symbolic gate-to-terminal tunnel",
+      "attempt": "Do not enlarge the sample. Prove the local tunnel: a root that reaches the phase-5 gate with consumed_bits equal to the gate modulus keeps the same pending valuation through phases 6-14 and must hit the TICKET53 terminal mismatch at phase 15.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-54",
+        "phase5_gate_tunnel_audit": {
+          "family": "phase16_tail4_residue256_vexact",
+          "theorem_name": "Phase5GateToTerminalTunnel",
+          "premises": [
+            "cert(r, b+5) matches [5,[1,1,1,1],103,10]",
+            "cert(r, b+5) has consumed_bits = b+5",
+            "the same low-lift residue r is tested at b+6 through b+15"
+          ],
+          "symbolic_argument": "Because the pending valuation is 10 and the phase-5 certificate has consumed exactly b+5 bits, increasing the modulus by one bit cannot consume the pending valuation until b+15. Therefore offsets 6 through 14 preserve the same prefix word, consumed bit count, residue class, and next valuation while only the phase coordinate changes. At b+15 the pending valuation 10 is consumed, so the terminal certificate either closes by descent or has tail [1,1,1,10], not the target tail [1,1,1,1].",
+          "machine_checked_roots": [
+            {
+              "source_ticket": "TICKET-50",
+              "base_bits": 32,
+              "residue": 1471663463,
+              "gate_bits": 37,
+              "terminal_bits": 47,
+              "gate_expected": "[5,[1,1,1,1],103,10]",
+              "gate_observed": "[5,[1,1,1,1],103,10]",
+              "gate_matches": true,
+              "gate_consumed_bits": 37,
+              "gate_prefix_length": 30,
+              "gate_next_valuation": 10,
+              "gate_consumed_equals_gate_bits": true,
+              "gate_next_reaches_terminal_bits": true,
+              "tunnel_offsets": [
+                {
+                  "offset": 5,
+                  "bits": 37,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 37,
+                    "template": "[5,[1,1,1,1],103,10]",
+                    "prefix_length": 30,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 6,
+                  "bits": 38,
+                  "expected": "[6,[1,1,1,1],103,10]",
+                  "observed": "[6,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 38,
+                    "template": "[6,[1,1,1,1],103,10]",
+                    "prefix_length": 30,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 7,
+                  "bits": 39,
+                  "expected": "[7,[1,1,1,1],103,10]",
+                  "observed": "[7,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 39,
+                    "template": "[7,[1,1,1,1],103,10]",
+                    "prefix_length": 30,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 8,
+                  "bits": 40,
+                  "expected": "[8,[1,1,1,1],103,10]",
+                  "observed": "[8,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 40,
+                    "template": "[8,[1,1,1,1],103,10]",
+                    "prefix_length": 30,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 9,
+                  "bits": 41,
+                  "expected": "[9,[1,1,1,1],103,10]",
+                  "observed": "[9,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 41,
+                    "template": "[9,[1,1,1,1],103,10]",
+                    "prefix_length": 30,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 10,
+                  "bits": 42,
+                  "expected": "[10,[1,1,1,1],103,10]",
+                  "observed": "[10,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 42,
+                    "template": "[10,[1,1,1,1],103,10]",
+                    "prefix_length": 30,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 11,
+                  "bits": 43,
+                  "expected": "[11,[1,1,1,1],103,10]",
+                  "observed": "[11,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 43,
+                    "template": "[11,[1,1,1,1],103,10]",
+                    "prefix_length": 30,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 12,
+                  "bits": 44,
+                  "expected": "[12,[1,1,1,1],103,10]",
+                  "observed": "[12,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 44,
+                    "template": "[12,[1,1,1,1],103,10]",
+                    "prefix_length": 30,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 13,
+                  "bits": 45,
+                  "expected": "[13,[1,1,1,1],103,10]",
+                  "observed": "[13,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 45,
+                    "template": "[13,[1,1,1,1],103,10]",
+                    "prefix_length": 30,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 14,
+                  "bits": 46,
+                  "expected": "[14,[1,1,1,1],103,10]",
+                  "observed": "[14,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1471663463,
+                    "modulus_bits": 46,
+                    "template": "[14,[1,1,1,1],103,10]",
+                    "prefix_length": 30,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              ],
+              "tunnel_all_offsets_match": true,
+              "tunnel_all_offsets_same_pending_certificate": true,
+              "terminal_expected": "[15,[1,1,1,1],103,10]",
+              "terminal_observed": "[15,[1,1,1,10],103,1]",
+              "terminal_reason": "tail_word+next_valuation",
+              "terminal_target_matched": false,
+              "terminal_certificate": {
+                "status": "needs_split",
+                "residue": 1471663463,
+                "modulus_bits": 47,
+                "template": "[15,[1,1,1,10],103,1]",
+                "prefix_length": 31,
+                "consumed_bits": 47,
+                "next_valuation": 1,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "tail_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  10
+                ]
+              }
+            },
+            {
+              "source_ticket": "TICKET-50",
+              "base_bits": 32,
+              "residue": 3206130791,
+              "gate_bits": 37,
+              "terminal_bits": 47,
+              "gate_expected": "[5,[1,1,1,1],103,10]",
+              "gate_observed": "[5,[1,1,1,1],103,10]",
+              "gate_matches": true,
+              "gate_consumed_bits": 37,
+              "gate_prefix_length": 27,
+              "gate_next_valuation": 10,
+              "gate_consumed_equals_gate_bits": true,
+              "gate_next_reaches_terminal_bits": true,
+              "tunnel_offsets": [
+                {
+                  "offset": 5,
+                  "bits": 37,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3206130791,
+                    "modulus_bits": 37,
+                    "template": "[5,[1,1,1,1],103,10]",
+                    "prefix_length": 27,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 6,
+                  "bits": 38,
+                  "expected": "[6,[1,1,1,1],103,10]",
+                  "observed": "[6,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3206130791,
+                    "modulus_bits": 38,
+                    "template": "[6,[1,1,1,1],103,10]",
+                    "prefix_length": 27,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 7,
+                  "bits": 39,
+                  "expected": "[7,[1,1,1,1],103,10]",
+                  "observed": "[7,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3206130791,
+                    "modulus_bits": 39,
+                    "template": "[7,[1,1,1,1],103,10]",
+                    "prefix_length": 27,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 8,
+                  "bits": 40,
+                  "expected": "[8,[1,1,1,1],103,10]",
+                  "observed": "[8,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3206130791,
+                    "modulus_bits": 40,
+                    "template": "[8,[1,1,1,1],103,10]",
+                    "prefix_length": 27,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 9,
+                  "bits": 41,
+                  "expected": "[9,[1,1,1,1],103,10]",
+                  "observed": "[9,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3206130791,
+                    "modulus_bits": 41,
+                    "template": "[9,[1,1,1,1],103,10]",
+                    "prefix_length": 27,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 10,
+                  "bits": 42,
+                  "expected": "[10,[1,1,1,1],103,10]",
+                  "observed": "[10,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3206130791,
+                    "modulus_bits": 42,
+                    "template": "[10,[1,1,1,1],103,10]",
+                    "prefix_length": 27,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 11,
+                  "bits": 43,
+                  "expected": "[11,[1,1,1,1],103,10]",
+                  "observed": "[11,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3206130791,
+                    "modulus_bits": 43,
+                    "template": "[11,[1,1,1,1],103,10]",
+                    "prefix_length": 27,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 12,
+                  "bits": 44,
+                  "expected": "[12,[1,1,1,1],103,10]",
+                  "observed": "[12,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3206130791,
+                    "modulus_bits": 44,
+                    "template": "[12,[1,1,1,1],103,10]",
+                    "prefix_length": 27,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 13,
+                  "bits": 45,
+                  "expected": "[13,[1,1,1,1],103,10]",
+                  "observed": "[13,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3206130791,
+                    "modulus_bits": 45,
+                    "template": "[13,[1,1,1,1],103,10]",
+                    "prefix_length": 27,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 14,
+                  "bits": 46,
+                  "expected": "[14,[1,1,1,1],103,10]",
+                  "observed": "[14,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3206130791,
+                    "modulus_bits": 46,
+                    "template": "[14,[1,1,1,1],103,10]",
+                    "prefix_length": 27,
+                    "consumed_bits": 37,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              ],
+              "tunnel_all_offsets_match": true,
+              "tunnel_all_offsets_same_pending_certificate": true,
+              "terminal_expected": "[15,[1,1,1,1],103,10]",
+              "terminal_observed": "all_lift_descent",
+              "terminal_reason": "all_lift_descent",
+              "terminal_target_matched": false,
+              "terminal_certificate": {
+                "status": "all_lift_descent",
+                "residue": 3206130791,
+                "modulus_bits": 47,
+                "template": null,
+                "prefix_length": 28,
+                "consumed_bits": 47,
+                "next_valuation": null,
+                "coefficient_log2_margin": 2.62104998,
+                "threshold_min_n_for_descent": 1,
+                "tail_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  10
+                ]
+              }
+            },
+            {
+              "source_ticket": "TICKET-52",
+              "base_bits": 48,
+              "residue": 171308122831719,
+              "gate_bits": 53,
+              "terminal_bits": 63,
+              "gate_expected": "[5,[1,1,1,1],103,10]",
+              "gate_observed": "[5,[1,1,1,1],103,10]",
+              "gate_matches": true,
+              "gate_consumed_bits": 53,
+              "gate_prefix_length": 39,
+              "gate_next_valuation": 10,
+              "gate_consumed_equals_gate_bits": true,
+              "gate_next_reaches_terminal_bits": true,
+              "tunnel_offsets": [
+                {
+                  "offset": 5,
+                  "bits": 53,
+                  "expected": "[5,[1,1,1,1],103,10]",
+                  "observed": "[5,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 53,
+                    "template": "[5,[1,1,1,1],103,10]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 6,
+                  "bits": 54,
+                  "expected": "[6,[1,1,1,1],103,10]",
+                  "observed": "[6,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 54,
+                    "template": "[6,[1,1,1,1],103,10]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 7,
+                  "bits": 55,
+                  "expected": "[7,[1,1,1,1],103,10]",
+                  "observed": "[7,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 55,
+                    "template": "[7,[1,1,1,1],103,10]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 8,
+                  "bits": 56,
+                  "expected": "[8,[1,1,1,1],103,10]",
+                  "observed": "[8,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 56,
+                    "template": "[8,[1,1,1,1],103,10]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 9,
+                  "bits": 57,
+                  "expected": "[9,[1,1,1,1],103,10]",
+                  "observed": "[9,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 57,
+                    "template": "[9,[1,1,1,1],103,10]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 10,
+                  "bits": 58,
+                  "expected": "[10,[1,1,1,1],103,10]",
+                  "observed": "[10,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 58,
+                    "template": "[10,[1,1,1,1],103,10]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 11,
+                  "bits": 59,
+                  "expected": "[11,[1,1,1,1],103,10]",
+                  "observed": "[11,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 59,
+                    "template": "[11,[1,1,1,1],103,10]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 12,
+                  "bits": 60,
+                  "expected": "[12,[1,1,1,1],103,10]",
+                  "observed": "[12,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 60,
+                    "template": "[12,[1,1,1,1],103,10]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 13,
+                  "bits": 61,
+                  "expected": "[13,[1,1,1,1],103,10]",
+                  "observed": "[13,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 61,
+                    "template": "[13,[1,1,1,1],103,10]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "offset": 14,
+                  "bits": 62,
+                  "expected": "[14,[1,1,1,1],103,10]",
+                  "observed": "[14,[1,1,1,1],103,10]",
+                  "matches_expected": true,
+                  "same_pending_certificate": true,
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 171308122831719,
+                    "modulus_bits": 62,
+                    "template": "[14,[1,1,1,1],103,10]",
+                    "prefix_length": 39,
+                    "consumed_bits": 53,
+                    "next_valuation": 10,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              ],
+              "tunnel_all_offsets_match": true,
+              "tunnel_all_offsets_same_pending_certificate": true,
+              "terminal_expected": "[15,[1,1,1,1],103,10]",
+              "terminal_observed": "[15,[1,1,1,10],103,1]",
+              "terminal_reason": "tail_word+next_valuation",
+              "terminal_target_matched": false,
+              "terminal_certificate": {
+                "status": "needs_split",
+                "residue": 171308122831719,
+                "modulus_bits": 63,
+                "template": "[15,[1,1,1,10],103,1]",
+                "prefix_length": 40,
+                "consumed_bits": 63,
+                "next_valuation": 1,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "tail_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  10
+                ]
+              }
+            }
+          ],
+          "gate_match_count": 3,
+          "tunnel_match_count": 3,
+          "same_pending_certificate_count": 3,
+          "terminal_target_match_count": 0,
+          "all_gate_roots_tunnel_to_terminal_no_go": true,
+          "bounded_32bit_closure": {
+            "exact_start_template_matches": 69092,
+            "failed_before_or_at_phase5": 69090,
+            "gate_crossers": 2,
+            "gate_crossers_terminally_closed": 2,
+            "interpretation": "Within the exact 32-bit start-template population, every candidate either fails before or at the phase-5 gate, or crosses the gate and then tunnels into the TICKET53 terminal no-go."
+          },
+          "sampled_48bit_closure": {
+            "sample_count": 200000,
+            "post_discard_max_depth": 5,
+            "phase5_gate_sample_count": 175,
+            "gate_crossers_terminally_closed": 1,
+            "sample_boundary": "The 48-bit numbers are a deterministic sample from TICKET52, not exhaustive coverage of the 48-bit frontier."
+          },
+          "next_frontier": "CO-TICKET-56 should either prove a residue-class theorem for all phase-compatible starts that fail before or at phase 5, or find a root outside the current low-lift start-template model.",
+          "proof_boundary": "No Collatz proof and no Collatz counterexample. TICKET55 proves a local gate-to-terminal tunnel for the extracted low-lift family and closes the exact 32-bit start-template lasso route, but it does not cover all possible Collatz trajectories, all base moduli, or all template families."
+        }
+      },
+      "obstruction": "Crossing the phase-5 next_valuation=10 gate does not create a new counterexample route in the extracted family; it forces the same pending valuation through phase 14 and then hits the phase-15 terminal mismatch.",
+      "candidate_theorem": "Globalize the phase-5 gate: every phase-compatible start outside the extracted low-lift family must also fail before or at a finite valuation gate, or enter a separately terminally closed family.",
+      "next_experiment": "Generate CO-TICKET-56 by attacking the pre-gate failure population or by escaping the current low-lift template model.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-55",
+      "status": "proof_pressure_open",
+      "route": "ExceptionalGateToPositiveMarginTunnel",
+      "proof_or_counterexample_mode": "gate-to-terminal tunnel transfer",
+      "attempt": "Transfer TICKET55's rule: if the strongest remaining family crosses a finite gate, prove whether that gate forces it into a known terminal no-go family before searching a larger sample.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-54",
+        "source_route": "PostNoGoExceptionalFamilyTriage",
+        "ticket55_transfer": "ExceptionalGateToPositiveMarginTunnel",
+        "candidate_theorem": "If a strongest exceptional residue family crosses a finite margin gate, prove it tunnels into a positive-margin theorem or produce an explicit exceptional even witness.",
+        "frontier_rule": "A gate-crosser should be promoted only if it avoids every known terminal no-go tunnel."
+      },
+      "obstruction": "This transfer is methodological. It does not solve the target problem; it turns a gate crossing into a terminal/no-go theorem obligation before treating it as a counterexample candidate.",
+      "candidate_theorem": "If a strongest exceptional residue family crosses a finite margin gate, prove it tunnels into a positive-margin theorem or produce an explicit exceptional even witness.",
+      "next_experiment": "Prove the problem-specific gate-to-terminal tunnel or exhibit a gate-crosser that avoids all known no-go tunnels.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-55",
+      "status": "proof_pressure_open",
+      "route": "GapGateToTerminalNoGoTunnel",
+      "proof_or_counterexample_mode": "gate-to-terminal tunnel transfer",
+      "attempt": "Transfer TICKET55's rule: if the strongest remaining family crosses a finite gate, prove whether that gate forces it into a known terminal no-go family before searching a larger sample.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-54",
+        "source_route": "PostNoGoGapFamilyTriage",
+        "ticket55_transfer": "GapGateToTerminalNoGoTunnel",
+        "candidate_theorem": "If a strongest exact-gap selector family crosses a finite gate, prove it tunnels into a known leakage/no-go family or produce a replayable gap-2 witness.",
+        "frontier_rule": "A gate-crosser should be promoted only if it avoids every known terminal no-go tunnel."
+      },
+      "obstruction": "This transfer is methodological. It does not solve the target problem; it turns a gate crossing into a terminal/no-go theorem obligation before treating it as a counterexample candidate.",
+      "candidate_theorem": "If a strongest exact-gap selector family crosses a finite gate, prove it tunnels into a known leakage/no-go family or produce a replayable gap-2 witness.",
+      "next_experiment": "Prove the problem-specific gate-to-terminal tunnel or exhibit a gate-crosser that avoids all known no-go tunnels.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

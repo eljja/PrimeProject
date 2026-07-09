@@ -1,0 +1,19 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-55",
+  "status": "proof_pressure_open",
+  "route": "ZeroGateToTerminalNoGoTunnel",
+  "proof_or_counterexample_mode": "gate-to-terminal tunnel transfer",
+  "attempt": "Transfer TICKET55's rule: if the strongest remaining family crosses a finite gate, prove whether that gate forces it into a known terminal no-go family before searching a larger sample.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-54",
+    "source_route": "PostNoGoZeroFamilyTriage",
+    "ticket55_transfer": "ZeroGateToTerminalNoGoTunnel",
+    "candidate_theorem": "If a strongest off-critical zero family crosses its finite gate, prove it tunnels into a known sign or boundary no-go family, or produce a zero witness that avoids that tunnel.",
+    "frontier_rule": "A gate-crosser should be promoted only if it avoids every known terminal no-go tunnel."
+  },
+  "obstruction": "This transfer is methodological. It does not solve the target problem; it turns a gate crossing into a terminal/no-go theorem obligation before treating it as a counterexample candidate.",
+  "candidate_theorem": "If a strongest off-critical zero family crosses its finite gate, prove it tunnels into a known sign or boundary no-go family, or produce a zero witness that avoids that tunnel.",
+  "next_experiment": "Prove the problem-specific gate-to-terminal tunnel or exhibit a gate-crosser that avoids all known no-go tunnels.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

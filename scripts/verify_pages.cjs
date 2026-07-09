@@ -468,6 +468,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Symbolic terminal result") ||
         !page.proofOrCounterexampleText.includes("Ticket 54 new template family lab") ||
         !page.proofOrCounterexampleText.includes("Post-terminal family result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 55 phase-5 valuation gate lab") ||
+        !page.proofOrCounterexampleText.includes("Gate-to-terminal result") ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||

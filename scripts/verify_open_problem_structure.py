@@ -48,6 +48,7 @@ TICKET51_SCHEMA = "primeproject.ticket51-phase15-terminal-lift-lab.v1"
 TICKET52_SCHEMA = "primeproject.ticket52-frontier-budget-lab.v1"
 TICKET53_SCHEMA = "primeproject.ticket53-symbolic-terminal-theorem-lab.v1"
 TICKET54_SCHEMA = "primeproject.ticket54-new-template-family-lab.v1"
+TICKET55_SCHEMA = "primeproject.ticket55-phase5-valuation-gate-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2603,6 +2604,103 @@ def main() -> int:
         return fail("collatz ticket54 must extract Phase5ValuationGate")
     if "No Collatz proof" not in str(audit54.get("proof_boundary", "")):
         return fail("collatz ticket54 proof boundary must block proof overclaim")
+
+    ticket55_path = Path("data/open-problem/ticket55-phase5-valuation-gate-lab.json")
+    if not ticket55_path.exists():
+        return fail("missing ticket55 phase5 valuation gate artifact")
+    ticket55 = read_json(ticket55_path)
+    if ticket55.get("schema") != TICKET55_SCHEMA:
+        return fail("ticket55 phase5 valuation gate artifact has unexpected schema")
+    if ticket55.get("status") != "phase5_gate_tunnel_open_no_resolution":
+        return fail("ticket55 phase5 valuation gate artifact overstates resolution")
+    ticket55_attempts = ticket55.get("attempts", [])
+    if not isinstance(ticket55_attempts, list):
+        return fail("ticket55 attempts must be a list")
+    ticket55_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket55_attempts if isinstance(attempt, dict)}
+    missing_ticket55 = EXPECTED_PROBLEMS - set(ticket55_by_id)
+    if missing_ticket55:
+        return fail("ticket55 attempts missing problems: " + ", ".join(sorted(missing_ticket55)))
+    ticket55_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-55-gate-terminal-tunnel.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-55-phase5-gate-tunnel.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-55-gate-terminal-tunnel.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-55-gate-terminal-tunnel.json"),
+    }
+    for problem_id, attempt in ticket55_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "local_phase5_gate_tunnel_closed_open_problem_open",
+        }:
+            return fail(f"{problem_id}: ticket55 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket55 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket55 claim boundary is too weak")
+        path = ticket55_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket55 per-problem artifact")
+
+    collatz_ticket55 = ticket55_by_id.get("collatz", {})
+    audit55 = collatz_ticket55.get("bounded_result", {}).get("phase5_gate_tunnel_audit", {})
+    if not isinstance(audit55, dict):
+        return fail("collatz ticket55 phase5 gate tunnel audit missing")
+    if audit55.get("theorem_name") != "Phase5GateToTerminalTunnel":
+        return fail("collatz ticket55 theorem name changed")
+    if int(audit55.get("gate_match_count", -1)) != 3:
+        return fail("collatz ticket55 gate match count changed")
+    if int(audit55.get("tunnel_match_count", -1)) != 3:
+        return fail("collatz ticket55 tunnel match count changed")
+    if int(audit55.get("same_pending_certificate_count", -1)) != 3:
+        return fail("collatz ticket55 pending-certificate count changed")
+    if int(audit55.get("terminal_target_match_count", -1)) != 0:
+        return fail("collatz ticket55 terminal target unexpectedly matched")
+    if not audit55.get("all_gate_roots_tunnel_to_terminal_no_go"):
+        return fail("collatz ticket55 must close every known gate crosser locally")
+    roots55 = audit55.get("machine_checked_roots", [])
+    if not isinstance(roots55, list) or len(roots55) != 3:
+        return fail("collatz ticket55 must check three known gate-crossing roots")
+    expected_roots55 = {(32, 1471663463), (32, 3206130791), (48, 171308122831719)}
+    observed_roots55 = {(int(row.get("base_bits", -1)), int(row.get("residue", -1))) for row in roots55 if isinstance(row, dict)}
+    if observed_roots55 != expected_roots55:
+        return fail("collatz ticket55 checked root set changed")
+    for row in roots55:
+        if not row.get("gate_matches"):
+            return fail("collatz ticket55 gate crosser no longer matches gate")
+        if not row.get("gate_consumed_equals_gate_bits"):
+            return fail("collatz ticket55 gate consumed-bits premise changed")
+        if not row.get("gate_next_reaches_terminal_bits"):
+            return fail("collatz ticket55 gate next valuation no longer reaches terminal")
+        if not row.get("tunnel_all_offsets_match"):
+            return fail("collatz ticket55 tunnel match changed")
+        if not row.get("tunnel_all_offsets_same_pending_certificate"):
+            return fail("collatz ticket55 pending tunnel changed")
+        if row.get("terminal_target_matched"):
+            return fail("collatz ticket55 terminal target unexpectedly matched")
+    bounded32_55 = audit55.get("bounded_32bit_closure", {})
+    if not isinstance(bounded32_55, dict):
+        return fail("collatz ticket55 bounded 32-bit closure missing")
+    if int(bounded32_55.get("exact_start_template_matches", -1)) != 69092:
+        return fail("collatz ticket55 exact 32-bit start count changed")
+    if int(bounded32_55.get("failed_before_or_at_phase5", -1)) != 69090:
+        return fail("collatz ticket55 pre-gate/gate failure count changed")
+    if int(bounded32_55.get("gate_crossers", -1)) != 2:
+        return fail("collatz ticket55 exact gate crosser count changed")
+    if int(bounded32_55.get("gate_crossers_terminally_closed", -1)) != 2:
+        return fail("collatz ticket55 exact gate crossers must close terminally")
+    sample55 = audit55.get("sampled_48bit_closure", {})
+    if not isinstance(sample55, dict):
+        return fail("collatz ticket55 sampled 48-bit closure missing")
+    if int(sample55.get("sample_count", -1)) != 200000:
+        return fail("collatz ticket55 sample count changed")
+    if int(sample55.get("post_discard_max_depth", -1)) != 5:
+        return fail("collatz ticket55 sampled post-discard depth changed")
+    if int(sample55.get("phase5_gate_sample_count", -1)) != 175:
+        return fail("collatz ticket55 sampled phase5 gate count changed")
+    if int(sample55.get("gate_crossers_terminally_closed", -1)) != 1:
+        return fail("collatz ticket55 sampled gate crosser must close terminally")
+    if "No Collatz proof" not in str(audit55.get("proof_boundary", "")):
+        return fail("collatz ticket55 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

@@ -1,0 +1,19 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-55",
+  "status": "proof_pressure_open",
+  "route": "GapGateToTerminalNoGoTunnel",
+  "proof_or_counterexample_mode": "gate-to-terminal tunnel transfer",
+  "attempt": "Transfer TICKET55's rule: if the strongest remaining family crosses a finite gate, prove whether that gate forces it into a known terminal no-go family before searching a larger sample.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-54",
+    "source_route": "PostNoGoGapFamilyTriage",
+    "ticket55_transfer": "GapGateToTerminalNoGoTunnel",
+    "candidate_theorem": "If a strongest exact-gap selector family crosses a finite gate, prove it tunnels into a known leakage/no-go family or produce a replayable gap-2 witness.",
+    "frontier_rule": "A gate-crosser should be promoted only if it avoids every known terminal no-go tunnel."
+  },
+  "obstruction": "This transfer is methodological. It does not solve the target problem; it turns a gate crossing into a terminal/no-go theorem obligation before treating it as a counterexample candidate.",
+  "candidate_theorem": "If a strongest exact-gap selector family crosses a finite gate, prove it tunnels into a known leakage/no-go family or produce a replayable gap-2 witness.",
+  "next_experiment": "Prove the problem-specific gate-to-terminal tunnel or exhibit a gate-crosser that avoids all known no-go tunnels.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

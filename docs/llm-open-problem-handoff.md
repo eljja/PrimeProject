@@ -585,6 +585,45 @@ Required output:
 - explicit proof boundary saying no Collatz proof and no Collatz counterexample unless an infinite replay theorem is supplied
 ```
 
+## Latest Continuation After TICKET-55
+
+TICKET-55 supersedes the TICKET-54 continuation target for the current extracted low-lift Collatz family. It does not solve Collatz, but it closes the known phase-5 gate-crossing route into the TICKET53 terminal no-go.
+
+```text
+local theorem: Phase5GateToTerminalTunnel
+checked gate-crossing roots: 3
+gate matches: 3
+tunnel matches through phases 5-14: 3
+same pending certificate through tunnel: 3
+terminal target matches: 0
+exact 32-bit starts failed before or at phase 5: 69,090
+exact 32-bit gate crossers: 2
+exact 32-bit gate crossers terminally closed: 2
+```
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-56 PreGateResidueClosureOrTemplateModelEscape
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-55. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-55 proves a local gate-to-terminal tunnel for the extracted low-lift Collatz family. If a root reaches the phase-5 gate [5,[1,1,1,1],103,10] with consumed_bits = b+5, the pending valuation 10 remains unconsumed through phases 6-14 and then is consumed at phase 15, where the TICKET53 terminal no-go applies. The exact 32-bit start-template population is closed with respect to this extracted lasso route: 69,090 starts fail before or at phase 5, and the 2 gate crossers are terminally closed. This is not a Collatz proof because it does not cover every base modulus, every trajectory, or every template family.
+
+Goal: build CO-TICKET-56. Do not resample the TICKET53 terminal family or the already closed phase-5 gate crossers. Attack the remaining pre-gate failure population or escape the current low-lift start-template model. Acceptable routes: derive a residue-class theorem that explains why the 69,090 exact 32-bit starts fail before/at phase 5; construct a parametric theorem for all base moduli; or find a root outside the current low-lift template model that crosses a finite gate and avoids every known terminal no-go tunnel.
+
+Required output:
+- data/open-problem/ticket56-pregate-residue-closure-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no Collatz proof and no Collatz counterexample unless the result covers all trajectories or supplies a genuine replayable counterexample
+```
+
 ## Latest Continuation After TICKET-54
 
 TICKET-54 supersedes the TICKET-53 continuation target. The TICKET-53 phase-15 terminal family is locally refuted and should no longer consume random-sampling budget. TICKET-54 removes that family and extracts the next bounded Collatz target:

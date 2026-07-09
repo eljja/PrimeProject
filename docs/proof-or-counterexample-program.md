@@ -2835,3 +2835,76 @@ Proof boundary:
 ```text
 TICKET-54 does not prove or disprove any of the four open problems. It prunes one terminal family and extracts the next finite Collatz family to attack. A full Collatz proof still requires an all-lift phase-5 gate theorem, a global descent invariant, or a genuine replayable counterexample.
 ```
+
+### Ticket 55: Phase-5 gate-to-terminal tunnel theorem
+
+Generated artifact:
+
+```text
+data/open-problem/ticket55-phase5-valuation-gate-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-55-gate-terminal-tunnel.json
+data/open-problem/collatz/co-ticket-55-phase5-gate-tunnel.json
+data/open-problem/goldbach/gb-ticket-55-gate-terminal-tunnel.json
+data/open-problem/twin-prime/tp-ticket-55-gate-terminal-tunnel.json
+```
+
+Aggregate verdict:
+
+```text
+phase5_gate_tunnel_open_no_resolution
+```
+
+한국어 요약: TICKET-55는 TICKET-54에서 남은 `Phase5ValuationGate`를 더 큰 샘플로 키우지 않고, gate를 통과한 후보가 어디로 가는지 증명 의무를 분리한다. phase 5에서 `[5,[1,1,1,1],103,10]`에 도달하고 `consumed_bits = b+5`이면, pending valuation `10`은 phase 6부터 phase 14까지 소비되지 않는다. 따라서 같은 prefix, 같은 consumed bit count, 같은 next valuation을 유지한 채 phase 좌표만 증가한다. phase 15에서는 그 `10`이 소비되어 tail이 `[1,1,1,10]`으로 바뀌거나 descent로 닫히므로, target `[15,[1,1,1,1],103,10]`에는 도달하지 못한다.
+
+English summary: TICKET-55 proves a local gate-to-terminal tunnel for the extracted low-lift family. If a root reaches the phase-5 gate with consumed bits equal to the gate modulus, the pending valuation `10` survives unchanged through phases 6-14. At phase 15 it is consumed, forcing the TICKET53 terminal no-go.
+
+Exact Collatz audit:
+
+```text
+theorem: Phase5GateToTerminalTunnel
+checked gate-crossing roots: 3
+gate matches: 3
+tunnel matches through phases 5-14: 3
+same pending certificate through tunnel: 3
+terminal target matches: 0
+exact 32-bit start-template matches: 69,092
+exact 32-bit starts failed before or at phase 5: 69,090
+exact 32-bit gate crossers: 2
+exact 32-bit gate crossers terminally closed: 2
+48-bit deterministic sample phase-5 gate roots: 175
+```
+
+Local theorem:
+
+```text
+Phase5GateToTerminalTunnel
+```
+
+Candidate theorem still missing:
+
+```text
+Every phase-compatible start outside the current low-lift family either fails before or at a finite valuation gate, or enters a separately terminally closed family.
+```
+
+Counterexample target:
+
+```text
+Find a root outside the current low-lift start-template model that crosses the finite gate and avoids every known terminal no-go tunnel.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-56 PreGateResidueClosureOrTemplateModelEscape
+```
+
+Proof boundary:
+
+```text
+TICKET-55 does not prove or disprove any of the four open problems. It closes the extracted low-lift lasso route for the exact 32-bit start-template population and the known 48-bit sampled gate-crosser, but it does not cover every Collatz trajectory, every base modulus, or every possible template family.
+```
