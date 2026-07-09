@@ -51,6 +51,7 @@ TICKET54_SCHEMA = "primeproject.ticket54-new-template-family-lab.v1"
 TICKET55_SCHEMA = "primeproject.ticket55-phase5-valuation-gate-lab.v1"
 TICKET56_SCHEMA = "primeproject.ticket56-pre-gate-projection-escape-lab.v1"
 TICKET57_SCHEMA = "primeproject.ticket57-parametric-template-automaton-lab.v1"
+TICKET58_SCHEMA = "primeproject.ticket58-affine-boundary-lift-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2892,6 +2893,92 @@ def main() -> int:
         return fail("collatz ticket57 cycle status changed")
     if "No Collatz proof" not in str(audit57.get("proof_boundary", "")):
         return fail("collatz ticket57 proof boundary must block proof overclaim")
+
+    ticket58_path = Path("data/open-problem/ticket58-affine-boundary-lift-lab.json")
+    if not ticket58_path.exists():
+        return fail("missing ticket58 affine boundary lift artifact")
+    ticket58 = read_json(ticket58_path)
+    if ticket58.get("schema") != TICKET58_SCHEMA:
+        return fail("ticket58 affine boundary lift artifact has unexpected schema")
+    if ticket58.get("status") != "affine_boundary_lift_open_no_resolution":
+        return fail("ticket58 affine boundary lift artifact overstates resolution")
+    ticket58_attempts = ticket58.get("attempts", [])
+    if not isinstance(ticket58_attempts, list):
+        return fail("ticket58 attempts must be a list")
+    ticket58_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket58_attempts if isinstance(attempt, dict)}
+    missing_ticket58 = EXPECTED_PROBLEMS - set(ticket58_by_id)
+    if missing_ticket58:
+        return fail("ticket58 attempts missing problems: " + ", ".join(sorted(missing_ticket58)))
+    ticket58_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-58-zero-kernel-lift-stability.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-58-affine-boundary-lift.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-58-margin-lift-stability.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-58-sieve-boundary-lift.json"),
+    }
+    for problem_id, attempt in ticket58_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "sampled_affine_boundary_lift_obstruction_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket58 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket58 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket58 claim boundary is too weak")
+        path = ticket58_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket58 per-problem artifact")
+
+    collatz_ticket58 = ticket58_by_id.get("collatz", {})
+    audit58 = collatz_ticket58.get("bounded_result", {}).get("affine_boundary_lift_audit", {})
+    if not isinstance(audit58, dict):
+        return fail("collatz ticket58 affine boundary lift audit missing")
+    if audit58.get("theorem_name") != "AffineBoundaryLiftStabilityOrFullPeriodEscape":
+        return fail("collatz ticket58 theorem name changed")
+    exact58 = audit58.get("exact32_boundary", {})
+    if int(exact58.get("low_bits", -1)) != 28:
+        return fail("collatz ticket58 boundary width changed")
+    if int(exact58.get("row_count", -1)) != 69092:
+        return fail("collatz ticket58 exact32 row count changed")
+    if int(exact58.get("boundary_state_count", -1)) != 69092:
+        return fail("collatz ticket58 boundary state count changed")
+    if int(exact58.get("collision_count", -1)) != 0:
+        return fail("collatz ticket58 exact32 boundary must remain deterministic")
+    sample58 = audit58.get("sampled_48bit_lift_stability", {})
+    if int(sample58.get("sample_count", -1)) != 200000:
+        return fail("collatz ticket58 sample count changed")
+    stats58 = sample58.get("statistics", {})
+    expected_stats58 = {
+        "verified_open_word": 100027,
+        "unverified_canonical_word": 99973,
+        "start_template_match": 3184,
+        "projection_escape": 3086,
+        "projection_target": 98,
+        "boundary_prediction_match": 28,
+        "boundary_prediction_mismatch": 70,
+    }
+    observed_stats58 = {str(key): int(stats58.get(key, -1)) for key in expected_stats58}
+    if observed_stats58 != expected_stats58:
+        return fail("collatz ticket58 replayed sample statistics changed")
+    expected_depth58 = {"1": 1650, "2": 763, "3": 406, "4": 189, "5": 175, "15": 1}
+    observed_depth58 = {
+        str(key): int(value)
+        for key, value in sample58.get("depth_counts", {}).items()
+    }
+    if observed_depth58 != expected_depth58:
+        return fail("collatz ticket58 depth counts changed")
+    if sample58.get("lift_stability_status") != "refuted_by_sampled_boundary_prediction_mismatch":
+        return fail("collatz ticket58 must refute sampled exact32 boundary lift stability")
+    if sample58.get("full_period_escape_status") != "no_sampled_full_period_escape_found":
+        return fail("collatz ticket58 full-period escape status changed")
+    if int(sample58.get("sampled_boundary_collision_group_count", -1)) != 0:
+        return fail("collatz ticket58 projection-target boundary should be deterministic in sample")
+    mismatch_examples58 = sample58.get("boundary_prediction_mismatch_examples", [])
+    if not isinstance(mismatch_examples58, list) or len(mismatch_examples58) == 0:
+        return fail("collatz ticket58 must include boundary prediction mismatch examples")
+    if "No Collatz proof" not in str(audit58.get("proof_boundary", "")):
+        return fail("collatz ticket58 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

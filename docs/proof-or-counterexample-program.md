@@ -3056,3 +3056,79 @@ Proof boundary:
 ```text
 TICKET-57 does not prove or disprove any of the four open problems. It rejects weaker finite-state proof shortcuts and finds no replayable cycle among known near-lasso roots; the remaining obligation is a parametric affine-boundary lift theorem or a new full-period escape witness.
 ```
+
+### Ticket 58: Affine-boundary lift stability audit
+
+Generated artifact:
+
+```text
+data/open-problem/ticket58-affine-boundary-lift-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-58-zero-kernel-lift-stability.json
+data/open-problem/collatz/co-ticket-58-affine-boundary-lift.json
+data/open-problem/goldbach/gb-ticket-58-margin-lift-stability.json
+data/open-problem/twin-prime/tp-ticket-58-sieve-boundary-lift.json
+```
+
+Aggregate verdict:
+
+```text
+affine_boundary_lift_open_no_resolution
+```
+
+한국어 요약: TICKET-58은 TICKET-57에서 처음 결정적이었던 exact32 affine boundary가 48-bit lift에서도 유지되는지 검사한다. 같은 TICKET52 deterministic 48-bit sample을 재생한 결과, start-template match `3,184`개 중 `3,086`개가 exact32 target 밖으로 projection escape했다. exact32 target 안으로 들어온 `98`개 중 `28`개만 exact32 boundary prediction과 맞았고, `70`개는 다른 outcome을 보였다. 따라서 “exact32 deterministic boundary를 그대로 lift하면 된다”는 경로는 샘플에서 반박된다. full lasso period를 재생한 샘플은 0개다.
+
+English summary: TICKET-58 tests lift stability for the first deterministic exact32 affine boundary. The replayed 48-bit sample refutes the unchanged-boundary lift shortcut: most start-template matches project outside the exact32 target, and most projection-target lifts disagree with the exact32 predicted outcome.
+
+Exact Collatz audit:
+
+```text
+local theorem target: AffineBoundaryLiftStabilityOrFullPeriodEscape
+exact32 boundary width: 28 low bits
+exact32 boundary states: 69,092
+exact32 boundary collisions: 0
+48-bit replayed sample count: 200,000
+verified open words: 100,027
+48-bit start-template matches: 3,184
+projection escapes: 3,086
+projection-target lifts: 98
+boundary prediction matches: 28
+boundary prediction mismatches: 70
+projection-target prediction rate: 28.57%
+full lasso period replays: 0
+lift-stability status: refuted_by_sampled_boundary_prediction_mismatch
+```
+
+Discarded route:
+
+```text
+Promote the exact32 deterministic boundary to a global theorem without proving projection inclusion and lift-stable outcome preservation.
+```
+
+Candidate theorem still missing:
+
+```text
+For every 48-bit and then every higher phase-compatible start, either projection leaves the exact32 model in a separately classified way, or the affine boundary transition preserves the finite gate outcome and decreases a well-founded rank.
+```
+
+Counterexample target:
+
+```text
+Find a higher-bit start whose projection lies in the deterministic exact32 boundary but whose lift outcome differs, then extend it to a full-period nondecreasing affine-boundary cycle.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-59 SymbolicLiftMismatchCylinderOrCounted40BitCover
+```
+
+Proof boundary:
+
+```text
+TICKET-58 does not prove or disprove any of the four open problems. It refutes one sampled lift-stability shortcut and finds no sampled full-period escape; the remaining obligation is symbolic coverage of projection escapes/lift mismatches or a genuine full-period counterexample.
+```

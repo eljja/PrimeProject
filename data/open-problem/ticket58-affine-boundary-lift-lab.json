@@ -1,0 +1,1376 @@
+{
+  "schema": "primeproject.ticket58-affine-boundary-lift-lab.v1",
+  "generated_at": "2026-07-09T13:45:00+09:00",
+  "status": "affine_boundary_lift_open_no_resolution",
+  "claim_boundary": "Ticket 58 tests whether the first deterministic Collatz affine boundary is stable under a replayed 48-bit lift sample and transfers the lift-stability gate to RH, Goldbach, and Twin Prime. It does not prove or disprove any of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-58",
+      "status": "proof_pressure_open",
+      "route": "ZeroKernelLiftStabilityOrOffCriticalEscape",
+      "proof_or_counterexample_mode": "boundary-lift-stability transfer",
+      "attempt": "Transfer TICKET58's rule: once a finite boundary state is chosen, test whether the natural lift keeps objects inside that boundary and preserves the decisive outcome before calling it a theorem.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-57",
+        "source_route": "ZeroKernelBoundaryStateOrOffCriticalEscapeCycle",
+        "ticket58_transfer": "ZeroKernelLiftStabilityOrOffCriticalEscape",
+        "lift_gate": "height-window lift must preserve the sign/positivity boundary state",
+        "candidate_theorem": "Every off-critical zero-kernel boundary state remains in a lift-stable positivity class with strict improvement, or yields a height-stable off-critical escape packet.",
+        "counterexample_target": "a height lift that preserves the boundary state but reverses or stalls the positivity outcome",
+        "frontier_rule": "A boundary model can support a proof only if lift inclusion, outcome preservation, and a well-founded rank are checked in the same coordinates; otherwise the lift escape becomes the next counterexample target."
+      },
+      "obstruction": "This transfer is methodological and does not solve the target problem. It prevents a finite boundary model from being promoted while the lift map can change the decisive outcome.",
+      "candidate_theorem": "Every off-critical zero-kernel boundary state remains in a lift-stable positivity class with strict improvement, or yields a height-stable off-critical escape packet.",
+      "next_experiment": "Build the problem-specific lift gate or promote a lift escape witness.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-58",
+      "route": "AffineBoundaryLiftStabilityOrFullPeriodEscape",
+      "status": "sampled_affine_boundary_lift_obstruction_open_no_resolution",
+      "proof_or_counterexample_mode": "sampled lift-stability falsification plus full-period escape search",
+      "attempt": "Continue from TICKET57's first deterministic exact32 boundary. Rebuild that boundary classifier, then replay the deterministic TICKET52 48-bit sample to test whether projection-target lifts preserve the exact32 outcome and whether any sampled root replays a full lasso period.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-57",
+        "affine_boundary_lift_audit": {
+          "family": "phase16_tail4_residue256_vexact",
+          "theorem_name": "AffineBoundaryLiftStabilityOrFullPeriodEscape",
+          "exact32_boundary": {
+            "low_bits": 28,
+            "row_count": 69092,
+            "boundary_state_count": 69092,
+            "collision_count": 0,
+            "duplicates": []
+          },
+          "sampled_48bit_lift_stability": {
+            "sample_bits": 48,
+            "sample_seed": 20260709,
+            "sample_count": 200000,
+            "sampler": "replayed_ticket52_deterministic_weighted_valuation_sampler_not_exhaustive",
+            "target48_template": "[0,[1,1,1,1],103,1]",
+            "target32_template": "[0,[1,1,1,1],103,1]",
+            "boundary_low_bits": 28,
+            "statistics": {
+              "boundary_prediction_match": 28,
+              "boundary_prediction_mismatch": 70,
+              "projection_escape": 3086,
+              "projection_target": 98,
+              "start_template_match": 3184,
+              "unverified_canonical_word": 99973,
+              "verified_open_word": 100027
+            },
+            "depth_counts": {
+              "1": 1650,
+              "2": 763,
+              "3": 406,
+              "4": 189,
+              "5": 175,
+              "15": 1
+            },
+            "high_outcome_counts": {
+              "fail_offset_1": 1650,
+              "fail_offset_2": 763,
+              "fail_offset_3": 406,
+              "fail_offset_4": 189,
+              "fail_offset_5": 175,
+              "phase5_gate_terminal_tunnel": 1
+            },
+            "projection32_template_counts": {
+              "[0,[1,1,1,1],103,2]": 101,
+              "[0,[1,1,1,1],103,1]": 98,
+              "[0,[1,1,1,1],103,3]": 61,
+              "[0,[2,1,1,1],103,1]": 53,
+              "[0,[1,1,1,1],103,4]": 52,
+              "[0,[2,1,1,1],103,2]": 50,
+              "[0,[1,1,1,2],103,1]": 47,
+              "[0,[1,1,1,2],103,2]": 45,
+              "[0,[1,1,2,1],103,1]": 43,
+              "[0,[1,1,2,1],103,3]": 41,
+              "[0,[1,1,3,1],103,2]": 39,
+              "[0,[1,3,1,1],103,1]": 39
+            },
+            "prediction_counts": {
+              "match": 28,
+              "mismatch": 70
+            },
+            "projection_target_prediction_rate": 0.2857142857142857,
+            "projection_escape_examples": [
+              {
+                "sample_index": 5,
+                "residue": 141535809845863,
+                "bits": 48,
+                "high_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "projection32": {
+                  "residue": 3752540775,
+                  "template": "[0,[2,2,1,1],103,3]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3752540775,
+                    "modulus_bits": 32,
+                    "template": "[0,[2,2,1,1],103,3]",
+                    "prefix_length": 22,
+                    "consumed_bits": 32,
+                    "next_valuation": 3,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      2,
+                      2,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 141535809845863,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,2]",
+                    "prefix_length": 34,
+                    "consumed_bits": 49,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              },
+              {
+                "sample_index": 89,
+                "residue": 56253293599847,
+                "bits": 48,
+                "high_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "projection32": {
+                  "residue": 2106924135,
+                  "template": "[0,[1,4,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 2106924135,
+                    "modulus_bits": 32,
+                    "template": "[0,[1,4,1,1],103,2]",
+                    "prefix_length": 21,
+                    "consumed_bits": 31,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      4,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 56253293599847,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,2]",
+                    "prefix_length": 34,
+                    "consumed_bits": 49,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      2,
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              },
+              {
+                "sample_index": 117,
+                "residue": 98214582264935,
+                "bits": 48,
+                "high_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "projection32": {
+                  "residue": 1565107303,
+                  "template": "[0,[2,2,1,1],103,3]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1565107303,
+                    "modulus_bits": 32,
+                    "template": "[0,[2,2,1,1],103,3]",
+                    "prefix_length": 21,
+                    "consumed_bits": 32,
+                    "next_valuation": 3,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      2,
+                      1,
+                      3,
+                      2,
+                      2,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 98214582264935,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,2]",
+                    "prefix_length": 34,
+                    "consumed_bits": 49,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              },
+              {
+                "sample_index": 190,
+                "residue": 20409532931431,
+                "bits": 48,
+                "high_outcome": "fail_offset_4",
+                "matched_prefix_templates": 4,
+                "projection32": {
+                  "residue": 4143308135,
+                  "template": "[0,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 4143308135,
+                    "modulus_bits": 32,
+                    "template": "[0,[1,1,1,1],103,2]",
+                    "prefix_length": 23,
+                    "consumed_bits": 31,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      1,
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "first_failure": {
+                  "offset": 4,
+                  "bits": 52,
+                  "expected": "[4,[1,1,1,1],103,1]",
+                  "observed": "[4,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 20409532931431,
+                    "modulus_bits": 52,
+                    "template": "[4,[1,1,1,1],103,2]",
+                    "prefix_length": 38,
+                    "consumed_bits": 52,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              },
+              {
+                "sample_index": 257,
+                "residue": 135266300234855,
+                "bits": 48,
+                "high_outcome": "fail_offset_2",
+                "matched_prefix_templates": 2,
+                "projection32": {
+                  "residue": 600214631,
+                  "template": "[0,[4,1,2,1],103,1]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 600214631,
+                    "modulus_bits": 32,
+                    "template": "[0,[4,1,2,1],103,1]",
+                    "prefix_length": 21,
+                    "consumed_bits": 32,
+                    "next_valuation": 1,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      5,
+                      1,
+                      1,
+                      1,
+                      4,
+                      1,
+                      2,
+                      1
+                    ]
+                  }
+                },
+                "first_failure": {
+                  "offset": 2,
+                  "bits": 50,
+                  "expected": "[2,[1,1,1,1],103,1]",
+                  "observed": "[2,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 135266300234855,
+                    "modulus_bits": 50,
+                    "template": "[2,[1,1,1,1],103,2]",
+                    "prefix_length": 35,
+                    "consumed_bits": 50,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              },
+              {
+                "sample_index": 269,
+                "residue": 259693293855079,
+                "bits": 48,
+                "high_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "projection32": {
+                  "residue": 2391269735,
+                  "template": "[0,[4,1,1,1],103,1]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 2391269735,
+                    "modulus_bits": 32,
+                    "template": "[0,[4,1,1,1],103,1]",
+                    "prefix_length": 22,
+                    "consumed_bits": 32,
+                    "next_valuation": 1,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      3,
+                      2,
+                      1,
+                      1,
+                      4,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 259693293855079,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,2]",
+                    "prefix_length": 35,
+                    "consumed_bits": 49,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              },
+              {
+                "sample_index": 297,
+                "residue": 242352677312103,
+                "bits": 48,
+                "high_outcome": "fail_offset_4",
+                "matched_prefix_templates": 4,
+                "projection32": {
+                  "residue": 557700711,
+                  "template": "[0,[2,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 557700711,
+                    "modulus_bits": 32,
+                    "template": "[0,[2,1,1,1],103,2]",
+                    "prefix_length": 22,
+                    "consumed_bits": 32,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      3,
+                      1,
+                      1,
+                      2,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "first_failure": {
+                  "offset": 4,
+                  "bits": 52,
+                  "expected": "[4,[1,1,1,1],103,1]",
+                  "observed": "[4,[1,1,1,1],103,4]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 242352677312103,
+                    "modulus_bits": 52,
+                    "template": "[4,[1,1,1,1],103,4]",
+                    "prefix_length": 37,
+                    "consumed_bits": 52,
+                    "next_valuation": 4,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              },
+              {
+                "sample_index": 302,
+                "residue": 138803901003623,
+                "bits": 48,
+                "high_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "projection32": {
+                  "residue": 3442898791,
+                  "template": "[0,[1,1,4,1],103,4]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3442898791,
+                    "modulus_bits": 32,
+                    "template": "[0,[1,1,4,1],103,4]",
+                    "prefix_length": 20,
+                    "consumed_bits": 31,
+                    "next_valuation": 4,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      1,
+                      1,
+                      2,
+                      1,
+                      1,
+                      4,
+                      1
+                    ]
+                  }
+                },
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,5]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 138803901003623,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,5]",
+                    "prefix_length": 34,
+                    "consumed_bits": 49,
+                    "next_valuation": 5,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      3,
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              },
+              {
+                "sample_index": 345,
+                "residue": 66997792184423,
+                "bits": 48,
+                "high_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "projection32": {
+                  "residue": 597334119,
+                  "template": "[0,[1,2,1,2],103,4]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 597334119,
+                    "modulus_bits": 32,
+                    "template": "[0,[1,2,1,2],103,4]",
+                    "prefix_length": 22,
+                    "consumed_bits": 32,
+                    "next_valuation": 4,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      2,
+                      1,
+                      2
+                    ]
+                  }
+                },
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 66997792184423,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,2]",
+                    "prefix_length": 34,
+                    "consumed_bits": 49,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              },
+              {
+                "sample_index": 365,
+                "residue": 58090692291943,
+                "bits": 48,
+                "high_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "projection32": {
+                  "residue": 1259613543,
+                  "template": "[0,[1,1,1,2],103,3]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 1259613543,
+                    "modulus_bits": 32,
+                    "template": "[0,[1,1,1,2],103,3]",
+                    "prefix_length": 20,
+                    "consumed_bits": 30,
+                    "next_valuation": 3,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      5,
+                      3,
+                      1,
+                      1,
+                      1,
+                      2
+                    ]
+                  }
+                },
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 58090692291943,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,2]",
+                    "prefix_length": 34,
+                    "consumed_bits": 49,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      2,
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                }
+              }
+            ],
+            "boundary_prediction_mismatch_examples": [
+              {
+                "sample_index": 1077,
+                "residue": 176311325808999,
+                "bits": 48,
+                "projection_residue": 2918308199,
+                "boundary_key": [
+                  23,
+                  233953639
+                ],
+                "exact32_residue": 2918308199,
+                "predicted_exact32_outcome": "fail_offset_3",
+                "observed_48bit_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,5]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 176311325808999,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,5]",
+                    "prefix_length": 35,
+                    "consumed_bits": 49,
+                    "next_valuation": 5,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "projection_certificate": {
+                  "status": "needs_split",
+                  "residue": 2918308199,
+                  "modulus_bits": 32,
+                  "template": "[0,[1,1,1,1],103,1]",
+                  "prefix_length": 23,
+                  "consumed_bits": 32,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "sample_index": 1860,
+                "residue": 210652797323111,
+                "bits": 48,
+                "projection_residue": 1831323495,
+                "boundary_key": [
+                  23,
+                  220710759
+                ],
+                "exact32_residue": 1831323495,
+                "predicted_exact32_outcome": "fail_offset_3",
+                "observed_48bit_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,3]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 210652797323111,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,3]",
+                    "prefix_length": 35,
+                    "consumed_bits": 49,
+                    "next_valuation": 3,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "projection_certificate": {
+                  "status": "needs_split",
+                  "residue": 1831323495,
+                  "modulus_bits": 32,
+                  "template": "[0,[1,1,1,1],103,1]",
+                  "prefix_length": 23,
+                  "consumed_bits": 32,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    3,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "sample_index": 3273,
+                "residue": 84058747034215,
+                "bits": 48,
+                "projection_residue": 1942084199,
+                "boundary_key": [
+                  22,
+                  63036007
+                ],
+                "exact32_residue": 1942084199,
+                "predicted_exact32_outcome": "fail_offset_1",
+                "observed_48bit_outcome": "fail_offset_2",
+                "matched_prefix_templates": 2,
+                "first_failure": {
+                  "offset": 2,
+                  "bits": 50,
+                  "expected": "[2,[1,1,1,1],103,1]",
+                  "observed": "[2,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 84058747034215,
+                    "modulus_bits": 50,
+                    "template": "[2,[1,1,1,1],103,2]",
+                    "prefix_length": 35,
+                    "consumed_bits": 50,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      3,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "projection_certificate": {
+                  "status": "needs_split",
+                  "residue": 1942084199,
+                  "modulus_bits": 32,
+                  "template": "[0,[1,1,1,1],103,1]",
+                  "prefix_length": 22,
+                  "consumed_bits": 32,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    1,
+                    4,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "sample_index": 6114,
+                "residue": 189317667477607,
+                "bits": 48,
+                "projection_residue": 4099004519,
+                "boundary_key": [
+                  22,
+                  72472679
+                ],
+                "exact32_residue": 4099004519,
+                "predicted_exact32_outcome": "fail_offset_1",
+                "observed_48bit_outcome": "fail_offset_2",
+                "matched_prefix_templates": 2,
+                "first_failure": {
+                  "offset": 2,
+                  "bits": 50,
+                  "expected": "[2,[1,1,1,1],103,1]",
+                  "observed": "[2,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 189317667477607,
+                    "modulus_bits": 50,
+                    "template": "[2,[1,1,1,1],103,2]",
+                    "prefix_length": 35,
+                    "consumed_bits": 50,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "projection_certificate": {
+                  "status": "needs_split",
+                  "residue": 4099004519,
+                  "modulus_bits": 32,
+                  "template": "[0,[1,1,1,1],103,1]",
+                  "prefix_length": 22,
+                  "consumed_bits": 32,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    2,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "sample_index": 7256,
+                "residue": 203146661571431,
+                "bits": 48,
+                "projection_residue": 3298405223,
+                "boundary_key": [
+                  22,
+                  77179751
+                ],
+                "exact32_residue": 3298405223,
+                "predicted_exact32_outcome": "fail_offset_2",
+                "observed_48bit_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 203146661571431,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,2]",
+                    "prefix_length": 35,
+                    "consumed_bits": 49,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "projection_certificate": {
+                  "status": "needs_split",
+                  "residue": 3298405223,
+                  "modulus_bits": 32,
+                  "template": "[0,[1,1,1,1],103,1]",
+                  "prefix_length": 22,
+                  "consumed_bits": 32,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    2,
+                    3,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "sample_index": 8916,
+                "residue": 20357561713767,
+                "bits": 48,
+                "projection_residue": 3711698023,
+                "boundary_key": [
+                  22,
+                  222037095
+                ],
+                "exact32_residue": 3711698023,
+                "predicted_exact32_outcome": "fail_offset_2",
+                "observed_48bit_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 20357561713767,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,2]",
+                    "prefix_length": 34,
+                    "consumed_bits": 49,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      2,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "projection_certificate": {
+                  "status": "needs_split",
+                  "residue": 3711698023,
+                  "modulus_bits": 32,
+                  "template": "[0,[1,1,1,1],103,1]",
+                  "prefix_length": 22,
+                  "consumed_bits": 32,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    3,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "sample_index": 13243,
+                "residue": 166050794858087,
+                "bits": 48,
+                "projection_residue": 3064227431,
+                "boundary_key": [
+                  22,
+                  111437415
+                ],
+                "exact32_residue": 3064227431,
+                "predicted_exact32_outcome": "fail_offset_4",
+                "observed_48bit_outcome": "fail_offset_2",
+                "matched_prefix_templates": 2,
+                "first_failure": {
+                  "offset": 2,
+                  "bits": 50,
+                  "expected": "[2,[1,1,1,1],103,1]",
+                  "observed": "[2,[1,1,1,1],103,3]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 166050794858087,
+                    "modulus_bits": 50,
+                    "template": "[2,[1,1,1,1],103,3]",
+                    "prefix_length": 35,
+                    "consumed_bits": 50,
+                    "next_valuation": 3,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "projection_certificate": {
+                  "status": "needs_split",
+                  "residue": 3064227431,
+                  "modulus_bits": 32,
+                  "template": "[0,[1,1,1,1],103,1]",
+                  "prefix_length": 22,
+                  "consumed_bits": 32,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "sample_index": 13785,
+                "residue": 35412345626471,
+                "bits": 48,
+                "projection_residue": 340270951,
+                "boundary_key": [
+                  22,
+                  71835495
+                ],
+                "exact32_residue": 340270951,
+                "predicted_exact32_outcome": "fail_offset_3",
+                "observed_48bit_outcome": "fail_offset_2",
+                "matched_prefix_templates": 2,
+                "first_failure": {
+                  "offset": 2,
+                  "bits": 50,
+                  "expected": "[2,[1,1,1,1],103,1]",
+                  "observed": "[2,[1,1,1,1],103,4]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 35412345626471,
+                    "modulus_bits": 50,
+                    "template": "[2,[1,1,1,1],103,4]",
+                    "prefix_length": 37,
+                    "consumed_bits": 50,
+                    "next_valuation": 4,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "projection_certificate": {
+                  "status": "needs_split",
+                  "residue": 340270951,
+                  "modulus_bits": 32,
+                  "template": "[0,[1,1,1,1],103,1]",
+                  "prefix_length": 22,
+                  "consumed_bits": 32,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    3,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "sample_index": 17969,
+                "residue": 3597574872935,
+                "bits": 48,
+                "projection_residue": 2687246183,
+                "boundary_key": [
+                  22,
+                  2891623
+                ],
+                "exact32_residue": 2687246183,
+                "predicted_exact32_outcome": "fail_offset_3",
+                "observed_48bit_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,2]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 3597574872935,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,2]",
+                    "prefix_length": 34,
+                    "consumed_bits": 49,
+                    "next_valuation": 2,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      3,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "projection_certificate": {
+                  "status": "needs_split",
+                  "residue": 2687246183,
+                  "modulus_bits": 32,
+                  "template": "[0,[1,1,1,1],103,1]",
+                  "prefix_length": 22,
+                  "consumed_bits": 32,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    2,
+                    3,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "sample_index": 18501,
+                "residue": 221210044011367,
+                "bits": 48,
+                "projection_residue": 2048398183,
+                "boundary_key": [
+                  23,
+                  169349991
+                ],
+                "exact32_residue": 2048398183,
+                "predicted_exact32_outcome": "fail_offset_2",
+                "observed_48bit_outcome": "fail_offset_1",
+                "matched_prefix_templates": 1,
+                "first_failure": {
+                  "offset": 1,
+                  "bits": 49,
+                  "expected": "[1,[1,1,1,1],103,1]",
+                  "observed": "[1,[1,1,1,1],103,6]",
+                  "certificate": {
+                    "status": "needs_split",
+                    "residue": 221210044011367,
+                    "modulus_bits": 49,
+                    "template": "[1,[1,1,1,1],103,6]",
+                    "prefix_length": 34,
+                    "consumed_bits": 49,
+                    "next_valuation": 6,
+                    "coefficient_log2_margin": null,
+                    "threshold_min_n_for_descent": null,
+                    "tail_word": [
+                      1,
+                      6,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  }
+                },
+                "projection_certificate": {
+                  "status": "needs_split",
+                  "residue": 2048398183,
+                  "modulus_bits": 32,
+                  "template": "[0,[1,1,1,1],103,1]",
+                  "prefix_length": 23,
+                  "consumed_bits": 32,
+                  "next_valuation": 1,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "tail_word": [
+                    1,
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            ],
+            "boundary_missing_examples": [],
+            "full_period_examples": [],
+            "sampled_boundary_collision_group_count": 0,
+            "sampled_boundary_collision_examples": [],
+            "lift_stability_status": "refuted_by_sampled_boundary_prediction_mismatch",
+            "full_period_escape_status": "no_sampled_full_period_escape_found",
+            "proof_boundary": "This is a deterministic replay of the TICKET52 sample, not exhaustive 48-bit coverage. A mismatch or projection escape refutes a proposed finite lift shortcut, but the absence of a full-period sampled escape does not prove Collatz."
+          },
+          "discarded_route": "Promote the exact32 deterministic boundary to a global theorem without proving projection inclusion and lift-stable outcome preservation.",
+          "retained_route": "Prove a parametric lift relation for the affine boundary coordinates, or promote a sampled projection escape/lift mismatch into a symbolic counterexample target.",
+          "candidate_theorem": "For every 48-bit and then every higher phase-compatible start, either projection leaves the exact32 model in a separately classified way, or the affine boundary transition preserves the finite gate outcome and decreases a well-founded rank.",
+          "counterexample_target": "Find a higher-bit start whose projection lies in the deterministic exact32 boundary but whose lift outcome differs, then extend it to a full-period nondecreasing affine-boundary cycle.",
+          "proof_boundary": "No Collatz proof and no certified Collatz counterexample. TICKET58 tests lift stability on the replayed deterministic 48-bit sample and searches for full-period escapes, but it is not an exhaustive 48-bit theorem and not a global trajectory proof."
+        }
+      },
+      "obstruction": "The first deterministic exact32 affine boundary must still pass two higher-bit gates: projection inclusion and lift-stable outcome preservation. The replayed sample quantifies those gates and keeps full-period escape search separate from proof claims.",
+      "candidate_theorem": "AffineBoundaryLiftStability: prove projection inclusion or a complete escape classification, then prove outcome-preserving lift transitions with a decreasing rank.",
+      "next_experiment": "Generate CO-TICKET-59 by turning any sampled projection escape or lift mismatch into a symbolic cylinder theorem; if no mismatch is present, expand from sampled replay to a counted 40-bit boundary cover.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-58",
+      "status": "proof_pressure_open",
+      "route": "MarginLiftStabilityOrExceptionalEscape",
+      "proof_or_counterexample_mode": "boundary-lift-stability transfer",
+      "attempt": "Transfer TICKET58's rule: once a finite boundary state is chosen, test whether the natural lift keeps objects inside that boundary and preserves the decisive outcome before calling it a theorem.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-57",
+        "source_route": "ExceptionalMarginBoundaryStateOrCounterexample",
+        "ticket58_transfer": "MarginLiftStabilityOrExceptionalEscape",
+        "lift_gate": "larger cutoff lift must preserve the positive-margin boundary classification",
+        "candidate_theorem": "Every exceptional residue/margin boundary state lifts to a positive-margin state after a finite cutoff, or yields a cutoff-stable exceptional even packet.",
+        "counterexample_target": "a larger cutoff lift whose certified margin outcome differs from the finite boundary prediction",
+        "frontier_rule": "A boundary model can support a proof only if lift inclusion, outcome preservation, and a well-founded rank are checked in the same coordinates; otherwise the lift escape becomes the next counterexample target."
+      },
+      "obstruction": "This transfer is methodological and does not solve the target problem. It prevents a finite boundary model from being promoted while the lift map can change the decisive outcome.",
+      "candidate_theorem": "Every exceptional residue/margin boundary state lifts to a positive-margin state after a finite cutoff, or yields a cutoff-stable exceptional even packet.",
+      "next_experiment": "Build the problem-specific lift gate or promote a lift escape witness.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-58",
+      "status": "proof_pressure_open",
+      "route": "SieveBoundaryLiftStabilityOrGapEscape",
+      "proof_or_counterexample_mode": "boundary-lift-stability transfer",
+      "attempt": "Transfer TICKET58's rule: once a finite boundary state is chosen, test whether the natural lift keeps objects inside that boundary and preserves the decisive outcome before calling it a theorem.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-57",
+        "source_route": "ParityBoundarySieveStateOrGapCycle",
+        "ticket58_transfer": "SieveBoundaryLiftStabilityOrGapEscape",
+        "lift_gate": "sieve-level lift must preserve exact gap-2 retained mass against parity leakage",
+        "candidate_theorem": "Every parity-boundary sieve state lifts with positive retained gap-2 mass, or yields a stable leakage packet that absorbs exact-gap mass at every level.",
+        "counterexample_target": "a sieve-level lift whose parity leakage changes the exact gap-2 outcome predicted by the boundary state",
+        "frontier_rule": "A boundary model can support a proof only if lift inclusion, outcome preservation, and a well-founded rank are checked in the same coordinates; otherwise the lift escape becomes the next counterexample target."
+      },
+      "obstruction": "This transfer is methodological and does not solve the target problem. It prevents a finite boundary model from being promoted while the lift map can change the decisive outcome.",
+      "candidate_theorem": "Every parity-boundary sieve state lifts with positive retained gap-2 mass, or yields a stable leakage packet that absorbs exact-gap mass at every level.",
+      "next_experiment": "Build the problem-specific lift gate or promote a lift escape witness.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

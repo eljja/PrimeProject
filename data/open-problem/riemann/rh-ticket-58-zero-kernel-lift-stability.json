@@ -1,0 +1,21 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-58",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelLiftStabilityOrOffCriticalEscape",
+  "proof_or_counterexample_mode": "boundary-lift-stability transfer",
+  "attempt": "Transfer TICKET58's rule: once a finite boundary state is chosen, test whether the natural lift keeps objects inside that boundary and preserves the decisive outcome before calling it a theorem.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-57",
+    "source_route": "ZeroKernelBoundaryStateOrOffCriticalEscapeCycle",
+    "ticket58_transfer": "ZeroKernelLiftStabilityOrOffCriticalEscape",
+    "lift_gate": "height-window lift must preserve the sign/positivity boundary state",
+    "candidate_theorem": "Every off-critical zero-kernel boundary state remains in a lift-stable positivity class with strict improvement, or yields a height-stable off-critical escape packet.",
+    "counterexample_target": "a height lift that preserves the boundary state but reverses or stalls the positivity outcome",
+    "frontier_rule": "A boundary model can support a proof only if lift inclusion, outcome preservation, and a well-founded rank are checked in the same coordinates; otherwise the lift escape becomes the next counterexample target."
+  },
+  "obstruction": "This transfer is methodological and does not solve the target problem. It prevents a finite boundary model from being promoted while the lift map can change the decisive outcome.",
+  "candidate_theorem": "Every off-critical zero-kernel boundary state remains in a lift-stable positivity class with strict improvement, or yields a height-stable off-critical escape packet.",
+  "next_experiment": "Build the problem-specific lift gate or promote a lift escape witness.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

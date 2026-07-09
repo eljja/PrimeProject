@@ -676,6 +676,50 @@ Required artifacts:
 - explicit proof boundary saying no Collatz proof and no Collatz counterexample unless the result covers all trajectories or supplies a genuine replayable counterexample
 ```
 
+## Latest Continuation After TICKET-58
+
+TICKET-58 supersedes the TICKET-57 continuation target. It does not solve Collatz, but it refutes the next weak proof route: the first deterministic exact32 affine boundary does not lift unchanged to the replayed 48-bit sample.
+
+```text
+local theorem target: AffineBoundaryLiftStabilityOrFullPeriodEscape
+exact32 boundary width: 28 low bits
+exact32 boundary states: 69,092
+exact32 boundary collisions: 0
+48-bit replayed sample count: 200,000
+48-bit start-template matches: 3,184
+projection escapes: 3,086
+projection-target lifts: 98
+boundary prediction matches: 28
+boundary prediction mismatches: 70
+projection-target prediction rate: 28.57%
+full lasso period replays: 0
+lift-stability status: refuted_by_sampled_boundary_prediction_mismatch
+```
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-59 SymbolicLiftMismatchCylinderOrCounted40BitCover
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-58. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-58 replays the deterministic TICKET52 48-bit sample against the first deterministic exact32 affine boundary from TICKET57. Among 3,184 sampled 48-bit start-template matches, 3,086 project outside the exact32 target. Only 98 project into the exact32 target, and 70 of those disagree with the exact32 boundary-predicted outcome. No sampled root replays a full lasso period. Therefore the shortcut "exact32 deterministic boundary lifts unchanged" is refuted in the sample, but this is not a Collatz proof or counterexample.
+
+Goal: build CO-TICKET-59. Promote the sampled lift mismatch into a symbolic cylinder theorem or replace sample replay with a counted 40-bit/48-bit boundary cover. Acceptable success outcomes are: (a) a symbolic description of all projection escapes and lift mismatches for a nontrivial cylinder family, (b) a counted finite cover that proves every 40-bit start-template lift is classified by projection escape, outcome mismatch, or terminal tunnel, or (c) a full-period affine-boundary escape witness with a replayable nondecreasing cycle.
+
+Required artifacts:
+- data/open-problem/ticket59-symbolic-lift-mismatch-lab.json
+- data/open-problem/collatz/co-ticket-59-symbolic-lift-mismatch.json
+- per-problem transfer artifacts for RH, Goldbach, Twin Prime
+- updated docs/proof-or-counterexample-program.md
+- updated GitHub Pages card
+- explicit proof boundary saying no Collatz proof and no Collatz counterexample unless the result covers all trajectories or supplies a genuine replayable counterexample
+```
+
 ## Latest Continuation After TICKET-55
 
 TICKET-55 supersedes the TICKET-54 continuation target for the current extracted low-lift Collatz family. It does not solve Collatz, but it closes the known phase-5 gate-crossing route into the TICKET53 terminal no-go.

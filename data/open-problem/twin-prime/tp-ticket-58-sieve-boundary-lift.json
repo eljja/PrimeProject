@@ -1,0 +1,21 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-58",
+  "status": "proof_pressure_open",
+  "route": "SieveBoundaryLiftStabilityOrGapEscape",
+  "proof_or_counterexample_mode": "boundary-lift-stability transfer",
+  "attempt": "Transfer TICKET58's rule: once a finite boundary state is chosen, test whether the natural lift keeps objects inside that boundary and preserves the decisive outcome before calling it a theorem.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-57",
+    "source_route": "ParityBoundarySieveStateOrGapCycle",
+    "ticket58_transfer": "SieveBoundaryLiftStabilityOrGapEscape",
+    "lift_gate": "sieve-level lift must preserve exact gap-2 retained mass against parity leakage",
+    "candidate_theorem": "Every parity-boundary sieve state lifts with positive retained gap-2 mass, or yields a stable leakage packet that absorbs exact-gap mass at every level.",
+    "counterexample_target": "a sieve-level lift whose parity leakage changes the exact gap-2 outcome predicted by the boundary state",
+    "frontier_rule": "A boundary model can support a proof only if lift inclusion, outcome preservation, and a well-founded rank are checked in the same coordinates; otherwise the lift escape becomes the next counterexample target."
+  },
+  "obstruction": "This transfer is methodological and does not solve the target problem. It prevents a finite boundary model from being promoted while the lift map can change the decisive outcome.",
+  "candidate_theorem": "Every parity-boundary sieve state lifts with positive retained gap-2 mass, or yields a stable leakage packet that absorbs exact-gap mass at every level.",
+  "next_experiment": "Build the problem-specific lift gate or promote a lift escape witness.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

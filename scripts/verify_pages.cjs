@@ -474,12 +474,18 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Pre-gate partition result") ||
         !page.proofOrCounterexampleText.includes("Ticket 57 parametric template automaton lab") ||
         !page.proofOrCounterexampleText.includes("Parametric automaton result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 58 affine-boundary lift lab") ||
+        !page.proofOrCounterexampleText.includes("Affine-boundary lift result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("no_known_root_replays_full_lasso_period")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Replayable-cycle search")) ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("refuted_by_sampled_boundary_prediction_mismatch")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Boundary prediction mismatch examples")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("3,086")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -802,6 +808,8 @@ async function main() {
     !metrics.evolutionImpact.includes("Publication guardrails") ||
     !metrics.evolutionImpact.includes("Boundary state obstruction") ||
     !metrics.evolutionImpact.includes("2^28 first deterministic") ||
+    !metrics.evolutionImpact.includes("Lift stability refuted") ||
+    !metrics.evolutionImpact.includes("3,086 projection escapes") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
@@ -824,7 +832,8 @@ async function main() {
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("Evidence pack") ||
     !metrics.evolutionPanel.includes("Publication consistency") ||
-    !metrics.evolutionPanel.includes("TICKET-57")
+    !metrics.evolutionPanel.includes("TICKET-57") ||
+    !metrics.evolutionPanel.includes("TICKET-58")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

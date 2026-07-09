@@ -1,0 +1,21 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-58",
+  "status": "proof_pressure_open",
+  "route": "MarginLiftStabilityOrExceptionalEscape",
+  "proof_or_counterexample_mode": "boundary-lift-stability transfer",
+  "attempt": "Transfer TICKET58's rule: once a finite boundary state is chosen, test whether the natural lift keeps objects inside that boundary and preserves the decisive outcome before calling it a theorem.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-57",
+    "source_route": "ExceptionalMarginBoundaryStateOrCounterexample",
+    "ticket58_transfer": "MarginLiftStabilityOrExceptionalEscape",
+    "lift_gate": "larger cutoff lift must preserve the positive-margin boundary classification",
+    "candidate_theorem": "Every exceptional residue/margin boundary state lifts to a positive-margin state after a finite cutoff, or yields a cutoff-stable exceptional even packet.",
+    "counterexample_target": "a larger cutoff lift whose certified margin outcome differs from the finite boundary prediction",
+    "frontier_rule": "A boundary model can support a proof only if lift inclusion, outcome preservation, and a well-founded rank are checked in the same coordinates; otherwise the lift escape becomes the next counterexample target."
+  },
+  "obstruction": "This transfer is methodological and does not solve the target problem. It prevents a finite boundary model from being promoted while the lift map can change the decisive outcome.",
+  "candidate_theorem": "Every exceptional residue/margin boundary state lifts to a positive-margin state after a finite cutoff, or yields a cutoff-stable exceptional even packet.",
+  "next_experiment": "Build the problem-specific lift gate or promote a lift escape witness.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}
