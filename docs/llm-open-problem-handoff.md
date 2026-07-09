@@ -61,6 +61,69 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
+## Latest Continuation After TICKET-62
+
+TICKET-62 supersedes the immediate TICKET-61 continuation target. It does not solve Collatz, but it upgrades the mod16 separator from a 48-bit separator into a bounded higher-lift transition candidate.
+
+Known Collatz result:
+
+```text
+base mixed cylinders: 58
+base mixed start-template lifts: 210
+52-bit tested lifts: 3,360
+52-bit start-template lifts: 55
+52-bit mod16 failure collisions: 0
+56-bit tested lifts: 53,760
+56-bit start-template lifts: 824
+56-bit mod16 failure collisions: 0
+full-period escapes: 0
+first joint deterministic separator: low40_plus_base_mod16
+```
+
+Interpretation:
+
+```text
+TICKET-61 found that low40 + high_extension mod 16 predicts failure_offset on the selected 48-bit mixed-cylinder population. TICKET-62 lifts those rows to 52 and 56 bits and finds that low40 + base high_extension mod 16 remains deterministic for failure_offset, observed outcome, boundary prediction label, and transition label among all surviving start-template lifts.
+```
+
+Do not claim Collatz from this. The result is a bounded lift-transition audit. The next theorem must either build a finite automaton cover whose transition table can be proved symbolically, or find the first higher lift where the mod16 state collides.
+
+Current best continuation:
+
+```text
+CO-TICKET-63 Mod16AutomatonCoverOrLiftCollision
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-62. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-62 lifts the selected Collatz mixed 48-bit start-template rows to 52 and 56 bits. The mod16 coordinate low40 + base high_extension mod 16 remains deterministic for failure_offset, outcome, boundary prediction label, and transition label on the surviving start-template lifts: 55 rows at 52 bits and 824 rows at 56 bits. No full-period replay is found.
+
+Goal: build CO-TICKET-63. Convert bounded mod16 survival into either an automaton-cover theorem target or a lift-collision obstruction.
+
+Tasks:
+1. Extract the actual transition table from low40+base_mod16 state to failure_offset/outcome/transition labels.
+2. Minimize the state table: determine whether low40 can be quotient-reduced by residue classes, certificate prefix length, or affine boundary state without introducing collisions.
+3. Prove or refute closure one layer beyond the current audit. Acceptable bounded extensions include 60-bit targeted enumeration, symbolic congruence constraints, or a counted sampler with exact rejection conditions.
+4. If a collision appears, record the two residues, their shared pre-replay state, and the conflicting labels.
+5. If no collision appears, state the exact finite automaton theorem needed: state set, transition relation, acceptance/terminal cover, and the rank that forbids full-period nondecreasing cycles.
+
+Required discipline:
+- Do not use failure_offset or first_failure data as a separator key.
+- Treat bounded survival as theorem-target evidence, not proof.
+- Do not call a finite automaton a proof until every future lift transition is symbolically covered.
+- A counterexample to the mod16 theorem is not a Collatz counterexample unless it yields a full-period nondecreasing orbit.
+
+Required output:
+- data/open-problem/ticket63-mod16-automaton-cover-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless an infinite bridge is supplied
+```
+
 ## Latest Continuation After TICKET-61
 
 TICKET-61 supersedes the replay-derived separator route from TICKET-60.

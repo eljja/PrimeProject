@@ -1,0 +1,21 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-62",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelSeparatorTransitionClosure",
+  "proof_or_counterexample_mode": "symbolic-transition transfer",
+  "attempt": "Transfer TICKET62's rule: after a pre-replay separator is found, the next proof obligation is a lift-stable transition law or an explicit collision witness, not another diagnostic separator.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-61",
+    "source_route": "ZeroKernelSymbolicSeparatorTransition",
+    "ticket62_transfer": "ZeroKernelSeparatorTransitionClosure",
+    "transition_gate": "pre-replay spectral separator must be closed under height-window lift",
+    "candidate_theorem": "Every pre-replay zero-kernel separator state has a closed positivity transition law, or yields an off-critical collision packet.",
+    "counterexample_target": "a height lift whose zero-kernel positivity label collides inside the same symbolic separator state",
+    "frontier_rule": "A separator can support proof only if the lift/height/cutoff transition is closed in the same coordinates or every failure is promoted to a named obstruction."
+  },
+  "obstruction": "This is a methodological transfer and does not solve the target problem. It raises the acceptance bar from finite separation to transition closure.",
+  "candidate_theorem": "Every pre-replay zero-kernel separator state has a closed positivity transition law, or yields an off-critical collision packet.",
+  "next_experiment": "Construct the problem-specific transition table or report the first collision witness.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

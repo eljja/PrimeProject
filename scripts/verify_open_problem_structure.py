@@ -55,6 +55,7 @@ TICKET58_SCHEMA = "primeproject.ticket58-affine-boundary-lift-lab.v1"
 TICKET59_SCHEMA = "primeproject.ticket59-symbolic-lift-mismatch-lab.v1"
 TICKET60_SCHEMA = "primeproject.ticket60-mixed-cylinder-separator-lab.v1"
 TICKET61_SCHEMA = "primeproject.ticket61-symbolic-failure-offset-lab.v1"
+TICKET62_SCHEMA = "primeproject.ticket62-mod16-transition-cover-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -3267,6 +3268,100 @@ def main() -> int:
         return fail("collatz ticket61 next theorem target changed")
     if "does not prove Collatz" not in str(audit61.get("proof_boundary", "")):
         return fail("collatz ticket61 proof boundary must block proof overclaim")
+
+    ticket62_path = Path("data/open-problem/ticket62-mod16-transition-cover-lab.json")
+    if not ticket62_path.exists():
+        return fail("missing ticket62 mod16 transition cover artifact")
+    ticket62 = read_json(ticket62_path)
+    if ticket62.get("schema") != TICKET62_SCHEMA:
+        return fail("ticket62 mod16 transition cover artifact has unexpected schema")
+    if ticket62.get("status") != "mod16_transition_cover_open_no_resolution":
+        return fail("ticket62 mod16 transition cover artifact overstates resolution")
+    ticket62_attempts = ticket62.get("attempts", [])
+    if not isinstance(ticket62_attempts, list):
+        return fail("ticket62 attempts must be a list")
+    ticket62_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket62_attempts if isinstance(attempt, dict)}
+    missing_ticket62 = EXPECTED_PROBLEMS - set(ticket62_by_id)
+    if missing_ticket62:
+        return fail("ticket62 attempts missing problems: " + ", ".join(sorted(missing_ticket62)))
+    ticket62_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-62-transition-closure.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-62-mod16-transition-cover.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-62-margin-transition.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-62-sieve-transition.json"),
+    }
+    for problem_id, attempt in ticket62_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "bounded_mod16_transition_survives_open_no_resolution",
+            "mod16_lift_obstruction_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket62 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket62 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket62 claim boundary is too weak")
+        path = ticket62_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket62 per-problem artifact")
+
+    collatz_ticket62 = ticket62_by_id.get("collatz", {})
+    audit62 = collatz_ticket62.get("bounded_result", {}).get("mod16_transition_cover_audit", {})
+    if not isinstance(audit62, dict):
+        return fail("collatz ticket62 mod16 transition cover audit missing")
+    if audit62.get("theorem_name") != "Mod16FailureOffsetTransitionOrAutomatonCountedCover":
+        return fail("collatz ticket62 theorem name changed")
+    if int(audit62.get("base_mixed_cylinder_count", -1)) != 58:
+        return fail("collatz ticket62 base mixed cylinder count changed")
+    if int(audit62.get("base_mixed_start_template_lift_count", -1)) != 210:
+        return fail("collatz ticket62 base mixed lift count changed")
+    if [int(value) for value in audit62.get("tested_lift_bits", [])] != [52, 56]:
+        return fail("collatz ticket62 tested lift bits changed")
+    if int(audit62.get("obstruction_count", -1)) != 0:
+        return fail("collatz ticket62 should not report a mod16 obstruction in current audit")
+    if int(audit62.get("full_period_escape_count", -1)) != 0:
+        return fail("collatz ticket62 must not find a full-period escape")
+    lift_audits62 = audit62.get("lift_audits", [])
+    if not isinstance(lift_audits62, list) or len(lift_audits62) != 2:
+        return fail("collatz ticket62 lift audits missing")
+    expected_lifts62 = {
+        52: {
+            "tested_lifts": 3360,
+            "start_template_lift": 55,
+            "non_start_template_lift": 3305,
+            "base_rows_with_start_template_extension": 55,
+        },
+        56: {
+            "tested_lifts": 53760,
+            "start_template_lift": 824,
+            "non_start_template_lift": 52936,
+            "base_rows_with_start_template_extension": 199,
+        },
+    }
+    for lift_audit in lift_audits62:
+        bits = int(lift_audit.get("bits", -1))
+        expected = expected_lifts62.get(bits)
+        if expected is None:
+            return fail("collatz ticket62 unexpected lift bit audit")
+        stats = lift_audit.get("statistics", {})
+        for key in ("tested_lifts", "start_template_lift", "non_start_template_lift"):
+            if int(stats.get(key, -1)) != expected[key]:
+                return fail(f"collatz ticket62 {bits}-bit {key} changed")
+        if int(lift_audit.get("base_rows_with_start_template_extension", -1)) != expected["base_rows_with_start_template_extension"]:
+            return fail(f"collatz ticket62 {bits}-bit base extension count changed")
+        mod16_row = lift_audit.get("base_mod16_joint_row", {})
+        if not isinstance(mod16_row, dict) or not mod16_row.get("deterministic_for_all_labels"):
+            return fail(f"collatz ticket62 {bits}-bit mod16 joint row must be deterministic")
+        collisions = mod16_row.get("collision_groups", {})
+        if any(int(collisions.get(field, -1)) != 0 for field in ("failure_offset", "outcome_label", "prediction_label", "transition_label")):
+            return fail(f"collatz ticket62 {bits}-bit mod16 collision count changed")
+        if lift_audit.get("first_joint_deterministic_separator") != "low40_plus_base_mod16":
+            return fail(f"collatz ticket62 {bits}-bit first joint separator changed")
+    if audit62.get("next_theorem_target") != "Mod16AutomatonCoverOrLiftCollision":
+        return fail("collatz ticket62 next theorem target changed")
+    if "does not prove Collatz" not in str(audit62.get("proof_boundary", "")):
+        return fail("collatz ticket62 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

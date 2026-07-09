@@ -3340,3 +3340,73 @@ Proof boundary:
 ```text
 TICKET-61 does not prove or disprove any of the four open problems. It turns a replay-derived separator into a pre-replay finite-coordinate theorem target, but the infinite symbolic transition theorem remains open.
 ```
+
+### Ticket 62: Mod16 transition-cover lift audit
+
+CO-TICKET-62 Mod16FailureOffsetTransitionOrAutomatonCountedCover
+
+Artifacts:
+
+```text
+data/open-problem/ticket62-mod16-transition-cover-lab.json
+data/open-problem/collatz/co-ticket-62-mod16-transition-cover.json
+data/open-problem/riemann/rh-ticket-62-transition-closure.json
+data/open-problem/goldbach/gb-ticket-62-margin-transition.json
+data/open-problem/twin-prime/tp-ticket-62-sieve-transition.json
+```
+
+Status:
+
+```text
+mod16_transition_cover_open_no_resolution
+```
+
+한국어 요약: TICKET-62는 TICKET-61의 pre-replay mod16 좌표가 더 큰 lift에서도 유지되는지 검사한다. 대상은 TICKET-61의 mixed 48비트 start-template row 210개다. 52비트 lift에서는 3,360개 후보 중 55개가 start-template로 남았고, 56비트 lift에서는 53,760개 후보 중 824개가 start-template로 남았다. 두 경우 모두 `low40 + base high_extension mod 16`이 failure offset, observed outcome, boundary prediction label, transition label을 collision 없이 결정했다. full-period replay는 발견되지 않았다. 이는 mod16 automaton-cover 경로를 강화하지만, 아직 유한 lift audit이므로 Collatz 증명은 아니다.
+
+English summary: TICKET-62 tests whether TICKET61's pre-replay mod16 coordinate survives bounded higher lifts. The 52-bit and 56-bit audits find no mod16 collision and no full-period replay among the surviving start-template lifts. This is bounded evidence for a mod16 automaton-cover route, not an infinite theorem.
+
+Key Collatz result:
+
+```text
+base mixed cylinders: 58
+base mixed start-template lifts: 210
+52-bit tested lifts: 3,360
+52-bit start-template lifts: 55
+52-bit mod16 failure collisions: 0
+56-bit tested lifts: 53,760
+56-bit start-template lifts: 824
+56-bit mod16 failure collisions: 0
+full-period escapes: 0
+first joint deterministic separator: low40_plus_base_mod16
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Promote TICKET61's mod16 separator directly to an infinite theorem without checking higher-bit lift closure. TICKET62 treats that as an unproved shortcut.
+```
+
+Candidate theorem still missing:
+
+```text
+For every mixed low40 cylinder and every admissible higher lift, the low40 plus high-extension mod16 state either determines a closed failure-offset transition or enters a finite automaton cover with no full-period nondecreasing cycle.
+```
+
+Counterexample target:
+
+```text
+A higher start-template lift where low40 plus base mod16 admits two different failure offsets, or a full-period replay inside the tested lift family.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-63 Mod16AutomatonCoverOrLiftCollision
+```
+
+Proof boundary:
+
+```text
+TICKET-62 does not prove or disprove any of the four open problems. It tests bounded 52/56-bit lift closure for the mod16 coordinate and finds no collision in that audit, but the infinite symbolic automaton-cover theorem remains open.
+```

@@ -482,6 +482,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Separator result") ||
         !page.proofOrCounterexampleText.includes("Ticket 61 symbolic failure-offset lab") ||
         !page.proofOrCounterexampleText.includes("Pre-replay separator result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 62 mod16 transition-cover lab") ||
+        !page.proofOrCounterexampleText.includes("Transition-cover result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
@@ -499,6 +501,9 @@ async function main() {
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("low40_plus_high_extension_mod_2^4")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("Mod16FailureOffsetTransitionOrAutomatonCountedCover")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("mod16_transition_survives_bounded_lift")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Mod16AutomatonCoverOrLiftCollision")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("53,760")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("58")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
@@ -830,6 +835,8 @@ async function main() {
     !metrics.evolutionImpact.includes("58 mixed") ||
     !metrics.evolutionImpact.includes("Pre-replay separator") ||
     !metrics.evolutionImpact.includes("mod 16") ||
+    !metrics.evolutionImpact.includes("Mod16 lift survival") ||
+    !metrics.evolutionImpact.includes("52/56-bit lifts") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
@@ -856,7 +863,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-58") ||
     !metrics.evolutionPanel.includes("TICKET-59") ||
     !metrics.evolutionPanel.includes("TICKET-60") ||
-    !metrics.evolutionPanel.includes("TICKET-61")
+    !metrics.evolutionPanel.includes("TICKET-61") ||
+    !metrics.evolutionPanel.includes("TICKET-62")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

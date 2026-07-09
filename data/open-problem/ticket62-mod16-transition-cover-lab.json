@@ -1,0 +1,1190 @@
+{
+  "schema": "primeproject.ticket62-mod16-transition-cover-lab.v1",
+  "generated_at": "2026-07-09T18:30:00+09:00",
+  "status": "mod16_transition_cover_open_no_resolution",
+  "claim_boundary": "Ticket 62 tests whether TICKET61's pre-replay mod16 separator behaves like a lift-transition coordinate and transfers that discipline to RH, Goldbach, and Twin Prime. It does not prove or disprove any of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-62",
+      "status": "proof_pressure_open",
+      "route": "ZeroKernelSeparatorTransitionClosure",
+      "proof_or_counterexample_mode": "symbolic-transition transfer",
+      "attempt": "Transfer TICKET62's rule: after a pre-replay separator is found, the next proof obligation is a lift-stable transition law or an explicit collision witness, not another diagnostic separator.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-61",
+        "source_route": "ZeroKernelSymbolicSeparatorTransition",
+        "ticket62_transfer": "ZeroKernelSeparatorTransitionClosure",
+        "transition_gate": "pre-replay spectral separator must be closed under height-window lift",
+        "candidate_theorem": "Every pre-replay zero-kernel separator state has a closed positivity transition law, or yields an off-critical collision packet.",
+        "counterexample_target": "a height lift whose zero-kernel positivity label collides inside the same symbolic separator state",
+        "frontier_rule": "A separator can support proof only if the lift/height/cutoff transition is closed in the same coordinates or every failure is promoted to a named obstruction."
+      },
+      "obstruction": "This is a methodological transfer and does not solve the target problem. It raises the acceptance bar from finite separation to transition closure.",
+      "candidate_theorem": "Every pre-replay zero-kernel separator state has a closed positivity transition law, or yields an off-critical collision packet.",
+      "next_experiment": "Construct the problem-specific transition table or report the first collision witness.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-62",
+      "route": "Mod16FailureOffsetTransitionOrAutomatonCountedCover",
+      "status": "bounded_mod16_transition_survives_open_no_resolution",
+      "proof_or_counterexample_mode": "bounded higher-lift transition audit",
+      "attempt": "Continue from TICKET61 by lifting the selected mixed 48-bit start-template rows to 52 and 56 bits, then testing whether the pre-replay mod16 separator remains deterministic under those lifts.",
+      "bounded_result": {
+        "mod16_transition_cover_audit": {
+          "source_ticket": "CO-TICKET-61",
+          "theorem_name": "Mod16FailureOffsetTransitionOrAutomatonCountedCover",
+          "base_bits": 48,
+          "base_mixed_cylinder_count": 58,
+          "base_mixed_start_template_lift_count": 210,
+          "tested_lift_bits": [
+            52,
+            56
+          ],
+          "lift_audits": [
+            {
+              "bits": 52,
+              "extra_bits": 4,
+              "status": "mod16_transition_survives_bounded_lift",
+              "statistics": {
+                "boundary_prediction_mismatch": 55,
+                "non_start_template_lift": 3305,
+                "projection_target": 55,
+                "start_template_lift": 55,
+                "tested_lifts": 3360
+              },
+              "base_rows_with_start_template_extension": 55,
+              "base_extension_count_distribution": {
+                "1": 55
+              },
+              "base_mod16_joint_row": {
+                "separator": "low40_plus_base_mod16",
+                "row_count": 55,
+                "state_count": 55,
+                "deterministic_for_all_labels": true,
+                "collision_groups": {
+                  "failure_offset": 0,
+                  "outcome_label": 0,
+                  "prediction_label": 0,
+                  "transition_label": 0
+                },
+                "ambiguous_rows": {
+                  "failure_offset": 0,
+                  "outcome_label": 0,
+                  "prediction_label": 0,
+                  "transition_label": 0
+                }
+              },
+              "base_high8_joint_row": {
+                "separator": "low40_plus_base_high8",
+                "row_count": 55,
+                "state_count": 55,
+                "deterministic_for_all_labels": true,
+                "collision_groups": {
+                  "failure_offset": 0,
+                  "outcome_label": 0,
+                  "prediction_label": 0,
+                  "transition_label": 0
+                },
+                "ambiguous_rows": {
+                  "failure_offset": 0,
+                  "outcome_label": 0,
+                  "prediction_label": 0,
+                  "transition_label": 0
+                }
+              },
+              "first_joint_deterministic_separator": "low40_plus_base_mod16",
+              "joint_ladder": [
+                {
+                  "separator": "low40_plus_base_mod16",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_base_high8",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^4",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^5",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^6",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^7",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^8",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^9",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^10",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^11",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^12",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_1_bits",
+                  "row_count": 55,
+                  "state_count": 48,
+                  "deterministic_for_all_labels": false,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 7
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 14
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_2_bits",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_3_bits",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_4_bits",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_5_bits",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                }
+              ],
+              "failure_offset_ladder": [
+                {
+                  "separator": "low40_plus_base_mod16",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_base_high8",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^4",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^5",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^6",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^7",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^8",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^9",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^10",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^11",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^12",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_1_bits",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 48,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 2,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_2_bits",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_3_bits",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_4_bits",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_5_bits",
+                  "label_field": "failure_offset",
+                  "row_count": 55,
+                  "state_count": 55,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                }
+              ],
+              "full_period_examples": []
+            },
+            {
+              "bits": 56,
+              "extra_bits": 8,
+              "status": "mod16_transition_survives_bounded_lift",
+              "statistics": {
+                "boundary_prediction_mismatch": 824,
+                "non_start_template_lift": 52936,
+                "projection_target": 824,
+                "start_template_lift": 824,
+                "tested_lifts": 53760
+              },
+              "base_rows_with_start_template_extension": 199,
+              "base_extension_count_distribution": {
+                "1": 4,
+                "2": 26,
+                "3": 37,
+                "4": 54,
+                "5": 41,
+                "6": 28,
+                "7": 5,
+                "8": 3,
+                "9": 1
+              },
+              "base_mod16_joint_row": {
+                "separator": "low40_plus_base_mod16",
+                "row_count": 824,
+                "state_count": 199,
+                "deterministic_for_all_labels": true,
+                "collision_groups": {
+                  "failure_offset": 0,
+                  "outcome_label": 0,
+                  "prediction_label": 0,
+                  "transition_label": 0
+                },
+                "ambiguous_rows": {
+                  "failure_offset": 0,
+                  "outcome_label": 0,
+                  "prediction_label": 0,
+                  "transition_label": 0
+                }
+              },
+              "base_high8_joint_row": {
+                "separator": "low40_plus_base_high8",
+                "row_count": 824,
+                "state_count": 199,
+                "deterministic_for_all_labels": true,
+                "collision_groups": {
+                  "failure_offset": 0,
+                  "outcome_label": 0,
+                  "prediction_label": 0,
+                  "transition_label": 0
+                },
+                "ambiguous_rows": {
+                  "failure_offset": 0,
+                  "outcome_label": 0,
+                  "prediction_label": 0,
+                  "transition_label": 0
+                }
+              },
+              "first_joint_deterministic_separator": "low40_plus_base_mod16",
+              "joint_ladder": [
+                {
+                  "separator": "low40_plus_base_mod16",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_base_high8",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^4",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^5",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^6",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^7",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^8",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^9",
+                  "row_count": 824,
+                  "state_count": 379,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^10",
+                  "row_count": 824,
+                  "state_count": 617,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^11",
+                  "row_count": 824,
+                  "state_count": 769,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^12",
+                  "row_count": 824,
+                  "state_count": 824,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^13",
+                  "row_count": 824,
+                  "state_count": 824,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^14",
+                  "row_count": 824,
+                  "state_count": 824,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^15",
+                  "row_count": 824,
+                  "state_count": 824,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^16",
+                  "row_count": 824,
+                  "state_count": 824,
+                  "deterministic_for_all_labels": true,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 0
+                  }
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_1_bits",
+                  "row_count": 824,
+                  "state_count": 115,
+                  "deterministic_for_all_labels": false,
+                  "collision_groups": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 97
+                  },
+                  "ambiguous_rows": {
+                    "failure_offset": 0,
+                    "outcome_label": 0,
+                    "prediction_label": 0,
+                    "transition_label": 768
+                  }
+                }
+              ],
+              "failure_offset_ladder": [
+                {
+                  "separator": "low40_plus_base_mod16",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 9,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_base_high8",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 9,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^4",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 9,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^5",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 9,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^6",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 9,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^7",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 9,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^8",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 199,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 9,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^9",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 379,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 5,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^10",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 617,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 3,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^11",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 769,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 2,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^12",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 824,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^13",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 824,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^14",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 824,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^15",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 824,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_mod_2^16",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 824,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 1,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                },
+                {
+                  "separator": "low40_plus_extended_high_top_1_bits",
+                  "label_field": "failure_offset",
+                  "row_count": 824,
+                  "state_count": 115,
+                  "collision_group_count": 0,
+                  "ambiguous_row_count": 0,
+                  "largest_state_size": 15,
+                  "max_labels_per_state": 1,
+                  "deterministic": true,
+                  "collision_examples": []
+                }
+              ],
+              "full_period_examples": []
+            }
+          ],
+          "obstruction_count": 0,
+          "full_period_escape_count": 0,
+          "discarded_route": "Promote TICKET61's mod16 separator directly to an infinite theorem without checking higher-bit lift closure. TICKET62 treats that as an unproved shortcut.",
+          "retained_route": "Treat mod16 as a candidate state coordinate and test whether larger start-template lifts preserve deterministic failure-offset transitions. A collision becomes a theorem-obstruction witness; no collision becomes bounded evidence for a transition table, not a proof.",
+          "candidate_theorem": "For every mixed low40 cylinder and every admissible higher lift, the low40 plus high-extension mod16 state either determines a closed failure-offset transition or enters a finite automaton cover with no full-period nondecreasing cycle.",
+          "counterexample_target": "A higher start-template lift where low40 plus base mod16 admits two different failure offsets, or a full-period replay inside the tested lift family.",
+          "next_theorem_target": "Mod16AutomatonCoverOrLiftCollision",
+          "proof_boundary": "This is a bounded lift-transition audit over selected mixed cylinders. It can refute a naive mod16 transition theorem or name the next automaton cover target, but it does not prove Collatz and does not certify a Collatz counterexample."
+        }
+      },
+      "obstruction": "Even when a finite lift audit survives, it is not an infinite transition theorem. If a collision appears, it refutes only the naive mod16 theorem and points to a new coordinate; it is not a Collatz counterexample unless it becomes a full-period nondecreasing orbit.",
+      "candidate_theorem": "For every mixed low40 cylinder and every admissible higher lift, the low40 plus high-extension mod16 state either determines a closed failure-offset transition or enters a finite automaton cover with no full-period nondecreasing cycle.",
+      "next_experiment": "Generate CO-TICKET-63 by either proving the retained transition table symbolically or adding the smallest new coordinate required by the first lift collision.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-62",
+      "status": "proof_pressure_open",
+      "route": "GoldbachMarginTransitionClosure",
+      "proof_or_counterexample_mode": "symbolic-transition transfer",
+      "attempt": "Transfer TICKET62's rule: after a pre-replay separator is found, the next proof obligation is a lift-stable transition law or an explicit collision witness, not another diagnostic separator.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-61",
+        "source_route": "GoldbachSymbolicMarginSeparator",
+        "ticket62_transfer": "GoldbachMarginTransitionClosure",
+        "transition_gate": "pre-replay margin separator must be closed under cutoff lift",
+        "candidate_theorem": "Every Goldbach margin separator state has a closed cutoff transition law, or yields a stable exceptional residue packet.",
+        "counterexample_target": "a cutoff lift whose positive-margin label collides inside the same character/error separator state",
+        "frontier_rule": "A separator can support proof only if the lift/height/cutoff transition is closed in the same coordinates or every failure is promoted to a named obstruction."
+      },
+      "obstruction": "This is a methodological transfer and does not solve the target problem. It raises the acceptance bar from finite separation to transition closure.",
+      "candidate_theorem": "Every Goldbach margin separator state has a closed cutoff transition law, or yields a stable exceptional residue packet.",
+      "next_experiment": "Construct the problem-specific transition table or report the first collision witness.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-62",
+      "status": "proof_pressure_open",
+      "route": "TwinPrimeSieveTransitionClosure",
+      "proof_or_counterexample_mode": "symbolic-transition transfer",
+      "attempt": "Transfer TICKET62's rule: after a pre-replay separator is found, the next proof obligation is a lift-stable transition law or an explicit collision witness, not another diagnostic separator.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-61",
+        "source_route": "TwinPrimeSymbolicSieveSeparator",
+        "ticket62_transfer": "TwinPrimeSieveTransitionClosure",
+        "transition_gate": "pre-replay exact-gap separator must be closed under sieve-level lift",
+        "candidate_theorem": "Every twin-prime sieve separator state has a closed retained-mass transition law, or yields a stable exact-gap mass leak.",
+        "counterexample_target": "a sieve-level lift whose exact-gap label collides inside the same parity/error separator state",
+        "frontier_rule": "A separator can support proof only if the lift/height/cutoff transition is closed in the same coordinates or every failure is promoted to a named obstruction."
+      },
+      "obstruction": "This is a methodological transfer and does not solve the target problem. It raises the acceptance bar from finite separation to transition closure.",
+      "candidate_theorem": "Every twin-prime sieve separator state has a closed retained-mass transition law, or yields a stable exact-gap mass leak.",
+      "next_experiment": "Construct the problem-specific transition table or report the first collision witness.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}
