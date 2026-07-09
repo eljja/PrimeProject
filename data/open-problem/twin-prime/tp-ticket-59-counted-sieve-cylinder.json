@@ -1,0 +1,21 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-59",
+  "status": "proof_pressure_open",
+  "route": "TwinPrimeSieveCountedLiftCylinder",
+  "proof_or_counterexample_mode": "counted-cylinder transfer",
+  "attempt": "Transfer TICKET59's rule: after a finite boundary lift mismatch appears, group nearby lifted objects into counted cylinders before proposing an infinite theorem.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-58",
+    "source_route": "SieveBoundaryLiftStabilityOrGapEscape",
+    "ticket59_transfer": "TwinPrimeSieveCountedLiftCylinder",
+    "cylinder_gate": "sieve-level cylinders must preserve exact gap-2 retained mass or expose parity leakage",
+    "candidate_theorem": "Every exact-gap sieve lift cylinder is uniformly gap-retaining, uniformly leaking, or split by a named parity/error coordinate.",
+    "counterexample_target": "a counted sieve cylinder where exact gap-2 mass is absorbed by a higher-level parity leak",
+    "frontier_rule": "A proof candidate must show that every boundary cylinder is uniformly good, uniformly bad, or split by a named higher coordinate. Otherwise the finite boundary is under-specified."
+  },
+  "obstruction": "This is a methodology transfer, not a solution. It blocks promotion of finite boundary evidence until the lifted cylinder family is counted or symbolically partitioned.",
+  "candidate_theorem": "Every exact-gap sieve lift cylinder is uniformly gap-retaining, uniformly leaking, or split by a named parity/error coordinate.",
+  "next_experiment": "Define the problem-specific cylinder coordinates and search for a stable counter-cylinder.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

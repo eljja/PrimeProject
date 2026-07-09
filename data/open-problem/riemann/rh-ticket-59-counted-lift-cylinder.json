@@ -1,0 +1,21 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-59",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelCountedLiftCylinder",
+  "proof_or_counterexample_mode": "counted-cylinder transfer",
+  "attempt": "Transfer TICKET59's rule: after a finite boundary lift mismatch appears, group nearby lifted objects into counted cylinders before proposing an infinite theorem.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-58",
+    "source_route": "ZeroKernelLiftStabilityOrOffCriticalEscape",
+    "ticket59_transfer": "ZeroKernelCountedLiftCylinder",
+    "cylinder_gate": "height-window zero-kernel cylinders must preserve the positivity boundary or expose an off-critical packet",
+    "candidate_theorem": "Every zero-kernel lift cylinder is uniformly positive, uniformly escaping, or split by a named spectral coordinate with a strict rank.",
+    "counterexample_target": "a counted height cylinder where the positivity boundary prediction changes sign or stalls",
+    "frontier_rule": "A proof candidate must show that every boundary cylinder is uniformly good, uniformly bad, or split by a named higher coordinate. Otherwise the finite boundary is under-specified."
+  },
+  "obstruction": "This is a methodology transfer, not a solution. It blocks promotion of finite boundary evidence until the lifted cylinder family is counted or symbolically partitioned.",
+  "candidate_theorem": "Every zero-kernel lift cylinder is uniformly positive, uniformly escaping, or split by a named spectral coordinate with a strict rank.",
+  "next_experiment": "Define the problem-specific cylinder coordinates and search for a stable counter-cylinder.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

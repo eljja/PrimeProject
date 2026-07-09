@@ -52,6 +52,7 @@ TICKET55_SCHEMA = "primeproject.ticket55-phase5-valuation-gate-lab.v1"
 TICKET56_SCHEMA = "primeproject.ticket56-pre-gate-projection-escape-lab.v1"
 TICKET57_SCHEMA = "primeproject.ticket57-parametric-template-automaton-lab.v1"
 TICKET58_SCHEMA = "primeproject.ticket58-affine-boundary-lift-lab.v1"
+TICKET59_SCHEMA = "primeproject.ticket59-symbolic-lift-mismatch-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2979,6 +2980,103 @@ def main() -> int:
         return fail("collatz ticket58 must include boundary prediction mismatch examples")
     if "No Collatz proof" not in str(audit58.get("proof_boundary", "")):
         return fail("collatz ticket58 proof boundary must block proof overclaim")
+
+    ticket59_path = Path("data/open-problem/ticket59-symbolic-lift-mismatch-lab.json")
+    if not ticket59_path.exists():
+        return fail("missing ticket59 symbolic lift mismatch artifact")
+    ticket59 = read_json(ticket59_path)
+    if ticket59.get("schema") != TICKET59_SCHEMA:
+        return fail("ticket59 symbolic lift mismatch artifact has unexpected schema")
+    if ticket59.get("status") != "symbolic_lift_mismatch_open_no_resolution":
+        return fail("ticket59 symbolic lift mismatch artifact overstates resolution")
+    ticket59_attempts = ticket59.get("attempts", [])
+    if not isinstance(ticket59_attempts, list):
+        return fail("ticket59 attempts must be a list")
+    ticket59_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket59_attempts if isinstance(attempt, dict)}
+    missing_ticket59 = EXPECTED_PROBLEMS - set(ticket59_by_id)
+    if missing_ticket59:
+        return fail("ticket59 attempts missing problems: " + ", ".join(sorted(missing_ticket59)))
+    ticket59_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-59-counted-lift-cylinder.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-59-symbolic-lift-mismatch.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-59-counted-margin-cylinder.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-59-counted-sieve-cylinder.json"),
+    }
+    for problem_id, attempt in ticket59_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "selected_cylinder_cover_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket59 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket59 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket59 claim boundary is too weak")
+        path = ticket59_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket59 per-problem artifact")
+
+    collatz_ticket59 = ticket59_by_id.get("collatz", {})
+    cover59 = collatz_ticket59.get("bounded_result", {}).get("selected_low40_cylinder_cover", {})
+    if not isinstance(cover59, dict):
+        return fail("collatz ticket59 selected low40 cylinder cover missing")
+    if cover59.get("theorem_name") != "SymbolicLiftMismatchCylinderOrCounted40BitCover":
+        return fail("collatz ticket59 theorem name changed")
+    if int(cover59.get("cylinder_low_bits", -1)) != 40:
+        return fail("collatz ticket59 low-cylinder width changed")
+    if int(cover59.get("cylinder_extension_bits", -1)) != 8:
+        return fail("collatz ticket59 extension width changed")
+    if int(cover59.get("selected_cylinder_count", -1)) != 162:
+        return fail("collatz ticket59 selected cylinder count changed")
+    expected_replay59 = {
+        "verified_open_word": 100027,
+        "unverified_canonical_word": 99973,
+        "start_template_match": 3184,
+        "projection_escape": 3086,
+        "projection_target": 98,
+        "boundary_prediction_match": 28,
+        "boundary_prediction_mismatch": 70,
+    }
+    replay59 = cover59.get("replayed_sample_statistics", {})
+    observed_replay59 = {str(key): int(replay59.get(key, -1)) for key in expected_replay59}
+    if observed_replay59 != expected_replay59:
+        return fail("collatz ticket59 replayed sample statistics changed")
+    expected_aggregate59 = {
+        "tested_48bit_extensions": 41472,
+        "non_start_template_lift": 40937,
+        "start_template_match": 535,
+        "projection_escape": 207,
+        "projection_target": 328,
+        "boundary_prediction_match": 104,
+        "boundary_prediction_mismatch": 224,
+    }
+    aggregate59 = cover59.get("aggregate_cylinder_statistics", {})
+    observed_aggregate59 = {str(key): int(aggregate59.get(key, -1)) for key in expected_aggregate59}
+    if observed_aggregate59 != expected_aggregate59:
+        return fail("collatz ticket59 aggregate cylinder statistics changed")
+    expected_status59 = {
+        "mixed_outcome_cylinder": 58,
+        "projection_escape_only_cylinder": 64,
+        "uniform_boundary_match_cylinder": 5,
+        "uniform_boundary_mismatch_cylinder": 35,
+    }
+    observed_status59 = {
+        str(key): int(value)
+        for key, value in cover59.get("cylinder_status_counts", {}).items()
+    }
+    if observed_status59 != expected_status59:
+        return fail("collatz ticket59 cylinder status counts changed")
+    if int(cover59.get("boundary_mismatch_seed_cylinders", -1)) != 70:
+        return fail("collatz ticket59 mismatch seed cylinder count changed")
+    if int(cover59.get("boundary_mismatch_seed_cylinders_uniform", -1)) != 35:
+        return fail("collatz ticket59 uniform mismatch cylinder count changed")
+    if int(cover59.get("mixed_or_unstable_cylinder_count", -1)) != 58:
+        return fail("collatz ticket59 mixed cylinder count changed")
+    if int(cover59.get("full_period_escape_count", -1)) != 0:
+        return fail("collatz ticket59 must not find a full-period escape")
+    if "does not prove Collatz" not in str(cover59.get("proof_boundary", "")):
+        return fail("collatz ticket59 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

@@ -676,6 +676,48 @@ Required artifacts:
 - explicit proof boundary saying no Collatz proof and no Collatz counterexample unless the result covers all trajectories or supplies a genuine replayable counterexample
 ```
 
+## Latest Continuation After TICKET-59
+
+TICKET-59 supersedes the TICKET-58 continuation target. It does not solve Collatz, but it upgrades the TICKET58 point mismatch into exact selected low40-to-48 cylinder facts and exposes the next missing coordinate.
+
+```text
+selected low40 cylinders: 162
+tested 48-bit extensions: 41,472
+48-bit start-template lifts: 535
+projection escapes inside selected cylinders: 207
+projection-target lifts inside selected cylinders: 328
+boundary prediction mismatches: 224
+boundary prediction matches: 104
+mismatch-seed cylinders: 70
+uniform mismatch cylinders: 35
+mixed/unstable cylinders: 58
+full lasso period escapes: 0
+```
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-60 MixedCylinderSeparatorOrAutomatonCountedCover
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-59. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-59 takes the TICKET58 deterministic replay and groups every boundary-mismatch and boundary-match seed into low40 cylinders, then enumerates all 256 possible 48-bit extensions for each selected cylinder. Across 162 selected low40 cylinders, 41,472 extensions are tested. The selected cylinders contain 535 48-bit start-template lifts, 207 projection escapes, 328 projection-target lifts, 224 boundary mismatches, and 104 boundary matches. Of 70 mismatch-seed cylinders, 35 are uniform mismatch cylinders, but 58 selected cylinders are mixed/unstable. No full-period lasso replay is found. Therefore low40 is a stronger finite coordinate than a point sample, but it is not sufficient for a proof.
+
+Goal: build CO-TICKET-60. Find the missing coordinate that separates the mixed low40 cylinders, or replace selected-cylinder enumeration with an automaton-counted cover. Acceptable success outcomes are: (a) a symbolic separator that makes every selected mixed cylinder deterministic and names the coordinate needed for a theorem, (b) an automaton-counted cover that classifies a larger cylinder family without blind enumeration, or (c) a full-period affine-boundary escape witness with a replayable nondecreasing cycle.
+
+Required artifacts:
+- data/open-problem/ticket60-mixed-cylinder-separator-lab.json
+- data/open-problem/collatz/co-ticket-60-mixed-cylinder-separator.json
+- per-problem transfer artifacts for RH, Goldbach, Twin Prime
+- updated docs/proof-or-counterexample-program.md
+- updated GitHub Pages card
+- explicit proof boundary saying no Collatz proof and no Collatz counterexample unless the result covers all trajectories or supplies a genuine replayable counterexample
+```
+
 ## Latest Continuation After TICKET-58
 
 TICKET-58 supersedes the TICKET-57 continuation target. It does not solve Collatz, but it refutes the next weak proof route: the first deterministic exact32 affine boundary does not lift unchanged to the replayed 48-bit sample.

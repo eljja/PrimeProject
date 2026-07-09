@@ -3132,3 +3132,73 @@ Proof boundary:
 ```text
 TICKET-58 does not prove or disprove any of the four open problems. It refutes one sampled lift-stability shortcut and finds no sampled full-period escape; the remaining obligation is symbolic coverage of projection escapes/lift mismatches or a genuine full-period counterexample.
 ```
+
+### Ticket 59: Symbolic lift mismatch cylinder audit
+
+CO-TICKET-59 SymbolicLiftMismatchCylinderOrCounted40BitCover
+
+Artifacts:
+
+```text
+data/open-problem/ticket59-symbolic-lift-mismatch-lab.json
+data/open-problem/collatz/co-ticket-59-symbolic-lift-mismatch.json
+data/open-problem/riemann/rh-ticket-59-counted-lift-cylinder.json
+data/open-problem/goldbach/gb-ticket-59-counted-margin-cylinder.json
+data/open-problem/twin-prime/tp-ticket-59-counted-sieve-cylinder.json
+```
+
+Status:
+
+```text
+symbolic_lift_mismatch_open_no_resolution
+```
+
+한국어 요약: TICKET-59는 TICKET-58의 lift mismatch를 단일 샘플로 두지 않고 low40 cylinder 단위로 묶는다. 각 selected low40 cylinder마다 가능한 256개 48-bit extension을 전부 열거한다. 선택된 162개 cylinder에서 41,472개 extension을 검사했고, 그중 535개가 48-bit start-template lift였다. 이 안에서 projection escape는 207개, projection-target lift는 328개, boundary mismatch는 224개, boundary match는 104개였다. mismatch seed cylinder 70개 중 35개는 uniform mismatch였지만, 58개 selected cylinder는 mixed outcome이었다. 따라서 “TICKET58 mismatch는 단일 우연 샘플일 뿐”이라는 약한 반론은 줄어들지만, low40만으로는 symbolic proof coordinate가 충분하지 않다는 장애물도 동시에 생긴다.
+
+English summary: TICKET-59 promotes the TICKET-58 point mismatch into selected counted low40-to-48 cylinder audits. It exactly enumerates 256 possible 48-bit extensions for each selected low40 cylinder. This strengthens the evidence from point samples to finite cylinder facts, but it also shows that low40 is not yet a complete symbolic coordinate because many selected cylinders have mixed outcomes.
+
+Key Collatz result:
+
+```text
+selected low40 cylinders: 162
+tested 48-bit extensions: 41,472
+48-bit start-template lifts: 535
+projection escapes inside selected cylinders: 207
+projection-target lifts inside selected cylinders: 328
+boundary prediction mismatches: 224
+boundary prediction matches: 104
+mismatch-seed cylinders: 70
+uniform mismatch cylinders: 35
+mixed/unstable cylinders: 58
+full lasso period escapes: 0
+```
+
+Discarded route:
+
+```text
+Treat one 48-bit mismatch as an isolated anecdote, or assume low40 cylinders are stable without enumerating their 48-bit extensions.
+```
+
+Candidate theorem still missing:
+
+```text
+Every projection-target lift cylinder is either uniformly closed by the exact32 boundary prediction, uniformly refutes that prediction, or carries an explicit higher coordinate that separates the outcomes.
+```
+
+Counterexample target:
+
+```text
+A counted or symbolic cylinder with full-period replay, or a mixed cylinder that forces an additional coordinate not present in the current affine boundary.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-60 MixedCylinderSeparatorOrAutomatonCountedCover
+```
+
+Proof boundary:
+
+```text
+TICKET-59 does not prove or disprove any of the four open problems. It is an exact enumeration of selected low40-to-48 cylinders induced by TICKET58, not an exhaustive 40-bit or 48-bit theorem.
+```
