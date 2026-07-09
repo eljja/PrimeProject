@@ -53,7 +53,7 @@
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
     "claim_language_scanned_files": 19,
-    "claim_language_scanned_lines": 11586,
+    "claim_language_scanned_lines": 11697,
     "claim_language_triggered_mentions": 117,
     "claim_language_guarded_mentions": 117,
     "claim_language_failures": 0,
@@ -244,6 +244,13 @@
           "state": "open",
           "measure": "41,472 extensions / 58 mixed cylinders / 0 full periods",
           "proof": "TICKET-59 turns sampled lift mismatches into counted low40-to-48 cylinders and shows low40 is still not a complete coordinate"
+        },
+        {
+          "marker": "20",
+          "title": "Failure-offset separator",
+          "state": "open",
+          "measure": "58 mixed cylinders / 210 lifts / first joint separator",
+          "proof": "TICKET-60 finds low40 + failure_offset separates selected mixed cylinders but remains replay-derived"
         }
       ],
       "evidence_flow": [
@@ -363,11 +370,11 @@
         },
         {
           "layer": "Open-Proof",
-          "score": 59,
+          "score": 60,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "data/open-problem/ticket53-symbolic-terminal-theorem-lab.json", "data/open-problem/ticket54-new-template-family-lab.json", "data/open-problem/ticket55-phase5-valuation-gate-lab.json", "data/open-problem/ticket56-pre-gate-projection-escape-lab.json", "data/open-problem/ticket57-parametric-template-automaton-lab.json", "data/open-problem/ticket58-affine-boundary-lift-lab.json", "data/open-problem/ticket59-symbolic-lift-mismatch-lab.json", "docs/proof-or-counterexample-program.md"],
-          "gate": "Selected low40-to-48 cylinders are counted exactly, but 58 mixed cylinders show the coordinate is still incomplete; no full proof claim",
-          "proof": "The proof workbench now targets a mixed-cylinder separator or an automaton-counted cover."
+          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "data/open-problem/ticket53-symbolic-terminal-theorem-lab.json", "data/open-problem/ticket54-new-template-family-lab.json", "data/open-problem/ticket55-phase5-valuation-gate-lab.json", "data/open-problem/ticket56-pre-gate-projection-escape-lab.json", "data/open-problem/ticket57-parametric-template-automaton-lab.json", "data/open-problem/ticket58-affine-boundary-lift-lab.json", "data/open-problem/ticket59-symbolic-lift-mismatch-lab.json", "data/open-problem/ticket60-mixed-cylinder-separator-lab.json", "docs/proof-or-counterexample-program.md"],
+          "gate": "The selected mixed cylinders separate under failure_offset, but that coordinate is replay-derived; no full proof claim",
+          "proof": "The proof workbench now targets a symbolic failure-offset predictor or automaton-counted cover."
         }
       ]
     },
@@ -466,6 +473,11 @@
         "label": "Cylinder coordinate gap",
         "impact": "TICKET-59 exhaustively enumerates 162 selected low40-to-48 cylinders, strengthening the mismatch evidence while showing low40 leaves 58 mixed-outcome cylinders.",
         "metric": "41,472 extensions / 58 mixed"
+      },
+      {
+        "label": "Failure-offset separator",
+        "impact": "TICKET-60 shows low40 plus failure_offset deterministically separates the selected mixed cylinders, turning the next target into a symbolic predictor for that offset.",
+        "metric": "58 mixed / 210 lifts"
       }
     ],
     "research_delta": {
@@ -503,7 +515,7 @@
         {
           "track": "Open proof search",
           "before": "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.",
-          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root and closes it; TICKET-53 explains all known terminal closures by a symbolic mismatch theorem and discards the extracted lasso family; TICKET-54 extracts Phase5ValuationGate as the strongest remaining bounded family; TICKET-55 proves the known gate crossers tunnel into the terminal no-go; TICKET-56 closes the exact 32-bit partition but refutes simple projection-closure globalization; TICKET-57 shows exact32 outcomes need affine boundary coordinates; TICKET-58 refutes unchanged exact32 affine-boundary lifting in the replayed 48-bit sample; TICKET-59 counts selected low40-to-48 cylinders and shows the next missing coordinate is inside mixed cylinders.",
+          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root and closes it; TICKET-53 explains all known terminal closures by a symbolic mismatch theorem and discards the extracted lasso family; TICKET-54 extracts Phase5ValuationGate as the strongest remaining bounded family; TICKET-55 proves the known gate crossers tunnel into the terminal no-go; TICKET-56 closes the exact 32-bit partition but refutes simple projection-closure globalization; TICKET-57 shows exact32 outcomes need affine boundary coordinates; TICKET-58 refutes unchanged exact32 affine-boundary lifting in the replayed 48-bit sample; TICKET-59 counts selected low40-to-48 cylinders and shows the next missing coordinate is inside mixed cylinders; TICKET-60 identifies failure_offset as the first deterministic separator but leaves symbolic prediction open.",
           "state": "open"
         }
       ],

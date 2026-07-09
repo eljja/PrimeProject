@@ -1,0 +1,21 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-60",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelMixedCylinderSeparator",
+  "proof_or_counterexample_mode": "separator-ladder transfer",
+  "attempt": "Transfer TICKET60's rule: when a finite boundary cylinder remains mixed, do not promote it. Search for a named separator coordinate and then prove that coordinate symbolically.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-59",
+    "source_route": "ZeroKernelCountedLiftCylinder",
+    "ticket60_transfer": "ZeroKernelMixedCylinderSeparator",
+    "separator_gate": "mixed height-window zero-kernel cylinders need a spectral separator before positivity can be promoted",
+    "candidate_theorem": "Every mixed zero-kernel lift cylinder is split by a named spectral coordinate with a strict positivity rank, or yields an off-critical escape packet.",
+    "counterexample_target": "a zero-kernel cylinder whose positivity ambiguity survives every tested separator",
+    "frontier_rule": "A mixed finite cylinder is either evidence for a missing coordinate or a counterexample target. It is never a proof until a symbolic separator and infinite bridge are supplied."
+  },
+  "obstruction": "This is a proof-discipline transfer, not a solution. It prevents finite mixed evidence from being misread as an infinite theorem.",
+  "candidate_theorem": "Every mixed zero-kernel lift cylinder is split by a named spectral coordinate with a strict positivity rank, or yields an off-critical escape packet.",
+  "next_experiment": "Build the problem-specific separator ladder and reject any route that leaves mixed cylinders unexplained.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

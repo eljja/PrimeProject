@@ -53,6 +53,7 @@ TICKET56_SCHEMA = "primeproject.ticket56-pre-gate-projection-escape-lab.v1"
 TICKET57_SCHEMA = "primeproject.ticket57-parametric-template-automaton-lab.v1"
 TICKET58_SCHEMA = "primeproject.ticket58-affine-boundary-lift-lab.v1"
 TICKET59_SCHEMA = "primeproject.ticket59-symbolic-lift-mismatch-lab.v1"
+TICKET60_SCHEMA = "primeproject.ticket60-mixed-cylinder-separator-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -3077,6 +3078,111 @@ def main() -> int:
         return fail("collatz ticket59 must not find a full-period escape")
     if "does not prove Collatz" not in str(cover59.get("proof_boundary", "")):
         return fail("collatz ticket59 proof boundary must block proof overclaim")
+
+    ticket60_path = Path("data/open-problem/ticket60-mixed-cylinder-separator-lab.json")
+    if not ticket60_path.exists():
+        return fail("missing ticket60 mixed cylinder separator artifact")
+    ticket60 = read_json(ticket60_path)
+    if ticket60.get("schema") != TICKET60_SCHEMA:
+        return fail("ticket60 mixed cylinder separator artifact has unexpected schema")
+    if ticket60.get("status") != "mixed_cylinder_separator_open_no_resolution":
+        return fail("ticket60 mixed cylinder separator artifact overstates resolution")
+    ticket60_attempts = ticket60.get("attempts", [])
+    if not isinstance(ticket60_attempts, list):
+        return fail("ticket60 attempts must be a list")
+    ticket60_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket60_attempts if isinstance(attempt, dict)}
+    missing_ticket60 = EXPECTED_PROBLEMS - set(ticket60_by_id)
+    if missing_ticket60:
+        return fail("ticket60 attempts missing problems: " + ", ".join(sorted(missing_ticket60)))
+    ticket60_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-60-mixed-cylinder-separator.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-60-mixed-cylinder-separator.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-60-mixed-margin-separator.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-60-mixed-sieve-separator.json"),
+    }
+    for problem_id, attempt in ticket60_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "mixed_cylinder_separator_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket60 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket60 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket60 claim boundary is too weak")
+        path = ticket60_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket60 per-problem artifact")
+
+    collatz_ticket60 = ticket60_by_id.get("collatz", {})
+    audit60 = collatz_ticket60.get("bounded_result", {}).get("mixed_cylinder_separator_audit", {})
+    if not isinstance(audit60, dict):
+        return fail("collatz ticket60 mixed cylinder separator audit missing")
+    if audit60.get("theorem_name") != "MixedCylinderSeparatorOrAutomatonCountedCover":
+        return fail("collatz ticket60 theorem name changed")
+    expected_core60 = {
+        "selected_low40_cylinder_count": 162,
+        "selected_start_template_lift_count": 535,
+        "mixed_cylinder_count": 58,
+        "mixed_start_template_lift_count": 210,
+    }
+    observed_core60 = {str(key): int(audit60.get(key, -1)) for key in expected_core60}
+    if observed_core60 != expected_core60:
+        return fail("collatz ticket60 core counts changed")
+    expected_status60 = {
+        "mixed_outcome_cylinder": 58,
+        "projection_escape_only_cylinder": 64,
+        "uniform_boundary_match_cylinder": 5,
+        "uniform_boundary_mismatch_cylinder": 35,
+    }
+    observed_status60 = {
+        str(key): int(value)
+        for key, value in audit60.get("cylinder_status_counts", {}).items()
+    }
+    if observed_status60 != expected_status60:
+        return fail("collatz ticket60 cylinder status counts changed")
+    expected_outcome60 = {
+        "fail_offset_1": 269,
+        "fail_offset_2": 144,
+        "fail_offset_3": 60,
+        "fail_offset_4": 35,
+        "fail_offset_5": 27,
+    }
+    observed_outcome60 = {
+        str(key): int(value)
+        for key, value in audit60.get("outcome_counts", {}).items()
+    }
+    if observed_outcome60 != expected_outcome60:
+        return fail("collatz ticket60 outcome counts changed")
+    expected_prediction60 = {
+        "boundary_match": 104,
+        "boundary_mismatch": 224,
+        "projection_escape": 207,
+    }
+    observed_prediction60 = {
+        str(key): int(value)
+        for key, value in audit60.get("prediction_counts", {}).items()
+    }
+    if observed_prediction60 != expected_prediction60:
+        return fail("collatz ticket60 prediction counts changed")
+    mixed_ladder60 = audit60.get("mixed_cylinder_separator_ladder", {})
+    if mixed_ladder60.get("first_joint_deterministic_separator") != "low40_plus_failure_offset":
+        return fail("collatz ticket60 first joint separator changed")
+    outcome_ladder60 = mixed_ladder60.get("outcome_ladder", [])
+    if not isinstance(outcome_ladder60, list) or len(outcome_ladder60) < 10:
+        return fail("collatz ticket60 missing outcome separator ladder")
+    low40_only60 = next((row for row in outcome_ladder60 if row.get("separator") == "low40_only"), None)
+    if not isinstance(low40_only60, dict) or int(low40_only60.get("collision_group_count", -1)) != 58:
+        return fail("collatz ticket60 low40-only collision count changed")
+    prefix60 = next((row for row in outcome_ladder60 if row.get("separator") == "low40_plus_certificate_prefix_length"), None)
+    if not isinstance(prefix60, dict) or int(prefix60.get("collision_group_count", -1)) != 36:
+        return fail("collatz ticket60 prefix-length collision count changed")
+    failure_offset60 = next((row for row in outcome_ladder60 if row.get("separator") == "low40_plus_failure_offset"), None)
+    if not isinstance(failure_offset60, dict) or not failure_offset60.get("deterministic"):
+        return fail("collatz ticket60 failure-offset separator must be deterministic")
+    if "does not prove Collatz" not in str(audit60.get("proof_boundary", "")):
+        return fail("collatz ticket60 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

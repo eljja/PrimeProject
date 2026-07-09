@@ -3202,3 +3202,72 @@ Proof boundary:
 ```text
 TICKET-59 does not prove or disprove any of the four open problems. It is an exact enumeration of selected low40-to-48 cylinders induced by TICKET58, not an exhaustive 40-bit or 48-bit theorem.
 ```
+
+### Ticket 60: Mixed-cylinder separator audit
+
+CO-TICKET-60 MixedCylinderSeparatorOrAutomatonCountedCover
+
+Artifacts:
+
+```text
+data/open-problem/ticket60-mixed-cylinder-separator-lab.json
+data/open-problem/collatz/co-ticket-60-mixed-cylinder-separator.json
+data/open-problem/riemann/rh-ticket-60-mixed-cylinder-separator.json
+data/open-problem/goldbach/gb-ticket-60-mixed-margin-separator.json
+data/open-problem/twin-prime/tp-ticket-60-mixed-sieve-separator.json
+```
+
+Status:
+
+```text
+mixed_cylinder_separator_open_no_resolution
+```
+
+한국어 요약: TICKET-60은 TICKET-59에서 남은 58개 mixed low40 cylinder를 대상으로 separator ladder를 만든다. 선택된 전체 집합은 low40 cylinder 162개와 start-template lift 535개이고, mixed cylinder 내부에는 lift 210개가 있다. `low40`만 쓰면 mixed cylinder 58개가 모두 모호하고, `certificate_prefix_length`를 더해도 mixed outcome collision group이 36개 남는다. 처음으로 outcome과 boundary prediction label을 동시에 결정적으로 가르는 좌표는 `low40 + failure_offset`이다. 그러나 `failure_offset`은 trajectory replay를 통해 얻는 진단 좌표이므로, 이것만으로는 증명이 아니다. 다음 목표는 이 offset을 사전에 예측하는 symbolic transition theorem 또는 automaton-counted cover다.
+
+English summary: TICKET-60 identifies the first tested separator for the mixed TICKET59 cylinders. `low40 + failure_offset` deterministically separates both observed outcome and boundary-match status on the selected population. This is a useful coordinate discovery, but it is replay-derived; a proof needs a non-circular symbolic predictor for failure offset.
+
+Key Collatz result:
+
+```text
+selected low40 cylinders: 162
+selected start-template lifts: 535
+mixed cylinders: 58
+mixed start-template lifts: 210
+low40-only mixed outcome collisions: 58 groups / 210 ambiguous rows
+low40 + certificate_prefix_length: 36 outcome collision groups / 81 ambiguous rows
+first joint deterministic separator: low40_plus_failure_offset
+first high-extension low-bit separator: high_extension mod 2^4
+first high-extension top-bit separator: top 6 bits
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Assume low40 cylinder identity is enough to classify higher-bit outcomes. TICKET60 rejects this because 58 selected cylinders remain mixed under low40 alone.
+```
+
+Candidate theorem still missing:
+
+```text
+Every mixed low40 cylinder is separated by a bounded higher-coordinate signature, and that signature extends to an automaton-counted cover with no full-period nondecreasing cycle.
+```
+
+Counterexample target:
+
+```text
+A mixed cylinder whose ambiguity survives every bounded separator short of exact high-extension identity, or a full-period replay inside a separated cylinder.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-61 SymbolicFailureOffsetPredictorOrCountedCover
+```
+
+Proof boundary:
+
+```text
+TICKET-60 does not prove or disprove any of the four open problems. It names a replay-derived separator and refutes under-specified boundary proofs; the infinite symbolic transition theorem remains open.
+```

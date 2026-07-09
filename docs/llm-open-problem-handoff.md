@@ -676,6 +676,46 @@ Required artifacts:
 - explicit proof boundary saying no Collatz proof and no Collatz counterexample unless the result covers all trajectories or supplies a genuine replayable counterexample
 ```
 
+## Latest Continuation After TICKET-60
+
+TICKET-60 supersedes the TICKET-59 continuation target. It does not solve Collatz, but it identifies the first tested separator for the mixed low40 cylinders: `low40 + failure_offset`.
+
+```text
+selected low40 cylinders: 162
+selected start-template lifts: 535
+mixed cylinders: 58
+mixed start-template lifts: 210
+low40-only mixed outcome collisions: 58 groups / 210 ambiguous rows
+low40 + certificate_prefix_length: 36 outcome collision groups / 81 ambiguous rows
+first joint deterministic separator: low40_plus_failure_offset
+first high-extension low-bit separator: high_extension mod 2^4
+first high-extension top-bit separator: top 6 bits
+```
+
+Current best Collatz continuation:
+
+```text
+CO-TICKET-61 SymbolicFailureOffsetPredictorOrCountedCover
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-60. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-60 analyzes the 58 mixed low40 cylinders left by TICKET-59. The selected population has 162 low40 cylinders and 535 start-template lifts; the mixed cylinders contain 210 lifts. low40 alone leaves every mixed cylinder ambiguous. low40 plus certificate_prefix_length still leaves 36 outcome collision groups and 81 ambiguous rows. The first tested joint deterministic separator is low40_plus_failure_offset. This separates outcome and boundary-match status on the selected population, but failure_offset is replay-derived and therefore not yet a non-circular proof coordinate.
+
+Goal: build CO-TICKET-61. Replace the replay-derived failure_offset separator with a symbolic predictor or an automaton-counted cover. Acceptable success outcomes are: (a) a symbolic transition theorem predicting failure_offset from pre-replay coordinates, (b) an automaton-counted cover that classifies a larger cylinder family without using replay-derived failure labels, or (c) a full-period affine-boundary escape witness with a replayable nondecreasing cycle.
+
+Required artifacts:
+- data/open-problem/ticket61-symbolic-failure-offset-lab.json
+- data/open-problem/collatz/co-ticket-61-symbolic-failure-offset.json
+- per-problem transfer artifacts for RH, Goldbach, Twin Prime
+- updated docs/proof-or-counterexample-program.md
+- updated GitHub Pages card
+- explicit proof boundary saying no Collatz proof and no Collatz counterexample unless the result covers all trajectories or supplies a genuine replayable counterexample
+```
+
 ## Latest Continuation After TICKET-59
 
 TICKET-59 supersedes the TICKET-58 continuation target. It does not solve Collatz, but it upgrades the TICKET58 point mismatch into exact selected low40-to-48 cylinder facts and exposes the next missing coordinate.

@@ -1,0 +1,21 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-60",
+  "status": "proof_pressure_open",
+  "route": "TwinPrimeMixedSieveSeparator",
+  "proof_or_counterexample_mode": "separator-ladder transfer",
+  "attempt": "Transfer TICKET60's rule: when a finite boundary cylinder remains mixed, do not promote it. Search for a named separator coordinate and then prove that coordinate symbolically.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-59",
+    "source_route": "TwinPrimeSieveCountedLiftCylinder",
+    "ticket60_transfer": "TwinPrimeMixedSieveSeparator",
+    "separator_gate": "mixed exact-gap sieve cylinders need a parity/error separator before gap-2 mass can be promoted",
+    "candidate_theorem": "Every mixed exact-gap sieve cylinder is split by an explicit parity-leakage coordinate, or yields a stable exact-gap mass leak.",
+    "counterexample_target": "a sieve cylinder whose exact gap-2 mass ambiguity survives every tested separator",
+    "frontier_rule": "A mixed finite cylinder is either evidence for a missing coordinate or a counterexample target. It is never a proof until a symbolic separator and infinite bridge are supplied."
+  },
+  "obstruction": "This is a proof-discipline transfer, not a solution. It prevents finite mixed evidence from being misread as an infinite theorem.",
+  "candidate_theorem": "Every mixed exact-gap sieve cylinder is split by an explicit parity-leakage coordinate, or yields a stable exact-gap mass leak.",
+  "next_experiment": "Build the problem-specific separator ladder and reject any route that leaves mixed cylinders unexplained.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}
