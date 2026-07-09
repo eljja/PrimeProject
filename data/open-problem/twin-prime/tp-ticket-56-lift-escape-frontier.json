@@ -1,0 +1,19 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-56",
+  "status": "proof_pressure_open",
+  "route": "GapSelectorLiftEscapeOrParametricSieveModel",
+  "proof_or_counterexample_mode": "bounded partition plus model-escape transfer",
+  "attempt": "Transfer TICKET56's rule: a finite partition can be retained only as a local theorem; before turning it into a proof, test whether the model is closed under the next natural lift or projection.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-55",
+    "source_route": "GapGateToTerminalNoGoTunnel",
+    "ticket56_transfer": "GapSelectorLiftEscapeOrParametricSieveModel",
+    "candidate_theorem": "A finite exact-gap selector partition must either be closed under larger sieve levels or be replaced by a parametric parity-sensitive sieve theorem.",
+    "frontier_rule": "If a higher-scale object can project outside the finite partition model, the proof route must be parametric or must promote the escape object as the next counterexample target."
+  },
+  "obstruction": "This transfer is methodological. It does not solve the target problem; it blocks finite-model closure from being used as an infinite theorem when projection or lift escape remains possible.",
+  "candidate_theorem": "A finite exact-gap selector partition must either be closed under larger sieve levels or be replaced by a parametric parity-sensitive sieve theorem.",
+  "next_experiment": "Construct the problem-specific parametric state model or find a lift escape witness.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

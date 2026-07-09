@@ -585,6 +585,55 @@ Required output:
 - explicit proof boundary saying no Collatz proof and no Collatz counterexample unless an infinite replay theorem is supplied
 ```
 
+## Latest Continuation After TICKET-56
+
+TICKET-56 supersedes the TICKET-55 continuation target. It keeps the TICKET55 gate tunnel, closes the exact 32-bit extracted lasso route as a finite partition, and rejects simple projection closure as a global proof route.
+
+Current strongest Collatz result:
+
+```text
+local theorem: Exact32StartTemplateLassoPartition
+exact 32-bit start-template matches: 69,092
+pre-gate first failures: 69,090
+failure offsets: 1 -> 34,458; 2 -> 17,301; 3 -> 8,649; 4 -> 4,310; 5 -> 4,372
+all pre-gate failures are next-valuation mismatch: true
+phase-5 failure next_valuation=10 count: 0
+gate crossers: 2
+gate crossers terminally closed by TICKET55: 2
+partition complete for exact32 start-template: true
+projection closure: refuted by sampled 48-bit depth-15 witness
+escape witness: 171,308,122,831,719
+escape projection32 template: [0,[1,2,1,1],103,2]
+```
+
+Discarded route:
+
+```text
+Do not try to prove Collatz by partitioning only the exact 32-bit start-template population and assuming every higher-bit start-template root projects back into that same 32-bit template. TICKET56 records a sampled 48-bit witness that violates this projection-closure shortcut.
+```
+
+Retained route:
+
+```text
+CO-TICKET-57 ParametricTemplateAutomatonOrEscapeCycle
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-56. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-56 closes the exact 32-bit extracted Collatz lasso route as a finite partition. The exact 32-bit start-template population has 69,092 matches. Of these, 69,090 fail at offsets 1-5 by next-valuation mismatch, and the remaining 2 phase-5 gate crossers are terminally closed by TICKET55. However, TICKET56 also refutes simple projection closure: the sampled 48-bit depth-15 witness 171308122831719 projects to 32-bit template [0,[1,2,1,1],103,2], outside the exact32 start-template model. Therefore a fixed 32-bit partition cannot be promoted to a global proof by projection.
+
+Goal: build CO-TICKET-57. Construct a parametric template-state automaton over base modulus, phase, tail word, residue class, and pending valuation, or find a higher-bit escape cycle that avoids all known terminal no-go tunnels. Do not resample the TICKET53/TICKET55 closed routes. Do not treat exact32 closure as a proof. The useful output is either (a) a formal candidate theorem with a well-founded rank over all template lifts, or (b) a replayable escape witness that survives at least one full lasso period and is not covered by TICKET53/TICKET55/TICKET56.
+
+Required artifacts:
+- data/open-problem/ticket57-parametric-template-automaton-lab.json
+- data/open-problem/collatz/co-ticket-57-parametric-template-automaton.json
+- updated docs/proof-or-counterexample-program.md
+- updated GitHub Pages card
+```
+
 ## Latest Continuation After TICKET-55
 
 TICKET-55 supersedes the TICKET-54 continuation target for the current extracted low-lift Collatz family. It does not solve Collatz, but it closes the known phase-5 gate-crossing route into the TICKET53 terminal no-go.
@@ -617,8 +666,9 @@ Known result: TICKET-55 proves a local gate-to-terminal tunnel for the extracted
 Goal: build CO-TICKET-56. Do not resample the TICKET53 terminal family or the already closed phase-5 gate crossers. Attack the remaining pre-gate failure population or escape the current low-lift start-template model. Acceptable routes: derive a residue-class theorem that explains why the 69,090 exact 32-bit starts fail before/at phase 5; construct a parametric theorem for all base moduli; or find a root outside the current low-lift template model that crosses a finite gate and avoids every known terminal no-go tunnel.
 
 Required output:
-- data/open-problem/ticket56-pregate-residue-closure-lab.json
-- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- data/open-problem/ticket56-pre-gate-projection-escape-lab.json
+- data/open-problem/collatz/co-ticket-56-pre-gate-projection-escape.json
+- per-problem transfer artifacts for RH, Goldbach, Twin Prime
 - docs/proof-or-counterexample-program.md update
 - GitHub Pages card update
 - explicit proof boundary saying no Collatz proof and no Collatz counterexample unless the result covers all trajectories or supplies a genuine replayable counterexample

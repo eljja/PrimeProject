@@ -2908,3 +2908,76 @@ Proof boundary:
 ```text
 TICKET-55 does not prove or disprove any of the four open problems. It closes the extracted low-lift lasso route for the exact 32-bit start-template population and the known 48-bit sampled gate-crosser, but it does not cover every Collatz trajectory, every base modulus, or every possible template family.
 ```
+
+### Ticket 56: Pre-gate partition and projection escape
+
+Generated artifact:
+
+```text
+data/open-problem/ticket56-pre-gate-projection-escape-lab.json
+```
+
+Per-problem artifacts:
+
+```text
+data/open-problem/riemann/rh-ticket-56-projection-escape-frontier.json
+data/open-problem/collatz/co-ticket-56-pre-gate-projection-escape.json
+data/open-problem/goldbach/gb-ticket-56-lift-escape-frontier.json
+data/open-problem/twin-prime/tp-ticket-56-lift-escape-frontier.json
+```
+
+Aggregate verdict:
+
+```text
+pre_gate_projection_escape_open_no_resolution
+```
+
+한국어 요약: TICKET-56은 TICKET-55 이후 남은 가장 쉬운 오해를 제거한다. exact 32-bit start-template 안에서는 현재 추출된 lasso route가 완전히 분할된다. `69,092`개 후보 중 `69,090`개는 offset 1-5에서 next-valuation mismatch로 실패하고, 남은 `2`개 gate crosser는 TICKET-55에서 terminal no-go로 닫혔다. 하지만 이 finite partition을 전역 귀납으로 올리는 것은 틀린 경로다. TICKET-52에서 기록된 48-bit depth-15 witness `171308122831719`는 32-bit projection이 `[0,[1,2,1,1],103,2]`라서 exact32 start-template 밖으로 벗어난다.
+
+English summary: TICKET-56 closes the exact 32-bit extracted-lasso route as a finite partition, then rejects the simple projection-closure route. A higher-bit start-template witness can project outside the fixed 32-bit start-template model, so the next theorem must be parametric in base modulus and template state.
+
+Exact Collatz audit:
+
+```text
+local theorem: Exact32StartTemplateLassoPartition
+exact 32-bit start-template matches: 69,092
+pre-gate first failures: 69,090
+failure offsets: 1 -> 34,458; 2 -> 17,301; 3 -> 8,649; 4 -> 4,310; 5 -> 4,372
+all pre-gate failures are next-valuation mismatch: true
+phase-5 observed next_valuation=10 among failures: 0
+gate crossers: 2
+partition sum: 69,092
+partition complete for exact32 start-template: true
+projection-closure status: refuted by sampled 48-bit depth-15 witness
+escape witness: 171,308,122,831,719
+```
+
+Discarded route:
+
+```text
+A proof that partitions only the exact 32-bit start-template population and assumes every higher-bit start-template root projects back into that same 32-bit template.
+```
+
+Candidate theorem still missing:
+
+```text
+For every phase-compatible base modulus, every extracted-lasso start-template state either fails a finite next-valuation gate, enters a terminal no-go tunnel, or maps into a strictly smaller closed template family under a well-founded parametric rank.
+```
+
+Counterexample target:
+
+```text
+Find a higher-bit start-template root outside the exact32 projection model that reaches a finite gate, avoids the TICKET53/TICKET55 terminal tunnel, and replays through at least one full lasso period.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-57 ParametricTemplateAutomatonOrEscapeCycle
+```
+
+Proof boundary:
+
+```text
+TICKET-56 does not prove or disprove any of the four open problems. It proves only a finite partition for one extracted Collatz lasso route at 32 bits and identifies why simple projection-based globalization fails.
+```

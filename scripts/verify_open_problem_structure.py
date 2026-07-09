@@ -49,6 +49,7 @@ TICKET52_SCHEMA = "primeproject.ticket52-frontier-budget-lab.v1"
 TICKET53_SCHEMA = "primeproject.ticket53-symbolic-terminal-theorem-lab.v1"
 TICKET54_SCHEMA = "primeproject.ticket54-new-template-family-lab.v1"
 TICKET55_SCHEMA = "primeproject.ticket55-phase5-valuation-gate-lab.v1"
+TICKET56_SCHEMA = "primeproject.ticket56-pre-gate-projection-escape-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -2701,6 +2702,101 @@ def main() -> int:
         return fail("collatz ticket55 sampled gate crosser must close terminally")
     if "No Collatz proof" not in str(audit55.get("proof_boundary", "")):
         return fail("collatz ticket55 proof boundary must block proof overclaim")
+
+    ticket56_path = Path("data/open-problem/ticket56-pre-gate-projection-escape-lab.json")
+    if not ticket56_path.exists():
+        return fail("missing ticket56 pre-gate projection escape artifact")
+    ticket56 = read_json(ticket56_path)
+    if ticket56.get("schema") != TICKET56_SCHEMA:
+        return fail("ticket56 pre-gate projection escape artifact has unexpected schema")
+    if ticket56.get("status") != "pre_gate_projection_escape_open_no_resolution":
+        return fail("ticket56 pre-gate projection escape artifact overstates resolution")
+    ticket56_attempts = ticket56.get("attempts", [])
+    if not isinstance(ticket56_attempts, list):
+        return fail("ticket56 attempts must be a list")
+    ticket56_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket56_attempts if isinstance(attempt, dict)}
+    missing_ticket56 = EXPECTED_PROBLEMS - set(ticket56_by_id)
+    if missing_ticket56:
+        return fail("ticket56 attempts missing problems: " + ", ".join(sorted(missing_ticket56)))
+    ticket56_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-56-projection-escape-frontier.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-56-pre-gate-projection-escape.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-56-lift-escape-frontier.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-56-lift-escape-frontier.json"),
+    }
+    for problem_id, attempt in ticket56_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "exact32_lasso_route_closed_projection_escape_blocks_globalization",
+        }:
+            return fail(f"{problem_id}: ticket56 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket56 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket56 claim boundary is too weak")
+        path = ticket56_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket56 per-problem artifact")
+
+    collatz_ticket56 = ticket56_by_id.get("collatz", {})
+    audit56 = collatz_ticket56.get("bounded_result", {}).get("pre_gate_projection_escape_audit", {})
+    if not isinstance(audit56, dict):
+        return fail("collatz ticket56 pre-gate projection escape audit missing")
+    if audit56.get("local_theorem_name") != "Exact32StartTemplateLassoPartition":
+        return fail("collatz ticket56 local theorem name changed")
+    exact32_56 = audit56.get("exact32_pre_gate_partition", {})
+    if not isinstance(exact32_56, dict):
+        return fail("collatz ticket56 exact32 partition missing")
+    if int(exact32_56.get("exact_start_template_matches", -1)) != 69092:
+        return fail("collatz ticket56 exact32 start count changed")
+    if int(exact32_56.get("pre_gate_failure_count", -1)) != 69090:
+        return fail("collatz ticket56 pre-gate failure count changed")
+    expected_offsets56 = {"1": 34458, "2": 17301, "3": 8649, "4": 4310, "5": 4372}
+    observed_offsets56 = {
+        str(key): int(value)
+        for key, value in exact32_56.get("pre_gate_failure_offsets", {}).items()
+    }
+    if observed_offsets56 != expected_offsets56:
+        return fail("collatz ticket56 pre-gate offset partition changed")
+    if not exact32_56.get("all_pre_gate_failures_are_offsets_1_to_5"):
+        return fail("collatz ticket56 pre-gate offsets must be exactly 1..5")
+    if not exact32_56.get("all_pre_gate_failures_are_next_valuation_mismatch"):
+        return fail("collatz ticket56 failures must all be next-valuation mismatches")
+    if int(exact32_56.get("phase5_observed_next10_count", -1)) != 0:
+        return fail("collatz ticket56 phase5 next valuation 10 unexpectedly observed")
+    if int(exact32_56.get("phase5_gate_crosser_count", -1)) != 2:
+        return fail("collatz ticket56 gate crosser count changed")
+    if [int(value) for value in exact32_56.get("phase5_gate_crossers", [])] != [1471663463, 3206130791]:
+        return fail("collatz ticket56 gate crosser roots changed")
+    if int(exact32_56.get("partition_sum", -1)) != 69092:
+        return fail("collatz ticket56 exact32 partition sum changed")
+    if not exact32_56.get("partition_is_complete_for_exact32_start_template"):
+        return fail("collatz ticket56 exact32 partition must be complete")
+    projection56 = audit56.get("projection_escape_audit", {})
+    if not isinstance(projection56, dict):
+        return fail("collatz ticket56 projection escape audit missing")
+    if int(projection56.get("sample_count", -1)) != 200000:
+        return fail("collatz ticket56 sample count changed")
+    if int(projection56.get("sample_start_template_matches", -1)) != 3184:
+        return fail("collatz ticket56 48-bit sample start count changed")
+    if projection56.get("simple_projection_closure_status") != "refuted_by_sampled_48bit_depth15_witness":
+        return fail("collatz ticket56 must refute simple projection closure")
+    escapes56 = projection56.get("escape_witnesses", [])
+    if not isinstance(escapes56, list) or len(escapes56) != 1:
+        return fail("collatz ticket56 must record one projection escape witness")
+    escape56 = escapes56[0]
+    if int(escape56.get("residue", -1)) != 171308122831719:
+        return fail("collatz ticket56 escape witness residue changed")
+    if int(escape56.get("lasso_prefix_depth", -1)) != 15:
+        return fail("collatz ticket56 escape witness depth changed")
+    reused55 = projection56.get("ticket55_gate_tunnel_reused", {})
+    if reused55.get("theorem_name") != "Phase5GateToTerminalTunnel":
+        return fail("collatz ticket56 must reuse ticket55 gate tunnel")
+    if int(reused55.get("terminal_target_match_count", -1)) != 0:
+        return fail("collatz ticket56 reused ticket55 tunnel must have no terminal target match")
+    if "No Collatz proof" not in str(audit56.get("proof_boundary", "")):
+        return fail("collatz ticket56 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

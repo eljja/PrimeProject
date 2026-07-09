@@ -470,6 +470,9 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Post-terminal family result") ||
         !page.proofOrCounterexampleText.includes("Ticket 55 phase-5 valuation gate lab") ||
         !page.proofOrCounterexampleText.includes("Gate-to-terminal result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 56 pre-gate projection escape lab") ||
+        !page.proofOrCounterexampleText.includes("Pre-gate partition result") ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
