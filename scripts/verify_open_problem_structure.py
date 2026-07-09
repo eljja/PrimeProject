@@ -62,6 +62,7 @@ TICKET65_SCHEMA = "primeproject.ticket65-start-template-chain-extinction-lab.v1"
 TICKET66_SCHEMA = "primeproject.ticket66-complement-cover-lab.v1"
 TICKET67_SCHEMA = "primeproject.ticket67-open-template-rank-lab.v1"
 TICKET68_SCHEMA = "primeproject.ticket68-cycle-scc-refinement-lab.v1"
+TICKET69_SCHEMA = "primeproject.ticket69-prefix-consumed-rank-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -4024,6 +4025,115 @@ def main() -> int:
         return fail("collatz ticket68 next theorem target changed")
     if "does not prove Collatz" not in str(audit68.get("proof_boundary", "")):
         return fail("collatz ticket68 proof boundary must block proof overclaim")
+
+    ticket69_path = Path("data/open-problem/ticket69-prefix-consumed-rank-lab.json")
+    if not ticket69_path.exists():
+        return fail("missing ticket69 prefix/consumed rank artifact")
+    ticket69 = read_json(ticket69_path)
+    if ticket69.get("schema") != TICKET69_SCHEMA:
+        return fail("ticket69 prefix/consumed rank artifact has unexpected schema")
+    if ticket69.get("status") != "prefix_consumed_rank_frontier_open_no_resolution":
+        return fail("ticket69 prefix/consumed rank artifact overstates resolution")
+    ticket69_attempts = ticket69.get("attempts", [])
+    if not isinstance(ticket69_attempts, list):
+        return fail("ticket69 attempts must be a list")
+    ticket69_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket69_attempts if isinstance(attempt, dict)}
+    missing_ticket69 = EXPECTED_PROBLEMS - set(ticket69_by_id)
+    if missing_ticket69:
+        return fail("ticket69 attempts missing problems: " + ", ".join(sorted(missing_ticket69)))
+    ticket69_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-69-rank-completeness.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-69-prefix-consumed-rank.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-69-rank-completeness.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-69-rank-completeness.json"),
+    }
+    for problem_id, attempt in ticket69_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "rank_descent_valid_unexpanded_frontier_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket69 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket69 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket69 claim boundary is too weak")
+        path = ticket69_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket69 per-problem artifact")
+
+    collatz_ticket69 = ticket69_by_id.get("collatz", {})
+    audit69 = collatz_ticket69.get("bounded_result", {}).get("prefix_consumed_rank_audit", {})
+    if not isinstance(audit69, dict):
+        return fail("collatz ticket69 prefix/consumed rank audit missing")
+    if audit69.get("theorem_name") != "PrefixConsumedDAGCompletenessOrPersistentRefinedCycle":
+        return fail("collatz ticket69 theorem name changed")
+    if audit69.get("coordinate_family") != "base_prefix_consumed":
+        return fail("collatz ticket69 coordinate family changed")
+    if int(audit69.get("source_base_cycle_nodes", -1)) != 429:
+        return fail("collatz ticket69 base cycle node count changed")
+    if int(audit69.get("source_internal_transition_weight", -1)) != 89222:
+        return fail("collatz ticket69 internal transition weight changed")
+    rank69 = audit69.get("rank_summary", {})
+    if rank69.get("status") != "observed_dag_rank_constructed":
+        return fail("collatz ticket69 rank status changed")
+    expected_rank69 = {
+        "rank_map_state_count": 9616,
+        "source_state_count": 1577,
+        "sink_state_count": 6733,
+        "max_rank": 5,
+    }
+    for key, expected in expected_rank69.items():
+        if int(rank69.get(key, -1)) != expected:
+            return fail(f"collatz ticket69 rank summary {key} changed")
+    rank_level_counts69 = rank69.get("rank_level_state_counts", {})
+    expected_rank_levels69 = {"0": 6733, "1": 1506, "2": 224, "3": 388, "4": 467, "5": 298}
+    for key, expected in expected_rank_levels69.items():
+        if int(rank_level_counts69.get(key, -1)) != expected:
+            return fail(f"collatz ticket69 rank level {key} changed")
+    if int(audit69.get("distinct_refined_edge_count", -1)) != 41283:
+        return fail("collatz ticket69 refined edge count changed")
+    if int(audit69.get("rank_edge_weight", -1)) != 89222:
+        return fail("collatz ticket69 rank edge weight changed")
+    delta69 = audit69.get("rank_edge_delta_counts", {})
+    expected_delta69 = {"1": 32432, "2": 16891, "3": 18111, "4": 16006, "5": 5782}
+    for key, expected in expected_delta69.items():
+        if int(delta69.get(key, -1)) != expected:
+            return fail(f"collatz ticket69 rank delta {key} changed")
+    if int(audit69.get("rank_nondecreasing_edge_count", -1)) != 0:
+        return fail("collatz ticket69 nondecreasing edge count changed")
+    if int(audit69.get("rank_nondecreasing_edge_weight", -1)) != 0:
+        return fail("collatz ticket69 nondecreasing edge weight changed")
+    if int(audit69.get("source_instances_in_base_cycle", -1)) != 16967:
+        return fail("collatz ticket69 source instance count changed")
+    outcomes69 = audit69.get("child_outcome_counts", {})
+    expected_outcomes69 = {
+        "open_base_cycle_exit": 174589,
+        "internal_rank_descent": 89222,
+        "closed_or_terminal_all_lift_descent": 7661,
+    }
+    for key, expected in expected_outcomes69.items():
+        if int(outcomes69.get(key, -1)) != expected:
+            return fail(f"collatz ticket69 child outcome {key} changed")
+    expected_state_counts69 = {
+        "internal_edge_source_state_count": 2883,
+        "source_expanded_state_count": 3025,
+        "source_and_child_state_count": 1390,
+        "source_only_state_count": 1635,
+        "child_only_unexpanded_state_count": 6649,
+    }
+    for key, expected in expected_state_counts69.items():
+        if int(audit69.get(key, -1)) != expected:
+            return fail(f"collatz ticket69 {key} changed")
+    frontier_rank69 = audit69.get("child_only_unexpanded_rank_counts", {})
+    if int(frontier_rank69.get("0", -1)) != 6649:
+        return fail("collatz ticket69 unexpanded rank-0 count changed")
+    if audit69.get("rank_certificate_status") != "bounded_rank_descent_valid_but_unexpanded_frontier_open":
+        return fail("collatz ticket69 rank certificate status changed")
+    if audit69.get("next_theorem_target") != "PrefixConsumedRankCompletenessOrFrontierCycle":
+        return fail("collatz ticket69 next theorem target changed")
+    if "does not prove Collatz" not in str(audit69.get("proof_boundary", "")):
+        return fail("collatz ticket69 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

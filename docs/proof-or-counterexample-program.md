@@ -3835,3 +3835,76 @@ Proof boundary:
 ```text
 TICKET-68 does not prove or disprove any of the four open problems. It breaks the observed TICKET67 SCC under a stronger coordinate, but the missing infinite bridge is transition-completeness and well-foundedness for all higher lifts.
 ```
+
+### Ticket 69: Prefix/consumed rank certificate and frontier audit
+
+CO-TICKET-69 PrefixConsumedDAGCompletenessOrPersistentRefinedCycle
+
+Artifacts:
+
+```text
+data/open-problem/ticket69-prefix-consumed-rank-lab.json
+data/open-problem/collatz/co-ticket-69-prefix-consumed-rank.json
+data/open-problem/riemann/rh-ticket-69-rank-completeness.json
+data/open-problem/goldbach/gb-ticket-69-rank-completeness.json
+data/open-problem/twin-prime/tp-ticket-69-rank-completeness.json
+```
+
+Status:
+
+```text
+prefix_consumed_rank_frontier_open_no_resolution
+```
+
+한국어 요약: TICKET-69는 TICKET-68의 prefix/consumed DAG를 실제 rank certificate 후보로 검사한다. 결과는 양면적이다. 관측된 내부 edge 89,222개는 모두 rank를 엄격히 감소시킨다. nondecreasing rank edge는 0개이며, rank delta는 1부터 5까지 모두 양수다. 또한 base-cycle source instance 16,967개에서 child는 `internal_rank_descent = 89,222`, `open_base_cycle_exit = 174,589`, `closed_or_terminal_all_lift_descent = 7,661`로 분류된다. 그러나 이 결과는 아직 증명이 아니다. rank 0 상태 6,733개 중 6,649개는 child-only unexpanded frontier로 남는다. 즉 현재 DAG는 관측 내부 edge에 대해서는 rank이지만, 그 frontier의 다음 transition-completeness가 아직 없다.
+
+English summary: TICKET-69 turns the TICKET68 acyclic graph into a stricter rank certificate candidate. All 89,222 observed internal edges strictly decrease the prefix/consumed rank, and there are zero nondecreasing rank edges. The blocking issue is not local rank descent anymore; it is transition-completeness of the frontier. There are 6,649 rank-0 child-only states that still need expansion or theorem-level closure.
+
+Key Collatz result:
+
+```text
+coordinate family: base_prefix_consumed
+rank states: 9,616
+max rank: 5
+source base cycle nodes: 429
+observed internal edge weight: 89,222
+nondecreasing rank edges: 0
+source instances in base cycle: 16,967
+child outcomes: internal_rank_descent = 89,222; open_base_cycle_exit = 174,589; closed_or_terminal_all_lift_descent = 7,661
+source-expanded states: 3,025
+source-and-child states: 1,390
+source-only states: 1,635
+child-only unexpanded states: 6,649
+unexpanded child-only rank counts: rank 0 = 6,649
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Promote the observed prefix/consumed DAG directly to a proof. TICKET69 blocks that shortcut: the internal observed edges strictly decrease the DAG rank, but many child-only refined states have not yet been expanded as source states.
+```
+
+Candidate theorem still missing:
+
+```text
+PrefixConsumedRankCompleteness: every compatible branch represented by a TICKET68 child-only prefix/consumed state has a complete next-transition expansion whose internal children strictly decrease the same DAG rank, or a new refined cycle is produced.
+```
+
+Counterexample target:
+
+```text
+A higher-lift expansion of an unexpanded child-only prefix/consumed state that re-enters a nondecreasing refined cycle.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-70 PrefixConsumedFrontierExpansionOrCycle
+```
+
+Proof boundary:
+
+```text
+TICKET-69 does not prove or disprove any of the four open problems. It validates strict rank descent on observed internal edges, but the unexpanded child-only frontier is the missing infinite bridge.
+```

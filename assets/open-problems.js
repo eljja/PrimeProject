@@ -6616,7 +6616,96 @@ function renderTicket68CycleSccRefinement(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket) {
+function renderTicket69PrefixConsumedRank(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.prefix_consumed_rank_audit || {};
+  const rank = audit.rank_summary || {};
+  const resultRows = Object.keys(audit).length
+    ? [
+        ["source ticket", audit.source_ticket],
+        ["theorem pressure target", audit.theorem_name],
+        ["coordinate family", audit.coordinate_family],
+        ["source base cycle nodes", audit.source_base_cycle_nodes],
+        ["internal transition weight", audit.source_internal_transition_weight],
+        ["rank status", rank.status],
+        ["rank states", rank.rank_map_state_count],
+        ["max rank", rank.max_rank],
+        ["rank edge weight", audit.rank_edge_weight],
+        ["nondecreasing rank edges", audit.rank_nondecreasing_edge_count],
+        ["source instances in base cycle", audit.source_instances_in_base_cycle],
+        ["source-expanded states", audit.source_expanded_state_count],
+        ["child-only unexpanded states", audit.child_only_unexpanded_state_count],
+        ["rank certificate status", audit.rank_certificate_status],
+        ["next theorem target", audit.next_theorem_target],
+      ]
+    : [
+        ["source ticket", bounded.source_ticket],
+        ["transfer", bounded.ticket69_transfer],
+        ["counterexample target", bounded.counterexample_target],
+      ];
+  const outcomeRows = audit.child_outcome_counts
+    ? Object.entries(audit.child_outcome_counts).map(([key, value]) => [key, value])
+    : [];
+  const rankLevelRows = Array.isArray(audit.rank_level_rows)
+    ? audit.rank_level_rows.map((row) => [
+        row.rank,
+        row.state_count,
+        row.source_representative_weight,
+        row.child_representative_weight,
+        row.concrete_source_instances,
+        row.unexpanded_child_only_states,
+      ])
+    : [];
+  const deltaRows = audit.weighted_rank_edge_delta_counts
+    ? Object.entries(audit.weighted_rank_edge_delta_counts).map(([key, value]) => [key, value])
+    : [];
+  const frontierRows = Array.isArray(audit.unexpanded_frontier_examples)
+    ? audit.unexpanded_frontier_examples.slice(0, 5).map((row) => [
+        row.state,
+        row.rank,
+        row.child_representatives,
+      ])
+    : [];
+  return `
+    <div class="poc-ticket17 poc-ticket45 poc-ticket58 poc-ticket59 poc-ticket60 poc-ticket61 poc-ticket62 poc-ticket63 poc-ticket64 poc-ticket65 poc-ticket66 poc-ticket67 poc-ticket68 poc-ticket69">
+      <h3>Ticket 69 prefix/consumed rank certificate</h3>
+      <div class="poc-head">
+        <div>
+          <span>Status</span>
+          <strong>${escapeHtml(statusText(attempt.status))}</strong>
+        </div>
+        <div>
+          <span>Route</span>
+          <strong>${escapeHtml(attempt.route || "missing")}</strong>
+        </div>
+        <div>
+          <span>Mode</span>
+          <strong>${escapeHtml(statusText(attempt.proof_or_counterexample_mode))}</strong>
+        </div>
+      </div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${table(["Rank certificate result", "Value"], resultRows)}
+      ${outcomeRows.length ? `<h3>Concrete child outcomes</h3>${table(["outcome", "count"], outcomeRows)}` : ""}
+      ${rankLevelRows.length ? `<h3>Rank frontier by level</h3>${table(["rank", "states", "source edge reps", "child reps", "source instances", "unexpanded child-only"], rankLevelRows)}` : ""}
+      ${deltaRows.length ? `<h3>Weighted rank-edge deltas</h3>${table(["rank delta", "edge weight"], deltaRows)}` : ""}
+      ${frontierRows.length ? `<h3>Unexpanded frontier examples</h3>${table(["state", "rank", "child reps"], frontierRows)}` : ""}
+      <div class="poc-bridge">
+        <section>
+          <h3>Retained route</h3>
+          <p>${escapeHtml(audit.retained_route || attempt.candidate_theorem || "")}</p>
+        </section>
+        <section>
+          <h3>Counterexample target</h3>
+          <p>${escapeHtml(audit.counterexample_target || bounded.counterexample_target || attempt.obstruction || "")}</p>
+        </section>
+      </div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -6735,10 +6824,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket66ComplementCover(complementCoverTicket)}
     ${renderTicket67OpenTemplateRank(openTemplateRankTicket)}
     ${renderTicket68CycleSccRefinement(cycleSccRefinementTicket)}
+    ${renderTicket69PrefixConsumedRank(prefixConsumedRankTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -6762,7 +6852,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -6873,6 +6963,7 @@ async function main() {
   let ticket66Attempt = null;
   let ticket67Attempt = null;
   let ticket68Attempt = null;
+  let ticket69Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -7350,7 +7441,16 @@ async function main() {
   } catch (error) {
     ticket68Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt);
+  try {
+    const ticket69Response = await fetch("../data/open-problem/ticket69-prefix-consumed-rank-lab.json", { cache: "no-store" });
+    if (ticket69Response.ok) {
+      const ticket69Payload = await ticket69Response.json();
+      ticket69Attempt = (ticket69Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    }
+  } catch (error) {
+    ticket69Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt);
 }
 
 main().catch((error) => {

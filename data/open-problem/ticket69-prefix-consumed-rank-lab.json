@@ -1,0 +1,718 @@
+{
+  "schema": "primeproject.ticket69-prefix-consumed-rank-lab.v1",
+  "generated_at": "2026-07-10T00:01:00+09:00",
+  "status": "prefix_consumed_rank_frontier_open_no_resolution",
+  "claim_boundary": "Ticket 69 validates observed rank descent but exposes an unexpanded frontier. It does not prove or disprove any of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-69",
+      "status": "proof_pressure_open",
+      "route": "ZeroKernelRankCompletenessOrFrontierCycle",
+      "proof_or_counterexample_mode": "rank-completeness transfer",
+      "attempt": "Transfer the TICKET69 lesson: an acyclic refined graph is not a proof until every frontier state has a complete next-transition theorem or produces a persistent refined cycle.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-68",
+        "source_route": "ZeroKernelRefinementDAGOrPersistentOffCriticalCycle",
+        "ticket69_transfer": "ZeroKernelRankCompletenessOrFrontierCycle",
+        "candidate_theorem": "Every refined zero-kernel DAG frontier state has a complete positivity-preserving next transition, or a persistent off-critical refined cycle appears.",
+        "counterexample_target": "a refined off-critical zero-kernel frontier state whose next expansion creates a nondecreasing cycle"
+      },
+      "obstruction": "This is a transferred theorem target, not a solution.",
+      "candidate_theorem": "Every refined zero-kernel DAG frontier state has a complete positivity-preserving next transition, or a persistent off-critical refined cycle appears.",
+      "next_experiment": "Measure the unexpanded frontier of the problem-specific refined DAG.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-69",
+      "route": "PrefixConsumedDAGCompletenessOrPersistentRefinedCycle",
+      "status": "rank_descent_valid_unexpanded_frontier_open_no_resolution",
+      "proof_or_counterexample_mode": "bounded rank certificate plus transition-completeness audit",
+      "attempt": "Turn the TICKET68 prefix/consumed DAG into a stricter proof candidate by checking rank descent on every observed internal edge and by measuring the unexpanded frontier that blocks a proof.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-68",
+        "prefix_consumed_rank_audit": {
+          "theorem_name": "PrefixConsumedDAGCompletenessOrPersistentRefinedCycle",
+          "source_ticket": "CO-TICKET-68",
+          "coordinate_family": "base_prefix_consumed",
+          "source_base_cycle_nodes": 429,
+          "source_internal_transition_weight": 89222,
+          "rank_summary": {
+            "status": "observed_dag_rank_constructed",
+            "rank_map_state_count": 9616,
+            "source_state_count": 1577,
+            "sink_state_count": 6733,
+            "max_rank": 5,
+            "rank_level_state_counts": {
+              "0": 6733,
+              "1": 1506,
+              "2": 224,
+              "3": 388,
+              "4": 467,
+              "5": 298
+            },
+            "top_rank_states": [
+              {
+                "state": "[12,[1,1,1,1],103,10,43,57]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,11,43,57]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,11,43,59]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,43,59]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,44,59]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,44,60]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,45,59]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,45,60]",
+                "rank": 5
+              }
+            ]
+          },
+          "distinct_refined_edge_count": 41283,
+          "rank_edge_weight": 89222,
+          "rank_edge_delta_counts": {
+            "1": 32432,
+            "2": 16891,
+            "3": 18111,
+            "4": 16006,
+            "5": 5782
+          },
+          "weighted_rank_edge_delta_counts": {
+            "1": 32432,
+            "2": 16891,
+            "3": 18111,
+            "4": 16006,
+            "5": 5782
+          },
+          "rank_nondecreasing_edge_count": 0,
+          "rank_nondecreasing_edge_weight": 0,
+          "rank_nondecreasing_examples": [],
+          "source_instances_in_base_cycle": 16967,
+          "child_outcome_counts": {
+            "open_base_cycle_exit": 174589,
+            "internal_rank_descent": 89222,
+            "closed_or_terminal_all_lift_descent": 7661
+          },
+          "rank_violation_examples": [],
+          "internal_edge_source_state_count": 2883,
+          "source_expanded_state_count": 3025,
+          "source_and_child_state_count": 1390,
+          "source_only_state_count": 1635,
+          "child_only_unexpanded_state_count": 6649,
+          "child_only_unexpanded_rank_counts": {
+            "0": 6649
+          },
+          "unexpanded_frontier_examples": [
+            {
+              "state": "[0,[1,1,1,1],103,2,45,64]",
+              "rank": 0,
+              "child_representatives": 314,
+              "example": {
+                "source_state": "[12,[1,1,3,1],103,2,41,60]",
+                "child_state": "[0,[1,1,1,1],103,2,45,64]",
+                "source_rank": null,
+                "child_rank": null,
+                "source_template": "[12,[1,1,3,1],103,2]",
+                "child_template": "[0,[1,1,1,1],103,2]",
+                "source_bits": 60,
+                "child_top": 2,
+                "delta_debt": 2.33985,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 1077099572220778855,
+                  "modulus_bits": 60,
+                  "prefix_length": 41,
+                  "consumed_bits": 60,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 4.98346253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 3382942581434472807,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "state": "[0,[1,1,1,1],103,2,44,64]",
+              "rank": 0,
+              "child_representatives": 195,
+              "example": {
+                "source_state": "[12,[1,1,1,1],103,6,39,56]",
+                "child_state": "[0,[1,1,1,1],103,2,44,64]",
+                "source_rank": null,
+                "child_rank": null,
+                "source_template": "[12,[1,1,1,1],103,6]",
+                "child_template": "[0,[1,1,1,1],103,2]",
+                "source_bits": 60,
+                "child_top": 11,
+                "delta_debt": -0.0751875,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 740277379191134567,
+                  "modulus_bits": 60,
+                  "prefix_length": 39,
+                  "consumed_bits": 56,
+                  "next_valuation": 6,
+                  "coefficient_log2_debt": 5.81353753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 13422413929866451303,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 5.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "state": "[0,[1,1,1,1],103,2,43,63]",
+              "rank": 0,
+              "child_representatives": 186,
+              "example": {
+                "source_state": "[12,[1,1,3,1],103,2,39,59]",
+                "child_state": "[0,[1,1,1,1],103,2,43,63]",
+                "source_rank": null,
+                "child_rank": null,
+                "source_template": "[12,[1,1,3,1],103,2]",
+                "child_template": "[0,[1,1,1,1],103,2]",
+                "source_bits": 60,
+                "child_top": 5,
+                "delta_debt": 2.33985,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 374359909467281767,
+                  "modulus_bits": 60,
+                  "prefix_length": 39,
+                  "consumed_bits": 59,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 2.81353753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    3,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 6138967432501516647,
+                  "modulus_bits": 64,
+                  "prefix_length": 43,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 5.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "state": "[0,[2,1,1,1],103,2,45,63]",
+              "rank": 0,
+              "child_representatives": 182,
+              "example": {
+                "source_state": "[12,[1,1,1,2],103,3,41,58]",
+                "child_state": "[0,[2,1,1,1],103,2,45,63]",
+                "source_rank": null,
+                "child_rank": null,
+                "source_template": "[12,[1,1,1,2],103,3]",
+                "child_template": "[0,[2,1,1,1],103,2]",
+                "source_bits": 60,
+                "child_top": 5,
+                "delta_debt": 1.33985,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 1071291951802866023,
+                  "modulus_bits": 60,
+                  "prefix_length": 41,
+                  "consumed_bits": 58,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 6.98346253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 6835899474837100903,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "state": "[0,[1,1,1,2],103,1,43,64]",
+              "rank": 0,
+              "child_representatives": 181,
+              "example": {
+                "source_state": "[12,[1,2,1,1],103,1,40,60]",
+                "child_state": "[0,[1,1,1,2],103,1,43,64]",
+                "source_rank": null,
+                "child_rank": null,
+                "source_template": "[12,[1,2,1,1],103,1]",
+                "child_template": "[0,[1,1,1,2],103,1]",
+                "source_bits": 60,
+                "child_top": 0,
+                "delta_debt": 0.7548875,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 1045959203898906983,
+                  "modulus_bits": 60,
+                  "prefix_length": 40,
+                  "consumed_bits": 60,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 3.39850003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    5,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 1045959203898906983,
+                  "modulus_bits": 64,
+                  "prefix_length": 43,
+                  "consumed_bits": 64,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 4.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "state": "[0,[1,2,1,1],103,1,43,64]",
+              "rank": 0,
+              "child_representatives": 181,
+              "example": {
+                "source_state": "[12,[1,2,1,1],103,1,40,60]",
+                "child_state": "[0,[1,2,1,1],103,1,43,64]",
+                "source_rank": null,
+                "child_rank": null,
+                "source_template": "[12,[1,2,1,1],103,1]",
+                "child_template": "[0,[1,2,1,1],103,1]",
+                "source_bits": 60,
+                "child_top": 2,
+                "delta_debt": 0.7548875,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 1045959203898906983,
+                  "modulus_bits": 60,
+                  "prefix_length": 40,
+                  "consumed_bits": 60,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 3.39850003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    5,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 3351802213112600935,
+                  "modulus_bits": 64,
+                  "prefix_length": 43,
+                  "consumed_bits": 64,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 4.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "state": "[0,[2,1,1,1],103,2,44,64]",
+              "rank": 0,
+              "child_representatives": 173,
+              "example": {
+                "source_state": "[12,[1,2,1,1],103,1,41,60]",
+                "child_state": "[0,[2,1,1,1],103,2,44,64]",
+                "source_rank": null,
+                "child_rank": null,
+                "source_template": "[12,[1,2,1,1],103,1]",
+                "child_template": "[0,[2,1,1,1],103,2]",
+                "source_bits": 60,
+                "child_top": 1,
+                "delta_debt": 0.7548875,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 734647879656921447,
+                  "modulus_bits": 60,
+                  "prefix_length": 41,
+                  "consumed_bits": 60,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 4.98346253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 1887569384263768423,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 5.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "state": "[0,[1,1,2,1],103,2,44,64]",
+              "rank": 0,
+              "child_representatives": 171,
+              "example": {
+                "source_state": "[12,[1,2,1,1],103,1,41,60]",
+                "child_state": "[0,[1,1,2,1],103,2,44,64]",
+                "source_rank": null,
+                "child_rank": null,
+                "source_template": "[12,[1,2,1,1],103,1]",
+                "child_template": "[0,[1,1,2,1],103,2]",
+                "source_bits": 60,
+                "child_top": 0,
+                "delta_debt": 0.7548875,
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 734647879656921447,
+                  "modulus_bits": 60,
+                  "prefix_length": 41,
+                  "consumed_bits": 60,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 4.98346253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 734647879656921447,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 5.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                }
+              }
+            }
+          ],
+          "rank_level_rows": [
+            {
+              "rank": 0,
+              "state_count": 6733,
+              "source_representative_weight": 0,
+              "child_representative_weight": 50160,
+              "concrete_source_instances": 115,
+              "unexpanded_child_only_states": 6649,
+              "child_outcome_counts": {
+                "open_base_cycle_exit": 1823,
+                "closed_or_terminal_all_lift_descent": 17
+              }
+            },
+            {
+              "rank": 1,
+              "state_count": 1506,
+              "source_representative_weight": 17414,
+              "child_representative_weight": 16308,
+              "concrete_source_instances": 5655,
+              "unexpanded_child_only_states": 0,
+              "child_outcome_counts": {
+                "open_base_cycle_exit": 65800,
+                "internal_rank_descent": 17414,
+                "closed_or_terminal_all_lift_descent": 7266
+              }
+            },
+            {
+              "rank": 2,
+              "state_count": 224,
+              "source_representative_weight": 3854,
+              "child_representative_weight": 4557,
+              "concrete_source_instances": 762,
+              "unexpanded_child_only_states": 0,
+              "child_outcome_counts": {
+                "open_base_cycle_exit": 8338,
+                "internal_rank_descent": 3854
+              }
+            },
+            {
+              "rank": 3,
+              "state_count": 388,
+              "source_representative_weight": 17780,
+              "child_representative_weight": 14998,
+              "concrete_source_instances": 3362,
+              "unexpanded_child_only_states": 0,
+              "child_outcome_counts": {
+                "open_base_cycle_exit": 36012,
+                "internal_rank_descent": 17780
+              }
+            },
+            {
+              "rank": 4,
+              "state_count": 467,
+              "source_representative_weight": 32639,
+              "child_representative_weight": 3199,
+              "concrete_source_instances": 4950,
+              "unexpanded_child_only_states": 0,
+              "child_outcome_counts": {
+                "open_base_cycle_exit": 46561,
+                "internal_rank_descent": 32639
+              }
+            },
+            {
+              "rank": 5,
+              "state_count": 298,
+              "source_representative_weight": 17535,
+              "child_representative_weight": 0,
+              "concrete_source_instances": 2005,
+              "unexpanded_child_only_states": 0,
+              "child_outcome_counts": {
+                "internal_rank_descent": 17535,
+                "open_base_cycle_exit": 14545
+              }
+            }
+          ],
+          "rank_certificate_status": "bounded_rank_descent_valid_but_unexpanded_frontier_open",
+          "discarded_route": "Promote the observed prefix/consumed DAG directly to a proof. TICKET69 blocks that shortcut: the internal observed edges strictly decrease the DAG rank, but many child-only refined states have not yet been expanded as source states.",
+          "retained_route": "Prove that every unexpanded child-only state either exits the base cycle, descends, or maps to a strictly lower prefix/consumed rank under a transition-complete theorem; otherwise extract a persistent refined cycle.",
+          "candidate_theorem": "PrefixConsumedRankCompleteness: every compatible branch represented by a TICKET68 child-only prefix/consumed state has a complete next-transition expansion whose internal children strictly decrease the same DAG rank, or a new refined cycle is produced.",
+          "counterexample_target": "A higher-lift expansion of an unexpanded child-only prefix/consumed state that re-enters a nondecreasing refined cycle.",
+          "next_theorem_target": "PrefixConsumedRankCompletenessOrFrontierCycle",
+          "proof_boundary": "TICKET69 does not prove Collatz and does not certify a counterexample. It validates strict rank descent on observed internal edges, but the unexpanded child-only frontier is the missing infinite bridge."
+        }
+      },
+      "obstruction": "Observed internal edges have no nondecreasing rank violations, but child-only refined states remain unexpanded. The next proof step is transition-completeness for that frontier.",
+      "candidate_theorem": "PrefixConsumedRankCompleteness: every compatible branch represented by a TICKET68 child-only prefix/consumed state has a complete next-transition expansion whose internal children strictly decrease the same DAG rank, or a new refined cycle is produced.",
+      "next_experiment": "Expand the child-only prefix/consumed frontier and check whether it exits, descends, or creates a new refined cycle.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-69",
+      "status": "proof_pressure_open",
+      "route": "LowMarginRankCompletenessOrFrontierCycle",
+      "proof_or_counterexample_mode": "rank-completeness transfer",
+      "attempt": "Transfer the TICKET69 lesson: an acyclic refined graph is not a proof until every frontier state has a complete next-transition theorem or produces a persistent refined cycle.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-68",
+        "source_route": "LowMarginRefinementDAGOrPersistentExceptionalCycle",
+        "ticket69_transfer": "LowMarginRankCompletenessOrFrontierCycle",
+        "candidate_theorem": "Every refined low-margin DAG frontier state has an explicit next-cutoff transition, or a persistent exceptional low-margin cycle appears.",
+        "counterexample_target": "a refined low-margin frontier state whose next expansion stays below the explicit positivity budget"
+      },
+      "obstruction": "This is a transferred theorem target, not a solution.",
+      "candidate_theorem": "Every refined low-margin DAG frontier state has an explicit next-cutoff transition, or a persistent exceptional low-margin cycle appears.",
+      "next_experiment": "Measure the unexpanded frontier of the problem-specific refined DAG.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-69",
+      "status": "proof_pressure_open",
+      "route": "ExactGapRankCompletenessOrFrontierCycle",
+      "proof_or_counterexample_mode": "rank-completeness transfer",
+      "attempt": "Transfer the TICKET69 lesson: an acyclic refined graph is not a proof until every frontier state has a complete next-transition theorem or produces a persistent refined cycle.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-68",
+        "source_route": "ParityLeakRefinementDAGOrPersistentExactGapCycle",
+        "ticket69_transfer": "ExactGapRankCompletenessOrFrontierCycle",
+        "candidate_theorem": "Every refined exact-gap DAG frontier state has a complete retained-mass transition, or a persistent parity-leakage cycle appears.",
+        "counterexample_target": "a refined exact-gap frontier state whose next expansion recreates exact gap-2 parity leakage"
+      },
+      "obstruction": "This is a transferred theorem target, not a solution.",
+      "candidate_theorem": "Every refined exact-gap DAG frontier state has a complete retained-mass transition, or a persistent parity-leakage cycle appears.",
+      "next_experiment": "Measure the unexpanded frontier of the problem-specific refined DAG.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

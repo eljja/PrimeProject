@@ -496,6 +496,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Open-template rank result") ||
         !page.proofOrCounterexampleText.includes("Ticket 68 cycle-SCC refinement") ||
         !page.proofOrCounterexampleText.includes("Cycle refinement result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 69 prefix/consumed rank certificate") ||
+        !page.proofOrCounterexampleText.includes("Rank certificate result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
@@ -555,6 +557,11 @@ async function main() {
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("PrefixConsumedDAGCompletenessOrPersistentRefinedCycle")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("observed_scc_broken_by_refinement")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("bounded_rank_descent_valid_but_unexpanded_frontier_open")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("89,222")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("6,649")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("open_base_cycle_exit")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("PrefixConsumedRankCompletenessOrFrontierCycle")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -894,6 +901,8 @@ async function main() {
     !metrics.evolutionImpact.includes("Refined DAG frontier") ||
     !metrics.evolutionImpact.includes("9,616 states") ||
     !metrics.evolutionImpact.includes("tail/residue-only") ||
+    !metrics.evolutionImpact.includes("Rank frontier audit") ||
+    !metrics.evolutionImpact.includes("6,649 frontier") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
@@ -927,7 +936,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-65") ||
     !metrics.evolutionPanel.includes("TICKET-66") ||
     !metrics.evolutionPanel.includes("TICKET-67") ||
-    !metrics.evolutionPanel.includes("TICKET-68")
+    !metrics.evolutionPanel.includes("TICKET-68") ||
+    !metrics.evolutionPanel.includes("TICKET-69")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

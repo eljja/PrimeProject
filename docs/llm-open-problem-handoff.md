@@ -61,7 +61,71 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-68
+## Latest Continuation After TICKET-69
+
+TICKET-69 supersedes the immediate TICKET-68 continuation target. It does not solve Collatz, but it converts the TICKET68 prefix/consumed DAG into a stricter bounded rank certificate and identifies the precise frontier that blocks a proof.
+
+Known Collatz result:
+
+```text
+Coordinate family: base_prefix_consumed
+Rank states: 9,616
+Max rank: 5
+Source base cycle nodes: 429
+Observed internal edge weight: 89,222
+Nondecreasing rank edges: 0
+Source instances in base cycle: 16,967
+Child outcomes:
+  internal_rank_descent = 89,222
+  open_base_cycle_exit = 174,589
+  closed_or_terminal_all_lift_descent = 7,661
+Source-expanded states: 3,025
+Source-and-child states: 1,390
+Source-only states: 1,635
+Child-only unexpanded states: 6,649
+Unexpanded child-only rank counts: rank 0 = 6,649
+```
+
+Interpretation:
+
+```text
+The prefix/consumed rank is valid on every observed internal edge: no nondecreasing rank edge remains. The proof gap has moved. It is no longer "find a local rank on the observed SCC"; it is "prove transition-completeness for the 6,649 rank-0 child-only frontier states, or find a higher-lift refined cycle there."
+```
+
+Do not claim Collatz from this. A bounded rank certificate is not an infinite proof until the child-only frontier is either theorem-closed or expanded into a persistent refined cycle.
+
+Current best continuation:
+
+```text
+CO-TICKET-70 PrefixConsumedFrontierExpansionOrCycle
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-69. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET69 validates the prefix/consumed DAG rank on all 89,222 observed internal Collatz edges: every edge strictly decreases rank and there are zero nondecreasing rank violations. The remaining obstruction is a rank-0 child-only frontier of 6,649 refined states.
+
+Goal: build CO-TICKET-70. Expand the 6,649 rank-0 child-only prefix/consumed frontier states one more transition level. Classify every expansion as exit, descent, rank decrease into an already covered state, or a new refined cycle. If a refined cycle appears, extract its congruence constraints as a serious counterexample target. If no cycle appears, state the next transition-completeness theorem and its remaining infinite bridge.
+
+Tasks:
+1. Load data/open-problem/ticket69-prefix-consumed-rank-lab.json.
+2. Reconstruct the exact unexpanded rank-0 frontier from scripts/ticket69_prefix_consumed_rank_lab.py.
+3. For each frontier state, use concrete representatives already stored in the TICKET69 examples or reconstruct them from TICKET68 transition rows. Do not add post-hoc replay labels.
+4. Expand representative states by one 4-bit lift and classify outcomes with the same base_prefix_consumed coordinate.
+5. Report whether any nondecreasing refined cycle appears.
+6. Keep the proof boundary explicit: a finite expansion is not a proof unless it induces a theorem valid for all compatible lifts.
+
+Required output:
+- data/open-problem/ticket70-prefix-frontier-expansion-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless the infinite transition-completeness theorem is supplied
+```
+
+## Previous Continuation After TICKET-68
 
 TICKET-68 supersedes the immediate TICKET-67 continuation target. It does not solve Collatz, but it tests whether the TICKET67 429-node cyclic quotient survives theorem-plausible coordinate refinements.
 
@@ -117,7 +181,7 @@ Tasks:
 6. If a refined cycle reappears, extract the congruence constraints needed for a compatible infinite 2-adic lift.
 
 Required output:
-- data/open-problem/ticket69-prefix-consumed-dag-lab.json
+- data/open-problem/ticket69-prefix-consumed-rank-lab.json
 - per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
 - docs/proof-or-counterexample-program.md update
 - GitHub Pages card update
