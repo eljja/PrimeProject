@@ -64,6 +64,7 @@ TICKET67_SCHEMA = "primeproject.ticket67-open-template-rank-lab.v1"
 TICKET68_SCHEMA = "primeproject.ticket68-cycle-scc-refinement-lab.v1"
 TICKET69_SCHEMA = "primeproject.ticket69-prefix-consumed-rank-lab.v1"
 TICKET70_SCHEMA = "primeproject.ticket70-prefix-frontier-expansion-lab.v1"
+TICKET71_SCHEMA = "primeproject.ticket71-stronger-frontier-coordinate-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -4233,6 +4234,162 @@ def main() -> int:
         return fail("collatz ticket70 next theorem target changed")
     if "does not prove Collatz" not in str(audit70.get("proof_boundary", "")):
         return fail("collatz ticket70 proof boundary must block proof overclaim")
+
+    ticket71_path = Path("data/open-problem/ticket71-stronger-frontier-coordinate-lab.json")
+    if not ticket71_path.exists():
+        return fail("missing ticket71 stronger frontier coordinate artifact")
+    ticket71 = read_json(ticket71_path)
+    if ticket71.get("schema") != TICKET71_SCHEMA:
+        return fail("ticket71 stronger frontier coordinate artifact has unexpected schema")
+    if ticket71.get("status") != "stronger_frontier_coordinate_open_no_resolution":
+        return fail("ticket71 stronger frontier coordinate artifact overstates resolution")
+    ticket71_attempts = ticket71.get("attempts", [])
+    if not isinstance(ticket71_attempts, list):
+        return fail("ticket71 attempts must be a list")
+    ticket71_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket71_attempts if isinstance(attempt, dict)}
+    missing_ticket71 = EXPECTED_PROBLEMS - set(ticket71_by_id)
+    if missing_ticket71:
+        return fail("ticket71 attempts missing problems: " + ", ".join(sorted(missing_ticket71)))
+    ticket71_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-71-stronger-frontier-coordinate.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-71-stronger-frontier-coordinate.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-71-stronger-frontier-coordinate.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-71-stronger-frontier-coordinate.json"),
+    }
+    for problem_id, attempt in ticket71_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "bounded_transition_separator_found_but_infinite_bridge_open",
+        }:
+            return fail(f"{problem_id}: ticket71 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket71 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket71 claim boundary is too weak")
+        path = ticket71_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket71 per-problem artifact")
+
+    collatz_ticket71 = ticket71_by_id.get("collatz", {})
+    audit71 = collatz_ticket71.get("bounded_result", {}).get("stronger_frontier_coordinate_audit", {})
+    if not isinstance(audit71, dict):
+        return fail("collatz ticket71 stronger frontier coordinate audit missing")
+    if audit71.get("theorem_name") != "StrongerFrontierCoordinateOrPersistentLiftCycle":
+        return fail("collatz ticket71 theorem name changed")
+    expected_ticket71_counts = {
+        "frontier_source_state_count": 6649,
+        "frontier_representative_count": 49504,
+        "frontier_branch_weight": 792064,
+        "tested_coordinate_family_count": 6,
+    }
+    for key, expected in expected_ticket71_counts.items():
+        if int(audit71.get(key, -1)) != expected:
+            return fail(f"collatz ticket71 {key} changed")
+    outcomes71 = audit71.get("outcome_class_counts", {})
+    expected_outcomes71 = {
+        "safe_base_cycle_exit": 516176,
+        "pressure_rank_equal": 123403,
+        "safe_closed_or_terminal": 61118,
+        "pressure_new_unranked_internal": 59449,
+        "pressure_rank_increase": 31918,
+    }
+    for key, expected in expected_outcomes71.items():
+        if int(outcomes71.get(key, -1)) != expected:
+            return fail(f"collatz ticket71 outcome {key} changed")
+    pressure71 = audit71.get("pressure_outcome_counts", {})
+    expected_pressure71 = {
+        "pressure_rank_equal": 123403,
+        "pressure_new_unranked_internal": 59449,
+        "pressure_rank_increase": 31918,
+    }
+    for key, expected in expected_pressure71.items():
+        if int(pressure71.get(key, -1)) != expected:
+            return fail(f"collatz ticket71 pressure outcome {key} changed")
+    rows71 = audit71.get("coordinate_rows", [])
+    if not isinstance(rows71, list) or len(rows71) != 6:
+        return fail("collatz ticket71 coordinate rows changed")
+    expected_rows71 = {
+        "base_prefix_consumed": {
+            "state_count": 17686,
+            "edge_count": 109232,
+            "child_only_after_expansion_state_count": 8055,
+            "transition_key_count": 106384,
+            "mixed_transition_key_count": 22219,
+            "pressure_transition_key_count": 36584,
+        },
+        "base_residue4096": {
+            "state_count": 82162,
+            "edge_count": 236984,
+            "child_only_after_expansion_state_count": 47859,
+            "transition_key_count": 393216,
+            "mixed_transition_key_count": 48101,
+            "pressure_transition_key_count": 110566,
+        },
+        "base_residue65536": {
+            "state_count": 138745,
+            "edge_count": 273429,
+            "child_only_after_expansion_state_count": 90110,
+            "transition_key_count": 566496,
+            "mixed_transition_key_count": 40545,
+            "pressure_transition_key_count": 150056,
+        },
+        "base_tail8_residue4096": {
+            "state_count": 220454,
+            "edge_count": 280512,
+            "child_only_after_expansion_state_count": 170574,
+            "transition_key_count": 574688,
+            "mixed_transition_key_count": 39374,
+            "pressure_transition_key_count": 160587,
+        },
+        "base_tail12_residue65536": {
+            "state_count": 300624,
+            "edge_count": 299598,
+            "child_only_after_expansion_state_count": 237903,
+            "transition_key_count": 751104,
+            "mixed_transition_key_count": 6899,
+            "pressure_transition_key_count": 205323,
+        },
+        "base_fullword_residue65536": {
+            "state_count": 319801,
+            "edge_count": 303992,
+            "child_only_after_expansion_state_count": 254488,
+            "transition_key_count": 792064,
+            "mixed_transition_key_count": 0,
+            "pressure_transition_key_count": 214770,
+        },
+    }
+    rows71_by_family = {str(row.get("family_id")): row for row in rows71 if isinstance(row, dict)}
+    for family, expected_values in expected_rows71.items():
+        row = rows71_by_family.get(family)
+        if not row:
+            return fail(f"collatz ticket71 missing coordinate family {family}")
+        for key, expected in expected_values.items():
+            if int(row.get(key, -1)) != expected:
+                return fail(f"collatz ticket71 {family} {key} changed")
+        rank_summary = row.get("rank_summary", {})
+        if not isinstance(rank_summary, dict) or rank_summary.get("status") != "observed_dag_rank_constructed":
+            return fail(f"collatz ticket71 {family} rank status changed")
+    best_separator71 = audit71.get("best_transition_separator", {})
+    if best_separator71.get("family_id") != "base_fullword_residue65536":
+        return fail("collatz ticket71 best separator family changed")
+    if int(best_separator71.get("mixed_transition_key_count", -1)) != 0:
+        return fail("collatz ticket71 best separator mixed-key count changed")
+    if int(best_separator71.get("transition_key_count", -1)) != 792064:
+        return fail("collatz ticket71 best separator transition-key count changed")
+    best_frontier71 = audit71.get("best_frontier_reduction", {})
+    if best_frontier71.get("family_id") != "base_prefix_consumed":
+        return fail("collatz ticket71 compact frontier family changed")
+    if int(best_frontier71.get("child_only_after_expansion_state_count", -1)) != 8055:
+        return fail("collatz ticket71 compact child-only frontier count changed")
+    if int(best_frontier71.get("mixed_transition_key_count", -1)) != 22219:
+        return fail("collatz ticket71 compact mixed-key count changed")
+    if audit71.get("frontier_coordinate_status") != "bounded_transition_separator_found_but_infinite_bridge_open":
+        return fail("collatz ticket71 frontier coordinate status changed")
+    if audit71.get("next_theorem_target") != "InfiniteFrontierCoordinateLiftClosureOrChain":
+        return fail("collatz ticket71 next theorem target changed")
+    if "does not prove Collatz" not in str(audit71.get("proof_boundary", "")):
+        return fail("collatz ticket71 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

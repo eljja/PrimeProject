@@ -1,0 +1,2884 @@
+{
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-71",
+  "route": "StrongerFrontierCoordinateOrPersistentLiftCycle",
+  "status": "bounded_transition_separator_found_but_infinite_bridge_open",
+  "proof_or_counterexample_mode": "bounded stronger-coordinate search and lift-chain pressure audit",
+  "attempt": "Test whether the TICKET70 rank-0 frontier re-entry pressure can be separated by explicit pre-outcome coordinates, without using the branch outcome as a post-hoc label.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-70",
+    "stronger_frontier_coordinate_audit": {
+      "theorem_name": "StrongerFrontierCoordinateOrPersistentLiftCycle",
+      "source_ticket": "CO-TICKET-70",
+      "frontier_source_state_count": 6649,
+      "frontier_representative_count": 49504,
+      "frontier_branch_weight": 792064,
+      "outcome_class_counts": {
+        "safe_base_cycle_exit": 516176,
+        "pressure_rank_equal": 123403,
+        "safe_closed_or_terminal": 61118,
+        "pressure_new_unranked_internal": 59449,
+        "pressure_rank_increase": 31918
+      },
+      "pressure_outcome_counts": {
+        "pressure_rank_equal": 123403,
+        "pressure_new_unranked_internal": 59449,
+        "pressure_rank_increase": 31918
+      },
+      "tested_coordinate_family_count": 6,
+      "coordinate_rows": [
+        {
+          "family_id": "base_prefix_consumed",
+          "description": "TICKET69 coordinate: base template plus prefix_length and consumed_bits.",
+          "coordinate_scope": "baseline_certificate_coordinate",
+          "state_count": 17686,
+          "edge_count": 109232,
+          "known_transition_weight": 89222,
+          "frontier_internal_transition_weight": 214770,
+          "total_internal_transition_weight": 303992,
+          "cycle_summary": {
+            "cyclic_component_count": 0,
+            "cyclic_node_count": 0,
+            "largest_cyclic_component_size": 0,
+            "cycle_edge_example": []
+          },
+          "rank_summary": {
+            "status": "observed_dag_rank_constructed",
+            "rank_map_state_count": 17686,
+            "source_state_count": 1492,
+            "sink_state_count": 9180,
+            "max_rank": 7,
+            "rank_level_state_counts": {
+              "0": 9180,
+              "1": 1235,
+              "2": 759,
+              "3": 681,
+              "4": 1356,
+              "5": 1444,
+              "6": 2030,
+              "7": 1001
+            },
+            "top_rank_states": [
+              {
+                "state": "[12,[1,1,1,1],103,10,41,59]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,10,42,57]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,10,43,57]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,10,45,57]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,11,41,56]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,11,41,59]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,11,43,57]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,11,43,59]",
+                "rank": 7
+              }
+            ]
+          },
+          "expanded_source_state_count": 9674,
+          "child_only_after_expansion_state_count": 8055,
+          "source_profile_state_count": 6649,
+          "mixed_source_profile_state_count": 5867,
+          "transition_key_count": 106384,
+          "pressure_transition_key_count": 36584,
+          "mixed_transition_key_count": 22219,
+          "pure_transition_key_count": 84165,
+          "pure_transition_class_counts": {
+            "safe_base_cycle_exit": 63703,
+            "pressure_new_unranked_internal": 8283,
+            "pressure_rank_equal": 5785,
+            "safe_closed_or_terminal": 4630,
+            "pressure_rank_increase": 1764
+          },
+          "pressure_row_weight": 214770,
+          "mixed_transition_examples": [
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+              "outcome_profile": {
+                "pressure_rank_equal": 184,
+                "pressure_rank_increase": 114,
+                "safe_base_cycle_exit": 9,
+                "pressure_new_unranked_internal": 7
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64]",
+                "child_coordinate": "[4,[1,1,2,1],103,3,47,67]",
+                "child_top": 0,
+                "source_rank": 0,
+                "child_rank": 1,
+                "outcome_class": "pressure_rank_increase",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3382942581434472807,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 3382942581434472807,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 67,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 7.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=1",
+              "outcome_profile": {
+                "pressure_rank_equal": 124,
+                "pressure_rank_increase": 100,
+                "safe_base_cycle_exit": 46,
+                "pressure_new_unranked_internal": 44
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64]",
+                "child_coordinate": "[4,[1,1,3,1],103,2,46,67]",
+                "child_top": 1,
+                "source_rank": 0,
+                "child_rank": 1,
+                "outcome_class": "pressure_rank_increase",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3382942581434472807,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 21829686655144024423,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 67,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 5.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=2",
+              "outcome_profile": {
+                "pressure_rank_equal": 163,
+                "pressure_rank_increase": 96,
+                "safe_base_cycle_exit": 50,
+                "pressure_new_unranked_internal": 5
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64]",
+                "child_coordinate": "[4,[1,1,1,1],103,1,49,68]",
+                "child_top": 2,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3382942581434472807,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 40276430728853576039,
+                  "modulus_bits": 68,
+                  "prefix_length": 49,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.66316254,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=3",
+              "outcome_profile": {
+                "pressure_rank_equal": 174,
+                "pressure_rank_increase": 110,
+                "safe_base_cycle_exit": 22,
+                "pressure_new_unranked_internal": 8
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64]",
+                "child_coordinate": "[4,[1,2,2,1],103,1,47,68]",
+                "child_top": 3,
+                "source_rank": 0,
+                "child_rank": 1,
+                "outcome_class": "pressure_rank_increase",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3382942581434472807,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 58723174802563127655,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 6.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=4",
+              "outcome_profile": {
+                "pressure_rank_equal": 164,
+                "pressure_new_unranked_internal": 69,
+                "pressure_rank_increase": 68,
+                "safe_base_cycle_exit": 13
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64]",
+                "child_coordinate": "[4,[1,1,1,4],103,1,46,68]",
+                "child_top": 4,
+                "source_rank": 0,
+                "child_rank": 1,
+                "outcome_class": "pressure_rank_increase",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3382942581434472807,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 77169918876272679271,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 4.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=5",
+              "outcome_profile": {
+                "pressure_rank_equal": 116,
+                "pressure_new_unranked_internal": 96,
+                "pressure_rank_increase": 73,
+                "safe_base_cycle_exit": 29
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64]",
+                "child_coordinate": "[4,[1,1,4,1],103,1,46,68]",
+                "child_top": 5,
+                "source_rank": 0,
+                "child_rank": 1,
+                "outcome_class": "pressure_rank_increase",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3382942581434472807,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 95616662949982230887,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 4.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    4,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=6",
+              "outcome_profile": {
+                "pressure_rank_equal": 234,
+                "pressure_rank_increase": 75,
+                "safe_base_cycle_exit": 5
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64]",
+                "child_coordinate": "[4,[1,1,1,2],103,3,47,67]",
+                "child_top": 6,
+                "source_rank": 0,
+                "child_rank": 1,
+                "outcome_class": "pressure_rank_increase",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3382942581434472807,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 114063407023691782503,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 67,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 7.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=7",
+              "outcome_profile": {
+                "pressure_rank_equal": 188,
+                "pressure_rank_increase": 84,
+                "safe_base_cycle_exit": 35,
+                "pressure_new_unranked_internal": 7
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64]",
+                "child_coordinate": "[4,[2,1,1,1],103,2,48,68]",
+                "child_top": 7,
+                "source_rank": 0,
+                "child_rank": 1,
+                "outcome_class": "pressure_rank_increase",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3382942581434472807,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 132510151097401334119,
+                  "modulus_bits": 68,
+                  "prefix_length": 48,
+                  "consumed_bits": 68,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.07820003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "family_id": "base_residue4096",
+          "description": "Baseline coordinate plus residue mod 2^12.",
+          "coordinate_scope": "pre_outcome_low_residue_coordinate",
+          "state_count": 82162,
+          "edge_count": 236984,
+          "known_transition_weight": 89222,
+          "frontier_internal_transition_weight": 214770,
+          "total_internal_transition_weight": 303992,
+          "cycle_summary": {
+            "cyclic_component_count": 0,
+            "cyclic_node_count": 0,
+            "largest_cyclic_component_size": 0,
+            "cycle_edge_example": []
+          },
+          "rank_summary": {
+            "status": "observed_dag_rank_constructed",
+            "rank_map_state_count": 82162,
+            "source_state_count": 6996,
+            "sink_state_count": 54296,
+            "max_rank": 7,
+            "rank_level_state_counts": {
+              "0": 54296,
+              "1": 9452,
+              "2": 5968,
+              "3": 6046,
+              "4": 4364,
+              "5": 1475,
+              "6": 343,
+              "7": 218
+            },
+            "top_rank_states": [
+              {
+                "state": "[12,[1,1,1,1],103,2,40,59,1383]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,41,59,1383]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,42,59,1383]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,43,59,1383]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,43,60,1383]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,44,59,1383]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,44,60,1383]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,45,60,1383]",
+                "rank": 7
+              }
+            ]
+          },
+          "expanded_source_state_count": 34659,
+          "child_only_after_expansion_state_count": 47859,
+          "source_profile_state_count": 24576,
+          "mixed_source_profile_state_count": 20423,
+          "transition_key_count": 393216,
+          "pressure_transition_key_count": 110566,
+          "mixed_transition_key_count": 48101,
+          "pure_transition_key_count": 345115,
+          "pure_transition_class_counts": {
+            "safe_base_cycle_exit": 250225,
+            "pressure_rank_equal": 34018,
+            "safe_closed_or_terminal": 28189,
+            "pressure_new_unranked_internal": 24586,
+            "pressure_rank_increase": 8097
+          },
+          "pressure_row_weight": 214770,
+          "mixed_transition_examples": [
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,3943] + child_top=0",
+              "outcome_profile": {
+                "pressure_rank_equal": 23,
+                "pressure_rank_increase": 20,
+                "safe_base_cycle_exit": 2
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,3943]",
+                "child_coordinate": "[4,[1,1,1,2],103,5,46,66,3943]",
+                "child_top": 0,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 15643570192993754983,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 15643570192993754983,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 66,
+                  "next_valuation": 5,
+                  "coefficient_log2_debt": 6.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,3943] + child_top=1",
+              "outcome_profile": {
+                "pressure_rank_equal": 21,
+                "pressure_rank_increase": 13,
+                "safe_base_cycle_exit": 7,
+                "pressure_new_unranked_internal": 4
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,3943]",
+                "child_coordinate": "[4,[1,1,3,2],103,3,46,68,3943]",
+                "child_top": 1,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 15643570192993754983,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 34090314266703306599,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 68,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 4.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,3943] + child_top=2",
+              "outcome_profile": {
+                "pressure_rank_equal": 25,
+                "pressure_rank_increase": 12,
+                "safe_base_cycle_exit": 7,
+                "pressure_new_unranked_internal": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,3943]",
+                "child_coordinate": "[4,[1,1,1,1],103,7,47,66,3943]",
+                "child_top": 2,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 15643570192993754983,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 52537058340412858215,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 66,
+                  "next_valuation": 7,
+                  "coefficient_log2_debt": 8.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,3943] + child_top=3",
+              "outcome_profile": {
+                "pressure_rank_equal": 29,
+                "pressure_rank_increase": 11,
+                "safe_base_cycle_exit": 4,
+                "pressure_new_unranked_internal": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,3943]",
+                "child_coordinate": "[4,[1,1,1,2],103,5,45,65,3943]",
+                "child_top": 3,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 15643570192993754983,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 70983802414122409831,
+                  "modulus_bits": 68,
+                  "prefix_length": 45,
+                  "consumed_bits": 65,
+                  "next_valuation": 5,
+                  "coefficient_log2_debt": 6.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,3943] + child_top=4",
+              "outcome_profile": {
+                "pressure_rank_equal": 25,
+                "pressure_new_unranked_internal": 9,
+                "pressure_rank_increase": 7,
+                "safe_base_cycle_exit": 4
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,3943]",
+                "child_coordinate": "[4,[1,1,3,1],103,1,47,68,3943]",
+                "child_top": 4,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 15643570192993754983,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 89430546487831961447,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 6.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,3943] + child_top=5",
+              "outcome_profile": {
+                "pressure_rank_equal": 18,
+                "pressure_new_unranked_internal": 13,
+                "pressure_rank_increase": 9,
+                "safe_base_cycle_exit": 5
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,3943]",
+                "child_coordinate": "[4,[1,1,1,5],103,2,45,68,3943]",
+                "child_top": 5,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 15643570192993754983,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 107877290561541513063,
+                  "modulus_bits": 68,
+                  "prefix_length": 45,
+                  "consumed_bits": 68,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 3.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    5
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,3943] + child_top=6",
+              "outcome_profile": {
+                "pressure_rank_equal": 37,
+                "pressure_rank_increase": 8
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,3943]",
+                "child_coordinate": "[4,[1,1,1,1],103,7,46,65,3943]",
+                "child_top": 6,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 15643570192993754983,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 126324034635251064679,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 65,
+                  "next_valuation": 7,
+                  "coefficient_log2_debt": 7.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,3943] + child_top=7",
+              "outcome_profile": {
+                "pressure_rank_equal": 27,
+                "pressure_rank_increase": 12,
+                "pressure_new_unranked_internal": 3,
+                "safe_base_cycle_exit": 3
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,3943]",
+                "child_coordinate": "[4,[1,2,1,2],103,1,47,68,3943]",
+                "child_top": 7,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 15643570192993754983,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 144770778708960616295,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 6.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    4,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "family_id": "base_residue65536",
+          "description": "Baseline coordinate plus residue mod 2^16.",
+          "coordinate_scope": "pre_outcome_low_residue_coordinate",
+          "state_count": 138745,
+          "edge_count": 273429,
+          "known_transition_weight": 89222,
+          "frontier_internal_transition_weight": 214770,
+          "total_internal_transition_weight": 303992,
+          "cycle_summary": {
+            "cyclic_component_count": 0,
+            "cyclic_node_count": 0,
+            "largest_cyclic_component_size": 0,
+            "cycle_edge_example": []
+          },
+          "rank_summary": {
+            "status": "observed_dag_rank_constructed",
+            "rank_map_state_count": 138745,
+            "source_state_count": 10874,
+            "sink_state_count": 100463,
+            "max_rank": 7,
+            "rank_level_state_counts": {
+              "0": 100463,
+              "1": 18534,
+              "2": 9676,
+              "3": 6269,
+              "4": 2848,
+              "5": 766,
+              "6": 145,
+              "7": 44
+            },
+            "top_rank_states": [
+              {
+                "state": "[12,[1,1,1,1],103,2,43,59,25959]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,44,60,25959]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,3,41,58,25959]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,3,42,58,25959]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,3,42,59,25959]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,3,43,58,25959]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,3,43,60,25959]",
+                "rank": 7
+              },
+              {
+                "state": "[12,[1,1,1,1],103,4,41,57,25959]",
+                "rank": 7
+              }
+            ]
+          },
+          "expanded_source_state_count": 49330,
+          "child_only_after_expansion_state_count": 90110,
+          "source_profile_state_count": 35406,
+          "mixed_source_profile_state_count": 28886,
+          "transition_key_count": 566496,
+          "pressure_transition_key_count": 150056,
+          "mixed_transition_key_count": 40545,
+          "pure_transition_key_count": 525951,
+          "pure_transition_class_counts": {
+            "safe_base_cycle_exit": 368433,
+            "pressure_rank_equal": 62003,
+            "safe_closed_or_terminal": 45144,
+            "pressure_new_unranked_internal": 35833,
+            "pressure_rank_increase": 14538
+          },
+          "pressure_row_weight": 214770,
+          "mixed_transition_examples": [
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,30055] + child_top=0",
+              "outcome_profile": {
+                "pressure_rank_increase": 10,
+                "pressure_rank_equal": 9,
+                "safe_base_cycle_exit": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,30055]",
+                "child_coordinate": "[4,[1,1,1,2],103,10,46,66,30055]",
+                "child_top": 0,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11545620188407362919,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 11545620188407362919,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 66,
+                  "next_valuation": 10,
+                  "coefficient_log2_debt": 6.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,30055] + child_top=1",
+              "outcome_profile": {
+                "pressure_rank_increase": 12,
+                "safe_base_cycle_exit": 3,
+                "pressure_rank_equal": 3,
+                "pressure_new_unranked_internal": 2
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,30055]",
+                "child_coordinate": "[4,[1,1,3,2],103,5,46,68,30055]",
+                "child_top": 1,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11545620188407362919,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 29992364262116914535,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 68,
+                  "next_valuation": 5,
+                  "coefficient_log2_debt": 4.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,30055] + child_top=2",
+              "outcome_profile": {
+                "pressure_rank_equal": 13,
+                "safe_base_cycle_exit": 5,
+                "pressure_rank_increase": 2
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,30055]",
+                "child_coordinate": "[4,[1,1,1,1],103,5,47,66,30055]",
+                "child_top": 2,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11545620188407362919,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 48439108335826466151,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 66,
+                  "next_valuation": 5,
+                  "coefficient_log2_debt": 8.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,30055] + child_top=3",
+              "outcome_profile": {
+                "pressure_rank_equal": 9,
+                "pressure_rank_increase": 7,
+                "safe_base_cycle_exit": 4
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,30055]",
+                "child_coordinate": "[4,[1,1,1,2],103,5,45,65,30055]",
+                "child_top": 3,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11545620188407362919,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 66885852409536017767,
+                  "modulus_bits": 68,
+                  "prefix_length": 45,
+                  "consumed_bits": 65,
+                  "next_valuation": 5,
+                  "coefficient_log2_debt": 6.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,30055] + child_top=4",
+              "outcome_profile": {
+                "pressure_new_unranked_internal": 8,
+                "pressure_rank_equal": 6,
+                "pressure_rank_increase": 5,
+                "safe_base_cycle_exit": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,30055]",
+                "child_coordinate": "[4,[1,1,3,1],103,1,47,68,30055]",
+                "child_top": 4,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11545620188407362919,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 85332596483245569383,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 6.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,30055] + child_top=5",
+              "outcome_profile": {
+                "pressure_new_unranked_internal": 10,
+                "pressure_rank_increase": 6,
+                "pressure_rank_equal": 4
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,30055]",
+                "child_coordinate": "[4,[1,1,1,5],103,2,45,68,30055]",
+                "child_top": 5,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11545620188407362919,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 103779340556955120999,
+                  "modulus_bits": 68,
+                  "prefix_length": 45,
+                  "consumed_bits": 68,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 3.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    5
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,30055] + child_top=6",
+              "outcome_profile": {
+                "pressure_rank_equal": 16,
+                "pressure_rank_increase": 4
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,30055]",
+                "child_coordinate": "[4,[1,1,1,1],103,6,46,65,30055]",
+                "child_top": 6,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11545620188407362919,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 122226084630664672615,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 65,
+                  "next_valuation": 6,
+                  "coefficient_log2_debt": 7.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64,30055] + child_top=7",
+              "outcome_profile": {
+                "pressure_rank_equal": 12,
+                "pressure_rank_increase": 4,
+                "safe_base_cycle_exit": 3,
+                "pressure_new_unranked_internal": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,45,64,30055]",
+                "child_coordinate": "[4,[1,2,1,2],103,1,47,68,30055]",
+                "child_top": 7,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11545620188407362919,
+                  "modulus_bits": 64,
+                  "prefix_length": 45,
+                  "consumed_bits": 64,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 140672828704374224231,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 6.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "family_id": "base_tail8_residue4096",
+          "description": "Baseline coordinate plus prefix tail8 and residue mod 2^12.",
+          "coordinate_scope": "certificate_state_coordinate_not_outcome_label",
+          "state_count": 220454,
+          "edge_count": 280512,
+          "known_transition_weight": 89222,
+          "frontier_internal_transition_weight": 214770,
+          "total_internal_transition_weight": 303992,
+          "cycle_summary": {
+            "cyclic_component_count": 0,
+            "cyclic_node_count": 0,
+            "largest_cyclic_component_size": 0,
+            "cycle_edge_example": []
+          },
+          "rank_summary": {
+            "status": "observed_dag_rank_constructed",
+            "rank_map_state_count": 220454,
+            "source_state_count": 11919,
+            "sink_state_count": 181588,
+            "max_rank": 6,
+            "rank_level_state_counts": {
+              "0": 181588,
+              "1": 26482,
+              "2": 10989,
+              "3": 938,
+              "4": 381,
+              "5": 74,
+              "6": 2
+            },
+            "top_rank_states": [
+              {
+                "state": "[12,[1,1,1,1],103,2,43,59,[1,1,1,1,1,1,1,1],1383]",
+                "rank": 6
+              },
+              {
+                "state": "[12,[1,1,1,1],103,3,44,60,[1,1,1,1,1,1,1,1],1383]",
+                "rank": 6
+              },
+              {
+                "state": "[0,[1,1,1,1],103,2,48,64,[1,1,1,1,1,1,1,1],1383]",
+                "rank": 5
+              },
+              {
+                "state": "[0,[1,1,1,1],103,4,47,63,[1,1,1,1,1,1,1,1],1383]",
+                "rank": 5
+              },
+              {
+                "state": "[0,[1,3,1,1],103,2,48,64,[1,1,1,1,1,3,1,1],1383]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,41,59,[1,1,1,1,1,1,1,1],3431]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,41,59,[2,1,1,1,1,1,1,1],3431]",
+                "rank": 5
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,42,59,[1,1,1,1,1,1,1,1],2919]",
+                "rank": 5
+              }
+            ]
+          },
+          "expanded_source_state_count": 50628,
+          "child_only_after_expansion_state_count": 170574,
+          "source_profile_state_count": 35918,
+          "mixed_source_profile_state_count": 29428,
+          "transition_key_count": 574688,
+          "pressure_transition_key_count": 160587,
+          "mixed_transition_key_count": 39374,
+          "pure_transition_key_count": 535314,
+          "pure_transition_class_counts": {
+            "safe_base_cycle_exit": 360654,
+            "pressure_rank_equal": 66747,
+            "safe_closed_or_terminal": 51910,
+            "pressure_new_unranked_internal": 39640,
+            "pressure_rank_increase": 16363
+          },
+          "pressure_row_weight": 214770,
+          "mixed_transition_examples": [
+            {
+              "transition_key": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943] + child_top=0",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 11,
+                "pressure_rank_increase": 4,
+                "pressure_rank_equal": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943]",
+                "child_coordinate": "[4,[2,2,1,2],103,4,45,65,[1,1,2,1,2,2,1,2],3943]",
+                "child_top": 0,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 10653685159960256359,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 10653685159960256359,
+                  "modulus_bits": 68,
+                  "prefix_length": 45,
+                  "consumed_bits": 65,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 6.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943] + child_top=1",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 10,
+                "pressure_rank_equal": 5,
+                "pressure_rank_increase": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943]",
+                "child_coordinate": "[4,[1,1,3,1],103,3,47,68,[2,1,2,2,1,1,3,1],3943]",
+                "child_top": 1,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 10653685159960256359,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 29100429233669807975,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 68,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 6.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    3,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943] + child_top=2",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 14,
+                "pressure_new_unranked_internal": 2
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943]",
+                "child_coordinate": "[4,[2,2,1,5],103,1,45,68,[1,1,2,1,2,2,1,5],3943]",
+                "child_top": 2,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 10653685159960256359,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 47547173307379359591,
+                  "modulus_bits": 68,
+                  "prefix_length": 45,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 3.32331253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1,
+                    5
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943] + child_top=3",
+              "outcome_profile": {
+                "pressure_rank_equal": 10,
+                "pressure_rank_increase": 5,
+                "safe_base_cycle_exit": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943]",
+                "child_coordinate": "[4,[2,1,1,1],103,4,46,65,[1,2,1,2,2,1,1,1],3943]",
+                "child_top": 3,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 10653685159960256359,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 65993917381088911207,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 65,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 7.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943] + child_top=4",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 8,
+                "pressure_rank_equal": 5,
+                "pressure_rank_increase": 3
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943]",
+                "child_coordinate": "[4,[1,2,1,2],103,2,47,68,[2,1,2,2,1,2,1,2],3943]",
+                "child_top": 4,
+                "source_rank": 0,
+                "child_rank": 1,
+                "outcome_class": "pressure_rank_increase",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 10653685159960256359,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 84440661454798462823,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 68,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    2,
+                    2,
+                    1,
+                    2,
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943] + child_top=5",
+              "outcome_profile": {
+                "pressure_rank_equal": 8,
+                "safe_base_cycle_exit": 6,
+                "pressure_rank_increase": 2
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943]",
+                "child_coordinate": "[4,[1,2,1,1],103,1,48,68,[1,2,2,1,1,2,1,1],3943]",
+                "child_top": 5,
+                "source_rank": 0,
+                "child_rank": 1,
+                "outcome_class": "pressure_rank_increase",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 10653685159960256359,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 102887405528508014439,
+                  "modulus_bits": 68,
+                  "prefix_length": 48,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 8.07820003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943] + child_top=6",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 14,
+                "pressure_rank_increase": 1,
+                "pressure_new_unranked_internal": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943]",
+                "child_coordinate": "[4,[1,3,1,1],103,1,47,68,[2,1,2,2,1,3,1,1],3943]",
+                "child_top": 6,
+                "source_rank": 0,
+                "child_rank": 1,
+                "outcome_class": "pressure_rank_increase",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 10653685159960256359,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 121334149602217566055,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 6.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    2,
+                    2,
+                    1,
+                    3,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943] + child_top=7",
+              "outcome_profile": {
+                "pressure_rank_equal": 8,
+                "pressure_rank_increase": 6,
+                "safe_base_cycle_exit": 2
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,2,1],103,2,44,63,[1,1,1,2,1,2,2,1],3943]",
+                "child_coordinate": "[4,[1,1,1,1],103,3,48,67,[1,2,2,1,1,1,1,1],3943]",
+                "child_top": 7,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 10653685159960256359,
+                  "modulus_bits": 64,
+                  "prefix_length": 44,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.73835003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 139780893675927117671,
+                  "modulus_bits": 68,
+                  "prefix_length": 48,
+                  "consumed_bits": 67,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 9.07820003,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "family_id": "base_tail12_residue65536",
+          "description": "Baseline coordinate plus prefix tail12 and residue mod 2^16.",
+          "coordinate_scope": "certificate_state_coordinate_not_outcome_label",
+          "state_count": 300624,
+          "edge_count": 299598,
+          "known_transition_weight": 89222,
+          "frontier_internal_transition_weight": 214770,
+          "total_internal_transition_weight": 303992,
+          "cycle_summary": {
+            "cyclic_component_count": 0,
+            "cyclic_node_count": 0,
+            "largest_cyclic_component_size": 0,
+            "cycle_edge_example": []
+          },
+          "rank_summary": {
+            "status": "observed_dag_rank_constructed",
+            "rank_map_state_count": 300624,
+            "source_state_count": 15176,
+            "sink_state_count": 251589,
+            "max_rank": 4,
+            "rank_level_state_counts": {
+              "0": 251589,
+              "1": 36496,
+              "2": 12365,
+              "3": 152,
+              "4": 22
+            },
+            "top_rank_states": [
+              {
+                "state": "[0,[1,1,1,1],103,3,49,63,[1,1,1,1,1,1,1,1,1,1,1,1],35175]",
+                "rank": 4
+              },
+              {
+                "state": "[0,[1,1,1,1],103,3,50,63,[2,1,1,1,1,1,1,1,1,1,1,1],14695]",
+                "rank": 4
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,41,59,[1,1,1,2,3,1,1,1,1,1,1,1],55655]",
+                "rank": 4
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,42,59,[1,1,1,1,4,1,1,1,1,1,1,1],39783]",
+                "rank": 4
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,42,59,[1,1,1,2,1,1,1,1,1,1,1,1],39783]",
+                "rank": 4
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,43,59,[1,1,1,3,2,1,1,1,1,1,1,1],55911]",
+                "rank": 4
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,43,59,[1,1,2,1,1,1,1,1,1,1,1,1],25959]",
+                "rank": 4
+              },
+              {
+                "state": "[12,[1,1,1,1],103,2,43,60,[1,2,1,2,1,1,1,1,1,1,1,1],39783]",
+                "rank": 4
+              }
+            ]
+          },
+          "expanded_source_state_count": 63816,
+          "child_only_after_expansion_state_count": 237903,
+          "source_profile_state_count": 46944,
+          "mixed_source_profile_state_count": 38249,
+          "transition_key_count": 751104,
+          "pressure_transition_key_count": 205323,
+          "mixed_transition_key_count": 6899,
+          "pure_transition_key_count": 744205,
+          "pure_transition_class_counts": {
+            "safe_base_cycle_exit": 485688,
+            "pressure_rank_equal": 113792,
+            "safe_closed_or_terminal": 59907,
+            "pressure_new_unranked_internal": 55471,
+            "pressure_rank_increase": 29347
+          },
+          "pressure_row_weight": 214770,
+          "mixed_transition_examples": [
+            {
+              "transition_key": "[0,[1,1,1,5],103,4,41,61,[1,1,1,2,1,1,1,1,1,1,1,5],55911] + child_top=2",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 4,
+                "safe_closed_or_terminal": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,5],103,4,41,61,[1,1,1,2,1,1,1,1,1,1,1,5],55911]",
+                "child_coordinate": "[4,[1,5,5,1],103,2,43,67,[1,2,1,1,1,1,1,1,1,5,5,1],55911]",
+                "child_top": 2,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 7421171819723479655,
+                  "modulus_bits": 64,
+                  "prefix_length": 41,
+                  "consumed_bits": 61,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 3.98346253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    5
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 44314659967142582887,
+                  "modulus_bits": 68,
+                  "prefix_length": 43,
+                  "consumed_bits": 67,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 1.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    5,
+                    5,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,5],103,4,41,61,[1,1,1,2,1,1,1,1,1,1,1,5],55911] + child_top=6",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 3,
+                "safe_closed_or_terminal": 2
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,5],103,4,41,61,[1,1,1,2,1,1,1,1,1,1,1,5],55911]",
+                "child_coordinate": "[\"closed_or_unknown\",\"all_lift_descent\",[1,1,2,1,1,1,1,1,1,1,5,7],55911]",
+                "child_top": 6,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_closed_or_terminal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 7421171819723479655,
+                  "modulus_bits": 64,
+                  "prefix_length": 41,
+                  "consumed_bits": 61,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 3.98346253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    5
+                  ]
+                },
+                "child_certificate": {
+                  "status": "all_lift_descent",
+                  "residue": 118101636261980789351,
+                  "modulus_bits": 68,
+                  "prefix_length": 42,
+                  "consumed_bits": 68,
+                  "next_valuation": null,
+                  "coefficient_log2_debt": null,
+                  "coefficient_log2_margin": 1.43157497,
+                  "threshold_min_n_for_descent": 3,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    5,
+                    7
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,5],103,4,41,61,[1,1,1,2,1,1,1,1,1,1,1,5],55911] + child_top=10",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 4,
+                "safe_closed_or_terminal": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,5],103,4,41,61,[1,1,1,2,1,1,1,1,1,1,1,5],55911]",
+                "child_coordinate": "[4,[1,1,5,5],103,3,42,66,[1,1,2,1,1,1,1,1,1,1,5,5],55911]",
+                "child_top": 10,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 7421171819723479655,
+                  "modulus_bits": 64,
+                  "prefix_length": 41,
+                  "consumed_bits": 61,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 3.98346253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    5
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 191888612556818995815,
+                  "modulus_bits": 68,
+                  "prefix_length": 42,
+                  "consumed_bits": 66,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 0.56842503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    5,
+                    5
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,5],103,4,41,61,[1,1,1,2,1,1,1,1,1,1,1,5],55911] + child_top=14",
+              "outcome_profile": {
+                "safe_closed_or_terminal": 4,
+                "safe_base_cycle_exit": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,5],103,4,41,61,[1,1,1,2,1,1,1,1,1,1,1,5],55911]",
+                "child_coordinate": "[\"closed_or_unknown\",\"all_lift_descent\",[1,1,2,1,1,1,1,1,1,1,5,6],55911]",
+                "child_top": 14,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_closed_or_terminal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 7421171819723479655,
+                  "modulus_bits": 64,
+                  "prefix_length": 41,
+                  "consumed_bits": 61,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 3.98346253,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    5
+                  ]
+                },
+                "child_certificate": {
+                  "status": "all_lift_descent",
+                  "residue": 265675588851657202279,
+                  "modulus_bits": 68,
+                  "prefix_length": 42,
+                  "consumed_bits": 67,
+                  "next_valuation": null,
+                  "coefficient_log2_debt": null,
+                  "coefficient_log2_margin": 0.43157497,
+                  "threshold_min_n_for_descent": 12,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    5,
+                    6
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,2,1,1],103,5,43,60,[1,2,1,1,1,1,1,1,1,2,1,1],55911] + child_top=5",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 3,
+                "pressure_rank_equal": 2
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,1,1],103,5,43,60,[1,2,1,1,1,1,1,1,1,2,1,1],55911]",
+                "child_coordinate": "[4,[4,1,1,1],103,6,47,67,[1,1,1,1,1,2,1,1,4,1,1,1],55911]",
+                "child_top": 5,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 8862323700482038375,
+                  "modulus_bits": 64,
+                  "prefix_length": 43,
+                  "consumed_bits": 60,
+                  "next_valuation": 5,
+                  "coefficient_log2_debt": 8.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 101096044069029796455,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 67,
+                  "next_valuation": 6,
+                  "coefficient_log2_debt": 7.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    4,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,2,1,1],103,5,43,60,[1,2,1,1,1,1,1,1,1,2,1,1],55911] + child_top=9",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 4,
+                "pressure_rank_equal": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,1,1],103,5,43,60,[1,2,1,1,1,1,1,1,1,2,1,1],55911]",
+                "child_coordinate": "[4,[1,4,1,3],103,1,46,68,[1,1,1,1,1,1,2,1,1,4,1,3],55911]",
+                "child_top": 9,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 8862323700482038375,
+                  "modulus_bits": 64,
+                  "prefix_length": 43,
+                  "consumed_bits": 60,
+                  "next_valuation": 5,
+                  "coefficient_log2_debt": 8.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 174883020363868002919,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 68,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 4.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    4,
+                    1,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,2,1,1],103,6,42,59,[1,1,2,1,1,1,1,1,1,2,1,1],55911] + child_top=3",
+              "outcome_profile": {
+                "safe_base_cycle_exit": 3,
+                "pressure_rank_equal": 2
+              },
+              "example": {
+                "source_coordinate": "[0,[1,2,1,1],103,6,42,59,[1,1,2,1,1,1,1,1,1,2,1,1],55911]",
+                "child_coordinate": "[4,[5,1,1,1],103,2,46,67,[1,1,1,1,1,2,1,1,5,1,1,1],55911]",
+                "child_top": 3,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "safe_base_cycle_exit",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 4610925652244290151,
+                  "modulus_bits": 64,
+                  "prefix_length": 42,
+                  "consumed_bits": 59,
+                  "next_valuation": 6,
+                  "coefficient_log2_debt": 7.56842503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 59951157873372944999,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 67,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 5.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    5,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,43,63,[1,3,2,1,1,1,3,1,1,1,1,1],55911] + child_top=0",
+              "outcome_profile": {
+                "pressure_rank_equal": 3,
+                "safe_base_cycle_exit": 1
+              },
+              "example": {
+                "source_coordinate": "[0,[1,1,1,1],103,2,43,63,[1,3,2,1,1,1,3,1,1,1,1,1],55911]",
+                "child_coordinate": "[4,[1,2,1,1],103,2,46,67,[1,1,1,3,1,1,1,1,1,2,1,1],55911]",
+                "child_top": 0,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 13969968627873602151,
+                  "modulus_bits": 64,
+                  "prefix_length": 43,
+                  "consumed_bits": 63,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 5.15338753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 13969968627873602151,
+                  "modulus_bits": 68,
+                  "prefix_length": 46,
+                  "consumed_bits": 67,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 5.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "family_id": "base_fullword_residue65536",
+          "description": "Baseline coordinate plus full observed valuation word and residue mod 2^16.",
+          "coordinate_scope": "large_certificate_state_coordinate_not_outcome_label",
+          "state_count": 319801,
+          "edge_count": 303992,
+          "known_transition_weight": 89222,
+          "frontier_internal_transition_weight": 214770,
+          "total_internal_transition_weight": 303992,
+          "cycle_summary": {
+            "cyclic_component_count": 0,
+            "cyclic_node_count": 0,
+            "largest_cyclic_component_size": 0,
+            "cycle_edge_example": []
+          },
+          "rank_summary": {
+            "status": "observed_dag_rank_constructed",
+            "rank_map_state_count": 319801,
+            "source_state_count": 15809,
+            "sink_state_count": 268843,
+            "max_rank": 2,
+            "rank_level_state_counts": {
+              "0": 268843,
+              "1": 38596,
+              "2": 12362
+            },
+            "top_rank_states": [
+              {
+                "state": "[0,[1,1,1,1],103,10,43,59,[1,1,2,1,1,1,4,1,2,1,2,1,1,1,2,2,2,2,1,1,1,1,3,1,1,1,3,1,2,1,1,1,2,1,1,1,1,1,1,1,1,1,1],55911]",
+                "rank": 2
+              },
+              {
+                "state": "[0,[1,1,1,1],103,10,44,60,[1,1,2,1,1,1,2,1,3,1,1,1,4,1,1,1,1,2,1,1,1,1,1,1,2,3,1,1,1,2,1,1,1,1,1,5,1,1,1,1,1,1,1,1],1127]",
+                "rank": 2
+              },
+              {
+                "state": "[0,[1,1,1,1],103,10,45,60,[1,1,2,1,1,1,4,1,1,2,1,1,3,1,1,2,1,3,1,1,1,3,1,1,2,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1],64103]",
+                "rank": 2
+              },
+              {
+                "state": "[0,[1,1,1,1],103,10,47,60,[1,1,2,1,1,1,2,1,1,2,1,2,4,1,2,1,1,3,1,1,1,1,2,1,1,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],64615]",
+                "rank": 2
+              },
+              {
+                "state": "[0,[1,1,1,1],103,10,47,63,[1,1,2,1,1,1,1,1,3,3,1,1,3,1,1,3,1,1,1,1,1,1,3,1,1,3,1,2,2,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1],19303]",
+                "rank": 2
+              },
+              {
+                "state": "[0,[1,1,1,1],103,11,43,60,[1,1,2,1,1,1,1,2,1,1,1,1,4,1,3,2,1,3,1,1,1,1,3,2,1,1,2,2,1,1,1,1,2,2,1,1,1,1,1,1,1,1,1],60775]",
+                "rank": 2
+              },
+              {
+                "state": "[0,[1,1,1,1],103,11,44,59,[1,1,2,1,1,1,1,2,2,2,1,4,1,2,1,1,1,1,2,1,1,1,2,1,1,1,1,1,2,3,1,1,1,1,1,2,2,1,1,1,1,1,1,1],62823]",
+                "rank": 2
+              },
+              {
+                "state": "[0,[1,1,1,1],103,11,44,61,[1,1,2,1,1,1,1,1,1,5,1,2,1,1,2,1,1,1,3,1,1,1,2,2,3,1,1,1,2,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1],30567]",
+                "rank": 2
+              }
+            ]
+          },
+          "expanded_source_state_count": 66471,
+          "child_only_after_expansion_state_count": 254488,
+          "source_profile_state_count": 49504,
+          "mixed_source_profile_state_count": 40259,
+          "transition_key_count": 792064,
+          "pressure_transition_key_count": 214770,
+          "mixed_transition_key_count": 0,
+          "pure_transition_key_count": 792064,
+          "pure_transition_class_counts": {
+            "safe_base_cycle_exit": 516176,
+            "pressure_rank_equal": 123403,
+            "safe_closed_or_terminal": 61118,
+            "pressure_new_unranked_internal": 59449,
+            "pressure_rank_increase": 31918
+          },
+          "pressure_row_weight": 214770,
+          "mixed_transition_examples": []
+        }
+      ],
+      "best_transition_separator": {
+        "family_id": "base_fullword_residue65536",
+        "mixed_transition_key_count": 0,
+        "transition_key_count": 792064,
+        "child_only_after_expansion_state_count": 254488,
+        "state_count": 319801,
+        "rank_status": "observed_dag_rank_constructed"
+      },
+      "best_frontier_reduction": {
+        "family_id": "base_prefix_consumed",
+        "child_only_after_expansion_state_count": 8055,
+        "mixed_transition_key_count": 22219,
+        "state_count": 17686,
+        "rank_status": "observed_dag_rank_constructed"
+      },
+      "frontier_coordinate_status": "bounded_transition_separator_found_but_infinite_bridge_open",
+      "discarded_route": "Use TICKET70 re-entry outcomes as labels after the fact. TICKET71 keeps the tested coordinates explicit and rejects post-hoc outcome labels as proof coordinates.",
+      "retained_route": "Promote a coordinate only if it separates transition pressure before outcome labels and then admits an infinite transition theorem; otherwise extract a persistent compatible lift chain.",
+      "candidate_theorem": "StrongerFrontierCoordinateOrPersistentLiftCycle: every compatible TICKET70 frontier re-entry is separated by a pre-outcome coordinate whose expanded graph is well-founded for all future lifts, or there exists a compatible infinite lift chain that keeps re-entering internal frontier pressure.",
+      "counterexample_target": "A repeated lift chain through a mixed transition key or child-only expanded state that survives every tested low-residue and valuation-word coordinate without descent.",
+      "next_theorem_target": "InfiniteFrontierCoordinateLiftClosureOrChain",
+      "proof_boundary": "TICKET71 does not prove Collatz and does not certify a counterexample. It searches for stronger bounded coordinates and identifies which coordinate, if any, deserves an infinite lift-closure theorem."
+    }
+  },
+  "obstruction": "A bounded coordinate separator is not a proof. It must be promoted to an infinite transition theorem, or the remaining mixed keys must be treated as persistent lift-chain counterexample targets.",
+  "candidate_theorem": "StrongerFrontierCoordinateOrPersistentLiftCycle: every compatible TICKET70 frontier re-entry is separated by a pre-outcome coordinate whose expanded graph is well-founded for all future lifts, or there exists a compatible infinite lift chain that keeps re-entering internal frontier pressure.",
+  "next_experiment": "Turn the best bounded coordinate into an infinite lift-closure theorem or extract a persistent chain.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

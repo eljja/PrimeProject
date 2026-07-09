@@ -371,6 +371,28 @@ async function main() {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }
+  const missingTicket71Checks = metrics.openProblemPages.flatMap((page) => {
+    const checks = [];
+    const requireText = (label, text) => {
+      if (!page.proofOrCounterexampleText.includes(text)) checks.push(`${page.problemId}: ${label}`);
+    };
+    requireText("ticket71 title", "Ticket 71 stronger frontier coordinates");
+    requireText("ticket71 result table", "Stronger coordinate result");
+    if (page.problemId === "collatz") {
+      requireText("ticket71 coordinate table", "Coordinate family comparison");
+      requireText("ticket71 status", "bounded_transition_separator_found_but_infinite_bridge_open");
+      requireText("ticket71 full-word family", "base_fullword_residue65536");
+      requireText("ticket71 full-word frontier", "254,488");
+      requireText("ticket71 compact mixed keys", "22,219");
+      requireText("ticket71 tail12 family", "base_tail12_residue65536");
+      requireText("ticket71 next theorem", "InfiniteFrontierCoordinateLiftClosureOrChain");
+    }
+    return checks;
+  });
+  if (missingTicket71Checks.length > 0) {
+    console.error(JSON.stringify({ errors, missingTicket71Checks }, null, 2));
+    process.exit(1);
+  }
   if (
     metrics.openProblemPages.length !== 4 ||
     metrics.openProblemPages.some(
@@ -500,6 +522,8 @@ async function main() {
         !page.proofOrCounterexampleText.includes("Rank certificate result") ||
         !page.proofOrCounterexampleText.includes("Ticket 70 prefix frontier expansion") ||
         !page.proofOrCounterexampleText.includes("Frontier expansion result") ||
+        !page.proofOrCounterexampleText.includes("Ticket 71 stronger frontier coordinates") ||
+        !page.proofOrCounterexampleText.includes("Stronger coordinate result") ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Projection escape witness")) ||
         (page.problemId === "collatz" &&
           !page.proofOrCounterexampleText.includes("template_plus_prefix_length_residue_mod_2^28")) ||
@@ -570,6 +594,13 @@ async function main() {
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("59,449")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("internal_rank_equal_frontier_cycle_pressure")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("StrongerFrontierCoordinateOrPersistentLiftCycle")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Coordinate family comparison")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("bounded_transition_separator_found_but_infinite_bridge_open")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("base_fullword_residue65536")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("254,488")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("22,219")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("base_tail12_residue65536")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("InfiniteFrontierCoordinateLiftClosureOrChain")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -847,6 +878,88 @@ async function main() {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
   }
+  const evolutionRequiredText = [
+    ["panel", metrics.evolutionPanel, "Project Evolution"],
+    ["summary", metrics.evolutionSummary, "Generator baselines"],
+    ["summary", metrics.evolutionSummary, "0"],
+    ["summary", metrics.evolutionSummary, "1 public control"],
+    ["summary", metrics.evolutionSummary, "2 profiles"],
+    ["summary", metrics.evolutionSummary, "5,000 null iterations"],
+    ["impact", metrics.evolutionImpact, "Project Logic"],
+    ["impact", metrics.evolutionImpact, "Supported"],
+    ["impact", metrics.evolutionImpact, "Not supported yet"],
+    ["impact", metrics.evolutionImpact, "Next decisive test"],
+    ["impact", metrics.evolutionImpact, "Visual Change Trail"],
+    ["impact", metrics.evolutionImpact, "Hardening Map"],
+    ["impact", metrics.evolutionImpact, "feature_vector_path_public_relative"],
+    ["impact", metrics.evolutionImpact, "Scale lift"],
+    ["impact", metrics.evolutionImpact, "Publication guardrails"],
+    ["impact", metrics.evolutionImpact, "Boundary state obstruction"],
+    ["impact", metrics.evolutionImpact, "2^28 first deterministic"],
+    ["impact", metrics.evolutionImpact, "Lift stability refuted"],
+    ["impact", metrics.evolutionImpact, "3,086 projection escapes"],
+    ["impact", metrics.evolutionImpact, "Cylinder coordinate gap"],
+    ["impact", metrics.evolutionImpact, "41,472 extensions"],
+    ["impact", metrics.evolutionImpact, "Failure-offset separator"],
+    ["impact", metrics.evolutionImpact, "58 mixed"],
+    ["impact", metrics.evolutionImpact, "Pre-replay separator"],
+    ["impact", metrics.evolutionImpact, "mod 16"],
+    ["impact", metrics.evolutionImpact, "Mod16 lift survival"],
+    ["impact", metrics.evolutionImpact, "52/56-bit lifts"],
+    ["impact", metrics.evolutionImpact, "Mod16 automaton table"],
+    ["impact", metrics.evolutionImpact, "60-bit chain"],
+    ["impact", metrics.evolutionImpact, "Symbolic gate obstruction"],
+    ["impact", metrics.evolutionImpact, "64-bit gate"],
+    ["impact", metrics.evolutionImpact, "Refined DAG frontier"],
+    ["impact", metrics.evolutionImpact, "9,616 states"],
+    ["impact", metrics.evolutionImpact, "tail/residue-only"],
+    ["impact", metrics.evolutionImpact, "Rank frontier audit"],
+    ["impact", metrics.evolutionImpact, "6,649 frontier"],
+    ["impact", metrics.evolutionImpact, "Frontier closure refuted"],
+    ["impact", metrics.evolutionImpact, "155,321 nondecreasing"],
+    ["impact", metrics.evolutionImpact, "Bounded separator tradeoff"],
+    ["impact", metrics.evolutionImpact, "22,219 compact"],
+    ["impact", metrics.evolutionImpact, "0 mixed full-word"],
+    ["impact", metrics.evolutionImpact, "11 guard checks"],
+    ["spine", metrics.evolutionSpine, "Evidence Spine"],
+    ["spine", metrics.evolutionSpine, "Sim-to-Real"],
+    ["spine", metrics.evolutionSpine, "fixture audit"],
+    ["spine", metrics.evolutionSpine, "21 checked artifacts"],
+    ["spine", metrics.evolutionSpine, "publication consistency"],
+    ["delta", metrics.evolutionDelta, "Claim Boundaries"],
+    ["delta", metrics.evolutionDelta, "controlled grid + null + replication"],
+    ["delta", metrics.evolutionDelta, "Real-world generator attribution"],
+    ["delta", metrics.evolutionDelta, "Bitcoin wallet/library attribution"],
+    ["panel", metrics.evolutionPanel, "Crypto-classifier baseline"],
+    ["panel", metrics.evolutionPanel, "Collection handoff"],
+    ["panel", metrics.evolutionPanel, "Collection intake"],
+    ["panel", metrics.evolutionPanel, "collection matrix"],
+    ["panel", metrics.evolutionPanel, "Sample power"],
+    ["panel", metrics.evolutionPanel, "Provenance"],
+    ["panel", metrics.evolutionPanel, "Evidence pack"],
+    ["panel", metrics.evolutionPanel, "Publication consistency"],
+    ["panel", metrics.evolutionPanel, "TICKET-57"],
+    ["panel", metrics.evolutionPanel, "TICKET-58"],
+    ["panel", metrics.evolutionPanel, "TICKET-59"],
+    ["panel", metrics.evolutionPanel, "TICKET-60"],
+    ["panel", metrics.evolutionPanel, "TICKET-61"],
+    ["panel", metrics.evolutionPanel, "TICKET-62"],
+    ["panel", metrics.evolutionPanel, "TICKET-63"],
+    ["panel", metrics.evolutionPanel, "TICKET-64"],
+    ["panel", metrics.evolutionPanel, "TICKET-65"],
+    ["panel", metrics.evolutionPanel, "TICKET-66"],
+    ["panel", metrics.evolutionPanel, "TICKET-67"],
+    ["panel", metrics.evolutionPanel, "TICKET-68"],
+    ["panel", metrics.evolutionPanel, "TICKET-70"],
+    ["panel", metrics.evolutionPanel, "TICKET-71"],
+  ];
+  const missingEvolutionChecks = evolutionRequiredText
+    .filter(([, actual, expectedText]) => !String(actual).includes(expectedText))
+    .map(([section, , expectedText]) => `${section}: ${expectedText}`);
+  if (missingEvolutionChecks.length > 0) {
+    console.error(JSON.stringify({ errors, missingEvolutionChecks }, null, 2));
+    process.exit(1);
+  }
   if (
     metrics.atlasContributions < 4 ||
     metrics.atlasLadderSteps < 5 ||
@@ -913,6 +1026,9 @@ async function main() {
     !metrics.evolutionImpact.includes("6,649 frontier") ||
     !metrics.evolutionImpact.includes("Frontier closure refuted") ||
     !metrics.evolutionImpact.includes("155,321 nondecreasing") ||
+    !metrics.evolutionImpact.includes("Bounded separator tradeoff") ||
+    !metrics.evolutionImpact.includes("22,219 compact") ||
+    !metrics.evolutionImpact.includes("0 mixed full-word") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
@@ -947,7 +1063,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-66") ||
     !metrics.evolutionPanel.includes("TICKET-67") ||
     !metrics.evolutionPanel.includes("TICKET-68") ||
-    !metrics.evolutionPanel.includes("TICKET-70")
+    !metrics.evolutionPanel.includes("TICKET-70") ||
+    !metrics.evolutionPanel.includes("TICKET-71")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

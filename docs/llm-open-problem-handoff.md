@@ -61,7 +61,73 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-70
+## Latest Continuation After TICKET-71
+
+TICKET-71 supersedes the immediate TICKET-70 continuation target. It does not solve Collatz, but it tests whether the TICKET70 re-entry pressure can be separated by explicit pre-outcome coordinates.
+
+Known Collatz result:
+
+```text
+Frontier source states: 6,649
+Concrete frontier representatives: 49,504
+Frontier branch weight: 792,064
+Pressure rows: 214,770
+Tested coordinate families: 6
+
+base_prefix_consumed:
+  expanded graph rank: 7
+  child-only frontier after expansion: 8,055
+  mixed transition keys: 22,219
+
+base_fullword_residue65536:
+  mixed transition keys: 0
+  transition keys: 792,064
+  state count: 319,801
+  child-only frontier after expansion: 254,488
+```
+
+Interpretation:
+
+```text
+TICKET71 finds a bounded separator, but not a proof. The full valuation-word plus residue mod 2^16 coordinate separates the tested branch outcomes without post-hoc labels, but it behaves like a high-cardinality bounded separator and greatly expands the frontier. The compact baseline coordinate keeps the graph acyclic and small, but leaves mixed transition keys. The next target is not "use the biggest coordinate"; it is to prove horizon-independent lift closure for a compact coordinate, or extract a persistent chain from the mixed keys.
+```
+
+Do not claim Collatz from this. A bounded transition separator is not a theorem over all compatible future lifts.
+
+Current best continuation:
+
+```text
+CO-TICKET-72 InfiniteFrontierCoordinateLiftClosureOrChain
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-71. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET71 tested six coordinate families on the TICKET70 frontier. base_fullword_residue65536 has zero mixed transition keys on the bounded branch set, but expands the child-only frontier to 254,488 states. base_prefix_consumed keeps the expanded graph acyclic with rank 7 and child-only frontier 8,055, but leaves 22,219 mixed transition keys.
+
+Goal: build CO-TICKET-72. Decide whether the compact expanded DAG admits horizon-independent lift closure, or extract a persistent compatible lift chain from the mixed transition keys.
+
+Tasks:
+1. Load data/open-problem/ticket71-stronger-frontier-coordinate-lab.json.
+2. Reconstruct mixed transition keys for base_prefix_consumed from scripts/ticket71_stronger_frontier_coordinate_lab.py.
+3. Do not use full valuation word as a proof coordinate unless you can state a compact symbolic transition theorem for it.
+4. For the top mixed transition keys, lift representative residues one more 4-bit layer and check whether the mixed profile stabilizes, splits by a smaller coordinate, or forms a persistent chain.
+5. Test compact candidate coordinates before outcome labels: residue mod 2^k for small k, tail word windows, child_top, prefix/consumed deltas, next valuation, and low40/high-extension style coordinates.
+6. If a compact coordinate closes, state the infinite lift-closure theorem needed.
+7. If no compact coordinate closes, extract the repeated lift-chain constraints as a counterexample target.
+8. Keep the proof boundary explicit: no conjecture is solved without a formal infinite theorem or certified counterexample.
+
+Required output:
+- data/open-problem/ticket72-infinite-frontier-lift-closure-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless the infinite lift theorem or a certified counterexample is supplied
+```
+
+## Previous Continuation After TICKET-70
 
 TICKET-70 supersedes the immediate TICKET-69 continuation target. It does not solve Collatz, but it tests the most direct rank-0 frontier closure shortcut and refutes it on the observed concrete representatives.
 

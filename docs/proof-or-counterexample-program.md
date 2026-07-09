@@ -3987,3 +3987,82 @@ Proof boundary:
 ```text
 TICKET-70 does not prove or disprove any of the four open problems. It refutes a direct frontier-closure shortcut and narrows the next target to a stronger coordinate or a persistent lift-cycle extraction.
 ```
+
+### Ticket 71: Stronger frontier coordinates and bounded separator tradeoff
+
+CO-TICKET-71 StrongerFrontierCoordinateOrPersistentLiftCycle
+
+Artifacts:
+
+```text
+data/open-problem/ticket71-stronger-frontier-coordinate-lab.json
+data/open-problem/collatz/co-ticket-71-stronger-frontier-coordinate.json
+data/open-problem/riemann/rh-ticket-71-stronger-frontier-coordinate.json
+data/open-problem/goldbach/gb-ticket-71-stronger-frontier-coordinate.json
+data/open-problem/twin-prime/tp-ticket-71-stronger-frontier-coordinate.json
+```
+
+Status:
+
+```text
+stronger_frontier_coordinate_open_no_resolution
+```
+
+한국어 요약: TICKET-71은 TICKET-70의 재진입 압력을 outcome label 없이 분리할 수 있는지 검사한다. 시험한 좌표는 `base_prefix_consumed`, residue mod `2^12`, residue mod `2^16`, tail8+residue, tail12+residue, full valuation word+residue mod `2^16`이다. 결과는 tradeoff다. compact한 `base_prefix_consumed`는 expanded graph를 acyclic하게 유지하고 rank 7을 만들며 child-only frontier를 8,055개로 가장 작게 유지한다. 하지만 mixed transition key가 22,219개 남는다. 반대로 `base_fullword_residue65536`은 bounded transition key를 완전히 분리해서 mixed key 0개를 만든다. 그러나 state count가 319,801개, child-only frontier가 254,488개로 폭증한다. 따라서 "분리 가능한 좌표가 있다"와 "증명 가능한 compact invariant가 있다"는 같은 말이 아니다.
+
+English summary: TICKET-71 finds a bounded separator but not a proof. The full valuation-word plus residue mod `2^16` coordinate gives zero mixed transition keys across the TICKET70 branch set, but it overfits the bounded data and expands the child-only frontier. The compact baseline coordinate keeps the expanded graph small and acyclic, but leaves mixed transition keys. The next proof target is an infinite lift-closure theorem for a compact coordinate, or a persistent lift-chain counterexample target extracted from the remaining mixed keys.
+
+Key Collatz result:
+
+```text
+frontier source states: 6,649
+frontier concrete representatives: 49,504
+frontier branch weight: 792,064
+pressure rows: 214,770
+tested coordinate families: 6
+best bounded transition separator: base_fullword_residue65536
+best separator mixed transition keys: 0
+best separator transition keys: 792,064
+best separator child-only frontier: 254,488
+best compact frontier reduction: base_prefix_consumed
+compact expanded graph rank: 7
+compact child-only frontier after expansion: 8,055
+compact mixed transition keys: 22,219
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Treat a large full-word separator as a Collatz proof. TICKET71 blocks that shortcut: the coordinate separates the bounded branch set but explodes the frontier and still has no infinite lift-closure theorem.
+```
+
+Retained route:
+
+```text
+Either prove that a compact coordinate such as base_prefix_consumed has horizon-independent lift closure after frontier expansion, or extract a persistent lift chain from the mixed transition keys that survive compact coordinates.
+```
+
+Candidate theorem still missing:
+
+```text
+InfiniteFrontierCoordinateLiftClosureOrChain: every compatible future lift of the expanded frontier is closed by a compact pre-outcome coordinate with a well-founded rank, or there exists a compatible infinite chain through a mixed transition key.
+```
+
+Counterexample target:
+
+```text
+A repeated lift chain through a mixed transition key or child-only expanded state that survives every tested low-residue and valuation-word coordinate without descent.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-72 InfiniteFrontierCoordinateLiftClosureOrChain
+```
+
+Proof boundary:
+
+```text
+TICKET-71 does not prove or disprove any of the four open problems. It identifies a bounded coordinate separator and a compact-coordinate obstruction; the infinite lift theorem remains missing.
+```
