@@ -1,0 +1,21 @@
+{
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-63",
+  "status": "proof_pressure_open",
+  "route": "ZeroKernelAutomatonCoverOrHeightCollision",
+  "proof_or_counterexample_mode": "automaton-cover transfer",
+  "attempt": "Transfer TICKET63's rule: a stable separator must become an explicit automaton table with transition closure and collision tests before it can support any theorem claim.",
+  "bounded_result": {
+    "source_ticket": "RH-TICKET-62",
+    "source_route": "ZeroKernelSeparatorTransitionClosure",
+    "ticket63_transfer": "ZeroKernelAutomatonCoverOrHeightCollision",
+    "automaton_gate": "zero-kernel separator states need an explicit height-transition automaton",
+    "candidate_theorem": "A finite zero-kernel automaton covers every height lift with positivity-preserving transitions, or a height collision produces an off-critical obstruction packet.",
+    "counterexample_target": "two height lifts with the same zero-kernel automaton state but conflicting positivity labels",
+    "frontier_rule": "The next useful artifact is an explicit state table plus a proof of closure or a first collision. Heuristic separator stability is not enough."
+  },
+  "obstruction": "This is a transfer discipline, not a solution. It raises the target from bounded separator survival to automaton closure.",
+  "candidate_theorem": "A finite zero-kernel automaton covers every height lift with positivity-preserving transitions, or a height collision produces an off-critical obstruction packet.",
+  "next_experiment": "Build the problem-specific automaton table and quotient/collision audit.",
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

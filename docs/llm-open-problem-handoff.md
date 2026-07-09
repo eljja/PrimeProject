@@ -61,6 +61,68 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
+## Latest Continuation After TICKET-63
+
+TICKET-63 supersedes the immediate TICKET-62 continuation target. It still does not solve Collatz or any of the other three open problems, but it turns the bounded mod16 lift-survival signal into an explicit finite automaton-table audit and a sharper symbolic theorem target.
+
+Known Collatz result:
+
+```text
+base mixed cylinders: 58
+base mixed start-template lifts: 210
+56-bit parent survivor rows: 824
+60-bit chain tested lifts: 13,184
+60-bit start-template chain lifts: 209
+60-bit automaton states: 145
+automaton collision audits: 0
+full-period escapes: 0
+first 60-bit quotient separator: low40_mod_2^20_plus_base_mod16
+```
+
+Interpretation:
+
+```text
+TICKET-62 showed that low40 + base high_extension mod 16 remains deterministic on selected 52/56-bit surviving lifts. TICKET-63 extracts the corresponding state tables, chains the 56-bit survivors one targeted step to 60 bits, and finds that the 60-bit chained rows are deterministic only after retaining low40 mod 2^20 together with base_mod16. This is a finite quotient/automaton audit, not a proof.
+```
+
+Do not claim Collatz from this. The result narrows the next proof obligation: replace the finite state table with a symbolic transition theorem for all admissible lifts, or find the first lift/cylinder collision that breaks the proposed automaton cover.
+
+Current best continuation:
+
+```text
+CO-TICKET-64 SymbolicMod16AutomatonTransitionProof
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-63. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument.
+
+Known result: TICKET-63 extracts finite deterministic state tables from the Collatz mod16 route. The selected 56-bit survivor population has 824 rows. A targeted 60-bit chain audit tests 13,184 chain lifts and keeps 209 start-template target rows. No automaton collision audit and no full-period escape is found. The first deterministic quotient separator for the chained 60-bit rows is low40 mod 2^20 + base_mod16.
+
+Goal: build CO-TICKET-64. Replace the finite table with a symbolic transition theorem, or break it with a concrete collision.
+
+Tasks:
+1. Define the exact symbolic state: base_mod16, low40 mod 2^20, template id, edge index, valuation gate, and any necessary affine-boundary residue.
+2. Derive the transition formula algebraically from the accelerated Collatz map and the start-template constraints.
+3. Prove closure for every admissible higher lift, not just the sampled 60-bit rows, or exhibit two admissible lifts with the same symbolic state and conflicting transition labels.
+4. If closure holds, build a counted automaton cover and a rank/energy rule that forbids full-period nondecreasing cycles.
+5. If closure fails, record the exact residues, lift bits, replay certificate, violated state equality, and conflicting labels.
+
+Required discipline:
+- Do not use failure_offset, observed outcome, or first_failure certificate fields as separator keys.
+- Treat deterministic finite tables as theorem targets, not as proof.
+- A collision in the automaton theorem is useful even if it is not a Collatz counterexample.
+- A Collatz proof requires an independently checkable infinite argument or a formally accepted theorem, not just bounded computation.
+
+Required output:
+- data/open-problem/ticket64-symbolic-mod16-transition-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+- explicit proof boundary saying no conjecture is solved unless the symbolic infinite bridge is supplied
+```
+
 ## Latest Continuation After TICKET-62
 
 TICKET-62 supersedes the immediate TICKET-61 continuation target. It does not solve Collatz, but it upgrades the mod16 separator from a 48-bit separator into a bounded higher-lift transition candidate.

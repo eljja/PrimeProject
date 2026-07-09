@@ -3410,3 +3410,72 @@ Proof boundary:
 ```text
 TICKET-62 does not prove or disprove any of the four open problems. It tests bounded 52/56-bit lift closure for the mod16 coordinate and finds no collision in that audit, but the infinite symbolic automaton-cover theorem remains open.
 ```
+
+### Ticket 63: Mod16 automaton-cover table and 60-bit chain audit
+
+CO-TICKET-63 Mod16AutomatonCoverOrLiftCollision
+
+Artifacts:
+
+```text
+data/open-problem/ticket63-mod16-automaton-cover-lab.json
+data/open-problem/collatz/co-ticket-63-mod16-automaton-cover.json
+data/open-problem/riemann/rh-ticket-63-automaton-cover.json
+data/open-problem/goldbach/gb-ticket-63-margin-automaton.json
+data/open-problem/twin-prime/tp-ticket-63-sieve-automaton.json
+```
+
+Status:
+
+```text
+mod16_automaton_cover_open_no_resolution
+```
+
+한국어 요약: TICKET-63은 TICKET-62의 bounded mod16 transition evidence를 automaton-cover 표로 바꾸는 시도다. 48비트 selected mixed cylinder 58개와 start-template lift 210개에서 출발하고, 56비트 생존 row 824개를 부모 row로 삼아 60비트 targeted chain lift 13,184개를 검사했다. 그 결과 start-template target row 209개가 남았고, 이 row들에 대한 state table은 deterministic이며 collision audit은 0개였다. chained 60비트 row에서 첫 결정적 quotient separator는 `low40 mod 2^20 + base_mod16`이다. 이 결과는 다음 정리 목표를 더 명확히 하지만, finite table audit이므로 콜라츠 증명이나 네 난제의 증명은 아니다.
+
+English summary: TICKET-63 converts TICKET62's bounded mod16 transition evidence into an explicit finite automaton-table audit. It chains the 824 surviving 56-bit rows into 13,184 targeted 60-bit lifts and retains 209 start-template target rows. The resulting state tables are deterministic with no audited automaton collisions and no full-period escape. This sharpens the next theorem target, but it is still a finite audit rather than an infinite proof.
+
+Key Collatz result:
+
+```text
+base mixed cylinders: 58
+base mixed start-template lifts: 210
+56-bit parent survivor rows: 824
+60-bit chain tested lifts: 13,184
+60-bit start-template chain lifts: 209
+60-bit automaton states: 145
+automaton collision audits: 0
+full-period escapes: 0
+first 60-bit quotient separator: low40_mod_2^20_plus_base_mod16
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Treat deterministic 52/56-bit mod16 survival as a proof of Collatz. TICKET63 rejects this route because closure under all higher lifts and all relevant cylinders is still missing.
+```
+
+Candidate theorem still missing:
+
+```text
+For every admissible lift of the selected mixed-cylinder family, the mod16 state together with the finite quotient low40 mod 2^20 induces a symbolic transition that either stays inside a counted automaton cover with no nondecreasing full-period cycle, or produces an explicit lift collision.
+```
+
+Counterexample target:
+
+```text
+A higher chained lift or newly admitted mixed cylinder with the same low40 mod 2^20 plus base_mod16 state but conflicting transition label, failure offset, or boundary outcome; alternatively, a full-period replay inside the automaton cover.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-64 SymbolicMod16AutomatonTransitionProof
+```
+
+Proof boundary:
+
+```text
+TICKET-63 does not prove or disprove any of the four open problems. It extracts deterministic finite state tables and a stronger quotient separator, but the infinite symbolic transition theorem and any independent formal proof remain open.
+```

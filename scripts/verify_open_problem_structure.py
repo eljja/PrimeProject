@@ -56,6 +56,7 @@ TICKET59_SCHEMA = "primeproject.ticket59-symbolic-lift-mismatch-lab.v1"
 TICKET60_SCHEMA = "primeproject.ticket60-mixed-cylinder-separator-lab.v1"
 TICKET61_SCHEMA = "primeproject.ticket61-symbolic-failure-offset-lab.v1"
 TICKET62_SCHEMA = "primeproject.ticket62-mod16-transition-cover-lab.v1"
+TICKET63_SCHEMA = "primeproject.ticket63-mod16-automaton-cover-lab.v1"
 
 
 def fail(message: str) -> int:
@@ -3362,6 +3363,114 @@ def main() -> int:
         return fail("collatz ticket62 next theorem target changed")
     if "does not prove Collatz" not in str(audit62.get("proof_boundary", "")):
         return fail("collatz ticket62 proof boundary must block proof overclaim")
+
+    ticket63_path = Path("data/open-problem/ticket63-mod16-automaton-cover-lab.json")
+    if not ticket63_path.exists():
+        return fail("missing ticket63 mod16 automaton cover artifact")
+    ticket63 = read_json(ticket63_path)
+    if ticket63.get("schema") != TICKET63_SCHEMA:
+        return fail("ticket63 mod16 automaton cover artifact has unexpected schema")
+    if ticket63.get("status") != "mod16_automaton_cover_open_no_resolution":
+        return fail("ticket63 mod16 automaton cover artifact overstates resolution")
+    ticket63_attempts = ticket63.get("attempts", [])
+    if not isinstance(ticket63_attempts, list):
+        return fail("ticket63 attempts must be a list")
+    ticket63_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket63_attempts if isinstance(attempt, dict)}
+    missing_ticket63 = EXPECTED_PROBLEMS - set(ticket63_by_id)
+    if missing_ticket63:
+        return fail("ticket63 attempts missing problems: " + ", ".join(sorted(missing_ticket63)))
+    ticket63_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-63-automaton-cover.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-63-mod16-automaton-cover.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-63-margin-automaton.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-63-sieve-automaton.json"),
+    }
+    for problem_id, attempt in ticket63_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "mod16_automaton_candidate_open_no_resolution",
+            "mod16_automaton_collision_open_no_resolution",
+        }:
+            return fail(f"{problem_id}: ticket63 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket63 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket63 claim boundary is too weak")
+        path = ticket63_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket63 per-problem artifact")
+
+    collatz_ticket63 = ticket63_by_id.get("collatz", {})
+    audit63 = collatz_ticket63.get("bounded_result", {}).get("mod16_automaton_cover_audit", {})
+    if not isinstance(audit63, dict):
+        return fail("collatz ticket63 mod16 automaton cover audit missing")
+    if audit63.get("theorem_name") != "Mod16AutomatonCoverOrLiftCollision":
+        return fail("collatz ticket63 theorem name changed")
+    if int(audit63.get("base_mixed_cylinder_count", -1)) != 58:
+        return fail("collatz ticket63 base mixed cylinder count changed")
+    if int(audit63.get("base_mixed_start_template_lift_count", -1)) != 210:
+        return fail("collatz ticket63 base mixed lift count changed")
+    if int(audit63.get("chain_parent_rows", -1)) != 824:
+        return fail("collatz ticket63 chain parent row count changed")
+    if int(audit63.get("chain_target_rows", -1)) != 209:
+        return fail("collatz ticket63 chain target row count changed")
+    if int(audit63.get("chain_parent_rows_with_start_template_lift", -1)) != 209:
+        return fail("collatz ticket63 chain parent survivor count changed")
+    chain_stats63 = audit63.get("chain_lift_statistics", {})
+    expected_chain63 = {
+        "tested_chain_lifts": 13184,
+        "start_template_chain_lift": 209,
+        "non_start_template_chain_lift": 12975,
+        "boundary_mismatch": 209,
+    }
+    for key, expected in expected_chain63.items():
+        if int(chain_stats63.get(key, -1)) != expected:
+            return fail(f"collatz ticket63 chain statistic {key} changed")
+    if int(audit63.get("collision_audit_count", -1)) != 0:
+        return fail("collatz ticket63 should not report automaton collisions in current audit")
+    if int(audit63.get("full_period_escape_count", -1)) != 0:
+        return fail("collatz ticket63 must not find a full-period escape")
+    row_audits63 = audit63.get("row_audits", [])
+    if not isinstance(row_audits63, list) or len(row_audits63) != 3:
+        return fail("collatz ticket63 row audits missing")
+    row_by_label63 = {str(row.get("label")): row for row in row_audits63 if isinstance(row, dict)}
+    expected_rows63 = {
+        "52_bit_direct_lift": {
+            "row_count": 55,
+            "state_count": 55,
+            "first_quotient_separator": "low40_mod_2^16_plus_base_mod16",
+        },
+        "56_bit_direct_lift": {
+            "row_count": 824,
+            "state_count": 199,
+            "first_quotient_separator": "low40_mod_2^20_plus_base_mod16",
+        },
+        "60_bit_chained_from_56_survivors": {
+            "row_count": 209,
+            "state_count": 145,
+            "first_quotient_separator": "low40_mod_2^20_plus_base_mod16",
+        },
+    }
+    for label, expected in expected_rows63.items():
+        row = row_by_label63.get(label)
+        if not isinstance(row, dict):
+            return fail(f"collatz ticket63 missing row audit {label}")
+        if int(row.get("row_count", -1)) != expected["row_count"]:
+            return fail(f"collatz ticket63 row count changed for {label}")
+        table = row.get("state_table", {})
+        if not isinstance(table, dict) or not table.get("deterministic"):
+            return fail(f"collatz ticket63 state table must be deterministic for {label}")
+        if int(table.get("state_count", -1)) != expected["state_count"]:
+            return fail(f"collatz ticket63 state count changed for {label}")
+        if int(table.get("collision_state_count", -1)) != 0:
+            return fail(f"collatz ticket63 collision count changed for {label}")
+        if row.get("first_quotient_separator") != expected["first_quotient_separator"]:
+            return fail(f"collatz ticket63 first quotient separator changed for {label}")
+    if audit63.get("next_theorem_target") != "SymbolicMod16AutomatonTransitionProof":
+        return fail("collatz ticket63 next theorem target changed")
+    if "does not prove Collatz" not in str(audit63.get("proof_boundary", "")):
+        return fail("collatz ticket63 proof boundary must block proof overclaim")
 
     print("open problem structure verified")
     return 0

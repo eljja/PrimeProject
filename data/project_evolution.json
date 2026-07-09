@@ -53,9 +53,9 @@
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
     "claim_language_scanned_files": 19,
-    "claim_language_scanned_lines": 11963,
-    "claim_language_triggered_mentions": 117,
-    "claim_language_guarded_mentions": 117,
+    "claim_language_scanned_lines": 12096,
+    "claim_language_triggered_mentions": 118,
+    "claim_language_guarded_mentions": 118,
     "claim_language_failures": 0,
     "blocking_gaps": 2,
     "claim_ledger_allowed": 3,
@@ -265,6 +265,13 @@
           "state": "open",
           "measure": "52/56-bit lifts / 0 mod16 collisions / 0 full periods",
           "proof": "TICKET-62 tests higher lifts and finds low40 + base mod16 still deterministic on surviving start-template lifts"
+        },
+        {
+          "marker": "23",
+          "title": "Mod16 automaton table",
+          "state": "open",
+          "measure": "60-bit chain / 209 survivors / 0 collisions",
+          "proof": "TICKET-63 extracts a deterministic automaton table and reduces the 60-bit quotient to low40 mod 2^20 + base_mod16"
         }
       ],
       "evidence_flow": [
@@ -384,11 +391,11 @@
         },
         {
           "layer": "Open-Proof",
-          "score": 62,
+          "score": 63,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "data/open-problem/ticket53-symbolic-terminal-theorem-lab.json", "data/open-problem/ticket54-new-template-family-lab.json", "data/open-problem/ticket55-phase5-valuation-gate-lab.json", "data/open-problem/ticket56-pre-gate-projection-escape-lab.json", "data/open-problem/ticket57-parametric-template-automaton-lab.json", "data/open-problem/ticket58-affine-boundary-lift-lab.json", "data/open-problem/ticket59-symbolic-lift-mismatch-lab.json", "data/open-problem/ticket60-mixed-cylinder-separator-lab.json", "data/open-problem/ticket61-symbolic-failure-offset-lab.json", "data/open-problem/ticket62-mod16-transition-cover-lab.json", "docs/proof-or-counterexample-program.md"],
-          "gate": "The mod16 coordinate survives bounded 52/56-bit lifts, but a symbolic automaton cover is still missing; no full proof claim",
-          "proof": "The proof workbench now targets Mod16AutomatonCoverOrLiftCollision."
+          "artifacts": ["data/open-problem/ticket46-stable-clause-grammar-lab.json", "data/open-problem/ticket47-periodic-state-lasso-lab.json", "data/open-problem/ticket48-automaton-reachability-lab.json", "data/open-problem/ticket49-symbolic-preimage-obstruction-lab.json", "data/open-problem/ticket50-phase-lift-exception-lab.json", "data/open-problem/ticket51-phase15-terminal-lift-lab.json", "data/open-problem/ticket52-frontier-budget-lab.json", "data/open-problem/ticket53-symbolic-terminal-theorem-lab.json", "data/open-problem/ticket54-new-template-family-lab.json", "data/open-problem/ticket55-phase5-valuation-gate-lab.json", "data/open-problem/ticket56-pre-gate-projection-escape-lab.json", "data/open-problem/ticket57-parametric-template-automaton-lab.json", "data/open-problem/ticket58-affine-boundary-lift-lab.json", "data/open-problem/ticket59-symbolic-lift-mismatch-lab.json", "data/open-problem/ticket60-mixed-cylinder-separator-lab.json", "data/open-problem/ticket61-symbolic-failure-offset-lab.json", "data/open-problem/ticket62-mod16-transition-cover-lab.json", "data/open-problem/ticket63-mod16-automaton-cover-lab.json", "docs/proof-or-counterexample-program.md"],
+          "gate": "A finite mod16 automaton table survives a targeted 60-bit chain audit, but SymbolicMod16AutomatonTransitionProof is still missing; no full proof claim",
+          "proof": "The proof workbench now targets SymbolicMod16AutomatonTransitionProof."
         }
       ]
     },
@@ -502,6 +509,11 @@
         "label": "Mod16 lift survival",
         "impact": "TICKET-62 lifts the selected mixed rows to 52 and 56 bits and finds no mod16 collision or full-period replay among surviving start-template lifts.",
         "metric": "824 at 56 bits / 0 collisions"
+      },
+      {
+        "label": "Mod16 automaton table",
+        "impact": "TICKET-63 chains the 56-bit survivors to 60 bits, keeps 209 start-template target rows, and finds deterministic state tables with no audited automaton collisions.",
+        "metric": "13,184 lifts / 209 rows / 0 collisions"
       }
     ],
     "research_delta": {
@@ -533,13 +545,13 @@
         {
           "track": "Publication",
           "before": "Informal narrative claims",
-          "current": "22 checksummed artifacts, claim-language audit, open-problem certificates, claim ledger, lineage DAG, decision protocol, falsification battery, consistency audit",
+          "current": "21 checksummed artifacts, claim-language audit, open-problem certificates, claim ledger, lineage DAG, decision protocol, falsification battery, consistency audit",
           "state": "guarded"
         },
         {
           "track": "Open proof search",
           "before": "Scalar rank and symbolic clause candidates could still look plausible on bounded horizons.",
-        "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root and closes it; TICKET-53 explains all known terminal closures by a symbolic mismatch theorem and discards the extracted lasso family; TICKET-54 extracts Phase5ValuationGate as the strongest remaining bounded family; TICKET-55 proves the known gate crossers tunnel into the terminal no-go; TICKET-56 closes the exact 32-bit partition but refutes simple projection-closure globalization; TICKET-57 shows exact32 outcomes need affine boundary coordinates; TICKET-58 refutes unchanged exact32 affine-boundary lifting in the replayed 48-bit sample; TICKET-59 counts selected low40-to-48 cylinders and shows the next missing coordinate is inside mixed cylinders; TICKET-60 identifies replay-derived failure_offset as a separator; TICKET-61 replaces it with the pre-replay coordinate low40 + high_extension mod 16; TICKET-62 tests 52/56-bit lifts and finds no mod16 collision among surviving start-template lifts.",
+          "current": "TICKET-46 refutes 5/5 tested finite template-local scalar clause-rank grammars; TICKET-47 refutes bounded suffix-memory repairs; TICKET-48 refutes fixed finite total state repairs over the abstract lasso; TICKET-49 localizes the first concrete prefix failure to next_valuation; TICKET-50 refutes that obstruction's all-phase extension; TICKET-51 closes the two known depth-15 near-lasso roots at phase 15; TICKET-52 finds a new sampled 48-bit depth-15 root and closes it; TICKET-53 explains all known terminal closures by a symbolic mismatch theorem and discards the extracted lasso family; TICKET-54 extracts Phase5ValuationGate as the strongest remaining bounded family; TICKET-55 proves the known gate crossers tunnel into the terminal no-go; TICKET-56 closes the exact 32-bit partition but refutes simple projection-closure globalization; TICKET-57 shows exact32 outcomes need affine boundary coordinates; TICKET-58 refutes unchanged exact32 affine-boundary lifting in the replayed 48-bit sample; TICKET-59 counts selected low40-to-48 cylinders and shows the next missing coordinate is inside mixed cylinders; TICKET-60 identifies replay-derived failure_offset as a separator; TICKET-61 replaces it with the pre-replay coordinate low40 + high_extension mod 16; TICKET-62 tests 52/56-bit lifts and finds no mod16 collision among surviving start-template lifts; TICKET-63 extracts deterministic automaton state tables and reduces the chained 60-bit quotient to low40 mod 2^20 + base_mod16, leaving SymbolicMod16AutomatonTransitionProof open.",
           "state": "open"
         }
       ],

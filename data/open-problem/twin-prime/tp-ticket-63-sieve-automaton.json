@@ -1,0 +1,21 @@
+{
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-63",
+  "status": "proof_pressure_open",
+  "route": "TwinPrimeSieveAutomatonCoverOrParityCollision",
+  "proof_or_counterexample_mode": "automaton-cover transfer",
+  "attempt": "Transfer TICKET63's rule: a stable separator must become an explicit automaton table with transition closure and collision tests before it can support any theorem claim.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-62",
+    "source_route": "TwinPrimeSieveTransitionClosure",
+    "ticket63_transfer": "TwinPrimeSieveAutomatonCoverOrParityCollision",
+    "automaton_gate": "exact-gap separator states need an explicit sieve-level transition automaton",
+    "candidate_theorem": "A finite twin-prime sieve automaton covers every sieve-level lift with retained gap-2 mass, or a parity collision produces a stable exact-gap mass leak.",
+    "counterexample_target": "two sieve-level lifts with the same parity automaton state but conflicting exact-gap labels",
+    "frontier_rule": "The next useful artifact is an explicit state table plus a proof of closure or a first collision. Heuristic separator stability is not enough."
+  },
+  "obstruction": "This is a transfer discipline, not a solution. It raises the target from bounded separator survival to automaton closure.",
+  "candidate_theorem": "A finite twin-prime sieve automaton covers every sieve-level lift with retained gap-2 mass, or a parity collision produces a stable exact-gap mass leak.",
+  "next_experiment": "Build the problem-specific automaton table and quotient/collision audit.",
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

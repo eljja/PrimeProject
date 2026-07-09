@@ -1,0 +1,21 @@
+{
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-63",
+  "status": "proof_pressure_open",
+  "route": "GoldbachMarginAutomatonCoverOrCutoffCollision",
+  "proof_or_counterexample_mode": "automaton-cover transfer",
+  "attempt": "Transfer TICKET63's rule: a stable separator must become an explicit automaton table with transition closure and collision tests before it can support any theorem claim.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-62",
+    "source_route": "GoldbachMarginTransitionClosure",
+    "ticket63_transfer": "GoldbachMarginAutomatonCoverOrCutoffCollision",
+    "automaton_gate": "margin separator states need an explicit cutoff-transition automaton",
+    "candidate_theorem": "A finite Goldbach margin automaton covers every cutoff lift with positive-margin transitions, or a cutoff collision produces a stable exceptional packet.",
+    "counterexample_target": "two cutoff lifts with the same margin automaton state but conflicting positive-margin labels",
+    "frontier_rule": "The next useful artifact is an explicit state table plus a proof of closure or a first collision. Heuristic separator stability is not enough."
+  },
+  "obstruction": "This is a transfer discipline, not a solution. It raises the target from bounded separator survival to automaton closure.",
+  "candidate_theorem": "A finite Goldbach margin automaton covers every cutoff lift with positive-margin transitions, or a cutoff collision produces a stable exceptional packet.",
+  "next_experiment": "Build the problem-specific automaton table and quotient/collision audit.",
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}
