@@ -4066,3 +4066,88 @@ Proof boundary:
 ```text
 TICKET-71 does not prove or disprove any of the four open problems. It identifies a bounded coordinate separator and a compact-coordinate obstruction; the infinite lift theorem remains missing.
 ```
+
+### Ticket 72: Infinite-frontier lift closure and persistent mixed-key pressure
+
+CO-TICKET-72 InfiniteFrontierCoordinateLiftClosureOrChain
+
+Artifacts:
+
+```text
+data/open-problem/ticket72-infinite-frontier-lift-closure-lab.json
+data/open-problem/collatz/co-ticket-72-infinite-frontier-lift-closure.json
+data/open-problem/riemann/rh-ticket-72-infinite-frontier-lift-closure.json
+data/open-problem/goldbach/gb-ticket-72-infinite-frontier-lift-closure.json
+data/open-problem/twin-prime/tp-ticket-72-infinite-frontier-lift-closure.json
+```
+
+Status:
+
+```text
+infinite_frontier_lift_closure_open_no_resolution
+```
+
+한국어 요약: TICKET-72는 TICKET-71의 남은 compact mixed key가 단순한 1단계 관측 착시인지, 아니면 lift를 해도 계속 남는 구조적 압력인지 검사한다. 중요한 논리 수정은 `pressure_rank_descent`를 열린 압력에서 제외한 점이다. rank가 내려가는 branch는 증명 관점에서 진전이므로, 열린 압력은 `pressure_rank_equal`, `pressure_rank_increase`, `pressure_new_unranked_internal`만으로 다시 센다. 이 보수적 기준에서도 TICKET70 frontier branch weight 792,064, compact mixed transition key 22,219개, open-pressure mixed transition key 20,752개가 재구성된다. 상위 8개 compact mixed key를 한 단계 lift하면 36,848개 second-layer row가 나오고, 그중 6,857개가 open pressure이며, 4,142개가 open-pressure mixed-key로 재진입한다. 2,048개 source에 대한 제한된 third probe에서도 32,768개 row 중 12,300개 open pressure와 6,448개 open-pressure mixed-key 재진입이 남는다. `base_tail12_residue65536`은 가장 좋은 compact 후보지만 mixed key 540개를 남기고, `base_fullword_residue65536`은 mixed key 0개를 만들지만 overfit guard로만 남는다.
+
+English summary: TICKET-72 does not solve Collatz. It refines the TICKET71 obstruction by separating rank descent from open pressure, then lifting the top compact mixed transition keys. The result is persistent bounded pressure: open-pressure mixed-key re-entry survives the second lift and a capped third probe. This strengthens the next target from "try a bigger coordinate" to a sharper dichotomy: prove a compact mixed-key invariant under all future lifts, or extract a compatible persistent lift chain.
+
+Key Collatz result:
+
+```text
+reconstructed frontier branch weight: 792,064
+compact mixed transition keys: 22,219
+compact open-pressure mixed transition keys: 20,752
+selected top mixed keys: 8
+first-layer rows selected: 2,512
+first-layer pressure rows selected: 2,303
+second-layer rows: 36,848
+second-layer open-pressure rows: 6,857
+second-layer rank-descent rows: 2,021
+second-layer mixed-key re-entries: 9,584
+second-layer open-pressure mixed-key re-entries: 4,142
+third-probe sources: 2,048
+third-probe rows: 32,768
+third-probe open-pressure rows: 12,300
+third-probe rank-descent rows: 342
+third-probe mixed-key re-entries: 11,455
+third-probe open-pressure mixed-key re-entries: 6,448
+best compact candidate: base_tail12_residue65536, 540 mixed keys
+bounded overfit guard: base_fullword_residue65536, 0 mixed keys
+full proof status: open
+```
+
+Discarded route:
+
+```text
+Treat rank descent as proof pressure, or treat a full valuation word as a compact invariant. TICKET72 blocks both shortcuts: rank descent is progress, not an obstruction, while the full-word coordinate closes only the bounded rows and has no compact infinite transition theorem.
+```
+
+Retained route:
+
+```text
+Prove that a compact coordinate such as base_tail12_residue65536 has horizon-independent mixed-key closure, or extract a persistent compatible lift chain from the open-pressure mixed-key re-entries.
+```
+
+Candidate theorem still missing:
+
+```text
+CompactMixedKeyInvariantOrPersistentLiftChain: every compatible future lift of the TICKET72 compact mixed-key frontier is controlled by a finite pre-outcome coordinate with well-founded descent, or there exists a compatible infinite chain that repeatedly re-enters open-pressure mixed keys.
+```
+
+Counterexample target:
+
+```text
+A compatible infinite lift chain whose every finite prefix survives the compact coordinates and whose transition profile repeatedly enters pressure_rank_equal, pressure_rank_increase, or pressure_new_unranked_internal without a well-founded descent certificate.
+```
+
+Remaining decisive target:
+
+```text
+CO-TICKET-73 CompactMixedKeyInvariantOrPersistentLiftChain
+```
+
+Proof boundary:
+
+```text
+TICKET-72 does not prove or disprove any of the four open problems. It only shows that the compact mixed-key obstruction persists under the tested second and third lifts, so an independently checkable infinite theorem or certified counterexample is still required.
+```

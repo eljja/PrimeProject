@@ -61,6 +61,87 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
+## Latest Continuation After TICKET-72
+
+TICKET-72 supersedes the immediate TICKET-71 continuation target. It does not solve Collatz, but it audits whether the compact mixed-key obstruction survives one more lift after rank descent is removed from the open-pressure count.
+
+Known Collatz result:
+
+```text
+TICKET70 frontier branch weight: 792,064
+TICKET71 compact mixed transition keys: 22,219
+TICKET72 compact open-pressure mixed transition keys: 20,752
+
+Selected top mixed keys: 8
+Selected first-layer rows: 2,512
+Selected first-layer pressure rows: 2,303
+
+Second lift:
+  rows: 36,848
+  open-pressure rows: 6,857
+  rank-descent rows: 2,021
+  mixed-key re-entries: 9,584
+  open-pressure mixed-key re-entries: 4,142
+
+Capped third probe:
+  sources: 2,048
+  rows: 32,768
+  open-pressure rows: 12,300
+  rank-descent rows: 342
+  mixed-key re-entries: 11,455
+  open-pressure mixed-key re-entries: 6,448
+
+Best compact coordinate on the second lift:
+  base_tail12_residue65536
+  state count: 2,194
+  transition keys: 35,104
+  mixed transition keys: 540
+
+Bounded overfit guard:
+  base_fullword_residue65536
+  mixed transition keys: 0
+```
+
+Interpretation:
+
+```text
+TICKET72 strengthens the obstruction. The compact route is not closed by the tested lift, and open-pressure mixed-key re-entry persists after rank descent is separated as progress. The full valuation-word coordinate still separates bounded rows, but remains too large to be accepted as an infinite invariant without a compact symbolic transition theorem.
+```
+
+Do not claim Collatz from this. A second-lift or third-probe persistence signal is not an infinite chain unless compatibility is proved for every future lift.
+
+Current best continuation:
+
+```text
+CO-TICKET-73 CompactMixedKeyInvariantOrPersistentLiftChain
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-72. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument or a certified counterexample.
+
+Known result: TICKET72 reconstructs the TICKET71 compact obstruction and removes rank descent from the open-pressure count. The top 8 compact mixed transition keys generate 36,848 second-layer rows with 6,857 open-pressure rows and 4,142 open-pressure mixed-key re-entries. A capped third probe leaves 6,448 open-pressure mixed-key re-entries. base_tail12_residue65536 is the best compact second-lift coordinate but still leaves 540 mixed transition keys; base_fullword_residue65536 gives zero mixed keys only as a bounded overfit guard.
+
+Goal: build CO-TICKET-73. Either prove a compact mixed-key invariant that closes under all future compatible lifts, or extract a persistent compatible lift chain from the TICKET72 open-pressure mixed-key re-entry examples.
+
+Tasks:
+1. Load data/open-problem/ticket72-infinite-frontier-lift-closure-lab.json.
+2. Treat pressure_rank_descent as progress, not open pressure.
+3. Focus first on examples.second_layer_open_pressure_mixed_reentry and the top selected first_transition_key families.
+4. Try to derive a symbolic transition rule for base_tail12_residue65536 or a smaller compact coordinate that predicts the remaining 540 mixed keys.
+5. If a compact coordinate closes, state the exact horizon-independent theorem and its formal proof obligations.
+6. If no compact coordinate closes, encode the re-entry constraints as a persistent-chain search problem and prove compatibility across arbitrary future lifts.
+7. Transfer only the proof pattern, not Collatz-specific bounded evidence, to RH, Goldbach, and Twin Prime.
+8. Keep the proof boundary explicit: no conjecture is solved without a formal infinite theorem or certified counterexample.
+
+Required output:
+- data/open-problem/ticket73-compact-mixed-key-invariant-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+```
+
 ## Latest Continuation After TICKET-71
 
 TICKET-71 supersedes the immediate TICKET-70 continuation target. It does not solve Collatz, but it tests whether the TICKET70 re-entry pressure can be separated by explicit pre-outcome coordinates.

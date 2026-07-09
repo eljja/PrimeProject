@@ -387,6 +387,19 @@ async function main() {
       requireText("ticket71 tail12 family", "base_tail12_residue65536");
       requireText("ticket71 next theorem", "InfiniteFrontierCoordinateLiftClosureOrChain");
     }
+    requireText("ticket72 title", "Ticket 72 infinite frontier lift closure");
+    requireText("ticket72 result table", "Lift-closure result");
+    if (page.problemId === "collatz") {
+      requireText("ticket72 status", "persistent_mixed_key_lift_chain_pressure_observed_no_resolution");
+      requireText("ticket72 second lift rows", "36,848");
+      requireText("ticket72 second lift open pressure", "6,857");
+      requireText("ticket72 second lift reentry", "4,142");
+      requireText("ticket72 third probe reentry", "6,448");
+      requireText("ticket72 best compact", "base_tail12_residue65536");
+      requireText("ticket72 full-word guard", "base_fullword_residue65536");
+      requireText("ticket72 coordinate comparison", "Second-lift coordinate comparison");
+      requireText("ticket72 next theorem", "CompactMixedKeyInvariantOrPersistentLiftChain");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {
@@ -601,6 +614,15 @@ async function main() {
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("22,219")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("base_tail12_residue65536")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("InfiniteFrontierCoordinateLiftClosureOrChain")) ||
+        !page.proofOrCounterexampleText.includes("Ticket 72 infinite frontier lift closure") ||
+        !page.proofOrCounterexampleText.includes("Lift-closure result") ||
+        (page.problemId === "collatz" &&
+          !page.proofOrCounterexampleText.includes("persistent_mixed_key_lift_chain_pressure_observed_no_resolution")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("36,848")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("6,857")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("4,142")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("6,448")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("CompactMixedKeyInvariantOrPersistentLiftChain")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -920,6 +942,9 @@ async function main() {
     ["impact", metrics.evolutionImpact, "Bounded separator tradeoff"],
     ["impact", metrics.evolutionImpact, "22,219 compact"],
     ["impact", metrics.evolutionImpact, "0 mixed full-word"],
+    ["impact", metrics.evolutionImpact, "Persistent lift-chain pressure"],
+    ["impact", metrics.evolutionImpact, "4,142 second"],
+    ["impact", metrics.evolutionImpact, "6,448 third"],
     ["impact", metrics.evolutionImpact, "11 guard checks"],
     ["spine", metrics.evolutionSpine, "Evidence Spine"],
     ["spine", metrics.evolutionSpine, "Sim-to-Real"],
@@ -952,6 +977,7 @@ async function main() {
     ["panel", metrics.evolutionPanel, "TICKET-68"],
     ["panel", metrics.evolutionPanel, "TICKET-70"],
     ["panel", metrics.evolutionPanel, "TICKET-71"],
+    ["panel", metrics.evolutionPanel, "TICKET-72"],
   ];
   const missingEvolutionChecks = evolutionRequiredText
     .filter(([, actual, expectedText]) => !String(actual).includes(expectedText))
@@ -1029,6 +1055,9 @@ async function main() {
     !metrics.evolutionImpact.includes("Bounded separator tradeoff") ||
     !metrics.evolutionImpact.includes("22,219 compact") ||
     !metrics.evolutionImpact.includes("0 mixed full-word") ||
+    !metrics.evolutionImpact.includes("Persistent lift-chain pressure") ||
+    !metrics.evolutionImpact.includes("4,142 second") ||
+    !metrics.evolutionImpact.includes("6,448 third") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
@@ -1064,7 +1093,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-67") ||
     !metrics.evolutionPanel.includes("TICKET-68") ||
     !metrics.evolutionPanel.includes("TICKET-70") ||
-    !metrics.evolutionPanel.includes("TICKET-71")
+    !metrics.evolutionPanel.includes("TICKET-71") ||
+    !metrics.evolutionPanel.includes("TICKET-72")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

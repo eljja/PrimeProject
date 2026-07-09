@@ -1,0 +1,1852 @@
+{
+  "schema": "primeproject.ticket72-infinite-frontier-lift-closure-lab.v1",
+  "generated_at": "2026-07-10T02:05:00+09:00",
+  "status": "infinite_frontier_lift_closure_open_no_resolution",
+  "claim_boundary": "Ticket 72 audits bounded lift closure and persistent-chain pressure, but does not prove or disprove any of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-72",
+      "status": "proof_pressure_open",
+      "route": "ZeroKernelLiftClosureOrPersistentOffCriticalChain",
+      "proof_or_counterexample_mode": "lift-closure transfer",
+      "attempt": "Transfer the TICKET72 lesson: a bounded separator must either close under future lifts or produce a persistent counterexample chain.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-71",
+        "source_route": "ZeroKernelPreOutcomeCoordinateOrPersistentChain",
+        "ticket72_transfer": "ZeroKernelLiftClosureOrPersistentOffCriticalChain",
+        "candidate_theorem": "Every zero-kernel frontier chain is closed by a compact positivity coordinate under all future lifts, or a persistent off-critical chain is produced.",
+        "counterexample_target": "a zero-kernel lift chain that avoids every compact positivity coordinate"
+      },
+      "obstruction": "This is a transferred proof obligation, not a solution.",
+      "candidate_theorem": "Every zero-kernel frontier chain is closed by a compact positivity coordinate under all future lifts, or a persistent off-critical chain is produced.",
+      "next_experiment": "Search for a problem-specific compact lift invariant or persistent frontier chain.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-72",
+      "route": "InfiniteFrontierCoordinateLiftClosureOrChain",
+      "status": "persistent_mixed_key_lift_chain_pressure_observed_no_resolution",
+      "proof_or_counterexample_mode": "second-lift compact-coordinate closure or persistent-chain extraction",
+      "attempt": "Lift the top compact mixed transition keys one more 4-bit layer, test smaller pre-outcome coordinates, and record whether pressure re-enters the mixed-key frontier.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-71",
+        "infinite_frontier_lift_closure_audit": {
+          "theorem_name": "InfiniteFrontierCoordinateLiftClosureOrChain",
+          "source_ticket": "CO-TICKET-71",
+          "source_ticket_status": "bounded_transition_separator_found_but_infinite_bridge_open",
+          "reconstructed_frontier_branch_weight": 792064,
+          "reconstructed_mixed_transition_key_count": 22219,
+          "reconstructed_pressure_mixed_transition_key_count": 20752,
+          "top_mixed_key_limit": 8,
+          "selected_top_mixed_key_count": 8,
+          "selected_first_layer_rows": 2512,
+          "selected_first_layer_pressure_rows": 2303,
+          "selected_second_layer_rows": 36848,
+          "selected_second_layer_outcome_counts": {
+            "safe_base_cycle_exit": 27913,
+            "pressure_rank_equal": 3394,
+            "pressure_new_unranked_internal": 3232,
+            "pressure_rank_descent": 2021,
+            "pressure_rank_increase": 231,
+            "safe_closed_or_terminal": 57
+          },
+          "selected_second_layer_open_pressure_rows": 6857,
+          "selected_second_layer_rank_descent_rows": 2021,
+          "selected_second_layer_mixed_key_reentry_count": 9584,
+          "selected_second_layer_open_pressure_mixed_key_reentry_count": 4142,
+          "selected_second_layer_selected_key_reentry_count": 0,
+          "candidate_coordinate_rows": [
+            {
+              "family_id": "base_prefix_consumed",
+              "state_count": 156,
+              "transition_key_count": 2496,
+              "mixed_transition_key_count": 1013,
+              "pressure_transition_key_count": 1209,
+              "pure_pressure_key_count": 258,
+              "mixed_examples": [
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64] + child_top=0",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 49,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 45,
+                    "pressure_rank_equal": 3,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64] + child_top=5",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64] + child_top=8",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64] + child_top=9",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 1,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64] + child_top=11",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64] + child_top=12",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 47,
+                    "pressure_new_unranked_internal": 3
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64] + child_top=13",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 44,
+                    "pressure_rank_equal": 4,
+                    "pressure_new_unranked_internal": 2
+                  }
+                }
+              ],
+              "scope": "compact_baseline",
+              "description": "TICKET69/TICKET71 compact coordinate."
+            },
+            {
+              "family_id": "base_next_valuation",
+              "state_count": 156,
+              "transition_key_count": 2496,
+              "mixed_transition_key_count": 1013,
+              "pressure_transition_key_count": 1209,
+              "pure_pressure_key_count": 258,
+              "mixed_examples": [
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,5] + child_top=0",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 49,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,5] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 45,
+                    "pressure_rank_equal": 3,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,5] + child_top=5",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,5] + child_top=8",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,5] + child_top=9",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 1,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,5] + child_top=11",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,5] + child_top=12",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 47,
+                    "pressure_new_unranked_internal": 3
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,5] + child_top=13",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 44,
+                    "pressure_rank_equal": 4,
+                    "pressure_new_unranked_internal": 2
+                  }
+                }
+              ],
+              "scope": "compact_local",
+              "description": "Compact coordinate plus next valuation."
+            },
+            {
+              "family_id": "base_tail4",
+              "state_count": 156,
+              "transition_key_count": 2496,
+              "mixed_transition_key_count": 1013,
+              "pressure_transition_key_count": 1209,
+              "pure_pressure_key_count": 258,
+              "mixed_examples": [
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1]] + child_top=0",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 49,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1]] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 45,
+                    "pressure_rank_equal": 3,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1]] + child_top=5",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1]] + child_top=8",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1]] + child_top=9",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 1,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1]] + child_top=11",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1]] + child_top=12",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 47,
+                    "pressure_new_unranked_internal": 3
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1]] + child_top=13",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 44,
+                    "pressure_rank_equal": 4,
+                    "pressure_new_unranked_internal": 2
+                  }
+                }
+              ],
+              "scope": "compact_tail",
+              "description": "Compact coordinate plus last four observed valuations."
+            },
+            {
+              "family_id": "base_tail8",
+              "state_count": 927,
+              "transition_key_count": 14832,
+              "mixed_transition_key_count": 2715,
+              "pressure_transition_key_count": 3851,
+              "pure_pressure_key_count": 1524,
+              "mixed_examples": [
+                {
+                  "transition_key": "[4,[1,1,1,2],103,1,48,68,[1,1,1,1,1,1,1,2]] + child_top=0",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 15,
+                    "pressure_rank_descent": 8
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,2],103,1,48,68,[1,1,1,1,1,1,1,2]] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 19,
+                    "pressure_rank_descent": 2,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,2],103,1,48,68,[1,1,1,1,1,1,1,2]] + child_top=2",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 18,
+                    "pressure_rank_descent": 3,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,2],103,1,48,68,[1,1,1,1,1,1,1,2]] + child_top=3",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 15,
+                    "pressure_rank_descent": 6,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,2],103,1,48,68,[1,1,1,1,1,1,1,2]] + child_top=4",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 16,
+                    "pressure_rank_descent": 7
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,2],103,1,48,68,[1,1,1,1,1,1,1,2]] + child_top=5",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 20,
+                    "pressure_new_unranked_internal": 3
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,2],103,1,48,68,[1,1,1,1,1,1,1,2]] + child_top=6",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 14,
+                    "pressure_new_unranked_internal": 7,
+                    "pressure_rank_descent": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,2],103,1,48,68,[1,1,1,1,1,1,1,2]] + child_top=7",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 11,
+                    "pressure_rank_descent": 10,
+                    "pressure_new_unranked_internal": 2
+                  }
+                }
+              ],
+              "scope": "medium_tail",
+              "description": "Compact coordinate plus last eight observed valuations."
+            },
+            {
+              "family_id": "base_residue16",
+              "state_count": 156,
+              "transition_key_count": 2496,
+              "mixed_transition_key_count": 1013,
+              "pressure_transition_key_count": 1209,
+              "pure_pressure_key_count": 258,
+              "mixed_examples": [
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,7] + child_top=0",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 49,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,7] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 45,
+                    "pressure_rank_equal": 3,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,7] + child_top=5",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,7] + child_top=8",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,7] + child_top=9",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 1,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,7] + child_top=11",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,7] + child_top=12",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 47,
+                    "pressure_new_unranked_internal": 3
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,7] + child_top=13",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 44,
+                    "pressure_rank_equal": 4,
+                    "pressure_new_unranked_internal": 2
+                  }
+                }
+              ],
+              "scope": "small_residue",
+              "description": "Compact coordinate plus residue mod 2^4."
+            },
+            {
+              "family_id": "base_residue256",
+              "state_count": 156,
+              "transition_key_count": 2496,
+              "mixed_transition_key_count": 1013,
+              "pressure_transition_key_count": 1209,
+              "pure_pressure_key_count": 258,
+              "mixed_examples": [
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,103] + child_top=0",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 49,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,103] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 45,
+                    "pressure_rank_equal": 3,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,103] + child_top=5",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,103] + child_top=8",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,103] + child_top=9",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 1,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,103] + child_top=11",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,103] + child_top=12",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 47,
+                    "pressure_new_unranked_internal": 3
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,103] + child_top=13",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 44,
+                    "pressure_rank_equal": 4,
+                    "pressure_new_unranked_internal": 2
+                  }
+                }
+              ],
+              "scope": "small_residue",
+              "description": "Compact coordinate plus residue mod 2^8."
+            },
+            {
+              "family_id": "base_residue4096",
+              "state_count": 1084,
+              "transition_key_count": 17344,
+              "mixed_transition_key_count": 3045,
+              "pressure_transition_key_count": 4795,
+              "pure_pressure_key_count": 2297,
+              "mixed_examples": [
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,1383] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 11,
+                    "pressure_rank_equal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,1383] + child_top=9",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 11,
+                    "pressure_rank_equal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,1383] + child_top=13",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 10,
+                    "pressure_new_unranked_internal": 1,
+                    "pressure_rank_equal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,4],103,2,45,67,1383] + child_top=0",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 11,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,4],103,2,45,67,1383] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 8,
+                    "pressure_new_unranked_internal": 4
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,4],103,2,45,67,1383] + child_top=3",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 11,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,4],103,2,45,67,1383] + child_top=4",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 10,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,4],103,2,45,67,1383] + child_top=5",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 7,
+                    "pressure_rank_equal": 4,
+                    "pressure_new_unranked_internal": 1
+                  }
+                }
+              ],
+              "scope": "medium_residue",
+              "description": "Compact coordinate plus residue mod 2^12."
+            },
+            {
+              "family_id": "base_tail4_residue256",
+              "state_count": 156,
+              "transition_key_count": 2496,
+              "mixed_transition_key_count": 1013,
+              "pressure_transition_key_count": 1209,
+              "pure_pressure_key_count": 258,
+              "mixed_examples": [
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1],103] + child_top=0",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 49,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1],103] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 45,
+                    "pressure_rank_equal": 3,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1],103] + child_top=5",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1],103] + child_top=8",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1],103] + child_top=9",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_rank_equal": 1,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1],103] + child_top=11",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 48,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1],103] + child_top=12",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 47,
+                    "pressure_new_unranked_internal": 3
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,1,1],103,5,45,64,[1,1,1,1],103] + child_top=13",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 44,
+                    "pressure_rank_equal": 4,
+                    "pressure_new_unranked_internal": 2
+                  }
+                }
+              ],
+              "scope": "compact_joint",
+              "description": "Compact coordinate plus tail4 and residue mod 2^8."
+            },
+            {
+              "family_id": "base_tail8_residue4096",
+              "state_count": 1968,
+              "transition_key_count": 31488,
+              "mixed_transition_key_count": 1509,
+              "pressure_transition_key_count": 6234,
+              "pure_pressure_key_count": 5056,
+              "mixed_examples": [
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,1,1,1,1,2,1],1383] + child_top=0",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 3,
+                    "pressure_rank_equal": 2,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,1,1,1,1,2,1],1383] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 4,
+                    "pressure_rank_equal": 1,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,1,1,1,1,2,1],1383] + child_top=3",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 4,
+                    "pressure_new_unranked_internal": 1,
+                    "pressure_rank_equal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,1,1,1,1,2,1],1383] + child_top=4",
+                  "outcome_profile": {
+                    "pressure_rank_equal": 3,
+                    "safe_base_cycle_exit": 2,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,1,1,1,1,2,1],1383] + child_top=5",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 5,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,1,1,1,1,2,1],1383] + child_top=6",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 4,
+                    "pressure_rank_equal": 1,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,1,1,1,1,2,1],1383] + child_top=7",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 4,
+                    "pressure_new_unranked_internal": 2
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,1,1,1,1,2,1],1383] + child_top=8",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 3,
+                    "pressure_new_unranked_internal": 2,
+                    "pressure_rank_equal": 1
+                  }
+                }
+              ],
+              "scope": "medium_joint",
+              "description": "Compact coordinate plus tail8 and residue mod 2^12."
+            },
+            {
+              "family_id": "base_tail12_residue65536",
+              "state_count": 2194,
+              "transition_key_count": 35104,
+              "mixed_transition_key_count": 540,
+              "pressure_transition_key_count": 6729,
+              "pure_pressure_key_count": 6319,
+              "mixed_examples": [
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,3,1,1,1,1,1,1,1,2,1],30055] + child_top=0",
+                  "outcome_profile": {
+                    "pressure_new_unranked_internal": 1,
+                    "safe_base_cycle_exit": 1,
+                    "pressure_rank_equal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,3,1,1,1,1,1,1,1,2,1],30055] + child_top=1",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 2,
+                    "pressure_rank_equal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,3,1,1,1,1,1,1,1,2,1],30055] + child_top=4",
+                  "outcome_profile": {
+                    "pressure_rank_equal": 2,
+                    "safe_base_cycle_exit": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,3,1,1,1,1,1,1,1,2,1],30055] + child_top=6",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 2,
+                    "pressure_new_unranked_internal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,3,1,1,1,1,1,1,1,2,1],30055] + child_top=7",
+                  "outcome_profile": {
+                    "pressure_new_unranked_internal": 2,
+                    "safe_base_cycle_exit": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,3,1,1,1,1,1,1,1,2,1],30055] + child_top=8",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 2,
+                    "pressure_rank_equal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,3,1,1,1,1,1,1,1,2,1],30055] + child_top=10",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 2,
+                    "pressure_rank_equal": 1
+                  }
+                },
+                {
+                  "transition_key": "[4,[1,1,2,1],103,1,48,68,[1,1,3,1,1,1,1,1,1,1,2,1],30055] + child_top=12",
+                  "outcome_profile": {
+                    "safe_base_cycle_exit": 2,
+                    "pressure_rank_equal": 1
+                  }
+                }
+              ],
+              "scope": "large_joint",
+              "description": "Compact coordinate plus tail12 and residue mod 2^16."
+            },
+            {
+              "family_id": "base_fullword_residue65536",
+              "state_count": 2303,
+              "transition_key_count": 36848,
+              "mixed_transition_key_count": 0,
+              "pressure_transition_key_count": 6857,
+              "pure_pressure_key_count": 6857,
+              "mixed_examples": [],
+              "scope": "overfit_guard",
+              "description": "Full observed valuation word plus residue mod 2^16; included only as an overfit guard."
+            }
+          ],
+          "best_candidate_coordinate": {
+            "family_id": "base_fullword_residue65536",
+            "scope": "overfit_guard",
+            "state_count": 2303,
+            "mixed_transition_key_count": 0,
+            "transition_key_count": 36848
+          },
+          "best_compact_candidate_coordinate": {
+            "family_id": "base_tail12_residue65536",
+            "scope": "large_joint",
+            "state_count": 2194,
+            "mixed_transition_key_count": 540,
+            "transition_key_count": 35104
+          },
+          "third_probe_source_limit": 2048,
+          "third_probe_source_count": 2048,
+          "third_probe_row_count": 32768,
+          "third_probe_outcome_counts": {
+            "safe_base_cycle_exit": 20112,
+            "pressure_new_unranked_internal": 9246,
+            "pressure_rank_equal": 3054,
+            "pressure_rank_descent": 342,
+            "safe_closed_or_terminal": 14
+          },
+          "third_probe_open_pressure_rows": 12300,
+          "third_probe_rank_descent_rows": 342,
+          "third_probe_mixed_key_reentry_count": 11455,
+          "third_probe_open_pressure_mixed_key_reentry_count": 6448,
+          "selected_key_summaries": [
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+              "first_layer_profile": {
+                "pressure_rank_equal": 184,
+                "pressure_rank_increase": 114,
+                "safe_base_cycle_exit": 9,
+                "pressure_new_unranked_internal": 7
+              },
+              "first_layer_rows": 314,
+              "first_layer_pressure_rows": 305,
+              "second_layer_rows": 4880,
+              "second_layer_outcome_counts": {
+                "safe_base_cycle_exit": 3643,
+                "pressure_rank_equal": 531,
+                "pressure_rank_descent": 482,
+                "pressure_new_unranked_internal": 224
+              },
+              "second_layer_mixed_key_reentry_count": 1382,
+              "second_layer_open_pressure_mixed_key_reentry_count": 557
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=1",
+              "first_layer_profile": {
+                "pressure_rank_equal": 124,
+                "pressure_rank_increase": 100,
+                "safe_base_cycle_exit": 46,
+                "pressure_new_unranked_internal": 44
+              },
+              "first_layer_rows": 314,
+              "first_layer_pressure_rows": 268,
+              "second_layer_rows": 4288,
+              "second_layer_outcome_counts": {
+                "safe_base_cycle_exit": 3224,
+                "pressure_new_unranked_internal": 638,
+                "pressure_rank_descent": 287,
+                "pressure_rank_equal": 139
+              },
+              "second_layer_mixed_key_reentry_count": 322,
+              "second_layer_open_pressure_mixed_key_reentry_count": 171
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=2",
+              "first_layer_profile": {
+                "pressure_rank_equal": 163,
+                "pressure_rank_increase": 96,
+                "safe_base_cycle_exit": 50,
+                "pressure_new_unranked_internal": 5
+              },
+              "first_layer_rows": 314,
+              "first_layer_pressure_rows": 264,
+              "second_layer_rows": 4224,
+              "second_layer_outcome_counts": {
+                "safe_base_cycle_exit": 1932,
+                "pressure_rank_equal": 1010,
+                "pressure_new_unranked_internal": 640,
+                "pressure_rank_descent": 411,
+                "pressure_rank_increase": 231
+              },
+              "second_layer_mixed_key_reentry_count": 2326,
+              "second_layer_open_pressure_mixed_key_reentry_count": 1452
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=3",
+              "first_layer_profile": {
+                "pressure_rank_equal": 174,
+                "pressure_rank_increase": 110,
+                "safe_base_cycle_exit": 22,
+                "pressure_new_unranked_internal": 8
+              },
+              "first_layer_rows": 314,
+              "first_layer_pressure_rows": 292,
+              "second_layer_rows": 4672,
+              "second_layer_outcome_counts": {
+                "safe_base_cycle_exit": 4234,
+                "pressure_rank_equal": 190,
+                "pressure_rank_descent": 160,
+                "pressure_new_unranked_internal": 88
+              },
+              "second_layer_mixed_key_reentry_count": 557,
+              "second_layer_open_pressure_mixed_key_reentry_count": 150
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=4",
+              "first_layer_profile": {
+                "pressure_rank_equal": 164,
+                "pressure_new_unranked_internal": 69,
+                "pressure_rank_increase": 68,
+                "safe_base_cycle_exit": 13
+              },
+              "first_layer_rows": 314,
+              "first_layer_pressure_rows": 301,
+              "second_layer_rows": 4816,
+              "second_layer_outcome_counts": {
+                "safe_base_cycle_exit": 4350,
+                "pressure_rank_equal": 316,
+                "pressure_new_unranked_internal": 103,
+                "pressure_rank_descent": 47
+              },
+              "second_layer_mixed_key_reentry_count": 905,
+              "second_layer_open_pressure_mixed_key_reentry_count": 294
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=5",
+              "first_layer_profile": {
+                "pressure_rank_equal": 116,
+                "pressure_new_unranked_internal": 96,
+                "pressure_rank_increase": 73,
+                "safe_base_cycle_exit": 29
+              },
+              "first_layer_rows": 314,
+              "first_layer_pressure_rows": 285,
+              "second_layer_rows": 4560,
+              "second_layer_outcome_counts": {
+                "safe_base_cycle_exit": 4024,
+                "pressure_new_unranked_internal": 349,
+                "pressure_rank_equal": 93,
+                "safe_closed_or_terminal": 57,
+                "pressure_rank_descent": 37
+              },
+              "second_layer_mixed_key_reentry_count": 126,
+              "second_layer_open_pressure_mixed_key_reentry_count": 39
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=6",
+              "first_layer_profile": {
+                "pressure_rank_equal": 234,
+                "pressure_rank_increase": 75,
+                "safe_base_cycle_exit": 5
+              },
+              "first_layer_rows": 314,
+              "first_layer_pressure_rows": 309,
+              "second_layer_rows": 4944,
+              "second_layer_outcome_counts": {
+                "safe_base_cycle_exit": 3970,
+                "pressure_rank_equal": 402,
+                "pressure_new_unranked_internal": 397,
+                "pressure_rank_descent": 175
+              },
+              "second_layer_mixed_key_reentry_count": 2053,
+              "second_layer_open_pressure_mixed_key_reentry_count": 536
+            },
+            {
+              "transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=7",
+              "first_layer_profile": {
+                "pressure_rank_equal": 188,
+                "pressure_rank_increase": 84,
+                "safe_base_cycle_exit": 35,
+                "pressure_new_unranked_internal": 7
+              },
+              "first_layer_rows": 314,
+              "first_layer_pressure_rows": 279,
+              "second_layer_rows": 4464,
+              "second_layer_outcome_counts": {
+                "safe_base_cycle_exit": 2536,
+                "pressure_new_unranked_internal": 793,
+                "pressure_rank_equal": 713,
+                "pressure_rank_descent": 422
+              },
+              "second_layer_mixed_key_reentry_count": 1913,
+              "second_layer_open_pressure_mixed_key_reentry_count": 943
+            }
+          ],
+          "examples": {
+            "second_layer_open_pressure_mixed_reentry": [
+              {
+                "depth": 2,
+                "first_transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+                "source_transition_key": "[4,[1,1,2,2],103,2,47,68] + child_top=10",
+                "child_top": 10,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 17169408819838703975,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 68,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    2
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 2968648460613366962535,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "depth": 2,
+                "first_transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+                "source_transition_key": "[4,[1,1,2,2],103,2,47,68] + child_top=13",
+                "child_top": 13,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 17169408819838703975,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 68,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 6.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    2
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 3854092176151425440103,
+                  "modulus_bits": 72,
+                  "prefix_length": 46,
+                  "consumed_bits": 66,
+                  "next_valuation": 7,
+                  "coefficient_log2_debt": 6.90827503,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              },
+              {
+                "depth": 2,
+                "first_transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+                "source_transition_key": "[4,[1,1,2,1],103,2,47,67] + child_top=1",
+                "child_top": 1,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11288962087768301415,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 67,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 306436867267121127271,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                }
+              },
+              {
+                "depth": 2,
+                "first_transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+                "source_transition_key": "[4,[1,1,2,1],103,2,47,67] + child_top=3",
+                "child_top": 3,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11288962087768301415,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 67,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 896732677625826778983,
+                  "modulus_bits": 72,
+                  "prefix_length": 50,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.24812504,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    3,
+                    1
+                  ]
+                }
+              },
+              {
+                "depth": 2,
+                "first_transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+                "source_transition_key": "[4,[1,1,2,1],103,2,47,67] + child_top=5",
+                "child_top": 5,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11288962087768301415,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 67,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 1487028487984532430695,
+                  "modulus_bits": 72,
+                  "prefix_length": 52,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 10.41805004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "depth": 2,
+                "first_transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+                "source_transition_key": "[4,[1,1,2,1],103,2,47,67] + child_top=7",
+                "child_top": 7,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11288962087768301415,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 67,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 2077324298343238082407,
+                  "modulus_bits": 72,
+                  "prefix_length": 50,
+                  "consumed_bits": 72,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 7.24812504,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    2
+                  ]
+                }
+              },
+              {
+                "depth": 2,
+                "first_transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+                "source_transition_key": "[4,[1,1,2,1],103,2,47,67] + child_top=13",
+                "child_top": 13,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11288962087768301415,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 67,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 3848211729419355037543,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              },
+              {
+                "depth": 2,
+                "first_transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+                "source_transition_key": "[4,[1,1,2,1],103,2,47,67] + child_top=15",
+                "child_top": 15,
+                "source_rank": 0,
+                "child_rank": 0,
+                "outcome_class": "pressure_rank_equal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 11288962087768301415,
+                  "modulus_bits": 68,
+                  "prefix_length": 47,
+                  "consumed_bits": 67,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 7.49323753,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 4438507539778060689255,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                }
+              }
+            ],
+            "second_layer_selected_key_reentry": [],
+            "third_layer_open_pressure": [
+              {
+                "depth": 3,
+                "first_transition_key": "[4,[1,1,2,2],103,2,47,68] + child_top=10",
+                "source_transition_key": "[8,[1,1,1,1],103,2,51,72] + child_top=0",
+                "child_top": 0,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 2968648460613366962535,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 2968648460613366962535,
+                  "modulus_bits": 76,
+                  "prefix_length": 54,
+                  "consumed_bits": 76,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.58797504,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "depth": 3,
+                "first_transition_key": "[4,[1,1,2,2],103,2,47,68] + child_top=10",
+                "source_transition_key": "[8,[1,1,1,1],103,2,51,72] + child_top=1",
+                "child_top": 1,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 2968648460613366962535,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 7691014943483012176231,
+                  "modulus_bits": 76,
+                  "prefix_length": 52,
+                  "consumed_bits": 76,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 6.41805004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3,
+                    2
+                  ]
+                }
+              },
+              {
+                "depth": 3,
+                "first_transition_key": "[4,[1,1,2,2],103,2,47,68] + child_top=10",
+                "source_transition_key": "[8,[1,1,1,1],103,2,51,72] + child_top=3",
+                "child_top": 3,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 2968648460613366962535,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 17135747909222302603623,
+                  "modulus_bits": 76,
+                  "prefix_length": 52,
+                  "consumed_bits": 76,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 6.41805004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              },
+              {
+                "depth": 3,
+                "first_transition_key": "[4,[1,1,2,2],103,2,47,68] + child_top=10",
+                "source_transition_key": "[8,[1,1,1,1],103,2,51,72] + child_top=4",
+                "child_top": 4,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 2968648460613366962535,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 21858114392091947817319,
+                  "modulus_bits": 76,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 5,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "depth": 3,
+                "first_transition_key": "[4,[1,1,2,2],103,2,47,68] + child_top=10",
+                "source_transition_key": "[8,[1,1,1,1],103,2,51,72] + child_top=5",
+                "child_top": 5,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 2968648460613366962535,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 26580480874961593031015,
+                  "modulus_bits": 76,
+                  "prefix_length": 51,
+                  "consumed_bits": 76,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 4.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    5
+                  ]
+                }
+              },
+              {
+                "depth": 3,
+                "first_transition_key": "[4,[1,1,2,2],103,2,47,68] + child_top=10",
+                "source_transition_key": "[8,[1,1,1,1],103,2,51,72] + child_top=6",
+                "child_top": 6,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 2968648460613366962535,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 31302847357831238244711,
+                  "modulus_bits": 76,
+                  "prefix_length": 53,
+                  "consumed_bits": 75,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.00301254,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                }
+              },
+              {
+                "depth": 3,
+                "first_transition_key": "[4,[1,1,2,2],103,2,47,68] + child_top=10",
+                "source_transition_key": "[8,[1,1,1,1],103,2,51,72] + child_top=7",
+                "child_top": 7,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 2968648460613366962535,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 36025213840700883458407,
+                  "modulus_bits": 76,
+                  "prefix_length": 52,
+                  "consumed_bits": 74,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 8.41805004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                }
+              },
+              {
+                "depth": 3,
+                "first_transition_key": "[4,[1,1,2,2],103,2,47,68] + child_top=10",
+                "source_transition_key": "[8,[1,1,1,1],103,2,51,72] + child_top=8",
+                "child_top": 8,
+                "source_rank": 0,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 2968648460613366962535,
+                  "modulus_bits": 72,
+                  "prefix_length": 51,
+                  "consumed_bits": 72,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 8.83308754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 40747580323570528672103,
+                  "modulus_bits": 76,
+                  "prefix_length": 53,
+                  "consumed_bits": 76,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 8.00301254,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    2
+                  ]
+                }
+              }
+            ]
+          },
+          "lift_closure_status": "persistent_mixed_key_lift_chain_pressure_observed_no_resolution",
+          "discarded_route": "Treat the full-word bounded separator as an infinite proof. TICKET72 keeps it only as an overfit guard and asks whether compact coordinates close under future lifts.",
+          "retained_route": "Use compact coordinates only if their transition keys close under lift. Otherwise retain the repeated mixed-key re-entry as a candidate counterexample-chain specification.",
+          "candidate_theorem": "InfiniteFrontierCoordinateLiftClosureOrChain: every future lift of the compact mixed-key frontier is separated by a fixed compact pre-outcome coordinate with a well-founded rank, or a compatible infinite chain re-enters mixed pressure keys indefinitely.",
+          "counterexample_target": "A compatible lift chain whose transition keys keep re-entering the compact mixed frontier while every tested compact coordinate remains mixed or high-cardinality.",
+          "next_theorem_target": "CompactMixedKeyInvariantOrPersistentLiftChain",
+          "proof_boundary": "TICKET72 does not prove Collatz and does not certify a counterexample. It is a bounded second-lift and capped third-lift audit that sharpens the infinite theorem or chain target."
+        }
+      },
+      "obstruction": "The top mixed keys still need a horizon-independent theorem. Bounded second-lift closure or re-entry statistics are not a proof until they are promoted to a compact invariant or a certified infinite chain.",
+      "candidate_theorem": "InfiniteFrontierCoordinateLiftClosureOrChain: every future lift of the compact mixed-key frontier is separated by a fixed compact pre-outcome coordinate with a well-founded rank, or a compatible infinite chain re-enters mixed pressure keys indefinitely.",
+      "next_experiment": "Promote the best compact split into a symbolic invariant, or extend the persistent mixed-key chain search.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-72",
+      "status": "proof_pressure_open",
+      "route": "LowMarginLiftClosureOrPersistentExceptionalChain",
+      "proof_or_counterexample_mode": "lift-closure transfer",
+      "attempt": "Transfer the TICKET72 lesson: a bounded separator must either close under future lifts or produce a persistent counterexample chain.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-71",
+        "source_route": "LowMarginPreOutcomeCoordinateOrPersistentExceptionalChain",
+        "ticket72_transfer": "LowMarginLiftClosureOrPersistentExceptionalChain",
+        "candidate_theorem": "Every low-margin packet closes under a compact residue/error invariant with explicit cutoff uniformity, or a persistent exceptional chain is produced.",
+        "counterexample_target": "a low-margin exceptional chain that remains nonpositive under every compact error coordinate"
+      },
+      "obstruction": "This is a transferred proof obligation, not a solution.",
+      "candidate_theorem": "Every low-margin packet closes under a compact residue/error invariant with explicit cutoff uniformity, or a persistent exceptional chain is produced.",
+      "next_experiment": "Search for a problem-specific compact lift invariant or persistent frontier chain.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-72",
+      "status": "proof_pressure_open",
+      "route": "ExactGapLiftClosureOrPersistentParityChain",
+      "proof_or_counterexample_mode": "lift-closure transfer",
+      "attempt": "Transfer the TICKET72 lesson: a bounded separator must either close under future lifts or produce a persistent counterexample chain.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-71",
+        "source_route": "ExactGapPreOutcomeCoordinateOrPersistentParityChain",
+        "ticket72_transfer": "ExactGapLiftClosureOrPersistentParityChain",
+        "candidate_theorem": "Every exact-gap frontier packet closes under a compact parity/sieve invariant with retained mass, or a persistent gap-2 deletion chain is produced.",
+        "counterexample_target": "an exact-gap parity chain that preserves deletion pressure under every compact sieve coordinate"
+      },
+      "obstruction": "This is a transferred proof obligation, not a solution.",
+      "candidate_theorem": "Every exact-gap frontier packet closes under a compact parity/sieve invariant with retained mass, or a persistent gap-2 deletion chain is produced.",
+      "next_experiment": "Search for a problem-specific compact lift invariant or persistent frontier chain.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}
