@@ -986,6 +986,22 @@ async function main() {
     } else {
       requireText("ticket110 Goldbach route", "JointBalancedGoldbachPreserved");
     }
+    requireText("ticket111 title", "Ticket 111 Twin Type II minor phase audit");
+    requireText("ticket111 table", "TICKET111 Type II phase audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket111 Twin rows", "Phase-aware saving frontier");
+      requireText("ticket111 Twin identity", "Exact Vaughan cross-spectrum");
+      requireText("ticket111 Twin no-go", "Phase-blind partition no-go");
+      requireText("ticket111 Twin holdout", "Registered X^-1/6 candidate");
+      requireText("ticket111 Twin finite lower", "257818.2");
+      requireText("ticket111 Twin next", "PhaseAwareVaughanTypeIIMinorArcPowerSaving");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket111 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket111 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket111 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {
@@ -1777,7 +1793,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-107") ||
     !metrics.evolutionPanel.includes("TICKET-108") ||
     !metrics.evolutionPanel.includes("TICKET-109") ||
-    !metrics.evolutionPanel.includes("TICKET-110")
+    !metrics.evolutionPanel.includes("TICKET-110") ||
+    !metrics.evolutionPanel.includes("TICKET-111")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

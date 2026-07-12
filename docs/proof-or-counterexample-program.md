@@ -4983,3 +4983,19 @@ TICKET110 fixes all reduced rational centers `a/q`, `q<=Q`, and widths `Q/(qX)` 
 The trivial minor-energy lower bound is `-3,105,699.1`, yielding total lower bound `-2,644,495.5`. Thus rational masking captures the observed arithmetic signal but cannot replace a signed Type II minor-arc estimate.
 
 The retained target is `FixedBumpMajorArcAsymptoticWithTypeIIMinorPowerSaving`. TICKET110 proves none of the four conjectures.
+
+## TICKET-111: Vaughan Type II minor cross-spectrum
+
+TICKET111 connects the fixed `Q=32` rational arc mask to the exact Vaughan decomposition. For the symmetric bump sequence, the shift-two correlation and its fixed minor part split exactly into Type I and Type II cross-spectra against the shifted full von Mangoldt target. Component reconstruction errors remain below the registered tolerance through the fresh 2M holdout.
+
+Consider every proof template that partitions the fixed minor bins, applies Cauchy-Schwarz independently on each cell, and discards complex phase. Its envelope is bounded below by the singleton-bin expression
+
+```text
+E_bin(X)=sum_minor m_k |TypeII_hat(k)||Lambda_hat(k)|/N.
+```
+
+This smallest phase-blind envelope fails on all five audited horizons. At 2M, known major plus Type-I minor is `929,258.9`, `E_bin=7,596,484.2`, and the resulting lower bound is `-6,667,225.4`. This is a finite no-go for the stated argument class, not for Type II analysis itself.
+
+The candidate `TypeII_minor >= -X^(-1/6)E_bin` was frozen after the rows at or below 1M. It survives the first post-selection 2M holdout: actual Type-II minor `+14,783.4`, candidate envelope `671,440.7`, and finite lower expression `257,818.2`. Finite survival does not prove uniformity.
+
+The retained target is `PhaseAwareVaughanTypeIIMinorArcPowerSaving`. It must preserve bilinear phase and be proved independently of the observed target correlation. TICKET111 proves none of the four conjectures.

@@ -104,6 +104,7 @@ TICKET107_SCHEMA = "primeproject.ticket107-twin-sparse-tail-recombination.v1"
 TICKET108_SCHEMA = "primeproject.ticket108-twin-joint-equivalence-smoothing.v1"
 TICKET109_SCHEMA = "primeproject.ticket109-twin-spectral-phase-audit.v1"
 TICKET110_SCHEMA = "primeproject.ticket110-twin-rational-arc-budget.v1"
+TICKET111_SCHEMA = "primeproject.ticket111-twin-typeii-minor-phase-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -6597,6 +6598,56 @@ def main() -> int:
         return fail("ticket110 major-minor frontier changed")
     if audit110.get("next_theorem_target") != "FixedBumpMajorArcAsymptoticWithTypeIIMinorPowerSaving" or "proves none" not in str(audit110.get("proof_boundary", "")):
         return fail("ticket110 target or proof boundary changed")
+
+    path111 = Path("data/open-problem/ticket111-twin-typeii-minor-phase-audit.json")
+    if not path111.exists():
+        return fail("missing ticket111 Type II minor-phase artifact")
+    ticket111 = read_json(path111)
+    expected_status111 = "typeii_cross_spectrum_exact_phase_blind_partition_refuted_candidate_survives_holdout_open"
+    if ticket111.get("schema") != TICKET111_SCHEMA or ticket111.get("status") != expected_status111:
+        return fail("ticket111 schema or status changed")
+    attempts111 = ticket111.get("attempts", [])
+    by_id111 = {str(row.get("problem_id")): row for row in attempts111 if isinstance(row, dict)} if isinstance(attempts111, list) else {}
+    if set(by_id111) != EXPECTED_PROBLEMS:
+        return fail("ticket111 attempts missing problems")
+    paths111 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-111-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-111-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-111-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-111-typeii-minor-phase-audit.json"),
+    }
+    for problem_id, attempt in by_id111.items():
+        if not paths111[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket111 artifact or proof boundary missing")
+    if by_id111["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_typeii_minor_phase_audit":
+        return fail("ticket111 shared audit reference changed")
+    audit111 = ticket111.get("twin_typeii_minor_phase_audit", {})
+    machine111 = audit111.get("machine_audit", {})
+    expected_metrics111 = {
+        "maximum_horizon": 2097152,
+        "row_count": 5,
+        "calibration_row_count": 4,
+        "holdout_row_count": 1,
+        "phase_blind_refutation_count": 5,
+        "holdout_candidate_failure_count": 0,
+        "contract_failure_count": 0,
+    }
+    if audit111.get("theorem_name") != "ExactVaughanMinorCrossSpectrumAndPhaseBlindPartitionNoGo" or {key: int(machine111.get(key, -1)) for key in expected_metrics111} != expected_metrics111:
+        return fail("ticket111 theorem or machine contract changed")
+    rows111 = audit111.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows111] != [4096, 32768, 262144, 1048576, 2097152]:
+        return fail("ticket111 horizon schedule changed")
+    if any(not bool(row.get("phase_blind_route_refuted")) for row in rows111):
+        return fail("ticket111 phase-blind no-go changed")
+    if max(float(row.get("component_reconstruction_error", 1)) for row in rows111) > 1e-6 or max(float(row.get("minor_component_reconstruction_error", 1)) for row in rows111) > 1e-6:
+        return fail("ticket111 component identity changed")
+    holdout111 = rows111[-1]
+    if holdout111.get("split") != "post_selection_holdout" or not bool(holdout111.get("registered_lower_inequality_passes")) or not bool(holdout111.get("registered_positivity_closes")):
+        return fail("ticket111 holdout candidate changed")
+    if abs(float(holdout111.get("phase_blind_lower_bound", 0)) + 6667225.373005189) > 1e-6 or abs(float(holdout111.get("registered_power_saving_lower_bound", 0)) - 257818.1696008843) > 1e-6:
+        return fail("ticket111 quantitative frontier changed")
+    if audit111.get("next_theorem_target") != "PhaseAwareVaughanTypeIIMinorArcPowerSaving" or "proves none" not in str(audit111.get("proof_boundary", "")):
+        return fail("ticket111 target or proof boundary changed")
 
     print("open problem structure verified")
     return 0

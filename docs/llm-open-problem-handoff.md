@@ -62,7 +62,17 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-110
+## Latest Continuation After TICKET-111
+
+TICKET111 decomposes the fixed-bump shift-two correlation into exact Vaughan Type I and Type II cross-spectra on the fixed `Q=32` rational minor mask. All component identities pass through the fresh `X=2,097,152` holdout.
+
+It proves a finite no-go theorem for one explicit proof class. Any arbitrary partition of the minor bins followed by cellwise Cauchy-Schwarz and loss of complex phase has envelope at least the singleton-bin value `sum m_k |II_hat(k)||Lambda_hat(k)|/N`. At 2M this value is `7,596,484.2`, while the known major-plus-Type-I-minor contribution is `929,258.9`; the resulting lower bound is `-6,667,225.4`. Do not retry phase-blind partition optimization.
+
+After calibration at or below 1M, the lower candidate `TypeII_minor >= -X^(-1/6)E_bin` was frozen and tested at 2M. It survives: actual Type-II minor is `+14,783.4`, the candidate envelope is `671,440.7`, and the finite resulting lower expression is `257,818.2`. This is one post-selection holdout, not an all-scale theorem.
+
+The next theorem is `PhaseAwareVaughanTypeIIMinorArcPowerSaving`. Derive it uniformly from Vaughan coefficients and rational frequency separation, or construct an adversarial coefficient model satisfying the proposed hypotheses that refutes it. Do not use the observed twin correlation as a premise.
+
+## Preserved Continuation After TICKET-110
 
 TICKET110 builds anti-circular rational major arcs around every reduced `a/q`, `q<=Q`, with width `Q/(qX)`, fixed before target contributions are read. The spectrum partitions exactly into major and minor pieces.
 

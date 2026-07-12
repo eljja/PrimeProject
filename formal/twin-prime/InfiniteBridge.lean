@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-110 fixes anti-circular rational major arcs and refutes closure by the trivial minor-energy bound"
+  "TP-TICKET-111 isolates the exact Vaughan Type II minor cross-spectrum and refutes all phase-blind partition-Cauchy refinements"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-111 FixedBumpMajorArcAsymptoticWithTypeIIMinorPowerSaving."
+  "TP-TICKET-112 PhaseAwareVaughanTypeIIMinorArcPowerSaving."
 
 def topAttackProofAttemptProtocol : String :=
-  "Derive the fixed-bump major-arc asymptotic with explicit local factors and prove a signed Type II minor-arc power saving independent of the observed target correlation."
+  "Prove a uniform signed Type II minor-arc power saving from Vaughan coefficients and rational frequency separation; do not infer it from finite holdouts or the observed target correlation."
 
 end PrimeProject.OpenProblems.TwinPrime

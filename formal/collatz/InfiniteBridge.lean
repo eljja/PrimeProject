@@ -28,10 +28,10 @@ def counterexampleGuidedSynthesis : String :=
   "Collatz CEGIS: generate residue-rank candidates, reject uncovered blocks and nondecreasing SCCs"
 
 def rankedCegisTarget : String :=
-  "CO-TICKET-110 preserves the exact golden-mean escape target; no Twin major-arc shortcut is imported"
+  "CO-TICKET-111 preserves the exact golden-mean escape target; no Twin Type II phase shortcut is imported"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-111 GoldenMeanInvariantSetEscape."
+  "CO-TICKET-112 GoldenMeanInvariantSetEscape."
 
 def topAttackProofAttemptProtocol : String :=
   "Prove the exact logarithmic tail orbit exits the no-00 subshift infinitely often, or construct a compatible infinite avoiding path and test whether it is realized by a positive integer orbit."
