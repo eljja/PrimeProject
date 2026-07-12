@@ -4999,3 +4999,15 @@ This smallest phase-blind envelope fails on all five audited horizons. At 2M, kn
 The candidate `TypeII_minor >= -X^(-1/6)E_bin` was frozen after the rows at or below 1M. It survives the first post-selection 2M holdout: actual Type-II minor `+14,783.4`, candidate envelope `671,440.7`, and finite lower expression `257,818.2`. Finite survival does not prove uniformity.
 
 The retained target is `PhaseAwareVaughanTypeIIMinorArcPowerSaving`. It must preserve bilinear phase and be proved independently of the observed target correlation. TICKET111 proves none of the four conjectures.
+
+## TICKET-112: Farey-cell endpoint Abel audit
+
+TICKET112 applies exact discrete Abel summation inside all 162 connected cells of the fixed `Q=32` minor mask. The Type II minor contribution becomes the sum of cell endpoint terms plus smooth within-cell phase-variation terms. The identity replays below tolerance through 2M.
+
+At 2M, the Farey-Abel envelope is `1,280,365.2`, only 16.85% of TICKET111's phase-blind singleton envelope `7,596,484.2`. This substantial improvement is still insufficient: the known major-plus-Type-I-minor contribution is `929,258.9`, leaving lower bound `-351,106.4`.
+
+The remaining loss is concentrated at cell endpoints. Endpoint absolute mass is `1,229,823.0`, or 96.05% of the Abel envelope; within-cell variation is `50,542.3`. Actual signed endpoint contribution is `+11,146.8`. Independent endpoint triangles are therefore discarded.
+
+Applying the already-frozen `X^(-1/6)` factor only to endpoint mass leaves finite lower expression `770,014.6` at the 2M holdout. This is not an all-scale estimate.
+
+The retained target is `UniformFareyCellEndpointCancellationForVaughanCrossSpectrum`. TICKET112 proves none of the four conjectures.

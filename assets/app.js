@@ -1263,8 +1263,8 @@ const bundledProjectEvolution = {
     classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
-      claim_language_scanned_files: 55,
-      claim_language_scanned_lines: 18732,
+      claim_language_scanned_files: 56,
+      claim_language_scanned_lines: 18801,
     claim_language_triggered_mentions: 118,
     claim_language_guarded_mentions: 118,
     claim_language_failures: 0,
@@ -1375,6 +1375,7 @@ const bundledProjectEvolution = {
         { marker: "69", title: "Twin single-origin spectral route refuted", state: "bounded", measure: "1.05M / 4 of 4 low-frequency bounds refuted / phase ratio 0.1435 / 0 contract failures", proof: "TICKET-109 verifies the exact shift-two Fourier phase identity and shows that origin-centered low-frequency energy misses the rational arithmetic structure needed for a positive lower bound" },
         { marker: "70", title: "Twin rational major arcs isolated the minor saving", state: "bounded", measure: "1.05M / Q=32 major 461.2K / minor -2.1K / trivial minor -3.11M / 0 failures", proof: "TICKET-110 fixes rational arc masks before reading target contributions, reconstructs the observed correlation, and isolates a signed Type II minor-arc power saving as the missing theorem" },
         { marker: "71", title: "Twin Type II phase obligation isolated", state: "bounded", measure: "2.10M holdout / phase-blind -6.67M / X^-1/6 finite lower +257.8K / 0 failures", proof: "TICKET-111 exactly splits the rational-minor spectrum into Vaughan Type I and Type II pieces, refutes every phase-blind partition-Cauchy refinement, and promotes a phase-aware uniform power-saving theorem" },
+        { marker: "72", title: "Twin Farey endpoint bottleneck isolated", state: "bounded", measure: "162 cells / Abel envelope 1.28M / 96.05% endpoint loss / finite inherited lower +770.0K", proof: "TICKET-112 uses exact cellwise Abel summation to remove 83.15% of the phase-blind envelope, refutes independent endpoint triangles, and isolates uniform endpoint cancellation as the next theorem" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },

@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-111 isolates the exact Vaughan Type II minor cross-spectrum and refutes all phase-blind partition-Cauchy refinements"
+  "TP-TICKET-112 isolates 162 Farey-cell endpoint sums and refutes independent endpoint triangles after exact Abel reduction"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-112 PhaseAwareVaughanTypeIIMinorArcPowerSaving."
+  "TP-TICKET-113 UniformFareyCellEndpointCancellationForVaughanCrossSpectrum."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove a uniform signed Type II minor-arc power saving from Vaughan coefficients and rational frequency separation; do not infer it from finite holdouts or the observed target correlation."
+  "Prove a uniform one-sided cancellation estimate for the fixed Farey-cell endpoint sums from Vaughan bilinear coefficients and weighted large-sieve geometry; reject endpoint triangles and finite-holdout inference."
 
 end PrimeProject.OpenProblems.TwinPrime

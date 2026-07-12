@@ -62,7 +62,19 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-111
+## Latest Continuation After TICKET-112
+
+TICKET112 applies exact Abel summation inside each of the 162 connected cells of the fixed `Q=32` minor mask. It decomposes the Type II minor cross-spectrum into Farey-cell endpoint terms and smooth within-cell variation terms.
+
+At 2M, this phase-aware reduction lowers the envelope from TICKET111's singleton-bin `7,596,484.2` to `1,280,365.2`, but the total lower bound remains `-351,106.4`. Independent endpoint triangles therefore remain insufficient.
+
+The endpoint absolute envelope is `1,229,823.0`, 96.05% of the total Abel envelope. Within-cell variation is only `50,542.3`. The actual signed endpoint contribution is `+11,146.8`, only 0.91% of endpoint absolute mass. Do not spend the next iteration refining cell interiors; the missing object is arithmetic cancellation among endpoints.
+
+The inherited `X^(-1/6)` endpoint candidate leaves finite lower expression `770,014.6` at 2M. No new exponent was tuned, but finite survival is not a theorem.
+
+The next theorem is `UniformFareyCellEndpointCancellationForVaughanCrossSpectrum`. Prove it from Vaughan coefficients and weighted large-sieve/Farey geometry, or construct an admissible arithmetic coefficient countermodel that forces negative endpoint alignment.
+
+## Preserved Continuation After TICKET-111
 
 TICKET111 decomposes the fixed-bump shift-two correlation into exact Vaughan Type I and Type II cross-spectra on the fixed `Q=32` rational minor mask. All component identities pass through the fresh `X=2,097,152` holdout.
 

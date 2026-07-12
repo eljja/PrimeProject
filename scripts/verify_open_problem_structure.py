@@ -105,6 +105,7 @@ TICKET108_SCHEMA = "primeproject.ticket108-twin-joint-equivalence-smoothing.v1"
 TICKET109_SCHEMA = "primeproject.ticket109-twin-spectral-phase-audit.v1"
 TICKET110_SCHEMA = "primeproject.ticket110-twin-rational-arc-budget.v1"
 TICKET111_SCHEMA = "primeproject.ticket111-twin-typeii-minor-phase-audit.v1"
+TICKET112_SCHEMA = "primeproject.ticket112-twin-farey-endpoint-abel-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -6648,6 +6649,55 @@ def main() -> int:
         return fail("ticket111 quantitative frontier changed")
     if audit111.get("next_theorem_target") != "PhaseAwareVaughanTypeIIMinorArcPowerSaving" or "proves none" not in str(audit111.get("proof_boundary", "")):
         return fail("ticket111 target or proof boundary changed")
+
+    path112 = Path("data/open-problem/ticket112-twin-farey-endpoint-abel-audit.json")
+    if not path112.exists():
+        return fail("missing ticket112 Farey endpoint artifact")
+    ticket112 = read_json(path112)
+    expected_status112 = "farey_abel_exact_endpoint_triangle_refuted_inherited_candidate_survives_open"
+    if ticket112.get("schema") != TICKET112_SCHEMA or ticket112.get("status") != expected_status112:
+        return fail("ticket112 schema or status changed")
+    attempts112 = ticket112.get("attempts", [])
+    by_id112 = {str(row.get("problem_id")): row for row in attempts112 if isinstance(row, dict)} if isinstance(attempts112, list) else {}
+    if set(by_id112) != EXPECTED_PROBLEMS:
+        return fail("ticket112 attempts missing problems")
+    paths112 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-112-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-112-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-112-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-112-farey-endpoint-abel-audit.json"),
+    }
+    for problem_id, attempt in by_id112.items():
+        if not paths112[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket112 artifact or proof boundary missing")
+    if by_id112["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_farey_endpoint_abel_audit":
+        return fail("ticket112 shared audit reference changed")
+    audit112 = ticket112.get("twin_farey_endpoint_abel_audit", {})
+    machine112 = audit112.get("machine_audit", {})
+    expected_metrics112 = {
+        "maximum_horizon": 2097152,
+        "row_count": 5,
+        "minor_cell_count": 162,
+        "endpoint_triangle_refutation_count": 5,
+        "holdout_candidate_failure_count": 0,
+        "contract_failure_count": 0,
+    }
+    if audit112.get("theorem_name") != "ExactFareyCellAbelDecompositionAndEndpointTriangleNoGo" or {key: int(machine112.get(key, -1)) for key in expected_metrics112} != expected_metrics112:
+        return fail("ticket112 theorem or machine contract changed")
+    rows112 = audit112.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows112] != [4096, 32768, 262144, 1048576, 2097152]:
+        return fail("ticket112 horizon schedule changed")
+    if any(not bool(row.get("farey_abel_route_refuted")) for row in rows112):
+        return fail("ticket112 endpoint-triangle no-go changed")
+    if max(float(row.get("abel_identity_absolute_error", 1)) for row in rows112) > 1e-6 or any(int(row.get("minor_cell_count", -1)) != 162 for row in rows112):
+        return fail("ticket112 Abel identity changed")
+    holdout112 = rows112[-1]
+    if holdout112.get("split") != "post_selection_holdout" or not bool(holdout112.get("inherited_endpoint_inequality_passes")) or not bool(holdout112.get("inherited_positivity_closes")):
+        return fail("ticket112 inherited candidate changed")
+    if abs(float(holdout112.get("farey_abel_lower_bound", 0)) + 351106.38706108497) > 1e-6 or abs(float(holdout112.get("inherited_lower_bound", 0)) - 770014.5783472147) > 1e-6:
+        return fail("ticket112 quantitative frontier changed")
+    if audit112.get("next_theorem_target") != "UniformFareyCellEndpointCancellationForVaughanCrossSpectrum" or "proves none" not in str(audit112.get("proof_boundary", "")):
+        return fail("ticket112 target or proof boundary changed")
 
     print("open problem structure verified")
     return 0
