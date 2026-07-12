@@ -1,0 +1,185 @@
+{
+  "schema": "primeproject.ticket92-scale-sensitive-threshold-audit.v1",
+  "generated_at": "2026-07-12T12:40:00+09:00",
+  "status": "scale_sensitive_thresholds_open_no_open_problem_resolution",
+  "claim_boundary": "Ticket 92 proves one Collatz coordinate/no-go correction and repairs one Twin Prime threshold artifact; none of the four open problems is solved.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-92",
+      "status": "proof_pressure_open",
+      "route": "ZeroFreeDefectScaleAudit",
+      "proof_or_counterexample_mode": "scale-sensitive threshold audit transfer discipline",
+      "attempt": "Check that normalization preserves the additive or sign-scale event actually required by the theorem before importing an asymptotic estimate.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-91",
+        "ticket92_transfer": "ZeroFreeDefectScaleAudit",
+        "candidate_theorem": "Preserve the unnormalized zero-free-region defect needed for an all-height sign theorem."
+      },
+      "obstruction": "No target-specific second-order coordinate or infinite recurrence theorem was proved.",
+      "candidate_theorem": "Preserve the unnormalized zero-free-region defect needed for an all-height sign theorem.",
+      "next_experiment": "Derive the smallest unnormalized defect whose recurrence is equivalent to the target theorem.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-92",
+      "route": "ConstantAdditiveDigitEventRequiresSecondOrderPadicDefect",
+      "status": "second_order_defect_equivalence_and_first_order_no_go_proved_no_collatz_resolution",
+      "proof_or_counterexample_mode": "exact second-order approximation coordinate plus target-erasing normalization no-go",
+      "attempt": "Test whether standard p-adic approximation exponents can detect the constant two-bit event isolated by TICKET91.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-91",
+        "second_order_defect_audit": {
+          "theorem_name": "ConstantAdditiveDigitEventRequiresSecondOrderPadicDefect",
+          "source_ticket": "CO-TICKET-91",
+          "exact_second_order_coordinate": {
+            "prefix": "At consecutive top-bit heights H<J, let k=r_H and L=J-H-1.",
+            "padic_approximation": "v2(R-k)=J.",
+            "floor_defect": "Delta_H=v2(R-k)-floor(log2(k))=J-H=L+1.",
+            "exponential_link": "v2(3^(k+1)+7)-floor(log2(k))=Delta_H+2=L+3.",
+            "target_equivalence": "The 100 event is equivalent to Delta_H>=3 and to exponential valuation excess >=5."
+          },
+          "first_order_scale_no_go": {
+            "normalized_exponent": "mu_H=v2(R-k)/floor(log2(k))=1+Delta_H/H.",
+            "collapse": "For every fixed additive defect Delta_H=O(1), mu_H tends to 1; Delta=1 and the required Delta>=3 have the same first-order limit.",
+            "countermodel": "The aperiodic square-coded concatenation of 10 and 110 avoids 00, has Delta in {1,2}, and still has mu_H->1.",
+            "linear_forms_boundary": "Upper bounds v2(3^(k+1)+7)<=C log k do not force a lower recurrence of Delta_H>=3.",
+            "transcendence_boundary": "Transcendence or an irrationality exponent does not preserve the constant additive bits needed by the target."
+          },
+          "proof_chain": [
+            "Use the next nonzero bit J to compute the exact 2-adic distance from R to its positive prefix k.",
+            "Subtract H=floor(log2(k)) before normalizing, preserving the constant digit information as Delta_H.",
+            "Identify the missing 00 event exactly with Delta_H>=3.",
+            "Show that dividing by H sends every bounded Delta_H to the same limit one and therefore erases the target distinction.",
+            "Exhibit an explicit aperiodic no-00 sequence with the same normalized approximation exponent limit.",
+            "Reject standard first-order approximation-exponent and upper-bound linear-form routes for this constant-additive target."
+          ],
+          "machine_audit": {
+            "max_horizon": 262144,
+            "top_bit_count": 131307,
+            "complete_jump_pair_count": 131306,
+            "second_order_target_event_count": 32753,
+            "maximum_floor_defect": 17,
+            "defect_histogram": {
+              "1": 65938,
+              "2": 32615,
+              "3": 16498,
+              "4": 8114,
+              "5": 4015,
+              "6": 2058,
+              "7": 1022,
+              "8": 527,
+              "9": 248,
+              "10": 132,
+              "11": 65,
+              "12": 33,
+              "13": 21,
+              "14": 14,
+              "15": 1,
+              "16": 3,
+              "17": 2
+            },
+            "late_horizon_floor": 4096,
+            "maximum_late_normalized_excess": 0.0028761061946902533,
+            "countermodel_bits": 4096,
+            "countermodel_adjacent_zero_count": 0,
+            "countermodel_maximum_defect": 2,
+            "equivalence_failure_count": 0,
+            "countermodel_failure_count": 0,
+            "total_failure_count": 0,
+            "minus_series_terms": 87382,
+            "plus_series_terms": 87382
+          },
+          "theorem_status": "second_order_defect_equivalence_and_first_order_no_go_proved_no_collatz_resolution",
+          "discarded_routes": [
+            {
+              "route": "normalized_padic_irrationality_exponent",
+              "status": "target_erasing",
+              "counteredge": "Every bounded digit defect has the same exponent limit one."
+            },
+            {
+              "route": "padic_linear_form_upper_bound",
+              "status": "wrong_direction",
+              "counteredge": "An upper bound cannot force infinitely many lower-threshold recurrence events."
+            },
+            {
+              "route": "finite_high_frequency_of_Delta_at_least_3",
+              "status": "finite_only",
+              "counteredge": "Observed events below height 262144 do not exclude an eventual defect cap of two."
+            }
+          ],
+          "retained_route": "Prove a target-specific second-order recurrence theorem for the fixed logarithm ratio without dividing the additive defect by H.",
+          "candidate_theorem": "FixedLogSecondOrderDefectRecurrence: Delta_H>=3 for infinitely many nested top-bit prefixes.",
+          "next_theorem_target": "FixedLogSecondOrderDefectRecurrence",
+          "proof_boundary": "TICKET92 preserves the exact constant-additive scale and rejects two target-erasing routes. It does not prove Delta_H>=3 infinitely often, 00 recurrence, or Collatz.",
+          "novelty_boundary": "The second-order defect packaging is a candidate PrimeProject contribution pending independent review; p-adic logarithmic forms are established background."
+        }
+      },
+      "obstruction": "For every fixed additive defect Delta_H=O(1), mu_H tends to 1; Delta=1 and the required Delta>=3 have the same first-order limit.",
+      "candidate_theorem": "FixedLogSecondOrderDefectRecurrence: Delta_H>=3 for infinitely many nested top-bit prefixes.",
+      "next_experiment": "Build TICKET93 around a target-specific recurrence mechanism for Delta_H without first-order normalization.",
+      "claim_boundary": "No Collatz proof and no certified divergent Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-92",
+      "status": "proof_pressure_open",
+      "route": "GoldbachMarginDefectScaleAudit",
+      "proof_or_counterexample_mode": "scale-sensitive threshold audit transfer discipline",
+      "attempt": "Check that normalization preserves the additive or sign-scale event actually required by the theorem before importing an asymptotic estimate.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-91",
+        "ticket92_transfer": "GoldbachMarginDefectScaleAudit",
+        "candidate_theorem": "Preserve the additive representation margin after every exceptional-character error term."
+      },
+      "obstruction": "No target-specific second-order coordinate or infinite recurrence theorem was proved.",
+      "candidate_theorem": "Preserve the additive representation margin after every exceptional-character error term.",
+      "next_experiment": "Derive the smallest unnormalized defect whose recurrence is equivalent to the target theorem.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-92",
+      "route": "MaynardCriterionThresholdAndGapPromotionCorrection",
+      "status": "maynard_threshold_misclassification_corrected_no_twin_prime_resolution",
+      "proof_or_counterexample_mode": "primary-source criterion replay plus false bounded-gap promotion removal",
+      "attempt": "Recheck the legacy TP-TICKET-14 M_k threshold against Maynard Proposition 4.2 before using it in exact-gap research.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-14",
+        "maynard_threshold_correction": {
+          "theorem_name": "MaynardCriterionThresholdAndGapPromotionCorrection",
+          "source_ticket": "TP-TICKET-14",
+          "criterion": {
+            "maynard_proposition": "The sieve yields at least ceil(theta*M_k/2) primes in an admissible k-tuple.",
+            "unconditional_input": "Bombieri-Vinogradov supplies every fixed theta<1/2.",
+            "two_prime_threshold": "A certified M_k>2/theta is required; in the theta->1/2 limit this means a strict certified M_k>4.",
+            "legacy_error": "The former 2/k threshold and implied gap fields were not consequences of Maynard's criterion.",
+            "legacy_false_gap_promotion_count": 17,
+            "source": "https://doi.org/10.4007/annals.2015.181.1.7"
+          },
+          "machine_audit": {
+            "corrected_row_count": 17,
+            "legacy_false_gap_promotion_count": 17,
+            "maximum_legacy_surrogate_score": 3.91202301,
+            "certified_M_k_row_count": 0,
+            "certified_two_prime_row_count": 0,
+            "remaining_implied_gap_count": 0,
+            "correction_failure_count": 0,
+            "total_failure_count": 0
+          },
+          "theorem_status": "maynard_threshold_misclassification_corrected_no_twin_prime_resolution",
+          "discarded_route": "Treat an unverified closed-form score above 2/k as a certified Maynard M_k threshold and convert tuple diameter into a proved gap.",
+          "retained_route": "Require an explicit test function F, rigorous I_k and J_k integrals, distribution hypotheses, and the exact theta*M_k/2 prime-count criterion; exact gap 2 still needs parity-breaking input.",
+          "candidate_theorem": "ParityBreakingExactPairCorrelationLowerBound: an unconditional lower bound for Lambda(n)Lambda(n+2) that cannot be reproduced by parity or wider-gap countermodels.",
+          "next_theorem_target": "ParityBreakingExactPairCorrelationLowerBound",
+          "proof_boundary": "TICKET92 removes a false Maynard threshold and gap-2 promotion. It proves no new bounded-gap theorem and no Twin Prime result."
+        }
+      },
+      "obstruction": "Treat an unverified closed-form score above 2/k as a certified Maynard M_k threshold and convert tuple diameter into a proved gap.",
+      "candidate_theorem": "ParityBreakingExactPairCorrelationLowerBound: an unconditional lower bound for Lambda(n)Lambda(n+2) that cannot be reproduced by parity or wider-gap countermodels.",
+      "next_experiment": "Require a parity-breaking exact-pair correlation estimate rather than another bounded-gap surrogate.",
+      "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+    }
+  ]
+}

@@ -1,0 +1,513 @@
+{
+  "schema": "primeproject.ticket106-twin-modulus-grouped-dispersion.v1",
+  "generated_at": "2026-07-13T17:10:00+09:00",
+  "status": "modulus_grouping_exact_dispersion_theorem_open",
+  "claim_boundary": "TICKET106 proves an exact finite modulus-grouped identity and audits its norm geometry. It proves none of the four conjectures and no conjecture counterexample.",
+  "twin_modulus_grouped_dispersion": {
+    "theorem_name": "GroupedModulusCenteredDispersionAudit",
+    "source_ticket": "TICKET-105",
+    "exact_grouping": {
+      "identity": "Centered Type II = sum_q c_X(q) Delta_X(q), after all q=dr representations are grouped before taking norms.",
+      "coefficient": "c_X(q)=sum_{d|q,d>U,q/d>V} mu(d)Lambda(q/d).",
+      "discrepancy": "Delta_X(q)=sum_{qm in (X/2,X]}(Lambda(qm+2)-q/phi(q)) for odd q, with zero baseline for even q."
+    },
+    "dispersion_boundary": {
+      "finding": "Grouping repeated factorizations by the actual modulus is mandatory before a large-sieve or dispersion norm is interpreted.",
+      "sparse_leakage": "Moduli with at most one block sample can replay individual shifted-prime rows; their positive contribution must not be confused with a dense progression theorem.",
+      "remaining_gap": "Split dense-modulus dispersion from a separately justified sparse tail; a finite grouped L2 envelope over row-unique moduli is not a uniform theorem."
+    },
+    "rows": [
+      {
+        "horizon": 1000,
+        "block_start": 501,
+        "block_end": 1000,
+        "u": 10,
+        "v": 8,
+        "support_count": 268,
+        "minimum_supported_modulus": 99,
+        "maximum_supported_modulus": 994,
+        "identity": "Centered Type II = sum_q c_X(q) Delta_X(q), after all q=dr representations are grouped before taking norms.",
+        "grouped_centered_discrepancy": 25.84023364540927,
+        "grouped_progression_baseline": -200.55670512333444,
+        "centered_identity_absolute_error": 3.197442310920451e-14,
+        "baseline_identity_absolute_error": 2.842170943040401e-14,
+        "coefficient_l2": 64.47333154043582,
+        "discrepancy_l2": 42.27299740773286,
+        "grouped_cauchy_required_constant": 27.32256596051487,
+        "grouped_negative_mass_required_constant": 7.689858629232707,
+        "actual_centered_required_constant": 0.0,
+        "coefficient_discrepancy_cosine": 0.009480981104892759,
+        "outer_d_cauchy_required_constant": 10.174408093127182,
+        "outer_d_negative_mass_required_constant": 2.410121456019465,
+        "row_unique_support_count": 218,
+        "row_unique_support_fraction": 0.8134328358208955,
+        "row_unique_signed_contribution": 56.08759644998522,
+        "non_row_unique_signed_contribution": -30.24736280457595,
+        "non_row_unique_required_constant": 0.30322558561610513,
+        "occupancy_rows": [
+          {
+            "maximum_occupancy": 1,
+            "support_count": 218,
+            "support_fraction": 0.8134328358208955,
+            "signed_contribution": 56.08759644998522,
+            "complement_signed_contribution": -30.24736280457595
+          },
+          {
+            "maximum_occupancy": 2,
+            "support_count": 251,
+            "support_fraction": 0.9365671641791045,
+            "signed_contribution": 31.434906766366133,
+            "complement_signed_contribution": -5.5946731209568625
+          },
+          {
+            "maximum_occupancy": 4,
+            "support_count": 267,
+            "support_fraction": 0.996268656716418,
+            "signed_contribution": 16.7766822638974,
+            "complement_signed_contribution": 9.063551381511871
+          },
+          {
+            "maximum_occupancy": 8,
+            "support_count": 268,
+            "support_fraction": 1.0,
+            "signed_contribution": 25.84023364540927,
+            "complement_signed_contribution": 0.0
+          },
+          {
+            "maximum_occupancy": 16,
+            "support_count": 268,
+            "support_fraction": 1.0,
+            "signed_contribution": 25.84023364540927,
+            "complement_signed_contribution": 0.0
+          }
+        ],
+        "bucket_rows": [
+          {
+            "left_fraction": 0.0,
+            "right_fraction": 0.1,
+            "support_count": 1,
+            "signed_contribution": 9.063551381511905,
+            "negative_mass": -0.0,
+            "coefficient_l2": 1.0986122886681098,
+            "discrepancy_l2": 8.25
+          },
+          {
+            "left_fraction": 0.1,
+            "right_fraction": 0.25,
+            "support_count": 27,
+            "signed_contribution": -19.43208247433699,
+            "negative_mass": 105.53796705348566,
+            "coefficient_l2": 14.468110958672916,
+            "discrepancy_l2": 19.81811386705478
+          },
+          {
+            "left_fraction": 0.25,
+            "right_fraction": 0.5,
+            "support_count": 69,
+            "signed_contribution": -1.9625132460370431,
+            "negative_mass": 141.040884545372,
+            "coefficient_l2": 29.66113165850165,
+            "discrepancy_l2": 14.97885013452812
+          },
+          {
+            "left_fraction": 0.5,
+            "right_fraction": 1.0,
+            "support_count": 171,
+            "signed_contribution": 38.1712779842714,
+            "negative_mass": 520.5000325978684,
+            "coefficient_l2": 55.37593850208503,
+            "discrepancy_l2": 33.19367742860058
+          }
+        ]
+      },
+      {
+        "horizon": 125000,
+        "block_start": 62501,
+        "block_end": 125000,
+        "u": 50,
+        "v": 42,
+        "support_count": 34190,
+        "minimum_supported_modulus": 2193,
+        "maximum_supported_modulus": 124999,
+        "identity": "Centered Type II = sum_q c_X(q) Delta_X(q), after all q=dr representations are grouped before taking norms.",
+        "grouped_centered_discrepancy": 4759.677546138536,
+        "grouped_progression_baseline": 19505.0821316133,
+        "centered_identity_absolute_error": 8.185452315956354e-12,
+        "baseline_identity_absolute_error": 7.275957614183426e-12,
+        "coefficient_l2": 1396.8697112898437,
+        "discrepancy_l2": 691.5956715027498,
+        "grouped_cauchy_required_constant": 132.63434235640264,
+        "grouped_negative_mass_required_constant": 31.648584762015307,
+        "actual_centered_required_constant": 0.0,
+        "coefficient_discrepancy_cosine": 0.0049268502763211534,
+        "outer_d_cauchy_required_constant": 26.688046806709842,
+        "outer_d_negative_mass_required_constant": 4.498265053230542,
+        "row_unique_support_count": 25300,
+        "row_unique_support_fraction": 0.739982451009067,
+        "row_unique_signed_contribution": 4041.7684879735616,
+        "non_row_unique_signed_contribution": 717.9090581649743,
+        "non_row_unique_required_constant": 0.0,
+        "occupancy_rows": [
+          {
+            "maximum_occupancy": 1,
+            "support_count": 25300,
+            "support_fraction": 0.739982451009067,
+            "signed_contribution": 4041.7684879735616,
+            "complement_signed_contribution": 717.9090581649743
+          },
+          {
+            "maximum_occupancy": 2,
+            "support_count": 29714,
+            "support_fraction": 0.8690845276396607,
+            "signed_contribution": 4388.697426339187,
+            "complement_signed_contribution": 370.98011979934927
+          },
+          {
+            "maximum_occupancy": 4,
+            "support_count": 32314,
+            "support_fraction": 0.9451301550160865,
+            "signed_contribution": 4862.30749735746,
+            "complement_signed_contribution": -102.62995121892436
+          },
+          {
+            "maximum_occupancy": 8,
+            "support_count": 33605,
+            "support_fraction": 0.9828897338403042,
+            "signed_contribution": 5262.72320783897,
+            "complement_signed_contribution": -503.0456617004338
+          },
+          {
+            "maximum_occupancy": 16,
+            "support_count": 34093,
+            "support_fraction": 0.9971629131324948,
+            "signed_contribution": 5036.152011878464,
+            "complement_signed_contribution": -276.47446573992784
+          }
+        ],
+        "bucket_rows": [
+          {
+            "left_fraction": 0.0,
+            "right_fraction": 0.1,
+            "support_count": 1578,
+            "signed_contribution": 229.35329643296302,
+            "negative_mass": 18429.283465868946,
+            "coefficient_l2": 207.13569265554608,
+            "discrepancy_l2": 295.9977809798164
+          },
+          {
+            "left_fraction": 0.1,
+            "right_fraction": 0.25,
+            "support_count": 4506,
+            "signed_contribution": -1104.0975487835815,
+            "negative_mass": 45192.98255212777,
+            "coefficient_l2": 433.4681963013984,
+            "discrepancy_l2": 321.1530343412933
+          },
+          {
+            "left_fraction": 0.25,
+            "right_fraction": 0.5,
+            "support_count": 8764,
+            "signed_contribution": -419.32072789982726,
+            "negative_mass": 42320.895398732566,
+            "coefficient_l2": 684.1214195513508,
+            "discrepancy_l2": 234.0702623641388
+          },
+          {
+            "left_fraction": 0.5,
+            "right_fraction": 1.0,
+            "support_count": 19342,
+            "signed_contribution": 6053.742526388981,
+            "negative_mass": 124575.70379197017,
+            "coefficient_l2": 1119.117063248227,
+            "discrepancy_l2": 482.45386028772475
+          }
+        ]
+      },
+      {
+        "horizon": 1000000,
+        "block_start": 500001,
+        "block_end": 1000000,
+        "u": 100,
+        "v": 84,
+        "support_count": 271160,
+        "minimum_supported_modulus": 8989,
+        "maximum_supported_modulus": 999998,
+        "identity": "Centered Type II = sum_q c_X(q) Delta_X(q), after all q=dr representations are grouped before taking norms.",
+        "grouped_centered_discrepancy": 9082.863481756587,
+        "grouped_progression_baseline": 2803.4125766553134,
+        "centered_identity_absolute_error": 1.0913936421275139e-11,
+        "baseline_identity_absolute_error": 1.6825651982799172e-11,
+        "coefficient_l2": 4736.132048676526,
+        "discrepancy_l2": 2192.5351298167634,
+        "grouped_cauchy_required_constant": 209.87217032319805,
+        "grouped_negative_mass_required_constant": 48.00902027391554,
+        "actual_centered_required_constant": 0.0,
+        "coefficient_discrepancy_cosine": 0.0008746864999236824,
+        "outer_d_cauchy_required_constant": 37.12412043536674,
+        "outer_d_negative_mass_required_constant": 5.145168381408069,
+        "row_unique_support_count": 197484,
+        "row_unique_support_fraction": 0.7282932585927128,
+        "row_unique_signed_contribution": -9213.387862603304,
+        "non_row_unique_signed_contribution": 18296.25134435989,
+        "non_row_unique_required_constant": 0.0,
+        "occupancy_rows": [
+          {
+            "maximum_occupancy": 1,
+            "support_count": 197484,
+            "support_fraction": 0.7282932585927128,
+            "signed_contribution": -9213.387862603304,
+            "complement_signed_contribution": 18296.25134435989
+          },
+          {
+            "maximum_occupancy": 2,
+            "support_count": 232540,
+            "support_fraction": 0.8575748635491961,
+            "signed_contribution": -10696.838880188883,
+            "complement_signed_contribution": 19779.70236194547
+          },
+          {
+            "maximum_occupancy": 4,
+            "support_count": 253738,
+            "support_fraction": 0.935750110635787,
+            "signed_contribution": 8826.727027066227,
+            "complement_signed_contribution": 256.13645469036055
+          },
+          {
+            "maximum_occupancy": 8,
+            "support_count": 264509,
+            "support_fraction": 0.9754720460244873,
+            "signed_contribution": 7237.154576552151,
+            "complement_signed_contribution": 1845.7089052044357
+          },
+          {
+            "maximum_occupancy": 16,
+            "support_count": 269221,
+            "support_fraction": 0.9928492403009294,
+            "signed_contribution": 8236.565445421233,
+            "complement_signed_contribution": 846.2980363353545
+          }
+        ],
+        "bucket_rows": [
+          {
+            "left_fraction": 0.0,
+            "right_fraction": 0.1,
+            "support_count": 14996,
+            "signed_contribution": 4607.711371099345,
+            "negative_mass": 260139.25939023675,
+            "coefficient_l2": 838.9462542491923,
+            "discrepancy_l2": 1045.9848395673703
+          },
+          {
+            "left_fraction": 0.1,
+            "right_fraction": 0.25,
+            "support_count": 36439,
+            "signed_contribution": 13751.694075880729,
+            "negative_mass": 473440.2486507379,
+            "coefficient_l2": 1541.7126464596913,
+            "discrepancy_l2": 1000.9946584306834
+          },
+          {
+            "left_fraction": 0.25,
+            "right_fraction": 0.5,
+            "support_count": 69078,
+            "signed_contribution": -1401.2937465138511,
+            "negative_mass": 418274.78939028014,
+            "coefficient_l2": 2334.8408686304747,
+            "discrepancy_l2": 719.728404417787
+          },
+          {
+            "left_fraction": 0.5,
+            "right_fraction": 1.0,
+            "support_count": 150647,
+            "signed_contribution": -7875.2482187096375,
+            "negative_mass": 1223554.457330272,
+            "coefficient_l2": 3728.103566010658,
+            "discrepancy_l2": 1480.9209055662966
+          }
+        ]
+      },
+      {
+        "horizon": 2000000,
+        "block_start": 1000001,
+        "block_end": 2000000,
+        "u": 126,
+        "v": 106,
+        "support_count": 553583,
+        "minimum_supported_modulus": 13589,
+        "maximum_supported_modulus": 1999999,
+        "identity": "Centered Type II = sum_q c_X(q) Delta_X(q), after all q=dr representations are grouped before taking norms.",
+        "grouped_centered_discrepancy": 67608.76030549759,
+        "grouped_progression_baseline": 126653.41244394312,
+        "centered_identity_absolute_error": 4.220055416226387e-10,
+        "baseline_identity_absolute_error": 5.238689482212067e-10,
+        "coefficient_l2": 7098.644154771135,
+        "discrepancy_l2": 3307.0085432981746,
+        "grouped_cauchy_required_constant": 249.11924209715178,
+        "grouped_negative_mass_required_constant": 55.29498319529784,
+        "actual_centered_required_constant": 0.0,
+        "coefficient_discrepancy_cosine": 0.0028799984209937723,
+        "outer_d_cauchy_required_constant": 41.147064309511606,
+        "outer_d_negative_mass_required_constant": 5.411964367928027,
+        "row_unique_support_count": 400315,
+        "row_unique_support_fraction": 0.7231345615743258,
+        "row_unique_signed_contribution": 64933.82659062814,
+        "non_row_unique_signed_contribution": 2674.933714869454,
+        "non_row_unique_required_constant": 0.0,
+        "occupancy_rows": [
+          {
+            "maximum_occupancy": 1,
+            "support_count": 400315,
+            "support_fraction": 0.7231345615743258,
+            "signed_contribution": 64933.82659062814,
+            "complement_signed_contribution": 2674.933714869454
+          },
+          {
+            "maximum_occupancy": 2,
+            "support_count": 472015,
+            "support_fraction": 0.8526544348363299,
+            "signed_contribution": 62417.286630760434,
+            "complement_signed_contribution": 5191.473674737157
+          },
+          {
+            "maximum_occupancy": 4,
+            "support_count": 515726,
+            "support_fraction": 0.9316145907659736,
+            "signed_contribution": 67006.87129592686,
+            "complement_signed_contribution": 601.889009570732
+          },
+          {
+            "maximum_occupancy": 8,
+            "support_count": 538343,
+            "support_fraction": 0.9724702528798753,
+            "signed_contribution": 62124.22758558818,
+            "complement_signed_contribution": 5484.53271990941
+          },
+          {
+            "maximum_occupancy": 16,
+            "support_count": 548539,
+            "support_fraction": 0.9908884485253341,
+            "signed_contribution": 62271.47251356584,
+            "complement_signed_contribution": 5337.287791931754
+          }
+        ],
+        "bucket_rows": [
+          {
+            "left_fraction": 0.0,
+            "right_fraction": 0.1,
+            "support_count": 32776,
+            "signed_contribution": -3893.972126889951,
+            "negative_mass": 658913.1639202312,
+            "coefficient_l2": 1316.807241801438,
+            "discrepancy_l2": 1686.7579825556634
+          },
+          {
+            "left_fraction": 0.1,
+            "right_fraction": 0.25,
+            "support_count": 75017,
+            "signed_contribution": 10288.608309547879,
+            "negative_mass": 1075197.3184692825,
+            "coefficient_l2": 2339.3210682365934,
+            "discrepancy_l2": 1504.890974028216
+          },
+          {
+            "left_fraction": 0.25,
+            "right_fraction": 0.5,
+            "support_count": 140810,
+            "signed_contribution": -13187.79124253814,
+            "negative_mass": 912027.4811854123,
+            "coefficient_l2": 3506.426972122871,
+            "discrepancy_l2": 1062.4487565941113
+          },
+          {
+            "left_fraction": 0.5,
+            "right_fraction": 1.0,
+            "support_count": 304980,
+            "signed_contribution": 74401.91536537779,
+            "negative_mass": 2564479.3651559963,
+            "coefficient_l2": 5557.815609830834,
+            "discrepancy_l2": 2167.4083163151095
+          }
+        ]
+      }
+    ],
+    "discarded_routes": [
+      "Apply d-vector Cauchy before combining repeated q=dr representations.",
+      "Treat one residue class per large modulus as if classical averaged progression estimates directly supplied the needed range.",
+      "Use the positive q>X/2 contribution as evidence for a dense progression estimate; those cells have at most one sample.",
+      "Infer a uniform dispersion theorem from finite grouped cosines or bucket signs."
+    ],
+    "next_theorem_target": "NonSparseModulusTwinDispersionWithSparseTailControl",
+    "machine_audit": {
+      "maximum_horizon": 2000000,
+      "row_count": 4,
+      "contract_failure_count": 0
+    },
+    "proof_boundary": "TICKET106 proves an exact finite modulus-grouped identity and audits its norm geometry. It proves none of the four conjectures and no conjecture counterexample."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-106",
+      "status": "problem_specific_target_preserved_open",
+      "route": "NonCircularKernelPositivityPreserved",
+      "proof_or_counterexample_mode": "preserve problem-specific target during Twin grouped-dispersion audit",
+      "attempt": "Preserve the existing infinite target; no grouped-modulus shortcut is transferred.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-105",
+        "independent_target": "NonCircularExplicitFormulaKernelPositivity"
+      },
+      "obstruction": "TICKET106 supplies no new target-specific infinite theorem for this problem.",
+      "candidate_theorem": "NonCircularExplicitFormulaKernelPositivity",
+      "next_experiment": "Continue NonCircularExplicitFormulaKernelPositivity with its own proof and counterexample oracle.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-106",
+      "status": "problem_specific_target_preserved_open",
+      "route": "GoldenMeanEscapePreserved",
+      "proof_or_counterexample_mode": "preserve problem-specific target during Twin grouped-dispersion audit",
+      "attempt": "Preserve the existing infinite target; no grouped-modulus shortcut is transferred.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-105",
+        "independent_target": "GoldenMeanInvariantSetEscape"
+      },
+      "obstruction": "TICKET106 supplies no new target-specific infinite theorem for this problem.",
+      "candidate_theorem": "GoldenMeanInvariantSetEscape",
+      "next_experiment": "Continue GoldenMeanInvariantSetEscape with its own proof and counterexample oracle.",
+      "claim_boundary": "No collatz proof and no certified collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-106",
+      "status": "problem_specific_target_preserved_open",
+      "route": "JointBalancedGoldbachPreserved",
+      "proof_or_counterexample_mode": "preserve problem-specific target during Twin grouped-dispersion audit",
+      "attempt": "Preserve the existing infinite target; no grouped-modulus shortcut is transferred.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-105",
+        "independent_target": "JointBalancedVaughanGoldbachResidualEnvelope"
+      },
+      "obstruction": "TICKET106 supplies no new target-specific infinite theorem for this problem.",
+      "candidate_theorem": "JointBalancedVaughanGoldbachResidualEnvelope",
+      "next_experiment": "Continue JointBalancedVaughanGoldbachResidualEnvelope with its own proof and counterexample oracle.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-106",
+      "status": "modulus_grouping_exact_dispersion_theorem_open",
+      "route": "GroupedModulusCenteredTwinDispersion",
+      "proof_or_counterexample_mode": "exact q-grouping plus range-bucket dispersion audit",
+      "attempt": "Combine every q=dr representation before applying norms to the centered prime-progression discrepancy.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-105",
+        "audit_ref": "twin_modulus_grouped_dispersion"
+      },
+      "obstruction": "Split dense-modulus dispersion from a separately justified sparse tail; a finite grouped L2 envelope over row-unique moduli is not a uniform theorem.",
+      "candidate_theorem": "NonSparseModulusTwinDispersionWithSparseTailControl",
+      "next_experiment": "Prove or refute a large-modulus bilinear dispersion estimate for the grouped coefficient-discrepancy vectors.",
+      "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+    }
+  ]
+}

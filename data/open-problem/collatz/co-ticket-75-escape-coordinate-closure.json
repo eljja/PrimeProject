@@ -1,0 +1,889 @@
+{
+  "schema": "primeproject.ticket75-escape-coordinate-closure-lab.v1",
+  "generated_at": "2026-07-10T22:32:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-75",
+  "route": "EscapeCoordinateClosureOrNovelClassGrowth",
+  "status": "all_tested_finite_preoutcome_coordinates_leak_or_cycle_no_global_resolution",
+  "proof_or_counterexample_mode": "fixed finite coordinate falsification plus exact pressure-lineage replay",
+  "attempt": "Replace the unbounded prefix/consumed diagnostic coordinate with eight explicitly finite pre-outcome coordinates. Test two-layer successor closure, projected cycles, outcome collisions, and new-class growth on all TICKET74 fifth- and sixth-lift open-pressure rows.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-74",
+    "escape_coordinate_closure_audit": {
+      "theorem_name": "FiniteEscapeCoordinateClosureOrNovelClassGrowth",
+      "source_ticket": "CO-TICKET-74",
+      "source_status": "strict_cover_leakage_and_sixth_pressure_persistence_observed_no_global_resolution",
+      "replay_audit": {
+        "fifth_open_pressure_row_count": 15696,
+        "sixth_open_pressure_row_count": 78315,
+        "ticket74_count_match": true,
+        "source_identity_failure_count": 0,
+        "exact_extension_failure_count": 0
+      },
+      "fixed_finite_coordinate_family_count": 8,
+      "coordinate_family_results": [
+        {
+          "family_id": "tail2clip8_res64_next8",
+          "coordinate_is_fixed_finite": true,
+          "coordinate_space_upper_bound": "57600",
+          "fifth_source_class_count": 73,
+          "fifth_open_child_class_count": 62,
+          "sixth_surviving_source_class_count": 62,
+          "fifth_child_equals_sixth_source_class_set": true,
+          "sixth_open_child_class_count": 49,
+          "known_source_cover_class_count": 75,
+          "novel_sixth_child_class_count": 1,
+          "novel_sixth_open_row_count": 11,
+          "novel_sixth_open_row_ratio": {
+            "numerator": 11,
+            "denominator": 78315,
+            "fraction": 0.00014046
+          },
+          "observed_pressure_graph": {
+            "node_count": 76,
+            "edge_count": 1807,
+            "cyclic_component_count": 1,
+            "cyclic_node_count": 66,
+            "largest_cyclic_component_size": 66,
+            "pressure_transition_key_count": 932,
+            "mixed_pressure_outcome_key_count": 59
+          },
+          "closed_over_observed_two_layer_source_cover": false,
+          "acyclic_observed_pressure_graph": false,
+          "deterministic_on_observed_pressure_outcomes": false,
+          "two_layer_finite_closure_gate_passed": false,
+          "novel_class_examples": [
+            {
+              "root_id": 14,
+              "source_coordinate": "[[1,1],39,4]",
+              "child_coordinate": "[[1,4],39,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 8,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 751,
+              "source_coordinate": "[[1,4],39,6]",
+              "child_coordinate": "[[1,4],39,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 14,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 1238,
+              "source_coordinate": "[[1,4],39,6]",
+              "child_coordinate": "[[1,4],39,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 14,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 1393,
+              "source_coordinate": "[[1,3],39,3]",
+              "child_coordinate": "[[1,4],39,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 7,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 1513,
+              "source_coordinate": "[[1,1],39,4]",
+              "child_coordinate": "[[1,4],39,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 0,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 1597,
+              "source_coordinate": "[[1,4],39,2]",
+              "child_coordinate": "[[1,4],39,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 4,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 1944,
+              "source_coordinate": "[[4,1],39,2]",
+              "child_coordinate": "[[1,4],39,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 7,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2592,
+              "source_coordinate": "[[1,4],39,6]",
+              "child_coordinate": "[[1,4],39,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 10,
+              "outcome_class": "pressure_new_unranked_internal"
+            }
+          ]
+        },
+        {
+          "family_id": "tail3clip12_res128_next12",
+          "coordinate_is_fixed_finite": true,
+          "coordinate_space_upper_bound": "4566016",
+          "fifth_source_class_count": 105,
+          "fifth_open_child_class_count": 85,
+          "sixth_surviving_source_class_count": 85,
+          "fifth_child_equals_sixth_source_class_set": true,
+          "sixth_open_child_class_count": 65,
+          "known_source_cover_class_count": 110,
+          "novel_sixth_child_class_count": 3,
+          "novel_sixth_open_row_count": 199,
+          "novel_sixth_open_row_ratio": {
+            "numerator": 199,
+            "denominator": 78315,
+            "fraction": 0.00254102
+          },
+          "observed_pressure_graph": {
+            "node_count": 113,
+            "edge_count": 3648,
+            "cyclic_component_count": 1,
+            "cyclic_node_count": 92,
+            "largest_cyclic_component_size": 92,
+            "pressure_transition_key_count": 1375,
+            "mixed_pressure_outcome_key_count": 64
+          },
+          "closed_over_observed_two_layer_source_cover": false,
+          "acyclic_observed_pressure_graph": false,
+          "deterministic_on_observed_pressure_outcomes": false,
+          "two_layer_finite_closure_gate_passed": false,
+          "novel_class_examples": [
+            {
+              "root_id": 14,
+              "source_coordinate": "[[1,1,1],103,4]",
+              "child_coordinate": "[[1,1,4],103,11]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 8,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 14,
+              "source_coordinate": "[[1,2,1],103,5]",
+              "child_coordinate": "[[1,2,1],103,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 4,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 26,
+              "source_coordinate": "[[1,1,1],103,1]",
+              "child_coordinate": "[[2,1,1],103,10]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 9,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 26,
+              "source_coordinate": "[[2,1,1],103,3]",
+              "child_coordinate": "[[1,2,1],103,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 13,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 45,
+              "source_coordinate": "[[1,1,1],103,6]",
+              "child_coordinate": "[[1,2,1],103,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 3,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 79,
+              "source_coordinate": "[[2,1,1],103,2]",
+              "child_coordinate": "[[2,1,1],103,10]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 10,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 95,
+              "source_coordinate": "[[1,1,1],103,1]",
+              "child_coordinate": "[[1,2,1],103,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 8,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 121,
+              "source_coordinate": "[[2,1,1],103,2]",
+              "child_coordinate": "[[1,2,1],103,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 13,
+              "outcome_class": "pressure_new_unranked_internal"
+            }
+          ]
+        },
+        {
+          "family_id": "tail4clip16_res256_next16",
+          "coordinate_is_fixed_finite": true,
+          "coordinate_space_upper_bound": "456855552",
+          "fifth_source_class_count": 112,
+          "fifth_open_child_class_count": 90,
+          "sixth_surviving_source_class_count": 90,
+          "fifth_child_equals_sixth_source_class_set": true,
+          "sixth_open_child_class_count": 67,
+          "known_source_cover_class_count": 118,
+          "novel_sixth_child_class_count": 3,
+          "novel_sixth_open_row_count": 199,
+          "novel_sixth_open_row_ratio": {
+            "numerator": 199,
+            "denominator": 78315,
+            "fraction": 0.00254102
+          },
+          "observed_pressure_graph": {
+            "node_count": 121,
+            "edge_count": 4328,
+            "cyclic_component_count": 1,
+            "cyclic_node_count": 97,
+            "largest_cyclic_component_size": 97,
+            "pressure_transition_key_count": 1484,
+            "mixed_pressure_outcome_key_count": 64
+          },
+          "closed_over_observed_two_layer_source_cover": false,
+          "acyclic_observed_pressure_graph": false,
+          "deterministic_on_observed_pressure_outcomes": false,
+          "two_layer_finite_closure_gate_passed": false,
+          "novel_class_examples": [
+            {
+              "root_id": 14,
+              "source_coordinate": "[[2,1,1,1],103,4]",
+              "child_coordinate": "[[1,1,1,4],103,11]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 8,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 14,
+              "source_coordinate": "[[1,1,2,1],103,5]",
+              "child_coordinate": "[[1,1,2,1],103,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 4,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 26,
+              "source_coordinate": "[[2,1,1,1],103,1]",
+              "child_coordinate": "[[1,2,1,1],103,10]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 9,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 26,
+              "source_coordinate": "[[1,2,1,1],103,3]",
+              "child_coordinate": "[[1,1,2,1],103,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 13,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 45,
+              "source_coordinate": "[[1,1,1,1],103,6]",
+              "child_coordinate": "[[1,1,2,1],103,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 3,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 79,
+              "source_coordinate": "[[1,2,1,1],103,2]",
+              "child_coordinate": "[[1,2,1,1],103,10]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 10,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 95,
+              "source_coordinate": "[[2,1,1,1],103,1]",
+              "child_coordinate": "[[1,1,2,1],103,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 8,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 121,
+              "source_coordinate": "[[1,2,1,1],103,2]",
+              "child_coordinate": "[[1,1,2,1],103,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 13,
+              "outcome_class": "pressure_new_unranked_internal"
+            }
+          ]
+        },
+        {
+          "family_id": "tail6clip16_res1024_next16",
+          "coordinate_is_fixed_finite": true,
+          "coordinate_space_upper_bound": "592084795392",
+          "fifth_source_class_count": 746,
+          "fifth_open_child_class_count": 1815,
+          "sixth_surviving_source_class_count": 1724,
+          "fifth_child_equals_sixth_source_class_set": false,
+          "sixth_open_child_class_count": 2731,
+          "known_source_cover_class_count": 1869,
+          "novel_sixth_child_class_count": 1404,
+          "novel_sixth_open_row_count": 7535,
+          "novel_sixth_open_row_ratio": {
+            "numerator": 7535,
+            "denominator": 78315,
+            "fraction": 0.09621401
+          },
+          "observed_pressure_graph": {
+            "node_count": 3313,
+            "edge_count": 41340,
+            "cyclic_component_count": 12,
+            "cyclic_node_count": 1727,
+            "largest_cyclic_component_size": 506,
+            "pressure_transition_key_count": 18705,
+            "mixed_pressure_outcome_key_count": 89
+          },
+          "closed_over_observed_two_layer_source_cover": false,
+          "acyclic_observed_pressure_graph": false,
+          "deterministic_on_observed_pressure_outcomes": false,
+          "two_layer_finite_closure_gate_passed": false,
+          "novel_class_examples": [
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,2,1,1,1,3],871,1]",
+              "child_coordinate": "[[2,1,1,1,3,2],871,3]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 10,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,3,1,1,1,1],871,3]",
+              "child_coordinate": "[[3,1,1,1,1,1],871,7]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 9,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,2,2,1,1,1],871,2]",
+              "child_coordinate": "[[2,2,1,1,1,5],871,1]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 6,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,2,2,1,1,1],871,2]",
+              "child_coordinate": "[[2,1,1,1,1,4],871,1]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 11,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 4,
+              "source_coordinate": "[[2,5,1,1,1,1],871,2]",
+              "child_coordinate": "[[5,1,1,1,1,3],871,5]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 4,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 4,
+              "source_coordinate": "[[2,5,1,1,1,1],871,2]",
+              "child_coordinate": "[[2,5,1,1,1,4],871,2]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 5,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 4,
+              "source_coordinate": "[[2,5,1,1,1,1],871,2]",
+              "child_coordinate": "[[5,1,1,1,1,1],871,4]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 6,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 4,
+              "source_coordinate": "[[2,5,1,1,1,1],871,2]",
+              "child_coordinate": "[[2,5,1,1,1,3],871,3]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 9,
+              "outcome_class": "pressure_new_unranked_internal"
+            }
+          ]
+        },
+        {
+          "family_id": "tail8clip16_res4096_next16",
+          "coordinate_is_fixed_finite": true,
+          "coordinate_space_upper_bound": "767341894828032",
+          "fifth_source_class_count": 1705,
+          "fifth_open_child_class_count": 7249,
+          "sixth_surviving_source_class_count": 6371,
+          "fifth_child_equals_sixth_source_class_set": false,
+          "sixth_open_child_class_count": 21239,
+          "known_source_cover_class_count": 7133,
+          "novel_sixth_child_class_count": 16122,
+          "novel_sixth_open_row_count": 39260,
+          "novel_sixth_open_row_ratio": {
+            "numerator": 39260,
+            "denominator": 78315,
+            "fraction": 0.50130882
+          },
+          "observed_pressure_graph": {
+            "node_count": 23599,
+            "edge_count": 76352,
+            "cyclic_component_count": 109,
+            "cyclic_node_count": 4990,
+            "largest_cyclic_component_size": 702,
+            "pressure_transition_key_count": 53543,
+            "mixed_pressure_outcome_key_count": 86
+          },
+          "closed_over_observed_two_layer_source_cover": false,
+          "acyclic_observed_pressure_graph": false,
+          "deterministic_on_observed_pressure_outcomes": false,
+          "two_layer_finite_closure_gate_passed": false,
+          "novel_class_examples": [
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,2,1,1,1,1,2],3943,3]",
+              "child_coordinate": "[[2,1,1,1,1,2,1,2],3943,4]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 14,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[2,1,1,2,1,1,1,3],3943,1]",
+              "child_coordinate": "[[1,1,2,1,1,1,3,2],3943,3]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 10,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[2,1,1,2,1,3,1,1],3943,1]",
+              "child_coordinate": "[[1,2,1,3,1,1,1,2],3943,4]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 4,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,2,1,1,1,1,1,1],3943,2]",
+              "child_coordinate": "[[2,1,1,1,1,1,1,4],3943,7]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 12,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[2,1,2,2,1,1,1,1],3943,2]",
+              "child_coordinate": "[[1,2,2,1,1,1,1,3],3943,5]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 2,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[2,1,2,2,1,1,1,1],3943,2]",
+              "child_coordinate": "[[2,2,1,1,1,1,1,4],3943,2]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 3,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[2,1,2,2,1,1,1,1],3943,2]",
+              "child_coordinate": "[[2,2,1,1,1,1,4,1],3943,3]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 6,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[2,1,2,2,1,1,1,1],3943,2]",
+              "child_coordinate": "[[2,2,1,1,1,1,2,3],3943,1]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 8,
+              "outcome_class": "pressure_new_unranked_internal"
+            }
+          ]
+        },
+        {
+          "family_id": "tail4clip16_res256_next16_pcmod16",
+          "coordinate_is_fixed_finite": true,
+          "coordinate_space_upper_bound": "1871280340992",
+          "fifth_source_class_count": 532,
+          "fifth_open_child_class_count": 1271,
+          "sixth_surviving_source_class_count": 1146,
+          "fifth_child_equals_sixth_source_class_set": false,
+          "sixth_open_child_class_count": 1525,
+          "known_source_cover_class_count": 1635,
+          "novel_sixth_child_class_count": 1416,
+          "novel_sixth_open_row_count": 74881,
+          "novel_sixth_open_row_ratio": {
+            "numerator": 74881,
+            "denominator": 78315,
+            "fraction": 0.95615144
+          },
+          "observed_pressure_graph": {
+            "node_count": 3165,
+            "edge_count": 28140,
+            "cyclic_component_count": 163,
+            "cyclic_node_count": 163,
+            "largest_cyclic_component_size": 1,
+            "pressure_transition_key_count": 12890,
+            "mixed_pressure_outcome_key_count": 48
+          },
+          "closed_over_observed_two_layer_source_cover": false,
+          "acyclic_observed_pressure_graph": false,
+          "deterministic_on_observed_pressure_outcomes": false,
+          "two_layer_finite_closure_gate_passed": false,
+          "novel_class_examples": [
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,1,2],103,3,12,4,8]",
+              "child_coordinate": "[[1,3,1,1],103,2,14,7,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 1,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,1,2],103,3,12,4,8]",
+              "child_coordinate": "[[1,1,2,1],103,4,13,5,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 6,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,1,2],103,3,12,4,8]",
+              "child_coordinate": "[[1,1,1,4],103,3,12,6,10]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 7,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,1,2],103,3,12,4,8]",
+              "child_coordinate": "[[1,2,1,2],103,4,14,7,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 14,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,1,3],103,1,11,4,9]",
+              "child_coordinate": "[[1,1,3,1],103,4,12,5,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 0,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,1,3],103,1,11,4,9]",
+              "child_coordinate": "[[1,1,3,2],103,3,12,6,10]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 10,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,2,1,2],103,1,11,4,9]",
+              "child_coordinate": "[[1,2,1,1],103,3,13,6,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 0,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,3,1,1],103,1,11,4,9]",
+              "child_coordinate": "[[1,1,1,1],103,3,15,8,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 0,
+              "outcome_class": "pressure_new_unranked_internal"
+            }
+          ]
+        },
+        {
+          "family_id": "tail8clip16_res4096_next16_pcmod16",
+          "coordinate_is_fixed_finite": true,
+          "coordinate_space_upper_bound": "3143032401215619072",
+          "fifth_source_class_count": 2119,
+          "fifth_open_child_class_count": 11783,
+          "sixth_surviving_source_class_count": 9957,
+          "fifth_child_equals_sixth_source_class_set": false,
+          "sixth_open_child_class_count": 49436,
+          "known_source_cover_class_count": 12052,
+          "novel_sixth_child_class_count": 49140,
+          "novel_sixth_open_row_count": 77827,
+          "novel_sixth_open_row_ratio": {
+            "numerator": 77827,
+            "denominator": 78315,
+            "fraction": 0.99376875
+          },
+          "observed_pressure_graph": {
+            "node_count": 62971,
+            "edge_count": 88519,
+            "cyclic_component_count": 367,
+            "cyclic_node_count": 367,
+            "largest_cyclic_component_size": 1,
+            "pressure_transition_key_count": 78128,
+            "mixed_pressure_outcome_key_count": 18
+          },
+          "closed_over_observed_two_layer_source_cover": false,
+          "acyclic_observed_pressure_graph": false,
+          "deterministic_on_observed_pressure_outcomes": false,
+          "two_layer_finite_closure_gate_passed": false,
+          "novel_class_examples": [
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,2,1,1,1,1,2],3943,3,12,4,8]",
+              "child_coordinate": "[[2,1,1,1,1,3,1,1],3943,2,14,7,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 1,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,2,1,1,1,1,2],3943,3,12,4,8]",
+              "child_coordinate": "[[1,2,1,1,1,1,2,1],3943,4,13,5,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 6,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,2,1,1,1,1,2],3943,3,12,4,8]",
+              "child_coordinate": "[[1,1,2,1,1,1,1,4],3943,3,12,6,10]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 7,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,2,1,1,1,1,2],3943,3,12,4,8]",
+              "child_coordinate": "[[2,1,1,1,1,2,1,2],3943,4,14,7,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 14,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[2,1,1,2,1,1,1,3],3943,1,11,4,9]",
+              "child_coordinate": "[[1,1,2,1,1,1,3,1],3943,4,12,5,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 0,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[2,1,1,2,1,1,1,3],3943,1,11,4,9]",
+              "child_coordinate": "[[1,1,2,1,1,1,3,2],3943,3,12,6,10]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 10,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[2,1,1,2,1,2,1,2],3943,1,11,4,9]",
+              "child_coordinate": "[[1,2,1,2,1,2,1,1],3943,3,13,6,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 0,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[2,1,1,2,1,3,1,1],3943,1,11,4,9]",
+              "child_coordinate": "[[1,3,1,1,1,1,1,1],3943,3,15,8,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 0,
+              "outcome_class": "pressure_new_unranked_internal"
+            }
+          ]
+        },
+        {
+          "family_id": "tail12clip32_res65536_next32_pcmod16",
+          "coordinate_is_fixed_finite": true,
+          "coordinate_space_upper_bound": "21139797506354648418707570688",
+          "fifth_source_class_count": 2397,
+          "fifth_open_child_class_count": 15206,
+          "sixth_surviving_source_class_count": 12724,
+          "fifth_child_equals_sixth_source_class_set": false,
+          "sixth_open_child_class_count": 72269,
+          "known_source_cover_class_count": 15102,
+          "novel_sixth_child_class_count": 71967,
+          "novel_sixth_open_row_count": 77998,
+          "novel_sixth_open_row_ratio": {
+            "numerator": 77998,
+            "denominator": 78315,
+            "fraction": 0.99595224
+          },
+          "observed_pressure_graph": {
+            "node_count": 89499,
+            "edge_count": 93470,
+            "cyclic_component_count": 373,
+            "cyclic_node_count": 373,
+            "largest_cyclic_component_size": 1,
+            "pressure_transition_key_count": 92068,
+            "mixed_pressure_outcome_key_count": 4
+          },
+          "closed_over_observed_two_layer_source_cover": false,
+          "acyclic_observed_pressure_graph": false,
+          "deterministic_on_observed_pressure_outcomes": false,
+          "two_layer_finite_closure_gate_passed": false,
+          "novel_class_examples": [
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,2,1,2,1,1,2,1,1,1,1,2],8039,3,12,4,8]",
+              "child_coordinate": "[[1,2,1,1,2,1,1,1,1,3,1,1],8039,2,14,7,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 1,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,2,1,2,1,1,2,1,1,1,1,2],8039,3,12,4,8]",
+              "child_coordinate": "[[2,1,2,1,1,2,1,1,1,1,2,1],8039,4,13,5,8]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 6,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,2,1,2,1,1,2,1,1,1,1,2],8039,3,12,4,8]",
+              "child_coordinate": "[[1,2,1,2,1,1,2,1,1,1,1,4],8039,3,12,6,10]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 7,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,2,1,2,1,1,2,1,1,1,1,2],8039,3,12,4,8]",
+              "child_coordinate": "[[1,2,1,1,2,1,1,1,1,2,1,2],8039,4,14,7,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 14,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,2,1,2,1,1,2,1,1,1,3],8039,1,11,4,9]",
+              "child_coordinate": "[[1,2,1,2,1,1,2,1,1,1,3,1],8039,4,12,5,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 0,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,2,1,2,1,1,2,1,1,1,3],8039,1,11,4,9]",
+              "child_coordinate": "[[1,2,1,2,1,1,2,1,1,1,3,2],8039,3,12,6,10]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 10,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,2,1,2,1,1,2,1,2,1,2],8039,1,11,4,9]",
+              "child_coordinate": "[[2,1,2,1,1,2,1,2,1,2,1,1],8039,3,13,6,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 0,
+              "outcome_class": "pressure_new_unranked_internal"
+            },
+            {
+              "root_id": 2,
+              "source_coordinate": "[[1,1,2,1,2,1,1,2,1,3,1,1],8039,1,11,4,9]",
+              "child_coordinate": "[[2,1,1,2,1,3,1,1,1,1,1,1],8039,3,15,8,9]",
+              "source_modulus_bits": 84,
+              "child_modulus_bits": 88,
+              "child_top": 0,
+              "outcome_class": "pressure_new_unranked_internal"
+            }
+          ]
+        }
+      ],
+      "unbounded_reference_coordinate": {
+        "family_id": "base_prefix_consumed",
+        "coordinate_is_fixed_finite": false,
+        "reason": "The coordinate contains exact prefix_length and consumed_bits. Its observed DAG rank is a bounded diagnostic, not a rank on a fixed finite state space and not an all-height induction invariant.",
+        "known_source_cover_class_count": 1678,
+        "sixth_open_child_class_count": 1525,
+        "novel_sixth_child_class_count": 1525,
+        "promotion_blocked": true
+      },
+      "two_layer_gate_passing_family_ids": [],
+      "coordinate_closure_status": "all_tested_finite_preoutcome_coordinates_leak_or_cycle_no_global_resolution",
+      "discarded_route": "Promote the observed base_prefix_consumed DAG rank or any finite-horizon collision-free coordinate directly into a Collatz induction. Exact prefix and consumed lengths are unbounded, while every tested fixed finite replacement must also survive successor closure and projected-cycle tests.",
+      "retained_route": "Search for a symbolic, horizon-independent coordinate with a proved successor theorem and a well-founded rank, or construct a nonempty compatible pressure tree at every depth and then separately decide whether it represents divergence, a nontrivial cycle, or only a coarse diagnostic obstruction.",
+      "candidate_theorem": "EscapeCoordinateClosureOrInfinitePressurePath: there is a fixed coordinate and well-founded rank such that every compatible open-pressure lift exits or strictly descends, or there exists an all-depth compatible pressure path that evades every certified coordinate cover.",
+      "counterexample_target": "An all-depth exact congruence path that remains open pressure while escaping every certified finite coordinate cover. Such a path is still not a Collatz counterexample until divergence or a nontrivial cycle is proved.",
+      "next_theorem_target": "SymbolicSuccessorClosureWithWellFoundedRankOrAllDepthPressurePath",
+      "proof_boundary": "TICKET75 is a finite coordinate falsification audit. It proves neither Collatz nor its negation and cannot turn a finite projected DAG into an infinite theorem."
+    }
+  },
+  "obstruction": "A finite observed DAG is not an induction theorem. The candidate coordinate must be fixed, cover every compatible successor, and carry a theorem-level well-founded rank at every height.",
+  "candidate_theorem": "EscapeCoordinateClosureOrInfinitePressurePath: there is a fixed coordinate and well-founded rank such that every compatible open-pressure lift exits or strictly descends, or there exists an all-depth compatible pressure path that evades every certified coordinate cover.",
+  "next_experiment": "Prove symbolic successor closure for a surviving fixed coordinate or construct an all-depth compatible pressure path.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

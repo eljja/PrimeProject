@@ -1,0 +1,266 @@
+{
+  "schema": "primeproject.ticket73-lineage-pressure-forest-lab.v1",
+  "generated_at": "2026-07-10T03:40:00+09:00",
+  "status": "strict_reentry_tree_extinct_at_fifth_lift_for_selected_roots_no_global_conclusion",
+  "attempt": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-73",
+    "route": "FiniteRootReentryTreeExtinctionOrKonigWitness",
+    "status": "strict_reentry_tree_extinct_at_fifth_lift_for_selected_roots_no_global_conclusion",
+    "proof_or_counterexample_mode": "exact finite-root re-entry tree with all-depth inference guard",
+    "attempt": "Reconstruct every TICKET72 open-pressure mixed-key re-entry root, expand the complete re-entry tree through three more four-bit lifts, and verify that every retained witness edge is an exact congruence extension.",
+    "bounded_result": {
+      "source_ticket": "CO-TICKET-72",
+      "lineage_pressure_forest_audit": {
+        "theorem_name": "FiniteRootReentryTreeExtinctionOrKonigWitness",
+        "source_ticket": "CO-TICKET-72",
+        "source_status": "persistent_mixed_key_lift_chain_pressure_observed_no_resolution",
+        "reconstructed_frontier_branch_weight": 792064,
+        "reconstructed_mixed_transition_key_count": 22219,
+        "reconstructed_pressure_mixed_transition_key_count": 20752,
+        "selected_top_mixed_key_count": 8,
+        "reconstructed_second_layer_open_pressure_mixed_root_count": 4142,
+        "third_all_source_reentry_audit": {
+          "source_count": 4142,
+          "row_count": 66272,
+          "outcome_counts": {
+            "safe_base_cycle_exit": 38602,
+            "pressure_new_unranked_internal": 21894,
+            "pressure_rank_equal": 5353,
+            "pressure_rank_descent": 370,
+            "safe_closed_or_terminal": 53
+          },
+          "open_pressure_rows": 27247,
+          "mixed_key_reentry_count": 21816,
+          "open_pressure_mixed_key_reentry_count": 12911,
+          "root_with_open_pressure_mixed_reentry_count": 1835
+        },
+        "fourth_reentry_audit": {
+          "source_count": 12911,
+          "row_count": 206576,
+          "outcome_counts": {
+            "safe_base_cycle_exit": 125919,
+            "pressure_new_unranked_internal": 80243,
+            "pressure_rank_equal": 386,
+            "safe_closed_or_terminal": 28
+          },
+          "open_pressure_rows": 80629,
+          "mixed_key_reentry_count": 4884,
+          "open_pressure_mixed_key_reentry_count": 2873,
+          "root_with_open_pressure_mixed_reentry_count": 614
+        },
+        "fifth_reentry_audit": {
+          "source_count": 2873,
+          "row_count": 45968,
+          "outcome_counts": {
+            "safe_base_cycle_exit": 30272,
+            "pressure_new_unranked_internal": 15593,
+            "pressure_rank_equal": 103
+          },
+          "open_pressure_rows": 15696,
+          "mixed_key_reentry_count": 0,
+          "open_pressure_mixed_key_reentry_count": 0,
+          "root_with_open_pressure_mixed_reentry_count": 0
+        },
+        "root_survival_counts": {
+          "through_third_lift": 1835,
+          "through_fourth_lift": 614,
+          "through_fifth_lift": 0
+        },
+        "witness_pressure_reentry_spine": {
+          "root_id": 2,
+          "reentry_node_count": 3,
+          "last_lift_depth": 4,
+          "all_edges_are_exact_congruence_extensions": true,
+          "edge_compatibility": [
+            true,
+            true
+          ],
+          "rows": [
+            {
+              "depth": 2,
+              "first_transition_key": "[0,[1,1,1,1],103,2,45,64] + child_top=0",
+              "source_transition_key": "[4,[1,1,2,1],103,2,47,67] + child_top=1",
+              "child_top": 1,
+              "source_rank": 0,
+              "child_rank": 0,
+              "outcome_class": "pressure_rank_equal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 11288962087768301415,
+                "modulus_bits": 68,
+                "prefix_length": 47,
+                "consumed_bits": 67,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 7.49323753,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  3,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 306436867267121127271,
+                "modulus_bits": 72,
+                "prefix_length": 51,
+                "consumed_bits": 72,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 8.83308754,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "transition_key": "[[4,[1,1,2,1],103,2,47,67],1]"
+            },
+            {
+              "depth": 3,
+              "first_transition_key": "[4,[1,1,2,1],103,2,47,67] + child_top=1",
+              "source_transition_key": "[8,[1,1,2,1],103,1,51,72] + child_top=6",
+              "child_top": 6,
+              "source_rank": 0,
+              "child_rank": 0,
+              "outcome_class": "pressure_rank_equal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 306436867267121127271,
+                "modulus_bits": 72,
+                "prefix_length": 51,
+                "consumed_bits": 72,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 8.83308754,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 28640635764484992409447,
+                "modulus_bits": 76,
+                "prefix_length": 54,
+                "consumed_bits": 76,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 9.58797504,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1
+                ]
+              },
+              "transition_key": "[[8,[1,1,2,1],103,1,51,72],6]"
+            },
+            {
+              "depth": 4,
+              "first_transition_key": "[8,[1,1,2,1],103,1,51,72] + child_top=6",
+              "source_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+              "child_top": 2,
+              "source_rank": 0,
+              "child_rank": null,
+              "outcome_class": "pressure_new_unranked_internal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 28640635764484992409447,
+                "modulus_bits": 76,
+                "prefix_length": 54,
+                "consumed_bits": 76,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 9.58797504,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 179756363216313639247719,
+                "modulus_bits": 80,
+                "prefix_length": 56,
+                "consumed_bits": 79,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 9.75790004,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "transition_key": "[[12,[1,2,1,1],103,1,54,76],2]"
+            }
+          ]
+        },
+        "logical_boundary_audit": {
+          "finite_root_set_count": 4142,
+          "branching_bound_per_node": 16,
+          "tested_last_modulus_bits": 84,
+          "all_root_expansion_after_ticket72": true,
+          "observed_finite_reentry_spine": true,
+          "fifth_layer_reentry_survivor_count": 0,
+          "strict_reentry_chain_decision": "exact_finite_extinction: after the fourth retained re-entry layer, every one of its sixteen fifth-lift children fails the strict open-pressure-plus-original-mixed-key predicate; therefore this selected finite root set has no infinite chain that re-enters that predicate at every lift.",
+          "konig_lemma_status": "not_needed_for_the_selected_strict_tree: its fifth retained layer is empty. Konig's lemma remains the correct all-depth criterion for any future nonempty tree.",
+          "finite_extinction_consequence": "If a future exact expansion empties this finite-root re-entry tree, it rules out an infinite re-entry chain through these roots only.",
+          "coverage_gap": "The roots come from the top eight TICKET72 mixed keys, not a theorem that covers every unresolved Collatz trajectory.",
+          "counterexample_gap": "Even an all-depth pressure chain would first be a candidate obstruction; it would not by itself certify a divergent Collatz orbit or a nontrivial cycle."
+        },
+        "lineage_tree_status": "strict_reentry_tree_extinct_at_fifth_lift_for_selected_roots_no_global_conclusion",
+        "discarded_route": "Infer an infinite Collatz obstruction from repeated bounded re-entry, a projected-coordinate cycle, or a nonempty finite-depth tree. None supplies the all-depth hypothesis needed for Konig's lemma.",
+        "retained_route": "Extend the exact extinction test to a root set with a theorem-level coverage certificate, or prove nonempty compatible re-entry subtrees at every depth for a different, precisely stated predicate and then separately connect that chain to a genuine Collatz counterexample.",
+        "candidate_theorem": "FiniteRootReentryTreeExtinctionOrKonigWitness: for a finite set of exact congruence roots with at most sixteen four-bit children each, either an exact finite lift empties the retained open-pressure re-entry tree, or nonemptiness at every depth yields an infinite compatible re-entry path by Konig's lemma. A Collatz proof additionally requires a coverage theorem for all unresolved trajectories.",
+        "counterexample_target": "A theorem-level covered, all-depth compatible congruence chain whose induced Collatz trajectories avoid every well-founded descent certificate; this still needs an independent conversion to divergence or a nontrivial cycle.",
+        "next_theorem_target": "CoverageCertificateAndAllDepthReentryTreeDecision",
+        "proof_boundary": "TICKET73 neither proves Collatz nor certifies a counterexample. It exactly rules out one strict re-entry-chain predicate through a selected finite root set at the fifth lift, but the roots do not cover all Collatz trajectories and the result does not rule out pressure chains under other predicates."
+      }
+    },
+    "obstruction": "Finite-depth survival is not the all-depth compatible subtree required by Konig's lemma, and the selected roots lack a theorem-level coverage certificate for all unresolved Collatz trajectories.",
+    "candidate_theorem": "FiniteRootReentryTreeExtinctionOrKonigWitness: for a finite set of exact congruence roots with at most sixteen four-bit children each, either an exact finite lift empties the retained open-pressure re-entry tree, or nonemptiness at every depth yields an infinite compatible re-entry path by Konig's lemma. A Collatz proof additionally requires a coverage theorem for all unresolved trajectories.",
+    "next_experiment": "Search for root-set extinction with coverage, or construct an all-depth re-entry invariant and test its dynamical meaning.",
+    "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+  },
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

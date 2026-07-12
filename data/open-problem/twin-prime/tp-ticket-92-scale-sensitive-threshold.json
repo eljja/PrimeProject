@@ -1,0 +1,45 @@
+{
+  "schema": "primeproject.ticket92-scale-sensitive-threshold-audit.v1",
+  "generated_at": "2026-07-12T12:40:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-92",
+  "route": "MaynardCriterionThresholdAndGapPromotionCorrection",
+  "status": "maynard_threshold_misclassification_corrected_no_twin_prime_resolution",
+  "proof_or_counterexample_mode": "primary-source criterion replay plus false bounded-gap promotion removal",
+  "attempt": "Recheck the legacy TP-TICKET-14 M_k threshold against Maynard Proposition 4.2 before using it in exact-gap research.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-14",
+    "maynard_threshold_correction": {
+      "theorem_name": "MaynardCriterionThresholdAndGapPromotionCorrection",
+      "source_ticket": "TP-TICKET-14",
+      "criterion": {
+        "maynard_proposition": "The sieve yields at least ceil(theta*M_k/2) primes in an admissible k-tuple.",
+        "unconditional_input": "Bombieri-Vinogradov supplies every fixed theta<1/2.",
+        "two_prime_threshold": "A certified M_k>2/theta is required; in the theta->1/2 limit this means a strict certified M_k>4.",
+        "legacy_error": "The former 2/k threshold and implied gap fields were not consequences of Maynard's criterion.",
+        "legacy_false_gap_promotion_count": 17,
+        "source": "https://doi.org/10.4007/annals.2015.181.1.7"
+      },
+      "machine_audit": {
+        "corrected_row_count": 17,
+        "legacy_false_gap_promotion_count": 17,
+        "maximum_legacy_surrogate_score": 3.91202301,
+        "certified_M_k_row_count": 0,
+        "certified_two_prime_row_count": 0,
+        "remaining_implied_gap_count": 0,
+        "correction_failure_count": 0,
+        "total_failure_count": 0
+      },
+      "theorem_status": "maynard_threshold_misclassification_corrected_no_twin_prime_resolution",
+      "discarded_route": "Treat an unverified closed-form score above 2/k as a certified Maynard M_k threshold and convert tuple diameter into a proved gap.",
+      "retained_route": "Require an explicit test function F, rigorous I_k and J_k integrals, distribution hypotheses, and the exact theta*M_k/2 prime-count criterion; exact gap 2 still needs parity-breaking input.",
+      "candidate_theorem": "ParityBreakingExactPairCorrelationLowerBound: an unconditional lower bound for Lambda(n)Lambda(n+2) that cannot be reproduced by parity or wider-gap countermodels.",
+      "next_theorem_target": "ParityBreakingExactPairCorrelationLowerBound",
+      "proof_boundary": "TICKET92 removes a false Maynard threshold and gap-2 promotion. It proves no new bounded-gap theorem and no Twin Prime result."
+    }
+  },
+  "obstruction": "Treat an unverified closed-form score above 2/k as a certified Maynard M_k threshold and convert tuple diameter into a proved gap.",
+  "candidate_theorem": "ParityBreakingExactPairCorrelationLowerBound: an unconditional lower bound for Lambda(n)Lambda(n+2) that cannot be reproduced by parity or wider-gap countermodels.",
+  "next_experiment": "Require a parity-breaking exact-pair correlation estimate rather than another bounded-gap surrogate.",
+  "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+}

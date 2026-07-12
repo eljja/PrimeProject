@@ -1,0 +1,582 @@
+{
+  "schema": "primeproject.ticket80-least-counterexample-compactness-no-go-lab.v1",
+  "generated_at": "2026-07-11T13:20:00+09:00",
+  "status": "least_counterexample_compactness_no_go_open_no_collatz_resolution",
+  "claim_boundary": "Ticket 80 proves one restricted Collatz proof-route no-go theorem but solves none of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-80",
+      "status": "proof_pressure_open",
+      "route": "FiniteZeroDataCompactnessAdmissibilityGuard",
+      "proof_or_counterexample_mode": "finite-satisfiability compactness guard transfer",
+      "attempt": "Transfer only the guard that finite satisfiability does not identify an admissible global object without a target-specific compactness and admissibility theorem. No Collatz witness or conclusion is transferred.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-79",
+        "ticket80_transfer": "FiniteZeroDataCompactnessAdmissibilityGuard",
+        "candidate_theorem": "Any compactness limit of finite zero constraints must be proved to be the actual zeta function and retain an all-height positivity margin."
+      },
+      "obstruction": "No target-specific compactness escape or admissibility theorem was proved for this problem.",
+      "candidate_theorem": "Any compactness limit of finite zero constraints must be proved to be the actual zeta function and retain an all-height positivity margin.",
+      "next_experiment": "Construct a problem-specific finite-satisfiability family before using this guard as progress.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-80",
+      "route": "LeastCounterexampleFinitePrefixCompactnessNoGo",
+      "status": "least_counterexample_finite_prefix_compactness_refuted_exactly_no_collatz_resolution",
+      "proof_or_counterexample_mode": "exact arbitrarily-large finite witnesses plus dual-topology compactness counteredge",
+      "attempt": "Combine least-counterexample non-descent inequalities with exact valuation cylinders, then test whether finite truncations or their 2-adic compactness limit force a contradiction.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-79",
+        "least_counterexample_compactness_no_go_audit": {
+          "theorem_name": "FiniteLeastCounterexamplePrefixCompactnessNoGo",
+          "source_ticket": "CO-TICKET-79",
+          "necessary_condition": "If N is a least positive Collatz counterexample, every accelerated prefix satisfies A^j(N)>=N, equivalently 2^S_j*N<=3^j*N+C_j.",
+          "finite_satisfiability_theorem": "For every horizon H>=1 and lower bound B>=1 there is an odd n>=B whose first H accelerated valuations are all 1 and whose first H iterates are all strictly greater than n.",
+          "exact_witness": {
+            "choice": "q=ceil((B+1)/2^(H+1)), n=2^(H+1)*q-1",
+            "cylinder": "n=-1 mod 2^(H+1)",
+            "iterate": "A^j(n)=3^j*2^(H+1-j)*q-1 for 0<=j<=H",
+            "affine_constant": "C_j=3^j-2^j",
+            "strict_non_descent": "A^j(n)>n for 1<=j<=H because 3^j>2^j"
+          },
+          "positive_integer_cylinder_stabilization_criterion": {
+            "statement": "For nested compatible cylinders with moduli tending to infinity, the represented 2-adic point is a positive ordinary integer iff the least nonnegative cylinder residues eventually stabilize at one positive value.",
+            "proof": "If the point is n>0, every modulus larger than n has least residue n. Conversely an eventually constant compatible residue sequence represents that ordinary integer.",
+            "ticket80_application": "The residues 2^(H+1)-1 never stabilize and converge 2-adically to -1."
+          },
+          "proof_chain": [
+            "A least counterexample can never have an iterate below itself; otherwise minimality and strong induction close its orbit.",
+            "The displayed all-ones family satisfies every finite collection of these necessary non-descent inequalities at arbitrarily large natural starts.",
+            "The compatible residue cylinders are nested and converge in Z_2 to -1, an accelerated valuation-1 fixed point outside the positive integers.",
+            "Therefore finite satisfiability plus 2-adic compactness yields neither a contradiction nor a positive counterexample.",
+            "Any valid continuation must add a horizon-independent Archimedean bound or prove eventual residue stabilization; neither follows from the finite prefix constraints."
+          ],
+          "machine_audit": {
+            "finite_witnesses": {
+              "max_horizon": 512,
+              "lower_bound_names": [
+                "one",
+                "two_pow_20",
+                "two_pow_68",
+                "two_pow_128",
+                "ten_pow_100"
+              ],
+              "lower_bound_count": 5,
+              "finite_witness_case_count": 2560,
+              "accelerated_step_replay_count": 656640,
+              "lower_bound_failure_count": 0,
+              "residue_failure_count": 0,
+              "formula_failure_count": 0,
+              "valuation_failure_count": 0,
+              "strict_non_descent_failure_count": 0,
+              "affine_inequality_failure_count": 0,
+              "finite_witness_failure_count": 0,
+              "samples": [
+                {
+                  "bound_name": "one",
+                  "lower_bound": 1,
+                  "horizon": 1,
+                  "q": 1,
+                  "start": 3,
+                  "residue": 3,
+                  "modulus": 4,
+                  "terminal": 5,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "one",
+                  "lower_bound": 1,
+                  "horizon": 2,
+                  "q": 1,
+                  "start": 7,
+                  "residue": 7,
+                  "modulus": 8,
+                  "terminal": 17,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "one",
+                  "lower_bound": 1,
+                  "horizon": 4,
+                  "q": 1,
+                  "start": 31,
+                  "residue": 31,
+                  "modulus": 32,
+                  "terminal": 161,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "one",
+                  "lower_bound": 1,
+                  "horizon": 8,
+                  "q": 1,
+                  "start": 511,
+                  "residue": 511,
+                  "modulus": 512,
+                  "terminal": 13121,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "one",
+                  "lower_bound": 1,
+                  "horizon": 16,
+                  "q": 1,
+                  "start": 131071,
+                  "residue": 131071,
+                  "modulus": 131072,
+                  "terminal": 86093441,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "one",
+                  "lower_bound": 1,
+                  "horizon": 32,
+                  "q": 1,
+                  "start": 8589934591,
+                  "residue": 8589934591,
+                  "modulus": 8589934592,
+                  "terminal": 3706040377703681,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "one",
+                  "lower_bound": 1,
+                  "horizon": 64,
+                  "q": 1,
+                  "start": 36893488147419103231,
+                  "residue": 36893488147419103231,
+                  "modulus": 36893488147419103232,
+                  "terminal": 6867367640585024969315698178561,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "one",
+                  "lower_bound": 1,
+                  "horizon": 128,
+                  "q": 1,
+                  "start": 680564733841876926926749214863536422911,
+                  "residue": 680564733841876926926749214863536422911,
+                  "modulus": 680564733841876926926749214863536422912,
+                  "terminal": 23580369155477166343041745722825037331356423184551682218193921,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "one",
+                  "lower_bound": 1,
+                  "horizon": 256,
+                  "q": 1,
+                  "start": 231584178474632390847141970017375815706539969331281128078915168015826259279871,
+                  "residue": 231584178474632390847141970017375815706539969331281128078915168015826259279871,
+                  "modulus": 231584178474632390847141970017375815706539969331281128078915168015826259279872,
+                  "terminal": 278016904754289465529879573579322606228437701617058275983209648860072145259532871882003538308219219043623331081097798871041,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "one",
+                  "lower_bound": 1,
+                  "horizon": 512,
+                  "q": 1,
+                  "start": 26815615859885194199148049996411692254958731641184786755447122887443528060147093953603748596333806855380063716372972101707507765623893139892867298012168191,
+                  "residue": 26815615859885194199148049996411692254958731641184786755447122887443528060147093953603748596333806855380063716372972101707507765623893139892867298012168191,
+                  "modulus": 26815615859885194199148049996411692254958731641184786755447122887443528060147093953603748596333806855380063716372972101707507765623893139892867298012168192,
+                  "terminal": 38646699664577830210908137444039162110802931523206657100369075257804933492831074000035878859572058708780164658589172239010307018202665881768196080957457279085121100267454798965556124644814744676242086799336484553183583009317971765990544873082881,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "two_pow_68",
+                  "lower_bound": 295147905179352825856,
+                  "horizon": 1,
+                  "q": 73786976294838206465,
+                  "start": 295147905179352825859,
+                  "residue": 3,
+                  "modulus": 4,
+                  "terminal": 442721857769029238789,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "two_pow_68",
+                  "lower_bound": 295147905179352825856,
+                  "horizon": 2,
+                  "q": 36893488147419103233,
+                  "start": 295147905179352825863,
+                  "residue": 7,
+                  "modulus": 8,
+                  "terminal": 664082786653543858193,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "two_pow_68",
+                  "lower_bound": 295147905179352825856,
+                  "horizon": 4,
+                  "q": 9223372036854775809,
+                  "start": 295147905179352825887,
+                  "residue": 31,
+                  "modulus": 32,
+                  "terminal": 1494186269970473681057,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "two_pow_68",
+                  "lower_bound": 295147905179352825856,
+                  "horizon": 8,
+                  "q": 576460752303423489,
+                  "start": 295147905179352826367,
+                  "residue": 511,
+                  "modulus": 512,
+                  "terminal": 7564317991725523022657,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "two_pow_68",
+                  "lower_bound": 295147905179352825856,
+                  "horizon": 16,
+                  "q": 2251799813685249,
+                  "start": 295147905179352956927,
+                  "residue": 131071,
+                  "modulus": 131072,
+                  "terminal": 193865196655121791037057,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "two_pow_68",
+                  "lower_bound": 295147905179352825856,
+                  "horizon": 32,
+                  "q": 34359738369,
+                  "start": 295147905187942760447,
+                  "residue": 8589934591,
+                  "modulus": 8589934592,
+                  "terminal": 127338577762848454527974657,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "two_pow_68",
+                  "lower_bound": 295147905179352825856,
+                  "horizon": 64,
+                  "q": 9,
+                  "start": 332041393326771929087,
+                  "residue": 36893488147419103231,
+                  "modulus": 36893488147419103232,
+                  "terminal": 61806308765265224723841283607057,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "two_pow_68",
+                  "lower_bound": 295147905179352825856,
+                  "horizon": 128,
+                  "q": 1,
+                  "start": 680564733841876926926749214863536422911,
+                  "residue": 680564733841876926926749214863536422911,
+                  "modulus": 680564733841876926926749214863536422912,
+                  "terminal": 23580369155477166343041745722825037331356423184551682218193921,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "two_pow_68",
+                  "lower_bound": 295147905179352825856,
+                  "horizon": 256,
+                  "q": 1,
+                  "start": 231584178474632390847141970017375815706539969331281128078915168015826259279871,
+                  "residue": 231584178474632390847141970017375815706539969331281128078915168015826259279871,
+                  "modulus": 231584178474632390847141970017375815706539969331281128078915168015826259279872,
+                  "terminal": 278016904754289465529879573579322606228437701617058275983209648860072145259532871882003538308219219043623331081097798871041,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "two_pow_68",
+                  "lower_bound": 295147905179352825856,
+                  "horizon": 512,
+                  "q": 1,
+                  "start": 26815615859885194199148049996411692254958731641184786755447122887443528060147093953603748596333806855380063716372972101707507765623893139892867298012168191,
+                  "residue": 26815615859885194199148049996411692254958731641184786755447122887443528060147093953603748596333806855380063716372972101707507765623893139892867298012168191,
+                  "modulus": 26815615859885194199148049996411692254958731641184786755447122887443528060147093953603748596333806855380063716372972101707507765623893139892867298012168192,
+                  "terminal": 38646699664577830210908137444039162110802931523206657100369075257804933492831074000035878859572058708780164658589172239010307018202665881768196080957457279085121100267454798965556124644814744676242086799336484553183583009317971765990544873082881,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "ten_pow_100",
+                  "lower_bound": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                  "horizon": 1,
+                  "q": 2500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
+                  "start": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003,
+                  "residue": 3,
+                  "modulus": 4,
+                  "terminal": 15000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "ten_pow_100",
+                  "lower_bound": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                  "horizon": 2,
+                  "q": 1250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
+                  "start": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007,
+                  "residue": 7,
+                  "modulus": 8,
+                  "terminal": 22500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000017,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "ten_pow_100",
+                  "lower_bound": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                  "horizon": 4,
+                  "q": 312500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
+                  "start": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000031,
+                  "residue": 31,
+                  "modulus": 32,
+                  "terminal": 50625000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000161,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "ten_pow_100",
+                  "lower_bound": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                  "horizon": 8,
+                  "q": 19531250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
+                  "start": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000511,
+                  "residue": 511,
+                  "modulus": 512,
+                  "terminal": 256289062500000000000000000000000000000000000000000000000000000000000000000000000000000000000000013121,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "ten_pow_100",
+                  "lower_bound": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                  "horizon": 16,
+                  "q": 76293945312500000000000000000000000000000000000000000000000000000000000000000000000000000000001,
+                  "start": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000131071,
+                  "residue": 131071,
+                  "modulus": 131072,
+                  "terminal": 6568408355712890625000000000000000000000000000000000000000000000000000000000000000000000000000086093441,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "ten_pow_100",
+                  "lower_bound": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                  "horizon": 32,
+                  "q": 1164153218269348144531250000000000000000000000000000000000000000000000000000000000000000001,
+                  "start": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008589934591,
+                  "residue": 8589934591,
+                  "modulus": 8589934592,
+                  "terminal": 4314398832739891950041055679321289062500000000000000000000000000000000000000000000000000003706040377703681,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "ten_pow_100",
+                  "lower_bound": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                  "horizon": 64,
+                  "q": 271050543121376108501863200217485427856445312500000000000000000000000000000000001,
+                  "start": 10000000000000000000000000000000000000000000000000000000000000000000000000000000036893488147419103231,
+                  "residue": 36893488147419103231,
+                  "modulus": 36893488147419103232,
+                  "terminal": 1861403728794734215467410604755702820123364205073812627233564853668212890625000006867367640585024969315698178561,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "ten_pow_100",
+                  "lower_bound": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                  "horizon": 128,
+                  "q": 14693679385278593849609206715278070972733319459651094018859397,
+                  "start": 10000000000000000000000000000000000000000000000000000000000000457012683242294535790897199951657304063,
+                  "residue": 680564733841876926926749214863536422911,
+                  "modulus": 680564733841876926926749214863536422912,
+                  "terminal": 346482384157094044751198919763260014260035727093845062813675182731899255519231843115136546305611897157765393421427797985033,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "ten_pow_100",
+                  "lower_bound": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                  "horizon": 256,
+                  "q": 43180842775472223126932,
+                  "start": 10000000000000000000000055739069117673628417753013308744100330617957088120379335184345577738368712703,
+                  "residue": 231584178474632390847141970017375815706539969331281128078915168015826259279871,
+                  "modulus": 231584178474632390847141970017375815706539969331281128078915168015826259279872,
+                  "terminal": 12005004253118409429987538519965160211066426620060145263802300839205793576723267508438583073122665438352980254547973679367343009083735872665103143,
+                  "all_prefix_iterates_strictly_above_start": true
+                },
+                {
+                  "bound_name": "ten_pow_100",
+                  "lower_bound": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                  "horizon": 512,
+                  "q": 1,
+                  "start": 26815615859885194199148049996411692254958731641184786755447122887443528060147093953603748596333806855380063716372972101707507765623893139892867298012168191,
+                  "residue": 26815615859885194199148049996411692254958731641184786755447122887443528060147093953603748596333806855380063716372972101707507765623893139892867298012168191,
+                  "modulus": 26815615859885194199148049996411692254958731641184786755447122887443528060147093953603748596333806855380063716372972101707507765623893139892867298012168192,
+                  "terminal": 38646699664577830210908137444039162110802931523206657100369075257804933492831074000035878859572058708780164658589172239010307018202665881768196080957457279085121100267454798965556124644814744676242086799336484553183583009317971765990544873082881,
+                  "all_prefix_iterates_strictly_above_start": true
+                }
+              ]
+            },
+            "dual_topology_escape": {
+              "sequence": "x_H=2^(H+1)-1",
+              "archimedean_behavior": "x_H tends to positive infinity",
+              "two_adic_behavior": "v2(x_H-(-1))=H+1, so x_H tends to -1 in Z_2",
+              "two_adic_limit": -1,
+              "limit_accelerated_image": -1,
+              "limit_valuation": 1,
+              "limit_is_positive_integer": false,
+              "formula_failure_count": 0,
+              "archimedean_growth_failure_count": 0,
+              "two_adic_precision_failure_count": 0,
+              "fixed_point_failure_count": 0,
+              "dual_topology_failure_count": 0,
+              "samples": [
+                {
+                  "horizon": 1,
+                  "positive_integer": 3,
+                  "archimedean_lower_bound": 2,
+                  "two_adic_precision_to_minus_one": 2,
+                  "terminal": 5
+                },
+                {
+                  "horizon": 2,
+                  "positive_integer": 7,
+                  "archimedean_lower_bound": 4,
+                  "two_adic_precision_to_minus_one": 3,
+                  "terminal": 17
+                },
+                {
+                  "horizon": 4,
+                  "positive_integer": 31,
+                  "archimedean_lower_bound": 16,
+                  "two_adic_precision_to_minus_one": 5,
+                  "terminal": 161
+                },
+                {
+                  "horizon": 8,
+                  "positive_integer": 511,
+                  "archimedean_lower_bound": 256,
+                  "two_adic_precision_to_minus_one": 9,
+                  "terminal": 13121
+                },
+                {
+                  "horizon": 16,
+                  "positive_integer": 131071,
+                  "archimedean_lower_bound": 65536,
+                  "two_adic_precision_to_minus_one": 17,
+                  "terminal": 86093441
+                },
+                {
+                  "horizon": 32,
+                  "positive_integer": 8589934591,
+                  "archimedean_lower_bound": 4294967296,
+                  "two_adic_precision_to_minus_one": 33,
+                  "terminal": 3706040377703681
+                },
+                {
+                  "horizon": 64,
+                  "positive_integer": 36893488147419103231,
+                  "archimedean_lower_bound": 18446744073709551616,
+                  "two_adic_precision_to_minus_one": 65,
+                  "terminal": 6867367640585024969315698178561
+                },
+                {
+                  "horizon": 128,
+                  "positive_integer": 680564733841876926926749214863536422911,
+                  "archimedean_lower_bound": 340282366920938463463374607431768211456,
+                  "two_adic_precision_to_minus_one": 129,
+                  "terminal": 23580369155477166343041745722825037331356423184551682218193921
+                },
+                {
+                  "horizon": 256,
+                  "positive_integer": 231584178474632390847141970017375815706539969331281128078915168015826259279871,
+                  "archimedean_lower_bound": 115792089237316195423570985008687907853269984665640564039457584007913129639936,
+                  "two_adic_precision_to_minus_one": 257,
+                  "terminal": 278016904754289465529879573579322606228437701617058275983209648860072145259532871882003538308219219043623331081097798871041
+                },
+                {
+                  "horizon": 512,
+                  "positive_integer": 26815615859885194199148049996411692254958731641184786755447122887443528060147093953603748596333806855380063716372972101707507765623893139892867298012168191,
+                  "archimedean_lower_bound": 13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084096,
+                  "two_adic_precision_to_minus_one": 513,
+                  "terminal": 38646699664577830210908137444039162110802931523206657100369075257804933492831074000035878859572058708780164658589172239010307018202665881768196080957457279085121100267454798965556124644814744676242086799336484553183583009317971765990544873082881
+                }
+              ]
+            }
+          },
+          "computational_failure_count": 0,
+          "theorem_status": "least_counterexample_finite_prefix_compactness_refuted_exactly_no_collatz_resolution",
+          "rejected_candidate_families": [
+            {
+              "family": "finite_non_descent_prefix_contradiction",
+              "status": "refuted_by_arbitrarily_large_all_ones_witnesses",
+              "counteredge": "Every finite horizon and lower bound has a positive witness satisfying all prefix inequalities."
+            },
+            {
+              "family": "two_adic_compactness_to_positive_counterexample",
+              "status": "refuted_by_dual_topology_escape",
+              "counteredge": "The nested positive witnesses escape to infinity ordinarily while converging to -1 in Z_2."
+            },
+            {
+              "family": "finite_verified_lower_bound_plus_prefix_search",
+              "status": "refuted_as_finite_strategy",
+              "counteredge": "The construction works above every prescribed finite lower bound B."
+            }
+          ],
+          "discarded_route": "Derive a Collatz contradiction from any fixed finite set of least-counterexample non-descent inequalities, or use 2-adic compactness alone to promote their finite witnesses to a positive integer.",
+          "retained_route": "Track one fixed ordinary integer across every horizon. A valid proof must force eventual least-residue stabilization or a uniform Archimedean upper bound, not merely compatible cylinders.",
+          "candidate_theorem": "LeastCounterexampleUniformHeightBound: from all exact non-descent inequalities and arithmetic constraints for one fixed positive N, derive an explicit horizon-independent upper bound N<=U that overlaps a certified finite verification range.",
+          "next_theorem_target": "LeastCounterexampleUniformHeightBound",
+          "equivalence_warning": "Proving that every stabilized positive-integer cylinder path has a descent prefix is equivalent to the coefficient-stopping-time form of Collatz; it is not an independently solved bridge.",
+          "literature_context": [
+            {
+              "citation": "Bernstein and Lagarias, The 3x+1 Conjugacy Map, Canadian Journal of Mathematics 48 (1996)",
+              "url": "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/3x-1-conjugacy-map/6975BB4A8C46CF6842217043AAF9EC13",
+              "role": "Established 2-adic parity-prefix and conjugacy context; no rediscovery claim."
+            },
+            {
+              "citation": "Niu, Parity vectors and paradoxical sequences in the accelerated Collatz map (2026 preprint)",
+              "url": "https://arxiv.org/abs/2605.13886",
+              "role": "Recent primary context for sharp finite parity-vector and paradoxical-sequence results; it also makes no Collatz claim."
+            },
+            {
+              "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values, Forum of Mathematics, Pi 10 (2022)",
+              "url": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/almost-all-orbits-of-the-collatz-map-attain-almost-bounded-values/1008CC2DF91AF87F66D190C5E01C907F",
+              "role": "Primary context for the gap between almost-all descent and an all-positive-integer theorem."
+            }
+          ],
+          "novelty_boundary": "Finite parity-prefix realizability is established mathematics. PrimeProject claims only the explicit least-counterexample finite-satisfiability no-go formulation, the residue-stabilization guard, its audit, and integration with TICKET78-79.",
+          "proof_boundary": "TICKET80 proves a restricted proof-route no-go theorem. It does not show that a least counterexample exists, does not construct a positive divergent orbit, and neither proves nor disproves Collatz."
+        }
+      },
+      "obstruction": "Derive a Collatz contradiction from any fixed finite set of least-counterexample non-descent inequalities, or use 2-adic compactness alone to promote their finite witnesses to a positive integer.",
+      "candidate_theorem": "LeastCounterexampleUniformHeightBound: from all exact non-descent inequalities and arithmetic constraints for one fixed positive N, derive an explicit horizon-independent upper bound N<=U that overlaps a certified finite verification range.",
+      "next_experiment": "Build TICKET81 around a horizon-independent height bound for one fixed stabilized natural cylinder path.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-80",
+      "status": "proof_pressure_open",
+      "route": "FiniteRepresentationMarginCompactnessGuard",
+      "proof_or_counterexample_mode": "finite-satisfiability compactness guard transfer",
+      "attempt": "Transfer only the guard that finite satisfiability does not identify an admissible global object without a target-specific compactness and admissibility theorem. No Collatz witness or conclusion is transferred.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-79",
+        "ticket80_transfer": "FiniteRepresentationMarginCompactnessGuard",
+        "candidate_theorem": "A limit of finite positive-margin constraints must retain an explicit uniform margin for every sufficiently large even integer."
+      },
+      "obstruction": "No target-specific compactness escape or admissibility theorem was proved for this problem.",
+      "candidate_theorem": "A limit of finite positive-margin constraints must retain an explicit uniform margin for every sufficiently large even integer.",
+      "next_experiment": "Construct a problem-specific finite-satisfiability family before using this guard as progress.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-80",
+      "status": "proof_pressure_open",
+      "route": "FiniteSieveWeightCompactnessGuard",
+      "proof_or_counterexample_mode": "finite-satisfiability compactness guard transfer",
+      "attempt": "Transfer only the guard that finite satisfiability does not identify an admissible global object without a target-specific compactness and admissibility theorem. No Collatz witness or conclusion is transferred.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-79",
+        "ticket80_transfer": "FiniteSieveWeightCompactnessGuard",
+        "candidate_theorem": "A limit of finite sieve optimizers must retain exact gap-2 mass and break parity uniformly rather than only converge as a relaxed weight system."
+      },
+      "obstruction": "No target-specific compactness escape or admissibility theorem was proved for this problem.",
+      "candidate_theorem": "A limit of finite sieve optimizers must retain exact gap-2 mass and break parity uniformly rather than only converge as a relaxed weight system.",
+      "next_experiment": "Construct a problem-specific finite-satisfiability family before using this guard as progress.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

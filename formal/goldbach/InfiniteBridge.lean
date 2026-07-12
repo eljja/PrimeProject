@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Goldbach CEGIS: generate explicit budgets, reject unsourced constants and cutoffs above finite range"
 
 def rankedCegisTarget : String :=
-  "GB-CEGIS-13 attack_next"
+  "GB-TICKET-110 preserves joint balanced signed cancellation; the Twin major-arc audit does not transfer across problems"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-13 CircleMethodSieveMontgomeryVaughanGallagher: Circle Method major arcs singular series combined with Selberg Sieve, Montgomery-Vaughan pair correlation, and Gallagher local density variations defines an explicit lower bound barrier that controls exceptional zero and Deuring-Heilbronn envelopes."
+  "GB-TICKET-111 JointBalancedVaughanGoldbachResidualEnvelope."
 
 def topAttackProofAttemptProtocol : String :=
-  "Formulate the Selberg Sieve explicit lower bound barrier coefficients with exceptional zero and Montgomery-Vaughan-Gallagher parameters; verify that the representation counts stay strictly above the sieve barrier up to 450000; audit Montgomery-Vaughan-Gallagher pair correlation fluctuation scaling statistics using Kolmogorov-Smirnov test."
+  "For U,V at most N^(1/3), prove (<I,Lambda_reflect>-M)+<II,Lambda_reflect> >= -K*M/log(N) jointly; reject cutoffs whose Type II support collapses."
 
 end PrimeProject.OpenProblems.Goldbach

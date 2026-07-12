@@ -1,0 +1,210 @@
+{
+  "schema": "primeproject.ticket93-twin-correlation-excess-bridge.v1",
+  "generated_at": "2026-07-12T15:20:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-93",
+  "route": "TwinPrimeLambdaCorrelationExcessSufficiencyAndSurrogateNoGo",
+  "status": "exact_correlation_excess_bridge_and_surrogate_no_go_proved_no_twin_prime_resolution",
+  "proof_or_counterexample_mode": "exact von Mangoldt correlation bridge plus truncated-divisor lower-bound falsification",
+  "attempt": "Replace bounded-gap mass by the exact shift-two Lambda correlation and isolate the smallest lower bound that forces infinitely many genuine twin primes.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-92",
+    "twin_correlation_excess_audit": {
+      "theorem_name": "TwinPrimeLambdaCorrelationExcessSufficiencyAndSurrogateNoGo",
+      "source_ticket": "TP-TICKET-92",
+      "exact_correlation_bridge": {
+        "correlation": "C_2(x)=sum_{n<=x} Lambda(n)Lambda(n+2).",
+        "decomposition": "C_2(x)=T_2(x)+E_pp(x), where T_2 is the twin-prime weight and E_pp has at least one proper prime power.",
+        "proper_power_count": "Q(y)<=sqrt(y) floor(log2(y)).",
+        "contamination_bound": "0<=E_pp(x)<=B(x)=2 sqrt(x+2) floor(log2(x+2)) log^2(x+2).",
+        "sufficiency": "If limsup_x (C_2(x)-B(x))=+infinity, then twin primes are infinite.",
+        "linear_corollary": "Any proved C_2(x)>=c x for all sufficiently large x, with c>0, implies twin-prime infinitude because B(x)=o(x)."
+      },
+      "proof_chain": [
+        "Separate Lambda-supported pairs into genuine prime-prime pairs and pairs containing a proper prime power.",
+        "Overcount proper prime powers by exponent and bound their number by sqrt(y) floor(log2(y)).",
+        "Charge each contaminated shifted pair to one of at most two proper-power positions and bound each weight by log^2(y).",
+        "Deduce the explicit contamination bound B(x).",
+        "If only finitely many twin primes existed, T_2(x) would be bounded, hence C_2(x)-B(x) would be bounded above.",
+        "Take the contrapositive to obtain the exact correlation-excess sufficiency theorem.",
+        "Falsify the shortcut from positive truncated-divisor correlation to C_2 by pointwise and pairwise counterexamples."
+      ],
+      "surrogate_no_go": {
+        "definition": "Lambda_R(n)=sum_{d|n,d<=R} mu(d) log(R/d).",
+        "pointwise_obstruction": "Lambda_R is not a pointwise minorant of Lambda and is positive on many non-prime powers.",
+        "pair_obstruction": "A positive sum Lambda_R(n)Lambda_R(n+2) contains many pairs where the exact Lambda product is zero.",
+        "consequence": "No positive truncated-divisor correlation can be promoted to a twin-prime lower bound without a separately proved signed remainder estimate.",
+        "rows": [
+          {
+            "truncation": 10,
+            "pointwise_minorant_violation_count": 135212,
+            "pair_false_positive_count": 117789,
+            "surrogate_correlation": 274600.2134354267,
+            "exact_correlation": 264287.70787028514,
+            "surrogate_to_exact_ratio": 1.0390199969882936,
+            "positive_surrogate_is_not_lower_bound": true
+          },
+          {
+            "truncation": 30,
+            "pointwise_minorant_violation_count": 108138,
+            "pair_false_positive_count": 87573,
+            "surrogate_correlation": 294737.381274399,
+            "exact_correlation": 264287.70787028514,
+            "surrogate_to_exact_ratio": 1.115214111354202,
+            "positive_surrogate_is_not_lower_bound": true
+          },
+          {
+            "truncation": 100,
+            "pointwise_minorant_violation_count": 87007,
+            "pair_false_positive_count": 65045,
+            "surrogate_correlation": 281495.25750046025,
+            "exact_correlation": 264287.70787028514,
+            "surrogate_to_exact_ratio": 1.0651091561118715,
+            "positive_surrogate_is_not_lower_bound": true
+          },
+          {
+            "truncation": 300,
+            "pointwise_minorant_violation_count": 73904,
+            "pair_false_positive_count": 53357,
+            "surrogate_correlation": 270459.7270344866,
+            "exact_correlation": 264287.70787028514,
+            "surrogate_to_exact_ratio": 1.0233534098650958,
+            "positive_surrogate_is_not_lower_bound": true
+          }
+        ],
+        "total_failure_count": 0
+      },
+      "type_ii_boundary": {
+        "exact_identity": "Lambda=mu*log turns C_2 into a signed shifted divisor convolution.",
+        "missing_input": "A lower bound needs cancellation control for the signed bilinear remainder, not only nonnegative sieve mass.",
+        "research_alignment": "Ford-Maynard show in a general prime-producing sieve framework that substantial Type II information is necessary for nontrivial lower bounds.",
+        "source": "https://arxiv.org/abs/2407.14368"
+      },
+      "machine_audit": {
+        "correlation_limit": 2000000,
+        "surrogate_limit": 200000,
+        "checkpoint_count": 5,
+        "final_lambda_correlation": 2665153.2362790722,
+        "final_twin_prime_weight": 2659925.5574987866,
+        "final_contamination": 5227.678780286574,
+        "final_twin_pair_count": 14871,
+        "final_proper_prime_power_pair_count": 94,
+        "final_contamination_bound": 11907750.808910402,
+        "final_correlation_minus_bound": -9242597.57263133,
+        "truncation_count": 4,
+        "decomposition_failure_count": 0,
+        "surrogate_no_go_failure_count": 0,
+        "total_failure_count": 0,
+        "checkpoints": [
+          {
+            "limit": 1000,
+            "lambda_correlation": 1135.462784553193,
+            "twin_prime_weight": 1028.368743410726,
+            "proper_prime_power_contamination": 107.09404114246726,
+            "supported_pair_count": 50,
+            "twin_pair_count": 35,
+            "proper_prime_power_pair_count": 15,
+            "actual_proper_prime_power_count": 25,
+            "prime_power_count_bound": 284.88945224419945,
+            "contamination_weight_bound": 27203.91739877155,
+            "correlation_minus_bound": -26068.454614218357,
+            "decomposition_error": 3.126388037344441e-13,
+            "count_bound_holds": true,
+            "contamination_bound_holds": true
+          },
+          {
+            "limit": 10000,
+            "lambda_correlation": 13302.92434452426,
+            "twin_prime_weight": 12950.5861591966,
+            "proper_prime_power_contamination": 352.3381853276575,
+            "supported_pair_count": 229,
+            "twin_pair_count": 205,
+            "proper_prime_power_pair_count": 24,
+            "actual_proper_prime_power_count": 51,
+            "prime_power_count_bound": 1300.12999350065,
+            "contamination_weight_bound": 220590.59504731695,
+            "correlation_minus_bound": -207287.6707027927,
+            "decomposition_error": 1.1937117960769683e-12,
+            "count_bound_holds": true,
+            "contamination_bound_holds": true
+          },
+          {
+            "limit": 100000,
+            "lambda_correlation": 131522.91254363762,
+            "twin_prime_weight": 130224.41900544071,
+            "proper_prime_power_contamination": 1298.4935381968946,
+            "supported_pair_count": 1269,
+            "twin_pair_count": 1224,
+            "proper_prime_power_pair_count": 45,
+            "actual_proper_prime_power_count": 108,
+            "prime_power_count_bound": 5059.69485245899,
+            "contamination_weight_bound": 1341303.9890011034,
+            "correlation_minus_bound": -1209781.0764574658,
+            "decomposition_error": 1.7053025658242404e-11,
+            "count_bound_holds": true,
+            "contamination_bound_holds": true
+          },
+          {
+            "limit": 1000000,
+            "lambda_correlation": 1312844.3453560318,
+            "twin_prime_weight": 1309190.742738574,
+            "proper_prime_power_contamination": 3653.6026174577073,
+            "supported_pair_count": 8246,
+            "twin_pair_count": 8169,
+            "proper_prime_power_pair_count": 77,
+            "actual_proper_prime_power_count": 236,
+            "prime_power_count_bound": 19000.018999990498,
+            "contamination_weight_bound": 7253005.968085193,
+            "correlation_minus_bound": -5940161.622729162,
+            "decomposition_error": 3.456079866737127e-11,
+            "count_bound_holds": true,
+            "contamination_bound_holds": true
+          },
+          {
+            "limit": 2000000,
+            "lambda_correlation": 2665153.2362790722,
+            "twin_prime_weight": 2659925.5574987866,
+            "proper_prime_power_contamination": 5227.678780286574,
+            "supported_pair_count": 14965,
+            "twin_pair_count": 14871,
+            "proper_prime_power_pair_count": 94,
+            "actual_proper_prime_power_count": 302,
+            "prime_power_count_bound": 28284.285389593988,
+            "contamination_weight_bound": 11907750.808910402,
+            "correlation_minus_bound": -9242597.57263133,
+            "decomposition_error": 9.322320693172514e-10,
+            "count_bound_holds": true,
+            "contamination_bound_holds": true
+          }
+        ]
+      },
+      "theorem_status": "exact_correlation_excess_bridge_and_surrogate_no_go_proved_no_twin_prime_resolution",
+      "discarded_routes": [
+        {
+          "route": "positive_truncated_divisor_correlation",
+          "status": "not_a_lower_bound",
+          "counteredge": "Lambda_R exceeds Lambda pointwise and creates positive shifted pairs where the exact product is zero."
+        },
+        {
+          "route": "absolute_value_control_of_mobius_remainder",
+          "status": "parity_blind",
+          "counteredge": "Taking absolute values deletes the signed cancellation needed for a lower bound."
+        },
+        {
+          "route": "finite_positive_exact_correlation",
+          "status": "finite_only",
+          "counteredge": "A positive correlation through a finite x does not force unbounded excess over prime-power contamination."
+        }
+      ],
+      "retained_route": "Prove an all-scale signed Type II estimate strong enough to make C_2(x)-B(x) unbounded, with every prime-power and truncation remainder explicit.",
+      "candidate_theorem": "ShiftTwoTypeIICorrelationExcess: limsup_x(C_2(x)-B(x))=+infinity via a signed bilinear estimate unavailable to parity-blind sieve weights.",
+      "next_theorem_target": "ShiftTwoTypeIICorrelationExcess",
+      "proof_boundary": "TICKET93 proves an exact sufficient bridge and a surrogate proof-route no-go. It does not prove the required correlation lower bound or the Twin Prime Conjecture.",
+      "novelty_boundary": "The explicit contamination contract and falsification packaging are candidate PrimeProject contributions; von Mangoldt correlations and the sieve parity barrier are established background."
+    }
+  },
+  "obstruction": "A lower bound needs cancellation control for the signed bilinear remainder, not only nonnegative sieve mass.",
+  "candidate_theorem": "ShiftTwoTypeIICorrelationExcess: limsup_x(C_2(x)-B(x))=+infinity via a signed bilinear estimate unavailable to parity-blind sieve weights.",
+  "next_experiment": "Build TICKET94 around a signed shift-two Type II remainder decomposition and adversarial parity tests.",
+  "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+}

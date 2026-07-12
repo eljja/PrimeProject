@@ -1,0 +1,259 @@
+{
+  "schema": "primeproject.ticket94-signed-remainder-and-goldbach-bridge.v1",
+  "generated_at": "2026-07-12T17:45:00+09:00",
+  "status": "signed_remainder_and_goldbach_bridges_open_no_resolution",
+  "claim_boundary": "Ticket 94 proves one Twin proof-route no-go and one Goldbach sufficiency bridge but solves none of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-94",
+      "status": "proof_pressure_open",
+      "route": "ExplicitFormulaSignedRemainderBudget",
+      "proof_or_counterexample_mode": "signed remainder budget transfer discipline",
+      "attempt": "Decompose the target into a surrogate main term and signed remainder, then reject norm-only bounds that erase the required one-sided sign.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-93",
+        "ticket94_transfer": "ExplicitFormulaSignedRemainderBudget",
+        "candidate_theorem": "Control the joint signed zero remainder rather than separate absolute errors."
+      },
+      "obstruction": "No target-specific joint signed remainder estimate was proved.",
+      "candidate_theorem": "Control the joint signed zero remainder rather than separate absolute errors.",
+      "next_experiment": "Measure the exact signed remainder before applying triangle or Cauchy inequalities.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-94",
+      "status": "proof_pressure_open",
+      "route": "SecondOrderDefectSignedRemainderBudget",
+      "proof_or_counterexample_mode": "signed remainder budget transfer discipline",
+      "attempt": "Decompose the target into a surrogate main term and signed remainder, then reject norm-only bounds that erase the required one-sided sign.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-93",
+        "ticket94_transfer": "SecondOrderDefectSignedRemainderBudget",
+        "candidate_theorem": "Find a signed recurrence observable that preserves Delta_H>=3."
+      },
+      "obstruction": "No target-specific joint signed remainder estimate was proved.",
+      "candidate_theorem": "Find a signed recurrence observable that preserves Delta_H>=3.",
+      "next_experiment": "Measure the exact signed remainder before applying triangle or Cauchy inequalities.",
+      "claim_boundary": "No collatz proof and no certified collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-94",
+      "route": "GoldbachLambdaCorrelationPrimePowerContaminationBridge",
+      "status": "goldbach_correlation_contamination_bridge_proved_no_goldbach_resolution",
+      "proof_or_counterexample_mode": "exact additive Lambda correlation plus proper-prime-power contamination bound",
+      "attempt": "Construct an unconditional per-even-number bridge from additive Lambda correlation excess to a genuine Goldbach representation.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-93",
+        "goldbach_correlation_bridge_audit": {
+          "theorem_name": "GoldbachLambdaCorrelationPrimePowerContaminationBridge",
+          "source_ticket": "GB-TICKET-93",
+          "exact_bridge": {
+            "correlation": "G(N)=sum_{2<=n<=N-2} Lambda(n)Lambda(N-n) for even N.",
+            "decomposition": "G(N)=P(N)+E_pp(N), where P contains ordered prime-prime representations.",
+            "contamination_bound": "0<=E_pp(N)<=B_G(N)=2 sqrt(N) floor(log2(N)) log^2(N).",
+            "sufficiency": "If G(N)>B_G(N), then N has a Goldbach representation.",
+            "uniform_corollary": "If the inequality holds for every even N>=N0 and all smaller even N are checked, binary Goldbach follows."
+          },
+          "proof_chain": [
+            "Separate Lambda-supported additive pairs into prime-prime pairs and pairs containing a proper prime power.",
+            "Charge each contaminated ordered representation to its proper-power position.",
+            "Apply the same elementary proper-prime-power count and logarithmic weight bound as TICKET93.",
+            "Conclude by contraposition that correlation above contamination forces a genuine prime representation."
+          ],
+          "machine_audit": {
+            "checkpoint_count": 4,
+            "maximum_checkpoint": 100000,
+            "positive_certified_margin_count": 0,
+            "decomposition_failure_count": 0,
+            "total_failure_count": 0,
+            "rows": [
+              {
+                "even_target": 100,
+                "lambda_additive_correlation": 162.07824666735925,
+                "goldbach_prime_weight": 146.1815500437125,
+                "proper_prime_power_contamination": 15.896696623646736,
+                "contamination_bound": 2544.9110930296315,
+                "certified_margin": -2382.8328463622724,
+                "ordered_supported_pair_count": 16,
+                "ordered_prime_pair_count": 12,
+                "ordered_proper_power_pair_count": 4,
+                "decomposition_error": 2.4868995751603507e-14,
+                "contamination_bound_holds": true
+              },
+              {
+                "even_target": 1000,
+                "lambda_additive_correlation": 1880.0702208146952,
+                "goldbach_prime_weight": 1823.0445906906646,
+                "proper_prime_power_contamination": 57.02563012403055,
+                "contamination_bound": 27161.03980103274,
+                "certified_margin": -25280.969580218047,
+                "ordered_supported_pair_count": 64,
+                "ordered_prime_pair_count": 56,
+                "ordered_proper_power_pair_count": 8,
+                "decomposition_error": 6.394884621840902e-14,
+                "contamination_bound_holds": true
+              },
+              {
+                "even_target": 10000,
+                "lambda_additive_correlation": 16855.213722554072,
+                "goldbach_prime_weight": 16743.136805577,
+                "proper_prime_power_contamination": 112.07691697707244,
+                "contamination_bound": 220558.96139590142,
+                "certified_margin": -203703.74767334736,
+                "ordered_supported_pair_count": 260,
+                "ordered_prime_pair_count": 254,
+                "ordered_proper_power_pair_count": 6,
+                "decomposition_error": 4.831690603168681e-13,
+                "contamination_bound_holds": true
+              },
+              {
+                "even_target": 100000,
+                "lambda_additive_correlation": 176573.64981384535,
+                "goldbach_prime_weight": 176154.32529638355,
+                "proper_prime_power_contamination": 419.32451746187246,
+                "contamination_bound": 1341285.9161003826,
+                "certified_margin": -1164712.2662865373,
+                "ordered_supported_pair_count": 1636,
+                "ordered_prime_pair_count": 1620,
+                "ordered_proper_power_pair_count": 16,
+                "decomposition_error": 8.105871529551223e-11,
+                "contamination_bound_holds": true
+              }
+            ]
+          },
+          "theorem_status": "goldbach_correlation_contamination_bridge_proved_no_goldbach_resolution",
+          "discarded_route": "Treat positive finite G(N) or a positive divisor surrogate as a uniform all-even lower bound.",
+          "retained_route": "Prove a uniform signed additive-correlation lower bound G(N)>B_G(N) for every sufficiently large even N, then certify the finite remainder.",
+          "candidate_theorem": "UniformBinaryLambdaCorrelationExcess: G(N)>B_G(N) for every sufficiently large even N.",
+          "next_theorem_target": "UniformBinaryLambdaCorrelationExcess",
+          "proof_boundary": "TICKET94 proves an exact sufficient bridge for each even N. It does not prove the uniform lower bound or Goldbach."
+        }
+      },
+      "obstruction": "Prove a uniform signed additive-correlation lower bound G(N)>B_G(N) for every sufficiently large even N, then certify the finite remainder.",
+      "candidate_theorem": "UniformBinaryLambdaCorrelationExcess: G(N)>B_G(N) for every sufficiently large even N.",
+      "next_experiment": "Build TICKET95 around a uniform signed additive remainder estimate and explicit cutoff.",
+      "claim_boundary": "No Goldbach proof and no certified Goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-94",
+      "route": "TwinShiftTwoSignedRemainderIdentityAndNormOnlyNoGo",
+      "status": "signed_remainder_identity_and_norm_only_no_go_proved_no_twin_prime_resolution",
+      "proof_or_counterexample_mode": "exact signed residual decomposition plus norm-only lower-bound falsification",
+      "attempt": "Turn TICKET93's Type II requirement into an explicit signed remainder budget and test whether L2 approximation alone can close it.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-93",
+        "twin_signed_remainder_audit": {
+          "theorem_name": "TwinShiftTwoSignedRemainderIdentityAndNormOnlyNoGo",
+          "source_ticket": "TP-TICKET-93",
+          "exact_decomposition": {
+            "coordinate": "Lambda=alpha_R Lambda_R+E_R, with alpha_R chosen by least squares on the audited interval.",
+            "identity": "C_2=alpha_R^2<A,A_shift>+alpha_R<A,E_shift>+alpha_R<E,A_shift>+<E,E_shift>.",
+            "signed_remainder": "D_R=alpha_R<A,E_shift>+alpha_R<E,A_shift>+<E,E_shift> must be bounded from below jointly."
+          },
+          "norm_only_no_go": {
+            "cauchy_bound": "C_2>=alpha^2<A,A_shift>-|alpha| ||A|| ||E_shift||-|alpha| ||E|| ||A_shift||-||E|| ||E_shift||.",
+            "audit_result": "Every tested truncation has positive exact correlation but a negative norm-only lower bound.",
+            "logical_reason": "Norm information is invariant under adversarial residual sign changes and cannot recover the required one-sided shifted cancellation unless the residual is much smaller than observed.",
+            "consequence": "A useful theorem must estimate the combined signed remainder D_R, not its three terms by absolute value."
+          },
+          "machine_audit": {
+            "limit": 200000,
+            "truncation_count": 4,
+            "exact_correlation": 264287.70787028514,
+            "positive_norm_lower_bound_count": 0,
+            "decomposition_failure_count": 0,
+            "norm_route_failure_count": 0,
+            "total_failure_count": 0,
+            "rows": [
+              {
+                "truncation": 10,
+                "least_squares_alpha": 1.272948218433421,
+                "surrogate_main_term": 444961.4078569613,
+                "signed_cross_left": -70855.87562249294,
+                "signed_cross_right": -71688.76817946036,
+                "signed_residual_shift": -38129.05618442107,
+                "combined_signed_remainder": -180673.69998637435,
+                "reconstructed_exact_correlation": 264287.70787058695,
+                "exact_correlation": 264287.70787028514,
+                "decomposition_error": 3.018067218363285e-07,
+                "norm_only_lower_bound": -3176137.000312362,
+                "norm_only_route_blocked": true,
+                "relative_residual_norm": 0.8591545638533137
+              },
+              {
+                "truncation": 30,
+                "least_squares_alpha": 1.1974341602752412,
+                "surrogate_main_term": 422608.7721335673,
+                "signed_cross_left": -79176.23849178104,
+                "signed_cross_right": -80454.13770780312,
+                "signed_residual_shift": 1309.3119363204596,
+                "combined_signed_remainder": -158321.06426326372,
+                "reconstructed_exact_correlation": 264287.7078703036,
+                "exact_correlation": 264287.70787028514,
+                "decomposition_error": 1.8451828509569168e-08,
+                "norm_only_lower_bound": -3155832.689549663,
+                "norm_only_route_blocked": true,
+                "relative_residual_norm": 0.7976156132628969
+              },
+              {
+                "truncation": 100,
+                "least_squares_alpha": 1.1458447204736595,
+                "surrogate_main_term": 369592.04803483543,
+                "signed_cross_left": -55638.91213798988,
+                "signed_cross_right": -57579.10019103873,
+                "signed_residual_shift": 7913.672164468565,
+                "combined_signed_remainder": -105304.34016456004,
+                "reconstructed_exact_correlation": 264287.70787027536,
+                "exact_correlation": 264287.70787028514,
+                "decomposition_error": 9.778887033462524e-09,
+                "norm_only_lower_bound": -3049191.8426129073,
+                "norm_only_route_blocked": true,
+                "relative_residual_norm": 0.7271289065375278
+              },
+              {
+                "truncation": 300,
+                "least_squares_alpha": 1.1166540199618398,
+                "surrogate_main_term": 337240.6151671888,
+                "signed_cross_left": -38020.45393787086,
+                "signed_cross_right": -40299.93878721965,
+                "signed_residual_shift": 5367.485428192699,
+                "combined_signed_remainder": -72952.90729689781,
+                "reconstructed_exact_correlation": 264287.707870291,
+                "exact_correlation": 264287.70787028514,
+                "decomposition_error": 5.878973752260208e-09,
+                "norm_only_lower_bound": -2846036.3742133854,
+                "norm_only_route_blocked": true,
+                "relative_residual_norm": 0.6567684231325406
+              }
+            ]
+          },
+          "theorem_status": "signed_remainder_identity_and_norm_only_no_go_proved_no_twin_prime_resolution",
+          "discarded_routes": [
+            {
+              "route": "three_separate_cauchy_bounds",
+              "status": "too_weak",
+              "counteredge": "All four certified norm-only lower bounds are negative."
+            },
+            {
+              "route": "least_squares_fit_implies_shifted_lower_bound",
+              "status": "invalid",
+              "counteredge": "Small unshifted L2 error does not determine the sign of shifted residual correlations."
+            }
+          ],
+          "retained_route": "Estimate D_R as one signed Type II object using arithmetic cancellation before applying absolute values.",
+          "candidate_theorem": "JointShiftTwoSignedRemainderLowerBound: D_R(x)>=-alpha_R^2 S_R(x)+B(x)+omega(x) with omega(x) unbounded.",
+          "next_theorem_target": "JointShiftTwoSignedRemainderLowerBound",
+          "proof_boundary": "TICKET94 proves an exact decomposition and a norm-only proof-route no-go. It does not prove the signed remainder lower bound or Twin Prime."
+        }
+      },
+      "obstruction": "Every tested truncation has positive exact correlation but a negative norm-only lower bound.",
+      "candidate_theorem": "JointShiftTwoSignedRemainderLowerBound: D_R(x)>=-alpha_R^2 S_R(x)+B(x)+omega(x) with omega(x) unbounded.",
+      "next_experiment": "Build TICKET95 around a joint signed remainder estimate before Cauchy separation.",
+      "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+    }
+  ]
+}

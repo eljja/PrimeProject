@@ -1,0 +1,25 @@
+{
+  "schema": "primeproject.ticket74-coverage-leakage-escape-forest-lab.v1",
+  "generated_at": "2026-07-10T09:10:00+09:00",
+  "status": "proof_pressure_open",
+  "attempt": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-74",
+    "status": "proof_pressure_open",
+    "route": "ZeroFrontierCoverageLeakageAudit",
+    "proof_or_counterexample_mode": "coverage-leakage proof discipline",
+    "attempt": "Apply the TICKET74 correction: a bounded frontier that appears extinct under one predicate may leak into uncovered states, so coverage and successor closure must be proven before a finite result is promoted.",
+    "bounded_result": {
+      "source_ticket": "RH-TICKET-73",
+      "source_route": "ZeroFrontierCoverageAndAllHeightDecision",
+      "ticket74_transfer": "ZeroFrontierCoverageLeakageAudit",
+      "candidate_theorem": "Every off-critical zero candidate is covered by a rigorously bounded zero-counting frontier, or an escaping zero packet is isolated with explicit error control.",
+      "counterexample_target": "an all-height off-critical zero packet that escapes every certified zero-counting frontier"
+    },
+    "obstruction": "This transfer is a proof obligation, not evidence that the target conjecture is solved.",
+    "candidate_theorem": "Every off-critical zero candidate is covered by a rigorously bounded zero-counting frontier, or an escaping zero packet is isolated with explicit error control.",
+    "next_experiment": "Prove a problem-specific global frontier cover before interpreting bounded extinction as a theorem.",
+    "claim_boundary": "No riemann proof and no certified riemann counterexample."
+  },
+  "claim_boundary": "No riemann proof and no certified riemann counterexample."
+}

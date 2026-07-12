@@ -1,0 +1,101 @@
+{
+  "schema": "primeproject.ticket94-signed-remainder-and-goldbach-bridge.v1",
+  "generated_at": "2026-07-12T17:45:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-94",
+  "route": "GoldbachLambdaCorrelationPrimePowerContaminationBridge",
+  "status": "goldbach_correlation_contamination_bridge_proved_no_goldbach_resolution",
+  "proof_or_counterexample_mode": "exact additive Lambda correlation plus proper-prime-power contamination bound",
+  "attempt": "Construct an unconditional per-even-number bridge from additive Lambda correlation excess to a genuine Goldbach representation.",
+  "bounded_result": {
+    "source_ticket": "GB-TICKET-93",
+    "goldbach_correlation_bridge_audit": {
+      "theorem_name": "GoldbachLambdaCorrelationPrimePowerContaminationBridge",
+      "source_ticket": "GB-TICKET-93",
+      "exact_bridge": {
+        "correlation": "G(N)=sum_{2<=n<=N-2} Lambda(n)Lambda(N-n) for even N.",
+        "decomposition": "G(N)=P(N)+E_pp(N), where P contains ordered prime-prime representations.",
+        "contamination_bound": "0<=E_pp(N)<=B_G(N)=2 sqrt(N) floor(log2(N)) log^2(N).",
+        "sufficiency": "If G(N)>B_G(N), then N has a Goldbach representation.",
+        "uniform_corollary": "If the inequality holds for every even N>=N0 and all smaller even N are checked, binary Goldbach follows."
+      },
+      "proof_chain": [
+        "Separate Lambda-supported additive pairs into prime-prime pairs and pairs containing a proper prime power.",
+        "Charge each contaminated ordered representation to its proper-power position.",
+        "Apply the same elementary proper-prime-power count and logarithmic weight bound as TICKET93.",
+        "Conclude by contraposition that correlation above contamination forces a genuine prime representation."
+      ],
+      "machine_audit": {
+        "checkpoint_count": 4,
+        "maximum_checkpoint": 100000,
+        "positive_certified_margin_count": 0,
+        "decomposition_failure_count": 0,
+        "total_failure_count": 0,
+        "rows": [
+          {
+            "even_target": 100,
+            "lambda_additive_correlation": 162.07824666735925,
+            "goldbach_prime_weight": 146.1815500437125,
+            "proper_prime_power_contamination": 15.896696623646736,
+            "contamination_bound": 2544.9110930296315,
+            "certified_margin": -2382.8328463622724,
+            "ordered_supported_pair_count": 16,
+            "ordered_prime_pair_count": 12,
+            "ordered_proper_power_pair_count": 4,
+            "decomposition_error": 2.4868995751603507e-14,
+            "contamination_bound_holds": true
+          },
+          {
+            "even_target": 1000,
+            "lambda_additive_correlation": 1880.0702208146952,
+            "goldbach_prime_weight": 1823.0445906906646,
+            "proper_prime_power_contamination": 57.02563012403055,
+            "contamination_bound": 27161.03980103274,
+            "certified_margin": -25280.969580218047,
+            "ordered_supported_pair_count": 64,
+            "ordered_prime_pair_count": 56,
+            "ordered_proper_power_pair_count": 8,
+            "decomposition_error": 6.394884621840902e-14,
+            "contamination_bound_holds": true
+          },
+          {
+            "even_target": 10000,
+            "lambda_additive_correlation": 16855.213722554072,
+            "goldbach_prime_weight": 16743.136805577,
+            "proper_prime_power_contamination": 112.07691697707244,
+            "contamination_bound": 220558.96139590142,
+            "certified_margin": -203703.74767334736,
+            "ordered_supported_pair_count": 260,
+            "ordered_prime_pair_count": 254,
+            "ordered_proper_power_pair_count": 6,
+            "decomposition_error": 4.831690603168681e-13,
+            "contamination_bound_holds": true
+          },
+          {
+            "even_target": 100000,
+            "lambda_additive_correlation": 176573.64981384535,
+            "goldbach_prime_weight": 176154.32529638355,
+            "proper_prime_power_contamination": 419.32451746187246,
+            "contamination_bound": 1341285.9161003826,
+            "certified_margin": -1164712.2662865373,
+            "ordered_supported_pair_count": 1636,
+            "ordered_prime_pair_count": 1620,
+            "ordered_proper_power_pair_count": 16,
+            "decomposition_error": 8.105871529551223e-11,
+            "contamination_bound_holds": true
+          }
+        ]
+      },
+      "theorem_status": "goldbach_correlation_contamination_bridge_proved_no_goldbach_resolution",
+      "discarded_route": "Treat positive finite G(N) or a positive divisor surrogate as a uniform all-even lower bound.",
+      "retained_route": "Prove a uniform signed additive-correlation lower bound G(N)>B_G(N) for every sufficiently large even N, then certify the finite remainder.",
+      "candidate_theorem": "UniformBinaryLambdaCorrelationExcess: G(N)>B_G(N) for every sufficiently large even N.",
+      "next_theorem_target": "UniformBinaryLambdaCorrelationExcess",
+      "proof_boundary": "TICKET94 proves an exact sufficient bridge for each even N. It does not prove the uniform lower bound or Goldbach."
+    }
+  },
+  "obstruction": "Prove a uniform signed additive-correlation lower bound G(N)>B_G(N) for every sufficiently large even N, then certify the finite remainder.",
+  "candidate_theorem": "UniformBinaryLambdaCorrelationExcess: G(N)>B_G(N) for every sufficiently large even N.",
+  "next_experiment": "Build TICKET95 around a uniform signed additive remainder estimate and explicit cutoff.",
+  "claim_boundary": "No Goldbach proof and no certified Goldbach counterexample."
+}

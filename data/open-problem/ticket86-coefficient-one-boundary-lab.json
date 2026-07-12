@@ -1,0 +1,280 @@
+{
+  "schema": "primeproject.ticket86-coefficient-one-boundary-lab.v1",
+  "generated_at": "2026-07-12T00:40:00+09:00",
+  "status": "coefficient_one_boundary_open_no_collatz_resolution",
+  "claim_boundary": "Ticket 86 proves one restricted infinite Mersenne delay theorem but solves none of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-86",
+      "status": "proof_pressure_open",
+      "route": "NestedZeroWitnessNonStabilization",
+      "proof_or_counterexample_mode": "nested-prefix non-stabilization transfer discipline",
+      "attempt": "Transfer only the principle that a nested finite witness family needs a proved non-stabilization mechanism before claiming infinitely many witnesses.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-85",
+        "ticket86_transfer": "NestedZeroWitnessNonStabilization",
+        "candidate_theorem": "Find a nested off-line-zero certificate whose stabilization contradicts the zeta functional equation."
+      },
+      "obstruction": "No target-specific nested witness family with an exact non-stabilization identity was proved.",
+      "candidate_theorem": "Find a nested off-line-zero certificate whose stabilization contradicts the zeta functional equation.",
+      "next_experiment": "Construct a target-specific nested witness and identify what stabilization would imply.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-86",
+      "route": "InfiniteCoefficientOneMersenneDelay",
+      "status": "restricted_coefficient_one_delay_proved_no_collatz_resolution",
+      "proof_or_counterexample_mode": "exact two-adic reduction plus infinite top-bit subsequence",
+      "attempt": "Remove the extra-period loss in TICKET85 on an infinite subsequence and cross the coefficient-one zero-additive boundary.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-85",
+        "coefficient_one_boundary_audit": {
+          "theorem_name": "InfiniteCoefficientOneMersenneDelay",
+          "source_ticket": "CO-TICKET-85",
+          "exact_reduction": {
+            "cycle_target": "tau_H=(7*3^(H-1)-2^(H+1))/(2^(H+1)-3^H)",
+            "original_congruence": "3^r=tau_H (mod 2^(H+3))",
+            "reduced_congruence": "3^(r+1)=-7 (mod 2^(H+3))",
+            "reason": "After clearing the odd denominator, the difference is 2^(H+1)(3^r+1)-3^(H-1)(3^(r+1)+7); odd r makes the first term divisible by 2^(H+3)."
+          },
+          "infinite_jump_lemma": "The least residues r_H are nested: r_(H+1) is r_H or r_H+2^(H+1). If the second case occurred only finitely often, r_H would stabilize at an ordinary positive integer r and 2^(H+3) would divide 3^(r+1)+7 for arbitrarily large H, forcing the impossible equality 3^(r+1)=-7.",
+          "growth_lemma": "At every top-bit height, 2^H<=r_H<2^(H+1). For 0<=t<=H the exact affine state has d_t<=t+2 and |c_t|<2^(2t+1). Since (3/2)^(r_H+t)>=81/16>9/2>=4+2^(t+1-r_H), the state exceeds 2^r_H-1 through t=H.",
+          "delay_statement": "There are infinitely many positive odd exponents k=r_H such that D(k)>H and 2^H<=k<2^(H+1). Because D(k) is integral, D(k)>=H+1>log2(k).",
+          "proof_chain": [
+            "Reduce the accessible-cycle target congruence exactly to the fixed 2-adic discrete logarithm 3^(r+1)=-7.",
+            "Lift the unique odd residue one precision bit at a time; each new residue is unchanged or gains the new top bit.",
+            "Prove that top-bit gains occur infinitely often by ruling out stabilization at a positive ordinary exponent.",
+            "At a top-bit height use k=r_H directly, without the extra period used in TICKET85.",
+            "Combine the exact valuation prefix, affine-constant bound, and elementary growth inequality to obtain D(k)>H.",
+            "Use 2^H<=k<2^(H+1) and integrality of D(k) to conclude D(k)>log2(k)."
+          ],
+          "machine_audit": {
+            "min_horizon": 2,
+            "max_horizon": 1024,
+            "prefix_case_count": 1023,
+            "top_bit_case_count": 499,
+            "zero_bit_case_count": 524,
+            "longest_observed_zero_run": 13,
+            "maximum_precision": 1027,
+            "symbolic_audit_max_horizon": 256,
+            "symbolic_jump_case_count": 124,
+            "symbolic_state_count": 16877,
+            "prefix_failure_count": 0,
+            "symbolic_failure_count": 0,
+            "total_failure_count": 0,
+            "samples": [
+              {
+                "horizon": 2,
+                "precision": 5,
+                "period_log2": 3,
+                "residue": 5,
+                "residue_bit_length": 3,
+                "top_bit_added": true,
+                "zero_run_length": 0,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 3,
+                "precision": 6,
+                "period_log2": 4,
+                "residue": 13,
+                "residue_bit_length": 4,
+                "top_bit_added": true,
+                "zero_run_length": 0,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 4,
+                "precision": 7,
+                "period_log2": 5,
+                "residue": 13,
+                "residue_bit_length": 4,
+                "top_bit_added": false,
+                "zero_run_length": 1,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 5,
+                "precision": 8,
+                "period_log2": 6,
+                "residue": 45,
+                "residue_bit_length": 6,
+                "top_bit_added": true,
+                "zero_run_length": 0,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 8,
+                "precision": 11,
+                "period_log2": 9,
+                "residue": 173,
+                "residue_bit_length": 8,
+                "top_bit_added": false,
+                "zero_run_length": 1,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 16,
+                "precision": 19,
+                "period_log2": 17,
+                "residue": 1197,
+                "residue_bit_length": 11,
+                "top_bit_added": false,
+                "zero_run_length": 6,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 32,
+                "precision": 35,
+                "period_log2": 33,
+                "residue": 55313581,
+                "residue_bit_length": 26,
+                "top_bit_added": false,
+                "zero_run_length": 7,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 64,
+                "precision": 67,
+                "period_log2": 65,
+                "residue": 6746143408631055533,
+                "residue_bit_length": 63,
+                "top_bit_added": false,
+                "zero_run_length": 2,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 128,
+                "precision": 131,
+                "period_log2": 129,
+                "residue": 555770928259063127098311221968095675565,
+                "residue_bit_length": 129,
+                "top_bit_added": true,
+                "zero_run_length": 0,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 256,
+                "precision": 259,
+                "period_log2": 257,
+                "residue": 45668407499936535198320256527201491097067812606246254032465685587732141442221,
+                "residue_bit_length": 255,
+                "top_bit_added": false,
+                "zero_run_length": 2,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 512,
+                "precision": 515,
+                "period_log2": 513,
+                "residue": 9329886074888532036500982053301969942822197495268336691190897733022917859612947696363581314508353036031277832507504369174017627599505957000831406512538797,
+                "residue_bit_length": 512,
+                "top_bit_added": false,
+                "zero_run_length": 1,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              },
+              {
+                "horizon": 1024,
+                "precision": 1027,
+                "period_log2": 1025,
+                "residue": 29723112990560689088439148199242190629398541941550319277542758029533321122839649745819835542138148712780982433940141429914299182275543585256355595166545070866883303444877585124728190119876230912873405850531311617458616531156880025215047721548424587248359369788901826134243874435670035002694585383123973571757,
+                "residue_bit_length": 1022,
+                "top_bit_added": false,
+                "zero_run_length": 3,
+                "reduced_congruence": true,
+                "cycle_congruence": true,
+                "nested_lift": true,
+                "range_guard": true
+              }
+            ]
+          },
+          "theorem_status": "restricted_coefficient_one_delay_proved_no_collatz_resolution",
+          "refuted_candidate": {
+            "claim": "D(k)<=log2(k) for every positive Mersenne exponent k",
+            "status": "refuted_on_an_infinite_explicitly_defined_subsequence",
+            "scope": "Mersenne descent delay only; this is not a divergent orbit."
+          },
+          "discarded_route": "Treat a finite H<=1024 prefix audit as proof that every horizon uses the least residue successfully.",
+          "retained_route": "Study additive excess through the binary digit runs of the fixed 2-adic exponent solving 3^(r+1)=-7.",
+          "candidate_theorem": "TwoAdicDigitRunBoundary: prove or refute unbounded usable zero runs, which would force unbounded D(k)-log2(k) along this construction.",
+          "next_theorem_target": "TwoAdicDigitRunBoundary",
+          "proof_boundary": "This proves an infinite restricted lower-bound subsequence. It proves neither Collatz convergence nor divergence and resolves none of the four open problems.",
+          "novelty_boundary": "The derivation is a PrimeProject candidate result. A literature-wide novelty search and independent peer verification are still required before publication."
+        }
+      },
+      "obstruction": "Treat a finite H<=1024 prefix audit as proof that every horizon uses the least residue successfully.",
+      "candidate_theorem": "TwoAdicDigitRunBoundary: prove or refute unbounded usable zero runs, which would force unbounded D(k)-log2(k) along this construction.",
+      "next_experiment": "Build TICKET87 around the binary zero-run boundary of the fixed 2-adic logarithm.",
+      "claim_boundary": "No Collatz proof and no certified divergent Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-86",
+      "status": "proof_pressure_open",
+      "route": "NestedExceptionalWitnessNonStabilization",
+      "proof_or_counterexample_mode": "nested-prefix non-stabilization transfer discipline",
+      "attempt": "Transfer only the principle that a nested finite witness family needs a proved non-stabilization mechanism before claiming infinitely many witnesses.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-85",
+        "ticket86_transfer": "NestedExceptionalWitnessNonStabilization",
+        "candidate_theorem": "Find a nested Goldbach exception certificate whose stabilization contradicts an exact local identity."
+      },
+      "obstruction": "No target-specific nested witness family with an exact non-stabilization identity was proved.",
+      "candidate_theorem": "Find a nested Goldbach exception certificate whose stabilization contradicts an exact local identity.",
+      "next_experiment": "Construct a target-specific nested witness and identify what stabilization would imply.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-86",
+      "status": "proof_pressure_open",
+      "route": "NestedExactGapWitnessNonStabilization",
+      "proof_or_counterexample_mode": "nested-prefix non-stabilization transfer discipline",
+      "attempt": "Transfer only the principle that a nested finite witness family needs a proved non-stabilization mechanism before claiming infinitely many witnesses.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-85",
+        "ticket86_transfer": "NestedExactGapWitnessNonStabilization",
+        "candidate_theorem": "Find a nested exact-gap witness family with a target-specific non-stabilization theorem."
+      },
+      "obstruction": "No target-specific nested witness family with an exact non-stabilization identity was proved.",
+      "candidate_theorem": "Find a nested exact-gap witness family with a target-specific non-stabilization theorem.",
+      "next_experiment": "Construct a target-specific nested witness and identify what stabilization would imply.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

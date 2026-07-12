@@ -1,0 +1,1128 @@
+{
+  "schema": "primeproject.ticket77-fixed-prefix-boundary-orbit-lab.v1",
+  "generated_at": "2026-07-11T01:20:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-77",
+  "route": "FixedPrefixBoundaryOrbitAndTwoAdicGhostClassification",
+  "status": "fixed_prefix_boundary_orbit_classified_no_collatz_resolution",
+  "proof_or_counterexample_mode": "exact orbit classification plus positive-integer admissibility",
+  "attempt": "Classify the exact TICKET76 fixed-prefix recurrence globally, distinguish strict pressure from equality rollback, and decide whether its all-depth completion is an admissible positive-integer counterexample.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-76",
+    "fixed_prefix_boundary_orbit_audit": {
+      "theorem_name": "FixedStablePrefixBoundaryOrbitAndTwoAdicGhostClassification",
+      "source_ticket": "CO-TICKET-76",
+      "source_status": "symbolic_formula_verified_fixed_precision_closure_refuted_on_tested_precisions_no_global_resolution",
+      "pressure_map": {
+        "unit": "u = 3^(m+1)",
+        "canonical_digit": "h(A) is the unique h in {0,...,15} with A+h*u = 0 mod 16",
+        "successor": "P(A) = (A+h(A)*u)/16",
+        "strict_pressure_condition": "P(A) even means the next valuation lies strictly beyond the new modulus boundary",
+        "equality_rollback_condition": "P(A) odd means the valuation reaches the boundary exactly; stable-prefix normalization rolls that equality step back"
+      },
+      "proof_chain": [
+        "Reachability gives 2^d*A = 3*T^m(r)+1, hence 3 does not divide A.",
+        "If A>u, then 0<P(A)<A; the normalized boundary orbit eventually enters 1<=A<u.",
+        "Inside 1<=A<u, P(A) is the least positive representative of 16^(-1)*A modulo u.",
+        "The multiplicative order of 16 modulo 3^(m+1) is 3^m by v3(16^(3^j)-1)=j+1.",
+        "For m>=1 the orbit is every unit in one nonzero residue class modulo 3 and contains both even and odd representatives.",
+        "Odd P(A) ends a strict-beyond-boundary segment but does not end the stable-prefix orbit, because the equality valuation is rolled back.",
+        "The all-depth compatible cylinders converge to a 2-adic point N satisfying T^m(N)=-1/3.",
+        "Such a point is not a positive integer and therefore is not a Collatz counterexample."
+      ],
+      "orbit_identity": {
+        "formula": "ord_(3^(m+1))(16) = 3^m",
+        "valuation_identity": "v3(16^(3^j)-1) = j+1",
+        "audited_prefix_lengths": [
+          0,
+          10
+        ],
+        "audit_failure_count": 0,
+        "nonexceptional_parity_failure_count": 0,
+        "exceptional_zero_odd_rows": [
+          {
+            "residue_class_mod_3": 2,
+            "orbit_size": 1,
+            "expected_class_size": 1,
+            "covers_residue_class": true,
+            "returns_to_start": true,
+            "odd_representative_count": 0,
+            "first_odd_representative": null,
+            "even_representative_count": 1,
+            "first_even_representative": 2
+          }
+        ],
+        "audits": [
+          {
+            "prefix_length": 0,
+            "unit": 3,
+            "expected_order": 1,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 1,
+                "expected_class_size": 1,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 1,
+                "first_odd_representative": 1,
+                "even_representative_count": 0,
+                "first_even_representative": null
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 1,
+                "expected_class_size": 1,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 0,
+                "first_odd_representative": null,
+                "even_representative_count": 1,
+                "first_even_representative": 2
+              }
+            ]
+          },
+          {
+            "prefix_length": 1,
+            "unit": 9,
+            "expected_order": 3,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 3,
+                "expected_class_size": 3,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 2,
+                "first_odd_representative": 1,
+                "even_representative_count": 1,
+                "first_even_representative": 4
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 3,
+                "expected_class_size": 3,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 1,
+                "first_odd_representative": 5,
+                "even_representative_count": 2,
+                "first_even_representative": 2
+              }
+            ]
+          },
+          {
+            "prefix_length": 2,
+            "unit": 27,
+            "expected_order": 9,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 9,
+                "expected_class_size": 9,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 5,
+                "first_odd_representative": 1,
+                "even_representative_count": 4,
+                "first_even_representative": 4
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 9,
+                "expected_class_size": 9,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 4,
+                "first_odd_representative": 5,
+                "even_representative_count": 5,
+                "first_even_representative": 2
+              }
+            ]
+          },
+          {
+            "prefix_length": 3,
+            "unit": 81,
+            "expected_order": 27,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 27,
+                "expected_class_size": 27,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 14,
+                "first_odd_representative": 1,
+                "even_representative_count": 13,
+                "first_even_representative": 4
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 27,
+                "expected_class_size": 27,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 13,
+                "first_odd_representative": 5,
+                "even_representative_count": 14,
+                "first_even_representative": 2
+              }
+            ]
+          },
+          {
+            "prefix_length": 4,
+            "unit": 243,
+            "expected_order": 81,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 81,
+                "expected_class_size": 81,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 41,
+                "first_odd_representative": 1,
+                "even_representative_count": 40,
+                "first_even_representative": 4
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 81,
+                "expected_class_size": 81,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 40,
+                "first_odd_representative": 5,
+                "even_representative_count": 41,
+                "first_even_representative": 2
+              }
+            ]
+          },
+          {
+            "prefix_length": 5,
+            "unit": 729,
+            "expected_order": 243,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 243,
+                "expected_class_size": 243,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 122,
+                "first_odd_representative": 1,
+                "even_representative_count": 121,
+                "first_even_representative": 4
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 243,
+                "expected_class_size": 243,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 121,
+                "first_odd_representative": 5,
+                "even_representative_count": 122,
+                "first_even_representative": 2
+              }
+            ]
+          },
+          {
+            "prefix_length": 6,
+            "unit": 2187,
+            "expected_order": 729,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 729,
+                "expected_class_size": 729,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 365,
+                "first_odd_representative": 1,
+                "even_representative_count": 364,
+                "first_even_representative": 4
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 729,
+                "expected_class_size": 729,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 364,
+                "first_odd_representative": 5,
+                "even_representative_count": 365,
+                "first_even_representative": 2
+              }
+            ]
+          },
+          {
+            "prefix_length": 7,
+            "unit": 6561,
+            "expected_order": 2187,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 2187,
+                "expected_class_size": 2187,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 1094,
+                "first_odd_representative": 1,
+                "even_representative_count": 1093,
+                "first_even_representative": 4
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 2187,
+                "expected_class_size": 2187,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 1093,
+                "first_odd_representative": 5,
+                "even_representative_count": 1094,
+                "first_even_representative": 2
+              }
+            ]
+          },
+          {
+            "prefix_length": 8,
+            "unit": 19683,
+            "expected_order": 6561,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 6561,
+                "expected_class_size": 6561,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 3281,
+                "first_odd_representative": 1,
+                "even_representative_count": 3280,
+                "first_even_representative": 4
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 6561,
+                "expected_class_size": 6561,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 3280,
+                "first_odd_representative": 5,
+                "even_representative_count": 3281,
+                "first_even_representative": 2
+              }
+            ]
+          },
+          {
+            "prefix_length": 9,
+            "unit": 59049,
+            "expected_order": 19683,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 19683,
+                "expected_class_size": 19683,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 9842,
+                "first_odd_representative": 1,
+                "even_representative_count": 9841,
+                "first_even_representative": 4
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 19683,
+                "expected_class_size": 19683,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 9841,
+                "first_odd_representative": 5,
+                "even_representative_count": 9842,
+                "first_even_representative": 2
+              }
+            ]
+          },
+          {
+            "prefix_length": 10,
+            "unit": 177147,
+            "expected_order": 59049,
+            "order_identity_holds": true,
+            "order_minimality_holds": true,
+            "class_audits": [
+              {
+                "residue_class_mod_3": 1,
+                "orbit_size": 59049,
+                "expected_class_size": 59049,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 29525,
+                "first_odd_representative": 1,
+                "even_representative_count": 29524,
+                "first_even_representative": 4
+              },
+              {
+                "residue_class_mod_3": 2,
+                "orbit_size": 59049,
+                "expected_class_size": 59049,
+                "covers_residue_class": true,
+                "returns_to_start": true,
+                "odd_representative_count": 29524,
+                "first_odd_representative": 5,
+                "even_representative_count": 29525,
+                "first_even_representative": 2
+              }
+            ]
+          }
+        ]
+      },
+      "observed_source_audit": {
+        "reconstruction": {
+          "root_count": 4142,
+          "fourth_source_count": 2873,
+          "fifth_open_pressure_count": 15696,
+          "fifth_summary": {
+            "source_count": 2873,
+            "row_count": 45968,
+            "outcome_counts": {
+              "safe_base_cycle_exit": 30272,
+              "pressure_new_unranked_internal": 15593,
+              "pressure_rank_equal": 103
+            },
+            "open_pressure_count": 15696,
+            "original_mixed_transition_reentry_count": 0,
+            "open_pressure_original_mixed_reentry_count": 0,
+            "new_unranked_internal_count": 15593,
+            "rank_equal_count": 103,
+            "surviving_root_count": 595,
+            "exact_extension_failure_count": 0,
+            "examples": [
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=1",
+                "child_top": 1,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 1388682182830942813953895,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    2
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=3",
+                "child_top": 3,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 3806533822060201163366247,
+                  "modulus_bits": 84,
+                  "prefix_length": 60,
+                  "consumed_bits": 84,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 11.09775004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=7",
+                "child_top": 7,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 8642237100518717862190951,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=8",
+                "child_top": 8,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 9851162920133347036897127,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    2
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=10",
+                "child_top": 10,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 12269014559362605386309479,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    3,
+                    1,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=11",
+                "child_top": 11,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 13477940378977234561015655,
+                  "modulus_bits": 84,
+                  "prefix_length": 61,
+                  "consumed_bits": 84,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 12.68271254,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=15",
+                "child_top": 15,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 18313643657435751259840359,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 83,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 10.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=3",
+                "source_transition_key": "[0,[1,2,2,1],103,1,56,80] + child_top=4",
+                "child_top": 4,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 255314226942227962666855,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 80,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 8.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 5091017505400744661491559,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 83,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 10.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              }
+            ]
+          }
+        },
+        "source_count": 18569,
+        "unique_boundary_state_count": 18569,
+        "prefix_length_distribution": [
+          {
+            "prefix_length": 53,
+            "source_count": 26
+          },
+          {
+            "prefix_length": 54,
+            "source_count": 296
+          },
+          {
+            "prefix_length": 55,
+            "source_count": 623
+          },
+          {
+            "prefix_length": 56,
+            "source_count": 935
+          },
+          {
+            "prefix_length": 57,
+            "source_count": 1547
+          },
+          {
+            "prefix_length": 58,
+            "source_count": 3246
+          },
+          {
+            "prefix_length": 59,
+            "source_count": 4611
+          },
+          {
+            "prefix_length": 60,
+            "source_count": 3946
+          },
+          {
+            "prefix_length": 61,
+            "source_count": 2274
+          },
+          {
+            "prefix_length": 62,
+            "source_count": 886
+          },
+          {
+            "prefix_length": 63,
+            "source_count": 163
+          },
+          {
+            "prefix_length": 64,
+            "source_count": 16
+          }
+        ],
+        "status_counts": {
+          "equality_boundary_reached": 18569
+        },
+        "strict_pressure_equality_boundary_count": 18569,
+        "two_adic_fixed_cycle_count": 0,
+        "unexpected_strict_cycle_count": 0,
+        "trace_guard_failure_count": 0,
+        "prerequisite_failure_count": 0,
+        "one_step_identity_failure_count": 0,
+        "max_strict_pressure_step_count": 15,
+        "max_strict_pressure_source": {
+          "depth": 6,
+          "root_id": 2100,
+          "residue": 2025063049108558202389607,
+          "modulus_bits": 84,
+          "prefix_length": 61,
+          "boundary_quotient": 39942634483497452293378342772,
+          "trace": {
+            "status": "equality_boundary_reached",
+            "pressure_step_count": 15,
+            "entered_finite_orbit_at": 0,
+            "terminal_boundary_quotient": 298066081014030983053316154605,
+            "terminal_parity": "odd",
+            "rollback_effect": "the equality valuation is lift-unstable, so stable-prefix normalization rolls it back",
+            "examples": [
+              {
+                "step": 1,
+                "source_boundary_quotient": 39942634483497452293378342772,
+                "digit": 12,
+                "next_boundary_quotient": 288636733012927964489823570530
+              },
+              {
+                "step": 2,
+                "source_boundary_quotient": 288636733012927964489823570530,
+                "digit": 14,
+                "next_boundary_quotient": 351870167230635600455682634616
+              },
+              {
+                "step": 3,
+                "source_boundary_quotient": 351870167230635600455682634616,
+                "digit": 8,
+                "next_boundary_quotient": 212752097690387640842805114068
+              },
+              {
+                "step": 4,
+                "source_boundary_quotient": 212752097690387640842805114068,
+                "digit": 12,
+                "next_boundary_quotient": 299437324463358601274162743736
+              },
+              {
+                "step": 5,
+                "source_boundary_quotient": 299437324463358601274162743736,
+                "digit": 8,
+                "next_boundary_quotient": 209475045017432828393960120888
+              },
+              {
+                "step": 6,
+                "source_boundary_quotient": 209475045017432828393960120888,
+                "digit": 8,
+                "next_boundary_quotient": 203852402552062467588947456960
+              },
+              {
+                "step": 7,
+                "source_boundary_quotient": 203852402552062467588947456960,
+                "digit": 0,
+                "next_boundary_quotient": 12740775159503904224309216060
+              },
+              {
+                "step": 8,
+                "source_boundary_quotient": 12740775159503904224309216060,
+                "digit": 4,
+                "next_boundary_quotient": 96176404566705451921181800706
+              }
+            ]
+          }
+        },
+        "pressure_step_distribution": [
+          {
+            "pressure_step_count": 1,
+            "source_count": 9420
+          },
+          {
+            "pressure_step_count": 2,
+            "source_count": 4602
+          },
+          {
+            "pressure_step_count": 3,
+            "source_count": 2233
+          },
+          {
+            "pressure_step_count": 4,
+            "source_count": 1162
+          },
+          {
+            "pressure_step_count": 5,
+            "source_count": 570
+          },
+          {
+            "pressure_step_count": 6,
+            "source_count": 295
+          },
+          {
+            "pressure_step_count": 7,
+            "source_count": 149
+          },
+          {
+            "pressure_step_count": 8,
+            "source_count": 70
+          },
+          {
+            "pressure_step_count": 9,
+            "source_count": 30
+          },
+          {
+            "pressure_step_count": 10,
+            "source_count": 16
+          },
+          {
+            "pressure_step_count": 11,
+            "source_count": 10
+          },
+          {
+            "pressure_step_count": 12,
+            "source_count": 6
+          },
+          {
+            "pressure_step_count": 13,
+            "source_count": 3
+          },
+          {
+            "pressure_step_count": 14,
+            "source_count": 2
+          },
+          {
+            "pressure_step_count": 15,
+            "source_count": 1
+          }
+        ],
+        "examples": [
+          {
+            "depth": 5,
+            "residue": 179756363216313639247719,
+            "modulus_bits": 80,
+            "prefix_length": 56,
+            "boundary_quotient": 233451215164349794189111454,
+            "canonical_digit": 6,
+            "trace_status": "equality_boundary_reached",
+            "pressure_step_count": 1
+          },
+          {
+            "depth": 5,
+            "residue": 255314226942227962666855,
+            "modulus_bits": 80,
+            "prefix_length": 55,
+            "boundary_quotient": 110526298785659964972214955,
+            "canonical_digit": 5,
+            "trace_status": "equality_boundary_reached",
+            "pressure_step_count": 1
+          },
+          {
+            "depth": 5,
+            "residue": 481987818119970932924263,
+            "modulus_bits": 80,
+            "prefix_length": 55,
+            "boundary_quotient": 208653979978290065699748365,
+            "canonical_digit": 3,
+            "trace_status": "equality_boundary_reached",
+            "pressure_step_count": 1
+          },
+          {
+            "depth": 5,
+            "residue": 557545681845885256343399,
+            "modulus_bits": 80,
+            "prefix_length": 55,
+            "boundary_quotient": 241363207042500099275592835,
+            "canonical_digit": 13,
+            "trace_status": "equality_boundary_reached",
+            "pressure_step_count": 1
+          },
+          {
+            "depth": 5,
+            "residue": 784219273023628226600807,
+            "modulus_bits": 80,
+            "prefix_length": 55,
+            "boundary_quotient": 339490888235130200003126245,
+            "canonical_digit": 11,
+            "trace_status": "equality_boundary_reached",
+            "pressure_step_count": 1
+          },
+          {
+            "depth": 5,
+            "residue": 690952534986952733630311,
+            "modulus_bits": 80,
+            "prefix_length": 54,
+            "boundary_quotient": 99705145359248646602647742,
+            "canonical_digit": 6,
+            "trace_status": "equality_boundary_reached",
+            "pressure_step_count": 2
+          },
+          {
+            "depth": 5,
+            "residue": 103608203680040610176871,
+            "modulus_bits": 80,
+            "prefix_length": 55,
+            "boundary_quotient": 44852303820800756933214731,
+            "canonical_digit": 5,
+            "trace_status": "equality_boundary_reached",
+            "pressure_step_count": 1
+          },
+          {
+            "depth": 5,
+            "residue": 708071113487355197529959,
+            "modulus_bits": 80,
+            "prefix_length": 54,
+            "boundary_quotient": 102175373444827008513323497,
+            "canonical_digit": 5,
+            "trace_status": "equality_boundary_reached",
+            "pressure_step_count": 2
+          }
+        ]
+      },
+      "computational_failure_count": 0,
+      "theorem_status": "fixed_prefix_boundary_orbit_classified_no_collatz_resolution",
+      "bounded_lemma": "The exact TICKET76 recurrence gives an eventually periodic inverse-16 boundary orbit of period 3^m. Strict pressure segments reach equality boundaries, but equality rollback preserves the stable prefix; the all-depth completion is a 2-adic preimage of -1/3 rather than a positive integer.",
+      "discarded_route": "Treat P(A) odd as extinction of the stable prefix. It only marks an equality valuation at the current modulus; the lift-stability rule must roll that step back before the next refinement.",
+      "closed_route": "Promote an all-depth fixed-prefix compatible cylinder directly to a natural-number counterexample. The exact completion lands at a 2-adic preimage of -1/3, not at a positive integer.",
+      "remaining_obstruction": "A positive integer may shadow longer and longer finite prefixes without realizing one fixed 2-adic ghost. The project still lacks a well-founded rank controlling successive changing-prefix approximation events.",
+      "candidate_theorem": "ChangingPrefixNaturalAdmissibilityRank: every positive-integer boundary refinement either enters the known basin or strictly decreases a global rank, while every nondecreasing compatible limit is proved non-natural.",
+      "next_theorem_target": "ChangingPrefixNaturalAdmissibilityRank",
+      "formalization_boundary": "The modular orbit classification is an elementary exact argument, with finite orbit identities audited through m=10. The 2-adic admissibility bridge still requires formalization and does not prove Collatz.",
+      "proof_boundary": "TICKET77 classifies fixed-prefix boundary completions as 2-adic ghosts. It does not exclude infinitely many changing-prefix events, divergence, or nontrivial cycles of the accelerated Collatz map."
+    }
+  },
+  "obstruction": "A positive integer may shadow longer and longer finite prefixes without realizing one fixed 2-adic ghost. The project still lacks a well-founded rank controlling successive changing-prefix approximation events.",
+  "candidate_theorem": "ChangingPrefixNaturalAdmissibilityRank: every positive-integer boundary refinement either enters the known basin or strictly decreases a global rank, while every nondecreasing compatible limit is proved non-natural.",
+  "next_experiment": "Construct an admissibility rank across changing-prefix approximations to 2-adic ghosts.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

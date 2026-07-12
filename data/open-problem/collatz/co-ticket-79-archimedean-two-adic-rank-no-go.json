@@ -1,0 +1,575 @@
+{
+  "schema": "primeproject.ticket79-archimedean-two-adic-rank-no-go-lab.v1",
+  "generated_at": "2026-07-11T10:40:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-79",
+  "route": "ArchimedeanTwoAdicOneStepRankNoGo",
+  "status": "bounded_archimedean_two_adic_one_step_rank_refuted_exactly_no_collatz_resolution",
+  "proof_or_counterexample_mode": "exact infinite witness families plus symbolic coefficient trichotomy",
+  "attempt": "Test the TICKET78 continuation target by coupling log-height to bounded 2-adic state, then attack every coefficient sign with exact positive-integer Collatz families.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-78",
+    "archimedean_two_adic_rank_no_go_audit": {
+      "theorem_name": "BoundedTwoAdicCorrectionOneStepRankNoGo",
+      "source_ticket": "CO-TICKET-78",
+      "rank_family": "R(n)=alpha*log(n)+b(s(n)), with finite state set S and b:S->R",
+      "stronger_nonzero_scope": "For alpha!=0 the same contradiction holds whenever the correction term is merely bounded, even if it uses growing 2-adic precision or infinitely many states.",
+      "exact_witness_families": {
+        "expansion": {
+          "start": "E_(m,q)=2^(m+1)*q-1",
+          "iterate": "A^j(E_(m,q))=3^j*2^(m+1-j)*q-1 for 0<=j<=m",
+          "valuation_word": "v2(3*A^j(E_(m,q))+1)=1 for 0<=j<m",
+          "growth": "A^m(E_(m,q))/E_(m,q)>(3/2)^m"
+        },
+        "contraction": {
+          "start": "D_r=(5*2^(2r+1)-1)/3",
+          "valuation": "v2(3*D_r+1)=2r+1",
+          "terminal": "A(D_r)=5"
+        }
+      },
+      "proof_chain": [
+        "For every m,q>=1, direct induction gives the expansion formula and an exact valuation-1 word of length m.",
+        "If alpha>0 and osc(b)=W, the total rank change along that block exceeds alpha*m*log(3/2)-W, which is positive for sufficiently large m.",
+        "If alpha<0, the exact nonterminal contraction D_r->5 changes the log term by -alpha*log(D_r/5); this exceeds W for sufficiently large r.",
+        "If alpha=0 and b factors through K states, the K+1 vertices of an expansion block of length K contain a repeated state, contradicting strict decrease on every intervening edge.",
+        "Therefore no member of the stated rank family strictly decreases on every accelerated Collatz edge outside the known basin.",
+        "The argument does not exclude adaptive multi-step descent, an unbounded history correction, or an ordinal/well-founded rank with a separately proved lower bound."
+      ],
+      "machine_audit": {
+        "exact_families": {
+          "max_expansion_depth": 256,
+          "expansion_q_values": [
+            1,
+            2,
+            7,
+            31
+          ],
+          "expansion_family_case_count": 1024,
+          "expansion_step_replay_count": 131584,
+          "expansion_formula_failure_count": 0,
+          "expansion_valuation_failure_count": 0,
+          "expansion_growth_failure_count": 0,
+          "max_contraction_depth": 128,
+          "contraction_family_case_count": 128,
+          "contraction_formula_failure_count": 0,
+          "contraction_replay_failure_count": 0,
+          "exact_family_failure_count": 0,
+          "expansion_samples": [
+            {
+              "m": 1,
+              "q": 1,
+              "start": 3,
+              "terminal": 5,
+              "valuation_word": "1 repeated 1 times",
+              "exact_formula": "A^j(n)=3^j*2^(m+1-j)*q-1",
+              "growth_exceeds_three_halves_power": true
+            },
+            {
+              "m": 2,
+              "q": 1,
+              "start": 7,
+              "terminal": 17,
+              "valuation_word": "1 repeated 2 times",
+              "exact_formula": "A^j(n)=3^j*2^(m+1-j)*q-1",
+              "growth_exceeds_three_halves_power": true
+            },
+            {
+              "m": 4,
+              "q": 1,
+              "start": 31,
+              "terminal": 161,
+              "valuation_word": "1 repeated 4 times",
+              "exact_formula": "A^j(n)=3^j*2^(m+1-j)*q-1",
+              "growth_exceeds_three_halves_power": true
+            },
+            {
+              "m": 8,
+              "q": 1,
+              "start": 511,
+              "terminal": 13121,
+              "valuation_word": "1 repeated 8 times",
+              "exact_formula": "A^j(n)=3^j*2^(m+1-j)*q-1",
+              "growth_exceeds_three_halves_power": true
+            },
+            {
+              "m": 16,
+              "q": 1,
+              "start": 131071,
+              "terminal": 86093441,
+              "valuation_word": "1 repeated 16 times",
+              "exact_formula": "A^j(n)=3^j*2^(m+1-j)*q-1",
+              "growth_exceeds_three_halves_power": true
+            },
+            {
+              "m": 32,
+              "q": 1,
+              "start": 8589934591,
+              "terminal": 3706040377703681,
+              "valuation_word": "1 repeated 32 times",
+              "exact_formula": "A^j(n)=3^j*2^(m+1-j)*q-1",
+              "growth_exceeds_three_halves_power": true
+            },
+            {
+              "m": 64,
+              "q": 1,
+              "start": 36893488147419103231,
+              "terminal": 6867367640585024969315698178561,
+              "valuation_word": "1 repeated 64 times",
+              "exact_formula": "A^j(n)=3^j*2^(m+1-j)*q-1",
+              "growth_exceeds_three_halves_power": true
+            },
+            {
+              "m": 128,
+              "q": 1,
+              "start": 680564733841876926926749214863536422911,
+              "terminal": 23580369155477166343041745722825037331356423184551682218193921,
+              "valuation_word": "1 repeated 128 times",
+              "exact_formula": "A^j(n)=3^j*2^(m+1-j)*q-1",
+              "growth_exceeds_three_halves_power": true
+            },
+            {
+              "m": 256,
+              "q": 1,
+              "start": 231584178474632390847141970017375815706539969331281128078915168015826259279871,
+              "terminal": 278016904754289465529879573579322606228437701617058275983209648860072145259532871882003538308219219043623331081097798871041,
+              "valuation_word": "1 repeated 256 times",
+              "exact_formula": "A^j(n)=3^j*2^(m+1-j)*q-1",
+              "growth_exceeds_three_halves_power": true
+            }
+          ],
+          "contraction_samples": [
+            {
+              "r": 1,
+              "start": 13,
+              "terminal": 5,
+              "valuation": 3,
+              "exact_formula": "n=(5*2^(2r+1)-1)/3 and A(n)=5"
+            },
+            {
+              "r": 2,
+              "start": 53,
+              "terminal": 5,
+              "valuation": 5,
+              "exact_formula": "n=(5*2^(2r+1)-1)/3 and A(n)=5"
+            },
+            {
+              "r": 4,
+              "start": 853,
+              "terminal": 5,
+              "valuation": 9,
+              "exact_formula": "n=(5*2^(2r+1)-1)/3 and A(n)=5"
+            },
+            {
+              "r": 8,
+              "start": 218453,
+              "terminal": 5,
+              "valuation": 17,
+              "exact_formula": "n=(5*2^(2r+1)-1)/3 and A(n)=5"
+            },
+            {
+              "r": 16,
+              "start": 14316557653,
+              "terminal": 5,
+              "valuation": 33,
+              "exact_formula": "n=(5*2^(2r+1)-1)/3 and A(n)=5"
+            },
+            {
+              "r": 32,
+              "start": 61489146912365172053,
+              "terminal": 5,
+              "valuation": 65,
+              "exact_formula": "n=(5*2^(2r+1)-1)/3 and A(n)=5"
+            },
+            {
+              "r": 64,
+              "start": 1134274556403128211544582024772560704853,
+              "terminal": 5,
+              "valuation": 129,
+              "exact_formula": "n=(5*2^(2r+1)-1)/3 and A(n)=5"
+            },
+            {
+              "r": 128,
+              "start": 385973630791053984745236616695626359510899948885468546798191946693043765466453,
+              "terminal": 5,
+              "valuation": 257,
+              "exact_formula": "n=(5*2^(2r+1)-1)/3 and A(n)=5"
+            }
+          ]
+        },
+        "rank_thresholds": {
+          "log_coefficient_grid": [
+            "-4",
+            "-1",
+            "-1/4",
+            "0",
+            "1/4",
+            "1",
+            "4"
+          ],
+          "correction_oscillation_grid": [
+            0,
+            1,
+            4,
+            16,
+            64
+          ],
+          "finite_state_count_grid": [
+            1,
+            2,
+            8,
+            32,
+            128
+          ],
+          "positive_alpha_certificate_count": 15,
+          "negative_alpha_certificate_count": 15,
+          "zero_alpha_certificate_count": 5,
+          "threshold_failure_count": 0,
+          "positive_alpha_rows": [
+            {
+              "alpha": "1/4",
+              "bounded_correction_oscillation": 0,
+              "witness_depth_m": 1,
+              "witness_start": 3,
+              "lower_bound_on_total_rank_change": 0.101366277027,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "1/4",
+              "bounded_correction_oscillation": 1,
+              "witness_depth_m": 10,
+              "witness_start": 2047,
+              "lower_bound_on_total_rank_change": 0.01366277027,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "1/4",
+              "bounded_correction_oscillation": 4,
+              "witness_depth_m": 40,
+              "witness_start": 2199023255551,
+              "lower_bound_on_total_rank_change": 0.054651081082,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "1/4",
+              "bounded_correction_oscillation": 16,
+              "witness_depth_m": 158,
+              "witness_start": 730750818665451459101842416358141509827966271487,
+              "lower_bound_on_total_rank_change": 0.015871770272,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "1/4",
+              "bounded_correction_oscillation": 64,
+              "witness_depth_m": 632,
+              "witness_start": 35644067325173400145634153169533525975728347712879374457649941546088087243817792082077443838416964060770643043543706307114755505635745609361348916560329798345718708393439569922522454626926591,
+              "lower_bound_on_total_rank_change": 0.06348708109,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "1",
+              "bounded_correction_oscillation": 0,
+              "witness_depth_m": 1,
+              "witness_start": 3,
+              "lower_bound_on_total_rank_change": 0.405465108108,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "1",
+              "bounded_correction_oscillation": 1,
+              "witness_depth_m": 3,
+              "witness_start": 15,
+              "lower_bound_on_total_rank_change": 0.216395324324,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "1",
+              "bounded_correction_oscillation": 4,
+              "witness_depth_m": 10,
+              "witness_start": 2047,
+              "lower_bound_on_total_rank_change": 0.054651081082,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "1",
+              "bounded_correction_oscillation": 16,
+              "witness_depth_m": 40,
+              "witness_start": 2199023255551,
+              "lower_bound_on_total_rank_change": 0.218604324327,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "1",
+              "bounded_correction_oscillation": 64,
+              "witness_depth_m": 158,
+              "witness_start": 730750818665451459101842416358141509827966271487,
+              "lower_bound_on_total_rank_change": 0.06348708109,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "4",
+              "bounded_correction_oscillation": 0,
+              "witness_depth_m": 1,
+              "witness_start": 3,
+              "lower_bound_on_total_rank_change": 1.621860432433,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "4",
+              "bounded_correction_oscillation": 1,
+              "witness_depth_m": 1,
+              "witness_start": 3,
+              "lower_bound_on_total_rank_change": 0.621860432433,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "4",
+              "bounded_correction_oscillation": 4,
+              "witness_depth_m": 3,
+              "witness_start": 15,
+              "lower_bound_on_total_rank_change": 0.865581297298,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "4",
+              "bounded_correction_oscillation": 16,
+              "witness_depth_m": 10,
+              "witness_start": 2047,
+              "lower_bound_on_total_rank_change": 0.218604324327,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            },
+            {
+              "alpha": "4",
+              "bounded_correction_oscillation": 64,
+              "witness_depth_m": 40,
+              "witness_start": 2199023255551,
+              "lower_bound_on_total_rank_change": 0.874417297306,
+              "status": "strict_one_step_descent_contradicted_by_expansion_block"
+            }
+          ],
+          "negative_alpha_rows": [
+            {
+              "alpha": "-4",
+              "bounded_correction_oscillation": 0,
+              "witness_r": 1,
+              "witness_start": 13,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 3.82204578011,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-4",
+              "bounded_correction_oscillation": 1,
+              "witness_r": 1,
+              "witness_start": 13,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 2.82204578011,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-4",
+              "bounded_correction_oscillation": 4,
+              "witness_r": 2,
+              "witness_start": 53,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 5.443416004472,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-4",
+              "bounded_correction_oscillation": 16,
+              "witness_r": 4,
+              "witness_start": 853,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 4.55728654023,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-4",
+              "bounded_correction_oscillation": 64,
+              "witness_r": 12,
+              "witness_start": 55924053,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 0.92026887748,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-1",
+              "bounded_correction_oscillation": 0,
+              "witness_r": 1,
+              "witness_start": 13,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 0.955511445027,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-1",
+              "bounded_correction_oscillation": 1,
+              "witness_r": 2,
+              "witness_start": 53,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 1.360854001118,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-1",
+              "bounded_correction_oscillation": 4,
+              "witness_r": 4,
+              "witness_start": 853,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 1.139321635058,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-1",
+              "bounded_correction_oscillation": 16,
+              "witness_r": 12,
+              "witness_start": 55924053,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 0.23006721937,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-1",
+              "bounded_correction_oscillation": 64,
+              "witness_r": 47,
+              "witness_start": 66023468761886947994619958613,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 0.750369864527,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-1/4",
+              "bounded_correction_oscillation": 0,
+              "witness_r": 1,
+              "witness_start": 13,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 0.238877861257,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-1/4",
+              "bounded_correction_oscillation": 1,
+              "witness_r": 4,
+              "witness_start": 853,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 0.284830408764,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-1/4",
+              "bounded_correction_oscillation": 4,
+              "witness_r": 12,
+              "witness_start": 55924053,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 0.057516804843,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-1/4",
+              "bounded_correction_oscillation": 16,
+              "witness_r": 47,
+              "witness_start": 66023468761886947994619958613,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 0.187592466132,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            },
+            {
+              "alpha": "-1/4",
+              "bounded_correction_oscillation": 64,
+              "witness_r": 185,
+              "witness_start": 8016358682534684084529427103707603720108996433607065158680886516163273472391196820356092581153343839682338051413,
+              "terminal": 5,
+              "lower_bound_on_one_step_rank_change": 0.014747924768,
+              "status": "strict_one_step_descent_contradicted_by_exact_contraction"
+            }
+          ],
+          "zero_alpha_rows": [
+            {
+              "finite_state_count": 1,
+              "witness_depth_m": 1,
+              "path_vertex_count": 2,
+              "witness_start": 3,
+              "status": "strict_descent_contradicted_by_pigeonhole_repeated_state",
+              "reason": "m+1 path vertices mapped to at most m states force a repeated state."
+            },
+            {
+              "finite_state_count": 2,
+              "witness_depth_m": 2,
+              "path_vertex_count": 3,
+              "witness_start": 7,
+              "status": "strict_descent_contradicted_by_pigeonhole_repeated_state",
+              "reason": "m+1 path vertices mapped to at most m states force a repeated state."
+            },
+            {
+              "finite_state_count": 8,
+              "witness_depth_m": 8,
+              "path_vertex_count": 9,
+              "witness_start": 511,
+              "status": "strict_descent_contradicted_by_pigeonhole_repeated_state",
+              "reason": "m+1 path vertices mapped to at most m states force a repeated state."
+            },
+            {
+              "finite_state_count": 32,
+              "witness_depth_m": 32,
+              "path_vertex_count": 33,
+              "witness_start": 8589934591,
+              "status": "strict_descent_contradicted_by_pigeonhole_repeated_state",
+              "reason": "m+1 path vertices mapped to at most m states force a repeated state."
+            },
+            {
+              "finite_state_count": 128,
+              "witness_depth_m": 128,
+              "path_vertex_count": 129,
+              "witness_start": 680564733841876926926749214863536422911,
+              "status": "strict_descent_contradicted_by_pigeonhole_repeated_state",
+              "reason": "m+1 path vertices mapped to at most m states force a repeated state."
+            }
+          ],
+          "scope": "Threshold rows illustrate the exact theorem; the proof itself is symbolic and not limited to this grid."
+        }
+      },
+      "computational_failure_count": 0,
+      "theorem_status": "bounded_archimedean_two_adic_one_step_rank_refuted_exactly_no_collatz_resolution",
+      "rejected_candidate_families": [
+        {
+          "family": "positive_log_height_plus_bounded_two_adic_correction",
+          "status": "refuted_by_arbitrarily_long_exact_expansion_blocks",
+          "counteredge": "E_(m,q) realizes m valuation-1 steps and grows by more than (3/2)^m."
+        },
+        {
+          "family": "negative_log_height_plus_bounded_two_adic_correction",
+          "status": "refuted_by_unbounded_exact_one_step_contractions",
+          "counteredge": "D_r grows without bound but maps to the nonterminal value 5 in one accelerated step."
+        },
+        {
+          "family": "zero_log_finite_state_correction",
+          "status": "refuted_by_pigeonhole_on_arbitrarily_long_natural_paths",
+          "counteredge": "A valuation-1 block with K edges has K+1 natural vertices but only K states."
+        }
+      ],
+      "discarded_route": "Seek a universal one-step strict Lyapunov function by adding any bounded 2-adic or finite-state correction to a fixed multiple of log(n). Exact natural expansion and contraction families defeat every coefficient.",
+      "retained_route": "Use an adaptive stopping time or an unbounded, demonstrably well-founded correction. Any proposal must prove both descent and a global lower bound; fitting a bounded residue table is no longer admissible.",
+      "candidate_theorem": "MinimalCounterexampleValuationSurplusContradiction: assuming a least Collatz counterexample N, its exact valuation words satisfy the non-descent inequalities 2^S*N<=3^m*N+C_m for every prefix; combine these inequalities with cylinder congruences to force an impossible prefix.",
+      "next_theorem_target": "MinimalCounterexampleValuationSurplusContradiction",
+      "equivalence_warning": "Proving that every n>1 has an accelerated iterate below n is already equivalent to Collatz by strong induction. It must not be presented as a weaker solved bridge.",
+      "literature_context": [
+        {
+          "citation": "Bernstein and Lagarias, The 3x+1 Conjugacy Map, Canadian Journal of Mathematics 48 (1996), 1154-1169",
+          "url": "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/3x-1-conjugacy-map/6975BB4A8C46CF6842217043AAF9EC13",
+          "role": "Primary source for 2-adic shift conjugacy and finite parity-prefix realizability context."
+        },
+        {
+          "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values, Forum of Mathematics, Pi 10 (2022)",
+          "url": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/almost-all-orbits-of-the-collatz-map-attain-almost-bounded-values/1008CC2DF91AF87F66D190C5E01C907F",
+          "role": "Primary context separating almost-all logarithmic-density descent from an all-integer proof."
+        }
+      ],
+      "novelty_boundary": "Arbitrarily prescribed finite parity behavior and 2-adic conjugacy are established mathematics. PrimeProject claims only the explicit two-family no-go formulation for this bounded Archimedean-plus-2-adic rank class, its machine audit, and its integration into the existing proof-search ledger.",
+      "proof_boundary": "TICKET79 proves a restricted no-go theorem for universal one-step ranks of the displayed form. It neither proves nor disproves Collatz and says nothing by itself about adaptive block descent or unbounded well-founded ranks."
+    }
+  },
+  "obstruction": "Seek a universal one-step strict Lyapunov function by adding any bounded 2-adic or finite-state correction to a fixed multiple of log(n). Exact natural expansion and contraction families defeat every coefficient.",
+  "candidate_theorem": "MinimalCounterexampleValuationSurplusContradiction: assuming a least Collatz counterexample N, its exact valuation words satisfy the non-descent inequalities 2^S*N<=3^m*N+C_m for every prefix; combine these inequalities with cylinder congruences to force an impossible prefix.",
+  "next_experiment": "Build TICKET80 around the least-counterexample non-descent inequalities and exact cylinder congruences.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

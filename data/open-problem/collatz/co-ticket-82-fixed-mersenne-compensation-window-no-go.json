@@ -1,0 +1,258 @@
+{
+  "schema": "primeproject.ticket82-fixed-mersenne-compensation-window-no-go-lab.v1",
+  "generated_at": "2026-07-11T18:20:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-82",
+  "route": "FixedMersenneCompensationWindowNoGo",
+  "status": "fixed_mersenne_compensation_window_refuted_exactly_no_collatz_resolution",
+  "proof_or_counterexample_mode": "explicit exponent progressions plus symbolic valuation-prefix preservation",
+  "attempt": "Test whether any exponent-independent post-expansion compensation window forces descent for every Mersenne start.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-81",
+    "fixed_mersenne_compensation_window_no_go_audit": {
+      "theorem_name": "FixedMersenneCompensationWindowNoGo",
+      "source_ticket": "CO-TICKET-81",
+      "family": "N_k=2^k-1 with odd exponents k in explicit arithmetic progressions",
+      "statement": "For every fixed H>=0, infinitely many odd exponents k satisfy A^(k+t)(2^k-1)>2^k-1 for every 0<=t<=H.",
+      "exact_symbolic_family": {
+        "iterate": "x_t(k)=A^(k+t)(N_k)=(3^(k+t)+c_t)/2^d_t",
+        "initial": "c_0=-1, d_0=1, x_0(k)=(3^k-1)/2 for odd k",
+        "recurrence": "c_(t+1)=3*c_t+2^d_t; d_(t+1)=d_t+b_(t+1)",
+        "reference_exponent": 3,
+        "reference_post_word": "b_1=3, b_2=4, and b_t=2 for every t>=3"
+      },
+      "explicit_progressions": {
+        "horizon_0": "k congruent to 3 modulo 2",
+        "horizon_1": "k congruent to 3 modulo 8",
+        "horizon_at_least_2": "k congruent to 3 modulo 2^(2H+3)",
+        "reason": "3 has multiplicative order 2^(Q-2) modulo 2^Q, and Q=2H+5 preserves every exact numerator valuation through post-index H."
+      },
+      "proof_chain": [
+        "TICKET81 gives x_0(k)=A^k(N_k)=(3^k-1)/2 for every odd exponent k.",
+        "Along the reference exponent k=3, x_0=13 maps to 5, then 1, then remains 1; the additional valuation word is 3,4,2,2,... .",
+        "Induction gives x_t(k)=(3^(k+t)+c_t)/2^d_t with c_(t+1)=3c_t+2^d_t and d_(t+1)=d_t+b_(t+1).",
+        "For a fixed H, congruence k=3 mod 2^(Q-2) preserves 3^(k+t) modulo 2^Q and therefore preserves all exact valuations through H.",
+        "For H>=2 the largest denominator exponent is d_H=2H+4, so Q=2H+5 and the explicit exponent progression is k=3 mod 2^(2H+3).",
+        "For each fixed t and d_t,c_t, exponential dominance of 3^k over 2^k gives x_t(k)>N_k for all sufficiently large k in that progression.",
+        "Hence no compensation-window length independent of k can force every Mersenne start below itself."
+      ],
+      "machine_audit": {
+        "max_horizon": 128,
+        "horizon_case_count": 129,
+        "symbolic_state_count": 8385,
+        "transition_condition_count": 8256,
+        "total_failure_count": 0,
+        "samples": [
+          {
+            "horizon": 0,
+            "post_reference_word_prefix": [],
+            "post_reference_word_length": 0,
+            "required_precision_bits": 3,
+            "progression_period_log2": 1,
+            "dominance_threshold": 3,
+            "first_certified_progression_exponent": 3,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 1,
+            "post_reference_word_prefix": [
+              3
+            ],
+            "post_reference_word_length": 1,
+            "required_precision_bits": 5,
+            "progression_period_log2": 3,
+            "dominance_threshold": 5,
+            "first_certified_progression_exponent": 11,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 2,
+            "post_reference_word_prefix": [
+              3,
+              4
+            ],
+            "post_reference_word_length": 2,
+            "required_precision_bits": 9,
+            "progression_period_log2": 7,
+            "dominance_threshold": 9,
+            "first_certified_progression_exponent": 131,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 4,
+            "post_reference_word_prefix": [
+              3,
+              4,
+              2,
+              2
+            ],
+            "post_reference_word_length": 4,
+            "required_precision_bits": 13,
+            "progression_period_log2": 11,
+            "dominance_threshold": 10,
+            "first_certified_progression_exponent": 2051,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 8,
+            "post_reference_word_prefix": [
+              3,
+              4,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "post_reference_word_length": 8,
+            "required_precision_bits": 21,
+            "progression_period_log2": 19,
+            "dominance_threshold": 13,
+            "first_certified_progression_exponent": 524291,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 16,
+            "post_reference_word_prefix": [
+              3,
+              4,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "post_reference_word_length": 16,
+            "required_precision_bits": 37,
+            "progression_period_log2": 35,
+            "dominance_threshold": 19,
+            "first_certified_progression_exponent": 34359738371,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 32,
+            "post_reference_word_prefix": [
+              3,
+              4,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "post_reference_word_length": 32,
+            "required_precision_bits": 69,
+            "progression_period_log2": 67,
+            "dominance_threshold": 30,
+            "first_certified_progression_exponent": 147573952589676412931,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 64,
+            "post_reference_word_prefix": [
+              3,
+              4,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "post_reference_word_length": 64,
+            "required_precision_bits": 133,
+            "progression_period_log2": 131,
+            "dominance_threshold": 53,
+            "first_certified_progression_exponent": 2722258935367507707706996859454145691651,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 128,
+            "post_reference_word_prefix": [
+              3,
+              4,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "post_reference_word_length": 128,
+            "required_precision_bits": 261,
+            "progression_period_log2": 259,
+            "dominance_threshold": 98,
+            "first_certified_progression_exponent": 926336713898529563388567880069503262826159877325124512315660672063305037119491,
+            "total_failure_count": 0
+          }
+        ]
+      },
+      "computational_failure_count": 0,
+      "theorem_status": "fixed_mersenne_compensation_window_refuted_exactly_no_collatz_resolution",
+      "rejected_candidate_families": [
+        {
+          "family": "constant_post_expansion_compensation_window",
+          "status": "refuted_by_explicit_infinite_exponent_progressions",
+          "counteredge": "For every fixed H, an infinite progression of exponents preserves H post-block valuations and remains above the start throughout the window."
+        },
+        {
+          "family": "finite_parity_prefix_implies_uniform_mersenne_descent",
+          "status": "refuted_by_two_adic_prefix_replication",
+          "counteredge": "Every fixed reference prefix repeats on an exponent progression while Archimedean size grows without bound."
+        },
+        {
+          "family": "bounded_lookahead_least_counterexample_contradiction",
+          "status": "refuted_on_the_mersenne_subfamily",
+          "counteredge": "No bounded post-expansion lookahead supplies a uniform descent contradiction even on Mersenne starts."
+        }
+      ],
+      "discarded_route": "Choose any constant number of post-expansion accelerated steps and claim that this bounded lookahead must repay the Mersenne expansion for every exponent.",
+      "retained_route": "Any valid Mersenne compensation theorem must use an unbounded exponent-dependent window L(k), or a different global invariant that is not determined by a fixed finite valuation prefix.",
+      "candidate_theorem": "MersenneGrowingWindowDescent: find an explicit unbounded L(k), preferably with a proved asymptotic upper bound, such that some A^(k+t)(2^k-1)<2^k-1 for 0<=t<=L(k).",
+      "next_theorem_target": "MersenneGrowingWindowDescent",
+      "equivalence_warning": "The theorem proves unbounded post-expansion stopping delay on a Mersenne subfamily, not divergence. An exponent-dependent descent theorem for Mersenne starts would still not prove Collatz for all integers.",
+      "literature_context": [
+        {
+          "citation": "Terras, A stopping time problem on the positive integers, Acta Arithmetica 30 (1976)",
+          "url": "https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/en/publishing-house/journals-and-series/acta-arithmetica/all/30/3/101028/a-stopping-time-problem-on-the-positive-integers",
+          "role": "Established stopping-time and finite parity-prefix context."
+        },
+        {
+          "citation": "Bernstein and Lagarias, The 3x+1 Conjugacy Map, Canadian Journal of Mathematics 48 (1996)",
+          "url": "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/3x-1-conjugacy-map/6975BB4A8C46CF6842217043AAF9EC13",
+          "role": "Established 2-adic finite-prefix and conjugacy context."
+        },
+        {
+          "citation": "Lagarias, The 3x+1 Problem: An Overview (2021)",
+          "url": "https://arxiv.org/abs/2111.02635",
+          "role": "Survey context for claim boundaries and the unresolved global problem."
+        }
+      ],
+      "novelty_boundary": "Finite parity-prefix periodicity and 2-adic continuity are established. PrimeProject claims only the explicit Mersenne-exponent progression corollary, fixed-window no-go formulation, and reproducible symbolic audit; a stronger novelty claim requires dedicated literature and peer review.",
+      "proof_boundary": "TICKET82 proves a restricted unbounded-delay theorem. It neither constructs a divergent orbit nor proves or disproves the Collatz conjecture."
+    }
+  },
+  "obstruction": "Choose any constant number of post-expansion accelerated steps and claim that this bounded lookahead must repay the Mersenne expansion for every exponent.",
+  "candidate_theorem": "MersenneGrowingWindowDescent: find an explicit unbounded L(k), preferably with a proved asymptotic upper bound, such that some A^(k+t)(2^k-1)<2^k-1 for 0<=t<=L(k).",
+  "next_experiment": "Build TICKET83 around growing exponent-dependent windows and lower/upper bounds for their necessary scale.",
+  "claim_boundary": "No Collatz proof and no certified divergent Collatz counterexample."
+}

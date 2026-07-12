@@ -1,0 +1,230 @@
+{
+  "schema": "primeproject.ticket83-mersenne-log-window-lower-bound-lab.v1",
+  "generated_at": "2026-07-11T20:05:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-83",
+  "route": "MersenneHalfLogDelayLowerBound",
+  "status": "mersenne_sub_half_log_window_refuted_exactly_no_collatz_resolution",
+  "proof_or_counterexample_mode": "explicit exponent sequence plus exact logarithmic delay inequality",
+  "attempt": "Quantify the minimum growth scale of a universal post-expansion Mersenne descent window.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-82",
+    "mersenne_log_window_lower_bound_audit": {
+      "theorem_name": "MersenneHalfLogDelayLowerBound",
+      "source_ticket": "CO-TICKET-82",
+      "delay_definition": "D(k)=min{t>=0: A^(k+t)(2^k-1)<2^k-1}, with D(k)=infinity if the set is empty.",
+      "explicit_sequence": "k_H=3+2^(2H+3), H>=2",
+      "statement": "For every H>=2, D(k_H)>H>(1/2)*log2(k_H)-2. Consequently every o(log k) post-expansion descent window, and every c*log2(k) window with c<1/2, fails on infinitely many Mersenne exponents.",
+      "proof_chain": [
+        "TICKET82 preserves the exact post-compensation valuation word 3,4,2,...,2 through H whenever k=3 mod 2^(2H+3).",
+        "The explicit exponent k_H=3+2^(2H+3) lies in that progression.",
+        "The symbolic iterates are x_t(k)=(3^(k+t)+c_t)/2^d_t with d_0=1, d_1=4, and d_t=2t+4 for t>=2.",
+        "Direct bases and induction give |c_t|<2^d_t: after t>=2, c_(t+1)=3c_t+2^d_t<2^(d_t+2)=2^d_(t+1).",
+        "For H>=2, k_H>=4H+11. Since (3/2)^4>2^2 and (3/2)^11>2^5, (3/2)^k_H>2^(2H+5)>=2^(d_t+1).",
+        "Thus 3^(k_H+t)>2^(k_H+d_t)+|c_t| and x_t(k_H)>2^k_H-1 for every 0<=t<=H, proving D(k_H)>H.",
+        "Because k_H<2^(2H+4), one has H>(1/2)*log2(k_H)-2.",
+        "Any o(log k) window or c*log2(k) window with c<1/2 is eventually shorter than H on this explicit sequence and therefore cannot be a universal Mersenne descent window."
+      ],
+      "machine_audit": {
+        "min_horizon": 2,
+        "max_horizon": 256,
+        "horizon_case_count": 255,
+        "symbolic_state_count": 33150,
+        "total_failure_count": 0,
+        "samples": [
+          {
+            "horizon": 2,
+            "explicit_exponent": 131,
+            "progression_period_log2": 7,
+            "post_descent_delay_strict_lower_bound": 2,
+            "logarithmic_lower_bound": "delay > (1/2)*log2(k_H)-2",
+            "maximum_denominator_power": 8,
+            "symbolic_state_count": 3,
+            "progression_failure_count": 0,
+            "denominator_failure_count": 0,
+            "constant_bound_failure_count": 0,
+            "prefix_shape_failure_count": 0,
+            "growth_proof_failure_count": 0,
+            "logarithmic_bound_failure_count": 0,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 3,
+            "explicit_exponent": 515,
+            "progression_period_log2": 9,
+            "post_descent_delay_strict_lower_bound": 3,
+            "logarithmic_lower_bound": "delay > (1/2)*log2(k_H)-2",
+            "maximum_denominator_power": 10,
+            "symbolic_state_count": 4,
+            "progression_failure_count": 0,
+            "denominator_failure_count": 0,
+            "constant_bound_failure_count": 0,
+            "prefix_shape_failure_count": 0,
+            "growth_proof_failure_count": 0,
+            "logarithmic_bound_failure_count": 0,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 4,
+            "explicit_exponent": 2051,
+            "progression_period_log2": 11,
+            "post_descent_delay_strict_lower_bound": 4,
+            "logarithmic_lower_bound": "delay > (1/2)*log2(k_H)-2",
+            "maximum_denominator_power": 12,
+            "symbolic_state_count": 5,
+            "progression_failure_count": 0,
+            "denominator_failure_count": 0,
+            "constant_bound_failure_count": 0,
+            "prefix_shape_failure_count": 0,
+            "growth_proof_failure_count": 0,
+            "logarithmic_bound_failure_count": 0,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 8,
+            "explicit_exponent": 524291,
+            "progression_period_log2": 19,
+            "post_descent_delay_strict_lower_bound": 8,
+            "logarithmic_lower_bound": "delay > (1/2)*log2(k_H)-2",
+            "maximum_denominator_power": 20,
+            "symbolic_state_count": 9,
+            "progression_failure_count": 0,
+            "denominator_failure_count": 0,
+            "constant_bound_failure_count": 0,
+            "prefix_shape_failure_count": 0,
+            "growth_proof_failure_count": 0,
+            "logarithmic_bound_failure_count": 0,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 16,
+            "explicit_exponent": 34359738371,
+            "progression_period_log2": 35,
+            "post_descent_delay_strict_lower_bound": 16,
+            "logarithmic_lower_bound": "delay > (1/2)*log2(k_H)-2",
+            "maximum_denominator_power": 36,
+            "symbolic_state_count": 17,
+            "progression_failure_count": 0,
+            "denominator_failure_count": 0,
+            "constant_bound_failure_count": 0,
+            "prefix_shape_failure_count": 0,
+            "growth_proof_failure_count": 0,
+            "logarithmic_bound_failure_count": 0,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 32,
+            "explicit_exponent": 147573952589676412931,
+            "progression_period_log2": 67,
+            "post_descent_delay_strict_lower_bound": 32,
+            "logarithmic_lower_bound": "delay > (1/2)*log2(k_H)-2",
+            "maximum_denominator_power": 68,
+            "symbolic_state_count": 33,
+            "progression_failure_count": 0,
+            "denominator_failure_count": 0,
+            "constant_bound_failure_count": 0,
+            "prefix_shape_failure_count": 0,
+            "growth_proof_failure_count": 0,
+            "logarithmic_bound_failure_count": 0,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 64,
+            "explicit_exponent": 2722258935367507707706996859454145691651,
+            "progression_period_log2": 131,
+            "post_descent_delay_strict_lower_bound": 64,
+            "logarithmic_lower_bound": "delay > (1/2)*log2(k_H)-2",
+            "maximum_denominator_power": 132,
+            "symbolic_state_count": 65,
+            "progression_failure_count": 0,
+            "denominator_failure_count": 0,
+            "constant_bound_failure_count": 0,
+            "prefix_shape_failure_count": 0,
+            "growth_proof_failure_count": 0,
+            "logarithmic_bound_failure_count": 0,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 128,
+            "explicit_exponent": 926336713898529563388567880069503262826159877325124512315660672063305037119491,
+            "progression_period_log2": 259,
+            "post_descent_delay_strict_lower_bound": 128,
+            "logarithmic_lower_bound": "delay > (1/2)*log2(k_H)-2",
+            "maximum_denominator_power": 260,
+            "symbolic_state_count": 129,
+            "progression_failure_count": 0,
+            "denominator_failure_count": 0,
+            "constant_bound_failure_count": 0,
+            "prefix_shape_failure_count": 0,
+            "growth_proof_failure_count": 0,
+            "logarithmic_bound_failure_count": 0,
+            "total_failure_count": 0
+          },
+          {
+            "horizon": 256,
+            "explicit_exponent": 107262463439540776796592199985646769019834926564739147021788491549774112240588375814414994385335227421520254865491888406830031062495572559571469192048672771,
+            "progression_period_log2": 515,
+            "post_descent_delay_strict_lower_bound": 256,
+            "logarithmic_lower_bound": "delay > (1/2)*log2(k_H)-2",
+            "maximum_denominator_power": 516,
+            "symbolic_state_count": 257,
+            "progression_failure_count": 0,
+            "denominator_failure_count": 0,
+            "constant_bound_failure_count": 0,
+            "prefix_shape_failure_count": 0,
+            "growth_proof_failure_count": 0,
+            "logarithmic_bound_failure_count": 0,
+            "total_failure_count": 0
+          }
+        ]
+      },
+      "computational_failure_count": 0,
+      "theorem_status": "mersenne_sub_half_log_window_refuted_exactly_no_collatz_resolution",
+      "rejected_candidate_families": [
+        {
+          "family": "sub_half_logarithmic_mersenne_window",
+          "status": "refuted_by_explicit_k_H_sequence",
+          "counteredge": "D(k_H)>H>(1/2)log2(k_H)-2 on the infinite sequence k_H=3+2^(2H+3)."
+        },
+        {
+          "family": "little_o_log_mersenne_window",
+          "status": "refuted_asymptotically",
+          "counteredge": "Every o(log k) window is eventually below the certified H delay along k_H."
+        },
+        {
+          "family": "log_window_coefficient_below_one_half",
+          "status": "refuted_asymptotically",
+          "counteredge": "Every c log2(k) window with fixed c<1/2 is eventually shorter than H along k_H."
+        }
+      ],
+      "discarded_route": "Attempt a universal Mersenne descent theorem with a post-expansion window growing slower than one half of log2(k), up to an additive constant.",
+      "retained_route": "Search at logarithmic scale or above, improve the lower-bound coefficient by optimizing reference valuation words, and separately seek a proved upper bound for Mersenne descent.",
+      "candidate_theorem": "MersenneLogWindowDichotomy: determine the optimal lower-bound coefficient alpha for explicit delayed Mersenne subsequences and prove or refute a finite logarithmic upper coefficient beta for all exponents.",
+      "next_theorem_target": "MersenneLogWindowDichotomy",
+      "equivalence_warning": "A lower bound on finite descent delay does not imply divergence. An upper bound only for Mersenne starts would remain a restricted family theorem, not the full Collatz conjecture.",
+      "literature_context": [
+        {
+          "citation": "Terras, A stopping time problem on the positive integers, Acta Arithmetica 30 (1976)",
+          "url": "https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/en/publishing-house/journals-and-series/acta-arithmetica/all/30/3/101028/a-stopping-time-problem-on-the-positive-integers",
+          "role": "Established stopping-time and finite parity-prefix framework."
+        },
+        {
+          "citation": "Inselmann, An approximation of the Collatz map and a lower bound for the average total stopping time (2024)",
+          "url": "https://arxiv.org/abs/2402.03276",
+          "role": "Modern logarithmic-scale stopping-time context; it does not supply this Mersenne subsequence theorem."
+        },
+        {
+          "citation": "Bernstein and Lagarias, The 3x+1 Conjugacy Map, Canadian Journal of Mathematics 48 (1996)",
+          "url": "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/3x-1-conjugacy-map/6975BB4A8C46CF6842217043AAF9EC13",
+          "role": "Established 2-adic finite-prefix context used by TICKET82."
+        }
+      ],
+      "novelty_boundary": "The underlying finite-prefix periodicity is established. PrimeProject claims only the explicit k_H quantitative corollary, half-log window no-go, and reproducible audit. Literature completeness and novelty require independent systematic review.",
+      "proof_boundary": "TICKET83 proves a restricted lower bound for finite post-expansion descent delay. It proves neither a divergent Collatz orbit nor any of the four open problems."
+    }
+  },
+  "obstruction": "Attempt a universal Mersenne descent theorem with a post-expansion window growing slower than one half of log2(k), up to an additive constant.",
+  "candidate_theorem": "MersenneLogWindowDichotomy: determine the optimal lower-bound coefficient alpha for explicit delayed Mersenne subsequences and prove or refute a finite logarithmic upper coefficient beta for all exponents.",
+  "next_experiment": "Build TICKET84 to optimize the lower coefficient and search for a rigorous logarithmic upper coefficient.",
+  "claim_boundary": "No Collatz proof and no certified divergent Collatz counterexample."
+}

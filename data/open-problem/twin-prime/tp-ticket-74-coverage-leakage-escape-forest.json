@@ -1,0 +1,25 @@
+{
+  "schema": "primeproject.ticket74-coverage-leakage-escape-forest-lab.v1",
+  "generated_at": "2026-07-10T09:10:00+09:00",
+  "status": "proof_pressure_open",
+  "attempt": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-74",
+    "status": "proof_pressure_open",
+    "route": "ExactGapCoverageLeakageAudit",
+    "proof_or_counterexample_mode": "coverage-leakage proof discipline",
+    "attempt": "Apply the TICKET74 correction: a bounded frontier that appears extinct under one predicate may leak into uncovered states, so coverage and successor closure must be proven before a finite result is promoted.",
+    "bounded_result": {
+      "source_ticket": "TP-TICKET-73",
+      "source_route": "GapFrontierCoverageAndAllScaleDecision",
+      "ticket74_transfer": "ExactGapCoverageLeakageAudit",
+      "candidate_theorem": "Every sieve frontier packet is covered by an exact gap-2 mass lower bound, or an escaping parity/deletion packet is isolated.",
+      "counterexample_target": "an all-scale sieve packet that escapes every exact gap-2 mass cover"
+    },
+    "obstruction": "This transfer is a proof obligation, not evidence that the target conjecture is solved.",
+    "candidate_theorem": "Every sieve frontier packet is covered by an exact gap-2 mass lower bound, or an escaping parity/deletion packet is isolated.",
+    "next_experiment": "Prove a problem-specific global frontier cover before interpreting bounded extinction as a theorem.",
+    "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+  },
+  "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+}

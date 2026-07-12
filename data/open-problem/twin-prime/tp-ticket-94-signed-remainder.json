@@ -1,0 +1,120 @@
+{
+  "schema": "primeproject.ticket94-signed-remainder-and-goldbach-bridge.v1",
+  "generated_at": "2026-07-12T17:45:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-94",
+  "route": "TwinShiftTwoSignedRemainderIdentityAndNormOnlyNoGo",
+  "status": "signed_remainder_identity_and_norm_only_no_go_proved_no_twin_prime_resolution",
+  "proof_or_counterexample_mode": "exact signed residual decomposition plus norm-only lower-bound falsification",
+  "attempt": "Turn TICKET93's Type II requirement into an explicit signed remainder budget and test whether L2 approximation alone can close it.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-93",
+    "twin_signed_remainder_audit": {
+      "theorem_name": "TwinShiftTwoSignedRemainderIdentityAndNormOnlyNoGo",
+      "source_ticket": "TP-TICKET-93",
+      "exact_decomposition": {
+        "coordinate": "Lambda=alpha_R Lambda_R+E_R, with alpha_R chosen by least squares on the audited interval.",
+        "identity": "C_2=alpha_R^2<A,A_shift>+alpha_R<A,E_shift>+alpha_R<E,A_shift>+<E,E_shift>.",
+        "signed_remainder": "D_R=alpha_R<A,E_shift>+alpha_R<E,A_shift>+<E,E_shift> must be bounded from below jointly."
+      },
+      "norm_only_no_go": {
+        "cauchy_bound": "C_2>=alpha^2<A,A_shift>-|alpha| ||A|| ||E_shift||-|alpha| ||E|| ||A_shift||-||E|| ||E_shift||.",
+        "audit_result": "Every tested truncation has positive exact correlation but a negative norm-only lower bound.",
+        "logical_reason": "Norm information is invariant under adversarial residual sign changes and cannot recover the required one-sided shifted cancellation unless the residual is much smaller than observed.",
+        "consequence": "A useful theorem must estimate the combined signed remainder D_R, not its three terms by absolute value."
+      },
+      "machine_audit": {
+        "limit": 200000,
+        "truncation_count": 4,
+        "exact_correlation": 264287.70787028514,
+        "positive_norm_lower_bound_count": 0,
+        "decomposition_failure_count": 0,
+        "norm_route_failure_count": 0,
+        "total_failure_count": 0,
+        "rows": [
+          {
+            "truncation": 10,
+            "least_squares_alpha": 1.272948218433421,
+            "surrogate_main_term": 444961.4078569613,
+            "signed_cross_left": -70855.87562249294,
+            "signed_cross_right": -71688.76817946036,
+            "signed_residual_shift": -38129.05618442107,
+            "combined_signed_remainder": -180673.69998637435,
+            "reconstructed_exact_correlation": 264287.70787058695,
+            "exact_correlation": 264287.70787028514,
+            "decomposition_error": 3.018067218363285e-07,
+            "norm_only_lower_bound": -3176137.000312362,
+            "norm_only_route_blocked": true,
+            "relative_residual_norm": 0.8591545638533137
+          },
+          {
+            "truncation": 30,
+            "least_squares_alpha": 1.1974341602752412,
+            "surrogate_main_term": 422608.7721335673,
+            "signed_cross_left": -79176.23849178104,
+            "signed_cross_right": -80454.13770780312,
+            "signed_residual_shift": 1309.3119363204596,
+            "combined_signed_remainder": -158321.06426326372,
+            "reconstructed_exact_correlation": 264287.7078703036,
+            "exact_correlation": 264287.70787028514,
+            "decomposition_error": 1.8451828509569168e-08,
+            "norm_only_lower_bound": -3155832.689549663,
+            "norm_only_route_blocked": true,
+            "relative_residual_norm": 0.7976156132628969
+          },
+          {
+            "truncation": 100,
+            "least_squares_alpha": 1.1458447204736595,
+            "surrogate_main_term": 369592.04803483543,
+            "signed_cross_left": -55638.91213798988,
+            "signed_cross_right": -57579.10019103873,
+            "signed_residual_shift": 7913.672164468565,
+            "combined_signed_remainder": -105304.34016456004,
+            "reconstructed_exact_correlation": 264287.70787027536,
+            "exact_correlation": 264287.70787028514,
+            "decomposition_error": 9.778887033462524e-09,
+            "norm_only_lower_bound": -3049191.8426129073,
+            "norm_only_route_blocked": true,
+            "relative_residual_norm": 0.7271289065375278
+          },
+          {
+            "truncation": 300,
+            "least_squares_alpha": 1.1166540199618398,
+            "surrogate_main_term": 337240.6151671888,
+            "signed_cross_left": -38020.45393787086,
+            "signed_cross_right": -40299.93878721965,
+            "signed_residual_shift": 5367.485428192699,
+            "combined_signed_remainder": -72952.90729689781,
+            "reconstructed_exact_correlation": 264287.707870291,
+            "exact_correlation": 264287.70787028514,
+            "decomposition_error": 5.878973752260208e-09,
+            "norm_only_lower_bound": -2846036.3742133854,
+            "norm_only_route_blocked": true,
+            "relative_residual_norm": 0.6567684231325406
+          }
+        ]
+      },
+      "theorem_status": "signed_remainder_identity_and_norm_only_no_go_proved_no_twin_prime_resolution",
+      "discarded_routes": [
+        {
+          "route": "three_separate_cauchy_bounds",
+          "status": "too_weak",
+          "counteredge": "All four certified norm-only lower bounds are negative."
+        },
+        {
+          "route": "least_squares_fit_implies_shifted_lower_bound",
+          "status": "invalid",
+          "counteredge": "Small unshifted L2 error does not determine the sign of shifted residual correlations."
+        }
+      ],
+      "retained_route": "Estimate D_R as one signed Type II object using arithmetic cancellation before applying absolute values.",
+      "candidate_theorem": "JointShiftTwoSignedRemainderLowerBound: D_R(x)>=-alpha_R^2 S_R(x)+B(x)+omega(x) with omega(x) unbounded.",
+      "next_theorem_target": "JointShiftTwoSignedRemainderLowerBound",
+      "proof_boundary": "TICKET94 proves an exact decomposition and a norm-only proof-route no-go. It does not prove the signed remainder lower bound or Twin Prime."
+    }
+  },
+  "obstruction": "Every tested truncation has positive exact correlation but a negative norm-only lower bound.",
+  "candidate_theorem": "JointShiftTwoSignedRemainderLowerBound: D_R(x)>=-alpha_R^2 S_R(x)+B(x)+omega(x) with omega(x) unbounded.",
+  "next_experiment": "Build TICKET95 around a joint signed remainder estimate before Cauchy separation.",
+  "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+}

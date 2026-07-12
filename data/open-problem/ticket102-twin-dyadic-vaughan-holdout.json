@@ -1,0 +1,464 @@
+{
+  "schema": "primeproject.ticket102-twin-dyadic-vaughan-holdout.v1",
+  "generated_at": "2026-07-13T09:20:00+09:00",
+  "status": "finite_1p40_plus_0p18_candidate_refuted_on_post_selection_holdout",
+  "claim_boundary": "TICKET102 is an out-of-selection finite falsification audit. It proves neither Twin Prime nor any of the other three conjectures and certifies no conjecture counterexample.",
+  "twin_dyadic_vaughan_holdout": {
+    "theorem_name": "DyadicScaleLocalSeparatedVaughanTwinBudgetAudit",
+    "source_ticket": "TICKET-101",
+    "dyadic_holdout_audit": {
+      "schedule": "X doubles; U(X)=round(X^(1/3)); V(X)=round(0.84 U(X)); audit every x in (X/2,X]",
+      "selection_boundary": "The ratio 0.84 and budgets 1.40/0.18 were selected at or below 1M; only horizons above 1M are post-selection holdouts.",
+      "tail_coverage_start": 62501,
+      "tail_coverage_end": 4000000,
+      "row_count": 6,
+      "calibration_row_count": 4,
+      "holdout_row_count": 2,
+      "holdout_evaluated_count": 3000000,
+      "holdout_structured_failure_count": 1000000,
+      "holdout_type_ii_failure_count": 0,
+      "noncollapse_failure_count": 0,
+      "reconstruction_failure_count": 0,
+      "worst_structured_row": {
+        "horizon": 125000,
+        "holdout_start": 62501,
+        "holdout_end": 125000,
+        "evaluated_count": 62500,
+        "u": 50,
+        "v": 42,
+        "cutoff_ratio": 0.84,
+        "uv_over_horizon": 0.0168,
+        "type_ii_support_count": 31087,
+        "type_ii_support_fraction": 0.24869401044791642,
+        "noncollapse_contract_passes": true,
+        "structured": {
+          "budget": 1.4,
+          "failure_count": 62500,
+          "maximum_row": {
+            "x": 124120,
+            "required_log_envelope_constant": 3.25189185892533,
+            "contribution_over_external_main": -0.2772521712886849
+          }
+        },
+        "type_ii": {
+          "budget": 0.18,
+          "failure_count": 0,
+          "maximum_row": {
+            "x": 62501,
+            "required_log_envelope_constant": 0.0,
+            "contribution_over_external_main": 0.19601956233498288
+          }
+        },
+        "separate_budget_sum": 1.5799999999999998,
+        "observed_maximum_sum": 3.25189185892533,
+        "joint_reconstruction_max_absolute_error": 2.3283064365386963e-10,
+        "joint_reconstruction_max_relative_error": 1.4087111848537968e-15,
+        "lambda_reconstruction_max_error": 0.0,
+        "split": "calibration_replay"
+      },
+      "worst_type_ii_row": {
+        "horizon": 125000,
+        "holdout_start": 62501,
+        "holdout_end": 125000,
+        "evaluated_count": 62500,
+        "u": 50,
+        "v": 42,
+        "cutoff_ratio": 0.84,
+        "uv_over_horizon": 0.0168,
+        "type_ii_support_count": 31087,
+        "type_ii_support_fraction": 0.24869401044791642,
+        "noncollapse_contract_passes": true,
+        "structured": {
+          "budget": 1.4,
+          "failure_count": 62500,
+          "maximum_row": {
+            "x": 124120,
+            "required_log_envelope_constant": 3.25189185892533,
+            "contribution_over_external_main": -0.2772521712886849
+          }
+        },
+        "type_ii": {
+          "budget": 0.18,
+          "failure_count": 0,
+          "maximum_row": {
+            "x": 62501,
+            "required_log_envelope_constant": 0.0,
+            "contribution_over_external_main": 0.19601956233498288
+          }
+        },
+        "separate_budget_sum": 1.5799999999999998,
+        "observed_maximum_sum": 3.25189185892533,
+        "joint_reconstruction_max_absolute_error": 2.3283064365386963e-10,
+        "joint_reconstruction_max_relative_error": 1.4087111848537968e-15,
+        "lambda_reconstruction_max_error": 0.0,
+        "split": "calibration_replay"
+      },
+      "rows": [
+        {
+          "horizon": 125000,
+          "holdout_start": 62501,
+          "holdout_end": 125000,
+          "evaluated_count": 62500,
+          "u": 50,
+          "v": 42,
+          "cutoff_ratio": 0.84,
+          "uv_over_horizon": 0.0168,
+          "type_ii_support_count": 31087,
+          "type_ii_support_fraction": 0.24869401044791642,
+          "noncollapse_contract_passes": true,
+          "structured": {
+            "budget": 1.4,
+            "failure_count": 62500,
+            "maximum_row": {
+              "x": 124120,
+              "required_log_envelope_constant": 3.25189185892533,
+              "contribution_over_external_main": -0.2772521712886849
+            }
+          },
+          "type_ii": {
+            "budget": 0.18,
+            "failure_count": 0,
+            "maximum_row": {
+              "x": 62501,
+              "required_log_envelope_constant": 0.0,
+              "contribution_over_external_main": 0.19601956233498288
+            }
+          },
+          "separate_budget_sum": 1.5799999999999998,
+          "observed_maximum_sum": 3.25189185892533,
+          "joint_reconstruction_max_absolute_error": 2.3283064365386963e-10,
+          "joint_reconstruction_max_relative_error": 1.4087111848537968e-15,
+          "lambda_reconstruction_max_error": 0.0,
+          "split": "calibration_replay"
+        },
+        {
+          "horizon": 250000,
+          "holdout_start": 125001,
+          "holdout_end": 250000,
+          "evaluated_count": 125000,
+          "u": 63,
+          "v": 53,
+          "cutoff_ratio": 0.84,
+          "uv_over_horizon": 0.013356,
+          "type_ii_support_count": 61890,
+          "type_ii_support_fraction": 0.24755900976396095,
+          "noncollapse_contract_passes": true,
+          "structured": {
+            "budget": 1.4,
+            "failure_count": 125000,
+            "maximum_row": {
+              "x": 216448,
+              "required_log_envelope_constant": 2.371340611020093,
+              "contribution_over_external_main": -0.1930256593436081
+            }
+          },
+          "type_ii": {
+            "budget": 0.18,
+            "failure_count": 0,
+            "maximum_row": {
+              "x": 125001,
+              "required_log_envelope_constant": 0.0,
+              "contribution_over_external_main": 0.12336737916224261
+            }
+          },
+          "separate_budget_sum": 1.5799999999999998,
+          "observed_maximum_sum": 2.371340611020093,
+          "joint_reconstruction_max_absolute_error": 6.984919309616089e-10,
+          "joint_reconstruction_max_relative_error": 2.1980012920295963e-15,
+          "lambda_reconstruction_max_error": 0.0,
+          "split": "calibration_replay"
+        },
+        {
+          "horizon": 500000,
+          "holdout_start": 250001,
+          "holdout_end": 500000,
+          "evaluated_count": 250000,
+          "u": 79,
+          "v": 66,
+          "cutoff_ratio": 0.84,
+          "uv_over_horizon": 0.010428,
+          "type_ii_support_count": 126115,
+          "type_ii_support_fraction": 0.25222949554100893,
+          "noncollapse_contract_passes": true,
+          "structured": {
+            "budget": 1.4,
+            "failure_count": 250000,
+            "maximum_row": {
+              "x": 498224,
+              "required_log_envelope_constant": 2.680962995568406,
+              "contribution_over_external_main": -0.20436030450317522
+            }
+          },
+          "type_ii": {
+            "budget": 0.18,
+            "failure_count": 0,
+            "maximum_row": {
+              "x": 250001,
+              "required_log_envelope_constant": 0.0,
+              "contribution_over_external_main": 0.12648004160603177
+            }
+          },
+          "separate_budget_sum": 1.5799999999999998,
+          "observed_maximum_sum": 2.680962995568406,
+          "joint_reconstruction_max_absolute_error": 3.958120942115784e-09,
+          "joint_reconstruction_max_relative_error": 6.370863611549674e-15,
+          "lambda_reconstruction_max_error": 0.0,
+          "split": "calibration_replay"
+        },
+        {
+          "horizon": 1000000,
+          "holdout_start": 500001,
+          "holdout_end": 1000000,
+          "evaluated_count": 500000,
+          "u": 100,
+          "v": 84,
+          "cutoff_ratio": 0.84,
+          "uv_over_horizon": 0.0084,
+          "type_ii_support_count": 244203,
+          "type_ii_support_fraction": 0.2442027557972442,
+          "noncollapse_contract_passes": true,
+          "structured": {
+            "budget": 1.4,
+            "failure_count": 0,
+            "maximum_row": {
+              "x": 817634,
+              "required_log_envelope_constant": 0.7899166671287179,
+              "contribution_over_external_main": -0.05802165408031977
+            }
+          },
+          "type_ii": {
+            "budget": 0.18,
+            "failure_count": 0,
+            "maximum_row": {
+              "x": 500001,
+              "required_log_envelope_constant": 0.0,
+              "contribution_over_external_main": 0.0076276677679041425
+            }
+          },
+          "separate_budget_sum": 1.5799999999999998,
+          "observed_maximum_sum": 0.7899166671287179,
+          "joint_reconstruction_max_absolute_error": 1.234002411365509e-08,
+          "joint_reconstruction_max_relative_error": 9.724024867846785e-15,
+          "lambda_reconstruction_max_error": 0.0,
+          "split": "calibration_replay"
+        },
+        {
+          "horizon": 2000000,
+          "holdout_start": 1000001,
+          "holdout_end": 2000000,
+          "evaluated_count": 1000000,
+          "u": 126,
+          "v": 106,
+          "cutoff_ratio": 0.84,
+          "uv_over_horizon": 0.006678,
+          "type_ii_support_count": 485059,
+          "type_ii_support_fraction": 0.24252937873531064,
+          "noncollapse_contract_passes": true,
+          "structured": {
+            "budget": 1.4,
+            "failure_count": 1000000,
+            "maximum_row": {
+              "x": 1976714,
+              "required_log_envelope_constant": 1.9531717027269588,
+              "contribution_over_external_main": -0.13472986966047906
+            }
+          },
+          "type_ii": {
+            "budget": 0.18,
+            "failure_count": 0,
+            "maximum_row": {
+              "x": 1000001,
+              "required_log_envelope_constant": 0.0,
+              "contribution_over_external_main": 0.0742411212343754
+            }
+          },
+          "separate_budget_sum": 1.5799999999999998,
+          "observed_maximum_sum": 1.9531717027269588,
+          "joint_reconstruction_max_absolute_error": 1.862645149230957e-08,
+          "joint_reconstruction_max_relative_error": 6.99994199443413e-15,
+          "lambda_reconstruction_max_error": 0.0,
+          "split": "post_selection_holdout"
+        },
+        {
+          "horizon": 4000000,
+          "holdout_start": 2000001,
+          "holdout_end": 4000000,
+          "evaluated_count": 2000000,
+          "u": 159,
+          "v": 134,
+          "cutoff_ratio": 0.84,
+          "uv_over_horizon": 0.0053265,
+          "type_ii_support_count": 956609,
+          "type_ii_support_fraction": 0.23915219021195244,
+          "noncollapse_contract_passes": true,
+          "structured": {
+            "budget": 1.4,
+            "failure_count": 0,
+            "maximum_row": {
+              "x": 3977336,
+              "required_log_envelope_constant": 1.0979171685138223,
+              "contribution_over_external_main": -0.07224982204344794
+            }
+          },
+          "type_ii": {
+            "budget": 0.18,
+            "failure_count": 0,
+            "maximum_row": {
+              "x": 2000001,
+              "required_log_envelope_constant": 0.0,
+              "contribution_over_external_main": 0.04070400238156141
+            }
+          },
+          "separate_budget_sum": 1.5799999999999998,
+          "observed_maximum_sum": 1.0979171685138223,
+          "joint_reconstruction_max_absolute_error": 3.3993273973464966e-08,
+          "joint_reconstruction_max_relative_error": 1.0205702888407085e-14,
+          "lambda_reconstruction_max_error": 0.0,
+          "split": "post_selection_holdout"
+        }
+      ]
+    },
+    "registered_candidate_status": "finite_1p40_plus_0p18_candidate_refuted_on_post_selection_holdout",
+    "fresh_rescue_holdout": {
+      "selection_rule": "After the 1.40 budget failed by requiring 1.953 below 4M, pre-register coarse finite budgets K_S=4 and K_II=1, then evaluate the previously unseen 8M block.",
+      "row": {
+        "horizon": 8000000,
+        "holdout_start": 4000001,
+        "holdout_end": 8000000,
+        "evaluated_count": 4000000,
+        "u": 200,
+        "v": 168,
+        "cutoff_ratio": 0.84,
+        "uv_over_horizon": 0.0042,
+        "type_ii_support_count": 1945112,
+        "type_ii_support_fraction": 0.2431389696076288,
+        "noncollapse_contract_passes": true,
+        "structured": {
+          "budget": 4.0,
+          "failure_count": 0,
+          "maximum_row": {
+            "x": 7981636,
+            "required_log_envelope_constant": 3.3067939659717025,
+            "contribution_over_external_main": -0.2080705950118762
+          }
+        },
+        "type_ii": {
+          "budget": 1.0,
+          "failure_count": 0,
+          "maximum_row": {
+            "x": 4000001,
+            "required_log_envelope_constant": 0.0,
+            "contribution_over_external_main": 0.1612769793621426
+          }
+        },
+        "separate_budget_sum": 5.0,
+        "observed_maximum_sum": 3.3067939659717025,
+        "joint_reconstruction_max_absolute_error": 1.8998980522155762e-07,
+        "joint_reconstruction_max_relative_error": 2.0394633864753222e-14,
+        "lambda_reconstruction_max_error": 0.0
+      },
+      "failure_count": 0,
+      "status": "coarse_finite_budget_survives_fresh_8m_holdout_not_a_theorem"
+    },
+    "constant_threshold_correction": {
+      "finding": "The former K=1.6 cutoff was a finite calibration threshold, not a mathematical sufficiency threshold.",
+      "exact_implication": "If structured >= -K_S M/log(x) and TypeII >= -K_II M/log(x) for any fixed finite K_S,K_II, then C_2(x)>=M(x)(1-(K_S+K_II)/log(x)).",
+      "why_sufficient": "The external local main is linear up to a lower-order modulus loss, while proper-prime-power contamination is o(x); hence any fixed finite K_S+K_II leaves genuine twin weight eventually positive and unbounded.",
+      "consequence": "Retire optimization against 1.6 as a proof gate. The real theorem asks for horizon-uniform finite constants with a noncollapsed Type II range."
+    },
+    "logical_upgrade": {
+      "sufficient_all_scale_statement": "There exist fixed finite K_S,K_II such that for every sufficiently large dyadic X and every x in (X/2,X], the scale-local structured and Type II residuals satisfy their K/log bounds.",
+      "coverage": "The dyadic blocks cover every sufficiently large integer x; an all-scale theorem plus the exact TICKET93 contamination bridge would imply twin-prime infinitude.",
+      "missing": "A finite holdout does not prove either uniform component inequality or break the parity barrier."
+    },
+    "literature_boundary": {
+      "ford_maynard": "Substantial Type II information is necessary in general prime-producing lower-bound sieves; finite component traces are not such an estimate.",
+      "green_tao": "Finite-complexity transference excludes affinely related binary forms such as n and n+2, so it does not supply this target."
+    },
+    "discarded_routes": [
+      "Treat the 1M-selected cutoff ratio as independent validation.",
+      "Audit only the terminal horizon instead of every x in a covering dyadic block.",
+      "Allow Type II support to collapse while calling the split a bilinear estimate.",
+      "Require K_S+K_II<=1.6 even though every fixed finite sum is asymptotically sufficient.",
+      "Infer a uniform theorem from stable finite constants."
+    ],
+    "next_theorem_target": "UniformFiniteDyadicSeparatedVaughanTwinBudgets",
+    "machine_audit": {
+      "maximum_horizon": 8000000,
+      "holdout_evaluated_count": 3000000,
+      "holdout_structured_failure_count": 1000000,
+      "holdout_type_ii_failure_count": 0,
+      "fresh_rescue_evaluated_count": 4000000,
+      "fresh_rescue_failure_count": 0,
+      "noncollapse_failure_count": 0,
+      "contract_failure_count": 0
+    },
+    "proof_boundary": "TICKET102 is an out-of-selection finite falsification audit. It proves neither Twin Prime nor any of the other three conjectures and certifies no conjecture counterexample."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-102",
+      "status": "problem_specific_priority_corrected_open",
+      "route": "IndependentKernelPositivityBeforeEnergyRewrite",
+      "proof_or_counterexample_mode": "problem-specific priority correction after Twin holdout audit",
+      "attempt": "Formalize one exact Weil/explicit-formula criterion and seek positivity not algebraically equivalent to RH.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-101",
+        "independent_target": "NonCircularExplicitFormulaKernelPositivity"
+      },
+      "obstruction": "TICKET102 supplies no new target-specific infinite theorem for this problem.",
+      "candidate_theorem": "NonCircularExplicitFormulaKernelPositivity",
+      "next_experiment": "Formalize one exact Weil/explicit-formula criterion and seek positivity not algebraically equivalent to RH.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-102",
+      "status": "problem_specific_priority_corrected_open",
+      "route": "GoldenMeanInvariantSetEscapePriorityCorrection",
+      "proof_or_counterexample_mode": "problem-specific priority correction after Twin holdout audit",
+      "attempt": "Restore the TICKET91 problem-specific target: prove escape of the exact 2-adic logarithm tail orbit from the no-00 subshift, or realize a compatible infinite avoiding path.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-101",
+        "independent_target": "GoldenMeanInvariantSetEscape"
+      },
+      "obstruction": "TICKET102 supplies no new target-specific infinite theorem for this problem.",
+      "candidate_theorem": "GoldenMeanInvariantSetEscape",
+      "next_experiment": "Restore the TICKET91 problem-specific target: prove escape of the exact 2-adic logarithm tail orbit from the no-00 subshift, or realize a compatible infinite avoiding path.",
+      "claim_boundary": "No collatz proof and no certified collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-102",
+      "status": "problem_specific_priority_corrected_open",
+      "route": "JointBalancedVaughanGoldbachPriority",
+      "proof_or_counterexample_mode": "problem-specific priority correction after Twin holdout audit",
+      "attempt": "Keep signed structured-plus-Type-II compensation and derive a uniform joint estimate with explicit cutoff; separated budgets remain refuted.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-101",
+        "independent_target": "JointBalancedVaughanGoldbachResidualEnvelope"
+      },
+      "obstruction": "TICKET102 supplies no new target-specific infinite theorem for this problem.",
+      "candidate_theorem": "JointBalancedVaughanGoldbachResidualEnvelope",
+      "next_experiment": "Keep signed structured-plus-Type-II compensation and derive a uniform joint estimate with explicit cutoff; separated budgets remain refuted.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-102",
+      "status": "finite_1p40_plus_0p18_candidate_refuted_on_post_selection_holdout",
+      "route": "DyadicScaleLocalSeparatedVaughanTwinBudgetAudit",
+      "proof_or_counterexample_mode": "post-selection dyadic exhaustive counterexample search",
+      "attempt": "Freeze the TICKET101 cutoff rule and component budgets before evaluating every x in unseen dyadic blocks above 1M.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-101",
+        "audit_ref": "twin_dyadic_vaughan_holdout"
+      },
+      "obstruction": "A finite holdout does not prove either uniform component inequality or break the parity barrier.",
+      "candidate_theorem": "UniformFiniteDyadicSeparatedVaughanTwinBudgets",
+      "next_experiment": "Retire the 1.40/0.18 thresholds, preserve the fresh K_S=4,K_II=1 falsification record, and derive any fixed finite analytic component bounds uniform on dyadic blocks.",
+      "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+    }
+  ]
+}

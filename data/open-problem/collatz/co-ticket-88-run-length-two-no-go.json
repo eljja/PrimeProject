@@ -1,0 +1,97 @@
+{
+  "schema": "primeproject.ticket88-run-length-two-no-go-lab.v1",
+  "generated_at": "2026-07-12T03:40:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-88",
+  "route": "TwoSidedDigitInfinitudeDoesNotForceRunLengthTwo",
+  "status": "run_length_two_inference_refuted_exactly_no_collatz_resolution",
+  "proof_or_counterexample_mode": "explicit symbolic countermodel plus exact complement-orbit audit",
+  "attempt": "Test and reject unjustified promotions from two-sided digit infinitude to additive-two Mersenne delay.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-87",
+    "run_length_two_no_go_audit": {
+      "theorem_name": "TwoSidedDigitInfinitudeDoesNotForceRunLengthTwo",
+      "source_ticket": "CO-TICKET-87",
+      "logical_countermodel": {
+        "definition": "b_n=0 exactly at square indices n=m^2 with m>=2; b_n=1 otherwise",
+        "horizon": 4096,
+        "zero_count": 63,
+        "one_count": 4034,
+        "adjacent_zero_count": 0,
+        "largest_zero_position": 4096,
+        "both_digits_infinite_proof": "There are infinitely many square and nonsquare indices.",
+        "no_double_zero_proof": "Consecutive squares m^2 and (m+1)^2 differ by 2m+1>1 for m>=2.",
+        "nonperiodic_proof": "Gaps between zero positions are 2m+1 and are unbounded, while an eventually periodic binary sequence with infinitely many zeros has bounded zero gaps."
+      },
+      "countermodel_statement": "Both digits occurring infinitely often, even together with non-eventual-periodicity, does not imply that 00 occurs at all. The square-zero binary sequence is an explicit countermodel to that inference.",
+      "complement_route_audit": {
+        "transform": "s=-r; for every bit h>=1, s_h=1-r_h",
+        "equation": "3^(s+1)=-9/7 and 3^s=-3/7",
+        "post_value": "x_0(s)=(3^s-1)/2=-5/7",
+        "transient": "-5/7 --3--> -1/7 --2--> 1/7 --1--> 5/7",
+        "eventual_cycle": "5/7 --1--> 11/7 --3--> 5/7",
+        "eventual_valuation_word": "1,3",
+        "eventual_mean_valuation": "2",
+        "eventual_reciprocal_mean": "1/2",
+        "horizon": 4096,
+        "bit_complement_failure_count": 0,
+        "equation_failure_count": 0,
+        "orbit_failure_count": 0,
+        "cycle_word_failure_count": 0,
+        "total_failure_count": 0
+      },
+      "complement_route_statement": "The natural bit-complement surrogate s=-r does exchange zero and one bits above bit zero, but its post-value -5/7 enters the valuation cycle (1,3) of mean 2. It therefore loses the coefficient-one cycle geometry and cannot transfer double-one recurrence into the desired additive-two Mersenne theorem.",
+      "finite_source_audit": {
+        "source_max_horizon": 262144,
+        "observed_run_length_two_or_more_count": 32753,
+        "longest_observed_zero_run": 16,
+        "source_prefix_sha256": "3cd1357c2968ac19cac0112c3758d6b9454b7efce064f26694575e92cc1216f2"
+      },
+      "proof_chain": [
+        "TICKET87 proves only that both lift digits recur infinitely often.",
+        "Construct the explicit square-zero 2-adic digit sequence; it has infinitely many zeros and ones, is not eventually periodic, and contains no 00 pattern.",
+        "Therefore two-sided infinitude and irrationality alone cannot prove infinitely many 100 patterns for the fixed logarithm.",
+        "Test the natural complement s=-r, whose bits above bit zero exchange zeros and ones.",
+        "Compute its exact post-value and accelerated orbit; the eventual word (1,3) has mean valuation 2 rather than a mean approaching 1.",
+        "Reject complement transfer at the coefficient-one boundary and isolate a target-specific golden-shift exclusion theorem as the missing bridge."
+      ],
+      "machine_audit": {
+        "countermodel_horizon": 4096,
+        "countermodel_zero_count": 63,
+        "countermodel_one_count": 4034,
+        "countermodel_adjacent_zero_count": 0,
+        "complement_horizon": 4096,
+        "complement_failure_count": 0,
+        "observed_run_length_two_or_more_count": 32753,
+        "total_failure_count": 0
+      },
+      "theorem_status": "run_length_two_inference_refuted_exactly_no_collatz_resolution",
+      "discarded_routes": [
+        {
+          "route": "two_sided_digit_infinitude_implies_00_recurrence",
+          "status": "refuted_by_explicit_aperiodic_countermodel",
+          "counteredge": "Zeros at square positions and ones elsewhere give both digits infinitely often with no adjacent zeros."
+        },
+        {
+          "route": "bit_complement_preserves_coefficient_one_delay",
+          "status": "refuted_by_exact_rational_orbit",
+          "counteredge": "The complemented exponent enters valuation cycle (1,3), whose reciprocal mean is 1/2."
+        },
+        {
+          "route": "finite_262144_bit_frequency_proves_recurrence",
+          "status": "rejected_as_finite_inference",
+          "counteredge": "The 32,753 observed runs of length at least two do not discharge an infinite quantifier."
+        }
+      ],
+      "retained_route": "Prove that the specific 2-adic logarithm ratio log(1-8)/log(1+8) is not eventually contained in the golden-mean subshift forbidding 00.",
+      "candidate_theorem": "FixedLogGoldenMeanExclusion: for every H0 there exists h>=H0 with exponent bits r_h r_(h+1) r_(h+2)=100.",
+      "next_theorem_target": "FixedLogGoldenMeanExclusion",
+      "proof_boundary": "TICKET88 certifies a proof-route no-go and an exact failed dual construction. It proves no additive-two infinite subsequence and neither proves nor disproves Collatz.",
+      "novelty_boundary": "The no-go formulation and complement-orbit audit are candidate PrimeProject contributions. Symbolic-dynamics and p-adic digit-complexity literature require deeper independent review."
+    }
+  },
+  "obstruction": "Both digits occurring infinitely often, even together with non-eventual-periodicity, does not imply that 00 occurs at all. The square-zero binary sequence is an explicit countermodel to that inference.",
+  "candidate_theorem": "FixedLogGoldenMeanExclusion: for every H0 there exists h>=H0 with exponent bits r_h r_(h+1) r_(h+2)=100.",
+  "next_experiment": "Build TICKET89 as a target-specific golden-mean exclusion attack.",
+  "claim_boundary": "No Collatz proof and no certified divergent Collatz counterexample."
+}

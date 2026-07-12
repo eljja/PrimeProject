@@ -359,12 +359,14 @@ async function main() {
   }
   if (
     metrics.proofHub?.heading !== "Proof Workbench" ||
-    metrics.proofHub?.linkCount !== 5 ||
+    metrics.proofHub?.linkCount !== 6 ||
     !metrics.proofHub?.links.includes("riemann.html") ||
     !metrics.proofHub?.links.includes("collatz.html") ||
     !metrics.proofHub?.links.includes("goldbach.html") ||
     !metrics.proofHub?.links.includes("twin-prime.html") ||
+    !metrics.proofHub?.links.includes("../docs/open-problem-research-consolidation-2026-07-10.md") ||
     !metrics.proofHub?.links.includes("../docs/proof-or-counterexample-program.md") ||
+    !metrics.proofHub?.boundary.includes("Canonical Research Audit") ||
     !metrics.proofHub?.boundary.includes("Proof or Counterexample Program") ||
     !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
   ) {
@@ -399,6 +401,590 @@ async function main() {
       requireText("ticket72 full-word guard", "base_fullword_residue65536");
       requireText("ticket72 coordinate comparison", "Second-lift coordinate comparison");
       requireText("ticket72 next theorem", "CompactMixedKeyInvariantOrPersistentLiftChain");
+    }
+    requireText("ticket73 title", "Ticket 73 lineage-constrained pressure forest");
+    requireText("ticket73 result table", "Lineage audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket73 status", "strict reentry tree extinct at fifth lift for selected roots no global conclusion");
+      requireText("ticket73 roots", "4,142");
+      requireText("ticket73 third reentry", "12,911");
+      requireText("ticket73 fourth reentry", "2,873");
+      requireText("ticket73 fifth extinction", "45,968");
+      requireText("ticket73 fifth strict reentry", "0");
+      requireText("ticket73 strict decision", "exact_finite_extinction");
+      requireText("ticket73 next theorem", "CoverageCertificateAndAllDepthReentryTreeDecision");
+    }
+    requireText("ticket74 title", "Ticket 74 coverage leakage and escaping pressure forest");
+    requireText("ticket74 result table", "Coverage leakage audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket74 status", "strict cover leakage and sixth pressure persistence observed no global resolution");
+      requireText("ticket74 mixed keys", "20,752");
+      requireText("ticket74 selected key coverage", "0.039%");
+      requireText("ticket74 fifth escapes", "15,696");
+      requireText("ticket74 sixth pressure", "78,315");
+      requireText("ticket74 next theorem", "GlobalCoverageCertificateOrEscapingPressureForestDecision");
+    }
+    requireText("ticket75 title", "Ticket 75 fixed-coordinate closure audit");
+    requireText("ticket75 result table", "Coordinate closure audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket75 status", "all tested finite preoutcome coordinates leak or cycle no global resolution");
+      requireText("ticket75 coordinate table", "Compression versus state growth");
+      requireText("ticket75 coordinate count", "8");
+      requireText("ticket75 replay fifth", "15,696");
+      requireText("ticket75 replay sixth", "78,315");
+      requireText("ticket75 coarse novelty", "11");
+      requireText("ticket75 rich novelty", "77,998");
+      requireText("ticket75 unbounded block", "Unbounded reference blocked");
+      requireText("ticket75 next theorem", "SymbolicSuccessorClosureWithWellFoundedRankOrAllDepthPressurePath");
+    } else {
+      requireText("ticket75 transfer boundary", "method transfer only");
+    }
+    requireText("ticket76 title", "Ticket 76 symbolic boundary recurrence");
+    requireText("ticket76 result table", "Boundary recurrence audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket76 status", "symbolic formula verified fixed precision closure refuted on tested precisions no global resolution");
+      requireText("ticket76 precision table", "Fixed precision versus four-bit lookahead");
+      requireText("ticket76 rows", "297,104");
+      requireText("ticket76 formula failures", "formula failures0");
+      requireText("ticket76 q5 collisions", "165");
+      requireText("ticket76 q9 collisions", "1,536");
+      requireText("ticket76 valuation rule", "v_new = d + v2(A + h*u)");
+      requireText("ticket76 next theorem", "ReachableBoundaryRestrictionOrTwoAdicPressurePath");
+    } else {
+      requireText("ticket76 transfer boundary", "method transfer only");
+    }
+    requireText("ticket77 title", "Ticket 77 fixed-prefix boundary orbit");
+    requireText("ticket77 result table", "Fixed-prefix boundary orbit audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket77 status", "fixed prefix boundary orbit classified no collatz resolution");
+      requireText("ticket77 orbit table", "Inverse-16 periodic orbit audit");
+      requireText("ticket77 sources", "18,569");
+      requireText("ticket77 maximum steps", "maximum strict-pressure steps15");
+      requireText("ticket77 exact chain", "Exact proof chain");
+      requireText("ticket77 ghost", "-1/3");
+      requireText("ticket77 correction", "Equality rollback correction");
+      requireText("ticket77 discarded inference", "Discarded inference");
+      requireText("ticket77 next theorem", "ChangingPrefixNaturalAdmissibilityRank");
+    } else {
+      requireText("ticket77 transfer boundary", "method transfer only");
+    }
+    requireText("ticket78 title", "Ticket 78 finite-cylinder admissibility no-go");
+    requireText("ticket78 result table", "Finite-cylinder no-go audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket78 status", "finite two adic natural separator refuted exactly no collatz resolution");
+      requireText("ticket78 composition table", "All positive valuation compositions through S=16");
+      requireText("ticket78 words", "65,535");
+      requireText("ticket78 representatives", "262,140");
+      requireText("ticket78 rejected families", "Rejected finite separator families");
+      requireText("ticket78 literature", "Bernstein and Lagarias");
+      requireText("ticket78 novelty", "Novelty boundary");
+      requireText("ticket78 next theorem", "ArchimedeanTwoAdicCoupledDescent");
+    } else {
+      requireText("ticket78 transfer boundary", "method transfer only");
+    }
+    requireText("ticket79 title", "Ticket 79 Archimedean-two-adic rank no-go");
+    requireText("ticket79 result table", "TICKET79 rank no-go audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket79 status", "bounded archimedean two adic one step rank refuted exactly no collatz resolution");
+      requireText("ticket79 expansion", "Exact expansion family E_(m,1)");
+      requireText("ticket79 contraction", "Exact nonterminal contraction family D_r → 5");
+      requireText("ticket79 expansion cases", "1,024");
+      requireText("ticket79 replays", "131,584");
+      requireText("ticket79 rejected", "Rejected one-step rank families");
+      requireText("ticket79 next theorem", "MinimalCounterexampleValuationSurplusContradiction");
+      requireText("ticket79 equivalence", "Equivalence warning");
+    } else {
+      requireText("ticket79 transfer boundary", "method transfer only");
+    }
+    requireText("ticket80 title", "Ticket 80 least-counterexample compactness no-go");
+    requireText("ticket80 result table", "TICKET80 compactness no-go audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket80 status", "least counterexample finite prefix compactness refuted exactly no collatz resolution");
+      requireText("ticket80 finite witnesses", "Arbitrarily large finite non-descent witnesses");
+      requireText("ticket80 dual topology", "Dual-topology escape x_H → -1 in Z_2");
+      requireText("ticket80 cases", "2,560");
+      requireText("ticket80 replays", "656,640");
+      requireText("ticket80 criterion", "Positive-integer stabilization criterion");
+      requireText("ticket80 rejected", "Rejected finite-prefix and compactness routes");
+      requireText("ticket80 next theorem", "LeastCounterexampleUniformHeightBound");
+    } else {
+      requireText("ticket80 transfer boundary", "method transfer only");
+    }
+    requireText("ticket81 title", "Ticket 81 Mersenne first-compensation no-go");
+    requireText("ticket81 result table", "TICKET81 Mersenne compensation audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket81 status", "mersenne first post compensation descent refuted exactly no collatz resolution");
+      requireText("ticket81 exact formulas", "Exact expansion and compensation formulas");
+      requireText("ticket81 cases", "1,023");
+      requireText("ticket81 replays", "523,776");
+      requireText("ticket81 classification", "Complete first-compensation classification");
+      requireText("ticket81 rejected", "Rejected single-compensation routes");
+      requireText("ticket81 next theorem", "MersenneAdaptiveCompensationWindow");
+    } else {
+      requireText("ticket81 transfer boundary", "method transfer only");
+    }
+    requireText("ticket82 title", "Ticket 82 fixed Mersenne compensation-window no-go");
+    requireText("ticket82 table", "TICKET82 fixed-window no-go audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket82 status", "fixed mersenne compensation window refuted exactly no collatz resolution");
+      requireText("ticket82 symbolic", "Exact symbolic exponent family");
+      requireText("ticket82 progressions", "Explicit exponent progressions");
+      requireText("ticket82 states", "8,385");
+      requireText("ticket82 transitions", "8,256");
+      requireText("ticket82 rejected", "Rejected constant-window routes");
+      requireText("ticket82 next", "MersenneGrowingWindowDescent");
+    } else {
+      requireText("ticket82 transfer boundary", "method transfer only");
+    }
+    requireText("ticket83 title", "Ticket 83 Mersenne half-log delay lower bound");
+    requireText("ticket83 table", "TICKET83 logarithmic delay audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket83 theorem", "Exact half-log theorem");
+      requireText("ticket83 states", "33,150");
+      requireText("ticket83 sequence", "Explicit delayed exponent sequence");
+      requireText("ticket83 rejected", "Rejected sub-half-log window routes");
+      requireText("ticket83 next", "MersenneLogWindowDichotomy");
+    } else {
+      requireText("ticket83 transfer", "method transfer only");
+    }
+    requireText("ticket84 title", "Ticket 84 accessible 2-adic cycle and two-thirds log bound");
+    requireText("ticket84 table", "TICKET84 two-adic cycle audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket84 cycle", "Accessible completion cycle");
+      requireText("ticket84 precision", "386");
+      requireText("ticket84 states", "33,150");
+      requireText("ticket84 lifts", "Positive Hensel-lifted exponent certificates");
+      requireText("ticket84 next", "AccessibleCycleCoefficientSupremum");
+    } else {
+      requireText("ticket84 transfer", "method transfer only");
+    }
+    requireText("ticket85 title", "Ticket 85 accessible cycle coefficient supremum");
+    requireText("ticket85 table", "TICKET85 cycle supremum audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket85 family", "Exact accessible cycle family");
+      requireText("ticket85 supremum", "Supremum one, not attained");
+      requireText("ticket85 lifts", "32,895");
+      requireText("ticket85 states", "33,150");
+      requireText("ticket85 next", "CoefficientOneBoundary");
+    } else {
+      requireText("ticket85 transfer", "method transfer only");
+    }
+    requireText("ticket86 title", "Ticket 86 infinite coefficient-one Mersenne delay");
+    requireText("ticket86 table", "TICKET86 coefficient-one boundary audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket86 reduction", "Exact fixed-log reduction");
+      requireText("ticket86 prefixes", "1,023");
+      requireText("ticket86 top bits", "499");
+      requireText("ticket86 precision", "1,027");
+      requireText("ticket86 states", "16,877");
+      requireText("ticket86 next", "TwoAdicDigitRunBoundary");
+    } else {
+      requireText("ticket86 transfer", "method transfer only");
+    }
+    requireText("ticket87 title", "Ticket 87 two-adic digit runs and additive-one delay");
+    requireText("ticket87 table", "TICKET87 digit-run boundary audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket87 fixed log", "Fixed two-adic logarithm");
+      requireText("ticket87 prefix bits", "262,143");
+      requireText("ticket87 top bits", "131,307");
+      requireText("ticket87 positive runs", "65,368");
+      requireText("ticket87 record", "Finite zero-run record certificates");
+      requireText("ticket87 next", "TwoAdicRunLengthTwoInfinitude");
+    } else {
+      requireText("ticket87 transfer", "method transfer only");
+    }
+    requireText("ticket88 title", "Ticket 88 run-length-two inference no-go");
+    requireText("ticket88 table", "TICKET88 run-length-two no-go audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket88 countermodel", "Explicit no-00 countermodel");
+      requireText("ticket88 complement", "Exact complement orbit");
+      requireText("ticket88 observed", "32,753");
+      requireText("ticket88 discarded", "Discarded promotion routes");
+      requireText("ticket88 next", "FixedLogGoldenMeanExclusion");
+    } else {
+      requireText("ticket88 transfer", "method transfer only");
+    }
+    requireText("ticket89 title", "Ticket 89 fixed-log golden-mean valuation reduction");
+    requireText("ticket89 table", "TICKET89 fixed-log reduction audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket89 equivalence", "Exact pattern-valuation equivalence");
+      requireText("ticket89 transcendence", "Transcendence no-go");
+      requireText("ticket89 pairs", "32,727");
+      requireText("ticket89 excess", "8,159");
+      requireText("ticket89 next", "FixedLogValuationExcessFiveInfinitude");
+    } else {
+      requireText("ticket89 transfer", "method transfer only");
+    }
+    requireText("ticket90 title", "Ticket 90 normalized-error ghost lasso no-go");
+    requireText("ticket90 table", "TICKET90 normalized-error audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket90 recurrence", "Exact normalized-error recurrence");
+      requireText("ticket90 limit", "Correction limit");
+      requireText("ticket90 ghost", "Limiting ghost fixed point");
+      requireText("ticket90 lassos", "63");
+      requireText("ticket90 next", "GrowingPrecisionErrorGhostSeparation");
+    } else {
+      requireText("ticket90 transfer", "method transfer only");
+    }
+    requireText("ticket91 title", "Ticket 91 error-tail conjugacy and invariant-set correction");
+    requireText("ticket91 table", "TICKET91 tail-coordinate audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket91 identity", "Exact growing-precision identity");
+      requireText("ticket91 conjugacy", "Binary-shift conjugacy");
+      requireText("ticket91 obstruction", "Full golden-mean obstruction");
+      requireText("ticket91 states", "4,096");
+      requireText("ticket91 words", "377");
+      requireText("ticket91 next", "GoldenMeanInvariantSetEscape");
+    } else {
+      requireText("ticket91 transfer", "method transfer only");
+    }
+    requireText("ticket92 title", "Ticket 92 scale-sensitive threshold audit");
+    requireText("ticket92 table", "TICKET92 threshold audit");
+    if (page.problemId === "collatz") {
+      requireText("ticket92 defect", "Second-order p-adic defect");
+      requireText("ticket92 no-go", "First-order scale no-go");
+      requireText("ticket92 pairs", "131,306");
+      requireText("ticket92 events", "32,753");
+      requireText("ticket92 collatz next", "FixedLogSecondOrderDefectRecurrence");
+    } else if (page.problemId === "twin-prime") {
+      requireText("ticket92 Maynard", "Correct Maynard criterion");
+      requireText("ticket92 removed", "Removed false promotion");
+      requireText("ticket92 threshold", ">4");
+      requireText("ticket92 twin rows", "17");
+      requireText("ticket92 twin next", "ParityBreakingExactPairCorrelationLowerBound");
+    } else {
+      requireText("ticket92 transfer", "method transfer only");
+    }
+    requireText("ticket93 title", "Ticket 93 exact twin-correlation excess bridge");
+    requireText("ticket93 table", "TICKET93 exact-correlation audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket93 contamination", "Prime-power contamination bridge");
+      requireText("ticket93 typeII", "Signed Type II boundary");
+      requireText("ticket93 counterexamples", "Truncated-divisor counterexamples");
+      requireText("ticket93 limit", "2,000,000");
+      requireText("ticket93 twins", "14,871");
+      requireText("ticket93 proper powers", "94");
+      requireText("ticket93 next", "ShiftTwoTypeIICorrelationExcess");
+    } else {
+      requireText("ticket93 transfer", "method transfer only");
+    }
+    requireText("ticket94 title", "Ticket 94 signed-remainder and Goldbach bridge");
+    requireText("ticket94 table", "TICKET94 signed-budget audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket94 decomposition", "Exact signed decomposition");
+      requireText("ticket94 norm", "Norm-only lower-bound no-go");
+      requireText("ticket94 twin budget", "Twin signed remainder budget");
+      requireText("ticket94 twin limit", "200,000");
+      requireText("ticket94 twin next", "JointShiftTwoSignedRemainderLowerBound");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket94 Goldbach bridge", "Goldbach prime-power contamination bridge");
+      requireText("ticket94 Goldbach margins", "Goldbach finite margins");
+      requireText("ticket94 Goldbach max", "100,000");
+      requireText("ticket94 Goldbach next", "UniformBinaryLambdaCorrelationExcess");
+    } else {
+      requireText("ticket94 transfer", "method transfer only");
+    }
+    requireText("ticket95 title", "Ticket 95 sharp contamination and equivalence gate");
+    requireText("ticket95 table", "TICKET95 logical-novelty audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket95 mass theorem", "Weighted proper-prime-power mass theorem");
+      requireText("ticket95 equivalence", "Equivalence is not a reduction");
+      requireText("ticket95 twin budgets", "Sharp contamination budgets");
+      requireText("ticket95 twin replay", "Twin exact equivalence replay");
+      requireText("ticket95 twin max", "200,000");
+      requireText("ticket95 twin next", "IndependentShiftTwoCorrelationExcess");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket95 Goldbach mass", "Weighted proper-prime-power mass theorem");
+      requireText("ticket95 Goldbach budgets", "Sharp contamination budgets");
+      requireText("ticket95 Goldbach screen", "Goldbach all-even numerical screen");
+      requireText("ticket95 Goldbach exceptions", "Screen exceptions and direct witnesses");
+      requireText("ticket95 Goldbach max", "1,000,000");
+      requireText("ticket95 Goldbach targets", "499,999");
+      requireText("ticket95 Goldbach next", "UniformBinaryMinorArcDominance");
+    } else {
+      requireText("ticket95 transfer", "logical novelty transfer only");
+    }
+    requireText("ticket96 title", "Ticket 96 Fourier phase-information audit");
+    requireText("ticket96 table", "TICKET96 phase-information audit");
+    if (page.problemId === "goldbach") {
+      requireText("ticket96 Goldbach bridge", "Exact finite Fourier bridges");
+      requireText("ticket96 Goldbach no-go", "Phase-blind information no-go");
+      requireText("ticket96 Goldbach countermodel", "Adversarial spectral countermodel replay");
+      requireText("ticket96 Goldbach replay", "Goldbach sparse Farey-mask replay");
+      requireText("ticket96 Goldbach max", "100,000");
+      requireText("ticket96 Goldbach DFT", "262,144");
+      requireText("ticket96 Goldbach next", "ArithmeticMinorArcPhaseCancellation");
+    } else if (page.problemId === "twin-prime") {
+      requireText("ticket96 Twin bridge", "Exact finite Fourier bridges");
+      requireText("ticket96 Twin no-go", "Phase-blind information no-go");
+      requireText("ticket96 Twin countermodel", "Adversarial spectral countermodel replay");
+      requireText("ticket96 Twin replay", "Twin sparse Farey-mask replay");
+      requireText("ticket96 Twin max", "100,000");
+      requireText("ticket96 Twin DFT", "262,144");
+      requireText("ticket96 Twin next", "ShiftTwoSpectralLocalizationOrTypeIICancellation");
+    } else {
+      requireText("ticket96 transfer", "spectral gate transfer only");
+    }
+    requireText("ticket97 title", "Ticket 97 optimal periodic-projection audit");
+    requireText("ticket97 table", "TICKET97 finite-modulus audit");
+    if (page.problemId === "goldbach") {
+      requireText("ticket97 Goldbach projection", "L2-optimal periodic projection");
+      requireText("ticket97 Goldbach no-go", "Fixed-modulus sign no-go");
+      requireText("ticket97 Goldbach countermodel", "Zero-residue-mean countermodel");
+      requireText("ticket97 Goldbach replay", "Goldbach optimal periodic replay");
+      requireText("ticket97 Goldbach modulus", "2,310");
+      requireText("ticket97 Goldbach next", "GrowingModulusBinaryResidualCancellation");
+    } else if (page.problemId === "twin-prime") {
+      requireText("ticket97 Twin projection", "L2-optimal periodic projection");
+      requireText("ticket97 Twin no-go", "Fixed-modulus sign no-go");
+      requireText("ticket97 Twin countermodel", "Zero-residue-mean countermodel");
+      requireText("ticket97 Twin replay", "Twin optimal periodic replay");
+      requireText("ticket97 Twin modulus", "2,310");
+      requireText("ticket97 Twin next", "GrowingModulusShiftTwoResidualCancellation");
+    } else {
+      requireText("ticket97 transfer", "finite-modulus gate transfer only");
+    }
+    requireText("ticket98 title", "Ticket 98 growing-modulus leakage audit");
+    requireText("ticket98 table", "TICKET98 leakage boundary audit");
+    if (page.problemId === "goldbach") {
+      requireText("ticket98 Goldbach theorem", "Row-unique identity theorem");
+      requireText("ticket98 Goldbach finding", "Certificate leakage finding");
+      requireText("ticket98 Goldbach boundary", "Goldbach primorial leakage boundary");
+      requireText("ticket98 Goldbach max", "9,699,690");
+      requireText("ticket98 Goldbach replay", "yes / exact replay");
+      requireText("ticket98 Goldbach next", "OutOfSampleGrowingModulusBinaryResidualCancellation");
+    } else if (page.problemId === "twin-prime") {
+      requireText("ticket98 Twin theorem", "Row-unique identity theorem");
+      requireText("ticket98 Twin finding", "Certificate leakage finding");
+      requireText("ticket98 Twin boundary", "Twin primorial leakage boundary");
+      requireText("ticket98 Twin max", "9,699,690");
+      requireText("ticket98 Twin replay", "yes / exact replay");
+      requireText("ticket98 Twin next", "OutOfSampleGrowingModulusShiftTwoResidualCancellation");
+    } else {
+      requireText("ticket98 transfer", "growing-partition leakage transfer only");
+    }
+    requireText("ticket99 title", "Ticket 99 out-of-sample local-model audit");
+    requireText("ticket99 table", "TICKET99 independent local-model audit");
+    if (page.problemId === "goldbach") {
+      requireText("ticket99 Goldbach split", "Disjoint cross-fit contract");
+      requireText("ticket99 Goldbach main", "Exact external local-main theorem");
+      requireText("ticket99 Goldbach replay", "Goldbach cross-fit replay");
+      requireText("ticket99 Goldbach envelope", "Finite K/log(n) falsification screen");
+      requireText("ticket99 Goldbach sufficient", "Sufficient signed-residual theorem");
+      requireText("ticket99 Goldbach K", "1.6");
+      requireText("ticket99 Goldbach next", "UniformExternalLocalModelGoldbachResidualDecay");
+    } else if (page.problemId === "twin-prime") {
+      requireText("ticket99 Twin split", "Disjoint cross-fit contract");
+      requireText("ticket99 Twin main", "Exact external local-main theorem");
+      requireText("ticket99 Twin replay", "Twin cross-fit replay");
+      requireText("ticket99 Twin envelope", "Finite K/log(n) falsification screen");
+      requireText("ticket99 Twin sufficient", "Sufficient signed-residual theorem");
+      requireText("ticket99 Twin K", "1.6");
+      requireText("ticket99 Twin next", "UniformExternalLocalModelShiftTwoResidualDecay");
+    } else {
+      requireText("ticket99 transfer", "external-model independence transfer only");
+    }
+    requireText("ticket100 title", "Ticket 100 extended residual and Vaughan audit");
+    requireText("ticket100 table", "TICKET100 joint-cancellation audit");
+    if (page.problemId === "goldbach") {
+      requireText("ticket100 Goldbach identity", "Exact Vaughan identity replay");
+      requireText("ticket100 Goldbach counterexample", "Componentwise proof-strategy counterexample");
+      requireText("ticket100 Goldbach screen", "Goldbach 6M schedule-transition screen");
+      requireText("ticket100 Goldbach components", "One-sided Vaughan component pressure");
+      requireText("ticket100 Goldbach contrapositive", "Contrapositive proof program");
+      requireText("ticket100 Goldbach witness", "930,930");
+      requireText("ticket100 Goldbach next", "JointVaughanGoldbachResidualEnvelope");
+    } else if (page.problemId === "twin-prime") {
+      requireText("ticket100 Twin identity", "Exact Vaughan identity replay");
+      requireText("ticket100 Twin counterexample", "Componentwise proof-strategy counterexample");
+      requireText("ticket100 Twin screen", "Twin 10M schedule-transition screen");
+      requireText("ticket100 Twin components", "One-sided Vaughan component pressure");
+      requireText("ticket100 Twin contrapositive", "Contrapositive proof program");
+      requireText("ticket100 Twin next", "JointVaughanShiftTwoResidualEnvelope");
+    } else {
+      requireText("ticket100 transfer", "joint-component gate transfer only");
+    }
+    requireText("ticket101 title", "Ticket 101 Vaughan cutoff and energy-equivalence audit");
+    requireText("ticket101 table", "TICKET101 cutoff frontier audit");
+    if (page.problemId === "goldbach") {
+      requireText("ticket101 Goldbach frontier", "Balanced frontier and collapse boundary");
+      requireText("ticket101 Goldbach split", "Problem-specific theorem split");
+      requireText("ticket101 Goldbach energy", "Energy rewrite novelty verdict");
+      requireText("ticket101 Goldbach replay", "Goldbach reflection energy replay");
+      requireText("ticket101 Goldbach best", "9.489");
+      requireText("ticket101 Goldbach collapse", "314");
+      requireText("ticket101 Goldbach next", "JointBalancedVaughanGoldbachResidualEnvelope");
+    } else if (page.problemId === "twin-prime") {
+      requireText("ticket101 Twin frontier", "Balanced frontier and collapse boundary");
+      requireText("ticket101 Twin split", "Problem-specific theorem split");
+      requireText("ticket101 Twin energy", "Energy rewrite novelty verdict");
+      requireText("ticket101 Twin replay", "Twin shift energy replay");
+      requireText("ticket101 Twin candidate", "1.560");
+      requireText("ticket101 Twin support", "244,204");
+      requireText("ticket101 Twin next", "SeparatedBalancedVaughanTwinBudgets");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket101 RH transfer", "KernelParameterAndEnergyNoveltyGate");
+      requireText("ticket101 RH next", "IndependentKernelMismatchDeficit");
+    } else {
+      requireText("ticket101 Collatz transfer", "OrbitParameterAndEnergyNoveltyGate");
+      requireText("ticket101 Collatz next", "IndependentOrbitMismatchDeficit");
+    }
+    requireText("ticket102 title", "Ticket 102 Twin dyadic Vaughan holdout");
+    requireText("ticket102 table", "TICKET102 dyadic holdout audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket102 Twin replay", "Complete dyadic block replay");
+      requireText("ticket102 Twin correction", "Threshold correction");
+      requireText("ticket102 Twin rescue", "Fresh 8M rescue holdout");
+      requireText("ticket102 Twin refutation", "1.953");
+      requireText("ticket102 Twin fresh maximum", "3.3068");
+      requireText("ticket102 Twin support", "24.31%");
+      requireText("ticket102 Twin failures", "1,000,000");
+      requireText("ticket102 Twin next", "UniformFiniteDyadicSeparatedVaughanTwinBudgets");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket102 RH route", "IndependentKernelPositivityBeforeEnergyRewrite");
+      requireText("ticket102 RH next", "NonCircularExplicitFormulaKernelPositivity");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket102 Collatz route", "GoldenMeanInvariantSetEscapePriorityCorrection");
+      requireText("ticket102 Collatz next", "GoldenMeanInvariantSetEscape");
+    } else {
+      requireText("ticket102 Goldbach route", "JointBalancedVaughanGoldbachPriority");
+      requireText("ticket102 Goldbach next", "JointBalancedVaughanGoldbachResidualEnvelope");
+    }
+    requireText("ticket103 title", "Ticket 103 Twin exact local-block audit");
+    requireText("ticket103 table", "TICKET103 local-block audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket103 Twin blocks", "Exact principal dyadic blocks");
+      requireText("ticket103 Twin counterexample", "Small-scale Type II sign counterexample");
+      requireText("ticket103 Twin bridge", "Conditional infinite bridge");
+      requireText("ticket103 Twin verdict", "Cumulative-to-local verdict");
+      requireText("ticket103 Twin structured", "3.7617");
+      requireText("ticket103 Twin negative", "-174.7165");
+      requireText("ticket103 Twin required", "1.7515");
+      requireText("ticket103 Twin next", "UniformDyadicLocalVaughanTwinBlockBudgets");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket103 RH route", "NonCircularKernelPositivityPreserved");
+      requireText("ticket103 RH next", "NonCircularExplicitFormulaKernelPositivity");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket103 Collatz route", "GoldenMeanEscapePreserved");
+      requireText("ticket103 Collatz next", "GoldenMeanInvariantSetEscape");
+    } else {
+      requireText("ticket103 Goldbach route", "JointBalancedGoldbachPreserved");
+      requireText("ticket103 Goldbach next", "JointBalancedVaughanGoldbachResidualEnvelope");
+    }
+    requireText("ticket104 title", "Ticket 104 Twin Type II weighted-Mobius anatomy");
+    requireText("ticket104 table", "TICKET104 weighted-Mobius audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket104 Twin anatomy", "Exact outer-divisor anatomy");
+      requireText("ticket104 Twin reduction", "Exact reduction");
+      requireText("ticket104 Twin Abel", "Abel information-loss verdict");
+      requireText("ticket104 Twin negative", "39.92");
+      requireText("ticket104 Twin envelope", "1088.15");
+      requireText("ticket104 Twin next", "WeightedMobiusShiftedPrimeDyadicCancellation");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket104 RH route", "NonCircularKernelPositivityPreserved");
+      requireText("ticket104 RH next", "NonCircularExplicitFormulaKernelPositivity");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket104 Collatz route", "GoldenMeanEscapePreserved");
+      requireText("ticket104 Collatz next", "GoldenMeanInvariantSetEscape");
+    } else {
+      requireText("ticket104 Goldbach route", "JointBalancedGoldbachPreserved");
+      requireText("ticket104 Goldbach next", "JointBalancedVaughanGoldbachResidualEnvelope");
+    }
+    requireText("ticket105 title", "Ticket 105 Twin centered progression discrepancy");
+    requireText("ticket105 table", "TICKET105 centered progression audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket105 Twin rows", "Baseline and centered discrepancy");
+      requireText("ticket105 Twin centering", "Exact centering");
+      requireText("ticket105 Twin boundary", "Information boundary");
+      requireText("ticket105 Twin negative", "5.41");
+      requireText("ticket105 Twin Cauchy", "41.15");
+      requireText("ticket105 Twin next", "MobiusWeightedPrimeProgressionDiscrepancyBound");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket105 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket105 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket105 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
+    requireText("ticket106 title", "Ticket 106 Twin modulus-grouped dispersion");
+    requireText("ticket106 table", "TICKET106 grouped dispersion audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket106 Twin rows", "Grouped norm and sparse-cell pressure");
+      requireText("ticket106 Twin occupancy", "2M occupancy ladder");
+      requireText("ticket106 Twin grouping", "Exact modulus grouping");
+      requireText("ticket106 Twin leakage", "Sparse-modulus leakage verdict");
+      requireText("ticket106 Twin grouped Cauchy", "249.12");
+      requireText("ticket106 Twin sparse fraction", "72.31%");
+      requireText("ticket106 Twin sparse contribution", "64933.8");
+      requireText("ticket106 Twin next", "NonSparseModulusTwinDispersionWithSparseTailControl");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket106 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket106 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket106 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
+    requireText("ticket107 title", "Ticket 107 Twin sparse-tail recombination");
+    requireText("ticket107 table", "TICKET107 sparse-tail recombination audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket107 Twin rows", "q-to-n compression and signed compensation");
+      requireText("ticket107 Twin exact", "Exact Vaughan recombination");
+      requireText("ticket107 Twin verdict", "Component-budget verdict");
+      requireText("ticket107 Twin L1", "69.53%");
+      requireText("ticket107 Twin partial K", "2.59");
+      requireText("ticket107 Twin joint K", "0.37");
+      requireText("ticket107 Twin next", "JointStructuredSparseDenseTwinDispersion");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket107 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket107 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket107 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
+    requireText("ticket108 title", "Ticket 108 Twin joint-equivalence and smoothing");
+    requireText("ticket108 table", "TICKET108 equivalence and smoothing audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket108 Twin rows", "Hard versus smooth signed residual");
+      requireText("ticket108 Twin no reduction", "Algebraic no-reduction");
+      requireText("ticket108 Twin bridge", "Nonnegative bump bridge");
+      requireText("ticket108 Twin hard K", "0.3691");
+      requireText("ticket108 Twin smooth K", "0.4226");
+      requireText("ticket108 Twin next", "SmoothedShiftTwoTypeIICorrelationExcess");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket108 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket108 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket108 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
+    requireText("ticket109 title", "Ticket 109 Twin spectral-phase audit");
+    requireText("ticket109 table", "TICKET109 spectral phase audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket109 Twin rows", "Positive and negative phase balance");
+      requireText("ticket109 Twin identity", "Exact spectral identity");
+      requireText("ticket109 Twin no-go", "Low-frequency no-go");
+      requireText("ticket109 Twin ratio", "0.1435");
+      requireText("ticket109 Twin next", "RamanujanMajorArcPhaseMarginWithMinorArcControl");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket109 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket109 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket109 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
+    requireText("ticket110 title", "Ticket 110 Twin rational major-arc budget");
+    requireText("ticket110 table", "TICKET110 rational arc audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket110 Twin rows", "Major capture and minor saving gap");
+      requireText("ticket110 Twin contract", "Anti-circular major-arc contract");
+      requireText("ticket110 Twin no-go", "Trivial minor no-go");
+      requireText("ticket110 Twin next", "FixedBumpMajorArcAsymptoticWithTypeIIMinorPowerSaving");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket110 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket110 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket110 Goldbach route", "JointBalancedGoldbachPreserved");
     }
     return checks;
   });
@@ -623,6 +1209,55 @@ async function main() {
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("4,142")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("6,448")) ||
         (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("CompactMixedKeyInvariantOrPersistentLiftChain")) ||
+        !page.proofOrCounterexampleText.includes("Ticket 73 lineage-constrained pressure forest") ||
+        !page.proofOrCounterexampleText.includes("Lineage audit") ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("strict reentry tree extinct at fifth lift for selected roots no global conclusion")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("12,911")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("2,873")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("45,968")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("CoverageCertificateAndAllDepthReentryTreeDecision")) ||
+        !page.proofOrCounterexampleText.includes("Ticket 74 coverage leakage and escaping pressure forest") ||
+        !page.proofOrCounterexampleText.includes("Coverage leakage audit") ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("strict cover leakage and sixth pressure persistence observed no global resolution")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("20,752")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("15,696")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("78,315")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("GlobalCoverageCertificateOrEscapingPressureForestDecision")) ||
+        !page.proofOrCounterexampleText.includes("Ticket 75 fixed-coordinate closure audit") ||
+        !page.proofOrCounterexampleText.includes("Coordinate closure audit") ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("all tested finite preoutcome coordinates leak or cycle no global resolution")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Compression versus state growth")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("77,998")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("SymbolicSuccessorClosureWithWellFoundedRankOrAllDepthPressurePath")) ||
+        (page.problemId !== "collatz" && !page.proofOrCounterexampleText.includes("method transfer only")) ||
+        !page.proofOrCounterexampleText.includes("Ticket 76 symbolic boundary recurrence") ||
+        !page.proofOrCounterexampleText.includes("Boundary recurrence audit") ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("symbolic formula verified fixed precision closure refuted on tested precisions no global resolution")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Fixed precision versus four-bit lookahead")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("297,104")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("ReachableBoundaryRestrictionOrTwoAdicPressurePath")) ||
+        !page.proofOrCounterexampleText.includes("Ticket 77 fixed-prefix boundary orbit") ||
+        !page.proofOrCounterexampleText.includes("Fixed-prefix boundary orbit audit") ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("fixed prefix boundary orbit classified no collatz resolution")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("Inverse-16 periodic orbit audit")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("18,569")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("ChangingPrefixNaturalAdmissibilityRank")) ||
+        !page.proofOrCounterexampleText.includes("Ticket 78 finite-cylinder admissibility no-go") ||
+        !page.proofOrCounterexampleText.includes("Finite-cylinder no-go audit") ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("finite two adic natural separator refuted exactly no collatz resolution")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("65,535")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("262,140")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("ArchimedeanTwoAdicCoupledDescent")) ||
+        !page.proofOrCounterexampleText.includes("Ticket 79 Archimedean-two-adic rank no-go") ||
+        !page.proofOrCounterexampleText.includes("TICKET79 rank no-go audit") ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("bounded archimedean two adic one step rank refuted exactly no collatz resolution")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("131,584")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("MinimalCounterexampleValuationSurplusContradiction")) ||
+        !page.proofOrCounterexampleText.includes("Ticket 80 least-counterexample compactness no-go") ||
+        !page.proofOrCounterexampleText.includes("TICKET80 compactness no-go audit") ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("least counterexample finite prefix compactness refuted exactly no collatz resolution")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("656,640")) ||
+        (page.problemId === "collatz" && !page.proofOrCounterexampleText.includes("LeastCounterexampleUniformHeightBound")) ||
         !page.proofOrCounterexampleText.includes("Candidate theorem") ||
         !page.proofOrCounterexampleText.includes("Obstruction") ||
         page.proofOrCounterexampleCards < 4 ||
@@ -978,6 +1613,8 @@ async function main() {
     ["panel", metrics.evolutionPanel, "TICKET-70"],
     ["panel", metrics.evolutionPanel, "TICKET-71"],
     ["panel", metrics.evolutionPanel, "TICKET-72"],
+    ["panel", metrics.evolutionPanel, "TICKET-73"],
+    ["panel", metrics.evolutionPanel, "TICKET-74"],
   ];
   const missingEvolutionChecks = evolutionRequiredText
     .filter(([, actual, expectedText]) => !String(actual).includes(expectedText))
@@ -1058,6 +1695,16 @@ async function main() {
     !metrics.evolutionImpact.includes("Persistent lift-chain pressure") ||
     !metrics.evolutionImpact.includes("4,142 second") ||
     !metrics.evolutionImpact.includes("6,448 third") ||
+    !metrics.evolutionImpact.includes("Strict re-entry tree exhausted") ||
+    !metrics.evolutionImpact.includes("4,142 roots") ||
+    !metrics.evolutionImpact.includes("2,873 -> 0") ||
+    !metrics.evolutionImpact.includes("Coverage leakage exposed") ||
+    !metrics.evolutionImpact.includes("Finite-coordinate closure blocked") ||
+    !metrics.evolutionImpact.includes("Boundary recurrence isolated") ||
+    !metrics.evolutionImpact.includes("Fixed-prefix ghost classified") ||
+    !metrics.evolutionImpact.includes("Finite 2-adic separator blocked") ||
+    !metrics.evolutionImpact.includes("15,696 escapes") ||
+    !metrics.evolutionImpact.includes("78,315 sixth") ||
     !metrics.evolutionImpact.includes("11 guard checks") ||
     !metrics.evolutionSpine.includes("Evidence Spine") ||
     !metrics.evolutionSpine.includes("Sim-to-Real") ||
@@ -1094,7 +1741,43 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-68") ||
     !metrics.evolutionPanel.includes("TICKET-70") ||
     !metrics.evolutionPanel.includes("TICKET-71") ||
-    !metrics.evolutionPanel.includes("TICKET-72")
+    !metrics.evolutionPanel.includes("TICKET-72") ||
+    !metrics.evolutionPanel.includes("TICKET-73") ||
+    !metrics.evolutionPanel.includes("TICKET-74") ||
+    !metrics.evolutionPanel.includes("TICKET-77") ||
+    !metrics.evolutionPanel.includes("TICKET-78") ||
+    !metrics.evolutionPanel.includes("TICKET-79") ||
+    !metrics.evolutionPanel.includes("TICKET-80") ||
+    !metrics.evolutionPanel.includes("TICKET-81") ||
+    !metrics.evolutionPanel.includes("TICKET-82") ||
+    !metrics.evolutionPanel.includes("TICKET-83") ||
+    !metrics.evolutionPanel.includes("TICKET-84") ||
+    !metrics.evolutionPanel.includes("TICKET-85") ||
+    !metrics.evolutionPanel.includes("TICKET-86") ||
+    !metrics.evolutionPanel.includes("TICKET-87") ||
+    !metrics.evolutionPanel.includes("TICKET-88") ||
+    !metrics.evolutionPanel.includes("TICKET-89") ||
+    !metrics.evolutionPanel.includes("TICKET-90") ||
+    !metrics.evolutionPanel.includes("TICKET-91") ||
+    !metrics.evolutionPanel.includes("TICKET-92") ||
+    !metrics.evolutionPanel.includes("TICKET-93") ||
+    !metrics.evolutionPanel.includes("TICKET-94") ||
+    !metrics.evolutionPanel.includes("TICKET-95") ||
+    !metrics.evolutionPanel.includes("TICKET-96") ||
+    !metrics.evolutionPanel.includes("TICKET-97") ||
+    !metrics.evolutionPanel.includes("TICKET-98") ||
+    !metrics.evolutionPanel.includes("TICKET-99") ||
+    !metrics.evolutionPanel.includes("TICKET-100") ||
+    !metrics.evolutionPanel.includes("TICKET-101") ||
+    !metrics.evolutionPanel.includes("TICKET-102") ||
+    !metrics.evolutionPanel.includes("TICKET-103") ||
+    !metrics.evolutionPanel.includes("TICKET-104") ||
+    !metrics.evolutionPanel.includes("TICKET-105") ||
+    !metrics.evolutionPanel.includes("TICKET-106") ||
+    !metrics.evolutionPanel.includes("TICKET-107") ||
+    !metrics.evolutionPanel.includes("TICKET-108") ||
+    !metrics.evolutionPanel.includes("TICKET-109") ||
+    !metrics.evolutionPanel.includes("TICKET-110")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

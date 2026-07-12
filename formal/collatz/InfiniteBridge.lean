@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Collatz CEGIS: generate residue-rank candidates, reject uncovered blocks and nondecreasing SCCs"
 
 def rankedCegisTarget : String :=
-  "CO-CEGIS-13 attack_next"
+  "CO-TICKET-110 preserves the exact golden-mean escape target; no Twin major-arc shortcut is imported"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-13 NineCircuitCycleDiophantineExclusion: Steiner's nine-circuit cycle equation and p-adic distance bounds have no positive integer solutions within the certified continued fractions limit."
+  "CO-TICKET-111 GoldenMeanInvariantSetEscape."
 
 def topAttackProofAttemptProtocol : String :=
-  "Formulate the nine-circuit cycle equation with nine independent odd blocks; evaluate continued fraction convergents of ln(3)/ln(2) and compute p-adic valuation bounds; verify that no integer solutions exist for b1 + ... + b9 <= 2000 using arbitrary-precision solver."
+  "Prove the exact logarithmic tail orbit exits the no-00 subshift infinitely often, or construct a compatible infinite avoiding path and test whether it is realized by a positive integer orbit."
 
 end PrimeProject.OpenProblems.Collatz

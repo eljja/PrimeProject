@@ -1,0 +1,154 @@
+{
+  "schema": "primeproject.ticket95-sharp-contamination-and-equivalence-audit.v1",
+  "generated_at": "2026-07-12T20:15:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-95",
+  "route": "TwinPrimePowerMassBudgetAndRemainderEquivalenceAudit",
+  "status": "sharp_prime_power_budget_and_equivalence_no_reduction_proved_no_twin_prime_resolution",
+  "proof_or_counterexample_mode": "sharp contamination theorem plus algebraic no-reduction audit",
+  "attempt": "Tighten the sparse contamination budget and test whether TICKET94's signed remainder target is genuinely weaker than the original correlation target.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-94",
+    "twin_ticket95_audit": {
+      "theorem_name": "TwinPrimePowerMassBudgetAndRemainderEquivalenceAudit",
+      "source_ticket": "TP-TICKET-94",
+      "sharp_budget_theorem": {
+        "mass": "H(y)=sum_{m<=y, m=p^k, k>=2} Lambda(m).",
+        "bound": "E_pp(x)<=log(x+2)(H(x)+H(x+2))=:B_#(x).",
+        "proof": "Charge every contaminated term to a proper-prime-power endpoint and bound the opposite Lambda weight by log(x+2).",
+        "infinite_bridge": "If limsup_x(C_2(x)-B_#(x))=+infinity, then there are infinitely many twin primes."
+      },
+      "equivalence_no_reduction": {
+        "identity": "D_R(x)=C_2(x)-alpha_R^2 S_R(x).",
+        "equivalence": "D_R>=-alpha_R^2 S_R+B_#+omega iff C_2>=B_#+omega.",
+        "finding": "The TICKET94 signed-remainder target is a valid reformulation but not a reduction of the unresolved correlation lower bound.",
+        "discarded_route": "Count the exact decomposition itself as proof progress without an independent estimate for D_R."
+      },
+      "machine_audit": {
+        "checkpoint_count": 5,
+        "maximum_checkpoint": 200000,
+        "budget_failure_count": 0,
+        "equivalence_failure_count": 0,
+        "total_failure_count": 0,
+        "checkpoint_rows": [
+          {
+            "limit": 100,
+            "lambda_shift_two_correlation": 112.88796742895666,
+            "twin_prime_weight": 79.97450929448584,
+            "proper_prime_power_contamination": 32.91345813447083,
+            "old_contamination_bound": 2592.3861964223483,
+            "proper_prime_power_mass": 10.31692083029347,
+            "sharp_contamination_bound": 95.43095671382696,
+            "sharp_certified_margin": 17.457010715129698,
+            "bound_improvement_factor": 27.165044611218264,
+            "sharp_bound_holds": true,
+            "twin_pair_count": 8
+          },
+          {
+            "limit": 1000,
+            "lambda_shift_two_correlation": 1135.462784553193,
+            "twin_prime_weight": 1028.368743410726,
+            "proper_prime_power_contamination": 107.09404114246726,
+            "old_contamination_bound": 27203.91739877155,
+            "proper_prime_power_mass": 40.43564712711637,
+            "sharp_contamination_bound": 558.8006908640477,
+            "sharp_certified_margin": 576.6620936891452,
+            "bound_improvement_factor": 48.682683904179484,
+            "sharp_bound_holds": true,
+            "twin_pair_count": 35
+          },
+          {
+            "limit": 10000,
+            "lambda_shift_two_correlation": 13302.92434452426,
+            "twin_prime_weight": 12950.5861591966,
+            "proper_prime_power_contamination": 352.3381853276575,
+            "old_contamination_bound": 220590.59504731695,
+            "proper_prime_power_mass": 117.40531410612746,
+            "sharp_contamination_bound": 2162.7327662224775,
+            "sharp_certified_margin": 11140.191578301781,
+            "bound_improvement_factor": 101.99623295697786,
+            "sharp_bound_holds": true,
+            "twin_pair_count": 205
+          },
+          {
+            "limit": 100000,
+            "lambda_shift_two_correlation": 131522.91254363762,
+            "twin_prime_weight": 130224.41900544071,
+            "proper_prime_power_contamination": 1298.4935381968946,
+            "old_contamination_bound": 1341303.9890011034,
+            "proper_prime_power_mass": 366.17475704540334,
+            "sharp_contamination_bound": 8431.500016878435,
+            "sharp_certified_margin": 123091.41252675919,
+            "bound_improvement_factor": 159.08248666501098,
+            "sharp_bound_holds": true,
+            "twin_pair_count": 1224
+          },
+          {
+            "limit": 200000,
+            "lambda_shift_two_correlation": 264287.70787028514,
+            "twin_prime_weight": 262676.2014141983,
+            "proper_prime_power_contamination": 1611.5064560867415,
+            "old_contamination_bound": 2265419.834990771,
+            "proper_prime_power_mass": 507.9736130825387,
+            "sharp_contamination_bound": 12400.735806017274,
+            "sharp_certified_margin": 251886.97206426787,
+            "bound_improvement_factor": 182.6843076433827,
+            "sharp_bound_holds": true,
+            "twin_pair_count": 2160
+          }
+        ],
+        "equivalence_rows": [
+          {
+            "truncation": 10,
+            "surrogate_main_term": 444961.4078569613,
+            "combined_signed_remainder": -180673.69998637435,
+            "exact_correlation": 264287.70787028514,
+            "identity_error": 3.018067218363285e-07,
+            "rearranged_target_left": 251886.97206456968,
+            "original_correlation_excess": 251886.97206426787,
+            "target_equivalence_error": 3.018067218363285e-07
+          },
+          {
+            "truncation": 30,
+            "surrogate_main_term": 422608.7721335673,
+            "combined_signed_remainder": -158321.06426326372,
+            "exact_correlation": 264287.70787028514,
+            "identity_error": 1.8451828509569168e-08,
+            "rearranged_target_left": 251886.97206428632,
+            "original_correlation_excess": 251886.97206426787,
+            "target_equivalence_error": 1.8451828509569168e-08
+          },
+          {
+            "truncation": 100,
+            "surrogate_main_term": 369592.04803483543,
+            "combined_signed_remainder": -105304.34016456004,
+            "exact_correlation": 264287.70787028514,
+            "identity_error": 9.778887033462524e-09,
+            "rearranged_target_left": 251886.9720642581,
+            "original_correlation_excess": 251886.97206426787,
+            "target_equivalence_error": 9.778887033462524e-09
+          },
+          {
+            "truncation": 300,
+            "surrogate_main_term": 337240.6151671888,
+            "combined_signed_remainder": -72952.90729689781,
+            "exact_correlation": 264287.70787028514,
+            "identity_error": 5.820766091346741e-09,
+            "rearranged_target_left": 251886.9720642737,
+            "original_correlation_excess": 251886.97206426787,
+            "target_equivalence_error": 5.820766091346741e-09
+          }
+        ]
+      },
+      "theorem_status": "sharp_prime_power_budget_and_equivalence_no_reduction_proved_no_twin_prime_resolution",
+      "retained_route": "Obtain an independent one-sided Type II estimate for C_2 or D_R; algebraic decomposition alone supplies no new information.",
+      "candidate_theorem": "IndependentShiftTwoCorrelationExcess: prove C_2(x)>B_#(x)+omega(x) on an unbounded sequence using estimates not containing C_2 as an input.",
+      "next_theorem_target": "IndependentShiftTwoCorrelationExcess",
+      "proof_boundary": "TICKET95 sharpens the sparse contamination budget and proves an equivalence/no-reduction result. It does not prove Twin Prime."
+    }
+  },
+  "obstruction": "Obtain an independent one-sided Type II estimate for C_2 or D_R; algebraic decomposition alone supplies no new information.",
+  "candidate_theorem": "IndependentShiftTwoCorrelationExcess: prove C_2(x)>B_#(x)+omega(x) on an unbounded sequence using estimates not containing C_2 as an input.",
+  "next_experiment": "Specify a parity-breaking Type II premise and derive correlation excess without using exact C_2 samples as input.",
+  "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+}

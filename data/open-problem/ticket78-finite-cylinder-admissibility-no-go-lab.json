@@ -1,0 +1,602 @@
+{
+  "schema": "primeproject.ticket78-finite-cylinder-admissibility-no-go-lab.v1",
+  "generated_at": "2026-07-11T04:10:00+09:00",
+  "status": "finite_cylinder_admissibility_no_go_open_no_collatz_resolution",
+  "claim_boundary": "Ticket 78 proves a Collatz proof-route no-go lemma but does not solve any open problem.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-78",
+      "status": "proof_pressure_open",
+      "route": "FiniteKernelNeighborhoodNoGoTransfer",
+      "proof_or_counterexample_mode": "finite-neighborhood no-go transfer discipline",
+      "attempt": "Transfer only the TICKET78 requirement that a finite local neighborhood cannot settle an infinite admissibility question when target objects are dense in the completion. No Collatz formula, count, or theorem is transferred.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-77",
+        "ticket78_transfer": "FiniteKernelNeighborhoodNoGoTransfer",
+        "candidate_theorem": "An actual-zeta detector couples all-height analytic tails to a nonlocal positivity margin rather than a fixed finite coefficient neighborhood."
+      },
+      "obstruction": "No problem-specific density or finite-neighborhood theorem was proved for this problem.",
+      "candidate_theorem": "An actual-zeta detector couples all-height analytic tails to a nonlocal positivity margin rather than a fixed finite coefficient neighborhood.",
+      "next_experiment": "Derive a problem-specific local-to-global obstruction before using this transfer.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-78",
+      "route": "FiniteCylinderNaturalAdmissibilityNoGo",
+      "status": "finite_two_adic_natural_separator_refuted_exactly_no_collatz_resolution",
+      "proof_or_counterexample_mode": "exact finite-cylinder theorem plus topological density counteredge",
+      "attempt": "Determine whether any finite 2-adic residue or valuation-prefix coordinate can distinguish TICKET77 ghosts from positive integers, and derive the exact finite-word cylinder formula.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-77",
+        "finite_cylinder_no_go_audit": {
+          "theorem_name": "FiniteValuationCylinderNaturalDensityNoGo",
+          "source_ticket": "CO-TICKET-77",
+          "source_status": "fixed_prefix_boundary_orbit_classified_no_collatz_resolution",
+          "literature_context": [
+            {
+              "citation": "Bernstein and Lagarias, The 3x+1 Conjugacy Map, Canadian Journal of Mathematics 48 (1996), 1154-1169",
+              "url": "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/3x-1-conjugacy-map/6975BB4A8C46CF6842217043AAF9EC13",
+              "role": "Primary source for the 2-adic shift conjugacy; TICKET78 does not claim to rediscover it."
+            },
+            {
+              "citation": "Rozier, Parity sequences of the 3x+1 map on the 2-adic integers and Euclidean embedding, INTEGERS 19 (2019)",
+              "url": "https://arxiv.org/abs/1805.00133",
+              "role": "Primary parity-sequence context and inverse-transform formulas."
+            }
+          ],
+          "exact_cylinder_formula": {
+            "word": "a=(a_1,...,a_m), every a_i>=1",
+            "total": "S=sum_i a_i",
+            "affine_constant_recurrence": "C_0=0; C_(j+1)=3*C_j+2^(a_1+...+a_j)",
+            "accelerated_iterate": "T^m(n)=(3^m*n+C_m)/2^S",
+            "unique_residue": "r_a = 3^(-m)*(2^S-C_m) mod 2^(S+1)",
+            "cylinder": "n = r_a + q*2^(S+1), q>=0"
+          },
+          "proof_chain": [
+            "The displayed congruence makes the affine numerator exactly 2^S modulo 2^(S+1), so the terminal iterate is odd.",
+            "Induction through the affine prefixes gives the exact valuation word a for every n in the residue class.",
+            "The odd coefficient 3^m is invertible modulo 2^(S+1), so the residue class is unique.",
+            "Each finite cylinder contains r_a+q*2^(S+1) for every q>=0 and therefore infinitely many positive integers.",
+            "Equivalently, positive integers are dense in Z_2; every finite 2-adic neighborhood of a TICKET77 ghost contains positive naturals.",
+            "A locally constant finite-prefix Boolean separator that accepts every positive integer must therefore accept every 2-adic point.",
+            "Hence finite residue bits, finite valuation words, or any continuous finite-state 2-adic coordinate cannot certify non-naturality of a ghost."
+          ],
+          "machine_audit": {
+            "max_total_valuation": 16,
+            "total_word_count": 65535,
+            "expected_total_word_count": 65535,
+            "shifted_representatives_per_word": 4,
+            "total_positive_representative_count": 262140,
+            "residue_collision_count": 0,
+            "formula_failure_count": 0,
+            "representative_replay_failure_count": 0,
+            "count_identity_failure_count": 0,
+            "per_total_valuation": [
+              {
+                "total_valuation": 1,
+                "word_count": 1,
+                "expected_composition_count": 1,
+                "unique_residue_count": 1,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 4,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 2,
+                "word_count": 2,
+                "expected_composition_count": 2,
+                "unique_residue_count": 2,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 8,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 3,
+                "word_count": 4,
+                "expected_composition_count": 4,
+                "unique_residue_count": 4,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 16,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 4,
+                "word_count": 8,
+                "expected_composition_count": 8,
+                "unique_residue_count": 8,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 32,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 5,
+                "word_count": 16,
+                "expected_composition_count": 16,
+                "unique_residue_count": 16,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 64,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 6,
+                "word_count": 32,
+                "expected_composition_count": 32,
+                "unique_residue_count": 32,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 128,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 7,
+                "word_count": 64,
+                "expected_composition_count": 64,
+                "unique_residue_count": 64,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 256,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 8,
+                "word_count": 128,
+                "expected_composition_count": 128,
+                "unique_residue_count": 128,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 512,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 9,
+                "word_count": 256,
+                "expected_composition_count": 256,
+                "unique_residue_count": 256,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 1024,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 10,
+                "word_count": 512,
+                "expected_composition_count": 512,
+                "unique_residue_count": 512,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 2048,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 11,
+                "word_count": 1024,
+                "expected_composition_count": 1024,
+                "unique_residue_count": 1024,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 4096,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 12,
+                "word_count": 2048,
+                "expected_composition_count": 2048,
+                "unique_residue_count": 2048,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 8192,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 13,
+                "word_count": 4096,
+                "expected_composition_count": 4096,
+                "unique_residue_count": 4096,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 16384,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 14,
+                "word_count": 8192,
+                "expected_composition_count": 8192,
+                "unique_residue_count": 8192,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 32768,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 15,
+                "word_count": 16384,
+                "expected_composition_count": 16384,
+                "unique_residue_count": 16384,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 65536,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              },
+              {
+                "total_valuation": 16,
+                "word_count": 32768,
+                "expected_composition_count": 32768,
+                "unique_residue_count": 32768,
+                "residue_collision_count": 0,
+                "shifted_positive_representative_count": 131072,
+                "formula_failure_count": 0,
+                "representative_replay_failure_count": 0,
+                "count_identity_holds": true
+              }
+            ],
+            "examples": [
+              {
+                "valuation_word": [
+                  1
+                ],
+                "total_valuation": 1,
+                "modulus": 4,
+                "residue": 3,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 3,
+                    "terminal": 5,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 7,
+                    "terminal": 11,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  4
+                ],
+                "total_valuation": 4,
+                "modulus": 32,
+                "residue": 5,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 5,
+                    "terminal": 1,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 37,
+                    "terminal": 7,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  1,
+                  3
+                ],
+                "total_valuation": 4,
+                "modulus": 32,
+                "residue": 19,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 19,
+                    "terminal": 11,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 51,
+                    "terminal": 29,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  2,
+                  2
+                ],
+                "total_valuation": 4,
+                "modulus": 32,
+                "residue": 1,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 1,
+                    "terminal": 1,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 33,
+                    "terminal": 19,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  1,
+                  1,
+                  2
+                ],
+                "total_valuation": 4,
+                "modulus": 32,
+                "residue": 7,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 7,
+                    "terminal": 13,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 39,
+                    "terminal": 67,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  3,
+                  1
+                ],
+                "total_valuation": 4,
+                "modulus": 32,
+                "residue": 29,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 29,
+                    "terminal": 17,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 61,
+                    "terminal": 35,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  1,
+                  2,
+                  1
+                ],
+                "total_valuation": 4,
+                "modulus": 32,
+                "residue": 27,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 27,
+                    "terminal": 47,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 59,
+                    "terminal": 101,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  2,
+                  1,
+                  1
+                ],
+                "total_valuation": 4,
+                "modulus": 32,
+                "residue": 9,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 9,
+                    "terminal": 17,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 41,
+                    "terminal": 71,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "total_valuation": 4,
+                "modulus": 32,
+                "residue": 31,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 31,
+                    "terminal": 161,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 63,
+                    "terminal": 323,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  8
+                ],
+                "total_valuation": 8,
+                "modulus": 512,
+                "residue": 85,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 85,
+                    "terminal": 1,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 597,
+                    "terminal": 7,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  1,
+                  7
+                ],
+                "total_valuation": 8,
+                "modulus": 512,
+                "residue": 483,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 483,
+                    "terminal": 17,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 995,
+                    "terminal": 35,
+                    "replay_holds": true
+                  }
+                ]
+              },
+              {
+                "valuation_word": [
+                  2,
+                  6
+                ],
+                "total_valuation": 8,
+                "modulus": 512,
+                "residue": 369,
+                "positive_integer_witnesses": [
+                  {
+                    "shift": 0,
+                    "positive_integer": 369,
+                    "terminal": 13,
+                    "replay_holds": true
+                  },
+                  {
+                    "shift": 1,
+                    "positive_integer": 881,
+                    "terminal": 31,
+                    "replay_holds": true
+                  }
+                ]
+              }
+            ]
+          },
+          "computational_failure_count": 0,
+          "theorem_status": "finite_two_adic_natural_separator_refuted_exactly_no_collatz_resolution",
+          "rejected_candidate_families": [
+            {
+              "family": "fixed_residue_bits",
+              "status": "refuted_by_natural_density",
+              "counteredge": "Every residue modulo 2^k has infinitely many positive representatives."
+            },
+            {
+              "family": "finite_accelerated_valuation_word",
+              "status": "refuted_by_exact_cylinder_formula",
+              "counteredge": "Every finite positive valuation word has one exact residue class modulo 2^(S+1), populated by infinitely many naturals."
+            },
+            {
+              "family": "continuous_two_adic_natural_classifier",
+              "status": "refuted_by_density_and_continuity",
+              "counteredge": "A continuous Boolean map constant on all positive naturals is constant on their 2-adic closure Z_2."
+            }
+          ],
+          "discarded_route": "Separate TICKET77 ghosts from positive integers with any fixed amount of residue, valuation-word, parity-word, or other locally constant 2-adic state. Every such neighborhood contains positive naturals.",
+          "retained_route": "Couple growing 2-adic precision to an Archimedean height or descent quantity. The separator must be non-local in the 2-adic topology and must control actual integer magnitude across changing prefixes.",
+          "candidate_theorem": "ArchimedeanTwoAdicCoupledDescent: every positive-integer accelerated trajectory either enters the known basin or strictly decreases a well-founded rank using both Archimedean height and growing 2-adic prefix precision; the rank cannot factor through any fixed finite 2-adic quotient.",
+          "next_theorem_target": "ArchimedeanTwoAdicCoupledDescent",
+          "novelty_boundary": "The 2-adic conjugacy and density principles are established mathematics. PrimeProject claims only an exact integration with the TICKET77 boundary state, a replayable finite-word audit, and a proof-route no-go guard.",
+          "proof_boundary": "TICKET78 proves a no-go statement for finite or continuous purely 2-adic natural-admissibility separators. It does not exclude non-continuous or Archimedean-coupled ranks and does not prove Collatz."
+        }
+      },
+      "obstruction": "Separate TICKET77 ghosts from positive integers with any fixed amount of residue, valuation-word, parity-word, or other locally constant 2-adic state. Every such neighborhood contains positive naturals.",
+      "candidate_theorem": "ArchimedeanTwoAdicCoupledDescent: every positive-integer accelerated trajectory either enters the known basin or strictly decreases a well-founded rank using both Archimedean height and growing 2-adic prefix precision; the rank cannot factor through any fixed finite 2-adic quotient.",
+      "next_experiment": "Synthesize and falsify Archimedean-plus-2-adic changing-prefix ranks.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-78",
+      "status": "proof_pressure_open",
+      "route": "FiniteCongruenceNeighborhoodNoGoTransfer",
+      "proof_or_counterexample_mode": "finite-neighborhood no-go transfer discipline",
+      "attempt": "Transfer only the TICKET78 requirement that a finite local neighborhood cannot settle an infinite admissibility question when target objects are dense in the completion. No Collatz formula, count, or theorem is transferred.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-77",
+        "ticket78_transfer": "FiniteCongruenceNeighborhoodNoGoTransfer",
+        "candidate_theorem": "A global positive representation margin uses explicit analytic size bounds in addition to every finite local congruence condition."
+      },
+      "obstruction": "No problem-specific density or finite-neighborhood theorem was proved for this problem.",
+      "candidate_theorem": "A global positive representation margin uses explicit analytic size bounds in addition to every finite local congruence condition.",
+      "next_experiment": "Derive a problem-specific local-to-global obstruction before using this transfer.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-78",
+      "status": "proof_pressure_open",
+      "route": "FiniteSieveStateNoGoTransfer",
+      "proof_or_counterexample_mode": "finite-neighborhood no-go transfer discipline",
+      "attempt": "Transfer only the TICKET78 requirement that a finite local neighborhood cannot settle an infinite admissibility question when target objects are dense in the completion. No Collatz formula, count, or theorem is transferred.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-77",
+        "ticket78_transfer": "FiniteSieveStateNoGoTransfer",
+        "candidate_theorem": "An exact gap-2 lower bound couples sieve state to a nonlocal parity-breaking estimate rather than a fixed finite admissibility pattern."
+      },
+      "obstruction": "No problem-specific density or finite-neighborhood theorem was proved for this problem.",
+      "candidate_theorem": "An exact gap-2 lower bound couples sieve state to a nonlocal parity-breaking estimate rather than a fixed finite admissibility pattern.",
+      "next_experiment": "Derive a problem-specific local-to-global obstruction before using this transfer.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

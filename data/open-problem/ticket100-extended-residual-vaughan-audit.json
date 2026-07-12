@@ -1,0 +1,367 @@
+{
+  "schema": "primeproject.ticket100-extended-residual-vaughan-audit.v1",
+  "generated_at": "2026-07-13T05:15:00+09:00",
+  "status": "extended_residual_candidate_survived_componentwise_typeii_strategy_refuted_no_resolution",
+  "claim_boundary": "TICKET100 finds no conjecture counterexample; it refutes a componentwise proof route and keeps only a joint signed theorem target.",
+  "extended_residual_vaughan_audit": {
+    "theorem_name": "ExtendedResidualScreenAndVaughanJointCancellationAudit",
+    "source_ticket": "TICKET-99",
+    "vaughan_identity": {
+      "formula": "Lambda=mu_<=U*log-mu_<=U*Lambda_<=V*1+Lambda_<=V+mu_>U*Lambda_>V*1.",
+      "type_i": "The first three terms form I_{U,V}.",
+      "type_ii": "The final bilinear convolution forms II_{U,V}.",
+      "audit": {
+        "u": 100,
+        "v": 100,
+        "direct_check_limit": 100000,
+        "lambda_reconstruction_max_error": 0.0,
+        "direct_type_ii_max_error": 1.4210854715202004e-14,
+        "type_i_nonzero_count": 315796,
+        "type_ii_nonzero_count": 237205
+      }
+    },
+    "extended_counterexample_search": {
+      "goldbach": {
+        "limit": 6000000,
+        "transform_size": 16777216,
+        "evaluated_even_count": 2999501,
+        "schedule_moduli_reached": [
+          2,
+          6,
+          30,
+          210,
+          2310
+        ],
+        "candidate_constant": 1.6,
+        "candidate_failure_count": 0,
+        "overall_maximum_required_constant": 1.5790520053458263,
+        "overall_maximum_row": {
+          "even_target": 2804,
+          "signed_residual_over_main": -0.1989030531290669,
+          "exact_correlation": 3176.850079935044,
+          "external_main": 3965.625
+        },
+        "maximum_fft_direct_error": 4.511093720793724e-09,
+        "direct_validation_rows": [
+          {
+            "target": 1000,
+            "modulus": 30,
+            "fft_direct_error": 3.4031018003588542e-09,
+            "direct_external_main": 1856.25
+          },
+          {
+            "target": 2804,
+            "modulus": 30,
+            "fft_direct_error": 4.229150363244116e-09,
+            "direct_external_main": 3965.625
+          },
+          {
+            "target": 44100,
+            "modulus": 210,
+            "fft_direct_error": 4.511093720793724e-09,
+            "direct_external_main": 192937.5
+          },
+          {
+            "target": 58354,
+            "modulus": 210,
+            "fft_direct_error": 2.1827872842550278e-09,
+            "direct_external_main": 79797.265625
+          },
+          {
+            "target": 5336100,
+            "modulus": 2310,
+            "fft_direct_error": 3.725290298461914e-09,
+            "direct_external_main": 25679981.25
+          },
+          {
+            "target": 5884066,
+            "modulus": 2310,
+            "fft_direct_error": 3.725290298461914e-09,
+            "direct_external_main": 7964198.73046875
+          },
+          {
+            "target": 6000000,
+            "modulus": 2310,
+            "fft_direct_error": 3.725290298461914e-09,
+            "direct_external_main": 21656228.34375
+          }
+        ],
+        "segment_rows": [
+          {
+            "modulus": 30,
+            "start": 1000,
+            "end": 44098,
+            "evaluated_count": 21550,
+            "candidate_failure_count": 0,
+            "maximum_required_constant": 1.5790520053458263,
+            "maximum_row": {
+              "even_target": 2804,
+              "signed_residual_over_main": -0.1989030531290669,
+              "exact_correlation": 3176.850079935044,
+              "external_main": 3965.625
+            }
+          },
+          {
+            "modulus": 210,
+            "start": 44100,
+            "end": 5336098,
+            "evaluated_count": 2646000,
+            "candidate_failure_count": 0,
+            "maximum_required_constant": 1.3451367242141952,
+            "maximum_row": {
+              "even_target": 58354,
+              "signed_residual_over_main": -0.12257171619028372,
+              "exact_correlation": 70016.37783005182,
+              "external_main": 79797.265625
+            }
+          },
+          {
+            "modulus": 2310,
+            "start": 5336100,
+            "end": 6000000,
+            "evaluated_count": 331951,
+            "candidate_failure_count": 0,
+            "maximum_required_constant": 0.6209059261970351,
+            "maximum_row": {
+              "even_target": 5884066,
+              "signed_residual_over_main": -0.03983291908903967,
+              "exact_correlation": 7646961.446828956,
+              "external_main": 7964198.73046875
+            }
+          }
+        ],
+        "status": "extended_finite_fft_screen_no_asymptotic_claim"
+      },
+      "twin": {
+        "limit": 10000000,
+        "evaluated_count": 9999001,
+        "schedule_moduli_reached": [
+          2,
+          6,
+          30,
+          210,
+          2310
+        ],
+        "candidate_constant": 1.6,
+        "candidate_failure_count": 0,
+        "overall_maximum_required_constant": 1.3889575858810583,
+        "overall_maximum_row": {
+          "x": 1018,
+          "signed_residual_over_main": -0.2005542551000622,
+          "exact_correlation": 1135.462784553193,
+          "external_main": 1420.3125
+        },
+        "segment_rows": [
+          {
+            "modulus": 30,
+            "start": 1000,
+            "end": 44099,
+            "evaluated_count": 43100,
+            "candidate_failure_count": 0,
+            "maximum_required_constant": 1.3889575858810583,
+            "maximum_row": {
+              "x": 1018,
+              "signed_residual_over_main": -0.2005542551000622,
+              "exact_correlation": 1135.462784553193,
+              "external_main": 1420.3125
+            }
+          },
+          {
+            "modulus": 210,
+            "start": 44100,
+            "end": 5336099,
+            "evaluated_count": 5292000,
+            "candidate_failure_count": 0,
+            "maximum_required_constant": 0.6833862306466653,
+            "maximum_row": {
+              "x": 79558,
+              "signed_residual_over_main": -0.06056111302919303,
+              "exact_correlation": 102152.60294030335,
+              "external_main": 108737.890625
+            }
+          },
+          {
+            "modulus": 2310,
+            "start": 5336100,
+            "end": 10000000,
+            "evaluated_count": 4663901,
+            "candidate_failure_count": 0,
+            "maximum_required_constant": 0.3505225396376218,
+            "maximum_row": {
+              "x": 6841276,
+              "signed_residual_over_main": -0.022271682668568674,
+              "exact_correlation": 9053524.392426716,
+              "external_main": 9259754.7109375
+            }
+          }
+        ],
+        "status": "extended_finite_screen_no_asymptotic_claim"
+      },
+      "finding": "No K=1.6 counterexample appears through every even N<=6M for Goldbach or every x<=10M for Twin, including the W=210 to W=2310 transition.",
+      "scope": "Finite double-precision evidence only; it cannot discharge the all-scale quantifier."
+    },
+    "vaughan_joint_cancellation_audit": {
+      "identity": {
+        "u": 100,
+        "v": 100,
+        "direct_check_limit": 100000,
+        "lambda_reconstruction_max_error": 0.0,
+        "direct_type_ii_max_error": 1.4210854715202004e-14,
+        "type_i_nonzero_count": 315796,
+        "type_ii_nonzero_count": 237205
+      },
+      "decomposition": "Lambda=I_{U,V}+II_{U,V}; C-M=(<I,Lambda_shift>-M)+<II,Lambda_shift>.",
+      "goldbach": {
+        "maximum_rows": {
+          "structured": {
+            "number": 2804,
+            "modulus": 30,
+            "required_log_envelope_constant": 1.5790520053346402,
+            "contribution_over_external_main": -0.19890305312765783
+          },
+          "type_ii": {
+            "number": 930930,
+            "modulus": 210,
+            "required_log_envelope_constant": 7.909937398184027,
+            "contribution_over_external_main": -0.5755218491476396
+          },
+          "joint": {
+            "number": 2804,
+            "modulus": 30,
+            "required_log_envelope_constant": 1.5790520053346402,
+            "contribution_over_external_main": -0.19890305312765783
+          }
+        },
+        "joint_reconstruction_max_relative_error": 1.1102223766088008e-16,
+        "componentwise_candidate_refuted": true,
+        "joint_candidate_survives": true
+      },
+      "twin": {
+        "maximum_rows": {
+          "structured": {
+            "number": 1018,
+            "modulus": 30,
+            "required_log_envelope_constant": 1.3889575858810583,
+            "contribution_over_external_main": -0.2005542551000622
+          },
+          "type_ii": {
+            "number": 46468,
+            "modulus": 210,
+            "required_log_envelope_constant": 0.2574545720607445,
+            "contribution_over_external_main": -0.023957019727540923
+          },
+          "joint": {
+            "number": 1018,
+            "modulus": 30,
+            "required_log_envelope_constant": 1.3889575858810586,
+            "contribution_over_external_main": -0.20055425510006222
+          }
+        },
+        "joint_reconstruction_max_relative_error": 1.1088001561929879e-16,
+        "componentwise_candidate_refuted": false,
+        "joint_candidate_survives": true
+      },
+      "componentwise_no_go": {
+        "finding": "The Goldbach Type II component alone needs K>1.6 at a finite target while the joint residual still satisfies K=1.6.",
+        "counterexample_row": {
+          "number": 930930,
+          "modulus": 210,
+          "required_log_envelope_constant": 7.909937398184027,
+          "contribution_over_external_main": -0.5755218491476396
+        },
+        "logical_consequence": "Bounding structured and Type II terms by separate one-sided K/log envelopes is false; their signed compensation must be retained.",
+        "scope": "This refutes a proof strategy, not Goldbach or Twin Prime."
+      }
+    },
+    "contrapositive_program": {
+      "goldbach": "A sufficiently large Goldbach counterexample has C_G(N)<=B_G(N), hence R_G/M_G<=-1+B_G/M_G, contradicting any proved K/log(N) lower envelope once K/log(N)<1-B_G/M_G.",
+      "twin": "If only finitely many twin primes exist, genuine twin weight is bounded and C_2(x)<=B_2(x)+O(1), forcing R_2/M_2 toward -1 and contradicting a proved K/log(x) lower envelope.",
+      "required_independence": "The joint residual bound must come from Type I/II or dispersion information, not from the exact target correlation."
+    },
+    "discarded_routes": [
+      "Bound the Goldbach Type II component by the same K=1.6 envelope separately from the structured term.",
+      "Take absolute values of all Vaughan components and discard their observed signed compensation.",
+      "Promote the 6M/10M finite screens to an asymptotic theorem."
+    ],
+    "goldbach_next_theorem_target": "JointVaughanGoldbachResidualEnvelope",
+    "twin_next_theorem_target": "JointVaughanShiftTwoResidualEnvelope",
+    "retained_route": "Estimate the combined structured-plus-Type-II signed residual directly, preserving compensation across Vaughan components.",
+    "machine_audit": {
+      "goldbach_screen_limit": 6000000,
+      "twin_screen_limit": 10000000,
+      "vaughan_limit": 1000000,
+      "candidate_constant": 1.6,
+      "total_failure_count": 0
+    },
+    "theorem_status": "extended_candidate_survived_componentwise_typeii_route_refuted_joint_theorem_open_no_resolution",
+    "proof_boundary": "TICKET100 extends finite falsification and proves exact Vaughan decomposition contracts plus a componentwise strategy no-go. It proves none of the four conjectures and no conjecture counterexample."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-100",
+      "status": "joint_signed_component_gate_open",
+      "route": "JointExplicitFormulaComponentGate",
+      "proof_or_counterexample_mode": "exact decomposition plus componentwise-strategy counterexample transfer",
+      "attempt": "Reject separate absolute component bounds when a finite counterexample shows that only their signed combination satisfies the target envelope.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-99",
+        "ticket100_transfer": "JointExplicitFormulaComponentGate",
+        "independent_target": "JointKernelStructuredOscillatoryCancellation"
+      },
+      "obstruction": "No target-specific joint signed theorem was proved in TICKET100.",
+      "candidate_theorem": "JointKernelStructuredOscillatoryCancellation",
+      "next_experiment": "Derive a joint signed estimate that keeps compensation between the structured and difficult components.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-100",
+      "status": "joint_signed_component_gate_open",
+      "route": "JointOrbitDriftComponentGate",
+      "proof_or_counterexample_mode": "exact decomposition plus componentwise-strategy counterexample transfer",
+      "attempt": "Reject separate absolute component bounds when a finite counterexample shows that only their signed combination satisfies the target envelope.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-99",
+        "ticket100_transfer": "JointOrbitDriftComponentGate",
+        "independent_target": "JointNaturalOrbitStructuredResidualDrift"
+      },
+      "obstruction": "No target-specific joint signed theorem was proved in TICKET100.",
+      "candidate_theorem": "JointNaturalOrbitStructuredResidualDrift",
+      "next_experiment": "Derive a joint signed estimate that keeps compensation between the structured and difficult components.",
+      "claim_boundary": "No collatz proof and no certified collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-100",
+      "route": "JointVaughanGoldbachResidualAudit",
+      "status": "extended_candidate_survived_componentwise_typeii_route_refuted_joint_theorem_open_no_resolution",
+      "proof_or_counterexample_mode": "extended counterexample search plus exact one-sided Vaughan decomposition",
+      "attempt": "Attack the K/log residual theorem at the first primorial transition, then decompose it into structured and Type II contributions without losing their sign compensation.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-99",
+        "audit_ref": "extended_residual_vaughan_audit"
+      },
+      "obstruction": "Estimate the combined structured-plus-Type-II signed residual directly, preserving compensation across Vaughan components.",
+      "candidate_theorem": "JointVaughanGoldbachResidualEnvelope",
+      "next_experiment": "Prove a joint dispersion inequality for <I,Lambda_shift>-M+<II,Lambda_shift>; separate K=1.6 Type II control is already falsified.",
+      "claim_boundary": "No Goldbach proof and no certified Goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-100",
+      "route": "JointVaughanTwinResidualAudit",
+      "status": "extended_candidate_survived_componentwise_typeii_route_refuted_joint_theorem_open_no_resolution",
+      "proof_or_counterexample_mode": "extended counterexample search plus exact one-sided Vaughan decomposition",
+      "attempt": "Attack the K/log residual theorem through 10M, then decompose it into structured and Type II shift-two contributions.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-99",
+        "audit_ref": "extended_residual_vaughan_audit"
+      },
+      "obstruction": "Estimate the combined structured-plus-Type-II signed residual directly, preserving compensation across Vaughan components.",
+      "candidate_theorem": "JointVaughanShiftTwoResidualEnvelope",
+      "next_experiment": "Prove a joint shift-two dispersion inequality preserving structured/Type-II compensation.",
+      "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+    }
+  ]
+}

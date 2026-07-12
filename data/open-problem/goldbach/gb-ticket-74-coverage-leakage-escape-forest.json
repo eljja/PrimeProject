@@ -1,0 +1,25 @@
+{
+  "schema": "primeproject.ticket74-coverage-leakage-escape-forest-lab.v1",
+  "generated_at": "2026-07-10T09:10:00+09:00",
+  "status": "proof_pressure_open",
+  "attempt": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-74",
+    "status": "proof_pressure_open",
+    "route": "ExceptionalEvenCoverageLeakageAudit",
+    "proof_or_counterexample_mode": "coverage-leakage proof discipline",
+    "attempt": "Apply the TICKET74 correction: a bounded frontier that appears extinct under one predicate may leak into uncovered states, so coverage and successor closure must be proven before a finite result is promoted.",
+    "bounded_result": {
+      "source_ticket": "GB-TICKET-73",
+      "source_route": "RepresentationFrontierCoverageAndAllScaleDecision",
+      "ticket74_transfer": "ExceptionalEvenCoverageLeakageAudit",
+      "candidate_theorem": "Every even target outside the certified range is covered by a uniform positive representation lower bound, or an escaping exceptional packet is isolated.",
+      "counterexample_target": "an exact exceptional even sequence that evades every claimed representation cover"
+    },
+    "obstruction": "This transfer is a proof obligation, not evidence that the target conjecture is solved.",
+    "candidate_theorem": "Every even target outside the certified range is covered by a uniform positive representation lower bound, or an escaping exceptional packet is isolated.",
+    "next_experiment": "Prove a problem-specific global frontier cover before interpreting bounded extinction as a theorem.",
+    "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+  },
+  "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+}

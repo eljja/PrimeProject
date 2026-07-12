@@ -1,0 +1,1729 @@
+{
+  "schema": "primeproject.ticket76-symbolic-boundary-recurrence-lab.v1",
+  "generated_at": "2026-07-10T23:35:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-76",
+  "route": "SymbolicBoundaryRecurrenceOrFixedPrecisionCounteredge",
+  "status": "symbolic_formula_verified_fixed_precision_closure_refuted_on_tested_precisions_no_global_resolution",
+  "proof_or_counterexample_mode": "exact symbolic identity plus reachable fixed-precision counteredges",
+  "attempt": "Derive the exact four-bit boundary recurrence, verify it on every fifth- and sixth-layer child, and test whether a fixed number of boundary-quotient bits is recursively sufficient.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-75",
+    "symbolic_boundary_recurrence_audit": {
+      "theorem_name": "FourBitBoundaryQuotientRecurrenceAndFixedPrecisionLoss",
+      "source_ticket": "CO-TICKET-75",
+      "source_status": "all_tested_finite_preoutcome_coordinates_leak_or_cycle_no_global_resolution",
+      "symbolic_objects": {
+        "accelerated_map": "T(n) = (3*n + 1) / 2^v2(3*n + 1) on odd n",
+        "prefix_affine_identity": "T^m(r + h*2^b) = T^m(r) + h*3^m*2^(b-s)",
+        "boundary_definitions": "d = b-s; A = (3*T^m(r)+1)/2^d; u = 3^(m+1)",
+        "first_new_valuation_formula": "v_new = d + v2(A + h*u)",
+        "unresolved_recurrence": "if v2(A+h*u) > 4, then A_next = (A+h*u)/16",
+        "precision_loss": "A_next mod 2^q generally requires A mod 2^(q+4), so a fixed q-bit quotient projection is not algebraically successor-closed without extra restrictions."
+      },
+      "reconstruction": {
+        "root_count": 4142,
+        "fourth_source_count": 2873,
+        "fifth_open_pressure_count": 15696,
+        "fifth_summary": {
+          "source_count": 2873,
+          "row_count": 45968,
+          "outcome_counts": {
+            "safe_base_cycle_exit": 30272,
+            "pressure_new_unranked_internal": 15593,
+            "pressure_rank_equal": 103
+          },
+          "open_pressure_count": 15696,
+          "original_mixed_transition_reentry_count": 0,
+          "open_pressure_original_mixed_reentry_count": 0,
+          "new_unranked_internal_count": 15593,
+          "rank_equal_count": 103,
+          "surviving_root_count": 595,
+          "exact_extension_failure_count": 0,
+          "examples": [
+            {
+              "depth": 5,
+              "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+              "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=1",
+              "child_top": 1,
+              "source_rank": null,
+              "child_rank": null,
+              "outcome_class": "pressure_new_unranked_internal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 179756363216313639247719,
+                "modulus_bits": 80,
+                "prefix_length": 56,
+                "consumed_bits": 79,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 9.75790004,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 1388682182830942813953895,
+                "modulus_bits": 84,
+                "prefix_length": 59,
+                "consumed_bits": 84,
+                "next_valuation": 3,
+                "coefficient_log2_debt": 9.51278754,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              },
+              "transition_key_is_original_mixed": false
+            },
+            {
+              "depth": 5,
+              "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+              "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=3",
+              "child_top": 3,
+              "source_rank": null,
+              "child_rank": null,
+              "outcome_class": "pressure_new_unranked_internal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 179756363216313639247719,
+                "modulus_bits": 80,
+                "prefix_length": 56,
+                "consumed_bits": 79,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 9.75790004,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 3806533822060201163366247,
+                "modulus_bits": 84,
+                "prefix_length": 60,
+                "consumed_bits": 84,
+                "next_valuation": 3,
+                "coefficient_log2_debt": 11.09775004,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2
+                ]
+              },
+              "transition_key_is_original_mixed": false
+            },
+            {
+              "depth": 5,
+              "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+              "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=7",
+              "child_top": 7,
+              "source_rank": null,
+              "child_rank": null,
+              "outcome_class": "pressure_new_unranked_internal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 179756363216313639247719,
+                "modulus_bits": 80,
+                "prefix_length": 56,
+                "consumed_bits": 79,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 9.75790004,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 8642237100518717862190951,
+                "modulus_bits": 84,
+                "prefix_length": 59,
+                "consumed_bits": 84,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 9.51278754,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  3
+                ]
+              },
+              "transition_key_is_original_mixed": false
+            },
+            {
+              "depth": 5,
+              "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+              "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=8",
+              "child_top": 8,
+              "source_rank": null,
+              "child_rank": null,
+              "outcome_class": "pressure_new_unranked_internal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 179756363216313639247719,
+                "modulus_bits": 80,
+                "prefix_length": 56,
+                "consumed_bits": 79,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 9.75790004,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 9851162920133347036897127,
+                "modulus_bits": 84,
+                "prefix_length": 59,
+                "consumed_bits": 84,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 9.51278754,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  2
+                ]
+              },
+              "transition_key_is_original_mixed": false
+            },
+            {
+              "depth": 5,
+              "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+              "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=10",
+              "child_top": 10,
+              "source_rank": null,
+              "child_rank": null,
+              "outcome_class": "pressure_new_unranked_internal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 179756363216313639247719,
+                "modulus_bits": 80,
+                "prefix_length": 56,
+                "consumed_bits": 79,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 9.75790004,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 12269014559362605386309479,
+                "modulus_bits": 84,
+                "prefix_length": 59,
+                "consumed_bits": 84,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 9.51278754,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  2,
+                  1,
+                  3,
+                  1,
+                  1
+                ]
+              },
+              "transition_key_is_original_mixed": false
+            },
+            {
+              "depth": 5,
+              "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+              "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=11",
+              "child_top": 11,
+              "source_rank": null,
+              "child_rank": null,
+              "outcome_class": "pressure_new_unranked_internal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 179756363216313639247719,
+                "modulus_bits": 80,
+                "prefix_length": 56,
+                "consumed_bits": 79,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 9.75790004,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 13477940378977234561015655,
+                "modulus_bits": 84,
+                "prefix_length": 61,
+                "consumed_bits": 84,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 12.68271254,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "transition_key_is_original_mixed": false
+            },
+            {
+              "depth": 5,
+              "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+              "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=15",
+              "child_top": 15,
+              "source_rank": null,
+              "child_rank": null,
+              "outcome_class": "pressure_new_unranked_internal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 179756363216313639247719,
+                "modulus_bits": 80,
+                "prefix_length": 56,
+                "consumed_bits": 79,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 9.75790004,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 18313643657435751259840359,
+                "modulus_bits": 84,
+                "prefix_length": 59,
+                "consumed_bits": 83,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 10.51278754,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2
+                ]
+              },
+              "transition_key_is_original_mixed": false
+            },
+            {
+              "depth": 5,
+              "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=3",
+              "source_transition_key": "[0,[1,2,2,1],103,1,56,80] + child_top=4",
+              "child_top": 4,
+              "source_rank": null,
+              "child_rank": null,
+              "outcome_class": "pressure_new_unranked_internal",
+              "source_certificate": {
+                "status": "needs_split",
+                "residue": 255314226942227962666855,
+                "modulus_bits": 80,
+                "prefix_length": 56,
+                "consumed_bits": 80,
+                "next_valuation": 1,
+                "coefficient_log2_debt": 8.75790004,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  2,
+                  2,
+                  1
+                ]
+              },
+              "child_certificate": {
+                "status": "needs_split",
+                "residue": 5091017505400744661491559,
+                "modulus_bits": 84,
+                "prefix_length": 59,
+                "consumed_bits": 83,
+                "next_valuation": 2,
+                "coefficient_log2_debt": 10.51278754,
+                "coefficient_log2_margin": null,
+                "threshold_min_n_for_descent": null,
+                "prefix_tail8": [
+                  2,
+                  1,
+                  2,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "transition_key_is_original_mixed": false
+            }
+          ]
+        }
+      },
+      "fifth_formula_audit": {
+        "depth": 5,
+        "source_count": 2873,
+        "row_count": 45968,
+        "unresolved_same_prefix_child_count": 1398,
+        "resolved_boundary_child_count": 44570,
+        "source_replay_mismatch_count": 0,
+        "source_valuation_identity_failure_count": 0,
+        "old_prefix_lift_mismatch_count": 0,
+        "affine_current_identity_failure_count": 0,
+        "first_new_valuation_failure_count": 0,
+        "formula_failure_count": 0,
+        "examples": [
+          {
+            "source_residue": 179756363216313639247719,
+            "source_bits": 80,
+            "child_residue": 179756363216313639247719,
+            "child_bits": 84,
+            "child_top": 0,
+            "prefix_length": 56,
+            "boundary_slack": 1,
+            "boundary_quotient": 233451215164349794189111454,
+            "normalized_valuation": 1,
+            "predicted_first_new_valuation": 2,
+            "event": "resolved_normalized_v1",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 179756363216313639247719,
+            "source_bits": 80,
+            "child_residue": 1388682182830942813953895,
+            "child_bits": 84,
+            "child_top": 1,
+            "prefix_length": 56,
+            "boundary_slack": 1,
+            "boundary_quotient": 233451215164349794189111454,
+            "normalized_valuation": 0,
+            "predicted_first_new_valuation": 1,
+            "event": "resolved_normalized_v0",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 179756363216313639247719,
+            "source_bits": 80,
+            "child_residue": 2597608002445571988660071,
+            "child_bits": 84,
+            "child_top": 2,
+            "prefix_length": 56,
+            "boundary_slack": 1,
+            "boundary_quotient": 233451215164349794189111454,
+            "normalized_valuation": 2,
+            "predicted_first_new_valuation": 3,
+            "event": "resolved_normalized_v2",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 179756363216313639247719,
+            "source_bits": 80,
+            "child_residue": 3806533822060201163366247,
+            "child_bits": 84,
+            "child_top": 3,
+            "prefix_length": 56,
+            "boundary_slack": 1,
+            "boundary_quotient": 233451215164349794189111454,
+            "normalized_valuation": 0,
+            "predicted_first_new_valuation": 1,
+            "event": "resolved_normalized_v0",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 179756363216313639247719,
+            "source_bits": 80,
+            "child_residue": 5015459641674830338072423,
+            "child_bits": 84,
+            "child_top": 4,
+            "prefix_length": 56,
+            "boundary_slack": 1,
+            "boundary_quotient": 233451215164349794189111454,
+            "normalized_valuation": 1,
+            "predicted_first_new_valuation": 2,
+            "event": "resolved_normalized_v1",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 179756363216313639247719,
+            "source_bits": 80,
+            "child_residue": 6224385461289459512778599,
+            "child_bits": 84,
+            "child_top": 5,
+            "prefix_length": 56,
+            "boundary_slack": 1,
+            "boundary_quotient": 233451215164349794189111454,
+            "normalized_valuation": 0,
+            "predicted_first_new_valuation": 1,
+            "event": "resolved_normalized_v0",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 179756363216313639247719,
+            "source_bits": 80,
+            "child_residue": 7433311280904088687484775,
+            "child_bits": 84,
+            "child_top": 6,
+            "prefix_length": 56,
+            "boundary_slack": 1,
+            "boundary_quotient": 233451215164349794189111454,
+            "normalized_valuation": 4,
+            "predicted_first_new_valuation": 5,
+            "event": "resolved_normalized_v4",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 179756363216313639247719,
+            "source_bits": 80,
+            "child_residue": 8642237100518717862190951,
+            "child_bits": 84,
+            "child_top": 7,
+            "prefix_length": 56,
+            "boundary_slack": 1,
+            "boundary_quotient": 233451215164349794189111454,
+            "normalized_valuation": 0,
+            "predicted_first_new_valuation": 1,
+            "event": "resolved_normalized_v0",
+            "child_status": "needs_split"
+          }
+        ],
+        "identity_failure_examples": []
+      },
+      "sixth_formula_audit": {
+        "depth": 6,
+        "source_count": 15696,
+        "row_count": 251136,
+        "unresolved_same_prefix_child_count": 7751,
+        "resolved_boundary_child_count": 243385,
+        "source_replay_mismatch_count": 0,
+        "source_valuation_identity_failure_count": 0,
+        "old_prefix_lift_mismatch_count": 0,
+        "affine_current_identity_failure_count": 0,
+        "first_new_valuation_failure_count": 0,
+        "formula_failure_count": 0,
+        "examples": [
+          {
+            "source_residue": 1388682182830942813953895,
+            "source_bits": 84,
+            "child_residue": 1388682182830942813953895,
+            "child_bits": 88,
+            "child_top": 0,
+            "prefix_length": 58,
+            "boundary_slack": 2,
+            "boundary_quotient": 1014465439263617665779175885,
+            "normalized_valuation": 0,
+            "predicted_first_new_valuation": 2,
+            "event": "resolved_normalized_v0",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 1388682182830942813953895,
+            "source_bits": 84,
+            "child_residue": 20731495296665009609252711,
+            "child_bits": 88,
+            "child_top": 1,
+            "prefix_length": 58,
+            "boundary_slack": 2,
+            "boundary_quotient": 1014465439263617665779175885,
+            "normalized_valuation": 3,
+            "predicted_first_new_valuation": 5,
+            "event": "resolved_normalized_v3",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 1388682182830942813953895,
+            "source_bits": 84,
+            "child_residue": 40074308410499076404551527,
+            "child_bits": 88,
+            "child_top": 2,
+            "prefix_length": 58,
+            "boundary_slack": 2,
+            "boundary_quotient": 1014465439263617665779175885,
+            "normalized_valuation": 0,
+            "predicted_first_new_valuation": 2,
+            "event": "resolved_normalized_v0",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 1388682182830942813953895,
+            "source_bits": 84,
+            "child_residue": 59417121524333143199850343,
+            "child_bits": 88,
+            "child_top": 3,
+            "prefix_length": 58,
+            "boundary_slack": 2,
+            "boundary_quotient": 1014465439263617665779175885,
+            "normalized_valuation": 1,
+            "predicted_first_new_valuation": 3,
+            "event": "resolved_normalized_v1",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 1388682182830942813953895,
+            "source_bits": 84,
+            "child_residue": 78759934638167209995149159,
+            "child_bits": 88,
+            "child_top": 4,
+            "prefix_length": 58,
+            "boundary_slack": 2,
+            "boundary_quotient": 1014465439263617665779175885,
+            "normalized_valuation": 0,
+            "predicted_first_new_valuation": 2,
+            "event": "resolved_normalized_v0",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 1388682182830942813953895,
+            "source_bits": 84,
+            "child_residue": 98102747752001276790447975,
+            "child_bits": 88,
+            "child_top": 5,
+            "prefix_length": 58,
+            "boundary_slack": 2,
+            "boundary_quotient": 1014465439263617665779175885,
+            "normalized_valuation": 2,
+            "predicted_first_new_valuation": 4,
+            "event": "resolved_normalized_v2",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 1388682182830942813953895,
+            "source_bits": 84,
+            "child_residue": 117445560865835343585746791,
+            "child_bits": 88,
+            "child_top": 6,
+            "prefix_length": 58,
+            "boundary_slack": 2,
+            "boundary_quotient": 1014465439263617665779175885,
+            "normalized_valuation": 0,
+            "predicted_first_new_valuation": 2,
+            "event": "resolved_normalized_v0",
+            "child_status": "needs_split"
+          },
+          {
+            "source_residue": 1388682182830942813953895,
+            "source_bits": 84,
+            "child_residue": 136788373979669410381045607,
+            "child_bits": 88,
+            "child_top": 7,
+            "prefix_length": 58,
+            "boundary_slack": 2,
+            "boundary_quotient": 1014465439263617665779175885,
+            "normalized_valuation": 1,
+            "predicted_first_new_valuation": 3,
+            "event": "resolved_normalized_v1",
+            "child_status": "needs_split"
+          }
+        ],
+        "identity_failure_examples": []
+      },
+      "combined_formula_row_count": 297104,
+      "combined_formula_failure_count": 0,
+      "precision_closure_audits": [
+        {
+          "precision_bits": 5,
+          "unresolved_same_prefix_row_count": 9149,
+          "fixed_precision_transition_key_count": 173,
+          "fixed_precision_collision_key_count": 165,
+          "lookahead_precision_bits": 9,
+          "lookahead_transition_key_count": 2017,
+          "lookahead_collision_key_count": 0,
+          "fixed_precision_successor_sufficient_on_observed_rows": false,
+          "four_extra_bits_successor_sufficient_on_observed_rows": true,
+          "collision_examples": [
+            {
+              "source_coordinate": {
+                "prefix_modulus": 128,
+                "prefix_class": 54,
+                "boundary_quotient_modulus": 32,
+                "boundary_quotient_class": 30,
+                "child_top": 6
+              },
+              "left_source": {
+                "residue": 785144291055732925782631,
+                "bits": 80,
+                "boundary_quotient": 113297110443591173704677790,
+                "next_boundary_quotient": 72499523531144515508231302,
+                "next_class": 6
+              },
+              "right_source": {
+                "residue": 177098489384516949909351,
+                "bits": 80,
+                "boundary_quotient": 25555490041468688088987070,
+                "next_boundary_quotient": 67015672256011860157250632,
+                "next_class": 8
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 128,
+                "prefix_class": 54,
+                "boundary_quotient_modulus": 32,
+                "boundary_quotient_class": 9,
+                "child_top": 5
+              },
+              "left_source": {
+                "residue": 687738036471973905129063,
+                "bits": 80,
+                "boundary_quotient": 99241289992252844129487145,
+                "next_boundary_quotient": 60717959064865858717833730,
+                "next_class": 2
+              },
+              "right_source": {
+                "residue": 996725965755731559550311,
+                "bits": 80,
+                "boundary_quotient": 143828558789337495484543337,
+                "next_boundary_quotient": 63504663364683649427524742,
+                "next_class": 6
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 128,
+                "prefix_class": 56,
+                "boundary_quotient_modulus": 32,
+                "boundary_quotient_class": 2,
+                "child_top": 10
+              },
+              "left_source": {
+                "residue": 823774557107256221594983,
+                "bits": 80,
+                "boundary_quotient": 1069843470001344512878578850,
+                "next_boundary_quotient": 1048142028801385039330245280,
+                "next_class": 0
+              },
+              "right_source": {
+                "residue": 124300323905510206508135,
+                "bits": 80,
+                "boundary_quotient": 161429955200774364035501282,
+                "next_boundary_quotient": 991366184126349405027552932,
+                "next_class": 4
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 128,
+                "prefix_class": 56,
+                "boundary_quotient_modulus": 32,
+                "boundary_quotient_class": 8,
+                "child_top": 8
+              },
+              "left_source": {
+                "residue": 1120229052403092253215847,
+                "bits": 80,
+                "boundary_quotient": 1454851605065049770841366760,
+                "next_boundary_quotient": 875949674857606416497852704,
+                "next_class": 0
+              },
+              "right_source": {
+                "residue": 67639655841628187011175,
+                "bits": 80,
+                "boundary_quotient": 87844232977302759682314056,
+                "next_boundary_quotient": 790511714102122228300411910,
+                "next_class": 6
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 128,
+                "prefix_class": 55,
+                "boundary_quotient_modulus": 32,
+                "boundary_quotient_class": 25,
+                "child_top": 7
+              },
+              "left_source": {
+                "residue": 804424230469950384439143,
+                "bits": 80,
+                "boundary_quotient": 348237675245041197585204313,
+                "next_boundary_quotient": 250729444152285309879986560,
+                "next_class": 0
+              },
+              "right_source": {
+                "residue": 570656177496790671420775,
+                "bits": 80,
+                "boundary_quotient": 247038780146649743281817209,
+                "next_boundary_quotient": 244404513208635843986024866,
+                "next_class": 2
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 128,
+                "prefix_class": 55,
+                "boundary_quotient_modulus": 32,
+                "boundary_quotient_class": 27,
+                "child_top": 5
+              },
+              "left_source": {
+                "residue": 797798685090487634239335,
+                "bits": 80,
+                "boundary_quotient": 345369456669841502231603483,
+                "next_boundary_quotient": 185131726362915261768697568,
+                "next_class": 0
+              },
+              "right_source": {
+                "residue": 615797080614109381666919,
+                "bits": 80,
+                "boundary_quotient": 266580413236012432999836475,
+                "next_boundary_quotient": 180207411148300944941712130,
+                "next_class": 2
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 128,
+                "prefix_class": 55,
+                "boundary_quotient_modulus": 32,
+                "boundary_quotient_class": 17,
+                "child_top": 15
+              },
+              "left_source": {
+                "residue": 728763233712824793861223,
+                "bits": 80,
+                "boundary_quotient": 315483801580605056618589521,
+                "next_boundary_quotient": 510356143561938319676328896,
+                "next_class": 0
+              },
+              "right_source": {
+                "residue": 873356548816401957658471,
+                "bits": 80,
+                "boundary_quotient": 378078683734051535807447953,
+                "next_boundary_quotient": 514268323696528724625632548,
+                "next_class": 4
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 128,
+                "prefix_class": 55,
+                "boundary_quotient_modulus": 32,
+                "boundary_quotient_class": 19,
+                "child_top": 13
+              },
+              "left_source": {
+                "residue": 1149348004624599033961063,
+                "bits": 80,
+                "boundary_quotient": 497556217251400410094362131,
+                "next_boundary_quotient": 456317215412942962116875744,
+                "next_class": 0
+              },
+              "right_source": {
+                "residue": 256017174281865014027111,
+                "bits": 80,
+                "boundary_quotient": 110830606808843060159455795,
+                "next_boundary_quotient": 432146864760283127745944098,
+                "next_class": 2
+              }
+            }
+          ]
+        },
+        {
+          "precision_bits": 9,
+          "unresolved_same_prefix_row_count": 9149,
+          "fixed_precision_transition_key_count": 2017,
+          "fixed_precision_collision_key_count": 1536,
+          "lookahead_precision_bits": 13,
+          "lookahead_transition_key_count": 7588,
+          "lookahead_collision_key_count": 0,
+          "fixed_precision_successor_sufficient_on_observed_rows": false,
+          "four_extra_bits_successor_sufficient_on_observed_rows": true,
+          "collision_examples": [
+            {
+              "source_coordinate": {
+                "prefix_modulus": 2048,
+                "prefix_class": 54,
+                "boundary_quotient_modulus": 512,
+                "boundary_quotient_class": 190,
+                "child_top": 6
+              },
+              "left_source": {
+                "residue": 14309786595190695017324391,
+                "bits": 84,
+                "boundary_quotient": 129057286887320119394268350,
+                "next_boundary_quotient": 73484534558877574613830712,
+                "next_class": 56
+              },
+              "right_source": {
+                "residue": 690952534986952733630311,
+                "bits": 80,
+                "boundary_quotient": 99705145359248646602647742,
+                "next_boundary_quotient": 71650025713373107564354424,
+                "next_class": 376
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 2048,
+                "prefix_class": 54,
+                "boundary_quotient_modulus": 512,
+                "boundary_quotient_class": 489,
+                "child_top": 5
+              },
+              "left_source": {
+                "residue": 100402674156005144038503,
+                "bits": 80,
+                "boundary_quotient": 14488206807680069957881321,
+                "next_boundary_quotient": 55420891365830060332108366,
+                "next_class": 78
+              },
+              "right_source": {
+                "residue": 708071113487355197529959,
+                "bits": 80,
+                "boundary_quotient": 102175373444827008513323497,
+                "next_boundary_quotient": 60901339280651743991823502,
+                "next_class": 142
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 2048,
+                "prefix_class": 56,
+                "boundary_quotient_modulus": 512,
+                "boundary_quotient_class": 418,
+                "child_top": 10
+              },
+              "left_source": {
+                "residue": 646082433685134803211111,
+                "bits": 84,
+                "boundary_quotient": 52442068858305243283327394,
+                "next_boundary_quotient": 984554441229945084980542064,
+                "next_class": 112
+              },
+              "right_source": {
+                "residue": 101869444690958545804903,
+                "bits": 80,
+                "boundary_quotient": 132298769432733605196033442,
+                "next_boundary_quotient": 989545485015846857600086192,
+                "next_class": 176
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 2048,
+                "prefix_class": 56,
+                "boundary_quotient_modulus": 512,
+                "boundary_quotient_class": 456,
+                "child_top": 8
+              },
+              "left_source": {
+                "residue": 495567230186830340562791,
+                "bits": 80,
+                "boundary_quotient": 643597645239004103784676808,
+                "next_boundary_quotient": 825246302368478562306809582,
+                "next_class": 238
+              },
+              "right_source": {
+                "residue": 791341969450779409118567,
+                "bits": 80,
+                "boundary_quotient": 1027722974994346813239820744,
+                "next_boundary_quotient": 849254135478187481647756078,
+                "next_class": 302
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 2048,
+                "prefix_class": 55,
+                "boundary_quotient_modulus": 512,
+                "boundary_quotient_class": 441,
+                "child_top": 7
+              },
+              "left_source": {
+                "residue": 568203611427735679281255,
+                "bits": 80,
+                "boundary_quotient": 245977056899236345020258233,
+                "next_boundary_quotient": 244338155505672506594677430,
+                "next_class": 182
+              },
+              "right_source": {
+                "residue": 571125093912744663981927,
+                "bits": 80,
+                "boundary_quotient": 247241775477211401504070073,
+                "next_boundary_quotient": 244417200416795947624915670,
+                "next_class": 214
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 2048,
+                "prefix_class": 55,
+                "boundary_quotient_modulus": 512,
+                "boundary_quotient_class": 283,
+                "child_top": 5
+              },
+              "left_source": {
+                "residue": 797798685090487634239335,
+                "bits": 80,
+                "boundary_quotient": 345369456669841502231603483,
+                "next_boundary_quotient": 185131726362915261768697568,
+                "next_class": 224
+              },
+              "right_source": {
+                "residue": 146510203770256506653799,
+                "bits": 80,
+                "boundary_quotient": 63424709037947463896920859,
+                "next_boundary_quotient": 167510179635921884372779904,
+                "next_class": 384
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 2048,
+                "prefix_class": 55,
+                "boundary_quotient_modulus": 512,
+                "boundary_quotient_class": 401,
+                "child_top": 15
+              },
+              "left_source": {
+                "residue": 129621473688137240009319,
+                "bits": 80,
+                "boundary_quotient": 56113526854633176787194257,
+                "next_boundary_quotient": 494145501391565077186866692,
+                "next_class": 4
+              },
+              "right_source": {
+                "residue": 873356548816401957658471,
+                "bits": 80,
+                "boundary_quotient": 378078683734051535807447953,
+                "next_boundary_quotient": 514268323696528724625632548,
+                "next_class": 292
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 2048,
+                "prefix_class": 55,
+                "boundary_quotient_modulus": 512,
+                "boundary_quotient_class": 243,
+                "child_top": 13
+              },
+              "left_source": {
+                "residue": 983179922265886223469927,
+                "bits": 80,
+                "boundary_quotient": 425621553290919050604437747,
+                "next_boundary_quotient": 451821298915412877148755470,
+                "next_class": 14
+              },
+              "right_source": {
+                "residue": 1100030139994144927915879,
+                "bits": 80,
+                "boundary_quotient": 476206364926681636534981363,
+                "next_boundary_quotient": 454982849642648038769414446,
+                "next_class": 302
+              }
+            }
+          ]
+        },
+        {
+          "precision_bits": 13,
+          "unresolved_same_prefix_row_count": 9149,
+          "fixed_precision_transition_key_count": 7588,
+          "fixed_precision_collision_key_count": 1235,
+          "lookahead_precision_bits": 17,
+          "lookahead_transition_key_count": 9027,
+          "lookahead_collision_key_count": 0,
+          "fixed_precision_successor_sufficient_on_observed_rows": false,
+          "four_extra_bits_successor_sufficient_on_observed_rows": true,
+          "collision_examples": [
+            {
+              "source_coordinate": {
+                "prefix_modulus": 32768,
+                "prefix_class": 58,
+                "boundary_quotient_modulus": 8192,
+                "boundary_quotient_class": 5906,
+                "child_top": 10
+              },
+              "left_source": {
+                "residue": 807243418056226924666727,
+                "bits": 80,
+                "boundary_quotient": 9435368971427429423571769106,
+                "next_boundary_quotient": 9421201868050923404451242486,
+                "next_class": 502
+              },
+              "right_source": {
+                "residue": 11671674345982441981474151,
+                "bits": 84,
+                "boundary_quotient": 8526436350037358241377605394,
+                "next_boundary_quotient": 9364393579214043955564107254,
+                "next_class": 5622
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 32768,
+                "prefix_class": 56,
+                "boundary_quotient_modulus": 8192,
+                "boundary_quotient_class": 2897,
+                "child_top": 5
+              },
+              "left_source": {
+                "residue": 810492025938672566095719,
+                "bits": 80,
+                "boundary_quotient": 1052593326605681995085810513,
+                "next_boundary_quotient": 556425488876005628330530208,
+                "next_class": 5536
+              },
+              "right_source": {
+                "residue": 578198415493883653264231,
+                "bits": 80,
+                "boundary_quotient": 750911513161380286410845009,
+                "next_boundary_quotient": 537570375535736771538344864,
+                "next_class": 7072
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 32768,
+                "prefix_class": 57,
+                "boundary_quotient_modulus": 8192,
+                "boundary_quotient_class": 3357,
+                "child_top": 11
+              },
+              "left_source": {
+                "residue": 675410227631697558660455,
+                "bits": 80,
+                "boundary_quotient": 2631484119179268174315859229,
+                "next_boundary_quotient": 3402681236805497584903343738,
+                "next_class": 3706
+              },
+              "right_source": {
+                "residue": 668523096106291112671079,
+                "bits": 80,
+                "boundary_quotient": 2604650979119552255816461597,
+                "next_boundary_quotient": 3401004165551765339997131386,
+                "next_class": 4730
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 32768,
+                "prefix_class": 56,
+                "boundary_quotient_modulus": 8192,
+                "boundary_quotient_class": 3958,
+                "child_top": 14
+              },
+              "left_source": {
+                "residue": 271848787841795544282983,
+                "bits": 80,
+                "boundary_quotient": 353052480185375263141449590,
+                "next_boundary_quotient": 1395853316708407364131808342,
+                "next_class": 1110
+              },
+              "right_source": {
+                "residue": 4918175479492632673513319,
+                "bits": 84,
+                "boundary_quotient": 399204936871069289288912758,
+                "next_boundary_quotient": 1398737845251263240766024790,
+                "next_class": 3158
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 32768,
+                "prefix_class": 55,
+                "boundary_quotient_modulus": 8192,
+                "boundary_quotient_class": 1109,
+                "child_top": 11
+              },
+              "left_source": {
+                "residue": 835703483752834444023911,
+                "bits": 80,
+                "boundary_quotient": 361778558318974493555328085,
+                "next_boundary_quotient": 382412657601246275181497176,
+                "next_class": 2904
+              },
+              "right_source": {
+                "residue": 574080242745452837959527,
+                "bits": 80,
+                "boundary_quotient": 248521068318631888683861077,
+                "next_boundary_quotient": 375334064476224862377030488,
+                "next_class": 4952
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 32768,
+                "prefix_class": 55,
+                "boundary_quotient_modulus": 8192,
+                "boundary_quotient_class": 5047,
+                "child_top": 9
+              },
+              "left_source": {
+                "residue": 1062377074930577414281319,
+                "bits": 80,
+                "boundary_quotient": 459906239511604594282861495,
+                "next_boundary_quotient": 323127183547365589325279074,
+                "next_class": 3938
+              },
+              "right_source": {
+                "residue": 800753833923195808216935,
+                "bits": 80,
+                "boundary_quotient": 346648749511261989411394487,
+                "next_boundary_quotient": 316048590422344176520812386,
+                "next_class": 5986
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 32768,
+                "prefix_class": 56,
+                "boundary_quotient_modulus": 8192,
+                "boundary_quotient_class": 5879,
+                "child_top": 3
+              },
+              "left_source": {
+                "residue": 164699387825145895340903,
+                "bits": 80,
+                "boundary_quotient": 213896585003425322902099703,
+                "next_boundary_quotient": 307751580140604384863981462,
+                "next_class": 3990
+              },
+              "right_source": {
+                "residue": 598271363192112821046375,
+                "bits": 80,
+                "boundary_quotient": 776980431936973085306935031,
+                "next_boundary_quotient": 342944320573951120014283670,
+                "next_class": 5014
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 32768,
+                "prefix_class": 56,
+                "boundary_quotient_modulus": 8192,
+                "boundary_quotient_class": 4663,
+                "child_top": 3
+              },
+              "left_source": {
+                "residue": 1097659029393628900789351,
+                "bits": 80,
+                "boundary_quotient": 1425539711991723668363113015,
+                "next_boundary_quotient": 383479275577373031455294794,
+                "next_class": 1354
+              },
+              "right_source": {
+                "residue": 174505401603774584812903,
+                "bits": 80,
+                "boundary_quotient": 226631743812710067882144311,
+                "next_boundary_quotient": 308547527566184681425234250,
+                "next_class": 2378
+              }
+            }
+          ]
+        },
+        {
+          "precision_bits": 17,
+          "unresolved_same_prefix_row_count": 9149,
+          "fixed_precision_transition_key_count": 9027,
+          "fixed_precision_collision_key_count": 106,
+          "lookahead_precision_bits": 21,
+          "lookahead_transition_key_count": 9134,
+          "lookahead_collision_key_count": 0,
+          "fixed_precision_successor_sufficient_on_observed_rows": false,
+          "four_extra_bits_successor_sufficient_on_observed_rows": true,
+          "collision_examples": [
+            {
+              "source_coordinate": {
+                "prefix_modulus": 524288,
+                "prefix_class": 54,
+                "boundary_quotient_modulus": 131072,
+                "boundary_quotient_class": 45716,
+                "child_top": 4
+              },
+              "left_source": {
+                "residue": 171490272093086305721191,
+                "bits": 80,
+                "boundary_quotient": 24746218648812312803455636,
+                "next_boundary_quotient": 45158941417830814318008604,
+                "next_class": 71964
+              },
+              "right_source": {
+                "residue": 705700576438799350371175,
+                "bits": 80,
+                "boundary_quotient": 101833302565804604900815508,
+                "next_boundary_quotient": 49976884162642832574093596,
+                "next_class": 104732
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 524288,
+                "prefix_class": 57,
+                "boundary_quotient_modulus": 131072,
+                "boundary_quotient_class": 104142,
+                "child_top": 2
+              },
+              "left_source": {
+                "residue": 704228167391366435977831,
+                "bits": 80,
+                "boundary_quotient": 2743762476424379155801413326,
+                "next_boundary_quotient": 760251241932304301602788794,
+                "next_class": 21946
+              },
+              "right_source": {
+                "residue": 827344013617599655859559,
+                "bits": 80,
+                "boundary_quotient": 3223437466392572267242034894,
+                "next_boundary_quotient": 790230928805316371067827642,
+                "next_class": 128442
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 524288,
+                "prefix_class": 58,
+                "boundary_quotient_modulus": 131072,
+                "boundary_quotient_class": 95270,
+                "child_top": 14
+              },
+              "left_source": {
+                "residue": 17482828061355665192731495,
+                "bits": 84,
+                "boundary_quotient": 12771622670838724759248401446,
+                "next_boundary_quotient": 13162314247198812989122234774,
+                "next_class": 84374
+              },
+              "right_source": {
+                "residue": 789522334953260199958631,
+                "bits": 80,
+                "boundary_quotient": 9228238192891712929180775462,
+                "next_boundary_quotient": 12940852717327124749743008150,
+                "next_class": 108950
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 524288,
+                "prefix_class": 57,
+                "boundary_quotient_modulus": 131072,
+                "boundary_quotient_class": 103429,
+                "child_top": 3
+              },
+              "left_source": {
+                "residue": 614216758655800837289063,
+                "bits": 80,
+                "boundary_quotient": 2393066583850840755452482565,
+                "next_boundary_quotient": 1032715792224348453763580852,
+                "next_class": 33716
+              },
+              "right_source": {
+                "residue": 196907402977842772462439,
+                "bits": 80,
+                "boundary_quotient": 767176277004171590681596933,
+                "next_boundary_quotient": 931097648046431630965400500,
+                "next_class": 58292
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 524288,
+                "prefix_class": 58,
+                "boundary_quotient_modulus": 131072,
+                "boundary_quotient_class": 99491,
+                "child_top": 7
+              },
+              "left_source": {
+                "residue": 4165239058472365371581799,
+                "bits": 84,
+                "boundary_quotient": 3042806427081201844945257635,
+                "next_boundary_quotient": 6372219316828271461143683444,
+                "next_class": 8564
+              },
+              "right_source": {
+                "residue": 31031861064580998985063,
+                "bits": 80,
+                "boundary_quotient": 362712228387596865219429539,
+                "next_boundary_quotient": 6204713429409921149910819188,
+                "next_class": 41332
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 524288,
+                "prefix_class": 59,
+                "boundary_quotient_modulus": 131072,
+                "boundary_quotient_class": 103681,
+                "child_top": 15
+              },
+              "left_source": {
+                "residue": 4364402937165744644938343,
+                "bits": 84,
+                "boundary_quotient": 9564901164964990474837923073,
+                "next_boundary_quotient": 40339517205825502699328401318,
+                "next_class": 28582
+              },
+              "right_source": {
+                "residue": 741743731677593557353319,
+                "bits": 80,
+                "boundary_quotient": 26009350961846122541995889921,
+                "next_boundary_quotient": 41367295318130573453525774246,
+                "next_class": 126886
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 524288,
+                "prefix_class": 58,
+                "boundary_quotient_modulus": 131072,
+                "boundary_quotient_class": 128845,
+                "child_top": 9
+              },
+              "left_source": {
+                "residue": 515373467465618722516327,
+                "bits": 80,
+                "boundary_quotient": 6023881663019466511651829581,
+                "next_boundary_quotient": 8324834780541754815908445574,
+                "next_class": 32134
+              },
+              "right_source": {
+                "residue": 16256200215425876432005223,
+                "bits": 84,
+                "boundary_quotient": 11875541787884358230594549581,
+                "next_boundary_quotient": 8690563538345810548342365574,
+                "next_class": 105862
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 524288,
+                "prefix_class": 57,
+                "boundary_quotient_modulus": 131072,
+                "boundary_quotient_class": 110387,
+                "child_top": 5
+              },
+              "left_source": {
+                "residue": 394432256294787534150247,
+                "bits": 80,
+                "boundary_quotient": 1536758219032732996887883571,
+                "next_boundary_quotient": 1567962606578997323218493876,
+                "next_class": 74164
+              },
+              "right_source": {
+                "residue": 230855650045733926721895,
+                "bits": 80,
+                "boundary_quotient": 899442963794475677074829107,
+                "next_boundary_quotient": 1528130403126606240730177972,
+                "next_class": 123316
+              }
+            }
+          ]
+        },
+        {
+          "precision_bits": 21,
+          "unresolved_same_prefix_row_count": 9149,
+          "fixed_precision_transition_key_count": 9134,
+          "fixed_precision_collision_key_count": 15,
+          "lookahead_precision_bits": 25,
+          "lookahead_transition_key_count": 9149,
+          "lookahead_collision_key_count": 0,
+          "fixed_precision_successor_sufficient_on_observed_rows": false,
+          "four_extra_bits_successor_sufficient_on_observed_rows": true,
+          "collision_examples": [
+            {
+              "source_coordinate": {
+                "prefix_modulus": 8388608,
+                "prefix_class": 57,
+                "boundary_quotient_modulus": 2097152,
+                "boundary_quotient_class": 98743,
+                "child_top": 1
+              },
+              "left_source": {
+                "residue": 32807517688714366558055,
+                "bits": 80,
+                "boundary_quotient": 127822260095566742550577591,
+                "next_boundary_quotient": 302371934833863223592011330,
+                "next_class": 968258
+              },
+              "right_source": {
+                "residue": 414695095906733039121767,
+                "bits": 80,
+                "boundary_quotient": 1615704818398396477144662455,
+                "next_boundary_quotient": 395364594727790082004141634,
+                "next_class": 1099330
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 8388608,
+                "prefix_class": 60,
+                "boundary_quotient_modulus": 2097152,
+                "boundary_quotient_class": 1736118,
+                "child_top": 14
+              },
+              "left_source": {
+                "residue": 12805636622676340066187111,
+                "bits": 84,
+                "boundary_quotient": 84193405430547030100928003510,
+                "next_boundary_quotient": 116538878311851723606330887372,
+                "next_class": 445644
+              },
+              "right_source": {
+                "residue": 2012037608506468027299687,
+                "bits": 84,
+                "boundary_quotient": 13228572940646910591181159862,
+                "next_boundary_quotient": 112103576281232966136971709644,
+                "next_class": 576716
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 8388608,
+                "prefix_class": 59,
+                "boundary_quotient_modulus": 2097152,
+                "boundary_quotient_class": 785577,
+                "child_top": 7
+              },
+              "left_source": {
+                "residue": 6847740886964984726124391,
+                "bits": 84,
+                "boundary_quotient": 15007313882353021075633994921,
+                "next_boundary_quotient": 19484088863054152854730939208,
+                "next_class": 760648
+              },
+              "right_source": {
+                "residue": 17641339901134856765011815,
+                "bits": 84,
+                "boundary_quotient": 38662258045653060912216276137,
+                "next_boundary_quotient": 20962522873260405344517331784,
+                "next_class": 1416008
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 8388608,
+                "prefix_class": 59,
+                "boundary_quotient_modulus": 2097152,
+                "boundary_quotient_class": 2050072,
+                "child_top": 8
+              },
+              "left_source": {
+                "residue": 99482825933648590881639,
+                "bits": 84,
+                "boundary_quotient": 218023727727738101782497304,
+                "next_boundary_quotient": 21209205620591085388508622682,
+                "next_class": 716634
+              },
+              "right_source": {
+                "residue": 10149670385948814296741223,
+                "bits": 84,
+                "boundary_quotient": 22243728522833614679694067736,
+                "next_boundary_quotient": 22585812170285202674628095834,
+                "next_class": 1765210
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 8388608,
+                "prefix_class": 58,
+                "boundary_quotient_modulus": 2097152,
+                "boundary_quotient_class": 645064,
+                "child_top": 8
+              },
+              "left_source": {
+                "residue": 14508627825014908821146983,
+                "bits": 84,
+                "boundary_quotient": 10598898496422860215145846728,
+                "next_boundary_quotient": 7727624201895796015829020954,
+                "next_class": 1503514
+              },
+              "right_source": {
+                "residue": 4891317596862579026173799,
+                "bits": 84,
+                "boundary_quotient": 3573224108315025594875762632,
+                "next_boundary_quotient": 7288519552639056352062140698,
+                "next_class": 2027802
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 8388608,
+                "prefix_class": 59,
+                "boundary_quotient_modulus": 2097152,
+                "boundary_quotient_class": 971546,
+                "child_top": 6
+              },
+              "left_source": {
+                "residue": 5344664779218064966688615,
+                "bits": 84,
+                "boundary_quotient": 11713215097020456554493563674,
+                "next_boundary_quotient": 16628760296769854852516260180,
+                "next_class": 1550676
+              },
+              "right_source": {
+                "residue": 14961975007370394761661799,
+                "bits": 84,
+                "boundary_quotient": 32790238261343960415303815962,
+                "next_boundary_quotient": 17946074244540073843816900948,
+                "next_class": 2074964
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 8388608,
+                "prefix_class": 60,
+                "boundary_quotient_modulus": 2097152,
+                "boundary_quotient_class": 758658,
+                "child_top": 10
+              },
+              "left_source": {
+                "residue": 18588752466214282285780327,
+                "bits": 84,
+                "boundary_quotient": 122215741313840995722702066562,
+                "next_boundary_quotient": 87121905598145443821970941412,
+                "next_class": 1205732
+              },
+              "right_source": {
+                "residue": 8971442238061952490807143,
+                "bits": 84,
+                "boundary_quotient": 58984671820870484140271309698,
+                "next_boundary_quotient": 83169963754834786848069019108,
+                "next_class": 1730020
+              }
+            },
+            {
+              "source_coordinate": {
+                "prefix_modulus": 8388608,
+                "prefix_class": 60,
+                "boundary_quotient_modulus": 2097152,
+                "boundary_quotient_class": 1184967,
+                "child_top": 3
+              },
+              "left_source": {
+                "residue": 16548690145614595553463655,
+                "bits": 84,
+                "boundary_quotient": 108802913890823368829507343559,
+                "next_boundary_quotient": 30645208647985575028634827648,
+                "next_class": 146304
+              },
+              "right_source": {
+                "residue": 6931379917462265758490471,
+                "bits": 84,
+                "boundary_quotient": 45571844397852857247076586695,
+                "next_boundary_quotient": 26693266804674918054732905344,
+                "next_class": 670592
+              }
+            }
+          ]
+        }
+      ],
+      "fixed_precision_collision_precisions": [
+        5,
+        9,
+        13,
+        17,
+        21
+      ],
+      "lookahead_failure_precisions": [],
+      "symbolic_recurrence_status": "symbolic_formula_verified_fixed_precision_closure_refuted_on_tested_precisions_no_global_resolution",
+      "bounded_lemma": "The four-bit first-boundary valuation formula holds on every audited fifth- and sixth-layer child. For each tested precision q, observed unresolved branches contain exact witnesses showing that q quotient bits do not determine the next q quotient bits, while q+4 lookahead bits do.",
+      "discarded_route": "Repair TICKET75 by appending a fixed number q of low boundary-quotient bits. The exact unresolved recurrence divides by 16 and exposes four previously unseen bits; observed reachable witnesses collide at every tested q.",
+      "retained_route": "Treat the full boundary quotient as a 2-adic transducer state and search for a separate well-founded arithmetic rank, or prove that reachable states satisfy an additional restriction that makes a finite quotient closed.",
+      "candidate_theorem": "ReachableBoundaryRestrictionOrTwoAdicPressurePath: reachable Collatz boundary quotients obey a uniform arithmetic restriction yielding finite successor closure and strict descent, or their exact 2-adic recurrence admits an all-depth compatible pressure path requiring separate dynamical classification.",
+      "next_theorem_target": "ReachableBoundaryRestrictionOrTwoAdicPressurePath",
+      "proof_boundary": "TICKET76 proves an exact recurrence identity and bounded collision statements for the audited rows. It does not prove Collatz, construct a divergent integer orbit, or exclude every possible infinite-state rank."
+    }
+  },
+  "obstruction": "An unresolved four-bit lift divides its boundary quotient by 16 after an affine odd correction, exposing four higher bits that no fixed low-bit projection carries.",
+  "candidate_theorem": "ReachableBoundaryRestrictionOrTwoAdicPressurePath: reachable Collatz boundary quotients obey a uniform arithmetic restriction yielding finite successor closure and strict descent, or their exact 2-adic recurrence admits an all-depth compatible pressure path requiring separate dynamical classification.",
+  "next_experiment": "Characterize restrictions on reachable boundary quotients or construct an exact all-depth 2-adic pressure path.",
+  "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+}

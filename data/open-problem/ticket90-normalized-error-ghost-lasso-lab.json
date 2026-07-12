@@ -1,0 +1,191 @@
+{
+  "schema": "primeproject.ticket90-normalized-error-ghost-lasso-lab.v1",
+  "generated_at": "2026-07-12T06:20:00+09:00",
+  "status": "normalized_error_ghost_lasso_open_no_collatz_resolution",
+  "claim_boundary": "Ticket 90 proves one fixed-precision proof-route no-go but solves none of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-90",
+      "status": "proof_pressure_open",
+      "route": "ExplicitFormulaErrorGhostLasso",
+      "proof_or_counterexample_mode": "limiting ghost-lasso audit transfer discipline",
+      "attempt": "Normalize the target error, identify its limiting transition, and reject fixed-state proofs when a completion-space lasso survives every fixed precision.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-89",
+        "ticket90_transfer": "ExplicitFormulaErrorGhostLasso",
+        "candidate_theorem": "Prove growing-scale separation from limiting explicit-formula sign lassos."
+      },
+      "obstruction": "No target-specific normalized limiting map and growing-precision separation were proved.",
+      "candidate_theorem": "Prove growing-scale separation from limiting explicit-formula sign lassos.",
+      "next_experiment": "Derive a normalized error recurrence and test every fixed precision for ghost lassos.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-90",
+      "route": "FixedPrecisionNormalizedErrorGhostLassoNoGo",
+      "status": "fixed_precision_error_lasso_no_go_proved_no_collatz_resolution",
+      "proof_or_counterexample_mode": "exact normalized-error recurrence plus limiting fixed-point obstruction",
+      "attempt": "Attack the excess-five recurrence through normalized errors and determine whether any fixed finite-state abstraction can force the target.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-89",
+        "normalized_error_ghost_lasso_audit": {
+          "theorem_name": "FixedPrecisionNormalizedErrorGhostLassoNoGo",
+          "source_ticket": "CO-TICKET-89",
+          "normalized_error": {
+            "definition": "e_H=(3^(r_H+1)+7)/2^(H+3)",
+            "lift_bit": "The next exponent bit b_(H+1) equals e_H mod 2.",
+            "zero_branch": "If e_H is even, r_(H+1)=r_H and e_(H+1)=e_H/2.",
+            "one_branch": "If e_H is odd, r_(H+1)=r_H+2^(H+1) and e_(H+1)=(e_H+3^(r_H+1)A_H)/2.",
+            "double_zero_trigger": "e_H=0 mod 4 forces the next two lift bits to be 00."
+          },
+          "correction_limit": {
+            "definition": "A_H=(3^(2^(H+1))-1)/2^(H+3)",
+            "exact_recurrence": "A_(H+1)=A_H+2^(H+2)A_H^2",
+            "limit": "alpha=log_2adic(-3)/4",
+            "forcing_limit": "B_H=3^(r_H+1)A_H converges to beta=-7*alpha",
+            "precision": "B_H=beta mod 2^(H+2)",
+            "beta_is_odd": true
+          },
+          "limiting_ghost": {
+            "map": "F_beta(e)=e/2 for even e and (e+beta)/2 for odd e",
+            "fixed_point": "F_beta(beta)=beta",
+            "obstruction": "beta is odd, so this completion-space fixed point never enters e=0 mod 4.",
+            "finite_precision_consequence": "For every fixed modulus 2^m, the forcing term eventually equals beta modulo the precision needed by the transition, leaving a fixed lasso at e=beta mod 2^m.",
+            "domain_warning": "The ghost is a state of the limiting completion map. It is not asserted to equal the actual normalized-error orbit."
+          },
+          "proof_chain": [
+            "Normalize the exact discrete-log error by the currently certified power 2^(H+3).",
+            "Derive the next lift bit from the parity of e_H and derive the exact zero and one branch recurrences.",
+            "Factor the exponent-step multiplier through A_H and prove its squaring recurrence.",
+            "Take the 2-adic limit alpha=log(-3)/4 and combine it with 3^(r_H+1)->-7 to obtain the odd forcing limit beta.",
+            "Construct the limiting fixed point e=beta, which avoids the double-zero trigger e=0 mod 4.",
+            "Reduce the fixed point modulo every finite precision to obtain an obstruction lasso in every fixed-state abstraction.",
+            "Conclude that a valid excess-five proof must use growing precision or a quantitative separation of the actual orbit from the ghost."
+          ],
+          "machine_audit": {
+            "min_horizon": 2,
+            "max_audit_horizon": 256,
+            "audited_transition_count": 254,
+            "error_bits": 20,
+            "lasso_precision_count": 63,
+            "maximum_lasso_precision": 64,
+            "beta_low_20": 976981,
+            "correction_recurrence_failure_count": 0,
+            "forcing_convergence_failure_count": 0,
+            "lift_bit_failure_count": 0,
+            "error_recurrence_failure_count": 0,
+            "lasso_failure_count": 0,
+            "total_failure_count": 0,
+            "lasso_samples": [
+              {
+                "precision": 2,
+                "beta_residue": 1,
+                "fixed": true,
+                "avoids_error_zero_mod4": true
+              },
+              {
+                "precision": 3,
+                "beta_residue": 5,
+                "fixed": true,
+                "avoids_error_zero_mod4": true
+              },
+              {
+                "precision": 4,
+                "beta_residue": 5,
+                "fixed": true,
+                "avoids_error_zero_mod4": true
+              },
+              {
+                "precision": 8,
+                "beta_residue": 85,
+                "fixed": true,
+                "avoids_error_zero_mod4": true
+              },
+              {
+                "precision": 16,
+                "beta_residue": 59477,
+                "fixed": true,
+                "avoids_error_zero_mod4": true
+              },
+              {
+                "precision": 32,
+                "beta_residue": 2206132309,
+                "fixed": true,
+                "avoids_error_zero_mod4": true
+              },
+              {
+                "precision": 64,
+                "beta_residue": 6134721770717898837,
+                "fixed": true,
+                "avoids_error_zero_mod4": true
+              }
+            ]
+          },
+          "theorem_status": "fixed_precision_error_lasso_no_go_proved_no_collatz_resolution",
+          "discarded_routes": [
+            {
+              "route": "fixed_modulus_error_automaton",
+              "status": "blocked_by_ghost_lasso",
+              "counteredge": "Every fixed precision contains the limiting fixed residue e=beta."
+            },
+            {
+              "route": "treat_limiting_fixed_point_as_actual_counterexample",
+              "status": "rejected_domain_error",
+              "counteredge": "The limiting completion state is not a positive Collatz orbit or the proved actual error sequence."
+            },
+            {
+              "route": "finite_state_exhaustion_at_larger_constant_precision",
+              "status": "refuted_uniformly",
+              "counteredge": "The lasso persists for every tested and symbolically arbitrary fixed precision."
+            }
+          ],
+          "retained_route": "Track a precision m(H) growing with H and prove the actual normalized error cannot shadow beta deeply enough to avoid e_H=0 mod 4 forever.",
+          "candidate_theorem": "GrowingPrecisionErrorGhostSeparation: under the eventual excess-four cap, derive an impossible lower bound on v2(e_H-beta) relative to H.",
+          "next_theorem_target": "GrowingPrecisionErrorGhostSeparation",
+          "proof_boundary": "TICKET90 proves a fixed-precision proof-route no-go. It does not prove valuation-excess-five recurrence, an additive-two infinite delay theorem, or Collatz.",
+          "novelty_boundary": "The normalized-error recurrence and ghost-lasso packaging are candidate PrimeProject contributions pending independent p-adic dynamics review."
+        }
+      },
+      "obstruction": "For every fixed modulus 2^m, the forcing term eventually equals beta modulo the precision needed by the transition, leaving a fixed lasso at e=beta mod 2^m.",
+      "candidate_theorem": "GrowingPrecisionErrorGhostSeparation: under the eventual excess-four cap, derive an impossible lower bound on v2(e_H-beta) relative to H.",
+      "next_experiment": "Build TICKET91 around growing-precision separation from beta.",
+      "claim_boundary": "No Collatz proof and no certified divergent Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-90",
+      "status": "proof_pressure_open",
+      "route": "CharacterErrorGhostLasso",
+      "proof_or_counterexample_mode": "limiting ghost-lasso audit transfer discipline",
+      "attempt": "Normalize the target error, identify its limiting transition, and reject fixed-state proofs when a completion-space lasso survives every fixed precision.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-89",
+        "ticket90_transfer": "CharacterErrorGhostLasso",
+        "candidate_theorem": "Prove growing-scale separation from limiting exceptional-character error lassos."
+      },
+      "obstruction": "No target-specific normalized limiting map and growing-precision separation were proved.",
+      "candidate_theorem": "Prove growing-scale separation from limiting exceptional-character error lassos.",
+      "next_experiment": "Derive a normalized error recurrence and test every fixed precision for ghost lassos.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-90",
+      "status": "proof_pressure_open",
+      "route": "ParityErrorGhostLasso",
+      "proof_or_counterexample_mode": "limiting ghost-lasso audit transfer discipline",
+      "attempt": "Normalize the target error, identify its limiting transition, and reject fixed-state proofs when a completion-space lasso survives every fixed precision.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-89",
+        "ticket90_transfer": "ParityErrorGhostLasso",
+        "candidate_theorem": "Prove growing-scale separation from limiting parity-barrier error lassos."
+      },
+      "obstruction": "No target-specific normalized limiting map and growing-precision separation were proved.",
+      "candidate_theorem": "Prove growing-scale separation from limiting parity-barrier error lassos.",
+      "next_experiment": "Derive a normalized error recurrence and test every fixed precision for ghost lassos.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

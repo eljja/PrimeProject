@@ -1,0 +1,654 @@
+{
+  "schema": "primeproject.ticket99-out-of-sample-local-model-audit.v1",
+  "generated_at": "2026-07-13T03:10:00+09:00",
+  "status": "out_of_sample_and_external_local_models_audited_signed_residual_theorem_open_no_resolution",
+  "claim_boundary": "TICKET99 removes fitted-target leakage and proves the external local main bound, but the signed binary residual theorem remains open.",
+  "out_of_sample_local_model_audit": {
+    "theorem_name": "OutOfSampleAndExternalLocalModelResidualAudit",
+    "source_ticket": "TICKET-98",
+    "cross_fit_contract": {
+      "split": "For n=r+qW, even q periods train the residue mean and odd q periods form the evaluation set.",
+      "disjointness": "No evaluated Lambda value is used to estimate its projection value.",
+      "occupancy": "An evaluation index is admitted only when its residue has at least m training observations, for preregistered m in {1,2,4,8,16}.",
+      "scope": "This is deterministic data separation, not probabilistic independence and not a prime-distribution theorem."
+    },
+    "external_local_main_theorem": {
+      "model": "A_W(n)=W/phi(W) when gcd(n,W)=1 and zero otherwise; it uses W only and no Lambda samples.",
+      "density": "d_W=2 product_{3<=p|W}(1-1/(p-1)^2).",
+      "goldbach_lower": "For even N, sum_{n<=N} A_W(n)A_W(N-n) >= d_W max(0,N+1-W).",
+      "twin_lower": "For x>=0, sum_{n<=x} A_W(n)A_W(n+2) >= d_W max(0,x+1-W).",
+      "proof": "CRT leaves one admissible class mod 2 and at least p-2 classes for every odd p|W; each complete W-block contributes their product. The boundary is discarded.",
+      "uniform_positivity": "The decreasing d_W product has a positive limit because sum_p 1/(p-1)^2 converges."
+    },
+    "sufficient_residual_theorem": {
+      "candidate": "For W(n) the largest primorial with W(n)^2<=n, prove R_W(n)>=-K M_W(n)/log(n) uniformly for all sufficiently large relevant n.",
+      "goldbach_implication": "For every sufficiently large even N, C_G=M_G+R_G>=M_G(1-K/log N), while the sharp proper-prime-power budget is o(N); hence every such N has a prime representation after finite verification.",
+      "twin_implication": "C_2(x)>=M_2(x)(1-K/log x) is linear while the sharp contamination budget is o(x), forcing unbounded genuine twin-prime weight.",
+      "independence_requirement": "The residual estimate must be proved from Type II, dispersion, or higher-order arithmetic information without reading the target correlation C_G or C_2.",
+      "known_barrier": "The modulus schedule grows near the square-root scale; one-point progression control and generic transference do not supply the required binary signed estimate."
+    },
+    "machine_audit": {
+      "checkpoint_count": 3,
+      "maximum_checkpoint": 1000000,
+      "cross_fit_configuration_count": 120,
+      "cross_fit_goldbach_certificate_count": 0,
+      "cross_fit_twin_certificate_count": 0,
+      "external_goldbach_norm_certificate_count": 0,
+      "external_twin_norm_certificate_count": 0,
+      "cross_fit_failure_count": 0,
+      "external_main_failure_count": 0,
+      "envelope_validation_failure_count": 0,
+      "total_failure_count": 0,
+      "cross_fit_checkpoint_rows": [
+        {
+          "target": 10000,
+          "configuration_count": 40,
+          "nonempty_configuration_count": 22,
+          "empty_configuration_count": 18,
+          "goldbach_certificate_count": 0,
+          "twin_certificate_count": 0,
+          "reconstruction_failure_count": 0,
+          "best_nonempty_goldbach_row": {
+            "modulus": 30,
+            "minimum_train_count": 1,
+            "evaluation_count": 4993,
+            "evaluation_fraction": 0.49915025492352294,
+            "train_evaluation_overlap_count": 0,
+            "goldbach_exact_restricted_correlation": 8039.213190615255,
+            "goldbach_norm_only_lower_bound": -53490.91698841525,
+            "goldbach_margin_over_full_contamination_budget": -55653.60279720767,
+            "goldbach_exact_reconstruction_relative_error": 0.0,
+            "goldbach_certified": false,
+            "twin_exact_restricted_correlation": 4320.506801938003,
+            "twin_norm_only_lower_bound": -58327.154878928064,
+            "twin_margin_over_full_contamination_budget": -60489.88764515054,
+            "twin_exact_reconstruction_relative_error": 3.605384878558322e-17,
+            "twin_certified": false,
+            "status": "nonempty_data_disjoint_evaluation"
+          },
+          "best_nonempty_twin_row": {
+            "modulus": 210,
+            "minimum_train_count": 1,
+            "evaluation_count": 4963,
+            "evaluation_fraction": 0.49615115465360393,
+            "train_evaluation_overlap_count": 0,
+            "goldbach_exact_restricted_correlation": 3657.201682510817,
+            "goldbach_norm_only_lower_bound": -57584.48003538826,
+            "goldbach_margin_over_full_contamination_budget": -59747.16584418068,
+            "goldbach_exact_reconstruction_relative_error": 9.871559441498733e-17,
+            "goldbach_certified": false,
+            "twin_exact_restricted_correlation": 5559.039417093556,
+            "twin_norm_only_lower_bound": -54833.7085573636,
+            "twin_margin_over_full_contamination_budget": -56996.44132358608,
+            "twin_exact_reconstruction_relative_error": 1.7414289261927045e-16,
+            "twin_certified": false,
+            "status": "nonempty_data_disjoint_evaluation"
+          }
+        },
+        {
+          "target": 100000,
+          "configuration_count": 40,
+          "nonempty_configuration_count": 27,
+          "empty_configuration_count": 13,
+          "goldbach_certificate_count": 0,
+          "twin_certificate_count": 0,
+          "reconstruction_failure_count": 0,
+          "best_nonempty_goldbach_row": {
+            "modulus": 30,
+            "minimum_train_count": 1,
+            "evaluation_count": 49993,
+            "evaluation_fraction": 0.4999150025499235,
+            "train_evaluation_overlap_count": 0,
+            "goldbach_exact_restricted_correlation": 87097.74657234993,
+            "goldbach_norm_only_lower_bound": -746892.9484338295,
+            "goldbach_margin_over_full_contamination_budget": -755324.433803864,
+            "goldbach_exact_reconstruction_relative_error": 3.1796105368514324e-15,
+            "goldbach_certified": false,
+            "twin_exact_restricted_correlation": 45006.663775207104,
+            "twin_norm_only_lower_bound": -793484.558591516,
+            "twin_margin_over_full_contamination_budget": -801916.0586083945,
+            "twin_exact_reconstruction_relative_error": 1.0778942519523182e-15,
+            "twin_certified": false,
+            "status": "nonempty_data_disjoint_evaluation"
+          },
+          "best_nonempty_twin_row": {
+            "modulus": 210,
+            "minimum_train_count": 1,
+            "evaluation_count": 49980,
+            "evaluation_fraction": 0.4997850064498065,
+            "train_evaluation_overlap_count": 0,
+            "goldbach_exact_restricted_correlation": 18370.657464135315,
+            "goldbach_norm_only_lower_bound": -808514.718275848,
+            "goldbach_margin_over_full_contamination_budget": -816946.2036458825,
+            "goldbach_exact_reconstruction_relative_error": 1.1410006423985004e-16,
+            "goldbach_certified": false,
+            "twin_exact_restricted_correlation": 60042.1198874915,
+            "twin_norm_only_lower_bound": -762873.8550472218,
+            "twin_margin_over_full_contamination_budget": -771305.3550641002,
+            "twin_exact_reconstruction_relative_error": 5.5483694755312195e-17,
+            "twin_certified": false,
+            "status": "nonempty_data_disjoint_evaluation"
+          }
+        },
+        {
+          "target": 1000000,
+          "configuration_count": 40,
+          "nonempty_configuration_count": 31,
+          "empty_configuration_count": 9,
+          "goldbach_certificate_count": 0,
+          "twin_certificate_count": 0,
+          "reconstruction_failure_count": 0,
+          "best_nonempty_goldbach_row": {
+            "modulus": 2310,
+            "minimum_train_count": 1,
+            "evaluation_count": 498960,
+            "evaluation_fraction": 0.49895850312449064,
+            "train_evaluation_overlap_count": 0,
+            "goldbach_exact_restricted_correlation": 780618.1207675788,
+            "goldbach_norm_only_lower_bound": -9406223.121292533,
+            "goldbach_margin_over_full_contamination_budget": -9436684.17983974,
+            "goldbach_exact_reconstruction_relative_error": 1.6167170973181501e-15,
+            "goldbach_certified": false,
+            "twin_exact_restricted_correlation": 643486.7229678821,
+            "twin_norm_only_lower_bound": -9549481.373339597,
+            "twin_margin_over_full_contamination_budget": -9579942.43629649,
+            "twin_exact_reconstruction_relative_error": 2.1134544328593788e-16,
+            "twin_certified": false,
+            "status": "nonempty_data_disjoint_evaluation"
+          },
+          "best_nonempty_twin_row": {
+            "modulus": 2310,
+            "minimum_train_count": 1,
+            "evaluation_count": 498960,
+            "evaluation_fraction": 0.49895850312449064,
+            "train_evaluation_overlap_count": 0,
+            "goldbach_exact_restricted_correlation": 780618.1207675788,
+            "goldbach_norm_only_lower_bound": -9406223.121292533,
+            "goldbach_margin_over_full_contamination_budget": -9436684.17983974,
+            "goldbach_exact_reconstruction_relative_error": 1.6167170973181501e-15,
+            "goldbach_certified": false,
+            "twin_exact_restricted_correlation": 643486.7229678821,
+            "twin_norm_only_lower_bound": -9549481.373339597,
+            "twin_margin_over_full_contamination_budget": -9579942.43629649,
+            "twin_exact_reconstruction_relative_error": 2.1134544328593788e-16,
+            "twin_certified": false,
+            "status": "nonempty_data_disjoint_evaluation"
+          }
+        }
+      ],
+      "external_checkpoint_rows": [
+        {
+          "target": 10000,
+          "row_count": 5,
+          "main_lower_bound_failure_count": 0,
+          "goldbach_norm_certificate_count": 0,
+          "twin_norm_certificate_count": 0,
+          "rows": [
+            {
+              "modulus": 2,
+              "minimum_pair_density": 2.0,
+              "exact_local_main_lower_bound": 19998.0,
+              "goldbach_external_main": 20000.0,
+              "goldbach_signed_residual": -3144.786277445932,
+              "goldbach_signed_residual_over_main": -0.1572393138722966,
+              "goldbach_norm_only_lower_bound": -112031.72977011491,
+              "goldbach_certified": false,
+              "twin_external_main": 20000.0,
+              "twin_signed_residual": -6697.075655475739,
+              "twin_signed_residual_over_main": -0.33485378277378697,
+              "twin_norm_only_lower_bound": -112031.72977011491,
+              "twin_certified": false
+            },
+            {
+              "modulus": 6,
+              "minimum_pair_density": 1.5,
+              "exact_local_main_lower_bound": 14992.5,
+              "goldbach_external_main": 14994.0,
+              "goldbach_signed_residual": 1861.2137225540682,
+              "goldbach_signed_residual_over_main": 0.12413056706376338,
+              "goldbach_norm_only_lower_bound": -115623.93469093417,
+              "goldbach_certified": false,
+              "twin_external_main": 14994.0,
+              "twin_signed_residual": -1691.075655475739,
+              "twin_signed_residual_over_main": -0.11278349042788709,
+              "twin_norm_only_lower_bound": -115623.93469093417,
+              "twin_certified": false
+            },
+            {
+              "modulus": 30,
+              "minimum_pair_density": 1.40625,
+              "exact_local_main_lower_bound": 14021.71875,
+              "goldbach_external_main": 18731.25,
+              "goldbach_signed_residual": -1876.0362774459318,
+              "goldbach_signed_residual_over_main": -0.1001554235540037,
+              "goldbach_norm_only_lower_bound": -107170.21583605878,
+              "goldbach_certified": false,
+              "twin_external_main": 14048.4375,
+              "twin_signed_residual": -745.513155475739,
+              "twin_signed_residual_over_main": -0.05306733617000033,
+              "twin_norm_only_lower_bound": -111853.02833605878,
+              "twin_certified": false
+            },
+            {
+              "modulus": 210,
+              "minimum_pair_density": 1.3671875,
+              "exact_local_main_lower_bound": 13386.1328125,
+              "goldbach_external_main": 18221.875,
+              "goldbach_signed_residual": -1366.6612774459318,
+              "goldbach_signed_residual_over_main": -0.07500113338753184,
+              "goldbach_norm_only_lower_bound": -101683.2050810847,
+              "goldbach_certified": false,
+              "twin_external_main": 13647.265625,
+              "twin_signed_residual": -344.34128047573904,
+              "twin_signed_residual_over_main": -0.025231521825511406,
+              "twin_norm_only_lower_bound": -106257.8144560847,
+              "twin_certified": false
+            },
+            {
+              "modulus": 2310,
+              "minimum_pair_density": 1.353515625,
+              "exact_local_main_lower_bound": 10409.888671875,
+              "goldbach_external_main": 18064.921875,
+              "goldbach_signed_residual": -1209.7081524459318,
+              "goldbach_signed_residual_over_main": -0.06696448292533409,
+              "goldbach_norm_only_lower_bound": -96562.03438913256,
+              "goldbach_certified": false,
+              "twin_external_main": 13525.53125,
+              "twin_signed_residual": -222.60690547573904,
+              "twin_signed_residual_over_main": -0.016458274456002536,
+              "twin_norm_only_lower_bound": -101101.42501413256,
+              "twin_certified": false
+            }
+          ]
+        },
+        {
+          "target": 100000,
+          "row_count": 6,
+          "main_lower_bound_failure_count": 0,
+          "goldbach_norm_certificate_count": 0,
+          "twin_norm_certificate_count": 0,
+          "rows": [
+            {
+              "modulus": 2,
+              "minimum_pair_density": 2.0,
+              "exact_local_main_lower_bound": 199998.0,
+              "goldbach_external_main": 200000.0,
+              "goldbach_signed_residual": -23426.35018615451,
+              "goldbach_signed_residual_over_main": -0.11713175093077254,
+              "goldbach_norm_only_lower_bound": -1474412.4060261878,
+              "goldbach_certified": false,
+              "twin_external_main": 200000.0,
+              "twin_signed_residual": -68477.0874563623,
+              "twin_signed_residual_over_main": -0.3423854372818115,
+              "twin_norm_only_lower_bound": -1474412.4060261878,
+              "twin_certified": false
+            },
+            {
+              "modulus": 6,
+              "minimum_pair_density": 1.5,
+              "exact_local_main_lower_bound": 149992.5,
+              "goldbach_external_main": 149994.0,
+              "goldbach_signed_residual": 26579.64981384549,
+              "goldbach_signed_residual_over_main": 0.17720475361578125,
+              "goldbach_norm_only_lower_bound": -1548425.6855629992,
+              "goldbach_certified": false,
+              "twin_external_main": 149994.0,
+              "twin_signed_residual": -18471.087456362293,
+              "twin_signed_residual_over_main": -0.1231455088627698,
+              "twin_norm_only_lower_bound": -1548425.6855629992,
+              "twin_certified": false
+            },
+            {
+              "modulus": 30,
+              "minimum_pair_density": 1.40625,
+              "exact_local_main_lower_bound": 140584.21875,
+              "goldbach_external_main": 187481.25,
+              "goldbach_signed_residual": -10907.600186154508,
+              "goldbach_signed_residual_over_main": -0.058179685628053514,
+              "goldbach_norm_only_lower_bound": -1493519.1401620181,
+              "goldbach_certified": false,
+              "twin_external_main": 140610.9375,
+              "twin_signed_residual": -9088.024956362293,
+              "twin_signed_residual_over_main": -0.06463241848709168,
+              "twin_norm_only_lower_bound": -1540389.4526620184,
+              "twin_certified": false
+            },
+            {
+              "modulus": 210,
+              "minimum_pair_density": 1.3671875,
+              "exact_local_main_lower_bound": 136433.0078125,
+              "goldbach_external_main": 182295.3125,
+              "goldbach_signed_residual": -5721.662686154508,
+              "goldbach_signed_residual_over_main": -0.03138677899989616,
+              "goldbach_norm_only_lower_bound": -1465412.66209009,
+              "goldbach_certified": false,
+              "twin_external_main": 136721.484375,
+              "twin_signed_residual": -5198.571831362293,
+              "twin_signed_residual_over_main": -0.038023079219236956,
+              "twin_norm_only_lower_bound": -1510986.49021509,
+              "twin_certified": false
+            },
+            {
+              "modulus": 2310,
+              "minimum_pair_density": 1.353515625,
+              "exact_local_main_lower_bound": 132226.294921875,
+              "goldbach_external_main": 180510.2578125,
+              "goldbach_signed_residual": -3936.6079986545083,
+              "goldbach_signed_residual_over_main": -0.021808223235399455,
+              "goldbach_norm_only_lower_bound": -1434633.4938279907,
+              "goldbach_certified": false,
+              "twin_external_main": 135394.2734375,
+              "twin_signed_residual": -3871.360893862293,
+              "twin_signed_residual_over_main": -0.028593239548269155,
+              "twin_norm_only_lower_bound": -1479714.656696371,
+              "twin_certified": false
+            },
+            {
+              "modulus": 30030,
+              "minimum_pair_density": 1.3441162109375,
+              "exact_local_main_lower_bound": 94049.15539550781,
+              "goldbach_external_main": 179285.9862196176,
+              "goldbach_signed_residual": -2712.3364057721046,
+              "goldbach_signed_residual_over_main": -0.01512854664753111,
+              "goldbach_norm_only_lower_bound": -1399627.891951767,
+              "goldbach_certified": false,
+              "twin_external_main": 134464.48966471324,
+              "twin_signed_residual": -2941.577121075534,
+              "twin_signed_residual_over_main": -0.021876237573283077,
+              "twin_norm_only_lower_bound": -1444408.6157745298,
+              "twin_certified": false
+            }
+          ]
+        },
+        {
+          "target": 1000000,
+          "row_count": 7,
+          "main_lower_bound_failure_count": 0,
+          "goldbach_norm_certificate_count": 0,
+          "twin_norm_certificate_count": 0,
+          "rows": [
+            {
+              "modulus": 2,
+              "minimum_pair_density": 2.0,
+              "exact_local_main_lower_bound": 1999998.0,
+              "goldbach_external_main": 2000000.0,
+              "goldbach_signed_residual": -243432.46326775872,
+              "goldbach_signed_residual_over_main": -0.12171623163387936,
+              "goldbach_norm_only_lower_bound": -18101872.033013873,
+              "goldbach_certified": false,
+              "twin_external_main": 2000000.0,
+              "twin_signed_residual": -687155.6546439677,
+              "twin_signed_residual_over_main": -0.3435778273219839,
+              "twin_norm_only_lower_bound": -18101872.033013873,
+              "twin_certified": false
+            },
+            {
+              "modulus": 6,
+              "minimum_pair_density": 1.5,
+              "exact_local_main_lower_bound": 1499992.5,
+              "goldbach_external_main": 1499994.0,
+              "goldbach_signed_residual": 256573.53673224128,
+              "goldbach_signed_residual_over_main": 0.1710497086869956,
+              "goldbach_norm_only_lower_bound": -19153086.086559594,
+              "goldbach_certified": false,
+              "twin_external_main": 1499994.0,
+              "twin_signed_residual": -187149.65464396775,
+              "twin_signed_residual_over_main": -0.12476693549705382,
+              "twin_norm_only_lower_bound": -19153086.086559594,
+              "twin_certified": false
+            },
+            {
+              "modulus": 30,
+              "minimum_pair_density": 1.40625,
+              "exact_local_main_lower_bound": 1406209.21875,
+              "goldbach_external_main": 1874981.25,
+              "goldbach_signed_residual": -118413.71326775872,
+              "goldbach_signed_residual_over_main": -0.06315461195559087,
+              "goldbach_norm_only_lower_bound": -18836657.128865954,
+              "goldbach_certified": false,
+              "twin_external_main": 1406235.9375,
+              "twin_signed_residual": -93391.59214396775,
+              "twin_signed_residual_over_main": -0.06641246298256244,
+              "twin_norm_only_lower_bound": -19305402.441365957,
+              "twin_certified": false
+            },
+            {
+              "modulus": 210,
+              "minimum_pair_density": 1.3671875,
+              "exact_local_main_lower_bound": 1366901.7578125,
+              "goldbach_external_main": 1822914.84375,
+              "goldbach_signed_residual": -66347.30701775872,
+              "goldbach_signed_residual_over_main": -0.03639627338887246,
+              "goldbach_norm_only_lower_bound": -18756601.241349585,
+              "goldbach_certified": false,
+              "twin_external_main": 1367157.421875,
+              "twin_signed_residual": -54313.07651896775,
+              "twin_signed_residual_over_main": -0.03972700996237844,
+              "twin_norm_only_lower_bound": -19212358.663224585,
+              "twin_certified": false
+            },
+            {
+              "modulus": 2310,
+              "minimum_pair_density": 1.353515625,
+              "exact_local_main_lower_bound": 1350390.357421875,
+              "goldbach_external_main": 1804685.6953125,
+              "goldbach_signed_residual": -48118.15858025872,
+              "goldbach_signed_residual_over_main": -0.026662902413002485,
+              "goldbach_norm_only_lower_bound": -18596253.62301159,
+              "goldbach_certified": false,
+              "twin_external_main": 1353456.37109375,
+              "twin_signed_residual": -40612.02573771775,
+              "twin_signed_residual_over_main": -0.03000615801519964,
+              "twin_norm_only_lower_bound": -19047482.94723034,
+              "twin_certified": false
+            },
+            {
+              "modulus": 30030,
+              "minimum_pair_density": 1.3441162109375,
+              "exact_local_main_lower_bound": 1303753.7452392578,
+              "goldbach_external_main": 1792098.7937283386,
+              "goldbach_signed_residual": -35531.256996097276,
+              "goldbach_signed_residual_over_main": -0.0198266173273723,
+              "goldbach_norm_only_lower_bound": -18387295.79082359,
+              "goldbach_certified": false,
+              "twin_external_main": 1344019.7332628309,
+              "twin_signed_residual": -31175.387906798627,
+              "twin_signed_residual_over_main": -0.023195632575360482,
+              "twin_norm_only_lower_bound": -18835374.8512891,
+              "twin_certified": false
+            },
+            {
+              "modulus": 510510,
+              "minimum_pair_density": 1.3388657569885252,
+              "exact_local_main_lower_bound": 655362.7382540702,
+              "goldbach_external_main": 1785181.4373272306,
+              "goldbach_signed_residual": -28613.900594989303,
+              "goldbach_signed_residual_over_main": -0.01602856717904818,
+              "goldbach_norm_only_lower_bound": -18175070.397005238,
+              "goldbach_certified": false,
+              "twin_external_main": 1338686.6266677396,
+              "twin_signed_residual": -25842.28131170734,
+              "twin_signed_residual_over_main": -0.01930420517909705,
+              "twin_norm_only_lower_bound": -18621565.20766473,
+              "twin_certified": false
+            }
+          ]
+        }
+      ],
+      "finite_residual_envelope_screen": {
+        "method": "double-precision all-scale discovery screen with direct Goldbach replay at extrema and boundaries",
+        "screen_limit": 1000000,
+        "screen_start": 1000,
+        "calibration_ceiling": 100000,
+        "schedule": "W(n) is the largest primorial modulus in the chain with W(n)^2<=n",
+        "schedule_moduli_reached": [
+          2,
+          6,
+          30,
+          210
+        ],
+        "candidate_log_envelope_constant": 1.6,
+        "candidate_inequality": "R_W(n)>=-K M_W(n)/log(n)",
+        "goldbach": {
+          "calibration_count": 49501,
+          "validation_count": 450000,
+          "calibration_maximum_row": {
+            "number": 2804,
+            "modulus": 30,
+            "exact_correlation": 3176.850079939002,
+            "external_main": 3965.625,
+            "signed_residual": -788.7749200609978,
+            "signed_residual_over_main": -0.1989030531280688,
+            "required_log_envelope_constant": 1.5790520053379027
+          },
+          "validation_maximum_row": {
+            "number": 113504,
+            "modulus": 210,
+            "exact_correlation": 139963.0152307963,
+            "external_main": 155192.1875,
+            "signed_residual": -15229.1722692037,
+            "signed_residual_over_main": -0.09813104972957289,
+            "required_log_envelope_constant": 1.1422055146040364
+          }
+        },
+        "twin": {
+          "calibration_count": 99001,
+          "validation_count": 900000,
+          "calibration_maximum_row": {
+            "number": 1018,
+            "modulus": 30,
+            "exact_correlation": 1135.462784553193,
+            "external_main": 1420.3125,
+            "signed_residual": -284.84971544680707,
+            "signed_residual_over_main": -0.2005542551000622,
+            "required_log_envelope_constant": 1.3889575858810583
+          },
+          "validation_maximum_row": {
+            "number": 816586,
+            "modulus": 210,
+            "exact_correlation": 1067129.9571899506,
+            "external_main": 1116415.234375,
+            "signed_residual": -49285.277185049374,
+            "signed_residual_over_main": -0.04414600917967644,
+            "required_log_envelope_constant": 0.6009546571312834
+          }
+        },
+        "goldbach_validation_failure_count": 0,
+        "twin_validation_failure_count": 0,
+        "direct_validation_rows": [
+          {
+            "target": 1000,
+            "modulus": 30,
+            "exact_fft_error": 1.4347278920467943e-10,
+            "main_fft_error": 1.1641532182693481e-10
+          },
+          {
+            "target": 2804,
+            "modulus": 30,
+            "exact_fft_error": 2.710294211283326e-10,
+            "main_fft_error": 0.0
+          },
+          {
+            "target": 100000,
+            "modulus": 210,
+            "exact_fft_error": 4.3655745685100555e-10,
+            "main_fft_error": 5.820766091346741e-10
+          },
+          {
+            "target": 113504,
+            "modulus": 210,
+            "exact_fft_error": 5.820766091346741e-11,
+            "main_fft_error": 0.0
+          },
+          {
+            "target": 1000000,
+            "modulus": 210,
+            "exact_fft_error": 6.984919309616089e-10,
+            "main_fft_error": 0.0
+          }
+        ],
+        "maximum_fft_direct_error": 6.984919309616089e-10,
+        "status": "finite_candidate_survived_holdout_not_an_asymptotic_theorem"
+      }
+    },
+    "theorem_status": "data_separation_and_external_local_main_proved_finite_residual_candidate_survived_no_resolution",
+    "discarded_routes": [
+      "Select an empty evaluation set because its zero lower bound is numerically less negative.",
+      "Use a fitted projection on the same target values being certified.",
+      "Treat the finite K/log(n) holdout screen as an all-scale residual theorem.",
+      "Use one-point W-trick pseudorandomness as if it resolved affine-degenerate binary correlations."
+    ],
+    "goldbach_next_theorem_target": "UniformExternalLocalModelGoldbachResidualDecay",
+    "twin_next_theorem_target": "UniformExternalLocalModelShiftTwoResidualDecay",
+    "retained_route": "Prove the signed external-model residual envelope independently; use finite screens only to falsify constants and locate worst cases.",
+    "proof_boundary": "TICKET99 proves data-separation and external local-main contracts and reports a finite residual-envelope candidate. It does not prove any of the four conjectures or a counterexample."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-99",
+      "status": "out_of_sample_external_model_gate_open",
+      "route": "ExternalKernelModelResidualGate",
+      "proof_or_counterexample_mode": "data-separated and externally specified local-model transfer",
+      "attempt": "Require every fitted structural component to be estimated away from the evaluated target, or specify it arithmetically without target samples.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-98",
+        "ticket99_transfer": "ExternalKernelModelResidualGate",
+        "independent_target": "ExternallySpecifiedKernelConeResidualDecay"
+      },
+      "obstruction": "No target-specific uniform signed residual theorem was proved in TICKET99.",
+      "candidate_theorem": "ExternallySpecifiedKernelConeResidualDecay",
+      "next_experiment": "State an external main model and falsify a quantitative residual envelope on disjoint finite data before attempting an all-scale proof.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-99",
+      "status": "out_of_sample_external_model_gate_open",
+      "route": "OutOfSampleNaturalOrbitResidualGate",
+      "proof_or_counterexample_mode": "data-separated and externally specified local-model transfer",
+      "attempt": "Require every fitted structural component to be estimated away from the evaluated target, or specify it arithmetically without target samples.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-98",
+        "ticket99_transfer": "OutOfSampleNaturalOrbitResidualGate",
+        "independent_target": "OutOfSampleNaturalOrbitSignedDrift"
+      },
+      "obstruction": "No target-specific uniform signed residual theorem was proved in TICKET99.",
+      "candidate_theorem": "OutOfSampleNaturalOrbitSignedDrift",
+      "next_experiment": "State an external main model and falsify a quantitative residual envelope on disjoint finite data before attempting an all-scale proof.",
+      "claim_boundary": "No collatz proof and no certified collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-99",
+      "route": "OutOfSampleAndExternalGoldbachLocalModelAudit",
+      "status": "data_separation_and_external_local_main_proved_finite_residual_candidate_survived_no_resolution",
+      "proof_or_counterexample_mode": "cross-fit leakage control plus external coprime main theorem",
+      "attempt": "Replace fitted row-unique residue means by disjoint estimates and a target-independent W-local model, then isolate the signed residual theorem.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-98",
+        "audit_ref": "out_of_sample_local_model_audit"
+      },
+      "obstruction": "Prove the signed external-model residual envelope independently; use finite screens only to falsify constants and locate worst cases.",
+      "candidate_theorem": "UniformExternalLocalModelGoldbachResidualDecay",
+      "next_experiment": "Attack the uniform external-model residual bound with Type II or dispersion estimates and use the finite K=1.6 screen only as a falsifier.",
+      "claim_boundary": "No Goldbach proof and no certified Goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-99",
+      "route": "OutOfSampleAndExternalTwinLocalModelAudit",
+      "status": "data_separation_and_external_local_main_proved_finite_residual_candidate_survived_no_resolution",
+      "proof_or_counterexample_mode": "cross-fit leakage control plus external coprime main theorem",
+      "attempt": "Replace fitted row-unique residue means by disjoint estimates and a target-independent W-local model, then isolate the shift-two signed residual theorem.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-98",
+        "audit_ref": "out_of_sample_local_model_audit"
+      },
+      "obstruction": "Prove the signed external-model residual envelope independently; use finite screens only to falsify constants and locate worst cases.",
+      "candidate_theorem": "UniformExternalLocalModelShiftTwoResidualDecay",
+      "next_experiment": "Attack the uniform shift-two external-model residual bound with Type II information and use the finite K=1.6 screen only as a falsifier.",
+      "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+    }
+  ]
+}

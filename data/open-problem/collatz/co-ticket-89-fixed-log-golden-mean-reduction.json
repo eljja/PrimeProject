@@ -1,0 +1,103 @@
+{
+  "schema": "primeproject.ticket89-fixed-log-golden-mean-reduction-lab.v1",
+  "generated_at": "2026-07-12T05:05:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-89",
+  "route": "FixedLogGoldenMeanValuationEquivalence",
+  "status": "fixed_log_golden_mean_reduced_exactly_no_collatz_resolution",
+  "proof_or_counterexample_mode": "exact jump-valuation equivalence plus contrapositive cap",
+  "attempt": "Convert the missing 100 recurrence into a target-specific valuation-excess theorem and eliminate generic transcendence shortcuts.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-88",
+    "fixed_log_golden_mean_reduction_audit": {
+      "theorem_name": "FixedLogGoldenMeanValuationEquivalence",
+      "source_ticket": "CO-TICKET-88",
+      "exact_equivalence": {
+        "jump_identity": "For consecutive top-bit heights H<J and k=r_H, v2(3^(k+1)+7)=J+2.",
+        "run_identity": "L=J-H-1 and v2(3^(k+1)+7)-floor(log2(k))=L+3.",
+        "pattern_equivalence": "The bits beginning at H contain 100 iff v2(3^(k+1)+7)>=floor(log2(k))+5.",
+        "eventual_equivalence": "Eventual avoidance of 100 is equivalent to the valuation excess being at most 4 for all sufficiently large top-bit exponents."
+      },
+      "contrapositive_target": "Assume only finitely many 100 patterns. Then every sufficiently large nested top-bit exponent k satisfies v2(3^(k+1)+7)<=floor(log2(k))+4. A successful proof must contradict this target-specific valuation cap.",
+      "transcendence_no_go": {
+        "statement": "Transcendence of the fixed p-adic logarithm ratio does not exclude eventual no-00 behavior.",
+        "uncountability_injection": "Map each binary sequence c to the concatenation of blocks 10 when c_n=0 and 110 when c_n=1; every image avoids 00 and the map is injective.",
+        "cardinality": "The golden-mean subshift has continuum cardinality, while p-adic numbers algebraic over Q form a countable set; hence uncountably many no-00 p-adic numbers are transcendental.",
+        "consequence": "Mahler-type transcendence, generic irrationality, and non-eventual-periodicity are all insufficient without a relation-specific digit theorem."
+      },
+      "counting_no_go": {
+        "legal_word_count": "The number of length-n binary words avoiding 00 is F_(n+2).",
+        "legal_words_length_64": 27777890035288,
+        "entropy": "log((1+sqrt(5))/2)>0",
+        "consequence": "The forbidden-word class remains exponentially large, so a counting-density argument alone cannot exclude one specified p-adic logarithm."
+      },
+      "proof_chain": [
+        "Represent the fixed exponent by its nested top-bit heights and associated positive residues.",
+        "Use the exact divisibility break at the next top bit to obtain v2(3^(k+1)+7)=J+2.",
+        "Subtract H=floor(log2(k)) and identify valuation excess with zero-run length plus three.",
+        "Translate infinitely many 100 patterns exactly into infinitely many excess-at-least-five events.",
+        "Show that transcendence cannot settle the translated claim because the no-00 subshift contains uncountably many transcendental 2-adic numbers.",
+        "Show that finite-word counting also cannot settle it because the golden-mean language has positive entropy.",
+        "Retain only the target-specific valuation-cap contradiction as the next admissible proof route."
+      ],
+      "machine_audit": {
+        "max_horizon": 65536,
+        "top_bit_count": 32728,
+        "complete_jump_pair_count": 32727,
+        "valuation_excess_at_least_five_count": 8159,
+        "maximum_zero_run": 16,
+        "maximum_valuation_excess": 19,
+        "valuation_excess_histogram": {
+          "3": 16367,
+          "4": 8201,
+          "5": 4039,
+          "6": 2039,
+          "7": 1046,
+          "8": 527,
+          "9": 249,
+          "10": 122,
+          "11": 73,
+          "12": 28,
+          "13": 10,
+          "14": 14,
+          "15": 5,
+          "16": 6,
+          "19": 1
+        },
+        "direct_check_horizon": 1024,
+        "direct_valuation_failure_count": 0,
+        "equivalence_failure_count": 0,
+        "total_failure_count": 0,
+        "minus_series_terms": 21846,
+        "plus_series_terms": 21846
+      },
+      "theorem_status": "fixed_log_golden_mean_reduced_exactly_no_collatz_resolution",
+      "discarded_routes": [
+        {
+          "route": "p_adic_transcendence_alone",
+          "status": "refuted_by_cardinality",
+          "counteredge": "The no-00 subshift contains uncountably many transcendental 2-adic numbers."
+        },
+        {
+          "route": "golden_shift_counting_density",
+          "status": "refuted_by_positive_entropy",
+          "counteredge": "There are F_(n+2) legal words of length n, still exponential in n."
+        },
+        {
+          "route": "finite_excess_frequency",
+          "status": "rejected_as_finite_inference",
+          "counteredge": "8,159 excess-at-least-five events below height 65,536 do not prove recurrence beyond every bound."
+        }
+      ],
+      "retained_route": "Attack the contrapositive valuation cap for the exact exponential sequence 3^(k+1)+7 along its nested discrete-log residues.",
+      "candidate_theorem": "FixedLogValuationExcessFiveInfinitude: infinitely many nested top-bit exponents k satisfy v2(3^(k+1)+7)>=floor(log2(k))+5.",
+      "next_theorem_target": "FixedLogValuationExcessFiveInfinitude",
+      "proof_boundary": "TICKET89 proves an exact symbolic-to-Diophantine equivalence and eliminates generic transcendence and counting shortcuts. It proves no additive-two infinite subsequence and no Collatz result.",
+      "novelty_boundary": "The reduction and no-go packaging are candidate PrimeProject contributions. Mahler transcendence and golden-mean symbolic dynamics are established background, not claimed as new."
+    }
+  },
+  "obstruction": "Assume only finitely many 100 patterns. Then every sufficiently large nested top-bit exponent k satisfies v2(3^(k+1)+7)<=floor(log2(k))+4. A successful proof must contradict this target-specific valuation cap.",
+  "candidate_theorem": "FixedLogValuationExcessFiveInfinitude: infinitely many nested top-bit exponents k satisfy v2(3^(k+1)+7)>=floor(log2(k))+5.",
+  "next_experiment": "Build TICKET90 around the valuation-excess-five contrapositive cap.",
+  "claim_boundary": "No Collatz proof and no certified divergent Collatz counterexample."
+}

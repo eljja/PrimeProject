@@ -32,6 +32,7 @@ Core files:
 - `assets/open-problems.js`: GitHub Pages renderer for the four workbench pages.
 - `formal/*/InfiniteBridge.lean`: Lean-oriented skeleton contracts. These are not proofs.
 - `docs/open-problem-workbench.md`: public workbench specification.
+- `docs/open-problem-research-consolidation-2026-07-10.md`: canonical keep/discard audit and problem-specific progress boundary.
 
 Regeneration and verification commands:
 
@@ -60,6 +61,745 @@ The workbench currently provides:
 - proof attempt protocols with required outputs and fail exits.
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
+
+## Latest Continuation After TICKET-110
+
+TICKET110 builds anti-circular rational major arcs around every reduced `a/q`, `q<=Q`, with width `Q/(qX)`, fixed before target contributions are read. The spectrum partitions exactly into major and minor pieces.
+
+At `X=1,048,576`, `Q=32` gives major contribution `461,203.6`, actual minor contribution `-2,063.7`, and exact correlation `459,139.9`. The trivial minor-energy lower bound is `-3,105,699.1`, so rational masking alone does not close a proof.
+
+The next theorem is `FixedBumpMajorArcAsymptoticWithTypeIIMinorPowerSaving`: derive explicit local-factor main terms and prove a signed minor-arc saving independent of the target.
+
+## Preserved Continuation After TICKET-109
+
+TICKET109 verifies the exact zero-padded identity `sum f(n)f(n+2)=N^(-1)sum |F(k)|^2 cos(4 pi k/N)` for the symmetric TICKET108 bump. The maximum identity error through `X=1,048,576` is below `2.4e-10`. The full identity is equivalent to the correlation and is not a reduction.
+
+Every tested single-origin low-frequency sufficient bound is negative. At the largest horizon, positive phase contributes `1.829M`, negative phase contributes `-1.370M`, exact correlation is `0.459M`, and the best one-band lower bound is `-3.338M`.
+
+The next theorem is `RamanujanMajorArcPhaseMarginWithMinorArcControl`: preserve rational `a/q` structure and prove a separately audited Type II minor-arc remainder.
+
+## Preserved Continuation After TICKET-108
+
+TICKET108 proves that `JointStructuredSparseDenseTwinDispersion` is algebraically identical to the original hard-cutoff correlation residual inequality once `Lambda=I+II_sparse+II_dense` is recombined. The maximum audited identity error through 8M is below `4.2e-9`. Do not present that target as a weaker theorem.
+
+The replacement is a fixed nonnegative dyadic bump `W(t)=16(t-1/2)(1-t)` on `[1/2,1]`. Because `0<=W<=1`, its proper-prime-power contamination is bounded by the explicit TICKET93 `B(X)`. Therefore `limsup(S_W(X)-B(X))=+infinity` implies infinitely many twin primes by contrapositive.
+
+Finite smoothing is not uniformly better: 2/6 blocks improve and all four blocks from 1M through 8M worsen. Retain smoothing only for transform structure. The next theorem is `SmoothedShiftTwoTypeIICorrelationExcess`.
+
+## Preserved Continuation After TICKET-107
+
+TICKET107 maps every occupancy-one modulus to its unique dyadic integer `n=qm`, combines repeated n values, and independently verifies the resulting Type II vector against Vaughan's `Lambda=I+II` decomposition. All vector and correlation contracts pass through 8M.
+
+At 8M, 1,589,098 sparse q cells compress to 1,099,268 n cells, with 247,461 collisions and `69.53%` L1 retention. More importantly, structured residual `-1,281,289.5`, sparse Type II `+399,460.6`, and dense Type II `+756,121.9` compensate to a full residual `-125,707.0`. A standalone structured-plus-sparse budget needs `K=2.59`, while the full joint residual needs `K=0.37`.
+
+Do not assign independent one-sided budgets to the three components. TICKET108 subsequently proves that recombining all three into a hard-cutoff target is the original residual theorem, so this target is preserved only as a diagnostic identity, not a new reduction.
+
+## Preserved Continuation After TICKET-106
+
+TICKET106 groups all repeated `q=dr` representations before applying norms. The exact centered and baseline identities replay below `4.3e-10` through 2M. Naive grouped geometry is worse, not better: at 2M grouped Cauchy needs `K=249.12` versus outer-`d` `41.15`; grouped negative mass needs `55.29` versus `5.41`.
+
+The occupancy audit is decisive for route selection. At 2M, 400,315 moduli (`72.31%` of support) contain at most one sample in the block and contribute `64,933.8` of total centered mass `67,608.8`. This is sparse row replay. Do not use it as evidence for a dense progression theorem.
+
+The TICKET106 target was `NonSparseModulusTwinDispersionWithSparseTailControl`. TICKET107 shows that an independent sparse-tail budget can still lose essential Vaughan compensation, so it has been superseded by the joint target above.
+
+## Preserved Continuation After TICKET-105
+
+TICKET105 centers each shifted-prime weight with the independent coprime progression mean `q/phi(q)` for odd `q=dr` and zero for even `q`. The exact identity splits Type II into a progression baseline plus a centered prime-distribution discrepancy and replays below `1.7e-10` through 2M.
+
+At 125K, 1M, and 2M, the termwise negative centered-mass constants are `4.50,5.15,5.41`, materially below TICKET104's `21.75,34.79,39.92`. Full-vector Cauchy still needs `26.69,37.12,41.15`. Do not promote either finite sequence to a uniform theorem.
+
+The next target is `MobiusWeightedPrimeProgressionDiscrepancyBound`: control `sum mu(d)Lambda(r)(Lambda(drm+2)-dr/phi(dr))` by dispersion or bilinear large-sieve structure before absolute values are taken.
+
+## Preserved Continuation After TICKET-104
+
+TICKET104 extracts the exact local Type II anatomy `T_X=sum_{d>U}mu(d)A_X(d)` with `A_X(d)>=0` encoding shifted-prime mass. Direct reconstruction errors stay below `4.1e-11`; Abel reconstruction errors stay below `6.5e-10` through 2M.
+
+The direct Type II term needs `K=0` at 125K, 1M, and 2M. Separately summing negative terms needs `K=21.75,34.79,39.92`; Abel summation followed by termwise absolute values needs `K=354.06,799.04,1088.15`. At the small negative block `X=1000`, actual `K=1.7515` versus Abel-triangle `61.83`.
+
+Do not claim divergence from these finite rows. The valid no-go is informational: these triangle templates discard the observed correlation between Mertens prefixes and shifted-prime weight differences. The next theorem is `WeightedMobiusShiftedPrimeDyadicCancellation`, which must preserve that joint geometry.
+
+## Preserved Continuation After TICKET-103
+
+TICKET103 removes cumulative masking from TICKET102. For each dyadic horizon `X`, it fixes one modulus and one Vaughan decomposition, then computes the exact component identity only on `n in (X/2,X]`. The seven principal blocks from 125K through 8M have zero negative Type II block sums, maximum structured required constant `3.7617`, and maximum joint required constant `0.6430`.
+
+Do not promote this sign pattern. The small-scale sign oracle gives an exact counterexample at `X=1000`: Type II correlation on `(500,1000]` is `-174.7165` and requires `K_II=1.7515`. Universal local Type II nonnegativity is false. The surviving theorem is eventual and quantitative: `UniformDyadicLocalVaughanTwinBlockBudgets`, existence of any fixed finite component constants for every sufficiently large block.
+
+The conditional bridge is exact: local component bounds give positive linear Lambda shift-two mass per large block, while proper-prime-power contamination is `o(X)`, so every sufficiently large block contains genuine twin weight. The uniform analytic premises remain open.
+
+## Preserved Continuation After TICKET-102
+
+TICKET102 freezes the TICKET101 Twin cutoff schedule as `U(X)=round(X^(1/3))`, `V(X)=round(0.84U(X))` and audits every `x` in complete dyadic blocks `(X/2,X]`. The selected `K_S=1.40` structured budget is refuted at `X=2M`: all one million post-selection points fail and the maximum required constant is `1.9532`. Type II `K_II=0.18` has no failures. This refutes the finite envelope, not Twin Prime.
+
+The decisive correction is that `K_S+K_II<=1.6` is unnecessary. Any fixed finite constants imply `C_2(x)>=M(x)(1-(K_S+K_II)/log x)`; TICKET99's linear local-main lower bound and TICKET93's `o(x)` contamination then make this sufficient asymptotically. The target is existence of uniform finite constants, not optimization against 1.6.
+
+After seeing data only through 4M, TICKET102 registers coarse budgets `K_S=4,K_II=1` and opens the unseen 8M block. All four million points pass; maximum structured `K=3.3068`, Type II required `K=0`, Type II support `24.31%`. Preserve this as finite holdout evidence only. The next theorem is `UniformFiniteDyadicSeparatedVaughanTwinBudgets`.
+
+Problem-specific priorities are restored: RH needs non-circular explicit-formula kernel positivity; Collatz returns to `GoldenMeanInvariantSetEscape`; Goldbach retains the joint balanced signed residual target. Generic energy rewrites do not supersede these targets.
+
+## Preserved Continuation After TICKET-101
+
+TICKET101 tests whether the TICKET100 componentwise failure was specific to `U=V=100`. At scale 1M it evaluates 39 cutoff pairs, including 28 pairs in the balanced range `U,V<=N^(1/3)=100`. Goldbach has no separated-budget survivor there; its best sum is `9.4890`. The apparent Goldbach survivor at `U=V=960` leaves only 314 nonzero Type II coordinates, and `U=V=1000` makes Type II identically zero. Treat these as decomposition collapse, not analytic progress.
+
+Twin Prime has a genuinely different finite frontier. The noncollapsed pair `U=100,V=84` gives structured constant `1.3890`, Type II constant `0.1711`, and total `1.5601<1.6`. The next Twin target is therefore the pair of uniform, independently proved bounds summarized as `SeparatedBalancedVaughanTwinBudgets`; the rounded discovery target uses `1.40+0.18=1.58`. This is finite candidate discovery, not an asymptotic theorem.
+
+The exact Goldbach reflection-energy and Twin shift-mismatch identities are algebraically equivalent to the original correlations. Do not promote them as reductions. They become useful only if an independent reflection or shift mismatch theorem is supplied. The corrected Goldbach target remains joint and balanced: `JointBalancedVaughanGoldbachResidualEnvelope`.
+
+## Preserved Continuation After TICKET-100
+
+TICKET100 extends the TICKET99 finite residual candidate to every even Goldbach target through 6M and every cumulative Twin target through 10M, including `W=210 -> 2310` at `2310^2`. There are zero finite `K=1.6` failures. Goldbach's overall maximum remains `K=1.5791` at 2804; Twin's remains `1.3890` at 1018.
+
+It then applies the exact one-sided Vaughan identity `Lambda=I+II` and writes `C-M=(<I,Lambda_shift>-M)+<II,Lambda_shift>`. The identity and direct Type II kernel replay within `1.42e-14`.
+
+The decisive no-go is Goldbach `N=930,930`, `W=210`: the Type II component alone needs `K=7.9099`, while the joint residual still satisfies `K=1.6`. Do not bound the structured and Type II components separately by absolute values or independent K/log envelopes. The next targets are `JointVaughanGoldbachResidualEnvelope` and `JointVaughanShiftTwoResidualEnvelope`, preserving their signed compensation.
+
+## Preserved Continuation After TICKET-99
+
+TICKET99 removes target leakage in two independent ways. Its period-parity cross-fit trains residue means on even periods and evaluates only odd periods with minimum train occupancy in `{1,2,4,8,16}`. Across 120 configurations at 10,000, 100,000, and 1,000,000, no Goldbach or Twin norm certificate survives.
+
+The external model `A_W(n)=W/phi(W)` on coprime residue classes uses no Lambda data. CRT proves `M_G(N),M_2(x)>=d_W max(0,scale+1-W)`, where `d_W=2 product_{3<=p|W}(1-1/(p-1)^2)` has a positive limit. This closes the local-main theorem but not the signed residual.
+
+For `W(n)` the largest primorial with `W(n)^2<=n`, a calibration screen on `1,000..100,000` yields the common candidate `R_W(n)>=-1.6 M_W(n)/log n`. It has zero holdout failures through one million for both tracks. This is finite double-precision evidence only. The next proof targets are `UniformExternalLocalModelGoldbachResidualDecay` and `UniformExternalLocalModelShiftTwoResidualDecay`, which must be proved without importing the target correlations.
+
+## Preserved Continuation After TICKET-98
+
+TICKET98 tests the growing-modulus continuation rather than assuming it helps. For a finite dataset of length `L`, it proves the exact leakage theorem `W>=L => P_W x=x` and `E_W=0`: residue labels are then injective, so every fitted residue mean is the observed row itself. A zero residual in this regime is exact-data replay, not an out-of-sample cancellation theorem.
+
+The primorial audit uses `W=2,6,30,210,2310,30030,510510,9699690` at `N=10,000`, `100,000`, and `1,000,000`. The first Goldbach and Twin norm certificates occur at `W=30,030`, `510,510`, and `9,699,690`, respectively, exactly the first row-unique modulus at each scale. No non-row-unique projection certifies either sharp contamination budget. The next targets are `OutOfSampleGrowingModulusBinaryResidualCancellation` and `OutOfSampleGrowingModulusShiftTwoResidualCancellation`. Do not accept a fitted partition whose cells identify the evaluation rows.
+
+## Preserved Continuation After TICKET-97
+
+TICKET97 adds the most favorable finite-modulus one-point arithmetic information to TICKET96. For each `W in {2,6,30,210,2310}`, `P_W Lambda` is the exact finite-interval residue-class conditional mean and therefore the unique L2-optimal W-periodic approximation. The residual has zero sum in every residue class and is orthogonal to every W-periodic function. All exact additive and shift-two decompositions replay with zero contract failures at 10,000 and 100,000.
+
+No tested optimal projection yields a positive norm-only lower bound for either sharp contamination budget. More decisively, the signed residual `[1,1,-1,-1,-1,-1,1,1]` has zero sums in both mod-2 classes while its Goldbach-type coefficient is `-4` and shift-two coefficient is `-2`. Thus fixed-modulus residue means do not logically determine binary correlation signs. The next targets must let the modulus grow with scale and add signed bilinear or higher-order residual control: `GrowingModulusBinaryResidualCancellation` and `GrowingModulusShiftTwoResidualCancellation`.
+
+## Preserved Continuation After TICKET-96
+
+TICKET96 translates the two TICKET95 correlation targets into exact zero-padded DFT coefficient identities. Goldbach uses the coefficient of `F(z)^2`; Twin Prime uses the shift-two coefficient of `|F(z)|^2`. Every tested major/minor frequency split reconstructs the direct Lambda correlation. At `N=10,000` and `100,000`, 36 Farey-mask configurations are tested per scale. Among masks covering at most ten percent of DFT bins, no energy-only lower bound exceeds the sharp proper-prime-power budget for either problem.
+
+The important result is an information no-go, not a generic rejection of Fourier methods. For Goldbach, conjugate-symmetric phases can preserve every minor magnitude while aligning the target coefficient negatively in the unrestricted real-sequence class. For Twin Prime, total minor energy can be placed at frequencies with negative shift-two cosine. Therefore phase-blind magnitude or total-energy premises do not logically imply the required positive coefficient. Arithmetic phase rigidity, frequency localization, or signed Type II cancellation must be added. Next targets: `ArithmeticMinorArcPhaseCancellation` and `ShiftTwoSpectralLocalizationOrTypeIICancellation`. RH and Collatz receive only the corresponding spectral independence gate.
+
+## Preserved Continuation After TICKET-95
+
+TICKET95 performs a logical novelty audit before extending TICKET94. For Twin Prime, `D_R=C_2-alpha_R^2S_R`, so the proposed inequality `D_R>=-alpha_R^2S_R+B+omega` is exactly equivalent to `C_2>=B+omega`. The decomposition remains valid, but it is not a reduction unless an independent Type II premise estimates `D_R` without importing `C_2`. The corrected target is `IndependentShiftTwoCorrelationExcess`.
+
+TICKET95 also replaces the coarse prime-power count envelope with `H(y)=sum_{m<=y,m=p^k,k>=2}Lambda(m)`. The exact endpoint-charge argument gives `E_pp(x)<=log(x+2)(H(x)+H(x+2))` for Twin Prime and `E_pp(N)<=2log(N)H(N)` for Goldbach. At the stored checkpoints the new bounds are about 27 to 238 times smaller than the old bounds. A double-precision FFT screen covers every even target through one million: ten nonpositive criterion margins occur at `N<=38`, all with direct Goldbach witnesses, and direct correlation recomputation differs from FFT by at most `3.3e-9` at audited targets. This is numerical evidence, not interval or symbolic proof. The Goldbach target is now `UniformBinaryMinorArcDominance`. RH and Collatz receive only the independent-information gate; no target-specific theorem is claimed.
+
+## Preserved Continuation After TICKET-94
+
+TICKET94 quantifies the signed remainder missing from TICKET93. For Twin Prime, write `Lambda=alpha_R Lambda_R+E_R`. The exact shift-two correlation is the surrogate main term plus `alpha<A,E_shift>+alpha<E,A_shift>+<E,E_shift>`. Every tested truncation reconstructs the exact correlation, but bounding the three residual terms separately by Cauchy-Schwarz gives a negative certified lower bound. Norm-only approximation is therefore insufficient; the next target is `JointShiftTwoSignedRemainderLowerBound` for the combined signed remainder.
+
+TICKET94 also adds a problem-specific Goldbach bridge. For even `N`, `G(N)=sum Lambda(n)Lambda(N-n)` decomposes into genuine ordered prime representations plus proper-prime-power contamination bounded by `B_G(N)=2 sqrt(N) floor(log2(N)) log^2(N)`. Thus `G(N)>B_G(N)` forces a Goldbach representation, and a uniform inequality for every sufficiently large even `N` plus finite verification proves binary Goldbach. Four checkpoints through 100,000 have zero decomposition failures but negative safe margins. Next: `UniformBinaryLambdaCorrelationExcess`. No Twin Prime or Goldbach theorem is claimed.
+
+## Preserved Continuation After TICKET-93
+
+TICKET93 makes the Twin Prime target exact. Define `C_2(x)=sum_{n<=x} Lambda(n)Lambda(n+2)`. Splitting genuine prime-prime pairs from pairs containing a proper prime power gives `C_2=T_2+E_pp` and the explicit bound `E_pp(x)<=B(x)=2 sqrt(x+2) floor(log2(x+2)) log^2(x+2)`. Therefore `limsup(C_2-B)=+infinity` implies infinitely many twin primes; a positive linear lower bound for `C_2` is sufficient because `B=o(x)`. This closes the logical bridge but not the analytic lower bound.
+
+The finite audit through 2,000,000 separates 14,871 genuine twin pairs from 94 proper-prime-power shifted pairs with zero decomposition failures. It also tests `Lambda_R(n)=sum_{d|n,d<=R} mu(d)log(R/d)` for four truncations. Every truncation violates pointwise minorant status and creates tens of thousands of positive shifted pairs where the exact Lambda product is zero. Positive truncated-divisor correlation is therefore not a lower bound without a signed remainder theorem. Next: `ShiftTwoTypeIICorrelationExcess`, aligned with Ford-Maynard's requirement for substantial Type II information in general prime-producing lower-bound sieves. No Twin Prime theorem is claimed.
+
+## Preserved Continuation After TICKET-92
+
+TICKET92 adds two target-specific corrections. For Collatz, consecutive top-bit heights `H<J` give `Delta_H=v2(R-r_H)-floor(log2(r_H))=J-H`. The missing `100` event is exactly `Delta_H>=3`. Normalizing to `v2(R-r_H)/H=1+Delta_H/H` erases every bounded additive defect, so first-order irrationality exponents and upper-bound p-adic logarithmic forms cannot force the event. The corrected target is `FixedLogSecondOrderDefectRecurrence`. Finite audit: 131,306 jump pairs through height 262,144, 32,753 target events, zero equivalence failures.
+
+For Twin Prime, TICKET92 corrects TP-TICKET-14. Maynard Proposition 4.2 yields at least `ceil(theta*M_k/2)` primes in an admissible tuple. Bombieri-Vinogradov gives fixed `theta<1/2`, so two primes require a rigorously certified strict `M_k>4` in the limiting threshold. The 17 stored closed-form scores were not evaluations of the variational `M_k`; the former `2/k` test and implied tuple-diameter gaps were invalid. All implied gaps, including gap 2, are now null. This correction proves no bounded-gap or Twin Prime theorem. Next: `ParityBreakingExactPairCorrelationLowerBound`.
+
+## Preserved Continuation After TICKET-91
+
+TICKET91 writes the fixed exponent as `R=r_H+2^(H+1)t_H` and proves `e_H=gamma*t_H mod 2^(H+2)`, where `gamma=7 log_2adic(-3)/4` is odd. Multiplication by `gamma` conjugates the one-sided binary tail shift to TICKET90's limiting normalized-error map. Consequently `beta=-gamma` is exactly the all-one tail `t=-1`, not the full obstruction. The actual target-avoiding set is `K=gamma G`, where `G` is the golden-mean subshift of all tails avoiding `00`. Separating the orbit from beta only recovers future zero-bit occurrence and cannot force adjacent zeros. The corrected next theorem is `GoldenMeanInvariantSetEscape`: prove from the specific logarithmic equation that the tail orbit exits `G` infinitely often. Machine audit: 255 horizons, 254 tail shifts, 4,096 conjugacy states, 377 depth-12 legal words, zero failures. This is an exact restricted coordinate theorem and route no-go, not a Collatz result.
+
+## Preserved Continuation After TICKET-90
+
+TICKET90 derives the exact normalized-error recurrence for `e_H=(3^(r_H+1)+7)/2^(H+3)`. Its parity is the next lift bit. The correction units converge to `alpha=log_2adic(-3)/4`, and the forcing terms converge to odd `beta=-7alpha`. The limiting map has fixed point `e=beta`, producing a target-avoiding lasso modulo every fixed power of two. Thus no fixed-precision automaton can prove excess-five recurrence. Next: `GrowingPrecisionErrorGhostSeparation`.
+
+## Preserved Continuation After TICKET-89
+
+TICKET89 proves the exact equivalence between `100` recurrence and valuation-excess-five recurrence. For consecutive top-bit heights `H<J` and `k=r_H`, `v2(3^(k+1)+7)=J+2`, so the zero-run length is the valuation excess above `floor(log2(k))` minus three. Thus `100` occurs exactly when the excess is at least five. Eventual avoidance becomes an eventual excess cap of four. Generic transcendence cannot refute that cap because the no-`00` subshift contains uncountably many transcendental 2-adic numbers. Audit: 32,727 jump pairs through height 65,536, 8,159 finite excess-five events, zero failures. Next: `FixedLogValuationExcessFiveInfinitude`.
+
+## Preserved Continuation After TICKET-88
+
+TICKET88 blocks the unjustified step from two-sided digit infinitude to infinitely many `100` patterns. An explicit aperiodic 2-adic sequence with zeros at square positions has infinitely many zeros and ones but no `00`. The natural complement `s=-r` swaps all bits above bit zero, but its post-value `-5/7` enters the exact valuation cycle `(1,3)` with mean 2, so it loses the coefficient-one geometry. Therefore TICKET87's 32,753 observed runs of length at least two remain finite evidence. The missing target is `FixedLogGoldenMeanExclusion` for the specific ratio `log(1-8)/log(1+8)`. TICKET87's additive-one theorem remains valid; no additive-two infinite theorem is claimed.
+
+## Preserved Continuation After TICKET-87
+
+TICKET87 proves that both binary lift symbols of the fixed exponent `3^(r+1)=-7` occur infinitely often. Finitely many one bits would stabilize at a nonnegative integer; finitely many zero bits would make the 2-adic exponent an eventually-all-one negative integer. Either case forces an impossible rational equality. Thus one-to-zero transitions occur infinitely often, and each transition extends the same exact positive Mersenne-exponent prefix by one horizon. The affine growth proof yields `D(k)>log2(k)+1` for infinitely many `k`. A separate 262,144-height 2-adic logarithm audit finds a finite run-length record 16 at `H=38326`, but does not promote it to unboundedness. Next: `TwoAdicRunLengthTwoInfinitude`.
+
+## Preserved Continuation After TICKET-86
+
+TICKET86 removes TICKET85's extra-period loss on an infinite, rigorously defined subsequence. The cycle target congruence reduces exactly to `3^(r_H+1)=-7 mod 2^(H+3)`. The least residues are nested and gain a new top bit infinitely often; finite top-bit growth would make the residues stabilize and force the impossible ordinary equality `3^(r+1)=-7`. At every top-bit height, `2^H<=r_H<2^(H+1)` and the affine growth proof gives `D(r_H)>H`, hence the integral delay satisfies `D(r_H)>=H+1>log2(r_H)`. This is an infinite finite-delay lower-bound subsequence, not a divergent orbit. Audit: 1,023 prefixes, 1,027-bit maximum precision, 499 top-bit cases, 16,877 symbolic states, zero failures. Next: `TwoAdicDigitRunBoundary`.
+
+## Preserved Continuation After TICKET-85
+
+TICKET85 proves the accessible periodic-word reciprocal-mean supremum is exactly 1 and unattained. The family `w_m=(2,1^(m-1))` is exact and accessible, with coefficient `m/(m+1)`. Taking `m=H` yields positive exponents with `D(k_H)>H>log2(k_H)-2`; every `c log2(k)+C`, `c<1`, fails infinitely often. Audit: 255 cases, 32,895 lifts, 259 bits, 33,150 states, zero failures. Next: `CoefficientOneBoundary`.
+
+## Preserved Continuation After TICKET-84
+
+TICKET84 replaces the coefficient-1/2 positive reference with the accessible 2-adic exponent cycle `3^kappa=-13`, `-7 --v2=2--> -5 --v2=1--> -7`. Unique finite Hensel residues are lifted to positive exponents, never promoting the negative cycle itself. The result is `D(k_H)>H>(2/3)log2(k_H)-1`. Audit: 255 horizons, 384 precisions through 386 bits, 33,150 states, zero failures. Next: `AccessibleCycleCoefficientSupremum`.
+
+## Preserved Continuation After TICKET-83
+
+TICKET83 quantifies the TICKET82 obstruction. For `k_H=3+2^(2H+3)`, exact prefix preservation and symbolic bounds prove
+
+```text
+D(k_H)>H>(1/2)*log2(k_H)-2.
+```
+
+Therefore every `o(log k)` window and every `c*log2(k)` window with fixed `c<1/2` fails infinitely often. Artifacts: `scripts/ticket83_mersenne_log_window_lower_bound_lab.py`, `data/open-problem/ticket83-mersenne-log-window-lower-bound-lab.json`, `docs/collatz-mersenne-log-window-lower-bound.md`, and `tests/test_ticket83_mersenne_log_window_lower_bound.py`. Audit: 255 horizons, 33,150 symbolic states, zero failures. Next: `MersenneLogWindowDichotomy`. This is a delay lower bound, not divergence.
+
+## Preserved Continuation After TICKET-82
+
+TICKET82 proves that no exponent-independent finite post-expansion window can force descent for every Mersenne start.
+
+```text
+x_t(k)=A^(k+t)(2^k-1)=(3^(k+t)+c_t)/2^d_t
+c_0=-1, d_0=1
+c_(t+1)=3*c_t+2^d_t
+reference post word at k=3: 3,4,2,2,...
+```
+
+For each fixed horizon `H`, exact valuation preservation holds on:
+
+```text
+H=0:  k=3 mod 2
+H=1:  k=3 mod 8
+H>=2: k=3 mod 2^(2H+3)
+```
+
+For sufficiently large exponents in the progression, exponential dominance of `3^k` over `2^k` gives `A^(k+t)(2^k-1)>2^k-1` for every `0<=t<=H`. Hence Mersenne post-expansion stopping delay is unbounded.
+
+Artifacts:
+
+```text
+scripts/ticket82_fixed_mersenne_compensation_window_no_go_lab.py
+data/open-problem/ticket82-fixed-mersenne-compensation-window-no-go-lab.json
+docs/collatz-fixed-mersenne-compensation-window-no-go.md
+tests/test_ticket82_fixed_mersenne_compensation_window_no_go.py
+```
+
+Audit: 129 horizons, 8,385 symbolic states, 8,256 transition conditions, zero failures.
+
+Discarded route: every constant post-expansion lookahead. Next target: `MersenneGrowingWindowDescent`, with an explicit unbounded `L(k)`. This theorem proves unbounded delay, not divergence or Collatz.
+
+## Preserved Continuation After TICKET-81
+
+TICKET81 tests a concrete positive-integer repair after the TICKET80 compactness no-go. For the Mersenne starts `N_k=2^k-1`, the exact all-ones cylinder has already stabilized at `N_k` by depth `k-1`, but the first larger valuation still fails to force descent for an infinite family.
+
+```text
+A^j(N_k)=3^j*2^(k-j)-1, 0<=j<=k-1
+a_1=...=a_(k-1)=1
+A^k(N_k)=oddpart(3^k-1)
+a_k=2                    when k is odd
+a_k=3+v2(k)              when k is even
+```
+
+Complete classification:
+
+```text
+descent after first compensation:     k in {2,4,8}
+non-descent:                           every odd k>=3, k=6, every even k>=10
+```
+
+The infinite cases are symbolic: odd `k` use `(3^k-1)/2>2^k-1`; even `k>=10` use `2^(2+v2(k))<=4k` and `(3^k-1)/(4k)>2^k-1`. Only `k=2,4,6,8` are evaluated directly.
+
+Artifacts:
+
+```text
+scripts/ticket81_mersenne_post_compensation_no_go_lab.py
+data/open-problem/ticket81-mersenne-post-compensation-no-go-lab.json
+docs/collatz-mersenne-post-compensation-no-go.md
+tests/test_ticket81_mersenne_post_compensation_no_go.py
+```
+
+Exact audit:
+
+```text
+Mersenne exponents:             2..1024
+starts:                         1,023
+initial expansion replays:      523,776
+post-compensation non-descents: 1,020
+failures:                       0
+```
+
+Discarded route:
+
+```text
+Use only the first non-1 LTE valuation after a long expansion block to force descent, even after the positive cylinder residue has stabilized.
+```
+
+Next theorem target:
+
+```text
+MersenneAdaptiveCompensationWindow: find an explicit L(k) and prove that cumulative valuations over that window force an iterate below N_k, without importing empirical stopping time.
+```
+
+This would prove an infinite Mersenne-family theorem, not Collatz for all positive integers. RH, Goldbach, and Twin Prime receive only the no-single-local-correction transfer guard; no Collatz formula is transferred.
+
+## Preserved Continuation After TICKET-80
+
+TICKET80 tests the naive least-counterexample compactness continuation and proves a restricted no-go theorem.
+
+```text
+For every H>=1 and B>=1:
+q=ceil((B+1)/2^(H+1))
+n=2^(H+1)q-1 >= B
+A^j(n)=3^j*2^(H+1-j)q-1 > n, 1<=j<=H
+valuation word: 1 repeated H times
+cylinder: n=-1 mod 2^(H+1)
+```
+
+Therefore every finite collection of exact cylinder constraints, least-counterexample prefix non-descent inequalities, and a finite lower bound has positive-integer witnesses. Increasing the finite horizon or verified lower bound cannot close this route.
+
+Dual-topology counteredge:
+
+```text
+x_H=2^(H+1)-1 -> +infinity ordinarily
+v2(x_H+1)=H+1, so x_H -> -1 in Z_2
+A(-1)=-1 with valuation 1
+```
+
+Positive-integer cylinder criterion:
+
+```text
+A compatible nested cylinder path represents a positive ordinary integer iff its least nonnegative residues eventually stabilize at one positive value.
+```
+
+Artifacts:
+
+```text
+scripts/ticket80_least_counterexample_compactness_no_go_lab.py
+data/open-problem/ticket80-least-counterexample-compactness-no-go-lab.json
+docs/collatz-least-counterexample-compactness-no-go.md
+```
+
+Exact audit:
+
+```text
+horizons:                     1..512
+lower-bound regimes:          5
+finite witnesses:             2,560
+accelerated step replays:     656,640
+finite and dual failures:     0
+```
+
+Discarded route:
+
+```text
+Any contradiction using only a fixed finite truncation of least-counterexample non-descent inequalities, or any promotion of finite witnesses to a positive counterexample using 2-adic compactness alone.
+```
+
+Next theorem target:
+
+```text
+LeastCounterexampleUniformHeightBound: for one fixed eventually stabilized positive cylinder path satisfying every exact non-descent constraint, derive an explicit horizon-independent bound N<=U overlapping a certified finite verification range.
+```
+
+Warning: proving descent for every stabilized positive path is the coefficient-stopping-time form of Collatz, not a weaker completed bridge.
+
+## Previous Continuation After TICKET-79
+
+TICKET79 tests the most direct Archimedean-plus-2-adic continuation of TICKET78 and proves a restricted no-go theorem.
+
+```text
+accelerated odd map: A(n)=(3n+1)/2^v2(3n+1)
+rank family: R(n)=alpha*log(n)+b(s(n))
+finite state set S, bounded correction b:S->R
+```
+
+Exact positive-integer witness families:
+
+```text
+E_(m,q)=2^(m+1)q-1
+A^j(E_(m,q))=3^j*2^(m+1-j)q-1, 0<=j<=m
+first m valuations are all 1
+A^m(E_(m,q))/E_(m,q)>(3/2)^m
+
+D_r=(5*2^(2r+1)-1)/3
+A(D_r)=5 and v2(3D_r+1)=2r+1
+```
+
+Coefficient trichotomy:
+
+```text
+alpha>0: arbitrarily long exact expansion defeats every bounded correction.
+alpha<0: unbounded exact nonterminal contraction D_r->5 defeats every bounded correction.
+alpha=0: a K-state correction repeats a state on a K-edge expansion block, contradicting strict descent.
+```
+
+For `alpha!=0`, the correction need only be bounded; it may use infinitely many states or growing 2-adic precision. This theorem does not exclude adaptive multi-step descent or an unbounded correction with a proved lower bound.
+
+Artifacts:
+
+```text
+scripts/ticket79_archimedean_two_adic_rank_no_go_lab.py
+data/open-problem/ticket79-archimedean-two-adic-rank-no-go-lab.json
+docs/collatz-archimedean-two-adic-rank-no-go.md
+```
+
+Exact audit:
+
+```text
+expansion family cases:          1,024
+accelerated expansion replays:   131,584
+nonterminal contraction cases:   128
+coefficient threshold examples:  35
+all failures:                     0
+```
+
+Discarded route:
+
+```text
+Any universal one-step Lyapunov function obtained by adding a bounded residue, 2-adic, or finite-state correction to a fixed multiple of log(n).
+```
+
+Next theorem target:
+
+```text
+MinimalCounterexampleValuationSurplusContradiction: assume a least counterexample N. For every valuation prefix with affine constant C_m and total valuation S_m, non-descent forces 2^S_m*N <= 3^m*N+C_m. Combine all such inequalities with the exact TICKET78 cylinder congruences and force a contradiction or an explicit compatible infinite-prefix candidate.
+```
+
+Warning: proving that every `n>1` eventually falls below itself is equivalent to Collatz by strong induction. Do not report it as a weaker completed bridge.
+
+## Previous Continuation After TICKET-78
+
+TICKET-78 tests the natural-admissibility target promoted by corrected TICKET77 and proves that every purely finite 2-adic separator fails.
+
+Exact cylinder theorem:
+
+```text
+a=(a_1,...,a_m), a_i>=1
+S=sum a_i
+C_0=0; C_(j+1)=3*C_j+2^(a_1+...+a_j)
+T^m(n)=(3^m*n+C_m)/2^S
+r_a=3^(-m)*(2^S-C_m) mod 2^(S+1)
+finite cylinder: n=r_a+q*2^(S+1)
+```
+
+Every finite cylinder contains infinitely many positive integers. Therefore no fixed residue prefix, finite parity or accelerated-valuation word, or continuous finite-state Boolean map on `Z_2` can distinguish TICKET77 ghosts from every positive integer.
+
+Replayable audit:
+
+```text
+valuation words with S<=16: 65,535
+positive representatives: 262,140
+residue collisions: 0
+formula / replay / count failures: 0
+```
+
+Literature boundary: Bernstein–Lagarias already established the 2-adic shift conjugacy. Do not claim TICKET78 as a new conjugacy theorem. Its valid contribution is the exact accelerated-cylinder integration and proof-route no-go guard.
+
+Next theorem:
+
+```text
+ArchimedeanTwoAdicCoupledDescent
+```
+
+Continuation prompt:
+
+```text
+Use TICKET78 as a no-go theorem. Reject every candidate natural-admissibility rank that factors through fixed residue bits, a finite parity/valuation word, or any continuous finite-state coordinate on Z_2. Build exact changing-prefix macro-transitions carrying both Archimedean height and growing 2-adic precision. Candidate features may include bit length, cumulative valuation surplus, affine branch constant, and residue precision, but a valid success must prove uniform strict descent or basin entry for every positive-integer edge. Run CEGIS first and emit exact counteredges for failed potentials. Do not infer a global theorem from bounded fit or average drift, and keep Collatz open unless the all-integer bridge is independently checkable.
+```
+
+## Previous Continuation After TICKET-77
+
+TICKET-77 classifies the same-stable-prefix branch left open by TICKET76 and records a correction to its first draft.
+
+Exact normalized map:
+
+```text
+u = 3^(m+1)
+h(A) = the unique h in {0,...,15} with A+h*u = 0 mod 16
+P(A) = (A+h(A)*u)/16
+P(A) even: valuation strictly beyond the new boundary
+P(A) odd: valuation exactly at the boundary; equality rollback retains the stable prefix
+```
+
+Proof chain:
+
+```text
+1. Reachability: 2^d*A = 3*T^m(r)+1, so 3 does not divide A.
+2. Contraction: A>u implies 0<P(A)<A.
+3. Finite regime: for 1<=A<u, P(A) is the least positive representative of 16^(-1)A mod u.
+4. LTE: v3(16^(3^j)-1)=j+1, hence ord_(3^(m+1))(16)=3^m.
+5. The orbit is the whole unit class with fixed nonzero residue mod 3 and has exact period 3^m.
+6. The first draft's odd-P(A) extinction claim is invalid because equality valuations are rolled back.
+7. Strict pressure segments end at odd P(A), but the normalized fixed-prefix orbit continues.
+8. Its all-depth compatible cylinder converges to N with T^m(N)=-1/3 in Z_2, not to a positive integer.
+```
+
+Replayable audit:
+
+```text
+observed fifth/sixth boundary sources: 18,569
+strict segments reaching equality: 18,569
+maximum strict-pressure steps: 15
+prerequisite / identity / unexpected-strict-cycle / guard failures: 0
+finite orbit audit m=0,...,10: 0 failures
+```
+
+This is a genuine exact orbit classification, but not a Collatz proof. It excludes promotion of a fixed-prefix 2-adic completion to a positive-integer counterexample. The next theorem must control changing-prefix natural admissibility:
+
+```text
+ChangingPrefixNaturalAdmissibilityRank
+```
+
+Continuation prompt:
+
+```text
+Use the corrected TICKET77 orbit classification. Do not repeat the invalid inference that odd P(A) terminates the stable prefix; equality valuations must be rolled back. Treat every fixed-prefix all-depth completion as a 2-adic preimage of -1/3 and prove natural-number admissibility separately. Define exact transitions between successive changing-prefix approximations, then CEGIS-test well-founded ranks that remain meaningful when prefix length changes. A valid proof success must establish basin entry or strict descent for every positive-integer transition. A counterexample success must construct one compatible positive integer and separately prove divergence or a nontrivial cycle. Return exact witnesses for every failed rank and keep the conjecture status open unless the infinite bridge is independently checkable.
+```
+
+## Previous Continuation After TICKET-76
+
+TICKET-76 supersedes the immediate TICKET75 continuation target. It derives the exact four-bit boundary recurrence instead of adding another finite lift depth.
+
+Known exact result:
+
+```text
+Stable-prefix definitions:
+  d = b - s
+  A = (3*T^m(r) + 1) / 2^d
+  u = 3^(m+1)
+
+Four-bit digit h:
+  first new valuation = d + v2(A + h*u)
+  if v2(A+h*u) > 4: A_next = (A+h*u)/16
+
+Audited rows:
+  fifth:  45,968 children from 2,873 sources
+  sixth: 251,136 children from 15,696 sources
+  total: 297,104
+  formula failures: 0
+
+Fixed precision collision keys:
+  q=5: 165
+  q=9: 1,536
+  q=13: 1,235
+  q=17: 106
+  q=21: 15
+  q+4 lookahead collisions: 0 at every tested q
+```
+
+Interpretation:
+
+```text
+The unresolved recurrence divides by 16 and exposes four higher bits. Therefore a fixed low-bit boundary-quotient projection is not recursively successor-sufficient on the tested reachable states. The next serious question is whether all reachable quotients obey an extra arithmetic restriction, or whether the full 2-adic recurrence supports an all-depth pressure path.
+```
+
+Do not claim Collatz from this. The recurrence identity is exact, but the collision result only rejects a coordinate family. A full 2-adic pressure path would still need an integer-realizability and divergence/nontrivial-cycle theorem.
+
+Current best continuation:
+
+```text
+CO-TICKET-77 ReachableBoundaryRestrictionOrTwoAdicPressurePath (historical target, superseded by the corrected orbit classification above)
+```
+
+Prompt for the next LLM:
+
+```text
+Continue PrimeProject after TICKET-76. Read docs/open-problem-research-consolidation-2026-07-10.md and data/open-problem/ticket76-symbolic-boundary-recurrence-lab.json first. Do not count generic transfer tickets as problem-specific progress.
+
+Known theorem object: for a lift-stable accelerated Collatz prefix, the exact four-bit recurrence is v_new=d+v2(A+h*3^(m+1)); an unresolved child has A_next=(A+h*3^(m+1))/16. It was replayed on 297,104 transitions with zero failures. Fixed quotient precisions q=5,9,13,17,21 all have reachable successor collisions, while q+4 lookahead has none.
+
+Historical goal: build CO-TICKET-77 ReachableBoundaryRestrictionOrTwoAdicPressurePath. Do not execute this prompt without applying the equality-rollback correction above.
+
+Tasks:
+1. Independently prove the affine prefix and boundary quotient identities, including rollback of any valuation whose cumulative consumption equals b.
+2. Characterize the observed reachable triples (m,d,A) by congruences modulo powers of 2 and 3, size inequalities, and valuation constraints.
+3. Propose a restriction S that is strictly stronger than generic odd A, is invariant under every unresolved recurrence, and is independently checkable from the integer trajectory.
+4. Falsify S on all exact TICKET76 rows and by symbolic adversarial construction before attempting a proof.
+5. If S survives, prove that it closes a finite quotient or yields strict well-founded descent.
+6. Otherwise formulate the full 2-adic transducer tree, prove nonempty compatible descendants at every depth, and audit whether its paths correspond to positive integers rather than non-integral 2-adic objects.
+7. Keep pressure-path existence separate from divergence or nontrivial-cycle certification.
+8. Transfer only the recurrence-information-loss discipline to RH, Goldbach, and Twin Prime.
+
+Required output: exact theorem statement, derivation, counterexample oracle, machine-readable TICKET77 artifact, and public claim boundary.
+```
+
+## Latest Continuation After TICKET-75
+
+TICKET-75 supersedes the immediate TICKET-74 continuation target. It tests whether the escaping Collatz pressure can be compressed into a fixed finite pre-outcome coordinate suitable for induction.
+
+Known exact result:
+
+```text
+TICKET74 replay:
+  fifth open pressure: 15,696
+  sixth open pressure: 78,315
+  source identity failures: 0
+  exact congruence-extension failures: 0
+
+TICKET75 fixed-coordinate gate:
+  coordinate families tested: 8
+  families passing closure + acyclicity + determinism: 0
+
+Coarsest family:
+  novel sixth rows: 11 / 78,315
+  projected cyclic nodes: 66
+  mixed pressure-outcome keys: 59
+
+Richest family:
+  novel sixth rows: 77,998 / 78,315
+  projected cyclic nodes: 373
+  mixed pressure-outcome keys: 4
+```
+
+Interpretation:
+
+```text
+The tested grammar has a compression-versus-state-growth obstruction. Coarse coordinates nearly reuse the observed state cover but merge cyclic and outcome-incompatible behavior. Rich coordinates reduce collisions but create mostly unseen successor classes. The prior base_prefix_consumed DAG rank is not a fixed finite-state invariant because it contains exact unbounded lengths.
+```
+
+Do not claim Collatz from this. The result falsifies eight coordinate candidates only. It neither excludes all possible symbolic ranks nor constructs an infinite Collatz trajectory.
+
+Current best continuation:
+
+```text
+CO-TICKET-76 SymbolicSuccessorClosureWithWellFoundedRankOrAllDepthPressurePath
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-75. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument or a certified counterexample.
+
+Read docs/open-problem-research-consolidation-2026-07-10.md first. It is the canonical audit. Do not count generic cross-problem transfer tickets as problem-specific progress.
+
+Known Collatz result: TICKET75 exactly replays 15,696 fifth-lift and 78,315 sixth-lift open-pressure rows. Eight fixed finite pre-outcome coordinates all fail the combined two-layer closure, projected-cycle, and outcome-determinism gate. Coarse coordinates retain cycles/collisions; rich coordinates leak into unseen classes. The earlier exact prefix/consumed DAG coordinate is unbounded and cannot serve as a finite automaton invariant.
+
+Goal: build CO-TICKET-76 by attacking the symbolic theorem, not by merely adding a seventh finite layer.
+
+Tasks:
+1. Load data/open-problem/ticket75-escape-coordinate-closure-lab.json and independently reproduce its counts.
+2. Extract exact symbolic formulas for how residue, valuation tail, prefix_length, consumed_bits, and coefficient debt change under a four-bit lift.
+3. Propose a coordinate whose definition is independent of the tested horizon. State whether its range is finite, ordinal-valued, or another explicitly well-founded set.
+4. Prove successor sufficiency symbolically, or produce a replayable pair with the same coordinate and incompatible successor obligations.
+5. Prove strict rank decrease for every internal successor. Any equality or increase is an exact counteredge and must be recorded.
+6. If no coordinate survives, define a finitely branching exact pressure tree and prove nonempty compatible descendants for every depth before using Konig's lemma.
+7. Keep the final dynamical bridge separate: a pressure path is not a divergent orbit or a nontrivial cycle without another theorem.
+8. For RH, Goldbach, and Twin Prime, transfer only this proof discipline unless a genuine problem-specific computation is implemented.
+
+Required output:
+- a machine-readable TICKET76 artifact;
+- exact symbolic formulas and counteredges;
+- a proof-boundary audit;
+- updated docs and GitHub Pages card.
+```
+
+## Latest Continuation After TICKET-74
+
+TICKET-74 supersedes the immediate TICKET-73 continuation target. It does not solve Collatz; it prevents a finite strict-tree extinction from being misreported as full frontier closure.
+
+Known Collatz result:
+
+```text
+T70 open-pressure mixed keys: 20,752
+TICKET73 selected keys: 8 (0.038551%)
+Selected first-layer rows: 2,512 / 371,343 (0.676464%)
+Selected first-layer open-pressure rows: 2,303 / 180,385 (1.276714%)
+
+After TICKET73's strict fourth layer:
+  fifth lift: 45,968 rows, 15,696 open pressure, 0 old-cover re-entries,
+              15,593 new unranked internal states
+  sixth lift: 251,136 rows, 78,315 open pressure, 5 old-cover re-entries,
+              78,315 new unranked internal states
+
+Every checked parent-child edge is an exact four-bit congruence extension.
+```
+
+Interpretation:
+
+```text
+TICKET73 correctly eliminates its selected strict re-entry predicate. TICKET74 shows why that cannot be globalized: the fifth-lift open-pressure states escape the original compact mixed-key cover instead of disappearing. The next proof task is coverage, not a larger count of the same selected tree.
+```
+
+Do not claim Collatz from this. The TICKET74 escape forest is still bounded, and even an all-depth escaping pressure path would not prove a divergent orbit or nontrivial cycle without an additional dynamical theorem.
+
+Current best continuation:
+
+```text
+CO-TICKET-75 GlobalCoverageCertificateOrEscapingPressureForestDecision
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-74. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument or a certified counterexample.
+
+Known result: TICKET74 reconstructs the T70 compact frontier and proves that the TICKET73 strict root family is tiny relative to that frontier. Its fifth lift has 15,696 open-pressure escapes and zero old-cover re-entries; a complete sixth lift has 78,315 open-pressure rows. Therefore strict-tree extinction is not a global coverage theorem.
+
+Goal: build CO-TICKET-75. Either construct a symbolic, horizon-independent coverage map for every escaping needs_split state, or formalize an escaping-pressure forest whose all-depth compatible paths can be decided without confusing pressure with a genuine Collatz counterexample.
+
+Tasks:
+1. Load data/open-problem/ticket74-coverage-leakage-escape-forest-lab.json and reproduce all coverage and sixth-lift counts.
+2. Treat the 8-key TICKET73 choice as an explicitly bounded sample; never promote it to coverage of all 20,752 pressure mixed keys.
+3. Define a finite symbolic class language for escape states using only pre-outcome congruence data, not replay-derived outcome labels.
+4. Prove or refute that the class language is closed under every four-bit lift. Record exact counterexamples to closure.
+5. If a finite cover is proposed, prove both completeness over the unresolved source family and a well-founded descent rule for every covered successor.
+6. If escape is unavoidable, state an exact all-depth tree predicate and prove compatibility before invoking Konig's lemma.
+7. Separately establish whether any all-depth path implies divergence or a nontrivial cycle; pressure alone is insufficient.
+8. Transfer only the coverage/closure discipline, not Collatz counts, to RH, Goldbach, and Twin Prime.
+
+Required output:
+- data/open-problem/ticket75-global-coverage-decision-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+```
+
+## Latest Continuation After TICKET-73
+
+TICKET-73 supersedes the immediate TICKET-72 continuation target. It does not solve Collatz, but it turns the persistent-chain suggestion into an exact finite-root lineage test and closes one sharply specified counterexample route.
+
+Known Collatz result:
+
+```text
+TICKET72 selected open-pressure mixed-key re-entry roots: 4,142
+
+All-root strict re-entry tree:
+  third lift:  66,272 rows, 12,911 strict re-entries, 1,835 surviving roots
+  fourth lift: 206,576 rows, 2,873 strict re-entries, 614 surviving roots
+  fifth lift:  45,968 rows, 0 strict re-entries, 0 surviving roots
+
+Every retained witness edge is an exact four-bit congruence extension.
+```
+
+Interpretation:
+
+```text
+The statement "there is a chain that remains open pressure and re-enters the original compact mixed-key predicate at every lift" is false for this selected finite root set: its strict tree is empty at the fifth retained lift. This is not a Collatz proof, because the selected roots do not have a coverage theorem for every unresolved trajectory, and pressure chains under other predicates remain open.
+```
+
+Do not claim Collatz from this. Finite extinction of a selected predicate eliminates only that predicate. Conversely, finite survival in a future predicate is not an infinite path unless compatible descendants are proven nonempty at every depth.
+
+Current best continuation:
+
+```text
+CO-TICKET-74 CoverageCertificateAndAllDepthReentryTreeDecision
+```
+
+Prompt for the next LLM:
+
+```text
+You are continuing PrimeProject after TICKET-73. The project is trying to solve or refute RH, Collatz, Goldbach, and Twin Prime, but must not claim a proof without an independently checkable infinite argument or a certified counterexample.
+
+Known result: TICKET73 reconstructs all 4,142 selected TICKET72 open-pressure mixed-key re-entry roots. It exactly enumerates all sixteen four-bit congruence children for each retained node. The strict re-entry tree has 12,911 nodes at the third lift, 2,873 at the fourth, and 0 at the fifth. Therefore the selected predicate cannot yield an infinite compatible chain through these roots.
+
+Goal: build CO-TICKET-74. Replace the selected-root condition with a theorem-level coverage theorem, or identify a distinct pressure predicate whose compatible tree is both precisely defined and nonempty at every depth.
+
+Tasks:
+1. Load data/open-problem/ticket73-lineage-pressure-forest-lab.json and reproduce its exact root and child counts.
+2. Keep the strict predicate separate from general open pressure; do not infer that fifth-lift strict extinction eliminates every pressure chain.
+3. Search for a coverage map from TICKET66/TICKET70 unresolved families to finitely many congruence-root classes. State whether it is exact, sampled, or absent.
+4. For each proposed root class, make parent-child compatibility a symbolic congruence statement rather than a replay-derived label.
+5. If a covered root tree empties, prove the coverage and finite extinction together. If it survives every depth, establish the all-depth premise required by Konig's lemma before calling it an infinite path.
+6. Separately prove that any resulting infinite path implies a divergent orbit or nontrivial cycle; pressure alone is insufficient.
+7. Transfer only this coverage-first proof discipline, not Collatz counts, to RH, Goldbach, and Twin Prime.
+8. Keep the proof boundary explicit: no conjecture is solved without a formal infinite theorem or certified counterexample.
+
+Required output:
+- data/open-problem/ticket74-coverage-all-depth-decision-lab.json
+- per-problem transfer artifacts for RH, Collatz, Goldbach, Twin Prime
+- docs/proof-or-counterexample-program.md update
+- GitHub Pages card update
+```
 
 ## Latest Continuation After TICKET-72
 

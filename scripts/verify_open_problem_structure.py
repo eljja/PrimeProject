@@ -66,6 +66,44 @@ TICKET69_SCHEMA = "primeproject.ticket69-prefix-consumed-rank-lab.v1"
 TICKET70_SCHEMA = "primeproject.ticket70-prefix-frontier-expansion-lab.v1"
 TICKET71_SCHEMA = "primeproject.ticket71-stronger-frontier-coordinate-lab.v1"
 TICKET72_SCHEMA = "primeproject.ticket72-infinite-frontier-lift-closure-lab.v1"
+TICKET73_SCHEMA = "primeproject.ticket73-lineage-pressure-forest-lab.v1"
+TICKET74_SCHEMA = "primeproject.ticket74-coverage-leakage-escape-forest-lab.v1"
+TICKET75_SCHEMA = "primeproject.ticket75-escape-coordinate-closure-lab.v1"
+TICKET76_SCHEMA = "primeproject.ticket76-symbolic-boundary-recurrence-lab.v1"
+TICKET77_SCHEMA = "primeproject.ticket77-fixed-prefix-boundary-orbit-lab.v1"
+TICKET78_SCHEMA = "primeproject.ticket78-finite-cylinder-admissibility-no-go-lab.v1"
+TICKET79_SCHEMA = "primeproject.ticket79-archimedean-two-adic-rank-no-go-lab.v1"
+TICKET80_SCHEMA = "primeproject.ticket80-least-counterexample-compactness-no-go-lab.v1"
+TICKET81_SCHEMA = "primeproject.ticket81-mersenne-post-compensation-no-go-lab.v1"
+TICKET82_SCHEMA = "primeproject.ticket82-fixed-mersenne-compensation-window-no-go-lab.v1"
+TICKET83_SCHEMA = "primeproject.ticket83-mersenne-log-window-lower-bound-lab.v1"
+TICKET84_SCHEMA = "primeproject.ticket84-two-adic-cycle-log-delay-lab.v1"
+TICKET85_SCHEMA = "primeproject.ticket85-accessible-cycle-supremum-lab.v1"
+TICKET86_SCHEMA = "primeproject.ticket86-coefficient-one-boundary-lab.v1"
+TICKET87_SCHEMA = "primeproject.ticket87-two-adic-digit-run-boundary-lab.v1"
+TICKET88_SCHEMA = "primeproject.ticket88-run-length-two-no-go-lab.v1"
+TICKET89_SCHEMA = "primeproject.ticket89-fixed-log-golden-mean-reduction-lab.v1"
+TICKET90_SCHEMA = "primeproject.ticket90-normalized-error-ghost-lasso-lab.v1"
+TICKET91_SCHEMA = "primeproject.ticket91-error-tail-invariant-set-lab.v1"
+TICKET92_SCHEMA = "primeproject.ticket92-scale-sensitive-threshold-audit.v1"
+TICKET93_SCHEMA = "primeproject.ticket93-twin-correlation-excess-bridge.v1"
+TICKET94_SCHEMA = "primeproject.ticket94-signed-remainder-and-goldbach-bridge.v1"
+TICKET95_SCHEMA = "primeproject.ticket95-sharp-contamination-and-equivalence-audit.v1"
+TICKET96_SCHEMA = "primeproject.ticket96-fourier-phase-information-audit.v1"
+TICKET97_SCHEMA = "primeproject.ticket97-periodic-projection-residual-audit.v1"
+TICKET98_SCHEMA = "primeproject.ticket98-growing-modulus-leakage-audit.v1"
+TICKET99_SCHEMA = "primeproject.ticket99-out-of-sample-local-model-audit.v1"
+TICKET100_SCHEMA = "primeproject.ticket100-extended-residual-vaughan-audit.v1"
+TICKET101_SCHEMA = "primeproject.ticket101-vaughan-cutoff-energy-audit.v1"
+TICKET102_SCHEMA = "primeproject.ticket102-twin-dyadic-vaughan-holdout.v1"
+TICKET103_SCHEMA = "primeproject.ticket103-twin-local-block-audit.v1"
+TICKET104_SCHEMA = "primeproject.ticket104-twin-typeii-mobius-anatomy.v1"
+TICKET105_SCHEMA = "primeproject.ticket105-twin-centered-progression-discrepancy.v1"
+TICKET106_SCHEMA = "primeproject.ticket106-twin-modulus-grouped-dispersion.v1"
+TICKET107_SCHEMA = "primeproject.ticket107-twin-sparse-tail-recombination.v1"
+TICKET108_SCHEMA = "primeproject.ticket108-twin-joint-equivalence-smoothing.v1"
+TICKET109_SCHEMA = "primeproject.ticket109-twin-spectral-phase-audit.v1"
+TICKET110_SCHEMA = "primeproject.ticket110-twin-rational-arc-budget.v1"
 
 
 def fail(message: str) -> int:
@@ -4535,6 +4573,2030 @@ def main() -> int:
         return fail("collatz ticket72 next theorem target changed")
     if "does not prove Collatz" not in str(audit72.get("proof_boundary", "")):
         return fail("collatz ticket72 proof boundary must block proof overclaim")
+
+    ticket73_path = Path("data/open-problem/ticket73-lineage-pressure-forest-lab.json")
+    if not ticket73_path.exists():
+        return fail("missing ticket73 lineage pressure forest artifact")
+    ticket73 = read_json(ticket73_path)
+    if ticket73.get("schema") != TICKET73_SCHEMA:
+        return fail("ticket73 lineage pressure forest artifact has unexpected schema")
+    if ticket73.get("status") != "finite_lineage_pressure_audit_open_no_resolution":
+        return fail("ticket73 lineage pressure forest artifact overstates resolution")
+    ticket73_attempts = ticket73.get("attempts", [])
+    if not isinstance(ticket73_attempts, list):
+        return fail("ticket73 attempts must be a list")
+    ticket73_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket73_attempts if isinstance(attempt, dict)}
+    missing_ticket73 = EXPECTED_PROBLEMS - set(ticket73_by_id)
+    if missing_ticket73:
+        return fail("ticket73 attempts missing problems: " + ", ".join(sorted(missing_ticket73)))
+    ticket73_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-73-lineage-pressure-forest.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-73-lineage-pressure-forest.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-73-lineage-pressure-forest.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-73-lineage-pressure-forest.json"),
+    }
+    for problem_id, attempt in ticket73_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "strict_reentry_tree_extinct_at_fifth_lift_for_selected_roots_no_global_conclusion",
+        }:
+            return fail(f"{problem_id}: ticket73 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket73 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket73 claim boundary is too weak")
+        path = ticket73_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket73 per-problem artifact")
+
+    collatz_ticket73 = ticket73_by_id.get("collatz", {})
+    audit73 = collatz_ticket73.get("bounded_result", {}).get("lineage_pressure_forest_audit", {})
+    if not isinstance(audit73, dict):
+        return fail("collatz ticket73 lineage pressure forest audit missing")
+    if audit73.get("theorem_name") != "FiniteRootReentryTreeExtinctionOrKonigWitness":
+        return fail("collatz ticket73 theorem name changed")
+    if audit73.get("source_ticket") != "CO-TICKET-72":
+        return fail("collatz ticket73 source ticket changed")
+    expected_ticket73_counts = {
+        "reconstructed_frontier_branch_weight": 792064,
+        "reconstructed_mixed_transition_key_count": 22219,
+        "reconstructed_pressure_mixed_transition_key_count": 20752,
+        "selected_top_mixed_key_count": 8,
+        "reconstructed_second_layer_open_pressure_mixed_root_count": 4142,
+    }
+    for key, expected in expected_ticket73_counts.items():
+        if int(audit73.get(key, -1)) != expected:
+            return fail(f"collatz ticket73 {key} changed")
+    expected_layers73 = {
+        "third_all_source_reentry_audit": (4142, 66272, 27247, 21816, 12911, 1835),
+        "fourth_reentry_audit": (12911, 206576, 80629, 4884, 2873, 614),
+        "fifth_reentry_audit": (2873, 45968, 15696, 0, 0, 0),
+    }
+    for layer, expected_values in expected_layers73.items():
+        layer_audit = audit73.get(layer, {})
+        if not isinstance(layer_audit, dict):
+            return fail(f"collatz ticket73 {layer} missing")
+        keys = (
+            "source_count",
+            "row_count",
+            "open_pressure_rows",
+            "mixed_key_reentry_count",
+            "open_pressure_mixed_key_reentry_count",
+            "root_with_open_pressure_mixed_reentry_count",
+        )
+        for key, expected in zip(keys, expected_values):
+            if int(layer_audit.get(key, -1)) != expected:
+                return fail(f"collatz ticket73 {layer} {key} changed")
+    survival73 = audit73.get("root_survival_counts", {})
+    if survival73 != {"through_third_lift": 1835, "through_fourth_lift": 614, "through_fifth_lift": 0}:
+        return fail("collatz ticket73 root survival counts changed")
+    witness73 = audit73.get("witness_pressure_reentry_spine", {})
+    if not isinstance(witness73, dict) or witness73.get("last_lift_depth") != 4:
+        return fail("collatz ticket73 finite witness changed")
+    if witness73.get("all_edges_are_exact_congruence_extensions") is not True:
+        return fail("collatz ticket73 witness compatibility changed")
+    logic73 = audit73.get("logical_boundary_audit", {})
+    if int(logic73.get("tested_last_modulus_bits", -1)) != 84:
+        return fail("collatz ticket73 last tested modulus changed")
+    if int(logic73.get("fifth_layer_reentry_survivor_count", -1)) != 0:
+        return fail("collatz ticket73 fifth-layer extinction changed")
+    if "exact_finite_extinction" not in str(logic73.get("strict_reentry_chain_decision", "")):
+        return fail("collatz ticket73 strict-chain decision missing")
+    if audit73.get("lineage_tree_status") != "strict_reentry_tree_extinct_at_fifth_lift_for_selected_roots_no_global_conclusion":
+        return fail("collatz ticket73 lineage tree status changed")
+    if audit73.get("next_theorem_target") != "CoverageCertificateAndAllDepthReentryTreeDecision":
+        return fail("collatz ticket73 next theorem target changed")
+    if "neither proves Collatz" not in str(audit73.get("proof_boundary", "")):
+        return fail("collatz ticket73 proof boundary must block proof overclaim")
+
+    ticket74_path = Path("data/open-problem/ticket74-coverage-leakage-escape-forest-lab.json")
+    if not ticket74_path.exists():
+        return fail("missing ticket74 coverage leakage escape forest artifact")
+    ticket74 = read_json(ticket74_path)
+    if ticket74.get("schema") != TICKET74_SCHEMA:
+        return fail("ticket74 coverage leakage escape forest artifact has unexpected schema")
+    if ticket74.get("status") != "coverage_leakage_escape_forest_open_no_resolution":
+        return fail("ticket74 coverage leakage escape forest artifact overstates resolution")
+    ticket74_attempts = ticket74.get("attempts", [])
+    if not isinstance(ticket74_attempts, list):
+        return fail("ticket74 attempts must be a list")
+    ticket74_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket74_attempts if isinstance(attempt, dict)}
+    missing_ticket74 = EXPECTED_PROBLEMS - set(ticket74_by_id)
+    if missing_ticket74:
+        return fail("ticket74 attempts missing problems: " + ", ".join(sorted(missing_ticket74)))
+    ticket74_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-74-coverage-leakage-escape-forest.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-74-coverage-leakage-escape-forest.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-74-coverage-leakage-escape-forest.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-74-coverage-leakage-escape-forest.json"),
+    }
+    for problem_id, attempt in ticket74_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "strict_cover_leakage_and_sixth_pressure_persistence_observed_no_global_resolution",
+        }:
+            return fail(f"{problem_id}: ticket74 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket74 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket74 claim boundary is too weak")
+        path = ticket74_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket74 per-problem artifact")
+
+    collatz_ticket74 = ticket74_by_id.get("collatz", {})
+    audit74 = collatz_ticket74.get("bounded_result", {}).get("coverage_leakage_escape_forest_audit", {})
+    if not isinstance(audit74, dict):
+        return fail("collatz ticket74 coverage leakage audit missing")
+    if audit74.get("theorem_name") != "FiniteRootCoverageLeakageOrEscapingPressureForest":
+        return fail("collatz ticket74 theorem name changed")
+    if audit74.get("source_ticket") != "CO-TICKET-73":
+        return fail("collatz ticket74 source ticket changed")
+    if int(audit74.get("reconstructed_frontier_branch_weight", -1)) != 792064:
+        return fail("collatz ticket74 frontier branch count changed")
+    if int(audit74.get("reconstructed_pressure_mixed_transition_key_count", -1)) != 20752:
+        return fail("collatz ticket74 pressure mixed key count changed")
+    coverage74 = audit74.get("coverage_audit", {})
+    expected_coverage74 = {
+        "selected_top_mixed_key_coverage": (8, 20752),
+        "selected_first_layer_row_coverage": (2512, 371343),
+        "selected_first_layer_open_pressure_coverage": (2303, 180385),
+        "fifth_open_pressure_escape_ratio": (15696, 15696),
+        "fifth_new_unranked_share_of_open_pressure": (15593, 15696),
+    }
+    for name, (numerator, denominator) in expected_coverage74.items():
+        value = coverage74.get(name, {})
+        if int(value.get("numerator", -1)) != numerator or int(value.get("denominator", -1)) != denominator:
+            return fail(f"collatz ticket74 {name} changed")
+    if int(coverage74.get("selected_root_count", -1)) != 4142:
+        return fail("collatz ticket74 selected root count changed")
+    if int(coverage74.get("third_strict_reentry_root_count", -1)) != 1835:
+        return fail("collatz ticket74 third root count changed")
+    if int(coverage74.get("fourth_strict_reentry_root_count", -1)) != 614:
+        return fail("collatz ticket74 fourth root count changed")
+    expected_escape_layers74 = {
+        "fifth_open_pressure_escape_audit": (2873, 45968, 15696, 0, 15593, 103, 595, 0),
+        "sixth_escape_pressure_audit": (15696, 251136, 78315, 5, 78315, 0, 588, 0),
+    }
+    for layer, expected_values in expected_escape_layers74.items():
+        layer_audit = audit74.get(layer, {})
+        if not isinstance(layer_audit, dict):
+            return fail(f"collatz ticket74 {layer} missing")
+        keys = (
+            "source_count",
+            "row_count",
+            "open_pressure_count",
+            "open_pressure_original_mixed_reentry_count",
+            "new_unranked_internal_count",
+            "rank_equal_count",
+            "surviving_root_count",
+            "exact_extension_failure_count",
+        )
+        for key, expected in zip(keys, expected_values):
+            if int(layer_audit.get(key, -1)) != expected:
+                return fail(f"collatz ticket74 {layer} {key} changed")
+        if not layer_audit.get("examples"):
+            return fail(f"collatz ticket74 {layer} examples missing")
+    if audit74.get("coverage_leakage_status") != "strict_cover_leakage_and_sixth_pressure_persistence_observed_no_global_resolution":
+        return fail("collatz ticket74 leakage status changed")
+    if audit74.get("next_theorem_target") != "GlobalCoverageCertificateOrEscapingPressureForestDecision":
+        return fail("collatz ticket74 next theorem target changed")
+    if "does not prove Collatz" not in str(audit74.get("proof_boundary", "")):
+        return fail("collatz ticket74 proof boundary must block proof overclaim")
+
+    ticket75_path = Path("data/open-problem/ticket75-escape-coordinate-closure-lab.json")
+    if not ticket75_path.exists():
+        return fail("missing ticket75 escape coordinate closure artifact")
+    ticket75 = read_json(ticket75_path)
+    if ticket75.get("schema") != TICKET75_SCHEMA:
+        return fail("ticket75 escape coordinate closure artifact has unexpected schema")
+    if ticket75.get("status") != "fixed_coordinate_closure_audit_open_no_resolution":
+        return fail("ticket75 escape coordinate closure artifact overstates resolution")
+    ticket75_attempts = ticket75.get("attempts", [])
+    if not isinstance(ticket75_attempts, list):
+        return fail("ticket75 attempts must be a list")
+    ticket75_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket75_attempts if isinstance(attempt, dict)}
+    missing_ticket75 = EXPECTED_PROBLEMS - set(ticket75_by_id)
+    if missing_ticket75:
+        return fail("ticket75 attempts missing problems: " + ", ".join(sorted(missing_ticket75)))
+    ticket75_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-75-escape-coordinate-closure.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-75-escape-coordinate-closure.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-75-escape-coordinate-closure.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-75-escape-coordinate-closure.json"),
+    }
+    for problem_id, attempt in ticket75_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "all_tested_finite_preoutcome_coordinates_leak_or_cycle_no_global_resolution",
+        }:
+            return fail(f"{problem_id}: ticket75 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket75 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket75 claim boundary is too weak")
+        path = ticket75_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket75 per-problem artifact")
+
+    collatz_ticket75 = ticket75_by_id.get("collatz", {})
+    audit75 = collatz_ticket75.get("bounded_result", {}).get("escape_coordinate_closure_audit", {})
+    if not isinstance(audit75, dict):
+        return fail("collatz ticket75 coordinate closure audit missing")
+    if audit75.get("theorem_name") != "FiniteEscapeCoordinateClosureOrNovelClassGrowth":
+        return fail("collatz ticket75 theorem name changed")
+    if audit75.get("source_ticket") != "CO-TICKET-74":
+        return fail("collatz ticket75 source ticket changed")
+    replay75 = audit75.get("replay_audit", {})
+    expected_replay75 = {
+        "fifth_open_pressure_row_count": 15696,
+        "sixth_open_pressure_row_count": 78315,
+        "source_identity_failure_count": 0,
+        "exact_extension_failure_count": 0,
+    }
+    for key, expected in expected_replay75.items():
+        if int(replay75.get(key, -1)) != expected:
+            return fail(f"collatz ticket75 replay {key} changed")
+    if replay75.get("ticket74_count_match") is not True:
+        return fail("collatz ticket75 no longer matches ticket74")
+    families75 = audit75.get("coordinate_family_results", [])
+    if not isinstance(families75, list) or len(families75) != 8:
+        return fail("collatz ticket75 coordinate family count changed")
+    if audit75.get("two_layer_gate_passing_family_ids") != []:
+        return fail("collatz ticket75 passing-family gate changed")
+    if any(family.get("coordinate_is_fixed_finite") is not True for family in families75):
+        return fail("collatz ticket75 includes a non-finite candidate family")
+    if any(family.get("two_layer_finite_closure_gate_passed") is not False for family in families75):
+        return fail("collatz ticket75 candidate unexpectedly passed")
+    family75_by_id = {str(family.get("family_id")): family for family in families75}
+    coarse75 = family75_by_id.get("tail2clip8_res64_next8", {})
+    rich75 = family75_by_id.get("tail12clip32_res65536_next32_pcmod16", {})
+    if int(coarse75.get("novel_sixth_open_row_count", -1)) != 11:
+        return fail("collatz ticket75 coarse novelty count changed")
+    if int(coarse75.get("observed_pressure_graph", {}).get("cyclic_node_count", -1)) != 66:
+        return fail("collatz ticket75 coarse cyclic-node count changed")
+    if int(coarse75.get("observed_pressure_graph", {}).get("mixed_pressure_outcome_key_count", -1)) != 59:
+        return fail("collatz ticket75 coarse mixed-key count changed")
+    if int(rich75.get("novel_sixth_open_row_count", -1)) != 77998:
+        return fail("collatz ticket75 rich novelty count changed")
+    if int(rich75.get("observed_pressure_graph", {}).get("mixed_pressure_outcome_key_count", -1)) != 4:
+        return fail("collatz ticket75 rich mixed-key count changed")
+    reference75 = audit75.get("unbounded_reference_coordinate", {})
+    if reference75.get("coordinate_is_fixed_finite") is not False or reference75.get("promotion_blocked") is not True:
+        return fail("collatz ticket75 unbounded reference must remain blocked")
+    if audit75.get("coordinate_closure_status") != "all_tested_finite_preoutcome_coordinates_leak_or_cycle_no_global_resolution":
+        return fail("collatz ticket75 closure status changed")
+    if audit75.get("next_theorem_target") != "SymbolicSuccessorClosureWithWellFoundedRankOrAllDepthPressurePath":
+        return fail("collatz ticket75 next theorem target changed")
+    if "proves neither Collatz" not in str(audit75.get("proof_boundary", "")):
+        return fail("collatz ticket75 proof boundary must block proof overclaim")
+
+    ticket76_path = Path("data/open-problem/ticket76-symbolic-boundary-recurrence-lab.json")
+    if not ticket76_path.exists():
+        return fail("missing ticket76 symbolic boundary recurrence artifact")
+    ticket76 = read_json(ticket76_path)
+    if ticket76.get("schema") != TICKET76_SCHEMA:
+        return fail("ticket76 symbolic boundary recurrence artifact has unexpected schema")
+    if ticket76.get("status") != "symbolic_boundary_recurrence_open_no_resolution":
+        return fail("ticket76 symbolic boundary recurrence artifact overstates resolution")
+    ticket76_attempts = ticket76.get("attempts", [])
+    if not isinstance(ticket76_attempts, list):
+        return fail("ticket76 attempts must be a list")
+    ticket76_by_id = {str(attempt.get("problem_id")): attempt for attempt in ticket76_attempts if isinstance(attempt, dict)}
+    missing_ticket76 = EXPECTED_PROBLEMS - set(ticket76_by_id)
+    if missing_ticket76:
+        return fail("ticket76 attempts missing problems: " + ", ".join(sorted(missing_ticket76)))
+    ticket76_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-76-symbolic-boundary-recurrence.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-76-symbolic-boundary-recurrence.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-76-symbolic-boundary-recurrence.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-76-symbolic-boundary-recurrence.json"),
+    }
+    for problem_id, attempt in ticket76_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "symbolic_formula_verified_fixed_precision_closure_refuted_on_tested_precisions_no_global_resolution",
+        }:
+            return fail(f"{problem_id}: ticket76 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket76 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket76 claim boundary is too weak")
+        path = ticket76_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket76 per-problem artifact")
+
+    collatz_ticket76 = ticket76_by_id.get("collatz", {})
+    audit76 = collatz_ticket76.get("bounded_result", {}).get("symbolic_boundary_recurrence_audit", {})
+    if not isinstance(audit76, dict):
+        return fail("collatz ticket76 symbolic recurrence audit missing")
+    if audit76.get("theorem_name") != "FourBitBoundaryQuotientRecurrenceAndFixedPrecisionLoss":
+        return fail("collatz ticket76 theorem name changed")
+    if audit76.get("source_ticket") != "CO-TICKET-75":
+        return fail("collatz ticket76 source ticket changed")
+    if int(audit76.get("combined_formula_row_count", -1)) != 297104:
+        return fail("collatz ticket76 formula row count changed")
+    if int(audit76.get("combined_formula_failure_count", -1)) != 0:
+        return fail("collatz ticket76 formula failures detected")
+    expected_layers76 = {
+        "fifth_formula_audit": (2873, 45968, 1398, 44570),
+        "sixth_formula_audit": (15696, 251136, 7751, 243385),
+    }
+    zero_fields76 = (
+        "source_replay_mismatch_count",
+        "source_valuation_identity_failure_count",
+        "old_prefix_lift_mismatch_count",
+        "affine_current_identity_failure_count",
+        "first_new_valuation_failure_count",
+        "formula_failure_count",
+    )
+    for layer, expected in expected_layers76.items():
+        value = audit76.get(layer, {})
+        keys = (
+            "source_count",
+            "row_count",
+            "unresolved_same_prefix_child_count",
+            "resolved_boundary_child_count",
+        )
+        for key, expected_count in zip(keys, expected):
+            if int(value.get(key, -1)) != expected_count:
+                return fail(f"collatz ticket76 {layer} {key} changed")
+        if any(int(value.get(key, -1)) != 0 for key in zero_fields76):
+            return fail(f"collatz ticket76 {layer} identity audit failed")
+    precision76 = audit76.get("precision_closure_audits", [])
+    expected_precision76 = {5: 165, 9: 1536, 13: 1235, 17: 106, 21: 15}
+    if not isinstance(precision76, list) or len(precision76) != len(expected_precision76):
+        return fail("collatz ticket76 precision audit count changed")
+    for item in precision76:
+        precision = int(item.get("precision_bits", -1))
+        if int(item.get("fixed_precision_collision_key_count", -1)) != expected_precision76.get(precision, -2):
+            return fail(f"collatz ticket76 q={precision} collision count changed")
+        if int(item.get("lookahead_precision_bits", -1)) != precision + 4:
+            return fail(f"collatz ticket76 q={precision} lookahead changed")
+        if int(item.get("lookahead_collision_key_count", -1)) != 0:
+            return fail(f"collatz ticket76 q={precision} lookahead collision detected")
+        if item.get("fixed_precision_successor_sufficient_on_observed_rows") is not False:
+            return fail(f"collatz ticket76 q={precision} fixed precision unexpectedly sufficient")
+        if item.get("four_extra_bits_successor_sufficient_on_observed_rows") is not True:
+            return fail(f"collatz ticket76 q={precision} four-bit lookahead no longer sufficient")
+        if not item.get("collision_examples"):
+            return fail(f"collatz ticket76 q={precision} collision witness missing")
+    if audit76.get("fixed_precision_collision_precisions") != [5, 9, 13, 17, 21]:
+        return fail("collatz ticket76 refuted precision list changed")
+    if audit76.get("lookahead_failure_precisions") != []:
+        return fail("collatz ticket76 lookahead failures changed")
+    if audit76.get("symbolic_recurrence_status") != "symbolic_formula_verified_fixed_precision_closure_refuted_on_tested_precisions_no_global_resolution":
+        return fail("collatz ticket76 recurrence status changed")
+    if audit76.get("next_theorem_target") != "ReachableBoundaryRestrictionOrTwoAdicPressurePath":
+        return fail("collatz ticket76 next theorem target changed")
+    if "does not prove Collatz" not in str(audit76.get("proof_boundary", "")):
+        return fail("collatz ticket76 proof boundary must block proof overclaim")
+
+    ticket77_path = Path("data/open-problem/ticket77-fixed-prefix-boundary-orbit-lab.json")
+    if not ticket77_path.exists():
+        return fail("missing ticket77 fixed-prefix boundary orbit artifact")
+    ticket77 = read_json(ticket77_path)
+    if ticket77.get("schema") != TICKET77_SCHEMA:
+        return fail("ticket77 fixed-prefix boundary orbit artifact has unexpected schema")
+    if ticket77.get("status") != "fixed_prefix_boundary_orbit_open_no_collatz_resolution":
+        return fail("ticket77 top-level status overstates Collatz resolution")
+    ticket77_attempts = ticket77.get("attempts", [])
+    if not isinstance(ticket77_attempts, list):
+        return fail("ticket77 attempts must be a list")
+    ticket77_by_id = {
+        str(attempt.get("problem_id")): attempt
+        for attempt in ticket77_attempts
+        if isinstance(attempt, dict)
+    }
+    missing_ticket77 = EXPECTED_PROBLEMS - set(ticket77_by_id)
+    if missing_ticket77:
+        return fail("ticket77 attempts missing problems: " + ", ".join(sorted(missing_ticket77)))
+    ticket77_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-77-fixed-prefix-boundary-orbit.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-77-fixed-prefix-boundary-orbit.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-77-fixed-prefix-boundary-orbit.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-77-fixed-prefix-boundary-orbit.json"),
+    }
+    for problem_id, attempt in ticket77_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "fixed_prefix_boundary_orbit_classified_no_collatz_resolution",
+        }:
+            return fail(f"{problem_id}: ticket77 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket77 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket77 claim boundary is too weak")
+        path = ticket77_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket77 per-problem artifact")
+
+    collatz_ticket77 = ticket77_by_id.get("collatz", {})
+    audit77 = collatz_ticket77.get("bounded_result", {}).get("fixed_prefix_boundary_orbit_audit", {})
+    if not isinstance(audit77, dict):
+        return fail("collatz ticket77 fixed-prefix boundary orbit audit missing")
+    if audit77.get("theorem_name") != "FixedStablePrefixBoundaryOrbitAndTwoAdicGhostClassification":
+        return fail("collatz ticket77 theorem name changed")
+    if audit77.get("source_ticket") != "CO-TICKET-76":
+        return fail("collatz ticket77 source ticket changed")
+    if audit77.get("theorem_status") != "fixed_prefix_boundary_orbit_classified_no_collatz_resolution":
+        return fail("collatz ticket77 theorem status changed")
+    if int(audit77.get("computational_failure_count", -1)) != 0:
+        return fail("collatz ticket77 computational failures detected")
+    observed77 = audit77.get("observed_source_audit", {})
+    expected_observed77 = {
+        "source_count": 18569,
+        "unique_boundary_state_count": 18569,
+        "strict_pressure_equality_boundary_count": 18569,
+        "two_adic_fixed_cycle_count": 0,
+        "unexpected_strict_cycle_count": 0,
+        "trace_guard_failure_count": 0,
+        "prerequisite_failure_count": 0,
+        "one_step_identity_failure_count": 0,
+        "max_strict_pressure_step_count": 15,
+    }
+    for key, expected in expected_observed77.items():
+        if int(observed77.get(key, -1)) != expected:
+            return fail(f"collatz ticket77 observed {key} changed")
+    prefix_distribution77 = observed77.get("prefix_length_distribution", [])
+    if sum(int(row.get("source_count", 0)) for row in prefix_distribution77) != 18569:
+        return fail("collatz ticket77 prefix distribution total changed")
+    if [int(row.get("prefix_length", -1)) for row in prefix_distribution77] != list(range(53, 65)):
+        return fail("collatz ticket77 observed prefix range changed")
+    orbit77 = audit77.get("orbit_identity", {})
+    if orbit77.get("formula") != "ord_(3^(m+1))(16) = 3^m":
+        return fail("collatz ticket77 orbit formula changed")
+    if int(orbit77.get("audit_failure_count", -1)) != 0:
+        return fail("collatz ticket77 orbit audit failures detected")
+    if int(orbit77.get("nonexceptional_parity_failure_count", -1)) != 0:
+        return fail("collatz ticket77 nonexceptional parity audit failed")
+    orbit_audits77 = orbit77.get("audits", [])
+    if not isinstance(orbit_audits77, list) or len(orbit_audits77) != 11:
+        return fail("collatz ticket77 orbit audit range changed")
+    for item in orbit_audits77:
+        if item.get("order_identity_holds") is not True or item.get("order_minimality_holds") is not True:
+            return fail("collatz ticket77 multiplicative-order audit failed")
+        for row in item.get("class_audits", []):
+            if row.get("covers_residue_class") is not True or row.get("returns_to_start") is not True:
+                return fail("collatz ticket77 residue-class orbit audit failed")
+    exceptional77 = orbit77.get("exceptional_zero_odd_rows", [])
+    if len(exceptional77) != 1 or int(exceptional77[0].get("residue_class_mod_3", -1)) != 2:
+        return fail("collatz ticket77 two-adic exception classification changed")
+    if audit77.get("next_theorem_target") != "ChangingPrefixNaturalAdmissibilityRank":
+        return fail("collatz ticket77 next theorem target changed")
+    if "does not exclude" not in str(audit77.get("proof_boundary", "")):
+        return fail("collatz ticket77 proof boundary must block Collatz overclaim")
+    if "equality" not in str(audit77.get("discarded_route", "")) or "roll that step back" not in str(audit77.get("discarded_route", "")):
+        return fail("collatz ticket77 must retain the equality-rollback correction")
+
+    ticket78_path = Path("data/open-problem/ticket78-finite-cylinder-admissibility-no-go-lab.json")
+    if not ticket78_path.exists():
+        return fail("missing ticket78 finite-cylinder admissibility no-go artifact")
+    ticket78 = read_json(ticket78_path)
+    if ticket78.get("schema") != TICKET78_SCHEMA:
+        return fail("ticket78 finite-cylinder artifact has unexpected schema")
+    if ticket78.get("status") != "finite_cylinder_admissibility_no_go_open_no_collatz_resolution":
+        return fail("ticket78 top-level status overstates resolution")
+    ticket78_attempts = ticket78.get("attempts", [])
+    if not isinstance(ticket78_attempts, list):
+        return fail("ticket78 attempts must be a list")
+    ticket78_by_id = {
+        str(attempt.get("problem_id")): attempt
+        for attempt in ticket78_attempts
+        if isinstance(attempt, dict)
+    }
+    missing_ticket78 = EXPECTED_PROBLEMS - set(ticket78_by_id)
+    if missing_ticket78:
+        return fail("ticket78 attempts missing problems: " + ", ".join(sorted(missing_ticket78)))
+    ticket78_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-78-finite-cylinder-admissibility-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-78-finite-cylinder-admissibility-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-78-finite-cylinder-admissibility-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-78-finite-cylinder-admissibility-no-go.json"),
+    }
+    for problem_id, attempt in ticket78_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "finite_two_adic_natural_separator_refuted_exactly_no_collatz_resolution",
+        }:
+            return fail(f"{problem_id}: ticket78 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket78 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket78 claim boundary is too weak")
+        path = ticket78_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket78 per-problem artifact")
+
+    collatz_ticket78 = ticket78_by_id.get("collatz", {})
+    audit78 = collatz_ticket78.get("bounded_result", {}).get("finite_cylinder_no_go_audit", {})
+    if not isinstance(audit78, dict):
+        return fail("collatz ticket78 finite-cylinder audit missing")
+    if audit78.get("theorem_name") != "FiniteValuationCylinderNaturalDensityNoGo":
+        return fail("collatz ticket78 theorem name changed")
+    if audit78.get("source_ticket") != "CO-TICKET-77":
+        return fail("collatz ticket78 source ticket changed")
+    if audit78.get("theorem_status") != "finite_two_adic_natural_separator_refuted_exactly_no_collatz_resolution":
+        return fail("collatz ticket78 theorem status changed")
+    if int(audit78.get("computational_failure_count", -1)) != 0:
+        return fail("collatz ticket78 computational failures detected")
+    machine78 = audit78.get("machine_audit", {})
+    expected_machine78 = {
+        "max_total_valuation": 16,
+        "total_word_count": 65535,
+        "expected_total_word_count": 65535,
+        "shifted_representatives_per_word": 4,
+        "total_positive_representative_count": 262140,
+        "residue_collision_count": 0,
+        "formula_failure_count": 0,
+        "representative_replay_failure_count": 0,
+        "count_identity_failure_count": 0,
+    }
+    for key, expected in expected_machine78.items():
+        if int(machine78.get(key, -1)) != expected:
+            return fail(f"collatz ticket78 machine audit {key} changed")
+    per_total78 = machine78.get("per_total_valuation", [])
+    if not isinstance(per_total78, list) or len(per_total78) != 16:
+        return fail("collatz ticket78 per-total audit range changed")
+    for row in per_total78:
+        total = int(row.get("total_valuation", -1))
+        expected_count = 1 << (total - 1)
+        if total < 1 or total > 16:
+            return fail("collatz ticket78 invalid total valuation")
+        if int(row.get("word_count", -1)) != expected_count:
+            return fail(f"collatz ticket78 S={total} word count changed")
+        if int(row.get("unique_residue_count", -1)) != expected_count:
+            return fail(f"collatz ticket78 S={total} residue uniqueness changed")
+        if int(row.get("shifted_positive_representative_count", -1)) != 4 * expected_count:
+            return fail(f"collatz ticket78 S={total} representative count changed")
+        if row.get("count_identity_holds") is not True:
+            return fail(f"collatz ticket78 S={total} count identity failed")
+        if any(
+            int(row.get(key, -1)) != 0
+            for key in ("residue_collision_count", "formula_failure_count", "representative_replay_failure_count")
+        ):
+            return fail(f"collatz ticket78 S={total} exact audit failed")
+    rejected78 = audit78.get("rejected_candidate_families", [])
+    expected_families78 = {
+        "fixed_residue_bits",
+        "finite_accelerated_valuation_word",
+        "continuous_two_adic_natural_classifier",
+    }
+    if {str(row.get("family")) for row in rejected78} != expected_families78:
+        return fail("collatz ticket78 rejected family set changed")
+    literature78 = " ".join(str(row.get("citation", "")) for row in audit78.get("literature_context", []))
+    if "Bernstein" not in literature78 or "Lagarias" not in literature78 or "Rozier" not in literature78:
+        return fail("collatz ticket78 literature boundary missing")
+    novelty78 = str(audit78.get("novelty_boundary", ""))
+    if "established mathematics" not in novelty78 or "claims only" not in novelty78:
+        return fail("collatz ticket78 novelty boundary weakened")
+    if audit78.get("next_theorem_target") != "ArchimedeanTwoAdicCoupledDescent":
+        return fail("collatz ticket78 next theorem target changed")
+    if "does not prove Collatz" not in str(audit78.get("proof_boundary", "")):
+        return fail("collatz ticket78 proof boundary must block Collatz overclaim")
+
+    ticket79_path = Path("data/open-problem/ticket79-archimedean-two-adic-rank-no-go-lab.json")
+    if not ticket79_path.exists():
+        return fail("missing ticket79 Archimedean-two-adic rank no-go artifact")
+    ticket79 = read_json(ticket79_path)
+    if ticket79.get("schema") != TICKET79_SCHEMA:
+        return fail("ticket79 rank no-go artifact has unexpected schema")
+    if ticket79.get("status") != "archimedean_two_adic_rank_no_go_open_no_collatz_resolution":
+        return fail("ticket79 top-level status overstates resolution")
+    ticket79_attempts = ticket79.get("attempts", [])
+    if not isinstance(ticket79_attempts, list):
+        return fail("ticket79 attempts must be a list")
+    ticket79_by_id = {
+        str(attempt.get("problem_id")): attempt
+        for attempt in ticket79_attempts
+        if isinstance(attempt, dict)
+    }
+    missing_ticket79 = EXPECTED_PROBLEMS - set(ticket79_by_id)
+    if missing_ticket79:
+        return fail("ticket79 attempts missing problems: " + ", ".join(sorted(missing_ticket79)))
+    ticket79_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-79-archimedean-two-adic-rank-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-79-archimedean-two-adic-rank-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-79-archimedean-two-adic-rank-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-79-archimedean-two-adic-rank-no-go.json"),
+    }
+    for problem_id, attempt in ticket79_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "bounded_archimedean_two_adic_one_step_rank_refuted_exactly_no_collatz_resolution",
+        }:
+            return fail(f"{problem_id}: ticket79 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket79 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket79 claim boundary is too weak")
+        path = ticket79_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket79 per-problem artifact")
+
+    collatz_ticket79 = ticket79_by_id.get("collatz", {})
+    audit79 = collatz_ticket79.get("bounded_result", {}).get("archimedean_two_adic_rank_no_go_audit", {})
+    if not isinstance(audit79, dict):
+        return fail("collatz ticket79 rank no-go audit missing")
+    if audit79.get("theorem_name") != "BoundedTwoAdicCorrectionOneStepRankNoGo":
+        return fail("collatz ticket79 theorem name changed")
+    if audit79.get("source_ticket") != "CO-TICKET-78":
+        return fail("collatz ticket79 source ticket changed")
+    if audit79.get("theorem_status") != "bounded_archimedean_two_adic_one_step_rank_refuted_exactly_no_collatz_resolution":
+        return fail("collatz ticket79 theorem status changed")
+    if int(audit79.get("computational_failure_count", -1)) != 0:
+        return fail("collatz ticket79 computational failures detected")
+    machine79 = audit79.get("machine_audit", {})
+    families79 = machine79.get("exact_families", {})
+    expected_families79 = {
+        "max_expansion_depth": 256,
+        "expansion_family_case_count": 1024,
+        "expansion_step_replay_count": 131584,
+        "expansion_formula_failure_count": 0,
+        "expansion_valuation_failure_count": 0,
+        "expansion_growth_failure_count": 0,
+        "max_contraction_depth": 128,
+        "contraction_family_case_count": 128,
+        "contraction_formula_failure_count": 0,
+        "contraction_replay_failure_count": 0,
+        "exact_family_failure_count": 0,
+    }
+    for key, expected in expected_families79.items():
+        if int(families79.get(key, -1)) != expected:
+            return fail(f"collatz ticket79 exact-family audit {key} changed")
+    thresholds79 = machine79.get("rank_thresholds", {})
+    expected_thresholds79 = {
+        "positive_alpha_certificate_count": 15,
+        "negative_alpha_certificate_count": 15,
+        "zero_alpha_certificate_count": 5,
+        "threshold_failure_count": 0,
+    }
+    for key, expected in expected_thresholds79.items():
+        if int(thresholds79.get(key, -1)) != expected:
+            return fail(f"collatz ticket79 threshold audit {key} changed")
+    rejected79 = audit79.get("rejected_candidate_families", [])
+    expected_rejected79 = {
+        "positive_log_height_plus_bounded_two_adic_correction",
+        "negative_log_height_plus_bounded_two_adic_correction",
+        "zero_log_finite_state_correction",
+    }
+    if {str(row.get("family")) for row in rejected79} != expected_rejected79:
+        return fail("collatz ticket79 rejected family set changed")
+    if audit79.get("next_theorem_target") != "MinimalCounterexampleValuationSurplusContradiction":
+        return fail("collatz ticket79 next theorem target changed")
+    if "equivalent to Collatz" not in str(audit79.get("equivalence_warning", "")):
+        return fail("collatz ticket79 equivalence warning missing")
+    if "neither proves" not in str(audit79.get("proof_boundary", "")):
+        return fail("collatz ticket79 proof boundary must block Collatz overclaim")
+
+    ticket80_path = Path("data/open-problem/ticket80-least-counterexample-compactness-no-go-lab.json")
+    if not ticket80_path.exists():
+        return fail("missing ticket80 least-counterexample compactness no-go artifact")
+    ticket80 = read_json(ticket80_path)
+    if ticket80.get("schema") != TICKET80_SCHEMA:
+        return fail("ticket80 compactness no-go artifact has unexpected schema")
+    if ticket80.get("status") != "least_counterexample_compactness_no_go_open_no_collatz_resolution":
+        return fail("ticket80 top-level status overstates resolution")
+    ticket80_attempts = ticket80.get("attempts", [])
+    if not isinstance(ticket80_attempts, list):
+        return fail("ticket80 attempts must be a list")
+    ticket80_by_id = {
+        str(attempt.get("problem_id")): attempt
+        for attempt in ticket80_attempts
+        if isinstance(attempt, dict)
+    }
+    missing_ticket80 = EXPECTED_PROBLEMS - set(ticket80_by_id)
+    if missing_ticket80:
+        return fail("ticket80 attempts missing problems: " + ", ".join(sorted(missing_ticket80)))
+    ticket80_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-80-least-counterexample-compactness-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-80-least-counterexample-compactness-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-80-least-counterexample-compactness-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-80-least-counterexample-compactness-no-go.json"),
+    }
+    for problem_id, attempt in ticket80_by_id.items():
+        if attempt.get("status") not in {
+            "proof_pressure_open",
+            "least_counterexample_finite_prefix_compactness_refuted_exactly_no_collatz_resolution",
+        }:
+            return fail(f"{problem_id}: ticket80 attempt overstates proof status")
+        for field in ("route", "attempt", "bounded_result", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket80 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket80 claim boundary is too weak")
+        path = ticket80_paths.get(problem_id)
+        if path is None or not path.exists():
+            return fail(f"{problem_id}: missing ticket80 per-problem artifact")
+
+    collatz_ticket80 = ticket80_by_id.get("collatz", {})
+    audit80 = collatz_ticket80.get("bounded_result", {}).get("least_counterexample_compactness_no_go_audit", {})
+    if not isinstance(audit80, dict):
+        return fail("collatz ticket80 compactness no-go audit missing")
+    if audit80.get("theorem_name") != "FiniteLeastCounterexamplePrefixCompactnessNoGo":
+        return fail("collatz ticket80 theorem name changed")
+    if audit80.get("source_ticket") != "CO-TICKET-79":
+        return fail("collatz ticket80 source ticket changed")
+    if audit80.get("theorem_status") != "least_counterexample_finite_prefix_compactness_refuted_exactly_no_collatz_resolution":
+        return fail("collatz ticket80 theorem status changed")
+    if int(audit80.get("computational_failure_count", -1)) != 0:
+        return fail("collatz ticket80 computational failures detected")
+    machine80 = audit80.get("machine_audit", {})
+    finite80 = machine80.get("finite_witnesses", {})
+    expected_finite80 = {
+        "max_horizon": 512,
+        "lower_bound_count": 5,
+        "finite_witness_case_count": 2560,
+        "accelerated_step_replay_count": 656640,
+        "lower_bound_failure_count": 0,
+        "residue_failure_count": 0,
+        "formula_failure_count": 0,
+        "valuation_failure_count": 0,
+        "strict_non_descent_failure_count": 0,
+        "affine_inequality_failure_count": 0,
+        "finite_witness_failure_count": 0,
+    }
+    for key, expected in expected_finite80.items():
+        if int(finite80.get(key, -1)) != expected:
+            return fail(f"collatz ticket80 finite witness audit {key} changed")
+    dual80 = machine80.get("dual_topology_escape", {})
+    if int(dual80.get("two_adic_limit", 0)) != -1 or int(dual80.get("limit_accelerated_image", 0)) != -1:
+        return fail("collatz ticket80 two-adic limit changed")
+    if dual80.get("limit_is_positive_integer") is not False:
+        return fail("collatz ticket80 ghost was misclassified as positive")
+    if int(dual80.get("dual_topology_failure_count", -1)) != 0:
+        return fail("collatz ticket80 dual-topology failures detected")
+    rejected80 = audit80.get("rejected_candidate_families", [])
+    expected_rejected80 = {
+        "finite_non_descent_prefix_contradiction",
+        "two_adic_compactness_to_positive_counterexample",
+        "finite_verified_lower_bound_plus_prefix_search",
+    }
+    if {str(row.get("family")) for row in rejected80} != expected_rejected80:
+        return fail("collatz ticket80 rejected family set changed")
+    criterion80 = audit80.get("positive_integer_cylinder_stabilization_criterion", {})
+    if "eventually stabilize" not in str(criterion80.get("statement", "")):
+        return fail("collatz ticket80 positive-integer stabilization criterion missing")
+    if audit80.get("next_theorem_target") != "LeastCounterexampleUniformHeightBound":
+        return fail("collatz ticket80 next theorem target changed")
+    if "neither proves nor disproves Collatz" not in str(audit80.get("proof_boundary", "")):
+        return fail("collatz ticket80 proof boundary must block Collatz overclaim")
+
+    ticket81_path = Path("data/open-problem/ticket81-mersenne-post-compensation-no-go-lab.json")
+    if not ticket81_path.exists():
+        return fail("missing ticket81 Mersenne post-compensation no-go artifact")
+    ticket81 = read_json(ticket81_path)
+    if ticket81.get("schema") != TICKET81_SCHEMA:
+        return fail("ticket81 Mersenne no-go artifact has unexpected schema")
+    if ticket81.get("status") != "mersenne_post_compensation_no_go_open_no_collatz_resolution":
+        return fail("ticket81 top-level status overstates resolution")
+    ticket81_attempts = ticket81.get("attempts", [])
+    if not isinstance(ticket81_attempts, list):
+        return fail("ticket81 attempts must be a list")
+    ticket81_by_id = {
+        str(attempt.get("problem_id")): attempt
+        for attempt in ticket81_attempts
+        if isinstance(attempt, dict)
+    }
+    missing_ticket81 = EXPECTED_PROBLEMS - set(ticket81_by_id)
+    if missing_ticket81:
+        return fail("ticket81 attempts missing problems: " + ", ".join(sorted(missing_ticket81)))
+    ticket81_paths = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-81-mersenne-post-compensation-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-81-mersenne-post-compensation-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-81-mersenne-post-compensation-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-81-mersenne-post-compensation-no-go.json"),
+    }
+    for problem_id, attempt in ticket81_by_id.items():
+        if "proved" in str(attempt.get("status", "")).lower():
+            return fail(f"{problem_id}: ticket81 attempt overstates proof status")
+        for field in ("route", "attempt", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket81 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket81 claim boundary is too weak")
+        if not ticket81_paths[problem_id].exists():
+            return fail(f"{problem_id}: missing ticket81 per-problem artifact")
+
+    collatz_ticket81 = ticket81_by_id.get("collatz", {})
+    audit81 = collatz_ticket81.get("bounded_result", {}).get("mersenne_post_compensation_no_go_audit", {})
+    if not isinstance(audit81, dict):
+        return fail("collatz ticket81 Mersenne no-go audit missing")
+    if audit81.get("theorem_name") != "MersenneFirstPostCompensationDescentNoGo":
+        return fail("collatz ticket81 theorem name changed")
+    if audit81.get("source_ticket") != "CO-TICKET-80":
+        return fail("collatz ticket81 source ticket changed")
+    if audit81.get("theorem_status") != "mersenne_first_post_compensation_descent_refuted_exactly_no_collatz_resolution":
+        return fail("collatz ticket81 theorem status changed")
+    if int(audit81.get("computational_failure_count", -1)) != 0:
+        return fail("collatz ticket81 computational failures detected")
+    machine81 = audit81.get("machine_audit", {})
+    expected_machine81 = {
+        "min_k": 2,
+        "max_k": 1024,
+        "mersenne_case_count": 1023,
+        "initial_step_replay_count": 523776,
+        "odd_k_count": 511,
+        "even_k_count": 512,
+        "post_compensation_non_descent_count": 1020,
+        "descent_exception_count": 3,
+        "total_failure_count": 0,
+    }
+    for key, expected in expected_machine81.items():
+        if int(machine81.get(key, -1)) != expected:
+            return fail(f"collatz ticket81 machine audit {key} changed")
+    if machine81.get("descent_exception_k") != [2, 4, 8]:
+        return fail("collatz ticket81 exact descent exception set changed")
+    expected_formula81 = {
+        "initial_block": "A^j(N_k)=3^j*2^(k-j)-1 for 0<=j<=k-1",
+        "post_block": "A^k(N_k)=oddpart(3^k-1)",
+        "post_valuation": "a_k=2 for odd k; a_k=3+v2(k) for even k",
+    }
+    formula81 = audit81.get("exact_formula", {})
+    for key, expected in expected_formula81.items():
+        if formula81.get(key) != expected:
+            return fail(f"collatz ticket81 exact formula {key} changed")
+    expected_rejected81 = {
+        "first_post_expansion_valuation_forces_descent",
+        "positive_residue_stabilization_implies_near_term_descent",
+        "single_lte_burst_repays_linear_valuation_debt",
+    }
+    rejected81 = audit81.get("rejected_candidate_families", [])
+    if {str(row.get("family")) for row in rejected81} != expected_rejected81:
+        return fail("collatz ticket81 rejected family set changed")
+    if audit81.get("next_theorem_target") != "MersenneAdaptiveCompensationWindow":
+        return fail("collatz ticket81 next theorem target changed")
+    if "neither proves nor disproves Collatz" not in str(audit81.get("proof_boundary", "")):
+        return fail("collatz ticket81 proof boundary must block Collatz overclaim")
+
+    ticket82_path = Path("data/open-problem/ticket82-fixed-mersenne-compensation-window-no-go-lab.json")
+    if not ticket82_path.exists():
+        return fail("missing ticket82 fixed Mersenne window no-go artifact")
+    ticket82 = read_json(ticket82_path)
+    if ticket82.get("schema") != TICKET82_SCHEMA:
+        return fail("ticket82 fixed-window artifact has unexpected schema")
+    if ticket82.get("status") != "fixed_mersenne_window_no_go_open_no_collatz_resolution":
+        return fail("ticket82 top-level status overstates resolution")
+    attempts82 = ticket82.get("attempts", [])
+    if not isinstance(attempts82, list):
+        return fail("ticket82 attempts must be a list")
+    by_id82 = {str(row.get("problem_id")): row for row in attempts82 if isinstance(row, dict)}
+    if EXPECTED_PROBLEMS - set(by_id82):
+        return fail("ticket82 attempts missing problems")
+    paths82 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-82-fixed-mersenne-compensation-window-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-82-fixed-mersenne-compensation-window-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-82-fixed-mersenne-compensation-window-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-82-fixed-mersenne-compensation-window-no-go.json"),
+    }
+    for problem_id, attempt in by_id82.items():
+        if "proved" in str(attempt.get("status", "")).lower():
+            return fail(f"{problem_id}: ticket82 overstates proof status")
+        for field in ("route", "attempt", "obstruction", "candidate_theorem", "claim_boundary"):
+            if not attempt.get(field):
+                return fail(f"{problem_id}: ticket82 missing {field}")
+        if "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket82 claim boundary is too weak")
+        if not paths82[problem_id].exists():
+            return fail(f"{problem_id}: missing ticket82 per-problem artifact")
+
+    audit82 = by_id82.get("collatz", {}).get("bounded_result", {}).get("fixed_mersenne_compensation_window_no_go_audit", {})
+    if not isinstance(audit82, dict):
+        return fail("collatz ticket82 fixed-window audit missing")
+    if audit82.get("theorem_name") != "FixedMersenneCompensationWindowNoGo":
+        return fail("collatz ticket82 theorem name changed")
+    if audit82.get("theorem_status") != "fixed_mersenne_compensation_window_refuted_exactly_no_collatz_resolution":
+        return fail("collatz ticket82 theorem status changed")
+    machine82 = audit82.get("machine_audit", {})
+    expected82 = {
+        "max_horizon": 128,
+        "horizon_case_count": 129,
+        "symbolic_state_count": 8385,
+        "transition_condition_count": 8256,
+        "total_failure_count": 0,
+    }
+    for key, expected in expected82.items():
+        if int(machine82.get(key, -1)) != expected:
+            return fail(f"collatz ticket82 machine audit {key} changed")
+    symbolic82 = audit82.get("exact_symbolic_family", {})
+    if symbolic82.get("reference_post_word") != "b_1=3, b_2=4, and b_t=2 for every t>=3":
+        return fail("collatz ticket82 reference valuation word changed")
+    progressions82 = audit82.get("explicit_progressions", {})
+    if progressions82.get("horizon_at_least_2") != "k congruent to 3 modulo 2^(2H+3)":
+        return fail("collatz ticket82 explicit exponent progression changed")
+    rejected82 = {str(row.get("family")) for row in audit82.get("rejected_candidate_families", [])}
+    if rejected82 != {
+        "constant_post_expansion_compensation_window",
+        "finite_parity_prefix_implies_uniform_mersenne_descent",
+        "bounded_lookahead_least_counterexample_contradiction",
+    }:
+        return fail("collatz ticket82 rejected family set changed")
+    if audit82.get("next_theorem_target") != "MersenneGrowingWindowDescent":
+        return fail("collatz ticket82 next theorem target changed")
+    if "neither constructs a divergent orbit" not in str(audit82.get("proof_boundary", "")):
+        return fail("collatz ticket82 proof boundary must block divergence overclaim")
+
+    path83 = Path("data/open-problem/ticket83-mersenne-log-window-lower-bound-lab.json")
+    if not path83.exists():
+        return fail("missing ticket83 Mersenne log-window artifact")
+    ticket83 = read_json(path83)
+    if ticket83.get("schema") != TICKET83_SCHEMA or ticket83.get("status") != "mersenne_log_window_lower_bound_open_no_collatz_resolution":
+        return fail("ticket83 schema or status changed")
+    attempts83 = ticket83.get("attempts", [])
+    by_id83 = {str(row.get("problem_id")): row for row in attempts83 if isinstance(row, dict)} if isinstance(attempts83, list) else {}
+    if set(by_id83) != EXPECTED_PROBLEMS:
+        return fail("ticket83 attempts missing problems")
+    paths83 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-83-mersenne-log-window-lower-bound.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-83-mersenne-log-window-lower-bound.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-83-mersenne-log-window-lower-bound.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-83-mersenne-log-window-lower-bound.json"),
+    }
+    for problem_id, attempt in by_id83.items():
+        if not paths83[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket83 artifact or claim boundary missing")
+    audit83 = by_id83["collatz"].get("bounded_result", {}).get("mersenne_log_window_lower_bound_audit", {})
+    if audit83.get("theorem_name") != "MersenneHalfLogDelayLowerBound":
+        return fail("collatz ticket83 theorem name changed")
+    if audit83.get("theorem_status") != "mersenne_sub_half_log_window_refuted_exactly_no_collatz_resolution":
+        return fail("collatz ticket83 theorem status changed")
+    machine83 = audit83.get("machine_audit", {})
+    for key, expected in {"min_horizon": 2, "max_horizon": 256, "horizon_case_count": 255, "symbolic_state_count": 33150, "total_failure_count": 0}.items():
+        if int(machine83.get(key, -1)) != expected:
+            return fail(f"collatz ticket83 metric {key} changed")
+    if audit83.get("explicit_sequence") != "k_H=3+2^(2H+3), H>=2":
+        return fail("collatz ticket83 explicit sequence changed")
+    if audit83.get("next_theorem_target") != "MersenneLogWindowDichotomy":
+        return fail("collatz ticket83 next target changed")
+    if "neither a divergent Collatz orbit" not in str(audit83.get("proof_boundary", "")):
+        return fail("collatz ticket83 divergence boundary missing")
+
+    path84 = Path("data/open-problem/ticket84-two-adic-cycle-log-delay-lab.json")
+    if not path84.exists():
+        return fail("missing ticket84 two-adic cycle artifact")
+    ticket84 = read_json(path84)
+    if ticket84.get("schema") != TICKET84_SCHEMA or ticket84.get("status") != "two_adic_cycle_log_delay_open_no_collatz_resolution":
+        return fail("ticket84 schema or status changed")
+    attempts84 = ticket84.get("attempts", [])
+    by_id84 = {str(row.get("problem_id")): row for row in attempts84 if isinstance(row, dict)} if isinstance(attempts84, list) else {}
+    if set(by_id84) != EXPECTED_PROBLEMS:
+        return fail("ticket84 attempts missing problems")
+    paths84 = {"riemann": Path("data/open-problem/riemann/rh-ticket-84-two-adic-cycle-log-delay.json"), "collatz": Path("data/open-problem/collatz/co-ticket-84-two-adic-cycle-log-delay.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-84-two-adic-cycle-log-delay.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-84-two-adic-cycle-log-delay.json")}
+    for problem_id, attempt in by_id84.items():
+        if not paths84[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket84 artifact or boundary missing")
+    audit84 = by_id84["collatz"].get("bounded_result", {}).get("two_adic_cycle_log_delay_audit", {})
+    if audit84.get("theorem_name") != "MersenneTwoThirdsLogDelayLowerBound" or audit84.get("theorem_status") != "mersenne_two_thirds_log_window_refuted_exactly_no_collatz_resolution":
+        return fail("collatz ticket84 theorem contract changed")
+    machine84 = audit84.get("machine_audit", {})
+    for key, expected in {"horizon_case_count": 255, "hensel_precision_count": 384, "maximum_precision": 386, "symbolic_state_count": 33150, "total_failure_count": 0}.items():
+        if int(machine84.get(key, -1)) != expected:
+            return fail(f"collatz ticket84 metric {key} changed")
+    if audit84.get("next_theorem_target") != "AccessibleCycleCoefficientSupremum" or "neither divergence" not in str(audit84.get("proof_boundary", "")):
+        return fail("collatz ticket84 next target or proof boundary changed")
+
+    path85 = Path("data/open-problem/ticket85-accessible-cycle-supremum-lab.json")
+    if not path85.exists():
+        return fail("missing ticket85 cycle supremum artifact")
+    ticket85 = read_json(path85)
+    if ticket85.get("schema") != TICKET85_SCHEMA or ticket85.get("status") != "accessible_cycle_supremum_open_no_collatz_resolution":
+        return fail("ticket85 schema or status changed")
+    attempts85 = ticket85.get("attempts", [])
+    by_id85 = {str(row.get("problem_id")): row for row in attempts85 if isinstance(row, dict)} if isinstance(attempts85, list) else {}
+    if set(by_id85) != EXPECTED_PROBLEMS:
+        return fail("ticket85 attempts missing problems")
+    paths85 = {"riemann": Path("data/open-problem/riemann/rh-ticket-85-accessible-cycle-supremum.json"), "collatz": Path("data/open-problem/collatz/co-ticket-85-accessible-cycle-supremum.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-85-accessible-cycle-supremum.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-85-accessible-cycle-supremum.json")}
+    for problem_id, attempt in by_id85.items():
+        if not paths85[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket85 artifact or boundary missing")
+    audit85 = by_id85["collatz"].get("bounded_result", {}).get("accessible_cycle_supremum_audit", {})
+    if audit85.get("theorem_name") != "AccessibleCycleCoefficientSupremumOne" or audit85.get("theorem_status") != "accessible_cycle_supremum_one_proved_no_collatz_resolution":
+        return fail("collatz ticket85 theorem contract changed")
+    machine85 = audit85.get("machine_audit", {})
+    for key, expected in {"horizon_case_count": 255, "hensel_lift_count": 32895, "maximum_precision": 259, "symbolic_state_count": 33150, "total_failure_count": 0}.items():
+        if int(machine85.get(key, -1)) != expected:
+            return fail(f"collatz ticket85 metric {key} changed")
+    if audit85.get("next_theorem_target") != "CoefficientOneBoundary" or "constructs no divergent orbit" not in str(audit85.get("proof_boundary", "")):
+        return fail("collatz ticket85 next target or boundary changed")
+
+    path86 = Path("data/open-problem/ticket86-coefficient-one-boundary-lab.json")
+    if not path86.exists():
+        return fail("missing ticket86 coefficient-one boundary artifact")
+    ticket86 = read_json(path86)
+    if ticket86.get("schema") != TICKET86_SCHEMA or ticket86.get("status") != "coefficient_one_boundary_open_no_collatz_resolution":
+        return fail("ticket86 schema or status changed")
+    attempts86 = ticket86.get("attempts", [])
+    by_id86 = {str(row.get("problem_id")): row for row in attempts86 if isinstance(row, dict)} if isinstance(attempts86, list) else {}
+    if set(by_id86) != EXPECTED_PROBLEMS:
+        return fail("ticket86 attempts missing problems")
+    paths86 = {"riemann": Path("data/open-problem/riemann/rh-ticket-86-coefficient-one-boundary.json"), "collatz": Path("data/open-problem/collatz/co-ticket-86-coefficient-one-boundary.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-86-coefficient-one-boundary.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-86-coefficient-one-boundary.json")}
+    for problem_id, attempt in by_id86.items():
+        if not paths86[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket86 artifact or boundary missing")
+    audit86 = by_id86["collatz"].get("bounded_result", {}).get("coefficient_one_boundary_audit", {})
+    if audit86.get("theorem_name") != "InfiniteCoefficientOneMersenneDelay" or audit86.get("theorem_status") != "restricted_coefficient_one_delay_proved_no_collatz_resolution":
+        return fail("collatz ticket86 theorem contract changed")
+    machine86 = audit86.get("machine_audit", {})
+    for key, expected in {"prefix_case_count": 1023, "top_bit_case_count": 499, "zero_bit_case_count": 524, "longest_observed_zero_run": 13, "maximum_precision": 1027, "symbolic_jump_case_count": 124, "symbolic_state_count": 16877, "total_failure_count": 0}.items():
+        if int(machine86.get(key, -1)) != expected:
+            return fail(f"collatz ticket86 metric {key} changed")
+    if audit86.get("next_theorem_target") != "TwoAdicDigitRunBoundary" or "neither Collatz convergence nor divergence" not in str(audit86.get("proof_boundary", "")):
+        return fail("collatz ticket86 next target or proof boundary changed")
+
+    path87 = Path("data/open-problem/ticket87-two-adic-digit-run-boundary-lab.json")
+    if not path87.exists():
+        return fail("missing ticket87 digit-run boundary artifact")
+    ticket87 = read_json(path87)
+    if ticket87.get("schema") != TICKET87_SCHEMA or ticket87.get("status") != "two_adic_digit_run_boundary_open_no_collatz_resolution":
+        return fail("ticket87 schema or status changed")
+    attempts87 = ticket87.get("attempts", [])
+    by_id87 = {str(row.get("problem_id")): row for row in attempts87 if isinstance(row, dict)} if isinstance(attempts87, list) else {}
+    if set(by_id87) != EXPECTED_PROBLEMS:
+        return fail("ticket87 attempts missing problems")
+    paths87 = {"riemann": Path("data/open-problem/riemann/rh-ticket-87-two-adic-digit-run-boundary.json"), "collatz": Path("data/open-problem/collatz/co-ticket-87-two-adic-digit-run-boundary.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-87-two-adic-digit-run-boundary.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-87-two-adic-digit-run-boundary.json")}
+    for problem_id, attempt in by_id87.items():
+        if not paths87[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket87 artifact or boundary missing")
+    audit87 = by_id87["collatz"].get("bounded_result", {}).get("two_adic_digit_run_audit", {})
+    if audit87.get("theorem_name") != "InfiniteAdditiveOneMersenneDelay" or audit87.get("theorem_status") != "restricted_additive_one_delay_proved_no_collatz_resolution":
+        return fail("collatz ticket87 theorem contract changed")
+    machine87 = audit87.get("machine_audit", {})
+    for key, expected in {"prefix_bit_count": 262143, "top_bit_count": 131307, "zero_bit_count": 130836, "complete_run_count": 131306, "positive_zero_run_count": 65368, "longest_observed_zero_run": 16, "hensel_crosscheck_horizon": 1024, "total_failure_count": 0}.items():
+        if int(machine87.get(key, -1)) != expected:
+            return fail(f"collatz ticket87 metric {key} changed")
+    if audit87.get("next_theorem_target") != "TwoAdicRunLengthTwoInfinitude" or "neither Collatz convergence nor divergence" not in str(audit87.get("proof_boundary", "")):
+        return fail("collatz ticket87 next target or proof boundary changed")
+
+    path88 = Path("data/open-problem/ticket88-run-length-two-no-go-lab.json")
+    if not path88.exists():
+        return fail("missing ticket88 run-length-two no-go artifact")
+    ticket88 = read_json(path88)
+    if ticket88.get("schema") != TICKET88_SCHEMA or ticket88.get("status") != "run_length_two_no_go_open_no_collatz_resolution":
+        return fail("ticket88 schema or status changed")
+    attempts88 = ticket88.get("attempts", [])
+    by_id88 = {str(row.get("problem_id")): row for row in attempts88 if isinstance(row, dict)} if isinstance(attempts88, list) else {}
+    if set(by_id88) != EXPECTED_PROBLEMS:
+        return fail("ticket88 attempts missing problems")
+    paths88 = {"riemann": Path("data/open-problem/riemann/rh-ticket-88-run-length-two-no-go.json"), "collatz": Path("data/open-problem/collatz/co-ticket-88-run-length-two-no-go.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-88-run-length-two-no-go.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-88-run-length-two-no-go.json")}
+    for problem_id, attempt in by_id88.items():
+        if not paths88[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket88 artifact or boundary missing")
+    audit88 = by_id88["collatz"].get("bounded_result", {}).get("run_length_two_no_go_audit", {})
+    if audit88.get("theorem_name") != "TwoSidedDigitInfinitudeDoesNotForceRunLengthTwo" or audit88.get("theorem_status") != "run_length_two_inference_refuted_exactly_no_collatz_resolution":
+        return fail("collatz ticket88 theorem contract changed")
+    machine88 = audit88.get("machine_audit", {})
+    for key, expected in {"countermodel_horizon": 4096, "countermodel_zero_count": 63, "countermodel_one_count": 4034, "countermodel_adjacent_zero_count": 0, "complement_horizon": 4096, "complement_failure_count": 0, "observed_run_length_two_or_more_count": 32753, "total_failure_count": 0}.items():
+        if int(machine88.get(key, -1)) != expected:
+            return fail(f"collatz ticket88 metric {key} changed")
+    if audit88.get("next_theorem_target") != "FixedLogGoldenMeanExclusion" or "no additive-two infinite subsequence" not in str(audit88.get("proof_boundary", "")):
+        return fail("collatz ticket88 next target or proof boundary changed")
+
+    path89 = Path("data/open-problem/ticket89-fixed-log-golden-mean-reduction-lab.json")
+    if not path89.exists():
+        return fail("missing ticket89 fixed-log reduction artifact")
+    ticket89 = read_json(path89)
+    if ticket89.get("schema") != TICKET89_SCHEMA or ticket89.get("status") != "fixed_log_golden_mean_reduction_open_no_collatz_resolution":
+        return fail("ticket89 schema or status changed")
+    attempts89 = ticket89.get("attempts", [])
+    by_id89 = {str(row.get("problem_id")): row for row in attempts89 if isinstance(row, dict)} if isinstance(attempts89, list) else {}
+    if set(by_id89) != EXPECTED_PROBLEMS:
+        return fail("ticket89 attempts missing problems")
+    paths89 = {"riemann": Path("data/open-problem/riemann/rh-ticket-89-fixed-log-golden-mean-reduction.json"), "collatz": Path("data/open-problem/collatz/co-ticket-89-fixed-log-golden-mean-reduction.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-89-fixed-log-golden-mean-reduction.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-89-fixed-log-golden-mean-reduction.json")}
+    for problem_id, attempt in by_id89.items():
+        if not paths89[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket89 artifact or boundary missing")
+    audit89 = by_id89["collatz"].get("bounded_result", {}).get("fixed_log_golden_mean_reduction_audit", {})
+    if audit89.get("theorem_name") != "FixedLogGoldenMeanValuationEquivalence" or audit89.get("theorem_status") != "fixed_log_golden_mean_reduced_exactly_no_collatz_resolution":
+        return fail("collatz ticket89 theorem contract changed")
+    machine89 = audit89.get("machine_audit", {})
+    for key, expected in {"max_horizon": 65536, "top_bit_count": 32728, "complete_jump_pair_count": 32727, "valuation_excess_at_least_five_count": 8159, "maximum_zero_run": 16, "maximum_valuation_excess": 19, "direct_check_horizon": 1024, "total_failure_count": 0}.items():
+        if int(machine89.get(key, -1)) != expected:
+            return fail(f"collatz ticket89 metric {key} changed")
+    if audit89.get("next_theorem_target") != "FixedLogValuationExcessFiveInfinitude" or "no additive-two infinite subsequence" not in str(audit89.get("proof_boundary", "")):
+        return fail("collatz ticket89 next target or proof boundary changed")
+
+    path90 = Path("data/open-problem/ticket90-normalized-error-ghost-lasso-lab.json")
+    if not path90.exists():
+        return fail("missing ticket90 normalized-error artifact")
+    ticket90 = read_json(path90)
+    if ticket90.get("schema") != TICKET90_SCHEMA or ticket90.get("status") != "normalized_error_ghost_lasso_open_no_collatz_resolution":
+        return fail("ticket90 schema or status changed")
+    attempts90 = ticket90.get("attempts", [])
+    by_id90 = {str(row.get("problem_id")): row for row in attempts90 if isinstance(row, dict)} if isinstance(attempts90, list) else {}
+    if set(by_id90) != EXPECTED_PROBLEMS:
+        return fail("ticket90 attempts missing problems")
+    paths90 = {"riemann": Path("data/open-problem/riemann/rh-ticket-90-normalized-error-ghost-lasso.json"), "collatz": Path("data/open-problem/collatz/co-ticket-90-normalized-error-ghost-lasso.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-90-normalized-error-ghost-lasso.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-90-normalized-error-ghost-lasso.json")}
+    for problem_id, attempt in by_id90.items():
+        if not paths90[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket90 artifact or boundary missing")
+    audit90 = by_id90["collatz"].get("bounded_result", {}).get("normalized_error_ghost_lasso_audit", {})
+    if audit90.get("theorem_name") != "FixedPrecisionNormalizedErrorGhostLassoNoGo" or audit90.get("theorem_status") != "fixed_precision_error_lasso_no_go_proved_no_collatz_resolution":
+        return fail("collatz ticket90 theorem contract changed")
+    machine90 = audit90.get("machine_audit", {})
+    for key, expected in {"max_audit_horizon": 256, "audited_transition_count": 254, "error_bits": 20, "lasso_precision_count": 63, "maximum_lasso_precision": 64, "beta_low_20": 976981, "total_failure_count": 0}.items():
+        if int(machine90.get(key, -1)) != expected:
+            return fail(f"collatz ticket90 metric {key} changed")
+    if audit90.get("next_theorem_target") != "GrowingPrecisionErrorGhostSeparation" or "does not prove valuation-excess-five" not in str(audit90.get("proof_boundary", "")):
+        return fail("collatz ticket90 next target or proof boundary changed")
+
+    path91 = Path("data/open-problem/ticket91-error-tail-invariant-set-lab.json")
+    if not path91.exists():
+        return fail("missing ticket91 error-tail invariant-set artifact")
+    ticket91 = read_json(path91)
+    if ticket91.get("schema") != TICKET91_SCHEMA or ticket91.get("status") != "error_tail_invariant_set_open_no_collatz_resolution":
+        return fail("ticket91 schema or status changed")
+    attempts91 = ticket91.get("attempts", [])
+    by_id91 = {str(row.get("problem_id")): row for row in attempts91 if isinstance(row, dict)} if isinstance(attempts91, list) else {}
+    if set(by_id91) != EXPECTED_PROBLEMS:
+        return fail("ticket91 attempts missing problems")
+    paths91 = {"riemann": Path("data/open-problem/riemann/rh-ticket-91-error-tail-invariant-set.json"), "collatz": Path("data/open-problem/collatz/co-ticket-91-error-tail-invariant-set.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-91-error-tail-invariant-set.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-91-error-tail-invariant-set.json")}
+    for problem_id, attempt in by_id91.items():
+        if not paths91[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket91 artifact or boundary missing")
+    audit91 = by_id91["collatz"].get("bounded_result", {}).get("error_tail_invariant_set_audit", {})
+    if audit91.get("theorem_name") != "NormalizedErrorTailConjugacyAndSingleGhostNoGo" or audit91.get("theorem_status") != "error_tail_conjugacy_and_single_ghost_no_go_proved_no_collatz_resolution":
+        return fail("collatz ticket91 theorem contract changed")
+    machine91 = audit91.get("machine_audit", {})
+    for key, expected in {"max_audit_horizon": 256, "audited_horizon_count": 255, "audited_tail_transition_count": 254, "tail_bits": 20, "conjugacy_bits": 12, "conjugacy_state_count": 4096, "golden_mean_word_count": 377, "golden_mean_image_count": 377, "gamma_low_20": 71595, "beta_low_20": 976981, "total_failure_count": 0}.items():
+        if int(machine91.get(key, -1)) != expected:
+            return fail(f"collatz ticket91 metric {key} changed")
+    if audit91.get("next_theorem_target") != "GoldenMeanInvariantSetEscape" or "does not prove 00 recurrence" not in str(audit91.get("proof_boundary", "")):
+        return fail("collatz ticket91 next target or proof boundary changed")
+
+    path92 = Path("data/open-problem/ticket92-scale-sensitive-threshold-audit.json")
+    if not path92.exists():
+        return fail("missing ticket92 scale-sensitive threshold artifact")
+    ticket92 = read_json(path92)
+    if ticket92.get("schema") != TICKET92_SCHEMA or ticket92.get("status") != "scale_sensitive_thresholds_open_no_open_problem_resolution":
+        return fail("ticket92 schema or status changed")
+    attempts92 = ticket92.get("attempts", [])
+    by_id92 = {str(row.get("problem_id")): row for row in attempts92 if isinstance(row, dict)} if isinstance(attempts92, list) else {}
+    if set(by_id92) != EXPECTED_PROBLEMS:
+        return fail("ticket92 attempts missing problems")
+    paths92 = {"riemann": Path("data/open-problem/riemann/rh-ticket-92-scale-sensitive-threshold.json"), "collatz": Path("data/open-problem/collatz/co-ticket-92-scale-sensitive-threshold.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-92-scale-sensitive-threshold.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-92-scale-sensitive-threshold.json")}
+    for problem_id, attempt in by_id92.items():
+        if not paths92[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket92 artifact or boundary missing")
+    collatz92 = by_id92["collatz"].get("bounded_result", {}).get("second_order_defect_audit", {})
+    if collatz92.get("theorem_name") != "ConstantAdditiveDigitEventRequiresSecondOrderPadicDefect" or collatz92.get("theorem_status") != "second_order_defect_equivalence_and_first_order_no_go_proved_no_collatz_resolution":
+        return fail("collatz ticket92 theorem contract changed")
+    machine_c92 = collatz92.get("machine_audit", {})
+    for key, expected in {"max_horizon": 262144, "top_bit_count": 131307, "complete_jump_pair_count": 131306, "second_order_target_event_count": 32753, "maximum_floor_defect": 17, "countermodel_bits": 4096, "countermodel_adjacent_zero_count": 0, "countermodel_maximum_defect": 2, "total_failure_count": 0}.items():
+        if int(machine_c92.get(key, -1)) != expected:
+            return fail(f"collatz ticket92 metric {key} changed")
+    if collatz92.get("next_theorem_target") != "FixedLogSecondOrderDefectRecurrence" or "does not prove Delta_H>=3 infinitely often" not in str(collatz92.get("proof_boundary", "")):
+        return fail("collatz ticket92 next target or proof boundary changed")
+    twin92 = by_id92["twin-prime"].get("bounded_result", {}).get("maynard_threshold_correction", {})
+    if twin92.get("theorem_name") != "MaynardCriterionThresholdAndGapPromotionCorrection" or twin92.get("theorem_status") != "maynard_threshold_misclassification_corrected_no_twin_prime_resolution":
+        return fail("twin-prime ticket92 theorem contract changed")
+    machine_t92 = twin92.get("machine_audit", {})
+    for key, expected in {"corrected_row_count": 17, "legacy_false_gap_promotion_count": 17, "certified_M_k_row_count": 0, "certified_two_prime_row_count": 0, "remaining_implied_gap_count": 0, "total_failure_count": 0}.items():
+        if int(machine_t92.get(key, -1)) != expected:
+            return fail(f"twin-prime ticket92 metric {key} changed")
+    if twin92.get("next_theorem_target") != "ParityBreakingExactPairCorrelationLowerBound" or "no Twin Prime result" not in str(twin92.get("proof_boundary", "")):
+        return fail("twin-prime ticket92 next target or proof boundary changed")
+    corrected14 = read_json(Path("data/open-problem/twin-prime/tp-cegis-14-maynard-sieve-weight.json"))
+    if corrected14.get("schema") != "primeproject.twin-prime.maynard-sieve-weight-certificate.v2" or corrected14.get("smallest_bounded_gap") is not None:
+        return fail("twin-prime Maynard artifact correction changed")
+    maynard_rows = corrected14.get("maynard_weight_values", [])
+    if not isinstance(maynard_rows, list) or any(row.get("implied_bounded_gap") is not None or row.get("maynard_two_prime_criterion_certified") for row in maynard_rows if isinstance(row, dict)):
+        return fail("twin-prime Maynard artifact still promotes an uncertified gap")
+
+    path93 = Path("data/open-problem/ticket93-twin-correlation-excess-bridge.json")
+    if not path93.exists():
+        return fail("missing ticket93 twin-correlation artifact")
+    ticket93 = read_json(path93)
+    if ticket93.get("schema") != TICKET93_SCHEMA or ticket93.get("status") != "twin_correlation_excess_open_no_twin_prime_resolution":
+        return fail("ticket93 schema or status changed")
+    attempts93 = ticket93.get("attempts", [])
+    by_id93 = {str(row.get("problem_id")): row for row in attempts93 if isinstance(row, dict)} if isinstance(attempts93, list) else {}
+    if set(by_id93) != EXPECTED_PROBLEMS:
+        return fail("ticket93 attempts missing problems")
+    paths93 = {"riemann": Path("data/open-problem/riemann/rh-ticket-93-correlation-excess.json"), "collatz": Path("data/open-problem/collatz/co-ticket-93-correlation-excess.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-93-correlation-excess.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-93-correlation-excess.json")}
+    for problem_id, attempt in by_id93.items():
+        if not paths93[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket93 artifact or boundary missing")
+    twin93 = by_id93["twin-prime"].get("bounded_result", {}).get("twin_correlation_excess_audit", {})
+    if twin93.get("theorem_name") != "TwinPrimeLambdaCorrelationExcessSufficiencyAndSurrogateNoGo" or twin93.get("theorem_status") != "exact_correlation_excess_bridge_and_surrogate_no_go_proved_no_twin_prime_resolution":
+        return fail("twin-prime ticket93 theorem contract changed")
+    machine93 = twin93.get("machine_audit", {})
+    for key, expected in {"correlation_limit": 2000000, "surrogate_limit": 200000, "checkpoint_count": 5, "final_twin_pair_count": 14871, "final_proper_prime_power_pair_count": 94, "truncation_count": 4, "decomposition_failure_count": 0, "surrogate_no_go_failure_count": 0, "total_failure_count": 0}.items():
+        if int(machine93.get(key, -1)) != expected:
+            return fail(f"twin-prime ticket93 metric {key} changed")
+    if float(machine93.get("final_contamination", -1)) <= 0 or float(machine93.get("final_correlation_minus_bound", 1)) >= 0:
+        return fail("twin-prime ticket93 finite evidence boundary changed")
+    surrogate93 = twin93.get("surrogate_no_go", {})
+    rows93 = surrogate93.get("rows", [])
+    if not isinstance(rows93, list) or len(rows93) != 4 or any(int(row.get("pointwise_minorant_violation_count", 0)) <= 0 or int(row.get("pair_false_positive_count", 0)) <= 0 or not row.get("positive_surrogate_is_not_lower_bound") for row in rows93 if isinstance(row, dict)):
+        return fail("twin-prime ticket93 surrogate no-go changed")
+    if twin93.get("next_theorem_target") != "ShiftTwoTypeIICorrelationExcess" or "does not prove the required correlation lower bound" not in str(twin93.get("proof_boundary", "")):
+        return fail("twin-prime ticket93 next target or proof boundary changed")
+
+    path94 = Path("data/open-problem/ticket94-signed-remainder-and-goldbach-bridge.json")
+    if not path94.exists():
+        return fail("missing ticket94 signed-remainder artifact")
+    ticket94 = read_json(path94)
+    if ticket94.get("schema") != TICKET94_SCHEMA or ticket94.get("status") != "signed_remainder_and_goldbach_bridges_open_no_resolution":
+        return fail("ticket94 schema or status changed")
+    attempts94 = ticket94.get("attempts", [])
+    by_id94 = {str(row.get("problem_id")): row for row in attempts94 if isinstance(row, dict)} if isinstance(attempts94, list) else {}
+    if set(by_id94) != EXPECTED_PROBLEMS:
+        return fail("ticket94 attempts missing problems")
+    paths94 = {"riemann": Path("data/open-problem/riemann/rh-ticket-94-signed-remainder.json"), "collatz": Path("data/open-problem/collatz/co-ticket-94-signed-remainder.json"), "goldbach": Path("data/open-problem/goldbach/gb-ticket-94-signed-remainder.json"), "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-94-signed-remainder.json")}
+    for problem_id, attempt in by_id94.items():
+        if not paths94[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket94 artifact or boundary missing")
+    twin94 = by_id94["twin-prime"].get("bounded_result", {}).get("twin_signed_remainder_audit", {})
+    if twin94.get("theorem_name") != "TwinShiftTwoSignedRemainderIdentityAndNormOnlyNoGo" or twin94.get("theorem_status") != "signed_remainder_identity_and_norm_only_no_go_proved_no_twin_prime_resolution":
+        return fail("twin-prime ticket94 theorem contract changed")
+    machine_t94 = twin94.get("machine_audit", {})
+    for key, expected in {"limit": 200000, "truncation_count": 4, "positive_norm_lower_bound_count": 0, "decomposition_failure_count": 0, "norm_route_failure_count": 0, "total_failure_count": 0}.items():
+        if int(machine_t94.get(key, -1)) != expected:
+            return fail(f"twin-prime ticket94 metric {key} changed")
+    rows_t94 = machine_t94.get("rows", [])
+    if not isinstance(rows_t94, list) or len(rows_t94) != 4 or any(float(row.get("norm_only_lower_bound", 0)) >= 0 or not row.get("norm_only_route_blocked") for row in rows_t94 if isinstance(row, dict)):
+        return fail("twin-prime ticket94 norm-only no-go changed")
+    if twin94.get("next_theorem_target") != "JointShiftTwoSignedRemainderLowerBound" or "does not prove the signed remainder lower bound" not in str(twin94.get("proof_boundary", "")):
+        return fail("twin-prime ticket94 next target or proof boundary changed")
+    gold94 = by_id94["goldbach"].get("bounded_result", {}).get("goldbach_correlation_bridge_audit", {})
+    if gold94.get("theorem_name") != "GoldbachLambdaCorrelationPrimePowerContaminationBridge" or gold94.get("theorem_status") != "goldbach_correlation_contamination_bridge_proved_no_goldbach_resolution":
+        return fail("goldbach ticket94 theorem contract changed")
+    machine_g94 = gold94.get("machine_audit", {})
+    for key, expected in {"checkpoint_count": 4, "maximum_checkpoint": 100000, "positive_certified_margin_count": 0, "decomposition_failure_count": 0, "total_failure_count": 0}.items():
+        if int(machine_g94.get(key, -1)) != expected:
+            return fail(f"goldbach ticket94 metric {key} changed")
+    if gold94.get("next_theorem_target") != "UniformBinaryLambdaCorrelationExcess" or "does not prove the uniform lower bound" not in str(gold94.get("proof_boundary", "")):
+        return fail("goldbach ticket94 next target or proof boundary changed")
+
+    path95 = Path("data/open-problem/ticket95-sharp-contamination-and-equivalence-audit.json")
+    if not path95.exists():
+        return fail("missing ticket95 sharp-contamination artifact")
+    ticket95 = read_json(path95)
+    if ticket95.get("schema") != TICKET95_SCHEMA or ticket95.get("status") != "sharp_contamination_bridges_and_equivalence_gate_open_no_resolution":
+        return fail("ticket95 schema or status changed")
+    attempts95 = ticket95.get("attempts", [])
+    by_id95 = {str(row.get("problem_id")): row for row in attempts95 if isinstance(row, dict)} if isinstance(attempts95, list) else {}
+    if set(by_id95) != EXPECTED_PROBLEMS:
+        return fail("ticket95 attempts missing problems")
+    paths95 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-95-logical-novelty-gate.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-95-logical-novelty-gate.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-95-sharp-contamination.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-95-equivalence-audit.json"),
+    }
+    for problem_id, attempt in by_id95.items():
+        if not paths95[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket95 artifact or boundary missing")
+
+    twin95 = by_id95["twin-prime"].get("bounded_result", {}).get("twin_ticket95_audit", {})
+    if twin95.get("theorem_name") != "TwinPrimePowerMassBudgetAndRemainderEquivalenceAudit" or twin95.get("theorem_status") != "sharp_prime_power_budget_and_equivalence_no_reduction_proved_no_twin_prime_resolution":
+        return fail("twin-prime ticket95 theorem contract changed")
+    machine_t95 = twin95.get("machine_audit", {})
+    for key, expected in {"checkpoint_count": 5, "maximum_checkpoint": 200000, "budget_failure_count": 0, "equivalence_failure_count": 0, "total_failure_count": 0}.items():
+        if int(machine_t95.get(key, -1)) != expected:
+            return fail(f"twin-prime ticket95 metric {key} changed")
+    checkpoint_t95 = machine_t95.get("checkpoint_rows", [])
+    equivalence_t95 = machine_t95.get("equivalence_rows", [])
+    if not isinstance(checkpoint_t95, list) or len(checkpoint_t95) != 5 or any(not row.get("sharp_bound_holds") or float(row.get("bound_improvement_factor", 0)) <= 1 for row in checkpoint_t95 if isinstance(row, dict)):
+        return fail("twin-prime ticket95 sharp budget changed")
+    if not isinstance(equivalence_t95, list) or len(equivalence_t95) != 4 or any(float(row.get("target_equivalence_error", 1)) > 1e-6 for row in equivalence_t95 if isinstance(row, dict)):
+        return fail("twin-prime ticket95 equivalence replay changed")
+    if twin95.get("next_theorem_target") != "IndependentShiftTwoCorrelationExcess" or "does not prove Twin Prime" not in str(twin95.get("proof_boundary", "")):
+        return fail("twin-prime ticket95 target or boundary changed")
+
+    gold95 = by_id95["goldbach"].get("bounded_result", {}).get("goldbach_sharp_budget_audit", {})
+    if gold95.get("theorem_name") != "GoldbachProperPrimePowerMassContaminationBridge" or gold95.get("theorem_status") != "sharp_goldbach_contamination_bridge_proved_uniform_lower_bound_open":
+        return fail("goldbach ticket95 theorem contract changed")
+    machine_g95 = gold95.get("machine_audit", {})
+    for key, expected in {"checkpoint_count": 5, "maximum_checkpoint": 1000000, "positive_sharp_margin_count": 5, "total_failure_count": 0}.items():
+        if int(machine_g95.get(key, -1)) != expected:
+            return fail(f"goldbach ticket95 metric {key} changed")
+    screen95 = machine_g95.get("all_even_screen", {})
+    for key, expected in {"screen_limit": 1000000, "even_target_count": 499999, "nonpositive_margin_count": 10, "last_nonpositive_margin_target": 38, "observed_positive_suffix_start": 40}.items():
+        if int(screen95.get(key, -1)) != expected:
+            return fail(f"goldbach ticket95 screen metric {key} changed")
+    if not screen95.get("all_nonpositive_cases_have_goldbach_witness") or float(screen95.get("maximum_fft_direct_error", 1)) > 1e-6 or screen95.get("proof_status") != "numerical_screen_not_interval_or_symbolic_proof":
+        return fail("goldbach ticket95 numerical boundary changed")
+    if gold95.get("next_theorem_target") != "UniformBinaryMinorArcDominance" or "does not prove" not in str(gold95.get("proof_boundary", "")):
+        return fail("goldbach ticket95 target or boundary changed")
+
+    path96 = Path("data/open-problem/ticket96-fourier-phase-information-audit.json")
+    if not path96.exists():
+        return fail("missing ticket96 Fourier phase artifact")
+    ticket96 = read_json(path96)
+    if ticket96.get("schema") != TICKET96_SCHEMA or ticket96.get("status") != "exact_fourier_bridges_phase_blind_routes_blocked_no_resolution":
+        return fail("ticket96 schema or status changed")
+    attempts96 = ticket96.get("attempts", [])
+    by_id96 = {str(row.get("problem_id")): row for row in attempts96 if isinstance(row, dict)} if isinstance(attempts96, list) else {}
+    if set(by_id96) != EXPECTED_PROBLEMS:
+        return fail("ticket96 attempts missing problems")
+    paths96 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-96-spectral-phase-gate.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-96-spectrum-placement-gate.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-96-fourier-phase-audit.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-96-fourier-energy-audit.json"),
+    }
+    for problem_id, attempt in by_id96.items():
+        if not paths96[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket96 artifact or boundary missing")
+    if by_id96["goldbach"].get("bounded_result", {}).get("audit_ref") != "fourier_phase_information_audit" or by_id96["twin-prime"].get("bounded_result", {}).get("audit_ref") != "fourier_phase_information_audit":
+        return fail("ticket96 shared Fourier audit references changed")
+    audit96 = ticket96.get("fourier_phase_information_audit", {})
+    if audit96.get("theorem_name") != "DiscreteFourierPhaseInformationAndEnergyOnlyNoGoAudit" or audit96.get("theorem_status") != "exact_dft_bridges_and_phase_blind_information_no_go_proved_no_open_problem_resolution":
+        return fail("ticket96 theorem contract changed")
+    machine96 = audit96.get("machine_audit", {})
+    for key, expected in {"checkpoint_count": 2, "maximum_checkpoint": 100000, "configuration_count_per_checkpoint": 36, "sparse_goldbach_certificate_count": 0, "sparse_twin_certificate_count": 0, "reconstruction_failure_count": 0, "countermodel_failure_count": 0, "total_failure_count": 0}.items():
+        if int(machine96.get(key, -1)) != expected:
+            return fail(f"ticket96 metric {key} changed")
+    if abs(float(machine96.get("sparse_mask_density_ceiling", -1)) - 0.1) > 1e-12:
+        return fail("ticket96 sparse density ceiling changed")
+    rows96 = machine96.get("checkpoint_rows", [])
+    if not isinstance(rows96, list) or [int(row.get("target", -1)) for row in rows96 if isinstance(row, dict)] != [10000, 100000]:
+        return fail("ticket96 checkpoint scales changed")
+    for row in rows96:
+        if not isinstance(row, dict) or int(row.get("configuration_count", -1)) != 36 or int(row.get("sparse_goldbach_certificate_count", -1)) != 0 or int(row.get("sparse_twin_certificate_count", -1)) != 0:
+            return fail("ticket96 checkpoint certificate counts changed")
+        if float(row.get("goldbach_dft_error", 1)) > 1e-6 or float(row.get("twin_dft_error", 1)) > 1e-6:
+            return fail("ticket96 DFT reconstruction changed")
+        for best_key, lower_key in (("best_sparse_goldbach_row", "goldbach_energy_only_lower_bound"), ("best_sparse_twin_row", "twin_energy_only_lower_bound")):
+            best = row.get(best_key, {})
+            if float(best.get("major_density", 1)) > 0.1 or float(best.get(lower_key, 0)) >= 0:
+                return fail("ticket96 sparse energy no-go changed")
+    countermodels96 = audit96.get("countermodel_audit", {})
+    if int(countermodels96.get("failure_count", -1)) != 0:
+        return fail("ticket96 countermodel audit changed")
+    for problem_id in ("goldbach", "twin"):
+        countermodel = countermodels96.get(problem_id, {})
+        if not countermodel.get("conjugate_symmetric") or abs(float(countermodel.get("target_coefficient", 0)) + float(countermodel.get("pair_energy", 1))) > 1e-12:
+            return fail(f"ticket96 {problem_id} negative-energy envelope changed")
+    if audit96.get("goldbach_next_theorem_target") != "ArithmeticMinorArcPhaseCancellation" or audit96.get("twin_next_theorem_target") != "ShiftTwoSpectralLocalizationOrTypeIICancellation" or "does not prove" not in str(audit96.get("proof_boundary", "")):
+        return fail("ticket96 targets or proof boundary changed")
+
+    path97 = Path("data/open-problem/ticket97-periodic-projection-residual-audit.json")
+    if not path97.exists():
+        return fail("missing ticket97 periodic projection artifact")
+    ticket97 = read_json(path97)
+    if ticket97.get("schema") != TICKET97_SCHEMA or ticket97.get("status") != "optimal_periodic_projection_fixed_modulus_routes_blocked_no_resolution":
+        return fail("ticket97 schema or status changed")
+    attempts97 = ticket97.get("attempts", [])
+    by_id97 = {str(row.get("problem_id")): row for row in attempts97 if isinstance(row, dict)} if isinstance(attempts97, list) else {}
+    if set(by_id97) != EXPECTED_PROBLEMS:
+        return fail("ticket97 attempts missing problems")
+    paths97 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-97-finite-modulus-gate.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-97-finite-residue-gate.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-97-periodic-projection.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-97-periodic-projection.json"),
+    }
+    for problem_id, attempt in by_id97.items():
+        if not paths97[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket97 artifact or boundary missing")
+    if by_id97["goldbach"].get("bounded_result", {}).get("audit_ref") != "periodic_projection_residual_audit" or by_id97["twin-prime"].get("bounded_result", {}).get("audit_ref") != "periodic_projection_residual_audit":
+        return fail("ticket97 shared audit references changed")
+    audit97 = ticket97.get("periodic_projection_residual_audit", {})
+    if audit97.get("theorem_name") != "OptimalFiniteModulusProjectionAndResidualSignNoGoAudit" or audit97.get("theorem_status") != "optimal_periodic_projection_and_fixed_modulus_sign_no_go_proved_no_resolution":
+        return fail("ticket97 theorem contract changed")
+    machine97 = audit97.get("machine_audit", {})
+    for key, expected in {"checkpoint_count": 2, "maximum_checkpoint": 100000, "modulus_count_per_checkpoint": 5, "goldbach_certificate_count": 0, "twin_certificate_count": 0, "projection_failure_count": 0, "countermodel_failure_count": 0, "total_failure_count": 0}.items():
+        if int(machine97.get(key, -1)) != expected:
+            return fail(f"ticket97 metric {key} changed")
+    if machine97.get("moduli") != [2, 6, 30, 210, 2310]:
+        return fail("ticket97 moduli changed")
+    rows97 = machine97.get("checkpoint_rows", [])
+    if not isinstance(rows97, list) or [int(row.get("target", -1)) for row in rows97 if isinstance(row, dict)] != [10000, 100000]:
+        return fail("ticket97 checkpoint scales changed")
+    for checkpoint in rows97:
+        rows = checkpoint.get("rows", [])
+        if not isinstance(rows, list) or len(rows) != 5:
+            return fail("ticket97 projection row count changed")
+        for row in rows:
+            for key in ("maximum_absolute_residue_residual_sum", "orthogonality_error", "energy_decomposition_error", "goldbach_reconstruction_error", "twin_reconstruction_error"):
+                if float(row.get(key, 1)) > 1e-6:
+                    return fail(f"ticket97 projection contract {key} changed")
+            if float(row.get("goldbach_norm_only_lower_bound", 0)) >= 0 or float(row.get("twin_norm_only_lower_bound", 0)) >= 0 or row.get("goldbach_certified") or row.get("twin_certified"):
+                return fail("ticket97 fixed-modulus no-go changed")
+    countermodel97 = audit97.get("countermodel_audit", {})
+    if int(countermodel97.get("failure_count", -1)) != 0 or countermodel97.get("residue_sums") != [0.0, 0.0] or float(countermodel97.get("goldbach_additive_coefficient", 0)) != -4.0 or float(countermodel97.get("twin_shift_two_coefficient", 0)) != -2.0:
+        return fail("ticket97 zero-residue countermodel changed")
+    if audit97.get("goldbach_next_theorem_target") != "GrowingModulusBinaryResidualCancellation" or audit97.get("twin_next_theorem_target") != "GrowingModulusShiftTwoResidualCancellation" or "does not prove" not in str(audit97.get("proof_boundary", "")):
+        return fail("ticket97 targets or proof boundary changed")
+
+    path98 = Path("data/open-problem/ticket98-growing-modulus-leakage-audit.json")
+    if not path98.exists():
+        return fail("missing ticket98 growing modulus leakage artifact")
+    ticket98 = read_json(path98)
+    if ticket98.get("schema") != TICKET98_SCHEMA or ticket98.get("status") != "growing_modulus_certificates_rejected_as_row_unique_replay_no_resolution":
+        return fail("ticket98 schema or status changed")
+    attempts98 = ticket98.get("attempts", [])
+    by_id98 = {str(row.get("problem_id")): row for row in attempts98 if isinstance(row, dict)} if isinstance(attempts98, list) else {}
+    if set(by_id98) != EXPECTED_PROBLEMS:
+        return fail("ticket98 attempts missing problems")
+    paths98 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-98-growing-partition-leakage.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-98-growing-residue-leakage.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-98-growing-modulus-leakage.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-98-growing-modulus-leakage.json"),
+    }
+    for problem_id, attempt in by_id98.items():
+        if not paths98[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket98 artifact or boundary missing")
+    if by_id98["goldbach"].get("bounded_result", {}).get("audit_ref") != "growing_modulus_leakage_audit" or by_id98["twin-prime"].get("bounded_result", {}).get("audit_ref") != "growing_modulus_leakage_audit":
+        return fail("ticket98 shared audit references changed")
+    audit98 = ticket98.get("growing_modulus_leakage_audit", {})
+    if audit98.get("theorem_name") != "GrowingModulusRowUniqueLeakageAudit" or audit98.get("theorem_status") != "row_unique_leakage_theorem_proved_tested_growing_modulus_certificates_rejected_no_resolution":
+        return fail("ticket98 theorem contract changed")
+    identity98 = audit98.get("row_unique_identity_theorem", {})
+    if "P_W x=x" not in str(identity98.get("statement", "")) or len(identity98.get("proof_steps", [])) != 4:
+        return fail("ticket98 row-unique identity theorem changed")
+    machine98 = audit98.get("machine_audit", {})
+    for key, expected in {"checkpoint_count": 3, "maximum_checkpoint": 1000000, "modulus_count_per_checkpoint": 8, "non_row_unique_goldbach_certificate_count": 0, "non_row_unique_twin_certificate_count": 0, "row_unique_goldbach_certificate_count": 3, "row_unique_twin_certificate_count": 3, "first_certificate_mismatch_count": 0, "contract_failure_count": 0, "total_failure_count": 0}.items():
+        if int(machine98.get(key, -1)) != expected:
+            return fail(f"ticket98 metric {key} changed")
+    if machine98.get("primorial_moduli") != [2, 6, 30, 210, 2310, 30030, 510510, 9699690]:
+        return fail("ticket98 primorial chain changed")
+    rows98 = machine98.get("checkpoint_rows", [])
+    if not isinstance(rows98, list) or [int(row.get("target", -1)) for row in rows98 if isinstance(row, dict)] != [10000, 100000, 1000000]:
+        return fail("ticket98 checkpoint scales changed")
+    expected_first98 = {10000: 30030, 100000: 510510, 1000000: 9699690}
+    for checkpoint in rows98:
+        target = int(checkpoint.get("target", -1))
+        expected_first = expected_first98.get(target)
+        if checkpoint.get("first_row_unique_modulus") != expected_first or checkpoint.get("first_goldbach_certificate_modulus") != expected_first or checkpoint.get("first_twin_certificate_modulus") != expected_first:
+            return fail("ticket98 first certificate no longer equals row-unique boundary")
+        if int(checkpoint.get("non_row_unique_goldbach_certificate_count", -1)) != 0 or int(checkpoint.get("non_row_unique_twin_certificate_count", -1)) != 0:
+            return fail("ticket98 pre-leak certificate count changed")
+        rows = checkpoint.get("rows", [])
+        if not isinstance(rows, list) or len(rows) != 8:
+            return fail("ticket98 projection row count changed")
+        for row in rows:
+            for key in ("relative_orthogonality_error", "relative_energy_decomposition_error", "goldbach_reconstruction_relative_error", "twin_reconstruction_relative_error"):
+                if float(row.get(key, 1)) > 1e-12:
+                    return fail(f"ticket98 projection contract {key} changed")
+            if row.get("row_unique_leakage") and (float(row.get("relative_residual_norm", 1)) != 0 or row.get("certificate_interpretation") != "exact_data_replay_not_independent_arithmetic_bound"):
+                return fail("ticket98 row-unique replay classification changed")
+    million_rows98 = next(row for row in rows98 if int(row.get("target", -1)) == 1000000).get("rows", [])
+    near_unique98 = next((row for row in million_rows98 if int(row.get("modulus", -1)) == 510510), {})
+    if int(near_unique98.get("maximum_samples_per_occupied_residue", -1)) != 2 or near_unique98.get("goldbach_certified") or near_unique98.get("twin_certified"):
+        return fail("ticket98 near-row-unique no-certificate boundary changed")
+    if audit98.get("goldbach_next_theorem_target") != "OutOfSampleGrowingModulusBinaryResidualCancellation" or audit98.get("twin_next_theorem_target") != "OutOfSampleGrowingModulusShiftTwoResidualCancellation" or "does not prove" not in str(audit98.get("proof_boundary", "")):
+        return fail("ticket98 targets or proof boundary changed")
+
+    path99 = Path("data/open-problem/ticket99-out-of-sample-local-model-audit.json")
+    if not path99.exists():
+        return fail("missing ticket99 out-of-sample local model artifact")
+    ticket99 = read_json(path99)
+    if ticket99.get("schema") != TICKET99_SCHEMA or ticket99.get("status") != "out_of_sample_and_external_local_models_audited_signed_residual_theorem_open_no_resolution":
+        return fail("ticket99 schema or status changed")
+    attempts99 = ticket99.get("attempts", [])
+    by_id99 = {str(row.get("problem_id")): row for row in attempts99 if isinstance(row, dict)} if isinstance(attempts99, list) else {}
+    if set(by_id99) != EXPECTED_PROBLEMS:
+        return fail("ticket99 attempts missing problems")
+    paths99 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-99-external-kernel-residual.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-99-out-of-sample-drift.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-99-external-local-residual.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-99-external-local-residual.json"),
+    }
+    for problem_id, attempt in by_id99.items():
+        if not paths99[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket99 artifact or boundary missing")
+    if by_id99["goldbach"].get("bounded_result", {}).get("audit_ref") != "out_of_sample_local_model_audit" or by_id99["twin-prime"].get("bounded_result", {}).get("audit_ref") != "out_of_sample_local_model_audit":
+        return fail("ticket99 shared audit references changed")
+    audit99 = ticket99.get("out_of_sample_local_model_audit", {})
+    if audit99.get("theorem_name") != "OutOfSampleAndExternalLocalModelResidualAudit" or audit99.get("theorem_status") != "data_separation_and_external_local_main_proved_finite_residual_candidate_survived_no_resolution":
+        return fail("ticket99 theorem contract changed")
+    local99 = audit99.get("external_local_main_theorem", {})
+    if "A_W(n)" not in str(local99.get("model", "")) or "d_W" not in str(local99.get("density", "")) or "CRT" not in str(local99.get("proof", "")):
+        return fail("ticket99 external local-main theorem changed")
+    machine99 = audit99.get("machine_audit", {})
+    for key, expected in {"checkpoint_count": 3, "maximum_checkpoint": 1000000, "cross_fit_configuration_count": 120, "cross_fit_goldbach_certificate_count": 0, "cross_fit_twin_certificate_count": 0, "external_goldbach_norm_certificate_count": 0, "external_twin_norm_certificate_count": 0, "cross_fit_failure_count": 0, "external_main_failure_count": 0, "envelope_validation_failure_count": 0, "total_failure_count": 0}.items():
+        if int(machine99.get(key, -1)) != expected:
+            return fail(f"ticket99 metric {key} changed")
+    cross99 = machine99.get("cross_fit_checkpoint_rows", [])
+    if not isinstance(cross99, list) or [int(row.get("target", -1)) for row in cross99] != [10000, 100000, 1000000]:
+        return fail("ticket99 cross-fit checkpoints changed")
+    expected_nonempty99 = {10000: 22, 100000: 27, 1000000: 31}
+    for checkpoint in cross99:
+        target = int(checkpoint.get("target", -1))
+        if int(checkpoint.get("configuration_count", -1)) != 40 or int(checkpoint.get("nonempty_configuration_count", -1)) != expected_nonempty99[target]:
+            return fail("ticket99 cross-fit occupancy grid changed")
+        for best_key in ("best_nonempty_goldbach_row", "best_nonempty_twin_row"):
+            best = checkpoint.get(best_key, {})
+            if int(best.get("evaluation_count", 0)) <= 0 or int(best.get("train_evaluation_overlap_count", -1)) != 0:
+                return fail("ticket99 disjoint cross-fit contract changed")
+    external99 = machine99.get("external_checkpoint_rows", [])
+    if not isinstance(external99, list) or [int(row.get("row_count", -1)) for row in external99] != [5, 6, 7]:
+        return fail("ticket99 external checkpoint grid changed")
+    envelope99 = machine99.get("finite_residual_envelope_screen", {})
+    if abs(float(envelope99.get("candidate_log_envelope_constant", 0)) - 1.6) > 1e-12 or envelope99.get("schedule_moduli_reached") != [2, 6, 30, 210]:
+        return fail("ticket99 finite residual candidate changed")
+    if int(envelope99.get("goldbach_validation_failure_count", -1)) != 0 or int(envelope99.get("twin_validation_failure_count", -1)) != 0 or float(envelope99.get("maximum_fft_direct_error", 1)) > 1e-6:
+        return fail("ticket99 envelope validation changed")
+    if int(envelope99.get("goldbach", {}).get("calibration_maximum_row", {}).get("number", -1)) != 2804 or int(envelope99.get("twin", {}).get("calibration_maximum_row", {}).get("number", -1)) != 1018:
+        return fail("ticket99 calibration extrema changed")
+    if "not_an_asymptotic_theorem" not in str(envelope99.get("status", "")):
+        return fail("ticket99 finite-screen boundary changed")
+    if audit99.get("goldbach_next_theorem_target") != "UniformExternalLocalModelGoldbachResidualDecay" or audit99.get("twin_next_theorem_target") != "UniformExternalLocalModelShiftTwoResidualDecay" or "does not prove" not in str(audit99.get("proof_boundary", "")):
+        return fail("ticket99 targets or proof boundary changed")
+
+    path100 = Path("data/open-problem/ticket100-extended-residual-vaughan-audit.json")
+    if not path100.exists():
+        return fail("missing ticket100 extended residual Vaughan artifact")
+    ticket100 = read_json(path100)
+    if ticket100.get("schema") != TICKET100_SCHEMA or ticket100.get("status") != "extended_residual_candidate_survived_componentwise_typeii_strategy_refuted_no_resolution":
+        return fail("ticket100 schema or status changed")
+    attempts100 = ticket100.get("attempts", [])
+    by_id100 = {str(row.get("problem_id")): row for row in attempts100 if isinstance(row, dict)} if isinstance(attempts100, list) else {}
+    if set(by_id100) != EXPECTED_PROBLEMS:
+        return fail("ticket100 attempts missing problems")
+    paths100 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-100-joint-component-gate.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-100-joint-drift-gate.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-100-joint-vaughan-residual.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-100-joint-vaughan-residual.json"),
+    }
+    for problem_id, attempt in by_id100.items():
+        if not paths100[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket100 artifact or boundary missing")
+    if by_id100["goldbach"].get("bounded_result", {}).get("audit_ref") != "extended_residual_vaughan_audit" or by_id100["twin-prime"].get("bounded_result", {}).get("audit_ref") != "extended_residual_vaughan_audit":
+        return fail("ticket100 shared audit references changed")
+    audit100 = ticket100.get("extended_residual_vaughan_audit", {})
+    if audit100.get("theorem_name") != "ExtendedResidualScreenAndVaughanJointCancellationAudit" or audit100.get("theorem_status") != "extended_candidate_survived_componentwise_typeii_route_refuted_joint_theorem_open_no_resolution":
+        return fail("ticket100 theorem contract changed")
+    machine100 = audit100.get("machine_audit", {})
+    for key, expected in {"goldbach_screen_limit": 6000000, "twin_screen_limit": 10000000, "vaughan_limit": 1000000, "total_failure_count": 0}.items():
+        if int(machine100.get(key, -1)) != expected:
+            return fail(f"ticket100 metric {key} changed")
+    if abs(float(machine100.get("candidate_constant", 0)) - 1.6) > 1e-12:
+        return fail("ticket100 candidate constant changed")
+    extended100 = audit100.get("extended_counterexample_search", {})
+    gold100 = extended100.get("goldbach", {})
+    twin100 = extended100.get("twin", {})
+    if int(gold100.get("candidate_failure_count", -1)) != 0 or int(twin100.get("candidate_failure_count", -1)) != 0:
+        return fail("ticket100 extended finite candidate failed")
+    if gold100.get("schedule_moduli_reached") != [2, 6, 30, 210, 2310] or twin100.get("schedule_moduli_reached") != [2, 6, 30, 210, 2310]:
+        return fail("ticket100 schedule transition coverage changed")
+    if int(gold100.get("overall_maximum_row", {}).get("even_target", -1)) != 2804 or int(twin100.get("overall_maximum_row", {}).get("x", -1)) != 1018 or float(gold100.get("maximum_fft_direct_error", 1)) > 1e-6:
+        return fail("ticket100 extended screen extrema changed")
+    vaughan100 = audit100.get("vaughan_joint_cancellation_audit", {})
+    identity100 = vaughan100.get("identity", {})
+    if int(identity100.get("u", -1)) != 100 or int(identity100.get("v", -1)) != 100 or float(identity100.get("direct_type_ii_max_error", 1)) > 1e-10:
+        return fail("ticket100 Vaughan identity replay changed")
+    gold_v100 = vaughan100.get("goldbach", {})
+    twin_v100 = vaughan100.get("twin", {})
+    counter100 = vaughan100.get("componentwise_no_go", {}).get("counterexample_row", {})
+    if int(counter100.get("number", -1)) != 930930 or abs(float(counter100.get("required_log_envelope_constant", 0)) - 7.909937398184027) > 1e-9:
+        return fail("ticket100 componentwise Type II counterexample changed")
+    if not gold_v100.get("componentwise_candidate_refuted") or not gold_v100.get("joint_candidate_survives") or not twin_v100.get("joint_candidate_survives"):
+        return fail("ticket100 joint/componentwise verdict changed")
+    if audit100.get("goldbach_next_theorem_target") != "JointVaughanGoldbachResidualEnvelope" or audit100.get("twin_next_theorem_target") != "JointVaughanShiftTwoResidualEnvelope" or "proves none" not in str(audit100.get("proof_boundary", "")):
+        return fail("ticket100 targets or proof boundary changed")
+
+    path101 = Path("data/open-problem/ticket101-vaughan-cutoff-energy-audit.json")
+    if not path101.exists():
+        return fail("missing ticket101 Vaughan cutoff energy artifact")
+    ticket101 = read_json(path101)
+    expected_status101 = "cutoff_frontier_splits_goldbach_joint_and_twin_separate_routes_energy_rewrite_equivalent_no_resolution"
+    if ticket101.get("schema") != TICKET101_SCHEMA or ticket101.get("status") != expected_status101:
+        return fail("ticket101 schema or status changed")
+    attempts101 = ticket101.get("attempts", [])
+    by_id101 = {str(row.get("problem_id")): row for row in attempts101 if isinstance(row, dict)} if isinstance(attempts101, list) else {}
+    if set(by_id101) != EXPECTED_PROBLEMS:
+        return fail("ticket101 attempts missing problems")
+    paths101 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-101-parameter-energy-gate.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-101-parameter-energy-gate.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-101-balanced-vaughan-frontier.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-101-balanced-vaughan-frontier.json"),
+    }
+    for problem_id, attempt in by_id101.items():
+        if not paths101[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket101 artifact or proof boundary missing")
+    if by_id101["goldbach"].get("bounded_result", {}).get("audit_ref") != "vaughan_cutoff_energy_audit" or by_id101["twin-prime"].get("bounded_result", {}).get("audit_ref") != "vaughan_cutoff_energy_audit":
+        return fail("ticket101 shared audit references changed")
+    audit101 = ticket101.get("vaughan_cutoff_energy_audit", {})
+    if audit101.get("theorem_name") != "VaughanCutoffParetoAndEnergyEquivalenceAudit" or audit101.get("theorem_status") != "goldbach_joint_required_twin_separate_candidate_survives_energy_rewrite_equivalent_no_resolution":
+        return fail("ticket101 theorem contract changed")
+    machine101 = audit101.get("machine_audit", {})
+    expected_metrics101 = {
+        "limit": 1000000,
+        "balanced_pair_count": 28,
+        "balanced_goldbach_survivor_count": 0,
+        "balanced_twin_survivor_count": 4,
+        "energy_failure_count": 0,
+        "total_failure_count": 0,
+    }
+    for key, expected in expected_metrics101.items():
+        if int(machine101.get(key, -1)) != expected:
+            return fail(f"ticket101 metric {key} changed")
+    if abs(float(machine101.get("candidate_constant", 0)) - 1.6) > 1e-12:
+        return fail("ticket101 candidate constant changed")
+    frontier101 = audit101.get("cutoff_frontier", {})
+    gold_best101 = frontier101.get("best_balanced_goldbach_row", {})
+    twin_best101 = frontier101.get("best_balanced_twin_row", {})
+    near101 = frontier101.get("first_tested_near_collapse_goldbach_survivor", {})
+    collapse101 = frontier101.get("full_collapse_row", {})
+    if (int(gold_best101.get("u", -1)), int(gold_best101.get("v", -1))) != (100, 100) or abs(float(gold_best101.get("goldbach", {}).get("separate_budget_sum", 0)) - 9.488989403518667) > 1e-9:
+        return fail("ticket101 Goldbach balanced frontier changed")
+    if (int(twin_best101.get("u", -1)), int(twin_best101.get("v", -1))) != (100, 84) or int(twin_best101.get("type_ii_support_count", -1)) != 244204 or abs(float(twin_best101.get("twin", {}).get("separate_budget_sum", 0)) - 1.5600494712890165) > 1e-9:
+        return fail("ticket101 Twin balanced frontier changed")
+    if (int(near101.get("u", -1)), int(near101.get("type_ii_support_count", -1))) != (960, 314) or int(collapse101.get("type_ii_support_count", -1)) != 0:
+        return fail("ticket101 decomposition-collapse boundary changed")
+    energy101 = audit101.get("energy_equivalence_audit", {})
+    checkpoints101 = energy101.get("checkpoint_rows", [])
+    if int(energy101.get("failure_count", -1)) != 0 or [int(row.get("target", -1)) for row in checkpoints101] != [10000, 100000, 1000000]:
+        return fail("ticket101 energy replay changed")
+    if "algebraically equivalent" not in str(energy101.get("novelty_verdict", "")):
+        return fail("ticket101 equivalence boundary changed")
+    if audit101.get("goldbach_next_theorem_target") != "JointBalancedVaughanGoldbachResidualEnvelope" or audit101.get("twin_next_theorem_target") != "SeparatedBalancedVaughanTwinBudgets" or "proves none" not in str(audit101.get("proof_boundary", "")):
+        return fail("ticket101 targets or proof boundary changed")
+
+    path102 = Path("data/open-problem/ticket102-twin-dyadic-vaughan-holdout.json")
+    if not path102.exists():
+        return fail("missing ticket102 Twin dyadic holdout artifact")
+    ticket102 = read_json(path102)
+    expected_status102 = "finite_1p40_plus_0p18_candidate_refuted_on_post_selection_holdout"
+    if ticket102.get("schema") != TICKET102_SCHEMA or ticket102.get("status") != expected_status102:
+        return fail("ticket102 schema or status changed")
+    attempts102 = ticket102.get("attempts", [])
+    by_id102 = {str(row.get("problem_id")): row for row in attempts102 if isinstance(row, dict)} if isinstance(attempts102, list) else {}
+    if set(by_id102) != EXPECTED_PROBLEMS:
+        return fail("ticket102 attempts missing problems")
+    paths102 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-102-kernel-positivity-priority.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-102-golden-mean-priority.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-102-joint-balanced-priority.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-102-dyadic-vaughan-holdout.json"),
+    }
+    for problem_id, attempt in by_id102.items():
+        if not paths102[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket102 artifact or proof boundary missing")
+    if by_id102["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_dyadic_vaughan_holdout":
+        return fail("ticket102 shared audit reference changed")
+    audit102 = ticket102.get("twin_dyadic_vaughan_holdout", {})
+    if audit102.get("theorem_name") != "DyadicScaleLocalSeparatedVaughanTwinBudgetAudit" or audit102.get("registered_candidate_status") != expected_status102:
+        return fail("ticket102 theorem contract changed")
+    machine102 = audit102.get("machine_audit", {})
+    expected_metrics102 = {
+        "maximum_horizon": 8000000,
+        "holdout_evaluated_count": 3000000,
+        "holdout_structured_failure_count": 1000000,
+        "holdout_type_ii_failure_count": 0,
+        "fresh_rescue_evaluated_count": 4000000,
+        "fresh_rescue_failure_count": 0,
+        "noncollapse_failure_count": 0,
+        "contract_failure_count": 0,
+    }
+    for key, expected in expected_metrics102.items():
+        if int(machine102.get(key, -1)) != expected:
+            return fail(f"ticket102 metric {key} changed")
+    dyadic102 = audit102.get("dyadic_holdout_audit", {})
+    rows102 = dyadic102.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows102] != [125000, 250000, 500000, 1000000, 2000000, 4000000]:
+        return fail("ticket102 dyadic schedule changed")
+    row2m102 = next((row for row in rows102 if int(row.get("horizon", -1)) == 2000000), {})
+    if int(row2m102.get("structured", {}).get("failure_count", -1)) != 1000000 or abs(float(row2m102.get("structured", {}).get("maximum_row", {}).get("required_log_envelope_constant", 0)) - 1.9531717027269588) > 1e-9:
+        return fail("ticket102 registered-budget counterexample changed")
+    rescue102 = audit102.get("fresh_rescue_holdout", {})
+    rescue_row102 = rescue102.get("row", {})
+    if rescue102.get("status") != "coarse_finite_budget_survives_fresh_8m_holdout_not_a_theorem" or int(rescue102.get("failure_count", -1)) != 0:
+        return fail("ticket102 fresh rescue verdict changed")
+    if abs(float(rescue_row102.get("structured", {}).get("maximum_row", {}).get("required_log_envelope_constant", 0)) - 3.3067939659717025) > 1e-9 or abs(float(rescue_row102.get("type_ii_support_fraction", 0)) - 0.2431389696076288) > 1e-12:
+        return fail("ticket102 fresh rescue extrema changed")
+    correction102 = audit102.get("constant_threshold_correction", {})
+    if "not a mathematical sufficiency threshold" not in str(correction102.get("finding", "")) or "any fixed finite" not in str(correction102.get("exact_implication", "")):
+        return fail("ticket102 finite-constant correction changed")
+    if audit102.get("next_theorem_target") != "UniformFiniteDyadicSeparatedVaughanTwinBudgets" or "proves neither" not in str(audit102.get("proof_boundary", "")):
+        return fail("ticket102 target or proof boundary changed")
+
+    path103 = Path("data/open-problem/ticket103-twin-local-block-audit.json")
+    if not path103.exists():
+        return fail("missing ticket103 Twin local-block artifact")
+    ticket103 = read_json(path103)
+    expected_status103 = "universal_local_type_ii_nonnegativity_refuted_eventual_finite_bound_open"
+    if ticket103.get("schema") != TICKET103_SCHEMA or ticket103.get("status") != expected_status103:
+        return fail("ticket103 schema or status changed")
+    attempts103 = ticket103.get("attempts", [])
+    by_id103 = {str(row.get("problem_id")): row for row in attempts103 if isinstance(row, dict)} if isinstance(attempts103, list) else {}
+    if set(by_id103) != EXPECTED_PROBLEMS:
+        return fail("ticket103 attempts missing problems")
+    paths103 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-103-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-103-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-103-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-103-local-block-audit.json"),
+    }
+    for problem_id, attempt in by_id103.items():
+        if not paths103[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket103 artifact or proof boundary missing")
+    if by_id103["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_local_block_audit":
+        return fail("ticket103 shared audit reference changed")
+    audit103 = ticket103.get("twin_local_block_audit", {})
+    if audit103.get("theorem_name") != "DyadicLocalVaughanTwinBlockAudit" or audit103.get("cumulative_to_local_verdict") != expected_status103:
+        return fail("ticket103 theorem contract changed")
+    machine103 = audit103.get("machine_audit", {})
+    expected_metrics103 = {
+        "maximum_horizon": 8000000,
+        "evaluated_integer_count": 7937500,
+        "negative_type_ii_block_count": 0,
+        "small_sign_negative_block_count": 1,
+        "contract_failure_count": 0,
+    }
+    for key, expected in expected_metrics103.items():
+        if int(machine103.get(key, -1)) != expected:
+            return fail(f"ticket103 metric {key} changed")
+    local103 = audit103.get("local_block_audit", {})
+    rows103 = local103.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows103] != [125000, 250000, 500000, 1000000, 2000000, 4000000, 8000000]:
+        return fail("ticket103 principal block schedule changed")
+    if abs(float(local103.get("maximum_structured_required_constant", 0)) - 3.761663395991693) > 1e-9 or abs(float(local103.get("maximum_joint_required_constant", 0)) - 0.6429809026661759) > 1e-9:
+        return fail("ticket103 principal block extrema changed")
+    oracle103 = audit103.get("small_scale_sign_oracle", {})
+    counter103 = oracle103.get("first_counterexample", {})
+    if int(oracle103.get("negative_block_count", -1)) != 1 or int(counter103.get("horizon", -1)) != 1000:
+        return fail("ticket103 Type II sign counterexample changed")
+    if abs(float(counter103.get("type_ii_local_correlation", 0)) + 174.71647147792515) > 1e-9 or abs(float(counter103.get("type_ii_required_constant", 0)) - 1.7515082132270579) > 1e-9:
+        return fail("ticket103 Type II counterexample values changed")
+    if audit103.get("next_theorem_target") != "UniformDyadicLocalVaughanTwinBlockBudgets" or "proves neither" not in str(audit103.get("proof_boundary", "")):
+        return fail("ticket103 target or proof boundary changed")
+
+    path104 = Path("data/open-problem/ticket104-twin-typeii-mobius-anatomy.json")
+    if not path104.exists():
+        return fail("missing ticket104 Twin Type II anatomy artifact")
+    ticket104 = read_json(path104)
+    expected_status104 = "weighted_mobius_identity_exact_abel_triangle_route_refuted_open"
+    if ticket104.get("schema") != TICKET104_SCHEMA or ticket104.get("status") != expected_status104:
+        return fail("ticket104 schema or status changed")
+    attempts104 = ticket104.get("attempts", [])
+    by_id104 = {str(row.get("problem_id")): row for row in attempts104 if isinstance(row, dict)} if isinstance(attempts104, list) else {}
+    if set(by_id104) != EXPECTED_PROBLEMS:
+        return fail("ticket104 attempts missing problems")
+    paths104 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-104-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-104-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-104-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-104-typeii-mobius-anatomy.json"),
+    }
+    for problem_id, attempt in by_id104.items():
+        if not paths104[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket104 artifact or proof boundary missing")
+    if by_id104["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_typeii_mobius_anatomy":
+        return fail("ticket104 shared audit reference changed")
+    audit104 = ticket104.get("twin_typeii_mobius_anatomy", {})
+    if audit104.get("theorem_name") != "ExactTypeIIOuterMobiusAnatomyAndAbelNoGoAudit":
+        return fail("ticket104 theorem contract changed")
+    machine104 = audit104.get("machine_audit", {})
+    if {key: int(machine104.get(key, -1)) for key in ("maximum_horizon", "row_count", "contract_failure_count")} != {"maximum_horizon": 2000000, "row_count": 4, "contract_failure_count": 0}:
+        return fail("ticket104 machine metrics changed")
+    rows104 = audit104.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows104] != [1000, 125000, 1000000, 2000000]:
+        return fail("ticket104 horizon schedule changed")
+    if max(float(row.get("outer_identity_absolute_error", 1)) for row in rows104) > 1e-7 or max(float(row.get("abel_reconstruction_absolute_error", 1)) for row in rows104) > 1e-7:
+        return fail("ticket104 exact identities changed")
+    row1000_104 = rows104[0]
+    row2m_104 = rows104[-1]
+    if abs(float(row1000_104.get("actual_required_constant", 0)) - 1.751508213227058) > 1e-9 or abs(float(row1000_104.get("abel_triangle_required_constant", 0)) - 61.82892746681642) > 1e-9:
+        return fail("ticket104 small negative row changed")
+    if abs(float(row2m_104.get("negative_mass_required_constant", 0)) - 39.91812891132201) > 1e-9 or abs(float(row2m_104.get("abel_triangle_required_constant", 0)) - 1088.1498317605888) > 1e-9:
+        return fail("ticket104 lossy-bound extrema changed")
+    if audit104.get("next_theorem_target") != "WeightedMobiusShiftedPrimeDyadicCancellation" or "proves none" not in str(audit104.get("proof_boundary", "")):
+        return fail("ticket104 target or proof boundary changed")
+
+    path105 = Path("data/open-problem/ticket105-twin-centered-progression-discrepancy.json")
+    if not path105.exists():
+        return fail("missing ticket105 centered progression artifact")
+    ticket105 = read_json(path105)
+    expected_status105 = "progression_centering_exact_full_vector_envelopes_insufficient_open"
+    if ticket105.get("schema") != TICKET105_SCHEMA or ticket105.get("status") != expected_status105:
+        return fail("ticket105 schema or status changed")
+    attempts105 = ticket105.get("attempts", [])
+    by_id105 = {str(row.get("problem_id")): row for row in attempts105 if isinstance(row, dict)} if isinstance(attempts105, list) else {}
+    if set(by_id105) != EXPECTED_PROBLEMS:
+        return fail("ticket105 attempts missing problems")
+    paths105 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-105-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-105-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-105-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-105-centered-progression-discrepancy.json"),
+    }
+    for problem_id, attempt in by_id105.items():
+        if not paths105[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket105 artifact or proof boundary missing")
+    if by_id105["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_centered_progression_discrepancy":
+        return fail("ticket105 shared audit reference changed")
+    audit105 = ticket105.get("twin_centered_progression_discrepancy", {})
+    machine105 = audit105.get("machine_audit", {})
+    if audit105.get("theorem_name") != "CenteredProgressionTypeIIDiscrepancyAudit" or {key: int(machine105.get(key, -1)) for key in ("maximum_horizon", "row_count", "contract_failure_count")} != {"maximum_horizon": 2000000, "row_count": 4, "contract_failure_count": 0}:
+        return fail("ticket105 theorem or machine contract changed")
+    rows105 = audit105.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows105] != [1000, 125000, 1000000, 2000000] or max(float(row.get("centered_identity_absolute_error", 1)) for row in rows105) > 1e-7:
+        return fail("ticket105 centered identity schedule changed")
+    row2m_105 = rows105[-1]
+    if abs(float(row2m_105.get("negative_centered_mass_required_constant", 0)) - 5.411964367928027) > 1e-9 or abs(float(row2m_105.get("cauchy_centered_required_constant", 0)) - 41.147064309511606) > 1e-9:
+        return fail("ticket105 centered envelope extrema changed")
+    if audit105.get("next_theorem_target") != "MobiusWeightedPrimeProgressionDiscrepancyBound" or "proves none" not in str(audit105.get("proof_boundary", "")):
+        return fail("ticket105 target or proof boundary changed")
+
+    path106 = Path("data/open-problem/ticket106-twin-modulus-grouped-dispersion.json")
+    if not path106.exists():
+        return fail("missing ticket106 modulus-grouped dispersion artifact")
+    ticket106 = read_json(path106)
+    expected_status106 = "modulus_grouping_exact_dispersion_theorem_open"
+    if ticket106.get("schema") != TICKET106_SCHEMA or ticket106.get("status") != expected_status106:
+        return fail("ticket106 schema or status changed")
+    attempts106 = ticket106.get("attempts", [])
+    by_id106 = {str(row.get("problem_id")): row for row in attempts106 if isinstance(row, dict)} if isinstance(attempts106, list) else {}
+    if set(by_id106) != EXPECTED_PROBLEMS:
+        return fail("ticket106 attempts missing problems")
+    paths106 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-106-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-106-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-106-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-106-modulus-grouped-dispersion.json"),
+    }
+    for problem_id, attempt in by_id106.items():
+        if not paths106[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket106 artifact or proof boundary missing")
+    if by_id106["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_modulus_grouped_dispersion":
+        return fail("ticket106 shared audit reference changed")
+    audit106 = ticket106.get("twin_modulus_grouped_dispersion", {})
+    machine106 = audit106.get("machine_audit", {})
+    if audit106.get("theorem_name") != "GroupedModulusCenteredDispersionAudit" or {key: int(machine106.get(key, -1)) for key in ("maximum_horizon", "row_count", "contract_failure_count")} != {"maximum_horizon": 2000000, "row_count": 4, "contract_failure_count": 0}:
+        return fail("ticket106 theorem or machine contract changed")
+    rows106 = audit106.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows106] != [1000, 125000, 1000000, 2000000] or max(float(row.get("centered_identity_absolute_error", 1)) for row in rows106) > 1e-7:
+        return fail("ticket106 grouped identity schedule changed")
+    row2m_106 = rows106[-1]
+    if abs(float(row2m_106.get("grouped_cauchy_required_constant", 0)) - 249.11924209715178) > 1e-9 or abs(float(row2m_106.get("outer_d_cauchy_required_constant", 0)) - 41.147064309511606) > 1e-9:
+        return fail("ticket106 grouped envelope extrema changed")
+    if int(row2m_106.get("row_unique_support_count", -1)) != 400315 or abs(float(row2m_106.get("row_unique_support_fraction", 0)) - 0.7231345615743258) > 1e-12:
+        return fail("ticket106 sparse-cell support changed")
+    if abs(float(row2m_106.get("row_unique_signed_contribution", 0)) - 64933.82659062814) > 1e-7 or abs(float(row2m_106.get("grouped_centered_discrepancy", 0)) - 67608.76030549759) > 1e-7:
+        return fail("ticket106 sparse-cell contribution changed")
+    if audit106.get("next_theorem_target") != "NonSparseModulusTwinDispersionWithSparseTailControl" or "proves none" not in str(audit106.get("proof_boundary", "")):
+        return fail("ticket106 target or proof boundary changed")
+
+    path107 = Path("data/open-problem/ticket107-twin-sparse-tail-recombination.json")
+    if not path107.exists():
+        return fail("missing ticket107 sparse-tail recombination artifact")
+    ticket107 = read_json(path107)
+    expected_status107 = "sparse_tail_sign_shortcut_refuted_joint_absorption_theorem_open"
+    if ticket107.get("schema") != TICKET107_SCHEMA or ticket107.get("status") != expected_status107:
+        return fail("ticket107 schema or status changed")
+    attempts107 = ticket107.get("attempts", [])
+    by_id107 = {str(row.get("problem_id")): row for row in attempts107 if isinstance(row, dict)} if isinstance(attempts107, list) else {}
+    if set(by_id107) != EXPECTED_PROBLEMS:
+        return fail("ticket107 attempts missing problems")
+    paths107 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-107-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-107-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-107-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-107-sparse-tail-recombination.json"),
+    }
+    for problem_id, attempt in by_id107.items():
+        if not paths107[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket107 artifact or proof boundary missing")
+    if by_id107["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_sparse_tail_recombination":
+        return fail("ticket107 shared audit reference changed")
+    audit107 = ticket107.get("twin_sparse_tail_recombination", {})
+    machine107 = audit107.get("machine_audit", {})
+    if audit107.get("theorem_name") != "SparseTailVaughanRecombinationAudit" or {key: int(machine107.get(key, -1)) for key in ("maximum_horizon", "row_count", "centered_sparse_sign_count", "contract_failure_count")} != {"maximum_horizon": 8000000, "row_count": 6, "centered_sparse_sign_count": 2, "contract_failure_count": 0}:
+        return fail("ticket107 theorem or machine contract changed")
+    rows107 = audit107.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows107] != [1000, 125000, 1000000, 2000000, 4000000, 8000000]:
+        return fail("ticket107 horizon schedule changed")
+    if max(float(row.get("sparse_shifted_q_to_n_absolute_error", 1)) for row in rows107) > 1e-7 or max(float(row.get("type_ii_q_to_vaughan_max_error", 1)) for row in rows107) > 1e-9 or max(float(row.get("joint_correlation_absolute_error", 1)) for row in rows107) > 1e-7:
+        return fail("ticket107 recombination identity changed")
+    row8m_107 = rows107[-1]
+    if {key: int(row8m_107.get(key, -1)) for key in ("sparse_q_support_count", "sparse_n_support_count", "sparse_n_collision_count", "maximum_sparse_q_multiplicity_per_n")} != {"sparse_q_support_count": 1589098, "sparse_n_support_count": 1099268, "sparse_n_collision_count": 247461, "maximum_sparse_q_multiplicity_per_n": 2}:
+        return fail("ticket107 q-to-n support geometry changed")
+    if abs(float(row8m_107.get("n_grouping_l1_retention", 0)) - 0.6953433186036189) > 1e-12:
+        return fail("ticket107 q-to-n L1 retention changed")
+    if abs(float(row8m_107.get("structured_sparse_required_constant", 0)) - 2.5889102044208583) > 1e-9 or abs(float(row8m_107.get("joint_required_constant", 0)) - 0.36905581676567056) > 1e-9:
+        return fail("ticket107 component budget frontier changed")
+    if audit107.get("next_theorem_target") != "JointStructuredSparseDenseTwinDispersion" or "proves none" not in str(audit107.get("proof_boundary", "")):
+        return fail("ticket107 target or proof boundary changed")
+
+    path108 = Path("data/open-problem/ticket108-twin-joint-equivalence-smoothing.json")
+    if not path108.exists():
+        return fail("missing ticket108 joint-equivalence smoothing artifact")
+    ticket108 = read_json(path108)
+    expected_status108 = "joint_target_equivalent_smoothed_excess_bridge_open"
+    if ticket108.get("schema") != TICKET108_SCHEMA or ticket108.get("status") != expected_status108:
+        return fail("ticket108 schema or status changed")
+    attempts108 = ticket108.get("attempts", [])
+    by_id108 = {str(row.get("problem_id")): row for row in attempts108 if isinstance(row, dict)} if isinstance(attempts108, list) else {}
+    if set(by_id108) != EXPECTED_PROBLEMS:
+        return fail("ticket108 attempts missing problems")
+    paths108 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-108-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-108-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-108-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-108-joint-equivalence-smoothing.json"),
+    }
+    for problem_id, attempt in by_id108.items():
+        if not paths108[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket108 artifact or proof boundary missing")
+    if by_id108["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_joint_equivalence_smoothing":
+        return fail("ticket108 shared audit reference changed")
+    audit108 = ticket108.get("twin_joint_equivalence_smoothing", {})
+    machine108 = audit108.get("machine_audit", {})
+    expected_metrics108 = {"maximum_horizon": 8000000, "row_count": 6, "smoothing_improvement_count": 2, "smoothing_worsening_count": 4, "contract_failure_count": 0}
+    if audit108.get("theorem_name") != "JointResidualEquivalenceAndSmoothedExcessBridge" or {key: int(machine108.get(key, -1)) for key in expected_metrics108} != expected_metrics108:
+        return fail("ticket108 theorem or machine contract changed")
+    rows108 = audit108.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows108] != [1000, 125000, 1000000, 2000000, 4000000, 8000000]:
+        return fail("ticket108 horizon schedule changed")
+    if max(float(row.get("hard_joint_equivalence_absolute_error", 1)) for row in rows108) > 1e-7 or max(float(row.get("smooth_joint_equivalence_absolute_error", 1)) for row in rows108) > 1e-7 or max(float(row.get("type_ii_q_to_vaughan_max_error", 1)) for row in rows108) > 1e-9:
+        return fail("ticket108 equivalence identity changed")
+    if any(not bool(row.get("smooth_contamination_bound_holds")) for row in rows108):
+        return fail("ticket108 contamination contract changed")
+    row8m_108 = rows108[-1]
+    if abs(float(row8m_108.get("hard_joint_required_constant", 0)) - 0.36905581676567056) > 1e-9 or abs(float(row8m_108.get("smooth_joint_required_constant", 0)) - 0.4226078109966721) > 1e-9:
+        return fail("ticket108 hard-smooth frontier changed")
+    if audit108.get("next_theorem_target") != "SmoothedShiftTwoTypeIICorrelationExcess" or "does not prove" not in str(audit108.get("proof_boundary", "")):
+        return fail("ticket108 target or proof boundary changed")
+
+    path109 = Path("data/open-problem/ticket109-twin-spectral-phase-audit.json")
+    if not path109.exists():
+        return fail("missing ticket109 spectral-phase artifact")
+    ticket109 = read_json(path109)
+    expected_status109 = "spectral_identity_exact_low_frequency_route_refuted_rational_arc_theorem_open"
+    if ticket109.get("schema") != TICKET109_SCHEMA or ticket109.get("status") != expected_status109:
+        return fail("ticket109 schema or status changed")
+    attempts109 = ticket109.get("attempts", [])
+    by_id109 = {str(row.get("problem_id")): row for row in attempts109 if isinstance(row, dict)} if isinstance(attempts109, list) else {}
+    if set(by_id109) != EXPECTED_PROBLEMS:
+        return fail("ticket109 attempts missing problems")
+    paths109 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-109-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-109-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-109-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-109-spectral-phase-audit.json"),
+    }
+    for problem_id, attempt in by_id109.items():
+        if not paths109[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket109 artifact or proof boundary missing")
+    if by_id109["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_spectral_phase_audit":
+        return fail("ticket109 shared audit reference changed")
+    audit109 = ticket109.get("twin_spectral_phase_audit", {})
+    machine109 = audit109.get("machine_audit", {})
+    expected_metrics109 = {"maximum_horizon": 1048576, "row_count": 4, "low_frequency_refutation_count": 4, "contract_failure_count": 0}
+    if audit109.get("theorem_name") != "SymmetricBumpSpectralPhaseAndLowFrequencyNoGo" or {key: int(machine109.get(key, -1)) for key in expected_metrics109} != expected_metrics109:
+        return fail("ticket109 theorem or machine contract changed")
+    rows109 = audit109.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows109] != [4096, 32768, 262144, 1048576]:
+        return fail("ticket109 horizon schedule changed")
+    if max(float(row.get("spectral_identity_absolute_error", 1)) for row in rows109) > 1e-6 or any(not bool(row.get("low_frequency_only_route_refuted")) for row in rows109):
+        return fail("ticket109 spectral identity or no-go changed")
+    row1m_109 = rows109[-1]
+    if abs(float(row1m_109.get("phase_cancellation_ratio", 0)) - 0.14349856934226232) > 1e-12 or abs(float(row1m_109.get("best_low_frequency_lower_bound", 0)) + 3338010.570271939) > 1e-6:
+        return fail("ticket109 phase frontier changed")
+    if audit109.get("next_theorem_target") != "RamanujanMajorArcPhaseMarginWithMinorArcControl" or "proves none" not in str(audit109.get("proof_boundary", "")):
+        return fail("ticket109 target or proof boundary changed")
+
+    path110 = Path("data/open-problem/ticket110-twin-rational-arc-budget.json")
+    if not path110.exists():
+        return fail("missing ticket110 rational-arc artifact")
+    ticket110 = read_json(path110)
+    expected_status110 = "rational_arc_partition_exact_trivial_minor_bound_refuted_open"
+    if ticket110.get("schema") != TICKET110_SCHEMA or ticket110.get("status") != expected_status110:
+        return fail("ticket110 schema or status changed")
+    attempts110 = ticket110.get("attempts", [])
+    by_id110 = {str(row.get("problem_id")): row for row in attempts110 if isinstance(row, dict)} if isinstance(attempts110, list) else {}
+    if set(by_id110) != EXPECTED_PROBLEMS:
+        return fail("ticket110 attempts missing problems")
+    paths110 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-110-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-110-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-110-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-110-rational-arc-budget.json"),
+    }
+    for problem_id, attempt in by_id110.items():
+        if not paths110[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket110 artifact or proof boundary missing")
+    if by_id110["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_rational_arc_budget":
+        return fail("ticket110 shared audit reference changed")
+    audit110 = ticket110.get("twin_rational_arc_budget", {})
+    machine110 = audit110.get("machine_audit", {})
+    expected_metrics110 = {"maximum_horizon": 1048576, "row_count": 4, "cutoff_count": 8, "trivial_minor_refutation_count": 4, "contract_failure_count": 0}
+    if audit110.get("theorem_name") != "RationalMajorArcPartitionAndTrivialMinorNoGo" or {key: int(machine110.get(key, -1)) for key in expected_metrics110} != expected_metrics110:
+        return fail("ticket110 theorem or machine contract changed")
+    rows110 = audit110.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows110] != [4096, 32768, 262144, 1048576] or any(not bool(row.get("trivial_minor_bound_route_refuted")) for row in rows110):
+        return fail("ticket110 horizon or no-go schedule changed")
+    row1m_110 = rows110[-1]
+    if int(row1m_110.get("best_denominator_cutoff", -1)) != 32 or abs(float(row1m_110.get("best_major_phase_contribution", 0)) - 461203.6226842761) > 1e-6 or abs(float(row1m_110.get("best_minor_phase_contribution", 0)) + 2063.711506365915) > 1e-6:
+        return fail("ticket110 major-minor frontier changed")
+    if audit110.get("next_theorem_target") != "FixedBumpMajorArcAsymptoticWithTypeIIMinorPowerSaving" or "proves none" not in str(audit110.get("proof_boundary", "")):
+        return fail("ticket110 target or proof boundary changed")
 
     print("open problem structure verified")
     return 0

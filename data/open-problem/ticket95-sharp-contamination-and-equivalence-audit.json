@@ -1,0 +1,540 @@
+{
+  "schema": "primeproject.ticket95-sharp-contamination-and-equivalence-audit.v1",
+  "generated_at": "2026-07-12T20:15:00+09:00",
+  "status": "sharp_contamination_bridges_and_equivalence_gate_open_no_resolution",
+  "claim_boundary": "TICKET95 proves sharper proper-prime-power contamination bounds and removes an algebraically equivalent target from the progress ledger. It solves none of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-95",
+      "status": "logical_novelty_gate_open",
+      "route": "ExplicitFormulaIndependentInformationGate",
+      "proof_or_counterexample_mode": "equivalence-versus-independent-information audit",
+      "attempt": "Reject algebraic reformulations as progress unless the new target admits an estimate from premises independent of the unresolved proposition.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-94",
+        "ticket95_transfer": "ExplicitFormulaIndependentInformationGate",
+        "independent_target": "IndependentWeilFormPositivityEstimate"
+      },
+      "obstruction": "No target-specific independent estimate was proved in TICKET95.",
+      "candidate_theorem": "IndependentWeilFormPositivityEstimate",
+      "next_experiment": "State the allowed premises and prove that the proposed estimate does not use the target proposition or an equivalent oracle.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-95",
+      "status": "logical_novelty_gate_open",
+      "route": "TransitionRankIndependentInformationGate",
+      "proof_or_counterexample_mode": "equivalence-versus-independent-information audit",
+      "attempt": "Reject algebraic reformulations as progress unless the new target admits an estimate from premises independent of the unresolved proposition.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-94",
+        "ticket95_transfer": "TransitionRankIndependentInformationGate",
+        "independent_target": "TransitionCompleteSignedDriftGap"
+      },
+      "obstruction": "No target-specific independent estimate was proved in TICKET95.",
+      "candidate_theorem": "TransitionCompleteSignedDriftGap",
+      "next_experiment": "State the allowed premises and prove that the proposed estimate does not use the target proposition or an equivalent oracle.",
+      "claim_boundary": "No collatz proof and no certified collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-95",
+      "route": "GoldbachProperPrimePowerMassContaminationBridge",
+      "status": "sharp_goldbach_contamination_bridge_proved_uniform_lower_bound_open",
+      "proof_or_counterexample_mode": "sharp weighted contamination theorem plus all-even numerical screen",
+      "attempt": "Replace the exponent-count contamination envelope with the exact cumulative Lambda mass of proper prime powers.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-94",
+        "goldbach_sharp_budget_audit": {
+          "theorem_name": "GoldbachProperPrimePowerMassContaminationBridge",
+          "source_ticket": "GB-TICKET-94",
+          "sharp_budget_theorem": {
+            "mass": "H(N)=sum_{m<=N, m=p^k, k>=2} Lambda(m).",
+            "bound": "E_pp(N)<=2 log(N) H(N)=:B_#G(N).",
+            "proof": "Use a union bound over the left and right proper-power endpoints; the opposite Lambda factor is at most log(N).",
+            "sufficiency": "G(N)>B_#G(N) implies at least one genuine prime-prime representation."
+          },
+          "machine_audit": {
+            "checkpoint_count": 5,
+            "maximum_checkpoint": 1000000,
+            "positive_sharp_margin_count": 5,
+            "total_failure_count": 0,
+            "checkpoint_rows": [
+              {
+                "even_target": 100,
+                "lambda_additive_correlation": 162.07824666735925,
+                "goldbach_prime_weight": 146.1815500437125,
+                "proper_prime_power_contamination": 15.896696623646736,
+                "certified_margin": -2382.8328463622724,
+                "ordered_supported_pair_count": 16,
+                "ordered_prime_pair_count": 12,
+                "ordered_proper_power_pair_count": 4,
+                "decomposition_error": 2.4868995751603507e-14,
+                "contamination_bound_holds": true,
+                "old_contamination_bound": 2544.9110930296315,
+                "proper_prime_power_mass": 10.31692083029347,
+                "sharp_contamination_bound": 95.02235243773399,
+                "sharp_certified_margin": 67.05589422962527,
+                "bound_improvement_factor": 26.782236260644616,
+                "sharp_bound_holds": true
+              },
+              {
+                "even_target": 1000,
+                "lambda_additive_correlation": 1880.0702208146952,
+                "goldbach_prime_weight": 1823.0445906906646,
+                "proper_prime_power_contamination": 57.02563012403055,
+                "certified_margin": -25280.969580218047,
+                "ordered_supported_pair_count": 64,
+                "ordered_prime_pair_count": 56,
+                "ordered_proper_power_pair_count": 8,
+                "decomposition_error": 6.394884621840902e-14,
+                "contamination_bound_holds": true,
+                "old_contamination_bound": 27161.03980103274,
+                "proper_prime_power_mass": 40.43564712711637,
+                "sharp_contamination_bound": 558.6391098027939,
+                "sharp_certified_margin": 1321.4311110119013,
+                "bound_improvement_factor": 48.620011245938194,
+                "sharp_bound_holds": true
+              },
+              {
+                "even_target": 10000,
+                "lambda_additive_correlation": 16855.213722554072,
+                "goldbach_prime_weight": 16743.136805577,
+                "proper_prime_power_contamination": 112.07691697707244,
+                "certified_margin": -203703.74767334736,
+                "ordered_supported_pair_count": 260,
+                "ordered_prime_pair_count": 254,
+                "ordered_proper_power_pair_count": 6,
+                "decomposition_error": 4.831690603168681e-13,
+                "contamination_bound_holds": true,
+                "old_contamination_bound": 220558.96139590142,
+                "proper_prime_power_mass": 117.40531410612746,
+                "sharp_contamination_bound": 2162.6858087924215,
+                "sharp_certified_margin": 14692.52791376165,
+                "bound_improvement_factor": 101.98382053427117,
+                "sharp_bound_holds": true
+              },
+              {
+                "even_target": 100000,
+                "lambda_additive_correlation": 176573.64981384535,
+                "goldbach_prime_weight": 176154.32529638355,
+                "proper_prime_power_contamination": 419.32451746187246,
+                "certified_margin": -1164712.2662865373,
+                "ordered_supported_pair_count": 1636,
+                "ordered_prime_pair_count": 1620,
+                "ordered_proper_power_pair_count": 16,
+                "decomposition_error": 8.105871529551223e-11,
+                "contamination_bound_holds": true,
+                "old_contamination_bound": 1341285.9161003826,
+                "proper_prime_power_mass": 366.17475704540334,
+                "sharp_contamination_bound": 8431.485370034621,
+                "sharp_certified_margin": 168142.16444381073,
+                "bound_improvement_factor": 159.08061951542888,
+                "sharp_bound_holds": true
+              },
+              {
+                "even_target": 1000000,
+                "lambda_additive_correlation": 1756567.5367322373,
+                "goldbach_prime_weight": 1756441.844265565,
+                "proper_prime_power_contamination": 125.69246667230608,
+                "certified_margin": -5496429.07840221,
+                "ordered_supported_pair_count": 10810,
+                "ordered_prime_pair_count": 10804,
+                "ordered_proper_power_pair_count": 6,
+                "decomposition_error": 2.900435447372729e-11,
+                "contamination_bound_holds": true,
+                "old_contamination_bound": 7252996.615134448,
+                "proper_prime_power_mass": 1102.4224699986298,
+                "sharp_contamination_bound": 30461.058547206245,
+                "sharp_certified_margin": 1726106.478185031,
+                "bound_improvement_factor": 238.10717555643387,
+                "sharp_bound_holds": true
+              }
+            ],
+            "all_even_screen": {
+              "method": "double-precision FFT screen with direct recomputation at every nonpositive case, the minimum positive case, and scale checkpoints",
+              "screen_limit": 1000000,
+              "even_target_count": 499999,
+              "nonpositive_margin_count": 10,
+              "last_nonpositive_margin_target": 38,
+              "observed_positive_suffix_start": 40,
+              "minimum_positive_margin_row": {
+                "even_target": 52,
+                "lambda_additive_correlation": 67.39503351750318,
+                "sharp_contamination_bound": 67.36998055560562,
+                "sharp_margin": 0.02505296189755768
+              },
+              "nonpositive_margin_rows": [
+                {
+                  "even_target": 4,
+                  "lambda_additive_correlation": 0.4804530134424567,
+                  "sharp_contamination_bound": 1.9218120556728056,
+                  "sharp_margin": -1.4413590422303488,
+                  "direct_goldbach_witness": [
+                    2,
+                    2
+                  ]
+                },
+                {
+                  "even_target": 6,
+                  "lambda_additive_correlation": 2.1678549881326035,
+                  "sharp_contamination_bound": 2.4839060486740205,
+                  "sharp_margin": -0.3160510605414171,
+                  "direct_goldbach_witness": [
+                    3,
+                    3
+                  ]
+                },
+                {
+                  "even_target": 8,
+                  "lambda_additive_correlation": 4.016749550588429,
+                  "sharp_contamination_bound": 5.765436167018416,
+                  "sharp_margin": -1.7486866164299872,
+                  "direct_goldbach_witness": [
+                    3,
+                    5
+                  ]
+                },
+                {
+                  "even_target": 10,
+                  "lambda_additive_correlation": 7.826798026682809,
+                  "sharp_contamination_bound": 11.443418018567252,
+                  "sharp_margin": -3.616619991884443,
+                  "direct_goldbach_witness": [
+                    3,
+                    7
+                  ]
+                },
+                {
+                  "even_target": 12,
+                  "lambda_additive_correlation": 9.63844708551187,
+                  "sharp_contamination_bound": 12.349522116321248,
+                  "sharp_margin": -2.7110750308093774,
+                  "direct_goldbach_witness": [
+                    5,
+                    7
+                  ]
+                },
+                {
+                  "even_target": 14,
+                  "lambda_additive_correlation": 12.591577272163704,
+                  "sharp_contamination_bound": 13.115622215065436,
+                  "sharp_margin": -0.5240449429017318,
+                  "direct_goldbach_witness": [
+                    3,
+                    11
+                  ]
+                },
+                {
+                  "even_target": 26,
+                  "lambda_additive_correlation": 31.15278353798203,
+                  "sharp_contamination_bound": 31.19622054592923,
+                  "sharp_margin": -0.043437007947197515,
+                  "direct_goldbach_witness": [
+                    3,
+                    23
+                  ]
+                },
+                {
+                  "even_target": 28,
+                  "lambda_additive_correlation": 33.686154527706094,
+                  "sharp_contamination_bound": 39.22740480191732,
+                  "sharp_margin": -5.541250274211222,
+                  "direct_goldbach_witness": [
+                    5,
+                    23
+                  ]
+                },
+                {
+                  "even_target": 32,
+                  "lambda_additive_correlation": 39.67315653245896,
+                  "sharp_contamination_bound": 45.60389427800405,
+                  "sharp_margin": -5.930737745545088,
+                  "direct_goldbach_witness": [
+                    3,
+                    29
+                  ]
+                },
+                {
+                  "even_target": 38,
+                  "lambda_additive_correlation": 42.95785507047549,
+                  "sharp_contamination_bound": 47.86518630034198,
+                  "sharp_margin": -4.907331229866493,
+                  "direct_goldbach_witness": [
+                    7,
+                    31
+                  ]
+                }
+              ],
+              "direct_validation_rows": [
+                {
+                  "even_target": 4,
+                  "direct_correlation": 0.4804530139182014,
+                  "fft_correlation": 0.4804530134424567,
+                  "absolute_error": 4.757446658842923e-10
+                },
+                {
+                  "even_target": 6,
+                  "direct_correlation": 2.167854988648985,
+                  "fft_correlation": 2.1678549881326035,
+                  "absolute_error": 5.163816041431346e-10
+                },
+                {
+                  "even_target": 8,
+                  "direct_correlation": 4.0167495508151045,
+                  "fft_correlation": 4.016749550588429,
+                  "absolute_error": 2.2667556720534776e-10
+                },
+                {
+                  "even_target": 10,
+                  "direct_correlation": 7.826798026608957,
+                  "fft_correlation": 7.826798026682809,
+                  "absolute_error": 7.385203559806541e-11
+                },
+                {
+                  "even_target": 12,
+                  "direct_correlation": 9.638447085621392,
+                  "fft_correlation": 9.63844708551187,
+                  "absolute_error": 1.0952128093322244e-10
+                },
+                {
+                  "even_target": 14,
+                  "direct_correlation": 12.591577272364294,
+                  "fft_correlation": 12.591577272163704,
+                  "absolute_error": 2.0058976701875508e-10
+                },
+                {
+                  "even_target": 26,
+                  "direct_correlation": 31.15278353774278,
+                  "fft_correlation": 31.15278353798203,
+                  "absolute_error": 2.3925039727146213e-10
+                },
+                {
+                  "even_target": 28,
+                  "direct_correlation": 33.686154528139916,
+                  "fft_correlation": 33.686154527706094,
+                  "absolute_error": 4.3382186731832917e-10
+                },
+                {
+                  "even_target": 32,
+                  "direct_correlation": 39.67315653251339,
+                  "fft_correlation": 39.67315653245896,
+                  "absolute_error": 5.4427573559223674e-11
+                },
+                {
+                  "even_target": 38,
+                  "direct_correlation": 42.9578550707253,
+                  "fft_correlation": 42.95785507047549,
+                  "absolute_error": 2.49812615038536e-10
+                },
+                {
+                  "even_target": 52,
+                  "direct_correlation": 67.39503351787228,
+                  "fft_correlation": 67.39503351750318,
+                  "absolute_error": 3.6909852951794164e-10
+                },
+                {
+                  "even_target": 100,
+                  "direct_correlation": 162.07824666735925,
+                  "fft_correlation": 162.07824666704983,
+                  "absolute_error": 3.0942715056880843e-10
+                },
+                {
+                  "even_target": 1000,
+                  "direct_correlation": 1880.0702208146952,
+                  "fft_correlation": 1880.0702208145522,
+                  "absolute_error": 1.4301804185379297e-10
+                },
+                {
+                  "even_target": 10000,
+                  "direct_correlation": 16855.213722554072,
+                  "fft_correlation": 16855.21372255322,
+                  "absolute_error": 8.512870408594608e-10
+                },
+                {
+                  "even_target": 100000,
+                  "direct_correlation": 176573.64981384535,
+                  "fft_correlation": 176573.64981384506,
+                  "absolute_error": 2.9103830456733704e-10
+                },
+                {
+                  "even_target": 1000000,
+                  "direct_correlation": 1756567.5367322373,
+                  "fft_correlation": 1756567.5367322406,
+                  "absolute_error": 3.259629011154175e-09
+                }
+              ],
+              "maximum_fft_direct_error": 3.259629011154175e-09,
+              "all_nonpositive_cases_have_goldbach_witness": true,
+              "proof_status": "numerical_screen_not_interval_or_symbolic_proof"
+            }
+          },
+          "theorem_status": "sharp_goldbach_contamination_bridge_proved_uniform_lower_bound_open",
+          "discarded_route": "Use the TICKET94 exponent-count bound after the exact weighted proper-power mass is available.",
+          "retained_route": "Write G(N)=M(N)+R(N) and prove M(N)-abs(R(N))>B_#G(N) uniformly beyond an explicit cutoff.",
+          "candidate_theorem": "UniformBinaryMinorArcDominance: M(N)-abs(R(N))>2 log(N)H(N) for every sufficiently large even N.",
+          "next_theorem_target": "UniformBinaryMinorArcDominance",
+          "proof_boundary": "TICKET95 proves a sharper contamination theorem and records a finite FFT screen. It does not prove the required uniform correlation lower bound or Goldbach."
+        }
+      },
+      "obstruction": "Write G(N)=M(N)+R(N) and prove M(N)-abs(R(N))>B_#G(N) uniformly beyond an explicit cutoff.",
+      "candidate_theorem": "UniformBinaryMinorArcDominance: M(N)-abs(R(N))>2 log(N)H(N) for every sufficiently large even N.",
+      "next_experiment": "Build a major/minor-arc budget whose error is smaller than the sharp prime-power mass envelope uniformly.",
+      "claim_boundary": "No Goldbach proof and no certified Goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-95",
+      "route": "TwinPrimePowerMassBudgetAndRemainderEquivalenceAudit",
+      "status": "sharp_prime_power_budget_and_equivalence_no_reduction_proved_no_twin_prime_resolution",
+      "proof_or_counterexample_mode": "sharp contamination theorem plus algebraic no-reduction audit",
+      "attempt": "Tighten the sparse contamination budget and test whether TICKET94's signed remainder target is genuinely weaker than the original correlation target.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-94",
+        "twin_ticket95_audit": {
+          "theorem_name": "TwinPrimePowerMassBudgetAndRemainderEquivalenceAudit",
+          "source_ticket": "TP-TICKET-94",
+          "sharp_budget_theorem": {
+            "mass": "H(y)=sum_{m<=y, m=p^k, k>=2} Lambda(m).",
+            "bound": "E_pp(x)<=log(x+2)(H(x)+H(x+2))=:B_#(x).",
+            "proof": "Charge every contaminated term to a proper-prime-power endpoint and bound the opposite Lambda weight by log(x+2).",
+            "infinite_bridge": "If limsup_x(C_2(x)-B_#(x))=+infinity, then there are infinitely many twin primes."
+          },
+          "equivalence_no_reduction": {
+            "identity": "D_R(x)=C_2(x)-alpha_R^2 S_R(x).",
+            "equivalence": "D_R>=-alpha_R^2 S_R+B_#+omega iff C_2>=B_#+omega.",
+            "finding": "The TICKET94 signed-remainder target is a valid reformulation but not a reduction of the unresolved correlation lower bound.",
+            "discarded_route": "Count the exact decomposition itself as proof progress without an independent estimate for D_R."
+          },
+          "machine_audit": {
+            "checkpoint_count": 5,
+            "maximum_checkpoint": 200000,
+            "budget_failure_count": 0,
+            "equivalence_failure_count": 0,
+            "total_failure_count": 0,
+            "checkpoint_rows": [
+              {
+                "limit": 100,
+                "lambda_shift_two_correlation": 112.88796742895666,
+                "twin_prime_weight": 79.97450929448584,
+                "proper_prime_power_contamination": 32.91345813447083,
+                "old_contamination_bound": 2592.3861964223483,
+                "proper_prime_power_mass": 10.31692083029347,
+                "sharp_contamination_bound": 95.43095671382696,
+                "sharp_certified_margin": 17.457010715129698,
+                "bound_improvement_factor": 27.165044611218264,
+                "sharp_bound_holds": true,
+                "twin_pair_count": 8
+              },
+              {
+                "limit": 1000,
+                "lambda_shift_two_correlation": 1135.462784553193,
+                "twin_prime_weight": 1028.368743410726,
+                "proper_prime_power_contamination": 107.09404114246726,
+                "old_contamination_bound": 27203.91739877155,
+                "proper_prime_power_mass": 40.43564712711637,
+                "sharp_contamination_bound": 558.8006908640477,
+                "sharp_certified_margin": 576.6620936891452,
+                "bound_improvement_factor": 48.682683904179484,
+                "sharp_bound_holds": true,
+                "twin_pair_count": 35
+              },
+              {
+                "limit": 10000,
+                "lambda_shift_two_correlation": 13302.92434452426,
+                "twin_prime_weight": 12950.5861591966,
+                "proper_prime_power_contamination": 352.3381853276575,
+                "old_contamination_bound": 220590.59504731695,
+                "proper_prime_power_mass": 117.40531410612746,
+                "sharp_contamination_bound": 2162.7327662224775,
+                "sharp_certified_margin": 11140.191578301781,
+                "bound_improvement_factor": 101.99623295697786,
+                "sharp_bound_holds": true,
+                "twin_pair_count": 205
+              },
+              {
+                "limit": 100000,
+                "lambda_shift_two_correlation": 131522.91254363762,
+                "twin_prime_weight": 130224.41900544071,
+                "proper_prime_power_contamination": 1298.4935381968946,
+                "old_contamination_bound": 1341303.9890011034,
+                "proper_prime_power_mass": 366.17475704540334,
+                "sharp_contamination_bound": 8431.500016878435,
+                "sharp_certified_margin": 123091.41252675919,
+                "bound_improvement_factor": 159.08248666501098,
+                "sharp_bound_holds": true,
+                "twin_pair_count": 1224
+              },
+              {
+                "limit": 200000,
+                "lambda_shift_two_correlation": 264287.70787028514,
+                "twin_prime_weight": 262676.2014141983,
+                "proper_prime_power_contamination": 1611.5064560867415,
+                "old_contamination_bound": 2265419.834990771,
+                "proper_prime_power_mass": 507.9736130825387,
+                "sharp_contamination_bound": 12400.735806017274,
+                "sharp_certified_margin": 251886.97206426787,
+                "bound_improvement_factor": 182.6843076433827,
+                "sharp_bound_holds": true,
+                "twin_pair_count": 2160
+              }
+            ],
+            "equivalence_rows": [
+              {
+                "truncation": 10,
+                "surrogate_main_term": 444961.4078569613,
+                "combined_signed_remainder": -180673.69998637435,
+                "exact_correlation": 264287.70787028514,
+                "identity_error": 3.018067218363285e-07,
+                "rearranged_target_left": 251886.97206456968,
+                "original_correlation_excess": 251886.97206426787,
+                "target_equivalence_error": 3.018067218363285e-07
+              },
+              {
+                "truncation": 30,
+                "surrogate_main_term": 422608.7721335673,
+                "combined_signed_remainder": -158321.06426326372,
+                "exact_correlation": 264287.70787028514,
+                "identity_error": 1.8451828509569168e-08,
+                "rearranged_target_left": 251886.97206428632,
+                "original_correlation_excess": 251886.97206426787,
+                "target_equivalence_error": 1.8451828509569168e-08
+              },
+              {
+                "truncation": 100,
+                "surrogate_main_term": 369592.04803483543,
+                "combined_signed_remainder": -105304.34016456004,
+                "exact_correlation": 264287.70787028514,
+                "identity_error": 9.778887033462524e-09,
+                "rearranged_target_left": 251886.9720642581,
+                "original_correlation_excess": 251886.97206426787,
+                "target_equivalence_error": 9.778887033462524e-09
+              },
+              {
+                "truncation": 300,
+                "surrogate_main_term": 337240.6151671888,
+                "combined_signed_remainder": -72952.90729689781,
+                "exact_correlation": 264287.70787028514,
+                "identity_error": 5.820766091346741e-09,
+                "rearranged_target_left": 251886.9720642737,
+                "original_correlation_excess": 251886.97206426787,
+                "target_equivalence_error": 5.820766091346741e-09
+              }
+            ]
+          },
+          "theorem_status": "sharp_prime_power_budget_and_equivalence_no_reduction_proved_no_twin_prime_resolution",
+          "retained_route": "Obtain an independent one-sided Type II estimate for C_2 or D_R; algebraic decomposition alone supplies no new information.",
+          "candidate_theorem": "IndependentShiftTwoCorrelationExcess: prove C_2(x)>B_#(x)+omega(x) on an unbounded sequence using estimates not containing C_2 as an input.",
+          "next_theorem_target": "IndependentShiftTwoCorrelationExcess",
+          "proof_boundary": "TICKET95 sharpens the sparse contamination budget and proves an equivalence/no-reduction result. It does not prove Twin Prime."
+        }
+      },
+      "obstruction": "Obtain an independent one-sided Type II estimate for C_2 or D_R; algebraic decomposition alone supplies no new information.",
+      "candidate_theorem": "IndependentShiftTwoCorrelationExcess: prove C_2(x)>B_#(x)+omega(x) on an unbounded sequence using estimates not containing C_2 as an input.",
+      "next_experiment": "Specify a parity-breaking Type II premise and derive correlation excess without using exact C_2 samples as input.",
+      "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+    }
+  ]
+}

@@ -1,0 +1,1021 @@
+{
+  "schema": "primeproject.ticket74-coverage-leakage-escape-forest-lab.v1",
+  "generated_at": "2026-07-10T09:10:00+09:00",
+  "status": "coverage_leakage_escape_forest_open_no_resolution",
+  "claim_boundary": "Ticket 74 audits coverage leakage and escaping pressure, but does not prove or disprove any of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-74",
+      "status": "proof_pressure_open",
+      "route": "ZeroFrontierCoverageLeakageAudit",
+      "proof_or_counterexample_mode": "coverage-leakage proof discipline",
+      "attempt": "Apply the TICKET74 correction: a bounded frontier that appears extinct under one predicate may leak into uncovered states, so coverage and successor closure must be proven before a finite result is promoted.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-73",
+        "source_route": "ZeroFrontierCoverageAndAllHeightDecision",
+        "ticket74_transfer": "ZeroFrontierCoverageLeakageAudit",
+        "candidate_theorem": "Every off-critical zero candidate is covered by a rigorously bounded zero-counting frontier, or an escaping zero packet is isolated with explicit error control.",
+        "counterexample_target": "an all-height off-critical zero packet that escapes every certified zero-counting frontier"
+      },
+      "obstruction": "This transfer is a proof obligation, not evidence that the target conjecture is solved.",
+      "candidate_theorem": "Every off-critical zero candidate is covered by a rigorously bounded zero-counting frontier, or an escaping zero packet is isolated with explicit error control.",
+      "next_experiment": "Prove a problem-specific global frontier cover before interpreting bounded extinction as a theorem.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-74",
+      "route": "FiniteRootCoverageLeakageOrEscapingPressureForest",
+      "status": "strict_cover_leakage_and_sixth_pressure_persistence_observed_no_global_resolution",
+      "proof_or_counterexample_mode": "coverage-leakage falsification plus exact escaping-pressure expansion",
+      "attempt": "Test whether the TICKET73 strict root family actually closes pressure. Expand every fifth-lift open-pressure escape one more layer, count return to the original compact cover, and retain only conclusions justified by exact congruence lineage.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-73",
+        "coverage_leakage_escape_forest_audit": {
+          "theorem_name": "FiniteRootCoverageLeakageOrEscapingPressureForest",
+          "source_ticket": "CO-TICKET-73",
+          "source_status": "strict_reentry_tree_extinct_at_fifth_lift_for_selected_roots_no_global_conclusion",
+          "reconstructed_frontier_branch_weight": 792064,
+          "reconstructed_pressure_mixed_transition_key_count": 20752,
+          "coverage_audit": {
+            "selected_top_mixed_key_coverage": {
+              "numerator": 8,
+              "denominator": 20752,
+              "fraction": 0.00038551
+            },
+            "selected_first_layer_row_coverage": {
+              "numerator": 2512,
+              "denominator": 371343,
+              "fraction": 0.00676464
+            },
+            "selected_first_layer_open_pressure_coverage": {
+              "numerator": 2303,
+              "denominator": 180385,
+              "fraction": 0.01276714
+            },
+            "selected_root_count": 4142,
+            "third_strict_reentry_root_count": 1835,
+            "fourth_strict_reentry_root_count": 614,
+            "fifth_open_pressure_escape_ratio": {
+              "numerator": 15696,
+              "denominator": 15696,
+              "fraction": 1.0
+            },
+            "fifth_new_unranked_share_of_open_pressure": {
+              "numerator": 15593,
+              "denominator": 15696,
+              "fraction": 0.99343782
+            }
+          },
+          "third_strict_reentry_audit": {
+            "source_count": 4142,
+            "row_count": 66272,
+            "outcome_counts": {
+              "safe_base_cycle_exit": 38602,
+              "pressure_new_unranked_internal": 21894,
+              "pressure_rank_equal": 5353,
+              "pressure_rank_descent": 370,
+              "safe_closed_or_terminal": 53
+            },
+            "open_pressure_rows": 27247,
+            "mixed_key_reentry_count": 21816,
+            "open_pressure_mixed_key_reentry_count": 12911,
+            "root_with_open_pressure_mixed_reentry_count": 1835
+          },
+          "fourth_strict_reentry_audit": {
+            "source_count": 12911,
+            "row_count": 206576,
+            "outcome_counts": {
+              "safe_base_cycle_exit": 125919,
+              "pressure_new_unranked_internal": 80243,
+              "pressure_rank_equal": 386,
+              "safe_closed_or_terminal": 28
+            },
+            "open_pressure_rows": 80629,
+            "mixed_key_reentry_count": 4884,
+            "open_pressure_mixed_key_reentry_count": 2873,
+            "root_with_open_pressure_mixed_reentry_count": 614
+          },
+          "fifth_open_pressure_escape_audit": {
+            "source_count": 2873,
+            "row_count": 45968,
+            "outcome_counts": {
+              "safe_base_cycle_exit": 30272,
+              "pressure_new_unranked_internal": 15593,
+              "pressure_rank_equal": 103
+            },
+            "open_pressure_count": 15696,
+            "original_mixed_transition_reentry_count": 0,
+            "open_pressure_original_mixed_reentry_count": 0,
+            "new_unranked_internal_count": 15593,
+            "rank_equal_count": 103,
+            "surviving_root_count": 595,
+            "exact_extension_failure_count": 0,
+            "examples": [
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=1",
+                "child_top": 1,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 1388682182830942813953895,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    2
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=3",
+                "child_top": 3,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 3806533822060201163366247,
+                  "modulus_bits": 84,
+                  "prefix_length": 60,
+                  "consumed_bits": 84,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 11.09775004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=7",
+                "child_top": 7,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 8642237100518717862190951,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=8",
+                "child_top": 8,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 9851162920133347036897127,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    2
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=10",
+                "child_top": 10,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 12269014559362605386309479,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    3,
+                    1,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=11",
+                "child_top": 11,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 13477940378977234561015655,
+                  "modulus_bits": 84,
+                  "prefix_length": 61,
+                  "consumed_bits": 84,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 12.68271254,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=2",
+                "source_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=15",
+                "child_top": 15,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 179756363216313639247719,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 79,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 9.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 18313643657435751259840359,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 83,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 10.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 5,
+                "first_transition_key": "[12,[1,2,1,1],103,1,54,76] + child_top=3",
+                "source_transition_key": "[0,[1,2,2,1],103,1,56,80] + child_top=4",
+                "child_top": 4,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 255314226942227962666855,
+                  "modulus_bits": 80,
+                  "prefix_length": 56,
+                  "consumed_bits": 80,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 8.75790004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 5091017505400744661491559,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 83,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 10.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              }
+            ]
+          },
+          "sixth_escape_pressure_audit": {
+            "source_count": 15696,
+            "row_count": 251136,
+            "outcome_counts": {
+              "safe_base_cycle_exit": 172814,
+              "pressure_new_unranked_internal": 78315,
+              "safe_closed_or_terminal": 7
+            },
+            "open_pressure_count": 78315,
+            "original_mixed_transition_reentry_count": 12,
+            "open_pressure_original_mixed_reentry_count": 5,
+            "new_unranked_internal_count": 78315,
+            "rank_equal_count": 0,
+            "surviving_root_count": 588,
+            "exact_extension_failure_count": 0,
+            "examples": [
+              {
+                "depth": 6,
+                "first_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=3",
+                "source_transition_key": "[4,[1,1,1,2],103,3,60,84] + child_top=1",
+                "child_top": 1,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3806533822060201163366247,
+                  "modulus_bits": 84,
+                  "prefix_length": 60,
+                  "consumed_bits": 84,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 11.09775004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 23149346935894267958665063,
+                  "modulus_bits": 88,
+                  "prefix_length": 62,
+                  "consumed_bits": 87,
+                  "next_valuation": 2,
+                  "coefficient_log2_debt": 11.26767504,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 6,
+                "first_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=3",
+                "source_transition_key": "[4,[1,1,1,2],103,3,60,84] + child_top=6",
+                "child_top": 6,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3806533822060201163366247,
+                  "modulus_bits": 84,
+                  "prefix_length": 60,
+                  "consumed_bits": 84,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 11.09775004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 119863412505064601935159143,
+                  "modulus_bits": 88,
+                  "prefix_length": 61,
+                  "consumed_bits": 85,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 11.68271254,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 6,
+                "first_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=3",
+                "source_transition_key": "[4,[1,1,1,2],103,3,60,84] + child_top=7",
+                "child_top": 7,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3806533822060201163366247,
+                  "modulus_bits": 84,
+                  "prefix_length": 60,
+                  "consumed_bits": 84,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 11.09775004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 139206225618898668730457959,
+                  "modulus_bits": 88,
+                  "prefix_length": 60,
+                  "consumed_bits": 86,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 9.09775004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    4
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 6,
+                "first_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=3",
+                "source_transition_key": "[4,[1,1,1,2],103,3,60,84] + child_top=14",
+                "child_top": 14,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 3806533822060201163366247,
+                  "modulus_bits": 84,
+                  "prefix_length": 60,
+                  "consumed_bits": 84,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 11.09775004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 274605917415737136297549671,
+                  "modulus_bits": 88,
+                  "prefix_length": 62,
+                  "consumed_bits": 87,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 11.26767504,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 6,
+                "first_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=7",
+                "source_transition_key": "[4,[1,1,1,3],103,1,59,84] + child_top=0",
+                "child_top": 0,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 8642237100518717862190951,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 8642237100518717862190951,
+                  "modulus_bits": 88,
+                  "prefix_length": 60,
+                  "consumed_bits": 85,
+                  "next_valuation": 4,
+                  "coefficient_log2_debt": 10.09775004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 6,
+                "first_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=7",
+                "source_transition_key": "[4,[1,1,1,3],103,1,59,84] + child_top=10",
+                "child_top": 10,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 8642237100518717862190951,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 202070368238859385815179111,
+                  "modulus_bits": 88,
+                  "prefix_length": 60,
+                  "consumed_bits": 86,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 9.09775004,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3,
+                    2
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 6,
+                "first_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=8",
+                "source_transition_key": "[4,[1,2,1,2],103,1,59,84] + child_top=0",
+                "child_top": 0,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 9851162920133347036897127,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    2
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 9851162920133347036897127,
+                  "modulus_bits": 88,
+                  "prefix_length": 61,
+                  "consumed_bits": 86,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 10.68271254,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              },
+              {
+                "depth": 6,
+                "first_transition_key": "[0,[1,1,2,1],103,2,56,79] + child_top=10",
+                "source_transition_key": "[4,[1,3,1,1],103,1,59,84] + child_top=0",
+                "child_top": 0,
+                "source_rank": null,
+                "child_rank": null,
+                "outcome_class": "pressure_new_unranked_internal",
+                "source_certificate": {
+                  "status": "needs_split",
+                  "residue": 12269014559362605386309479,
+                  "modulus_bits": 84,
+                  "prefix_length": 59,
+                  "consumed_bits": 84,
+                  "next_valuation": 1,
+                  "coefficient_log2_debt": 9.51278754,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    3,
+                    1,
+                    1
+                  ]
+                },
+                "child_certificate": {
+                  "status": "needs_split",
+                  "residue": 12269014559362605386309479,
+                  "modulus_bits": 88,
+                  "prefix_length": 63,
+                  "consumed_bits": 88,
+                  "next_valuation": 3,
+                  "coefficient_log2_debt": 11.85263755,
+                  "coefficient_log2_margin": null,
+                  "threshold_min_n_for_descent": null,
+                  "prefix_tail8": [
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "transition_key_is_original_mixed": false
+              }
+            ]
+          },
+          "coverage_leakage_status": "strict_cover_leakage_and_sixth_pressure_persistence_observed_no_global_resolution",
+          "discarded_route": "Promote TICKET73 strict-tree extinction into a global finite coverage theorem. The fifth lift still has open pressure, but zero of those rows re-enter the original mixed-key cover; the old cover leaks into new internal states.",
+          "retained_route": "Build a theorem-level cover that includes every escaping needs_split state, or prove a finite extinction theorem for a larger exactly specified pressure predicate with a coverage proof independent of the T70 horizon.",
+          "candidate_theorem": "FiniteRootCoverageLeakageOrEscapingPressureForest: an exact finite frontier family either covers every reachable open-pressure successor by a well-founded descent coordinate, or the uncovered successors form an escaping pressure forest whose all-depth compatibility must be decided separately.",
+          "counterexample_target": "A theorem-level covered, all-depth compatible escaping-pressure path that avoids every well-founded descent coordinate; it would still require a separate proof of divergence or a nontrivial cycle.",
+          "next_theorem_target": "GlobalCoverageCertificateOrEscapingPressureForestDecision",
+          "proof_boundary": "TICKET74 does not prove Collatz and does not certify a counterexample. It shows that TICKET73 strict re-entry extinction is not full pressure closure: open pressure escapes the original cover, and only a global coverage theorem could make a finite extinction result relevant to every unresolved trajectory."
+        }
+      },
+      "obstruction": "The original compact mixed-key cover is not closed under the selected strict tree: fifth-lift open pressure can leave the known ranked frontier. A global theorem must cover those escape states rather than silently discard them.",
+      "candidate_theorem": "FiniteRootCoverageLeakageOrEscapingPressureForest: an exact finite frontier family either covers every reachable open-pressure successor by a well-founded descent coordinate, or the uncovered successors form an escaping pressure forest whose all-depth compatibility must be decided separately.",
+      "next_experiment": "Search for a horizon-independent cover of escape states or certify a larger pressure forest's finite extinction.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-74",
+      "status": "proof_pressure_open",
+      "route": "ExceptionalEvenCoverageLeakageAudit",
+      "proof_or_counterexample_mode": "coverage-leakage proof discipline",
+      "attempt": "Apply the TICKET74 correction: a bounded frontier that appears extinct under one predicate may leak into uncovered states, so coverage and successor closure must be proven before a finite result is promoted.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-73",
+        "source_route": "RepresentationFrontierCoverageAndAllScaleDecision",
+        "ticket74_transfer": "ExceptionalEvenCoverageLeakageAudit",
+        "candidate_theorem": "Every even target outside the certified range is covered by a uniform positive representation lower bound, or an escaping exceptional packet is isolated.",
+        "counterexample_target": "an exact exceptional even sequence that evades every claimed representation cover"
+      },
+      "obstruction": "This transfer is a proof obligation, not evidence that the target conjecture is solved.",
+      "candidate_theorem": "Every even target outside the certified range is covered by a uniform positive representation lower bound, or an escaping exceptional packet is isolated.",
+      "next_experiment": "Prove a problem-specific global frontier cover before interpreting bounded extinction as a theorem.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-74",
+      "status": "proof_pressure_open",
+      "route": "ExactGapCoverageLeakageAudit",
+      "proof_or_counterexample_mode": "coverage-leakage proof discipline",
+      "attempt": "Apply the TICKET74 correction: a bounded frontier that appears extinct under one predicate may leak into uncovered states, so coverage and successor closure must be proven before a finite result is promoted.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-73",
+        "source_route": "GapFrontierCoverageAndAllScaleDecision",
+        "ticket74_transfer": "ExactGapCoverageLeakageAudit",
+        "candidate_theorem": "Every sieve frontier packet is covered by an exact gap-2 mass lower bound, or an escaping parity/deletion packet is isolated.",
+        "counterexample_target": "an all-scale sieve packet that escapes every exact gap-2 mass cover"
+      },
+      "obstruction": "This transfer is a proof obligation, not evidence that the target conjecture is solved.",
+      "candidate_theorem": "Every sieve frontier packet is covered by an exact gap-2 mass lower bound, or an escaping parity/deletion packet is isolated.",
+      "next_experiment": "Prove a problem-specific global frontier cover before interpreting bounded extinction as a theorem.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "schema": "primeproject.ticket81-mersenne-post-compensation-no-go-lab.v1",
+  "generated_at": "2026-07-11T16:10:00+09:00",
+  "status": "mersenne_post_compensation_no_go_open_no_collatz_resolution",
+  "claim_boundary": "Ticket 81 proves one restricted Collatz family no-go theorem but solves none of the four open problems.",
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-81",
+      "status": "proof_pressure_open",
+      "route": "SingleHeightCorrectionNoGoGuard",
+      "proof_or_counterexample_mode": "single-compensation-step no-go transfer discipline",
+      "attempt": "Transfer only the requirement that one local compensation event cannot be assumed to repair an unbounded global deficit. No Mersenne or Collatz formula is transferred.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-80",
+        "ticket81_transfer": "SingleHeightCorrectionNoGoGuard",
+        "candidate_theorem": "Control a cumulative all-height positivity margin rather than one local kernel correction."
+      },
+      "obstruction": "No problem-specific exact compensation family was proved for this problem.",
+      "candidate_theorem": "Control a cumulative all-height positivity margin rather than one local kernel correction.",
+      "next_experiment": "Derive a target-specific cumulative rather than one-step margin theorem.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-81",
+      "route": "MersenneFirstPostCompensationDescentNoGo",
+      "status": "mersenne_first_post_compensation_descent_refuted_exactly_no_collatz_resolution",
+      "proof_or_counterexample_mode": "exact stabilized Mersenne cylinders plus LTE compensation classification",
+      "attempt": "Test whether the first non-1 valuation after a stabilized all-ones Mersenne expansion block forces descent.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-80",
+        "mersenne_post_compensation_no_go_audit": {
+          "theorem_name": "MersenneFirstPostCompensationDescentNoGo",
+          "source_ticket": "CO-TICKET-80",
+          "family": "N_k=2^k-1, k>=2",
+          "exact_formula": {
+            "initial_block": "A^j(N_k)=3^j*2^(k-j)-1 for 0<=j<=k-1",
+            "initial_valuations": "a_1=...=a_(k-1)=1",
+            "stabilization": "the depth-(k-1) cylinder modulus is 2^k=N_k+1, so its least residue is already N_k",
+            "post_block": "A^k(N_k)=oddpart(3^k-1)",
+            "post_valuation": "a_k=2 for odd k; a_k=3+v2(k) for even k"
+          },
+          "classification": {
+            "descent_exceptions": "k in {2,4,8}",
+            "non_descent_infinite_families": [
+              "every odd k>=3",
+              "k=6",
+              "every even k>=10"
+            ]
+          },
+          "proof_chain": [
+            "Direct induction gives the initial k-1 valuation-one block and keeps every one of those iterates above N_k.",
+            "At depth k-1 the exact cylinder modulus equals N_k+1, so the least residue has already stabilized to the positive integer N_k.",
+            "The next numerator is 2*(3^k-1). LTE gives v2(3^k-1)=1 for odd k and 2+v2(k) for even k.",
+            "Hence the first post-block iterate is oddpart(3^k-1).",
+            "For odd k>=3, (3^k-1)/2>2^k-1, so every odd exponent is non-descending.",
+            "For even k>=10, 2^(2+v2(k))<=4k and (3^k-1)/(4k)>2^k-1; the latter follows from (8/9)*(3/2)^k>4k at k=10 and monotonicity of (3/2)^k/k.",
+            "Only k=2,4,6,8 remain. Direct evaluation gives descent for k=2,4,8 and non-descent for k=6.",
+            "Therefore the first non-1 compensation valuation after the stabilized Mersenne expansion block does not force descent for an infinite family."
+          ],
+          "machine_audit": {
+            "min_k": 2,
+            "max_k": 1024,
+            "mersenne_case_count": 1023,
+            "initial_step_replay_count": 523776,
+            "odd_k_count": 511,
+            "even_k_count": 512,
+            "post_compensation_non_descent_count": 1020,
+            "descent_exception_count": 3,
+            "descent_exception_k": [
+              2,
+              4,
+              8
+            ],
+            "initial_formula_failure_count": 0,
+            "initial_valuation_failure_count": 0,
+            "stabilization_failure_count": 0,
+            "post_formula_failure_count": 0,
+            "post_valuation_failure_count": 0,
+            "exception_classification_failure_count": 0,
+            "symbolic_partition_failure_count": 0,
+            "total_failure_count": 0,
+            "samples": [
+              {
+                "k": 2,
+                "start": 3,
+                "initial_valuation_one_steps": 1,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 4,
+                "post_block_iterate": 1,
+                "post_block_above_start": false,
+                "classification": "descent_exception"
+              },
+              {
+                "k": 3,
+                "start": 7,
+                "initial_valuation_one_steps": 2,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 2,
+                "post_block_iterate": 13,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 4,
+                "start": 15,
+                "initial_valuation_one_steps": 3,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 5,
+                "post_block_iterate": 5,
+                "post_block_above_start": false,
+                "classification": "descent_exception"
+              },
+              {
+                "k": 5,
+                "start": 31,
+                "initial_valuation_one_steps": 4,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 2,
+                "post_block_iterate": 121,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 6,
+                "start": 63,
+                "initial_valuation_one_steps": 5,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 4,
+                "post_block_iterate": 91,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 8,
+                "start": 255,
+                "initial_valuation_one_steps": 7,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 6,
+                "post_block_iterate": 205,
+                "post_block_above_start": false,
+                "classification": "descent_exception"
+              },
+              {
+                "k": 9,
+                "start": 511,
+                "initial_valuation_one_steps": 8,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 2,
+                "post_block_iterate": 9841,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 10,
+                "start": 1023,
+                "initial_valuation_one_steps": 9,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 4,
+                "post_block_iterate": 7381,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 16,
+                "start": 65535,
+                "initial_valuation_one_steps": 15,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 7,
+                "post_block_iterate": 672605,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 32,
+                "start": 4294967295,
+                "initial_valuation_one_steps": 31,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 8,
+                "post_block_iterate": 14476720225405,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 64,
+                "start": 18446744073709551615,
+                "initial_valuation_one_steps": 63,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 9,
+                "post_block_iterate": 13412827423017626893194723005,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 128,
+                "start": 340282366920938463463374607431768211455,
+                "initial_valuation_one_steps": 127,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 10,
+                "post_block_iterate": 23027704253395670256876704807446325518902757016163752166205,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 256,
+                "start": 115792089237316195423570985008687907853269984665640564039457584007913129639935,
+                "initial_valuation_one_steps": 255,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 11,
+                "post_block_iterate": 135750441774555403090761510536778616322479346492704236319926586357457102177506285098634540189560165548644204629442284605,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 512,
+                "start": 13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084095,
+                "initial_valuation_one_steps": 511,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 12,
+                "post_block_iterate": 9435229410297321828834994493173623562207746953907875268644793764112532591023211425790009487200209645698282387350872128664625736865885225041063496327504218526640893619984081778700225743362974774473165722494258924117085695634270450681285369405,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              },
+              {
+                "k": 1024,
+                "start": 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137215,
+                "initial_valuation_one_steps": 1023,
+                "residue_stabilized_by_initial_block": true,
+                "first_post_block_valuation": 13,
+                "post_block_iterate": 91160119321538096565664002486539694390969183785091310485995344658710703275699524226072677963575189751091007096052606239772638441062539272114587728755568649246628844871646137924513432605458106515032182138927412424022803448612711917075346020116351252836707125664806209747542699233054342842933299204225082080658336867051447896031378676510926819202348094095056675273619292731327814742537319915951431637081376825297101138627923068116920657690248174877245734301452459520575393325366780691005,
+                "post_block_above_start": true,
+                "classification": "post_compensation_non_descent"
+              }
+            ]
+          },
+          "computational_failure_count": 0,
+          "theorem_status": "mersenne_first_post_compensation_descent_refuted_exactly_no_collatz_resolution",
+          "rejected_candidate_families": [
+            {
+              "family": "first_post_expansion_valuation_forces_descent",
+              "status": "refuted_by_infinite_mersenne_families",
+              "counteredge": "All odd k>=3 and all even k>=10 remain above N_k after the first compensation step."
+            },
+            {
+              "family": "positive_residue_stabilization_implies_near_term_descent",
+              "status": "refuted_by_stabilized_mersenne_cylinders",
+              "counteredge": "The least residue is N_k by depth k-1, yet the next step is non-descending for infinitely many k."
+            },
+            {
+              "family": "single_lte_burst_repays_linear_valuation_debt",
+              "status": "refuted_by_logarithmic_post_valuation",
+              "counteredge": "The compensating valuation is 2 or 3+v2(k), while the expansion block length is k-1."
+            }
+          ],
+          "discarded_route": "After a long valuation-one block, use only the first larger valuation to force descent, even when the positive-integer cylinder residue has already stabilized.",
+          "retained_route": "Analyze an adaptive multi-step compensation window and prove cumulative valuation surplus, not one LTE burst, overcomes the preceding expansion while preserving a horizon-independent argument.",
+          "candidate_theorem": "MersenneAdaptiveCompensationWindow: find an explicit window L(k) and prove that the cumulative valuations after the initial k-1 expansion steps force an iterate below 2^k-1, without importing empirical stopping time.",
+          "next_theorem_target": "MersenneAdaptiveCompensationWindow",
+          "equivalence_warning": "Proving such a compensation window only for Mersenne starts would be a genuine family theorem but not Collatz. Claiming the same window for every stabilized positive cylinder without proof would reintroduce the full conjecture.",
+          "literature_context": [
+            {
+              "citation": "Bernstein and Lagarias, The 3x+1 Conjugacy Map, Canadian Journal of Mathematics 48 (1996)",
+              "url": "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/3x-1-conjugacy-map/6975BB4A8C46CF6842217043AAF9EC13",
+              "role": "Established parity-cylinder and 2-adic context."
+            },
+            {
+              "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values, Forum of Mathematics, Pi 10 (2022)",
+              "url": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/almost-all-orbits-of-the-collatz-map-attain-almost-bounded-values/1008CC2DF91AF87F66D190C5E01C907F",
+              "role": "Primary context separating explicit family behavior from an all-integer theorem."
+            }
+          ],
+          "novelty_boundary": "The initial Mersenne trajectory formula and LTE are elementary established tools. PrimeProject claims only the explicit stabilized-cylinder post-compensation classification, no-go framing, audit, and integration with TICKET80.",
+          "proof_boundary": "TICKET81 proves a restricted no-go theorem for one proposed compensation rule. It does not establish the full stopping time of Mersenne numbers and neither proves nor disproves Collatz."
+        }
+      },
+      "obstruction": "After a long valuation-one block, use only the first larger valuation to force descent, even when the positive-integer cylinder residue has already stabilized.",
+      "candidate_theorem": "MersenneAdaptiveCompensationWindow: find an explicit window L(k) and prove that the cumulative valuations after the initial k-1 expansion steps force an iterate below 2^k-1, without importing empirical stopping time.",
+      "next_experiment": "Build TICKET82 for cumulative multi-step compensation after the Mersenne expansion block.",
+      "claim_boundary": "No Collatz proof and no certified Collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-81",
+      "status": "proof_pressure_open",
+      "route": "SingleExceptionalCorrectionNoGoGuard",
+      "proof_or_counterexample_mode": "single-compensation-step no-go transfer discipline",
+      "attempt": "Transfer only the requirement that one local compensation event cannot be assumed to repair an unbounded global deficit. No Mersenne or Collatz formula is transferred.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-80",
+        "ticket81_transfer": "SingleExceptionalCorrectionNoGoGuard",
+        "candidate_theorem": "Prove cumulative main-term dominance across the full exceptional range, not one corrected modulus."
+      },
+      "obstruction": "No problem-specific exact compensation family was proved for this problem.",
+      "candidate_theorem": "Prove cumulative main-term dominance across the full exceptional range, not one corrected modulus.",
+      "next_experiment": "Derive a target-specific cumulative rather than one-step margin theorem.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-81",
+      "status": "proof_pressure_open",
+      "route": "SingleParityCorrectionNoGoGuard",
+      "proof_or_counterexample_mode": "single-compensation-step no-go transfer discipline",
+      "attempt": "Transfer only the requirement that one local compensation event cannot be assumed to repair an unbounded global deficit. No Mersenne or Collatz formula is transferred.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-80",
+        "ticket81_transfer": "SingleParityCorrectionNoGoGuard",
+        "candidate_theorem": "Prove cumulative exact-gap mass survives every parity leakage stage, not one selector correction."
+      },
+      "obstruction": "No problem-specific exact compensation family was proved for this problem.",
+      "candidate_theorem": "Prove cumulative exact-gap mass survives every parity leakage stage, not one selector correction.",
+      "next_experiment": "Derive a target-specific cumulative rather than one-step margin theorem.",
+      "claim_boundary": "No twin prime proof and no certified twin prime counterexample."
+    }
+  ]
+}
