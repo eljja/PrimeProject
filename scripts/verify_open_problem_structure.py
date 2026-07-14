@@ -107,6 +107,7 @@ TICKET110_SCHEMA = "primeproject.ticket110-twin-rational-arc-budget.v1"
 TICKET111_SCHEMA = "primeproject.ticket111-twin-typeii-minor-phase-audit.v1"
 TICKET112_SCHEMA = "primeproject.ticket112-twin-farey-endpoint-abel-audit.v1"
 TICKET113_SCHEMA = "primeproject.ticket113-twin-farey-denominator-endpoint-audit.v1"
+TICKET114_SCHEMA = "primeproject.ticket114-twin-ramanujan-numerator-dispersion-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -6752,6 +6753,59 @@ def main() -> int:
         return fail("ticket113 quantitative frontier changed")
     if audit113.get("next_theorem_target") != "UniformRightFareyDenominatorEndpointBudgetForVaughanCrossSpectrum" or "proves none" not in str(audit113.get("proof_boundary", "")):
         return fail("ticket113 target or proof boundary changed")
+
+    path114 = Path("data/open-problem/ticket114-twin-ramanujan-numerator-dispersion-audit.json")
+    if not path114.exists():
+        return fail("missing ticket114 Ramanujan numerator-dispersion artifact")
+    ticket114 = read_json(path114)
+    expected_status114 = "ramanujan_centered_decomposition_exact_sharp_l2_support_audited_open"
+    if ticket114.get("schema") != TICKET114_SCHEMA or ticket114.get("status") != expected_status114:
+        return fail("ticket114 schema or status changed")
+    attempts114 = ticket114.get("attempts", [])
+    by_id114 = {str(row.get("problem_id")): row for row in attempts114 if isinstance(row, dict)} if isinstance(attempts114, list) else {}
+    if set(by_id114) != EXPECTED_PROBLEMS:
+        return fail("ticket114 attempts missing problems")
+    paths114 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-114-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-114-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-114-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-114-ramanujan-numerator-dispersion-audit.json"),
+    }
+    for problem_id, attempt in by_id114.items():
+        if not paths114[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket114 artifact or proof boundary missing")
+    if by_id114["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_ramanujan_numerator_dispersion_audit":
+        return fail("ticket114 shared audit reference changed")
+    audit114 = ticket114.get("twin_ramanujan_numerator_dispersion_audit", {})
+    machine114 = audit114.get("machine_audit", {})
+    expected_metrics114 = {
+        "maximum_horizon": 4194304,
+        "row_count": 6,
+        "minor_cell_count": 162,
+        "right_denominator_group_count": 31,
+        "signed_mean_finite_closure_count": 4,
+        "sign_free_finite_closure_count": 3,
+        "sign_free_terminal_run_start_horizon": 1048576,
+        "contract_failure_count": 0,
+    }
+    if audit114.get("theorem_name") != "ExactRamanujanMeanCenteredNumeratorDecompositionAndSharpL2SupportBound" or {key: int(machine114.get(key, -1)) for key in expected_metrics114} != expected_metrics114:
+        return fail("ticket114 theorem or machine contract changed")
+    rows114 = audit114.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows114] != [4096, 32768, 262144, 1048576, 2097152, 4194304]:
+        return fail("ticket114 horizon schedule changed")
+    if [bool(row.get("signed_mean_l2_closes_finite")) for row in rows114] != [False, False, True, True, True, True]:
+        return fail("ticket114 signed-mean finite frontier changed")
+    if [bool(row.get("sign_free_l2_closes_finite")) for row in rows114] != [False, False, False, True, True, True]:
+        return fail("ticket114 sign-free finite frontier changed")
+    if max(float(row.get("maximum_ramanujan_contract_error", 1)) for row in rows114) > 1e-9 or max(float(row.get("maximum_rational_boundary_decomposition_error", 1)) for row in rows114) > 1e-7 or max(float(row.get("type_ii_abel_identity_absolute_error", 1)) for row in rows114) > 1e-5 or max(float(row.get("endpoint_ramanujan_identity_absolute_error", 1)) for row in rows114) > 1e-5:
+        return fail("ticket114 exact identities changed")
+    if any([int(item.get("right_denominator", -1)) for item in row.get("denominator_profile", [])] != list(range(2, 33)) for row in rows114):
+        return fail("ticket114 right-denominator support changed")
+    frontier114 = rows114[-1]
+    if abs(float(frontier114.get("signed_mean_l2_lower_bound", 0)) - 621322.8285207893) > 1e-6 or abs(float(frontier114.get("sign_free_l2_lower_bound", 0)) - 327951.01574892923) > 1e-6 or abs(float(frontier114.get("sign_free_budget_to_known_ratio", 0)) - 0.8250221952011711) > 1e-12:
+        return fail("ticket114 quantitative frontier changed")
+    if audit114.get("next_theorem_target") != "EventuallySubcriticalVaughanCenteredFareyNumeratorDispersionBudget" or "proves none" not in str(audit114.get("proof_boundary", "")):
+        return fail("ticket114 target or proof boundary changed")
 
     print("open problem structure verified")
     return 0

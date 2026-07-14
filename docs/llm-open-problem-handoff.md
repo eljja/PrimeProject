@@ -62,7 +62,17 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-113
+## Latest Continuation After TICKET-114
+
+TICKET114 opens each of TICKET113's 31 right-denominator blocks by its reduced numerator. For the Abel endpoint coefficient `P_{q,a}`, it moves the endpoint phase to `exp(4 pi i a/q)`, retains the transfer error, and writes `Re(P_{q,a})=m_q+x_{q,a}` with zero-sum `x`. The mean term is exactly governed by the shift-two Ramanujan sum: the half reduced-residue cosine sum is `c_q(2)/2` for `q>2` and `c_2(2)` for `q=2`.
+
+The centered remainder is an exact inner product between `(x, Im P)` and the projected rational-phase vector `(cos-mean(cos), -sin)`. Its L2 support bound is sharp under only the zero-real-mean and norm constraints: the opposite projected-phase vector attains equality. This is a finite-dimensional no-go for any generic improvement using the same weak information. The extremizer is abstract and is not claimed to satisfy Vaughan convolution identities.
+
+At 4M the Ramanujan mean absolute envelope is `286,329.4`, centered L2 support envelope `1,170,759.3`, boundary transfer `18.63`, Abel variation `89,185.2`, and known major-plus-Type-I-minor contribution `1,874,243.5`. The sign-free finite lower expression is `+327,951.0`, or an adverse-budget/known ratio of `82.50%`. It is negative on the first three audited scales and positive only at 1M, 2M, and 4M. The terminal run is not a uniform estimate.
+
+The next theorem is `EventuallySubcriticalVaughanCenteredFareyNumeratorDispersionBudget`: prove a fixed-margin all-sufficiently-large-`X` bound for the sum of the Ramanujan mean absolute envelope, centered projected-L2 envelope, rational-boundary transfer, and Abel variation. Expand `P_{q,a}` into its Möbius/divisor bilinear coefficients and use weighted large-sieve or dispersion structure, or construct a Vaughan-realizable counterexample to the proposed margin. All four conjectures remain open.
+
+## Preserved Continuation After TICKET-113
 
 TICKET113 freezes a canonical grouping after exploratory work at `X=262,144`: attach every TICKET112 Abel endpoint to the denominator of its immediate right Farey boundary. This converts 162 endpoint terms into 31 complex denominator blocks without selecting a subset, sign, fitted weight, or exponent.
 

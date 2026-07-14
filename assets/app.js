@@ -1263,8 +1263,8 @@ const bundledProjectEvolution = {
     classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
-      claim_language_scanned_files: 57,
-      claim_language_scanned_lines: 18908,
+      claim_language_scanned_files: 58,
+      claim_language_scanned_lines: 19044,
     claim_language_triggered_mentions: 118,
     claim_language_guarded_mentions: 118,
     claim_language_failures: 0,
@@ -1377,6 +1377,7 @@ const bundledProjectEvolution = {
         { marker: "71", title: "Twin Type II phase obligation isolated", state: "bounded", measure: "2.10M holdout / phase-blind -6.67M / X^-1/6 finite lower +257.8K / 0 failures", proof: "TICKET-111 exactly splits the rational-minor spectrum into Vaughan Type I and Type II pieces, refutes every phase-blind partition-Cauchy refinement, and promotes a phase-aware uniform power-saving theorem" },
         { marker: "72", title: "Twin Farey endpoint bottleneck isolated", state: "bounded", measure: "162 cells / Abel envelope 1.28M / 96.05% endpoint loss / finite inherited lower +770.0K", proof: "TICKET-112 uses exact cellwise Abel summation to remove 83.15% of the phase-blind envelope, refutes independent endpoint triangles, and isolates uniform endpoint cancellation as the next theorem" },
         { marker: "73", title: "Twin Farey denominator blocks survive a new holdout", state: "bounded", measure: "4.19M holdout / 162 endpoints to 31 blocks / grouped lower +1.017M / 0 identity failures", proof: "TICKET-113 freezes canonical right-boundary-denominator grouping, retains 35.52% of endpoint envelope at 4M, and uses a magnitude-label adversary to show that a uniform Vaughan phase theorem is still indispensable" },
+        { marker: "74", title: "Twin Ramanujan mean separated from numerator dispersion", state: "bounded", measure: "4.19M / 31 denominator blocks / sign-free lower +327.95K / adverse budget 82.50% / 0 contract failures", proof: "TICKET-114 proves the exact Ramanujan-mean and centered-numerator decomposition, proves its projected L2 support bound is sharp under the weak contract, and isolates an eventually subcritical Vaughan numerator-dispersion estimate as the missing theorem" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },

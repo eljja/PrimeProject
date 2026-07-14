@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-113 groups 162 Farey endpoints into 31 right-denominator blocks, survives a fresh 4M holdout, and refutes magnitude-label-only cancellation"
+  "TP-TICKET-114 exactly splits Ramanujan means from centered numerator dispersion and leaves a 4M sign-free finite lower expression of 327951.0"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-114 UniformRightFareyDenominatorEndpointBudgetForVaughanCrossSpectrum."
+  "TP-TICKET-115 EventuallySubcriticalVaughanCenteredFareyNumeratorDispersionBudget."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove a uniform one-sided budget for the 31 canonical right-denominator endpoint blocks from Vaughan bilinear coefficient phases; reject magnitude-label-only arguments, abstract non-Vaughan adversaries, and finite-holdout inference."
+  "Expand the endpoint coefficients into Mobius/divisor bilinear sums and prove an all-sufficiently-large-X centered numerator second-moment budget with fixed margin; reject abstract non-Vaughan extremizers and finite terminal-run inference."
 
 end PrimeProject.OpenProblems.TwinPrime

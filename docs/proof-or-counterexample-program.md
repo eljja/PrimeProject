@@ -5023,3 +5023,15 @@ At the new 4M holdout, endpoint absolute mass is `2,161,424.6`, the 31-block end
 This finite success does not establish uniformity. A countermodel replaces each endpoint by `-|E_C|` while preserving cell labels, group counts, magnitudes, and magnitude-only norms. It gives lower expression `-376,366.3` at 4M and fails closure on all six scales. Thus Farey labels and magnitudes alone are insufficient; any proof must use phase relations imposed by the actual Vaughan bilinear coefficients. The countermodel is not claimed to be Vaughan-realizable.
 
 The retained target is `UniformRightFareyDenominatorEndpointBudgetForVaughanCrossSpectrum`. TICKET113 proves none of the four conjectures.
+
+## TICKET-114: Ramanujan mean and centered-numerator dispersion
+
+TICKET114 opens each TICKET113 right-denominator block by reduced numerator. If `P_{q,a}` is the unphased Abel endpoint coefficient for the cell immediately left of `a/q`, the endpoint phase is transferred to the exact rational phase `rho_{q,a}=exp(4 pi i a/q)`. The signed transfer error is retained exactly and bounded by `4 pi |P_{q,a}| |alpha-a/q|`.
+
+Writing `Re(P_{q,a})=m_q+x_{q,a}` with `sum_a x_{q,a}=0` gives an exact rational-boundary decomposition. The mean contribution is `m_q c_q(2)/2` for `q>2` and `m_2 c_2(2)` for `q=2`. The remainder is the inner product of `(x_{q,a}, Im P_{q,a})` with `(cos(4 pi a/q)-mean(cos), -sin(4 pi a/q))`.
+
+Cauchy-Schwarz gives the projected L2 support envelope. This bound is sharp under the stated weak contract: choosing the coefficient vector opposite to the projected phase vector attains the negative support value. This proves that no generic rearrangement or repeated Cauchy argument can improve the bound without adding arithmetic constraints. The abstract extremizer is not asserted to be Vaughan-realizable.
+
+Across `X=4K,32K,262K,1M,2M,4M`, the signed-mean lower expression is positive on four scales and the stronger sign-free expression is positive only on the last three. At 4M the sign-free adverse budget is `82.50%` of the known major-plus-Type-I-minor term and leaves finite lower expression `327,951.0`. Small-scale failures are retained, so the terminal run is theorem-selection evidence rather than a uniform estimate.
+
+The retained target is `EventuallySubcriticalVaughanCenteredFareyNumeratorDispersionBudget`. It must derive, from actual Möbius/divisor bilinear coefficients, a fixed-margin all-sufficiently-large-scale bound for the mean, centered, boundary-transfer, and variation envelopes. A valid negative result would be a Vaughan-realizable coefficient family violating that margin. TICKET114 proves none of the four conjectures.
