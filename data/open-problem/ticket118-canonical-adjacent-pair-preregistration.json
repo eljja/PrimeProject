@@ -1,0 +1,29 @@
+{
+  "schema": "primeproject.ticket118-canonical-adjacent-pair-preregistration.v1",
+  "registered_at": "2026-07-15T02:05:00+09:00",
+  "status": "preregistered_before_holdout_execution",
+  "source_commit": "c6d6ee13d9d53b87c6b672572444c07d53dd04ab",
+  "source_ticket": "TICKET-117",
+  "holdout_horizon": 8388608,
+  "holdout_scope": "This scale appeared in earlier PrimeProject tracks, but the canonical adjacent-dyadic-pair endpoint statistic has not been evaluated at this horizon.",
+  "rule_id": "canonical_adjacent_shell_pairs_v1",
+  "partition_rule": {
+    "shells": "List every nonempty truncated dyadic outer-divisor shell intersecting [U+1, floor((X+2)/(V+1))] in increasing shell order.",
+    "groups": "Pair shell indices (0,1), (2,3), and so on; if the shell count is odd, retain the final shell as a singleton.",
+    "denominator_policy": "Use the same partition for every right Farey denominator q=2,...,32.",
+    "optimization_ban": "Do not search partitions, signs, subsets, weights, exponents, or denominator-specific groupings after reading the 8M endpoint coefficients."
+  },
+  "primary_endpoint": {
+    "quantity": "known_without_type_ii_minor - boundary_phase_lipschitz_envelope - variation_absolute_envelope - canonical_pair_numerator_budget",
+    "pass_condition": "strictly greater than zero",
+    "failure_condition": "less than or equal to zero",
+    "meaning": "A pass is one post-registration finite closure only. A failure refutes finite closure of this frozen rule at 8M. Neither outcome proves or disproves the Twin Prime Conjecture."
+  },
+  "secondary_endpoints": [
+    "canonical numerator budget divided by the fully signed numerator budget",
+    "canonical partition compared with the best width-two contiguous partition, reported descriptively without changing the primary endpoint",
+    "budget concentration by canonical group",
+    "time-domain, endpoint-profile, phase, and real-Gram reconstruction errors"
+  ],
+  "claim_boundary": "No 8M result was used to choose this rule or endpoint. The registration does not assert that the primary endpoint will pass, that the rule is eventually stable, or that any of the four conjectures is proved."
+}

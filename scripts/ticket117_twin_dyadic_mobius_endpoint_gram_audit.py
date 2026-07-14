@@ -272,7 +272,7 @@ def signed_dyadic_endpoint_groups(
 
 def audit_dyadic_mobius_endpoint_gram(
     horizon: int,
-    independent_sign_budget: float,
+    independent_sign_budget: float | None,
     split: str = "historical_replay",
 ) -> dict[str, Any]:
     base_row = audit_complex_cyclotomic_dispersion(horizon, split)
@@ -581,8 +581,9 @@ def audit_dyadic_mobius_endpoint_gram(
         "independent_sign_numerator_budget": independent_sign_budget,
         "dyadic_to_sign_budget_ratio": (
             dyadic_budget / independent_sign_budget
-            if independent_sign_budget
-            else math.inf
+            if independent_sign_budget is not None
+            and independent_sign_budget != 0
+            else None
         ),
         "dyadic_adverse_budget": dyadic_adverse_budget,
         "dyadic_lower_bound": dyadic_lower_bound,
