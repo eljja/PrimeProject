@@ -5045,3 +5045,11 @@ The complex-centered remainder has a sharp L2 support bound. Under only complex 
 The finite audit separates two contracts. Paying `sum_q |Re(M_qH_q)|` improves the TICKET114 numerator budget on all six scales and gives 4M lower expression `335,523.7`. Paying the orientation-free `sum_q |M_q||H_q|` worsens all six scales and gives only `248,127.1` at 4M; it also loses the 1M finite closure. Thus orientation-free complex centering is discarded.
 
 The retained target is `EventuallySubcriticalVaughanCyclotomicMeanAndComplexCenteredNumeratorBudget`. It must prove a fixed-margin all-sufficiently-large-`X` estimate for the scalar cyclotomic mean, complex-centered projected norm, boundary transfer, and Abel variation, and must establish the positive comparison scale independently. TICKET115 proves none of the four conjectures.
+
+## TICKET-116: Möbius-sign lift and polarization no-go
+
+TICKET116 expands the actual Vaughan Type-II sequence into nonnegative outer-divisor layers `II=II_plus-II_minus`, separated by `mu(d)=+1` and `mu(d)=-1`. Linearity carries this identity through the DFT, fixed minor-cell prefix sums, and half-Farey endpoint map. Complex centering therefore gives `M=M_plus-M_minus` and `Z=Z_plus-Z_minus` for all 31 denominator blocks.
+
+The exact centered polarization identity is `||Z||^2=||Z_plus||^2+||Z_minus||^2-2 Re<Z_plus,Z_minus>`. The covariance is negative on the first two audited rows and positive on the next four, so a favorable sign is not assumed. Bounding the two sign layers independently is deterministically weaker by triangle inequality and empirically worsens all six rows. At 4M, the numerator budget grows from `1,449,516.0` to `4,187,038.4`, and the finite lower expression changes from `335,523.7` to `-2,401,998.7`.
+
+Independent Möbius-sign triangles are therefore discarded. The retained target is `EventuallySubcriticalSignedVaughanMobiusCyclotomicDispersionBudget`: derive the endpoint estimate from the signed outer-Möbius bilinear sum before norms, or prove a denominator-summed covariance lower bound strong enough to preserve a fixed all-sufficiently-large-scale margin. An unbounded sequence of actual Vaughan layers violating every such margin would refute this target. TICKET116 proves none of the four conjectures.

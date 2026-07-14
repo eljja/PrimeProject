@@ -109,6 +109,7 @@ TICKET112_SCHEMA = "primeproject.ticket112-twin-farey-endpoint-abel-audit.v1"
 TICKET113_SCHEMA = "primeproject.ticket113-twin-farey-denominator-endpoint-audit.v1"
 TICKET114_SCHEMA = "primeproject.ticket114-twin-ramanujan-numerator-dispersion-audit.v1"
 TICKET115_SCHEMA = "primeproject.ticket115-twin-complex-cyclotomic-dispersion-audit.v1"
+TICKET116_SCHEMA = "primeproject.ticket116-twin-mobius-sign-cyclotomic-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -6866,6 +6867,64 @@ def main() -> int:
     expected_target115 = "EventuallySubcriticalVaughanCyclotomicMeanAndComplexCenteredNumeratorBudget"
     if audit115.get("next_theorem_target") != expected_target115 or "proves none" not in str(audit115.get("proof_boundary", "")):
         return fail("ticket115 target or proof boundary changed")
+
+    path116 = Path("data/open-problem/ticket116-twin-mobius-sign-cyclotomic-audit.json")
+    if not path116.exists():
+        return fail("missing ticket116 Mobius-sign cyclotomic artifact")
+    ticket116 = read_json(path116)
+    expected_status116 = "mobius_sign_lift_exact_polarization_audited_independent_triangle_refuted_open"
+    if ticket116.get("schema") != TICKET116_SCHEMA or ticket116.get("status") != expected_status116:
+        return fail("ticket116 schema or status changed")
+    attempts116 = ticket116.get("attempts", [])
+    by_id116 = {str(row.get("problem_id")): row for row in attempts116 if isinstance(row, dict)} if isinstance(attempts116, list) else {}
+    if set(by_id116) != EXPECTED_PROBLEMS:
+        return fail("ticket116 attempts missing problems")
+    paths116 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-116-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-116-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-116-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-116-mobius-sign-cyclotomic-audit.json"),
+    }
+    for problem_id, attempt in by_id116.items():
+        if not paths116[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket116 artifact or proof boundary missing")
+    if by_id116["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_mobius_sign_cyclotomic_audit":
+        return fail("ticket116 shared audit reference changed")
+    audit116 = ticket116.get("twin_mobius_sign_cyclotomic_audit", {})
+    machine116 = audit116.get("machine_audit", {})
+    expected_metrics116 = {
+        "maximum_horizon": 4194304,
+        "row_count": 6,
+        "minor_cell_count": 162,
+        "right_denominator_group_count": 31,
+        "outer_pair_count": 1650675,
+        "independent_sign_budget_worsens_count": 6,
+        "independent_sign_finite_closure_count": 0,
+        "positive_aggregate_covariance_count": 4,
+        "contract_failure_count": 0,
+    }
+    expected_theorem116 = "ExactVaughanMobiusSignLayerCyclotomicLiftPolarizationIdentityAndIndependentTriangleNoGo"
+    if audit116.get("theorem_name") != expected_theorem116 or {key: int(machine116.get(key, -1)) for key in expected_metrics116} != expected_metrics116:
+        return fail("ticket116 theorem or machine contract changed")
+    rows116 = audit116.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows116] != [4096, 32768, 262144, 1048576, 2097152, 4194304]:
+        return fail("ticket116 horizon schedule changed")
+    if any(float(row.get("independent_sign_budget_inflation", 0)) <= 0 for row in rows116):
+        return fail("ticket116 independent-sign no-go frontier changed")
+    if any(bool(row.get("independent_sign_closes_finite")) for row in rows116):
+        return fail("ticket116 independent-sign finite closure changed")
+    if [float(row.get("aggregate_centered_cross_covariance", 0)) > 0 for row in rows116] != [False, False, True, True, True, True]:
+        return fail("ticket116 covariance sign frontier changed")
+    if max(float(row.get("time_domain_sign_layer_reconstruction_max_error", 1)) for row in rows116) > 1e-9 or max(float(row.get("maximum_profile_reconstruction_error", 1)) for row in rows116) > 1e-6 or max(float(row.get("inherited_signed_budget_reconstruction_error", 1)) for row in rows116) > 1e-5 or max(float(row.get("maximum_polarization_identity_error", 1)) for row in rows116) > 1e-5 or max(float(row.get("maximum_layer_phase_error", 1)) for row in rows116) > 1e-12:
+        return fail("ticket116 exact identities changed")
+    if any([int(item.get("right_denominator", -1)) for item in row.get("mobius_sign_denominator_profile", [])] != list(range(2, 33)) for row in rows116):
+        return fail("ticket116 right-denominator support changed")
+    frontier116 = rows116[-1]
+    if abs(float(frontier116.get("independent_sign_budget_ratio", 0)) - 2.888576909532816) > 1e-12 or abs(float(frontier116.get("signed_lower_bound", 0)) - 335523.7440742075) > 1e-6 or abs(float(frontier116.get("independent_sign_lower_bound", 0)) + 2401998.6601239927) > 1e-6:
+        return fail("ticket116 quantitative frontier changed")
+    expected_target116 = "EventuallySubcriticalSignedVaughanMobiusCyclotomicDispersionBudget"
+    if audit116.get("next_theorem_target") != expected_target116 or "does not prove" not in str(audit116.get("proof_boundary", "")):
+        return fail("ticket116 target or proof boundary changed")
 
     print("open problem structure verified")
     return 0

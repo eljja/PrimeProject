@@ -1263,8 +1263,8 @@ const bundledProjectEvolution = {
     classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
-      claim_language_scanned_files: 59,
-      claim_language_scanned_lines: 19174,
+      claim_language_scanned_files: 60,
+      claim_language_scanned_lines: 19311,
     claim_language_triggered_mentions: 118,
     claim_language_guarded_mentions: 118,
     claim_language_failures: 0,
@@ -1379,6 +1379,7 @@ const bundledProjectEvolution = {
         { marker: "73", title: "Twin Farey denominator blocks survive a new holdout", state: "bounded", measure: "4.19M holdout / 162 endpoints to 31 blocks / grouped lower +1.017M / 0 identity failures", proof: "TICKET-113 freezes canonical right-boundary-denominator grouping, retains 35.52% of endpoint envelope at 4M, and uses a magnitude-label adversary to show that a uniform Vaughan phase theorem is still indispensable" },
         { marker: "74", title: "Twin Ramanujan mean separated from numerator dispersion", state: "bounded", measure: "4.19M / 31 denominator blocks / sign-free lower +327.95K / adverse budget 82.50% / 0 contract failures", proof: "TICKET-114 proves the exact Ramanujan-mean and centered-numerator decomposition, proves its projected L2 support bound is sharp under the weak contract, and isolates an eventually subcritical Vaughan numerator-dispersion estimate as the missing theorem" },
         { marker: "75", title: "Twin complex mean direction separated from centering", state: "bounded", measure: "4.19M / scalar-aware lower +335.52K / orientation-free lower +248.13K / 6 of 6 weak-contract regressions", proof: "TICKET-115 proves the exact half-Farey complex mean decomposition, retains a modest scalar-aware improvement, and refutes orientation-free complex extraction as a stronger proof contract" },
+        { marker: "76", title: "Twin Möbius sign interaction kept before norms", state: "bounded", measure: "4.19M / 1.65M outer pairs / independent budget 2.889x / independent lower -2.402M / 0 contract failures", proof: "TICKET-116 lifts the endpoint coefficients into exact positive and negative outer-Möbius layers, proves the centered polarization identity, and refutes independent sign-layer triangles while retaining a signed Vaughan dispersion target" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },

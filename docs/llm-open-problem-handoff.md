@@ -62,7 +62,15 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-115
+## Latest Continuation After TICKET-116
+
+TICKET116 lifts every TICKET115 endpoint coefficient into the actual positive and negative outer-Möbius layers of Vaughan Type II. It verifies `II=II_plus-II_minus` in time, then carries the identity through the DFT, minor-cell prefix map, and 31 half-Farey denominator blocks. Complex centering gives `M=M_plus-M_minus`, `Z=Z_plus-Z_minus`, and the exact polarization identity `||Z||^2=||Z_plus||^2+||Z_minus||^2-2 Re<Z_plus,Z_minus>`.
+
+The denominator-summed centered covariance is negative at 4K and 32K and positive on the next four rows. Do not assume a favorable covariance sign. The independent-sign contract loses both scalar mean cancellation and the polarization term: it worsens all six rows, closes zero, and at 4M changes the finite lower expression from `+335,523.7` to `-2,401,998.7`.
+
+Discard any route that expands the Möbius sign layers and then applies separate triangle inequalities. The next theorem is `EventuallySubcriticalSignedVaughanMobiusCyclotomicDispersionBudget`. It must estimate the signed outer-Möbius endpoint functional before norms, or prove a sufficiently strong denominator-summed covariance lower bound together with an independent positive comparison scale. All four conjectures remain open.
+
+## Preserved Continuation After TICKET-115
 
 TICKET115 removes the full complex constant mode from each TICKET114 numerator block. With `P_{q,a}=M_q+Z_{q,a}`, `sum_a Z_{q,a}=0`, and `H_q=sum_a exp(4 pi i a/q)` over the half reduced-residue system, it proves the exact identity `Re sum P rho=Re(M_q H_q)+Re sum Z(rho-mean rho)`. The real part of `H_q` is the half Ramanujan sum, while its generally nonzero imaginary cyclotomic component is retained.
 

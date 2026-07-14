@@ -1070,6 +1070,24 @@ async function main() {
     } else {
       requireText("ticket115 Goldbach route", "JointBalancedGoldbachPreserved");
     }
+    requireText("ticket116 title", "Ticket 116 Twin Möbius-sign cyclotomic audit");
+    requireText("ticket116 table", "TICKET116 Möbius-sign cyclotomic audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket116 Twin frontier", "Signed versus independent Möbius-layer frontier");
+      requireText("ticket116 Twin profile", "4M denominatorwise independent-sign loss");
+      requireText("ticket116 Twin identity", "Exact Vaughan Möbius-sign lift");
+      requireText("ticket116 Twin polarization", "Exact centered polarization");
+      requireText("ticket116 Twin no-go", "Independent-sign triangle no-go");
+      requireText("ticket116 Twin signed lower", "335523.7");
+      requireText("ticket116 Twin independent lower", "-2401998.7");
+      requireText("ticket116 Twin next", "EventuallySubcriticalSignedVaughanMobiusCyclotomicDispersionBudget");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket116 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket116 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket116 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {
@@ -1866,7 +1884,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-112") ||
     !metrics.evolutionPanel.includes("TICKET-113") ||
     !metrics.evolutionPanel.includes("TICKET-114") ||
-    !metrics.evolutionPanel.includes("TICKET-115")
+    !metrics.evolutionPanel.includes("TICKET-115") ||
+    !metrics.evolutionPanel.includes("TICKET-116")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
