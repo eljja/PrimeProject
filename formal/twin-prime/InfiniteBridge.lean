@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-116 lifts the cyclotomic endpoint into exact Mobius sign layers and refutes independent sign-layer triangles on all six scales"
+  "TP-TICKET-117 lifts signed dyadic outer-divisor blocks into the endpoint Gram ledger and isolates a near-closing adjacent-pair budget"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-117 EventuallySubcriticalSignedVaughanMobiusCyclotomicDispersionBudget."
+  "TP-TICKET-118 EventuallySubcriticalAdjacentDyadicPairVaughanEndpointBudget."
 
 def topAttackProofAttemptProtocol : String :=
-  "Estimate the signed outer-Mobius endpoint functional before norms, or prove a denominator-summed covariance lower bound with a fixed all-sufficiently-large-X margin; reject independent sign-layer triangles and finite covariance-sign inference."
+  "Prove a denominator-summed signed bilinear estimate for a non-data-selected adjacent-dyadic-pair rule with a fixed all-sufficiently-large-X margin; reject singleton block triangles, denominator Cauchy closure, and finite pairing extrapolation."
 
 end PrimeProject.OpenProblems.TwinPrime

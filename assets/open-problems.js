@@ -9137,7 +9137,73 @@ function renderTicket116TwinMobiusSignCyclotomic(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket) {
+function renderTicket117TwinDyadicMobiusEndpointGram(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.twin_dyadic_mobius_endpoint_gram_audit || {};
+  const machine = audit.machine_audit || {};
+  const isTwin = attempt.problem_id === "twin-prime";
+  const rows = Array.isArray(audit.rows) ? audit.rows : [];
+  const summaryRows = Object.keys(audit).length ? [
+    ["maximum horizon", machine.maximum_horizon],
+    ["audit rows", machine.row_count],
+    ["dyadic blocks at 4M", machine.dyadic_block_count],
+    ["singleton-dyadic regressions", machine.dyadic_budget_worsens_count],
+    ["improvements over sign split", machine.dyadic_improves_sign_count],
+    ["width-two finite closures", machine.width_two_partition_finite_closure_count],
+    ["contract failures", machine.contract_failure_count],
+    ["next theorem", audit.next_theorem_target],
+  ] : [["preserved route", attempt.route || "missing"], ["independent target", bounded.independent_target || attempt.candidate_theorem || "missing"]];
+  const frontierRows = rows.map((row) => {
+    const paired = row.best_width_two_contiguous_partition || {};
+    return [
+      row.horizon,
+      Number(row.signed_numerator_budget_reconstructed || 0).toFixed(1),
+      Number(row.independent_dyadic_numerator_budget || 0).toFixed(1),
+      Number(row.denominator_cauchy_numerator_budget || 0).toFixed(1),
+      Number(paired.numerator_budget || 0).toFixed(1),
+      Number(paired.budget_ratio_to_signed || 0).toFixed(3),
+      Number(paired.lower_bound || 0).toFixed(1),
+    ];
+  });
+  const frontier = rows.at(-1) || {};
+  const paired = frontier.best_width_two_contiguous_partition || {};
+  const groups = Array.isArray(paired.groups) ? paired.groups : [];
+  const maxGroupBudget = Math.max(1, ...groups.map((group) => Number(group.numerator_budget || 0)));
+  const groupBars = groups.length ? `
+    <div class="poc-denominator-chart poc-dyadic-pair-chart" role="img" aria-label="4M numerator budget by adjacent dyadic pair">
+      ${groups.map((group) => {
+        const budget = Number(group.numerator_budget || 0);
+        const width = Math.max(1, 100 * budget / maxGroupBudget);
+        return `<div class="poc-denominator-row"><span>${escapeHtml(group.first_block)}–${escapeHtml(group.last_block)}</span><div title="actual outer divisors ${escapeHtml(group.actual_lower)} through ${escapeHtml(group.actual_upper)}"><i class="is-adverse" style="width:${width.toFixed(2)}%"></i></div><strong>${budget.toFixed(1)}</strong></div>`;
+      }).join("")}
+    </div>
+  ` : "";
+  const interactions = Array.isArray(frontier.geometry_weighted_block_pair_profile)
+    ? frontier.geometry_weighted_block_pair_profile.slice(0, 8).map((profile) => [
+        `${profile.left_block} × ${profile.right_block}`,
+        Number(profile.geometry_weighted_interaction_energy || 0).toExponential(3),
+        profile.effect,
+      ])
+    : [];
+  return `
+    <div class="poc-ticket17 poc-ticket115 poc-ticket116 poc-ticket117">
+      <h3>Ticket 117 Twin signed-dyadic endpoint Gram audit</h3>
+      <div class="poc-head"><div><span>Status</span><strong>${escapeHtml(statusText(attempt.status))}</strong></div><div><span>Route</span><strong>${escapeHtml(attempt.route || "missing")}</strong></div><div><span>Scope</span><strong>${isTwin ? "exact signed dyadic lift, real-Gram ledger, and adjacent-pair frontier" : "problem-specific target preserved"}</strong></div></div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${isTwin ? `<p><strong>한국어 해설:</strong> Möbius 부호를 dyadic block 안에 보존해 endpoint 실수 Gram 행렬을 정확히 재구성했습니다. singleton block은 여섯 규모 모두 완전 signed 예산보다 나쁘지만, 4M에서 부호 분리 예산 4.187M을 2.326M으로 줄입니다. 인접 shell을 최대 두 개씩 묶은 전역 partition은 1.786M까지 낮춰 폐쇄 부족분을 1,236.3으로 줄였지만 아직 음수입니다. 2M과 4M의 같은 pairing은 유한 관측이지 전 규모 정리가 아닙니다.</p>` : `<p><strong>한국어 해설:</strong> 쌍둥이 소수의 dyadic endpoint Gram 결과는 이 문제의 무한 정리로 전이되지 않습니다. 기존 독립 증명 목표와 반례 오라클을 유지합니다.</p>`}
+      ${table(["TICKET117 signed-dyadic Gram audit", "Value"], summaryRows)}
+      ${frontierRows.length ? `<h3>Signed, singleton, Cauchy, and adjacent-pair frontier</h3>${table(["X", "signed", "singleton", "q-Cauchy", "width-2", "pair/signed", "pair lower"], frontierRows)}` : ""}
+      ${isTwin && groupBars ? `<h3>4M adjacent-pair budget concentration</h3><p>한 규모에서 모든 분모에 같은 partition을 적용했습니다. 첫 저약수 쌍이 paired 예산의 51.8%를 차지하므로 다음 bilinear 추정의 우선 표적입니다.</p>${groupBars}` : ""}
+      ${isTwin && interactions.length ? `<h3>Largest geometry-weighted Gram interactions</h3>${table(["block pair", "interaction energy", "effect"], interactions)}` : ""}
+      ${Object.keys(audit).length ? `<div class="poc-bridge"><section><h3>Exact signed dyadic lift</h3>${table(["field", "statement"], Object.entries(audit.exact_dyadic_lift || {}))}</section><section><h3>Exact endpoint Gram identity</h3>${table(["field", "statement"], Object.entries(audit.gram_identity || {}))}</section></div>` : ""}
+      ${Object.keys(audit).length ? `<div class="poc-bridge"><section><h3>Adjacent-pair frontier</h3>${table(["field", "statement"], Object.entries(audit.adjacent_pair_frontier || {}).filter(([key]) => key !== "frontier_partition"))}</section><section><h3>Retained theorem</h3>${table(["field", "statement"], Object.entries(audit.retained_asymptotic_criterion || {}))}<p>${escapeHtml(audit.next_theorem_target || "")}</p></section></div>` : ""}
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -9304,10 +9370,11 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket114TwinRamanujanDispersion(twinRamanujanDispersionTicket)}
     ${renderTicket115TwinComplexCyclotomic(twinComplexCyclotomicTicket)}
     ${renderTicket116TwinMobiusSignCyclotomic(twinMobiusSignTicket)}
+    ${renderTicket117TwinDyadicMobiusEndpointGram(twinDyadicGramTicket)}
   `;
 }
 
-function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt) {
+function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
   document.querySelector("#problemKoreanTitle").textContent = problem.korean_title;
@@ -9331,7 +9398,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#proofVerdict").innerHTML = renderProofVerdict(problem);
   document.querySelector("#actualProofAttemptRunner").innerHTML = renderActualProofAttemptRunner(problem);
   const pocPanel = document.querySelector("#proofOrCounterexampleLab");
-  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt);
+  if (pocPanel) pocPanel.innerHTML = renderProofOrCounterexample(proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt);
   document.querySelector("#candidateLemmaWorkbench").innerHTML = renderCandidateLemmaWorkbench(problem);
   document.querySelector("#machineProofSearchTrials").innerHTML = renderMachineProofSearchTrials(problem);
   document.querySelector("#formalUpgradeMatrix").innerHTML = renderFormalUpgradeMatrix(problem);
@@ -9490,6 +9557,7 @@ async function main() {
   let ticket114Attempt = null;
   let ticket115Attempt = null;
   let ticket116Attempt = null;
+  let ticket117Attempt = null;
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -10462,7 +10530,19 @@ async function main() {
   } catch (error) {
     ticket116Attempt = null;
   }
-  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt);
+  try {
+    const ticket117Response = await fetch("../data/open-problem/ticket117-twin-dyadic-mobius-endpoint-gram-audit.json", { cache: "no-store" });
+    if (ticket117Response.ok) {
+      const ticket117Payload = await ticket117Response.json();
+      ticket117Attempt = (ticket117Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+      if (ticket117Attempt && ticket117Attempt.bounded_result?.audit_ref === "twin_dyadic_mobius_endpoint_gram_audit") {
+        ticket117Attempt.bounded_result.twin_dyadic_mobius_endpoint_gram_audit = ticket117Payload.twin_dyadic_mobius_endpoint_gram_audit || {};
+      }
+    }
+  } catch (error) {
+    ticket117Attempt = null;
+  }
+  render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt);
 }
 
 main().catch((error) => {

@@ -110,6 +110,7 @@ TICKET113_SCHEMA = "primeproject.ticket113-twin-farey-denominator-endpoint-audit
 TICKET114_SCHEMA = "primeproject.ticket114-twin-ramanujan-numerator-dispersion-audit.v1"
 TICKET115_SCHEMA = "primeproject.ticket115-twin-complex-cyclotomic-dispersion-audit.v1"
 TICKET116_SCHEMA = "primeproject.ticket116-twin-mobius-sign-cyclotomic-audit.v1"
+TICKET117_SCHEMA = "primeproject.ticket117-twin-dyadic-mobius-endpoint-gram-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -6925,6 +6926,72 @@ def main() -> int:
     expected_target116 = "EventuallySubcriticalSignedVaughanMobiusCyclotomicDispersionBudget"
     if audit116.get("next_theorem_target") != expected_target116 or "does not prove" not in str(audit116.get("proof_boundary", "")):
         return fail("ticket116 target or proof boundary changed")
+
+    path117 = Path("data/open-problem/ticket117-twin-dyadic-mobius-endpoint-gram-audit.json")
+    if not path117.exists():
+        return fail("missing ticket117 signed-dyadic endpoint Gram artifact")
+    ticket117 = read_json(path117)
+    expected_status117 = "signed_dyadic_endpoint_gram_exact_independent_block_audited_open"
+    if ticket117.get("schema") != TICKET117_SCHEMA or ticket117.get("status") != expected_status117:
+        return fail("ticket117 schema or status changed")
+    attempts117 = ticket117.get("attempts", [])
+    by_id117 = {str(row.get("problem_id")): row for row in attempts117 if isinstance(row, dict)} if isinstance(attempts117, list) else {}
+    if set(by_id117) != EXPECTED_PROBLEMS:
+        return fail("ticket117 attempts missing problems")
+    paths117 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-117-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-117-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-117-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-117-dyadic-mobius-endpoint-gram-audit.json"),
+    }
+    for problem_id, attempt in by_id117.items():
+        if not paths117[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket117 artifact or proof boundary missing")
+    if by_id117["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_dyadic_mobius_endpoint_gram_audit":
+        return fail("ticket117 shared audit reference changed")
+    audit117 = ticket117.get("twin_dyadic_mobius_endpoint_gram_audit", {})
+    machine117 = audit117.get("machine_audit", {})
+    expected_metrics117 = {
+        "maximum_horizon": 4194304,
+        "row_count": 6,
+        "minor_cell_count": 162,
+        "dyadic_block_count": 8,
+        "right_denominator_group_count": 31,
+        "outer_pair_count": 1650675,
+        "dyadic_budget_worsens_count": 6,
+        "dyadic_improves_sign_count": 4,
+        "dyadic_finite_closure_count": 0,
+        "positive_aggregate_cross_cancellation_count": 0,
+        "denominator_cauchy_finite_closure_count": 0,
+        "denominator_cauchy_violation_count": 0,
+        "width_two_partition_finite_closure_count": 0,
+        "contract_failure_count": 0,
+    }
+    expected_theorem117 = "ExactSignedVaughanDyadicEndpointGramIdentityAndIndependentBlockTriangleAudit"
+    if audit117.get("theorem_name") != expected_theorem117 or {key: int(machine117.get(key, -1)) for key in expected_metrics117} != expected_metrics117:
+        return fail("ticket117 theorem or machine contract changed")
+    rows117 = audit117.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows117] != [4096, 32768, 262144, 1048576, 2097152, 4194304]:
+        return fail("ticket117 horizon schedule changed")
+    if any(float(row.get("independent_dyadic_budget_ratio", 0)) <= 1 for row in rows117):
+        return fail("ticket117 singleton-dyadic no-go changed")
+    if [float(row.get("dyadic_to_sign_budget_ratio", 0)) < 1 for row in rows117] != [False, False, True, True, True, True]:
+        return fail("ticket117 separated-sign comparison changed")
+    if any(bool(row.get("dyadic_closes_finite")) or bool(row.get("denominator_cauchy_closes_finite")) or bool(row.get("best_width_two_contiguous_partition", {}).get("closes_finite")) for row in rows117):
+        return fail("ticket117 finite closure frontier changed")
+    if max(float(row.get("time_domain_dyadic_reconstruction_max_error", 1)) for row in rows117) > 1e-9 or max(float(row.get("maximum_profile_reconstruction_error", 1)) for row in rows117) > 1e-6 or max(float(row.get("inherited_signed_budget_reconstruction_error", 1)) for row in rows117) > 1e-5 or max(float(row.get("maximum_gram_identity_error", 1)) for row in rows117) > 1e-4 or max(float(row.get("maximum_layer_phase_error", 1)) for row in rows117) > 1e-12:
+        return fail("ticket117 exact identities changed")
+    if any([int(item.get("right_denominator", -1)) for item in row.get("dyadic_denominator_profile", [])] != list(range(2, 33)) for row in rows117):
+        return fail("ticket117 right-denominator support changed")
+    frontier117 = rows117[-1]
+    paired117 = frontier117.get("best_width_two_contiguous_partition", {})
+    expected_groups117 = [("D128", "D256"), ("D512", "D1024"), ("D2048", "D4096"), ("D8192", "D16384")]
+    observed_groups117 = [(str(group.get("first_block")), str(group.get("last_block"))) for group in paired117.get("groups", [])]
+    if abs(float(frontier117.get("independent_dyadic_budget_ratio", 0)) - 1.6045760574710985) > 1e-12 or abs(float(paired117.get("lower_bound", 0)) + 1236.2679265222978) > 1e-6 or observed_groups117 != expected_groups117:
+        return fail("ticket117 quantitative or adjacent-pair frontier changed")
+    expected_target117 = "EventuallySubcriticalAdjacentDyadicPairVaughanEndpointBudget"
+    if audit117.get("next_theorem_target") != expected_target117 or "does not prove" not in str(audit117.get("proof_boundary", "")):
+        return fail("ticket117 target or proof boundary changed")
 
     print("open problem structure verified")
     return 0

@@ -62,7 +62,17 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-116
+## Latest Continuation After TICKET-117
+
+TICKET117 keeps the actual Möbius sign inside each truncated dyadic outer-divisor shell. It verifies `II=sum_B II_B` in time and carries the identity through the DFT, fixed minor-cell sum, and half-Farey endpoint map. For every denominator, complex centering gives `Z_q=sum_B Z_q^(B)` and the exact real-Gram identity `||Z_q||^2=sum_(B,C) Re<Z_q^(B),Z_q^(C)>`.
+
+Singleton dyadic triangles worsen the fully signed budget on all six rows and close zero. At 4M they nevertheless improve TICKET116's separated-sign budget from `4,187,038.4` to `2,325,858.6`. Denominator Cauchy collapse also closes zero. The geometry-weighted off-diagonal Gram energy is net adverse on all six rows, with the largest 4M reinforcement concentrated among the low outer-divisor shells.
+
+An exhaustive horizon-wide contiguous-partition audit permits at most two adjacent dyadic shells per group and never optimizes separately by denominator. At 4M the optimum is `(D128,D256), (D512,D1024), (D2048,D4096), (D8192,D16384)`. It lowers the numerator budget to `1,786,276.0` and leaves a finite closure shortfall of `1,236.3`. The same pairing appears at 2M, but this is selected finite evidence, not eventual stability. The first pair contributes 51.8% of the paired budget.
+
+Discard separate sign triangles, singleton dyadic triangles as a final bound, denominator Cauchy as a closure mechanism, and any extrapolation of the observed pairing. The next theorem is `EventuallySubcriticalAdjacentDyadicPairVaughanEndpointBudget`: prove a denominator-summed signed bilinear estimate for a non-data-selected adjacent-pair rule, together with positivity of the comparison scale on the same all-sufficiently-large range. The counterexample route is an unbounded Vaughan-realizable sequence defeating every fixed margin. All four conjectures remain open.
+
+## Preserved Continuation After TICKET-116
 
 TICKET116 lifts every TICKET115 endpoint coefficient into the actual positive and negative outer-Möbius layers of Vaughan Type II. It verifies `II=II_plus-II_minus` in time, then carries the identity through the DFT, minor-cell prefix map, and 31 half-Farey denominator blocks. Complex centering gives `M=M_plus-M_minus`, `Z=Z_plus-Z_minus`, and the exact polarization identity `||Z||^2=||Z_plus||^2+||Z_minus||^2-2 Re<Z_plus,Z_minus>`.
 

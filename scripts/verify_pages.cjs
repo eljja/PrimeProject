@@ -1088,6 +1088,23 @@ async function main() {
     } else {
       requireText("ticket116 Goldbach route", "JointBalancedGoldbachPreserved");
     }
+    requireText("ticket117 title", "Ticket 117 Twin signed-dyadic endpoint Gram audit");
+    requireText("ticket117 table", "TICKET117 signed-dyadic Gram audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket117 Twin frontier", "Signed, singleton, Cauchy, and adjacent-pair frontier");
+      requireText("ticket117 Twin concentration", "4M adjacent-pair budget concentration");
+      requireText("ticket117 Twin interactions", "Largest geometry-weighted Gram interactions");
+      requireText("ticket117 Twin lift", "Exact signed dyadic lift");
+      requireText("ticket117 Twin Gram", "Exact endpoint Gram identity");
+      requireText("ticket117 Twin paired lower", "-1236.3");
+      requireText("ticket117 Twin next", "EventuallySubcriticalAdjacentDyadicPairVaughanEndpointBudget");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket117 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket117 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket117 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {
@@ -1885,7 +1902,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-113") ||
     !metrics.evolutionPanel.includes("TICKET-114") ||
     !metrics.evolutionPanel.includes("TICKET-115") ||
-    !metrics.evolutionPanel.includes("TICKET-116")
+    !metrics.evolutionPanel.includes("TICKET-116") ||
+    !metrics.evolutionPanel.includes("TICKET-117")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
