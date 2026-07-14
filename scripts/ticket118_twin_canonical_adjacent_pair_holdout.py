@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import json
 from typing import Any
 
 from ticket30_potential_synthesis_lab import ROOT, read_json, write_json
@@ -15,6 +17,7 @@ PREREGISTRATION_SCHEMA = (
     "primeproject.ticket118-canonical-adjacent-pair-preregistration.v1"
 )
 SOURCE_COMMIT = "c6d6ee13d9d53b87c6b672572444c07d53dd04ab"
+PREREGISTRATION_COMMIT = "5b52d4d58873afc512555ba6079d4280f61757ae"
 HOLDOUT_HORIZON = 8_388_608
 RULE_ID = "canonical_adjacent_shell_pairs_v1"
 
@@ -40,6 +43,16 @@ def preregistration_contract() -> dict[str, Any]:
     if preregistration.get("rule_id") != RULE_ID:
         raise ValueError("TICKET118 canonical rule changed")
     return preregistration
+
+
+def canonical_payload_sha256(payload: dict[str, Any]) -> str:
+    canonical = json.dumps(
+        payload,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=True,
+    )
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
 def run_holdout() -> dict[str, Any]:
@@ -91,6 +104,10 @@ def run_holdout() -> dict[str, Any]:
         "theorem_name": "PreregisteredCanonicalAdjacentDyadicPairEightMillionHoldout",
         "source_ticket": "TICKET-117",
         "source_commit": SOURCE_COMMIT,
+        "preregistration_commit": PREREGISTRATION_COMMIT,
+        "preregistration_payload_sha256": canonical_payload_sha256(
+            preregistration
+        ),
         "rule_id": RULE_ID,
         "preregistration": preregistration,
         "primary_result": {
@@ -116,8 +133,82 @@ def run_holdout() -> dict[str, Any]:
     }
 
 
+def transferred_attempt(
+    source: dict[str, Any],
+    problem_id: str,
+    ticket_id: str,
+    route: str,
+    target: str,
+) -> dict[str, Any]:
+    prior = next(
+        attempt
+        for attempt in source["attempts"]
+        if attempt["problem_id"] == problem_id
+    )
+    label = problem_id.replace("-", " ")
+    return {
+        "problem_id": problem_id,
+        "ticket_id": ticket_id,
+        "status": "problem_specific_target_preserved_open",
+        "route": route,
+        "proof_or_counterexample_mode": "preserve the independent target during the Twin preregistered 8M holdout",
+        "attempt": "Preserve the existing infinite target; no Twin canonical-pair holdout result is transferred.",
+        "bounded_result": {
+            "source_ticket": prior.get("ticket_id"),
+            "independent_target": target,
+        },
+        "obstruction": "TICKET118 supplies no new target-specific infinite theorem for this problem.",
+        "candidate_theorem": target,
+        "next_experiment": f"Continue {target} with its own proof and counterexample oracle.",
+        "claim_boundary": f"No {label} proof and no certified {label} counterexample.",
+    }
+
+
 def main() -> int:
     audit = run_holdout()
+    ticket117 = read_json(
+        ROOT
+        / "data/open-problem/ticket117-twin-dyadic-mobius-endpoint-gram-audit.json"
+    )
+    attempts = [
+        transferred_attempt(
+            ticket117,
+            "riemann",
+            "RH-TICKET-118",
+            "NonCircularKernelPositivityPreserved",
+            "NonCircularExplicitFormulaKernelPositivity",
+        ),
+        transferred_attempt(
+            ticket117,
+            "collatz",
+            "CO-TICKET-118",
+            "GoldenMeanEscapePreserved",
+            "GoldenMeanInvariantSetEscape",
+        ),
+        transferred_attempt(
+            ticket117,
+            "goldbach",
+            "GB-TICKET-118",
+            "JointBalancedGoldbachPreserved",
+            "JointBalancedVaughanGoldbachResidualEnvelope",
+        ),
+        {
+            "problem_id": "twin-prime",
+            "ticket_id": "TP-TICKET-118",
+            "status": "preregistered_canonical_pair_holdout_passed_finite_open",
+            "route": "CanonicalAdjacentDyadicPairVaughanEndpointBudget",
+            "proof_or_counterexample_mode": "preregistered post-selection holdout with frozen canonical grouping and primary endpoint",
+            "attempt": "Freeze the canonical adjacent-shell pairing and positive finite lower expression before computing its 8M endpoint coefficients, then report the result without retuning.",
+            "bounded_result": {
+                "source_ticket": "TP-TICKET-117",
+                "audit_ref": "twin_canonical_adjacent_pair_holdout",
+            },
+            "obstruction": "One preregistered 8M closure does not prove eventual closure, a uniform bilinear estimate, or positivity of the comparison term on all sufficiently large scales.",
+            "candidate_theorem": audit["next_theorem_target"],
+            "next_experiment": "Expand each canonical factor-four outer-divisor group into its signed Mobius bilinear form and prove a denominator-summed uniform bound, or find an unbounded Vaughan-realizable failure sequence.",
+            "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample.",
+        },
+    ]
     write_json(
         ROOT
         / "data/open-problem/ticket118-twin-canonical-adjacent-pair-holdout.json",
@@ -127,8 +218,24 @@ def main() -> int:
             "status": "preregistered_holdout_evaluated_open",
             "claim_boundary": audit["proof_boundary"],
             "twin_canonical_adjacent_pair_holdout": audit,
+            "attempts": attempts,
         },
     )
+    paths = {
+        "riemann": ROOT
+        / "data/open-problem/riemann/rh-ticket-118-kernel-positivity-preserved.json",
+        "collatz": ROOT
+        / "data/open-problem/collatz/co-ticket-118-golden-mean-preserved.json",
+        "goldbach": ROOT
+        / "data/open-problem/goldbach/gb-ticket-118-joint-balanced-preserved.json",
+        "twin-prime": ROOT
+        / "data/open-problem/twin-prime/tp-ticket-118-canonical-adjacent-pair-holdout.json",
+    }
+    for attempt in attempts:
+        write_json(
+            paths[attempt["problem_id"]],
+            {"schema": SCHEMA, "generated_at": GENERATED_AT, **attempt},
+        )
     return 0
 
 

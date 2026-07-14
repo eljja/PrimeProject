@@ -1263,8 +1263,8 @@ const bundledProjectEvolution = {
     classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
-      claim_language_scanned_files: 61,
-      claim_language_scanned_lines: 19429,
+      claim_language_scanned_files: 62,
+      claim_language_scanned_lines: 19544,
     claim_language_triggered_mentions: 118,
     claim_language_guarded_mentions: 118,
     claim_language_failures: 0,
@@ -1381,6 +1381,7 @@ const bundledProjectEvolution = {
         { marker: "75", title: "Twin complex mean direction separated from centering", state: "bounded", measure: "4.19M / scalar-aware lower +335.52K / orientation-free lower +248.13K / 6 of 6 weak-contract regressions", proof: "TICKET-115 proves the exact half-Farey complex mean decomposition, retains a modest scalar-aware improvement, and refutes orientation-free complex extraction as a stronger proof contract" },
         { marker: "76", title: "Twin Möbius sign interaction kept before norms", state: "bounded", measure: "4.19M / 1.65M outer pairs / independent budget 2.889x / independent lower -2.402M / 0 contract failures", proof: "TICKET-116 lifts the endpoint coefficients into exact positive and negative outer-Möbius layers, proves the centered polarization identity, and refutes independent sign-layer triangles while retaining a signed Vaughan dispersion target" },
         { marker: "77", title: "Twin signed dyadic Gram localizes a near-closing adjacent-pair budget", state: "bounded", measure: "4.19M / 8 dyadic blocks / singleton 1.605x / adjacent-pair lower -1.24K / 0 contract failures", proof: "TICKET-117 proves the exact signed dyadic endpoint Gram identity, rejects singleton and denominator-Cauchy closure, and localizes 51.8% of the paired budget in the first low-divisor shell pair" },
+        { marker: "78", title: "Twin canonical adjacent pairs pass a preregistered 8M holdout", state: "bounded", measure: "8.39M / preregistered commit 5b52d4d / canonical budget 1.194x signed / finite lower +156.73K", proof: "TICKET-118 freezes one denominator-independent adjacent-shell rule before evaluation, obtains one positive finite holdout without retuning, and keeps the eventual signed bilinear theorem open" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },

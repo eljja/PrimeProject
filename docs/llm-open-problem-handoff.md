@@ -62,7 +62,15 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-117
+## Latest Continuation After TICKET-118
+
+TICKET118 addresses the selection problem left by TICKET117. Commit `5b52d4d58873afc512555ba6079d4280f61757ae` was pushed before the result existed. It froze `X=8,388,608`, the canonical rule `(B0,B1),(B2,B3),...` over increasing nonempty dyadic outer-divisor shells, one partition for all `q=2,...,32`, a ban on post-result regrouping, and strict positivity of the finite lower expression as the primary endpoint.
+
+The preregistered endpoint passes. The fully signed numerator budget is `2,858,354.9`; canonical adjacent-pair budget is `3,412,519.6`; boundary transfer is `17.7`; variation is `158,118.1`; known major-plus-Type-I-minor is `3,727,382.4`; finite lower expression is `+156,727.0`. The canonical budget is `1.193875x` the signed budget. The canonical partition also equals the post-hoc best width-two partition, but that is secondary evidence and did not alter the primary test.
+
+The first canonical group, actual outer divisors 204-511, contributes `1,598,458.4`, or 46.84% of the paired budget. This localizes the next analytic target. Do not treat the 8M pass as eventual positivity, a uniform bilinear theorem, or a Twin Prime proof. The next theorem is `EventuallySubcriticalCanonicalAdjacentDyadicPairVaughanEndpointBudget`: derive a denominator-summed bound for the actual signed factor-four Möbius/divisor groups with a fixed all-sufficiently-large-scale margin and an independently positive comparison term. The counterexample route is an unbounded Vaughan-realizable failure sequence. All four conjectures remain open.
+
+## Preserved Continuation After TICKET-117
 
 TICKET117 keeps the actual Möbius sign inside each truncated dyadic outer-divisor shell. It verifies `II=sum_B II_B` in time and carries the identity through the DFT, fixed minor-cell sum, and half-Farey endpoint map. For every denominator, complex centering gives `Z_q=sum_B Z_q^(B)` and the exact real-Gram identity `||Z_q||^2=sum_(B,C) Re<Z_q^(B),Z_q^(C)>`.
 
