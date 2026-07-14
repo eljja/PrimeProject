@@ -1052,6 +1052,24 @@ async function main() {
     } else {
       requireText("ticket114 Goldbach route", "JointBalancedGoldbachPreserved");
     }
+    requireText("ticket115 title", "Ticket 115 Twin complex cyclotomic dispersion audit");
+    requireText("ticket115 table", "TICKET115 complex cyclotomic audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket115 Twin frontier", "Scalar-aware versus orientation-free frontier");
+      requireText("ticket115 Twin profile", "4M denominatorwise scalar-aware budget change");
+      requireText("ticket115 Twin identity", "Exact complex cyclotomic decomposition");
+      requireText("ticket115 Twin support", "Sharp complex support theorem");
+      requireText("ticket115 Twin no-go", "Orientation-free no-go");
+      requireText("ticket115 Twin scalar lower", "335523.7");
+      requireText("ticket115 Twin free lower", "248127.1");
+      requireText("ticket115 Twin next", "EventuallySubcriticalVaughanCyclotomicMeanAndComplexCenteredNumeratorBudget");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket115 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket115 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket115 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {
@@ -1847,7 +1865,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-111") ||
     !metrics.evolutionPanel.includes("TICKET-112") ||
     !metrics.evolutionPanel.includes("TICKET-113") ||
-    !metrics.evolutionPanel.includes("TICKET-114")
+    !metrics.evolutionPanel.includes("TICKET-114") ||
+    !metrics.evolutionPanel.includes("TICKET-115")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

@@ -108,6 +108,7 @@ TICKET111_SCHEMA = "primeproject.ticket111-twin-typeii-minor-phase-audit.v1"
 TICKET112_SCHEMA = "primeproject.ticket112-twin-farey-endpoint-abel-audit.v1"
 TICKET113_SCHEMA = "primeproject.ticket113-twin-farey-denominator-endpoint-audit.v1"
 TICKET114_SCHEMA = "primeproject.ticket114-twin-ramanujan-numerator-dispersion-audit.v1"
+TICKET115_SCHEMA = "primeproject.ticket115-twin-complex-cyclotomic-dispersion-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -6806,6 +6807,65 @@ def main() -> int:
         return fail("ticket114 quantitative frontier changed")
     if audit114.get("next_theorem_target") != "EventuallySubcriticalVaughanCenteredFareyNumeratorDispersionBudget" or "proves none" not in str(audit114.get("proof_boundary", "")):
         return fail("ticket114 target or proof boundary changed")
+
+    path115 = Path("data/open-problem/ticket115-twin-complex-cyclotomic-dispersion-audit.json")
+    if not path115.exists():
+        return fail("missing ticket115 complex cyclotomic artifact")
+    ticket115 = read_json(path115)
+    expected_status115 = "complex_cyclotomic_mean_exact_sharp_centered_l2_audited_open"
+    if ticket115.get("schema") != TICKET115_SCHEMA or ticket115.get("status") != expected_status115:
+        return fail("ticket115 schema or status changed")
+    attempts115 = ticket115.get("attempts", [])
+    by_id115 = {str(row.get("problem_id")): row for row in attempts115 if isinstance(row, dict)} if isinstance(attempts115, list) else {}
+    if set(by_id115) != EXPECTED_PROBLEMS:
+        return fail("ticket115 attempts missing problems")
+    paths115 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-115-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-115-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-115-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-115-complex-cyclotomic-dispersion-audit.json"),
+    }
+    for problem_id, attempt in by_id115.items():
+        if not paths115[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket115 artifact or proof boundary missing")
+    if by_id115["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_complex_cyclotomic_dispersion_audit":
+        return fail("ticket115 shared audit reference changed")
+    audit115 = ticket115.get("twin_complex_cyclotomic_dispersion_audit", {})
+    machine115 = audit115.get("machine_audit", {})
+    expected_metrics115 = {
+        "maximum_horizon": 4194304,
+        "row_count": 6,
+        "minor_cell_count": 162,
+        "right_denominator_group_count": 31,
+        "complex_scalar_centering_reduces_budget_count": 6,
+        "orientation_free_worsens_budget_count": 6,
+        "complex_signed_mean_finite_closure_count": 4,
+        "complex_sign_free_finite_closure_count": 3,
+        "orientation_free_finite_closure_count": 2,
+        "contract_failure_count": 0,
+    }
+    expected_theorem115 = "ExactHalfFareyCyclotomicComplexMeanDecompositionSharpCenteredL2AndOrientationFreeNoGo"
+    if audit115.get("theorem_name") != expected_theorem115 or {key: int(machine115.get(key, -1)) for key in expected_metrics115} != expected_metrics115:
+        return fail("ticket115 theorem or machine contract changed")
+    rows115 = audit115.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows115] != [4096, 32768, 262144, 1048576, 2097152, 4194304]:
+        return fail("ticket115 horizon schedule changed")
+    if [bool(row.get("complex_sign_free_closes_finite")) for row in rows115] != [False, False, False, True, True, True]:
+        return fail("ticket115 scalar-mean finite frontier changed")
+    if [bool(row.get("orientation_free_closes_finite")) for row in rows115] != [False, False, False, False, True, True]:
+        return fail("ticket115 orientation-free no-go frontier changed")
+    if any(float(row.get("complex_scalar_centering_budget_reduction", 0)) <= 0 for row in rows115) or any(float(row.get("complex_orientation_free_budget_increase", 0)) <= 0 for row in rows115):
+        return fail("ticket115 centering comparison changed")
+    if max(float(row.get("maximum_half_ramanujan_real_error", 1)) for row in rows115) > 1e-9 or max(float(row.get("maximum_complex_decomposition_error", 1)) for row in rows115) > 1e-7 or max(float(row.get("aggregate_complex_decomposition_error", 1)) for row in rows115) > 1e-6 or max(float(row.get("maximum_complex_geometry_identity_error", 1)) for row in rows115) > 1e-9:
+        return fail("ticket115 exact identities changed")
+    if any([int(item.get("right_denominator", -1)) for item in row.get("complex_denominator_profile", [])] != list(range(2, 33)) for row in rows115):
+        return fail("ticket115 right-denominator support changed")
+    frontier115 = rows115[-1]
+    if abs(float(frontier115.get("complex_sign_free_lower_bound", 0)) - 335523.7440742075) > 1e-6 or abs(float(frontier115.get("complex_sign_free_budget_to_known_ratio", 0)) - 0.8209817766171058) > 1e-12 or abs(float(frontier115.get("orientation_free_lower_bound", 0)) - 248127.10487070633) > 1e-6:
+        return fail("ticket115 quantitative frontier changed")
+    expected_target115 = "EventuallySubcriticalVaughanCyclotomicMeanAndComplexCenteredNumeratorBudget"
+    if audit115.get("next_theorem_target") != expected_target115 or "proves none" not in str(audit115.get("proof_boundary", "")):
+        return fail("ticket115 target or proof boundary changed")
 
     print("open problem structure verified")
     return 0

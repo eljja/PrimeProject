@@ -96,6 +96,7 @@ def centered_support_envelope(
 def audit_ramanujan_numerator_dispersion(
     horizon: int,
     split: str = "historical_replay",
+    include_raw_groups: bool = False,
 ) -> dict[str, Any]:
     values, mangoldt = lambda_values(horizon + 2)
     mu = mobius_values(horizon + 2)
@@ -359,6 +360,18 @@ def audit_ramanujan_numerator_dispersion(
         ),
         "denominator_profile": denominator_profile,
     }
+    if include_raw_groups:
+        row["_raw_numerator_groups"] = {
+            denominator: tuple(
+                (
+                    complex(record["coefficient"]),
+                    complex(record["rational_phase"]),
+                    int(record["right_numerator"]),
+                )
+                for record in records
+            )
+            for denominator, records in groups.items()
+        }
 
     del target_transform, structured_transform, bilinear_transform
     del type_ii_cross, target_power, shift_phase, frequencies

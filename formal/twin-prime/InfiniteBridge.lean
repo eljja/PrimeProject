@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-114 exactly splits Ramanujan means from centered numerator dispersion and leaves a 4M sign-free finite lower expression of 327951.0"
+  "TP-TICKET-115 separates the full complex cyclotomic mean, improves the scalar-aware budget on six scales, and refutes orientation-free extraction as an improvement"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-115 EventuallySubcriticalVaughanCenteredFareyNumeratorDispersionBudget."
+  "TP-TICKET-116 EventuallySubcriticalVaughanCyclotomicMeanAndComplexCenteredNumeratorBudget."
 
 def topAttackProofAttemptProtocol : String :=
-  "Expand the endpoint coefficients into Mobius/divisor bilinear sums and prove an all-sufficiently-large-X centered numerator second-moment budget with fixed margin; reject abstract non-Vaughan extremizers and finite terminal-run inference."
+  "Expand M_q and Z_q into Mobius/divisor bilinear sums, retain Re(M_q H_q), and prove a fixed-margin all-sufficiently-large-X scalar-mean plus complex-centered budget; reject orientation-free mean loss and finite terminal-run inference."
 
 end PrimeProject.OpenProblems.TwinPrime

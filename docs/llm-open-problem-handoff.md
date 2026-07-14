@@ -62,7 +62,17 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-114
+## Latest Continuation After TICKET-115
+
+TICKET115 removes the full complex constant mode from each TICKET114 numerator block. With `P_{q,a}=M_q+Z_{q,a}`, `sum_a Z_{q,a}=0`, and `H_q=sum_a exp(4 pi i a/q)` over the half reduced-residue system, it proves the exact identity `Re sum P rho=Re(M_q H_q)+Re sum Z(rho-mean rho)`. The real part of `H_q` is the half Ramanujan sum, while its generally nonzero imaginary cyclotomic component is retained.
+
+The complex-centered support bound is sharp under only complex zero mean and an L2 norm. The abstract extremizer is the negative conjugate projected phase and is not asserted to be Vaughan-realizable.
+
+Two contracts separate cleanly. The coefficient-aware scalar envelope `sum_q |Re(M_q H_q)|` improves the TICKET114 numerator budget on all six rows, but only by `0.52%` at 4M; its 4M finite lower expression is `+335,523.7`. The orientation-free envelope `sum_q |M_q||H_q|` is worse on all six rows and loses the 1M closure. Discard orientation-free complex mean extraction as an improvement claim.
+
+The next theorem is `EventuallySubcriticalVaughanCyclotomicMeanAndComplexCenteredNumeratorBudget`. It must control both the scalar cyclotomic mean and complex-centered projected L2 term from actual Möbius/divisor coefficients, while independently establishing the positive major-plus-Type-I-minor scale. All four conjectures remain open.
+
+## Preserved Continuation After TICKET-114
 
 TICKET114 opens each of TICKET113's 31 right-denominator blocks by its reduced numerator. For the Abel endpoint coefficient `P_{q,a}`, it moves the endpoint phase to `exp(4 pi i a/q)`, retains the transfer error, and writes `Re(P_{q,a})=m_q+x_{q,a}` with zero-sum `x`. The mean term is exactly governed by the shift-two Ramanujan sum: the half reduced-residue cosine sum is `c_q(2)/2` for `q>2` and `c_2(2)` for `q=2`.
 

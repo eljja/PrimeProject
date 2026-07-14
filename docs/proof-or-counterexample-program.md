@@ -5035,3 +5035,13 @@ Cauchy-Schwarz gives the projected L2 support envelope. This bound is sharp unde
 Across `X=4K,32K,262K,1M,2M,4M`, the signed-mean lower expression is positive on four scales and the stronger sign-free expression is positive only on the last three. At 4M the sign-free adverse budget is `82.50%` of the known major-plus-Type-I-minor term and leaves finite lower expression `327,951.0`. Small-scale failures are retained, so the terminal run is theorem-selection evidence rather than a uniform estimate.
 
 The retained target is `EventuallySubcriticalVaughanCenteredFareyNumeratorDispersionBudget`. It must derive, from actual Möbius/divisor bilinear coefficients, a fixed-margin all-sufficiently-large-scale bound for the mean, centered, boundary-transfer, and variation envelopes. A valid negative result would be a Vaughan-realizable coefficient family violating that margin. TICKET114 proves none of the four conjectures.
+
+## TICKET-115: complex cyclotomic mean and orientation no-go
+
+TICKET115 writes every numerator endpoint block as `P_{q,a}=M_q+Z_{q,a}` with complex zero-sum `Z`, and retains the exact half-Farey phase sum `H_q=sum_a exp(4 pi i a/q)`. This gives the exact identity `Re sum P rho=Re(M_qH_q)+Re sum Z(rho-mean rho)` and the exact geometry `||rho-mean rho||_2^2=n_q-|H_q|^2/n_q`.
+
+The complex-centered remainder has a sharp L2 support bound. Under only complex zero mean and a fixed norm, the negative conjugate projected phase attains equality. Any stronger theorem must therefore use actual Vaughan arithmetic.
+
+The finite audit separates two contracts. Paying `sum_q |Re(M_qH_q)|` improves the TICKET114 numerator budget on all six scales and gives 4M lower expression `335,523.7`. Paying the orientation-free `sum_q |M_q||H_q|` worsens all six scales and gives only `248,127.1` at 4M; it also loses the 1M finite closure. Thus orientation-free complex centering is discarded.
+
+The retained target is `EventuallySubcriticalVaughanCyclotomicMeanAndComplexCenteredNumeratorBudget`. It must prove a fixed-margin all-sufficiently-large-`X` estimate for the scalar cyclotomic mean, complex-centered projected norm, boundary transfer, and Abel variation, and must establish the positive comparison scale independently. TICKET115 proves none of the four conjectures.
