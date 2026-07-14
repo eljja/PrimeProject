@@ -1,17 +1,10 @@
 from __future__ import annotations
 
+import hashlib
+import json
 from typing import Any
 
 from ticket30_potential_synthesis_lab import ROOT, read_json, write_json
-from ticket117_twin_dyadic_mobius_endpoint_gram_audit import (
-    audit_dyadic_mobius_endpoint_gram,
-    evaluate_partition,
-)
-from ticket118_twin_canonical_adjacent_pair_holdout import (
-    RULE_ID,
-    canonical_adjacent_partition,
-    canonical_payload_sha256,
-)
 
 
 GENERATED_AT = "2026-07-15T03:45:00+09:00"
@@ -22,6 +15,24 @@ PREREGISTRATION_SCHEMA = (
 SOURCE_COMMIT = "2852b1a086233523aaca78526e16d31ef4b4c221"
 PREREGISTRATION_COMMIT = "87bdcf9b16c5e57581e9a411aa61290ef2eea173"
 HOLDOUT_HORIZON = 16_777_216
+RULE_ID = "canonical_adjacent_shell_pairs_v1"
+
+
+def canonical_adjacent_partition(block_count: int) -> list[tuple[int, int]]:
+    return [
+        (start, min(start + 2, block_count))
+        for start in range(0, block_count, 2)
+    ]
+
+
+def canonical_payload_sha256(payload: dict[str, Any]) -> str:
+    canonical = json.dumps(
+        payload,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=True,
+    )
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
 def preregistration_contract() -> dict[str, Any]:
@@ -43,6 +54,11 @@ def preregistration_contract() -> dict[str, Any]:
 
 
 def run_holdout() -> dict[str, Any]:
+    from ticket117_twin_dyadic_mobius_endpoint_gram_audit import (
+        audit_dyadic_mobius_endpoint_gram,
+        evaluate_partition,
+    )
+
     preregistration = preregistration_contract()
     row = audit_dyadic_mobius_endpoint_gram(
         HOLDOUT_HORIZON,

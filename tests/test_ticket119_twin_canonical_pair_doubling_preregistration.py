@@ -13,6 +13,7 @@ from ticket119_twin_canonical_pair_doubling_holdout import (  # noqa: E402
     HOLDOUT_HORIZON,
     PREREGISTRATION_COMMIT,
     SCHEMA,
+    canonical_adjacent_partition,
     preregistration_contract,
 )
 
@@ -52,6 +53,10 @@ class Ticket119CanonicalPairDoublingPreregistrationTests(unittest.TestCase):
         self.assertIn("q=2,...,32", partition["denominator_policy"])
         for banned in ("partitions", "signs", "cutoffs", "alternate"):
             self.assertIn(banned, partition["optimization_ban"])
+        self.assertEqual(
+            canonical_adjacent_partition(9),
+            [(0, 2), (2, 4), (4, 6), (6, 8), (8, 9)],
+        )
 
     def test_registration_states_falsification_and_claim_boundaries(self) -> None:
         primary = self.payload["primary_endpoint"]
