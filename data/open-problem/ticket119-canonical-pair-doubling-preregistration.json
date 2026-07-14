@@ -1,0 +1,45 @@
+{
+  "schema": "primeproject.ticket119-canonical-pair-doubling-preregistration.v1",
+  "registered_at": "2026-07-15T03:20:00+09:00",
+  "status": "preregistered_before_holdout_execution",
+  "source_commit": "2852b1a086233523aaca78526e16d31ef4b4c221",
+  "source_ticket": "TICKET-118",
+  "holdout_horizon": 16777216,
+  "holdout_scope": "The 16M canonical adjacent-dyadic-pair endpoint statistic has not been evaluated. TICKET-118 exposed only the corresponding 8M result before this registration.",
+  "rule_id": "canonical_adjacent_shell_pairs_v1",
+  "partition_rule": {
+    "shells": "List every nonempty truncated dyadic outer-divisor shell intersecting [U+1, floor((X+2)/(V+1))] in increasing shell order.",
+    "groups": "Pair shell indices (0,1), (2,3), and so on; if the shell count is odd, retain the final shell as a singleton.",
+    "denominator_policy": "Use the same partition for every right Farey denominator q=2,...,32.",
+    "optimization_ban": "Do not search partitions, signs, subsets, weights, exponents, cutoffs, denominator-specific groups, or alternate primary endpoints after reading the 16M coefficients."
+  },
+  "primary_endpoint": {
+    "quantity": "known_without_type_ii_minor - boundary_phase_lipschitz_envelope - variation_absolute_envelope - canonical_pair_numerator_budget",
+    "pass_condition": "strictly greater than zero",
+    "failure_condition": "less than or equal to zero",
+    "meaning": "A pass is one additional finite closure. A failure refutes DyadicPersistenceFromEightMillion for the frozen rule at 16M. Neither outcome proves or disproves the Twin Prime Conjecture."
+  },
+  "registered_reference": {
+    "horizon": 8388608,
+    "finite_lower_bound": 156726.96996317152,
+    "known_without_type_ii_minor": 3727382.40780772,
+    "canonical_pair_numerator_budget": 3412519.6296358034,
+    "normalized_margin": 0.04204746194940361,
+    "use": "The 8M row is a disclosed reference only. It does not set a fitted exponent, threshold, partition, or 16M decision rule."
+  },
+  "secondary_endpoints": [
+    "canonical adverse budget divided by known_without_type_ii_minor",
+    "finite lower expression divided by known_without_type_ii_minor",
+    "16M normalized margin compared descriptively with the disclosed 8M normalized margin",
+    "canonical numerator budget divided by the fully signed numerator budget",
+    "canonical partition compared with the best width-two contiguous partition, reported descriptively without changing the primary endpoint",
+    "budget concentration by canonical group",
+    "time-domain, endpoint-profile, phase, and real-Gram reconstruction errors"
+  ],
+  "execution_policy": {
+    "runs": 1,
+    "reporting": "Record the first completed 16M result whether it passes or fails. A resource failure is reported as inconclusive and does not permit a changed mathematical rule under this registration.",
+    "next_scale": "Do not claim a 32M result under this registration. A later scale requires a new public registration after the 16M outcome is recorded."
+  },
+  "claim_boundary": "No 16M endpoint coefficients or result were used to choose this rule or endpoint. This registration tests finite persistence of one frozen bound, not eventual positivity and not any of the four conjectures."
+}
