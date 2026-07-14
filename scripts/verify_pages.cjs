@@ -1121,6 +1121,23 @@ async function main() {
     } else {
       requireText("ticket118 Goldbach route", "JointBalancedGoldbachPreserved");
     }
+    requireText("ticket119 title", "Ticket 119 preregistered canonical-pair 16M persistence holdout");
+    requireText("ticket119 table", "TICKET119 registered persistence test");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket119 Twin scale ledger", "Finite scale falsification ledger");
+      requireText("ticket119 Twin budget", "Registered 16M budget ledger");
+      requireText("ticket119 Twin groups", "16M canonical group concentration");
+      requireText("ticket119 Twin lower", "1479021.8");
+      requireText("ticket119 Twin margin", "19.7322%");
+      requireText("ticket119 Twin sublemma", "UniformLowDivisorCanonicalPairDispersion");
+      requireText("ticket119 Twin next", "EventuallySubcriticalCanonicalAdjacentDyadicPairVaughanEndpointBudget");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket119 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket119 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket119 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {
@@ -1920,7 +1937,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-115") ||
     !metrics.evolutionPanel.includes("TICKET-116") ||
     !metrics.evolutionPanel.includes("TICKET-117") ||
-    !metrics.evolutionPanel.includes("TICKET-118")
+    !metrics.evolutionPanel.includes("TICKET-118") ||
+    !metrics.evolutionPanel.includes("TICKET-119")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

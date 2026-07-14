@@ -113,6 +113,8 @@ TICKET116_SCHEMA = "primeproject.ticket116-twin-mobius-sign-cyclotomic-audit.v1"
 TICKET117_SCHEMA = "primeproject.ticket117-twin-dyadic-mobius-endpoint-gram-audit.v1"
 TICKET118_PREREGISTRATION_SCHEMA = "primeproject.ticket118-canonical-adjacent-pair-preregistration.v1"
 TICKET118_SCHEMA = "primeproject.ticket118-canonical-adjacent-pair-holdout.v1"
+TICKET119_PREREGISTRATION_SCHEMA = "primeproject.ticket119-canonical-pair-doubling-preregistration.v1"
+TICKET119_SCHEMA = "primeproject.ticket119-canonical-pair-doubling-holdout.v1"
 
 
 def fail(message: str) -> int:
@@ -7043,6 +7045,55 @@ def main() -> int:
     expected_target118 = "EventuallySubcriticalCanonicalAdjacentDyadicPairVaughanEndpointBudget"
     if audit118.get("next_theorem_target") != expected_target118 or "does not prove" not in str(audit118.get("proof_boundary", "")):
         return fail("ticket118 target or proof boundary changed")
+
+    preregistration_path119 = Path("data/open-problem/ticket119-canonical-pair-doubling-preregistration.json")
+    if not preregistration_path119.exists():
+        return fail("missing ticket119 canonical-pair doubling preregistration")
+    preregistration119 = read_json(preregistration_path119)
+    if preregistration119.get("schema") != TICKET119_PREREGISTRATION_SCHEMA or preregistration119.get("status") != "preregistered_before_holdout_execution" or preregistration119.get("source_commit") != "2852b1a086233523aaca78526e16d31ef4b4c221" or int(preregistration119.get("holdout_horizon", -1)) != 16777216 or preregistration119.get("rule_id") != "canonical_adjacent_shell_pairs_v1" or int(preregistration119.get("execution_policy", {}).get("runs", -1)) != 1:
+        return fail("ticket119 preregistration contract changed")
+    path119 = Path("data/open-problem/ticket119-twin-canonical-pair-doubling-holdout.json")
+    if not path119.exists():
+        return fail("missing ticket119 canonical-pair doubling holdout")
+    ticket119 = read_json(path119)
+    if ticket119.get("schema") != TICKET119_SCHEMA or ticket119.get("status") != "preregistered_doubling_holdout_evaluated_open":
+        return fail("ticket119 schema or status changed")
+    attempts119 = ticket119.get("attempts", [])
+    by_id119 = {str(row.get("problem_id")): row for row in attempts119 if isinstance(row, dict)} if isinstance(attempts119, list) else {}
+    if set(by_id119) != EXPECTED_PROBLEMS:
+        return fail("ticket119 attempts missing problems")
+    paths119 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-119-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-119-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-119-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-119-canonical-pair-doubling-holdout.json"),
+    }
+    for problem_id, attempt in by_id119.items():
+        if not paths119[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket119 artifact or proof boundary missing")
+    if by_id119["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_canonical_pair_doubling_holdout":
+        return fail("ticket119 shared audit reference changed")
+    audit119 = ticket119.get("twin_canonical_pair_doubling_holdout", {})
+    if audit119.get("theorem_name") != "PreregisteredCanonicalAdjacentDyadicPairSixteenMillionHoldout" or audit119.get("preregistration_commit") != "87bdcf9b16c5e57581e9a411aa61290ef2eea173" or audit119.get("preregistration_payload_sha256") != "59ca66805000b79e23d25a3ff3fd0043151ff0a4fe46759a30ac313e0d631ea7" or audit119.get("rule_id") != "canonical_adjacent_shell_pairs_v1":
+        return fail("ticket119 theorem or registration lineage changed")
+    primary119 = audit119.get("primary_result", {})
+    if primary119.get("status") != "pass_finite_closure" or not bool(primary119.get("passes_registered_endpoint")) or int(primary119.get("holdout_horizon", -1)) != 16777216 or abs(float(primary119.get("finite_lower_bound", 0)) - 1479021.828077687) > 1e-6:
+        return fail("ticket119 preregistered primary result changed")
+    canonical119 = audit119.get("canonical_partition", {})
+    expected_groups119 = [("D256", "D512"), ("D1024", "D2048"), ("D4096", "D8192"), ("D16384", "D32768"), ("D65536", "D65536")]
+    observed_groups119 = [(str(group.get("first_block")), str(group.get("last_block"))) for group in canonical119.get("groups", [])]
+    if observed_groups119 != expected_groups119 or int(canonical119.get("maximum_group_width", -1)) != 2 or abs(float(canonical119.get("budget_ratio_to_signed", 0)) - 1.1448737898056909) > 1e-12 or abs(float(canonical119.get("normalized_margin", 0)) - 0.1973217174640551) > 1e-15:
+        return fail("ticket119 canonical partition or margin changed")
+    if not bool(audit119.get("best_width_two_comparison", {}).get("same_partition")) or not bool(audit119.get("scale_comparison", {}).get("normalized_margin_non_decreasing")):
+        return fail("ticket119 registered secondary comparison changed")
+    row119 = audit119.get("holdout_row", {})
+    if int(row119.get("horizon", -1)) != 16777216 or int(row119.get("dyadic_block_count", -1)) != 9 or len(row119.get("dyadic_denominator_profile", [])) != 31:
+        return fail("ticket119 holdout support changed")
+    if float(row119.get("time_domain_dyadic_reconstruction_max_error", 1)) > 1e-9 or float(row119.get("maximum_profile_reconstruction_error", 1)) > 1e-6 or float(row119.get("maximum_gram_identity_error", 1)) > 1e-4 or float(row119.get("maximum_layer_phase_error", 1)) > 1e-12:
+        return fail("ticket119 exact reconstruction changed")
+    expected_target119 = "EventuallySubcriticalCanonicalAdjacentDyadicPairVaughanEndpointBudget"
+    if audit119.get("next_theorem_target") != expected_target119 or "does not prove" not in str(audit119.get("proof_boundary", "")):
+        return fail("ticket119 target or proof boundary changed")
 
     print("open problem structure verified")
     return 0

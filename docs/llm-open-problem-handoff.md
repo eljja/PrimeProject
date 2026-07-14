@@ -62,7 +62,15 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-118
+## Latest Continuation After TICKET-119
+
+TICKET119 tests whether TICKET118's positive 8M row survives the first unseen doubling without changing the mathematical rule. Commit `87bdcf9b16c5e57581e9a411aa61290ef2eea173` was pushed before any 16M endpoint coefficient or result existed. It froze `X=16,777,216`, `canonical_adjacent_shell_pairs_v1`, one partition for every `q=2,...,32`, strict positivity as the primary endpoint, and a one-run report-all-outcomes policy.
+
+The registered endpoint passes. The canonical numerator budget is `5,728,051.2`; boundary plus variation is `288,411.2`; the independently computed comparison term is `7,495,484.3`; the finite lower expression is `+1,479,021.8`. The adverse-to-known ratio is `0.8026783` and normalized margin is `0.1973217`, compared with the disclosed 8M margin `0.0420475`. The canonical budget is `1.1448738x` the fully signed budget, and the canonical partition again equals the post-hoc best width-two partition.
+
+Do not infer monotonicity, convergence, or an exponent from the 8M and 16M passes. The first group, actual outer divisors 257-1023, contributes `3,387,615.9`, or 59.14% of the canonical budget. The immediate analytic sublemma is `UniformLowDivisorCanonicalPairDispersion`; the retained full target is `EventuallySubcriticalCanonicalAdjacentDyadicPairVaughanEndpointBudget`. It must prove a fixed positive margin for every sufficiently large scale from actual signed Vaughan coefficients and an independently positive comparison term. The negative route is an unbounded Vaughan-realizable sequence with adverse-to-known ratio at least one. All four conjectures remain open.
+
+## Preserved Continuation After TICKET-118
 
 TICKET118 addresses the selection problem left by TICKET117. Commit `5b52d4d58873afc512555ba6079d4280f61757ae` was pushed before the result existed. It froze `X=8,388,608`, the canonical rule `(B0,B1),(B2,B3),...` over increasing nonempty dyadic outer-divisor shells, one partition for all `q=2,...,32`, a ban on post-result regrouping, and strict positivity of the finite lower expression as the primary endpoint.
 

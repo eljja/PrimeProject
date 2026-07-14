@@ -37,6 +37,20 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-15 Registered Twin Persistence Attempt
+
+TICKET-119 applies the exact proof-or-counterexample discipline to the strongest current Twin route. The 16M rule was committed as `87bdcf9` before execution. Failure would have refuted the frozen claim that TICKET-118's canonical adjacent-pair finite closure persists at the first doubling. The first execution instead passed with finite lower expression `+1,479,021.8` and normalized margin `19.7322%`.
+
+This result rejects neither the Twin Prime Conjecture nor the missing eventual theorem. It also does not prove either one. The proof obligation is now explicit:
+
+```text
+Find fixed delta>0 and X0 such that, for every X>=X0,
+canonical signed endpoint budget + boundary + variation
+    <= (1-delta) * independently positive comparison term.
+```
+
+The first subproblem is `UniformLowDivisorCanonicalPairDispersion`, because the outer-divisor group 257-1023 contributes 59.14% of the 16M canonical budget. The counterexample oracle must search for an unbounded Vaughan-realizable scale sequence that violates every fixed margin; a later isolated finite failure is only a route counterexample at that scale.
+
 ## Result Summary
 
 ### Riemann Hypothesis

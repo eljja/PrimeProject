@@ -54,6 +54,12 @@ jobs:
       - name: Unit check publication reproduction
         run: python -m unittest tests.test_prime_audit.PrimeAuditTests.test_publication_reproduction_script_succeeds
 
+      - name: Unit check latest registered holdout
+        run: python -m unittest tests.test_ticket119_twin_canonical_pair_doubling_preregistration
+
+      - name: Verify open problem structure
+        run: python scripts/verify_open_problem_structure.py
+
       - name: Verify open problem certificates
         run: python scripts/verify_open_problem_workbench.py
 

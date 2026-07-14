@@ -1,5 +1,6 @@
 const problemId = document.body.dataset.problem;
 const formatter = new Intl.NumberFormat("en-US");
+let ticket119AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9265,7 +9266,74 @@ function renderTicket118TwinCanonicalAdjacentPairHoldout(attempt) {
   `;
 }
 
-function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket) {
+function renderTicket119TwinCanonicalPairDoublingHoldout(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.twin_canonical_pair_doubling_holdout || {};
+  const primary = audit.primary_result || {};
+  const canonical = audit.canonical_partition || {};
+  const scale = audit.scale_comparison || {};
+  const row = audit.holdout_row || {};
+  const preregistration = audit.preregistration || {};
+  const isTwin = attempt.problem_id === "twin-prime";
+  const summaryRows = Object.keys(audit).length ? [
+    ["preregistration commit", String(audit.preregistration_commit || "").slice(0, 12)],
+    ["holdout horizon", primary.holdout_horizon],
+    ["registered endpoint", primary.status],
+    ["finite lower expression", Number(primary.finite_lower_bound || 0).toFixed(1)],
+    ["adverse / known", Number(canonical.adverse_to_known_ratio || 0).toFixed(6)],
+    ["normalized margin", `${(100 * Number(canonical.normalized_margin || 0)).toFixed(4)}%`],
+    ["canonical equals best width-two", audit.best_width_two_comparison?.same_partition ? "yes" : "no"],
+    ["next theorem", audit.next_theorem_target],
+  ] : [["preserved route", attempt.route || "missing"], ["independent target", bounded.independent_target || attempt.candidate_theorem || "missing"]];
+  const scaleRows = Object.keys(audit).length ? [
+    ["4M exploratory", "-0.0660%", "failed by 1,236.3"],
+    ["8M preregistered", `${(100 * Number(scale.reference_normalized_margin || 0)).toFixed(4)}%`, "passed by 156,727.0"],
+    ["16M preregistered", `${(100 * Number(scale.holdout_normalized_margin || 0)).toFixed(4)}%`, `passed by ${Number(primary.finite_lower_bound || 0).toFixed(1)}`],
+  ] : [];
+  const budgetRows = Object.keys(audit).length ? [
+    ["fully signed numerator", Number(row.signed_numerator_budget_reconstructed || 0).toFixed(1)],
+    ["canonical adjacent pairs", Number(canonical.numerator_budget || 0).toFixed(1)],
+    ["canonical / signed", Number(canonical.budget_ratio_to_signed || 0).toFixed(6)],
+    ["boundary + variation", (Number(row.boundary_phase_lipschitz_envelope || 0) + Number(row.variation_absolute_envelope || 0)).toFixed(1)],
+    ["known comparison", Number(row.known_without_type_ii_minor || 0).toFixed(1)],
+    ["registered lower", Number(canonical.lower_bound || 0).toFixed(1)],
+  ] : [];
+  const groups = Array.isArray(canonical.groups) ? canonical.groups : [];
+  const maxBudget = Math.max(1, ...groups.map((group) => Number(group.numerator_budget || 0)));
+  const groupBars = groups.length ? `
+    <div class="poc-denominator-chart poc-canonical-pair-chart" role="img" aria-label="Preregistered 16M canonical adjacent-pair numerator budget by group">
+      ${groups.map((group, index) => {
+        const budget = Number(group.numerator_budget || 0);
+        const width = Math.max(1, 100 * budget / maxBudget);
+        return `<div class="poc-denominator-row"><span>${escapeHtml(group.first_block)}–${escapeHtml(group.last_block)}</span><div title="outer divisors ${escapeHtml(group.actual_lower)} through ${escapeHtml(group.actual_upper)}"><i class="${index === 0 ? "is-primary" : ""}" style="width:${width.toFixed(2)}%"></i></div><strong>${budget.toFixed(1)}</strong></div>`;
+      }).join("")}
+    </div>
+  ` : "";
+  const contractRows = Object.keys(row).length ? [
+    ["time reconstruction", Number(row.time_domain_dyadic_reconstruction_max_error || 0).toExponential(3)],
+    ["endpoint profile", Number(row.maximum_profile_reconstruction_error || 0).toExponential(3)],
+    ["Gram identity", Number(row.maximum_gram_identity_error || 0).toExponential(3)],
+    ["phase alignment", Number(row.maximum_layer_phase_error || 0).toExponential(3)],
+  ] : [];
+  return `
+    <div class="poc-ticket17 poc-ticket117 poc-ticket118 poc-ticket119">
+      <h3>Ticket 119 preregistered canonical-pair 16M persistence holdout</h3>
+      <div class="poc-head"><div><span>Status</span><strong>${escapeHtml(statusText(attempt.status))}</strong></div><div><span>Route</span><strong>${escapeHtml(attempt.route || "missing")}</strong></div><div><span>Scope</span><strong>${isTwin ? "two finite dyadic passes; eventual theorem open" : "problem-specific target preserved"}</strong></div></div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${isTwin ? `<p><strong>한국어 해설:</strong> 16M 결과 전에 커밋 87bdcf9로 TICKET-118과 동일한 규칙 및 1회 실행을 고정했습니다. 유한 하한은 +1,479,021.8, 정규화 margin은 19.7322%로 통과했습니다. 8M의 4.2047%보다 커졌지만 두 점은 단조성이나 점근 정리가 아닙니다. 첫 canonical 그룹이 예산의 59.14%를 차지하므로 다음 분석 목표는 low-divisor signed bilinear 상계입니다.</p>` : `<p><strong>한국어 해설:</strong> 쌍둥이 소수의 16M persistence 결과를 이 문제로 전이하지 않습니다. 기존 문제별 무한 정리와 반례 오라클을 그대로 유지합니다.</p>`}
+      ${table(["TICKET119 registered persistence test", "Value"], summaryRows)}
+      ${scaleRows.length ? `<h3>Finite scale falsification ledger</h3>${table(["scale", "normalized margin", "finite decision"], scaleRows)}` : ""}
+      ${budgetRows.length ? `<h3>Registered 16M budget ledger</h3>${table(["quantity", "value"], budgetRows)}` : ""}
+      ${isTwin && groupBars ? `<h3>16M canonical group concentration</h3><p>첫 그룹 비중 59.14%는 다음 보조정리의 우선순위일 뿐, 관측값을 theorem constant로 사용하지 않습니다.</p>${groupBars}` : ""}
+      ${contractRows.length ? `<div class="poc-bridge"><section><h3>Frozen execution contract</h3>${table(["field", "statement"], Object.entries(preregistration.execution_policy || {}))}</section><section><h3>Reconstruction checks</h3>${table(["contract", "error"], contractRows)}</section></div>` : ""}
+      ${Object.keys(audit).length ? `<div class="poc-bridge"><section><h3>Primary endpoint boundary</h3>${table(["field", "statement"], Object.entries(preregistration.primary_endpoint || {}))}</section><section><h3>Retained theorem</h3><p>${escapeHtml(audit.next_theorem_target || "")}</p><p><strong>First sublemma:</strong> UniformLowDivisorCanonicalPairDispersion</p></section></div>` : ""}
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
+function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
   }
@@ -9434,6 +9502,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket116TwinMobiusSignCyclotomic(twinMobiusSignTicket)}
     ${renderTicket117TwinDyadicMobiusEndpointGram(twinDyadicGramTicket)}
     ${renderTicket118TwinCanonicalAdjacentPairHoldout(twinCanonicalPairHoldoutTicket)}
+    ${renderTicket119TwinCanonicalPairDoublingHoldout(twinCanonicalPairDoublingTicket || ticket119AttemptGlobal)}
   `;
 }
 
@@ -10617,6 +10686,18 @@ async function main() {
     }
   } catch (error) {
     ticket118Attempt = null;
+  }
+  try {
+    const ticket119Response = await fetch("../data/open-problem/ticket119-twin-canonical-pair-doubling-holdout.json", { cache: "no-store" });
+    if (ticket119Response.ok) {
+      const ticket119Payload = await ticket119Response.json();
+      ticket119AttemptGlobal = (ticket119Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+      if (ticket119AttemptGlobal && ticket119AttemptGlobal.bounded_result?.audit_ref === "twin_canonical_pair_doubling_holdout") {
+        ticket119AttemptGlobal.bounded_result.twin_canonical_pair_doubling_holdout = ticket119Payload.twin_canonical_pair_doubling_holdout || {};
+      }
+    }
+  } catch (error) {
+    ticket119AttemptGlobal = null;
   }
   render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt);
 }
