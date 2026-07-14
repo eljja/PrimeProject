@@ -1,0 +1,18 @@
+{
+  "schema": "primeproject.ticket113-twin-farey-denominator-endpoint-audit.v1",
+  "generated_at": "2026-07-14T13:20:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-113",
+  "status": "right_denominator_grouping_exact_new_holdout_finite_closure_open",
+  "route": "RightFareyDenominatorEndpointBudget",
+  "proof_or_counterexample_mode": "exact denominator grouping, new holdout, and magnitude-label adversary",
+  "attempt": "Group the 162 exact Farey-cell endpoints by their canonical right-boundary denominator, test the frozen rule at 4M, and falsify any inference based only on labels and magnitudes.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-112",
+    "audit_ref": "twin_farey_denominator_endpoint_audit"
+  },
+  "obstruction": "A finite FFT audit, even at the first post-selection evaluation of this statistic, supplies no uniform estimate in X and no exact interval certificate for floating-point rounding.",
+  "candidate_theorem": "UniformRightFareyDenominatorEndpointBudgetForVaughanCrossSpectrum",
+  "next_experiment": "Derive a uniform one-sided bound for the 31 denominator blocks from the Vaughan bilinear coefficient phases, or construct a Vaughan-realizable adversarial sequence.",
+  "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+}

@@ -62,7 +62,17 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-112
+## Latest Continuation After TICKET-113
+
+TICKET113 freezes a canonical grouping after exploratory work at `X=262,144`: attach every TICKET112 Abel endpoint to the denominator of its immediate right Farey boundary. This converts 162 endpoint terms into 31 complex denominator blocks without selecting a subset, sign, fitted weight, or exponent.
+
+The first post-selection evaluation of this 31-block endpoint statistic at `X=4,194,304` passes. The scale itself appeared in earlier tracks and is not globally unseen data. Independent endpoint mass `2,161,424.6` becomes grouped endpoint envelope `767,682.2`; the unchanged variation envelope is `89,185.2`; known major-plus-Type-I-minor is `1,874,243.5`; and the finite grouped lower expression is `1,017,376.2`.
+
+Do not promote that result to a theorem. The FFT calculation is floating point and covers six finite scales. More importantly, a phase adversary that preserves every cell magnitude, right-denominator label, group count, and magnitude-only norm restores the independent envelope and gives lower expression `-376,366.3` at 4M. Denominator labels alone cannot imply cancellation.
+
+The next theorem is `UniformRightFareyDenominatorEndpointBudgetForVaughanCrossSpectrum`. Derive a uniform one-sided bound for the 31 `D_q` blocks from the Möbius/divisor phase relations of the Vaughan Type II coefficients, or construct a Vaughan-realizable coefficient countermodel. The abstract magnitude-label adversary is a valid no-go for weak hypotheses but is not asserted to satisfy Vaughan convolution identities.
+
+## Preserved Continuation After TICKET-112
 
 TICKET112 applies exact Abel summation inside each of the 162 connected cells of the fixed `Q=32` minor mask. It decomposes the Type II minor cross-spectrum into Farey-cell endpoint terms and smooth within-cell variation terms.
 

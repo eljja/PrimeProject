@@ -106,6 +106,7 @@ TICKET109_SCHEMA = "primeproject.ticket109-twin-spectral-phase-audit.v1"
 TICKET110_SCHEMA = "primeproject.ticket110-twin-rational-arc-budget.v1"
 TICKET111_SCHEMA = "primeproject.ticket111-twin-typeii-minor-phase-audit.v1"
 TICKET112_SCHEMA = "primeproject.ticket112-twin-farey-endpoint-abel-audit.v1"
+TICKET113_SCHEMA = "primeproject.ticket113-twin-farey-denominator-endpoint-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -6698,6 +6699,59 @@ def main() -> int:
         return fail("ticket112 quantitative frontier changed")
     if audit112.get("next_theorem_target") != "UniformFareyCellEndpointCancellationForVaughanCrossSpectrum" or "proves none" not in str(audit112.get("proof_boundary", "")):
         return fail("ticket112 target or proof boundary changed")
+
+    path113 = Path("data/open-problem/ticket113-twin-farey-denominator-endpoint-audit.json")
+    if not path113.exists():
+        return fail("missing ticket113 Farey denominator artifact")
+    ticket113 = read_json(path113)
+    expected_status113 = "right_denominator_grouping_exact_new_holdout_finite_closure_open"
+    if ticket113.get("schema") != TICKET113_SCHEMA or ticket113.get("status") != expected_status113:
+        return fail("ticket113 schema or status changed")
+    attempts113 = ticket113.get("attempts", [])
+    by_id113 = {str(row.get("problem_id")): row for row in attempts113 if isinstance(row, dict)} if isinstance(attempts113, list) else {}
+    if set(by_id113) != EXPECTED_PROBLEMS:
+        return fail("ticket113 attempts missing problems")
+    paths113 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-113-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-113-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-113-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-113-farey-denominator-endpoint-audit.json"),
+    }
+    for problem_id, attempt in by_id113.items():
+        if not paths113[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket113 artifact or proof boundary missing")
+    if by_id113["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_farey_denominator_endpoint_audit":
+        return fail("ticket113 shared audit reference changed")
+    audit113 = ticket113.get("twin_farey_denominator_endpoint_audit", {})
+    machine113 = audit113.get("machine_audit", {})
+    expected_metrics113 = {
+        "maximum_horizon": 4194304,
+        "row_count": 6,
+        "calibration_row_count": 5,
+        "holdout_row_count": 1,
+        "minor_cell_count": 162,
+        "right_denominator_group_count": 31,
+        "finite_closure_count": 6,
+        "magnitude_label_adversary_refutation_count": 6,
+        "holdout_closure_failure_count": 0,
+        "contract_failure_count": 0,
+    }
+    if audit113.get("theorem_name") != "ExactRightFareyDenominatorEndpointGroupingAndMagnitudeLabelNoGo" or {key: int(machine113.get(key, -1)) for key in expected_metrics113} != expected_metrics113:
+        return fail("ticket113 theorem or machine contract changed")
+    rows113 = audit113.get("rows", [])
+    if [int(row.get("horizon", -1)) for row in rows113] != [4096, 32768, 262144, 1048576, 2097152, 4194304]:
+        return fail("ticket113 horizon schedule changed")
+    if any(not bool(row.get("grouped_triangle_closes_finite")) for row in rows113) or any(not bool(row.get("magnitude_label_adversary_refutes_closure")) for row in rows113):
+        return fail("ticket113 finite closure or adversary no-go changed")
+    if max(float(row.get("abel_identity_absolute_error", 1)) for row in rows113) > 1e-5 or max(float(row.get("denominator_group_identity_absolute_error", 1)) for row in rows113) > 1e-5:
+        return fail("ticket113 exact identities changed")
+    holdout113 = rows113[-1]
+    if holdout113.get("split") != "post_selection_holdout" or int(holdout113.get("right_denominator_group_count", -1)) != 31:
+        return fail("ticket113 holdout contract changed")
+    if abs(float(holdout113.get("right_denominator_group_envelope", 0)) - 767682.175108969) > 1e-6 or abs(float(holdout113.get("grouped_lower_bound", 0)) - 1017376.1779486465) > 1e-6 or abs(float(holdout113.get("independent_endpoint_lower_bound", 0)) + 376366.25818842696) > 1e-6:
+        return fail("ticket113 quantitative frontier changed")
+    if audit113.get("next_theorem_target") != "UniformRightFareyDenominatorEndpointBudgetForVaughanCrossSpectrum" or "proves none" not in str(audit113.get("proof_boundary", "")):
+        return fail("ticket113 target or proof boundary changed")
 
     print("open problem structure verified")
     return 0

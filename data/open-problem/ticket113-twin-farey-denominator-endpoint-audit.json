@@ -1,0 +1,1617 @@
+{
+  "schema": "primeproject.ticket113-twin-farey-denominator-endpoint-audit.v1",
+  "generated_at": "2026-07-14T13:20:00+09:00",
+  "status": "right_denominator_grouping_exact_new_holdout_finite_closure_open",
+  "claim_boundary": "TICKET113 proves exact finite decomposition identities in the implemented algebra and constructs an abstract no-go countermodel for magnitude-and-label-only reasoning. The positive grouped bounds are floating-point finite audits, not a uniform theorem. It proves none of the four conjectures and certifies no conjecture counterexample.",
+  "twin_farey_denominator_endpoint_audit": {
+    "theorem_name": "ExactRightFareyDenominatorEndpointGroupingAndMagnitudeLabelNoGo",
+    "source_ticket": "TICKET-112",
+    "selection_contract": {
+      "exploratory_scale": 262144,
+      "frozen_rule": "Attach every minor-cell endpoint to the denominator q of its immediate right Farey boundary; then sum endpoints sharing q.",
+      "rule_reason": "The Abel endpoint lies immediately before that major arc, so the right boundary is canonical and does not depend on the endpoint sign.",
+      "endpoint_statistic_holdout": 4194304,
+      "holdout_scope": "The 4M scale appeared in earlier project tracks, but its 31-block right-denominator endpoint statistic was not inspected when this rule was frozen.",
+      "anti_tuning": "No denominator subset, sign, weight, or exponent is fitted. All q=2,...,32 are retained."
+    },
+    "exact_denominator_grouping": {
+      "farey_contract": "All 162 minor cells lie between adjacent reduced fractions a/q with q<=32 and determinant one.",
+      "identity": "If E_C is the Abel endpoint for cell C and q_R(C) its right-boundary denominator, D_q=sum_{q_R(C)=q} E_C and sum_C E_C=sum_{q=2}^{32} D_q exactly.",
+      "finite_bound": "Re(sum_q D_q)>=-sum_q |D_q|; adding the unchanged within-cell variation envelope yields a replayable finite lower bound.",
+      "information_gain": "This retains cancellation among endpoint phases that share a canonical denominator instead of taking 162 independent absolute values."
+    },
+    "magnitude_label_no_go": {
+      "countermodel": "Replace each endpoint E_C by -|E_C| while preserving its cell, right-denominator label, per-cell magnitude, group counts, and all magnitude-only norms.",
+      "result": "The adversary restores the independent endpoint envelope and leaves a nonpositive lower bound on every audited scale.",
+      "logical_scope": "Therefore Farey labels plus endpoint magnitudes cannot imply denominator cancellation. A proof must use phase relations forced by the Vaughan bilinear coefficients; the countermodel is not claimed to be Vaughan-realizable."
+    },
+    "holdout_result": {
+      "status": "finite_grouped_triangle_survives_new_holdout",
+      "right_denominator_groups": 31,
+      "endpoint_envelope": 2161424.6112460424,
+      "grouped_endpoint_envelope": 767682.175108969,
+      "variation_envelope": 89185.16100391374,
+      "grouped_lower_bound": 1017376.1779486465,
+      "proof_gap": "A finite FFT audit, even at the first post-selection evaluation of this statistic, supplies no uniform estimate in X and no exact interval certificate for floating-point rounding."
+    },
+    "rows": [
+      {
+        "horizon": 4096,
+        "split": "calibration_replay",
+        "u": 16,
+        "v": 13,
+        "fft_length": 16384,
+        "denominator_cutoff": 32,
+        "major_arc_count": 163,
+        "minor_cell_count": 162,
+        "right_denominator_group_count": 31,
+        "farey_adjacency_failure_count": 0,
+        "lambda_reconstruction_max_error": 0.0,
+        "abel_identity_absolute_error": 1.916740890651559e-13,
+        "denominator_group_identity_absolute_error": 1.4888583356622762e-13,
+        "actual_type_ii_minor_contribution": 92.02148215915867,
+        "endpoint_signed_contribution": 91.73226323317593,
+        "endpoint_absolute_envelope": 2744.499192202008,
+        "variation_signed_contribution": 0.2892189259829195,
+        "variation_absolute_envelope": 71.24936848587897,
+        "right_denominator_group_envelope": 1058.3558223987607,
+        "grouped_total_envelope": 1129.6051908846396,
+        "grouped_endpoint_fraction_of_independent": 0.3856280320307198,
+        "known_without_type_ii_minor": 1759.5237652005485,
+        "grouped_lower_bound": 629.9185743159089,
+        "grouped_triangle_closes_finite": true,
+        "independent_endpoint_lower_bound": -1056.2247954873385,
+        "magnitude_label_adversary_refutes_closure": true,
+        "denominator_profile": [
+          {
+            "right_denominator": 2,
+            "cell_count": 1,
+            "signed_real": 58.8708307239552,
+            "signed_imaginary": 0.6435479604790579,
+            "magnitude": 58.87434809920212
+          },
+          {
+            "right_denominator": 3,
+            "cell_count": 1,
+            "signed_real": -16.763550032843877,
+            "signed_imaginary": -36.85586844169871,
+            "magnitude": 40.48915469969042
+          },
+          {
+            "right_denominator": 4,
+            "cell_count": 1,
+            "signed_real": -54.007430165984594,
+            "signed_imaginary": -5.325566434212296,
+            "magnitude": 54.269366782549724
+          },
+          {
+            "right_denominator": 5,
+            "cell_count": 2,
+            "signed_real": 1.5709644872003494,
+            "signed_imaginary": -32.58211219004343,
+            "magnitude": 32.61996266375272
+          },
+          {
+            "right_denominator": 6,
+            "cell_count": 1,
+            "signed_real": -9.789878841721649,
+            "signed_imaginary": 25.92624821159165,
+            "magnitude": 27.713030762885687
+          },
+          {
+            "right_denominator": 7,
+            "cell_count": 3,
+            "signed_real": -15.44041118835662,
+            "signed_imaginary": -32.31564091308797,
+            "magnitude": 35.814898370499016
+          },
+          {
+            "right_denominator": 8,
+            "cell_count": 2,
+            "signed_real": -4.114141640387549,
+            "signed_imaginary": -7.403787018160562,
+            "magnitude": 8.470078137033545
+          },
+          {
+            "right_denominator": 9,
+            "cell_count": 3,
+            "signed_real": 5.512443395177145,
+            "signed_imaginary": 4.963352846152205,
+            "magnitude": 7.417675084582724
+          },
+          {
+            "right_denominator": 10,
+            "cell_count": 2,
+            "signed_real": -11.81869188311316,
+            "signed_imaginary": -4.298524148742228,
+            "magnitude": 12.576119738825843
+          },
+          {
+            "right_denominator": 11,
+            "cell_count": 5,
+            "signed_real": -5.699126204903985,
+            "signed_imaginary": 15.646910060752539,
+            "magnitude": 16.65250233294391
+          },
+          {
+            "right_denominator": 12,
+            "cell_count": 2,
+            "signed_real": 43.5199870207186,
+            "signed_imaginary": 8.475780619601206,
+            "magnitude": 44.33766037349201
+          },
+          {
+            "right_denominator": 13,
+            "cell_count": 6,
+            "signed_real": -11.38806198655985,
+            "signed_imaginary": -3.462517379102108,
+            "magnitude": 11.902814054261018
+          },
+          {
+            "right_denominator": 14,
+            "cell_count": 3,
+            "signed_real": -8.052709158216373,
+            "signed_imaginary": -0.03750289659501149,
+            "magnitude": 8.052796486567562
+          },
+          {
+            "right_denominator": 15,
+            "cell_count": 4,
+            "signed_real": -0.27574858918591794,
+            "signed_imaginary": 13.02304377131599,
+            "magnitude": 13.025962780311106
+          },
+          {
+            "right_denominator": 16,
+            "cell_count": 4,
+            "signed_real": 14.506085713810204,
+            "signed_imaginary": -14.306754992640478,
+            "magnitude": 20.374242590973825
+          },
+          {
+            "right_denominator": 17,
+            "cell_count": 8,
+            "signed_real": 3.929512282587593,
+            "signed_imaginary": 11.955095663276571,
+            "magnitude": 12.584330697224267
+          },
+          {
+            "right_denominator": 18,
+            "cell_count": 3,
+            "signed_real": 3.2501702127904597,
+            "signed_imaginary": -2.4418179727491065,
+            "magnitude": 4.065228336041032
+          },
+          {
+            "right_denominator": 19,
+            "cell_count": 9,
+            "signed_real": 8.410987486763153,
+            "signed_imaginary": -10.024004843905228,
+            "magnitude": 13.085311750704369
+          },
+          {
+            "right_denominator": 20,
+            "cell_count": 4,
+            "signed_real": 17.89644090977583,
+            "signed_imaginary": -1.9889564361303484,
+            "magnitude": 18.00662502919196
+          },
+          {
+            "right_denominator": 21,
+            "cell_count": 6,
+            "signed_real": -28.75241356367802,
+            "signed_imaginary": 16.992192457832342,
+            "magnitude": 33.39814201809421
+          },
+          {
+            "right_denominator": 22,
+            "cell_count": 5,
+            "signed_real": -24.15672613001162,
+            "signed_imaginary": 0.06563021505648337,
+            "magnitude": 24.15681528359056
+          },
+          {
+            "right_denominator": 23,
+            "cell_count": 11,
+            "signed_real": -14.768825207415324,
+            "signed_imaginary": 42.817459896927986,
+            "magnitude": 45.29296932231561
+          },
+          {
+            "right_denominator": 24,
+            "cell_count": 4,
+            "signed_real": 38.78727215563543,
+            "signed_imaginary": -14.295867656104898,
+            "magnitude": 41.33792826589399
+          },
+          {
+            "right_denominator": 25,
+            "cell_count": 10,
+            "signed_real": -36.83436573880945,
+            "signed_imaginary": -25.411804694245593,
+            "magnitude": 44.74964041418503
+          },
+          {
+            "right_denominator": 26,
+            "cell_count": 6,
+            "signed_real": -6.934603321391965,
+            "signed_imaginary": 10.024889165235564,
+            "magnitude": 12.189631905858269
+          },
+          {
+            "right_denominator": 27,
+            "cell_count": 9,
+            "signed_real": -37.12145871377876,
+            "signed_imaginary": 74.2631679510283,
+            "magnitude": 83.02421822071808
+          },
+          {
+            "right_denominator": 28,
+            "cell_count": 6,
+            "signed_real": 37.04162390377902,
+            "signed_imaginary": 1.7322644420104396,
+            "magnitude": 37.082106756845235
+          },
+          {
+            "right_denominator": 29,
+            "cell_count": 14,
+            "signed_real": -32.73617361294514,
+            "signed_imaginary": 0.6101521587126322,
+            "magnitude": 32.74185927026239
+          },
+          {
+            "right_denominator": 30,
+            "cell_count": 4,
+            "signed_real": 18.9104037461162,
+            "signed_imaginary": -39.31626785039365,
+            "magnitude": 43.627655077084114
+          },
+          {
+            "right_denominator": 31,
+            "cell_count": 15,
+            "signed_real": -30.981215583992075,
+            "signed_imaginary": 2.6706924419191154,
+            "magnitude": 31.096114181375096
+          },
+          {
+            "right_denominator": 32,
+            "cell_count": 8,
+            "signed_real": 189.1610727581625,
+            "signed_imaginary": 7.915963788615571,
+            "magnitude": 189.32663291180543
+          }
+        ]
+      },
+      {
+        "horizon": 32768,
+        "split": "calibration_replay",
+        "u": 32,
+        "v": 27,
+        "fft_length": 131072,
+        "denominator_cutoff": 32,
+        "major_arc_count": 163,
+        "minor_cell_count": 162,
+        "right_denominator_group_count": 31,
+        "farey_adjacency_failure_count": 0,
+        "lambda_reconstruction_max_error": 0.0,
+        "abel_identity_absolute_error": 7.920840281029941e-12,
+        "denominator_group_identity_absolute_error": 4.6725843520930714e-12,
+        "actual_type_ii_minor_contribution": 420.6119978270799,
+        "endpoint_signed_contribution": 383.742080380994,
+        "endpoint_absolute_envelope": 37357.19910972495,
+        "variation_signed_contribution": 36.86991744609162,
+        "variation_absolute_envelope": 1384.0872814700467,
+        "right_denominator_group_envelope": 11542.094663140479,
+        "grouped_total_envelope": 12926.181944610526,
+        "grouped_endpoint_fraction_of_independent": 0.3089657398896322,
+        "known_without_type_ii_minor": 13920.519936756462,
+        "grouped_lower_bound": 994.3379921459364,
+        "grouped_triangle_closes_finite": true,
+        "independent_endpoint_lower_bound": -24820.76645443853,
+        "magnitude_label_adversary_refutes_closure": true,
+        "denominator_profile": [
+          {
+            "right_denominator": 2,
+            "cell_count": 1,
+            "signed_real": 1152.468611141047,
+            "signed_imaginary": 9.391925557350609,
+            "magnitude": 1152.5068797760161
+          },
+          {
+            "right_denominator": 3,
+            "cell_count": 1,
+            "signed_real": -336.80353890205,
+            "signed_imaginary": -699.853143357106,
+            "magnitude": 776.6795002340197
+          },
+          {
+            "right_denominator": 4,
+            "cell_count": 1,
+            "signed_real": -656.3093957890293,
+            "signed_imaginary": 59.50540347644603,
+            "magnitude": 659.0014537494249
+          },
+          {
+            "right_denominator": 5,
+            "cell_count": 2,
+            "signed_real": -259.78581986418226,
+            "signed_imaginary": -360.13059530891945,
+            "magnitude": 444.05260710873216
+          },
+          {
+            "right_denominator": 6,
+            "cell_count": 1,
+            "signed_real": -259.8434424451584,
+            "signed_imaginary": 422.63854162601007,
+            "magnitude": 496.12695094049366
+          },
+          {
+            "right_denominator": 7,
+            "cell_count": 3,
+            "signed_real": -214.1339131129129,
+            "signed_imaginary": -22.3892213726013,
+            "magnitude": 215.30120756447204
+          },
+          {
+            "right_denominator": 8,
+            "cell_count": 2,
+            "signed_real": -35.524345257545995,
+            "signed_imaginary": -39.24626285596912,
+            "magnitude": 52.93626596329922
+          },
+          {
+            "right_denominator": 9,
+            "cell_count": 3,
+            "signed_real": 45.58214055501065,
+            "signed_imaginary": 213.19557143050355,
+            "magnitude": 218.0139518818823
+          },
+          {
+            "right_denominator": 10,
+            "cell_count": 2,
+            "signed_real": -168.46890245052185,
+            "signed_imaginary": 31.692778426581782,
+            "magnitude": 171.42404527160085
+          },
+          {
+            "right_denominator": 11,
+            "cell_count": 5,
+            "signed_real": -88.60175572645471,
+            "signed_imaginary": -146.54174032228374,
+            "magnitude": 171.24471604839079
+          },
+          {
+            "right_denominator": 12,
+            "cell_count": 2,
+            "signed_real": 275.90985240388716,
+            "signed_imaginary": 43.0910048901672,
+            "magnitude": 279.2545100011443
+          },
+          {
+            "right_denominator": 13,
+            "cell_count": 6,
+            "signed_real": -205.93177123369142,
+            "signed_imaginary": 43.61510126603139,
+            "magnitude": 210.49981344859097
+          },
+          {
+            "right_denominator": 14,
+            "cell_count": 3,
+            "signed_real": -132.26433743218467,
+            "signed_imaginary": 112.5156912103412,
+            "magnitude": 173.64802251945073
+          },
+          {
+            "right_denominator": 15,
+            "cell_count": 4,
+            "signed_real": -120.9453698749374,
+            "signed_imaginary": 116.68176667355543,
+            "magnitude": 168.05480406179242
+          },
+          {
+            "right_denominator": 16,
+            "cell_count": 4,
+            "signed_real": 133.64957541955272,
+            "signed_imaginary": 64.12786586634718,
+            "magnitude": 148.23829528970887
+          },
+          {
+            "right_denominator": 17,
+            "cell_count": 8,
+            "signed_real": -44.09400780382026,
+            "signed_imaginary": 1.7034774336763086,
+            "magnitude": 44.12690063408495
+          },
+          {
+            "right_denominator": 18,
+            "cell_count": 3,
+            "signed_real": 77.39671146494726,
+            "signed_imaginary": -39.22094121296355,
+            "magnitude": 86.76712035799645
+          },
+          {
+            "right_denominator": 19,
+            "cell_count": 9,
+            "signed_real": 110.27771205754479,
+            "signed_imaginary": 52.809657585375135,
+            "magnitude": 122.27033046054684
+          },
+          {
+            "right_denominator": 20,
+            "cell_count": 4,
+            "signed_real": 160.2910360852987,
+            "signed_imaginary": -34.24778309694125,
+            "magnitude": 163.90889816100182
+          },
+          {
+            "right_denominator": 21,
+            "cell_count": 6,
+            "signed_real": -47.676632147882316,
+            "signed_imaginary": 197.18167014712546,
+            "magnitude": 202.8636790925726
+          },
+          {
+            "right_denominator": 22,
+            "cell_count": 5,
+            "signed_real": -18.82097070942823,
+            "signed_imaginary": 231.38901426445068,
+            "magnitude": 232.15319265674404
+          },
+          {
+            "right_denominator": 23,
+            "cell_count": 11,
+            "signed_real": -370.41752652619846,
+            "signed_imaginary": -8.671972245076383,
+            "magnitude": 370.51902388461286
+          },
+          {
+            "right_denominator": 24,
+            "cell_count": 4,
+            "signed_real": 263.38397315307753,
+            "signed_imaginary": -125.4831322544932,
+            "magnitude": 291.7484083834901
+          },
+          {
+            "right_denominator": 25,
+            "cell_count": 10,
+            "signed_real": 94.37859685105934,
+            "signed_imaginary": 61.11984514553776,
+            "magnitude": 112.4408956482885
+          },
+          {
+            "right_denominator": 26,
+            "cell_count": 6,
+            "signed_real": -80.79702122610215,
+            "signed_imaginary": 225.10241042583587,
+            "magnitude": 239.16365488621523
+          },
+          {
+            "right_denominator": 27,
+            "cell_count": 9,
+            "signed_real": -117.54370672013002,
+            "signed_imaginary": 564.862649008275,
+            "magnitude": 576.9630276145548
+          },
+          {
+            "right_denominator": 28,
+            "cell_count": 6,
+            "signed_real": 157.16520722233153,
+            "signed_imaginary": 31.654849401042853,
+            "magnitude": 160.32133935269226
+          },
+          {
+            "right_denominator": 29,
+            "cell_count": 14,
+            "signed_real": -257.4260840512213,
+            "signed_imaginary": 193.42276334590434,
+            "magnitude": 321.99464922621337
+          },
+          {
+            "right_denominator": 30,
+            "cell_count": 4,
+            "signed_real": 189.23993675034677,
+            "signed_imaginary": -346.7463554274595,
+            "magnitude": 395.02504814695146
+          },
+          {
+            "right_denominator": 31,
+            "cell_count": 15,
+            "signed_real": -859.7218984296322,
+            "signed_imaginary": -156.63680438072663,
+            "magnitude": 873.8746083541145
+          },
+          {
+            "right_denominator": 32,
+            "cell_count": 8,
+            "signed_real": 1999.1091669799705,
+            "signed_imaginary": -218.09710682271668,
+            "magnitude": 2010.9708624213806
+          }
+        ]
+      },
+      {
+        "horizon": 262144,
+        "split": "calibration_replay",
+        "u": 64,
+        "v": 54,
+        "fft_length": 1048576,
+        "denominator_cutoff": 32,
+        "major_arc_count": 163,
+        "minor_cell_count": 162,
+        "right_denominator_group_count": 31,
+        "farey_adjacency_failure_count": 0,
+        "lambda_reconstruction_max_error": 0.0,
+        "abel_identity_absolute_error": 9.408607573658212e-11,
+        "denominator_group_identity_absolute_error": 4.039387895522206e-11,
+        "actual_type_ii_minor_contribution": -3050.786669657491,
+        "endpoint_signed_contribution": -3738.1304684011266,
+        "endpoint_absolute_envelope": 219448.19177785984,
+        "variation_signed_contribution": 687.3437987437052,
+        "variation_absolute_envelope": 8529.600010214603,
+        "right_denominator_group_envelope": 62332.96491294529,
+        "grouped_total_envelope": 70862.5649231599,
+        "grouped_endpoint_fraction_of_independent": 0.2840441035670182,
+        "known_without_type_ii_minor": 118196.23211706601,
+        "grouped_lower_bound": 47333.66719390612,
+        "grouped_triangle_closes_finite": true,
+        "independent_endpoint_lower_bound": -109781.55967100844,
+        "magnitude_label_adversary_refutes_closure": true,
+        "denominator_profile": [
+          {
+            "right_denominator": 2,
+            "cell_count": 1,
+            "signed_real": 5981.689866077713,
+            "signed_imaginary": 193.02284774271635,
+            "magnitude": 5984.803378030687
+          },
+          {
+            "right_denominator": 3,
+            "cell_count": 1,
+            "signed_real": -2147.781920475854,
+            "signed_imaginary": -3772.598913875723,
+            "magnitude": 4341.136918239187
+          },
+          {
+            "right_denominator": 4,
+            "cell_count": 1,
+            "signed_real": -3011.804725037902,
+            "signed_imaginary": -308.65775689787097,
+            "magnitude": 3027.579447785616
+          },
+          {
+            "right_denominator": 5,
+            "cell_count": 2,
+            "signed_real": -1513.974887228062,
+            "signed_imaginary": 231.96490949536678,
+            "magnitude": 1531.6421508937447
+          },
+          {
+            "right_denominator": 6,
+            "cell_count": 1,
+            "signed_real": -1064.5291175423856,
+            "signed_imaginary": 2296.4018743250394,
+            "magnitude": 2531.142787457698
+          },
+          {
+            "right_denominator": 7,
+            "cell_count": 3,
+            "signed_real": -735.524333469976,
+            "signed_imaginary": 865.440179721548,
+            "magnitude": 1135.7740751588397
+          },
+          {
+            "right_denominator": 8,
+            "cell_count": 2,
+            "signed_real": -260.4005249567698,
+            "signed_imaginary": 964.3219401037848,
+            "magnitude": 998.8619712269002
+          },
+          {
+            "right_denominator": 9,
+            "cell_count": 3,
+            "signed_real": -1139.5208392705806,
+            "signed_imaginary": 1157.9152816539445,
+            "magnitude": 1624.5847292830442
+          },
+          {
+            "right_denominator": 10,
+            "cell_count": 2,
+            "signed_real": -883.4966535621043,
+            "signed_imaginary": 300.8649349480979,
+            "magnitude": 933.3199054647662
+          },
+          {
+            "right_denominator": 11,
+            "cell_count": 5,
+            "signed_real": -3349.735375087118,
+            "signed_imaginary": 218.90402798277904,
+            "magnitude": 3356.8804054623574
+          },
+          {
+            "right_denominator": 12,
+            "cell_count": 2,
+            "signed_real": 1477.2912056368853,
+            "signed_imaginary": -195.58200310527627,
+            "magnitude": 1490.1817426712603
+          },
+          {
+            "right_denominator": 13,
+            "cell_count": 6,
+            "signed_real": -355.3399512477979,
+            "signed_imaginary": -562.1347928086113,
+            "magnitude": 665.0278236576029
+          },
+          {
+            "right_denominator": 14,
+            "cell_count": 3,
+            "signed_real": -1041.7217844915178,
+            "signed_imaginary": -79.86485971176603,
+            "magnitude": 1044.7787670607458
+          },
+          {
+            "right_denominator": 15,
+            "cell_count": 4,
+            "signed_real": 687.5180389013382,
+            "signed_imaginary": 709.964192810969,
+            "magnitude": 988.2966198912515
+          },
+          {
+            "right_denominator": 16,
+            "cell_count": 4,
+            "signed_real": -328.58539491888644,
+            "signed_imaginary": 405.83944043463293,
+            "magnitude": 522.1819732299235
+          },
+          {
+            "right_denominator": 17,
+            "cell_count": 8,
+            "signed_real": -340.3114476947072,
+            "signed_imaginary": 888.6292016753333,
+            "magnitude": 951.563838900054
+          },
+          {
+            "right_denominator": 18,
+            "cell_count": 3,
+            "signed_real": 36.425880152379364,
+            "signed_imaginary": -917.16322466938,
+            "magnitude": 917.8862813174687
+          },
+          {
+            "right_denominator": 19,
+            "cell_count": 9,
+            "signed_real": 2203.0467310632093,
+            "signed_imaginary": -854.4309353557489,
+            "magnitude": 2362.9361232460756
+          },
+          {
+            "right_denominator": 20,
+            "cell_count": 4,
+            "signed_real": 1207.0567499993344,
+            "signed_imaginary": -447.12278395177714,
+            "magnitude": 1287.2081345484667
+          },
+          {
+            "right_denominator": 21,
+            "cell_count": 6,
+            "signed_real": 1452.8812045289453,
+            "signed_imaginary": 640.990831116042,
+            "magnitude": 1587.9965491298503
+          },
+          {
+            "right_denominator": 22,
+            "cell_count": 5,
+            "signed_real": 18.655870333463326,
+            "signed_imaginary": 355.412191690041,
+            "magnitude": 355.90148566677476
+          },
+          {
+            "right_denominator": 23,
+            "cell_count": 11,
+            "signed_real": -812.5224289365362,
+            "signed_imaginary": 260.9803528542966,
+            "magnitude": 853.4069615962139
+          },
+          {
+            "right_denominator": 24,
+            "cell_count": 4,
+            "signed_real": 480.6355531736681,
+            "signed_imaginary": 92.32257186139759,
+            "magnitude": 489.42210028732956
+          },
+          {
+            "right_denominator": 25,
+            "cell_count": 10,
+            "signed_real": -717.9015906954908,
+            "signed_imaginary": -928.701338772524,
+            "magnitude": 1173.8265930540995
+          },
+          {
+            "right_denominator": 26,
+            "cell_count": 6,
+            "signed_real": -592.3058747742999,
+            "signed_imaginary": 299.9391165494484,
+            "magnitude": 663.9199672615761
+          },
+          {
+            "right_denominator": 27,
+            "cell_count": 9,
+            "signed_real": -280.0589788921318,
+            "signed_imaginary": 1129.2608259623796,
+            "magnitude": 1163.4702594872545
+          },
+          {
+            "right_denominator": 28,
+            "cell_count": 6,
+            "signed_real": 1287.0644596932111,
+            "signed_imaginary": -305.0830212416606,
+            "magnitude": 1322.7284578685517
+          },
+          {
+            "right_denominator": 29,
+            "cell_count": 14,
+            "signed_real": -2738.273892570127,
+            "signed_imaginary": 1158.6430028007344,
+            "magnitude": 2973.3142314041174
+          },
+          {
+            "right_denominator": 30,
+            "cell_count": 4,
+            "signed_real": -608.7076499265714,
+            "signed_imaginary": -2871.7493103766324,
+            "magnitude": 2935.5526063635434
+          },
+          {
+            "right_denominator": 31,
+            "cell_count": 15,
+            "signed_real": -4759.566749991753,
+            "signed_imaginary": -805.5943212539512,
+            "magnitude": 4827.261942143152
+          },
+          {
+            "right_denominator": 32,
+            "cell_count": 8,
+            "signed_real": 8111.66809280927,
+            "signed_imaginary": 1712.0707736239178,
+            "magnitude": 8290.376685157145
+          }
+        ]
+      },
+      {
+        "horizon": 1048576,
+        "split": "calibration_replay",
+        "u": 102,
+        "v": 86,
+        "fft_length": 4194304,
+        "denominator_cutoff": 32,
+        "major_arc_count": 163,
+        "minor_cell_count": 162,
+        "right_denominator_group_count": 31,
+        "farey_adjacency_failure_count": 0,
+        "lambda_reconstruction_max_error": 0.0,
+        "abel_identity_absolute_error": 4.5011810729661654e-10,
+        "denominator_group_identity_absolute_error": 4.3807065881236834e-11,
+        "actual_type_ii_minor_contribution": -2801.390530469652,
+        "endpoint_signed_contribution": -4386.196473234155,
+        "endpoint_absolute_envelope": 679381.6950300566,
+        "variation_signed_contribution": 1584.8059427640937,
+        "variation_absolute_envelope": 27686.74460858215,
+        "right_denominator_group_envelope": 221844.96485696326,
+        "grouped_total_envelope": 249531.7094655454,
+        "grouped_endpoint_fraction_of_independent": 0.3265395086147391,
+        "known_without_type_ii_minor": 461941.3017083801,
+        "grouped_lower_bound": 212409.5922428347,
+        "grouped_triangle_closes_finite": true,
+        "independent_endpoint_lower_bound": -245127.13793025867,
+        "magnitude_label_adversary_refutes_closure": true,
+        "denominator_profile": [
+          {
+            "right_denominator": 2,
+            "cell_count": 1,
+            "signed_real": 27259.19226936729,
+            "signed_imaginary": 760.5262603420905,
+            "magnitude": 27269.799474345302
+          },
+          {
+            "right_denominator": 3,
+            "cell_count": 1,
+            "signed_real": -6518.423467097185,
+            "signed_imaginary": -10521.080856977025,
+            "magnitude": 12376.711473386285
+          },
+          {
+            "right_denominator": 4,
+            "cell_count": 1,
+            "signed_real": -5276.408575592249,
+            "signed_imaginary": -173.06493589592495,
+            "magnitude": 5279.246056836155
+          },
+          {
+            "right_denominator": 5,
+            "cell_count": 2,
+            "signed_real": -5188.812308995807,
+            "signed_imaginary": -2963.586359193433,
+            "magnitude": 5975.50142551935
+          },
+          {
+            "right_denominator": 6,
+            "cell_count": 1,
+            "signed_real": -5181.905370670814,
+            "signed_imaginary": 9488.511255385032,
+            "magnitude": 10811.289891319882
+          },
+          {
+            "right_denominator": 7,
+            "cell_count": 3,
+            "signed_real": 653.6477141088662,
+            "signed_imaginary": -2620.5885469774803,
+            "magnitude": 2700.8775734396563
+          },
+          {
+            "right_denominator": 8,
+            "cell_count": 2,
+            "signed_real": 447.79766185863195,
+            "signed_imaginary": 1780.929260000808,
+            "magnitude": 1836.3637371428035
+          },
+          {
+            "right_denominator": 9,
+            "cell_count": 3,
+            "signed_real": -3677.8158668672654,
+            "signed_imaginary": 1536.4116474997404,
+            "magnitude": 3985.8362110294347
+          },
+          {
+            "right_denominator": 10,
+            "cell_count": 2,
+            "signed_real": -2432.767885613601,
+            "signed_imaginary": 3249.45675517494,
+            "magnitude": 4059.2276099062146
+          },
+          {
+            "right_denominator": 11,
+            "cell_count": 5,
+            "signed_real": -10241.70314415702,
+            "signed_imaginary": 2522.9857110617477,
+            "magnitude": 10547.88794931277
+          },
+          {
+            "right_denominator": 12,
+            "cell_count": 2,
+            "signed_real": 3186.1343772917385,
+            "signed_imaginary": 1720.3117664908902,
+            "magnitude": 3620.901109404567
+          },
+          {
+            "right_denominator": 13,
+            "cell_count": 6,
+            "signed_real": -4075.232852649189,
+            "signed_imaginary": -5324.440886379443,
+            "magnitude": 6705.012569403607
+          },
+          {
+            "right_denominator": 14,
+            "cell_count": 3,
+            "signed_real": -4495.132039963435,
+            "signed_imaginary": 1668.6527473931428,
+            "magnitude": 4794.852870327568
+          },
+          {
+            "right_denominator": 15,
+            "cell_count": 4,
+            "signed_real": 487.7178785789779,
+            "signed_imaginary": -42.00494762280687,
+            "magnitude": 489.5233852538338
+          },
+          {
+            "right_denominator": 16,
+            "cell_count": 4,
+            "signed_real": 1718.4682321079783,
+            "signed_imaginary": 2451.500693308625,
+            "magnitude": 2993.825097439226
+          },
+          {
+            "right_denominator": 17,
+            "cell_count": 8,
+            "signed_real": -1489.6054373524526,
+            "signed_imaginary": 826.4408799221146,
+            "magnitude": 1703.504883173638
+          },
+          {
+            "right_denominator": 18,
+            "cell_count": 3,
+            "signed_real": 1766.8494350147255,
+            "signed_imaginary": -2802.424227317721,
+            "magnitude": 3312.904839543264
+          },
+          {
+            "right_denominator": 19,
+            "cell_count": 9,
+            "signed_real": 2810.514899635974,
+            "signed_imaginary": -580.5427073828396,
+            "magnitude": 2869.8473541586154
+          },
+          {
+            "right_denominator": 20,
+            "cell_count": 4,
+            "signed_real": 1348.489272162674,
+            "signed_imaginary": -882.7992596202364,
+            "magnitude": 1611.7561384787266
+          },
+          {
+            "right_denominator": 21,
+            "cell_count": 6,
+            "signed_real": 3820.193629982458,
+            "signed_imaginary": -190.7020860101199,
+            "magnitude": 3824.9505429700866
+          },
+          {
+            "right_denominator": 22,
+            "cell_count": 5,
+            "signed_real": -1498.6731376510093,
+            "signed_imaginary": 2272.8818263586304,
+            "magnitude": 2722.5012341793463
+          },
+          {
+            "right_denominator": 23,
+            "cell_count": 11,
+            "signed_real": -9886.963057475774,
+            "signed_imaginary": -2952.0047134330634,
+            "magnitude": 10318.254228696913
+          },
+          {
+            "right_denominator": 24,
+            "cell_count": 4,
+            "signed_real": 3447.565690868146,
+            "signed_imaginary": -99.8804721942995,
+            "magnitude": 3449.012221140556
+          },
+          {
+            "right_denominator": 25,
+            "cell_count": 10,
+            "signed_real": -783.5501327435782,
+            "signed_imaginary": -6440.974492859317,
+            "magnitude": 6488.4592337616505
+          },
+          {
+            "right_denominator": 26,
+            "cell_count": 6,
+            "signed_real": -2224.5481527776765,
+            "signed_imaginary": 4487.619012832021,
+            "magnitude": 5008.726274049923
+          },
+          {
+            "right_denominator": 27,
+            "cell_count": 9,
+            "signed_real": -717.9589283979099,
+            "signed_imaginary": 5875.981733172216,
+            "magnitude": 5919.681271102341
+          },
+          {
+            "right_denominator": 28,
+            "cell_count": 6,
+            "signed_real": 4030.235896077347,
+            "signed_imaginary": 1293.6367877707012,
+            "magnitude": 4232.764760378738
+          },
+          {
+            "right_denominator": 29,
+            "cell_count": 14,
+            "signed_real": -12587.757242689051,
+            "signed_imaginary": 16678.12902264107,
+            "magnitude": 20895.253530329155
+          },
+          {
+            "right_denominator": 30,
+            "cell_count": 4,
+            "signed_real": 2609.302606529984,
+            "signed_imaginary": -8184.447002723415,
+            "magnitude": 8590.322044768312
+          },
+          {
+            "right_denominator": 31,
+            "cell_count": 15,
+            "signed_real": -9202.445366273456,
+            "signed_imaginary": -2197.66717060632,
+            "magnitude": 9461.223055821514
+          },
+          {
+            "right_denominator": 32,
+            "cell_count": 8,
+            "signed_real": 27507.396930148523,
+            "signed_imaginary": 5169.551013338858,
+            "magnitude": 27988.946810343852
+          }
+        ]
+      },
+      {
+        "horizon": 2097152,
+        "split": "calibration_replay",
+        "u": 128,
+        "v": 108,
+        "fft_length": 8388608,
+        "denominator_cutoff": 32,
+        "major_arc_count": 163,
+        "minor_cell_count": 162,
+        "right_denominator_group_count": 31,
+        "farey_adjacency_failure_count": 0,
+        "lambda_reconstruction_max_error": 0.0,
+        "abel_identity_absolute_error": 5.843503458891064e-10,
+        "denominator_group_identity_absolute_error": 1.4929016854645446e-10,
+        "actual_type_ii_minor_contribution": 14783.392101445861,
+        "endpoint_signed_contribution": 11146.83072623743,
+        "endpoint_absolute_envelope": 1229822.9871416716,
+        "variation_signed_contribution": 3636.561375209016,
+        "variation_absolute_envelope": 50542.25870476997,
+        "right_denominator_group_envelope": 421224.58680377883,
+        "grouped_total_envelope": 471766.8455085488,
+        "grouped_endpoint_fraction_of_independent": 0.342508305022644,
+        "known_without_type_ii_minor": 929258.858785356,
+        "grouped_lower_bound": 457492.01327680727,
+        "grouped_triangle_closes_finite": true,
+        "independent_endpoint_lower_bound": -351106.3870610855,
+        "magnitude_label_adversary_refutes_closure": true,
+        "denominator_profile": [
+          {
+            "right_denominator": 2,
+            "cell_count": 1,
+            "signed_real": 58953.10413339713,
+            "signed_imaginary": -1048.0104735961602,
+            "magnitude": 58962.418648796396
+          },
+          {
+            "right_denominator": 3,
+            "cell_count": 1,
+            "signed_real": -8489.6179265333,
+            "signed_imaginary": -15329.860329291334,
+            "magnitude": 17523.64774395148
+          },
+          {
+            "right_denominator": 4,
+            "cell_count": 1,
+            "signed_real": -7532.310427553749,
+            "signed_imaginary": 1145.924590208495,
+            "magnitude": 7618.979166757148
+          },
+          {
+            "right_denominator": 5,
+            "cell_count": 2,
+            "signed_real": -5938.42193502109,
+            "signed_imaginary": -1189.3773820746646,
+            "magnitude": 6056.358116502887
+          },
+          {
+            "right_denominator": 6,
+            "cell_count": 1,
+            "signed_real": -9850.305538900722,
+            "signed_imaginary": 17474.359158640455,
+            "magnitude": 20059.455307033135
+          },
+          {
+            "right_denominator": 7,
+            "cell_count": 3,
+            "signed_real": 3811.7557965393225,
+            "signed_imaginary": -3075.823028646573,
+            "magnitude": 4897.976067316346
+          },
+          {
+            "right_denominator": 8,
+            "cell_count": 2,
+            "signed_real": 1279.1974946774492,
+            "signed_imaginary": 853.0845877233915,
+            "magnitude": 1537.5628586175758
+          },
+          {
+            "right_denominator": 9,
+            "cell_count": 3,
+            "signed_real": -4193.642327950893,
+            "signed_imaginary": 3374.6504021417086,
+            "magnitude": 5382.833947973556
+          },
+          {
+            "right_denominator": 10,
+            "cell_count": 2,
+            "signed_real": -6264.831349292819,
+            "signed_imaginary": 6401.338913827893,
+            "magnitude": 8956.855013048349
+          },
+          {
+            "right_denominator": 11,
+            "cell_count": 5,
+            "signed_real": -16539.84192879248,
+            "signed_imaginary": 5214.332006789233,
+            "magnitude": 17342.307496595382
+          },
+          {
+            "right_denominator": 12,
+            "cell_count": 2,
+            "signed_real": 6878.346114809944,
+            "signed_imaginary": 3957.7389814744142,
+            "magnitude": 7935.7005437833395
+          },
+          {
+            "right_denominator": 13,
+            "cell_count": 6,
+            "signed_real": -3390.0500267402895,
+            "signed_imaginary": -13434.744289695418,
+            "magnitude": 13855.857725644611
+          },
+          {
+            "right_denominator": 14,
+            "cell_count": 3,
+            "signed_real": -6331.839662342071,
+            "signed_imaginary": 756.7895206938101,
+            "magnitude": 6376.905510374144
+          },
+          {
+            "right_denominator": 15,
+            "cell_count": 4,
+            "signed_real": -2458.0737784406674,
+            "signed_imaginary": 8001.141108277415,
+            "magnitude": 8370.208225296687
+          },
+          {
+            "right_denominator": 16,
+            "cell_count": 4,
+            "signed_real": 3650.0710308893895,
+            "signed_imaginary": 1433.6688528584264,
+            "magnitude": 3921.533489617847
+          },
+          {
+            "right_denominator": 17,
+            "cell_count": 8,
+            "signed_real": -3353.391418423397,
+            "signed_imaginary": -165.60066037086563,
+            "magnitude": 3357.477860518361
+          },
+          {
+            "right_denominator": 18,
+            "cell_count": 3,
+            "signed_real": 5895.390562460546,
+            "signed_imaginary": -3196.5989590676854,
+            "magnitude": 6706.256391539283
+          },
+          {
+            "right_denominator": 19,
+            "cell_count": 9,
+            "signed_real": 12490.33576132988,
+            "signed_imaginary": -10790.674637133867,
+            "magnitude": 16505.973056903982
+          },
+          {
+            "right_denominator": 20,
+            "cell_count": 4,
+            "signed_real": 5905.2116091574735,
+            "signed_imaginary": 4236.280634969174,
+            "magnitude": 7267.571655452943
+          },
+          {
+            "right_denominator": 21,
+            "cell_count": 6,
+            "signed_real": 4934.638389206805,
+            "signed_imaginary": 841.3471995240611,
+            "magnitude": 5005.8486935164665
+          },
+          {
+            "right_denominator": 22,
+            "cell_count": 5,
+            "signed_real": -8425.306548548175,
+            "signed_imaginary": 2625.6306668185225,
+            "magnitude": 8824.949112348842
+          },
+          {
+            "right_denominator": 23,
+            "cell_count": 11,
+            "signed_real": -16793.858385342544,
+            "signed_imaginary": 303.1943500687112,
+            "magnitude": 16796.59507998135
+          },
+          {
+            "right_denominator": 24,
+            "cell_count": 4,
+            "signed_real": 7499.701847248476,
+            "signed_imaginary": -3567.950816324499,
+            "magnitude": 8305.167116038838
+          },
+          {
+            "right_denominator": 25,
+            "cell_count": 10,
+            "signed_real": 1474.7519652058272,
+            "signed_imaginary": -10707.725055076851,
+            "magnitude": 10808.805170507932
+          },
+          {
+            "right_denominator": 26,
+            "cell_count": 6,
+            "signed_real": -3983.59472992923,
+            "signed_imaginary": 7423.625430208069,
+            "magnitude": 8424.917892795862
+          },
+          {
+            "right_denominator": 27,
+            "cell_count": 9,
+            "signed_real": -2452.4275146036853,
+            "signed_imaginary": 18848.79153516103,
+            "magnitude": 19007.66537611454
+          },
+          {
+            "right_denominator": 28,
+            "cell_count": 6,
+            "signed_real": 6648.400285380232,
+            "signed_imaginary": -3384.4075867127913,
+            "magnitude": 7460.257439769961
+          },
+          {
+            "right_denominator": 29,
+            "cell_count": 14,
+            "signed_real": -21466.26437362812,
+            "signed_imaginary": 31539.23332026651,
+            "magnitude": 38151.32690469239
+          },
+          {
+            "right_denominator": 30,
+            "cell_count": 4,
+            "signed_real": 1713.3668302878077,
+            "signed_imaginary": -12581.2145994466,
+            "magnitude": 12697.345655390292
+          },
+          {
+            "right_denominator": 31,
+            "cell_count": 15,
+            "signed_real": -21861.510053942064,
+            "signed_imaginary": -5971.087589554913,
+            "magnitude": 22662.292665146364
+          },
+          {
+            "right_denominator": 32,
+            "cell_count": 8,
+            "signed_real": 39337.84683163255,
+            "signed_imaginary": 9392.203221173942,
+            "magnitude": 40443.53687175262
+          }
+        ]
+      },
+      {
+        "horizon": 4194304,
+        "split": "post_selection_holdout",
+        "u": 161,
+        "v": 135,
+        "fft_length": 16777216,
+        "denominator_cutoff": 32,
+        "major_arc_count": 163,
+        "minor_cell_count": 162,
+        "right_denominator_group_count": 31,
+        "farey_adjacency_failure_count": 0,
+        "lambda_reconstruction_max_error": 0.0,
+        "abel_identity_absolute_error": 3.133768226782065e-09,
+        "denominator_group_identity_absolute_error": 6.507814330688532e-11,
+        "actual_type_ii_minor_contribution": -9418.22064505305,
+        "endpoint_signed_contribution": -16617.313651662276,
+        "endpoint_absolute_envelope": 2161424.6112460424,
+        "variation_signed_contribution": 7199.093006609504,
+        "variation_absolute_envelope": 89185.16100391374,
+        "right_denominator_group_envelope": 767682.175108969,
+        "grouped_total_envelope": 856867.3361128827,
+        "grouped_endpoint_fraction_of_independent": 0.35517416203862273,
+        "known_without_type_ii_minor": 1874243.5140615292,
+        "grouped_lower_bound": 1017376.1779486465,
+        "grouped_triangle_closes_finite": true,
+        "independent_endpoint_lower_bound": -376366.25818842696,
+        "magnitude_label_adversary_refutes_closure": true,
+        "denominator_profile": [
+          {
+            "right_denominator": 2,
+            "cell_count": 1,
+            "signed_real": 108972.16036877502,
+            "signed_imaginary": -1059.3994452218942,
+            "magnitude": 108977.30985220069
+          },
+          {
+            "right_denominator": 3,
+            "cell_count": 1,
+            "signed_real": -14660.246807917008,
+            "signed_imaginary": -27084.94121171268,
+            "magnitude": 30798.001183696528
+          },
+          {
+            "right_denominator": 4,
+            "cell_count": 1,
+            "signed_real": -11298.222106847266,
+            "signed_imaginary": -1715.5267917343972,
+            "magnitude": 11427.723086810023
+          },
+          {
+            "right_denominator": 5,
+            "cell_count": 2,
+            "signed_real": -16353.744487277992,
+            "signed_imaginary": 2186.4258232707107,
+            "magnitude": 16499.25503275346
+          },
+          {
+            "right_denominator": 6,
+            "cell_count": 1,
+            "signed_real": -19639.676943104718,
+            "signed_imaginary": 36147.85542784472,
+            "magnitude": 41138.59942270619
+          },
+          {
+            "right_denominator": 7,
+            "cell_count": 3,
+            "signed_real": -3961.2035908491544,
+            "signed_imaginary": 2596.4582023340135,
+            "magnitude": 4736.320205035108
+          },
+          {
+            "right_denominator": 8,
+            "cell_count": 2,
+            "signed_real": -634.3638095140618,
+            "signed_imaginary": -5223.924246228236,
+            "magnitude": 5262.300064910061
+          },
+          {
+            "right_denominator": 9,
+            "cell_count": 3,
+            "signed_real": -13971.772107000568,
+            "signed_imaginary": 12963.262213473237,
+            "magnitude": 19059.29125191234
+          },
+          {
+            "right_denominator": 10,
+            "cell_count": 2,
+            "signed_real": -14491.487901056773,
+            "signed_imaginary": 8670.476434729979,
+            "magnitude": 16887.284660112848
+          },
+          {
+            "right_denominator": 11,
+            "cell_count": 5,
+            "signed_real": -30332.17442403965,
+            "signed_imaginary": 9238.435458544096,
+            "magnitude": 31707.877491438147
+          },
+          {
+            "right_denominator": 12,
+            "cell_count": 2,
+            "signed_real": 11851.719872959096,
+            "signed_imaginary": 1587.4544409053651,
+            "magnitude": 11957.561438229943
+          },
+          {
+            "right_denominator": 13,
+            "cell_count": 6,
+            "signed_real": -8946.202837443001,
+            "signed_imaginary": -2435.3911827259817,
+            "magnitude": 9271.767653558445
+          },
+          {
+            "right_denominator": 14,
+            "cell_count": 3,
+            "signed_real": -11467.97241043452,
+            "signed_imaginary": 3733.877137586336,
+            "magnitude": 12060.523607417601
+          },
+          {
+            "right_denominator": 15,
+            "cell_count": 4,
+            "signed_real": 3322.8173300257913,
+            "signed_imaginary": 13198.776035206833,
+            "magnitude": 13610.613646572661
+          },
+          {
+            "right_denominator": 16,
+            "cell_count": 4,
+            "signed_real": 2431.812418016593,
+            "signed_imaginary": 6502.645010700768,
+            "magnitude": 6942.48541745759
+          },
+          {
+            "right_denominator": 17,
+            "cell_count": 8,
+            "signed_real": -10454.176007884911,
+            "signed_imaginary": 7321.845321922974,
+            "magnitude": 12763.19767620959
+          },
+          {
+            "right_denominator": 18,
+            "cell_count": 3,
+            "signed_real": 6434.158572848206,
+            "signed_imaginary": -8629.195141503089,
+            "magnitude": 10763.893595288677
+          },
+          {
+            "right_denominator": 19,
+            "cell_count": 9,
+            "signed_real": 24688.427877681832,
+            "signed_imaginary": -23696.772767224313,
+            "magnitude": 34220.688342769514
+          },
+          {
+            "right_denominator": 20,
+            "cell_count": 4,
+            "signed_real": 6459.735476675223,
+            "signed_imaginary": 5167.227584600693,
+            "magnitude": 8272.147444265895
+          },
+          {
+            "right_denominator": 21,
+            "cell_count": 6,
+            "signed_real": 7959.545125812207,
+            "signed_imaginary": 2733.3992783568083,
+            "magnitude": 8415.80835242595
+          },
+          {
+            "right_denominator": 22,
+            "cell_count": 5,
+            "signed_real": -16308.975821581022,
+            "signed_imaginary": 5233.197760988827,
+            "magnitude": 17128.019475541616
+          },
+          {
+            "right_denominator": 23,
+            "cell_count": 11,
+            "signed_real": -37061.97766732861,
+            "signed_imaginary": -533.4250191199785,
+            "magnitude": 37065.81620394441
+          },
+          {
+            "right_denominator": 24,
+            "cell_count": 4,
+            "signed_real": 14187.129071333271,
+            "signed_imaginary": -2193.7793879214387,
+            "magnitude": 14355.740987129107
+          },
+          {
+            "right_denominator": 25,
+            "cell_count": 10,
+            "signed_real": -8362.014336444952,
+            "signed_imaginary": -31043.766350084537,
+            "magnitude": 32150.252144603033
+          },
+          {
+            "right_denominator": 26,
+            "cell_count": 6,
+            "signed_real": -7653.230673155385,
+            "signed_imaginary": 17164.62944641145,
+            "magnitude": 18793.521324359135
+          },
+          {
+            "right_denominator": 27,
+            "cell_count": 9,
+            "signed_real": 3386.138559883507,
+            "signed_imaginary": 23426.75240307929,
+            "magnitude": 23670.20622009684
+          },
+          {
+            "right_denominator": 28,
+            "cell_count": 6,
+            "signed_real": 13445.632736982183,
+            "signed_imaginary": -10804.127034617502,
+            "magnitude": 17248.599962836397
+          },
+          {
+            "right_denominator": 29,
+            "cell_count": 14,
+            "signed_real": -37191.55934109919,
+            "signed_imaginary": 70528.44812683905,
+            "magnitude": 79733.77001874884
+          },
+          {
+            "right_denominator": 30,
+            "cell_count": 4,
+            "signed_real": -1793.289184339019,
+            "signed_imaginary": -19196.95106171326,
+            "magnitude": 19280.529457576653
+          },
+          {
+            "right_denominator": 31,
+            "cell_count": 15,
+            "signed_real": -23542.89581733429,
+            "signed_imaginary": -7561.18951631023,
+            "magnitude": 24727.30333795855
+          },
+          {
+            "right_denominator": 32,
+            "cell_count": 8,
+            "signed_real": 68368.59521199694,
+            "signed_imaginary": 7286.331221653834,
+            "magnitude": 68755.76655040316
+          }
+        ]
+      }
+    ],
+    "discarded_routes": [
+      "Use unordered pairs of adjacent Farey denominators: at 262K all 162 pairs are distinct, so the envelope does not shrink.",
+      "Use reflection-orbit grouping: the exploratory envelope remains 98.84% of the independent endpoint envelope.",
+      "Select the numerically smaller left-boundary-denominator envelope (25.85% at 262K): the Abel endpoint is oriented toward the right boundary, so selecting left after comparison would add a tuning degree of freedom.",
+      "Infer a theorem from the right-denominator holdout without a uniform Vaughan-coefficient estimate.",
+      "Claim denominator labels alone force phase cancellation; the magnitude-label adversary refutes that implication.",
+      "Treat floating-point FFT positivity as a formally certified finite theorem."
+    ],
+    "literature_boundary": {
+      "helfgott_minor_arcs": "https://arxiv.org/abs/1205.5252",
+      "grimmelt_teravainen": "https://arxiv.org/abs/2207.08805",
+      "established_background": "Vaughan Type I/II decompositions, rational-arc geometry, large-sieve estimates, and circle-method power savings are established.",
+      "project_specific_result": "The canonical right-boundary-denominator endpoint identity, its new 4M holdout audit, and the magnitude-label countermodel for this fixed shift-two cross-spectrum.",
+      "non_transfer": "The cited results do not state the uniform one-sided D_q budget required here for the binary exact-gap-two correlation."
+    },
+    "next_theorem_target": "UniformRightFareyDenominatorEndpointBudgetForVaughanCrossSpectrum",
+    "machine_audit": {
+      "maximum_horizon": 4194304,
+      "row_count": 6,
+      "calibration_row_count": 5,
+      "holdout_row_count": 1,
+      "minor_cell_count": 162,
+      "right_denominator_group_count": 31,
+      "finite_closure_count": 6,
+      "magnitude_label_adversary_refutation_count": 6,
+      "holdout_closure_failure_count": 0,
+      "contract_failure_count": 0
+    },
+    "proof_boundary": "TICKET113 proves exact finite decomposition identities in the implemented algebra and constructs an abstract no-go countermodel for magnitude-and-label-only reasoning. The positive grouped bounds are floating-point finite audits, not a uniform theorem. It proves none of the four conjectures and certifies no conjecture counterexample."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-113",
+      "status": "problem_specific_target_preserved_open",
+      "route": "NonCircularKernelPositivityPreserved",
+      "proof_or_counterexample_mode": "preserve problem-specific target during Twin Farey denominator audit",
+      "attempt": "Preserve the existing infinite target; no Twin denominator-grouping shortcut is transferred.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-112",
+        "independent_target": "NonCircularExplicitFormulaKernelPositivity"
+      },
+      "obstruction": "TICKET113 supplies no new target-specific infinite theorem for this problem.",
+      "candidate_theorem": "NonCircularExplicitFormulaKernelPositivity",
+      "next_experiment": "Continue NonCircularExplicitFormulaKernelPositivity with its own proof and counterexample oracle.",
+      "claim_boundary": "No riemann proof and no certified riemann counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-113",
+      "status": "problem_specific_target_preserved_open",
+      "route": "GoldenMeanEscapePreserved",
+      "proof_or_counterexample_mode": "preserve problem-specific target during Twin Farey denominator audit",
+      "attempt": "Preserve the existing infinite target; no Twin denominator-grouping shortcut is transferred.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-112",
+        "independent_target": "GoldenMeanInvariantSetEscape"
+      },
+      "obstruction": "TICKET113 supplies no new target-specific infinite theorem for this problem.",
+      "candidate_theorem": "GoldenMeanInvariantSetEscape",
+      "next_experiment": "Continue GoldenMeanInvariantSetEscape with its own proof and counterexample oracle.",
+      "claim_boundary": "No collatz proof and no certified collatz counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-113",
+      "status": "problem_specific_target_preserved_open",
+      "route": "JointBalancedGoldbachPreserved",
+      "proof_or_counterexample_mode": "preserve problem-specific target during Twin Farey denominator audit",
+      "attempt": "Preserve the existing infinite target; no Twin denominator-grouping shortcut is transferred.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-112",
+        "independent_target": "JointBalancedVaughanGoldbachResidualEnvelope"
+      },
+      "obstruction": "TICKET113 supplies no new target-specific infinite theorem for this problem.",
+      "candidate_theorem": "JointBalancedVaughanGoldbachResidualEnvelope",
+      "next_experiment": "Continue JointBalancedVaughanGoldbachResidualEnvelope with its own proof and counterexample oracle.",
+      "claim_boundary": "No goldbach proof and no certified goldbach counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-113",
+      "status": "right_denominator_grouping_exact_new_holdout_finite_closure_open",
+      "route": "RightFareyDenominatorEndpointBudget",
+      "proof_or_counterexample_mode": "exact denominator grouping, new holdout, and magnitude-label adversary",
+      "attempt": "Group the 162 exact Farey-cell endpoints by their canonical right-boundary denominator, test the frozen rule at 4M, and falsify any inference based only on labels and magnitudes.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-112",
+        "audit_ref": "twin_farey_denominator_endpoint_audit"
+      },
+      "obstruction": "A finite FFT audit, even at the first post-selection evaluation of this statistic, supplies no uniform estimate in X and no exact interval certificate for floating-point rounding.",
+      "candidate_theorem": "UniformRightFareyDenominatorEndpointBudgetForVaughanCrossSpectrum",
+      "next_experiment": "Derive a uniform one-sided bound for the 31 denominator blocks from the Vaughan bilinear coefficient phases, or construct a Vaughan-realizable adversarial sequence.",
+      "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+    }
+  ]
+}

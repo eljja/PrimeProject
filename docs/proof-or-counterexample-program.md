@@ -5011,3 +5011,15 @@ The remaining loss is concentrated at cell endpoints. Endpoint absolute mass is 
 Applying the already-frozen `X^(-1/6)` factor only to endpoint mass leaves finite lower expression `770,014.6` at the 2M holdout. This is not an all-scale estimate.
 
 The retained target is `UniformFareyCellEndpointCancellationForVaughanCrossSpectrum`. TICKET112 proves none of the four conjectures.
+
+## TICKET-113: right-Farey-denominator endpoint audit
+
+TICKET113 freezes one structural rule after the exploratory `X=262,144` row: assign every TICKET112 Abel endpoint to the denominator of its immediate right Farey boundary. All `q=2,...,32` are retained, giving 31 complex blocks from 162 cells. No sign, subset, weight, or exponent is fitted.
+
+The exact identity is `sum_C E_C=sum_q D_q`, where `D_q` is the sum of endpoints whose right boundary has denominator `q`. Taking absolute values only after forming each `D_q` retains within-denominator phase cancellation. The unchanged Abel variation envelope is then added.
+
+At the new 4M holdout, endpoint absolute mass is `2,161,424.6`, the 31-block endpoint envelope is `767,682.2`, variation costs `89,185.2`, and known major-plus-Type-I-minor is `1,874,243.5`. The resulting finite lower expression is `1,017,376.2`. Both the Abel identity and denominator grouping identity replay within `3.2e-9`.
+
+This finite success does not establish uniformity. A countermodel replaces each endpoint by `-|E_C|` while preserving cell labels, group counts, magnitudes, and magnitude-only norms. It gives lower expression `-376,366.3` at 4M and fails closure on all six scales. Thus Farey labels and magnitudes alone are insufficient; any proof must use phase relations imposed by the actual Vaughan bilinear coefficients. The countermodel is not claimed to be Vaughan-realizable.
+
+The retained target is `UniformRightFareyDenominatorEndpointBudgetForVaughanCrossSpectrum`. TICKET113 proves none of the four conjectures.

@@ -28,10 +28,10 @@ def counterexampleGuidedSynthesis : String :=
   "RH CEGIS: generate kernel cone candidates, reject circular imports, search adversarial kernels"
 
 def rankedCegisTarget : String :=
-  "RH-TICKET-112 preserves non-circular explicit-formula kernel positivity; no Twin Farey endpoint shortcut is transferred"
+  "RH-TICKET-113 preserves non-circular explicit-formula kernel positivity; no Twin denominator-block shortcut is transferred"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-113 NonCircularExplicitFormulaKernelPositivity."
+  "RH-TICKET-114 NonCircularExplicitFormulaKernelPositivity."
 
 def topAttackProofAttemptProtocol : String :=
   "Formalize the exact criterion first, then derive kernel positivity from hypotheses independent of the target zero placement; reject equivalent rewrites and sampled-zero replay."

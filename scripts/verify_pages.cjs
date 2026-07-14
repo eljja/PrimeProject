@@ -1018,6 +1018,23 @@ async function main() {
     } else {
       requireText("ticket112 Goldbach route", "JointBalancedGoldbachPreserved");
     }
+    requireText("ticket113 title", "Ticket 113 Twin Farey denominator endpoint audit");
+    requireText("ticket113 table", "TICKET113 Farey denominator audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket113 Twin rows", "Denominator-block cancellation frontier");
+      requireText("ticket113 Twin profile", "4M right-denominator block profile");
+      requireText("ticket113 Twin identity", "Exact denominator identity");
+      requireText("ticket113 Twin no-go", "Magnitude-label countermodel");
+      requireText("ticket113 Twin finite lower", "1017376.2");
+      requireText("ticket113 Twin adversary lower", "-376366.3");
+      requireText("ticket113 Twin next", "UniformRightFareyDenominatorEndpointBudgetForVaughanCrossSpectrum");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket113 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket113 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket113 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {
@@ -1811,7 +1828,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-109") ||
     !metrics.evolutionPanel.includes("TICKET-110") ||
     !metrics.evolutionPanel.includes("TICKET-111") ||
-    !metrics.evolutionPanel.includes("TICKET-112")
+    !metrics.evolutionPanel.includes("TICKET-112") ||
+    !metrics.evolutionPanel.includes("TICKET-113")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);
