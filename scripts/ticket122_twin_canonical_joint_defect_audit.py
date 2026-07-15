@@ -9,7 +9,6 @@ from ticket119_twin_canonical_pair_doubling_holdout import (
 )
 from ticket120_twin_low_divisor_pair_savings_audit import _source_rows
 from ticket121_twin_balance_angle_defect_audit import balance_angle_row
-from ticket117_twin_dyadic_mobius_endpoint_gram_audit import evaluate_partition
 
 
 GENERATED_AT = "2026-07-16T00:40:00+09:00"
@@ -83,6 +82,29 @@ def canonical_pair_row(
 
 def _sum(rows: list[dict[str, Any]], field: str) -> float:
     return sum(float(row[field]) for row in rows)
+
+
+def _evaluate_partition_budget(
+    partition: list[tuple[int, int]],
+    denominator_profiles: list[dict[str, Any]],
+) -> float:
+    """Recompute the grouped budget without TICKET-117's NumPy dependency."""
+    budget = 0.0
+    for profile in denominator_profiles:
+        means = profile["block_mean_signed_contributions"]
+        gram = profile["real_gram_matrix"]
+        geometry_norm = float(profile["projected_phase_l2_norm"])
+        for start, end in partition:
+            mean_cost = abs(
+                sum(float(means[index]) for index in range(start, end))
+            )
+            energy = sum(
+                float(gram[left][right])
+                for left in range(start, end)
+                for right in range(start, end)
+            )
+            budget += mean_cost + math.sqrt(max(energy, 0.0)) * geometry_norm
+    return budget
 
 
 def audit_pair_group(
@@ -241,10 +263,9 @@ def audit_scale(source: dict[str, Any]) -> dict[str, Any]:
     residual_budget = _sum(residual_groups, "singleton_budget")
     singleton_budget = pair_singleton + residual_budget
     canonical_budget = pair_paired + residual_budget
-    evaluated = evaluate_partition(
+    evaluated_budget = _evaluate_partition_budget(
         partition,
         row["dyadic_denominator_profile"],
-        blocks,
     )
     known = float(row["known_without_type_ii_minor"])
     boundary = float(row["boundary_phase_lipschitz_envelope"]) + float(
@@ -321,7 +342,7 @@ def audit_scale(source: dict[str, Any]) -> dict[str, Any]:
             singleton_budget - expected_singleton
         ),
         "canonical_reconstruction_error": abs(
-            canonical_budget - float(evaluated["numerator_budget"])
+            canonical_budget - evaluated_budget
         ),
         "saving_identity_error": abs(
             pair_saving - (singleton_budget - canonical_budget)
