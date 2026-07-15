@@ -1,6 +1,7 @@
 const problemId = document.body.dataset.problem;
 const formatter = new Intl.NumberFormat("en-US");
 let ticket119AttemptGlobal = null;
+let ticket120AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9333,6 +9334,66 @@ function renderTicket119TwinCanonicalPairDoublingHoldout(attempt) {
   `;
 }
 
+function renderTicket120TwinLowDivisorPairSavings(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.twin_low_divisor_pair_savings_audit || {};
+  const machine = audit.machine_audit || {};
+  const discarded = audit.discarded_candidate || {};
+  const retained = audit.retained_theorem || {};
+  const scaleRows = Array.isArray(audit.scale_rows) ? audit.scale_rows : [];
+  const models = Array.isArray(audit.abstract_countermodels) ? audit.abstract_countermodels : [];
+  const isTwin = attempt.problem_id === "twin-prime";
+  const summaryRows = Object.keys(audit).length ? [
+    ["scale rows", machine.scale_count],
+    ["denominator rows", machine.denominator_row_count],
+    ["maximum Cauchy excess", Number(machine.maximum_cauchy_excess || 0).toExponential(2)],
+    ["registered reconstruction error", Number(machine.maximum_registered_group_reconstruction_error || 0).toExponential(3)],
+    ["weak fixed-fraction witness ratio", Number(machine.weak_fixed_fraction_counterexample_ratio || 0).toFixed(6)],
+    ["contract failures", machine.total_failure_count],
+    ["retained theorem", retained.name],
+  ] : [["preserved route", attempt.route || "missing"], ["independent target", bounded.independent_target || attempt.candidate_theorem || "missing"]];
+  const recentRows = scaleRows.slice(-3).map((row) => [
+    formatValue(row.horizon),
+    `${escapeHtml(row.first_block)}–${escapeHtml(row.second_block)}`,
+    `${(100 * Number(row.total_saving_fraction || 0)).toFixed(4)}%`,
+    `${(100 * Number(row.mean_share_of_saving || 0)).toFixed(4)}%`,
+    Number(row.paired_to_known_ratio || 0).toFixed(6),
+    Number(row.centered_cosine_median || 0).toFixed(6),
+  ]);
+  const maxSaving = Math.max(0.01, ...scaleRows.map((row) => Number(row.total_saving_fraction || 0)));
+  const scaleBars = scaleRows.length ? `
+    <div class="poc-denominator-chart poc-ticket120-chart" role="img" aria-label="Low-divisor canonical-pair saving fraction over eight finite scales">
+      ${scaleRows.map((row) => {
+        const saving = Number(row.total_saving_fraction || 0);
+        const width = Math.max(1, 100 * saving / maxSaving);
+        return `<div class="poc-denominator-row"><span>${escapeHtml(formatValue(row.horizon))}</span><div><i style="width:${width.toFixed(2)}%"></i></div><strong>${(100 * saving).toFixed(2)}%</strong></div>`;
+      }).join("")}
+    </div>
+  ` : "";
+  const modelRows = models.map((model) => [
+    model.model,
+    model.positive_semidefinite ? "PSD" : "invalid",
+    Number(model.paired_budget || 0).toFixed(1),
+    Number(model.singleton_budget || 0).toFixed(1),
+    Number(model.total_saving || 0).toFixed(1),
+  ]);
+  return `
+    <div class="poc-ticket17 poc-ticket118 poc-ticket119 poc-ticket120">
+      <h3>Ticket 120 low-divisor pair saving identity and weak-contract no-go</h3>
+      <div class="poc-head"><div><span>Status</span><strong>${escapeHtml(statusText(attempt.status))}</strong></div><div><span>Route</span><strong>${escapeHtml(attempt.route || "missing")}</strong></div><div><span>Scope</span><strong>${isTwin ? "exact weak identity; arithmetic theorem open" : "problem-specific target preserved"}</strong></div></div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${isTwin ? `<p><strong>한국어 해설:</strong> 16M 첫 pair는 singleton 대비 19.7226%를 절감하지만 mean 부호상쇄의 기여는 0.0069%뿐입니다. 실제 유한 절감은 centered vector angle에서 나옵니다. 그러나 정렬된 rank-one PSD 모델에서는 절감이 정확히 0이므로 Gram positivity만으로 고정 절감률을 증명할 수 없습니다.</p>` : `<p><strong>한국어 해설:</strong> Twin의 low-divisor Gram 항등식과 반례를 이 문제의 무한 정리로 전이하지 않습니다. 기존 문제별 목표를 유지합니다.</p>`}
+      ${table(["TICKET120 low-divisor audit", "Value"], summaryRows)}
+      ${recentRows.length ? `<h3>Recent finite saving diagnosis</h3>${table(["horizon", "first pair", "saving", "mean share", "paired / known", "median cosine"], recentRows)}` : ""}
+      ${isTwin && scaleBars ? `<h3>Eight-scale pair-saving ledger</h3>${scaleBars}` : ""}
+      ${modelRows.length ? `<h3>Exact weak-contract extremizers</h3>${table(["model", "Gram", "paired", "singleton", "saving"], modelRows)}` : ""}
+      ${Object.keys(audit).length ? `<div class="poc-bridge"><section><h3>Discarded lemma</h3><p><strong>${escapeHtml(discarded.name || "")}</strong></p><p>${escapeHtml(discarded.reason || "")}</p></section><section><h3>Retained arithmetic theorem</h3><p><strong>${escapeHtml(retained.name || "")}</strong></p><p>${escapeHtml(retained.required_input || "")}</p></section></div>` : ""}
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
@@ -9503,6 +9564,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket117TwinDyadicMobiusEndpointGram(twinDyadicGramTicket)}
     ${renderTicket118TwinCanonicalAdjacentPairHoldout(twinCanonicalPairHoldoutTicket)}
     ${renderTicket119TwinCanonicalPairDoublingHoldout(twinCanonicalPairDoublingTicket || ticket119AttemptGlobal)}
+    ${renderTicket120TwinLowDivisorPairSavings(ticket120AttemptGlobal)}
   `;
 }
 
@@ -10698,6 +10760,18 @@ async function main() {
     }
   } catch (error) {
     ticket119AttemptGlobal = null;
+  }
+  try {
+    const ticket120Response = await fetch("../data/open-problem/ticket120-twin-low-divisor-pair-savings-audit.json", { cache: "no-store" });
+    if (ticket120Response.ok) {
+      const ticket120Payload = await ticket120Response.json();
+      ticket120AttemptGlobal = (ticket120Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+      if (ticket120AttemptGlobal && ticket120AttemptGlobal.bounded_result?.audit_ref === "twin_low_divisor_pair_savings_audit") {
+        ticket120AttemptGlobal.bounded_result.twin_low_divisor_pair_savings_audit = ticket120Payload.twin_low_divisor_pair_savings_audit || {};
+      }
+    }
+  } catch (error) {
+    ticket120AttemptGlobal = null;
   }
   render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt);
 }

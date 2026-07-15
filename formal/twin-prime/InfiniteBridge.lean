@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-119 applies the unchanged canonical adjacent-shell rule at 16M and obtains a second preregistered finite closure with normalized margin 0.1973217"
+  "TP-TICKET-120 proves the exact low-pair triangle saving identity and refutes every weak-contract fixed positive saving fraction with an aligned rank-one Gram witness"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-120 UniformLowDivisorCanonicalPairDispersion."
+  "TP-TICKET-121 VaughanLowDivisorDenominatorSummedAngleGap."
 
 def topAttackProofAttemptProtocol : String :=
-  "Expand the first canonical factor-four outer-divisor group into its signed Mobius bilinear form and prove a denominator-summed saving with constants independent of the 16M row; retain the full EventuallySubcriticalCanonicalAdjacentDyadicPairVaughanEndpointBudget target and reject finite-scale fitting."
+  "Expand the first canonical factor-four outer-divisor pair into signed Mobius bilinear sums and derive a denominator-summed centered-angle gap from arithmetic phase relations; use the aligned rank-one model as a mandatory weak-contract counterexample and reject mean-sign or finite-cosine extrapolation."
 
 end PrimeProject.OpenProblems.TwinPrime

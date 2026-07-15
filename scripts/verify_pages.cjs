@@ -1138,6 +1138,23 @@ async function main() {
     } else {
       requireText("ticket119 Goldbach route", "JointBalancedGoldbachPreserved");
     }
+    requireText("ticket120 title", "Ticket 120 low-divisor pair saving identity and weak-contract no-go");
+    requireText("ticket120 table", "TICKET120 low-divisor audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket120 Twin recent", "Recent finite saving diagnosis");
+      requireText("ticket120 Twin ledger", "Eight-scale pair-saving ledger");
+      requireText("ticket120 Twin extremizers", "Exact weak-contract extremizers");
+      requireText("ticket120 Twin saving", "19.7226%");
+      requireText("ticket120 Twin mean share", "0.0069%");
+      requireText("ticket120 Twin discarded", "UniversalFixedFractionLowDivisorPairSavingUnderGramContract");
+      requireText("ticket120 Twin retained", "VaughanLowDivisorDenominatorSummedAngleGap");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket120 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket120 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket120 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {
@@ -1938,7 +1955,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-116") ||
     !metrics.evolutionPanel.includes("TICKET-117") ||
     !metrics.evolutionPanel.includes("TICKET-118") ||
-    !metrics.evolutionPanel.includes("TICKET-119")
+    !metrics.evolutionPanel.includes("TICKET-119") ||
+    !metrics.evolutionPanel.includes("TICKET-120")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

@@ -115,6 +115,7 @@ TICKET118_PREREGISTRATION_SCHEMA = "primeproject.ticket118-canonical-adjacent-pa
 TICKET118_SCHEMA = "primeproject.ticket118-canonical-adjacent-pair-holdout.v1"
 TICKET119_PREREGISTRATION_SCHEMA = "primeproject.ticket119-canonical-pair-doubling-preregistration.v1"
 TICKET119_SCHEMA = "primeproject.ticket119-canonical-pair-doubling-holdout.v1"
+TICKET120_SCHEMA = "primeproject.ticket120-twin-low-divisor-pair-savings-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -7094,6 +7095,47 @@ def main() -> int:
     expected_target119 = "EventuallySubcriticalCanonicalAdjacentDyadicPairVaughanEndpointBudget"
     if audit119.get("next_theorem_target") != expected_target119 or "does not prove" not in str(audit119.get("proof_boundary", "")):
         return fail("ticket119 target or proof boundary changed")
+
+    path120 = Path("data/open-problem/ticket120-twin-low-divisor-pair-savings-audit.json")
+    if not path120.exists():
+        return fail("missing ticket120 low-divisor pair savings audit")
+    ticket120 = read_json(path120)
+    if ticket120.get("schema") != TICKET120_SCHEMA or ticket120.get("status") != "exact_finite_identity_and_weak_contract_nogo_open":
+        return fail("ticket120 schema or status changed")
+    attempts120 = ticket120.get("attempts", [])
+    by_id120 = {str(row.get("problem_id")): row for row in attempts120 if isinstance(row, dict)} if isinstance(attempts120, list) else {}
+    if set(by_id120) != EXPECTED_PROBLEMS:
+        return fail("ticket120 attempts missing problems")
+    paths120 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-120-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-120-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-120-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-120-low-divisor-pair-savings-audit.json"),
+    }
+    for problem_id, attempt in by_id120.items():
+        if not paths120[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket120 artifact or proof boundary missing")
+    if by_id120["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_low_divisor_pair_savings_audit":
+        return fail("ticket120 shared audit reference changed")
+    audit120 = ticket120.get("twin_low_divisor_pair_savings_audit", {})
+    if audit120.get("theorem_name") != "LowDivisorCanonicalPairSavingsIdentityAndWeakContractNoGo" or audit120.get("source_ticket") != "TICKET-119":
+        return fail("ticket120 theorem lineage changed")
+    machine120 = audit120.get("machine_audit", {})
+    if int(machine120.get("scale_count", -1)) != 8 or int(machine120.get("denominator_row_count", -1)) != 248 or int(machine120.get("abstract_countermodel_count", -1)) != 2 or abs(float(machine120.get("weak_fixed_fraction_counterexample_ratio", 0)) - 1.0) > 1e-15 or int(machine120.get("total_failure_count", -1)) != 0:
+        return fail("ticket120 machine audit changed")
+    if float(machine120.get("maximum_cauchy_excess", 1)) > 1e-12 or float(machine120.get("minimum_denominator_saving", -1)) < -1e-12 or float(machine120.get("maximum_registered_group_reconstruction_error", 1)) > 1e-8:
+        return fail("ticket120 identity reconstruction changed")
+    scale_rows120 = audit120.get("scale_rows", [])
+    if len(scale_rows120) != 8 or int(scale_rows120[-1].get("horizon", -1)) != 16777216:
+        return fail("ticket120 scale ledger changed")
+    latest120 = scale_rows120[-1]
+    if abs(float(latest120.get("total_saving_fraction", 0)) - 0.19722612342819168) > 1e-15 or float(latest120.get("mean_share_of_saving", 1)) >= 0.0001 or abs(float(latest120.get("paired_to_known_ratio", 0)) - 0.4519542463375894) > 1e-15 or int(latest120.get("opposite_mean_denominator_count", -1)) != 1:
+        return fail("ticket120 16M low-pair diagnosis changed")
+    discarded120 = audit120.get("discarded_candidate", {})
+    if discarded120.get("status") != "refuted_by_exact_weak_contract_countermodel" or discarded120.get("witness") != "aligned_same_sign_zero_saving":
+        return fail("ticket120 weak-contract no-go changed")
+    if audit120.get("retained_theorem", {}).get("name") != "VaughanLowDivisorDenominatorSummedAngleGap" or "does not prove" not in str(audit120.get("proof_boundary", "")):
+        return fail("ticket120 retained theorem or proof boundary changed")
 
     print("open problem structure verified")
     return 0

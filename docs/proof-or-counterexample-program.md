@@ -51,6 +51,20 @@ canonical signed endpoint budget + boundary + variation
 
 The first subproblem is `UniformLowDivisorCanonicalPairDispersion`, because the outer-divisor group 257-1023 contributes 59.14% of the 16M canonical budget. The counterexample oracle must search for an unbounded Vaughan-realizable scale sequence that violates every fixed margin; a later isolated finite failure is only a route counterexample at that scale.
 
+## 2026-07-15 Low-Divisor Lemma Falsification
+
+TICKET-120 does not add another horizon. It attacks the first TICKET-119 sublemma by proving the exact two-block triangle identity and immediately testing an unjustified strengthening.
+
+```text
+true:  paired low-pair budget <= singleton low-pair budget
+false: paired low-pair budget <= (1-eta) singleton budget
+       for some universal eta>0 under only PSD Gram hypotheses
+```
+
+The exact counterexample uses equal positive means and identical unit vectors. Its Gram matrix is rank-one positive semidefinite and its saving is zero. This is a counterexample to the candidate lemma, not to Twin Prime.
+
+The 16M audit also rejects the working explanation that mean-sign opposition drives the observed saving: scalar mean cancellation supplies only `0.0069%` of the saving. The corrected target is `VaughanLowDivisorDenominatorSummedAngleGap`, which must derive a denominator-summed centered-angle gap from actual signed Möbius/divisor arithmetic.
+
 ## Result Summary
 
 ### Riemann Hypothesis

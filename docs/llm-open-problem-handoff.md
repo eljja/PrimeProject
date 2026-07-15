@@ -62,7 +62,15 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-119
+## Latest Continuation After TICKET-120
+
+TICKET120 explains and limits the low-divisor pairing effect isolated by TICKET119. For each denominator it writes the singleton-to-pair saving exactly as `|m0|+|m1|-|m0+m1| + w(||z0||+||z1||-||z0+z1||)`. Both terms are nonnegative by triangle inequalities. The machine audit reconstructs 8 scale rows and 248 denominator rows with maximum registered-group error `9.31e-10`, zero Cauchy excess, and zero failures.
+
+At 16M the first pair budget is `3,387,615.9`, or `0.451954` of the known comparison term. Pairing saves `19.7226%` relative to singleton treatment, but scalar mean cancellation contributes only `0.0069%` of that saving. Only 1 of 31 denominator means has opposite signs; 15 of 27 active centered cosines are negative and their median is `-0.402811`. The finite saving is centered-vector geometry, not mean-sign cancellation.
+
+The aligned exact witness `m0=m1=1`, `z0=z1`, `Gram=[[1,1],[1,1]]` is positive semidefinite and has paired/singleton ratio exactly one. It refutes `UniversalFixedFractionLowDivisorPairSavingUnderGramContract` for every proposed positive fixed fraction. Retain only `VaughanLowDivisorDenominatorSummedAngleGap`, which must use actual signed Möbius/divisor and denominator-phase arithmetic. An unbounded Vaughan-realizable near-alignment sequence is the counterexample route. No result transfers to RH, Collatz, or Goldbach. All four conjectures remain open.
+
+## Preserved Continuation After TICKET-119
 
 TICKET119 tests whether TICKET118's positive 8M row survives the first unseen doubling without changing the mathematical rule. Commit `87bdcf9b16c5e57581e9a411aa61290ef2eea173` was pushed before any 16M endpoint coefficient or result existed. It froze `X=16,777,216`, `canonical_adjacent_shell_pairs_v1`, one partition for every `q=2,...,32`, strict positivity as the primary endpoint, and a one-run report-all-outcomes policy.
 

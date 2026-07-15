@@ -1,0 +1,18 @@
+{
+  "schema": "primeproject.ticket120-twin-low-divisor-pair-savings-audit.v1",
+  "generated_at": "2026-07-15T04:30:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-120",
+  "status": "exact_pair_identity_proved_weak_fraction_refuted_open",
+  "route": "LowDivisorCanonicalPairSavingsIdentity",
+  "proof_or_counterexample_mode": "prove the exact weak identity, then falsify unjustified uniform strengthening",
+  "attempt": "Decompose the first canonical pair saving into scalar sign and centered Hilbert-angle terms at every denominator, then test whether Gram positivity alone forces a fixed fractional saving.",
+  "bounded_result": {
+    "source_ticket": "TP-TICKET-119",
+    "audit_ref": "twin_low_divisor_pair_savings_audit"
+  },
+  "obstruction": "The exact aligned rank-one countermodel has zero pair saving, so any positive uniform saving must use arithmetic Vaughan structure absent from the weak Gram contract.",
+  "candidate_theorem": "VaughanLowDivisorDenominatorSummedAngleGap",
+  "next_experiment": "Expand the first factor-four pair into signed Mobius/divisor sums and seek a denominator-summed arithmetic angle gap, while using the aligned model as the mandatory falsification oracle.",
+  "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+}

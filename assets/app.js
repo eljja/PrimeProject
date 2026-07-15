@@ -1263,8 +1263,8 @@ const bundledProjectEvolution = {
     classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
-      claim_language_scanned_files: 63,
-      claim_language_scanned_lines: 19695,
+      claim_language_scanned_files: 64,
+      claim_language_scanned_lines: 19851,
     claim_language_triggered_mentions: 118,
     claim_language_guarded_mentions: 118,
     claim_language_failures: 0,
@@ -1383,6 +1383,7 @@ const bundledProjectEvolution = {
         { marker: "77", title: "Twin signed dyadic Gram localizes a near-closing adjacent-pair budget", state: "bounded", measure: "4.19M / 8 dyadic blocks / singleton 1.605x / adjacent-pair lower -1.24K / 0 contract failures", proof: "TICKET-117 proves the exact signed dyadic endpoint Gram identity, rejects singleton and denominator-Cauchy closure, and localizes 51.8% of the paired budget in the first low-divisor shell pair" },
         { marker: "78", title: "Twin canonical adjacent pairs pass a preregistered 8M holdout", state: "bounded", measure: "8.39M / preregistered commit 5b52d4d / canonical budget 1.194x signed / finite lower +156.73K", proof: "TICKET-118 freezes one denominator-independent adjacent-shell rule before evaluation, obtains one positive finite holdout without retuning, and keeps the eventual signed bilinear theorem open" },
         { marker: "79", title: "Twin canonical pairs survive a preregistered 16M falsification attempt", state: "bounded", measure: "16.78M / preregistered commit 87bdcf9 / adverse-to-known 0.8027 / finite lower +1.479M", proof: "TICKET-119 applies the unchanged rule at the first unseen doubling, records a second finite closure and a 19.73% normalized margin, and isolates the 59.14% low-divisor group without claiming monotonicity or an eventual theorem" },
+        { marker: "80", title: "Twin low-divisor saving is localized to centered geometry", state: "bounded", measure: "8 scales / 248 denominator rows / 16M pair saving 19.72% / scalar share 0.0069% / weak fixed-fraction ratio 1.0", proof: "TICKET-120 proves the exact two-block triangle saving identity, refutes every positive fixed saving fraction under only PSD Gram hypotheses, and replaces mean-sign intuition with a Vaughan arithmetic angle-gap target" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },
