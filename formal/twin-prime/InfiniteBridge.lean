@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-121 rationalizes low-pair saving into balance times angle defect and refutes both angle-only and balance-only fixed-saving routes"
+  "TP-TICKET-122 proves the exact all-canonical-pair scalar-vector saving identity and refutes both first-pair-only and centered-only global-saving routes"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-122 VaughanOuterDivisorKernelBalancedDecorrelatedMass."
+  "TP-TICKET-123 VaughanCanonicalPairJointDefectAndResidualBudgetGap."
 
 def topAttackProofAttemptProtocol : String :=
-  "Expand each first-pair cross Gram entry as a signed outer-divisor kernel, prove positive Farey-denominator mass with norm balance and angular decorrelation, and reject both norm-imbalanced anti-alignment and balanced near-alignment countermodels."
+  "Prove a fixed positive normalized surplus for the exact canonical mean-plus-centered saving after every outer pair, residual shell, and boundary term, or construct a Vaughan-realizable unbounded sequence with nonpositive or vanishing surplus."
 
 end PrimeProject.OpenProblems.TwinPrime

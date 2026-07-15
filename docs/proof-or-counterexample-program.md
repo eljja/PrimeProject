@@ -5121,3 +5121,27 @@ The primary endpoint passes. At 8M, fully signed numerator budget is `2,858,354.
 The first canonical group, spanning actual outer divisors 204-511, contributes 46.84% of the paired budget. Thus the next proof object is no longer an empirically selected partition: it is a fixed factor-four signed Möbius/divisor block family. One holdout pass does not establish eventual closure, and no finite trend is promoted to a theorem.
 
 The retained target is `EventuallySubcriticalCanonicalAdjacentDyadicPairVaughanEndpointBudget`. Prove a denominator-summed bilinear endpoint bound for every canonical group with a fixed all-sufficiently-large-scale margin and prove positivity of the comparison term on the same range. An unbounded Vaughan-realizable scale sequence violating every fixed margin would refute the target. TICKET118 proves none of the four conjectures.
+## TICKET-122: Canonical joint scalar-vector defect audit
+
+TICKET-122 extends the TICKET-121 first-pair centered certificate to every result-independent canonical adjacent dyadic pair and includes the scalar block means. For each Farey denominator it proves the exact identity
+
+```text
+|m0|+|m1|-|m0+m1| + w(a+b-||z0+z1||)
+ = 2*1_{m0*m1<0}*min(|m0|,|m1|)
+   + 2w(ab-Re<z0,z1>)/(a+b+||z0+z1||).
+```
+
+The identity yields a denominator-summed joint lower certificate. It also exposes two necessary global conditions. A perfectly cancelling first pair can have vanishing global mass beside arbitrarily large aligned outer pairs, and complete centered cancellation can be diluted by arbitrarily large same-sign scalar means. Thus both `first-pair-only` and `centered-only` full-budget routes are formally discarded.
+
+The finite audit covers 8 scales, 28 canonical pair groups, and 868 pair-denominator rows. Exact global saving is at least `19.3458%`, the joint lower certificate is at least `16.0000%`, the maximum reconstruction error is `9.32e-10`, and machine failures are zero. Only 8M and 16M have positive complete finite margins. The 16M exact saving fraction is lower than 8M, so no monotonicity or asymptotic lower bound is claimed.
+
+Retain `VaughanCanonicalPairJointDefectAndResidualBudgetGap`. It must prove, for fixed `delta>0` and every sufficiently large `X`,
+
+```text
+known_without_type_ii_minor
+  - canonical_paired_budget
+  - boundary_and_variation
+  >= delta * known_without_type_ii_minor.
+```
+
+The matching negative route is an unbounded Vaughan-realizable sequence with nonpositive or vanishing normalized surplus. TICKET-122 proves no conjecture and certifies no conjecture counterexample.

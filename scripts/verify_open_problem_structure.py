@@ -117,6 +117,7 @@ TICKET119_PREREGISTRATION_SCHEMA = "primeproject.ticket119-canonical-pair-doubli
 TICKET119_SCHEMA = "primeproject.ticket119-canonical-pair-doubling-holdout.v1"
 TICKET120_SCHEMA = "primeproject.ticket120-twin-low-divisor-pair-savings-audit.v1"
 TICKET121_SCHEMA = "primeproject.ticket121-twin-balance-angle-defect-audit.v1"
+TICKET122_SCHEMA = "primeproject.ticket122-twin-canonical-joint-defect-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -7184,6 +7185,52 @@ def main() -> int:
         return fail("ticket121 full-budget bridge margins changed")
     if audit121.get("retained_theorem", {}).get("name") != "VaughanLowDivisorWeightedBalanceAngleDefectGap" or "proves no conjecture" not in str(audit121.get("proof_boundary", "")):
         return fail("ticket121 retained theorem or proof boundary changed")
+
+    path122 = Path("data/open-problem/ticket122-twin-canonical-joint-defect-audit.json")
+    if not path122.exists():
+        return fail("missing ticket122 canonical joint-defect audit")
+    ticket122 = read_json(path122)
+    if ticket122.get("schema") != TICKET122_SCHEMA or ticket122.get("status") != "exact_canonical_joint_identity_and_local_only_nogos_open":
+        return fail("ticket122 schema or status changed")
+    attempts122 = ticket122.get("attempts", [])
+    by_id122 = {str(row.get("problem_id")): row for row in attempts122 if isinstance(row, dict)} if isinstance(attempts122, list) else {}
+    if set(by_id122) != EXPECTED_PROBLEMS:
+        return fail("ticket122 attempts missing problems")
+    paths122 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-122-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-122-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-122-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-122-canonical-joint-defect-audit.json"),
+    }
+    for problem_id, attempt in by_id122.items():
+        if not paths122[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket122 artifact or proof boundary missing")
+    if by_id122["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_canonical_joint_defect_audit":
+        return fail("ticket122 shared audit reference changed")
+    audit122 = ticket122.get("twin_canonical_joint_defect_audit", {})
+    if audit122.get("theorem_name") != "CanonicalAdjacentPairScalarVectorDefectIdentityAndLocalOnlyNoGo" or audit122.get("source_ticket") != "TICKET-121":
+        return fail("ticket122 theorem lineage changed")
+    machine122 = audit122.get("machine_audit", {})
+    if int(machine122.get("scale_count", -1)) != 8 or int(machine122.get("pair_group_count", -1)) != 28 or int(machine122.get("pair_denominator_row_count", -1)) != 868 or int(machine122.get("finite_closure_count", -1)) != 2 or int(machine122.get("total_failure_count", -1)) != 0:
+        return fail("ticket122 machine audit changed")
+    if abs(float(machine122.get("minimum_total_saving_fraction", 0)) - 0.193457964028246) > 1e-15 or abs(float(machine122.get("minimum_joint_certificate_fraction", 0)) - 0.160000418018359) > 1e-15:
+        return fail("ticket122 saving or certificate floor changed")
+    if float(machine122.get("maximum_singleton_reconstruction_error", 1)) > 1e-8 or float(machine122.get("maximum_canonical_reconstruction_error", 1)) > 1e-8 or float(machine122.get("maximum_saving_identity_error", 1)) > 1e-8 or float(machine122.get("maximum_mean_formula_error", 1)) > 1e-9 or float(machine122.get("maximum_vector_rationalization_error", 1)) > 1e-9:
+        return fail("ticket122 exact reconstruction changed")
+    if float(machine122.get("maximum_joint_lower_violation", 1)) > 1e-12 or float(machine122.get("maximum_joint_upper_violation", 1)) > 1e-12:
+        return fail("ticket122 joint certificate sandwich changed")
+    if float(machine122.get("minimum_pair_total_saving", -1)) < -1e-12 or float(machine122.get("minimum_pair_saving_fraction", -1)) < -1e-12:
+        return fail("ticket122 pair triangle nonnegativity changed")
+    if float(machine122.get("first_pair_no_go_terminal_fraction", 1)) >= 1.1e-6 or float(machine122.get("centered_only_no_go_terminal_fraction", 1)) >= 1.1e-6:
+        return fail("ticket122 local-only no-go changed")
+    scale_rows122 = audit122.get("scale_rows", [])
+    if len(scale_rows122) != 8 or int(scale_rows122[-1].get("horizon", -1)) != 16777216:
+        return fail("ticket122 scale ledger changed")
+    latest122 = scale_rows122[-1]
+    if abs(float(latest122.get("first_pair_saving_share", 0)) - 0.605757609108095) > 1e-15 or abs(float(latest122.get("outer_pair_saving_fraction", 0)) - 0.189057441629783) > 1e-15 or not bool(latest122.get("closes_finite")):
+        return fail("ticket122 16M canonical anatomy changed")
+    if audit122.get("retained_theorem", {}).get("name") != "VaughanCanonicalPairJointDefectAndResidualBudgetGap" or "proves no conjecture" not in str(audit122.get("proof_boundary", "")).lower():
+        return fail("ticket122 retained theorem or proof boundary changed")
 
     print("open problem structure verified")
     return 0

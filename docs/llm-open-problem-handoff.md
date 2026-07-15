@@ -62,7 +62,23 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-121
+## Latest Continuation After TICKET-122
+
+TICKET122 extends the first-pair centered audit to every result-independent canonical adjacent dyadic pair and includes the scalar block means. For one denominator and pair it proves
+
+```text
+|m0|+|m1|-|m0+m1| + w(a+b-p)
+ = 2*1_{m0*m1<0}*min(|m0|,|m1|)
+   + 2w(ab-c)/(a+b+p).
+```
+
+The lower certificate replaces the last term by `w(ab-c)/(a+b)`. The identity sums over every denominator and canonical pair. Two exact families reject incomplete routes: perfect first-pair cancellation is diluted to global fraction `1/(1+M)` by an aligned outer pair of norm `M`, and perfect centered cancellation is diluted to the same fraction by same-sign means of size `M`. These are auxiliary-lemma counterexamples, not Twin Prime counterexamples.
+
+Across 8 finite scales, 28 canonical pair groups, and 868 pair-denominator rows, the exact global saving fraction is at least `0.193458`, the joint lower certificate is at least `0.160000`, maximum residual singleton share is `0.009895`, reconstruction errors are below `9.32e-10`, and all machine checks pass. Only 8M and 16M close the complete finite canonical budget. At 16M, the first pair supplies `60.5758%` of total saving and the outer pairs supply the rest; the total saving fraction falls from `0.229115` at 8M to `0.193458` at 16M. Do not infer monotonicity or an asymptotic floor.
+
+Retain `VaughanCanonicalPairJointDefectAndResidualBudgetGap`: for fixed `delta>0`, prove `known - canonical_paired_budget - boundary_and_variation >= delta*known` for every sufficiently large scale. This requires scalar opposite-sign balanced mass, centered balance-angle mass, outer-pair tails, the odd residual shell, and boundary terms together. The counterexample route is a Vaughan-realizable unbounded scale sequence with nonpositive or vanishing normalized surplus. No result transfers to RH, Collatz, or Goldbach. All four conjectures remain open.
+
+## Preserved Continuation After TICKET-121
 
 TICKET121 corrects the underspecified TICKET120 angle-gap target. For one denominator, with `a=||z0||`, `b=||z1||`, `c=Re<z0,z1>`, `p=||z0+z1||`, it proves the exact identity `w(a+b-p)=2w(ab-c)/(a+b+p)` and the quadratic sandwich `w(ab-c)/(a+b) <= saving <= 2w(ab-c)/(a+b)`. The normalized lower certificate is `b_q(1-kappa_q)`, where `b_q=ab/(a+b)^2` and `kappa_q=c/(ab)`.
 

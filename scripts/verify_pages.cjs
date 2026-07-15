@@ -1173,6 +1173,23 @@ async function main() {
     } else {
       requireText("ticket121 Goldbach route", "JointBalancedGoldbachPreserved");
     }
+    requireText("ticket122 title", "Ticket 122 canonical joint scalar-vector identity and local-only no-go");
+    requireText("ticket122 table", "TICKET122 canonical joint audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket122 Twin ledger", "Eight-scale full canonical ledger");
+      requireText("ticket122 Twin anatomy", "16M canonical pair anatomy");
+      requireText("ticket122 Twin no-go", "Exact local-only no-go limits");
+      requireText("ticket122 Twin saving floor", "19.3458%");
+      requireText("ticket122 Twin certificate floor", "16.0000%");
+      requireText("ticket122 Twin discarded local", "LowDivisorBalancedDecorrelatedMassAloneControlsFullCanonicalBudget");
+      requireText("ticket122 Twin retained", "VaughanCanonicalPairJointDefectAndResidualBudgetGap");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket122 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket122 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket122 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {

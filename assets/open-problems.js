@@ -3,6 +3,7 @@ const formatter = new Intl.NumberFormat("en-US");
 let ticket119AttemptGlobal = null;
 let ticket120AttemptGlobal = null;
 let ticket121AttemptGlobal = null;
+let ticket122AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9464,6 +9465,76 @@ function renderTicket121TwinBalanceAngleDefect(attempt) {
   `;
 }
 
+function renderTicket122TwinCanonicalJointDefect(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.twin_canonical_joint_defect_audit || {};
+  const machine = audit.machine_audit || {};
+  const retained = audit.retained_theorem || {};
+  const exact = audit.exact_joint_identity || {};
+  const scaleRows = Array.isArray(audit.scale_rows) ? audit.scale_rows : [];
+  const discarded = Array.isArray(audit.discarded_candidates) ? audit.discarded_candidates : [];
+  const models = audit.abstract_countermodels || {};
+  const isTwin = attempt.problem_id === "twin-prime";
+  const summaryRows = Object.keys(audit).length ? [
+    ["finite scales", machine.scale_count],
+    ["canonical pair groups", machine.pair_group_count],
+    ["pair-denominator rows", machine.pair_denominator_row_count],
+    ["minimum exact saving", `${(100 * Number(machine.minimum_total_saving_fraction || 0)).toFixed(4)}%`],
+    ["minimum joint certificate", `${(100 * Number(machine.minimum_joint_certificate_fraction || 0)).toFixed(4)}%`],
+    ["maximum residual singleton share", `${(100 * Number(machine.maximum_residual_singleton_budget_share || 0)).toFixed(4)}%`],
+    ["finite closures", `${machine.finite_closure_count} / ${machine.scale_count}`],
+    ["audit failures", machine.total_failure_count],
+  ] : [["preserved route", attempt.route || "missing"], ["independent target", bounded.independent_target || attempt.candidate_theorem || "missing"]];
+  const scaleTable = scaleRows.map((row) => [
+    formatValue(row.horizon),
+    `${(100 * Number(row.total_saving_fraction || 0)).toFixed(3)}%`,
+    `${(100 * Number(row.joint_certificate_fraction || 0)).toFixed(3)}%`,
+    `${(100 * Number(row.first_pair_saving_share || 0)).toFixed(2)}%`,
+    `${(100 * Number(row.residual_singleton_budget_share || 0)).toFixed(2)}%`,
+    Number(row.finite_lower_bound || 0).toFixed(1),
+    row.closes_finite ? "pass" : "fail",
+  ]);
+  const savingBars = scaleRows.length ? `
+    <div class="poc-denominator-chart poc-ticket122-chart" role="img" aria-label="Exact canonical joint saving over eight finite scales">
+      ${scaleRows.map((row) => {
+        const saving = Number(row.total_saving_fraction || 0);
+        return `<div class="poc-denominator-row"><span>${escapeHtml(formatValue(row.horizon))}</span><div><i style="width:${Math.max(1, 100 * saving).toFixed(2)}%"></i></div><strong>${(100 * saving).toFixed(2)}%</strong></div>`;
+      }).join("")}
+    </div>
+  ` : "";
+  const frontier = scaleRows.at(-1) || {};
+  const frontierGroups = Array.isArray(frontier.pair_groups) ? frontier.pair_groups : [];
+  const groupRows = frontierGroups.map((group) => [
+    `${group.left_block} + ${group.right_block}`,
+    `${formatValue(group.actual_lower)}-${formatValue(group.actual_upper)}`,
+    formatValue(Math.round(Number(group.singleton_budget || 0))),
+    `${(100 * Number(group.total_saving_fraction || 0)).toFixed(3)}%`,
+    `${(100 * Number(group.joint_certificate_fraction || 0)).toFixed(3)}%`,
+  ]);
+  const firstNoGo = models.first_pair_only_no_go?.sequence || [];
+  const centeredNoGo = models.centered_only_total_budget_no_go?.sequence || [];
+  const noGoRows = [
+    firstNoGo.length ? ["first pair only", "outer aligned mass grows", Number(firstNoGo.at(-1).global_saving_fraction || 0).toExponential(3)] : null,
+    centeredNoGo.length ? ["centered only", "same-sign means grow", Number(centeredNoGo.at(-1).total_saving_fraction || 0).toExponential(3)] : null,
+  ].filter(Boolean);
+  return `
+    <div class="poc-ticket17 poc-ticket118 poc-ticket119 poc-ticket120 poc-ticket121 poc-ticket122">
+      <h3>Ticket 122 canonical joint scalar-vector identity and local-only no-go</h3>
+      <div class="poc-head"><div><span>Status</span><strong>${escapeHtml(statusText(attempt.status))}</strong></div><div><span>Route</span><strong>${escapeHtml(attempt.route || "missing")}</strong></div><div><span>Scope</span><strong>${isTwin ? "exact all-pair identity; infinite surplus open" : "problem-specific target preserved"}</strong></div></div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${isTwin ? `<p><strong>한국어 해설:</strong> 첫 pair의 centered 절감만 보던 경로를 모든 정준 인접 pair의 mean + centered 결합 절감으로 확장했습니다. 16M에서 첫 pair는 전체 절감의 60.58%만 담당하므로 outer pair 제어가 필수입니다. 8M과 16M 유한 예산은 닫히지만 이는 충분히 큰 모든 X의 정리가 아닙니다.</p>` : `<p><strong>한국어 해설:</strong> Twin의 정준 pair 항등식과 반례를 이 문제로 전이하지 않습니다. 기존 문제별 무한 목표를 유지합니다.</p>`}
+      ${table(["TICKET122 canonical joint audit", "Value"], summaryRows)}
+      ${isTwin && scaleTable.length ? `<h3>Eight-scale full canonical ledger</h3>${table(["horizon", "exact saving", "certificate", "first-pair share", "residual", "finite margin", "decision"], scaleTable)}${savingBars}` : ""}
+      ${isTwin && groupRows.length ? `<h3>16M canonical pair anatomy</h3>${table(["pair", "outer divisors", "singleton budget", "exact saving", "certificate"], groupRows)}` : ""}
+      ${noGoRows.length ? `<h3>Exact local-only no-go limits</h3>${table(["discarded route", "diluting mass", "terminal saving"], noGoRows)}` : ""}
+      ${Object.keys(exact).length ? `<div class="poc-bridge"><section><h3>Exact joint identity</h3><p>${escapeHtml(exact.identity || "")}</p><p>${escapeHtml(exact.lower_certificate || "")}</p></section><section><h3>Retained infinite target</h3><p><strong>${escapeHtml(retained.name || "")}</strong></p><p>${escapeHtml(retained.equivalent_budget_form || "")}</p></section></div>` : ""}
+      ${Object.keys(audit).length ? `<div class="poc-bridge"><section><h3>Discarded routes</h3>${list(discarded.map((item) => `${item.name}: ${item.reason}`))}</section><section><h3>Proof or counterexample next</h3><p>${escapeHtml(retained.required_subconditions || "")}</p><p>${escapeHtml(retained.counterexample_route || "")}</p></section></div>` : ""}
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
@@ -9636,6 +9707,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket119TwinCanonicalPairDoublingHoldout(twinCanonicalPairDoublingTicket || ticket119AttemptGlobal)}
     ${renderTicket120TwinLowDivisorPairSavings(ticket120AttemptGlobal)}
     ${renderTicket121TwinBalanceAngleDefect(ticket121AttemptGlobal)}
+    ${renderTicket122TwinCanonicalJointDefect(ticket122AttemptGlobal)}
   `;
 }
 
@@ -10855,6 +10927,18 @@ async function main() {
     }
   } catch (error) {
     ticket121AttemptGlobal = null;
+  }
+  try {
+    const ticket122Response = await fetch("../data/open-problem/ticket122-twin-canonical-joint-defect-audit.json", { cache: "no-store" });
+    if (ticket122Response.ok) {
+      const ticket122Payload = await ticket122Response.json();
+      ticket122AttemptGlobal = (ticket122Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+      if (ticket122AttemptGlobal && ticket122AttemptGlobal.bounded_result?.audit_ref === "twin_canonical_joint_defect_audit") {
+        ticket122AttemptGlobal.bounded_result.twin_canonical_joint_defect_audit = ticket122Payload.twin_canonical_joint_defect_audit || {};
+      }
+    }
+  } catch (error) {
+    ticket122AttemptGlobal = null;
   }
   render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt);
 }

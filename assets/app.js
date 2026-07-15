@@ -1263,8 +1263,8 @@ const bundledProjectEvolution = {
     classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
-      claim_language_scanned_files: 65,
-      claim_language_scanned_lines: 20059,
+      claim_language_scanned_files: 66,
+      claim_language_scanned_lines: 20271,
     claim_language_triggered_mentions: 118,
     claim_language_guarded_mentions: 118,
     claim_language_failures: 0,
@@ -1385,6 +1385,7 @@ const bundledProjectEvolution = {
         { marker: "79", title: "Twin canonical pairs survive a preregistered 16M falsification attempt", state: "bounded", measure: "16.78M / preregistered commit 87bdcf9 / adverse-to-known 0.8027 / finite lower +1.479M", proof: "TICKET-119 applies the unchanged rule at the first unseen doubling, records a second finite closure and a 19.73% normalized margin, and isolates the 59.14% low-divisor group without claiming monotonicity or an eventual theorem" },
         { marker: "80", title: "Twin low-divisor saving is localized to centered geometry", state: "bounded", measure: "8 scales / 248 denominator rows / 16M pair saving 19.72% / scalar share 0.0069% / weak fixed-fraction ratio 1.0", proof: "TICKET-120 proves the exact two-block triangle saving identity, refutes every positive fixed saving fraction under only PSD Gram hypotheses, and replaces mean-sign intuition with a Vaughan arithmetic angle-gap target" },
         { marker: "81", title: "Twin low-divisor target now requires balance, angle, and mass", state: "bounded", measure: "8 scales / 248 denominator rows / mass floor 63.8848% / quadratic certificate floor 17.9685% / 0 failures", proof: "TICKET-121 proves the exact balance-angle rationalization, refutes angle-only and balance-only fixed-saving routes, and replaces them with a weighted Vaughan kernel mass theorem" },
+        { marker: "82", title: "Twin full canonical saving now joins scalar and vector defects", state: "bounded", measure: "8 scales / 28 canonical pairs / 868 pair-denominator rows / saving floor 19.3458% / certificate floor 16.0000% / 0 failures", proof: "TICKET-122 proves the exact all-pair scalar-vector saving identity, refutes first-pair-only and centered-only global routes, and replaces them with a full Vaughan surplus theorem including outer pairs, residual shells, and boundary terms" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },
