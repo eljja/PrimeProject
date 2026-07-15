@@ -65,6 +65,26 @@ The exact counterexample uses equal positive means and identical unit vectors. I
 
 The 16M audit also rejects the working explanation that mean-sign opposition drives the observed saving: scalar mean cancellation supplies only `0.0069%` of the saving. The corrected target is `VaughanLowDivisorDenominatorSummedAngleGap`, which must derive a denominator-summed centered-angle gap from actual signed Möbius/divisor arithmetic.
 
+## 2026-07-15 Balance-Angle Target Correction
+
+TICKET-121 falsifies the idea that an angle gap by itself yields a uniform low-pair saving. If `z0=u` and `z1=-epsilon*u`, then the cosine is always `-1` but the centered saving fraction is `2epsilon/(1+epsilon)`, which tends to zero. Conversely, equal norms do not help when the angle tends to zero. Both factors are necessary.
+
+The exact rationalization is
+
+```text
+w(||z0||+||z1||-||z0+z1||)
+  = 2w(||z0||||z1||-Re<z0,z1>)
+    /(||z0||+||z1||+||z0+z1||).
+```
+
+The corrected theorem target is:
+
+```text
+VaughanLowDivisorWeightedBalanceAngleDefectGap
+```
+
+It must place a fixed positive fraction of denominator weight on pairs having both comparable norms and a fixed cosine gap. The exploratory rational certificate `balance>=1/8`, `angle gap>=1/2`, mass at least `1/2` implies centered saving at least `1/32`. These thresholds were not preregistered. Existing rows satisfy the mass test, but this does not prove its eventual persistence. Moreover `1/32` fails to close the frozen 8M full budget while it closes the frozen 16M budget with other terms held fixed. The full theorem must therefore control all canonical groups and boundary terms, not only the first pair.
+
 ## Result Summary
 
 ### Riemann Hypothesis

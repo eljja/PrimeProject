@@ -1155,6 +1155,24 @@ async function main() {
     } else {
       requireText("ticket120 Goldbach route", "JointBalancedGoldbachPreserved");
     }
+    requireText("ticket121 title", "Ticket 121 balance-angle defect correction and single-factor no-go");
+    requireText("ticket121 table", "TICKET121 balance-angle audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket121 Twin recent", "Recent balance-angle diagnosis");
+      requireText("ticket121 Twin mass", "Eight-scale balanced-decorrelated mass");
+      requireText("ticket121 Twin no-go", "Exact single-factor no-go limits");
+      requireText("ticket121 Twin bridge", "Full-budget bridge strength");
+      requireText("ticket121 Twin mass floor", "63.8848%");
+      requireText("ticket121 Twin certificate floor", "17.9685%");
+      requireText("ticket121 Twin discarded angle", "FixedSavingFromDenominatorSummedCosineGapAlone");
+      requireText("ticket121 Twin retained", "VaughanLowDivisorWeightedBalanceAngleDefectGap");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket121 RH route", "NonCircularKernelPositivityPreserved");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket121 Collatz route", "GoldenMeanEscapePreserved");
+    } else {
+      requireText("ticket121 Goldbach route", "JointBalancedGoldbachPreserved");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {
@@ -1956,7 +1974,8 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-117") ||
     !metrics.evolutionPanel.includes("TICKET-118") ||
     !metrics.evolutionPanel.includes("TICKET-119") ||
-    !metrics.evolutionPanel.includes("TICKET-120")
+    !metrics.evolutionPanel.includes("TICKET-120") ||
+    !metrics.evolutionPanel.includes("TICKET-121")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

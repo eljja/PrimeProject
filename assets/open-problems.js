@@ -2,6 +2,7 @@ const problemId = document.body.dataset.problem;
 const formatter = new Intl.NumberFormat("en-US");
 let ticket119AttemptGlobal = null;
 let ticket120AttemptGlobal = null;
+let ticket121AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9394,6 +9395,75 @@ function renderTicket120TwinLowDivisorPairSavings(attempt) {
   `;
 }
 
+function renderTicket121TwinBalanceAngleDefect(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.twin_low_divisor_balance_angle_audit || {};
+  const machine = audit.machine_audit || {};
+  const certificate = audit.balanced_decorrelated_mass_certificate || {};
+  const retained = audit.retained_theorem || {};
+  const scaleRows = Array.isArray(audit.scale_rows) ? audit.scale_rows : [];
+  const bridgeRows = Array.isArray(audit.full_budget_bridge) ? audit.full_budget_bridge : [];
+  const discarded = Array.isArray(audit.discarded_candidates) ? audit.discarded_candidates : [];
+  const models = audit.abstract_countermodels || {};
+  const isTwin = attempt.problem_id === "twin-prime";
+  const summaryRows = Object.keys(audit).length ? [
+    ["scale rows", machine.scale_count],
+    ["denominator rows", machine.denominator_row_count],
+    ["active denominator rows", machine.active_denominator_row_count],
+    ["minimum qualifying mass", `${(100 * Number(machine.minimum_qualifying_mass_fraction || 0)).toFixed(4)}%`],
+    ["minimum quadratic certificate", `${(100 * Number(machine.minimum_certified_lower_fraction || 0)).toFixed(4)}%`],
+    ["maximum rationalization error", Number(machine.maximum_rationalization_error || 0).toExponential(3)],
+    ["audit failures", machine.total_failure_count],
+    ["retained theorem", retained.name],
+  ] : [["preserved route", attempt.route || "missing"], ["independent target", bounded.independent_target || attempt.candidate_theorem || "missing"]];
+  const recentRows = scaleRows.slice(-3).map((row) => [
+    formatValue(row.horizon),
+    `${(100 * Number(row.actual_centered_saving_fraction || 0)).toFixed(4)}%`,
+    `${(100 * Number(row.certified_lower_fraction || 0)).toFixed(4)}%`,
+    `${(100 * Number(row.qualifying_mass_fraction || 0)).toFixed(4)}%`,
+    Number(row.weighted_norm_balance || 0).toFixed(6),
+    Number(row.weighted_angle_gap || 0).toFixed(6),
+  ]);
+  const massBars = scaleRows.length ? `
+    <div class="poc-denominator-chart poc-ticket121-chart" role="img" aria-label="Balanced and decorrelated denominator mass over eight finite scales">
+      ${scaleRows.map((row) => {
+        const mass = Number(row.qualifying_mass_fraction || 0);
+        return `<div class="poc-denominator-row"><span>${escapeHtml(formatValue(row.horizon))}</span><div><i style="width:${Math.max(1, 100 * mass).toFixed(2)}%"></i></div><strong>${(100 * mass).toFixed(2)}%</strong></div>`;
+      }).join("")}
+    </div>
+  ` : "";
+  const bridgeTable = bridgeRows.map((row) => [
+    formatValue(row.horizon),
+    `${(100 * Number(row.eta_required_with_other_finite_budgets_frozen || 0)).toFixed(4)}%`,
+    `${(100 * Number(row.candidate_eta || 0)).toFixed(3)}%`,
+    Number(row.candidate_finite_lower_bound || 0).toFixed(1),
+    row.candidate_closes_finite ? "finite pass" : "finite fail",
+  ]);
+  const angleSequence = models.anti_aligned_norm_imbalance?.sequence || [];
+  const balanceSequence = models.balanced_near_alignment?.sequence || [];
+  const noGoRows = [
+    angleSequence.length ? ["angle only", "gap = 2", Number(angleSequence.at(-1).actual_centered_saving_fraction || 0).toExponential(3), "norm imbalance"] : null,
+    balanceSequence.length ? ["balance only", "balance = 1/4", Number(balanceSequence.at(-1).actual_centered_saving_fraction || 0).toExponential(3), "near alignment"] : null,
+  ].filter(Boolean);
+  return `
+    <div class="poc-ticket17 poc-ticket118 poc-ticket119 poc-ticket120 poc-ticket121">
+      <h3>Ticket 121 balance-angle defect correction and single-factor no-go</h3>
+      <div class="poc-head"><div><span>Status</span><strong>${escapeHtml(statusText(attempt.status))}</strong></div><div><span>Route</span><strong>${escapeHtml(attempt.route || "missing")}</strong></div><div><span>Scope</span><strong>${isTwin ? "exact sufficient condition; arithmetic theorem open" : "problem-specific target preserved"}</strong></div></div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${isTwin ? `<p><strong>한국어 해설:</strong> centered saving을 norm balance × angle gap × denominator mass로 교정했습니다. angle만 최대여도 norm이 불균형하면 절감률은 0으로 가고, balance만 최대여도 정렬되면 0으로 갑니다. 자연 임계 질량은 8개 유한 규모에서 최소 63.8848%였지만 이는 무한 정리가 아닙니다.</p>` : `<p><strong>한국어 해설:</strong> Twin의 balance-angle 반례와 충분조건을 이 문제로 전이하지 않습니다. 기존 문제별 무한 목표를 그대로 유지합니다.</p>`}
+      ${table(["TICKET121 balance-angle audit", "Value"], summaryRows)}
+      ${recentRows.length ? `<h3>Recent balance-angle diagnosis</h3>${table(["horizon", "exact saving", "quadratic certificate", "qualifying mass", "weighted balance", "weighted angle gap"], recentRows)}` : ""}
+      ${isTwin && massBars ? `<h3>Eight-scale balanced-decorrelated mass</h3><p>모든 행이 해석용 1/2 충분조건을 넘지만 임계값은 사전등록되지 않았습니다. 이 유한 관측을 정리 상수로 사용하지 않습니다.</p>${massBars}` : ""}
+      ${noGoRows.length ? `<h3>Exact single-factor no-go limits</h3>${table(["route", "factor held strong", "terminal saving", "missing factor"], noGoRows)}` : ""}
+      ${bridgeTable.length ? `<h3>Full-budget bridge strength</h3>${table(["horizon", "eta required", "candidate 1/32", "finite lower", "decision"], bridgeTable)}` : ""}
+      ${Object.keys(audit).length ? `<div class="poc-bridge"><section><h3>Discarded routes</h3>${list(discarded.map((item) => `${item.name}: ${item.reason}`))}</section><section><h3>Retained arithmetic theorem</h3><p><strong>${escapeHtml(retained.name || "")}</strong></p><p>${escapeHtml(retained.statement || "")}</p><p>${escapeHtml(retained.arithmetic_expansion || "")}</p></section></div>` : ""}
+      ${Object.keys(certificate).length ? `<div class="poc-bridge"><section><h3>Exact sufficient condition</h3>${table(["field", "value"], [["balance", certificate.balance_threshold], ["angle gap", certificate.angle_gap_threshold], ["mass", certificate.mass_threshold], ["certified fraction", certificate.certified_fraction]])}</section><section><h3>What remains</h3><p>${escapeHtml(retained.consequence || "")}</p><p>${escapeHtml(retained.counterexample_route || "")}</p></section></div>` : ""}
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
@@ -9565,6 +9635,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket118TwinCanonicalAdjacentPairHoldout(twinCanonicalPairHoldoutTicket)}
     ${renderTicket119TwinCanonicalPairDoublingHoldout(twinCanonicalPairDoublingTicket || ticket119AttemptGlobal)}
     ${renderTicket120TwinLowDivisorPairSavings(ticket120AttemptGlobal)}
+    ${renderTicket121TwinBalanceAngleDefect(ticket121AttemptGlobal)}
   `;
 }
 
@@ -10772,6 +10843,18 @@ async function main() {
     }
   } catch (error) {
     ticket120AttemptGlobal = null;
+  }
+  try {
+    const ticket121Response = await fetch("../data/open-problem/ticket121-twin-balance-angle-defect-audit.json", { cache: "no-store" });
+    if (ticket121Response.ok) {
+      const ticket121Payload = await ticket121Response.json();
+      ticket121AttemptGlobal = (ticket121Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+      if (ticket121AttemptGlobal && ticket121AttemptGlobal.bounded_result?.audit_ref === "twin_low_divisor_balance_angle_audit") {
+        ticket121AttemptGlobal.bounded_result.twin_low_divisor_balance_angle_audit = ticket121Payload.twin_low_divisor_balance_angle_audit || {};
+      }
+    }
+  } catch (error) {
+    ticket121AttemptGlobal = null;
   }
   render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt);
 }

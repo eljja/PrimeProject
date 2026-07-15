@@ -116,6 +116,7 @@ TICKET118_SCHEMA = "primeproject.ticket118-canonical-adjacent-pair-holdout.v1"
 TICKET119_PREREGISTRATION_SCHEMA = "primeproject.ticket119-canonical-pair-doubling-preregistration.v1"
 TICKET119_SCHEMA = "primeproject.ticket119-canonical-pair-doubling-holdout.v1"
 TICKET120_SCHEMA = "primeproject.ticket120-twin-low-divisor-pair-savings-audit.v1"
+TICKET121_SCHEMA = "primeproject.ticket121-twin-balance-angle-defect-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -7136,6 +7137,53 @@ def main() -> int:
         return fail("ticket120 weak-contract no-go changed")
     if audit120.get("retained_theorem", {}).get("name") != "VaughanLowDivisorDenominatorSummedAngleGap" or "does not prove" not in str(audit120.get("proof_boundary", "")):
         return fail("ticket120 retained theorem or proof boundary changed")
+
+    path121 = Path("data/open-problem/ticket121-twin-balance-angle-defect-audit.json")
+    if not path121.exists():
+        return fail("missing ticket121 balance-angle defect audit")
+    ticket121 = read_json(path121)
+    if ticket121.get("schema") != TICKET121_SCHEMA or ticket121.get("status") != "exact_balance_angle_identity_and_single_factor_nogos_open":
+        return fail("ticket121 schema or status changed")
+    attempts121 = ticket121.get("attempts", [])
+    by_id121 = {str(row.get("problem_id")): row for row in attempts121 if isinstance(row, dict)} if isinstance(attempts121, list) else {}
+    if set(by_id121) != EXPECTED_PROBLEMS:
+        return fail("ticket121 attempts missing problems")
+    paths121 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-121-kernel-positivity-preserved.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-121-golden-mean-preserved.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-121-joint-balanced-preserved.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-121-balance-angle-defect-audit.json"),
+    }
+    for problem_id, attempt in by_id121.items():
+        if not paths121[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket121 artifact or proof boundary missing")
+    if by_id121["twin-prime"].get("bounded_result", {}).get("audit_ref") != "twin_low_divisor_balance_angle_audit":
+        return fail("ticket121 shared audit reference changed")
+    audit121 = ticket121.get("twin_low_divisor_balance_angle_audit", {})
+    if audit121.get("theorem_name") != "LowDivisorBalanceAngleRationalizationAndSingleFactorNoGo" or audit121.get("source_ticket") != "TICKET-120":
+        return fail("ticket121 theorem lineage changed")
+    machine121 = audit121.get("machine_audit", {})
+    if int(machine121.get("scale_count", -1)) != 8 or int(machine121.get("denominator_row_count", -1)) != 248 or int(machine121.get("active_denominator_row_count", -1)) != 216 or int(machine121.get("total_failure_count", -1)) != 0:
+        return fail("ticket121 machine audit changed")
+    if abs(float(machine121.get("minimum_qualifying_mass_fraction", 0)) - 0.6388476061049034) > 1e-15 or abs(float(machine121.get("minimum_certified_lower_fraction", 0)) - 0.1796846444311625) > 1e-15:
+        return fail("ticket121 finite balance-angle floor changed")
+    if float(machine121.get("maximum_rationalization_error", 1)) > 1e-9 or float(machine121.get("maximum_lower_bound_violation", 1)) > 1e-12 or float(machine121.get("maximum_upper_bound_violation", 1)) > 1e-12 or float(machine121.get("minimum_gram_defect", -1)) < -1e-12:
+        return fail("ticket121 rationalization or sandwich changed")
+    if float(machine121.get("angle_only_countermodel_terminal_saving_fraction", 1)) >= 3e-6 or float(machine121.get("balance_only_countermodel_terminal_saving_fraction", 1)) >= 2e-13:
+        return fail("ticket121 single-factor no-go changed")
+    scale_rows121 = audit121.get("scale_rows", [])
+    if len(scale_rows121) != 8 or int(scale_rows121[-1].get("horizon", -1)) != 16777216:
+        return fail("ticket121 scale ledger changed")
+    latest121 = scale_rows121[-1]
+    if abs(float(latest121.get("certified_lower_fraction", 0)) - 0.19217558244990218) > 1e-15 or abs(float(latest121.get("qualifying_mass_fraction", 0)) - 0.6388476061049034) > 1e-15 or int(latest121.get("qualifying_denominator_count", -1)) != 22:
+        return fail("ticket121 16M diagnosis changed")
+    bridge121 = audit121.get("full_budget_bridge", [])
+    if len(bridge121) != 2 or bool(bridge121[0].get("candidate_closes_finite")) or not bool(bridge121[1].get("candidate_closes_finite")):
+        return fail("ticket121 full-budget bridge decisions changed")
+    if abs(float(bridge121[0].get("candidate_finite_lower_bound", 0)) + 377817.4827822102) > 1e-6 or abs(float(bridge121[1].get("candidate_finite_lower_bound", 0)) - 756220.785577069) > 1e-6:
+        return fail("ticket121 full-budget bridge margins changed")
+    if audit121.get("retained_theorem", {}).get("name") != "VaughanLowDivisorWeightedBalanceAngleDefectGap" or "proves no conjecture" not in str(audit121.get("proof_boundary", "")):
+        return fail("ticket121 retained theorem or proof boundary changed")
 
     print("open problem structure verified")
     return 0

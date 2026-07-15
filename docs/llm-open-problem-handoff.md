@@ -62,7 +62,17 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-120
+## Latest Continuation After TICKET-121
+
+TICKET121 corrects the underspecified TICKET120 angle-gap target. For one denominator, with `a=||z0||`, `b=||z1||`, `c=Re<z0,z1>`, `p=||z0+z1||`, it proves the exact identity `w(a+b-p)=2w(ab-c)/(a+b+p)` and the quadratic sandwich `w(ab-c)/(a+b) <= saving <= 2w(ab-c)/(a+b)`. The normalized lower certificate is `b_q(1-kappa_q)`, where `b_q=ab/(a+b)^2` and `kappa_q=c/(ab)`.
+
+Two exact counterexample families remove incomplete routes. `z0=u, z1=-epsilon u` keeps the cosine gap maximal while the saving fraction tends to zero, so angle alone is insufficient. Equal norms with angle `theta->0` keep balance maximal while saving tends to zero, so balance alone is insufficient. These refute auxiliary lemmas, not Twin Prime.
+
+The universal implication evaluated at the exploratory thresholds `balance>=1/8`, `angle gap>=1/2` on at least half the centered singleton mass certifies a `1/32` centered saving. The thresholds were selected during TICKET121 and were not preregistered on a new holdout. Across 8 finite scales and 248 denominator rows, qualifying mass is at least `0.638848`, the quadratic certificate is at least `0.179685`, and the maximum rationalization error is `9.10e-11`. The `1/32` bridge does not close the frozen 8M full budget (`-377,817.5`) but closes the frozen 16M budget (`+756,220.8`) when all other finite terms are held fixed. This is a strength diagnostic, not asymptotics.
+
+Retain `VaughanLowDivisorWeightedBalanceAngleDefectGap`: prove positive balance, angular decorrelation, and denominator mass from the actual signed outer-divisor kernel, then combine it with eventual control of every remaining canonical group and boundary term. The counterexample route is an unbounded Vaughan-realizable scale sequence whose balanced-decorrelated mass vanishes or whose remaining budget defeats every fixed margin. No result transfers to RH, Collatz, or Goldbach. All four conjectures remain open.
+
+## Preserved Continuation After TICKET-120
 
 TICKET120 explains and limits the low-divisor pairing effect isolated by TICKET119. For each denominator it writes the singleton-to-pair saving exactly as `|m0|+|m1|-|m0+m1| + w(||z0||+||z1||-||z0+z1||)`. Both terms are nonnegative by triangle inequalities. The machine audit reconstructs 8 scale rows and 248 denominator rows with maximum registered-group error `9.31e-10`, zero Cauchy excess, and zero failures.
 
