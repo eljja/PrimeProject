@@ -1232,6 +1232,33 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket125 title", "Ticket 125 infinite bridge contracts");
+    requireText("ticket125 table", "TICKET125 contract audit");
+    requireText("ticket125 scope", "conditional bridge proved; conjecture open");
+    if (page.problemId === "riemann") {
+      requireText("ticket125 RH route", "ContinuousDenseConePositivityExtension");
+      requireText("ticket125 RH no-go", "Missing-hypothesis countermodels");
+      requireText("ticket125 RH finite Gram", "Finite Gram no-go family");
+      requireText("ticket125 RH density", "density");
+      requireText("ticket125 RH continuity", "continuity");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket125 Collatz route", "AdaptiveResidueFiniteStoppingCover");
+      requireText("ticket125 Collatz frontier", "Adaptive residue-cylinder frontier");
+      requireText("ticket125 Collatz certified", "121,825");
+      requireText("ticket125 Collatz unresolved", "9,247");
+      requireText("ticket125 Collatz bridge", "UniversalFiniteStoppingDescentIffCollatz");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket125 Goldbach route", "ExplicitWeightedGoldbachFiniteGlue");
+      requireText("ticket125 Goldbach endpoint", "Endpoint budget at H = 4×10^18");
+      requireText("ticket125 Goldbach K", "K = 40");
+      requireText("ticket125 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
+    } else {
+      requireText("ticket125 Twin route", "DyadicAffineObstructionContraction");
+      requireText("ticket125 Twin candidate", "Frozen dyadic contraction candidate");
+      requireText("ticket125 Twin recurrence", "Q(2X) ≤ 3Q(X)/4 + 23/100");
+      requireText("ticket125 Twin residual", "0.220387");
+      requireText("ticket125 Twin target", "DyadicVaughanObstructionContractionAndInterpolation");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {

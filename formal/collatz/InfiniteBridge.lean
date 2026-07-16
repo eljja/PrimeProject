@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Collatz CEGIS: generate residue-rank candidates, reject uncovered blocks and nondecreasing SCCs"
 
 def rankedCegisTarget : String :=
-  "CO-TICKET-124 reclassifies GoldenMeanInvariantSetEscape as a Mersenne-delay route lemma rather than a sufficient global Collatz bridge"
+  "CO-TICKET-125 proves universal finite stopping descent is equivalent to Collatz and certifies 121825 of 131072 odd 18-bit residue cylinders, leaving 9247 unresolved"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-125 ResidueRankDescentCover."
+  "CO-TICKET-126 AdaptiveResidueFiniteStoppingCover."
 
 def topAttackProofAttemptProtocol : String :=
-  "Synthesize a finite accelerated residue partition and well-founded rank whose every edge descends or enters the verified basin; use any uncovered residue or nondecreasing reachable SCC as a counterexample to the proposed cover."
+  "Recursively refine only unresolved residue cylinders, prove every positive-integer branch receives a finite exact descent certificate, and treat every nonterminating refinement lineage as a candidate counterexample to the cover rather than as a Collatz counterexample."
 
 end PrimeProject.OpenProblems.Collatz

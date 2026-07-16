@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "RH CEGIS: generate kernel cone candidates, reject circular imports, search adversarial kernels"
 
 def rankedCegisTarget : String :=
-  "RH-TICKET-124 sharpens the kernel target to an exact all-test-function contract and rejects finite cone positivity as the infinite bridge"
+  "RH-TICKET-125 proves continuous dense-cone positivity extension and exact no-go models when density, continuity, or all-cone positivity is omitted"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-125 AdmissibleKernelConeDensityAndPositivity."
+  "RH-TICKET-126 AdmissibleKernelConeDensityAndPositivity."
 
 def topAttackProofAttemptProtocol : String :=
-  "Formalize an RH-equivalent admissible test class, derive positivity from hypotheses independent of zero placement, and prove a density bridge; reject equivalent rewrites, finite Gram positivity, and sampled-zero replay."
+  "Fix one completed RH-equivalent Weil test topology, prove continuity of its quadratic form and density of an explicit arithmetic cone, then derive positivity without importing zero placement; reject finite Gram and sampled-zero replay."
 
 end PrimeProject.OpenProblems.Riemann

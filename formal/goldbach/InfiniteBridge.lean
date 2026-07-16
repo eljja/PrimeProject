@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Goldbach CEGIS: generate explicit budgets, reject unsourced constants and cutoffs above finite range"
 
 def rankedCegisTarget : String :=
-  "GB-TICKET-124 requires joint pointwise Vaughan residual control to be coupled to an explicit positive major term, cutoff, and finite-overlap bridge"
+  "GB-TICKET-125 proves the exact endpoint budget A-K/log(H)-B*log(H)^2/sqrt(H)>0 at the verified H=4e18, while leaving A K B unproved"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-125 ExplicitJointBalancedGoldbachCutoff."
+  "GB-TICKET-126 ExplicitJointBalancedGoldbachCutoff."
 
 def topAttackProofAttemptProtocol : String :=
-  "For U,V at most N^(1/3), prove a joint pointwise residual bound with explicit K, show the positive major term dominates above an explicit N0 below 4e18, and glue to the verified finite range without collapsed Type II support."
+  "Derive replayable uniform constants A K B for the weighted major lower bound, joint signed Vaughan residual, and proper-prime-power contamination, then verify the strict endpoint budget at H=4e18."
 
 end PrimeProject.OpenProblems.Goldbach

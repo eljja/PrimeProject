@@ -5178,3 +5178,33 @@ The prior `VaughanCanonicalDefectRatioTriple` is sufficient but not necessary. A
 The eight inherited finite rows have two exact closures and one certificate closure. The 16M exact obstruction is `0.802678` and certificate obstruction is `0.834379`, but these finite values do not estimate the true limsup. The corrected target is `VaughanCanonicalObstructionLimsup`: prove the joint tail bound arithmetically, preserving compensation, or produce a Vaughan-realizable unbounded subsequence with `Q_X>=1`. Exact-gap transfer and parity survival remain open.
 
 The cross-problem audit also narrows scope. RH requires an exact all-test-function positivity contract. `GoldenMeanInvariantSetEscape` is retained only as a Mersenne-delay subroute and is not a sufficient Collatz bridge; the global target returns to `ResidueRankDescentCover`. Goldbach requires an explicit joint residual constant, positive major term, cutoff below the verified range, and finite glue. TICKET-124 proves no conjecture and certifies no conjecture counterexample.
+
+## TICKET-125: four infinite bridge contracts
+
+TICKET-125 converts each retained target into an exact conditional theorem and
+adds countermodels for missing hypotheses. For RH, continuous quadratic-form
+positivity on a dense cone extends to the completed test space; nondense,
+discontinuous, and finite-Gram variants fail exactly. The open work is the
+problem-specific density, continuity, and non-circular positivity theorem.
+
+For Collatz, universal finite stopping descent is equivalent to the conjecture
+by strong induction. The lifted-cylinder identity
+`T^m(r+2^k t)=T^m(r)+3^m 2^(k-S)t` certifies every lift whenever descent occurs
+before `S=k`. At 18 bits, 121,825 of 131,072 odd cylinders are certified and
+9,247 remain. The residue `-3^(-1) mod 2^k` forces a refinement boundary at
+every fixed precision, so the next target is adaptive rather than a fixed
+finite quotient.
+
+For Goldbach, weighted prime-pair positivity follows from explicit constants
+`A,K,B` satisfying
+`A-K/log(H)-B log(H)^2/sqrt(H)>0` at the verified `H=4e18`. The monotone-tail
+and finite-glue proof is exact; the constants remain unproved. For Twin Prime,
+the affine recurrence `Q_(2X)<=alpha Q_X+beta`, with
+`alpha+beta<1`, implies dyadic `limsup Q<=beta/(1-alpha)`. The frozen finite
+candidate `(alpha,beta)=(3/4,23/100)` passes four selected transitions but has
+no holdout, no uniform Vaughan proof, and no between-scale interpolation.
+
+TICKET-125 proves no conjecture and certifies no conjecture counterexample. The
+next targets are `AdmissibleKernelConeDensityAndPositivity`,
+`AdaptiveResidueFiniteStoppingCover`, `ExplicitJointBalancedGoldbachCutoff`,
+and `DyadicVaughanObstructionContractionAndInterpolation`.

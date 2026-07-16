@@ -1370,6 +1370,117 @@ canvas {
   background: rgba(37, 101, 117, 0.055);
 }
 
+.poc-ticket125 {
+  border-color: rgba(38, 112, 86, 0.94);
+  background: rgba(38, 112, 86, 0.055);
+}
+
+.poc-contract-gates {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.poc-contract-gates > div {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid #d8dfe1;
+  background: #fff;
+}
+
+.poc-contract-gates span {
+  width: 8px;
+  height: 8px;
+  background: #ad6a2c;
+  border-radius: 50%;
+}
+
+.poc-contract-gates strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.78rem;
+}
+
+.poc-contract-gates em {
+  color: #8b531f;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.poc-contract-bars {
+  display: grid;
+  gap: 7px;
+  width: 100%;
+  margin: 12px 0;
+  overflow-x: auto;
+}
+
+.poc-contract-bars > div {
+  display: grid;
+  grid-template-columns: 64px minmax(180px, 1fr) 64px;
+  align-items: center;
+  gap: 9px;
+  min-width: 360px;
+  font-size: 0.76rem;
+}
+
+.poc-contract-bars i {
+  height: 12px;
+  overflow: hidden;
+  background: #e8edef;
+  border-radius: 2px;
+}
+
+.poc-contract-bars b {
+  display: block;
+  height: 100%;
+  background: #287762;
+}
+
+.poc-contract-bars strong {
+  text-align: right;
+}
+
+.poc-equation {
+  margin: 10px 0;
+  padding: 10px 12px;
+  overflow-x: auto;
+  border-left: 3px solid #2f7668;
+  background: #eef5f2;
+  color: #1e3933;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+.poc-contract-metric {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  border: 1px solid #cfdcda;
+  background: #f7faf9;
+}
+
+.poc-contract-metric strong {
+  color: #1f6f5d;
+  font-size: 1rem;
+}
+
+.poc-contract-metric em {
+  color: #6a7378;
+  font-size: 0.74rem;
+  font-style: normal;
+}
+
 .poc-obstruction-chart {
   display: grid;
   gap: 8px;
@@ -7813,6 +7924,20 @@ tr:last-child td {
 
   .language-note {
     grid-template-columns: 1fr;
+  }
+
+  .poc-contract-gates {
+    grid-template-columns: 1fr;
+  }
+
+  .poc-contract-metric {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .poc-contract-metric strong,
+  .poc-contract-metric em {
+    text-align: left;
   }
 
   .workspace {

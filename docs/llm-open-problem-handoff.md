@@ -62,7 +62,32 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-123
+## Latest Continuation After TICKET-125
+
+TICKET125 proves four exact conditional bridges while preserving the open
+claim boundary. RH uses `ContinuousDenseConePositivityExtension`: density,
+continuity, and non-circular positivity are all independently required, and
+finite Gram checks have exact unseen negative directions. Collatz proves
+`UniversalFiniteStoppingDescentIffCollatz` and the exact lifted-cylinder
+identity. The 18-bit audit certifies 121,825 of 131,072 odd cylinders and
+leaves 9,247 unresolved; fixed precision always has the boundary
+`r_k=-3^(-1) mod 2^k`, so the next target is adaptive refinement.
+
+Goldbach now has an explicit finite-glue contract at `H=4e18`:
+`A-K/log(H)-B log(H)^2/sqrt(H)>0`. This is sufficient only after the uniform
+major, joint residual, and proper-prime-power constants are independently
+proved. Twin Prime has `DyadicAffineObstructionContraction`: a uniform
+`Q_(2X)<=3Q_X/4+23/100` would imply dyadic `limsup Q<=0.92`. The four finite
+passes selected this candidate and are not a holdout or a theorem; all-X
+interpolation and exact-gap transfer remain open.
+
+Continue with the four TICKET126 targets listed in
+`docs/infinite-bridge-contracts.md`. Treat the 32M Twin computation, if run, as
+a preregistered falsification holdout only. Do not claim any conjecture proof
+unless every problem-specific arithmetic premise and formal infinite bridge is
+independently verified.
+
+## Preserved Continuation After TICKET-123
 
 TICKET123 factors the TICKET122 margin into three exact dimensionless ratios. With `K` the independently positive comparison budget, `S` the independent singleton budget, `E` the boundary-and-variation budget, and `D` the canonical pair saving,
 

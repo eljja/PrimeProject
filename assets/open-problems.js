@@ -6,6 +6,7 @@ let ticket121AttemptGlobal = null;
 let ticket122AttemptGlobal = null;
 let ticket123AttemptGlobal = null;
 let ticket124AttemptGlobal = null;
+let ticket125AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9698,6 +9699,116 @@ function renderTicket124CanonicalObstructionLimsup(attempt) {
   `;
 }
 
+function renderTicket125InfiniteBridgeContracts(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.infinite_bridge_contracts || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann_density_positivity || {},
+    collatz: audit.collatz_adaptive_residue_descent || {},
+    goldbach: audit.goldbach_explicit_cutoff || {},
+    "twin-prime": audit.twin_dyadic_contraction || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const machine = section.machine_audit || {};
+  const explanations = {
+    riemann: "조밀성, 연속성, 원뿔 전체의 비순환 양성이 모두 있어야 유한 커널 증거를 RH-동치 시험함수 공간 전체로 확장할 수 있습니다.",
+    collatz: "18비트 홀수 잉여류 원통 131,072개 중 121,825개 전체 리프트의 유한 하강을 인증했습니다. 남은 9,247개와 고정 정밀도 경계 때문에 아직 보편 정리가 아닙니다.",
+    goldbach: "4×10^18 이하의 계산과 그 위의 해석적 꼬리를 연결하려면 주항 A가 잔차 K와 소수멱 오염 B를 끝점에서 엄격히 이겨야 합니다. A, K, B는 아직 증명되지 않았습니다.",
+    "twin-prime": "dyadic 수축이 모든 충분히 큰 규모에서 성립하면 limsup 장벽을 닫을 수 있습니다. 현재 네 전이는 같은 자료에서 선택된 후보이며, 32M 미관측 검증과 산술적 꼬리 정리가 남았습니다.",
+  };
+  const summaryRows = [
+    ["ticket", attempt.ticket_id || "missing"],
+    ["proved bridge", section.theorem_name || "missing"],
+    ["status", statusText(attempt.status)],
+    ["machine failures", machine.total_failure_count ?? "missing"],
+    ["conjecture resolutions", audit.machine_audit?.conjecture_resolution_count ?? 0],
+    ["next theorem", attempt.candidate_theorem || "missing"],
+  ];
+
+  let detail = "";
+  if (problemKey === "riemann") {
+    const noGoRows = (section.exact_no_go_models || []).map((row) => [
+      row.missing_hypothesis,
+      row.model,
+      row.counterexample,
+    ]);
+    const gramRows = (section.finite_gram_rows || []).map((row) => [
+      row.checked_dimension,
+      row.unseen_direction,
+      Number(row.unseen_value).toFixed(1),
+      row.finite_check_extends ? "extends" : "counterexample",
+    ]);
+    detail = `
+      <h3>Missing-hypothesis countermodels</h3>
+      ${table(["missing premise", "exact model", "negative witness"], noGoRows)}
+      <h3>Finite Gram no-go family</h3>
+      ${table(["checked dimension", "first unseen direction", "H value", "decision"], gramRows)}
+      <div class="poc-contract-gates">${(section.required_arithmetic_objects || []).map((item) => `<div><span></span><strong>${escapeHtml(item)}</strong><em>OPEN</em></div>`).join("")}</div>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = section.precision_rows || [];
+    const ledger = rows.map((row) => [
+      row.precision_bits,
+      formatValue(row.odd_class_count),
+      formatValue(row.uniformly_descending_class_count),
+      formatValue(row.unresolved_class_count),
+      `${(100 * Number(row.certified_fraction)).toFixed(3)}%`,
+      row.boundary_residue,
+    ]);
+    detail = `
+      <h3>Adaptive residue-cylinder frontier</h3>
+      <div class="poc-contract-bars" role="img" aria-label="Certified Collatz residue-cylinder fraction by precision">
+        ${rows.map((row) => `<div><span>${row.precision_bits} bits</span><i><b style="width:${(100 * Number(row.certified_fraction)).toFixed(3)}%"></b></i><strong>${(100 * Number(row.certified_fraction)).toFixed(2)}%</strong></div>`).join("")}
+      </div>
+      ${table(["bits", "odd classes", "certified cylinders", "unresolved", "coverage", "boundary residue"], ledger)}
+      <div class="proof-note"><strong>Exact bridge: ${escapeHtml(section.global_bridge?.name || "")}</strong> ${escapeHtml(section.global_bridge?.statement || "")}</div>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = (section.budget_scenarios || []).map((row) => [
+      formatValue(row.proper_prime_power_constant_B),
+      Number(row.contamination_fraction_at_verified_limit).toExponential(4),
+      Number(row.strict_residual_constant_ceiling_K).toFixed(6),
+      row.positive_budget_exists ? "feasible region" : "no positive K",
+    ]);
+    detail = `
+      <h3>Endpoint budget at H = 4×10^18</h3>
+      <div class="poc-equation">A - K/log(H) - B log(H)^2/sqrt(H) &gt; 0</div>
+      ${table(["prime-power B", "contamination at H", "strict K ceiling (A=1)", "decision"], rows)}
+      <div class="poc-contract-metric"><span>Frozen numeric target</span><strong>K = ${Number(section.frozen_candidate_budget?.residual_constant_K || 0).toFixed(0)}</strong><em>B &lt; ${formatValue(section.frozen_candidate_budget?.maximum_compatible_prime_power_constant_B || 0)}</em></div>
+    `;
+  } else if (problemKey === "twin-prime") {
+    const candidate = section.frozen_candidate || {};
+    const rows = (section.finite_transitions || []).map((row) => [
+      `${formatValue(row.from_horizon)} → ${formatValue(row.to_horizon)}`,
+      Number(row.exact_residual_Q_2X_minus_alpha_Q_X).toFixed(6),
+      Number(row.certificate_residual_Q_2X_minus_alpha_Q_X).toFixed(6),
+      Number(row.certificate_slack).toFixed(6),
+      row.certificate_candidate_passes ? "finite pass" : "finite fail",
+    ]);
+    detail = `
+      <h3>Frozen dyadic contraction candidate</h3>
+      <div class="poc-equation">Q(2X) ≤ 3Q(X)/4 + 23/100 ⇒ dyadic limsup Q ≤ 0.92</div>
+      <div class="poc-contract-metric"><span>Conditional fixed margin</span><strong>${(100 * Number(candidate.fixed_margin_if_uniformly_proved || 0)).toFixed(1)}%</strong><em>uniform theorem not proved</em></div>
+      ${table(["transition", "exact residual", "certificate residual", "slack to 0.23", "decision"], rows)}
+      <p>${escapeHtml(section.between_scale_bridge || "")}</p>
+    `;
+  }
+
+  return `
+    <div id="ticket125-infinite-bridge-contracts" class="poc-ticket17 poc-ticket124 poc-ticket125">
+      <h3>Ticket 125 infinite bridge contracts</h3>
+      <div class="poc-head"><div><span>Status</span><strong>${escapeHtml(statusText(attempt.status))}</strong></div><div><span>Route</span><strong>${escapeHtml(attempt.route || "missing")}</strong></div><div><span>Scope</span><strong>conditional bridge proved; conjecture open</strong></div></div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      <p><strong>한국어 해설:</strong> ${escapeHtml(explanations[problemKey] || "조건부 연결 정리와 실제 난제의 미증명 전제를 분리합니다.")}</p>
+      ${table(["TICKET125 contract audit", "Value"], summaryRows)}
+      ${detail}
+      <div class="poc-bridge"><section><h3>Proved implication</h3><p><strong>${escapeHtml(section.theorem_name || "")}</strong></p><p>${escapeHtml(section.statement || section.global_bridge?.statement || section.weighted_contract?.conclusion || "")}</p><p>${escapeHtml(section.proof || section.global_bridge?.reverse_proof || section.weighted_contract?.monotonicity_proof || "")}</p></section><section><h3>Open arithmetic premise</h3><p>${escapeHtml(attempt.obstruction || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.next_experiment || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
@@ -9873,6 +9984,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket122TwinCanonicalJointDefect(ticket122AttemptGlobal)}
     ${renderTicket123CanonicalDefectRatioBridge(ticket123AttemptGlobal)}
     ${renderTicket124CanonicalObstructionLimsup(ticket124AttemptGlobal)}
+    ${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}
   `;
 }
 
@@ -11128,6 +11240,19 @@ async function main() {
     }
   } catch (error) {
     ticket124AttemptGlobal = null;
+  }
+  try {
+    const ticket125Response = await fetch("../data/open-problem/ticket125-infinite-bridge-contracts.json", { cache: "no-store" });
+    if (ticket125Response.ok) {
+      const ticket125Payload = await ticket125Response.json();
+      ticket125AttemptGlobal = (ticket125Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+      if (ticket125AttemptGlobal) {
+        ticket125AttemptGlobal.bounded_result = ticket125AttemptGlobal.bounded_result || {};
+        ticket125AttemptGlobal.bounded_result.infinite_bridge_contracts = ticket125Payload.infinite_bridge_contracts || {};
+      }
+    }
+  } catch (error) {
+    ticket125AttemptGlobal = null;
   }
   render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt);
 }

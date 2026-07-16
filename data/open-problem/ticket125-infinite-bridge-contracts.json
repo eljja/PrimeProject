@@ -1,0 +1,606 @@
+{
+  "schema": "primeproject.ticket125-infinite-bridge-contracts.v1",
+  "generated_at": "2026-07-16T23:50:00+09:00",
+  "status": "four_exact_bridge_contracts_proved_missing_arithmetic_hypotheses_open",
+  "claim_boundary": "TICKET-125 proves four conditional bridge lemmas and exact no-go countermodels, but none of the missing arithmetic hypotheses. It proves or refutes none of the four conjectures.",
+  "infinite_bridge_contracts": {
+    "theorem_name": "FourConjectureInfiniteBridgeContractAudit",
+    "source_ticket": "TICKET-124",
+    "riemann_density_positivity": {
+      "theorem_name": "ContinuousDenseConePositivityExtension",
+      "statement": "Let V be the completed RH-equivalent test space, C a dense cone in V, and H:V->R a continuous quadratic form. If H(c)>=0 for every c in C, then H(v)>=0 for every v in V.",
+      "proof": "For v in V choose c_n in C with c_n->v. Continuity gives H(v)=lim H(c_n)>=0.",
+      "required_arithmetic_objects": [
+        "an exact RH-equivalent completed test space V",
+        "a cone C proved dense in V",
+        "continuity of the Weil quadratic form in the chosen topology",
+        "non-circular positivity H(c)>=0 on every c in C"
+      ],
+      "exact_no_go_models": [
+        {
+          "missing_hypothesis": "density",
+          "model": "H(x,y)=x^2-y^2 and C={(x,0)}",
+          "checked_value": "H is nonnegative on C",
+          "counterexample": "H(0,1)=-1"
+        },
+        {
+          "missing_hypothesis": "continuity",
+          "model": "Choose a discontinuous Hamel-linear functional L with dense kernel and set H=-L^2.",
+          "checked_value": "H=0 on the dense kernel of L",
+          "counterexample": "H(v)<0 whenever L(v) is nonzero"
+        },
+        {
+          "missing_hypothesis": "all-cone positivity",
+          "model": "the finite Gram family H_m",
+          "checked_value": "every sampled coordinate direction is positive",
+          "counterexample": "the first unseen coordinate has value -1"
+        }
+      ],
+      "finite_gram_rows": [
+        {
+          "checked_dimension": 1,
+          "form": "H_m(x)=sum_(j<=m) x_j^2-x_(m+1)^2 on R^(m+1)",
+          "checked_subspace_minimum_on_unit_sphere": 1.0,
+          "unseen_direction": "e_2",
+          "unseen_value": -1.0,
+          "finite_check_extends": false
+        },
+        {
+          "checked_dimension": 2,
+          "form": "H_m(x)=sum_(j<=m) x_j^2-x_(m+1)^2 on R^(m+1)",
+          "checked_subspace_minimum_on_unit_sphere": 1.0,
+          "unseen_direction": "e_3",
+          "unseen_value": -1.0,
+          "finite_check_extends": false
+        },
+        {
+          "checked_dimension": 4,
+          "form": "H_m(x)=sum_(j<=m) x_j^2-x_(m+1)^2 on R^(m+1)",
+          "checked_subspace_minimum_on_unit_sphere": 1.0,
+          "unseen_direction": "e_5",
+          "unseen_value": -1.0,
+          "finite_check_extends": false
+        },
+        {
+          "checked_dimension": 8,
+          "form": "H_m(x)=sum_(j<=m) x_j^2-x_(m+1)^2 on R^(m+1)",
+          "checked_subspace_minimum_on_unit_sphere": 1.0,
+          "unseen_direction": "e_9",
+          "unseen_value": -1.0,
+          "finite_check_extends": false
+        },
+        {
+          "checked_dimension": 16,
+          "form": "H_m(x)=sum_(j<=m) x_j^2-x_(m+1)^2 on R^(m+1)",
+          "checked_subspace_minimum_on_unit_sphere": 1.0,
+          "unseen_direction": "e_17",
+          "unseen_value": -1.0,
+          "finite_check_extends": false
+        }
+      ],
+      "machine_audit": {
+        "finite_gram_family_count": 5,
+        "finite_checks_with_unseen_negative_direction": 5,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The extension lemma is proved, but PrimeProject has not proved density, continuity in an exact RH-equivalent topology, or non-circular cone positivity for the zeta explicit formula. RH remains open."
+    },
+    "collatz_adaptive_residue_descent": {
+      "theorem_name": "ResidueCylinderFiniteStoppingDescentBridge",
+      "global_bridge": {
+        "name": "UniversalFiniteStoppingDescentIffCollatz",
+        "statement": "Assuming the usual 1-2-4 basin, Collatz holds if and only if every integer n>1 has a finite iterate below n.",
+        "forward_proof": "A convergent orbit reaches 1<n, so finite stopping descent holds.",
+        "reverse_proof": "Use strong induction on n. A finite iterate m<n reaches 1 by the induction hypothesis, so n also reaches 1."
+      },
+      "cylinder_certificate": {
+        "input": "n=r+2^k*t with r odd and t>=0",
+        "determined_word_condition": "total accelerated valuation S<k",
+        "lift_identity": "T^m(r+2^k*t)=T^m(r)+3^m*2^(k-S)*t",
+        "uniform_descent_test": "If T^m(r)<r before S reaches k, then 3^m<2^S and every positive lift in that residue cylinder strictly descends."
+      },
+      "precision_rows": [
+        {
+          "precision_bits": 4,
+          "modulus": 16,
+          "odd_class_count": 8,
+          "uniformly_descending_class_count": 2,
+          "unresolved_class_count": 6,
+          "certified_fraction": 0.25,
+          "maximum_certificate_steps": 1,
+          "maximum_consumed_bits": 3,
+          "boundary_residue": 5,
+          "boundary_first_valuation": 4,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 5,
+          "modulus": 32,
+          "odd_class_count": 16,
+          "uniformly_descending_class_count": 7,
+          "unresolved_class_count": 9,
+          "certified_fraction": 0.4375,
+          "maximum_certificate_steps": 2,
+          "maximum_consumed_bits": 4,
+          "boundary_residue": 21,
+          "boundary_first_valuation": 6,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 6,
+          "modulus": 64,
+          "odd_class_count": 32,
+          "uniformly_descending_class_count": 19,
+          "unresolved_class_count": 13,
+          "certified_fraction": 0.59375,
+          "maximum_certificate_steps": 3,
+          "maximum_consumed_bits": 5,
+          "boundary_residue": 21,
+          "boundary_first_valuation": 6,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 7,
+          "modulus": 128,
+          "odd_class_count": 64,
+          "uniformly_descending_class_count": 43,
+          "unresolved_class_count": 21,
+          "certified_fraction": 0.671875,
+          "maximum_certificate_steps": 3,
+          "maximum_consumed_bits": 6,
+          "boundary_residue": 85,
+          "boundary_first_valuation": 8,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 8,
+          "modulus": 256,
+          "odd_class_count": 128,
+          "uniformly_descending_class_count": 94,
+          "unresolved_class_count": 34,
+          "certified_fraction": 0.734375,
+          "maximum_certificate_steps": 4,
+          "maximum_consumed_bits": 7,
+          "boundary_residue": 85,
+          "boundary_first_valuation": 8,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 9,
+          "modulus": 512,
+          "odd_class_count": 256,
+          "uniformly_descending_class_count": 203,
+          "unresolved_class_count": 53,
+          "certified_fraction": 0.79296875,
+          "maximum_certificate_steps": 5,
+          "maximum_consumed_bits": 8,
+          "boundary_residue": 341,
+          "boundary_first_valuation": 10,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 10,
+          "modulus": 1024,
+          "odd_class_count": 512,
+          "uniformly_descending_class_count": 421,
+          "unresolved_class_count": 91,
+          "certified_fraction": 0.822265625,
+          "maximum_certificate_steps": 5,
+          "maximum_consumed_bits": 9,
+          "boundary_residue": 341,
+          "boundary_first_valuation": 10,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 11,
+          "modulus": 2048,
+          "odd_class_count": 1024,
+          "uniformly_descending_class_count": 869,
+          "unresolved_class_count": 155,
+          "certified_fraction": 0.8486328125,
+          "maximum_certificate_steps": 6,
+          "maximum_consumed_bits": 10,
+          "boundary_residue": 1365,
+          "boundary_first_valuation": 12,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 12,
+          "modulus": 4096,
+          "odd_class_count": 2048,
+          "uniformly_descending_class_count": 1765,
+          "unresolved_class_count": 283,
+          "certified_fraction": 0.86181640625,
+          "maximum_certificate_steps": 6,
+          "maximum_consumed_bits": 11,
+          "boundary_residue": 1365,
+          "boundary_first_valuation": 12,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 13,
+          "modulus": 8192,
+          "odd_class_count": 4096,
+          "uniformly_descending_class_count": 3587,
+          "unresolved_class_count": 509,
+          "certified_fraction": 0.875732421875,
+          "maximum_certificate_steps": 7,
+          "maximum_consumed_bits": 12,
+          "boundary_residue": 5461,
+          "boundary_first_valuation": 14,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 14,
+          "modulus": 16384,
+          "odd_class_count": 8192,
+          "uniformly_descending_class_count": 7316,
+          "unresolved_class_count": 876,
+          "certified_fraction": 0.89306640625,
+          "maximum_certificate_steps": 8,
+          "maximum_consumed_bits": 13,
+          "boundary_residue": 5461,
+          "boundary_first_valuation": 14,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 15,
+          "modulus": 32768,
+          "odd_class_count": 16384,
+          "uniformly_descending_class_count": 14774,
+          "unresolved_class_count": 1610,
+          "certified_fraction": 0.9017333984375,
+          "maximum_certificate_steps": 8,
+          "maximum_consumed_bits": 14,
+          "boundary_residue": 21845,
+          "boundary_first_valuation": 16,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 16,
+          "modulus": 65536,
+          "odd_class_count": 32768,
+          "uniformly_descending_class_count": 29863,
+          "unresolved_class_count": 2905,
+          "certified_fraction": 0.911346435546875,
+          "maximum_certificate_steps": 9,
+          "maximum_consumed_bits": 15,
+          "boundary_residue": 21845,
+          "boundary_first_valuation": 16,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 17,
+          "modulus": 131072,
+          "odd_class_count": 65536,
+          "uniformly_descending_class_count": 60517,
+          "unresolved_class_count": 5019,
+          "certified_fraction": 0.9234161376953125,
+          "maximum_certificate_steps": 10,
+          "maximum_consumed_bits": 16,
+          "boundary_residue": 87381,
+          "boundary_first_valuation": 18,
+          "boundary_requires_refinement": true
+        },
+        {
+          "precision_bits": 18,
+          "modulus": 262144,
+          "odd_class_count": 131072,
+          "uniformly_descending_class_count": 121825,
+          "unresolved_class_count": 9247,
+          "certified_fraction": 0.9294509887695312,
+          "maximum_certificate_steps": 10,
+          "maximum_consumed_bits": 17,
+          "boundary_residue": 87381,
+          "boundary_first_valuation": 18,
+          "boundary_requires_refinement": true
+        }
+      ],
+      "fixed_precision_boundary": {
+        "residue": "r_k=-3^(-1) mod 2^k",
+        "proof": "3*r_k+1 is divisible by 2^k, so k bits do not determine even the first accelerated valuation on this cylinder. At least this boundary class requires refinement at every fixed precision.",
+        "scope": "This refutes completeness of the determined-word fixed-precision certificate, not every conceivable finite-modulus Collatz argument."
+      },
+      "almost_all_no_go": {
+        "map": "F(2^j)=2^(j+1) for j>=0 and F(n)=1 for non-powers of two",
+        "consequence": "A density-one set reaches 1 while the sparse power-of-two chain diverges, so almost-all descent cannot replace universal coverage."
+      },
+      "machine_audit": {
+        "precision_count": 15,
+        "largest_precision_bits": 18,
+        "largest_odd_class_count": 131072,
+        "largest_uniformly_descending_class_count": 121825,
+        "largest_unresolved_class_count": 9247,
+        "largest_certified_fraction": 0.9294509887695312,
+        "lift_replay_failure_count": 0,
+        "boundary_failure_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The exact cylinder identity certifies many infinite residue classes, but 9,247 of 131,072 odd classes remain unresolved at 18 bits and an unresolved boundary exists at every fixed precision. Collatz remains open."
+    },
+    "goldbach_explicit_cutoff": {
+      "theorem_name": "ExplicitWeightedGoldbachFiniteGlue",
+      "weighted_contract": {
+        "weighted_sum": "G(N)=sum_(m=2)^(N-2) Lambda(m)Lambda(N-m)",
+        "proper_prime_power_contamination": "P(N)=the part of G(N) where at least one summand is a proper prime power",
+        "analytic_hypotheses": [
+          "G(N)>=A*N-K*N/log(N) for every even N>H",
+          "P(N)<=B*sqrt(N)*log(N)^2 for every even N>H",
+          "A,K,B are explicit, uniform, and independently proved"
+        ],
+        "endpoint_budget": "A-K/log(H)-B*log(H)^2/sqrt(H)>0",
+        "conclusion": "G(N)-P(N)>0 for every even N>H; together with verified Goldbach through H, every even N>2 is a sum of two primes.",
+        "monotonicity_proof": "For N>=H>e^4, 1/log(N) and log(N)^2/sqrt(N) are decreasing, so strict positivity at H controls the entire analytic tail."
+      },
+      "verified_limit": 4000000000000000000,
+      "natural_log_verified_limit": 42.832826035012715,
+      "normalized_contamination_scale": 9.173254930728316e-07,
+      "budget_scenarios": [
+        {
+          "normalized_major_constant_A": 1.0,
+          "proper_prime_power_constant_B": 0.0,
+          "contamination_fraction_at_verified_limit": 0.0,
+          "strict_residual_constant_ceiling_K": 42.832826035012715,
+          "positive_budget_exists": true
+        },
+        {
+          "normalized_major_constant_A": 1.0,
+          "proper_prime_power_constant_B": 1.0,
+          "contamination_fraction_at_verified_limit": 9.173254930728316e-07,
+          "strict_residual_constant_ceiling_K": 42.832786743369454,
+          "positive_budget_exists": true
+        },
+        {
+          "normalized_major_constant_A": 1.0,
+          "proper_prime_power_constant_B": 1000.0,
+          "contamination_fraction_at_verified_limit": 0.0009173254930728317,
+          "strict_residual_constant_ceiling_K": 42.79353439175044,
+          "positive_budget_exists": true
+        },
+        {
+          "normalized_major_constant_A": 1.0,
+          "proper_prime_power_constant_B": 10000.0,
+          "contamination_fraction_at_verified_limit": 0.009173254930728316,
+          "strict_residual_constant_ceiling_K": 42.43990960239001,
+          "positive_budget_exists": true
+        },
+        {
+          "normalized_major_constant_A": 1.0,
+          "proper_prime_power_constant_B": 100000.0,
+          "contamination_fraction_at_verified_limit": 0.09173254930728317,
+          "strict_residual_constant_ceiling_K": 38.90366170878563,
+          "positive_budget_exists": true
+        },
+        {
+          "normalized_major_constant_A": 1.0,
+          "proper_prime_power_constant_B": 1000000.0,
+          "contamination_fraction_at_verified_limit": 0.9173254930728316,
+          "strict_residual_constant_ceiling_K": 3.5411827727418568,
+          "positive_budget_exists": true
+        }
+      ],
+      "frozen_candidate_budget": {
+        "normalized_major_constant_A": 1.0,
+        "residual_constant_K": 40.0,
+        "maximum_compatible_prime_power_constant_B": 72097.41817372372,
+        "status": "numeric_target_only_no_analytic_constants_proved"
+      },
+      "machine_audit": {
+        "scenario_count": 6,
+        "monotone_tail_starts_before_verified_limit": true,
+        "k40_maximum_b": 72097.41817372372,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The glue theorem and numeric budget are exact, but PrimeProject has not proved the required pointwise constants A, K, and B. The published 4e18 computation is finite verification, not the missing analytic tail."
+    },
+    "twin_dyadic_contraction": {
+      "theorem_name": "DyadicAffineObstructionContraction",
+      "statement": "If Q_(2X)<=alpha*Q_X+beta for every sufficiently large dyadic X, where 0<=alpha<1 and alpha+beta<1, then the dyadic limsup of Q is at most beta/(1-alpha)<1.",
+      "proof": "Iteration gives Q_n<=alpha^j*Q_(n-j)+beta*(1-alpha^j)/(1-alpha). Taking limsup yields beta/(1-alpha).",
+      "frozen_candidate": {
+        "alpha": 0.75,
+        "beta": 0.23,
+        "alpha_plus_beta": 0.98,
+        "limsup_ceiling_if_uniformly_proved": 0.92,
+        "fixed_margin_if_uniformly_proved": 0.07999999999999996,
+        "selection_status": "generated from the TICKET-124 finite tail; no unseen holdout and no asymptotic theorem"
+      },
+      "finite_transitions": [
+        {
+          "from_horizon": 1048576,
+          "to_horizon": 2097152,
+          "exact_residual_Q_2X_minus_alpha_Q_X": 0.1630300744509927,
+          "certificate_residual_Q_2X_minus_alpha_Q_X": 0.15267326534369596,
+          "exact_candidate_passes": true,
+          "certificate_candidate_passes": true,
+          "certificate_slack": 0.07732673465630405
+        },
+        {
+          "from_horizon": 2097152,
+          "to_horizon": 4194304,
+          "exact_residual_Q_2X_minus_alpha_Q_X": 0.15966234132805623,
+          "certificate_residual_Q_2X_minus_alpha_Q_X": 0.17471927310206514,
+          "exact_candidate_passes": true,
+          "certificate_candidate_passes": true,
+          "certificate_slack": 0.05528072689793487
+        },
+        {
+          "from_horizon": 4194304,
+          "to_horizon": 8388608,
+          "exact_residual_Q_2X_minus_alpha_Q_X": 0.20745783128600792,
+          "certificate_residual_Q_2X_minus_alpha_Q_X": 0.2203867094525258,
+          "exact_candidate_passes": true,
+          "certificate_candidate_passes": true,
+          "certificate_slack": 0.009613290547474201
+        },
+        {
+          "from_horizon": 8388608,
+          "to_horizon": 16777216,
+          "exact_residual_Q_2X_minus_alpha_Q_X": 0.08421387899799782,
+          "certificate_residual_Q_2X_minus_alpha_Q_X": 0.07603709130089564,
+          "exact_candidate_passes": true,
+          "certificate_candidate_passes": true,
+          "certificate_slack": 0.15396290869910437
+        }
+      ],
+      "strictness_no_go": {
+        "construction": "Q_n=1-1/n with beta=1-alpha",
+        "consequence": "The endpoint recurrence can hold eventually while Q_n tends to 1, so alpha+beta<1 is sharp for a fixed positive margin.",
+        "rows": [
+          {
+            "index": 4,
+            "Q_n": 0.75,
+            "Q_next": 0.8,
+            "endpoint_recurrence_holds": true
+          },
+          {
+            "index": 8,
+            "Q_n": 0.875,
+            "Q_next": 0.8888888888888888,
+            "endpoint_recurrence_holds": true
+          },
+          {
+            "index": 16,
+            "Q_n": 0.9375,
+            "Q_next": 0.9411764705882353,
+            "endpoint_recurrence_holds": true
+          },
+          {
+            "index": 32,
+            "Q_n": 0.96875,
+            "Q_next": 0.9696969696969697,
+            "endpoint_recurrence_holds": true
+          },
+          {
+            "index": 64,
+            "Q_n": 0.984375,
+            "Q_next": 0.9846153846153847,
+            "endpoint_recurrence_holds": true
+          },
+          {
+            "index": 128,
+            "Q_n": 0.9921875,
+            "Q_next": 0.9922480620155039,
+            "endpoint_recurrence_holds": true
+          }
+        ]
+      },
+      "finite_prefix_no_go": {
+        "construction": "Keep Q_n=1/2 on any requested finite prefix, then set the first unseen value to 11/10.",
+        "consequence": "Four passing transitions cannot certify the recurrence on the tail."
+      },
+      "between_scale_bridge": "A dyadic recurrence controls only dyadic scales. An all-X theorem also needs a proved interpolation envelope inside every [2^n,2^(n+1)) block.",
+      "machine_audit": {
+        "finite_transition_count": 4,
+        "exact_candidate_pass_count": 4,
+        "certificate_candidate_pass_count": 4,
+        "maximum_exact_recurrence_residual": 0.20745783128600792,
+        "maximum_certificate_recurrence_residual": 0.2203867094525258,
+        "minimum_certificate_slack": 0.009613290547474201,
+        "endpoint_countermodel_failure_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The affine contraction theorem is proved and four finite dyadic transitions pass the frozen candidate. No uniform Vaughan recurrence, between-scale interpolation, parity survival, or exact-gap transfer is proved. Twin Prime remains open."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Connes and Consani, The Scaling Hamiltonian",
+        "url": "https://arxiv.org/abs/1910.14368",
+        "role": "Primary all-test-function Weil positivity context."
+      },
+      {
+        "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values",
+        "url": "https://arxiv.org/abs/1909.03562",
+        "role": "Primary almost-all result; it does not provide universal descent."
+      },
+      {
+        "citation": "Oliveira e Silva, Herzog, and Pardi, Empirical verification of the even Goldbach conjecture",
+        "url": "https://doi.org/10.1090/S0025-5718-2013-02787-1",
+        "role": "Primary verification through 4e18 used only as finite glue."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary modern joint Type I/II sieve context; no exact gap-2 theorem is imported."
+      }
+    ],
+    "machine_audit": {
+      "problem_count": 4,
+      "exact_bridge_theorem_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET-125 proves four conditional bridge lemmas and exact no-go countermodels, but none of the missing arithmetic hypotheses. It proves or refutes none of the four conjectures."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-125",
+      "status": "exact_extension_bridge_proved_arithmetic_hypotheses_open",
+      "route": "ContinuousDenseConePositivityExtension",
+      "proof_or_counterexample_mode": "conditional proof plus missing-hypothesis countermodels",
+      "attempt": "Prove the exact topology lemma and reject finite, nondense, or discontinuous positivity shortcuts.",
+      "bounded_result": {
+        "audit_ref": "riemann_density_positivity",
+        "finite_gram_family_count": 5
+      },
+      "obstruction": "No exact zeta test-space density and non-circular all-cone positivity theorem is proved.",
+      "candidate_theorem": "AdmissibleKernelConeDensityAndPositivity",
+      "next_experiment": "Specify the completed Weil test topology and prove or refute density of one explicit arithmetic kernel cone.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-125",
+      "status": "exact_induction_bridge_and_partial_infinite_cylinder_cover_open",
+      "route": "AdaptiveResidueFiniteStoppingCover",
+      "proof_or_counterexample_mode": "strong-induction bridge plus exact lifted-cylinder certificates",
+      "attempt": "Certify every lift of each residue cylinder that descends before its available 2-adic precision is exhausted.",
+      "bounded_result": {
+        "audit_ref": "collatz_adaptive_residue_descent",
+        "precision_bits": 18,
+        "certified_classes": 121825,
+        "unresolved_classes": 9247
+      },
+      "obstruction": "Every fixed precision has a -3^(-1) boundary cylinder, and 9,247 classes remain unresolved at 18 bits.",
+      "candidate_theorem": "AdaptiveResidueFiniteStoppingCover",
+      "next_experiment": "Recursively refine only unresolved cylinders and prove that every positive-integer branch receives a finite descent certificate.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-125",
+      "status": "exact_finite_glue_budget_proved_analytic_constants_open",
+      "route": "ExplicitWeightedGoldbachFiniteGlue",
+      "proof_or_counterexample_mode": "conditional tail proof with explicit endpoint budget",
+      "attempt": "Separate the weighted prime-pair lower bound, proper-prime-power contamination, and 4e18 finite overlap.",
+      "bounded_result": {
+        "audit_ref": "goldbach_explicit_cutoff",
+        "verified_limit": 4000000000000000000,
+        "log_verified_limit": 42.832826035012715
+      },
+      "obstruction": "No sourced uniform A, K, B constants satisfy the strict endpoint budget.",
+      "candidate_theorem": "ExplicitJointBalancedGoldbachCutoff",
+      "next_experiment": "Derive replayable major, Vaughan residual, and prime-power constants and test them against the endpoint inequality.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-125",
+      "status": "exact_dyadic_contraction_bridge_proved_finite_candidate_only_open",
+      "route": "DyadicAffineObstructionContraction",
+      "proof_or_counterexample_mode": "conditional recurrence proof plus endpoint and finite-prefix countermodels",
+      "attempt": "Replace a direct limsup estimate by a local dyadic affine contraction with a strict fixed point below one.",
+      "bounded_result": {
+        "audit_ref": "twin_dyadic_contraction",
+        "alpha": 0.75,
+        "beta": 0.23,
+        "finite_transitions": 4
+      },
+      "obstruction": "The four transitions are selected finite data; no uniform Vaughan recurrence or between-scale theorem is proved.",
+      "candidate_theorem": "DyadicVaughanObstructionContractionAndInterpolation",
+      "next_experiment": "Freeze alpha=3/4 and beta=23/100, compute an unseen 32M holdout, then seek a coefficient-level recurrence proof independent of the holdout.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample."
+    }
+  ]
+}

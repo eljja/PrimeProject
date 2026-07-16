@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-124 proves the exact limsup criterion for the canonical joint obstruction and refutes necessity of the overstrong coordinatewise ratio triple"
+  "TP-TICKET-125 proves an affine dyadic contraction implies a limsup below one and freezes alpha=3/4 beta=23/100 as finite candidate data only"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-125 VaughanCanonicalObstructionLimsup."
+  "TP-TICKET-126 DyadicVaughanObstructionContractionAndInterpolation."
 
 def topAttackProofAttemptProtocol : String :=
-  "For Q_X=((S_X-D_X)+E_X)/K_X, prove limsup Q_X<1 from the actual Vaughan bilinear arithmetic while preserving paired-boundary compensation, or construct a Vaughan-realizable unbounded subsequence with Q_X>=1."
+  "Preregister a 32M falsification holdout for Q_(2X)<=3*Q_X/4+23/100, then independently prove the recurrence from actual Vaughan coefficients and an all-X between-scale envelope, or construct a Vaughan-realizable unbounded failure sequence."
 
 end PrimeProject.OpenProblems.TwinPrime

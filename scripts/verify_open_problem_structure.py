@@ -120,6 +120,7 @@ TICKET121_SCHEMA = "primeproject.ticket121-twin-balance-angle-defect-audit.v1"
 TICKET122_SCHEMA = "primeproject.ticket122-twin-canonical-joint-defect-audit.v1"
 TICKET123_SCHEMA = "primeproject.ticket123-canonical-defect-ratio-closure-bridge.v1"
 TICKET124_SCHEMA = "primeproject.ticket124-canonical-obstruction-limsup-criterion.v1"
+TICKET125_SCHEMA = "primeproject.ticket125-infinite-bridge-contracts.v1"
 
 
 def fail(message: str) -> int:
@@ -7331,6 +7332,51 @@ def main() -> int:
         return fail("ticket124 corrected global targets changed")
     if "proves no conjecture" not in str(audit124.get("proof_boundary", "")).lower():
         return fail("ticket124 proof boundary changed")
+
+    path125 = Path("data/open-problem/ticket125-infinite-bridge-contracts.json")
+    if not path125.exists():
+        return fail("missing ticket125 infinite bridge contracts")
+    ticket125 = read_json(path125)
+    if ticket125.get("schema") != TICKET125_SCHEMA or ticket125.get("status") != "four_exact_bridge_contracts_proved_missing_arithmetic_hypotheses_open":
+        return fail("ticket125 schema or status changed")
+    attempts125 = ticket125.get("attempts", [])
+    by_id125 = {str(row.get("problem_id")): row for row in attempts125 if isinstance(row, dict)} if isinstance(attempts125, list) else {}
+    if set(by_id125) != EXPECTED_PROBLEMS:
+        return fail("ticket125 attempts missing problems")
+    paths125 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-125-density-positivity-extension.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-125-adaptive-residue-descent-cover.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-125-explicit-cutoff-budget.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-125-dyadic-obstruction-contraction.json"),
+    }
+    for problem_id, attempt in by_id125.items():
+        if not paths125[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket125 artifact or proof boundary missing")
+        if not str(attempt.get("bounded_result", {}).get("audit_ref", "")):
+            return fail(f"{problem_id}: ticket125 shared audit reference missing")
+    audit125 = ticket125.get("infinite_bridge_contracts", {})
+    machine125 = audit125.get("machine_audit", {})
+    if audit125.get("theorem_name") != "FourConjectureInfiniteBridgeContractAudit" or audit125.get("source_ticket") != "TICKET-124":
+        return fail("ticket125 theorem lineage changed")
+    if int(machine125.get("problem_count", -1)) != 4 or int(machine125.get("exact_bridge_theorem_count", -1)) != 4 or int(machine125.get("conjecture_resolution_count", -1)) != 0 or int(machine125.get("total_failure_count", -1)) != 0:
+        return fail("ticket125 global machine audit changed")
+    rh125 = audit125.get("riemann_density_positivity", {})
+    if rh125.get("theorem_name") != "ContinuousDenseConePositivityExtension" or len(rh125.get("exact_no_go_models", [])) != 3:
+        return fail("ticket125 RH contract changed")
+    collatz125 = audit125.get("collatz_adaptive_residue_descent", {})
+    collatz_machine125 = collatz125.get("machine_audit", {})
+    if int(collatz_machine125.get("largest_precision_bits", -1)) != 18 or int(collatz_machine125.get("largest_odd_class_count", -1)) != 131072 or int(collatz_machine125.get("largest_uniformly_descending_class_count", -1)) != 121825 or int(collatz_machine125.get("largest_unresolved_class_count", -1)) != 9247 or int(collatz_machine125.get("total_failure_count", -1)) != 0:
+        return fail("ticket125 Collatz cylinder frontier changed")
+    goldbach125 = audit125.get("goldbach_explicit_cutoff", {})
+    if int(goldbach125.get("verified_limit", -1)) != 4000000000000000000 or abs(float(goldbach125.get("natural_log_verified_limit", 0)) - 42.832826035012715) > 1e-12:
+        return fail("ticket125 Goldbach cutoff budget changed")
+    twin125 = audit125.get("twin_dyadic_contraction", {})
+    twin_machine125 = twin125.get("machine_audit", {})
+    candidate125 = twin125.get("frozen_candidate", {})
+    if abs(float(candidate125.get("alpha", 0)) - 0.75) > 1e-15 or abs(float(candidate125.get("beta", 0)) - 0.23) > 1e-15 or int(twin_machine125.get("finite_transition_count", -1)) != 4 or int(twin_machine125.get("certificate_candidate_pass_count", -1)) != 4:
+        return fail("ticket125 Twin contraction candidate changed")
+    if "proves four conditional bridge lemmas" not in str(audit125.get("proof_boundary", "")):
+        return fail("ticket125 proof boundary changed")
 
     print("open problem structure verified")
     return 0
