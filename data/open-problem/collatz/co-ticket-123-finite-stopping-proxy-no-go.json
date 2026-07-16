@@ -1,0 +1,20 @@
+{
+  "schema": "primeproject.ticket123-canonical-defect-ratio-closure-bridge.v1",
+  "generated_at": "2026-07-16T10:30:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-123",
+  "status": "legacy_proxy_rejected_problem_specific_target_preserved_open",
+  "route": "GoldenMeanEscapePreservedAfterFiniteStoppingNoGo",
+  "proof_or_counterexample_mode": "reject a finite proxy and preserve the independent infinite target",
+  "attempt": "Audit and discard finite stopping-time and density verification as a proof route without transferring the Twin ratio bridge.",
+  "bounded_result": {
+    "source_ticket": "CO-TICKET-122",
+    "discarded_legacy_proxy": "finite stopping-time and density verification",
+    "proxy_failure": "A finite stopping-time loop either terminates only on verified inputs or silently assumes the missing descent; density-one behavior permits a sparse exceptional orbit.",
+    "independent_target": "GoldenMeanInvariantSetEscape"
+  },
+  "obstruction": "A finite stopping-time loop either terminates only on verified inputs or silently assumes the missing descent; density-one behavior permits a sparse exceptional orbit.",
+  "candidate_theorem": "GoldenMeanInvariantSetEscape",
+  "next_experiment": "Continue GoldenMeanInvariantSetEscape with a problem-specific proof and counterexample oracle.",
+  "claim_boundary": "No Collatz Conjecture proof and no certified counterexample."
+}

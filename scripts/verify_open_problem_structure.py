@@ -118,6 +118,7 @@ TICKET119_SCHEMA = "primeproject.ticket119-canonical-pair-doubling-holdout.v1"
 TICKET120_SCHEMA = "primeproject.ticket120-twin-low-divisor-pair-savings-audit.v1"
 TICKET121_SCHEMA = "primeproject.ticket121-twin-balance-angle-defect-audit.v1"
 TICKET122_SCHEMA = "primeproject.ticket122-twin-canonical-joint-defect-audit.v1"
+TICKET123_SCHEMA = "primeproject.ticket123-canonical-defect-ratio-closure-bridge.v1"
 
 
 def fail(message: str) -> int:
@@ -7231,6 +7232,55 @@ def main() -> int:
         return fail("ticket122 16M canonical anatomy changed")
     if audit122.get("retained_theorem", {}).get("name") != "VaughanCanonicalPairJointDefectAndResidualBudgetGap" or "proves no conjecture" not in str(audit122.get("proof_boundary", "")).lower():
         return fail("ticket122 retained theorem or proof boundary changed")
+
+    path123 = Path("data/open-problem/ticket123-canonical-defect-ratio-closure-bridge.json")
+    if not path123.exists():
+        return fail("missing ticket123 canonical defect ratio bridge")
+    ticket123 = read_json(path123)
+    if ticket123.get("schema") != TICKET123_SCHEMA or ticket123.get("status") != "exact_ratio_bridge_and_independent_premise_nogos_open":
+        return fail("ticket123 schema or status changed")
+    attempts123 = ticket123.get("attempts", [])
+    by_id123 = {str(row.get("problem_id")): row for row in attempts123 if isinstance(row, dict)} if isinstance(attempts123, list) else {}
+    if set(by_id123) != EXPECTED_PROBLEMS:
+        return fail("ticket123 attempts missing problems")
+    paths123 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-123-finite-jensen-proxy-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-123-finite-stopping-proxy-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-123-mean-series-proxy-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-123-defect-ratio-closure-bridge.json"),
+    }
+    for problem_id, attempt in by_id123.items():
+        if not paths123[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket123 artifact or proof boundary missing")
+    for problem_id in ("riemann", "collatz", "goldbach"):
+        bounded123 = by_id123[problem_id].get("bounded_result", {})
+        if by_id123[problem_id].get("status") != "legacy_proxy_rejected_problem_specific_target_preserved_open" or not bounded123.get("discarded_legacy_proxy") or not bounded123.get("independent_target"):
+            return fail(f"{problem_id}: ticket123 finite proxy gate changed")
+    if by_id123["twin-prime"].get("bounded_result", {}).get("audit_ref") != "canonical_defect_ratio_closure_bridge":
+        return fail("ticket123 shared audit reference changed")
+    audit123 = ticket123.get("canonical_defect_ratio_closure_bridge", {})
+    if audit123.get("theorem_name") != "CanonicalDefectRatioClosureBridgeAndIndependentPremiseNoGo" or audit123.get("source_ticket") != "TICKET-122":
+        return fail("ticket123 theorem lineage changed")
+    bridge123 = audit123.get("proved_bridge", {})
+    if bridge123.get("name") != "CanonicalDefectRatioClosureBridge" or "delta*K" not in str(bridge123.get("conclusion", "")):
+        return fail("ticket123 proved bridge changed")
+    machine123 = audit123.get("machine_audit", {})
+    if int(machine123.get("scale_count", -1)) != 8 or int(machine123.get("exact_closure_count", -1)) != 2 or int(machine123.get("certificate_closure_count", -1)) != 1 or int(machine123.get("total_failure_count", -1)) != 0:
+        return fail("ticket123 machine audit changed")
+    if abs(float(machine123.get("minimum_exact_eta", 0)) - 0.193457964028246) > 1e-15 or abs(float(machine123.get("minimum_certificate_eta", 0)) - 0.160000418018359) > 1e-15:
+        return fail("ticket123 saving ratio floors changed")
+    if float(machine123.get("maximum_exact_identity_error", 1)) > 1e-12 or float(machine123.get("maximum_certificate_identity_error", 1)) > 1e-12 or float(machine123.get("frontier_transition_reconstruction_error", 1)) > 1e-12:
+        return fail("ticket123 ratio identity reconstruction changed")
+    transition123 = audit123.get("frontier_transition", {})
+    if int(transition123.get("from_horizon", -1)) != 8388608 or int(transition123.get("to_horizon", -1)) != 16777216 or float(transition123.get("eta_change_contribution", 0)) >= 0 or float(transition123.get("rho_change_contribution", 0)) <= 0:
+        return fail("ticket123 frontier attribution changed")
+    models123 = audit123.get("abstract_countermodels", {})
+    if set(models123) != {"saving_fraction_alone_no_go", "ratio_without_boundary_no_go", "compatibility_sharpness", "finite_prefix_no_go"}:
+        return fail("ticket123 no-go families changed")
+    if float(machine123.get("saving_only_terminal_margin", 0)) >= 0 or float(machine123.get("boundary_terminal_margin", 0)) >= 0:
+        return fail("ticket123 no-go terminal margins changed")
+    if audit123.get("retained_theorem", {}).get("name") != "VaughanCanonicalDefectRatioTriple" or "proves no conjecture" not in str(audit123.get("proof_boundary", "")).lower():
+        return fail("ticket123 retained theorem or proof boundary changed")
 
     print("open problem structure verified")
     return 0

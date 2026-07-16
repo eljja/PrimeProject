@@ -62,7 +62,23 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-122
+## Latest Continuation After TICKET-123
+
+TICKET123 factors the TICKET122 margin into three exact dimensionless ratios. With `K` the independently positive comparison budget, `S` the independent singleton budget, `E` the boundary-and-variation budget, and `D` the canonical pair saving,
+
+```text
+[K-(S-D)-E]/K = 1-(1-D/S)(S/K)-E/K.
+```
+
+Write `eta=D/S`, `rho=S/K`, and `epsilon=E/K`. `CanonicalDefectRatioClosureBridge` proves that fixed bounds `D>=eta*S`, `S<=rho*K`, `E<=epsilon*K`, and `(1-eta)rho+epsilon<=1-delta` imply the required lower margin `delta*K`. This is an exact algebraic theorem, but the uniform arithmetic premises remain open.
+
+Four exact abstract families reject incomplete routes. A fixed positive `eta` is defeated by unbounded `S/K`; bounded `S/K` is defeated by unbounded `E/K`; equality in the compatibility plane gives zero rather than positive margin; and every finite pass prefix can be followed by a failing unseen row. These are counterexamples to proof strategies, not to Twin Prime.
+
+Across the eight inherited finite rows, exact closure occurs twice and certificate closure once. The 8M-to-16M exact margin change `+0.155274` decomposes into eta `-0.038066`, rho `+0.189393`, and epsilon `+0.003947`. Thus the observed improvement is dominated by the fall in `S/K`, while the saving fraction moves adversely. This does not establish any asymptotic trend.
+
+Retain `VaughanCanonicalDefectRatioTriple`: prove a single compatible constant tuple for all sufficiently large Vaughan scales, or construct an unbounded Vaughan-realizable sequence defeating every such tuple. For RH, reject finite Jensen hyperbolicity and retain `NonCircularExplicitFormulaKernelPositivity`. For Collatz, reject finite stopping-time or density evidence and retain `GoldenMeanInvariantSetEscape`. For Goldbach, reject mean singular-series agreement and retain `JointBalancedVaughanGoldbachResidualEnvelope`. All four conjectures remain open.
+
+## Preserved Continuation After TICKET-122
 
 TICKET122 extends the first-pair centered audit to every result-independent canonical adjacent dyadic pair and includes the scalar block means. For one denominator and pair it proves
 

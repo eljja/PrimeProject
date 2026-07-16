@@ -4,6 +4,7 @@ let ticket119AttemptGlobal = null;
 let ticket120AttemptGlobal = null;
 let ticket121AttemptGlobal = null;
 let ticket122AttemptGlobal = null;
+let ticket123AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9535,6 +9536,79 @@ function renderTicket122TwinCanonicalJointDefect(attempt) {
   `;
 }
 
+function renderTicket123CanonicalDefectRatioBridge(attempt) {
+  if (!attempt) return "";
+  const bounded = attempt.bounded_result || {};
+  const audit = bounded.canonical_defect_ratio_closure_bridge || {};
+  const machine = audit.machine_audit || {};
+  const retained = audit.retained_theorem || {};
+  const bridge = audit.proved_bridge || {};
+  const rows = Array.isArray(audit.finite_ratio_rows) ? audit.finite_ratio_rows : [];
+  const models = audit.abstract_countermodels || {};
+  const transition = audit.frontier_transition || {};
+  const isTwin = attempt.problem_id === "twin-prime";
+  const summaryRows = Object.keys(audit).length ? [
+    ["finite scales", machine.scale_count],
+    ["exact closures", `${machine.exact_closure_count} / ${machine.scale_count}`],
+    ["certificate closures", `${machine.certificate_closure_count} / ${machine.scale_count}`],
+    ["minimum exact eta", `${(100 * Number(machine.minimum_exact_eta || 0)).toFixed(4)}%`],
+    ["minimum certified eta", `${(100 * Number(machine.minimum_certificate_eta || 0)).toFixed(4)}%`],
+    ["maximum rho", Number(machine.maximum_rho || 0).toFixed(4)],
+    ["maximum epsilon", `${(100 * Number(machine.maximum_epsilon || 0)).toFixed(4)}%`],
+    ["audit failures", machine.total_failure_count],
+  ] : [
+    ["discarded finite proxy", bounded.discarded_legacy_proxy || "missing"],
+    ["independent target", bounded.independent_target || attempt.candidate_theorem || "missing"],
+  ];
+  const ratioRows = rows.map((row) => [
+    formatValue(row.horizon),
+    `${(100 * Number(row.eta_exact_saving_fraction || 0)).toFixed(3)}%`,
+    `${(100 * Number(row.eta_certificate_fraction || 0)).toFixed(3)}%`,
+    Number(row.rho_singleton_to_known || 0).toFixed(3),
+    `${(100 * Number(row.epsilon_boundary_to_known || 0)).toFixed(3)}%`,
+    `${(100 * Number(row.critical_eta_for_zero_margin || 0)).toFixed(3)}%`,
+    `${(100 * Number(row.exact_normalized_margin || 0)).toFixed(3)}%`,
+    `${(100 * Number(row.certificate_normalized_margin || 0)).toFixed(3)}%`,
+  ]);
+  const maxMagnitude = Math.max(0.01, ...rows.map((row) => Math.abs(Number(row.exact_normalized_margin || 0))));
+  const marginBars = rows.length ? `
+    <div class="poc-ratio-margin-chart" role="img" aria-label="Signed normalized canonical closure margin over eight finite scales">
+      ${rows.map((row) => {
+        const margin = Number(row.exact_normalized_margin || 0);
+        const width = Math.max(0.5, 50 * Math.abs(margin) / maxMagnitude);
+        return `<div class="poc-ratio-margin-row"><span>${escapeHtml(formatValue(row.horizon))}</span><div><i class="${margin >= 0 ? "is-positive" : "is-negative"}" style="width:${width.toFixed(2)}%"></i></div><strong>${(100 * margin).toFixed(2)}%</strong></div>`;
+      }).join("")}
+    </div>
+  ` : "";
+  const noGoRows = Object.entries(models).map(([name, model]) => {
+    const sequence = Array.isArray(model.sequence) ? model.sequence : [];
+    const terminal = sequence.at(-1) || {};
+    const terminalMargin = terminal.normalized_margin ?? terminal.first_unseen_parameters?.normalized_margin;
+    return [name.replaceAll("_", " "), model.purpose || "", Number(terminalMargin || 0).toExponential(3)];
+  });
+  const transitionRows = Object.keys(transition).length ? [
+    ["observed margin change", Number(transition.observed_margin_change || 0).toFixed(6)],
+    ["eta contribution", Number(transition.eta_change_contribution || 0).toFixed(6)],
+    ["rho contribution", Number(transition.rho_change_contribution || 0).toFixed(6)],
+    ["epsilon contribution", Number(transition.epsilon_change_contribution || 0).toFixed(6)],
+    ["reconstruction error", Number(transition.reconstruction_error || 0).toExponential(3)],
+  ] : [];
+  return `
+    <div id="ticket123-ratio-bridge" class="poc-ticket17 poc-ticket118 poc-ticket119 poc-ticket120 poc-ticket121 poc-ticket122 poc-ticket123">
+      <h3>Ticket 123 canonical defect ratio closure bridge</h3>
+      <div class="poc-head"><div><span>Status</span><strong>${escapeHtml(statusText(attempt.status))}</strong></div><div><span>Route</span><strong>${escapeHtml(attempt.route || "missing")}</strong></div><div><span>Scope</span><strong>${isTwin ? "exact algebraic bridge; arithmetic ratios open" : "finite proxy rejected; target preserved"}</strong></div></div>
+      <p>${escapeHtml(attempt.attempt || "")}</p>
+      ${isTwin ? `<p><strong>한국어 해설:</strong> 전체 여유를 절감률 eta, singleton/known 비율 rho, 경계 비율 epsilon으로 정확히 분해했습니다. 8M→16M의 유한 개선은 eta가 아니라 rho 감소가 주도했습니다. 세 비율의 호환 가능한 무한 상수는 아직 증명되지 않았습니다.</p>` : `<p><strong>한국어 해설:</strong> ${escapeHtml(bounded.discarded_legacy_proxy || "유한 프록시")}는 이 난제의 무한 결론을 증명하지 못하므로 폐기했습니다. ${escapeHtml(bounded.independent_target || attempt.candidate_theorem || "기존 독립 목표")}를 유지합니다.</p>`}
+      ${table(["TICKET123 ratio bridge", "Value"], summaryRows)}
+      ${isTwin && ratioRows.length ? `<h3>Eight-scale ratio ledger</h3>${table(["horizon", "exact eta", "certified eta", "rho", "epsilon", "critical eta", "exact margin", "certified margin"], ratioRows)}${marginBars}` : ""}
+      ${isTwin && transitionRows.length ? `<h3>8M to 16M exact margin attribution</h3>${table(["component", "contribution"], transitionRows)}<p>${escapeHtml(transition.interpretation || "")}</p>` : ""}
+      ${noGoRows.length ? `<h3>Independent-premise no-go families</h3>${table(["discarded route", "reason", "terminal margin"], noGoRows)}` : ""}
+      ${Object.keys(bridge).length ? `<div class="poc-bridge"><section><h3>Proved closure bridge</h3><p>${escapeHtml(bridge.hypotheses || "")}</p><p><strong>${escapeHtml(bridge.conclusion || "")}</strong></p><p>${escapeHtml(bridge.proof || "")}</p></section><section><h3>Retained TICKET-124 target</h3><p><strong>${escapeHtml(retained.name || "")}</strong></p><p>${escapeHtml(retained.statement || "")}</p><p>${escapeHtml(retained.counterexample_route || "")}</p></section></div>` : ""}
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || attempt.claim_boundary || "")}</p>
+    </div>
+  `;
+}
+
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
     return `<div class="proof-note is-error">Proof-or-counterexample lab artifact is not available on this page.</div>`;
@@ -9708,6 +9782,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
     ${renderTicket120TwinLowDivisorPairSavings(ticket120AttemptGlobal)}
     ${renderTicket121TwinBalanceAngleDefect(ticket121AttemptGlobal)}
     ${renderTicket122TwinCanonicalJointDefect(ticket122AttemptGlobal)}
+    ${renderTicket123CanonicalDefectRatioBridge(ticket123AttemptGlobal)}
   `;
 }
 
@@ -10939,6 +11014,18 @@ async function main() {
     }
   } catch (error) {
     ticket122AttemptGlobal = null;
+  }
+  try {
+    const ticket123Response = await fetch("../data/open-problem/ticket123-canonical-defect-ratio-closure-bridge.json", { cache: "no-store" });
+    if (ticket123Response.ok) {
+      const ticket123Payload = await ticket123Response.json();
+      ticket123AttemptGlobal = (ticket123Payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+      if (ticket123AttemptGlobal && ticket123AttemptGlobal.bounded_result?.audit_ref === "canonical_defect_ratio_closure_bridge") {
+        ticket123AttemptGlobal.bounded_result.canonical_defect_ratio_closure_bridge = ticket123Payload.canonical_defect_ratio_closure_bridge || {};
+      }
+    }
+  } catch (error) {
+    ticket123AttemptGlobal = null;
   }
   render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt);
 }

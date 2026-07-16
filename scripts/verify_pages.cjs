@@ -1190,6 +1190,26 @@ async function main() {
     } else {
       requireText("ticket122 Goldbach route", "JointBalancedGoldbachPreserved");
     }
+    requireText("ticket123 title", "Ticket 123 canonical defect ratio closure bridge");
+    requireText("ticket123 table", "TICKET123 ratio bridge");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket123 Twin ledger", "Eight-scale ratio ledger");
+      requireText("ticket123 Twin attribution", "8M to 16M exact margin attribution");
+      requireText("ticket123 Twin no-go", "Independent-premise no-go families");
+      requireText("ticket123 Twin exact eta", "19.3458%");
+      requireText("ticket123 Twin certified eta", "16.0000%");
+      requireText("ticket123 Twin bridge", "CanonicalDefectRatioClosureBridge");
+      requireText("ticket123 Twin retained", "VaughanCanonicalDefectRatioTriple");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket123 RH proxy", "finite Jensen-polynomial hyperbolicity");
+      requireText("ticket123 RH target", "NonCircularExplicitFormulaKernelPositivity");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket123 Collatz proxy", "finite stopping-time and density verification");
+      requireText("ticket123 Collatz target", "GoldenMeanInvariantSetEscape");
+    } else {
+      requireText("ticket123 Goldbach proxy", "finite mean singular-series agreement");
+      requireText("ticket123 Goldbach target", "JointBalancedVaughanGoldbachResidualEnvelope");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {

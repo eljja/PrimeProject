@@ -1,0 +1,588 @@
+{
+  "schema": "primeproject.ticket123-canonical-defect-ratio-closure-bridge.v1",
+  "generated_at": "2026-07-16T10:30:00+09:00",
+  "status": "exact_ratio_bridge_and_independent_premise_nogos_open",
+  "claim_boundary": "TICKET123 proves an algebraic closure bridge and four proof-strategy no-go families. It proves no conjecture and certifies no conjecture counterexample.",
+  "canonical_defect_ratio_closure_bridge": {
+    "theorem_name": "CanonicalDefectRatioClosureBridgeAndIndependentPremiseNoGo",
+    "source_ticket": "TICKET-122",
+    "notation": {
+      "K": "known_without_type_ii_minor > 0",
+      "S": "independent_singleton_budget >= 0",
+      "E": "boundary_and_variation_budget >= 0",
+      "D": "exact canonical joint saving, with canonical budget S-D",
+      "eta": "saving fraction lower bound D/S",
+      "rho": "singleton-to-known upper bound S/K",
+      "epsilon": "boundary-to-known upper bound E/K"
+    },
+    "exact_identity": "(K-(S-D)-E)/K = 1-(1-D/S)(S/K)-E/K",
+    "proved_bridge": {
+      "name": "CanonicalDefectRatioClosureBridge",
+      "hypotheses": "K>0, 0<=eta<=1, D>=eta*S, S<=rho*K, E<=epsilon*K, and (1-eta)rho+epsilon<=1-delta.",
+      "conclusion": "K-(S-D)-E >= delta*K.",
+      "proof": "D>=eta*S gives K-(S-D)-E >= K-(1-eta)S-E. Since 1-eta>=0, S<=rho*K and E<=epsilon*K give at least K[1-(1-eta)rho-epsilon], which is at least delta*K by compatibility."
+    },
+    "finite_ratio_rows": [
+      {
+        "horizon": 4096,
+        "source_closes_finite": false,
+        "known_budget": 1759.5237652005485,
+        "independent_singleton_budget": 4689.878320659563,
+        "boundary_budget": 93.52617674908852,
+        "exact_saving": 1334.3215656757866,
+        "joint_lower_certificate": 1084.3333962690717,
+        "eta_exact_saving_fraction": 0.28451091359831565,
+        "eta_certificate_fraction": 0.23120714912632875,
+        "rho_singleton_to_known": 2.665424823133898,
+        "epsilon_boundary_to_known": 0.05315425605429576,
+        "critical_eta_for_zero_margin": 0.6447674172883099,
+        "nonnegative_critical_eta": 0.6447674172883099,
+        "exact_eta_headroom": -0.36025650368999423,
+        "certificate_eta_headroom": -0.4135602681619811,
+        "exact_normalized_margin": -0.9602366276307397,
+        "certificate_normalized_margin": -1.1023138046208563,
+        "ratio_identity_margin": -0.9602366276307396,
+        "ratio_certificate_margin": -1.1023138046208563,
+        "exact_identity_error": 1.1102230246251565e-16,
+        "certificate_identity_error": 0.0,
+        "closes_exact": false,
+        "closes_by_certificate": false
+      },
+      {
+        "horizon": 32768,
+        "source_closes_finite": false,
+        "known_budget": 13920.519936756462,
+        "independent_singleton_budget": 42298.61812636034,
+        "boundary_budget": 1425.0126566408887,
+        "exact_saving": 9866.730412433883,
+        "joint_lower_certificate": 8063.939183831941,
+        "eta_exact_saving_fraction": 0.23326365847126748,
+        "eta_certificate_fraction": 0.19064308814397232,
+        "rho_singleton_to_known": 3.0385803345371376,
+        "epsilon_boundary_to_known": 0.10236777527814975,
+        "critical_eta_for_zero_margin": 0.704588286010024,
+        "nonnegative_critical_eta": 0.704588286010024,
+        "exact_eta_headroom": -0.4713246275387565,
+        "certificate_eta_headroom": -0.5139451978660516,
+        "exact_normalized_margin": -1.4321577444223064,
+        "certificate_normalized_margin": -1.5616637712655825,
+        "ratio_identity_margin": -1.4321577444223066,
+        "ratio_certificate_margin": -1.5616637712655828,
+        "exact_identity_error": 2.220446049250313e-16,
+        "certificate_identity_error": 2.220446049250313e-16,
+        "closes_exact": false,
+        "closes_by_certificate": false
+      },
+      {
+        "horizon": 262144,
+        "source_closes_finite": false,
+        "known_budget": 118196.23211706601,
+        "independent_singleton_budget": 225511.83269785624,
+        "boundary_budget": 8557.450560062873,
+        "exact_saving": 52326.69410481635,
+        "joint_lower_certificate": 43049.79119306327,
+        "eta_exact_saving_fraction": 0.23203524834514716,
+        "eta_certificate_fraction": 0.19089814790668636,
+        "rho_singleton_to_known": 1.907944345252062,
+        "epsilon_boundary_to_known": 0.07240036680346333,
+        "critical_eta_for_zero_margin": 0.5138224888451922,
+        "nonnegative_critical_eta": 0.5138224888451922,
+        "exact_eta_headroom": -0.28178724050004506,
+        "certificate_eta_headroom": -0.32292434093850586,
+        "exact_normalized_margin": -0.5376343720762438,
+        "certificate_normalized_margin": -0.6161216702378713,
+        "ratio_identity_margin": -0.5376343720762439,
+        "ratio_certificate_margin": -0.6161216702378712,
+        "exact_identity_error": 1.1102230246251565e-16,
+        "certificate_identity_error": 1.1102230246251565e-16,
+        "closes_exact": false,
+        "closes_by_certificate": false
+      },
+      {
+        "horizon": 1048576,
+        "source_closes_finite": false,
+        "known_budget": 461941.3017083801,
+        "independent_singleton_budget": 763938.44053629,
+        "boundary_budget": 27709.69642550034,
+        "exact_saving": 201410.5743601467,
+        "joint_lower_certificate": 163333.31911193047,
+        "eta_exact_saving_fraction": 0.26364764969642723,
+        "eta_certificate_fraction": 0.2138042942272539,
+        "rho_singleton_to_known": 1.6537565221188175,
+        "epsilon_boundary_to_known": 0.05998531918021319,
+        "critical_eta_for_zero_margin": 0.43158822459824614,
+        "nonnegative_critical_eta": 0.43158822459824614,
+        "exact_eta_headroom": -0.1679405749018189,
+        "certificate_eta_headroom": -0.21778393037099225,
+        "exact_normalized_margin": -0.27773282107226677,
+        "certificate_normalized_margin": -0.36016159526369895,
+        "ratio_identity_margin": -0.2777328210722668,
+        "ratio_certificate_margin": -0.36016159526369906,
+        "exact_identity_error": 5.551115123125783e-17,
+        "certificate_identity_error": 1.1102230246251565e-16,
+        "closes_exact": false,
+        "closes_by_certificate": false
+      },
+      {
+        "horizon": 2097152,
+        "source_closes_finite": false,
+        "known_budget": 929258.858785356,
+        "independent_singleton_budget": 1262612.8546406722,
+        "boundary_budget": 50563.323387687924,
+        "exact_saving": 271170.62973968283,
+        "joint_lower_certificate": 223346.534874233,
+        "eta_exact_saving_fraction": 0.2147694194170512,
+        "eta_certificate_fraction": 0.17689233406212654,
+        "rho_singleton_to_known": 1.3587310389389742,
+        "epsilon_boundary_to_known": 0.05441252769306905,
+        "critical_eta_for_zero_margin": 0.3040657457524963,
+        "nonnegative_critical_eta": 0.3040657457524963,
+        "exact_eta_headroom": -0.0892963263354451,
+        "certificate_eta_headroom": -0.12717341169036975,
+        "exact_normalized_margin": -0.12132969025519282,
+        "certificate_normalized_margin": -0.1727944617914699,
+        "ratio_identity_margin": -0.12132969025519293,
+        "ratio_certificate_margin": -0.17279446179146996,
+        "exact_identity_error": 1.1102230246251565e-16,
+        "certificate_identity_error": 5.551115123125783e-17,
+        "closes_exact": false,
+        "closes_by_certificate": false
+      },
+      {
+        "horizon": 4194304,
+        "source_closes_finite": false,
+        "known_budget": 1874243.5140615292,
+        "independent_singleton_budget": 2325858.6316475472,
+        "boundary_budget": 89203.79296767888,
+        "exact_saving": 539582.6426271744,
+        "joint_lower_certificate": 439019.1502171768,
+        "eta_exact_saving_fraction": 0.23199288008530217,
+        "eta_certificate_fraction": 0.18875573271888535,
+        "rho_singleton_to_known": 1.2409586130072061,
+        "epsilon_boundary_to_known": 0.04759455871044856,
+        "critical_eta_for_zero_margin": 0.23252441192894088,
+        "nonnegative_critical_eta": 0.23252441192894088,
+        "exact_eta_headroom": -0.0005315318436387162,
+        "certificate_eta_headroom": -0.04376867921005553,
+        "exact_normalized_margin": -0.0006596090194509503,
+        "certificate_normalized_margin": -0.05431511944566776,
+        "ratio_identity_margin": -0.0006596090194510226,
+        "ratio_certificate_margin": -0.05431511944566777,
+        "exact_identity_error": 7.231628490478315e-17,
+        "certificate_identity_error": 6.938893903907228e-18,
+        "closes_exact": false,
+        "closes_by_certificate": false
+      },
+      {
+        "horizon": 8388608,
+        "source_closes_finite": true,
+        "known_budget": 3727382.4078077176,
+        "independent_singleton_budget": 4426756.926589814,
+        "boundary_budget": 158135.80820874264,
+        "exact_saving": 1014237.2969540113,
+        "joint_lower_certificate": 816050.469689975,
+        "eta_exact_saving_fraction": 0.2291151996311071,
+        "eta_certificate_fraction": 0.18434499188068718,
+        "rho_singleton_to_known": 1.1876315446778742,
+        "epsilon_boundary_to_known": 0.04242543181979312,
+        "critical_eta_for_zero_margin": 0.1937107325320047,
+        "nonnegative_critical_eta": 0.1937107325320047,
+        "exact_eta_headroom": 0.035404467099102416,
+        "certificate_eta_headroom": -0.009365740651317511,
+        "exact_normalized_margin": 0.04204746194940389,
+        "certificate_normalized_margin": -0.011123049036776704,
+        "ratio_identity_margin": 0.042047461949403966,
+        "ratio_certificate_margin": -0.011123049036776675,
+        "exact_identity_error": 7.632783294297951e-17,
+        "certificate_identity_error": 2.949029909160572e-17,
+        "closes_exact": true,
+        "closes_by_certificate": false
+      },
+      {
+        "horizon": 16777216,
+        "source_closes_finite": true,
+        "known_budget": 7495484.263393924,
+        "independent_singleton_budget": 7101987.178054942,
+        "boundary_budget": 288411.23728251306,
+        "exact_saving": 1373935.9800212174,
+        "joint_lower_certificate": 1136320.9172498137,
+        "eta_exact_saving_fraction": 0.19345796402824603,
+        "eta_certificate_fraction": 0.1600004180183586,
+        "rho_singleton_to_known": 0.9475021130708361,
+        "epsilon_boundary_to_known": 0.038477999172253835,
+        "critical_eta_for_zero_margin": -0.014796682311844094,
+        "nonnegative_critical_eta": 0.0,
+        "exact_eta_headroom": 0.2082546463400901,
+        "certificate_eta_headroom": 0.17479710033020268,
+        "exact_normalized_margin": 0.19732171746405502,
+        "certificate_normalized_margin": 0.16562062192152194,
+        "ratio_identity_margin": 0.197321717464055,
+        "ratio_certificate_margin": 0.1656206219215219,
+        "exact_identity_error": 2.7755575615628914e-17,
+        "certificate_identity_error": 2.7755575615628914e-17,
+        "closes_exact": true,
+        "closes_by_certificate": true
+      }
+    ],
+    "frontier_transition": {
+      "from_horizon": 8388608,
+      "to_horizon": 16777216,
+      "observed_margin_change": 0.15527425551465113,
+      "eta_change_contribution": -0.038066481938972156,
+      "rho_change_contribution": 0.18939330480608396,
+      "epsilon_change_contribution": 0.003947432647539287,
+      "reconstructed_margin_change": 0.15527425551465107,
+      "reconstruction_error": 5.551115123125783e-17,
+      "interpretation": "The 8M-to-16M finite improvement is dominated by the decrease in S/K; eta decreases and contributes adversely. This is descriptive and supplies no asymptotic trend."
+    },
+    "abstract_countermodels": {
+      "saving_fraction_alone_no_go": {
+        "construction": "Fix eta=1/4, K=1, E=0, S=M, and D=eta*S. The saving fraction stays positive while the normalized margin 1-(1-eta)M tends to minus infinity.",
+        "purpose": "A uniform positive canonical saving fraction is insufficient without a singleton-to-known ratio bound.",
+        "sequence": [
+          {
+            "scale": 1.0,
+            "known": 1.0,
+            "singleton": 1.0,
+            "boundary": 0.0,
+            "saving": 0.25,
+            "saving_fraction": 0.25,
+            "normalized_margin": 0.25
+          },
+          {
+            "scale": 2.0,
+            "known": 1.0,
+            "singleton": 2.0,
+            "boundary": 0.0,
+            "saving": 0.5,
+            "saving_fraction": 0.25,
+            "normalized_margin": -0.5
+          },
+          {
+            "scale": 10.0,
+            "known": 1.0,
+            "singleton": 10.0,
+            "boundary": 0.0,
+            "saving": 2.5,
+            "saving_fraction": 0.25,
+            "normalized_margin": -6.5
+          },
+          {
+            "scale": 100.0,
+            "known": 1.0,
+            "singleton": 100.0,
+            "boundary": 0.0,
+            "saving": 25.0,
+            "saving_fraction": 0.25,
+            "normalized_margin": -74.0
+          },
+          {
+            "scale": 1000000.0,
+            "known": 1.0,
+            "singleton": 1000000.0,
+            "boundary": 0.0,
+            "saving": 250000.0,
+            "saving_fraction": 0.25,
+            "normalized_margin": -749999.0
+          }
+        ]
+      },
+      "ratio_without_boundary_no_go": {
+        "construction": "Fix K=1, S/K=1/2, and D/S=1/5, then let E grow. The singleton ratio remains bounded while the margin tends to minus infinity.",
+        "purpose": "A singleton-to-known ratio bound is insufficient without a boundary envelope.",
+        "sequence": [
+          {
+            "known": 1.0,
+            "singleton": 0.5,
+            "boundary": 0.0,
+            "saving": 0.1,
+            "singleton_to_known": 0.5,
+            "normalized_margin": 0.6
+          },
+          {
+            "known": 1.0,
+            "singleton": 0.5,
+            "boundary": 0.25,
+            "saving": 0.1,
+            "singleton_to_known": 0.5,
+            "normalized_margin": 0.35
+          },
+          {
+            "known": 1.0,
+            "singleton": 0.5,
+            "boundary": 0.5,
+            "saving": 0.1,
+            "singleton_to_known": 0.5,
+            "normalized_margin": 0.09999999999999998
+          },
+          {
+            "known": 1.0,
+            "singleton": 0.5,
+            "boundary": 1.0,
+            "saving": 0.1,
+            "singleton_to_known": 0.5,
+            "normalized_margin": -0.4
+          },
+          {
+            "known": 1.0,
+            "singleton": 0.5,
+            "boundary": 1000000.0,
+            "saving": 0.1,
+            "singleton_to_known": 0.5,
+            "normalized_margin": -999999.4
+          }
+        ]
+      },
+      "compatibility_sharpness": {
+        "construction": "At eta=1/5 and rho=1, epsilon=1/5 gives zero margin; epsilon=1/5+t gives margin -t.",
+        "purpose": "Non-strict compatibility cannot yield a fixed positive delta.",
+        "sequence": [
+          {
+            "eta": 0.2,
+            "rho": 1.0,
+            "epsilon": 0.2,
+            "compatibility_left": 1.0,
+            "normalized_margin": -0.0
+          },
+          {
+            "eta": 0.2,
+            "rho": 1.0,
+            "epsilon": 0.21000000000000002,
+            "compatibility_left": 1.01,
+            "normalized_margin": -0.01
+          },
+          {
+            "eta": 0.2,
+            "rho": 1.0,
+            "epsilon": 0.30000000000000004,
+            "compatibility_left": 1.1,
+            "normalized_margin": -0.1
+          },
+          {
+            "eta": 0.2,
+            "rho": 1.0,
+            "epsilon": 1.2,
+            "compatibility_left": 2.0,
+            "normalized_margin": -1.0
+          }
+        ]
+      },
+      "finite_prefix_no_go": {
+        "construction": "For every finite B, use K=1,S=D=2,E=0 through B and K=1,S=2,D=E=0 at B+1.",
+        "purpose": "An arbitrarily long finite pass prefix does not imply eventual closure.",
+        "sequence": [
+          {
+            "verified_prefix": 1,
+            "passing_parameters": {
+              "known": 1.0,
+              "singleton": 2.0,
+              "boundary": 0.0,
+              "saving": 2.0,
+              "normalized_margin": 1.0
+            },
+            "first_unseen_parameters": {
+              "index": 2,
+              "known": 1.0,
+              "singleton": 2.0,
+              "boundary": 0.0,
+              "saving": 0.0,
+              "normalized_margin": -1.0
+            }
+          },
+          {
+            "verified_prefix": 2,
+            "passing_parameters": {
+              "known": 1.0,
+              "singleton": 2.0,
+              "boundary": 0.0,
+              "saving": 2.0,
+              "normalized_margin": 1.0
+            },
+            "first_unseen_parameters": {
+              "index": 3,
+              "known": 1.0,
+              "singleton": 2.0,
+              "boundary": 0.0,
+              "saving": 0.0,
+              "normalized_margin": -1.0
+            }
+          },
+          {
+            "verified_prefix": 4,
+            "passing_parameters": {
+              "known": 1.0,
+              "singleton": 2.0,
+              "boundary": 0.0,
+              "saving": 2.0,
+              "normalized_margin": 1.0
+            },
+            "first_unseen_parameters": {
+              "index": 5,
+              "known": 1.0,
+              "singleton": 2.0,
+              "boundary": 0.0,
+              "saving": 0.0,
+              "normalized_margin": -1.0
+            }
+          },
+          {
+            "verified_prefix": 8,
+            "passing_parameters": {
+              "known": 1.0,
+              "singleton": 2.0,
+              "boundary": 0.0,
+              "saving": 2.0,
+              "normalized_margin": 1.0
+            },
+            "first_unseen_parameters": {
+              "index": 9,
+              "known": 1.0,
+              "singleton": 2.0,
+              "boundary": 0.0,
+              "saving": 0.0,
+              "normalized_margin": -1.0
+            }
+          },
+          {
+            "verified_prefix": 64,
+            "passing_parameters": {
+              "known": 1.0,
+              "singleton": 2.0,
+              "boundary": 0.0,
+              "saving": 2.0,
+              "normalized_margin": 1.0
+            },
+            "first_unseen_parameters": {
+              "index": 65,
+              "known": 1.0,
+              "singleton": 2.0,
+              "boundary": 0.0,
+              "saving": 0.0,
+              "normalized_margin": -1.0
+            }
+          }
+        ]
+      }
+    },
+    "discarded_candidates": [
+      "uniform positive saving fraction without S/K control",
+      "uniform S/K control without E/K control",
+      "non-strict compatibility used to claim positive delta",
+      "eventual closure inferred from any finite pass prefix"
+    ],
+    "retained_theorem": {
+      "name": "VaughanCanonicalDefectRatioTriple",
+      "statement": "Prove fixed constants eta,rho,epsilon,delta with 0<eta<=1 and delta>0 such that D_X>=eta*S_X, S_X<=rho*K_X, E_X<=epsilon*K_X, and (1-eta)rho+epsilon<=1-delta for every sufficiently large X.",
+      "counterexample_route": "Construct a Vaughan-realizable unbounded sequence on which every proposed compatible constant tuple fails through vanishing D/S, unbounded S/K, excessive E/K, or nonpositive combined margin.",
+      "equivalence_warning": "This is a sufficient modular package for the TICKET-122 margin, not a proved estimate and not a parity-breaking theorem by itself."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Joint Type I/II information is essential, and extremal sequences can certify insufficiency of weaker information contracts."
+      },
+      {
+        "citation": "Maynard, Small gaps between primes",
+        "url": "https://annals.math.princeton.edu/2015/181-1/p07",
+        "role": "Bounded-gap sieve conclusions do not isolate the exact gap two required here."
+      },
+      {
+        "citation": "Tao, The logarithmically averaged Chowla and Elliott conjectures for two-point correlations",
+        "url": "https://arxiv.org/abs/1509.05422",
+        "role": "Logarithmically averaged fixed-shift cancellation does not supply this unweighted endpoint ratio triple."
+      }
+    ],
+    "machine_audit": {
+      "scale_count": 8,
+      "exact_closure_count": 2,
+      "certificate_closure_count": 1,
+      "minimum_exact_eta": 0.19345796402824603,
+      "minimum_certificate_eta": 0.1600004180183586,
+      "maximum_rho": 3.0385803345371376,
+      "minimum_rho": 0.9475021130708361,
+      "maximum_epsilon": 0.10236777527814975,
+      "minimum_exact_margin": -1.4321577444223064,
+      "maximum_exact_margin": 0.19732171746405502,
+      "maximum_exact_identity_error": 2.220446049250313e-16,
+      "maximum_certificate_identity_error": 2.220446049250313e-16,
+      "frontier_transition_reconstruction_error": 5.551115123125783e-17,
+      "saving_only_terminal_margin": -749999.0,
+      "boundary_terminal_margin": -999999.4,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET123 proves an algebraic closure bridge and four proof-strategy no-go families. It proves no conjecture and certifies no conjecture counterexample."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-123",
+      "status": "legacy_proxy_rejected_problem_specific_target_preserved_open",
+      "route": "NonCircularKernelPositivityPreservedAfterFiniteJensenNoGo",
+      "proof_or_counterexample_mode": "reject a finite proxy and preserve the independent infinite target",
+      "attempt": "Audit and discard finite Jensen-polynomial hyperbolicity as a proof route without transferring the Twin ratio bridge.",
+      "bounded_result": {
+        "source_ticket": "RH-TICKET-122",
+        "discarded_legacy_proxy": "finite Jensen-polynomial hyperbolicity",
+        "proxy_failure": "Any finite family of hyperbolic Jensen polynomials leaves all untested degrees and shifts open and does not locate every nontrivial zeta zero.",
+        "independent_target": "NonCircularExplicitFormulaKernelPositivity"
+      },
+      "obstruction": "Any finite family of hyperbolic Jensen polynomials leaves all untested degrees and shifts open and does not locate every nontrivial zeta zero.",
+      "candidate_theorem": "NonCircularExplicitFormulaKernelPositivity",
+      "next_experiment": "Continue NonCircularExplicitFormulaKernelPositivity with a problem-specific proof and counterexample oracle.",
+      "claim_boundary": "No Riemann Hypothesis proof and no certified counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-123",
+      "status": "legacy_proxy_rejected_problem_specific_target_preserved_open",
+      "route": "GoldenMeanEscapePreservedAfterFiniteStoppingNoGo",
+      "proof_or_counterexample_mode": "reject a finite proxy and preserve the independent infinite target",
+      "attempt": "Audit and discard finite stopping-time and density verification as a proof route without transferring the Twin ratio bridge.",
+      "bounded_result": {
+        "source_ticket": "CO-TICKET-122",
+        "discarded_legacy_proxy": "finite stopping-time and density verification",
+        "proxy_failure": "A finite stopping-time loop either terminates only on verified inputs or silently assumes the missing descent; density-one behavior permits a sparse exceptional orbit.",
+        "independent_target": "GoldenMeanInvariantSetEscape"
+      },
+      "obstruction": "A finite stopping-time loop either terminates only on verified inputs or silently assumes the missing descent; density-one behavior permits a sparse exceptional orbit.",
+      "candidate_theorem": "GoldenMeanInvariantSetEscape",
+      "next_experiment": "Continue GoldenMeanInvariantSetEscape with a problem-specific proof and counterexample oracle.",
+      "claim_boundary": "No Collatz Conjecture proof and no certified counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-123",
+      "status": "legacy_proxy_rejected_problem_specific_target_preserved_open",
+      "route": "JointBalancedGoldbachPreservedAfterMeanSeriesNoGo",
+      "proof_or_counterexample_mode": "reject a finite proxy and preserve the independent infinite target",
+      "attempt": "Audit and discard finite mean singular-series agreement as a proof route without transferring the Twin ratio bridge.",
+      "bounded_result": {
+        "source_ticket": "GB-TICKET-122",
+        "discarded_legacy_proxy": "finite mean singular-series agreement",
+        "proxy_failure": "Mean or density agreement permits sparse zero representation counts and therefore cannot prove pointwise positivity for every large even integer.",
+        "independent_target": "JointBalancedVaughanGoldbachResidualEnvelope"
+      },
+      "obstruction": "Mean or density agreement permits sparse zero representation counts and therefore cannot prove pointwise positivity for every large even integer.",
+      "candidate_theorem": "JointBalancedVaughanGoldbachResidualEnvelope",
+      "next_experiment": "Continue JointBalancedVaughanGoldbachResidualEnvelope with a problem-specific proof and counterexample oracle.",
+      "claim_boundary": "No Goldbach Conjecture proof and no certified counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-123",
+      "status": "exact_ratio_bridge_proved_independent_premise_nogos_open",
+      "route": "CanonicalDefectRatioClosureBridge",
+      "proof_or_counterexample_mode": "exact normalized bridge, premise no-go families, and finite bottleneck attribution",
+      "attempt": "Factor the TICKET-122 full margin into saving, singleton-to-known, and boundary ratios, then identify the exact compatibility condition.",
+      "bounded_result": {
+        "source_ticket": "TP-TICKET-122",
+        "audit_ref": "canonical_defect_ratio_closure_bridge"
+      },
+      "obstruction": "No uniform compatible eta-rho-epsilon tuple is proved for every sufficiently large Vaughan scale.",
+      "candidate_theorem": "VaughanCanonicalDefectRatioTriple",
+      "next_experiment": "Attack D/S, S/K, and E/K with separate arithmetic estimators while checking the compatibility plane before combining them.",
+      "claim_boundary": "No Twin Prime proof and no certified last-twin counterexample."
+    }
+  ]
+}

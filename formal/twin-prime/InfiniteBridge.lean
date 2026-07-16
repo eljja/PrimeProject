@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-122 proves the exact all-canonical-pair scalar-vector saving identity and refutes both first-pair-only and centered-only global-saving routes"
+  "TP-TICKET-123 proves the exact canonical defect ratio closure bridge and refutes saving-only, boundary-free, non-strict, and finite-prefix routes"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-123 VaughanCanonicalPairJointDefectAndResidualBudgetGap."
+  "TP-TICKET-124 VaughanCanonicalDefectRatioTriple."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove a fixed positive normalized surplus for the exact canonical mean-plus-centered saving after every outer pair, residual shell, and boundary term, or construct a Vaughan-realizable unbounded sequence with nonpositive or vanishing surplus."
+  "Prove one all-sufficiently-large compatible eta-rho-epsilon-delta tuple for the exact Vaughan budgets, or construct a Vaughan-realizable unbounded sequence defeating every compatible tuple."
 
 end PrimeProject.OpenProblems.TwinPrime

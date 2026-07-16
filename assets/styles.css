@@ -1360,6 +1360,55 @@ canvas {
   background: #1f6e7e;
 }
 
+.poc-ticket123 {
+  border-color: rgba(63, 92, 55, 0.9);
+  background: rgba(63, 92, 55, 0.05);
+}
+
+.poc-ratio-margin-chart {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.poc-ratio-margin-row {
+  display: grid;
+  grid-template-columns: 112px minmax(180px, 1fr) 88px;
+  align-items: center;
+  gap: 10px;
+  min-width: 420px;
+  font-size: 0.8rem;
+}
+
+.poc-ratio-margin-row > div {
+  position: relative;
+  height: 12px;
+  overflow: hidden;
+  background: linear-gradient(to right, #edf0f2 49.6%, #6d747b 49.6%, #6d747b 50.4%, #edf0f2 50.4%);
+  border-radius: 2px;
+}
+
+.poc-ratio-margin-row i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.poc-ratio-margin-row i.is-positive {
+  left: 50%;
+  background: #26786d;
+}
+
+.poc-ratio-margin-row i.is-negative {
+  right: 50%;
+  background: #a64b45;
+}
+
+.poc-ratio-margin-row strong {
+  text-align: right;
+}
+
 .poc-canonical-pair-chart .poc-denominator-row {
   grid-template-columns: 112px minmax(120px, 1fr) 92px;
 }

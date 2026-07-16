@@ -28,10 +28,10 @@ def counterexampleGuidedSynthesis : String :=
   "RH CEGIS: generate kernel cone candidates, reject circular imports, search adversarial kernels"
 
 def rankedCegisTarget : String :=
-  "RH-TICKET-122 preserves non-circular explicit-formula kernel positivity; no Twin canonical-pair identity is transferred"
+  "RH-TICKET-123 rejects finite Jensen hyperbolicity as an infinite proof proxy and preserves non-circular explicit-formula kernel positivity"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-123 NonCircularExplicitFormulaKernelPositivity."
+  "RH-TICKET-124 NonCircularExplicitFormulaKernelPositivity."
 
 def topAttackProofAttemptProtocol : String :=
   "Formalize the exact criterion first, then derive kernel positivity from hypotheses independent of the target zero placement; reject equivalent rewrites and sampled-zero replay."

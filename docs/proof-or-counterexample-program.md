@@ -5145,3 +5145,20 @@ known_without_type_ii_minor
 ```
 
 The matching negative route is an unbounded Vaughan-realizable sequence with nonpositive or vanishing normalized surplus. TICKET-122 proves no conjecture and certifies no conjecture counterexample.
+
+## TICKET-123: canonical defect ratio closure bridge
+
+Let `K>0` be the independently positive comparison budget, `S` the independent singleton budget, `E` the boundary-and-variation budget, and `D` the exact canonical pair saving. TICKET-123 proves the exact normalization
+
+```text
+[K-(S-D)-E]/K = 1-(1-eta)rho-epsilon,
+eta=D/S, rho=S/K, epsilon=E/K.
+```
+
+It also proves `CanonicalDefectRatioClosureBridge`: if fixed constants satisfy `0<=eta<=1`, `D>=eta*S`, `S<=rho*K`, `E<=epsilon*K`, and `(1-eta)rho+epsilon<=1-delta`, then `K-(S-D)-E>=delta*K`.
+
+Four explicit families eliminate incomplete arguments. A fixed positive saving fraction is defeated by unbounded `S/K`; bounded `S/K` is defeated by an unbounded boundary ratio; equality in the compatibility plane gives zero margin; and an arbitrary finite pass prefix can be followed by a failing unseen row. These refute auxiliary proof routes, not Twin Prime.
+
+The inherited eight-scale ledger has two exact closures and one certificate closure. All normalized identities reproduce below `2.23e-16`. From 8M to 16M, the exact margin change `+0.155274` decomposes into eta `-0.038066`, rho `+0.189393`, and epsilon `+0.003947`. The finite improvement is therefore driven by lower `S/K`, not stronger canonical saving. No monotonicity or asymptotic bound is inferred.
+
+The next Twin target is `VaughanCanonicalDefectRatioTriple`: prove one compatible constant tuple for every sufficiently large scale, or build a Vaughan-realizable escaping sequence. RH finite Jensen hyperbolicity, Collatz finite stopping-time or density evidence, and Goldbach mean singular-series agreement are explicitly discarded as infinite proof proxies while their independent targets are preserved. TICKET-123 proves no conjecture and certifies no conjecture counterexample.

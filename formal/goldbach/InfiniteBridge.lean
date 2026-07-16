@@ -28,10 +28,10 @@ def counterexampleGuidedSynthesis : String :=
   "Goldbach CEGIS: generate explicit budgets, reject unsourced constants and cutoffs above finite range"
 
 def rankedCegisTarget : String :=
-  "GB-TICKET-122 preserves joint balanced signed cancellation; the Twin canonical-pair identity does not transfer across problems"
+  "GB-TICKET-123 rejects mean singular-series agreement as a pointwise proof proxy and preserves joint balanced Vaughan residual control"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-123 JointBalancedVaughanGoldbachResidualEnvelope."
+  "GB-TICKET-124 JointBalancedVaughanGoldbachResidualEnvelope."
 
 def topAttackProofAttemptProtocol : String :=
   "For U,V at most N^(1/3), prove (<I,Lambda_reflect>-M)+<II,Lambda_reflect> >= -K*M/log(N) jointly; reject cutoffs whose Type II support collapses."
