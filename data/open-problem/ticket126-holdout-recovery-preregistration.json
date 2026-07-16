@@ -1,0 +1,26 @@
+{
+  "schema": "primeproject.ticket126-holdout-recovery-preregistration.v1",
+  "generated_at": "2026-07-17T01:40:00+09:00",
+  "source_preregistration_commit": "b7d5fb6bc10583d0243c66b41ea4cab315f40738",
+  "failed_execution": {
+    "execution_index": 1,
+    "status": "invalid_postprocessing_gate_before_result_serialization",
+    "observed_endpoint": null,
+    "written_result_file": false,
+    "failure": "The new aggregate machine gate used 1e-9 for inherited Gram reconstruction identities whose established source verifier uses 1e-7.",
+    "interpretation": "No alpha, beta, partition, endpoint, or pass rule was changed after the failed execution."
+  },
+  "recovery_execution": {
+    "maximum_runs": 1,
+    "holdout_horizon": 33554432,
+    "source_horizon": 16777216,
+    "alpha": 0.75,
+    "beta": 0.23,
+    "partition_rule": "canonical_adjacent_shell_pairs_v1",
+    "primary_endpoint_tolerance": 1e-12,
+    "inherited_gram_reconstruction_tolerance": 1e-7,
+    "record_result_before_aggregate_route_checks": true,
+    "retuning_after_result": false
+  },
+  "claim_boundary": "This recovery registration repairs only a pre-existing numerical reconstruction tolerance after an unobserved, unserialized first execution. It does not authorize endpoint retuning and proves no conjecture."
+}
