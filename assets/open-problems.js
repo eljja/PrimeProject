@@ -10069,7 +10069,7 @@ async function loadTicket125Attempt() {
     const response = await fetch("../data/open-problem/ticket125-infinite-bridge-contracts.json", { cache: "no-store" });
     if (!response.ok) {
       ticket125AttemptGlobal = null;
-      return;
+      return false;
     }
     const payload = await response.json();
     ticket125AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
@@ -10077,8 +10077,10 @@ async function loadTicket125Attempt() {
       ticket125AttemptGlobal.bounded_result = ticket125AttemptGlobal.bounded_result || {};
       ticket125AttemptGlobal.bounded_result.infinite_bridge_contracts = payload.infinite_bridge_contracts || {};
     }
+    return Boolean(ticket125AttemptGlobal);
   } catch (error) {
     ticket125AttemptGlobal = null;
+    return false;
   }
 }
 
@@ -10191,7 +10193,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  await loadTicket125Attempt();
+  if (!(await loadTicket125Attempt())) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    await loadTicket125Attempt();
+  }
   render(payload, problem);
   document.documentElement.dataset.openProblemCache = "ticket125-priority";
   try {
@@ -11262,6 +11267,7 @@ async function main() {
   } catch (error) {
     ticket124AttemptGlobal = null;
   }
+  if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt);
 }
 

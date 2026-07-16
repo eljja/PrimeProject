@@ -22,7 +22,7 @@ async function main() {
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260716-ticket125-priority")) {
+    if (!source.includes("open-problems.js?v=20260716-ticket125-priority2")) {
       errors.push(`${page}: missing TICKET125 priority cache key`);
     }
   }
