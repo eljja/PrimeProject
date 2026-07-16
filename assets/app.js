@@ -1263,8 +1263,8 @@ const bundledProjectEvolution = {
     classifier_claim_scope: "controlled_synthetic_only",
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
-      claim_language_scanned_files: 67,
-      claim_language_scanned_lines: 20507,
+      claim_language_scanned_files: 68,
+      claim_language_scanned_lines: 20742,
     claim_language_triggered_mentions: 119,
     claim_language_guarded_mentions: 119,
     claim_language_failures: 0,
@@ -1387,6 +1387,7 @@ const bundledProjectEvolution = {
         { marker: "81", title: "Twin low-divisor target now requires balance, angle, and mass", state: "bounded", measure: "8 scales / 248 denominator rows / mass floor 63.8848% / quadratic certificate floor 17.9685% / 0 failures", proof: "TICKET-121 proves the exact balance-angle rationalization, refutes angle-only and balance-only fixed-saving routes, and replaces them with a weighted Vaughan kernel mass theorem" },
         { marker: "82", title: "Twin full canonical saving now joins scalar and vector defects", state: "bounded", measure: "8 scales / 28 canonical pairs / 868 pair-denominator rows / saving floor 19.3458% / certificate floor 16.0000% / 0 failures", proof: "TICKET-122 proves the exact all-pair scalar-vector saving identity, refutes first-pair-only and centered-only global routes, and replaces them with a full Vaughan surplus theorem including outer pairs, residual shells, and boundary terms" },
         { marker: "83", title: "Twin closure now factors into three compatible ratios", state: "bounded", measure: "8 scales / 2 exact closures / 1 certificate closure / identity error below 2.23e-16 / 4 no-go families", proof: "TICKET-123 proves the exact eta-rho-epsilon closure bridge, shows the 8M-to-16M gain is driven by S/K rather than stronger saving, and rejects saving-only, boundary-free, non-strict, and finite-prefix inference" },
+        { marker: "84", title: "Twin route closure now has an exact joint limsup criterion", state: "bounded", measure: "Q=((S-D)+E)/K / iff criterion / 8 finite scales / prior triple no-go 0.8 vs 1.6 / 0 failures", proof: "TICKET-124 proves eventual fixed positive canonical route margin iff limsup Q<1, refutes necessity of detached coordinate envelopes with compensation countermodels, and restores direct global bridge targets for the other three problems" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },

@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.project-evolution.v1",
-  "updated_at": "2026-07-14T23:20:00+09:00",
+  "updated_at": "2026-07-16T14:00:00+09:00",
   "headline": "From prime regularity exploration to generator-fingerprint research tooling.",
   "metrics": {
     "live_compute_limit": 10000000,
@@ -52,8 +52,8 @@
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
-    "claim_language_scanned_files": 67,
-    "claim_language_scanned_lines": 20507,
+    "claim_language_scanned_files": 68,
+    "claim_language_scanned_lines": 20742,
     "claim_language_triggered_mentions": 119,
     "claim_language_guarded_mentions": 119,
     "claim_language_failures": 0,
@@ -692,6 +692,13 @@
           "state": "bounded",
           "measure": "8 scales / 2 exact closures / 1 certificate closure / identity error below 2.23e-16 / 4 no-go families",
           "proof": "TICKET-123 proves the exact eta-rho-epsilon closure bridge, shows the 8M-to-16M gain is driven by S/K rather than stronger saving, and rejects saving-only, boundary-free, non-strict, and finite-prefix inference"
+        },
+        {
+          "marker": "84",
+          "title": "Twin route closure now has an exact joint limsup criterion",
+          "state": "bounded",
+          "measure": "Q=((S-D)+E)/K / iff criterion / 8 finite scales / prior triple no-go 0.8 vs 1.6 / 0 failures",
+          "proof": "TICKET-124 proves eventual fixed positive canonical route margin iff limsup Q<1, refutes necessity of detached coordinate envelopes with compensation countermodels, and restores direct global bridge targets for the other three problems"
         }
       ],
       "evidence_flow": [

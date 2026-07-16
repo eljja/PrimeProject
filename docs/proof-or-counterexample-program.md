@@ -5162,3 +5162,19 @@ Four explicit families eliminate incomplete arguments. A fixed positive saving f
 The inherited eight-scale ledger has two exact closures and one certificate closure. All normalized identities reproduce below `2.23e-16`. From 8M to 16M, the exact margin change `+0.155274` decomposes into eta `-0.038066`, rho `+0.189393`, and epsilon `+0.003947`. The finite improvement is therefore driven by lower `S/K`, not stronger canonical saving. No monotonicity or asymptotic bound is inferred.
 
 The next Twin target is `VaughanCanonicalDefectRatioTriple`: prove one compatible constant tuple for every sufficiently large scale, or build a Vaughan-realizable escaping sequence. RH finite Jensen hyperbolicity, Collatz finite stopping-time or density evidence, and Goldbach mean singular-series agreement are explicitly discarded as infinite proof proxies while their independent targets are preserved. TICKET-123 proves no conjecture and certifies no conjecture counterexample.
+
+## TICKET-124: canonical obstruction limsup criterion
+
+TICKET124 corrects the next target chosen by TICKET123. Define the exact joint obstruction
+
+```text
+Q_X=((S_X-D_X)+E_X)/K_X=(1-eta_X)rho_X+epsilon_X.
+```
+
+The normalized route margin is exactly `delta_X=1-Q_X`. Therefore there are fixed `delta>0` and `X_0` with `delta_X>=delta` for every `X>=X_0` if and only if `limsup Q_X<1`. The forward direction is immediate from `Q_X<=1-delta`; for the reverse direction, if `L=limsup Q_X<1`, choose `delta=(1-L)/2` and use the definition of limsup.
+
+The prior `VaughanCanonicalDefectRatioTriple` is sufficient but not necessary. Alternating `(eta,rho,epsilon)=(1/5,1,0)` and `(1,1,4/5)` gives `Q_X=4/5` and margin `1/5` at every scale, while every separate coordinate envelope has compatibility left side at least `8/5`. Also, `K=1,S=1/X,D=E=0` closes with no positive saving-fraction floor. These are exact auxiliary-target countermodels, not Twin Prime counterexamples and not claims about realizability by Vaughan coefficients.
+
+The eight inherited finite rows have two exact closures and one certificate closure. The 16M exact obstruction is `0.802678` and certificate obstruction is `0.834379`, but these finite values do not estimate the true limsup. The corrected target is `VaughanCanonicalObstructionLimsup`: prove the joint tail bound arithmetically, preserving compensation, or produce a Vaughan-realizable unbounded subsequence with `Q_X>=1`. Exact-gap transfer and parity survival remain open.
+
+The cross-problem audit also narrows scope. RH requires an exact all-test-function positivity contract. `GoldenMeanInvariantSetEscape` is retained only as a Mersenne-delay subroute and is not a sufficient Collatz bridge; the global target returns to `ResidueRankDescentCover`. Goldbach requires an explicit joint residual constant, positive major term, cutoff below the verified range, and finite glue. TICKET-124 proves no conjecture and certifies no conjecture counterexample.

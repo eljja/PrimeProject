@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "RH CEGIS: generate kernel cone candidates, reject circular imports, search adversarial kernels"
 
 def rankedCegisTarget : String :=
-  "RH-TICKET-123 rejects finite Jensen hyperbolicity as an infinite proof proxy and preserves non-circular explicit-formula kernel positivity"
+  "RH-TICKET-124 sharpens the kernel target to an exact all-test-function contract and rejects finite cone positivity as the infinite bridge"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-124 NonCircularExplicitFormulaKernelPositivity."
+  "RH-TICKET-125 AdmissibleKernelConeDensityAndPositivity."
 
 def topAttackProofAttemptProtocol : String :=
-  "Formalize the exact criterion first, then derive kernel positivity from hypotheses independent of the target zero placement; reject equivalent rewrites and sampled-zero replay."
+  "Formalize an RH-equivalent admissible test class, derive positivity from hypotheses independent of zero placement, and prove a density bridge; reject equivalent rewrites, finite Gram positivity, and sampled-zero replay."
 
 end PrimeProject.OpenProblems.Riemann

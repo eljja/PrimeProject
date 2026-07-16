@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Collatz CEGIS: generate residue-rank candidates, reject uncovered blocks and nondecreasing SCCs"
 
 def rankedCegisTarget : String :=
-  "CO-TICKET-123 rejects finite stopping-time and density evidence as a global proof proxy and preserves the exact golden-mean escape target"
+  "CO-TICKET-124 reclassifies GoldenMeanInvariantSetEscape as a Mersenne-delay route lemma rather than a sufficient global Collatz bridge"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-124 GoldenMeanInvariantSetEscape."
+  "CO-TICKET-125 ResidueRankDescentCover."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove the exact logarithmic tail orbit exits the no-00 subshift infinitely often, or construct a compatible infinite avoiding path and test whether it is realized by a positive integer orbit."
+  "Synthesize a finite accelerated residue partition and well-founded rank whose every edge descends or enters the verified basin; use any uncovered residue or nondecreasing reachable SCC as a counterexample to the proposed cover."
 
 end PrimeProject.OpenProblems.Collatz

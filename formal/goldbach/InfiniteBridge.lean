@@ -28,12 +28,12 @@ def counterexampleGuidedSynthesis : String :=
   "Goldbach CEGIS: generate explicit budgets, reject unsourced constants and cutoffs above finite range"
 
 def rankedCegisTarget : String :=
-  "GB-TICKET-123 rejects mean singular-series agreement as a pointwise proof proxy and preserves joint balanced Vaughan residual control"
+  "GB-TICKET-124 requires joint pointwise Vaughan residual control to be coupled to an explicit positive major term, cutoff, and finite-overlap bridge"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-124 JointBalancedVaughanGoldbachResidualEnvelope."
+  "GB-TICKET-125 ExplicitJointBalancedGoldbachCutoff."
 
 def topAttackProofAttemptProtocol : String :=
-  "For U,V at most N^(1/3), prove (<I,Lambda_reflect>-M)+<II,Lambda_reflect> >= -K*M/log(N) jointly; reject cutoffs whose Type II support collapses."
+  "For U,V at most N^(1/3), prove a joint pointwise residual bound with explicit K, show the positive major term dominates above an explicit N0 below 4e18, and glue to the verified finite range without collapsed Type II support."
 
 end PrimeProject.OpenProblems.Goldbach

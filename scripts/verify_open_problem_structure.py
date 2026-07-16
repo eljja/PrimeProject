@@ -119,6 +119,7 @@ TICKET120_SCHEMA = "primeproject.ticket120-twin-low-divisor-pair-savings-audit.v
 TICKET121_SCHEMA = "primeproject.ticket121-twin-balance-angle-defect-audit.v1"
 TICKET122_SCHEMA = "primeproject.ticket122-twin-canonical-joint-defect-audit.v1"
 TICKET123_SCHEMA = "primeproject.ticket123-canonical-defect-ratio-closure-bridge.v1"
+TICKET124_SCHEMA = "primeproject.ticket124-canonical-obstruction-limsup-criterion.v1"
 
 
 def fail(message: str) -> int:
@@ -7281,6 +7282,55 @@ def main() -> int:
         return fail("ticket123 no-go terminal margins changed")
     if audit123.get("retained_theorem", {}).get("name") != "VaughanCanonicalDefectRatioTriple" or "proves no conjecture" not in str(audit123.get("proof_boundary", "")).lower():
         return fail("ticket123 retained theorem or proof boundary changed")
+
+    path124 = Path("data/open-problem/ticket124-canonical-obstruction-limsup-criterion.json")
+    if not path124.exists():
+        return fail("missing ticket124 canonical obstruction limsup criterion")
+    ticket124 = read_json(path124)
+    if ticket124.get("schema") != TICKET124_SCHEMA or ticket124.get("status") != "exact_iff_route_criterion_and_prior_target_no_go_open":
+        return fail("ticket124 schema or status changed")
+    attempts124 = ticket124.get("attempts", [])
+    by_id124 = {str(row.get("problem_id")): row for row in attempts124 if isinstance(row, dict)} if isinstance(attempts124, list) else {}
+    if set(by_id124) != EXPECTED_PROBLEMS:
+        return fail("ticket124 attempts missing problems")
+    paths124 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-124-kernel-contract-sharpened.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-124-golden-mean-scope-correction.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-124-explicit-cutoff-contract.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-124-obstruction-limsup-criterion.json"),
+    }
+    for problem_id, attempt in by_id124.items():
+        if not paths124[problem_id].exists() or "No conjecture" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket124 artifact or proof boundary missing")
+        if attempt.get("bounded_result", {}).get("audit_ref") != "canonical_obstruction_limsup_criterion":
+            return fail(f"{problem_id}: ticket124 shared audit reference changed")
+    audit124 = ticket124.get("canonical_obstruction_limsup_criterion", {})
+    if audit124.get("theorem_name") != "CanonicalObstructionLimsupClosureCriterionAndTripleNoGo" or audit124.get("source_ticket") != "TICKET-123":
+        return fail("ticket124 theorem lineage changed")
+    criterion124 = audit124.get("proved_iff_criterion", {})
+    if criterion124.get("name") != "EventualPositiveMarginIffLimsupObstructionBelowOne" or "if and only if" not in str(criterion124.get("statement", "")):
+        return fail("ticket124 iff criterion changed")
+    if audit124.get("retired_target", {}).get("name") != "VaughanCanonicalDefectRatioTriple" or audit124.get("retained_theorem", {}).get("name") != "VaughanCanonicalObstructionLimsup":
+        return fail("ticket124 target correction changed")
+    machine124 = audit124.get("machine_audit", {})
+    if int(machine124.get("scale_count", -1)) != 8 or int(machine124.get("exact_closure_count", -1)) != 2 or int(machine124.get("certificate_closure_count", -1)) != 1 or int(machine124.get("total_failure_count", -1)) != 0:
+        return fail("ticket124 machine audit changed")
+    if abs(float(machine124.get("last_exact_obstruction", 0)) - 0.8026782825359449) > 1e-15 or abs(float(machine124.get("last_certificate_obstruction", 0)) - 0.8343793780784781) > 1e-15:
+        return fail("ticket124 16M obstruction changed")
+    if float(machine124.get("maximum_exact_identity_error", 1)) > 1e-12 or float(machine124.get("maximum_certificate_identity_error", 1)) > 1e-12:
+        return fail("ticket124 obstruction identity reconstruction changed")
+    if abs(float(machine124.get("alternating_joint_limsup", 0)) - 0.8) > 1e-15 or abs(float(machine124.get("alternating_separate_envelope_left", 0)) - 1.6) > 1e-15:
+        return fail("ticket124 coordinate compensation no-go changed")
+    models124 = audit124.get("exact_countermodels", {})
+    if set(models124) != {"coordinate_envelope_compensation_no_go", "positive_saving_floor_not_necessary", "endpoint_limsup_sharpness", "finite_prefix_no_go"}:
+        return fail("ticket124 countermodel set changed")
+    tails124 = audit124.get("observed_tail_envelopes", [])
+    if len(tails124) != 8 or int(tails124[-1].get("start_horizon", -1)) != 16777216:
+        return fail("ticket124 finite tail ledger changed")
+    if by_id124["collatz"].get("candidate_theorem") != "ResidueRankDescentCover" or by_id124["twin-prime"].get("candidate_theorem") != "VaughanCanonicalObstructionLimsup":
+        return fail("ticket124 corrected global targets changed")
+    if "proves no conjecture" not in str(audit124.get("proof_boundary", "")).lower():
+        return fail("ticket124 proof boundary changed")
 
     print("open problem structure verified")
     return 0

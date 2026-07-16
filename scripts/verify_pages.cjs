@@ -1210,6 +1210,28 @@ async function main() {
       requireText("ticket123 Goldbach proxy", "finite mean singular-series agreement");
       requireText("ticket123 Goldbach target", "JointBalancedVaughanGoldbachResidualEnvelope");
     }
+    requireText("ticket124 title", "Ticket 124 canonical obstruction limsup criterion");
+    requireText("ticket124 table", "TICKET124 obstruction audit");
+    if (page.problemId === "twin-prime") {
+      requireText("ticket124 Twin ledger", "Eight-scale joint obstruction ledger");
+      requireText("ticket124 Twin tails", "Observed finite tail envelopes");
+      requireText("ticket124 Twin no-go", "Exact prior-target no-go families");
+      requireText("ticket124 Twin iff", "EventualPositiveMarginIffLimsupObstructionBelowOne");
+      requireText("ticket124 Twin last exact", "0.802678");
+      requireText("ticket124 Twin last certificate", "0.834379");
+      requireText("ticket124 Twin compensation", "0.8 joint vs 1.6 detached");
+      requireText("ticket124 Twin retired", "VaughanCanonicalDefectRatioTriple");
+      requireText("ticket124 Twin retained", "VaughanCanonicalObstructionLimsup");
+    } else if (page.problemId === "riemann") {
+      requireText("ticket124 RH route", "ExactTestClassKernelPositivityContract");
+      requireText("ticket124 RH target", "AdmissibleKernelConeDensityAndPositivity");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket124 Collatz route", "GoldenMeanRouteScopeCorrection");
+      requireText("ticket124 Collatz global", "ResidueRankDescentCover");
+    } else {
+      requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
+      requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
+    }
     return checks;
   });
   if (missingTicket71Checks.length > 0) {

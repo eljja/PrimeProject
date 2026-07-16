@@ -173,7 +173,11 @@ Mean agreement with a singular-series prediction permits a sparse set of zero re
 
 평균 비율이 1에 가까워도 드문 예외 짝수의 표현 수가 0일 수 있다. 따라서 평균·푸리에 패턴은 점별 Goldbach 하한을 대체하지 못한다.
 
-## 8. Retained TICKET-124 target
+## 8. Historical TICKET-124 target and successor correction
+
+Successor note: TICKET-124 proves that the target below is sufficient but not necessary because coordinatewise envelopes can destroy scale-by-scale compensation. It is therefore retired in favor of the exact joint target `VaughanCanonicalObstructionLimsup`; see [Canonical Obstruction Limsup Criterion](canonical-obstruction-limsup-criterion.md).
+
+후속 교정: 아래 목표는 TICKET-123 시점의 목표였다. TICKET-124에서 좌표별 최악 상한이 결합 보상을 잃는 정확한 반례를 증명했으므로, 현재 목표는 `VaughanCanonicalObstructionLimsup`이다.
 
 `VaughanCanonicalDefectRatioTriple` asks for fixed constants with
 

@@ -1365,6 +1365,58 @@ canvas {
   background: rgba(63, 92, 55, 0.05);
 }
 
+.poc-ticket124 {
+  border-color: rgba(37, 101, 117, 0.92);
+  background: rgba(37, 101, 117, 0.055);
+}
+
+.poc-obstruction-chart {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.poc-obstruction-row {
+  display: grid;
+  grid-template-columns: 112px minmax(180px, 1fr) 72px;
+  align-items: center;
+  gap: 10px;
+  min-width: 420px;
+  font-size: 0.8rem;
+}
+
+.poc-obstruction-row > div {
+  position: relative;
+  height: 14px;
+  overflow: hidden;
+  background: #edf0f2;
+  border-radius: 2px;
+}
+
+.poc-obstruction-row i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: #a64b45;
+}
+
+.poc-obstruction-row i.is-below {
+  background: #26786d;
+}
+
+.poc-obstruction-row b {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #1f2428;
+  transform: translateX(-1px);
+}
+
+.poc-obstruction-row strong {
+  text-align: right;
+}
+
 .poc-ratio-margin-chart {
   display: grid;
   gap: 8px;
