@@ -1,0 +1,588 @@
+{
+  "schema": "primeproject.ticket129-enumerable-core-valuation-cap-endpoint-budget.v1",
+  "generated_at": "2026-07-17T15:40:00+09:00",
+  "status": "enumerable_core_valuation_cap_endpoint_budget_proved_all_conjectures_open",
+  "claim_boundary": "TICKET129 proves four exact intermediate results or route corrections. It proves or refutes none of RH, Collatz, Goldbach, or Twin Prime.",
+  "enumerable_core_valuation_cap_endpoint_budget_audit": {
+    "theorem_name": "FourConjectureEnumerableCoreValuationCapEndpointBudgetAudit",
+    "riemann": {
+      "theorem_name": "EnumerableRationalBumpAutocorrelationCoreDensity",
+      "core_definition": "Let b(x)=exp(-1/(1-x^2)) for |x|<1 and b(x)=0 otherwise. Let C_Q be the finite sums of q*b((x-a)/r), where a and r>0 are rational and q is Gaussian rational.",
+      "proved_statement": "C_Q is countable and dense in the LF test-function space C_c^infinity(R). Consequently {g*tilde(g): g in C_Q} is countable and dense, in the relative test-function topology, in the smooth compact-support autocorrelation image.",
+      "proof": "Mollification by normalized rational-scale copies of b converges to each compactly supported smooth g in every derivative norm on one fixed enlarged compact set. Approximate each convolution integral and all derivatives through a chosen finite order by a Riemann sum, then approximate its complex coefficients and centers by Gaussian rationals and rationals. A diagonal sequence gives all derivative orders. Every approximant has a finite rational tuple description, so their union is countable. Convolution and reflection are continuous on a fixed support, hence g_n*tilde(g_n) converges to g*tilde(g).",
+      "finite_enumeration_audit": {
+        "parameter_height_rows": [
+          {
+            "height": 1,
+            "rational_parameter_count": 3,
+            "positive_radius_count": 1,
+            "nonzero_gaussian_rational_coefficient_count": 8,
+            "single_bump_atom_count": 24,
+            "finite_sum_description_count_through_height": "25"
+          },
+          {
+            "height": 2,
+            "rational_parameter_count": 9,
+            "positive_radius_count": 4,
+            "nonzero_gaussian_rational_coefficient_count": 80,
+            "single_bump_atom_count": 2880,
+            "finite_sum_description_count_through_height": "8297281"
+          },
+          {
+            "height": 3,
+            "rational_parameter_count": 25,
+            "positive_radius_count": 12,
+            "nonzero_gaussian_rational_coefficient_count": 624,
+            "single_bump_atom_count": 187200,
+            "finite_sum_description_count_through_height": "6560241892027201"
+          },
+          {
+            "height": 4,
+            "rational_parameter_count": 49,
+            "positive_radius_count": 24,
+            "nonzero_gaussian_rational_coefficient_count": 2400,
+            "single_bump_atom_count": 2822400,
+            "finite_sum_description_count_through_height": "63456250606793886968582401"
+          },
+          {
+            "height": 5,
+            "rational_parameter_count": 101,
+            "positive_radius_count": 50,
+            "nonzero_gaussian_rational_coefficient_count": 10200,
+            "single_bump_atom_count": 51510000,
+            "finite_sum_description_count_through_height": "362625013379170500826470604280151510001"
+          },
+          {
+            "height": 6,
+            "rational_parameter_count": 145,
+            "positive_radius_count": 72,
+            "nonzero_gaussian_rational_coefficient_count": 21024,
+            "single_bump_atom_count": 219490560,
+            "finite_sum_description_count_through_height": "111813716068033444824712065804557230221600854780161"
+          }
+        ],
+        "nested_parameter_grids": true,
+        "interpretation": "Every row is finite and the nested union contains every finite rational bump description. Counts are descriptions, not quotient classes of equal functions."
+      },
+      "connection_to_ticket128": "Every core autocorrelation has compact support, so TICKET128 makes its prime-power side an exactly finite sum. This removes the previously open enumerability part without asserting positivity.",
+      "route_decision": {
+        "retain": "a countable dense core inside the autocorrelation image",
+        "discard": "density of the autocorrelation cone in the entire ambient test-function space, refuted by TICKET126",
+        "next_theorem": "CertifiedWeilValuesOnRationalBumpCore"
+      },
+      "machine_audit": {
+        "enumerated_height_count": 6,
+        "nested_grid_passes": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The relative density theorem is exact. PrimeProject has not certified the archimedean term or nonnegativity of the Weil quadratic form on this core, so RH remains open."
+    },
+    "collatz": {
+      "theorem_name": "LeastCounterexampleInitialValuationCap",
+      "proved_statement": "If a least positive Collatz counterexample n exists, then n is odd and n>=2^28. For every 1<=j<=2^29, if a_i is the 2-adic valuation used by the ith accelerated odd step and S_j=sum a_i, then S_j<=ceil(j*log_2(3))=bit_length(3^j).",
+      "proof": "Minimality gives x_i>=n for every accelerated odd iterate. Multiplying 2^a_i*x_(i+1)=3*x_i+1 yields 2^S_j=3^j*(n/x_j)*product_i(1+1/(3x_i)), hence 2^S_j<=3^j*(1+1/(3n))^j. Put n0=2^28 and m=3*n0. The binomial theorem gives (1+1/m)^m<sum 1/k!<87/32<11/4. For j<=2*n0, 3j<=2m, so (1+1/m)^(3j)<(11/4)^2<8 and (1+1/m)^j<2. Thus 2^S_j<2*3^j, which implies S_j<=bit_length(3^j).",
+      "exact_constants": {
+        "verified_lower_bound_for_least_counterexample": 268435456,
+        "proved_accelerated_horizon": 536870912,
+        "proved_horizon_power": "2^29",
+        "m_equals_3_times_lower_bound": 805306368,
+        "sum_inverse_factorial_upper": "87/32",
+        "convenient_upper": "11/4",
+        "squared_upper": "121/16",
+        "squared_upper_below_8": true
+      },
+      "finite_language_pruning_audit": {
+        "audited_horizon": 256,
+        "checkpoints": [
+          {
+            "steps": 1,
+            "valuation_sum_cap": 2,
+            "admissible_word_count": "2",
+            "exact_cylinder_mass_numerator": "3",
+            "exact_cylinder_mass_denominator": "4",
+            "cylinder_mass_decimal": 0.75
+          },
+          {
+            "steps": 2,
+            "valuation_sum_cap": 4,
+            "admissible_word_count": "5",
+            "exact_cylinder_mass_numerator": "5",
+            "exact_cylinder_mass_denominator": "8",
+            "cylinder_mass_decimal": 0.625
+          },
+          {
+            "steps": 4,
+            "valuation_sum_cap": 7,
+            "admissible_word_count": "23",
+            "exact_cylinder_mass_numerator": "51",
+            "exact_cylinder_mass_denominator": "128",
+            "cylinder_mass_decimal": 0.3984375
+          },
+          {
+            "steps": 8,
+            "valuation_sum_cap": 13,
+            "admissible_word_count": "698",
+            "exact_cylinder_mass_numerator": "1627",
+            "exact_cylinder_mass_denominator": "8192",
+            "cylinder_mass_decimal": 0.1986083984375
+          },
+          {
+            "steps": 16,
+            "valuation_sum_cap": 26,
+            "admissible_word_count": "1428895",
+            "exact_cylinder_mass_numerator": "4953685",
+            "exact_cylinder_mass_denominator": "67108864",
+            "cylinder_mass_decimal": 0.07381565868854523
+          },
+          {
+            "steps": 32,
+            "valuation_sum_cap": 51,
+            "admissible_word_count": "9156952441979",
+            "exact_cylinder_mass_numerator": "33490394661637",
+            "exact_cylinder_mass_denominator": "2251799813685248",
+            "cylinder_mass_decimal": 0.01487272290285313
+          },
+          {
+            "steps": 64,
+            "valuation_sum_cap": 102,
+            "admissible_word_count": "1159376848639524364914388555",
+            "exact_cylinder_mass_numerator": "5868874694892226111484559115",
+            "exact_cylinder_mass_denominator": "5070602400912917605986812821504",
+            "cylinder_mass_decimal": 0.0011574314511103427
+          },
+          {
+            "steps": 128,
+            "valuation_sum_cap": 203,
+            "admissible_word_count": "38698065842371919525584563584290701065969870428966558481",
+            "exact_cylinder_mass_numerator": "89776410779247174469943116483160111404994854305832858831",
+            "exact_cylinder_mass_denominator": "6427752177035961102167848369364650410088811975131171341205504",
+            "cylinder_mass_decimal": 1.3966999396769822e-05
+          },
+          {
+            "steps": 256,
+            "valuation_sum_cap": 406,
+            "admissible_word_count": "149129317947766542211573900707730424888747252623264323741544019515911767812663685875045846218311965030728122021140",
+            "exact_cylinder_mass_numerator": "787234541006184263200395656138166147090277074715738331501383995722915306685224547267620844916294973193387510471873",
+            "exact_cylinder_mass_denominator": "165263992197562149737978827008192759957101170741070304821162198818601447809077836456297302609928821211897803006255839576064",
+            "cylinder_mass_decimal": 4.763497060297911e-09
+          }
+        ],
+        "final_admissible_word_count": "149129317947766542211573900707730424888747252623264323741544019515911767812663685875045846218311965030728122021140"
+      },
+      "route_decision": {
+        "retain": "use the exact prefix cap as a necessary-condition filter for changing-prefix searches",
+        "discard": "repeating the TICKET80 all-ones finite-prefix compactness argument or extrapolating TICKET128's finite scan",
+        "next_theorem": "LeastCounterexampleValuationCapLanguageExtinction"
+      },
+      "machine_audit": {
+        "finite_verified_bits": 28,
+        "symbolic_cap_horizon": 536870912,
+        "language_audit_horizon": 256,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "This is a necessary condition for a hypothetical least counterexample, not a contradiction. Compatible valuation words still survive the finite cap, so Collatz remains open."
+    },
+    "goldbach": {
+      "theorem_name": "ExactRationalGoldbachResidualK56Sufficiency",
+      "proved_statement": "Under the TICKET125/126 weighted Goldbach decomposition and the TICKET128 major coefficient floor A>1.31917, a uniform pointwise bound |R(N)|<=56*N/log(N) for every even N>4*10^18 is sufficient to glue the analytic tail to the verified finite range.",
+      "proof": "The identity log(H)=56 log(2)+18 log(5/4), together with positive atanh series and exact geometric tail bounds, gives 214/5<log(H)<43. Also H<2^62 and 1200^6<H, so the TICKET126 contamination coefficient satisfies B<21/10. Substitution into A-K/log(H)-B*log(H)^2/sqrt(H) leaves the displayed positive rational margin for K=56.",
+      "exact_log_certificate": {
+        "log_2_lower": "842/1215",
+        "log_2_upper": "23581/34020",
+        "log_5_over_4_lower": "488/2187",
+        "log_5_over_4_upper": "97603/437400",
+        "log_H_lower": "17344/405",
+        "log_H_upper": "1040843/24300",
+        "simple_interval": "214/5 < log(H) < 43"
+      },
+      "exact_contamination_certificate": {
+        "H_below_2_power_62": true,
+        "1200_power_6_below_H": true,
+        "deduced_B_upper": "B<2*(1+60/1200)=21/10"
+      },
+      "endpoint_budget": {
+        "verified_limit_H": 4000000000000000000,
+        "major_coefficient_floor": "131917/100000",
+        "candidate_pointwise_residual_K": 56,
+        "residual_upper": "140/107",
+        "contamination_upper": "38829/20000000000",
+        "positive_margin_numerator": "23019645297",
+        "positive_margin_denominator": "2140000000000",
+        "positive_margin_decimal": 0.010756843596728972,
+        "K57_margin_under_same_certificate": -0.01260764238457944,
+        "K56_is_largest_integer_certified_by_this_coarse_interval": true
+      },
+      "route_decision": {
+        "retain": "the exact finite-glue budget with rational certificates",
+        "discard": "K=55 as an unnecessarily strict sufficient target",
+        "next_theorem": "PointwiseBinaryGoldbachResidualK56"
+      },
+      "machine_audit": {
+        "exact_log_interval_passes": true,
+        "k56_margin_positive": true,
+        "k57_not_certified_by_same_budget": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The sufficiency constant is improved from 55 to 56, but the pointwise residual theorem itself is not proved. Strong Goldbach therefore remains open."
+    },
+    "twin_prime": {
+      "theorem_name": "ExactWithinBlockIncrementSynchronizationCriterion",
+      "proved_statement": "For positive cumulative K and Q_X=A_X/K_X, fix a left endpoint Y and q=Q_Y. For every X>=Y, Q_X-q=(Delta A-q*Delta K)/K_X. Therefore Q_X<=q+delta throughout a dyadic block if and only if Delta A-q*Delta K<=delta*K_X throughout that block.",
+      "proof": "Substitute A_X=A_Y+Delta A and K_X=K_Y+Delta K into A_X/K_X-A_Y/K_Y and cancel A_Y*K_Y. The numerator becomes K_Y*(Delta A-q*Delta K), giving the identity and equivalence.",
+      "minimal_defect_function": "D(Y)=sup_{Y<=X<=2Y} max(0,Delta A-Q_Y*Delta K)/K_X is the smallest admissible additive within-block delta at c=1.",
+      "strengthened_monotone_countermodel": {
+        "statement": "Endpoint ratio 0.92, monotonicity of both cumulative budgets, and exact denominator doubling still do not imply an all-scale ratio below one.",
+        "rows": [
+          {
+            "left_endpoint": 16,
+            "midpoint": 24,
+            "right_endpoint": 32,
+            "A_and_K_are_nondecreasing": true,
+            "denominator_doubles_at_right_endpoint": true,
+            "both_endpoint_ratios": 0.92,
+            "midpoint_ratio": 1.84,
+            "states": [
+              {
+                "scale": 16,
+                "A": "23/25",
+                "K": "1",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 24,
+                "A": "46/25",
+                "K": "1",
+                "Q": 1.84,
+                "increment_defect": 0.92,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 32,
+                "A": "46/25",
+                "K": "2",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              }
+            ]
+          },
+          {
+            "left_endpoint": 32,
+            "midpoint": 48,
+            "right_endpoint": 64,
+            "A_and_K_are_nondecreasing": true,
+            "denominator_doubles_at_right_endpoint": true,
+            "both_endpoint_ratios": 0.92,
+            "midpoint_ratio": 1.84,
+            "states": [
+              {
+                "scale": 32,
+                "A": "23/25",
+                "K": "1",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 48,
+                "A": "46/25",
+                "K": "1",
+                "Q": 1.84,
+                "increment_defect": 0.92,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 64,
+                "A": "46/25",
+                "K": "2",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              }
+            ]
+          },
+          {
+            "left_endpoint": 64,
+            "midpoint": 96,
+            "right_endpoint": 128,
+            "A_and_K_are_nondecreasing": true,
+            "denominator_doubles_at_right_endpoint": true,
+            "both_endpoint_ratios": 0.92,
+            "midpoint_ratio": 1.84,
+            "states": [
+              {
+                "scale": 64,
+                "A": "23/25",
+                "K": "1",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 96,
+                "A": "46/25",
+                "K": "1",
+                "Q": 1.84,
+                "increment_defect": 0.92,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 128,
+                "A": "46/25",
+                "K": "2",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              }
+            ]
+          },
+          {
+            "left_endpoint": 128,
+            "midpoint": 192,
+            "right_endpoint": 256,
+            "A_and_K_are_nondecreasing": true,
+            "denominator_doubles_at_right_endpoint": true,
+            "both_endpoint_ratios": 0.92,
+            "midpoint_ratio": 1.84,
+            "states": [
+              {
+                "scale": 128,
+                "A": "23/25",
+                "K": "1",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 192,
+                "A": "46/25",
+                "K": "1",
+                "Q": 1.84,
+                "increment_defect": 0.92,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 256,
+                "A": "46/25",
+                "K": "2",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              }
+            ]
+          },
+          {
+            "left_endpoint": 256,
+            "midpoint": 384,
+            "right_endpoint": 512,
+            "A_and_K_are_nondecreasing": true,
+            "denominator_doubles_at_right_endpoint": true,
+            "both_endpoint_ratios": 0.92,
+            "midpoint_ratio": 1.84,
+            "states": [
+              {
+                "scale": 256,
+                "A": "23/25",
+                "K": "1",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 384,
+                "A": "46/25",
+                "K": "1",
+                "Q": 1.84,
+                "increment_defect": 0.92,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 512,
+                "A": "46/25",
+                "K": "2",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              }
+            ]
+          },
+          {
+            "left_endpoint": 512,
+            "midpoint": 768,
+            "right_endpoint": 1024,
+            "A_and_K_are_nondecreasing": true,
+            "denominator_doubles_at_right_endpoint": true,
+            "both_endpoint_ratios": 0.92,
+            "midpoint_ratio": 1.84,
+            "states": [
+              {
+                "scale": 512,
+                "A": "23/25",
+                "K": "1",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 768,
+                "A": "46/25",
+                "K": "1",
+                "Q": 1.84,
+                "increment_defect": 0.92,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 1024,
+                "A": "46/25",
+                "K": "2",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              }
+            ]
+          },
+          {
+            "left_endpoint": 1024,
+            "midpoint": 1536,
+            "right_endpoint": 2048,
+            "A_and_K_are_nondecreasing": true,
+            "denominator_doubles_at_right_endpoint": true,
+            "both_endpoint_ratios": 0.92,
+            "midpoint_ratio": 1.84,
+            "states": [
+              {
+                "scale": 1024,
+                "A": "23/25",
+                "K": "1",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 1536,
+                "A": "46/25",
+                "K": "1",
+                "Q": 1.84,
+                "increment_defect": 0.92,
+                "identity_error": 0.0
+              },
+              {
+                "scale": 2048,
+                "A": "46/25",
+                "K": "2",
+                "Q": 0.92,
+                "increment_defect": 0.0,
+                "identity_error": 0.0
+              }
+            ]
+          }
+        ],
+        "midpoint_defect": 0.92,
+        "required_target": 0.08
+      },
+      "connection_to_ticket128": "TICKET128 gives limsup q_j<=0.92. At c=1 the exact remaining coefficient theorem is limsup_j D(2^j)<0.08; equivalently, it suffices to prove an eventual uniform D(2^j)<=delta for some delta<0.08. Endpoint and monotonicity data cannot supply it.",
+      "route_decision": {
+        "retain": "estimate the signed synchronized increment Delta A-Q_Y*Delta K",
+        "discard": "endpoint interpolation from cumulative monotonicity or denominator growth alone",
+        "next_theorem": "AsymptoticVaughanIncrementSynchronizationBelow008"
+      },
+      "machine_audit": {
+        "countermodel_block_count": 7,
+        "identity_passes_every_state": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The identity and countermodel are exact, but no asymptotic 0.08 defect bound is proved for the actual Vaughan coefficients. The parity barrier and exact gap-two positivity also remain."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Suzuki, Weil's quadratic form via the screw function",
+        "url": "https://arxiv.org/abs/2606.09096",
+        "role": "Primary 2026 formulation of Weil positivity on C_c^infinity(R); TICKET129 proves only core density."
+      },
+      {
+        "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values",
+        "url": "https://arxiv.org/abs/1909.03562",
+        "role": "Primary almost-all boundary; the valuation cap is a universal-counterexample necessity, not convergence."
+      },
+      {
+        "citation": "Oliveira e Silva, Herzog, and Pardi, Empirical verification of the even Goldbach conjecture",
+        "url": "https://doi.org/10.1090/S0025-5718-2013-02787-1",
+        "role": "Primary finite verification boundary H=4e18 used in the exact glue budget."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary sieve boundary; the increment identity does not resolve parity or exact gap two."
+      }
+    ],
+    "machine_audit": {
+      "problem_count": 4,
+      "exact_intermediate_theorem_count": 4,
+      "explicit_route_counterexample_count": 1,
+      "strengthened_endpoint_budget_count": 1,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET129 proves four exact intermediate results or route corrections. It proves or refutes none of RH, Collatz, Goldbach, or Twin Prime."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-129",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "EnumerableRationalBumpAutocorrelationCoreDensity",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "candidate_theorem": "CertifiedWeilValuesOnRationalBumpCore",
+      "next_experiment": "Implement outward-rounded archimedean and finite prime-side values for the enumerated core.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The relative density theorem is exact. PrimeProject has not certified the archimedean term or nonnegativity of the Weil quadratic form on this core, so RH remains open."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-129",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "LeastCounterexampleInitialValuationCap",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "candidate_theorem": "LeastCounterexampleValuationCapLanguageExtinction",
+      "next_experiment": "Use the exact prefix cap to prune changing-prefix branches and seek either extinction or an explicit survivor.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "This is a necessary condition for a hypothetical least counterexample, not a contradiction. Compatible valuation words still survive the finite cap, so Collatz remains open."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-129",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "ExactRationalGoldbachResidualK56Sufficiency",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "candidate_theorem": "PointwiseBinaryGoldbachResidualK56",
+      "next_experiment": "Attack the signed pointwise residual with the now-maximal certified integer budget K=56.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The sufficiency constant is improved from 55 to 56, but the pointwise residual theorem itself is not proved. Strong Goldbach therefore remains open."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-129",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "ExactWithinBlockIncrementSynchronizationCriterion",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "candidate_theorem": "AsymptoticVaughanIncrementSynchronizationBelow008",
+      "next_experiment": "Prove limsup D(2^j)<0.08 for the actual signed increment defect, not endpoint ratios alone.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The identity and countermodel are exact, but no asymptotic 0.08 defect bound is proved for the actual Vaughan coefficients. The parity barrier and exact gap-two positivity also remain."
+    }
+  ]
+}

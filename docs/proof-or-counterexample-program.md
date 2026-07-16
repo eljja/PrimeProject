@@ -37,6 +37,41 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-17 TICKET-129 Exact Core and Necessary-Condition Reduction
+
+TICKET-129 advances the four tracks without treating a larger finite range as
+an infinite proof.
+
+1. **Riemann:** finite Gaussian-rational combinations of a standard smooth
+   bump form a countable dense core in `C_c^infinity(R)`, and their
+   autocorrelations are dense inside the autocorrelation image. This respects
+   the TICKET-126 separation no-go: no density in the whole ambient space is
+   claimed. TICKET-128 makes the prime side finite for every core element.
+   Certified archimedean values and nonnegativity remain open.
+2. **Collatz:** a hypothetical least counterexample is at least `2^28` and the
+   exact orbit-product identity forces `S_j<=ceil(j log2 3)` for every
+   `j<=2^29`. At 256 steps the prefix-cap language has exact cylinder mass
+   approximately `4.7634970603e-9`, but compatible words survive. This is a
+   necessary condition, not a contradiction.
+3. **Goldbach:** exact atanh-series intervals prove
+   `214/5<log(4*10^18)<43`, while elementary integer comparisons prove
+   `B<21/10`. Together with `A>1.31917`, a pointwise residual theorem with
+   `K=56` is sufficient, with exact margin
+   `23019645297/2140000000000`. The residual theorem remains open.
+4. **Twin Prime:** the exact identity
+   `Q_X-Q_Y=(Delta A-Q_Y Delta K)/K_X` identifies the minimal within-block
+   defect. A monotone cumulative countermodel with denominator doubling still
+   reaches `Q=1.84` between two `0.92` endpoints. Since TICKET-128 gives only
+   an endpoint limsup, the exact target is
+   `limsup_j D(2^j)<0.08`, plus parity and gap-two positivity.
+
+한국어 요약: TICKET-129는 RH의 열거 가능한 자기상관 핵심집합, Collatz 최소
+반례의 첫 `2^29`단계 valuation cap, Goldbach `K=56` 충분조건의 완전 유리수
+인증, Twin Prime 구간 내부 증분 결함 항등식을 증명했다. 각각의 결정적 다음
+정리는 여전히 미증명이며 네 난제 중 해결되거나 반증된 것은 없다. 자세한
+증명과 재현 명령은 `docs/enumerable-core-valuation-cap-endpoint-budget.md`에
+있다.
+
 ## 2026-07-17 TICKET-128 Premise Reduction
 
 TICKET-128 applies the proof-or-counterexample rule to four different failure

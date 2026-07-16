@@ -124,6 +124,7 @@ TICKET125_SCHEMA = "primeproject.ticket125-infinite-bridge-contracts.v1"
 TICKET126_SCHEMA = "primeproject.ticket126-route-correction-audit.v1"
 TICKET127_SCHEMA = "primeproject.ticket127-exception-repair-effective-bridges.v1"
 TICKET128_SCHEMA = "primeproject.ticket128-finite-core-prefix-constant-interpolation.v1"
+TICKET129_SCHEMA = "primeproject.ticket129-enumerable-core-valuation-cap-endpoint-budget.v1"
 
 
 def fail(message: str) -> int:
@@ -7514,6 +7515,49 @@ def main() -> int:
         return fail("ticket128 Twin endpoint no-go or interpolation theorem changed")
     if "proves or refutes none" not in str(audit128.get("proof_boundary", "")).lower():
         return fail("ticket128 proof boundary changed")
+
+    path129 = Path("data/open-problem/ticket129-enumerable-core-valuation-cap-endpoint-budget.json")
+    if not path129.exists():
+        return fail("missing ticket129 enumerable-core/valuation-cap/endpoint-budget audit")
+    ticket129 = read_json(path129)
+    if ticket129.get("schema") != TICKET129_SCHEMA or ticket129.get("status") != "enumerable_core_valuation_cap_endpoint_budget_proved_all_conjectures_open":
+        return fail("ticket129 schema or status changed")
+    attempts129 = ticket129.get("attempts", [])
+    by_id129 = {str(row.get("problem_id")): row for row in attempts129 if isinstance(row, dict)} if isinstance(attempts129, list) else {}
+    if set(by_id129) != EXPECTED_PROBLEMS:
+        return fail("ticket129 attempts missing problems")
+    paths129 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-129-enumerable-bump-core.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-129-valuation-cap.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-129-k56-endpoint.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-129-increment-synchronization.json"),
+    }
+    for problem_id, attempt in by_id129.items():
+        if not paths129[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket129 artifact or proof boundary missing")
+    audit129 = ticket129.get("enumerable_core_valuation_cap_endpoint_budget_audit", {})
+    machine129 = audit129.get("machine_audit", {})
+    if audit129.get("theorem_name") != "FourConjectureEnumerableCoreValuationCapEndpointBudgetAudit" or int(machine129.get("exact_intermediate_theorem_count", -1)) != 4 or int(machine129.get("explicit_route_counterexample_count", -1)) != 1 or int(machine129.get("conjecture_resolution_count", -1)) != 0 or int(machine129.get("total_failure_count", -1)) != 0:
+        return fail("ticket129 global machine audit changed")
+    riemann129 = audit129.get("riemann", {})
+    riemann_rows129 = riemann129.get("finite_enumeration_audit", {}).get("parameter_height_rows", [])
+    if riemann129.get("theorem_name") != "EnumerableRationalBumpAutocorrelationCoreDensity" or not riemann129.get("finite_enumeration_audit", {}).get("nested_parameter_grids") or not isinstance(riemann_rows129, list) or int(riemann_rows129[-1].get("single_bump_atom_count", -1)) != 219490560:
+        return fail("ticket129 RH enumerable core changed")
+    collatz129 = audit129.get("collatz", {})
+    collatz_constants129 = collatz129.get("exact_constants", {})
+    collatz_checkpoints129 = collatz129.get("finite_language_pruning_audit", {}).get("checkpoints", [])
+    if collatz129.get("theorem_name") != "LeastCounterexampleInitialValuationCap" or int(collatz_constants129.get("verified_lower_bound_for_least_counterexample", -1)) != 2**28 or int(collatz_constants129.get("proved_accelerated_horizon", -1)) != 2**29 or not collatz_constants129.get("squared_upper_below_8") or not isinstance(collatz_checkpoints129, list) or abs(float(collatz_checkpoints129[-1].get("cylinder_mass_decimal", 0)) - 4.763497060297911e-9) > 1e-21:
+        return fail("ticket129 Collatz valuation cap changed")
+    goldbach129 = audit129.get("goldbach", {})
+    goldbach_budget129 = goldbach129.get("endpoint_budget", {})
+    if goldbach129.get("theorem_name") != "ExactRationalGoldbachResidualK56Sufficiency" or int(goldbach_budget129.get("candidate_pointwise_residual_K", -1)) != 56 or goldbach_budget129.get("positive_margin_numerator") != "23019645297" or float(goldbach_budget129.get("positive_margin_decimal", 0)) <= 0 or float(goldbach_budget129.get("K57_margin_under_same_certificate", 0)) >= 0:
+        return fail("ticket129 Goldbach K56 endpoint changed")
+    twin129 = audit129.get("twin_prime", {})
+    twin_rows129 = twin129.get("strengthened_monotone_countermodel", {}).get("rows", [])
+    if twin129.get("theorem_name") != "ExactWithinBlockIncrementSynchronizationCriterion" or not isinstance(twin_rows129, list) or len(twin_rows129) != 7 or not all(bool(row.get("A_and_K_are_nondecreasing")) and bool(row.get("denominator_doubles_at_right_endpoint")) and abs(float(row.get("midpoint_ratio", 0)) - 1.84) < 1e-15 for row in twin_rows129 if isinstance(row, dict)):
+        return fail("ticket129 Twin increment synchronization changed")
+    if "proves or refutes none" not in str(audit129.get("proof_boundary", "")).lower():
+        return fail("ticket129 proof boundary changed")
 
     print("open problem structure verified")
     return 0

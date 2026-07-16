@@ -62,9 +62,42 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-128
+## Latest Continuation After TICKET-129
 
-TICKET128 is the current boundary. Read
+TICKET129 is the current boundary. Read
+`docs/enumerable-core-valuation-cap-endpoint-budget.md` and
+`data/open-problem/ticket129-enumerable-core-valuation-cap-endpoint-budget.json`
+before proposing a new route. None of the four conjectures is resolved.
+
+For RH, `EnumerableRationalBumpAutocorrelationCoreDensity` proves a countable
+dense core inside the smooth compact-support autocorrelation image. This does
+not contradict TICKET126: density in the entire ambient test-function space is
+still rejected. TICKET128 makes each core prime side finite. Attack
+`CertifiedWeilValuesOnRationalBumpCore` with outward-rounded archimedean
+intervals and a noncircular sign proof.
+
+For Collatz, a hypothetical least counterexample must be at least `2^28` and
+the exact orbit-product identity forces
+`S_j<=ceil(j log_2 3)` for all `j<=2^29`. The 256-step compatible language has
+exact cylinder mass about `4.7634970603e-9`, but it is nonempty. Attack
+`LeastCounterexampleValuationCapLanguageExtinction`; do not repeat TICKET80's
+finite-prefix compactness route or extrapolate the finite density.
+
+For Goldbach, exact rational atanh-series and contamination bounds make the
+pointwise target `|R(N)|<=56*N/log(N)` sufficient above `4e18`, with margin
+`23019645297/2140000000000`. `K=56` is a sufficient target, not a proved
+estimate. Attack `PointwiseBinaryGoldbachResidualK56`.
+
+For Twin Prime, the exact within-block identity is
+`Q_X-Q_Y=(Delta A-Q_Y Delta K)/K_X`. Endpoint ratio `0.92`, monotonic cumulative
+budgets, and denominator doubling still permit midpoint ratio `1.84`. Attack
+`AsymptoticVaughanIncrementSynchronizationBelow008`, namely
+`limsup_j D(2^j)<0.08`, on actual coefficients;
+parity and exact gap-two positivity remain separate.
+
+## Historical Continuation After TICKET-128
+
+TICKET128 was the previous boundary. Read
 `docs/finite-core-prefix-constant-interpolation.md` and
 `data/open-problem/ticket128-finite-core-prefix-constant-interpolation.json`
 before proposing a new route. None of the four conjectures is resolved.
@@ -100,7 +133,7 @@ gap-two positivity remain separate.
 
 ## Historical Continuation After TICKET-127
 
-TICKET127 is the current boundary. It records one public correction and proves
+TICKET127 was an earlier boundary. It records one public correction and proves
 four exact intermediate bridges without resolving a conjecture. Read
 `docs/exception-repair-and-effective-bridges.md` and
 `data/open-problem/ticket127-exception-repair-effective-bridges.json` first.

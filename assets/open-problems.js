@@ -10,6 +10,7 @@ let ticket125AttemptGlobal = null;
 let ticket126AttemptGlobal = null;
 let ticket127AttemptGlobal = null;
 let ticket128AttemptGlobal = null;
+let ticket129AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9785,6 +9786,76 @@ function renderTicket126RouteCorrection(attempt) {
   `;
 }
 
+function renderTicket129EnumerableCoreValuationCapEndpointBudget(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.enumerable_core_valuation_cap_endpoint_budget_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const machine = section.machine_audit || {};
+  const summaryRows = [
+    ["ticket", attempt.ticket_id || "missing"],
+    ["exact result / 정확한 결과", section.theorem_name || "missing"],
+    ["machine failures / 기계 감사 실패", machine.total_failure_count ?? 0],
+    ["conjecture resolutions / 난제 해결", audit.machine_audit?.conjecture_resolution_count ?? 0],
+    ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"],
+  ];
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = section.finite_enumeration_audit?.parameter_height_rows || [];
+    const last = rows[rows.length - 1] || {};
+    detail = `
+      <div class="poc-equation">C<sub>Q</sub> dense in C<sub>c</sub><sup>∞</sup>(R) ⇒ {g*g~ : g∈C<sub>Q</sub>} dense inside the autocorrelation image</div>
+      ${table(["enumerable rational-bump core", "value"], [["audited parameter height", last.height || 0], ["rational parameters", formatValue(last.rational_parameter_count || 0)], ["single-bump descriptions", formatValue(last.single_bump_atom_count || 0)], ["nested finite grids", section.finite_enumeration_audit?.nested_parameter_grids ? "pass" : "fail"]])}
+      <div class="poc-route-decision"><section><span>CLOSED / 폐쇄</span><strong>자기상관상 내부의 countable dense core</strong></section><section><span>OPEN / 미증명</span><strong>archimedean 구간과 모든 core Weil 값의 비음성</strong></section></div>
+      <p class="proof-note">TICKET126이 반박한 전체 시험함수 공간 조밀성을 다시 주장하지 않습니다. 상대 조밀성의 범위는 자기상관상 내부입니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const constants = section.exact_constants || {};
+    const checkpoints = section.finite_language_pruning_audit?.checkpoints || [];
+    const final = checkpoints[checkpoints.length - 1] || {};
+    detail = `
+      <div class="poc-equation">least counterexample n ⇒ S<sub>j</sub> ≤ ceil(j log<sub>2</sub>3), 1≤j≤2<sup>29</sup></div>
+      ${table(["least-counterexample necessary condition", "value"], [["proved lower bound n", formatValue(constants.verified_lower_bound_for_least_counterexample || 0)], ["symbolic cap horizon", formatValue(constants.proved_accelerated_horizon || 0)], ["language audit steps", final.steps || 0], ["valuation sum cap", final.valuation_sum_cap || 0], ["surviving cylinder mass", Number(final.cylinder_mass_decimal || 0).toExponential(10)]])}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>finite scan 또는 TICKET80 all-ones compactness 반복</strong></section><section><span>KEEP / 유지</span><strong>valuation-cap을 적용한 changing-prefix 전칭 소멸 탐색</strong></section></div>
+      <p class="proof-note">허용 valuation word가 남으므로 이 필요조건은 아직 모순이 아닙니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const budget = section.endpoint_budget || {};
+    detail = `
+      <div class="poc-equation">214/5 &lt; log(4·10<sup>18</sup>) &lt; 43, B&lt;21/10 ⇒ K=56 sufficient</div>
+      <div class="poc-contract-metric"><span>Exact rational endpoint margin / 정확한 유리수 끝점 여유</span><strong>${Number(budget.positive_margin_decimal || 0).toFixed(12)}</strong><em>${escapeHtml(budget.positive_margin_numerator || "0")}/${escapeHtml(budget.positive_margin_denominator || "1")}</em></div>
+      ${table(["Goldbach rational budget", "value"], [["candidate residual K", budget.candidate_pointwise_residual_K || 0], ["residual upper", budget.residual_upper || "missing"], ["contamination upper", budget.contamination_upper || "missing"], ["K=57 same-budget margin", Number(budget.K57_margin_under_same_certificate || 0).toFixed(12)], ["largest certified integer K", budget.K56_is_largest_integer_certified_by_this_coarse_interval ? "56" : "audit failed"]])}
+      <p><strong>의미:</strong> 점별 잔차 정리를 증명한 것이 아니라, 필요한 목표를 K≤55에서 더 약한 K≤56으로 개선했습니다.</p>
+    `;
+  } else if (problemKey === "twin-prime") {
+    const countermodel = section.strengthened_monotone_countermodel || {};
+    const first = (countermodel.rows || [])[0] || {};
+    detail = `
+      <div class="poc-equation">Q<sub>X</sub>-Q<sub>Y</sub> = (ΔA-Q<sub>Y</sub>ΔK)/K<sub>X</sub>; target limsup D(2<sup>j</sup>)&lt;0.08</div>
+      ${table(["monotone endpoint countermodel", "value"], [["left endpoint Q", Number(first.both_endpoint_ratios || 0).toFixed(2)], ["midpoint Q", Number(first.midpoint_ratio || 0).toFixed(2)], ["right endpoint Q", Number(first.both_endpoint_ratios || 0).toFixed(2)], ["A and K monotone", first.A_and_K_are_nondecreasing ? "yes" : "no"], ["K doubles", first.denominator_doubles_at_right_endpoint ? "yes" : "no"], ["midpoint increment defect", Number(countermodel.midpoint_defect || 0).toFixed(2)]])}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>endpoint, 단조성, 분모 성장만으로 구간 내부를 보간</strong></section><section><span>KEEP / 유지</span><strong>실제 Vaughan signed increment ΔA-Q<sub>Y</sub>ΔK 직접 추정</strong></section></div>
+    `;
+  }
+  return `
+    <div id="ticket129-enumerable-core-valuation-cap-endpoint-budget" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 129 enumerable core, valuation cap, and endpoint budget</h3>
+      <div class="poc-head"><div><span>Status</span><strong>exact intermediate result</strong></div><div><span>Scope</span><strong>conjecture open / 난제 미해결</strong></div><div><span>Mode</span><strong>${problemKey === "twin-prime" ? "exact criterion + route countermodel" : "proof-premise reduction"}</strong></div></div>
+      ${table(["TICKET129 audit", "Value"], summaryRows)}
+      ${detail}
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.proved_statement || "")}</p></section><section><h3>Decisive open premise / 결정적 미증명 전제</h3><p>${escapeHtml(attempt.next_experiment || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.proof_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/enumerable-core-valuation-cap-endpoint-budget.md">Bilingual paper-style report / 한영 논문형 보고서</a></p>
+    </div>
+  `;
+}
+
 function renderTicket128FiniteCorePrefixConstantInterpolation(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.finite_core_prefix_constant_interpolation_audit || {};
@@ -10024,7 +10095,7 @@ function renderTicket125InfiniteBridgeContracts(attempt) {
 
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
-    return `${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
+    return `${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
   }
   const direct = ticket.direct_counterexample || {};
   const candidate = ticket.candidate_counterexamples_found || {};
@@ -10089,6 +10160,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}
     ${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}
     ${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}
     ${renderTicket126RouteCorrection(ticket126AttemptGlobal)}
@@ -10360,6 +10432,26 @@ async function loadTicket128Attempt() {
   }
 }
 
+async function loadTicket129Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket129-enumerable-core-valuation-cap-endpoint-budget.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket129AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket129AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket129AttemptGlobal) {
+      ticket129AttemptGlobal.bounded_result = ticket129AttemptGlobal.bounded_result || {};
+      ticket129AttemptGlobal.bounded_result.enumerable_core_valuation_cap_endpoint_budget_audit = payload.enumerable_core_valuation_cap_endpoint_budget_audit || {};
+    }
+    return Boolean(ticket129AttemptGlobal);
+  } catch (error) {
+    ticket129AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function main() {
   const response = await fetch("../data/open_problem_workbench.json", { cache: "no-store" });
   if (!response.ok) throw new Error(`Failed to load workbench data: ${response.status}`);
@@ -10469,16 +10561,17 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const priorityLoads = await Promise.all([loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!priorityLoads[0] || !priorityLoads[1] || !priorityLoads[2] || !priorityLoads[3]) {
+  const priorityLoads = await Promise.all([loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
+  if (!priorityLoads[0] || !priorityLoads[1] || !priorityLoads[2] || !priorityLoads[3] || !priorityLoads[4]) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket129AttemptGlobal) await loadTicket129Attempt();
     if (!ticket128AttemptGlobal) await loadTicket128Attempt();
     if (!ticket127AttemptGlobal) await loadTicket127Attempt();
     if (!ticket126AttemptGlobal) await loadTicket126Attempt();
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket128-priority";
+  document.documentElement.dataset.openProblemCache = "ticket129-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -11551,6 +11644,7 @@ async function main() {
   if (!ticket126AttemptGlobal) await loadTicket126Attempt();
   if (!ticket127AttemptGlobal) await loadTicket127Attempt();
   if (!ticket128AttemptGlobal) await loadTicket128Attempt();
+  if (!ticket129AttemptGlobal) await loadTicket129Attempt();
   render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt);
 }
 
