@@ -73,13 +73,22 @@ class Ticket126RouteCorrectionAuditTests(unittest.TestCase):
         self.assertIn("not eventually low", audit["boundary_ray_correction"]["proved_fact"])
         self.assertEqual(
             audit["retained_target"]["name"],
-            "UniformEventuallyLowPathExclusion",
+            "UniformNontrivialEventuallyLowPathExclusion",
         )
         self.assertEqual(audit["machine_audit"]["maximum_precision_bits"], 28)
         self.assertEqual(
             audit["machine_audit"]["largest_unresolved_class_count"],
             4_027_110,
         )
+        row = audit["precision_rows"][-1]
+        self.assertTrue(row["trivial_fixed_path_present"])
+        self.assertEqual(row["longest_low_run_witnesses"], [1])
+        self.assertEqual(row["nontrivial_unresolved_class_count"], 4_027_109)
+        self.assertEqual(
+            row["maximum_nontrivial_consecutive_low_refinements"], 23
+        )
+        self.assertEqual(row["longest_nontrivial_low_run_witnesses"], [27, 31])
+        self.assertIn("n=1", audit["base_exception_correction"]["exception"])
 
     def test_goldbach_prime_power_count_bound_dominates_exact_counts(self) -> None:
         audit = goldbach_prime_power_contamination_audit()

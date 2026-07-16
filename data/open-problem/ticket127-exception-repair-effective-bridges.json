@@ -1,0 +1,264 @@
+{
+  "schema": "primeproject.ticket127-exception-repair-effective-bridges.v1",
+  "generated_at": "2026-07-17T02:15:19+09:00",
+  "status": "exception_repaired_effective_bridges_proved_all_conjectures_open",
+  "claim_boundary": "TICKET127 proves four exact intermediate statements, including one public correction, but proves or refutes none of RH, Collatz, Goldbach, or Twin Prime.",
+  "effective_bridge_audit": {
+    "theorem_name": "FourConjectureExceptionRepairAndEffectiveBridgeAudit",
+    "riemann": {
+      "theorem_name": "DenseCoreNegativeWitnessSemidecision",
+      "setting": "Let V be a separable topological vector space, let Q:V->R be continuous, and let D={d_0,d_1,...} be an explicitly enumerable dense core. Normalize the exact RH-equivalent Weil criterion so that RH requires Q(g)>=0 for every admissible g in V.",
+      "proved_statement": "If an admissible g has Q(g)<0, then some enumerated core element d_j has Q(d_j)<0. If interval evaluation is complete for strict negative values, dovetailed core enumeration semidecides a counterexample to the criterion.",
+      "proof": "Continuity makes Q^{-1}((-infinity,0)) open. A negative witness g therefore has an open neighborhood contained in the negative set. Density gives d_j in that neighborhood. A complete strict-sign interval evaluator eventually returns an upper endpoint below zero for d_j, so dovetailing eventually halts on every real violation.",
+      "effective_assumptions": [
+        "an exact RH-equivalent Weil criterion with one fixed sign convention",
+        "a proved dense enumerable core inside the completed admissible space",
+        "validated interval evaluation complete for every strict negative core value"
+      ],
+      "finite_sanity_model": {
+        "space": "R^2 with Q(x,y)=x^2-y^2 and dense core Q^2",
+        "core_witness": [
+          "7/5",
+          "2"
+        ],
+        "exact_value": "-51/25",
+        "negative": true
+      },
+      "route_decision": {
+        "retain": "interval-certified enumeration as an RH-counterexample semidecision route",
+        "discard": "treating finite failure to find a negative core element as a proof of RH",
+        "next_theorem": "IntervalCertifiedWeilCoreEvaluator"
+      },
+      "machine_audit": {
+        "finite_sanity_failure_count": 0,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The theorem makes counterexample search complete under its explicit topological and effective assumptions. It supplies neither the dense Weil core nor a negative witness, and finite non-discovery proves no RH case."
+    },
+    "collatz": {
+      "theorem_name": "NontrivialEventuallyLowPathIffFiniteStoppingCounterexample",
+      "corrected_statement": "For every positive odd integer n>1, n has no finite strict Collatz descent if and only if its compatible residue path is a nontrivial eventually-low infinite path in the adaptive unresolved tree.",
+      "proof": "Apply the exact TICKET126 path equivalence to n>1. TICKET125 proves that every n>1 has a finite strict descent exactly when Collatz holds. The fixed n=1 path is eventually low and survives every tree level, but it belongs to the known terminal basin and is not a counterexample.",
+      "historical_correction": {
+        "ticket": "TICKET-126",
+        "error": "The original Collatz corollary said that all eventually-low paths must be absent, omitting the necessary n>1 qualifier.",
+        "repair": "Retain the exact path equivalence, explicitly keep the n=1 path, and exclude only nontrivial eventually-low paths.",
+        "scientific_effect": "The old exclusion target was impossible because n=1 is a permanent witness. The corrected target is logically equivalent to Collatz."
+      },
+      "exact_28_bit_audit": {
+        "odd_class_count": 134217728,
+        "all_unresolved_class_count": 4027110,
+        "trivial_fixed_path_count": 1,
+        "nontrivial_unresolved_class_count": 4027109,
+        "nontrivial_unresolved_mass": 0.03000430017709732,
+        "maximum_all_low_run": 24,
+        "maximum_nontrivial_low_run": 23,
+        "longest_nontrivial_witnesses": [
+          27,
+          31
+        ]
+      },
+      "route_decision": {
+        "retain": "natural-number inverse-limit paths with n>1",
+        "discard": "the impossible target of excluding the fixed n=1 path",
+        "next_theorem": "UniformNontrivialEventuallyLowPathExclusion"
+      },
+      "machine_audit": {
+        "base_exception_present": true,
+        "nontrivial_count_identity_holds": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The equivalence and correction are exact. The finite 28-bit tree still leaves nontrivial classes and does not prove their uniform exclusion."
+    },
+    "goldbach": {
+      "theorem_name": "UniformBinaryGoldbachSingularSeriesLowerBound",
+      "definition": "For even N, S(N)=2*C2*product_{p|N,p>2}(p-1)/(p-2), where C2=product_{p>2}(1-1/(p-1)^2). Define the exact residual R(N)=G(N)-S(N)N.",
+      "proved_statement": "S(N)>=1 for every positive even N.",
+      "proof": "Every correction factor (p-1)/(p-2) is at least one. For M>=2, the prime-indexed factors of C2 form a subset of the factors 1-1/m^2, 2<=m<=M. All factors lie in (0,1), so the prime subset product is at least the full product. The latter telescopes to (M+1)/(2M)>1/2. Taking the convergent decreasing prime-product limit gives C2>=1/2 and hence S(N)>=1.",
+      "exact_normalization_consequence": {
+        "identity": "G(N)=S(N)N+R(N)",
+        "lower_bound": "G(N)>=N-|R(N)|",
+        "closed_coefficient": "A=1",
+        "scope": "This closes only the singular-series coefficient after R is defined against the exact Hardy-Littlewood model. It proves no residual estimate."
+      },
+      "finite_sanity_rows": [
+        {
+          "maximum_m": 2,
+          "prime_subset_product": 0.75,
+          "full_integer_telescoping_product": 0.75,
+          "subset_product_dominates": true
+        },
+        {
+          "maximum_m": 4,
+          "prime_subset_product": 0.703125,
+          "full_integer_telescoping_product": 0.625,
+          "subset_product_dominates": true
+        },
+        {
+          "maximum_m": 10,
+          "prime_subset_product": 0.6767578125,
+          "full_integer_telescoping_product": 0.55,
+          "subset_product_dominates": true
+        },
+        {
+          "maximum_m": 100,
+          "prime_subset_product": 0.6613109468387302,
+          "full_integer_telescoping_product": 0.505,
+          "subset_product_dominates": true
+        },
+        {
+          "maximum_m": 1000,
+          "prime_subset_product": 0.6602457439708004,
+          "full_integer_telescoping_product": 0.5005,
+          "subset_product_dominates": true
+        },
+        {
+          "maximum_m": 10000,
+          "prime_subset_product": 0.6601682965055038,
+          "full_integer_telescoping_product": 0.50005,
+          "subset_product_dominates": true
+        }
+      ],
+      "endpoint_budget": {
+        "verified_limit_H": 4000000000000000000,
+        "proper_prime_power_B": 2.0949181787429647,
+        "strict_required_residual_K_ceiling": 42.83274372223497
+      },
+      "route_decision": {
+        "closed_premise": "normalized singular-series coefficient A=1",
+        "remaining_premise": "prove |R(N)|<=K*N/log(N) pointwise for every even N>H with an explicit K below the endpoint ceiling",
+        "next_theorem": "ExplicitPointwiseBinaryGoldbachResidualConstant"
+      },
+      "machine_audit": {
+        "finite_product_case_count": 6,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The local singular-series factor is no longer an unknown constant. The pointwise binary Goldbach residual is the unresolved analytic core, so Goldbach remains open."
+    },
+    "twin_prime": {
+      "theorem_name": "RawBudgetTransportIffNormalizedAffineContraction",
+      "proved_statement": "For K_X,K_2X>0 and Q_X=A_X/K_X, the normalized inequality Q_2X<=alpha*Q_X+beta is equivalent to the raw transport inequality A_2X<=alpha*(K_2X/K_X)*A_X+beta*K_2X.",
+      "proof": "Multiply the normalized inequality by positive K_2X and substitute Q_X=A_X/K_X. Division by K_2X proves the reverse implication.",
+      "sufficient_growth_corollary": "If A_2X<=u*A_X+v*K_2X, K_2X>=gamma*K_X, K_X>0, and A_X,u>=0, gamma>0, then Q_2X<=(u/gamma)Q_X+v.",
+      "finite_16m_to_32m_audit": {
+        "source_horizon": 16777216,
+        "holdout_horizon": 33554432,
+        "source_known_budget_K": 7495484.263393924,
+        "holdout_known_budget_K": 15077482.120067842,
+        "known_budget_growth_gamma": 2.0115420952456007,
+        "source_adverse_numerator_A": 6254077.498087641,
+        "holdout_adverse_numerator_A": 11634651.171382716,
+        "adverse_numerator_growth_u": 1.8603305083667954,
+        "source_Q": 0.8343793780784781,
+        "holdout_Q": 0.7716574344928068,
+        "alpha": 0.75,
+        "beta": 0.23,
+        "normalized_recurrence_residual": 0.14587290093394822,
+        "raw_transport_threshold": 12903076.003364287,
+        "raw_transport_slack": 1268424.8319815714,
+        "paired_residual_contribution": 0.14135151084290043,
+        "boundary_residual_contribution": 0.004521390091047683
+      },
+      "route_decision": {
+        "retain": "coefficient-level raw numerator and denominator transport",
+        "discard": "inferring a uniform tail recurrence from five finite endpoint transitions",
+        "next_theorem": "UniformVaughanRawBudgetTransportAndInterpolation"
+      },
+      "machine_audit": {
+        "maximum_identity_error": 1.1102230246251565e-16,
+        "finite_transition_passes": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The theorem exactly exposes what a normalized recurrence means in raw Vaughan budgets. The finite audit proves no uniform coefficient transport, all-X interpolation, parity breakthrough, or Twin Prime theorem."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Connes and Consani, The Scaling Hamiltonian",
+        "url": "https://arxiv.org/abs/1910.14368",
+        "role": "Primary Weil-autocorrelation criterion context; no RH positivity theorem is imported."
+      },
+      {
+        "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values",
+        "url": "https://arxiv.org/abs/1909.03562",
+        "role": "Primary almost-all boundary; the corrected target remains universal over n>1."
+      },
+      {
+        "citation": "Friedlander, Goldston, Iwaniec, and Suriajaya, Exceptional zeros and the Goldbach problem",
+        "url": "https://doi.org/10.1016/j.jnt.2021.06.004",
+        "role": "Primary source for the binary Goldbach singular-series normalization."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary sieve context; no exact-gap parity theorem is imported."
+      }
+    ],
+    "machine_audit": {
+      "problem_count": 4,
+      "exact_intermediate_theorem_count": 4,
+      "historical_logic_correction_count": 1,
+      "closed_structural_premise_count": 1,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET127 proves four exact intermediate statements, including one public correction, but proves or refutes none of RH, Collatz, Goldbach, or Twin Prime."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-127",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "DenseCoreNegativeWitnessSemidecision",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "candidate_theorem": "IntervalCertifiedWeilCoreEvaluator",
+      "next_experiment": "Enumerate an independently proved dense Weil core with strict-sign interval certificates.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The theorem makes counterexample search complete under its explicit topological and effective assumptions. It supplies neither the dense Weil core nor a negative witness, and finite non-discovery proves no RH case."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-127",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "NontrivialEventuallyLowPathIffFiniteStoppingCounterexample",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "candidate_theorem": "UniformNontrivialEventuallyLowPathExclusion",
+      "next_experiment": "Synthesize ranks only after removing the permanent n=1 path.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The equivalence and correction are exact. The finite 28-bit tree still leaves nontrivial classes and does not prove their uniform exclusion."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-127",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "UniformBinaryGoldbachSingularSeriesLowerBound",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "candidate_theorem": "ExplicitPointwiseBinaryGoldbachResidualConstant",
+      "next_experiment": "Derive and interval-audit a uniform pointwise residual K below the exact endpoint ceiling.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The local singular-series factor is no longer an unknown constant. The pointwise binary Goldbach residual is the unresolved analytic core, so Goldbach remains open."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-127",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "RawBudgetTransportIffNormalizedAffineContraction",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "candidate_theorem": "UniformVaughanRawBudgetTransportAndInterpolation",
+      "next_experiment": "Prove raw coefficient transport uniformly and independently of further endpoint fitting.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The theorem exactly exposes what a normalized recurrence means in raw Vaughan budgets. The finite audit proves no uniform coefficient transport, all-X interpolation, parity breakthrough, or Twin Prime theorem."
+    }
+  ]
+}

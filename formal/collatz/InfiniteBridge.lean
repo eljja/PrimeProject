@@ -28,21 +28,21 @@ def counterexampleGuidedSynthesis : String :=
   "Collatz CEGIS: generate residue-rank candidates, reject uncovered blocks and nondecreasing SCCs"
 
 def rankedCegisTarget : String :=
-  "CO-TICKET-126 proves that a positive integer lacks finite stopping descent exactly when its inverse-limit residue path is an eventually-low infinite path in the adaptive unresolved tree"
+  "CO-TICKET-127 corrects the base exception: for n>1, finite-stopping counterexamples are exactly nontrivial eventually-low paths; the fixed n=1 path survives every tree and is not a counterexample"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-127 UniformEventuallyLowPathExclusion."
+  "CO-TICKET-128 UniformNontrivialEventuallyLowPathExclusion."
 
 def topAttackProofAttemptProtocol : String :=
-  "Exclude every eventually-low infinite path in the exact adaptive unresolved tree by a uniform rank or descent argument; do not mistake arbitrary 2-adic paths or the non-natural boundary ray for positive-integer counterexamples."
+  "Exclude every nontrivial eventually-low infinite path in the exact adaptive unresolved tree by a uniform rank or descent argument; retain the fixed n=1 basin path and do not mistake arbitrary 2-adic paths for positive-integer counterexamples."
 
 def latestExactResult : String :=
-  "EventuallyLowUnresolvedPathIffFiniteStoppingCounterexample, with 4027110 unresolved odd classes among 134217728 at precision 28 and no finite-to-infinite inference"
+  "NontrivialEventuallyLowPathIffFiniteStoppingCounterexample, with 4027109 nontrivial unresolved odd classes among 134217728 at precision 28 after removing the fixed n=1 path"
 
 def retiredRoute : String :=
   "treating the boundary ray -3^{-1} in Z_2 as a natural-integer obstruction"
 
 def retainedOpenPremise : String :=
-  "uniform exclusion of eventually-low unresolved paths"
+  "uniform exclusion of nontrivial eventually-low unresolved paths"
 
 end PrimeProject.OpenProblems.Collatz

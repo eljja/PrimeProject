@@ -28,21 +28,21 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-126 executes the preregistered 32M holdout once: certified residual 0.145872900933948 is below beta=0.23, a fifth finite transition only"
+  "TP-TICKET-127 proves that normalized affine contraction is equivalent to raw adverse-numerator transport and decomposes the 32M residual into paired 0.14135151084290043 plus boundary 0.004521390091047683"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-127 DyadicVaughanObstructionContractionAndInterpolation."
+  "TP-TICKET-128 UniformVaughanRawBudgetTransportAndInterpolation."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove the preregistered recurrence uniformly from actual Vaughan coefficients and an all-X between-scale envelope, or construct a Vaughan-realizable failure; the passing 32M holdout cannot supply either theorem."
+  "Prove raw adverse-numerator and positive-denominator transport uniformly from actual Vaughan coefficients plus an all-X interpolation envelope, or construct a Vaughan-realizable failure."
 
 def latestFiniteResult : String :=
-  "PreregisteredThirtyTwoMillionDyadicContractionHoldout: certified Q falls from 0.834379378078478 to 0.771657434492807 and the certified residual 0.145872900933948 leaves 0.0841270990660519 slack"
+  "RawBudgetTransportIffNormalizedAffineContraction: at 16M-to-32M the adverse numerator grows by 1.8603305083667954 while the positive denominator grows by 2.0115420952456007"
 
 def finiteEvidenceBoundary : String :=
   "one preregistered dyadic transition is falsification evidence, not a uniform recurrence, interpolation theorem, parity breakthrough, or exact-gap lower bound"
 
 def retainedOpenPremise : String :=
-  "uniform Vaughan-realizable affine contraction plus all-X interpolation and exact-gap positivity"
+  "uniform Vaughan raw-budget transport plus all-X interpolation, parity survival, and exact-gap positivity"
 
 end PrimeProject.OpenProblems.TwinPrime

@@ -200,6 +200,23 @@ def collatz_eventually_low_tree_audit(
             for residue, low_run in frontier.items()
             if low_run == maximum_low_run
         )[:8]
+        trivial_low_run = frontier.get(1)
+        nontrivial_histogram = histogram.copy()
+        if trivial_low_run is not None:
+            nontrivial_histogram[trivial_low_run] -= 1
+            if nontrivial_histogram[trivial_low_run] == 0:
+                del nontrivial_histogram[trivial_low_run]
+        nontrivial_unresolved_count = unresolved_count - int(
+            trivial_low_run is not None
+        )
+        maximum_nontrivial_low_run = max(
+            nontrivial_histogram.keys(), default=0
+        )
+        longest_nontrivial_witnesses = sorted(
+            residue
+            for residue, low_run in frontier.items()
+            if residue != 1 and low_run == maximum_nontrivial_low_run
+        )[:8]
 
         boundary = (-pow(3, -1, modulus)) % modulus
         if previous_boundary is not None:
@@ -220,12 +237,27 @@ def collatz_eventually_low_tree_audit(
             "certified_class_count": certified_count,
             "unresolved_class_count": unresolved_count,
             "unresolved_mass": unresolved_count / odd_class_count,
+            "trivial_fixed_path_present": trivial_low_run is not None,
+            "nontrivial_unresolved_class_count": nontrivial_unresolved_count,
+            "nontrivial_unresolved_mass": (
+                nontrivial_unresolved_count / odd_class_count
+            ),
             "low_child_unresolved_count": low_unresolved,
             "high_child_unresolved_count": high_unresolved,
             "maximum_consecutive_low_refinements": maximum_low_run,
             "longest_low_run_witnesses": longest_witnesses,
+            "maximum_nontrivial_consecutive_low_refinements": (
+                maximum_nontrivial_low_run
+            ),
+            "longest_nontrivial_low_run_witnesses": (
+                longest_nontrivial_witnesses
+            ),
             "low_run_histogram": {
                 str(run): count for run, count in sorted(histogram.items())
+            },
+            "nontrivial_low_run_histogram": {
+                str(run): count
+                for run, count in sorted(nontrivial_histogram.items())
             },
             "boundary_residue": boundary,
             "boundary_first_valuation": v2(3 * boundary + 1),
@@ -265,7 +297,20 @@ def collatz_eventually_low_tree_audit(
             ),
             "collatz_corollary": (
                 "By UniversalFiniteStoppingDescentIffCollatz, Collatz is equivalent "
-                "to absence of eventually-low infinite paths in the adaptive tree."
+                "to absence of nontrivial eventually-low infinite paths in the "
+                "adaptive tree. The fixed path n=1 is always present and is not a "
+                "counterexample."
+            ),
+        },
+        "base_exception_correction": {
+            "exception": (
+                "The fixed path n=1 is eventually low and has no strict iterate "
+                "below itself. It survives every U_k."
+            ),
+            "historical_scope_correction": (
+                "The TICKET126 path equivalence includes n=1, but its original "
+                "Collatz corollary omitted the n>1 quantifier. The corrected "
+                "corollary excludes only nontrivial eventually-low paths."
             ),
         },
         "boundary_ray_correction": {
@@ -285,10 +330,11 @@ def collatz_eventually_low_tree_audit(
         },
         "precision_rows": rows,
         "retained_target": {
-            "name": "UniformEventuallyLowPathExclusion",
+            "name": "UniformNontrivialEventuallyLowPathExclusion",
             "statement": (
-                "Prove that every infinite unresolved path has infinitely many high "
-                "refinements, or give an independent well-founded rank excluding an "
+                "Prove that every infinite unresolved path other than the fixed "
+                "n=1 path has infinitely many high refinements, or give an "
+                "independent well-founded rank excluding every nontrivial "
                 "eventually-low tail."
             ),
         },
@@ -299,9 +345,16 @@ def collatz_eventually_low_tree_audit(
             "largest_unresolved_class_count": int(
                 last["unresolved_class_count"]
             ),
+            "largest_nontrivial_unresolved_class_count": int(
+                last["nontrivial_unresolved_class_count"]
+            ),
             "largest_unresolved_mass": float(last["unresolved_mass"]),
             "largest_maximum_low_run": max(
                 int(row["maximum_consecutive_low_refinements"])
+                for row in rows
+            ),
+            "largest_maximum_nontrivial_low_run": max(
+                int(row["maximum_nontrivial_consecutive_low_refinements"])
                 for row in rows
             ),
             "ticket125_replay_mismatch_count": ticket125_mismatch_count,
@@ -309,8 +362,9 @@ def collatz_eventually_low_tree_audit(
         },
         "proof_boundary": (
             "The path equivalence is exact and removes a false 2-adic obstruction. "
-            "The finite tree through 28 bits does not exclude all eventually-low "
-            "paths, so Collatz remains open."
+            "The fixed n=1 path must be retained and excluded from counterexample "
+            "language. The finite tree through 28 bits does not exclude all "
+            "nontrivial eventually-low paths, so Collatz remains open."
         ),
     }
 
@@ -680,14 +734,14 @@ def build_attempts(audit: dict[str, Any]) -> list[dict[str, Any]]:
         {
             "problem_id": "collatz",
             "ticket_id": "CO-TICKET-126",
-            "status": "eventually_low_path_equivalence_proved_uniform_exclusion_open",
+            "status": "eventually_low_path_equivalence_corrected_nontrivial_exclusion_open",
             "route": "EventuallyLowUnresolvedPathEquivalence",
             "proof_or_counterexample_mode": "contrapositive natural-path classification plus adaptive exact cylinders",
             "attempt": "Separate natural-number paths from generic 2-adic boundary rays and characterize the only infinite paths that could encode a counterexample.",
             "bounded_result": {"audit_ref": "collatz"},
-            "obstruction": "No uniform theorem excludes every eventually-low unresolved path beyond the finite 28-bit tree.",
-            "candidate_theorem": "UniformEventuallyLowPathExclusion",
-            "next_experiment": "Synthesize a rank only for low-child tails and use surviving long low runs as exact counterexamples to each proposed rank.",
+            "obstruction": "The n=1 path necessarily survives, and no uniform theorem excludes every nontrivial eventually-low unresolved path beyond the finite 28-bit tree.",
+            "candidate_theorem": "UniformNontrivialEventuallyLowPathExclusion",
+            "next_experiment": "Exclude n=1, synthesize a rank only for nontrivial low-child tails, and use surviving long low runs as exact counterexamples to each proposed rank.",
             "claim_boundary": boundary,
         },
         {

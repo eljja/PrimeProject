@@ -28,21 +28,21 @@ def counterexampleGuidedSynthesis : String :=
   "RH CEGIS: generate kernel cone candidates, reject circular imports, search adversarial kernels"
 
 def rankedCegisTarget : String :=
-  "RH-TICKET-126 proves that the autocorrelation cone cannot be dense in any full test space with continuous evaluation at the identity and a negative-at-identity test function"
+  "RH-TICKET-127 proves that every strict negative witness to a continuous Weil form has a witness in any enumerable dense core, yielding a counterexample semidecision under complete interval evaluation"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-127 NonCircularWeilAutocorrelationPositivity."
+  "RH-TICKET-128 IntervalCertifiedWeilCoreEvaluator."
 
 def topAttackProofAttemptProtocol : String :=
-  "Work directly on every admissible Weil autocorrelation, prove the explicit-formula quadratic form nonnegative without importing zero placement, and reject the retired full-space density shortcut, finite Gram replay, and sampled-zero evidence."
+  "Construct and prove density of an enumerable admissible Weil core, certify strict signs by convergent interval bounds, and use it only as a counterexample semidecision; finite non-discovery is not RH positivity."
 
 def latestExactResult : String :=
-  "ContinuousEvaluationSeparatesAutocorrelationCone: if evaluation at the identity is continuous and the ambient real test space contains a function negative there, the autocorrelation cone lies in a proper closed half-space and is not dense"
+  "DenseCoreNegativeWitnessSemidecision: continuity and density force every strict negative Weil witness to have a core witness, conditional on an exact criterion and complete strict-sign interval evaluation"
 
 def retiredRoute : String :=
   "full-test-space autocorrelation-cone density"
 
 def retainedOpenPremise : String :=
-  "non-circular Weil positivity for every admissible autocorrelation"
+  "an exact dense Weil core and complete interval evaluator for counterexamples; direct all-autocorrelation positivity for a proof"
 
 end PrimeProject.OpenProblems.Riemann

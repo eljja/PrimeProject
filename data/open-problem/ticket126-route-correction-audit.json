@@ -70,7 +70,11 @@
         "statement": "A positive odd integer n has no finite stopping descent if and only if its residue path is an eventually-low infinite path in U_k.",
         "forward_proof": "For k above the bit length of n, the representative of n modulo 2^k is n and every later refinement chooses the low child. If n never descends, no U_k certificate can remove this path.",
         "reverse_proof": "An eventually-low inverse-limit path is represented by one fixed positive odd integer n after some level. If n descended after m accelerated steps consuming S valuation bits, every k>S and above the bit length of n would certify that descent, contradicting membership in every later U_k.",
-        "collatz_corollary": "By UniversalFiniteStoppingDescentIffCollatz, Collatz is equivalent to absence of eventually-low infinite paths in the adaptive tree."
+        "collatz_corollary": "By UniversalFiniteStoppingDescentIffCollatz, Collatz is equivalent to absence of nontrivial eventually-low infinite paths in the adaptive tree. The fixed path n=1 is always present and is not a counterexample."
+      },
+      "base_exception_correction": {
+        "exception": "The fixed path n=1 is eventually low and has no strict iterate below itself. It survives every U_k.",
+        "historical_scope_correction": "The TICKET126 path equivalence includes n=1, but its original Collatz corollary omitted the n>1 quantifier. The corrected corollary excludes only nontrivial eventually-low paths."
       },
       "boundary_ray_correction": {
         "ray": "r_k=-3^(-1) mod 2^k",
@@ -86,6 +90,9 @@
           "certified_class_count": 2,
           "unresolved_class_count": 6,
           "unresolved_mass": 0.75,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 5,
+          "nontrivial_unresolved_mass": 0.625,
           "low_child_unresolved_count": 6,
           "high_child_unresolved_count": 0,
           "maximum_consecutive_low_refinements": 0,
@@ -97,8 +104,19 @@
             11,
             15
           ],
+          "maximum_nontrivial_consecutive_low_refinements": 0,
+          "longest_nontrivial_low_run_witnesses": [
+            3,
+            5,
+            7,
+            11,
+            15
+          ],
           "low_run_histogram": {
             "0": 6
+          },
+          "nontrivial_low_run_histogram": {
+            "0": 5
           },
           "boundary_residue": 5,
           "boundary_first_valuation": 4
@@ -109,6 +127,9 @@
           "certified_class_count": 7,
           "unresolved_class_count": 9,
           "unresolved_mass": 0.5625,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 8,
+          "nontrivial_unresolved_mass": 0.5,
           "low_child_unresolved_count": 5,
           "high_child_unresolved_count": 4,
           "maximum_consecutive_low_refinements": 1,
@@ -119,9 +140,20 @@
             11,
             15
           ],
+          "maximum_nontrivial_consecutive_low_refinements": 1,
+          "longest_nontrivial_low_run_witnesses": [
+            3,
+            7,
+            11,
+            15
+          ],
           "low_run_histogram": {
             "0": 4,
             "1": 5
+          },
+          "nontrivial_low_run_histogram": {
+            "0": 4,
+            "1": 4
           },
           "boundary_residue": 21,
           "boundary_first_valuation": 6
@@ -132,6 +164,9 @@
           "certified_class_count": 19,
           "unresolved_class_count": 13,
           "unresolved_mass": 0.40625,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 12,
+          "nontrivial_unresolved_mass": 0.375,
           "low_child_unresolved_count": 8,
           "high_child_unresolved_count": 5,
           "maximum_consecutive_low_refinements": 2,
@@ -141,10 +176,21 @@
             11,
             15
           ],
+          "maximum_nontrivial_consecutive_low_refinements": 2,
+          "longest_nontrivial_low_run_witnesses": [
+            7,
+            11,
+            15
+          ],
           "low_run_histogram": {
             "0": 5,
             "1": 4,
             "2": 4
+          },
+          "nontrivial_low_run_histogram": {
+            "0": 5,
+            "1": 4,
+            "2": 3
           },
           "boundary_residue": 21,
           "boundary_first_valuation": 6
@@ -155,6 +201,9 @@
           "certified_class_count": 43,
           "unresolved_class_count": 21,
           "unresolved_mass": 0.328125,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 20,
+          "nontrivial_unresolved_mass": 0.3125,
           "low_child_unresolved_count": 10,
           "high_child_unresolved_count": 11,
           "maximum_consecutive_low_refinements": 3,
@@ -163,11 +212,22 @@
             7,
             15
           ],
+          "maximum_nontrivial_consecutive_low_refinements": 3,
+          "longest_nontrivial_low_run_witnesses": [
+            7,
+            15
+          ],
           "low_run_histogram": {
             "0": 11,
             "1": 4,
             "2": 3,
             "3": 3
+          },
+          "nontrivial_low_run_histogram": {
+            "0": 11,
+            "1": 4,
+            "2": 3,
+            "3": 2
           },
           "boundary_residue": 85,
           "boundary_first_valuation": 8
@@ -178,11 +238,18 @@
           "certified_class_count": 94,
           "unresolved_class_count": 34,
           "unresolved_mass": 0.265625,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 33,
+          "nontrivial_unresolved_mass": 0.2578125,
           "low_child_unresolved_count": 18,
           "high_child_unresolved_count": 16,
           "maximum_consecutive_low_refinements": 4,
           "longest_low_run_witnesses": [
             1,
+            15
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 4,
+          "longest_nontrivial_low_run_witnesses": [
             15
           ],
           "low_run_histogram": {
@@ -191,6 +258,13 @@
             "2": 4,
             "3": 2,
             "4": 2
+          },
+          "nontrivial_low_run_histogram": {
+            "0": 16,
+            "1": 10,
+            "2": 4,
+            "3": 2,
+            "4": 1
           },
           "boundary_residue": 85,
           "boundary_first_valuation": 8
@@ -201,11 +275,19 @@
           "certified_class_count": 203,
           "unresolved_class_count": 53,
           "unresolved_mass": 0.20703125,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 52,
+          "nontrivial_unresolved_mass": 0.203125,
           "low_child_unresolved_count": 27,
           "high_child_unresolved_count": 26,
           "maximum_consecutive_low_refinements": 5,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 4,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 26,
@@ -214,6 +296,13 @@
             "3": 3,
             "4": 2,
             "5": 1
+          },
+          "nontrivial_low_run_histogram": {
+            "0": 26,
+            "1": 13,
+            "2": 8,
+            "3": 3,
+            "4": 2
           },
           "boundary_residue": 341,
           "boundary_first_valuation": 10
@@ -224,11 +313,19 @@
           "certified_class_count": 421,
           "unresolved_class_count": 91,
           "unresolved_mass": 0.177734375,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 90,
+          "nontrivial_unresolved_mass": 0.17578125,
           "low_child_unresolved_count": 47,
           "high_child_unresolved_count": 44,
           "maximum_consecutive_low_refinements": 6,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 5,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 44,
@@ -239,6 +336,14 @@
             "5": 2,
             "6": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 44,
+            "1": 23,
+            "2": 12,
+            "3": 7,
+            "4": 2,
+            "5": 2
+          },
           "boundary_residue": 341,
           "boundary_first_valuation": 10
         },
@@ -248,11 +353,19 @@
           "certified_class_count": 869,
           "unresolved_class_count": 155,
           "unresolved_mass": 0.1513671875,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 154,
+          "nontrivial_unresolved_mass": 0.150390625,
           "low_child_unresolved_count": 79,
           "high_child_unresolved_count": 76,
           "maximum_consecutive_low_refinements": 7,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 6,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 76,
@@ -264,6 +377,15 @@
             "6": 2,
             "7": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 76,
+            "1": 38,
+            "2": 18,
+            "3": 12,
+            "4": 6,
+            "5": 2,
+            "6": 2
+          },
           "boundary_residue": 1365,
           "boundary_first_valuation": 12
         },
@@ -273,11 +395,19 @@
           "certified_class_count": 1765,
           "unresolved_class_count": 283,
           "unresolved_mass": 0.13818359375,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 282,
+          "nontrivial_unresolved_mass": 0.1376953125,
           "low_child_unresolved_count": 141,
           "high_child_unresolved_count": 142,
           "maximum_consecutive_low_refinements": 8,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 7,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 142,
@@ -290,6 +420,16 @@
             "7": 2,
             "8": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 142,
+            "1": 70,
+            "2": 35,
+            "3": 15,
+            "4": 11,
+            "5": 5,
+            "6": 2,
+            "7": 2
+          },
           "boundary_residue": 1365,
           "boundary_first_valuation": 12
         },
@@ -299,11 +439,19 @@
           "certified_class_count": 3587,
           "unresolved_class_count": 509,
           "unresolved_mass": 0.124267578125,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 508,
+          "nontrivial_unresolved_mass": 0.1240234375,
           "low_child_unresolved_count": 256,
           "high_child_unresolved_count": 253,
           "maximum_consecutive_low_refinements": 9,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 8,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 253,
@@ -317,6 +465,17 @@
             "8": 2,
             "9": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 253,
+            "1": 128,
+            "2": 62,
+            "3": 32,
+            "4": 14,
+            "5": 10,
+            "6": 5,
+            "7": 2,
+            "8": 2
+          },
           "boundary_residue": 5461,
           "boundary_first_valuation": 14
         },
@@ -326,11 +485,19 @@
           "certified_class_count": 7316,
           "unresolved_class_count": 876,
           "unresolved_mass": 0.10693359375,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 875,
+          "nontrivial_unresolved_mass": 0.1068115234375,
           "low_child_unresolved_count": 446,
           "high_child_unresolved_count": 430,
           "maximum_consecutive_low_refinements": 10,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 9,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 430,
@@ -345,6 +512,18 @@
             "9": 2,
             "10": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 430,
+            "1": 221,
+            "2": 114,
+            "3": 54,
+            "4": 26,
+            "5": 13,
+            "6": 8,
+            "7": 5,
+            "8": 2,
+            "9": 2
+          },
           "boundary_residue": 5461,
           "boundary_first_valuation": 14
         },
@@ -354,11 +533,19 @@
           "certified_class_count": 14774,
           "unresolved_class_count": 1610,
           "unresolved_mass": 0.0982666015625,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 1609,
+          "nontrivial_unresolved_mass": 0.09820556640625,
           "low_child_unresolved_count": 808,
           "high_child_unresolved_count": 802,
           "maximum_consecutive_low_refinements": 11,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 10,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 802,
@@ -374,6 +561,19 @@
             "10": 2,
             "11": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 802,
+            "1": 401,
+            "2": 198,
+            "3": 105,
+            "4": 50,
+            "5": 25,
+            "6": 13,
+            "7": 6,
+            "8": 5,
+            "9": 2,
+            "10": 2
+          },
           "boundary_residue": 21845,
           "boundary_first_valuation": 16
         },
@@ -383,11 +583,19 @@
           "certified_class_count": 29863,
           "unresolved_class_count": 2905,
           "unresolved_mass": 0.088653564453125,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 2904,
+          "nontrivial_unresolved_mass": 0.088623046875,
           "low_child_unresolved_count": 1453,
           "high_child_unresolved_count": 1452,
           "maximum_consecutive_low_refinements": 12,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 11,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 1452,
@@ -404,6 +612,20 @@
             "11": 2,
             "12": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 1452,
+            "1": 725,
+            "2": 366,
+            "3": 179,
+            "4": 90,
+            "5": 47,
+            "6": 20,
+            "7": 11,
+            "8": 6,
+            "9": 4,
+            "10": 2,
+            "11": 2
+          },
           "boundary_residue": 21845,
           "boundary_first_valuation": 16
         },
@@ -413,11 +635,19 @@
           "certified_class_count": 60517,
           "unresolved_class_count": 5019,
           "unresolved_mass": 0.0765838623046875,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 5018,
+          "nontrivial_unresolved_mass": 0.076568603515625,
           "low_child_unresolved_count": 2505,
           "high_child_unresolved_count": 2514,
           "maximum_consecutive_low_refinements": 13,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 12,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 2514,
@@ -435,6 +665,21 @@
             "12": 2,
             "13": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 2514,
+            "1": 1249,
+            "2": 631,
+            "3": 314,
+            "4": 156,
+            "5": 75,
+            "6": 39,
+            "7": 18,
+            "8": 8,
+            "9": 6,
+            "10": 4,
+            "11": 2,
+            "12": 2
+          },
           "boundary_residue": 87381,
           "boundary_first_valuation": 18
         },
@@ -444,11 +689,19 @@
           "certified_class_count": 121825,
           "unresolved_class_count": 9247,
           "unresolved_mass": 0.07054901123046875,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 9246,
+          "nontrivial_unresolved_mass": 0.0705413818359375,
           "low_child_unresolved_count": 4615,
           "high_child_unresolved_count": 4632,
           "maximum_consecutive_low_refinements": 14,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 13,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 4632,
@@ -467,6 +720,22 @@
             "13": 2,
             "14": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 4632,
+            "1": 2308,
+            "2": 1158,
+            "3": 568,
+            "4": 290,
+            "5": 145,
+            "6": 69,
+            "7": 37,
+            "8": 17,
+            "9": 8,
+            "10": 6,
+            "11": 4,
+            "12": 2,
+            "13": 2
+          },
           "boundary_residue": 87381,
           "boundary_first_valuation": 18
         },
@@ -476,11 +745,19 @@
           "certified_class_count": 245402,
           "unresolved_class_count": 16742,
           "unresolved_mass": 0.06386566162109375,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 16741,
+          "nontrivial_unresolved_mass": 0.06386184692382812,
           "low_child_unresolved_count": 8400,
           "high_child_unresolved_count": 8342,
           "maximum_consecutive_low_refinements": 15,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 14,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 8342,
@@ -500,6 +777,23 @@
             "14": 2,
             "15": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 8342,
+            "1": 4212,
+            "2": 2093,
+            "3": 1045,
+            "4": 520,
+            "5": 267,
+            "6": 129,
+            "7": 62,
+            "8": 34,
+            "9": 16,
+            "10": 7,
+            "11": 6,
+            "12": 4,
+            "13": 2,
+            "14": 2
+          },
           "boundary_residue": 349525,
           "boundary_first_valuation": 20
         },
@@ -509,11 +803,19 @@
           "certified_class_count": 492556,
           "unresolved_class_count": 31732,
           "unresolved_mass": 0.06052398681640625,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 31731,
+          "nontrivial_unresolved_mass": 0.06052207946777344,
           "low_child_unresolved_count": 15864,
           "high_child_unresolved_count": 15868,
           "maximum_consecutive_low_refinements": 16,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 15,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 15868,
@@ -534,6 +836,24 @@
             "15": 2,
             "16": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 15868,
+            "1": 7931,
+            "2": 3975,
+            "3": 1988,
+            "4": 981,
+            "5": 498,
+            "6": 247,
+            "7": 121,
+            "8": 57,
+            "9": 30,
+            "10": 15,
+            "11": 6,
+            "12": 6,
+            "13": 4,
+            "14": 2,
+            "15": 2
+          },
           "boundary_residue": 349525,
           "boundary_first_valuation": 20
         },
@@ -543,11 +863,19 @@
           "certified_class_count": 989516,
           "unresolved_class_count": 59060,
           "unresolved_mass": 0.056324005126953125,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 59059,
+          "nontrivial_unresolved_mass": 0.05632305145263672,
           "low_child_unresolved_count": 29536,
           "high_child_unresolved_count": 29524,
           "maximum_consecutive_low_refinements": 17,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 16,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 29524,
@@ -569,6 +897,25 @@
             "16": 2,
             "17": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 29524,
+            "1": 14778,
+            "2": 7385,
+            "3": 3705,
+            "4": 1844,
+            "5": 907,
+            "6": 464,
+            "7": 230,
+            "8": 109,
+            "9": 51,
+            "10": 28,
+            "11": 14,
+            "12": 6,
+            "13": 6,
+            "14": 4,
+            "15": 2,
+            "16": 2
+          },
           "boundary_residue": 1398101,
           "boundary_first_valuation": 22
         },
@@ -578,11 +925,19 @@
           "certified_class_count": 1991481,
           "unresolved_class_count": 105671,
           "unresolved_mass": 0.05038785934448242,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 105670,
+          "nontrivial_unresolved_mass": 0.05038738250732422,
           "low_child_unresolved_count": 52844,
           "high_child_unresolved_count": 52827,
           "maximum_consecutive_low_refinements": 18,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 17,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 52827,
@@ -605,6 +960,26 @@
             "17": 2,
             "18": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 52827,
+            "1": 26439,
+            "2": 13232,
+            "3": 6587,
+            "4": 3325,
+            "5": 1636,
+            "6": 797,
+            "7": 413,
+            "8": 210,
+            "9": 101,
+            "10": 46,
+            "11": 25,
+            "12": 13,
+            "13": 6,
+            "14": 5,
+            "15": 4,
+            "16": 2,
+            "17": 2
+          },
           "boundary_residue": 1398101,
           "boundary_first_valuation": 22
         },
@@ -614,11 +989,19 @@
           "certified_class_count": 3995411,
           "unresolved_class_count": 198893,
           "unresolved_mass": 0.04741978645324707,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 198892,
+          "nontrivial_unresolved_mass": 0.04741954803466797,
           "low_child_unresolved_count": 99460,
           "high_child_unresolved_count": 99433,
           "maximum_consecutive_low_refinements": 19,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 18,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 99433,
@@ -642,6 +1025,27 @@
             "18": 2,
             "19": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 99433,
+            "1": 49721,
+            "2": 24878,
+            "3": 12454,
+            "4": 6214,
+            "5": 3124,
+            "6": 1545,
+            "7": 745,
+            "8": 392,
+            "9": 198,
+            "10": 92,
+            "11": 44,
+            "12": 24,
+            "13": 11,
+            "14": 5,
+            "15": 4,
+            "16": 4,
+            "17": 2,
+            "18": 2
+          },
           "boundary_residue": 5592405,
           "boundary_first_valuation": 24
         },
@@ -651,11 +1055,19 @@
           "certified_class_count": 8020908,
           "unresolved_class_count": 367700,
           "unresolved_mass": 0.043833255767822266,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 367699,
+          "nontrivial_unresolved_mass": 0.043833136558532715,
           "low_child_unresolved_count": 183932,
           "high_child_unresolved_count": 183768,
           "maximum_consecutive_low_refinements": 20,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 19,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 183768,
@@ -680,6 +1092,28 @@
             "19": 2,
             "20": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 183768,
+            "1": 91950,
+            "2": 45997,
+            "3": 22980,
+            "4": 11518,
+            "5": 5759,
+            "6": 2889,
+            "7": 1430,
+            "8": 688,
+            "9": 362,
+            "10": 186,
+            "11": 85,
+            "12": 42,
+            "13": 21,
+            "14": 9,
+            "15": 3,
+            "16": 4,
+            "17": 4,
+            "18": 2,
+            "19": 2
+          },
           "boundary_residue": 5592405,
           "boundary_first_valuation": 24
         },
@@ -689,11 +1123,19 @@
           "certified_class_count": 16122935,
           "unresolved_class_count": 654281,
           "unresolved_mass": 0.038998186588287354,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 654280,
+          "nontrivial_unresolved_mass": 0.03899812698364258,
           "low_child_unresolved_count": 327187,
           "high_child_unresolved_count": 327094,
           "maximum_consecutive_low_refinements": 21,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 20,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 327094,
@@ -719,6 +1161,29 @@
             "20": 2,
             "21": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 327094,
+            "1": 163373,
+            "2": 81848,
+            "3": 41021,
+            "4": 20398,
+            "5": 10301,
+            "6": 5128,
+            "7": 2584,
+            "8": 1274,
+            "9": 618,
+            "10": 322,
+            "11": 163,
+            "12": 78,
+            "13": 38,
+            "14": 18,
+            "15": 7,
+            "16": 3,
+            "17": 4,
+            "18": 4,
+            "19": 2,
+            "20": 2
+          },
           "boundary_residue": 22369621,
           "boundary_first_valuation": 26
         },
@@ -728,11 +1193,19 @@
           "certified_class_count": 32326989,
           "unresolved_class_count": 1227443,
           "unresolved_mass": 0.0365806519985199,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 1227442,
+          "nontrivial_unresolved_mass": 0.03658062219619751,
           "low_child_unresolved_count": 613834,
           "high_child_unresolved_count": 613609,
           "maximum_consecutive_low_refinements": 22,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 21,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 613609,
@@ -759,6 +1232,30 @@
             "21": 2,
             "22": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 613609,
+            "1": 306953,
+            "2": 153286,
+            "3": 76817,
+            "4": 38404,
+            "5": 19138,
+            "6": 9625,
+            "7": 4816,
+            "8": 2425,
+            "9": 1186,
+            "10": 581,
+            "11": 301,
+            "12": 157,
+            "13": 70,
+            "14": 36,
+            "15": 16,
+            "16": 7,
+            "17": 3,
+            "18": 4,
+            "19": 4,
+            "20": 2,
+            "21": 2
+          },
           "boundary_residue": 22369621,
           "boundary_first_valuation": 26
         },
@@ -768,11 +1265,19 @@
           "certified_class_count": 64844047,
           "unresolved_class_count": 2264817,
           "unresolved_mass": 0.03374840319156647,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 2264816,
+          "nontrivial_unresolved_mass": 0.03374838829040527,
           "low_child_unresolved_count": 1132678,
           "high_child_unresolved_count": 1132139,
           "maximum_consecutive_low_refinements": 23,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 22,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 1132139,
@@ -800,6 +1305,31 @@
             "22": 2,
             "23": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 1132139,
+            "1": 566239,
+            "2": 283144,
+            "3": 141504,
+            "4": 70965,
+            "5": 35435,
+            "6": 17648,
+            "7": 8879,
+            "8": 4429,
+            "9": 2242,
+            "10": 1097,
+            "11": 539,
+            "12": 279,
+            "13": 145,
+            "14": 67,
+            "15": 33,
+            "16": 13,
+            "17": 5,
+            "18": 2,
+            "19": 4,
+            "20": 4,
+            "21": 2,
+            "22": 2
+          },
           "boundary_residue": 89478485,
           "boundary_first_valuation": 28
         },
@@ -809,11 +1339,19 @@
           "certified_class_count": 130190618,
           "unresolved_class_count": 4027110,
           "unresolved_mass": 0.030004307627677917,
+          "trivial_fixed_path_present": true,
+          "nontrivial_unresolved_class_count": 4027109,
+          "nontrivial_unresolved_mass": 0.03000430017709732,
           "low_child_unresolved_count": 2013754,
           "high_child_unresolved_count": 2013356,
           "maximum_consecutive_low_refinements": 24,
           "longest_low_run_witnesses": [
             1
+          ],
+          "maximum_nontrivial_consecutive_low_refinements": 23,
+          "longest_nontrivial_low_run_witnesses": [
+            27,
+            31
           ],
           "low_run_histogram": {
             "0": 2013356,
@@ -842,25 +1380,53 @@
             "23": 2,
             "24": 1
           },
+          "nontrivial_low_run_histogram": {
+            "0": 2013356,
+            "1": 1006888,
+            "2": 503299,
+            "3": 251542,
+            "4": 125940,
+            "5": 63109,
+            "6": 31523,
+            "7": 15681,
+            "8": 7858,
+            "9": 3972,
+            "10": 2001,
+            "11": 968,
+            "12": 481,
+            "13": 252,
+            "14": 121,
+            "15": 61,
+            "16": 27,
+            "17": 12,
+            "18": 4,
+            "19": 2,
+            "20": 4,
+            "21": 4,
+            "22": 2,
+            "23": 2
+          },
           "boundary_residue": 89478485,
           "boundary_first_valuation": 28
         }
       ],
       "retained_target": {
-        "name": "UniformEventuallyLowPathExclusion",
-        "statement": "Prove that every infinite unresolved path has infinitely many high refinements, or give an independent well-founded rank excluding an eventually-low tail."
+        "name": "UniformNontrivialEventuallyLowPathExclusion",
+        "statement": "Prove that every infinite unresolved path other than the fixed n=1 path has infinitely many high refinements, or give an independent well-founded rank excluding every nontrivial eventually-low tail."
       },
       "machine_audit": {
         "minimum_precision_bits": 4,
         "maximum_precision_bits": 28,
         "largest_odd_class_count": 134217728,
         "largest_unresolved_class_count": 4027110,
+        "largest_nontrivial_unresolved_class_count": 4027109,
         "largest_unresolved_mass": 0.030004307627677917,
         "largest_maximum_low_run": 24,
+        "largest_maximum_nontrivial_low_run": 23,
         "ticket125_replay_mismatch_count": 0,
         "total_failure_count": 0
       },
-      "proof_boundary": "The path equivalence is exact and removes a false 2-adic obstruction. The finite tree through 28 bits does not exclude all eventually-low paths, so Collatz remains open."
+      "proof_boundary": "The path equivalence is exact and removes a false 2-adic obstruction. The fixed n=1 path must be retained and excluded from counterexample language. The finite tree through 28 bits does not exclude all nontrivial eventually-low paths, so Collatz remains open."
     },
     "goldbach": {
       "theorem_name": "ExplicitProperPrimePowerContaminationBound",
@@ -10908,16 +11474,16 @@
     {
       "problem_id": "collatz",
       "ticket_id": "CO-TICKET-126",
-      "status": "eventually_low_path_equivalence_proved_uniform_exclusion_open",
+      "status": "eventually_low_path_equivalence_corrected_nontrivial_exclusion_open",
       "route": "EventuallyLowUnresolvedPathEquivalence",
       "proof_or_counterexample_mode": "contrapositive natural-path classification plus adaptive exact cylinders",
       "attempt": "Separate natural-number paths from generic 2-adic boundary rays and characterize the only infinite paths that could encode a counterexample.",
       "bounded_result": {
         "audit_ref": "collatz"
       },
-      "obstruction": "No uniform theorem excludes every eventually-low unresolved path beyond the finite 28-bit tree.",
-      "candidate_theorem": "UniformEventuallyLowPathExclusion",
-      "next_experiment": "Synthesize a rank only for low-child tails and use surviving long low runs as exact counterexamples to each proposed rank.",
+      "obstruction": "The n=1 path necessarily survives, and no uniform theorem excludes every nontrivial eventually-low unresolved path beyond the finite 28-bit tree.",
+      "candidate_theorem": "UniformNontrivialEventuallyLowPathExclusion",
+      "next_experiment": "Exclude n=1, synthesize a rank only for nontrivial low-child tails, and use surviving long low runs as exact counterexamples to each proposed rank.",
       "claim_boundary": "No conjecture proof and no certified conjecture counterexample."
     },
     {

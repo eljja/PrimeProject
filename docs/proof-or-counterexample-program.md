@@ -5256,6 +5256,37 @@ positive exact-gap-two lower bound.
 TICKET-126 proves three intermediate theorems and records one finite holdout.
 It proves no conjecture and certifies no conjecture counterexample. The next
 targets are `NonCircularWeilAutocorrelationPositivity`,
-`UniformEventuallyLowPathExclusion`,
+`UniformNontrivialEventuallyLowPathExclusion`,
 `ExplicitGoldbachMajorAndResidualConstants`, and
 `DyadicVaughanObstructionContractionAndInterpolation`.
+
+## TICKET-127: exception repair and effective bridges
+
+TICKET-127 first repairs a public logical defect. The fixed Collatz path `n=1`
+is eventually low and has no strict descent, so TICKET126's original statement
+that all eventually-low paths must be absent was impossible. The exact path
+equivalence remains valid, but its Collatz corollary is restricted to `n>1`.
+At 28 bits there are 4,027,109 nontrivial unresolved odd classes after removing
+the one fixed path; the longest nontrivial low runs have length 23 with
+witnesses 27 and 31.
+
+For RH, continuity plus a dense enumerable core proves completeness of strict
+negative-witness search, conditional on exact interval evaluation. This is a
+counterexample semidecision theorem, not a finite proof route. For Goldbach,
+the binary singular series satisfies `S(N)>=1` by comparison with the
+telescoping product over all integers. In the exact identity
+`R(N)=G(N)-S(N)N`, this closes normalized `A=1` and isolates the still-open
+pointwise residual constant `K<42.83274372223497` above `H=4e18`.
+
+For Twin Prime, the normalized dyadic recurrence is exactly equivalent to a raw
+Vaughan adverse-numerator transport inequality. The 16M-to-32M audit separates
+the normalized residual into paired contribution 0.14135151084290043 and
+boundary contribution 0.004521390091047683. These identities define a sharper
+coefficient-level target but prove no tail recurrence or parity breakthrough.
+
+TICKET-127 proves four intermediate statements and records one historical
+correction. All conjecture-resolution counters remain zero. The next targets
+are `IntervalCertifiedWeilCoreEvaluator`,
+`UniformNontrivialEventuallyLowPathExclusion`,
+`ExplicitPointwiseBinaryGoldbachResidualConstant`, and
+`UniformVaughanRawBudgetTransportAndInterpolation`.

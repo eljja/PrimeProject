@@ -122,6 +122,7 @@ TICKET123_SCHEMA = "primeproject.ticket123-canonical-defect-ratio-closure-bridge
 TICKET124_SCHEMA = "primeproject.ticket124-canonical-obstruction-limsup-criterion.v1"
 TICKET125_SCHEMA = "primeproject.ticket125-infinite-bridge-contracts.v1"
 TICKET126_SCHEMA = "primeproject.ticket126-route-correction-audit.v1"
+TICKET127_SCHEMA = "primeproject.ticket127-exception-repair-effective-bridges.v1"
 
 
 def fail(message: str) -> int:
@@ -7412,8 +7413,10 @@ def main() -> int:
         return fail("ticket126 RH route correction changed")
     collatz126 = audit126.get("collatz", {})
     collatz_machine126 = collatz126.get("machine_audit", {})
-    if collatz126.get("theorem_name") != "EventuallyLowUnresolvedPathIffFiniteStoppingCounterexample" or int(collatz_machine126.get("maximum_precision_bits", -1)) != 28 or int(collatz_machine126.get("largest_unresolved_class_count", -1)) != 4027110 or int(collatz_machine126.get("largest_maximum_low_run", -1)) != 24 or int(collatz_machine126.get("ticket125_replay_mismatch_count", -1)) != 0:
+    if collatz126.get("theorem_name") != "EventuallyLowUnresolvedPathIffFiniteStoppingCounterexample" or int(collatz_machine126.get("maximum_precision_bits", -1)) != 28 or int(collatz_machine126.get("largest_unresolved_class_count", -1)) != 4027110 or int(collatz_machine126.get("largest_nontrivial_unresolved_class_count", -1)) != 4027109 or int(collatz_machine126.get("largest_maximum_low_run", -1)) != 24 or int(collatz_machine126.get("largest_maximum_nontrivial_low_run", -1)) != 23 or int(collatz_machine126.get("ticket125_replay_mismatch_count", -1)) != 0:
         return fail("ticket126 Collatz natural-path frontier changed")
+    if collatz126.get("retained_target", {}).get("name") != "UniformNontrivialEventuallyLowPathExclusion" or "n=1" not in str(collatz126.get("base_exception_correction", {}).get("exception", "")):
+        return fail("ticket126 Collatz base-exception correction changed")
     goldbach126 = audit126.get("goldbach", {})
     goldbach_machine126 = goldbach126.get("machine_audit", {})
     if goldbach126.get("theorem_name") != "ExplicitProperPrimePowerContaminationBound" or abs(float(goldbach_machine126.get("explicit_uniform_B", 0)) - 2.0949181787429647) > 1e-15 or goldbach126.get("route_decision", {}).get("closed_premise") != "proper-prime-power contamination constant B":
@@ -7428,6 +7431,45 @@ def main() -> int:
         return fail("ticket126 preregistration or holdout provenance missing")
     if "proves or refutes none" not in str(audit126.get("proof_boundary", "")).lower():
         return fail("ticket126 proof boundary changed")
+
+    path127 = Path("data/open-problem/ticket127-exception-repair-effective-bridges.json")
+    if not path127.exists():
+        return fail("missing ticket127 effective bridge audit")
+    ticket127 = read_json(path127)
+    if ticket127.get("schema") != TICKET127_SCHEMA or ticket127.get("status") != "exception_repaired_effective_bridges_proved_all_conjectures_open":
+        return fail("ticket127 schema or status changed")
+    attempts127 = ticket127.get("attempts", [])
+    by_id127 = {str(row.get("problem_id")): row for row in attempts127 if isinstance(row, dict)} if isinstance(attempts127, list) else {}
+    if set(by_id127) != EXPECTED_PROBLEMS:
+        return fail("ticket127 attempts missing problems")
+    paths127 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-127-dense-core-semidecision.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-127-nontrivial-path-correction.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-127-singular-series-lower-bound.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-127-raw-budget-transport.json"),
+    }
+    for problem_id, attempt in by_id127.items():
+        if not paths127[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket127 artifact or proof boundary missing")
+    audit127 = ticket127.get("effective_bridge_audit", {})
+    machine127 = audit127.get("machine_audit", {})
+    if audit127.get("theorem_name") != "FourConjectureExceptionRepairAndEffectiveBridgeAudit" or int(machine127.get("exact_intermediate_theorem_count", -1)) != 4 or int(machine127.get("historical_logic_correction_count", -1)) != 1 or int(machine127.get("conjecture_resolution_count", -1)) != 0 or int(machine127.get("total_failure_count", -1)) != 0:
+        return fail("ticket127 global machine audit changed")
+    if audit127.get("riemann", {}).get("theorem_name") != "DenseCoreNegativeWitnessSemidecision":
+        return fail("ticket127 RH semidecision theorem changed")
+    collatz127 = audit127.get("collatz", {})
+    collatz_finite127 = collatz127.get("exact_28_bit_audit", {})
+    if collatz127.get("theorem_name") != "NontrivialEventuallyLowPathIffFiniteStoppingCounterexample" or int(collatz_finite127.get("nontrivial_unresolved_class_count", -1)) != 4027109 or int(collatz_finite127.get("maximum_nontrivial_low_run", -1)) != 23 or collatz_finite127.get("longest_nontrivial_witnesses") != [27, 31]:
+        return fail("ticket127 Collatz correction changed")
+    goldbach127 = audit127.get("goldbach", {})
+    if goldbach127.get("theorem_name") != "UniformBinaryGoldbachSingularSeriesLowerBound" or goldbach127.get("exact_normalization_consequence", {}).get("closed_coefficient") != "A=1" or abs(float(goldbach127.get("endpoint_budget", {}).get("strict_required_residual_K_ceiling", 0)) - 42.83274372223497) > 1e-12:
+        return fail("ticket127 Goldbach structural closure changed")
+    twin127 = audit127.get("twin_prime", {})
+    twin_finite127 = twin127.get("finite_16m_to_32m_audit", {})
+    if twin127.get("theorem_name") != "RawBudgetTransportIffNormalizedAffineContraction" or abs(float(twin_finite127.get("known_budget_growth_gamma", 0)) - 2.0115420952456007) > 1e-12 or abs(float(twin_finite127.get("adverse_numerator_growth_u", 0)) - 1.8603305083667954) > 1e-12:
+        return fail("ticket127 Twin raw transport changed")
+    if "proves or refutes none" not in str(audit127.get("proof_boundary", "")).lower():
+        return fail("ticket127 proof boundary changed")
 
     print("open problem structure verified")
     return 0

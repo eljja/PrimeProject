@@ -128,15 +128,21 @@ sufficiently large `k>S`, the valuation word is fixed on the corresponding
 cylinder and the exact calculation certifies the same descent. This
 contradicts membership in all later `U_k`. `QED`
 
-TICKET-125 proved that universal finite stopping descent is equivalent to the
-Collatz conjecture by strong induction. Combining the two exact statements
-gives:
+TICKET-125 proved that finite stopping descent for every `n>1` is equivalent
+to the Collatz conjecture by strong induction. The fixed path `n=1` is itself
+eventually low and has no strict iterate below one, so it must be excluded from
+counterexample language. Combining the corrected statements gives:
 
 ```text
 Collatz holds
-iff every positive integer has finite stopping descent
-iff the adaptive unresolved tree has no eventually-low infinite path.
+iff every integer n>1 has finite stopping descent
+iff the adaptive unresolved tree has no nontrivial eventually-low infinite path.
 ```
+
+**TICKET-127 correction notice:** the first published TICKET-126 corollary
+omitted the `n>1` qualifier and therefore stated the impossible target of
+removing the permanent `n=1` path. The path-equivalence theorem remains valid;
+only its Collatz corollary and next target required correction.
 
 한국어 핵심은 “무한 잉여류 경로” 전체가 아니라 **결국 하나의 자연수로
 고정되는 경로**만 배제하면 된다는 점이다. 임의의 2-adic 경로를 자연수
@@ -147,11 +153,11 @@ iff the adaptive unresolved tree has no eventually-low infinite path.
 | Precision | Odd classes | Unresolved | Unresolved mass | Longest observed low run |
 |---:|---:|---:|---:|---:|
 | 18 | 131,072 | 9,247 | 7.0549% | 14 |
-| 28 | 134,217,728 | 4,027,110 | 3.0004308% | 24 |
+| 28 | 134,217,728 | 4,027,110 total; 4,027,109 nontrivial | 3.0004308% | 24 total; 23 nontrivial |
 
 The 28-bit audit is exact for its finite domain. The decreasing mass does not
-prove that no eventually-low path survives. The required infinite statement is
-uniform exclusion, not convergence suggested by a plot.
+prove that no nontrivial eventually-low path survives. The required infinite
+statement is uniform nontrivial exclusion, not convergence suggested by a plot.
 
 28비트에서 미해결 비율이 약 3%로 줄었어도 이것은 밀도 정보다. 예외가
 하나도 없다는 전칭 명제와 다르다. 따라서 이 수치를 콜라츠 증명으로
@@ -168,8 +174,8 @@ arbitrarily large `k`, forcing `3n+1=0`, impossible in positive integers.
 반례로는 유지하지만 자연수 콜라츠 반례 후보에서는 폐기한다.
 
 ```text
-Next theorem: UniformEventuallyLowPathExclusion
-다음 정리: 결국-low 미해결 경로의 균일 배제
+Next theorem: UniformNontrivialEventuallyLowPathExclusion
+다음 정리: 비자명 결국-low 미해결 경로의 균일 배제
 ```
 
 ## 4. Goldbach: close the proper-prime-power term
@@ -351,4 +357,3 @@ explicit `--execute-holdout` flag and is not part of routine verification.
 These sources establish context and known boundaries. The exact TICKET-126
 lemmas are proved above and tested by repository artifacts; citations are not
 used as substitutes for missing proofs.
-

@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260717-ticket126-priority")) {
-      errors.push(`${page}: missing TICKET126 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260717-ticket127-priority")) {
+      errors.push(`${page}: missing TICKET127 priority cache key`);
     }
   }
 
@@ -1245,6 +1245,32 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket127 title", "Ticket 127 exception repair and effective bridges");
+    requireText("ticket127 table", "TICKET127 audit");
+    requireText("ticket127 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket127 scope", "conjecture open / 난제 미해결");
+    requireText("ticket127 resolutions", "conjecture resolutions / 난제 해결");
+    if (page.problemId === "riemann") {
+      requireText("ticket127 RH theorem", "DenseCoreNegativeWitnessSemidecision");
+      requireText("ticket127 RH target", "IntervalCertifiedWeilCoreEvaluator");
+      requireText("ticket127 RH semidecision", "반결정");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket127 Collatz theorem", "NontrivialEventuallyLowPathIffFiniteStoppingCounterexample");
+      requireText("ticket127 Collatz correction", "n=1은 모든 U_k에 남는");
+      requireText("ticket127 Collatz nontrivial", "4,027,109");
+      requireText("ticket127 Collatz witnesses", "27, 31");
+      requireText("ticket127 Collatz target", "UniformNontrivialEventuallyLowPathExclusion");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket127 Goldbach theorem", "UniformBinaryGoldbachSingularSeriesLowerBound");
+      requireText("ticket127 Goldbach A", "주항 계수 A=1");
+      requireText("ticket127 Goldbach K", "42.832743722235");
+      requireText("ticket127 Goldbach target", "ExplicitPointwiseBinaryGoldbachResidualConstant");
+    } else {
+      requireText("ticket127 Twin theorem", "RawBudgetTransportIffNormalizedAffineContraction");
+      requireText("ticket127 Twin gamma", "2.011542095245601");
+      requireText("ticket127 Twin u", "1.860330508366795");
+      requireText("ticket127 Twin target", "UniformVaughanRawBudgetTransportAndInterpolation");
+    }
     requireText("ticket126 title", "Ticket 126 route correction and premise closure");
     requireText("ticket126 table", "TICKET126 audit");
     requireText("ticket126 latest", "LATEST / 최신 연구 계약");
@@ -1258,7 +1284,7 @@ async function main() {
       requireText("ticket126 Collatz theorem", "EventuallyLowUnresolvedPathIffFiniteStoppingCounterexample");
       requireText("ticket126 Collatz unresolved", "4,027,110");
       requireText("ticket126 Collatz mass", "3.00043%");
-      requireText("ticket126 Collatz target", "UniformEventuallyLowPathExclusion");
+      requireText("ticket126 Collatz target", "UniformNontrivialEventuallyLowPathExclusion");
     } else if (page.problemId === "goldbach") {
       requireText("ticket126 Goldbach theorem", "ExplicitProperPrimePowerContaminationBound");
       requireText("ticket126 Goldbach B", "B = 2.094918178743");

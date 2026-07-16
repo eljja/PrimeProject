@@ -62,7 +62,40 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-126
+## Latest Continuation After TICKET-127
+
+TICKET127 is the current boundary. It records one public correction and proves
+four exact intermediate bridges without resolving a conjecture. Read
+`docs/exception-repair-and-effective-bridges.md` and
+`data/open-problem/ticket127-exception-repair-effective-bridges.json` first.
+
+For RH, `DenseCoreNegativeWitnessSemidecision` proves that a negative witness
+for a continuous exact Weil form must occur in any enumerable dense core.
+Counterexample search is a semidecision only if strict-negative interval
+evaluation is complete. Build `IntervalCertifiedWeilCoreEvaluator`; never
+promote finite non-discovery to RH positivity.
+
+For Collatz, TICKET126 omitted the base exception in its corollary. The fixed
+`n=1` path is eventually low and survives every unresolved tree. The corrected
+theorem is `NontrivialEventuallyLowPathIffFiniteStoppingCounterexample`. At 28
+bits, remove one from the 4,027,110 unresolved classes: 4,027,109 are
+nontrivial, and the longest nontrivial low-run witnesses are 27 and 31. Attack
+`UniformNontrivialEventuallyLowPathExclusion`.
+
+For Goldbach, `UniformBinaryGoldbachSingularSeriesLowerBound` proves
+`S(N)>=1` and closes `A=1` only in the exact identity
+`R(N)=G(N)-S(N)N`. It does not estimate `R`. The sole analytic endpoint target
+is a pointwise `|R(N)|<=K*N/log(N)` for every even `N>4e18`, with explicit
+`K<42.83274372223497` after the proved contamination bound.
+
+For Twin Prime, `RawBudgetTransportIffNormalizedAffineContraction` rewrites the
+normalized recurrence as an equivalent raw numerator/denominator transport
+inequality. The 16M-to-32M numerator grows by 1.8603305083667954 while the
+positive denominator grows by 2.0115420952456007. This is one finite audit.
+Attack `UniformVaughanRawBudgetTransportAndInterpolation`; parity survival and
+exact-gap positivity remain separate open obligations.
+
+## Historical Continuation After TICKET-126
 
 TICKET126 corrects two overbroad routes, proves one exact Collatz path
 equivalence, closes one Goldbach premise, and executes one preregistered Twin
@@ -84,7 +117,8 @@ The 2-adic boundary ray `-3^(-1)` is not eventually low and is therefore not a
 natural-number obstruction. The 28-bit exact audit leaves 4,027,110 of
 134,217,728 odd classes unresolved, mass 0.0300043076, with longest observed
 low run 24. Do not infer the absence of an infinite path from these finite
-values. Attack `UniformEventuallyLowPathExclusion`.
+values. This target was corrected by TICKET127 because the fixed `n=1` path
+cannot be excluded. Attack `UniformNontrivialEventuallyLowPathExclusion`.
 
 For Goldbach, `ExplicitProperPrimePowerContaminationBound` proves
 `Q(N)<=sqrt(N)+(floor(log_2 N)-2)N^(1/3)` and closes the uniform contamination
