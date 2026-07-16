@@ -37,6 +37,33 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-17 TICKET-130 Computability and Route-Optimality Correction
+
+TICKET-130 keeps the strongest TICKET-129 reductions and applies the
+proof-or-counterexample rule to their proposed next steps.
+
+1. **Riemann:** every rational-bump core Weil value is a computable real. With
+   the earlier continuity and density theorems, a strict-negative witness is
+   semidecidable. Universal nonnegativity is not proved.
+2. **Collatz:** finite valuation-cap language extinction is refuted as a proof
+   target. The mechanical word `a_j=C_(j+1)-C_j` survives every depth and every
+   finite prefix has infinitely many positive realizers. The language still has
+   an unconditional exponential mass bound
+   `(65/48)rho^j`, `rho=0.9466204159695351...`; density zero is not emptiness.
+3. **Goldbach:** exact Euler-product arithmetic proves `K=56` is the largest
+   integer available to the current fixed-cutoff, uniform-coefficient endpoint
+   architecture. The actual pointwise `K=56` residual estimate remains open.
+4. **Twin Prime:** the additive block defect factors exactly as
+   `D(Y)=Q_YR(Y)`. The dimensionless coefficient target is
+   `limsup R(2^j)<2/23`, still followed by the parity and exact-gap barriers.
+
+한국어 요약: TICKET-130은 유한 계산을 더 늘리지 않았다. RH 반례 탐색의
+계산 가능성을 닫고, Collatz의 잘못된 유한 소멸 목표를 정확한 생존 word로
+폐기하며, Goldbach 상수 개선 경로의 한계를 증명하고, Twin 증분 결함을
+`2/23` 상대 임계값으로 환원했다. 어느 난제도 해결하거나 반증하지 않았다.
+전체 증명과 재현 명령은
+`docs/computability-cap-language-optimality.md`에 있다.
+
 ## 2026-07-17 TICKET-129 Exact Core and Necessary-Condition Reduction
 
 TICKET-129 advances the four tracks without treating a larger finite range as

@@ -62,9 +62,44 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-129
+## Latest Continuation After TICKET-130
 
-TICKET129 is the current boundary. Read
+TICKET130 is the current boundary. Read
+`docs/computability-cap-language-optimality.md` and
+`data/open-problem/ticket130-computability-cap-language-optimality.json` before
+proposing a new route. None of the four conjectures is resolved.
+
+For RH, `ComputableWeilCoreValueAndNegativeWitnessSemidecision` proves that
+every TICKET129 rational-bump core value has arbitrary-precision rational
+enclosures. Combined with TICKET127 and TICKET129, strict-negative Weil
+witnesses are semidecidable. This is not a positivity proof. Attack
+`UniversalNonnegativeWeilCoreCertificate`, or produce a strict negative
+interval under one fixed published normalization.
+
+For Collatz, do not attack finite cap-language extinction. TICKET130 constructs
+the all-depth word `a_j=C_(j+1)-C_j`; TICKET78 makes every finite prefix a
+positive-integer cylinder. The language is nonempty at every finite depth.
+TICKET130 also proves the exact exponential upper bound
+`mass(L_j)<=(65/48)rho^j`, with `rho=0.9466204159695351...`. Density zero is not
+emptiness. Attack `ArchimedeanNaturalExclusionForAllInfiniteCapPaths` with
+ordinary magnitude tied to growing 2-adic precision.
+
+For Goldbach, `K56OptimalIntegerForFixedUniformCoefficientGlue` proves that no
+`K=57` certificate can pass the current fixed-`H`, one-uniform-coefficient
+endpoint architecture: `A<=2C2<2P_47<57/43<57/log H` before contamination.
+This is route optimality, not a residual estimate. Attack
+`PointwiseBinaryGoldbachResidualK56` rather than polishing the same endpoint
+constant.
+
+For Twin Prime, `DimensionlessRelativeIncrementReduction` proves
+`D(Y)=Q_Y R(Y)`. The exact sufficient target is now
+`limsup_j R(2^j)<2/23`, because `(23/25)(1+2/23)=1`. Attack
+`VaughanRelativeIncrementImbalanceBelow2Over23` on the actual coefficients;
+parity and exact gap-two positivity remain separate.
+
+## Historical Continuation After TICKET-129
+
+TICKET129 was the previous boundary. Read
 `docs/enumerable-core-valuation-cap-endpoint-budget.md` and
 `data/open-problem/ticket129-enumerable-core-valuation-cap-endpoint-budget.json`
 before proposing a new route. None of the four conjectures is resolved.
@@ -80,8 +115,9 @@ For Collatz, a hypothetical least counterexample must be at least `2^28` and
 the exact orbit-product identity forces
 `S_j<=ceil(j log_2 3)` for all `j<=2^29`. The 256-step compatible language has
 exact cylinder mass about `4.7634970603e-9`, but it is nonempty. Attack
-`LeastCounterexampleValuationCapLanguageExtinction`; do not repeat TICKET80's
-finite-prefix compactness route or extrapolate the finite density.
+The proposed `LeastCounterexampleValuationCapLanguageExtinction` target is now
+retired by TICKET130's explicit all-depth survivor; do not revive it or repeat
+TICKET80's finite-prefix compactness route.
 
 For Goldbach, exact rational atanh-series and contamination bounds make the
 pointwise target `|R(N)|<=56*N/log(N)` sufficient above `4e18`, with margin

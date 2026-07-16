@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import sys
+from fractions import Fraction
 from pathlib import Path
 
 
@@ -125,6 +126,7 @@ TICKET126_SCHEMA = "primeproject.ticket126-route-correction-audit.v1"
 TICKET127_SCHEMA = "primeproject.ticket127-exception-repair-effective-bridges.v1"
 TICKET128_SCHEMA = "primeproject.ticket128-finite-core-prefix-constant-interpolation.v1"
 TICKET129_SCHEMA = "primeproject.ticket129-enumerable-core-valuation-cap-endpoint-budget.v1"
+TICKET130_SCHEMA = "primeproject.ticket130-computability-cap-language-optimality.v1"
 
 
 def fail(message: str) -> int:
@@ -7558,6 +7560,48 @@ def main() -> int:
         return fail("ticket129 Twin increment synchronization changed")
     if "proves or refutes none" not in str(audit129.get("proof_boundary", "")).lower():
         return fail("ticket129 proof boundary changed")
+
+    path130 = Path("data/open-problem/ticket130-computability-cap-language-optimality.json")
+    if not path130.exists():
+        return fail("missing ticket130 computability/cap-language/optimality audit")
+    ticket130 = read_json(path130)
+    if ticket130.get("schema") != TICKET130_SCHEMA or ticket130.get("status") != "computability_cap_language_optimality_proved_all_conjectures_open":
+        return fail("ticket130 schema or status changed")
+    attempts130 = ticket130.get("attempts", [])
+    by_id130 = {str(row.get("problem_id")): row for row in attempts130 if isinstance(row, dict)} if isinstance(attempts130, list) else {}
+    if set(by_id130) != EXPECTED_PROBLEMS:
+        return fail("ticket130 attempts missing problems")
+    paths130 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-130-computable-weil-core.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-130-cap-language-density.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-130-k56-route-optimality.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-130-relative-increment.json"),
+    }
+    for problem_id, attempt in by_id130.items():
+        if not paths130[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket130 artifact or proof boundary missing")
+    audit130 = ticket130.get("computability_cap_language_optimality_audit", {})
+    machine130 = audit130.get("machine_audit", {})
+    if audit130.get("theorem_name") != "FourConjectureComputabilityCapLanguageOptimalityAudit" or int(machine130.get("exact_intermediate_theorem_count", -1)) != 5 or int(machine130.get("retired_impossible_target_count", -1)) != 1 or int(machine130.get("conjecture_resolution_count", -1)) != 0 or int(machine130.get("total_failure_count", -1)) != 0:
+        return fail("ticket130 global machine audit changed")
+    riemann130 = audit130.get("riemann", {})
+    if riemann130.get("theorem_name") != "ComputableWeilCoreValueAndNegativeWitnessSemidecision" or int(riemann130.get("dovetail_precision_schedule", {}).get("levels", -1)) != 12 or int(riemann130.get("machine_audit", {}).get("total_failure_count", -1)) != 0:
+        return fail("ticket130 RH computability bridge changed")
+    collatz130 = audit130.get("collatz", {})
+    survivor130 = collatz130.get("mechanical_survivor", {})
+    density130 = collatz130.get("exponential_density_certificate", {})
+    if collatz130.get("theorem_name") != "CapLanguageNonExtinctionAndExponentialDensityZero" or int(survivor130.get("audited_depth", -1)) != 256 or int(survivor130.get("final_cap", -1)) != 406 or not (0 < float(density130.get("rho_decimal", 0)) < 1) or collatz130.get("route_decision", {}).get("next_theorem") != "ArchimedeanNaturalExclusionForAllInfiniteCapPaths":
+        return fail("ticket130 Collatz non-extinction or density certificate changed")
+    goldbach130 = audit130.get("goldbach", {})
+    partial130 = goldbach130.get("exact_partial_product_certificate", {})
+    if goldbach130.get("theorem_name") != "K56OptimalIntegerForFixedUniformCoefficientGlue" or partial130.get("two_times_partial_product_through_47") != "3041106216468949733/2294196982052290560" or Fraction(str(partial130.get("exact_gap", "0"))) <= 0 or not goldbach130.get("machine_audit", {}).get("first_crossing_is_47"):
+        return fail("ticket130 Goldbach route-optimality certificate changed")
+    twin130 = audit130.get("twin_prime", {})
+    threshold130 = twin130.get("exact_threshold_certificate", {})
+    if twin130.get("theorem_name") != "DimensionlessRelativeIncrementReduction" or threshold130.get("relative_imbalance_threshold") != "2/23" or threshold130.get("additive_defect_threshold") != "2/25" or not twin130.get("machine_audit", {}).get("endpoint_envelope_threshold_is_sharp"):
+        return fail("ticket130 Twin relative-increment reduction changed")
+    if "proves or refutes none" not in str(audit130.get("proof_boundary", "")).lower():
+        return fail("ticket130 proof boundary changed")
 
     print("open problem structure verified")
     return 0

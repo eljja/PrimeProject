@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260717-ticket129-priority")) {
-      errors.push(`${page}: missing TICKET129 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260717-ticket130-priority")) {
+      errors.push(`${page}: missing TICKET130 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,35 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket130 title", "Ticket 130 computability, cap-language no-go, and route optimality");
+    requireText("ticket130 table", "TICKET130 audit");
+    requireText("ticket130 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket130 scope", "conjecture open / 난제 미해결");
+    requireText("ticket130 resolutions", "conjecture resolutions / 난제 해결");
+    if (page.problemId === "riemann") {
+      requireText("ticket130 RH theorem", "ComputableWeilCoreValueAndNegativeWitnessSemidecision");
+      requireText("ticket130 RH interval", "width <2-s");
+      requireText("ticket130 RH halt", "interval_upper<0");
+      requireText("ticket130 RH target", "UniversalNonnegativeWeilCoreCertificate");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket130 Collatz theorem", "CapLanguageNonExtinctionAndExponentialDensityZero");
+      requireText("ticket130 Collatz correction", "finite cap-language extinction 목표는 불가능");
+      requireText("ticket130 Collatz rho", "0.946620415970");
+      requireText("ticket130 Collatz target", "ArchimedeanNaturalExclusionForAllInfiniteCapPaths");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket130 Goldbach theorem", "K56OptimalIntegerForFixedUniformCoefficientGlue");
+      requireText("ticket130 Goldbach chain", "A≤2C2<2P47<57/43<57/log H");
+      requireText("ticket130 Goldbach K56", "largest integer available");
+      requireText("ticket130 Goldbach target", "PointwiseBinaryGoldbachResidualK56");
+    } else {
+      requireText("ticket130 Twin theorem", "DimensionlessRelativeIncrementReduction");
+      requireText("ticket130 Twin identity", "D(Y)=QYR(Y)");
+      requireText("ticket130 Twin threshold", "2/23");
+      requireText("ticket130 Twin target", "VaughanRelativeIncrementImbalanceBelow2Over23");
+    }
     requireText("ticket129 title", "Ticket 129 enumerable core, valuation cap, and endpoint budget");
     requireText("ticket129 table", "TICKET129 audit");
-    requireText("ticket129 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket129 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket129 scope", "conjecture open / 난제 미해결");
     requireText("ticket129 resolutions", "conjecture resolutions / 난제 해결");
     if (page.problemId === "riemann") {
@@ -1260,7 +1286,7 @@ async function main() {
       requireText("ticket129 Collatz horizon", "536,870,912");
       requireText("ticket129 Collatz cap", "valuation sum cap");
       requireText("ticket129 Collatz mass", "4.7634970603e-9");
-      requireText("ticket129 Collatz target", "LeastCounterexampleValuationCapLanguageExtinction");
+      requireText("ticket129 Collatz superseded target", "Superseded: ArchimedeanNaturalExclusionForAllInfiniteCapPaths");
     } else if (page.problemId === "goldbach") {
       requireText("ticket129 Goldbach theorem", "ExactRationalGoldbachResidualK56Sufficiency");
       requireText("ticket129 Goldbach K56", "K=56 sufficient");
@@ -1276,7 +1302,7 @@ async function main() {
     }
     requireText("ticket128 title", "Ticket 128 finite core, prefix closure, constant sharpening, and interpolation");
     requireText("ticket128 table", "TICKET128 audit");
-    requireText("ticket128 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket128 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket128 scope", "conjecture open / 난제 미해결");
     requireText("ticket128 resolutions", "conjecture resolutions / 난제 해결");
     if (page.problemId === "riemann") {
@@ -1305,7 +1331,7 @@ async function main() {
     }
     requireText("ticket127 title", "Ticket 127 exception repair and effective bridges");
     requireText("ticket127 table", "TICKET127 audit");
-    requireText("ticket127 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket127 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket127 scope", "conjecture open / 난제 미해결");
     requireText("ticket127 resolutions", "conjecture resolutions / 난제 해결");
     if (page.problemId === "riemann") {
@@ -1331,7 +1357,7 @@ async function main() {
     }
     requireText("ticket126 title", "Ticket 126 route correction and premise closure");
     requireText("ticket126 table", "TICKET126 audit");
-    requireText("ticket126 latest", "LATEST / 최신 연구 계약");
+    requireText("ticket126 foundation", "FOUNDATION / 기초 연구 계약");
     requireText("ticket126 scope", "intermediate result; conjecture open");
     requireText("ticket126 resolutions", "conjecture resolutions");
     if (page.problemId === "riemann") {
@@ -2183,7 +2209,9 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-118") ||
     !metrics.evolutionPanel.includes("TICKET-119") ||
     !metrics.evolutionPanel.includes("TICKET-120") ||
-    !metrics.evolutionPanel.includes("TICKET-121")
+    !metrics.evolutionPanel.includes("TICKET-121") ||
+    !metrics.evolutionPanel.includes("TICKET-129") ||
+    !metrics.evolutionPanel.includes("TICKET-130")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
     process.exit(1);

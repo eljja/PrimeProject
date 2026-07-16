@@ -1,0 +1,516 @@
+{
+  "schema": "primeproject.ticket130-computability-cap-language-optimality.v1",
+  "generated_at": "2026-07-17T18:30:00+09:00",
+  "status": "computability_cap_language_optimality_proved_all_conjectures_open",
+  "claim_boundary": "TICKET130 proves computability, a Collatz route no-go plus an exponential density theorem, fixed-route Goldbach constant optimality, and an exact Twin relative-increment reduction. It proves or refutes none of the four conjectures.",
+  "computability_cap_language_optimality_audit": {
+    "theorem_name": "FourConjectureComputabilityCapLanguageOptimalityAudit",
+    "riemann": {
+      "theorem_name": "ComputableWeilCoreValueAndNegativeWitnessSemidecision",
+      "proved_statement": "For every Gaussian-rational standard-bump sum g in the TICKET129 core and every precision s, the fixed Weil value Q_W(g) is a computable real: an algorithm can return a rational interval of width below 2^(-s) containing Q_W(g). Consequently, under the standard RH-equivalent Weil sign convention, RH falsity is semidecidable by dovetailing the core and precision.",
+      "proof": "A core description is a finite rational tuple. Standard bumps, their derivatives, reflection, and compact convolution are computably smooth. The support ledger gives an effective integer B, so TICKET128 makes the arithmetic prime-power side exactly finite. In the explicit Weil formula, the archimedean term is an integral of elementary computable kernels against a computably smooth compact-support function. Taylor remainder bounds remove the apparent origin singularity, interval quadrature handles a compact remainder, and the elementary exponential kernel gives a computable tail bound. Adding outward rational enclosures yields arbitrary precision intervals. If Q_W(g)<0, an interval upper endpoint is eventually negative. TICKET127 continuity and TICKET129 density then make every genuine negative witness discoverable by dovetailing.",
+      "effective_component_ledger": [
+        {
+          "component": "core description",
+          "closure": "finite Gaussian-rational tuple"
+        },
+        {
+          "component": "autocorrelation",
+          "closure": "computably smooth compact convolution"
+        },
+        {
+          "component": "prime-power side",
+          "closure": "exact finite sum over p^m<=B"
+        },
+        {
+          "component": "origin neighborhood",
+          "closure": "Taylor interval with certified remainder"
+        },
+        {
+          "component": "compact archimedean remainder",
+          "closure": "outward interval quadrature"
+        },
+        {
+          "component": "archimedean tail",
+          "closure": "explicit exponential envelope"
+        }
+      ],
+      "finite_support_audit": [
+        {
+          "atom_count": 1,
+          "support_lower": "-1",
+          "support_upper": "1",
+          "autocorrelation_support": "[-2,2]",
+          "autocorrelation_radius": "2",
+          "integer_exponent": 2,
+          "prime_power_bound_B": 9,
+          "exact_enclosure_reason": "log(3)>1, so log(3^ceil(A))>A for every positive rational autocorrelation radius A. TICKET128 then leaves only p^m<=B."
+        },
+        {
+          "atom_count": 2,
+          "support_lower": "-11/12",
+          "support_upper": "39/35",
+          "autocorrelation_support": "[-853/420,853/420]",
+          "autocorrelation_radius": "853/420",
+          "integer_exponent": 3,
+          "prime_power_bound_B": 27,
+          "exact_enclosure_reason": "log(3)>1, so log(3^ceil(A))>A for every positive rational autocorrelation radius A. TICKET128 then leaves only p^m<=B."
+        },
+        {
+          "atom_count": 3,
+          "support_lower": "-71/40",
+          "support_upper": "43/30",
+          "autocorrelation_support": "[-77/24,77/24]",
+          "autocorrelation_radius": "77/24",
+          "integer_exponent": 4,
+          "prime_power_bound_B": 81,
+          "exact_enclosure_reason": "log(3)>1, so log(3^ceil(A))>A for every positive rational autocorrelation radius A. TICKET128 then leaves only p^m<=B."
+        }
+      ],
+      "dovetail_precision_schedule": {
+        "levels": 12,
+        "target_widths": [
+          "1/2",
+          "1/4",
+          "1/8",
+          "1/16",
+          "1/32",
+          "1/64",
+          "1/128",
+          "1/256",
+          "1/512",
+          "1/1024",
+          "1/2048",
+          "1/4096"
+        ],
+        "strict_negative_halting_rule": "halt when interval_upper<0",
+        "zero_value_warning": "Computability does not decide whether an exactly zero value is positive or negative. The procedure is a semidecision."
+      },
+      "route_decision": {
+        "retain": "enumerate the rational-bump core with certified outward intervals",
+        "discard": "treat finite non-discovery or value computability as universal positivity",
+        "next_theorem": "UniversalNonnegativeWeilCoreCertificate"
+      },
+      "machine_audit": {
+        "support_certificate_count": 3,
+        "precision_level_count": 12,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "This proves computability and completeness of strict-negative search on the explicit core. It does not prove Q_W(g)>=0 for any unbounded family, so it proves neither RH nor its negation."
+    },
+    "collatz": {
+      "theorem_name": "CapLanguageNonExtinctionAndExponentialDensityZero",
+      "proved_statement": "Let C_j=ceil(j log_2 3). The mechanical word a_j=C_(j+1)-C_j has positive entries and every cumulative sum equals its cap. Hence the finite valuation-cap language is nonempty at every depth; by the TICKET78 cylinder theorem every finite prefix is realized by infinitely many positive integers. Nevertheless its relative odd-cylinder mass is at most (65/48)*rho^j, where rho^41=65^65/(41^41*2^137*3^24)<1.",
+      "proof": "The initial value is a_0=C_1-C_0=2. For j>=1, 3^j<3^(j+1)<4*3^j makes consecutive binary lengths differ by one or two. Telescoping gives every cap equality. TICKET78 realizes each finite positive valuation word in one residue class modulo 2^(S+1). Thus finite-depth extinction is impossible. For the mass bound, accelerated valuations have cylinder law P(a=k)=2^(-k). For 0<t<1, Markov's inequality in the decreasing variable t^S gives P(S_j<=C_j)<=t^(-C_j)(t/(2-t))^j. Use 3^41<2^65, C_j<=65j/41+1, and t=48/65. The displayed exact rho is below one, proving exponential density zero.",
+      "mechanical_survivor": {
+        "audited_depth": 256,
+        "first_32_valuations": [
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1
+        ],
+        "final_cumulative_valuation": 406,
+        "final_cap": 406,
+        "exact_residue": "103570420220272486020599529924822909726337622831767705816971037265217569993859058658538219365573193233852543862829329375905",
+        "exact_modulus": "330527984395124299475957654016385519914202341482140609642324397637202895618155672912594605219857642423795606012511679152128",
+        "relative_cylinder_mass": "1/165263992197562149737978827008192759957101170741070304821162198818601447809077836456297302609928821211897803006255839576064"
+      },
+      "exponential_density_certificate": {
+        "slope_upper": "log_2(3)<65/41",
+        "chernoff_parameter_t": "48/65",
+        "moment": "E[t^a]=t/(2-t)=24/41",
+        "rho_power_41": "6908252164760920851405538694468286082230378724259454186289117297729987129104901877330036086277686990797519683837890625/65487384387557756791034610384155430159220836836105336346040343017899427651282764795459787539934392433340990640736960512",
+        "rho_decimal": 0.9466204159695351,
+        "mass_bound": "mass(L_j)<=(65/48)*rho^j",
+        "checkpoint_rows": [
+          {
+            "steps": 1,
+            "exact_prefix_cap_mass": 0.75,
+            "chernoff_upper_diagnostic": 1.2818818132920788,
+            "exact_mass_below_bound": true
+          },
+          {
+            "steps": 2,
+            "exact_prefix_cap_mass": 0.625,
+            "chernoff_upper_diagnostic": 1.2134554953223295,
+            "exact_mass_below_bound": true
+          },
+          {
+            "steps": 4,
+            "exact_prefix_cap_mass": 0.3984375,
+            "chernoff_upper_diagnostic": 1.0873655919714165,
+            "exact_mass_below_bound": true
+          },
+          {
+            "steps": 8,
+            "exact_prefix_cap_mass": 0.1986083984375,
+            "chernoff_upper_diagnostic": 0.8731302872147809,
+            "exact_mass_below_bound": true
+          },
+          {
+            "steps": 16,
+            "exact_prefix_cap_mass": 0.07381565868854523,
+            "chernoff_upper_diagnostic": 0.5629709527028424,
+            "exact_mass_below_bound": true
+          },
+          {
+            "steps": 32,
+            "exact_prefix_cap_mass": 0.01487272290285313,
+            "chernoff_upper_diagnostic": 0.23404526295666164,
+            "exact_mass_below_bound": true
+          },
+          {
+            "steps": 64,
+            "exact_prefix_cap_mass": 0.0011574314511103427,
+            "chernoff_upper_diagnostic": 0.040450844390734444,
+            "exact_mass_below_bound": true
+          },
+          {
+            "steps": 128,
+            "exact_prefix_cap_mass": 1.3966999396769822e-05,
+            "chernoff_upper_diagnostic": 0.0012083230611126738,
+            "exact_mass_below_bound": true
+          },
+          {
+            "steps": 256,
+            "exact_prefix_cap_mass": 4.763497060297911e-09,
+            "chernoff_upper_diagnostic": 1.0781867963200263e-06,
+            "exact_mass_below_bound": true
+          }
+        ]
+      },
+      "route_decision": {
+        "retain": "use exponential rarity together with a changing-prefix Archimedean obstruction to natural-integer realization",
+        "discard": "LeastCounterexampleValuationCapLanguageExtinction: the mechanical cap word survives every finite depth",
+        "next_theorem": "ArchimedeanNaturalExclusionForAllInfiniteCapPaths"
+      },
+      "machine_audit": {
+        "3_power_41_below_2_power_65": true,
+        "rho_power_41_below_one": true,
+        "mechanical_word_uses_only_1_or_2": true,
+        "every_prefix_hits_the_cap": true,
+        "exact_residue_replays_word": true,
+        "every_checkpoint_below_chernoff_bound": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "Exponential density zero is not emptiness. The nested survivor defines a 2-adic path, while no proof excludes that path or any other cap path from one positive natural trajectory. Collatz remains open."
+    },
+    "goldbach": {
+      "theorem_name": "K56OptimalIntegerForFixedUniformCoefficientGlue",
+      "proved_statement": "At the fixed verified cutoff H=4*10^18, K=56 is the largest integer that can pass the TICKET129 endpoint architecture when the Goldbach main term is replaced by one uniform singular-series coefficient. This is an optimality theorem for that proof architecture, not a pointwise residual estimate.",
+      "proof": "For even powers of two, the binary Goldbach singular series is exactly 2*C2. Hence every uniform coefficient A valid for all large even N satisfies A<=2*C2. Every omitted Euler factor is strictly below one, so 2*C2 is strictly below the partial product through 47. Exact multiplication gives 2*P_47=3041106216468949733/2294196982052290560<57/43. TICKET129 proves log(H)<43, hence 57/log(H)>57/43>A. The K=57 endpoint margin is already negative before prime-power contamination. TICKET129 separately gives a positive exact margin for K=56.",
+      "exact_partial_product_certificate": {
+        "primes": [
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47
+        ],
+        "rows": [
+          {
+            "last_prime": 3,
+            "two_times_partial_product": "3/2",
+            "decimal": 1.5,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 5,
+            "two_times_partial_product": "45/32",
+            "decimal": 1.40625,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 7,
+            "two_times_partial_product": "175/128",
+            "decimal": 1.3671875,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 11,
+            "two_times_partial_product": "693/512",
+            "decimal": 1.353515625,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 13,
+            "two_times_partial_product": "11011/8192",
+            "decimal": 1.3441162109375,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 17,
+            "two_times_partial_product": "2807805/2097152",
+            "decimal": 1.3388657569885254,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 19,
+            "two_times_partial_product": "302307005/226492416",
+            "decimal": 1.334733455269425,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 23,
+            "two_times_partial_product": "402243205/301989888",
+            "decimal": 1.3319757415188684,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 29,
+            "two_times_partial_product": "714186915/536870912",
+            "decimal": 1.3302767928689718,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 31,
+            "two_times_partial_product": "42803602439/32212254720",
+            "decimal": 1.3287987075435619,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 37,
+            "two_times_partial_product": "11086133031701/8349416423424",
+            "decimal": 1.3277733998988523,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 41,
+            "two_times_partial_product": "5908908905896633/4453022092492800",
+            "decimal": 1.3269435415239155,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 43,
+            "two_times_partial_product": "1488200914442251997/1122161567308185600",
+            "decimal": 1.3261913059561583,
+            "below_57_over_43": false
+          },
+          {
+            "last_prime": 47,
+            "two_times_partial_product": "3041106216468949733/2294196982052290560",
+            "decimal": 1.325564561482644,
+            "below_57_over_43": true
+          }
+        ],
+        "two_times_partial_product_through_47": "3041106216468949733/2294196982052290560",
+        "target_57_over_43": "57/43",
+        "exact_gap": "1660668815723401/98650470228248494080",
+        "exact_gap_decimal": 1.6833866193248712e-05
+      },
+      "fixed_cutoff_contract": {
+        "verified_limit_H": 4000000000000000000,
+        "K56_margin": "23019645297/2140000000000",
+        "K57_failure_chain": "A<=2C2<2P_47<57/43<57/log(H), before contamination",
+        "scope": "fixed H, one uniform singular-series coefficient, and the TICKET126/129 endpoint inequality"
+      },
+      "route_decision": {
+        "retain": "attack the actual pointwise residual target K=56",
+        "discard": "further constant polishing inside the fixed-H uniform-coefficient endpoint architecture",
+        "next_theorem": "PointwiseBinaryGoldbachResidualK56"
+      },
+      "machine_audit": {
+        "first_crossing_is_47": true,
+        "two_partial_47_below_57_over_43": true,
+        "log_H_below_43_from_ticket129": true,
+        "k56_positive_margin_inherited": true,
+        "k57_uniform_endpoint_fails_before_contamination": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The theorem proves route optimality only. It neither proves the K=56 pointwise residual estimate nor rules out K=57 after raising the finite cutoff or using N-dependent singular-series structure. Strong Goldbach remains open."
+    },
+    "twin_prime": {
+      "theorem_name": "DimensionlessRelativeIncrementReduction",
+      "proved_statement": "Let q=Q_Y=A_Y/K_Y>0, a=Delta A/A_Y, and k=Delta K/K_Y. Then Q_X-q=q(a-k)/(1+k), and the TICKET129 minimal positive defect satisfies D(Y)=Q_Y*R(Y), where R(Y)=sup max(0,a-k)/(1+k). If limsup Q_(2^j)<=23/25 and limsup R(2^j)<2/23, then the all-scale limsup of Q is below one.",
+      "proof": "Substitute A_X=A_Y(1+a) and K_X=K_Y(1+k). Taking positive parts and the block supremum gives D(Y)=Q_Y R(Y) exactly. Moreover Q_X<=Q_Y(1+R(Y)). Since (23/25)(1+2/23)=1, strict limsup control below 2/23 combines with the endpoint limsup 23/25 to give a strict all-scale bound below one. The constant is sharp for this product envelope.",
+      "exact_threshold_certificate": {
+        "endpoint_limsup": "23/25",
+        "relative_imbalance_threshold": "2/23",
+        "additive_defect_threshold": "2/25",
+        "all_scale_identity": "(23/25)*(1+2/23)=1",
+        "sample_rows": [
+          {
+            "relative_A_increment": "0",
+            "relative_K_increment": "0",
+            "Q_X": "23/25",
+            "relative_imbalance": "0",
+            "positive_defect": "0",
+            "identity_passes": true
+          },
+          {
+            "relative_A_increment": "2/23",
+            "relative_K_increment": "0",
+            "Q_X": "1",
+            "relative_imbalance": "2/23",
+            "positive_defect": "2/25",
+            "identity_passes": true
+          },
+          {
+            "relative_A_increment": "1",
+            "relative_K_increment": "0",
+            "Q_X": "46/25",
+            "relative_imbalance": "1",
+            "positive_defect": "23/25",
+            "identity_passes": true
+          },
+          {
+            "relative_A_increment": "1",
+            "relative_K_increment": "1",
+            "Q_X": "23/25",
+            "relative_imbalance": "0",
+            "positive_defect": "0",
+            "identity_passes": true
+          },
+          {
+            "relative_A_increment": "3/5",
+            "relative_K_increment": "2/5",
+            "Q_X": "184/175",
+            "relative_imbalance": "1/7",
+            "positive_defect": "23/175",
+            "identity_passes": true
+          }
+        ]
+      },
+      "route_decision": {
+        "retain": "estimate the dimensionless relative Vaughan increment imbalance R(Y) directly",
+        "discard": "treat the dimensional D(Y)<0.08 target as detached from endpoint size and denominator growth",
+        "next_theorem": "VaughanRelativeIncrementImbalanceBelow2Over23"
+      },
+      "machine_audit": {
+        "all_relative_identities_pass": true,
+        "threshold_hits_one_exactly": true,
+        "ticket129_countermodel_has_R_one": true,
+        "endpoint_times_threshold_is_008": true,
+        "endpoint_envelope_threshold_is_sharp": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The reduction supplies the exact dimensionless threshold but no asymptotic estimate for the actual Vaughan coefficients. Parity and exact gap-two positivity also remain open."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Suzuki, Weil's quadratic form via the screw function",
+        "url": "https://arxiv.org/abs/2606.09096",
+        "role": "Primary 2026 Weil-functional and positivity-criterion formulation. TICKET130 proves core-value computability, not positivity."
+      },
+      {
+        "citation": "Niu, Parity vectors and paradoxical sequences in the accelerated Collatz map",
+        "url": "https://arxiv.org/abs/2605.13886",
+        "role": "Primary 2026 finitary parity-density boundary. The TICKET130 accelerated valuation-cylinder result remains distinct from a universal Collatz theorem."
+      },
+      {
+        "citation": "Friedlander, Goldston, Iwaniec, and Suriajaya, Exceptional zeros and the Goldbach problem",
+        "url": "https://doi.org/10.1016/j.jnt.2021.06.004",
+        "role": "Primary weighted binary Goldbach and singular-series normalization context."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary Type I/II sieve boundary. TICKET130's relative increment identity supplies no missing Type II or parity theorem."
+      }
+    ],
+    "machine_audit": {
+      "problem_count": 4,
+      "exact_intermediate_theorem_count": 5,
+      "retired_impossible_target_count": 1,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET130 proves computability, a Collatz route no-go plus an exponential density theorem, fixed-route Goldbach constant optimality, and an exact Twin relative-increment reduction. It proves or refutes none of the four conjectures."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-130",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "ComputableWeilCoreValueAndNegativeWitnessSemidecision",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "candidate_theorem": "UniversalNonnegativeWeilCoreCertificate",
+      "next_experiment": "Turn the computable interval evaluator into a noncircular universal sign certificate, or find a strict negative interval.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "This proves computability and completeness of strict-negative search on the explicit core. It does not prove Q_W(g)>=0 for any unbounded family, so it proves neither RH nor its negation."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-130",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "CapLanguageNonExtinctionAndExponentialDensityZero",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "candidate_theorem": "ArchimedeanNaturalExclusionForAllInfiniteCapPaths",
+      "next_experiment": "Use Archimedean growth tied to changing 2-adic precision; finite language extinction is now formally retired.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "Exponential density zero is not emptiness. The nested survivor defines a 2-adic path, while no proof excludes that path or any other cap path from one positive natural trajectory. Collatz remains open."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-130",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "K56OptimalIntegerForFixedUniformCoefficientGlue",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "candidate_theorem": "PointwiseBinaryGoldbachResidualK56",
+      "next_experiment": "Stop polishing the fixed endpoint constant and prove signed pointwise minor-arc cancellation at K=56.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The theorem proves route optimality only. It neither proves the K=56 pointwise residual estimate nor rules out K=57 after raising the finite cutoff or using N-dependent singular-series structure. Strong Goldbach remains open."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-130",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "DimensionlessRelativeIncrementReduction",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "candidate_theorem": "VaughanRelativeIncrementImbalanceBelow2Over23",
+      "next_experiment": "Bound the actual relative increment imbalance below 2/23 before addressing parity and exact gap two.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The reduction supplies the exact dimensionless threshold but no asymptotic estimate for the actual Vaughan coefficients. Parity and exact gap-two positivity also remain open."
+    }
+  ]
+}
