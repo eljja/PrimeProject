@@ -13,6 +13,19 @@ async function main() {
   const errors = [];
   const dataResponses = [];
   let metrics = null;
+  const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const priorityLoad = openProblemSource.indexOf("await loadTicket125Attempt();");
+  const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
+  const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
+  if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET125 priority render must precede historical ticket loading");
+  }
+  for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
+    const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
+    if (!source.includes("open-problems.js?v=20260716-ticket125-priority")) {
+      errors.push(`${page}: missing TICKET125 priority cache key`);
+    }
+  }
 
   try {
     browser = await chromium.launch({
