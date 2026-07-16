@@ -28,21 +28,21 @@ def counterexampleGuidedSynthesis : String :=
   "RH CEGIS: generate kernel cone candidates, reject circular imports, search adversarial kernels"
 
 def rankedCegisTarget : String :=
-  "RH-TICKET-127 proves that every strict negative witness to a continuous Weil form has a witness in any enumerable dense core, yielding a counterexample semidecision under complete interval evaluation"
+  "RH-TICKET-128 proves that compact support removes the infinite prime tail exactly: only prime powers p^m<=B remain in the arithmetic side"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-128 IntervalCertifiedWeilCoreEvaluator."
+  "RH-TICKET-129 ArchimedeanIntervalAndAdmissibleCoreDensity."
 
 def topAttackProofAttemptProtocol : String :=
-  "Construct and prove density of an enumerable admissible Weil core, certify strict signs by convergent interval bounds, and use it only as a counterexample semidecision; finite non-discovery is not RH positivity."
+  "Construct a proved dense compact-support Weil core and certify its archimedean contribution by convergent intervals; the prime-power side is already finite, but finite non-discovery is not RH positivity."
 
 def latestExactResult : String :=
-  "DenseCoreNegativeWitnessSemidecision: continuity and density force every strict negative Weil witness to have a core witness, conditional on an exact criterion and complete strict-sign interval evaluation"
+  "CompactSupportFinitePrimeSideReduction: support in [-log B,log B] leaves exactly the finite prime-power pairs p^m<=B; B=1000000 has 78734 terms"
 
 def retiredRoute : String :=
   "full-test-space autocorrelation-cone density"
 
 def retainedOpenPremise : String :=
-  "an exact dense Weil core and complete interval evaluator for counterexamples; direct all-autocorrelation positivity for a proof"
+  "admissible-core density, archimedean interval evaluation, and direct all-test positivity or a certified negative witness"
 
 end PrimeProject.OpenProblems.Riemann

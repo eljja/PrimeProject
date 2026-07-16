@@ -28,21 +28,21 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-127 proves that normalized affine contraction is equivalent to raw adverse-numerator transport and decomposes the 32M residual into paired 0.14135151084290043 plus boundary 0.004521390091047683"
+  "TP-TICKET-128 gives an exact endpoint-only countermodel and proves that a within-dyadic-block envelope yields limsup Q<=0.92*c+delta"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-128 UniformVaughanRawBudgetTransportAndInterpolation."
+  "TP-TICKET-129 VaughanWithinDyadicBlockEnvelopeC1DeltaBelow008."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove raw adverse-numerator and positive-denominator transport uniformly from actual Vaughan coefficients plus an all-X interpolation envelope, or construct a Vaughan-realizable failure."
+  "Derive Q_X<=Q_(2^j)+delta with delta<0.08 throughout every dyadic block from actual Vaughan coefficients, or construct a Vaughan-realizable interpolation failure; endpoint values alone are invalid."
 
 def latestFiniteResult : String :=
-  "RawBudgetTransportIffNormalizedAffineContraction: at 16M-to-32M the adverse numerator grows by 1.8603305083667954 while the positive denominator grows by 2.0115420952456007"
+  "DyadicEndpointInsufficiencyAndAllScaleEnvelope: endpoint limsup 0.92 needs the independent condition 0.92*c+delta<1; c=1 requires delta<0.08"
 
 def finiteEvidenceBoundary : String :=
-  "one preregistered dyadic transition is falsification evidence, not a uniform recurrence, interpolation theorem, parity breakthrough, or exact-gap lower bound"
+  "the interpolation theorem is exact, but c=1 and delta=0.07 are algebraic candidates rather than proved Vaughan constants, parity breakthroughs, or exact-gap lower bounds"
 
 def retainedOpenPremise : String :=
-  "uniform Vaughan raw-budget transport plus all-X interpolation, parity survival, and exact-gap positivity"
+  "uniform Vaughan raw-budget transport, a within-block envelope satisfying 0.92*c+delta<1, parity survival, and exact-gap positivity"
 
 end PrimeProject.OpenProblems.TwinPrime

@@ -37,6 +37,31 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-17 TICKET-128 Premise Reduction
+
+TICKET-128 applies the proof-or-counterexample rule to four different failure
+modes instead of extending one plot.
+
+1. RH compact support removes the infinite prime tail exactly: only `p^m<=B`
+   remains. A finite prime sum is not yet a certified Weil value because core
+   density and the archimedean interval remain open.
+2. The 4,027,109 Collatz objects from TICKET-127 are unresolved lift cylinders,
+   not integer counterexamples. Direct replay closes every nontrivial
+   representative below `2^28`, with no step-cap survivor. The missing object
+   is still an unbounded-prefix theorem or uniform well-founded rank.
+3. A rational tail product proves `2*C2>1.31917`. This changes the Goldbach
+   residual target from the earlier `K<42.83274372223497` budget to the weaker
+   sufficient statement `K<=55`; it does not prove that residual estimate.
+4. A concrete Twin sequence satisfies every frozen dyadic endpoint recurrence
+   while exceeding one at infinitely many midpoints. Endpoint-only
+   interpolation is therefore false. The exact repair needs a within-block
+   envelope with `0.92*c+delta<1` before parity and exact-gap arguments can be
+   considered.
+
+The canonical report is
+`docs/finite-core-prefix-constant-interpolation.md`. All four conjecture
+resolution counters remain zero.
+
 ## 2026-07-15 Registered Twin Persistence Attempt
 
 TICKET-119 applies the exact proof-or-counterexample discipline to the strongest current Twin route. The 16M rule was committed as `87bdcf9` before execution. Failure would have refuted the frozen claim that TICKET-118's canonical adjacent-pair finite closure persists at the first doubling. The first execution instead passed with finite lower expression `+1,479,021.8` and normalized margin `19.7322%`.

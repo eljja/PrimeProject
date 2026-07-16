@@ -62,7 +62,43 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-127
+## Latest Continuation After TICKET-128
+
+TICKET128 is the current boundary. Read
+`docs/finite-core-prefix-constant-interpolation.md` and
+`data/open-problem/ticket128-finite-core-prefix-constant-interpolation.json`
+before proposing a new route. None of the four conjectures is resolved.
+
+For RH, `CompactSupportFinitePrimeSideReduction` proves that a core element
+supported in `[-log B,log B]` has only the finite arithmetic terms `p^m<=B`.
+At `B=1,000,000` there are 78,734 such pairs. Do not truncate an infinite
+prime sum and call it exact. Attack `ArchimedeanIntervalAndAdmissibleCoreDensity`:
+prove density in the actual admissible Weil space and certify the remaining
+archimedean contribution by intervals.
+
+For Collatz, do not call the 4,027,109 TICKET127 objects integer
+counterexamples. They are unresolved lift-cylinder representatives. TICKET128
+directly closes every nontrivial representative below `2^28`; the largest
+accelerated stopping time is 249 at `217740015`, and the largest peak in this
+frontier audit is `2134932387040421` from `210964383`. Attack
+`UnboundedPrefixClosureOrUniformNontrivialPathRank`. A larger finite prefix is
+evidence, not the missing uniform theorem.
+
+For Goldbach, `ExplicitTwinConstantTailLowerBound` proves by a rational
+telescoping-tail certificate that `2*C2>1.31917`. Combined with the TICKET126
+contamination bound, a pointwise theorem
+`|R(N)|<=55*N/log(N)` for every even `N>4e18` would suffice. `K=55` is a target,
+not a proved residual estimate. Attack `PointwiseBinaryGoldbachResidualK55`.
+
+For Twin Prime, endpoint-only interpolation is now formally retired. The exact
+countermodel keeps `Q_(2^j)=0.92` while placing `Q=2` at every dyadic midpoint.
+`DyadicToAllScaleEnvelope` proves the repair: if
+`Q_X<=c*q_j+delta` within each block, then
+`limsup Q<=0.92*c+delta`. Attack the actual-coefficient theorem
+`VaughanWithinDyadicBlockEnvelopeC1DeltaBelow008`; parity survival and exact
+gap-two positivity remain separate.
+
+## Historical Continuation After TICKET-127
 
 TICKET127 is the current boundary. It records one public correction and proves
 four exact intermediate bridges without resolving a conjecture. Read

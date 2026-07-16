@@ -1,0 +1,525 @@
+{
+  "schema": "primeproject.ticket128-finite-core-prefix-constant-interpolation.v1",
+  "generated_at": "2026-07-17T02:55:03+09:00",
+  "status": "finite_core_prefix_constant_interpolation_proved_all_conjectures_open",
+  "claim_boundary": "TICKET128 proves four intermediate reductions or corrections but proves or refutes none of RH, Collatz, Goldbach, or Twin Prime.",
+  "finite_core_prefix_constant_interpolation_audit": {
+    "theorem_name": "FourConjectureFiniteCorePrefixConstantInterpolationAudit",
+    "riemann": {
+      "theorem_name": "CompactSupportFinitePrimeSideReduction",
+      "setting": "Use an RH-equivalent Weil explicit formula whose arithmetic side contains terms indexed by prime powers p^m and evaluated at h(m log p). Assume h(t)=0 for |t|>log B with an integer B>=2.",
+      "proved_statement": "Every nonzero arithmetic term has m log p<=log B, equivalently p^m<=B. The prime side is therefore an exactly enumerable finite sum.",
+      "proof": "Monotonicity of log gives h(m log p)=0 whenever p^m>B. There are finitely many integers at most B, and trial division or a certified sieve enumerates exactly the prime-power pairs that remain.",
+      "finite_inventory": {
+        "integer_bound_B": 1000000,
+        "prime_count": 78498,
+        "prime_power_term_count": 78734,
+        "maximum_exponent": 19,
+        "exponent_histogram": {
+          "1": 78498,
+          "2": 168,
+          "3": 25,
+          "4": 11,
+          "5": 6,
+          "6": 4,
+          "7": 4,
+          "8": 3,
+          "9": 2,
+          "10": 2,
+          "11": 2,
+          "12": 2,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "19": 1
+        },
+        "largest_terms": [
+          {
+            "prime": 999907,
+            "exponent": 1,
+            "value": 999907
+          },
+          {
+            "prime": 999917,
+            "exponent": 1,
+            "value": 999917
+          },
+          {
+            "prime": 999931,
+            "exponent": 1,
+            "value": 999931
+          },
+          {
+            "prime": 999953,
+            "exponent": 1,
+            "value": 999953
+          },
+          {
+            "prime": 999959,
+            "exponent": 1,
+            "value": 999959
+          },
+          {
+            "prime": 999961,
+            "exponent": 1,
+            "value": 999961
+          },
+          {
+            "prime": 999979,
+            "exponent": 1,
+            "value": 999979
+          },
+          {
+            "prime": 999983,
+            "exponent": 1,
+            "value": 999983
+          }
+        ]
+      },
+      "sanity_rows": [
+        {
+          "integer_bound_B": 10,
+          "prime_count": 4,
+          "prime_power_term_count": 7,
+          "maximum_exponent": 3,
+          "exponent_histogram": {
+            "1": 4,
+            "2": 2,
+            "3": 1
+          },
+          "largest_terms": [
+            {
+              "prime": 2,
+              "exponent": 1,
+              "value": 2
+            },
+            {
+              "prime": 3,
+              "exponent": 1,
+              "value": 3
+            },
+            {
+              "prime": 2,
+              "exponent": 2,
+              "value": 4
+            },
+            {
+              "prime": 5,
+              "exponent": 1,
+              "value": 5
+            },
+            {
+              "prime": 7,
+              "exponent": 1,
+              "value": 7
+            },
+            {
+              "prime": 2,
+              "exponent": 3,
+              "value": 8
+            },
+            {
+              "prime": 3,
+              "exponent": 2,
+              "value": 9
+            }
+          ]
+        },
+        {
+          "integer_bound_B": 100,
+          "prime_count": 25,
+          "prime_power_term_count": 35,
+          "maximum_exponent": 6,
+          "exponent_histogram": {
+            "1": 25,
+            "2": 4,
+            "3": 2,
+            "4": 2,
+            "5": 1,
+            "6": 1
+          },
+          "largest_terms": [
+            {
+              "prime": 67,
+              "exponent": 1,
+              "value": 67
+            },
+            {
+              "prime": 71,
+              "exponent": 1,
+              "value": 71
+            },
+            {
+              "prime": 73,
+              "exponent": 1,
+              "value": 73
+            },
+            {
+              "prime": 79,
+              "exponent": 1,
+              "value": 79
+            },
+            {
+              "prime": 3,
+              "exponent": 4,
+              "value": 81
+            },
+            {
+              "prime": 83,
+              "exponent": 1,
+              "value": 83
+            },
+            {
+              "prime": 89,
+              "exponent": 1,
+              "value": 89
+            },
+            {
+              "prime": 97,
+              "exponent": 1,
+              "value": 97
+            }
+          ]
+        },
+        {
+          "integer_bound_B": 1000,
+          "prime_count": 168,
+          "prime_power_term_count": 193,
+          "maximum_exponent": 9,
+          "exponent_histogram": {
+            "1": 168,
+            "2": 11,
+            "3": 4,
+            "4": 3,
+            "5": 2,
+            "6": 2,
+            "7": 1,
+            "8": 1,
+            "9": 1
+          },
+          "largest_terms": [
+            {
+              "prime": 953,
+              "exponent": 1,
+              "value": 953
+            },
+            {
+              "prime": 31,
+              "exponent": 2,
+              "value": 961
+            },
+            {
+              "prime": 967,
+              "exponent": 1,
+              "value": 967
+            },
+            {
+              "prime": 971,
+              "exponent": 1,
+              "value": 971
+            },
+            {
+              "prime": 977,
+              "exponent": 1,
+              "value": 977
+            },
+            {
+              "prime": 983,
+              "exponent": 1,
+              "value": 983
+            },
+            {
+              "prime": 991,
+              "exponent": 1,
+              "value": 991
+            },
+            {
+              "prime": 997,
+              "exponent": 1,
+              "value": 997
+            }
+          ]
+        }
+      ],
+      "effective_consequence": "For compact-support core elements, no infinite prime tail remains. A complete strict-sign evaluator still needs certified function values, the archimedean term, normalization, and a proved dense admissible core.",
+      "route_decision": {
+        "retain": "compact-support core candidates with exact prime-power enumeration",
+        "discard": "treating a truncated infinite prime sum as an exact Weil value",
+        "next_theorem": "ArchimedeanIntervalAndAdmissibleCoreDensity"
+      },
+      "machine_audit": {
+        "inventory_bound": 1000000,
+        "finite_prime_power_term_count": 78734,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The arithmetic side is finite for each compactly supported test function. This does not prove density of the chosen core, certify the archimedean term, establish global positivity, or resolve RH."
+    },
+    "collatz": {
+      "theorem_name": "FinitePrefixEventuallyLowExclusion",
+      "proved_statement": "If every unresolved odd representative 1<n<2^k has a finite strict accelerated descent, then no nontrivial eventually-low unresolved path stabilizing below 2^k can encode a counterexample.",
+      "proof": "An eventually-low binary residue path has only finitely many high refinements and therefore stabilizes at one positive odd integer n. If n<2^k, its level-k representative is n. A cylinder certificate already closes representatives outside the frontier; the direct strict-descent certificate closes each remaining representative.",
+      "exact_prefix_audit": {
+        "precision_bits": 28,
+        "integer_upper_bound_exclusive": 268435456,
+        "adaptive_unresolved_class_count": 4027110,
+        "trivial_fixed_path_count": 1,
+        "nontrivial_frontier_representative_count": 4027109,
+        "directly_closed_nontrivial_count": 4027109,
+        "unresolved_after_direct_check": 0,
+        "step_cap": 10000,
+        "maximum_accelerated_steps_to_strict_descent": 249,
+        "maximum_step_witnesses": [
+          217740015
+        ],
+        "maximum_peak": 2134932387040421,
+        "maximum_peak_witness": 210964383,
+        "step_cap_failure_witnesses": []
+      },
+      "interpretation_correction": "An unresolved residue cylinder is not an integer counterexample candidate by itself. It says only that one certificate must cover every lift in that cylinder. Direct orbit replay may still close its representative.",
+      "route_decision": {
+        "retain": "adaptive cylinders for infinite lift families plus direct replay for stabilized representatives",
+        "discard": "counting every unresolved cylinder representative as a surviving integer counterexample candidate",
+        "next_theorem": "UnboundedPrefixClosureOrUniformNontrivialPathRank"
+      },
+      "machine_audit": {
+        "frontier_matches_ticket127": true,
+        "bounded_nontrivial_failure_count": 0,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The audit excludes stabilized counterexample paths only below the stated finite bound. It supplies no uniform k and therefore does not prove Collatz."
+    },
+    "goldbach": {
+      "theorem_name": "ExplicitTwinConstantTailLowerBound",
+      "proved_statement": "For every integer M>=3, C2 is at least product_{3<=p<=M}(1-1/(p-1)^2)*(M-1)/M. At M=1000 this gives 2*C2>1.31917.",
+      "proof": "After extracting the factors p<=M, the remaining prime indices m=p-1 form a subset of all integers m>=M. Since every factor 1-1/m^2 lies in (0,1), the prime tail is at least the full integer tail, whose telescoping product is (M-1)/M.",
+      "exact_cutoff_certificate": {
+        "cutoff_M": 1000,
+        "prime_factor_count": 167,
+        "prefix_numerator": "840362683430929768259949868400035367688372875581865309147345251207367479104067880363677323660556834164727775975477475565718365487987194245562340873884315581535040965878551882258113070441574980207464500808905848078282197343298785367431208619132987755542850526659407730399954942393024257010596787023251132943983368058510464579692591421818524314333141061074526634097337241457605514654033871252733255506511960484259",
+        "prefix_denominator": "1272802878481098875434583965421865416124732761836629007991138203374950037015054971208899725606640433627905081384763877444976341220002120453311896795212638405891558034105641985674596694303565854063246750362209014371714841770303522214330352171247627989197950518091920979694647388970374052678649824652803162715755774738352064388949589125964131994659660912092827693317860884480000000000000000000000000000000000000000",
+        "tail_lower_numerator": 999,
+        "tail_lower_denominator": 1000,
+        "major_lower_numerator": "31093419286944401425618145130801308604469796396529016438451774294672596726850511573456060975440602864094927711092666595931579523055526187085806612333719676516796515737506419643550183606338274267676186529929516378896441301702055058594954718907920546955085469486398086024798332868541897509392081119860291918927384618164887189448625882607285399630326219259757485461601477933931404042199253236351130453740942537917583",
+        "major_lower_denominator": "23570423675575905100640443804108618817124680774752389036872929692128704389167684652016661585308156178294538544162294026758821133703742971357627718429863674183177000631585962697677716561177145445615680562263129895772497069820435596561673188356437555355517602186887425549900877573525445419974996752829688198439921754413927118313881280110446888789993720594311623950330757120000000000000000000000000000000000000000000",
+        "major_lower_decimal": 1.3191709964536598,
+        "certified_display_floor": 1.31917
+      },
+      "conservative_endpoint_budget": {
+        "verified_limit_H": 4000000000000000000,
+        "elementary_log_interval": "42<log(H)<43",
+        "proved_contamination_constant_B": 2.0949181787429647,
+        "conservative_B_upper": 2.1,
+        "candidate_pointwise_residual_K": 55,
+        "exact_positive_margin_lower_numerator": 4050584591,
+        "exact_positive_margin_lower_denominator": 420000000000,
+        "exact_positive_margin_lower_decimal": 0.009644249026190476,
+        "floating_best_ceiling_diagnostic": 56.503739488756246,
+        "consequence": "A pointwise bound |R(N)|<=55*N/log(N) for every even N>H would now suffice after the already proved prime-power contamination bound."
+      },
+      "route_decision": {
+        "retain": "exact singular-series tail lower bounds and the weighted finite-glue theorem",
+        "discard": "the unnecessarily weak normalized main coefficient A=1 as the final endpoint budget",
+        "next_theorem": "PointwiseBinaryGoldbachResidualK55"
+      },
+      "machine_audit": {
+        "exact_major_floor_passes": true,
+        "conservative_k55_margin_positive": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The main coefficient and admissible endpoint budget are stronger, but PrimeProject has not proved the required pointwise residual bound with K=55. Strong Goldbach remains open."
+    },
+    "twin_prime": {
+      "theorem_name": "DyadicEndpointInsufficiencyAndAllScaleEnvelope",
+      "endpoint_no_go": {
+        "statement": "A dyadic recurrence alone cannot imply Q_X<1 at all large X.",
+        "countermodel": "Take K_X=1. Set Q_(2^j)=23/25 at every dyadic endpoint and Q_(3*2^(j-1))=2 at every midpoint. Then the frozen endpoint recurrence with alpha=3/4,beta=23/100 holds with equality, while infinitely many non-dyadic scales exceed one.",
+        "rows": [
+          {
+            "left_endpoint": 16,
+            "midpoint": 24,
+            "right_endpoint": 32,
+            "Q_left": 0.92,
+            "Q_midpoint": 2.0,
+            "Q_right": 0.92,
+            "endpoint_recurrence_equality": true,
+            "all_scale_bound_fails": true
+          },
+          {
+            "left_endpoint": 32,
+            "midpoint": 48,
+            "right_endpoint": 64,
+            "Q_left": 0.92,
+            "Q_midpoint": 2.0,
+            "Q_right": 0.92,
+            "endpoint_recurrence_equality": true,
+            "all_scale_bound_fails": true
+          },
+          {
+            "left_endpoint": 64,
+            "midpoint": 96,
+            "right_endpoint": 128,
+            "Q_left": 0.92,
+            "Q_midpoint": 2.0,
+            "Q_right": 0.92,
+            "endpoint_recurrence_equality": true,
+            "all_scale_bound_fails": true
+          },
+          {
+            "left_endpoint": 128,
+            "midpoint": 192,
+            "right_endpoint": 256,
+            "Q_left": 0.92,
+            "Q_midpoint": 2.0,
+            "Q_right": 0.92,
+            "endpoint_recurrence_equality": true,
+            "all_scale_bound_fails": true
+          },
+          {
+            "left_endpoint": 256,
+            "midpoint": 384,
+            "right_endpoint": 512,
+            "Q_left": 0.92,
+            "Q_midpoint": 2.0,
+            "Q_right": 0.92,
+            "endpoint_recurrence_equality": true,
+            "all_scale_bound_fails": true
+          },
+          {
+            "left_endpoint": 512,
+            "midpoint": 768,
+            "right_endpoint": 1024,
+            "Q_left": 0.92,
+            "Q_midpoint": 2.0,
+            "Q_right": 0.92,
+            "endpoint_recurrence_equality": true,
+            "all_scale_bound_fails": true
+          },
+          {
+            "left_endpoint": 1024,
+            "midpoint": 1536,
+            "right_endpoint": 2048,
+            "Q_left": 0.92,
+            "Q_midpoint": 2.0,
+            "Q_right": 0.92,
+            "endpoint_recurrence_equality": true,
+            "all_scale_bound_fails": true
+          }
+        ]
+      },
+      "proved_interpolation_theorem": {
+        "statement": "If q_(j+1)<=alpha*q_j+beta with 0<=alpha<1, and every X in [2^j,2^(j+1)] satisfies Q_X<=c*q_j+delta, then limsup Q_X<=c*beta/(1-alpha)+delta.",
+        "proof": "Iterating the endpoint recurrence gives limsup q_j at most beta/(1-alpha). Apply the within-block envelope and take the limsup over successive dyadic blocks.",
+        "frozen_endpoint_ceiling": 0.92,
+        "required_numeric_condition": "0.92*c+delta<1",
+        "maximum_delta_when_c_is_1": 0.08,
+        "audited_candidate_c": 1.0,
+        "audited_candidate_delta": 0.07,
+        "candidate_all_scale_ceiling": 0.99,
+        "candidate_condition_passes": true
+      },
+      "route_decision": {
+        "retain": "raw dyadic transport only when paired with an independently proved within-block envelope",
+        "discard": "interpolating arbitrary scales from endpoint values without a coefficient theorem",
+        "next_theorem": "VaughanWithinDyadicBlockEnvelopeC1DeltaBelow008"
+      },
+      "machine_audit": {
+        "countermodel_block_count": 7,
+        "endpoint_countermodel_passes": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The no-go and interpolation theorem are exact. The candidate c=1, delta=0.07 is not proved for Vaughan coefficients, and even a valid obstruction bound would still require parity survival and exact-gap positivity."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Connes and Consani, The Scaling Hamiltonian",
+        "url": "https://arxiv.org/abs/1910.14368",
+        "role": "Primary Weil explicit-formula context; compact support makes only the prime side finite."
+      },
+      {
+        "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values",
+        "url": "https://arxiv.org/abs/1909.03562",
+        "role": "Primary almost-all boundary; the finite prefix audit is not a universal theorem."
+      },
+      {
+        "citation": "Friedlander, Goldston, Iwaniec, and Suriajaya, Exceptional zeros and the Goldbach problem",
+        "url": "https://doi.org/10.1016/j.jnt.2021.06.004",
+        "role": "Primary binary Goldbach normalization; the singular-series sharpening is proved locally."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary sieve boundary; interpolation does not remove the parity obstruction."
+      }
+    ],
+    "machine_audit": {
+      "problem_count": 4,
+      "exact_intermediate_theorem_count": 4,
+      "explicit_route_counterexample_count": 1,
+      "strengthened_endpoint_budget_count": 1,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET128 proves four intermediate reductions or corrections but proves or refutes none of RH, Collatz, Goldbach, or Twin Prime."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-128",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "CompactSupportFinitePrimeSideReduction",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "candidate_theorem": "ArchimedeanIntervalAndAdmissibleCoreDensity",
+      "next_experiment": "Implement certified archimedean intervals on a proved dense compact-support Weil core.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The arithmetic side is finite for each compactly supported test function. This does not prove density of the chosen core, certify the archimedean term, establish global positivity, or resolve RH."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-128",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "FinitePrefixEventuallyLowExclusion",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "candidate_theorem": "UnboundedPrefixClosureOrUniformNontrivialPathRank",
+      "next_experiment": "Replace bounded direct closure by a uniform rank, or expose a step-cap survivor for exact replay.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The audit excludes stabilized counterexample paths only below the stated finite bound. It supplies no uniform k and therefore does not prove Collatz."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-128",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "ExplicitTwinConstantTailLowerBound",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "candidate_theorem": "PointwiseBinaryGoldbachResidualK55",
+      "next_experiment": "Prove the pointwise signed residual bound with K<=55 above H=4e18.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The main coefficient and admissible endpoint budget are stronger, but PrimeProject has not proved the required pointwise residual bound with K=55. Strong Goldbach remains open."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-128",
+      "status": "exact_intermediate_result_conjecture_open",
+      "route": "DyadicEndpointInsufficiencyAndAllScaleEnvelope",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "candidate_theorem": "VaughanWithinDyadicBlockEnvelopeC1DeltaBelow008",
+      "next_experiment": "Derive c and delta from actual Vaughan coefficients and reject every endpoint-only interpolation.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The no-go and interpolation theorem are exact. The candidate c=1, delta=0.07 is not proved for Vaughan coefficients, and even a valid obstruction bound would still require parity survival and exact-gap positivity."
+    }
+  ]
+}

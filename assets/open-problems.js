@@ -9,6 +9,7 @@ let ticket124AttemptGlobal = null;
 let ticket125AttemptGlobal = null;
 let ticket126AttemptGlobal = null;
 let ticket127AttemptGlobal = null;
+let ticket128AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9784,6 +9785,71 @@ function renderTicket126RouteCorrection(attempt) {
   `;
 }
 
+function renderTicket128FiniteCorePrefixConstantInterpolation(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.finite_core_prefix_constant_interpolation_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const machine = section.machine_audit || {};
+  const summaryRows = [
+    ["ticket", attempt.ticket_id || "missing"],
+    ["exact result / 정확한 결과", section.theorem_name || "missing"],
+    ["machine failures / 기계 감사 실패", machine.total_failure_count ?? 0],
+    ["conjecture resolutions / 난제 해결", audit.machine_audit?.conjecture_resolution_count ?? 0],
+    ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"],
+  ];
+  let detail = "";
+  if (problemKey === "riemann") {
+    const inventory = section.finite_inventory || {};
+    detail = `
+      <div class="poc-equation">supp(h) ⊆ [-log B, log B] ⇒ nonzero prime terms satisfy p<sup>m</sup> ≤ B</div>
+      ${table(["compact-support prime-side audit", "value"], [["integer B", formatValue(inventory.integer_bound_B || 0)], ["primes", formatValue(inventory.prime_count || 0)], ["prime-power terms", formatValue(inventory.prime_power_term_count || 0)], ["maximum exponent", inventory.maximum_exponent || 0]])}
+      <div class="poc-route-decision"><section><span>CLOSED / 폐쇄</span><strong>compact-support 원소의 무한 소수 꼬리</strong></section><section><span>OPEN / 미증명</span><strong>archimedean 구간, 허용 핵심집합 조밀성, 전역 양성</strong></section></div>
+    `;
+  } else if (problemKey === "collatz") {
+    const finite = section.exact_prefix_audit || {};
+    detail = `
+      <div class="poc-correction"><strong>해석 교정:</strong> adaptive 미해결 원통은 그 대표 정수가 반례 후보라는 뜻이 아닙니다. 원통 전체 lift의 공통 인증이 아직 없다는 뜻입니다.</div>
+      <div class="poc-equation">cylinder certificate + direct representative descent ⇒ no stabilized counterexample below 2<sup>28</sup></div>
+      ${table(["28-bit prefix closure", "count / value"], [["adaptive unresolved cylinders", formatValue(finite.adaptive_unresolved_class_count || 0)], ["nontrivial representatives", formatValue(finite.nontrivial_frontier_representative_count || 0)], ["directly closed", formatValue(finite.directly_closed_nontrivial_count || 0)], ["step-cap survivors", formatValue(finite.unresolved_after_direct_check || 0)], ["maximum accelerated steps", finite.maximum_accelerated_steps_to_strict_descent || 0], ["step witness", formatValue(finite.maximum_step_witnesses || [])], ["maximum peak", formatValue(finite.maximum_peak || 0)], ["peak witness", formatValue(finite.maximum_peak_witness || 0)]])}
+    `;
+  } else if (problemKey === "goldbach") {
+    const certificate = section.exact_cutoff_certificate || {};
+    const endpoint = section.conservative_endpoint_budget || {};
+    detail = `
+      <div class="poc-equation">2C2 ≥ 2·Π<sub>3≤p≤1000</sub>(1-1/(p-1)<sup>2</sup>)·999/1000 &gt; 1.31917</div>
+      <div class="poc-contract-metric"><span>Strengthened major coefficient / 강화된 주항</span><strong>A &gt; ${Number(certificate.certified_display_floor || 0).toFixed(5)}</strong><em>exact rational certificate / 정확한 유리수 인증</em></div>
+      ${table(["Goldbach endpoint budget", "value"], [["candidate residual K", endpoint.candidate_pointwise_residual_K || 0], ["rigorous margin floor", Number(endpoint.exact_positive_margin_lower_decimal || 0).toFixed(12)], ["floating ceiling diagnostic", Number(endpoint.floating_best_ceiling_diagnostic || 0).toFixed(12)], ["verified H", formatValue(endpoint.verified_limit_H || 0)]])}
+      <p><strong>의미:</strong> K=55가 증명된 것이 아니라, 이제 점별 K≤55를 증명하면 충분하다는 끝점 계약을 확립했습니다.</p>
+    `;
+  } else if (problemKey === "twin-prime") {
+    const theorem = section.proved_interpolation_theorem || {};
+    detail = `
+      <div class="poc-correction"><strong>경로 반례:</strong> dyadic endpoint에서 Q=0.92를 유지하면서 모든 중간점에 Q=2를 놓으면 endpoint 점화식은 성립하지만 all-scale Q&lt;1은 실패합니다.</div>
+      <div class="poc-equation">Q<sub>X</sub> ≤ c q<sub>j</sub>+δ on [2<sup>j</sup>,2<sup>j+1</sup>] ⇒ limsup Q ≤ 0.92c+δ</div>
+      ${table(["all-scale interpolation contract", "value"], [["endpoint ceiling", Number(theorem.frozen_endpoint_ceiling || 0).toFixed(2)], ["required condition", theorem.required_numeric_condition || "missing"], ["max δ at c=1", Number(theorem.maximum_delta_when_c_is_1 || 0).toFixed(2)], ["audited algebraic candidate", `c=${Number(theorem.audited_candidate_c || 0).toFixed(2)}, δ=${Number(theorem.audited_candidate_delta || 0).toFixed(2)}`], ["conditional all-scale ceiling", Number(theorem.candidate_all_scale_ceiling || 0).toFixed(2)]])}
+    `;
+  }
+  return `
+    <div id="ticket128-finite-core-prefix-constant-interpolation" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 128 finite core, prefix closure, constant sharpening, and interpolation</h3>
+      <div class="poc-head"><div><span>Status</span><strong>exact intermediate result</strong></div><div><span>Scope</span><strong>conjecture open / 난제 미해결</strong></div><div><span>Mode</span><strong>${problemKey === "twin-prime" ? "route counterexample + repair" : "premise reduction"}</strong></div></div>
+      ${table(["TICKET128 audit", "Value"], summaryRows)}
+      ${detail}
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.proved_statement || section.interpretation_correction || "")}</p></section><section><h3>Decisive open premise / 결정적 미증명 전제</h3><p>${escapeHtml(attempt.next_experiment || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.proof_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/finite-core-prefix-constant-interpolation.md">Bilingual paper-style report / 한영 논문형 보고서</a></p>
+    </div>
+  `;
+}
+
 function renderTicket127EffectiveBridge(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.effective_bridge_audit || {};
@@ -9958,7 +10024,7 @@ function renderTicket125InfiniteBridgeContracts(attempt) {
 
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
-    return `${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
+    return `${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
   }
   const direct = ticket.direct_counterexample || {};
   const candidate = ticket.candidate_counterexamples_found || {};
@@ -10023,6 +10089,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}
     ${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}
     ${renderTicket126RouteCorrection(ticket126AttemptGlobal)}
     ${renderTicket17Breakthrough(breakthroughTicket)}
@@ -10273,6 +10340,26 @@ async function loadTicket127Attempt() {
   }
 }
 
+async function loadTicket128Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket128-finite-core-prefix-constant-interpolation.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket128AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket128AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket128AttemptGlobal) {
+      ticket128AttemptGlobal.bounded_result = ticket128AttemptGlobal.bounded_result || {};
+      ticket128AttemptGlobal.bounded_result.finite_core_prefix_constant_interpolation_audit = payload.finite_core_prefix_constant_interpolation_audit || {};
+    }
+    return Boolean(ticket128AttemptGlobal);
+  } catch (error) {
+    ticket128AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function main() {
   const response = await fetch("../data/open_problem_workbench.json", { cache: "no-store" });
   if (!response.ok) throw new Error(`Failed to load workbench data: ${response.status}`);
@@ -10382,15 +10469,16 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const priorityLoads = await Promise.all([loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!priorityLoads[0] || !priorityLoads[1] || !priorityLoads[2]) {
+  const priorityLoads = await Promise.all([loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
+  if (!priorityLoads[0] || !priorityLoads[1] || !priorityLoads[2] || !priorityLoads[3]) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket128AttemptGlobal) await loadTicket128Attempt();
     if (!ticket127AttemptGlobal) await loadTicket127Attempt();
     if (!ticket126AttemptGlobal) await loadTicket126Attempt();
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket127-priority";
+  document.documentElement.dataset.openProblemCache = "ticket128-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -11462,6 +11550,7 @@ async function main() {
   if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   if (!ticket126AttemptGlobal) await loadTicket126Attempt();
   if (!ticket127AttemptGlobal) await loadTicket127Attempt();
+  if (!ticket128AttemptGlobal) await loadTicket128Attempt();
   render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt);
 }
 

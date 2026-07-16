@@ -28,21 +28,21 @@ def counterexampleGuidedSynthesis : String :=
   "Goldbach CEGIS: generate explicit budgets, reject unsourced constants and cutoffs above finite range"
 
 def rankedCegisTarget : String :=
-  "GB-TICKET-127 proves the binary singular-series lower bound S(N)>=1, closing normalized A=1 in R(N)=G(N)-S(N)N; only the pointwise signed residual K remains open"
+  "GB-TICKET-128 proves the rational tail bound 2*C2>1.31917 and makes the conservative pointwise residual target K=55 sufficient above H=4e18"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-128 ExplicitPointwiseBinaryGoldbachResidualConstant."
+  "GB-TICKET-129 PointwiseBinaryGoldbachResidualK55."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove |R(N)|<=K*N/log(N) for every even N>H with an explicit K<42.83274372223497, where R(N)=G(N)-S(N)N and H=4e18."
+  "Prove |R(N)|<=55*N/log(N) for every even N>H, where R(N)=G(N)-S(N)N and H=4e18; the strengthened singular-series coefficient leaves a rigorous positive endpoint margin."
 
 def latestExactResult : String :=
-  "UniformBinaryGoldbachSingularSeriesLowerBound: S(N)>=1 for every positive even N; together with B=2.0949181787429647 this leaves a strict pointwise residual ceiling K<42.83274372223497"
+  "ExplicitTwinConstantTailLowerBound: at M=1000, 2*C2>1.31917; with B<2.1 and 42<log H<43, K=55 leaves endpoint margin above 0.009644249"
 
 def closedPremise : String :=
   "proper-prime-power contamination constant B and normalized singular-series coefficient A=1"
 
 def retainedOpenPremise : String :=
-  "explicit pointwise binary Goldbach residual constant K below 42.83274372223497"
+  "explicit pointwise binary Goldbach residual bound with K at most 55"
 
 end PrimeProject.OpenProblems.Goldbach

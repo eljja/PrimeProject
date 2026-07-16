@@ -123,6 +123,7 @@ TICKET124_SCHEMA = "primeproject.ticket124-canonical-obstruction-limsup-criterio
 TICKET125_SCHEMA = "primeproject.ticket125-infinite-bridge-contracts.v1"
 TICKET126_SCHEMA = "primeproject.ticket126-route-correction-audit.v1"
 TICKET127_SCHEMA = "primeproject.ticket127-exception-repair-effective-bridges.v1"
+TICKET128_SCHEMA = "primeproject.ticket128-finite-core-prefix-constant-interpolation.v1"
 
 
 def fail(message: str) -> int:
@@ -7470,6 +7471,49 @@ def main() -> int:
         return fail("ticket127 Twin raw transport changed")
     if "proves or refutes none" not in str(audit127.get("proof_boundary", "")).lower():
         return fail("ticket127 proof boundary changed")
+
+    path128 = Path("data/open-problem/ticket128-finite-core-prefix-constant-interpolation.json")
+    if not path128.exists():
+        return fail("missing ticket128 finite-core/prefix/constant/interpolation audit")
+    ticket128 = read_json(path128)
+    if ticket128.get("schema") != TICKET128_SCHEMA or ticket128.get("status") != "finite_core_prefix_constant_interpolation_proved_all_conjectures_open":
+        return fail("ticket128 schema or status changed")
+    attempts128 = ticket128.get("attempts", [])
+    by_id128 = {str(row.get("problem_id")): row for row in attempts128 if isinstance(row, dict)} if isinstance(attempts128, list) else {}
+    if set(by_id128) != EXPECTED_PROBLEMS:
+        return fail("ticket128 attempts missing problems")
+    paths128 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-128-compact-support-prime-side.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-128-finite-prefix-closure.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-128-sharpened-singular-series.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-128-dyadic-interpolation.json"),
+    }
+    for problem_id, attempt in by_id128.items():
+        if not paths128[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket128 artifact or proof boundary missing")
+    audit128 = ticket128.get("finite_core_prefix_constant_interpolation_audit", {})
+    machine128 = audit128.get("machine_audit", {})
+    if audit128.get("theorem_name") != "FourConjectureFiniteCorePrefixConstantInterpolationAudit" or int(machine128.get("exact_intermediate_theorem_count", -1)) != 4 or int(machine128.get("explicit_route_counterexample_count", -1)) != 1 or int(machine128.get("conjecture_resolution_count", -1)) != 0 or int(machine128.get("total_failure_count", -1)) != 0:
+        return fail("ticket128 global machine audit changed")
+    riemann128 = audit128.get("riemann", {})
+    if riemann128.get("theorem_name") != "CompactSupportFinitePrimeSideReduction" or int(riemann128.get("finite_inventory", {}).get("prime_power_term_count", -1)) != 78734:
+        return fail("ticket128 RH finite prime-side reduction changed")
+    collatz128 = audit128.get("collatz", {})
+    collatz_finite128 = collatz128.get("exact_prefix_audit", {})
+    if collatz128.get("theorem_name") != "FinitePrefixEventuallyLowExclusion" or int(collatz_finite128.get("nontrivial_frontier_representative_count", -1)) != 4027109 or int(collatz_finite128.get("directly_closed_nontrivial_count", -1)) != 4027109 or int(collatz_finite128.get("unresolved_after_direct_check", -1)) != 0 or int(collatz_finite128.get("maximum_accelerated_steps_to_strict_descent", -1)) != 249 or collatz_finite128.get("maximum_step_witnesses") != [217740015] or int(collatz_finite128.get("maximum_peak", -1)) != 2134932387040421:
+        return fail("ticket128 Collatz finite-prefix closure changed")
+    goldbach128 = audit128.get("goldbach", {})
+    goldbach_certificate128 = goldbach128.get("exact_cutoff_certificate", {})
+    goldbach_endpoint128 = goldbach128.get("conservative_endpoint_budget", {})
+    if goldbach128.get("theorem_name") != "ExplicitTwinConstantTailLowerBound" or float(goldbach_certificate128.get("major_lower_decimal", 0)) <= 1.31917 or int(goldbach_endpoint128.get("candidate_pointwise_residual_K", -1)) != 55 or float(goldbach_endpoint128.get("exact_positive_margin_lower_decimal", 0)) <= 0:
+        return fail("ticket128 Goldbach sharpened endpoint budget changed")
+    twin128 = audit128.get("twin_prime", {})
+    twin_theorem128 = twin128.get("proved_interpolation_theorem", {})
+    twin_rows128 = twin128.get("endpoint_no_go", {}).get("rows", [])
+    if twin128.get("theorem_name") != "DyadicEndpointInsufficiencyAndAllScaleEnvelope" or abs(float(twin_theorem128.get("frozen_endpoint_ceiling", 0)) - 0.92) > 1e-15 or abs(float(twin_theorem128.get("maximum_delta_when_c_is_1", 0)) - 0.08) > 1e-15 or not twin_theorem128.get("candidate_condition_passes") or not isinstance(twin_rows128, list) or len(twin_rows128) != 7 or not all(bool(row.get("endpoint_recurrence_equality")) and bool(row.get("all_scale_bound_fails")) for row in twin_rows128 if isinstance(row, dict)):
+        return fail("ticket128 Twin endpoint no-go or interpolation theorem changed")
+    if "proves or refutes none" not in str(audit128.get("proof_boundary", "")).lower():
+        return fail("ticket128 proof boundary changed")
 
     print("open problem structure verified")
     return 0

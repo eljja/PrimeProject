@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260717-ticket127-priority")) {
-      errors.push(`${page}: missing TICKET127 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260717-ticket128-priority")) {
+      errors.push(`${page}: missing TICKET128 priority cache key`);
     }
   }
 
@@ -1244,6 +1244,35 @@ async function main() {
     } else {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
+    }
+    requireText("ticket128 title", "Ticket 128 finite core, prefix closure, constant sharpening, and interpolation");
+    requireText("ticket128 table", "TICKET128 audit");
+    requireText("ticket128 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket128 scope", "conjecture open / 난제 미해결");
+    requireText("ticket128 resolutions", "conjecture resolutions / 난제 해결");
+    if (page.problemId === "riemann") {
+      requireText("ticket128 RH theorem", "CompactSupportFinitePrimeSideReduction");
+      requireText("ticket128 RH prime powers", "78,734");
+      requireText("ticket128 RH target", "ArchimedeanIntervalAndAdmissibleCoreDensity");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket128 Collatz theorem", "FinitePrefixEventuallyLowExclusion");
+      requireText("ticket128 Collatz direct closure", "4,027,109");
+      requireText("ticket128 Collatz zero survivors", "step-cap survivors");
+      requireText("ticket128 Collatz max steps", "249");
+      requireText("ticket128 Collatz witness", "217,740,015");
+      requireText("ticket128 Collatz peak", "2,134,932,387,040,421");
+      requireText("ticket128 Collatz target", "UnboundedPrefixClosureOrUniformNontrivialPathRank");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket128 Goldbach theorem", "ExplicitTwinConstantTailLowerBound");
+      requireText("ticket128 Goldbach A", "A > 1.31917");
+      requireText("ticket128 Goldbach K", "candidate residual K");
+      requireText("ticket128 Goldbach margin", "0.009644249026");
+      requireText("ticket128 Goldbach target", "PointwiseBinaryGoldbachResidualK55");
+    } else {
+      requireText("ticket128 Twin theorem", "DyadicEndpointInsufficiencyAndAllScaleEnvelope");
+      requireText("ticket128 Twin countermodel", "dyadic endpoint에서 Q=0.92");
+      requireText("ticket128 Twin condition", "0.92*c+delta<1");
+      requireText("ticket128 Twin target", "VaughanWithinDyadicBlockEnvelopeC1DeltaBelow008");
     }
     requireText("ticket127 title", "Ticket 127 exception repair and effective bridges");
     requireText("ticket127 table", "TICKET127 audit");
