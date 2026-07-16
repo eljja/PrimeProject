@@ -1,0 +1,42 @@
+{
+  "schema": "primeproject.ticket126-route-correction-preregistration.v1",
+  "generated_at": "2026-07-17T01:00:00+09:00",
+  "source_commit": "72c83f41a99314ddb13f30a8ecfe6c1fa8397eac",
+  "status": "preregistered_before_twin_32m_execution",
+  "claim_boundary": "This preregistration freezes one finite falsification test and three exact theorem audits. It proves or refutes none of the four conjectures.",
+  "riemann": {
+    "route": "AutocorrelationConeDensityNoGo",
+    "frozen_statement": "In any test-function topology where evaluation at the identity is continuous, a cone of autocorrelations with nonnegative identity value is not dense in the full real test space if that space contains a function negative at the identity.",
+    "decision_rule": "Retire dense-cone extension for this autocorrelation cone if the continuous evaluation separator is exact; retain direct all-autocorrelation Weil positivity as the target."
+  },
+  "collatz": {
+    "route": "EventuallyLowUnresolvedPathEquivalence",
+    "minimum_precision_bits": 4,
+    "maximum_precision_bits": 28,
+    "frozen_statement": "A positive odd integer without finite stopping descent is equivalent to an eventually-low infinite path in the adaptive unresolved residue-cylinder tree.",
+    "decision_rule": "Generic 2-adic paths with infinitely many high-child bits are not natural-number counterexamples; only eventually-low paths count."
+  },
+  "goldbach": {
+    "route": "ExplicitProperPrimePowerContaminationBound",
+    "verified_limit": 4000000000000000000,
+    "frozen_bound": "P(N) <= 2*(sqrt(N)+(floor(log_2(N))-2)*N^(1/3))*log(N)^2",
+    "decision_rule": "Accept the prime-power premise as closed only after proving the count and monotonic-tail steps with an explicit uniform B at H=4e18."
+  },
+  "twin_prime": {
+    "route": "PreregisteredThirtyTwoMillionDyadicContractionHoldout",
+    "holdout_horizon": 33554432,
+    "source_horizon": 16777216,
+    "alpha": 0.75,
+    "beta": 0.23,
+    "partition_rule": "canonical_adjacent_shell_pairs_v1",
+    "execution_policy": {
+      "runs": 1,
+      "retuning_after_result": false,
+      "record_first_result": true
+    },
+    "primary_endpoint": "canonical_obstruction_certificate(32M)-0.75*canonical_obstruction_certificate(16M)",
+    "pass_rule": "primary_endpoint <= 0.23",
+    "failure_interpretation": "Refutes the frozen finite dyadic-contraction candidate only; it does not refute Twin Prime.",
+    "pass_interpretation": "Adds one unseen finite transition only; it does not prove a uniform recurrence or Twin Prime."
+  }
+}
