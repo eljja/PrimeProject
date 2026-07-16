@@ -28,12 +28,21 @@ def counterexampleGuidedSynthesis : String :=
   "Goldbach CEGIS: generate explicit budgets, reject unsourced constants and cutoffs above finite range"
 
 def rankedCegisTarget : String :=
-  "GB-TICKET-125 proves the exact endpoint budget A-K/log(H)-B*log(H)^2/sqrt(H)>0 at the verified H=4e18, while leaving A K B unproved"
+  "GB-TICKET-126 proves the proper-prime-power contamination bound with uniform B=2.0949181787429647 at H=4e18, leaving only the major constant A and signed residual constant K open"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-126 ExplicitJointBalancedGoldbachCutoff."
+  "GB-TICKET-127 ExplicitGoldbachMajorAndResidualConstants."
 
 def topAttackProofAttemptProtocol : String :=
-  "Derive replayable uniform constants A K B for the weighted major lower bound, joint signed Vaughan residual, and proper-prime-power contamination, then verify the strict endpoint budget at H=4e18."
+  "Derive replayable uniform constants A and K for the weighted major lower bound and joint signed Vaughan residual, reuse the proved B contamination bound, and verify A-K/log(H)-B*log(H)^2/sqrt(H)>0 at H=4e18."
+
+def latestExactResult : String :=
+  "ExplicitProperPrimePowerContaminationBound: Q(N) <= sqrt(N)+(floor(log_2 N)-2)*N^(1/3), hence B=2.0949181787429647 uniformly above H=4e18"
+
+def closedPremise : String :=
+  "proper-prime-power contamination constant B"
+
+def retainedOpenPremise : String :=
+  "explicit weighted major constant A and joint signed residual constant K"
 
 end PrimeProject.OpenProblems.Goldbach

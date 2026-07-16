@@ -5208,3 +5208,54 @@ TICKET-125 proves no conjecture and certifies no conjecture counterexample. The
 next targets are `AdmissibleKernelConeDensityAndPositivity`,
 `AdaptiveResidueFiniteStoppingCover`, `ExplicitJointBalancedGoldbachCutoff`,
 and `DyadicVaughanObstructionContractionAndInterpolation`.
+
+## TICKET-126: route correction and one closed premise
+
+TICKET-126 tests the TICKET-125 contracts against their actual mathematical
+domains. For RH, `ContinuousEvaluationSeparatesAutocorrelationCone` proves an
+exact no-go: every real autocorrelation has nonnegative value at the identity,
+so continuous identity evaluation separates its cone from any
+negative-at-identity test function. Full-test-space autocorrelation density is
+discarded. This does not refute Weil's criterion or RH; the retained target is
+direct `NonCircularWeilAutocorrelationPositivity` on the exact admissible class.
+
+For Collatz, an ordinary positive integer is precisely an inverse-limit residue
+path that eventually always selects the low lift. The theorem
+`EventuallyLowUnresolvedPathIffFiniteStoppingCounterexample` identifies finite
+stopping counterexamples exactly with eventually-low infinite paths in the
+adaptive unresolved tree. The compatible `-3^(-1)` boundary ray is not such a
+path and is removed as a natural-number obstruction. At 28 bits the exact
+audit leaves 4,027,110 of 134,217,728 odd classes unresolved, mass
+`0.0300043076276779`, and observes a longest low run of 24. Those finite facts
+do not exclude an infinite path.
+
+For Goldbach, the number of distinct proper prime powers satisfies
+
+```text
+Q(N) <= sqrt(N) + (floor(log_2 N)-2) N^(1/3).
+```
+
+Consequently their weighted contamination is bounded by
+
+```text
+2 sqrt(N) log(N)^2 [1+(log_2 N-2)N^(-1/6)].
+```
+
+Monotonicity above 1614 gives the uniform endpoint constant
+`B=2.0949181787429647` at `H=4e18`. This closes one previously open premise;
+explicit pointwise major and signed-residual constants `A,K` remain open.
+
+For Twin Prime, the preregistered 32M finite transition passes without
+parameter retuning. Its certified obstruction is `0.771657434492807`, and the
+frozen affine residual is `0.145872900933948<0.23`, leaving slack
+`0.0841270990660519`. The failed first execution and tolerance-only recovery
+preregistration are preserved in the provenance record. Five finite passes do
+not imply a uniform recurrence, all-X interpolation, parity survival, or a
+positive exact-gap-two lower bound.
+
+TICKET-126 proves three intermediate theorems and records one finite holdout.
+It proves no conjecture and certifies no conjecture counterexample. The next
+targets are `NonCircularWeilAutocorrelationPositivity`,
+`UniformEventuallyLowPathExclusion`,
+`ExplicitGoldbachMajorAndResidualConstants`, and
+`DyadicVaughanObstructionContractionAndInterpolation`.

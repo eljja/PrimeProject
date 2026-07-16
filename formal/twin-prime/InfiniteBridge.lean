@@ -28,12 +28,21 @@ def counterexampleGuidedSynthesis : String :=
   "Twin Prime CEGIS: generate exact-pair weights, reject parity-model and wider-gap leakage"
 
 def rankedCegisTarget : String :=
-  "TP-TICKET-125 proves an affine dyadic contraction implies a limsup below one and freezes alpha=3/4 beta=23/100 as finite candidate data only"
+  "TP-TICKET-126 executes the preregistered 32M holdout once: certified residual 0.145872900933948 is below beta=0.23, a fifth finite transition only"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-126 DyadicVaughanObstructionContractionAndInterpolation."
+  "TP-TICKET-127 DyadicVaughanObstructionContractionAndInterpolation."
 
 def topAttackProofAttemptProtocol : String :=
-  "Preregister a 32M falsification holdout for Q_(2X)<=3*Q_X/4+23/100, then independently prove the recurrence from actual Vaughan coefficients and an all-X between-scale envelope, or construct a Vaughan-realizable unbounded failure sequence."
+  "Prove the preregistered recurrence uniformly from actual Vaughan coefficients and an all-X between-scale envelope, or construct a Vaughan-realizable failure; the passing 32M holdout cannot supply either theorem."
+
+def latestFiniteResult : String :=
+  "PreregisteredThirtyTwoMillionDyadicContractionHoldout: certified Q falls from 0.834379378078478 to 0.771657434492807 and the certified residual 0.145872900933948 leaves 0.0841270990660519 slack"
+
+def finiteEvidenceBoundary : String :=
+  "one preregistered dyadic transition is falsification evidence, not a uniform recurrence, interpolation theorem, parity breakthrough, or exact-gap lower bound"
+
+def retainedOpenPremise : String :=
+  "uniform Vaughan-realizable affine contraction plus all-X interpolation and exact-gap positivity"
 
 end PrimeProject.OpenProblems.TwinPrime

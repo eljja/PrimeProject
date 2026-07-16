@@ -28,12 +28,21 @@ def counterexampleGuidedSynthesis : String :=
   "RH CEGIS: generate kernel cone candidates, reject circular imports, search adversarial kernels"
 
 def rankedCegisTarget : String :=
-  "RH-TICKET-125 proves continuous dense-cone positivity extension and exact no-go models when density, continuity, or all-cone positivity is omitted"
+  "RH-TICKET-126 proves that the autocorrelation cone cannot be dense in any full test space with continuous evaluation at the identity and a negative-at-identity test function"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-126 AdmissibleKernelConeDensityAndPositivity."
+  "RH-TICKET-127 NonCircularWeilAutocorrelationPositivity."
 
 def topAttackProofAttemptProtocol : String :=
-  "Fix one completed RH-equivalent Weil test topology, prove continuity of its quadratic form and density of an explicit arithmetic cone, then derive positivity without importing zero placement; reject finite Gram and sampled-zero replay."
+  "Work directly on every admissible Weil autocorrelation, prove the explicit-formula quadratic form nonnegative without importing zero placement, and reject the retired full-space density shortcut, finite Gram replay, and sampled-zero evidence."
+
+def latestExactResult : String :=
+  "ContinuousEvaluationSeparatesAutocorrelationCone: if evaluation at the identity is continuous and the ambient real test space contains a function negative there, the autocorrelation cone lies in a proper closed half-space and is not dense"
+
+def retiredRoute : String :=
+  "full-test-space autocorrelation-cone density"
+
+def retainedOpenPremise : String :=
+  "non-circular Weil positivity for every admissible autocorrelation"
 
 end PrimeProject.OpenProblems.Riemann

@@ -121,6 +121,7 @@ TICKET122_SCHEMA = "primeproject.ticket122-twin-canonical-joint-defect-audit.v1"
 TICKET123_SCHEMA = "primeproject.ticket123-canonical-defect-ratio-closure-bridge.v1"
 TICKET124_SCHEMA = "primeproject.ticket124-canonical-obstruction-limsup-criterion.v1"
 TICKET125_SCHEMA = "primeproject.ticket125-infinite-bridge-contracts.v1"
+TICKET126_SCHEMA = "primeproject.ticket126-route-correction-audit.v1"
 
 
 def fail(message: str) -> int:
@@ -7377,6 +7378,56 @@ def main() -> int:
         return fail("ticket125 Twin contraction candidate changed")
     if "proves four conditional bridge lemmas" not in str(audit125.get("proof_boundary", "")):
         return fail("ticket125 proof boundary changed")
+
+    path126 = Path("data/open-problem/ticket126-route-correction-audit.json")
+    if not path126.exists():
+        return fail("missing ticket126 route correction audit")
+    ticket126 = read_json(path126)
+    if ticket126.get("schema") != TICKET126_SCHEMA or ticket126.get("status") != "route_corrections_and_one_missing_premise_closed_all_conjectures_open":
+        return fail("ticket126 schema or status changed")
+    attempts126 = ticket126.get("attempts", [])
+    by_id126 = {str(row.get("problem_id")): row for row in attempts126 if isinstance(row, dict)} if isinstance(attempts126, list) else {}
+    if set(by_id126) != EXPECTED_PROBLEMS:
+        return fail("ticket126 attempts missing problems")
+    paths126 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-126-autocorrelation-density-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-126-eventually-low-path.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-126-prime-power-bound.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-126-32m-contraction-holdout.json"),
+    }
+    for problem_id, attempt in by_id126.items():
+        if not paths126[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket126 artifact or proof boundary missing")
+        expected_ref126 = "twin_prime" if problem_id == "twin-prime" else problem_id
+        if attempt.get("bounded_result", {}).get("audit_ref") != expected_ref126:
+            return fail(f"{problem_id}: ticket126 shared audit reference changed")
+    audit126 = ticket126.get("route_correction_audit", {})
+    machine126 = audit126.get("machine_audit", {})
+    if audit126.get("theorem_name") != "FourConjectureRouteCorrectionAndPremiseClosureAudit" or audit126.get("source_ticket") != "TICKET-125":
+        return fail("ticket126 theorem lineage changed")
+    if int(machine126.get("exact_new_theorem_count", -1)) != 3 or int(machine126.get("preregistered_holdout_count", -1)) != 1 or int(machine126.get("closed_missing_premise_count", -1)) != 1 or int(machine126.get("conjecture_resolution_count", -1)) != 0 or int(machine126.get("total_failure_count", -1)) != 0:
+        return fail("ticket126 global machine audit changed")
+    rh126 = audit126.get("riemann", {})
+    if rh126.get("theorem_name") != "ContinuousEvaluationSeparatesAutocorrelationCone" or rh126.get("route_decision", {}).get("next_theorem") != "NonCircularWeilAutocorrelationPositivity":
+        return fail("ticket126 RH route correction changed")
+    collatz126 = audit126.get("collatz", {})
+    collatz_machine126 = collatz126.get("machine_audit", {})
+    if collatz126.get("theorem_name") != "EventuallyLowUnresolvedPathIffFiniteStoppingCounterexample" or int(collatz_machine126.get("maximum_precision_bits", -1)) != 28 or int(collatz_machine126.get("largest_unresolved_class_count", -1)) != 4027110 or int(collatz_machine126.get("largest_maximum_low_run", -1)) != 24 or int(collatz_machine126.get("ticket125_replay_mismatch_count", -1)) != 0:
+        return fail("ticket126 Collatz natural-path frontier changed")
+    goldbach126 = audit126.get("goldbach", {})
+    goldbach_machine126 = goldbach126.get("machine_audit", {})
+    if goldbach126.get("theorem_name") != "ExplicitProperPrimePowerContaminationBound" or abs(float(goldbach_machine126.get("explicit_uniform_B", 0)) - 2.0949181787429647) > 1e-15 or goldbach126.get("route_decision", {}).get("closed_premise") != "proper-prime-power contamination constant B":
+        return fail("ticket126 Goldbach premise closure changed")
+    twin126 = audit126.get("twin_prime", {})
+    result126 = twin126.get("primary_result", {})
+    if twin126.get("failed_unserialized_execution_count") != 1 or twin126.get("valid_recovery_execution_count") != 1 or twin126.get("retuned_after_result") is not False:
+        return fail("ticket126 Twin recovery provenance changed")
+    if result126.get("status") != "pass_finite_preregistered_transition" or int(result126.get("to_horizon", -1)) != 33554432 or abs(float(result126.get("certificate_recurrence_residual", 0)) - 0.1458729009339481) > 1e-15 or result126.get("primary_endpoint_passes") is not True:
+        return fail("ticket126 Twin finite holdout changed")
+    if not Path("data/open-problem/ticket126-route-correction-preregistration.json").exists() or not Path("data/open-problem/ticket126-holdout-recovery-preregistration.json").exists() or not Path("data/open-problem/ticket126-twin-32m-first-valid-result.json").exists():
+        return fail("ticket126 preregistration or holdout provenance missing")
+    if "proves or refutes none" not in str(audit126.get("proof_boundary", "")).lower():
+        return fail("ticket126 proof boundary changed")
 
     print("open problem structure verified")
     return 0

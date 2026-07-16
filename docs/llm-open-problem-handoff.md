@@ -62,7 +62,46 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-125
+## Latest Continuation After TICKET-126
+
+TICKET126 corrects two overbroad routes, proves one exact Collatz path
+equivalence, closes one Goldbach premise, and executes one preregistered Twin
+holdout. It proves or refutes none of the four conjectures. The canonical
+account is `docs/route-correction-and-premise-closure.md` and the machine
+record is `data/open-problem/ticket126-route-correction-audit.json`.
+
+For RH, `ContinuousEvaluationSeparatesAutocorrelationCone` proves that the
+autocorrelation cone cannot be dense in a full real test space when evaluation
+at the identity is continuous and that space contains a negative-at-identity
+function. Discard full-space density as the extension route. Retain direct,
+non-circular Weil positivity for every admissible autocorrelation, with the
+exact moment-constrained class fixed before proof search.
+
+For Collatz, `EventuallyLowUnresolvedPathIffFiniteStoppingCounterexample`
+proves that a positive-integer finite-stopping counterexample is exactly an
+eventually-low infinite path through the adaptive unresolved residue tree.
+The 2-adic boundary ray `-3^(-1)` is not eventually low and is therefore not a
+natural-number obstruction. The 28-bit exact audit leaves 4,027,110 of
+134,217,728 odd classes unresolved, mass 0.0300043076, with longest observed
+low run 24. Do not infer the absence of an infinite path from these finite
+values. Attack `UniformEventuallyLowPathExclusion`.
+
+For Goldbach, `ExplicitProperPrimePowerContaminationBound` proves
+`Q(N)<=sqrt(N)+(floor(log_2 N)-2)N^(1/3)` and closes the uniform contamination
+constant at `B=2.0949181787429647` above `H=4e18`. The remaining theorem must
+derive replayable pointwise major and signed-residual constants `A,K`; example
+values such as `A=1,K=40` are budget illustrations, not established bounds.
+
+For Twin Prime, the frozen 16M-to-32M test passes: certified obstruction falls
+from 0.834379378078478 to 0.771657434492807, giving recurrence residual
+0.145872900933948 below beta 0.23. This is a fifth finite transition only. The
+first expensive execution failed an overly strict reconstruction gate before
+serializing an endpoint. A separately committed recovery preregistration
+restored only the inherited tolerance; one valid recovery run was made with no
+retuning. Continue with a uniform Vaughan-realizable recurrence, all-X
+interpolation, and exact-gap positivity, or find a realizable failure.
+
+## Preserved Continuation After TICKET-125
 
 TICKET125 proves four exact conditional bridges while preserving the open
 claim boundary. RH uses `ContinuousDenseConePositivityExtension`: density,
