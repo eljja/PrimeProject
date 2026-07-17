@@ -127,6 +127,7 @@ TICKET127_SCHEMA = "primeproject.ticket127-exception-repair-effective-bridges.v1
 TICKET128_SCHEMA = "primeproject.ticket128-finite-core-prefix-constant-interpolation.v1"
 TICKET129_SCHEMA = "primeproject.ticket129-enumerable-core-valuation-cap-endpoint-budget.v1"
 TICKET130_SCHEMA = "primeproject.ticket130-computability-cap-language-optimality.v1"
+TICKET131_SCHEMA = "primeproject.ticket131-proof-viability-target-correction.v1"
 
 
 def fail(message: str) -> int:
@@ -7602,6 +7603,50 @@ def main() -> int:
         return fail("ticket130 Twin relative-increment reduction changed")
     if "proves or refutes none" not in str(audit130.get("proof_boundary", "")).lower():
         return fail("ticket130 proof boundary changed")
+
+    path131 = Path("data/open-problem/ticket131-proof-viability-target-correction.json")
+    if not path131.exists():
+        return fail("missing ticket131 proof-viability/target-correction audit")
+    ticket131 = read_json(path131)
+    if ticket131.get("schema") != TICKET131_SCHEMA or ticket131.get("status") != "proof_viability_target_correction_proved_all_conjectures_open":
+        return fail("ticket131 schema or status changed")
+    attempts131 = ticket131.get("attempts", [])
+    by_id131 = {str(row.get("problem_id")): row for row in attempts131 if isinstance(row, dict)} if isinstance(attempts131, list) else {}
+    if set(by_id131) != EXPECTED_PROBLEMS:
+        return fail("ticket131 attempts missing problems")
+    paths131 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-131-finite-positivity-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-131-residue-stabilization.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-131-arithmetic-strata.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-131-reparameterization.json"),
+    }
+    for problem_id, attempt in by_id131.items():
+        if not paths131[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket131 artifact or proof boundary missing")
+    audit131 = ticket131.get("proof_viability_target_correction_audit", {})
+    machine131 = audit131.get("machine_audit", {})
+    if audit131.get("theorem_name") != "FourConjectureProofViabilityAndTargetCorrectionAudit" or int(machine131.get("exact_intermediate_theorem_count", -1)) != 5 or int(machine131.get("historical_target_correction_count", -1)) != 2 or int(machine131.get("conjecture_resolution_count", -1)) != 0 or int(machine131.get("total_failure_count", -1)) != 0:
+        return fail("ticket131 global machine audit changed")
+    riemann131 = audit131.get("riemann", {})
+    rh_countermodel131 = riemann131.get("exact_countermodel", {})
+    if riemann131.get("theorem_name") != "FiniteDimensionalPositivityCannotCertifyUniversalWeilPositivity" or int(rh_countermodel131.get("negative_witness_value", 0)) != -1 or not riemann131.get("machine_audit", {}).get("finite_forms_indistinguishable_on_observed_subspace"):
+        return fail("ticket131 RH finite-positivity no-go changed")
+    collatz131 = audit131.get("collatz", {})
+    scope131 = collatz131.get("strict_cap_scope_correction", {})
+    diagnostic131 = collatz131.get("mechanical_word_finite_diagnostic", {})
+    replay131 = collatz131.get("exact_cylinder_replay_audit", {})
+    if collatz131.get("theorem_name") != "NaturalRealizationIffCylinderResiduesEventuallyStabilize" or int(scope131.get("ticket129_strict_cap_horizon_2H", -1)) != 2**29 or int(scope131.get("first_exact_demonstration_scale_3H", -1)) != 3 * 2**28 or int(diagnostic131.get("nested_cylinder_failure_count", -1)) != 0 or int(replay131.get("word_count", -1)) != 340 or int(replay131.get("failure_count", -1)) != 0 or collatz131.get("route_decision", {}).get("next_theorem") != "NoEventuallyStableNaturalPathUnderExactNoDescentEnvelope":
+        return fail("ticket131 Collatz scope correction or stabilization contract changed")
+    goldbach131 = audit131.get("goldbach", {})
+    boundary131 = goldbach131.get("k57_boundary", {})
+    if goldbach131.get("theorem_name") != "ArithmeticStratifiedGoldbachResidualBudgets" or int(boundary131.get("largest_certified_prime", -1)) != 103 or Fraction(str(boundary131.get("margin_at_p_103", {}).get("exact", "0"))) <= 0 or Fraction(str(boundary131.get("margin_at_p_107", {}).get("exact", "0"))) >= 0:
+        return fail("ticket131 Goldbach arithmetic stratification changed")
+    twin131 = audit131.get("twin_prime", {})
+    exact131 = twin131.get("exact_equivalence", {})
+    if twin131.get("theorem_name") != "RelativeIncrementTargetIsExactReparameterization" or exact131.get("equivalent_multiplier") != "25/23" or exact131.get("additive_headroom") != "2/25" or twin131.get("route_decision", {}).get("next_theorem") != "UniformSignedVaughanBlockTransportWithParityBridge":
+        return fail("ticket131 Twin reparameterization correction changed")
+    if "not close" not in str(audit131.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket131.get("claim_boundary", "")).lower():
+        return fail("ticket131 proof boundary changed")
 
     print("open problem structure verified")
     return 0

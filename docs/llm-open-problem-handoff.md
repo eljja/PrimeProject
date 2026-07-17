@@ -62,9 +62,46 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-130
+## Latest Continuation After TICKET-131
 
-TICKET130 is the current boundary. Read
+TICKET131 is the current boundary. Read
+`docs/proof-viability-and-target-correction.md` and
+`data/open-problem/ticket131-proof-viability-target-correction.json` before
+proposing a new route. None of the four conjectures is resolved, and the current
+repository does not justify calling any route close to proof.
+
+For RH, finite Gram, rational-bump, or Galerkin positivity is now formally
+blocked as a universal inference: a continuous quadratic form can agree on the
+entire audited finite subspace and be negative in an orthogonal direction.
+Retain strict-negative interval search, but attack
+`WeilSpecificCoerciveTailOrMonotoneOperatorLimit` with actual Weil structure.
+
+For Collatz, TICKET130's proposed infinite strict-cap target is superseded. The
+TICKET129 cap is proved necessary only through `2^29` steps. At `j=3H`, `H=2^28`, the
+exact all-time multiplier satisfies `(1+1/(3H))^(3H)>2`, so the strict cap no
+longer follows. TICKET131 proves that an infinite valuation word comes from one
+fixed positive integer exactly when its canonical nested start residues
+eventually stabilize. Attack
+`NoEventuallyStableNaturalPathUnderExactNoDescentEnvelope`; do not use the
+strict cap outside its proved horizon.
+
+For Goldbach, arithmetic stratification weakens the sufficient pointwise target
+on named classes. If an even `N` has an odd prime divisor at most 103, then a
+classwise `|R(N)|<=57N/log N` estimate would suffice under the current exact
+endpoint constants. The exact p=103 margin is
+`98007974997/216140000000000>0`; the same coarse certificate fails at p=107.
+Attack `PointwiseBinaryGoldbachResidualByRoughnessStratum`, beginning with the
+small-divisor class and preserving the 103-rough remainder.
+
+For Twin Prime, TICKET130's `R<2/23` target is exactly the ratio ceiling
+`Q_X/Q_Y<25/23`, because `(a-k)/(1+k)=Q_X/Q_Y-1`. It is bookkeeping, not an
+independent analytic simplification. Attack
+`UniformSignedVaughanBlockTransportWithParityBridge` using actual coefficients;
+keep the signed transport estimate and the parity-to-exact-gap bridge separate.
+
+## Historical Continuation After TICKET-130
+
+TICKET130 is the previous boundary. Read
 `docs/computability-cap-language-optimality.md` and
 `data/open-problem/ticket130-computability-cap-language-optimality.json` before
 proposing a new route. None of the four conjectures is resolved.
