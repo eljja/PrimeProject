@@ -6,6 +6,13 @@ Canonical status: `open_not_proven` for all four problems
 
 Scope: Riemann Hypothesis, Collatz conjecture, binary Goldbach conjecture, Twin Prime conjecture
 
+> **Current continuation / 최신 연속 연구:** this dated consolidation remains a
+> historical keep/discard baseline. The current boundary is
+> [TICKET-132](admissibility-nullset-hard-stratum-local-parity.md), which repairs
+> the RH two-moment admissible core and adds exact dense-null, power-of-two hard-
+> stratum, and finite-local-sieve CRT boundary theorems. All four problems remain
+> `open_not_proven`.
+
 ## 한국어 정리
 
 ### 1. 결론부터

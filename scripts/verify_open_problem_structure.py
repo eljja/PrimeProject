@@ -128,6 +128,7 @@ TICKET128_SCHEMA = "primeproject.ticket128-finite-core-prefix-constant-interpola
 TICKET129_SCHEMA = "primeproject.ticket129-enumerable-core-valuation-cap-endpoint-budget.v1"
 TICKET130_SCHEMA = "primeproject.ticket130-computability-cap-language-optimality.v1"
 TICKET131_SCHEMA = "primeproject.ticket131-proof-viability-target-correction.v1"
+TICKET132_SCHEMA = "primeproject.ticket132-admissibility-nullset-hard-stratum-local-parity.v1"
 
 
 def fail(message: str) -> int:
@@ -7647,6 +7648,48 @@ def main() -> int:
         return fail("ticket131 Twin reparameterization correction changed")
     if "not close" not in str(audit131.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket131.get("claim_boundary", "")).lower():
         return fail("ticket131 proof boundary changed")
+
+    path132 = Path("data/open-problem/ticket132-admissibility-nullset-hard-stratum-local-parity.json")
+    if not path132.exists():
+        return fail("missing ticket132 admissibility/pointwise-boundary audit")
+    ticket132 = read_json(path132)
+    if ticket132.get("schema") != TICKET132_SCHEMA or ticket132.get("status") != "exact_boundary_theorems_proved_all_conjectures_open":
+        return fail("ticket132 schema or status changed")
+    attempts132 = ticket132.get("attempts", [])
+    by_id132 = {str(row.get("problem_id")): row for row in attempts132 if isinstance(row, dict)} if isinstance(attempts132, list) else {}
+    if set(by_id132) != EXPECTED_PROBLEMS:
+        return fail("ticket132 attempts missing problems")
+    paths132 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-132-constrained-core.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-132-dense-null-natural-codes.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-132-power-two-hard-stratum.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-132-local-sieve-crt.json"),
+    }
+    for problem_id, attempt in by_id132.items():
+        if not paths132[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket132 artifact or proof boundary missing")
+    audit132 = ticket132.get("admissibility_nullset_hard_stratum_local_parity_audit", {})
+    machine132 = audit132.get("machine_audit", {})
+    if audit132.get("theorem_name") != "FourConjectureAdmissibilityAndPointwiseBoundaryAudit" or int(machine132.get("exact_theorem_count", -1)) != 4 or int(machine132.get("route_correction_count", -1)) != 4 or int(machine132.get("conjecture_resolution_count", -1)) != 0 or int(machine132.get("total_failure_count", -1)) != 0:
+        return fail("ticket132 global machine audit changed")
+    riemann132 = audit132.get("riemann", {})
+    rh_contract132 = riemann132.get("exact_anchor_contract", {})
+    if riemann132.get("theorem_name") != "ConstraintPreservingEnumerableWeilCoreProjection" or rh_contract132.get("normalized_determinant") != "e^(-1/2)-e^(1/2)<0" or float(riemann132.get("numeric_projection_audit", {}).get("maximum_residual", 1)) > 2e-15:
+        return fail("ticket132 RH constrained core changed")
+    collatz132 = audit132.get("collatz", {})
+    replay132 = collatz132.get("finite_cylinder_replay", {})
+    if collatz132.get("theorem_name") != "NaturalCollatzCodesAreCountableDenseAndNull" or int(replay132.get("word_count", -1)) != 340 or int(replay132.get("positive_representative_replay_count", -1)) != 1020 or int(replay132.get("failure_count", -1)) != 0:
+        return fail("ticket132 Collatz dense-null theorem changed")
+    goldbach132 = audit132.get("goldbach", {})
+    contract132 = goldbach132.get("fixed_endpoint_contract", {})
+    if goldbach132.get("theorem_name") != "PowersOfTwoRemainTheUniformGoldbachHardStratum" or Fraction(str(contract132.get("margin_K56_at_multiplier_one", {}).get("exact", "0"))) <= 0 or Fraction(str(contract132.get("margin_K57_at_multiplier_one_using_lower_floor", {}).get("exact", "0"))) >= 0 or not goldbach132.get("machine_audit", {}).get("all_power_rows_have_minimal_multiplier"):
+        return fail("ticket132 Goldbach hard stratum changed")
+    twin132 = audit132.get("twin_prime", {})
+    rows132 = twin132.get("crt_rows", [])
+    if twin132.get("theorem_name") != "FiniteLocalSieveDataCannotCertifyTwinPrimality" or len(rows132) != 4 or any(int(row.get("row_failure_count", -1)) != 0 for row in rows132) or int(twin132.get("machine_audit", {}).get("constructed_pair_count", -1)) != 12:
+        return fail("ticket132 Twin local-sieve CRT countermodel changed")
+    if "none of the four" not in str(audit132.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket132.get("claim_boundary", "")).lower():
+        return fail("ticket132 proof boundary changed")
 
     print("open problem structure verified")
     return 0

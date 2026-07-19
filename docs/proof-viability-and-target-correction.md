@@ -16,6 +16,12 @@ sufficient, and records the exact obligations that remain afterward.
 Machine-readable record:
 `data/open-problem/ticket131-proof-viability-target-correction.json`.
 
+> **Superseded boundary / 최신 경계:** TICKET-132 repairs the two-moment
+> admissibility of the RH enumerable core and proves exact dense-null, hard-
+> stratum, and finite-local-sieve boundary theorems for Collatz, Goldbach, and
+> Twin Prime. The TICKET-131 theorems below remain valid. See
+> [TICKET-132](admissibility-nullset-hard-stratum-local-parity.md).
+
 ## 1. 결론 요약 / Executive conclusion
 
 현재 결과만 보면 네 문제 중 증명에 가깝다고 말할 수 있는 문제는 없다.

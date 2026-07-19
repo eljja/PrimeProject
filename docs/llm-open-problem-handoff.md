@@ -62,9 +62,43 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-131
+## Latest Continuation After TICKET-132
 
-TICKET131 is the current boundary. Read
+TICKET132 is the current boundary. Read
+`docs/admissibility-nullset-hard-stratum-local-parity.md` and
+`data/open-problem/ticket132-admissibility-nullset-hard-stratum-local-parity.json`
+before proposing a new route. All conjecture-resolution counters remain zero.
+
+For RH, do not enumerate unconstrained rational bumps as if they already met
+the two Weil moment conditions. TICKET132 constructs an explicit continuous
+projection using `b(x)` and `b(x-1)`; its normalized moment determinant is
+`e^(-1/2)-e^(1/2)<0`. The projected computable core is countable and dense in
+the constrained space. Attack `NonnegativeProjectedWeilCoreCertificate`, or
+produce a strict negative interval under one frozen published normalization.
+
+For Collatz, natural accelerated valuation codes are countable, dense in the
+product topology, null under every non-atomic probability, and eventually
+canonical-residue-stabilizing. Every finite word cylinder contains infinitely
+many natural starts `r+kM`. Therefore neither finite-prefix topology nor mass
+decay can exclude natural counterexamples. Attack
+`PointwiseArchimedeanDescentOnDenseNullNaturalCodes` with ordinary magnitude.
+
+For Goldbach, every power of two has normalized singular-series multiplier
+one. This unbounded family survives every finite small-odd-divisor
+stratification. The exact fixed-endpoint lower margins at multiplier one are
+`23019645297/2140000000000>0` for K=56 and
+`-26980354703/2140000000000<0` for K=57. Attack
+`PointwiseBinaryGoldbachResidualK56OnPowersOfTwoAndRoughStrata`.
+
+For Twin Prime, every fixed sieve level admits an infinite CRT progression in
+which both `n` and `n+2` avoid all local primes yet are composite. Do not treat
+finite local sieve state as primality information. Attack
+`UnboundedTypeIIParitySensitiveExactGapCertificate`, and require it to
+separate the CRT composite progression from genuine prime pairs.
+
+## Historical Continuation After TICKET-131
+
+TICKET131 is the previous boundary. Read
 `docs/proof-viability-and-target-correction.md` and
 `data/open-problem/ticket131-proof-viability-target-correction.json` before
 proposing a new route. None of the four conjectures is resolved, and the current

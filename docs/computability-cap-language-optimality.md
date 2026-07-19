@@ -43,6 +43,13 @@ Machine-readable record:
 > Prime의 `R<2/23`은 all-scale 비율 제어를 다시 쓴 식이므로 실제 Vaughan
 > 계수의 새 부등식 없이 난점을 줄이지 않는다.
 
+> **TICKET-132 admissibility correction / 허용공간 정정:** a generic TICKET-129
+> rational-bump description does not exactly satisfy the two Weil moment
+> constraints. TICKET-132 constructs a computable constraint-preserving
+> projection. The strict-negative semidecision remains structurally valid, but
+> the interval evaluator must accept the projected computable coefficients and
+> one fixed published normalization before it becomes an executable RH search.
+
 ## 1. Claim discipline / 주장 규율
 
 | Label | Meaning | 한국어 의미 |

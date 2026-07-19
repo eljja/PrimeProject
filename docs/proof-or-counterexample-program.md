@@ -5412,3 +5412,35 @@ separate bridge: `UniformSignedVaughanBlockTransportWithParityBridge`.
 
 TICKET131 proves five exact intermediate or route-correction statements. It
 proves none of the four conjectures and certifies no conjecture counterexample.
+# TICKET-132 continuation: admissibility and pointwise boundary theorems
+
+TICKET-132 preserves every valid TICKET-131 theorem and narrows four proof
+routes without claiming a conjecture solution. The machine-readable audit is
+`data/open-problem/ticket132-admissibility-nullset-hard-stratum-local-parity.json`.
+
+For RH, the TICKET-129 rational-bump core is projected onto the two exact moment
+kernels with anchors `b(x)` and `b(x-1)`. The normalized moment determinant is
+`e^(-1/2)-e^(1/2)<0`, so the projected computable core is countable and dense in
+the admissible subspace. The next target is
+`NonnegativeProjectedWeilCoreCertificate`; positivity itself is not proved.
+
+For Collatz, natural valuation codes are countable and dense because every
+finite exact cylinder contains all starts `r+kM`, but they have measure zero
+under every non-atomic probability. Combined with TICKET-131, every natural
+code is eventually residue-stabilizing. This exact dense-null theorem blocks
+both finite-prefix separation and mass-only proof routes. The next target is
+`PointwiseArchimedeanDescentOnDenseNullNaturalCodes`.
+
+For Goldbach, `N=2^m` has empty odd-prime singular-series product and hence
+normalized multiplier one for every `m`. Powers of two are an unavoidable
+infinite minimal-main stratum, so finite small-divisor stratification is only a
+workload reduction. The next target is
+`PointwiseBinaryGoldbachResidualK56OnPowersOfTwoAndRoughStrata`.
+
+For Twin Prime, CRT constructs, at every finite sieve level, an infinite
+progression of small-prime-clean pairs with both entries composite. This is a
+countermodel to finite-local primality certification, not to Twin Prime. The
+next target is `UnboundedTypeIIParitySensitiveExactGapCertificate`.
+
+All four conjectures remain open. TICKET-132 exact theorem count is four,
+route-correction count is four, and conjecture-resolution count is zero.

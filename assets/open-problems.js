@@ -13,6 +13,7 @@ let ticket128AttemptGlobal = null;
 let ticket129AttemptGlobal = null;
 let ticket130AttemptGlobal = null;
 let ticket131AttemptGlobal = null;
+let ticket132AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9788,6 +9789,81 @@ function renderTicket126RouteCorrection(attempt) {
   `;
 }
 
+function renderTicket132AdmissibilityBoundary(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.admissibility_nullset_hard_stratum_local_parity_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const machine = section.machine_audit || {};
+  const viability = (audit.proof_viability || []).find((row) => row.problem_id === problemKey) || {};
+  const summaryRows = [
+    ["ticket", attempt.ticket_id || "missing"],
+    ["exact theorem / 정확한 정리", section.theorem_name || "missing"],
+    ["proof position / 증명 위치", viability.proximity || "not assessed"],
+    ["machine failures / 기계 감사 실패", machine.total_failure_count ?? 0],
+    ["conjecture resolutions / 난제 해결", audit.machine_audit?.conjecture_resolution_count ?? 0],
+    ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"],
+  ];
+  let detail = "";
+  if (problemKey === "riemann") {
+    const contract = section.exact_anchor_contract || {};
+    const numeric = section.numeric_projection_audit || {};
+    detail = `
+      <div class="poc-correction"><strong>허용공간 수리:</strong> 무제약 rational bump를 두 Weil 모멘트의 공통 kernel로 정확히 투영합니다.</div>
+      <div class="poc-equation">P=Id-ΨA<sup>-1</sup>(L<sub>+</sub>,L<sub>-</sub>), &nbsp; det(A/I)=e<sup>-1/2</sup>-e<sup>1/2</sup>&lt;0</div>
+      ${table(["constraint-preserving core", "value"], [["anchors", (contract.anchors || []).join("; ")], ["normalized matrix", contract.normalized_matrix || "missing"], ["determinant", contract.normalized_determinant || "missing"], ["numeric projection samples", numeric.sample_count || 0], ["maximum numeric residual", Number(numeric.maximum_residual || 0).toExponential(4)], ["Weil positivity proved", "no"]])}
+      <div class="poc-route-decision"><section><span>REPAIR / 수리</span><strong>두 모멘트 제약을 보존하는 projected core</strong></section><section><span>OPEN / 미증명</span><strong>projected core 전체의 비음성</strong></section></div>
+    `;
+  } else if (problemKey === "collatz") {
+    const replay = section.finite_cylinder_replay || {};
+    detail = `
+      <div class="poc-equation">natural valuation codes = countable + dense + null + eventually residue-stable</div>
+      <div class="poc-head"><div><span>Topology</span><strong>dense / 조밀</strong></div><div><span>Cardinality</span><strong>countable / 가산</strong></div><div><span>Non-atomic measure</span><strong>zero / 측도 0</strong></div></div>
+      ${table(["dense-null natural-code audit", "value"], [["finite words replayed", replay.word_count || 0], ["natural representatives replayed", replay.positive_representative_replay_count || 0], ["replay failures", replay.failure_count ?? "missing"], ["cylinder family", "r+kM, k≥0"], ["canonical residue", "eventually equals the fixed natural start"]])}
+      <p class="proof-note">자연수 code는 모든 유한 prefix에 존재하지만 확률적으로 측도 0입니다. finite-prefix 분리와 mass 감소는 모두 점별 하강 정리를 대신하지 못합니다.</p>
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>finite-prefix 또는 measure-only 자연수 배제</strong></section><section><span>KEEP / 유지</span><strong>ordinary magnitude를 사용하는 pointwise descent</strong></section></div>
+    `;
+  } else if (problemKey === "goldbach") {
+    const contract = section.fixed_endpoint_contract || {};
+    const k56 = contract.margin_K56_at_multiplier_one || {};
+    const k57 = contract.margin_K57_at_multiplier_one_using_lower_floor || {};
+    detail = `
+      <div class="poc-correction"><strong>무한 hard stratum:</strong> 모든 N=2<sup>m</sup>은 odd-prime product가 비어 있어 normalized singular-series multiplier가 정확히 1입니다.</div>
+      <div class="poc-equation">G(2<sup>m</sup>)=∏<sub>p|2^m,p&gt;2</sub>(p-1)/(p-2)=1</div>
+      ${table(["minimal-main endpoint", "exact value"], [["K=56 margin", k56.exact || "missing"], ["K=56 sign", Number(k56.decimal || 0) > 0 ? "positive" : "failed"], ["K=57 lower-floor margin", k57.exact || "missing"], ["K=57 lower-floor sign", Number(k57.decimal || 0) < 0 ? "negative" : "unexpected"], ["unbounded hard family", "2^m, m≥1"], ["pointwise residual proved", "no"]])}
+      <div class="proof-mini-bars"><div><span>K=56 certificate</span><i style="width:100%"></i><strong>positive</strong></div><div><span>K=57 same lower floor</span><i style="width:0%"></i><strong>negative</strong></div></div>
+      <p class="proof-note">K=57의 음수는 불가능성 정리가 아니라 현재 lower-floor 인증서의 실패입니다. powers of two와 rough 짝수의 K=56 점별 잔차가 남습니다.</p>
+    `;
+  } else if (problemKey === "twin-prime") {
+    const rows = section.crt_rows || [];
+    detail = `
+      <div class="poc-equation">∀ finite z, ∃ infinitely many n: gcd(n(n+2),∏<sub>p≤z</sub>p)=1 while q|n and r|(n+2), q,r&gt;z</div>
+      ${table(["sieve level", "small primes", "forced factors", "first composite-pair start"], rows.map((row) => [row.sieve_level, row.small_prime_count, (row.forced_composite_divisors || []).join(" · "), row.first_three_composite_pair_starts?.[0] || "missing"]))}
+      <div class="poc-head"><div><span>Audited levels</span><strong>${machine.audited_level_count || 0}</strong></div><div><span>Explicit pairs</span><strong>${machine.constructed_pair_count || 0}</strong></div><div><span>CRT failures</span><strong>${machine.total_failure_count ?? 0}</strong></div></div>
+      <p class="proof-note">이 무한 진행은 Twin Prime 반례가 아니라 finite-local primality certificate의 countermodel입니다.</p>
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>고정 유한 local sieve 상태의 소수성 승격</strong></section><section><span>KEEP / 유지</span><strong>unbounded Type II + parity-sensitive gap-2 하계</strong></section></div>
+    `;
+  }
+  return `
+    <div id="ticket132-admissibility-boundary" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 132 admissibility and pointwise boundary audit</h3>
+      <div class="poc-head"><div><span>Status</span><strong>exact boundary theorem / conjecture open</strong></div><div><span>Scope</span><strong>허용공간 · 점별 경계</strong></div><div><span>Mode</span><strong>repair · countermodel · next theorem</strong></div></div>
+      ${table(["TICKET132 audit", "Value"], summaryRows)}
+      ${detail}
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.proved_statement || "")}</p></section><section><h3>Decisive open premise / 결정적 미증명 전제</h3><p>${escapeHtml(attempt.next_experiment || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.proof_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/admissibility-nullset-hard-stratum-local-parity.md">Bilingual paper-style report / 한영 논문형 보고서</a></p>
+    </div>
+  `;
+}
+
 function renderTicket131ProofViabilityTargetCorrection(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.proof_viability_target_correction_audit || {};
@@ -9852,7 +9928,7 @@ function renderTicket131ProofViabilityTargetCorrection(attempt) {
   }
   return `
     <div id="ticket131-proof-viability-target-correction" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 131 proof viability and target correction</h3>
       <div class="poc-head"><div><span>Status</span><strong>exact correction / conjecture open</strong></div><div><span>Scope</span><strong>증명 가능성 감사 / 난제 미해결</strong></div><div><span>Mode</span><strong>keep · discard · replace</strong></div></div>
       ${table(["TICKET131 audit", "Value"], summaryRows)}
@@ -10260,7 +10336,7 @@ function renderTicket125InfiniteBridgeContracts(attempt) {
 
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
-    return `${renderTicket131ProofViabilityTargetCorrection(ticket131AttemptGlobal)}${renderTicket130ComputabilityCapLanguageOptimality(ticket130AttemptGlobal)}${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
+    return `${renderTicket132AdmissibilityBoundary(ticket132AttemptGlobal)}${renderTicket131ProofViabilityTargetCorrection(ticket131AttemptGlobal)}${renderTicket130ComputabilityCapLanguageOptimality(ticket130AttemptGlobal)}${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
   }
   const direct = ticket.direct_counterexample || {};
   const candidate = ticket.candidate_counterexamples_found || {};
@@ -10325,6 +10401,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket132AdmissibilityBoundary(ticket132AttemptGlobal)}
     ${renderTicket131ProofViabilityTargetCorrection(ticket131AttemptGlobal)}
     ${renderTicket130ComputabilityCapLanguageOptimality(ticket130AttemptGlobal)}
     ${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}
@@ -10619,6 +10696,26 @@ async function loadTicket129Attempt() {
   }
 }
 
+async function loadTicket132Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket132-admissibility-nullset-hard-stratum-local-parity.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket132AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket132AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket132AttemptGlobal) {
+      ticket132AttemptGlobal.bounded_result = ticket132AttemptGlobal.bounded_result || {};
+      ticket132AttemptGlobal.bounded_result.admissibility_nullset_hard_stratum_local_parity_audit = payload.admissibility_nullset_hard_stratum_local_parity_audit || {};
+    }
+    return Boolean(ticket132AttemptGlobal);
+  } catch (error) {
+    ticket132AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket131Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket131-proof-viability-target-correction.json", { cache: "no-store" });
@@ -10768,9 +10865,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const priorityLoads = await Promise.all([loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!priorityLoads[0] || !priorityLoads[1] || !priorityLoads[2] || !priorityLoads[3] || !priorityLoads[4] || !priorityLoads[5] || !priorityLoads[6]) {
+  const priorityLoads = await Promise.all([loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
+  if (!priorityLoads[0] || !priorityLoads[1] || !priorityLoads[2] || !priorityLoads[3] || !priorityLoads[4] || !priorityLoads[5] || !priorityLoads[6] || !priorityLoads[7]) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket132AttemptGlobal) await loadTicket132Attempt();
     if (!ticket131AttemptGlobal) await loadTicket131Attempt();
     if (!ticket130AttemptGlobal) await loadTicket130Attempt();
     if (!ticket129AttemptGlobal) await loadTicket129Attempt();
@@ -10780,7 +10878,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket131-priority";
+  document.documentElement.dataset.openProblemCache = "ticket132-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
@@ -11856,6 +11954,7 @@ async function main() {
   if (!ticket129AttemptGlobal) await loadTicket129Attempt();
   if (!ticket130AttemptGlobal) await loadTicket130Attempt();
   if (!ticket131AttemptGlobal) await loadTicket131Attempt();
+  if (!ticket132AttemptGlobal) await loadTicket132Attempt();
   render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt);
 }
 

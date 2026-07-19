@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260717-ticket131-priority")) {
-      errors.push(`${page}: missing TICKET131 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260720-ticket132-priority")) {
+      errors.push(`${page}: missing TICKET132 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,35 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket132 title", "Ticket 132 admissibility and pointwise boundary audit");
+    requireText("ticket132 table", "TICKET132 audit");
+    requireText("ticket132 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket132 scope", "허용공간 · 점별 경계");
+    requireText("ticket132 resolutions", "conjecture resolutions / 난제 해결");
+    if (page.problemId === "riemann") {
+      requireText("ticket132 RH theorem", "ConstraintPreservingEnumerableWeilCoreProjection");
+      requireText("ticket132 RH repair", "허용공간 수리");
+      requireText("ticket132 RH determinant", "e^(-1/2)-e^(1/2)<0");
+      requireText("ticket132 RH target", "NonnegativeProjectedWeilCoreCertificate");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket132 Collatz theorem", "NaturalCollatzCodesAreCountableDenseAndNull");
+      requireText("ticket132 Collatz topology", "countable + dense + null + eventually residue-stable");
+      requireText("ticket132 Collatz replay", "natural representatives replayed");
+      requireText("ticket132 Collatz target", "PointwiseArchimedeanDescentOnDenseNullNaturalCodes");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket132 Goldbach theorem", "PowersOfTwoRemainTheUniformGoldbachHardStratum");
+      requireText("ticket132 Goldbach hard", "무한 hard stratum");
+      requireText("ticket132 Goldbach K56", "23019645297/2140000000000");
+      requireText("ticket132 Goldbach target", "PointwiseBinaryGoldbachResidualK56OnPowersOfTwoAndRoughStrata");
+    } else {
+      requireText("ticket132 Twin theorem", "FiniteLocalSieveDataCannotCertifyTwinPrimality");
+      requireText("ticket132 Twin CRT", "first composite-pair start");
+      requireText("ticket132 Twin levels", "Audited levels4");
+      requireText("ticket132 Twin target", "UnboundedTypeIIParitySensitiveExactGapCertificate");
+    }
     requireText("ticket131 title", "Ticket 131 proof viability and target correction");
     requireText("ticket131 table", "TICKET131 audit");
-    requireText("ticket131 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket131 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket131 scope", "증명 가능성 감사 / 난제 미해결");
     requireText("ticket131 proximity", "proof proximity / 증명 근접도");
     if (page.problemId === "riemann") {
