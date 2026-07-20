@@ -16,6 +16,12 @@ themselves discharge the remaining pointwise obligations.
 Machine-readable record:
 `data/open-problem/ticket132-admissibility-nullset-hard-stratum-local-parity.json`.
 
+> **Current boundary / 최신 경계:** TICKET-133 preserves the four results below
+> and strengthens their quantifier boundaries with a projected Gram-family
+> equivalence, an exact Collatz finite-exception formula, a Goldbach sparse-spike
+> no-go theorem, and all-admissible-class Twin composite lifts. See
+> [TICKET-133](quantifier-promotion-exact-reductions.md).
+
 ## 1. 결과 요약 / Executive result
 
 | 문제 | TICKET-132의 정확한 결과 | 폐기하는 추론 | 다음 결정적 정리 |

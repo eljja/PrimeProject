@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260720-ticket132-priority")) {
-      errors.push(`${page}: missing TICKET132 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260720-ticket133-priority")) {
+      errors.push(`${page}: missing TICKET133 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,30 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket133 title", "Ticket 133 quantifier-promotion exact reductions");
+    requireText("ticket133 table", "TICKET133 audit");
+    requireText("ticket133 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket133 resolutions", "conjecture resolutions / 난제 해결");
+    if (page.problemId === "riemann") {
+      requireText("ticket133 RH theorem", "ProjectedWeilCoreGramFamilyEquivalence");
+      requireText("ticket133 RH reduction", "projected Gram reduction");
+      requireText("ticket133 RH target", "IntervalCertifiedProjectedWeilGramFamily");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket133 Collatz theorem", "ContractingValuationCylinderLeastCounterexampleExclusion");
+      requireText("ticket133 Collatz count", "Contracting3,861");
+      requireText("ticket133 Collatz target", "PrefixFreeContractingCylinderCoverOfEveryNaturalCode");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket133 Goldbach theorem", "PowerOfTwoSparseSpikesDefeatEveryFiniteCesaroLpBridge");
+      requireText("ticket133 Goldbach spike", "power-of-two spike contract");
+      requireText("ticket133 Goldbach target", "HardStratumMaximalBinaryGoldbachResidualK56");
+    } else {
+      requireText("ticket133 Twin theorem", "EveryAdmissibleFiniteResidueClassHasInfiniteCompositePairLifts");
+      requireText("ticket133 Twin classes", "Classes lifted1,638");
+      requireText("ticket133 Twin target", "UnboundedParitySensitiveTwinPairSeparation");
+    }
     requireText("ticket132 title", "Ticket 132 admissibility and pointwise boundary audit");
     requireText("ticket132 table", "TICKET132 audit");
-    requireText("ticket132 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket132 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket132 scope", "허용공간 · 점별 경계");
     requireText("ticket132 resolutions", "conjecture resolutions / 난제 해결");
     if (page.problemId === "riemann") {

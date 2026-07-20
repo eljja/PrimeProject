@@ -8,10 +8,11 @@ Scope: Riemann Hypothesis, Collatz conjecture, binary Goldbach conjecture, Twin 
 
 > **Current continuation / 최신 연속 연구:** this dated consolidation remains a
 > historical keep/discard baseline. The current boundary is
-> [TICKET-132](admissibility-nullset-hard-stratum-local-parity.md), which repairs
-> the RH two-moment admissible core and adds exact dense-null, power-of-two hard-
-> stratum, and finite-local-sieve CRT boundary theorems. All four problems remain
-> `open_not_proven`.
+> [TICKET-133](quantifier-promotion-exact-reductions.md), which reduces RH
+> positivity to the complete projected Gram family, gives exact finite exception
+> sets for contracting Collatz cylinders, blocks finite-`L^p` promotion on the
+> Goldbach power-of-two stratum, and lifts every admissible finite Twin residue
+> class to composite pairs. All four problems remain `open_not_proven`.
 
 ## 한국어 정리
 

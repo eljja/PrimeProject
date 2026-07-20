@@ -129,6 +129,7 @@ TICKET129_SCHEMA = "primeproject.ticket129-enumerable-core-valuation-cap-endpoin
 TICKET130_SCHEMA = "primeproject.ticket130-computability-cap-language-optimality.v1"
 TICKET131_SCHEMA = "primeproject.ticket131-proof-viability-target-correction.v1"
 TICKET132_SCHEMA = "primeproject.ticket132-admissibility-nullset-hard-stratum-local-parity.v1"
+TICKET133_SCHEMA = "primeproject.ticket133-quantifier-promotion-exact-reductions.v1"
 
 
 def fail(message: str) -> int:
@@ -7690,6 +7691,48 @@ def main() -> int:
         return fail("ticket132 Twin local-sieve CRT countermodel changed")
     if "none of the four" not in str(audit132.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket132.get("claim_boundary", "")).lower():
         return fail("ticket132 proof boundary changed")
+
+    path133 = Path("data/open-problem/ticket133-quantifier-promotion-exact-reductions.json")
+    if not path133.exists():
+        return fail("missing ticket133 quantifier-promotion audit")
+    ticket133 = read_json(path133)
+    if ticket133.get("schema") != TICKET133_SCHEMA or ticket133.get("status") != "exact_quantifier_reductions_proved_all_conjectures_open":
+        return fail("ticket133 schema or status changed")
+    attempts133 = ticket133.get("attempts", [])
+    by_id133 = {str(row.get("problem_id")): row for row in attempts133 if isinstance(row, dict)} if isinstance(attempts133, list) else {}
+    if set(by_id133) != EXPECTED_PROBLEMS:
+        return fail("ticket133 attempts missing problems")
+    paths133 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-133-gram-family-reduction.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-133-contracting-cylinder-exceptions.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-133-power-two-spike-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-133-all-residue-composite-lifts.json"),
+    }
+    for problem_id, attempt in by_id133.items():
+        if not paths133[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket133 artifact or proof boundary missing")
+    audit133 = ticket133.get("quantifier_promotion_exact_reduction_audit", {})
+    machine133 = audit133.get("machine_audit", {})
+    if audit133.get("theorem_name") != "FourConjectureQuantifierPromotionExactReductionAudit" or int(machine133.get("exact_theorem_count", -1)) != 4 or int(machine133.get("route_correction_count", -1)) != 4 or int(machine133.get("conjecture_resolution_count", -1)) != 0 or int(machine133.get("total_failure_count", -1)) != 0:
+        return fail("ticket133 global machine audit changed")
+    riemann133 = audit133.get("riemann", {})
+    sanity133 = riemann133.get("finite_sanity_audit", {})
+    if riemann133.get("theorem_name") != "ProjectedWeilCoreGramFamilyEquivalence" or sanity133.get("explicit_indefinite_value") != "-2" or int(sanity133.get("failure_count", -1)) != 0:
+        return fail("ticket133 RH Gram-family reduction changed")
+    collatz133 = audit133.get("collatz", {})
+    finite133 = collatz133.get("finite_cylinder_audit", {})
+    if collatz133.get("theorem_name") != "ContractingValuationCylinderLeastCounterexampleExclusion" or int(finite133.get("word_count", -1)) != 3905 or int(finite133.get("contracting_cylinder_count", -1)) != 3861 or int(finite133.get("noncontracting_cylinder_count", -1)) != 44 or int(finite133.get("unique_exception_start_count", -1)) != 1 or not finite133.get("all_unique_exceptions_terminate"):
+        return fail("ticket133 Collatz finite-exception theorem changed")
+    goldbach133 = audit133.get("goldbach", {})
+    spike133 = goldbach133.get("exact_spike_contract", {})
+    if goldbach133.get("theorem_name") != "PowerOfTwoSparseSpikesDefeatEveryFiniteCesaroLpBridge" or Fraction(str(spike133.get("K56_margin", {}).get("exact", "0"))) <= 0 or Fraction(str(spike133.get("margin_after_spike", {}).get("exact", "0"))) >= 0 or not goldbach133.get("finite_mean_audit", {}).get("all_sampled_means_strictly_decrease"):
+        return fail("ticket133 Goldbach sparse-spike no-go changed")
+    twin133 = audit133.get("twin_prime", {})
+    all_classes133 = twin133.get("all_class_audit", {})
+    if twin133.get("theorem_name") != "EveryAdmissibleFiniteResidueClassHasInfiniteCompositePairLifts" or int(all_classes133.get("total_admissible_classes_lifted", -1)) != 1638 or int(all_classes133.get("failure_count", -1)) != 0:
+        return fail("ticket133 Twin all-class CRT lift changed")
+    if "none proves or refutes" not in str(audit133.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket133.get("claim_boundary", "")).lower():
+        return fail("ticket133 proof boundary changed")
 
     print("open problem structure verified")
     return 0

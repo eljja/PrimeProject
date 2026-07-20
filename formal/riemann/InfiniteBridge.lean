@@ -9,16 +9,16 @@ def nextAIDiscoveryTheorem : String :=
   "KernelConePositivityBridge implies primeproject_riemann_hypothesis"
 
 def requiredProofObjects : List String := [
-  "admissible kernel cone definition",
-  "non-circular explicit-formula positivity lemma",
-  "density bridge into the RH-equivalent test class"
+  "two-moment projected core definition",
+  "interval-certified projected Gram entries",
+  "uniform proof of every finite Gram inequality or one strict negative witness"
 ]
 
 def theoremDecomposition : List String := [
-  "RH-TD1 AdmissibleKernelCone",
-  "RH-TD2 NonCircularExplicitFormulaPositivity highest_risk_open",
-  "RH-TD3 KernelConeDensityBridge",
-  "RH-TD4 TargetImportAudit"
+  "RH-TD1 ConstraintPreservingEnumerableWeilCoreProjection closed",
+  "RH-TD2 ProjectedWeilCoreGramFamilyEquivalence closed",
+  "RH-TD3 IntervalCertifiedProjectedWeilGramFamily highest_risk_open",
+  "RH-TD4 WeilPositivityToRHImportAudit"
 ]
 
 def breakthroughObjectBlueprint : String :=
@@ -31,18 +31,18 @@ def rankedCegisTarget : String :=
   "RH-TICKET-128 proves that compact support removes the infinite prime tail exactly: only prime powers p^m<=B remain in the arithmetic side"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-129 ArchimedeanIntervalAndAdmissibleCoreDensity."
+  "RH-TICKET-133 IntervalCertifiedProjectedWeilGramFamily."
 
 def topAttackProofAttemptProtocol : String :=
-  "Construct a proved dense compact-support Weil core and certify its archimedean contribution by convergent intervals; the prime-power side is already finite, but finite non-discovery is not RH positivity."
+  "Freeze one published Weil normalization, interval-certify projected computable-real Gram entries, and prove every finite rational Gram inequality or produce one strict negative interval; no finite initial segment implies positivity."
 
 def latestExactResult : String :=
-  "CompactSupportFinitePrimeSideReduction: support in [-log B,log B] leaves exactly the finite prime-power pairs p^m<=B; B=1000000 has 78734 terms"
+  "ProjectedWeilCoreGramFamilyEquivalence: continuity and projected-core density make universal Weil positivity equivalent to every finite rational Gram inequality; a strict negative witness has a finite rational Gram certificate"
 
 def retiredRoute : String :=
   "full-test-space autocorrelation-cone density"
 
 def retainedOpenPremise : String :=
-  "admissible-core density, archimedean interval evaluation, and direct all-test positivity or a certified negative witness"
+  "interval-certified control of the entire countable Gram family or a certified strict-negative witness"
 
 end PrimeProject.OpenProblems.Riemann

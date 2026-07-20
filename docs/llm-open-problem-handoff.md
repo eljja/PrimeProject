@@ -62,9 +62,37 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-132
+## Latest Continuation After TICKET-133
 
-TICKET132 is the current boundary. Read
+TICKET133 is the current boundary. Read
+`docs/quantifier-promotion-exact-reductions.md` and
+`data/open-problem/ticket133-quantifier-promotion-exact-reductions.json` before
+proposing a new route. None of the four conjectures is resolved.
+
+For RH, universal positivity on the TICKET132 projected core is equivalent to
+every finite rational Gram inequality, assuming continuity of the fixed Weil
+form. Attack `IntervalCertifiedProjectedWeilGramFamily`; one finite initial
+segment never proves the universal family.
+
+For Collatz, every contracting valuation cylinder has an exact finite
+non-descent set. The audited 3,861 contracting cylinders reduce to the single
+unique exception `n=1`, but 44 noncontracting cylinders remain. Attack
+`PrefixFreeContractingCylinderCoverOfEveryNaturalCode`; finite tree coverage is
+not an infinite cover theorem.
+
+For Goldbach, a residual spike supported on powers of two has every fixed
+finite Cesaro `L^p` mean tending to zero while reversing the exact K=56 margin
+at every power. Attack `HardStratumMaximalBinaryGoldbachResidualK56`; the spike
+is a proof-inference countermodel, not an actual Goldbach residual.
+
+For Twin Prime, every admissible class modulo a fixed finite primorial has an
+infinite composite-composite CRT lift. Attack
+`UnboundedParitySensitiveTwinPairSeparation`; no fixed-modulus classifier can
+serve as the parity bridge.
+
+## Historical Continuation After TICKET-132
+
+TICKET132 is the previous boundary. Read
 `docs/admissibility-nullset-hard-stratum-local-parity.md` and
 `data/open-problem/ticket132-admissibility-nullset-hard-stratum-local-parity.json`
 before proposing a new route. All conjecture-resolution counters remain zero.

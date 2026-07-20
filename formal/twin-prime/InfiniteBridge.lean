@@ -9,14 +9,14 @@ def nextAIDiscoveryTheorem : String :=
   "ExactGapTwoLowerBoundBridge implies primeproject_twin_prime_conjecture"
 
 def requiredProofObjects : List String := [
-  "exact-pair selector weight family",
-  "parity-barrier survival argument",
+  "scale-growing exact-pair selector weight family",
+  "parity-sensitive separation from every finite-residue composite lift",
   "infinitude bridge from positive exact-gap lower bound"
 ]
 
 def theoremDecomposition : List String := [
-  "TP-TD1 ExactPairSelectorWeights",
-  "TP-TD2 ParityBarrierSurvival highest_risk_open",
+  "TP-TD1 EveryAdmissibleFiniteResidueClassHasInfiniteCompositePairLifts closed",
+  "TP-TD2 UnboundedParitySensitiveTwinPairSeparation highest_risk_open",
   "TP-TD3 PositiveExactGapLowerBound",
   "TP-TD4 ExactGapInfinitudeBridge"
 ]
@@ -31,18 +31,18 @@ def rankedCegisTarget : String :=
   "TP-TICKET-128 gives an exact endpoint-only countermodel and proves that a within-dyadic-block envelope yields limsup Q<=0.92*c+delta"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-129 VaughanWithinDyadicBlockEnvelopeC1DeltaBelow008."
+  "TP-TICKET-133 UnboundedParitySensitiveTwinPairSeparation."
 
 def topAttackProofAttemptProtocol : String :=
-  "Derive Q_X<=Q_(2^j)+delta with delta<0.08 throughout every dyadic block from actual Vaughan coefficients, or construct a Vaughan-realizable interpolation failure; endpoint values alone are invalid."
+  "Use scale-growing Type II information to distinguish genuine prime pairs from the composite-composite lift of every admissible fixed residue class, then transfer a signed lower bound to exact gap two."
 
 def latestFiniteResult : String :=
-  "DyadicEndpointInsufficiencyAndAllScaleEnvelope: endpoint limsup 0.92 needs the independent condition 0.92*c+delta<1; c=1 requires delta<0.08"
+  "EveryAdmissibleFiniteResidueClassHasInfiniteCompositePairLifts: CRT maps every admissible class modulo a finite primorial onto an infinite composite-composite progression with the identical residue pattern"
 
 def finiteEvidenceBoundary : String :=
-  "the interpolation theorem is exact, but c=1 and delta=0.07 are algebraic candidates rather than proved Vaughan constants, parity breakthroughs, or exact-gap lower bounds"
+  "the all-class CRT theorem excludes every fixed-modulus classifier but says nothing against unbounded analytic information and is not a Twin Prime counterexample"
 
 def retainedOpenPremise : String :=
-  "uniform Vaughan raw-budget transport, a within-block envelope satisfying 0.92*c+delta<1, parity survival, and exact-gap positivity"
+  "unbounded Type II transport, parity-sensitive separation from all finite-residue composite lifts, and positive exact-gap mass"
 
 end PrimeProject.OpenProblems.TwinPrime

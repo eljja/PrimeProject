@@ -5444,3 +5444,32 @@ next target is `UnboundedTypeIIParitySensitiveExactGapCertificate`.
 
 All four conjectures remain open. TICKET-132 exact theorem count is four,
 route-correction count is four, and conjecture-resolution count is zero.
+
+# TICKET-133 continuation: exact quantifier-promotion reductions
+
+TICKET-133 preserves every valid TICKET-132 theorem and proves four new exact
+reduction or countermodel statements. The machine-readable audit is
+`data/open-problem/ticket133-quantifier-promotion-exact-reductions.json`.
+
+For RH, continuity and density make universal positivity on the projected core
+equivalent to every finite rational Gram inequality. A strict negative witness
+has a finite rational Gram certificate. The next target is
+`IntervalCertifiedProjectedWeilGramFamily`; no finite initial segment proves RH.
+
+For Collatz, a contracting valuation word has an exact finite non-descent set in
+its natural residue cylinder. The audited 3,861 contracting cylinders have only
+the unique exception `n=1`, while 44 noncontracting cylinders remain. The next
+target is `PrefixFreeContractingCylinderCoverOfEveryNaturalCode`.
+
+For Goldbach, an exact abstract residual spike supported on powers of two passes
+every fixed finite Cesaro `L^p` average while reversing the K=56 endpoint margin
+at every power. This refutes an average-to-pointwise inference, not Goldbach.
+The next target is `HardStratumMaximalBinaryGoldbachResidualK56`.
+
+For Twin Prime, every admissible residue class modulo a fixed finite primorial
+has an infinite composite-composite CRT lift. The next target is
+`UnboundedParitySensitiveTwinPairSeparation`; fixed-modulus classifiers are
+insufficient.
+
+All four conjectures remain open. TICKET-133 exact theorem count is four,
+route-correction count is four, and conjecture-resolution count is zero.
