@@ -16,11 +16,11 @@ sufficient, and records the exact obligations that remain afterward.
 Machine-readable record:
 `data/open-problem/ticket131-proof-viability-target-correction.json`.
 
-> **Superseded boundary / 최신 경계:** TICKET-133 preserves the TICKET-132
-> admissibility repairs and adds exact projected-Gram, finite-exception,
-> sparse-spike, and all-admissible-class CRT reduction theorems. The TICKET-131
-> theorems below remain valid. See
-> [TICKET-133](quantifier-promotion-exact-reductions.md).
+> **Superseded boundary / 최신 경계:** TICKET-134 preserves the TICKET-131-133
+> repairs and adds strict Gram interval semi-decisions, a bounded-depth Collatz
+> cover no-go theorem, the logarithmic Goldbach moment threshold, and a growing-
+> primorial Twin lift bound. The TICKET-131 theorems below remain valid. See
+> [TICKET-134](uniformity-thresholds-and-scale-no-go.md).
 
 ## 1. 결론 요약 / Executive conclusion
 

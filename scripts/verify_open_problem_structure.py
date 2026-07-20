@@ -130,6 +130,7 @@ TICKET130_SCHEMA = "primeproject.ticket130-computability-cap-language-optimality
 TICKET131_SCHEMA = "primeproject.ticket131-proof-viability-target-correction.v1"
 TICKET132_SCHEMA = "primeproject.ticket132-admissibility-nullset-hard-stratum-local-parity.v1"
 TICKET133_SCHEMA = "primeproject.ticket133-quantifier-promotion-exact-reductions.v1"
+TICKET134_SCHEMA = "primeproject.ticket134-uniformity-thresholds-and-scale-no-go.v1"
 
 
 def fail(message: str) -> int:
@@ -7733,6 +7734,48 @@ def main() -> int:
         return fail("ticket133 Twin all-class CRT lift changed")
     if "none proves or refutes" not in str(audit133.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket133.get("claim_boundary", "")).lower():
         return fail("ticket133 proof boundary changed")
+
+    path134 = Path("data/open-problem/ticket134-uniformity-thresholds-and-scale-no-go.json")
+    if not path134.exists():
+        return fail("missing ticket134 uniformity-threshold audit")
+    ticket134 = read_json(path134)
+    if ticket134.get("schema") != TICKET134_SCHEMA or ticket134.get("status") != "exact_uniformity_thresholds_proved_all_conjectures_open":
+        return fail("ticket134 schema or status changed")
+    attempts134 = ticket134.get("attempts", [])
+    by_id134 = {str(row.get("problem_id")): row for row in attempts134 if isinstance(row, dict)} if isinstance(attempts134, list) else {}
+    if set(by_id134) != EXPECTED_PROBLEMS:
+        return fail("ticket134 attempts missing problems")
+    paths134 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-134-interval-dichotomy.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-134-bounded-depth-cover-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-134-log-moment-threshold.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-134-growing-primorial-lifts.json"),
+    }
+    for problem_id, attempt in by_id134.items():
+        if not paths134[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket134 artifact or proof boundary missing")
+    audit134 = ticket134.get("uniformity_threshold_and_scale_no_go_audit", {})
+    machine134 = audit134.get("machine_audit", {})
+    if audit134.get("theorem_name") != "FourConjectureUniformityThresholdAndScaleNoGoAudit" or int(machine134.get("exact_theorem_count", -1)) != 4 or int(machine134.get("route_correction_count", -1)) != 4 or int(machine134.get("conjecture_resolution_count", -1)) != 0 or int(machine134.get("total_failure_count", -1)) != 0:
+        return fail("ticket134 global machine audit changed")
+    riemann134 = audit134.get("riemann", {})
+    interval134 = riemann134.get("finite_interval_audit", {})
+    if riemann134.get("theorem_name") != "RationalCongruenceIntervalDichotomy" or interval134.get("preconditioned_margins") != ["3993/2000", "393/800"] or interval134.get("negative_interval_upper") != "-49/25" or int(interval134.get("failure_count", -1)) != 0:
+        return fail("ticket134 RH interval dichotomy changed")
+    collatz134 = audit134.get("collatz", {})
+    replay134 = collatz134.get("finite_replay_audit", {})
+    if collatz134.get("theorem_name") != "NoBoundedDepthContractingPrefixCover" or int(replay134.get("maximum_depth", -1)) != 24 or int(replay134.get("row_count", -1)) != 24 or int(replay134.get("failure_count", -1)) != 0:
+        return fail("ticket134 Collatz bounded-depth no-go changed")
+    goldbach134 = audit134.get("goldbach", {})
+    threshold134 = goldbach134.get("exact_threshold_contract", {})
+    if goldbach134.get("theorem_name") != "PowerOfTwoMomentDetectionThreshold" or Fraction(str(threshold134.get("K56_margin", {}).get("exact", "0"))) <= 0 or not goldbach134.get("finite_threshold_audit", {}).get("critical_norm_equals_A_over_e") or int(goldbach134.get("machine_audit", {}).get("total_failure_count", -1)) != 0:
+        return fail("ticket134 Goldbach moment threshold changed")
+    twin134 = audit134.get("twin_prime", {})
+    growing134 = twin134.get("growing_level_audit", {})
+    if twin134.get("theorem_name") != "ScaleDependentPrimorialCompositeLiftBound" or int(growing134.get("total_admissible_classes_lifted", -1)) != 23913 or int(growing134.get("failure_count", -1)) != 0:
+        return fail("ticket134 Twin growing-primorial lift changed")
+    if "none proves or refutes" not in str(audit134.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket134.get("claim_boundary", "")).lower():
+        return fail("ticket134 proof boundary changed")
 
     print("open problem structure verified")
     return 0

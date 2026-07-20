@@ -14,6 +14,12 @@ or conjecture counterexample.
 Machine-readable record:
 `data/open-problem/ticket133-quantifier-promotion-exact-reductions.json`.
 
+> **Current boundary / 최신 경계:** TICKET-134 preserves the exact TICKET-133
+> reductions and adds strict finite Gram interval certificates, a bounded-depth
+> Collatz cover no-go theorem, the logarithmic Goldbach moment threshold, and a
+> growing-primorial Twin lift bound. Continue from
+> [TICKET-134](uniformity-thresholds-and-scale-no-go.md).
+
 ## 1. 결과 요약 / Executive result
 
 | 문제 | 새 정확한 결과 | 폐기되는 추론 | 다음 결정적 정리 |

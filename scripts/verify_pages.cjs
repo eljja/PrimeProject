@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260720-ticket133-priority")) {
-      errors.push(`${page}: missing TICKET133 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260720-ticket134-priority")) {
+      errors.push(`${page}: missing TICKET134 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,30 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket134 title", "Ticket 134 uniformity thresholds and scale no-go theorems");
+    requireText("ticket134 table", "TICKET134 audit");
+    requireText("ticket134 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket134 resolutions", "conjecture resolutions / 난제 해결");
+    if (page.problemId === "riemann") {
+      requireText("ticket134 RH theorem", "RationalCongruenceIntervalDichotomy");
+      requireText("ticket134 RH certificate", "preconditioned margins");
+      requireText("ticket134 RH target", "UniformProjectedWeilGramTailCertificate");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket134 Collatz theorem", "NoBoundedDepthContractingPrefixCover");
+      requireText("ticket134 Collatz no-go", "Finite coverimpossible");
+      requireText("ticket134 Collatz target", "WellFoundedUnboundedContractingPrefixCover");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket134 Goldbach theorem", "PowerOfTwoMomentDetectionThreshold");
+      requireText("ticket134 Goldbach threshold", "moment-scale threshold");
+      requireText("ticket134 Goldbach target", "LogScaleMomentOrMaximalGoldbachResidualK56");
+    } else {
+      requireText("ticket134 Twin theorem", "ScaleDependentPrimorialCompositeLiftBound");
+      requireText("ticket134 Twin classes", "Classes lifted23,913");
+      requireText("ticket134 Twin target", "NearFullScaleParitySensitiveTwinSeparation");
+    }
     requireText("ticket133 title", "Ticket 133 quantifier-promotion exact reductions");
     requireText("ticket133 table", "TICKET133 audit");
-    requireText("ticket133 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket133 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket133 resolutions", "conjecture resolutions / 난제 해결");
     if (page.problemId === "riemann") {
       requireText("ticket133 RH theorem", "ProjectedWeilCoreGramFamilyEquivalence");

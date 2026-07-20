@@ -62,7 +62,38 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-133
+## Latest Continuation After TICKET-134
+
+TICKET134 is the current boundary. Read
+`docs/uniformity-thresholds-and-scale-no-go.md` and
+`data/open-problem/ticket134-uniformity-thresholds-and-scale-no-go.json` before
+proposing a new route. None of the four conjectures is resolved.
+
+For RH, strict finite Gram signs are semi-decidable from convergent rational
+entry intervals: rational congruence preconditioning certifies positive definite
+matrices and rational negative witnesses certify indefinite matrices. Singular
+PSD matrices and the infinite family remain open. Attack
+`UniformProjectedWeilGramTailCertificate`; floating-point eigenvalues and one
+finite Gram prefix are invalid substitutes.
+
+For Collatz, no finite or globally bounded-depth family of contracting valuation
+prefixes covers every natural start. The exact cylinder `n=-1 mod 2^(K+1)` has
+all-one expanding prefixes through depth `K`. Attack
+`WellFoundedUnboundedContractingPrefixCover`; another larger finite tree cannot
+close the conjecture.
+
+For Goldbach, the exact norm of a fixed power-of-two spike is
+`A exp(-log(N_X/J_X)/p_X)`. Every sublogarithmic moment order still misses the
+spike. Attack `LogScaleMomentOrMaximalGoldbachResidualK56`; this threshold is an
+inference no-go and not an actual Goldbach residual estimate.
+
+For Twin Prime, every admissible class modulo `W(z)` has a composite-pair lift
+below `2Wqr`. Hence residue-only classifiers with
+`z(X)<=(1-epsilon)log X` fail eventually. Attack
+`NearFullScaleParitySensitiveTwinSeparation`; the CRT pair is not a Twin Prime
+counterexample.
+
+## Historical Continuation After TICKET-133
 
 TICKET133 is the current boundary. Read
 `docs/quantifier-promotion-exact-reductions.md` and

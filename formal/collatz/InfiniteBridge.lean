@@ -11,14 +11,15 @@ def nextAIDiscoveryTheorem : String :=
 def requiredProofObjects : List String := [
   "exact valuation cylinders and affine thresholds",
   "finite exception termination certificates",
-  "prefix-free contracting cover of every natural valuation code"
+  "well-founded unbounded-depth contracting cover of every natural valuation code"
 ]
 
 def theoremDecomposition : List String := [
   "CO-TD1 NaturalCollatzCodesAreCountableDenseAndNull closed",
   "CO-TD2 ContractingValuationCylinderLeastCounterexampleExclusion closed",
-  "CO-TD3 PrefixFreeContractingCylinderCoverOfEveryNaturalCode highest_risk_open",
-  "CO-TD4 CycleAndDivergenceExclusionBridge"
+  "CO-TD3 NoBoundedDepthContractingPrefixCover closed",
+  "CO-TD4 WellFoundedUnboundedContractingPrefixCover highest_risk_open",
+  "CO-TD5 CycleAndDivergenceExclusionBridge"
 ]
 
 def breakthroughObjectBlueprint : String :=
@@ -31,18 +32,18 @@ def rankedCegisTarget : String :=
   "CO-TICKET-128 separates unresolved lift cylinders from integer candidates and directly closes all 4027109 nontrivial 28-bit frontier representatives"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-133 PrefixFreeContractingCylinderCoverOfEveryNaturalCode."
+  "CO-TICKET-134 WellFoundedUnboundedContractingPrefixCover."
 
 def topAttackProofAttemptProtocol : String :=
-  "Extend only noncontracting exact cylinders, discharge every finite threshold exception, and prove that each natural code reaches a contracting prefix; a finite observed tree is not a cover theorem."
+  "Use an ordinal or rank argument allowing unbounded adaptive depth; every finite maximum depth is defeated by the exact all-one expanding cylinder n=-1 mod 2^(K+1)."
 
 def latestExactResult : String :=
-  "ContractingValuationCylinderLeastCounterexampleExclusion: a word with 2^S>3^k has an exact finite non-descent set in its natural residue cylinder; 3861 of 3905 audited words reduce to the single unique exception n=1"
+  "NoBoundedDepthContractingPrefixCover: for every K, infinitely many n=-1 mod 2^(K+1) have expanding all-one prefixes through K, so no finite or bounded-depth contracting cover is complete"
 
 def retiredRoute : String :=
   "treating the boundary ray -3^{-1} in Z_2 as a natural-integer obstruction"
 
 def retainedOpenPremise : String :=
-  "an adaptive prefix-free contracting-cylinder cover for every actual natural code"
+  "a well-founded adaptive contracting-cylinder cover with unbounded prefix depths for every actual natural code"
 
 end PrimeProject.OpenProblems.Collatz

@@ -10,15 +10,16 @@ def nextAIDiscoveryTheorem : String :=
 
 def requiredProofObjects : List String := [
   "two-moment projected core definition",
-  "interval-certified projected Gram entries",
-  "uniform proof of every finite Gram inequality or one strict negative witness"
+  "rational-congruence interval certificates for strict finite Gram signs",
+  "uniform projected Weil Gram-tail certificate or one strict negative witness"
 ]
 
 def theoremDecomposition : List String := [
   "RH-TD1 ConstraintPreservingEnumerableWeilCoreProjection closed",
   "RH-TD2 ProjectedWeilCoreGramFamilyEquivalence closed",
-  "RH-TD3 IntervalCertifiedProjectedWeilGramFamily highest_risk_open",
-  "RH-TD4 WeilPositivityToRHImportAudit"
+  "RH-TD3 RationalCongruenceIntervalDichotomy closed",
+  "RH-TD4 UniformProjectedWeilGramTailCertificate highest_risk_open",
+  "RH-TD5 WeilPositivityToRHImportAudit"
 ]
 
 def breakthroughObjectBlueprint : String :=
@@ -31,18 +32,18 @@ def rankedCegisTarget : String :=
   "RH-TICKET-128 proves that compact support removes the infinite prime tail exactly: only prime powers p^m<=B remain in the arithmetic side"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-133 IntervalCertifiedProjectedWeilGramFamily."
+  "RH-TICKET-134 UniformProjectedWeilGramTailCertificate."
 
 def topAttackProofAttemptProtocol : String :=
-  "Freeze one published Weil normalization, interval-certify projected computable-real Gram entries, and prove every finite rational Gram inequality or produce one strict negative interval; no finite initial segment implies positivity."
+  "Freeze one published Weil normalization, use rational congruence preconditioners to certify strict finite Gram signs, and prove a dimension-uniform tail theorem; singular PSD boundaries and finite prefixes do not imply RH."
 
 def latestExactResult : String :=
-  "ProjectedWeilCoreGramFamilyEquivalence: continuity and projected-core density make universal Weil positivity equivalent to every finite rational Gram inequality; a strict negative witness has a finite rational Gram certificate"
+  "RationalCongruenceIntervalDichotomy: strict positive finite Gram matrices and negative directions are finitely interval-semi-decidable; singular PSD matrices are non-robust boundary cases"
 
 def retiredRoute : String :=
   "full-test-space autocorrelation-cone density"
 
 def retainedOpenPremise : String :=
-  "interval-certified control of the entire countable Gram family or a certified strict-negative witness"
+  "actual Weil entry enclosures plus dimension-uniform Gram-tail control or a certified strict-negative witness"
 
 end PrimeProject.OpenProblems.Riemann

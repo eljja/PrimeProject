@@ -1,0 +1,1161 @@
+{
+  "schema": "primeproject.ticket134-uniformity-thresholds-and-scale-no-go.v1",
+  "generated_at": "2026-07-20T23:50:00+09:00",
+  "status": "exact_uniformity_thresholds_proved_all_conjectures_open",
+  "claim_boundary": "TICKET134 proves four exact interval, no-go, or scale-threshold theorems. None proves or refutes RH, Collatz, strong Goldbach, or Twin Prime. All four conjecture-resolution counters remain zero, and no conjecture proof or conjecture counterexample is claimed.",
+  "uniformity_threshold_and_scale_no_go_audit": {
+    "theorem_name": "FourConjectureUniformityThresholdAndScaleNoGoAudit",
+    "riemann": {
+      "theorem_name": "RationalCongruenceIntervalDichotomy",
+      "proved_statement": "For a finite real symmetric Gram matrix known through nested rational entry intervals, strict positive definiteness and the existence of a negative direction are both finitely semi-decidable. In the positive case a rational congruence preconditioner eventually makes a sufficiently small interval box strictly Gershgorin positive; in the negative case a rational vector eventually has a strictly negative interval upper bound. A singular positive-semidefinite matrix is a genuine boundary case: every entrywise neighborhood contains positive-definite and indefinite matrices.",
+      "proof": "If G is positive definite, G^(-1/2) sends it to the identity by congruence. Rational matrices are dense, so a rational invertible C can make C^T G C strictly diagonally dominant with positive diagonal. This strict condition persists on a sufficiently small rational interval box, and the quadratic inequality 2|x_i x_j|<=x_i^2+x_j^2 proves positivity. If G has a negative direction, openness and density of rational vectors give rational q with q^T G q<0; interval refinement eventually makes its exact upper enclosure negative. If G is singular PSD with kernel vector u, arbitrarily small perturbations plus epsilon I and minus epsilon uu^T give positive and negative neighbors, so no robust strict decision follows.",
+      "exact_certificate_contract": {
+        "positive_certificate": "rational C plus positive Gershgorin lower margins for C^T[G]C",
+        "negative_certificate": "rational q plus upper([q^T G q])<0",
+        "strict_cases": "finite semi-decision under convergent rational entry intervals",
+        "boundary_case": "singular PSD may remain undecided"
+      },
+      "finite_interval_audit": {
+        "positive_center": [
+          [
+            "2",
+            "3"
+          ],
+          [
+            "3",
+            "5"
+          ]
+        ],
+        "direct_margins": [
+          "-501/500",
+          "999/500"
+        ],
+        "rational_preconditioner": [
+          [
+            "1",
+            "-3/2"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "preconditioned_margins": [
+          "3993/2000",
+          "393/800"
+        ],
+        "negative_witness": [
+          "1",
+          "-1"
+        ],
+        "negative_interval_upper": "-49/25",
+        "singular_box_radius": "1/100",
+        "positive_neighbor_minimum_eigenvalue": "1/100",
+        "indefinite_neighbor_witness_value": "-1/50",
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "interval refinement with rational congruence preconditioners and rational negative witnesses",
+        "discard": "raw floating-point eigenvalues or a finite initial Gram segment as an RH certificate",
+        "next_theorem": "UniformProjectedWeilGramTailCertificate"
+      },
+      "machine_audit": {
+        "strict_positive_certificate_verified": true,
+        "strict_negative_certificate_verified": true,
+        "singular_boundary_ambiguity_verified": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The theorem supplies a rigorous finite-matrix interval engine. No actual projected Weil Gram entry or infinite Gram tail is certified, so it does not prove or disprove RH."
+    },
+    "collatz": {
+      "theorem_name": "NoBoundedDepthContractingPrefixCover",
+      "proved_statement": "No finite family of contracting accelerated-Collatz valuation words covers all positive odd integers. If K is the maximum word length, every n congruent to -1 modulo 2^(K+1) has first K valuations all equal to one. Every prefix of that code is expanding, so none can be a contracting member of the proposed finite cover. Hence any contracting-prefix cover capable of proving Collatz must have unbounded depth.",
+      "proof": "For the word 1^j, exact cylinder inversion gives n=-1 mod 2^(j+1). Induction gives A^j(n)=(3^j n+3^j-2^j)/2^j, and therefore A^j(n)-n=(3^j-2^j)(n+1)/2^j>0. Given a finite contracting cover with maximum depth K, choose any positive n=-1 mod 2^(K+1). Its prefix of every covered length is 1^j and is not contracting, a contradiction.",
+      "exact_uncovered_cylinder": {
+        "depth_K": "arbitrary positive integer",
+        "residue_class": "n=-1 mod 2^(K+1)",
+        "prefixes": "1^j for every 1<=j<=K",
+        "growth_formula": "A^j(n)-n=(3^j-2^j)(n+1)/2^j>0",
+        "cardinality": "infinitely many positive odd integers for every finite K"
+      },
+      "finite_replay_audit": {
+        "maximum_depth": 24,
+        "row_count": 24,
+        "rows": [
+          {
+            "depth": 1,
+            "all_one_word": [
+              1
+            ],
+            "residue": "3",
+            "modulus": "4",
+            "affine_constant": "1",
+            "first_realizer": "3",
+            "iterate": "5",
+            "strict_growth": "2"
+          },
+          {
+            "depth": 2,
+            "all_one_word": [
+              1,
+              1
+            ],
+            "residue": "7",
+            "modulus": "8",
+            "affine_constant": "5",
+            "first_realizer": "7",
+            "iterate": "17",
+            "strict_growth": "10"
+          },
+          {
+            "depth": 3,
+            "all_one_word": [
+              1,
+              1,
+              1
+            ],
+            "residue": "15",
+            "modulus": "16",
+            "affine_constant": "19",
+            "first_realizer": "15",
+            "iterate": "53",
+            "strict_growth": "38"
+          },
+          {
+            "depth": 4,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "31",
+            "modulus": "32",
+            "affine_constant": "65",
+            "first_realizer": "31",
+            "iterate": "161",
+            "strict_growth": "130"
+          },
+          {
+            "depth": 5,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "63",
+            "modulus": "64",
+            "affine_constant": "211",
+            "first_realizer": "63",
+            "iterate": "485",
+            "strict_growth": "422"
+          },
+          {
+            "depth": 6,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "127",
+            "modulus": "128",
+            "affine_constant": "665",
+            "first_realizer": "127",
+            "iterate": "1457",
+            "strict_growth": "1330"
+          },
+          {
+            "depth": 7,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "255",
+            "modulus": "256",
+            "affine_constant": "2059",
+            "first_realizer": "255",
+            "iterate": "4373",
+            "strict_growth": "4118"
+          },
+          {
+            "depth": 8,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "511",
+            "modulus": "512",
+            "affine_constant": "6305",
+            "first_realizer": "511",
+            "iterate": "13121",
+            "strict_growth": "12610"
+          },
+          {
+            "depth": 9,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "1023",
+            "modulus": "1024",
+            "affine_constant": "19171",
+            "first_realizer": "1023",
+            "iterate": "39365",
+            "strict_growth": "38342"
+          },
+          {
+            "depth": 10,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "2047",
+            "modulus": "2048",
+            "affine_constant": "58025",
+            "first_realizer": "2047",
+            "iterate": "118097",
+            "strict_growth": "116050"
+          },
+          {
+            "depth": 11,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "4095",
+            "modulus": "4096",
+            "affine_constant": "175099",
+            "first_realizer": "4095",
+            "iterate": "354293",
+            "strict_growth": "350198"
+          },
+          {
+            "depth": 12,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "8191",
+            "modulus": "8192",
+            "affine_constant": "527345",
+            "first_realizer": "8191",
+            "iterate": "1062881",
+            "strict_growth": "1054690"
+          },
+          {
+            "depth": 13,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "16383",
+            "modulus": "16384",
+            "affine_constant": "1586131",
+            "first_realizer": "16383",
+            "iterate": "3188645",
+            "strict_growth": "3172262"
+          },
+          {
+            "depth": 14,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "32767",
+            "modulus": "32768",
+            "affine_constant": "4766585",
+            "first_realizer": "32767",
+            "iterate": "9565937",
+            "strict_growth": "9533170"
+          },
+          {
+            "depth": 15,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "65535",
+            "modulus": "65536",
+            "affine_constant": "14316139",
+            "first_realizer": "65535",
+            "iterate": "28697813",
+            "strict_growth": "28632278"
+          },
+          {
+            "depth": 16,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "131071",
+            "modulus": "131072",
+            "affine_constant": "42981185",
+            "first_realizer": "131071",
+            "iterate": "86093441",
+            "strict_growth": "85962370"
+          },
+          {
+            "depth": 17,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "262143",
+            "modulus": "262144",
+            "affine_constant": "129009091",
+            "first_realizer": "262143",
+            "iterate": "258280325",
+            "strict_growth": "258018182"
+          },
+          {
+            "depth": 18,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "524287",
+            "modulus": "524288",
+            "affine_constant": "387158345",
+            "first_realizer": "524287",
+            "iterate": "774840977",
+            "strict_growth": "774316690"
+          },
+          {
+            "depth": 19,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "1048575",
+            "modulus": "1048576",
+            "affine_constant": "1161737179",
+            "first_realizer": "1048575",
+            "iterate": "2324522933",
+            "strict_growth": "2323474358"
+          },
+          {
+            "depth": 20,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "2097151",
+            "modulus": "2097152",
+            "affine_constant": "3485735825",
+            "first_realizer": "2097151",
+            "iterate": "6973568801",
+            "strict_growth": "6971471650"
+          },
+          {
+            "depth": 21,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "4194303",
+            "modulus": "4194304",
+            "affine_constant": "10458256051",
+            "first_realizer": "4194303",
+            "iterate": "20920706405",
+            "strict_growth": "20916512102"
+          },
+          {
+            "depth": 22,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "8388607",
+            "modulus": "8388608",
+            "affine_constant": "31376865305",
+            "first_realizer": "8388607",
+            "iterate": "62762119217",
+            "strict_growth": "62753730610"
+          },
+          {
+            "depth": 23,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "16777215",
+            "modulus": "16777216",
+            "affine_constant": "94134790219",
+            "first_realizer": "16777215",
+            "iterate": "188286357653",
+            "strict_growth": "188269580438"
+          },
+          {
+            "depth": 24,
+            "all_one_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "residue": "33554431",
+            "modulus": "33554432",
+            "affine_constant": "282412759265",
+            "first_realizer": "33554431",
+            "iterate": "564859072961",
+            "strict_growth": "564825518530"
+          }
+        ],
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "an infinite well-founded adaptive cover with unbounded prefix lengths",
+        "discard": "any finite tree or globally bounded-depth contracting-prefix certificate",
+        "next_theorem": "WellFoundedUnboundedContractingPrefixCover"
+      },
+      "machine_audit": {
+        "audited_depth_count": 24,
+        "maximum_audited_depth": 24,
+        "all_one_cylinders_expand": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "This is a no-go theorem for finite or bounded-depth cover proofs, not a divergent natural orbit. It neither constructs a Collatz counterexample nor excludes an unbounded well-founded contracting cover."
+    },
+    "goldbach": {
+      "theorem_name": "PowerOfTwoMomentDetectionThreshold",
+      "proved_statement": "Let J_X be the powers of two among the even arguments up to X, let N_X be the number of even arguments, and put a fixed spike of magnitude A=2m_56 on J_X. Its normalized L^(p_X) norm is exactly A exp(-log(N_X/J_X)/p_X). Thus it tends to zero whenever p_X=o(log(N_X/J_X)); it tends to A exp(-1/c) when p_X/log(N_X/J_X) tends to c in (0,infinity); and it tends to A when that ratio tends to infinity. Sublogarithmic moment control cannot detect the fixed power-of-two obstruction.",
+      "proof": "Exactly J_X of the N_X values have magnitude A, so the p_X-th mean is A^p_X J_X/N_X and the norm is A(J_X/N_X)^(1/p_X). Taking logarithms gives log(norm/A)=-log(N_X/J_X)/p_X. The three limits follow immediately.",
+      "exact_threshold_contract": {
+        "K56_margin": {
+          "exact": "23019645297/2140000000000",
+          "numerator": "23019645297",
+          "denominator": "2140000000000",
+          "decimal": 0.010756843596728972
+        },
+        "spike_amplitude": {
+          "exact": "23019645297/1070000000000",
+          "numerator": "23019645297",
+          "denominator": "1070000000000",
+          "decimal": 0.021513687193457944
+        },
+        "exact_norm": "A*(J_X/N_X)^(1/p_X)",
+        "subcritical": "p_X=o(log(N_X/J_X)) implies norm tends to zero",
+        "critical": "p_X/log(N_X/J_X)->c implies norm tends to A*exp(-1/c)",
+        "supercritical": "p_X/log(N_X/J_X)->infinity implies norm tends to A"
+      },
+      "finite_threshold_audit": {
+        "rows": [
+          {
+            "horizon": 256,
+            "even_argument_count": 127,
+            "power_of_two_spike_count": 7,
+            "log_N_over_J": 2.8982769374032777,
+            "moments": {
+              "fixed_2": 2.0,
+              "sqrt_log_subcritical": 1.7024326528245626,
+              "log_critical": 2.8982769374032777,
+              "log_squared_supercritical": 8.400009205883723
+            },
+            "normalized_Lp_norms": {
+              "fixed_2": 0.005050821369708719,
+              "sqrt_log_subcritical": 0.003920647008634811,
+              "log_critical": 0.007914443222266525,
+              "log_squared_supercritical": 0.015235934592144533
+            }
+          },
+          {
+            "horizon": 4096,
+            "even_argument_count": 2047,
+            "power_of_two_spike_count": 11,
+            "log_N_over_J": 5.226235312862919,
+            "moments": {
+              "fixed_2": 2.0,
+              "sqrt_log_subcritical": 2.286096085658457,
+              "log_critical": 5.226235312862919,
+              "log_squared_supercritical": 27.31353554541537
+            },
+            "normalized_Lp_norms": {
+              "fixed_2": 0.0015770747228971537,
+              "sqrt_log_subcritical": 0.0021871367330586504,
+              "log_critical": 0.007914443222266525,
+              "log_squared_supercritical": 0.017767074980312273
+            }
+          },
+          {
+            "horizon": 65536,
+            "even_argument_count": 32767,
+            "power_of_two_spike_count": 15,
+            "log_N_over_J": 7.6891269892531735,
+            "moments": {
+              "fixed_2": 2.0,
+              "sqrt_log_subcritical": 2.7729275124411696,
+              "log_critical": 7.6891269892531735,
+              "log_squared_supercritical": 59.122673856861574
+            },
+            "normalized_Lp_norms": {
+              "fixed_2": 0.00046030123349640964,
+              "sqrt_log_subcritical": 0.0013441499875974535,
+              "log_critical": 0.007914443222266525,
+              "log_squared_supercritical": 0.018890054565719846
+            }
+          },
+          {
+            "horizon": 1048576,
+            "even_argument_count": 524287,
+            "power_of_two_spike_count": 19,
+            "log_N_over_J": 10.225355544122069,
+            "moments": {
+              "fixed_2": 2.0,
+              "sqrt_log_subcritical": 3.197710985083247,
+              "log_critical": 10.225355544122069,
+              "log_squared_supercritical": 104.55789600370792
+            },
+            "normalized_Lp_norms": {
+              "fixed_2": 0.00012951113385412447,
+              "sqrt_log_subcritical": 0.000878954945762996,
+              "log_critical": 0.007914443222266525,
+              "log_squared_supercritical": 0.019509338254717675
+            }
+          },
+          {
+            "horizon": 16777216,
+            "even_argument_count": 8388607,
+            "power_of_two_spike_count": 23,
+            "log_N_over_J": 12.806890817740296,
+            "moments": {
+              "fixed_2": 2.0,
+              "sqrt_log_subcritical": 3.5786716554806053,
+              "log_critical": 12.806890817740296,
+              "log_squared_supercritical": 164.0164524175207
+            },
+            "normalized_Lp_norms": {
+              "fixed_2": 3.562327499923261e-05,
+              "sqrt_log_subcritical": 0.0006005062021232195,
+              "log_critical": 0.007914443222266525,
+              "log_squared_supercritical": 0.01989774446450566
+            }
+          },
+          {
+            "horizon": 268435456,
+            "even_argument_count": 134217727,
+            "power_of_two_spike_count": 27,
+            "log_N_over_J": 15.419137001663614,
+            "moments": {
+              "fixed_2": 2.0,
+              "sqrt_log_subcritical": 3.926720896837922,
+              "log_critical": 15.419137001663614,
+              "log_squared_supercritical": 237.749785876072
+            },
+            "normalized_Lp_norms": {
+              "fixed_2": 9.649210749414317e-06,
+              "sqrt_log_subcritical": 0.0004239958758325085,
+              "log_critical": 0.007914443222266525,
+              "log_squared_supercritical": 0.020162710297213792
+            }
+          }
+        ],
+        "fixed_and_subcritical_norms_decrease": true,
+        "critical_norm_equals_A_over_e": true,
+        "supercritical_norms_increase_to_amplitude": true,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "quantitative logarithmic-order moments or a direct maximal/L-infinity residual bound",
+        "discard": "any Goldbach pointwise promotion based only on p_X=o(log X) moments",
+        "next_theorem": "LogScaleMomentOrMaximalGoldbachResidualK56"
+      },
+      "machine_audit": {
+        "audited_horizon_count": 6,
+        "exact_threshold_formula_verified": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The spike remains an abstract inference countermodel, not the actual binary Goldbach residual. The theorem sharpens the required moment scale but proves no Goldbach representation."
+    },
+    "twin_prime": {
+      "theorem_name": "ScaleDependentPrimorialCompositeLiftBound",
+      "proved_statement": "Let W be a finite primorial, let a mod W be any admissible twin class, and let q,r be distinct primes outside W. There is a composite-composite pair n,n+2 with n congruent to a mod W and n<2Wqr. Consequently, for a scale X, every residue-only classifier using primes through z fails on its own range whenever 2W(z)q(z)r(z)<=X. By the prime number theorem, this applies eventually to every z(X)<=(1-epsilon)log X.",
+      "proof": "CRT gives a unique base x in [0,Wqr) satisfying x=a mod W, q|x, and r|x+2. If q and r are not yet proper divisors, replace x by x+Wqr. The resulting n is below 2Wqr, preserves the full W-residue, and both entries are composite. For W(z), log W(z)=theta(z)=z+o(z) and the next two primes contribute only O(log z) to the logarithm. Thus z<=(1-epsilon)log X makes 2Wqr<X for all sufficiently large X.",
+      "quantitative_lift_contract": {
+        "exact_bound": "n<2*W*q*r",
+        "preserved_information": "the complete admissible residue a mod W",
+        "scale_failure_condition": "2*W(z)*q(z)*r(z)<=X",
+        "asymptotic_corollary": "every residue-only z(X)<=(1-epsilon)log X classifier fails eventually"
+      },
+      "growing_level_audit": {
+        "rows": [
+          {
+            "sieve_level": 5,
+            "local_primes": [
+              2,
+              3,
+              5
+            ],
+            "primorial": "30",
+            "forced_divisors": [
+              7,
+              11
+            ],
+            "admissible_class_count": 3,
+            "expected_class_count": 3,
+            "progression_modulus": "2310",
+            "universal_range_bound": "4620",
+            "maximum_audited_witness": "1967",
+            "sample_witnesses": [
+              {
+                "admissible_residue": "11",
+                "composite_pair_start": "581"
+              },
+              {
+                "admissible_residue": "17",
+                "composite_pair_start": "1967"
+              },
+              {
+                "admissible_residue": "29",
+                "composite_pair_start": "119"
+              }
+            ],
+            "row_failure_count": 0
+          },
+          {
+            "sieve_level": 7,
+            "local_primes": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "primorial": "210",
+            "forced_divisors": [
+              11,
+              13
+            ],
+            "admissible_class_count": 15,
+            "expected_class_count": 15,
+            "progression_modulus": "30030",
+            "universal_range_bound": "60060",
+            "maximum_audited_witness": "30041",
+            "sample_witnesses": [
+              {
+                "admissible_residue": "71",
+                "composite_pair_start": "12881"
+              },
+              {
+                "admissible_residue": "191",
+                "composite_pair_start": "8591"
+              },
+              {
+                "admissible_residue": "101",
+                "composite_pair_start": "4301"
+              },
+              {
+                "admissible_residue": "11",
+                "composite_pair_start": "30041"
+              }
+            ],
+            "row_failure_count": 0
+          },
+          {
+            "sieve_level": 11,
+            "local_primes": [
+              2,
+              3,
+              5,
+              7,
+              11
+            ],
+            "primorial": "2310",
+            "forced_divisors": [
+              13,
+              17
+            ],
+            "admissible_class_count": 135,
+            "expected_class_count": 135,
+            "progression_modulus": "510510",
+            "universal_range_bound": "1021020",
+            "maximum_audited_witness": "508859",
+            "sample_witnesses": [
+              {
+                "admissible_residue": "1541",
+                "composite_pair_start": "193271"
+              },
+              {
+                "admissible_residue": "1751",
+                "composite_pair_start": "239681"
+              },
+              {
+                "admissible_residue": "1961",
+                "composite_pair_start": "286091"
+              },
+              {
+                "admissible_residue": "2171",
+                "composite_pair_start": "332501"
+              }
+            ],
+            "row_failure_count": 0
+          },
+          {
+            "sieve_level": 13,
+            "local_primes": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13
+            ],
+            "primorial": "30030",
+            "forced_divisors": [
+              17,
+              19
+            ],
+            "admissible_class_count": 1485,
+            "expected_class_count": 1485,
+            "progression_modulus": "9699690",
+            "universal_range_bound": "19399380",
+            "maximum_audited_witness": "9699707",
+            "sample_witnesses": [
+              {
+                "admissible_residue": "20021",
+                "composite_pair_start": "5335331"
+              },
+              {
+                "admissible_residue": "26951",
+                "composite_pair_start": "9065981"
+              },
+              {
+                "admissible_residue": "3851",
+                "composite_pair_start": "3096941"
+              },
+              {
+                "admissible_residue": "10781",
+                "composite_pair_start": "6827591"
+              }
+            ],
+            "row_failure_count": 0
+          },
+          {
+            "sieve_level": 17,
+            "local_primes": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17
+            ],
+            "primorial": "510510",
+            "forced_divisors": [
+              19,
+              23
+            ],
+            "admissible_class_count": 22275,
+            "expected_class_count": 22275,
+            "progression_modulus": "223092870",
+            "universal_range_bound": "446185740",
+            "maximum_audited_witness": "223088291",
+            "sample_witnesses": [
+              {
+                "admissible_residue": "170171",
+                "composite_pair_start": "71641571"
+              },
+              {
+                "admissible_residue": "110111",
+                "composite_pair_start": "32272241"
+              },
+              {
+                "admissible_residue": "50051",
+                "composite_pair_start": "215995781"
+              },
+              {
+                "admissible_residue": "500501",
+                "composite_pair_start": "176626451"
+              }
+            ],
+            "row_failure_count": 0
+          }
+        ],
+        "audited_level_count": 5,
+        "total_admissible_classes_lifted": 23913,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "near-full-scale or non-residue Type II parity-sensitive information",
+        "discard": "primorial-residue classifiers with z(X)<=(1-epsilon)log X",
+        "next_theorem": "NearFullScaleParitySensitiveTwinSeparation"
+      },
+      "machine_audit": {
+        "audited_level_count": 5,
+        "admissible_class_count": 23913,
+        "all_witnesses_below_twice_modulus": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "This is a quantitative no-go theorem for a growing class of local classifiers, not a Twin Prime counterexample. It does not exclude near-full-scale or genuinely analytic parity-sensitive information."
+    },
+    "cross_problem_theorem": {
+      "name": "StrictOrUniformInformationIsTheNextSharedBoundary",
+      "statement": "The four tracks now expose explicit scale thresholds: strict finite Gram signs are interval semi-decidable but singular boundaries and the infinite tail remain; Collatz contracting covers require unbounded depth; Goldbach sparse spikes require logarithmic-order moments or maximal control; and Twin local information below the primorial scale has quantitative composite lifts.",
+      "transfer_rule": "A finite computation is useful only when accompanied by a strict certificate or a theorem uniform in depth, moment order, or sieve scale."
+    },
+    "proof_viability": [
+      {
+        "problem_id": "riemann",
+        "advance": "strict finite Gram signs now have exact interval certificates and rational preconditioning",
+        "remaining": "actual Weil entries, singular PSD cases, and a uniform infinite Gram-tail theorem",
+        "proximity": "not close; the finite numerical layer is rigorous but the universal tail is untouched"
+      },
+      {
+        "problem_id": "collatz",
+        "advance": "every finite or bounded-depth contracting-prefix cover is ruled out exactly",
+        "remaining": "an unbounded well-founded cover for every natural valuation code",
+        "proximity": "not close; finite tree completion is now formally impossible"
+      },
+      {
+        "problem_id": "goldbach",
+        "advance": "the exact logarithmic moment order needed to detect fixed sparse spikes is identified",
+        "remaining": "a log-scale quantitative moment estimate or maximal K56 residual bound for the actual residual",
+        "proximity": "not close; the admissible analytic norm is sharper but still unproved"
+      },
+      {
+        "problem_id": "twin-prime",
+        "advance": "the fixed-modulus CRT obstruction is extended quantitatively to growing primorial levels",
+        "remaining": "near-full-scale Type II parity separation and a positive exact-gap lower bound",
+        "proximity": "not close; a larger local-only method class is excluded"
+      }
+    ],
+    "literature_boundary": [
+      {
+        "citation": "Connes and Consani, The Scaling Hamiltonian",
+        "url": "https://arxiv.org/abs/1910.14368",
+        "role": "Weil positivity and the constrained test space; no RH proof is imported."
+      },
+      {
+        "citation": "Suzuki, Weil's quadratic form via the screw function",
+        "url": "https://arxiv.org/abs/2606.09096",
+        "role": "The current continuous-form and operator-limit setting remains conjectural at the decisive limit."
+      },
+      {
+        "citation": "Bernstein and Lagarias, The 3x+1 Conjugacy Map",
+        "url": "https://doi.org/10.4153/CJM-1996-060-x",
+        "role": "Symbolic and 2-adic coding context; no bounded-depth descent theorem is imported."
+      },
+      {
+        "citation": "Zhao, The exceptional set of Goldbach problem",
+        "url": "https://arxiv.org/abs/2511.05631",
+        "role": "Exceptional-set progress is kept separate from all-even pointwise positivity."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Prime-producing sieve context; no exact-gap parity bridge is imported."
+      }
+    ],
+    "machine_audit": {
+      "problem_count": 4,
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET134 proves four exact interval, no-go, or scale-threshold theorems. None proves or refutes RH, Collatz, strong Goldbach, or Twin Prime. All four conjecture-resolution counters remain zero, and no conjecture proof or conjecture counterexample is claimed."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-134",
+      "status": "exact_intermediate_or_no_go_result_conjecture_open",
+      "route": "RationalCongruenceIntervalDichotomy",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "candidate_theorem": "UniformProjectedWeilGramTailCertificate",
+      "next_experiment": "Implement outward-rounded Weil Gram entries, enumerate rational preconditioners, and seek a structural tail domination theorem.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The theorem supplies a rigorous finite-matrix interval engine. No actual projected Weil Gram entry or infinite Gram tail is certified, so it does not prove or disprove RH."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-134",
+      "status": "exact_intermediate_or_no_go_result_conjecture_open",
+      "route": "NoBoundedDepthContractingPrefixCover",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "candidate_theorem": "WellFoundedUnboundedContractingPrefixCover",
+      "next_experiment": "Replace finite tree completion by an ordinal or rank argument that permits unbounded adaptive prefix depth for every natural code.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "This is a no-go theorem for finite or bounded-depth cover proofs, not a divergent natural orbit. It neither constructs a Collatz counterexample nor excludes an unbounded well-founded contracting cover."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-134",
+      "status": "exact_intermediate_or_no_go_result_conjecture_open",
+      "route": "PowerOfTwoMomentDetectionThreshold",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "candidate_theorem": "LogScaleMomentOrMaximalGoldbachResidualK56",
+      "next_experiment": "Derive a quantitative p comparable to log X residual estimate, or prove a direct maximal bound on powers of two and rough even integers.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The spike remains an abstract inference countermodel, not the actual binary Goldbach residual. The theorem sharpens the required moment scale but proves no Goldbach representation."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-134",
+      "status": "exact_intermediate_or_no_go_result_conjecture_open",
+      "route": "ScaleDependentPrimorialCompositeLiftBound",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "candidate_theorem": "NearFullScaleParitySensitiveTwinSeparation",
+      "next_experiment": "Construct a Type II witness that does not factor through primorial residues below the full candidate scale and transfer it to exact gap two.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "This is a quantitative no-go theorem for a growing class of local classifiers, not a Twin Prime counterexample. It does not exclude near-full-scale or genuinely analytic parity-sensitive information."
+    }
+  ]
+}

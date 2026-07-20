@@ -16,11 +16,11 @@ themselves discharge the remaining pointwise obligations.
 Machine-readable record:
 `data/open-problem/ticket132-admissibility-nullset-hard-stratum-local-parity.json`.
 
-> **Current boundary / 최신 경계:** TICKET-133 preserves the four results below
-> and strengthens their quantifier boundaries with a projected Gram-family
-> equivalence, an exact Collatz finite-exception formula, a Goldbach sparse-spike
-> no-go theorem, and all-admissible-class Twin composite lifts. See
-> [TICKET-133](quantifier-promotion-exact-reductions.md).
+> **Current boundary / 최신 경계:** TICKET-134 preserves the four results below
+> and strengthens their scale boundaries with strict Gram interval certificates,
+> a bounded-depth Collatz cover no-go theorem, a logarithmic Goldbach moment
+> threshold, and growing-primorial Twin composite lifts. See
+> [TICKET-134](uniformity-thresholds-and-scale-no-go.md).
 
 ## 1. 결과 요약 / Executive result
 

@@ -10,15 +10,16 @@ def nextAIDiscoveryTheorem : String :=
 
 def requiredProofObjects : List String := [
   "scale-growing exact-pair selector weight family",
-  "parity-sensitive separation from every finite-residue composite lift",
+  "near-full-scale parity-sensitive separation from quantitative primorial composite lifts",
   "infinitude bridge from positive exact-gap lower bound"
 ]
 
 def theoremDecomposition : List String := [
   "TP-TD1 EveryAdmissibleFiniteResidueClassHasInfiniteCompositePairLifts closed",
-  "TP-TD2 UnboundedParitySensitiveTwinPairSeparation highest_risk_open",
-  "TP-TD3 PositiveExactGapLowerBound",
-  "TP-TD4 ExactGapInfinitudeBridge"
+  "TP-TD2 ScaleDependentPrimorialCompositeLiftBound closed",
+  "TP-TD3 NearFullScaleParitySensitiveTwinSeparation highest_risk_open",
+  "TP-TD4 PositiveExactGapLowerBound",
+  "TP-TD5 ExactGapInfinitudeBridge"
 ]
 
 def breakthroughObjectBlueprint : String :=
@@ -31,18 +32,18 @@ def rankedCegisTarget : String :=
   "TP-TICKET-128 gives an exact endpoint-only countermodel and proves that a within-dyadic-block envelope yields limsup Q<=0.92*c+delta"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-133 UnboundedParitySensitiveTwinPairSeparation."
+  "TP-TICKET-134 NearFullScaleParitySensitiveTwinSeparation."
 
 def topAttackProofAttemptProtocol : String :=
-  "Use scale-growing Type II information to distinguish genuine prime pairs from the composite-composite lift of every admissible fixed residue class, then transfer a signed lower bound to exact gap two."
+  "Use near-full-scale Type II information that does not factor through W(z) for z<=(1-epsilon)log X, distinguish the n<2Wqr composite lifts, and transfer a signed lower bound to exact gap two."
 
 def latestFiniteResult : String :=
-  "EveryAdmissibleFiniteResidueClassHasInfiniteCompositePairLifts: CRT maps every admissible class modulo a finite primorial onto an infinite composite-composite progression with the identical residue pattern"
+  "ScaleDependentPrimorialCompositeLiftBound: every admissible a mod W has a composite-pair witness below 2Wqr, extending the residue-only obstruction to growing primorial levels"
 
 def finiteEvidenceBoundary : String :=
-  "the all-class CRT theorem excludes every fixed-modulus classifier but says nothing against unbounded analytic information and is not a Twin Prime counterexample"
+  "the quantitative CRT theorem excludes residue-only z(X)<=(1-epsilon)log X classifiers but says nothing against near-full-scale analytic information and is not a Twin Prime counterexample"
 
 def retainedOpenPremise : String :=
-  "unbounded Type II transport, parity-sensitive separation from all finite-residue composite lifts, and positive exact-gap mass"
+  "near-full-scale Type II transport, parity-sensitive separation from quantitative composite lifts, and positive exact-gap mass"
 
 end PrimeProject.OpenProblems.TwinPrime

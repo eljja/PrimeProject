@@ -5473,3 +5473,33 @@ insufficient.
 
 All four conjectures remain open. TICKET-133 exact theorem count is four,
 route-correction count is four, and conjecture-resolution count is zero.
+
+# TICKET-134 continuation: uniformity thresholds and scale no-go theorems
+
+TICKET-134 preserves every valid TICKET-133 result and proves four stronger
+interval or scale-boundary statements. The machine-readable audit is
+`data/open-problem/ticket134-uniformity-thresholds-and-scale-no-go.json`.
+
+For RH, convergent rational entry intervals finitely certify every strict
+positive-definite finite Gram matrix after a rational congruence preconditioner,
+or every matrix with a negative direction through a rational witness. Singular
+PSD matrices and the universal Gram tail remain undecided. The next target is
+`UniformProjectedWeilGramTailCertificate`.
+
+For Collatz, no finite or globally bounded-depth contracting-prefix family can
+cover all natural starts. At every depth `K`, the exact cylinder
+`n=-1 mod 2^(K+1)` has expanding all-one prefixes through depth `K`. The next
+target is `WellFoundedUnboundedContractingPrefixCover`.
+
+For Goldbach, the exact `L^(p_X)` norm of a fixed power-of-two spike has a
+transition at `p_X` comparable to `log(N_X/J_X)`. Every sublogarithmic moment
+regime can miss the pointwise obstruction. The next target is
+`LogScaleMomentOrMaximalGoldbachResidualK56`.
+
+For Twin Prime, every admissible `a mod W` has a composite-pair lift below
+`2Wqr`. The obstruction therefore extends to growing residue-only classifiers
+with `z(X)<=(1-epsilon)log X`. The next target is
+`NearFullScaleParitySensitiveTwinSeparation`.
+
+All four conjectures remain open. TICKET-134 exact theorem count is four,
+route-correction count is four, and conjecture-resolution count is zero.
