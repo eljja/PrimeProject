@@ -8,12 +8,12 @@ Scope: Riemann Hypothesis, Collatz conjecture, binary Goldbach conjecture, Twin 
 
 > **Current continuation / 최신 연속 연구:** this dated consolidation remains a
 > historical keep/discard baseline. The current boundary is
-> [TICKET-134](uniformity-thresholds-and-scale-no-go.md), which gives a rational
-> interval semi-decision for strict finite RH Gram signs, proves that no bounded-
-> depth Collatz contracting cover can be complete, identifies the logarithmic
-> Goldbach moment threshold for sparse spikes, and extends Twin composite lifts
-> to growing primorial levels with an exact `2Wqr` range bound. All four problems
-> remain `open_not_proven`.
+> [TICKET-135](conditional-bridges-and-exceptional-set.md), which proves a sharp
+> RH block-tail positivity contract, separates Collatz full-measure slope
+> contraction from pointwise natural descent, gives a sharp sparse-stratum
+> Goldbach moment-to-maximum bridge, and excludes every finite exact congruence
+> transcript as a complete Twin Prime separator. All four problems remain
+> `open_not_proven`.
 
 ## 한국어 정리
 

@@ -16,11 +16,10 @@ sufficient, and records the exact obligations that remain afterward.
 Machine-readable record:
 `data/open-problem/ticket131-proof-viability-target-correction.json`.
 
-> **Superseded boundary / 최신 경계:** TICKET-134 preserves the TICKET-131-133
-> repairs and adds strict Gram interval semi-decisions, a bounded-depth Collatz
-> cover no-go theorem, the logarithmic Goldbach moment threshold, and a growing-
-> primorial Twin lift bound. The TICKET-131 theorems below remain valid. See
-> [TICKET-134](uniformity-thresholds-and-scale-no-go.md).
+> **Superseded boundary / 최신 경계:** TICKET-135 preserves the TICKET-131-134
+> repairs and adds exact bridge/no-go theorems while keeping their missing
+> problem-specific inputs open. The TICKET-131 theorems below remain valid. See
+> [TICKET-135](conditional-bridges-and-exceptional-set.md).
 
 ## 1. 결론 요약 / Executive conclusion
 

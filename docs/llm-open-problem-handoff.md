@@ -62,9 +62,38 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-134
+## Latest Continuation After TICKET-135
 
-TICKET134 is the current boundary. Read
+TICKET135 is the current boundary. Read
+`docs/conditional-bridges-and-exceptional-set.md` and
+`data/open-problem/ticket135-conditional-bridges-and-exceptional-set.json` before
+proposing a new route. None of the four conjectures is resolved.
+
+For RH, the sharp generic block criterion is now closed:
+`A>=alpha I`, `C>=gamma I`, `||B||<=beta`, and
+`beta^2<=alpha*gamma` imply positivity of the full core/tail block. Attack
+`ProjectedWeilBlockConstantsWithPositiveSchurMargin`; the generic theorem does
+not supply the constants for an actual Weil form.
+
+For Collatz, minimal valuation prefixes satisfying `2^S>3^k` form a prefix-free
+full-measure cover in odd 2-adic code space. Attack
+`NaturalCodesCrossAffineDescentThreshold`; natural codes are a dense Haar-null
+set and negative slope alone does not dominate the positive affine term.
+
+For Goldbach, normalized moments on a hard stratum of size `h` promote with the
+sharp factor `h^(1/p)`. The choice `p=4 ceil(log_2 h)` and norm at most
+`(5/6)m_56` is sufficient for the pointwise K56 budget. Attack
+`BinaryGoldbachHardStratumLogMomentBoundK56`; no actual residual estimate has
+been proved.
+
+For Twin Prime, every admissible exact transcript over arbitrary finite moduli
+has a proper composite-pair lift below `2*lcm(m_i)*q*r`. Attack
+`NonCongruenceTypeIITwinSeparation`; finite modular feature classifiers cannot
+provide the missing parity-sensitive information.
+
+## Historical Continuation After TICKET-134
+
+TICKET134 is a preserved historical boundary. Read
 `docs/uniformity-thresholds-and-scale-no-go.md` and
 `data/open-problem/ticket134-uniformity-thresholds-and-scale-no-go.json` before
 proposing a new route. None of the four conjectures is resolved.
@@ -95,7 +124,7 @@ counterexample.
 
 ## Historical Continuation After TICKET-133
 
-TICKET133 is the current boundary. Read
+TICKET133 is a preserved historical boundary. Read
 `docs/quantifier-promotion-exact-reductions.md` and
 `data/open-problem/ticket133-quantifier-promotion-exact-reductions.json` before
 proposing a new route. None of the four conjectures is resolved.

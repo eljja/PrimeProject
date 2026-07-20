@@ -5503,3 +5503,39 @@ with `z(X)<=(1-epsilon)log X`. The next target is
 
 All four conjectures remain open. TICKET-134 exact theorem count is four,
 route-correction count is four, and conjecture-resolution count is zero.
+
+# TICKET-135 continuation: conditional bridges and exceptional-set boundaries
+
+TICKET-135 preserves every valid TICKET-134 result and proves four exact
+conditional bridge or no-go theorems. The machine-readable audit is
+`data/open-problem/ticket135-conditional-bridges-and-exceptional-set.json`.
+
+For RH, `SharpBlockTailPositivityCertificate` proves the dimension-independent
+Schur-margin condition `beta^2<=alpha*gamma` and gives a sharp scalar negative
+countermodel when it is violated. The next target is
+`ProjectedWeilBlockConstantsWithPositiveSchurMargin`; no actual Weil constants
+are supplied by the generic theorem.
+
+For Collatz, `MinimalNegativeSlopePrefixesFormFullMeasurePrefixFreeCover` proves
+an almost-everywhere statement in odd 2-adic code space. It does not cover every
+natural code and does not dominate the positive affine iterate term. The next
+target is `NaturalCodesCrossAffineDescentThreshold`.
+
+For Goldbach, `SparseHardStratumMomentToMaximumBridge` proves the sharp finite
+inequality and lowers the sufficient moment order to `O(log log X)` on a
+powers-of-two-size hard stratum. The next target is
+`BinaryGoldbachHardStratumLogMomentBoundK56`; the actual residual estimate is
+open.
+
+For Twin Prime, `FiniteCongruenceTranscriptCompositeLift` constructs proper
+composite-pair witnesses below `2*lcm(m_i)*q*r` for arbitrary finite compatible
+modular transcripts. The next target is `NonCongruenceTypeIITwinSeparation`.
+
+한국어 요약: TICKET-135는 일반 조건부 승격 정리와 실제 난제에 필요한 입력을
+분리했다. RH에는 실제 Weil 블록 상수, Collatz에는 모든 자연수 코드의 affine
+하강, Goldbach에는 실제 hard-stratum residual 모멘트, Twin Prime에는 유한 합동
+정보 밖의 Type II 분리가 남아 있다. 네 난제는 모두 미해결이고 해결 카운트는
+0이다.
+
+All four conjectures remain open. TICKET-135 exact theorem count is four,
+route-correction count is four, and conjecture-resolution count is zero.

@@ -18,7 +18,8 @@ def theoremDecomposition : List String := [
   "RH-TD1 ConstraintPreservingEnumerableWeilCoreProjection closed",
   "RH-TD2 ProjectedWeilCoreGramFamilyEquivalence closed",
   "RH-TD3 RationalCongruenceIntervalDichotomy closed",
-  "RH-TD4 UniformProjectedWeilGramTailCertificate highest_risk_open",
+  "RH-TD4a SharpBlockTailPositivityCertificate closed",
+  "RH-TD4b ProjectedWeilBlockConstantsWithPositiveSchurMargin highest_risk_open",
   "RH-TD5 WeilPositivityToRHImportAudit"
 ]
 
@@ -32,18 +33,18 @@ def rankedCegisTarget : String :=
   "RH-TICKET-128 proves that compact support removes the infinite prime tail exactly: only prime powers p^m<=B remain in the arithmetic side"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-134 UniformProjectedWeilGramTailCertificate."
+  "RH-TICKET-135 ProjectedWeilBlockConstantsWithPositiveSchurMargin."
 
 def topAttackProofAttemptProtocol : String :=
   "Freeze one published Weil normalization, use rational congruence preconditioners to certify strict finite Gram signs, and prove a dimension-uniform tail theorem; singular PSD boundaries and finite prefixes do not imply RH."
 
 def latestExactResult : String :=
-  "RationalCongruenceIntervalDichotomy: strict positive finite Gram matrices and negative directions are finitely interval-semi-decidable; singular PSD matrices are non-robust boundary cases"
+  "SharpBlockTailPositivityCertificate: A>=alpha I, C>=gamma I, ||B||<=beta and beta^2<=alpha*gamma imply positivity of the full self-adjoint block, with a sharp scalar countermodel beyond the threshold"
 
 def retiredRoute : String :=
   "full-test-space autocorrelation-cone density"
 
 def retainedOpenPremise : String :=
-  "actual Weil entry enclosures plus dimension-uniform Gram-tail control or a certified strict-negative witness"
+  "actual projected Weil core, tail, and cross-block constants with positive Schur margin or a certified strict-negative witness"
 
 end PrimeProject.OpenProblems.Riemann

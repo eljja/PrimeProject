@@ -131,6 +131,7 @@ TICKET131_SCHEMA = "primeproject.ticket131-proof-viability-target-correction.v1"
 TICKET132_SCHEMA = "primeproject.ticket132-admissibility-nullset-hard-stratum-local-parity.v1"
 TICKET133_SCHEMA = "primeproject.ticket133-quantifier-promotion-exact-reductions.v1"
 TICKET134_SCHEMA = "primeproject.ticket134-uniformity-thresholds-and-scale-no-go.v1"
+TICKET135_SCHEMA = "primeproject.ticket135-conditional-bridges-and-exceptional-set.v1"
 
 
 def fail(message: str) -> int:
@@ -7776,6 +7777,48 @@ def main() -> int:
         return fail("ticket134 Twin growing-primorial lift changed")
     if "none proves or refutes" not in str(audit134.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket134.get("claim_boundary", "")).lower():
         return fail("ticket134 proof boundary changed")
+
+    path135 = Path("data/open-problem/ticket135-conditional-bridges-and-exceptional-set.json")
+    if not path135.exists():
+        return fail("missing ticket135 conditional-bridge audit")
+    ticket135 = read_json(path135)
+    if ticket135.get("schema") != TICKET135_SCHEMA or ticket135.get("status") != "exact_conditional_bridges_proved_all_conjectures_open":
+        return fail("ticket135 schema or status changed")
+    attempts135 = ticket135.get("attempts", [])
+    by_id135 = {str(row.get("problem_id")): row for row in attempts135 if isinstance(row, dict)} if isinstance(attempts135, list) else {}
+    if set(by_id135) != EXPECTED_PROBLEMS:
+        return fail("ticket135 attempts missing problems")
+    paths135 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-135-block-tail-certificate.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-135-full-measure-prefix-cover.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-135-hard-stratum-moment-bridge.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-135-congruence-transcript-lifts.json"),
+    }
+    for problem_id, attempt in by_id135.items():
+        if not paths135[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket135 artifact or proof boundary missing")
+    audit135 = ticket135.get("conditional_bridge_and_exceptional_set_audit", {})
+    machine135 = audit135.get("machine_audit", {})
+    if audit135.get("theorem_name") != "FourConjectureConditionalBridgeAndExceptionalSetAudit" or int(machine135.get("exact_theorem_count", -1)) != 4 or int(machine135.get("route_correction_count", -1)) != 4 or int(machine135.get("conjecture_resolution_count", -1)) != 0 or int(machine135.get("total_failure_count", -1)) != 0:
+        return fail("ticket135 global machine audit changed")
+    riemann135 = audit135.get("riemann", {})
+    bad135 = riemann135.get("rational_audit", {}).get("violating_example", {})
+    if riemann135.get("theorem_name") != "SharpBlockTailPositivityCertificate" or bad135.get("schur_margin", {}).get("exact") != "-5/4" or bad135.get("witness_value", {}).get("exact") != "-5/4":
+        return fail("ticket135 RH block-tail threshold changed")
+    collatz135 = audit135.get("collatz", {})
+    dynamic135 = collatz135.get("finite_dynamic_program_audit", {})
+    if collatz135.get("theorem_name") != "MinimalNegativeSlopePrefixesFormFullMeasurePrefixFreeCover" or int(dynamic135.get("maximum_depth", -1)) != 64 or int(dynamic135.get("failure_count", -1)) != 0 or "Haar-null" not in str(collatz135.get("proof_boundary", "")):
+        return fail("ticket135 Collatz full-measure boundary changed")
+    goldbach135 = audit135.get("goldbach", {})
+    bridge135 = goldbach135.get("exact_bridge_contract", {})
+    if goldbach135.get("theorem_name") != "SparseHardStratumMomentToMaximumBridge" or Fraction(str(bridge135.get("rational_guard", {}).get("exact", "0"))) <= 0 or int(goldbach135.get("finite_scale_audit", {}).get("failure_count", -1)) != 0:
+        return fail("ticket135 Goldbach hard-stratum bridge changed")
+    twin135 = audit135.get("twin_prime", {})
+    transcript135 = twin135.get("finite_transcript_audit", {})
+    if twin135.get("theorem_name") != "FiniteCongruenceTranscriptCompositeLift" or int(transcript135.get("total_witnesses", -1)) != 111 or int(transcript135.get("failure_count", -1)) != 0:
+        return fail("ticket135 Twin transcript lift changed")
+    if "none proves or refutes" not in str(audit135.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket135.get("claim_boundary", "")).lower():
+        return fail("ticket135 proof boundary changed")
 
     print("open problem structure verified")
     return 0

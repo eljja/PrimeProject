@@ -16,11 +16,10 @@ themselves discharge the remaining pointwise obligations.
 Machine-readable record:
 `data/open-problem/ticket132-admissibility-nullset-hard-stratum-local-parity.json`.
 
-> **Current boundary / 최신 경계:** TICKET-134 preserves the four results below
-> and strengthens their scale boundaries with strict Gram interval certificates,
-> a bounded-depth Collatz cover no-go theorem, a logarithmic Goldbach moment
-> threshold, and growing-primorial Twin composite lifts. See
-> [TICKET-134](uniformity-thresholds-and-scale-no-go.md).
+> **Current boundary / 최신 경계:** TICKET-135 preserves the four results below
+> and separates exact conditional bridges from their remaining exceptional-set,
+> arithmetic-constant, and information barriers. See
+> [TICKET-135](conditional-bridges-and-exceptional-set.md).
 
 ## 1. 결과 요약 / Executive result
 
