@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260721-ticket135-priority")) {
-      errors.push(`${page}: missing TICKET135 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260725-ticket136-priority")) {
+      errors.push(`${page}: missing TICKET136 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,31 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket136 title", "Ticket 136 scale-sensitive obstructions and affine descent bridge");
+    requireText("ticket136 table", "TICKET136 audit");
+    requireText("ticket136 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket136 resolutions", "Resolution count0");
+    requireText("ticket136 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket136 RH theorem", "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo");
+      requireText("ticket136 RH no-go", "operator witness");
+      requireText("ticket136 RH target", "ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket136 Collatz theorem", "LeastCounterexampleAffineCorrectionInequality");
+      requireText("ticket136 Collatz identity", "Exact identities");
+      requireText("ticket136 Collatz target", "UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket136 Goldbach theorem", "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier");
+      requireText("ticket136 Goldbach barrier", "minimum p for ≤6/5");
+      requireText("ticket136 Goldbach target", "BinaryGoldbachGrowingWheelResidualBoundK56");
+    } else {
+      requireText("ticket136 Twin theorem", "FiniteRationalFourierAlgebraCompositeLift");
+      requireText("ticket136 Twin factors", "forced factors");
+      requireText("ticket136 Twin target", "AperiodicScaleGrowingTypeIITwinSeparation");
+    }
     requireText("ticket135 title", "Ticket 135 conditional bridges and exceptional-set boundaries");
     requireText("ticket135 table", "TICKET135 audit");
-    requireText("ticket135 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket135 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket135 resolutions", "Resolution count0");
     if (page.problemId === "riemann") {
       requireText("ticket135 RH theorem", "SharpBlockTailPositivityCertificate");

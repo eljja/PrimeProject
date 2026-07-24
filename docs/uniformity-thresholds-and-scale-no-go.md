@@ -14,12 +14,12 @@ or counterexample to a target conjecture.
 Machine-readable record:
 `data/open-problem/ticket134-uniformity-thresholds-and-scale-no-go.json`.
 
-> **Current boundary / 최신 경계:** TICKET-135 preserves these exact scale
-> obstructions and adds a sharp block-tail promotion contract, a full-measure
-> but non-pointwise Collatz prefix theorem, a sparse-stratum Goldbach norm
-> bridge, and a no-go theorem for arbitrary finite congruence transcripts. See
-> [TICKET-135](conditional-bridges-and-exceptional-set.md). All conjectures stay
-> open.
+> **Current boundary / 최신 경계:** TICKET-136 preserves these exact scale
+> obstructions and adds a computable Schur-test bridge, an affine-corrected
+> Collatz necessity, a fixed-wheel Goldbach density barrier, and a rational
+> Fourier periodicity no-go. See
+> [TICKET-136](scale-sensitive-obstructions-and-affine-bridge.md). All
+> conjectures stay open.
 
 ## 1. 결과 요약 / Executive result
 

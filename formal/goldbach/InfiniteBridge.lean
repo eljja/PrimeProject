@@ -19,7 +19,8 @@ def theoremDecomposition : List String := [
   "GB-TD2 FiniteCesaroLpPromotionNoGo closed",
   "GB-TD3 PowerOfTwoMomentDetectionThreshold closed",
   "GB-TD4a SparseHardStratumMomentToMaximumBridge closed",
-  "GB-TD4b BinaryGoldbachHardStratumLogMomentBoundK56 highest_risk_open",
+  "GB-TD4b.1 FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier closed",
+  "GB-TD4b.2 BinaryGoldbachGrowingWheelResidualBoundK56 highest_risk_open",
   "GB-TD5 FiniteLargeNGlue"
 ]
 
@@ -33,18 +34,18 @@ def rankedCegisTarget : String :=
   "GB-TICKET-128 proves the rational tail bound 2*C2>1.31917 and makes the conservative pointwise residual target K=55 sufficient above H=4e18"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-135 BinaryGoldbachHardStratumLogMomentBoundK56."
+  "GB-TICKET-136 BinaryGoldbachGrowingWheelResidualBoundK56."
 
 def topAttackProofAttemptProtocol : String :=
   "Prove p_X comparable to log X quantitative residual control or a supremum bound with K<=56 on powers of two and rough evens; every sublogarithmic moment regime misses fixed sparse spikes."
 
 def latestExactResult : String :=
-  "SparseHardStratumMomentToMaximumBridge: normalized Lp control on h hard points promotes sharply with factor h^(1/p), so p=4*ceil(log2 h) and norm<=(5/6)m56 suffice"
+  "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier: |H_W(2*W*M)|=M*phi(W), so a fixed rough layer requires p=Theta(log X), not the powers-of-two O(log log X) moment order"
 
 def closedPremise : String :=
   "proper-prime-power contamination constant B and normalized singular-series coefficient A=1"
 
 def retainedOpenPremise : String :=
-  "an actual binary Goldbach residual bound at p=4*ceil(log2 h) on a rigorously fixed minimal-main hard stratum"
+  "a K=56 binary Goldbach residual bound uniform over a growing wheel and every complementary stratum"
 
 end PrimeProject.OpenProblems.Goldbach

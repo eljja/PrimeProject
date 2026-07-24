@@ -1,0 +1,1758 @@
+{
+  "schema": "primeproject.ticket136-scale-sensitive-obstructions-and-affine-bridge.v1",
+  "generated_at": "2026-07-25T12:00:00+09:00",
+  "status": "exact_intermediate_theorems_proved_all_conjectures_open",
+  "claim_boundary": "TICKET136 proves four exact intermediate theorems and four route corrections. It does not prove or refute any of the four conjectures. No conjecture proof and no conjecture counterexample is claimed. Every finite audit is subordinate to a displayed universal argument, and all conjecture resolution counters remain zero.",
+  "scale_sensitive_obstruction_and_affine_bridge_audit": {
+    "theorem_name": "FourConjectureScaleSensitiveObstructionAndAffineBridgeAudit",
+    "riemann": {
+      "theorem_name": "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo",
+      "title_ko": "Schur 검사를 이용한 Weil 블록 연결과 원소별 감소의 한계 정리",
+      "declared_target": "Refine the TICKET135 block certificate into computable absolute row/column tail bounds, and determine whether entrywise decay alone can supply the missing operator-norm premise.",
+      "proved_statement": "Let M=[[A,B],[B*,C]] be self-adjoint, with A>=alpha I and C>=gamma I. If every absolute row sum of B is at most R and every absolute column sum is at most S, then ||B||_2^2<=R*S. Hence R*S<=alpha*gamma implies M>=0. Entrywise decay alone is insufficient: B_n=J_n/n has max_ij |B_ij|=1/n -> 0 but ||B_n||_2=1 for every n.",
+      "proved_statement_ko": "자기수반 블록 M의 코어와 꼬리 하한이 각각 alpha, gamma이고 교차 블록 B의 절댓값 행합과 열합이 R, S 이하이면 ||B||_2^2<=R*S이다. 따라서 R*S<=alpha*gamma이면 전체 블록은 양의 준정부호다. 그러나 B_n=J_n/n은 각 원소가 0으로 가면서도 연산자 노름이 항상 1이므로 원소별 감소만으로는 충분하지 않다.",
+      "proof": "The Schur test gives ||B||_2<=sqrt(||B||_infinity*||B||_1)<=sqrt(R*S). Substitution into the sharp TICKET135 block inequality proves positivity. For B_n=J_n/n, every row and column sum is one, and the all-ones vector is an eigenvector with eigenvalue one. Thus the operator norm remains one although the largest entry tends to zero.",
+      "exact_certificate_contract": {
+        "finite_core_lower_bound": "A>=alpha I",
+        "tail_lower_bound": "C>=gamma I",
+        "cross_row_bound": "sup_i sum_j |B_ij|<=R",
+        "cross_column_bound": "sup_j sum_i |B_ij|<=S",
+        "operator_bound": "||B||_2^2<=R*S",
+        "acceptance_inequality": "R*S<=alpha*gamma"
+      },
+      "rational_audit": {
+        "accepted_contracts": [
+          {
+            "alpha": {
+              "exact": "2",
+              "numerator": "2",
+              "denominator": "1",
+              "decimal": 2.0
+            },
+            "gamma": {
+              "exact": "3",
+              "numerator": "3",
+              "denominator": "1",
+              "decimal": 3.0
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "2",
+              "numerator": "2",
+              "denominator": "1",
+              "decimal": 2.0
+            },
+            "certified_schur_margin": {
+              "exact": "4",
+              "numerator": "4",
+              "denominator": "1",
+              "decimal": 4.0
+            },
+            "certificate_accepts": true
+          },
+          {
+            "alpha": {
+              "exact": "5/2",
+              "numerator": "5",
+              "denominator": "2",
+              "decimal": 2.5
+            },
+            "gamma": {
+              "exact": "4",
+              "numerator": "4",
+              "denominator": "1",
+              "decimal": 4.0
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "3/2",
+              "numerator": "3",
+              "denominator": "2",
+              "decimal": 1.5
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "2",
+              "numerator": "2",
+              "denominator": "1",
+              "decimal": 2.0
+            },
+            "certified_schur_margin": {
+              "exact": "7",
+              "numerator": "7",
+              "denominator": "1",
+              "decimal": 7.0
+            },
+            "certificate_accepts": true
+          },
+          {
+            "alpha": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "gamma": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "certified_schur_margin": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "certificate_accepts": true
+          }
+        ],
+        "entrywise_decay_counterfamily": [
+          {
+            "dimension": 2,
+            "maximum_entry": {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "operator_norm_witness_ratio": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          },
+          {
+            "dimension": 4,
+            "maximum_entry": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "operator_norm_witness_ratio": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          },
+          {
+            "dimension": 8,
+            "maximum_entry": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "operator_norm_witness_ratio": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          },
+          {
+            "dimension": 16,
+            "maximum_entry": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "operator_norm_witness_ratio": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          },
+          {
+            "dimension": 32,
+            "maximum_entry": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "operator_norm_witness_ratio": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          },
+          {
+            "dimension": 64,
+            "maximum_entry": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "operator_norm_witness_ratio": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          },
+          {
+            "dimension": 128,
+            "maximum_entry": {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "operator_norm_witness_ratio": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "absolute row/column summability bounds for the projected Weil core-tail coupling, combined with certified core and tail gaps",
+        "discard": "deducing a vanishing projected Weil cross-operator norm solely from entrywise matrix-element decay",
+        "next_theorem": "ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-TD4a",
+            "label": "SharpBlockTailPositivityCertificate",
+            "status": "closed"
+          },
+          {
+            "id": "RH-TD4b.1",
+            "label": "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-TD4b.2",
+            "label": "ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-TD4a",
+            "RH-TD4b.1"
+          ],
+          [
+            "RH-TD4b.1",
+            "RH-TD4b.2"
+          ],
+          [
+            "RH-TD4b.2",
+            "RH"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "accepted_contract_count": 3,
+        "entrywise_counterfamily_size": 7,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The Schur-test bridge and counterfamily are exact. No absolute row/column estimates are proved here for a fixed published projected Weil operator, and no tail spectral gap is supplied. RH remains open."
+    },
+    "collatz": {
+      "theorem_name": "LeastCounterexampleAffineCorrectionInequality",
+      "title_ko": "최소 반례의 affine 보정 부등식",
+      "declared_target": "Replace slope-only contraction by an exact, integer-checkable criterion that includes the positive affine correction and applies to a hypothetical least Collatz counterexample.",
+      "proved_statement": "For the accelerated odd Collatz orbit n_{j+1}=(3n_j+1)/2^{a_j}, S_k=sum_{j<k} a_j, one has the exact identity n_k/n_0=(3^k/2^S_k) product_{j<k}(1+1/(3n_j)). If n_j>=n_0 for 0<=j<=k, then 2^S_k*n_0^k<=(3n_0+1)^k. Consequently the strict reverse inequality certifies a descent by time k. A hypothetical least counterexample must satisfy the non-strict inequality for every k.",
+      "proved_statement_ko": "가속 홀수 콜라츠 궤도는 기울기 항뿐 아니라 product(1+1/(3n_j))라는 양의 affine 보정항을 정확히 가진다. k단계 동안 시작값 아래로 내려가지 않았다면 2^S_k*n_0^k<=(3n_0+1)^k가 반드시 성립한다. 따라서 반대의 엄격한 부등식은 k단계 이내 하강의 정확한 충분조건이며, 가상의 최소 반례는 이 부등식을 모든 k에서 위반하지 못한다.",
+      "proof": "Multiplying n_{j+1}/n_j=(3/2^{a_j})(1+1/(3n_j)) gives the identity. Under n_j>=n_0, every correction factor is at most 1+1/(3n_0), so n_k/n_0 is at most ((3n_0+1)/n_0)^k/2^S_k. Non-descent forces this upper bound to be at least one, which is the displayed integer inequality. If n_0 were the least counterexample, reaching a smaller positive integer would join an orbit known by minimality to reach one; hence its orbit can never descend and the inequality is necessary for all k.",
+      "exact_bridge_contract": {
+        "iterate_identity": "n_k/n_0=(3^k/2^S_k)*product_{j<k}(1+1/(3n_j))",
+        "no_descent_necessary_condition": "2^S_k*n_0^k<=(3n_0+1)^k",
+        "descent_sufficient_condition": "2^S_k*n_0^k>(3n_0+1)^k",
+        "log_form": "S_k-k*log_2(3)<=k*log_2(1+1/(3n_0)) under no descent"
+      },
+      "finite_orbit_audit": {
+        "maximum_odd_start": 9999,
+        "maximum_depth": 64,
+        "odd_start_count": 5000,
+        "descended_start_count": 4999,
+        "exact_identity_check_count": 17311,
+        "necessary_cap_check_count": 12312,
+        "sufficient_threshold_check_count": 4996,
+        "selected_examples": [
+          {
+            "start": 1,
+            "first_descent_found": false,
+            "audited_rows": [
+              {
+                "depth": 1,
+                "iterate": "1",
+                "valuation_sum": 2,
+                "slope_contracts": true,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 2,
+                "iterate": "1",
+                "valuation_sum": 4,
+                "slope_contracts": true,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 4,
+                "iterate": "1",
+                "valuation_sum": 8,
+                "slope_contracts": true,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 8,
+                "iterate": "1",
+                "valuation_sum": 16,
+                "slope_contracts": true,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 16,
+                "iterate": "1",
+                "valuation_sum": 32,
+                "slope_contracts": true,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 32,
+                "iterate": "1",
+                "valuation_sum": 64,
+                "slope_contracts": true,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 64,
+                "iterate": "1",
+                "valuation_sum": 128,
+                "slope_contracts": true,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              }
+            ]
+          },
+          {
+            "start": 3,
+            "first_descent_found": true,
+            "audited_rows": [
+              {
+                "depth": 1,
+                "iterate": "5",
+                "valuation_sum": 1,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 2,
+                "iterate": "1",
+                "valuation_sum": 5,
+                "slope_contracts": true,
+                "affine_threshold_crossed": true,
+                "strict_descent": true
+              }
+            ]
+          },
+          {
+            "start": 7,
+            "first_descent_found": true,
+            "audited_rows": [
+              {
+                "depth": 1,
+                "iterate": "11",
+                "valuation_sum": 1,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 2,
+                "iterate": "17",
+                "valuation_sum": 2,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 4,
+                "iterate": "5",
+                "valuation_sum": 7,
+                "slope_contracts": true,
+                "affine_threshold_crossed": true,
+                "strict_descent": true
+              }
+            ]
+          },
+          {
+            "start": 27,
+            "first_descent_found": true,
+            "audited_rows": [
+              {
+                "depth": 1,
+                "iterate": "41",
+                "valuation_sum": 1,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 2,
+                "iterate": "31",
+                "valuation_sum": 3,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 4,
+                "iterate": "71",
+                "valuation_sum": 5,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 8,
+                "iterate": "91",
+                "valuation_sum": 11,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 16,
+                "iterate": "593",
+                "valuation_sum": 21,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 32,
+                "iterate": "3077",
+                "valuation_sum": 44,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              }
+            ]
+          },
+          {
+            "start": 31,
+            "first_descent_found": true,
+            "audited_rows": [
+              {
+                "depth": 1,
+                "iterate": "47",
+                "valuation_sum": 1,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 2,
+                "iterate": "71",
+                "valuation_sum": 2,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 4,
+                "iterate": "161",
+                "valuation_sum": 4,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 8,
+                "iterate": "103",
+                "valuation_sum": 11,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 16,
+                "iterate": "167",
+                "valuation_sum": 23,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 32,
+                "iterate": "433",
+                "valuation_sum": 47,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              }
+            ]
+          },
+          {
+            "start": 63,
+            "first_descent_found": true,
+            "audited_rows": [
+              {
+                "depth": 1,
+                "iterate": "95",
+                "valuation_sum": 1,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 2,
+                "iterate": "143",
+                "valuation_sum": 2,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 4,
+                "iterate": "323",
+                "valuation_sum": 4,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 8,
+                "iterate": "103",
+                "valuation_sum": 12,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 16,
+                "iterate": "167",
+                "valuation_sum": 24,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 32,
+                "iterate": "433",
+                "valuation_sum": 48,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              }
+            ]
+          },
+          {
+            "start": 703,
+            "first_descent_found": true,
+            "audited_rows": [
+              {
+                "depth": 1,
+                "iterate": "1055",
+                "valuation_sum": 1,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 2,
+                "iterate": "1583",
+                "valuation_sum": 2,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 4,
+                "iterate": "3563",
+                "valuation_sum": 4,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 8,
+                "iterate": "4511",
+                "valuation_sum": 10,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 16,
+                "iterate": "14455",
+                "valuation_sum": 21,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 32,
+                "iterate": "37111",
+                "valuation_sum": 45,
+                "slope_contracts": false,
+                "affine_threshold_crossed": false,
+                "strict_descent": false
+              },
+              {
+                "depth": 51,
+                "iterate": "157",
+                "valuation_sum": 83,
+                "slope_contracts": true,
+                "affine_threshold_crossed": true,
+                "strict_descent": true
+              }
+            ]
+          }
+        ],
+        "slope_only_counterexample_n_equals_1": [
+          {
+            "depth": 1,
+            "valuation_sum": 2,
+            "slope_left_2_pow_S": "4",
+            "slope_right_3_pow_k": "3",
+            "slope_contracts": true,
+            "affine_threshold_left": "4",
+            "affine_threshold_right": "4",
+            "strict_descent": false
+          },
+          {
+            "depth": 2,
+            "valuation_sum": 4,
+            "slope_left_2_pow_S": "16",
+            "slope_right_3_pow_k": "9",
+            "slope_contracts": true,
+            "affine_threshold_left": "16",
+            "affine_threshold_right": "16",
+            "strict_descent": false
+          },
+          {
+            "depth": 4,
+            "valuation_sum": 8,
+            "slope_left_2_pow_S": "256",
+            "slope_right_3_pow_k": "81",
+            "slope_contracts": true,
+            "affine_threshold_left": "256",
+            "affine_threshold_right": "256",
+            "strict_descent": false
+          },
+          {
+            "depth": 8,
+            "valuation_sum": 16,
+            "slope_left_2_pow_S": "65536",
+            "slope_right_3_pow_k": "6561",
+            "slope_contracts": true,
+            "affine_threshold_left": "65536",
+            "affine_threshold_right": "65536",
+            "strict_descent": false
+          },
+          {
+            "depth": 16,
+            "valuation_sum": 32,
+            "slope_left_2_pow_S": "4294967296",
+            "slope_right_3_pow_k": "43046721",
+            "slope_contracts": true,
+            "affine_threshold_left": "4294967296",
+            "affine_threshold_right": "4294967296",
+            "strict_descent": false
+          },
+          {
+            "depth": 32,
+            "valuation_sum": 64,
+            "slope_left_2_pow_S": "18446744073709551616",
+            "slope_right_3_pow_k": "1853020188851841",
+            "slope_contracts": true,
+            "affine_threshold_left": "18446744073709551616",
+            "affine_threshold_right": "18446744073709551616",
+            "strict_descent": false
+          }
+        ],
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "least-counterexample valuation surplus estimates that dominate the explicit n-dependent affine correction",
+        "discard": "using 2^S_k>3^k alone as a certificate of strict integer descent",
+        "next_theorem": "UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-TD4a",
+            "label": "MinimalNegativeSlopePrefixesFormFullMeasurePrefixFreeCover",
+            "status": "closed"
+          },
+          {
+            "id": "CO-TD4b.1",
+            "label": "LeastCounterexampleAffineCorrectionInequality",
+            "status": "closed"
+          },
+          {
+            "id": "CO-TD4b.2",
+            "label": "UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-TD4a",
+            "CO-TD4b.1"
+          ],
+          [
+            "CO-TD4b.1",
+            "CO-TD4b.2"
+          ],
+          [
+            "CO-TD4b.2",
+            "CO"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "exact_identity_check_count": 17311,
+        "necessary_cap_check_count": 12312,
+        "slope_only_counterexample_verified": true,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The identity and least-counterexample necessity are universal, but PrimeProject has not proved that every possible least-counterexample valuation code eventually exceeds the affine correction. The finite orbit audit is a replay, not a proof of Collatz."
+    },
+    "goldbach": {
+      "theorem_name": "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier",
+      "title_ko": "고정 wheel 거친 층의 선형 크기와 로그 모멘트 장벽",
+      "declared_target": "Test whether the O(log log X) moment order obtained for the powers-of-two stratum in TICKET135 can control the full finite-wheel rough Goldbach hard stratum.",
+      "proved_statement": "Let W be odd and squarefree, and H_W(X)={2<=N<=X: N even, gcd(N,W)=1}. At X=2WM, |H_W(X)|=M*phi(W), so every fixed-wheel rough stratum has positive linear density. The sharp normalized Lp-to-sup factor is h^(1/p); keeping it at most 6/5 requires p>=log(h)/log(6/5)=Theta(log X). In particular p=O(log log X) cannot promote arbitrary residual control on H_W(X) to a pointwise bound. A one-point spike proves the obstruction.",
+      "proved_statement_ko": "홀수 squarefree wheel W를 고정하면 W의 작은 소인수를 피하는 짝수 hard stratum은 X=2WM에서 정확히 M*phi(W)개다. 즉 이 층은 powers of two처럼 희소하지 않고 X에 선형이다. 정규화 Lp 노름을 점별 노름으로 올릴 때 필요한 차수는 Theta(log X)이며, O(log log X)는 한 점 spike조차 검출하지 못한다.",
+      "proof": "Write N=2m. In each complete interval of W consecutive m-values, exactly phi(W) are coprime to W, proving the count. The finite-set norm inequality from TICKET135 is sharp on a one-point spike and has inflation h^(1/p). Solving h^(1/p)<=6/5 gives the logarithmic lower bound on p. Since h is proportional to X for fixed W, every p=o(log X), including O(log log X), leaves unbounded inflation.",
+      "exact_barrier_contract": {
+        "hard_stratum": "H_W(X)={N<=X: 2|N and gcd(N,W)=1}",
+        "complete_period_count": "|H_W(2WM)|=M*phi(W)",
+        "sharp_inflation": "h^(1/p)",
+        "minimum_moment": "p>=log(h)/log(6/5)",
+        "countermodel": "one residual spike of fixed amplitude on H_W(X)"
+      },
+      "finite_wheel_audit": {
+        "rows": [
+          {
+            "wheel": 15,
+            "phi_wheel": 8,
+            "complete_period_blocks": 1,
+            "horizon": 30,
+            "rough_even_stratum_size": 8,
+            "exact_density_among_evens": {
+              "exact": "8/15",
+              "numerator": "8",
+              "denominator": "15",
+              "decimal": 0.5333333333333333
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 12,
+            "power_only_loglog_moment": 12,
+            "power_only_moment_is_insufficient": false
+          },
+          {
+            "wheel": 15,
+            "phi_wheel": 8,
+            "complete_period_blocks": 8,
+            "horizon": 240,
+            "rough_even_stratum_size": 64,
+            "exact_density_among_evens": {
+              "exact": "8/15",
+              "numerator": "8",
+              "denominator": "15",
+              "decimal": 0.5333333333333333
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 23,
+            "power_only_loglog_moment": 12,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 15,
+            "phi_wheel": 8,
+            "complete_period_blocks": 64,
+            "horizon": 1920,
+            "rough_even_stratum_size": 512,
+            "exact_density_among_evens": {
+              "exact": "8/15",
+              "numerator": "8",
+              "denominator": "15",
+              "decimal": 0.5333333333333333
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 35,
+            "power_only_loglog_moment": 16,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 15,
+            "phi_wheel": 8,
+            "complete_period_blocks": 512,
+            "horizon": 15360,
+            "rough_even_stratum_size": 4096,
+            "exact_density_among_evens": {
+              "exact": "8/15",
+              "numerator": "8",
+              "denominator": "15",
+              "decimal": 0.5333333333333333
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 46,
+            "power_only_loglog_moment": 16,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 15,
+            "phi_wheel": 8,
+            "complete_period_blocks": 4096,
+            "horizon": 122880,
+            "rough_even_stratum_size": 32768,
+            "exact_density_among_evens": {
+              "exact": "8/15",
+              "numerator": "8",
+              "denominator": "15",
+              "decimal": 0.5333333333333333
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 58,
+            "power_only_loglog_moment": 20,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 105,
+            "phi_wheel": 48,
+            "complete_period_blocks": 1,
+            "horizon": 210,
+            "rough_even_stratum_size": 48,
+            "exact_density_among_evens": {
+              "exact": "16/35",
+              "numerator": "16",
+              "denominator": "35",
+              "decimal": 0.45714285714285713
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 22,
+            "power_only_loglog_moment": 12,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 105,
+            "phi_wheel": 48,
+            "complete_period_blocks": 8,
+            "horizon": 1680,
+            "rough_even_stratum_size": 384,
+            "exact_density_among_evens": {
+              "exact": "16/35",
+              "numerator": "16",
+              "denominator": "35",
+              "decimal": 0.45714285714285713
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 33,
+            "power_only_loglog_moment": 16,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 105,
+            "phi_wheel": 48,
+            "complete_period_blocks": 64,
+            "horizon": 13440,
+            "rough_even_stratum_size": 3072,
+            "exact_density_among_evens": {
+              "exact": "16/35",
+              "numerator": "16",
+              "denominator": "35",
+              "decimal": 0.45714285714285713
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 45,
+            "power_only_loglog_moment": 16,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 105,
+            "phi_wheel": 48,
+            "complete_period_blocks": 512,
+            "horizon": 107520,
+            "rough_even_stratum_size": 24576,
+            "exact_density_among_evens": {
+              "exact": "16/35",
+              "numerator": "16",
+              "denominator": "35",
+              "decimal": 0.45714285714285713
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 56,
+            "power_only_loglog_moment": 20,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 105,
+            "phi_wheel": 48,
+            "complete_period_blocks": 4096,
+            "horizon": 860160,
+            "rough_even_stratum_size": 196608,
+            "exact_density_among_evens": {
+              "exact": "16/35",
+              "numerator": "16",
+              "denominator": "35",
+              "decimal": 0.45714285714285713
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 67,
+            "power_only_loglog_moment": 20,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 1155,
+            "phi_wheel": 480,
+            "complete_period_blocks": 1,
+            "horizon": 2310,
+            "rough_even_stratum_size": 480,
+            "exact_density_among_evens": {
+              "exact": "32/77",
+              "numerator": "32",
+              "denominator": "77",
+              "decimal": 0.4155844155844156
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 34,
+            "power_only_loglog_moment": 16,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 1155,
+            "phi_wheel": 480,
+            "complete_period_blocks": 8,
+            "horizon": 18480,
+            "rough_even_stratum_size": 3840,
+            "exact_density_among_evens": {
+              "exact": "32/77",
+              "numerator": "32",
+              "denominator": "77",
+              "decimal": 0.4155844155844156
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 46,
+            "power_only_loglog_moment": 16,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 1155,
+            "phi_wheel": 480,
+            "complete_period_blocks": 64,
+            "horizon": 147840,
+            "rough_even_stratum_size": 30720,
+            "exact_density_among_evens": {
+              "exact": "32/77",
+              "numerator": "32",
+              "denominator": "77",
+              "decimal": 0.4155844155844156
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 57,
+            "power_only_loglog_moment": 20,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 1155,
+            "phi_wheel": 480,
+            "complete_period_blocks": 512,
+            "horizon": 1182720,
+            "rough_even_stratum_size": 245760,
+            "exact_density_among_evens": {
+              "exact": "32/77",
+              "numerator": "32",
+              "denominator": "77",
+              "decimal": 0.4155844155844156
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 69,
+            "power_only_loglog_moment": 20,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 1155,
+            "phi_wheel": 480,
+            "complete_period_blocks": 4096,
+            "horizon": 9461760,
+            "rough_even_stratum_size": 1966080,
+            "exact_density_among_evens": {
+              "exact": "32/77",
+              "numerator": "32",
+              "denominator": "77",
+              "decimal": 0.4155844155844156
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 80,
+            "power_only_loglog_moment": 20,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 15015,
+            "phi_wheel": 5760,
+            "complete_period_blocks": 1,
+            "horizon": 30030,
+            "rough_even_stratum_size": 5760,
+            "exact_density_among_evens": {
+              "exact": "384/1001",
+              "numerator": "384",
+              "denominator": "1001",
+              "decimal": 0.3836163836163836
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 48,
+            "power_only_loglog_moment": 16,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 15015,
+            "phi_wheel": 5760,
+            "complete_period_blocks": 8,
+            "horizon": 240240,
+            "rough_even_stratum_size": 46080,
+            "exact_density_among_evens": {
+              "exact": "384/1001",
+              "numerator": "384",
+              "denominator": "1001",
+              "decimal": 0.3836163836163836
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 59,
+            "power_only_loglog_moment": 20,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 15015,
+            "phi_wheel": 5760,
+            "complete_period_blocks": 64,
+            "horizon": 1921920,
+            "rough_even_stratum_size": 368640,
+            "exact_density_among_evens": {
+              "exact": "384/1001",
+              "numerator": "384",
+              "denominator": "1001",
+              "decimal": 0.3836163836163836
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 71,
+            "power_only_loglog_moment": 20,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 15015,
+            "phi_wheel": 5760,
+            "complete_period_blocks": 512,
+            "horizon": 15375360,
+            "rough_even_stratum_size": 2949120,
+            "exact_density_among_evens": {
+              "exact": "384/1001",
+              "numerator": "384",
+              "denominator": "1001",
+              "decimal": 0.3836163836163836
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 82,
+            "power_only_loglog_moment": 20,
+            "power_only_moment_is_insufficient": true
+          },
+          {
+            "wheel": 15015,
+            "phi_wheel": 5760,
+            "complete_period_blocks": 4096,
+            "horizon": 123002880,
+            "rough_even_stratum_size": 23592960,
+            "exact_density_among_evens": {
+              "exact": "384/1001",
+              "numerator": "384",
+              "denominator": "1001",
+              "decimal": 0.3836163836163836
+            },
+            "minimum_p_for_inflation_at_most_6_over_5": 94,
+            "power_only_loglog_moment": 20,
+            "power_only_moment_is_insufficient": true
+          }
+        ],
+        "direct_three_period_checks": 4,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "a growing-wheel stratification with a residual estimate uniform in both the analytic scale and the wheel level",
+        "discard": "extending the powers-of-two O(log log X) moment order to a fixed-wheel rough hard stratum",
+        "next_theorem": "BinaryGoldbachGrowingWheelResidualBoundK56"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-TD4a",
+            "label": "SparseHardStratumMomentToMaximumBridge",
+            "status": "closed"
+          },
+          {
+            "id": "GB-TD4b.1",
+            "label": "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier",
+            "status": "closed"
+          },
+          {
+            "id": "GB-TD4b.2",
+            "label": "BinaryGoldbachGrowingWheelResidualBoundK56",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-TD4a",
+            "GB-TD4b.1"
+          ],
+          [
+            "GB-TD4b.1",
+            "GB-TD4b.2"
+          ],
+          [
+            "GB-TD4b.2",
+            "GB"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "wheel_count": 4,
+        "scale_count": 20,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The counting theorem and norm barrier are exact, but the spike is an inference countermodel, not the actual Goldbach residual. No K=56 minor-arc estimate or representation lower bound is proved."
+    },
+    "twin_prime": {
+      "theorem_name": "FiniteRationalFourierAlgebraCompositeLift",
+      "title_ko": "유한 유리 Fourier 대수의 합성수 쌍 lift 정리",
+      "declared_target": "Test whether a finite family of rational Fourier phases is a genuine non-congruence Type II separator capable of escaping TICKET135.",
+      "proved_statement": "For finitely many rational additive characters exp(2*pi*i*a_j*n/q_j), the joint values at n and n+2 factor through n mod L, L=lcm(q_j). Every locally admissible phase transcript has a proper composite-pair realizer below 2Lrs by CRT. Thus any finite algebra generated by rational Fourier phases is still finite congruence information and cannot by itself certify twin primality.",
+      "proved_statement_ko": "유한 개의 유리 주파수 exp(2*pi*i*a_j*n/q_j)를 사용해도 n과 n+2의 모든 위상값은 L=lcm(q_j)에 대한 n의 나머지로 결정된다. 따라서 TICKET135의 CRT lift가 그대로 적용되어 같은 Fourier 특성을 갖는 합성수 쌍이 존재한다. 유리 Fourier 특성이라는 표현만으로는 진정한 비합동 Type II 정보가 되지 않는다.",
+      "proof": "Each character depends only on n modulo its denominator, so their joint algebra factors through n modulo L. For an admissible class, choose primes r,s not dividing L and solve n=a mod L, n=0 mod r, n=-2 mod s. The proper-factor and range argument is the quantitative CRT lift from TICKET135. Equality of every phase follows exactly from equality modulo each q_j.",
+      "exact_feature_contract": {
+        "features": "exp(2*pi*i*a_j*n/q_j) and exp(2*pi*i*a_j*(n+2)/q_j)",
+        "factor_modulus": "L=lcm(q_j)",
+        "composite_lift": "n=a mod L, n=0 mod r, n=-2 mod s",
+        "range_bound": "n<2Lrs"
+      },
+      "finite_fourier_audit": {
+        "rows": [
+          {
+            "rational_characters": [
+              {
+                "numerator": 1,
+                "denominator": 3
+              },
+              {
+                "numerator": 2,
+                "denominator": 5
+              },
+              {
+                "numerator": 1,
+                "denominator": 8
+              }
+            ],
+            "factored_transcript_modulus": 120,
+            "forced_composite_factors": [
+              11,
+              13
+            ],
+            "audited_admissible_residue_count": 12,
+            "examples": [
+              {
+                "admissible_residue": 11,
+                "phase_exponents": [
+                  [
+                    2,
+                    1
+                  ],
+                  [
+                    2,
+                    1
+                  ],
+                  [
+                    3,
+                    5
+                  ]
+                ],
+                "composite_pair_start": "17171",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              },
+              {
+                "admissible_residue": 17,
+                "phase_exponents": [
+                  [
+                    2,
+                    1
+                  ],
+                  [
+                    4,
+                    3
+                  ],
+                  [
+                    1,
+                    3
+                  ]
+                ],
+                "composite_pair_start": "6017",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              },
+              {
+                "admissible_residue": 29,
+                "phase_exponents": [
+                  [
+                    2,
+                    1
+                  ],
+                  [
+                    3,
+                    2
+                  ],
+                  [
+                    5,
+                    7
+                  ]
+                ],
+                "composite_pair_start": "869",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              }
+            ],
+            "row_failure_count": 0
+          },
+          {
+            "rational_characters": [
+              {
+                "numerator": 1,
+                "denominator": 4
+              },
+              {
+                "numerator": 3,
+                "denominator": 9
+              },
+              {
+                "numerator": 2,
+                "denominator": 25
+              }
+            ],
+            "factored_transcript_modulus": 900,
+            "forced_composite_factors": [
+              29,
+              31
+            ],
+            "audited_admissible_residue_count": 24,
+            "examples": [
+              {
+                "admissible_residue": 11,
+                "phase_exponents": [
+                  [
+                    3,
+                    1
+                  ],
+                  [
+                    6,
+                    3
+                  ],
+                  [
+                    22,
+                    1
+                  ]
+                ],
+                "composite_pair_start": "16211",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              },
+              {
+                "admissible_residue": 17,
+                "phase_exponents": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    6,
+                    3
+                  ],
+                  [
+                    9,
+                    13
+                  ]
+                ],
+                "composite_pair_start": "10817",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              },
+              {
+                "admissible_residue": 29,
+                "phase_exponents": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    6,
+                    3
+                  ],
+                  [
+                    8,
+                    12
+                  ]
+                ],
+                "composite_pair_start": "809129",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              }
+            ],
+            "row_failure_count": 0
+          },
+          {
+            "rational_characters": [
+              {
+                "numerator": 5,
+                "denominator": 7
+              },
+              {
+                "numerator": 7,
+                "denominator": 11
+              },
+              {
+                "numerator": 11,
+                "denominator": 13
+              }
+            ],
+            "factored_transcript_modulus": 1001,
+            "forced_composite_factors": [
+              17,
+              19
+            ],
+            "audited_admissible_residue_count": 24,
+            "examples": [
+              {
+                "admissible_residue": 1,
+                "phase_exponents": [
+                  [
+                    5,
+                    1
+                  ],
+                  [
+                    7,
+                    10
+                  ],
+                  [
+                    11,
+                    7
+                  ]
+                ],
+                "composite_pair_start": "162163",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              },
+              {
+                "admissible_residue": 2,
+                "phase_exponents": [
+                  [
+                    3,
+                    6
+                  ],
+                  [
+                    3,
+                    6
+                  ],
+                  [
+                    9,
+                    5
+                  ]
+                ],
+                "composite_pair_start": "273275",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              },
+              {
+                "admissible_residue": 3,
+                "phase_exponents": [
+                  [
+                    1,
+                    4
+                  ],
+                  [
+                    10,
+                    2
+                  ],
+                  [
+                    7,
+                    3
+                  ]
+                ],
+                "composite_pair_start": "61064",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              }
+            ],
+            "row_failure_count": 0
+          },
+          {
+            "rational_characters": [
+              {
+                "numerator": 1,
+                "denominator": 16
+              },
+              {
+                "numerator": 5,
+                "denominator": 27
+              },
+              {
+                "numerator": 7,
+                "denominator": 49
+              }
+            ],
+            "factored_transcript_modulus": 21168,
+            "forced_composite_factors": [
+              53,
+              59
+            ],
+            "audited_admissible_residue_count": 24,
+            "examples": [
+              {
+                "admissible_residue": 11,
+                "phase_exponents": [
+                  [
+                    11,
+                    13
+                  ],
+                  [
+                    1,
+                    11
+                  ],
+                  [
+                    28,
+                    42
+                  ]
+                ],
+                "composite_pair_start": "11261387",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              },
+              {
+                "admissible_residue": 17,
+                "phase_exponents": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    4,
+                    14
+                  ],
+                  [
+                    21,
+                    35
+                  ]
+                ],
+                "composite_pair_start": "27603089",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              },
+              {
+                "admissible_residue": 23,
+                "phase_exponents": [
+                  [
+                    7,
+                    9
+                  ],
+                  [
+                    7,
+                    17
+                  ],
+                  [
+                    14,
+                    28
+                  ]
+                ],
+                "composite_pair_start": "43944791",
+                "checks": {
+                  "same_rational_fourier_phases": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true,
+                  "below_twice_period": true
+                }
+              }
+            ],
+            "row_failure_count": 0
+          }
+        ],
+        "total_witnesses": 84,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "aperiodic or scale-growing bilinear information with a uniform factor-sensitive separation margin",
+        "discard": "finite rational Fourier feature algebras as non-congruence certificates of twin primality",
+        "next_theorem": "AperiodicScaleGrowingTypeIITwinSeparation"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-TD3a",
+            "label": "FiniteCongruenceTranscriptCompositeLift",
+            "status": "closed"
+          },
+          {
+            "id": "TP-TD3b.1",
+            "label": "FiniteRationalFourierAlgebraCompositeLift",
+            "status": "closed"
+          },
+          {
+            "id": "TP-TD3b.2",
+            "label": "AperiodicScaleGrowingTypeIITwinSeparation",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-TD3a",
+            "TP-TD3b.1"
+          ],
+          [
+            "TP-TD3b.1",
+            "TP-TD3b.2"
+          ],
+          [
+            "TP-TD3b.2",
+            "TP"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "feature_family_count": 4,
+        "audited_witness_count": 84,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The factorization theorem covers only finitely many rational frequencies. Irrational, aperiodic, or scale-growing Type II data are not excluded. No positive exact-gap-two lower bound is obtained."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET136 proves four exact intermediate theorems and four route corrections. It does not prove or refute any of the four conjectures. No conjecture proof and no conjecture counterexample is claimed. Every finite audit is subordinate to a displayed universal argument, and all conjecture resolution counters remain zero."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-136",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "candidate_theorem": "ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin",
+      "next_experiment": "Fix one published projected Weil normalization and derive outward-rounded absolute row/column sums plus a positive tail gap.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The Schur-test bridge and counterfamily are exact. No absolute row/column estimates are proved here for a fixed published projected Weil operator, and no tail spectral gap is supplied. RH remains open."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-136",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "LeastCounterexampleAffineCorrectionInequality",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "candidate_theorem": "UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes",
+      "next_experiment": "Prove that every hypothetical least-counterexample code has one prefix whose valuation surplus exceeds k*log2(1+1/(3n)).",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The identity and least-counterexample necessity are universal, but PrimeProject has not proved that every possible least-counterexample valuation code eventually exceeds the affine correction. The finite orbit audit is a replay, not a proof of Collatz."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-136",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "candidate_theorem": "BinaryGoldbachGrowingWheelResidualBoundK56",
+      "next_experiment": "Choose a growing wheel W(X) and prove a K=56 residual budget uniformly over its rough residue classes and the complementary strata.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The counting theorem and norm barrier are exact, but the spike is an inference countermodel, not the actual Goldbach residual. No K=56 minor-arc estimate or representation lower bound is proved."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-136",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "FiniteRationalFourierAlgebraCompositeLift",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "candidate_theorem": "AperiodicScaleGrowingTypeIITwinSeparation",
+      "next_experiment": "Construct a scale-growing bilinear statistic that does not factor through any fixed rational period and prove a uniform signed separation from CRT composite lifts.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The factorization theorem covers only finitely many rational frequencies. Irrational, aperiodic, or scale-growing Type II data are not excluded. No positive exact-gap-two lower bound is obtained."
+    }
+  ]
+}

@@ -16,10 +16,11 @@ sufficient, and records the exact obligations that remain afterward.
 Machine-readable record:
 `data/open-problem/ticket131-proof-viability-target-correction.json`.
 
-> **Superseded boundary / 최신 경계:** TICKET-135 preserves the TICKET-131-134
-> repairs and adds exact bridge/no-go theorems while keeping their missing
-> problem-specific inputs open. The TICKET-131 theorems below remain valid. See
-> [TICKET-135](conditional-bridges-and-exceptional-set.md).
+> **Superseded boundary / 최신 경계:** TICKET-136 preserves the TICKET-131-135
+> repairs and narrows the remaining problem-specific inputs with exact
+> scale-sensitive and affine-correction theorems. The TICKET-131 results below
+> remain valid. See
+> [TICKET-136](scale-sensitive-obstructions-and-affine-bridge.md).
 
 ## 1. 결론 요약 / Executive conclusion
 

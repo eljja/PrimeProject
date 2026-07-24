@@ -19,7 +19,8 @@ def theoremDecomposition : List String := [
   "CO-TD2 ContractingValuationCylinderLeastCounterexampleExclusion closed",
   "CO-TD3 NoBoundedDepthContractingPrefixCover closed",
   "CO-TD4a MinimalNegativeSlopePrefixesFormFullMeasurePrefixFreeCover closed",
-  "CO-TD4b NaturalCodesCrossAffineDescentThreshold highest_risk_open",
+  "CO-TD4b.1 LeastCounterexampleAffineCorrectionInequality closed",
+  "CO-TD4b.2 UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes highest_risk_open",
   "CO-TD5 CycleAndDivergenceExclusionBridge"
 ]
 
@@ -33,18 +34,18 @@ def rankedCegisTarget : String :=
   "CO-TICKET-128 separates unresolved lift cylinders from integer candidates and directly closes all 4027109 nontrivial 28-bit frontier representatives"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-135 NaturalCodesCrossAffineDescentThreshold."
+  "CO-TICKET-136 UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes."
 
 def topAttackProofAttemptProtocol : String :=
   "Use an ordinal or rank argument allowing unbounded adaptive depth; every finite maximum depth is defeated by the exact all-one expanding cylinder n=-1 mod 2^(K+1)."
 
 def latestExactResult : String :=
-  "MinimalNegativeSlopePrefixesFormFullMeasurePrefixFreeCover: almost every odd 2-adic valuation code eventually has 2^S>3^k, but natural codes are a dense null set and slope contraction is not affine descent"
+  "LeastCounterexampleAffineCorrectionInequality: non-descent through k forces 2^S*n^k<=(3*n+1)^k, so strict reversal is an exact descent certificate and slope contraction alone is insufficient"
 
 def retiredRoute : String :=
   "treating the boundary ray -3^{-1} in Z_2 as a natural-integer obstruction"
 
 def retainedOpenPremise : String :=
-  "every actual natural valuation code crosses both the negative-slope condition and its exact positive affine descent threshold"
+  "every hypothetical least-counterexample valuation code eventually has surplus beyond k*log2(1+1/(3*n))"
 
 end PrimeProject.OpenProblems.Collatz

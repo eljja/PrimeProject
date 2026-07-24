@@ -132,6 +132,7 @@ TICKET132_SCHEMA = "primeproject.ticket132-admissibility-nullset-hard-stratum-lo
 TICKET133_SCHEMA = "primeproject.ticket133-quantifier-promotion-exact-reductions.v1"
 TICKET134_SCHEMA = "primeproject.ticket134-uniformity-thresholds-and-scale-no-go.v1"
 TICKET135_SCHEMA = "primeproject.ticket135-conditional-bridges-and-exceptional-set.v1"
+TICKET136_SCHEMA = "primeproject.ticket136-scale-sensitive-obstructions-and-affine-bridge.v1"
 
 
 def fail(message: str) -> int:
@@ -7819,6 +7820,48 @@ def main() -> int:
         return fail("ticket135 Twin transcript lift changed")
     if "none proves or refutes" not in str(audit135.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket135.get("claim_boundary", "")).lower():
         return fail("ticket135 proof boundary changed")
+
+    path136 = Path("data/open-problem/ticket136-scale-sensitive-obstructions-and-affine-bridge.json")
+    if not path136.exists():
+        return fail("missing ticket136 scale-sensitive obstruction audit")
+    ticket136 = read_json(path136)
+    if ticket136.get("schema") != TICKET136_SCHEMA or ticket136.get("status") != "exact_intermediate_theorems_proved_all_conjectures_open":
+        return fail("ticket136 schema or status changed")
+    attempts136 = ticket136.get("attempts", [])
+    by_id136 = {str(row.get("problem_id")): row for row in attempts136 if isinstance(row, dict)} if isinstance(attempts136, list) else {}
+    if set(by_id136) != EXPECTED_PROBLEMS:
+        return fail("ticket136 attempts missing problems")
+    paths136 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-136-schur-test-tail-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-136-affine-correction-inequality.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-136-fixed-wheel-moment-barrier.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-136-rational-fourier-lift.json"),
+    }
+    for problem_id, attempt in by_id136.items():
+        if not paths136[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket136 artifact or proof boundary missing")
+    audit136 = ticket136.get("scale_sensitive_obstruction_and_affine_bridge_audit", {})
+    machine136 = audit136.get("machine_audit", {})
+    if audit136.get("theorem_name") != "FourConjectureScaleSensitiveObstructionAndAffineBridgeAudit" or int(machine136.get("exact_theorem_count", -1)) != 4 or int(machine136.get("route_correction_count", -1)) != 4 or int(machine136.get("proof_dag_count", -1)) != 4 or int(machine136.get("conjecture_resolution_count", -1)) != 0 or int(machine136.get("total_failure_count", -1)) != 0:
+        return fail("ticket136 global machine audit changed")
+    riemann136 = audit136.get("riemann", {})
+    entrywise136 = riemann136.get("rational_audit", {}).get("entrywise_decay_counterfamily", [])
+    if riemann136.get("theorem_name") != "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo" or not entrywise136 or any(row.get("operator_norm_witness_ratio", {}).get("exact") != "1" for row in entrywise136):
+        return fail("ticket136 RH Schur-test no-go changed")
+    collatz136 = audit136.get("collatz", {})
+    affine136 = collatz136.get("finite_orbit_audit", {})
+    if collatz136.get("theorem_name") != "LeastCounterexampleAffineCorrectionInequality" or int(affine136.get("exact_identity_check_count", 0)) <= 0 or int(affine136.get("failure_count", -1)) != 0:
+        return fail("ticket136 Collatz affine correction changed")
+    goldbach136 = audit136.get("goldbach", {})
+    wheel136 = goldbach136.get("finite_wheel_audit", {})
+    if goldbach136.get("theorem_name") != "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier" or int(wheel136.get("direct_three_period_checks", -1)) != 4 or int(wheel136.get("failure_count", -1)) != 0:
+        return fail("ticket136 Goldbach fixed-wheel barrier changed")
+    twin136 = audit136.get("twin_prime", {})
+    fourier136 = twin136.get("finite_fourier_audit", {})
+    if twin136.get("theorem_name") != "FiniteRationalFourierAlgebraCompositeLift" or int(fourier136.get("total_witnesses", 0)) <= 0 or int(fourier136.get("failure_count", -1)) != 0:
+        return fail("ticket136 Twin rational-Fourier lift changed")
+    if "does not prove or refute" not in str(audit136.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket136.get("claim_boundary", "")).lower():
+        return fail("ticket136 proof boundary changed")
 
     print("open problem structure verified")
     return 0

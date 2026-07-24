@@ -8,11 +8,10 @@ Scope: Riemann Hypothesis, Collatz conjecture, binary Goldbach conjecture, Twin 
 
 > **Current continuation / 최신 연속 연구:** this dated consolidation remains a
 > historical keep/discard baseline. The current boundary is
-> [TICKET-135](conditional-bridges-and-exceptional-set.md), which proves a sharp
-> RH block-tail positivity contract, separates Collatz full-measure slope
-> contraction from pointwise natural descent, gives a sharp sparse-stratum
-> Goldbach moment-to-maximum bridge, and excludes every finite exact congruence
-> transcript as a complete Twin Prime separator. All four problems remain
+> [TICKET-136](scale-sensitive-obstructions-and-affine-bridge.md), which adds an
+> RH Schur-test and entrywise-decay no-go, an exact Collatz affine-correction
+> inequality, a fixed-wheel Goldbach moment barrier, and a finite rational
+> Fourier periodicity no-go for Twin Prime. All four problems remain
 > `open_not_proven`.
 
 ## 한국어 정리

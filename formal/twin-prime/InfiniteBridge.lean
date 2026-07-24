@@ -18,7 +18,8 @@ def theoremDecomposition : List String := [
   "TP-TD1 EveryAdmissibleFiniteResidueClassHasInfiniteCompositePairLifts closed",
   "TP-TD2 ScaleDependentPrimorialCompositeLiftBound closed",
   "TP-TD3a FiniteCongruenceTranscriptCompositeLift closed",
-  "TP-TD3b NonCongruenceTypeIITwinSeparation highest_risk_open",
+  "TP-TD3b.1 FiniteRationalFourierAlgebraCompositeLift closed",
+  "TP-TD3b.2 AperiodicScaleGrowingTypeIITwinSeparation highest_risk_open",
   "TP-TD4 PositiveExactGapLowerBound",
   "TP-TD5 ExactGapInfinitudeBridge"
 ]
@@ -33,18 +34,18 @@ def rankedCegisTarget : String :=
   "TP-TICKET-128 gives an exact endpoint-only countermodel and proves that a within-dyadic-block envelope yields limsup Q<=0.92*c+delta"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-135 NonCongruenceTypeIITwinSeparation."
+  "TP-TICKET-136 AperiodicScaleGrowingTypeIITwinSeparation."
 
 def topAttackProofAttemptProtocol : String :=
   "Use near-full-scale Type II information that does not factor through W(z) for z<=(1-epsilon)log X, distinguish the n<2Wqr composite lifts, and transfer a signed lower bound to exact gap two."
 
 def latestFiniteResult : String :=
-  "FiniteCongruenceTranscriptCompositeLift: every admissible transcript over arbitrary finite overlapping moduli has a proper composite-pair witness below 2*lcm(m_i)*q*r"
+  "FiniteRationalFourierAlgebraCompositeLift: finitely many rational additive characters factor through their denominator lcm and inherit a proper composite-pair CRT witness"
 
 def finiteEvidenceBoundary : String :=
   "the quantitative CRT theorem excludes residue-only z(X)<=(1-epsilon)log X classifiers but says nothing against near-full-scale analytic information and is not a Twin Prime counterexample"
 
 def retainedOpenPremise : String :=
-  "a non-congruence factor-sensitive Type II separator, its signed transport, and positive exact-gap-two mass"
+  "an aperiodic scale-growing factor-sensitive Type II separator, its signed transport, and positive exact-gap-two mass"
 
 end PrimeProject.OpenProblems.TwinPrime

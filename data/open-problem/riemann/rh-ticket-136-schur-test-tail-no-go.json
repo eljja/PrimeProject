@@ -1,0 +1,376 @@
+{
+  "schema": "primeproject.ticket136-scale-sensitive-obstructions-and-affine-bridge.v1",
+  "generated_at": "2026-07-25T12:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-136",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo",
+  "bounded_result": {
+    "audit_ref": "riemann"
+  },
+  "candidate_theorem": "ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin",
+  "next_experiment": "Fix one published projected Weil normalization and derive outward-rounded absolute row/column sums plus a positive tail gap.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The Schur-test bridge and counterfamily are exact. No absolute row/column estimates are proved here for a fixed published projected Weil operator, and no tail spectral gap is supplied. RH remains open.",
+  "result": {
+    "theorem_name": "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo",
+    "title_ko": "Schur 검사를 이용한 Weil 블록 연결과 원소별 감소의 한계 정리",
+    "declared_target": "Refine the TICKET135 block certificate into computable absolute row/column tail bounds, and determine whether entrywise decay alone can supply the missing operator-norm premise.",
+    "proved_statement": "Let M=[[A,B],[B*,C]] be self-adjoint, with A>=alpha I and C>=gamma I. If every absolute row sum of B is at most R and every absolute column sum is at most S, then ||B||_2^2<=R*S. Hence R*S<=alpha*gamma implies M>=0. Entrywise decay alone is insufficient: B_n=J_n/n has max_ij |B_ij|=1/n -> 0 but ||B_n||_2=1 for every n.",
+    "proved_statement_ko": "자기수반 블록 M의 코어와 꼬리 하한이 각각 alpha, gamma이고 교차 블록 B의 절댓값 행합과 열합이 R, S 이하이면 ||B||_2^2<=R*S이다. 따라서 R*S<=alpha*gamma이면 전체 블록은 양의 준정부호다. 그러나 B_n=J_n/n은 각 원소가 0으로 가면서도 연산자 노름이 항상 1이므로 원소별 감소만으로는 충분하지 않다.",
+    "proof": "The Schur test gives ||B||_2<=sqrt(||B||_infinity*||B||_1)<=sqrt(R*S). Substitution into the sharp TICKET135 block inequality proves positivity. For B_n=J_n/n, every row and column sum is one, and the all-ones vector is an eigenvector with eigenvalue one. Thus the operator norm remains one although the largest entry tends to zero.",
+    "exact_certificate_contract": {
+      "finite_core_lower_bound": "A>=alpha I",
+      "tail_lower_bound": "C>=gamma I",
+      "cross_row_bound": "sup_i sum_j |B_ij|<=R",
+      "cross_column_bound": "sup_j sum_i |B_ij|<=S",
+      "operator_bound": "||B||_2^2<=R*S",
+      "acceptance_inequality": "R*S<=alpha*gamma"
+    },
+    "rational_audit": {
+      "accepted_contracts": [
+        {
+          "alpha": {
+            "exact": "2",
+            "numerator": "2",
+            "denominator": "1",
+            "decimal": 2.0
+          },
+          "gamma": {
+            "exact": "3",
+            "numerator": "3",
+            "denominator": "1",
+            "decimal": 3.0
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "2",
+            "numerator": "2",
+            "denominator": "1",
+            "decimal": 2.0
+          },
+          "certified_schur_margin": {
+            "exact": "4",
+            "numerator": "4",
+            "denominator": "1",
+            "decimal": 4.0
+          },
+          "certificate_accepts": true
+        },
+        {
+          "alpha": {
+            "exact": "5/2",
+            "numerator": "5",
+            "denominator": "2",
+            "decimal": 2.5
+          },
+          "gamma": {
+            "exact": "4",
+            "numerator": "4",
+            "denominator": "1",
+            "decimal": 4.0
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "3/2",
+            "numerator": "3",
+            "denominator": "2",
+            "decimal": 1.5
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "2",
+            "numerator": "2",
+            "denominator": "1",
+            "decimal": 2.0
+          },
+          "certified_schur_margin": {
+            "exact": "7",
+            "numerator": "7",
+            "denominator": "1",
+            "decimal": 7.0
+          },
+          "certificate_accepts": true
+        },
+        {
+          "alpha": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "gamma": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "certified_schur_margin": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "certificate_accepts": true
+        }
+      ],
+      "entrywise_decay_counterfamily": [
+        {
+          "dimension": 2,
+          "maximum_entry": {
+            "exact": "1/2",
+            "numerator": "1",
+            "denominator": "2",
+            "decimal": 0.5
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "operator_norm_witness_ratio": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          }
+        },
+        {
+          "dimension": 4,
+          "maximum_entry": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "operator_norm_witness_ratio": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          }
+        },
+        {
+          "dimension": 8,
+          "maximum_entry": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "operator_norm_witness_ratio": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          }
+        },
+        {
+          "dimension": 16,
+          "maximum_entry": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "operator_norm_witness_ratio": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          }
+        },
+        {
+          "dimension": 32,
+          "maximum_entry": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "operator_norm_witness_ratio": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          }
+        },
+        {
+          "dimension": 64,
+          "maximum_entry": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "operator_norm_witness_ratio": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          }
+        },
+        {
+          "dimension": 128,
+          "maximum_entry": {
+            "exact": "1/128",
+            "numerator": "1",
+            "denominator": "128",
+            "decimal": 0.0078125
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "operator_norm_witness_ratio": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "absolute row/column summability bounds for the projected Weil core-tail coupling, combined with certified core and tail gaps",
+      "discard": "deducing a vanishing projected Weil cross-operator norm solely from entrywise matrix-element decay",
+      "next_theorem": "ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-TD4a",
+          "label": "SharpBlockTailPositivityCertificate",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.1",
+          "label": "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2",
+          "label": "ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "RH",
+          "label": "Riemann Hypothesis",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-TD4a",
+          "RH-TD4b.1"
+        ],
+        [
+          "RH-TD4b.1",
+          "RH-TD4b.2"
+        ],
+        [
+          "RH-TD4b.2",
+          "RH"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "accepted_contract_count": 3,
+      "entrywise_counterfamily_size": 7,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The Schur-test bridge and counterfamily are exact. No absolute row/column estimates are proved here for a fixed published projected Weil operator, and no tail spectral gap is supplied. RH remains open."
+  }
+}

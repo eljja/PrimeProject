@@ -1,0 +1,406 @@
+{
+  "schema": "primeproject.ticket136-scale-sensitive-obstructions-and-affine-bridge.v1",
+  "generated_at": "2026-07-25T12:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-136",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier",
+  "bounded_result": {
+    "audit_ref": "goldbach"
+  },
+  "candidate_theorem": "BinaryGoldbachGrowingWheelResidualBoundK56",
+  "next_experiment": "Choose a growing wheel W(X) and prove a K=56 residual budget uniformly over its rough residue classes and the complementary strata.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The counting theorem and norm barrier are exact, but the spike is an inference countermodel, not the actual Goldbach residual. No K=56 minor-arc estimate or representation lower bound is proved.",
+  "result": {
+    "theorem_name": "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier",
+    "title_ko": "고정 wheel 거친 층의 선형 크기와 로그 모멘트 장벽",
+    "declared_target": "Test whether the O(log log X) moment order obtained for the powers-of-two stratum in TICKET135 can control the full finite-wheel rough Goldbach hard stratum.",
+    "proved_statement": "Let W be odd and squarefree, and H_W(X)={2<=N<=X: N even, gcd(N,W)=1}. At X=2WM, |H_W(X)|=M*phi(W), so every fixed-wheel rough stratum has positive linear density. The sharp normalized Lp-to-sup factor is h^(1/p); keeping it at most 6/5 requires p>=log(h)/log(6/5)=Theta(log X). In particular p=O(log log X) cannot promote arbitrary residual control on H_W(X) to a pointwise bound. A one-point spike proves the obstruction.",
+    "proved_statement_ko": "홀수 squarefree wheel W를 고정하면 W의 작은 소인수를 피하는 짝수 hard stratum은 X=2WM에서 정확히 M*phi(W)개다. 즉 이 층은 powers of two처럼 희소하지 않고 X에 선형이다. 정규화 Lp 노름을 점별 노름으로 올릴 때 필요한 차수는 Theta(log X)이며, O(log log X)는 한 점 spike조차 검출하지 못한다.",
+    "proof": "Write N=2m. In each complete interval of W consecutive m-values, exactly phi(W) are coprime to W, proving the count. The finite-set norm inequality from TICKET135 is sharp on a one-point spike and has inflation h^(1/p). Solving h^(1/p)<=6/5 gives the logarithmic lower bound on p. Since h is proportional to X for fixed W, every p=o(log X), including O(log log X), leaves unbounded inflation.",
+    "exact_barrier_contract": {
+      "hard_stratum": "H_W(X)={N<=X: 2|N and gcd(N,W)=1}",
+      "complete_period_count": "|H_W(2WM)|=M*phi(W)",
+      "sharp_inflation": "h^(1/p)",
+      "minimum_moment": "p>=log(h)/log(6/5)",
+      "countermodel": "one residual spike of fixed amplitude on H_W(X)"
+    },
+    "finite_wheel_audit": {
+      "rows": [
+        {
+          "wheel": 15,
+          "phi_wheel": 8,
+          "complete_period_blocks": 1,
+          "horizon": 30,
+          "rough_even_stratum_size": 8,
+          "exact_density_among_evens": {
+            "exact": "8/15",
+            "numerator": "8",
+            "denominator": "15",
+            "decimal": 0.5333333333333333
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 12,
+          "power_only_loglog_moment": 12,
+          "power_only_moment_is_insufficient": false
+        },
+        {
+          "wheel": 15,
+          "phi_wheel": 8,
+          "complete_period_blocks": 8,
+          "horizon": 240,
+          "rough_even_stratum_size": 64,
+          "exact_density_among_evens": {
+            "exact": "8/15",
+            "numerator": "8",
+            "denominator": "15",
+            "decimal": 0.5333333333333333
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 23,
+          "power_only_loglog_moment": 12,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 15,
+          "phi_wheel": 8,
+          "complete_period_blocks": 64,
+          "horizon": 1920,
+          "rough_even_stratum_size": 512,
+          "exact_density_among_evens": {
+            "exact": "8/15",
+            "numerator": "8",
+            "denominator": "15",
+            "decimal": 0.5333333333333333
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 35,
+          "power_only_loglog_moment": 16,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 15,
+          "phi_wheel": 8,
+          "complete_period_blocks": 512,
+          "horizon": 15360,
+          "rough_even_stratum_size": 4096,
+          "exact_density_among_evens": {
+            "exact": "8/15",
+            "numerator": "8",
+            "denominator": "15",
+            "decimal": 0.5333333333333333
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 46,
+          "power_only_loglog_moment": 16,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 15,
+          "phi_wheel": 8,
+          "complete_period_blocks": 4096,
+          "horizon": 122880,
+          "rough_even_stratum_size": 32768,
+          "exact_density_among_evens": {
+            "exact": "8/15",
+            "numerator": "8",
+            "denominator": "15",
+            "decimal": 0.5333333333333333
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 58,
+          "power_only_loglog_moment": 20,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 105,
+          "phi_wheel": 48,
+          "complete_period_blocks": 1,
+          "horizon": 210,
+          "rough_even_stratum_size": 48,
+          "exact_density_among_evens": {
+            "exact": "16/35",
+            "numerator": "16",
+            "denominator": "35",
+            "decimal": 0.45714285714285713
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 22,
+          "power_only_loglog_moment": 12,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 105,
+          "phi_wheel": 48,
+          "complete_period_blocks": 8,
+          "horizon": 1680,
+          "rough_even_stratum_size": 384,
+          "exact_density_among_evens": {
+            "exact": "16/35",
+            "numerator": "16",
+            "denominator": "35",
+            "decimal": 0.45714285714285713
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 33,
+          "power_only_loglog_moment": 16,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 105,
+          "phi_wheel": 48,
+          "complete_period_blocks": 64,
+          "horizon": 13440,
+          "rough_even_stratum_size": 3072,
+          "exact_density_among_evens": {
+            "exact": "16/35",
+            "numerator": "16",
+            "denominator": "35",
+            "decimal": 0.45714285714285713
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 45,
+          "power_only_loglog_moment": 16,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 105,
+          "phi_wheel": 48,
+          "complete_period_blocks": 512,
+          "horizon": 107520,
+          "rough_even_stratum_size": 24576,
+          "exact_density_among_evens": {
+            "exact": "16/35",
+            "numerator": "16",
+            "denominator": "35",
+            "decimal": 0.45714285714285713
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 56,
+          "power_only_loglog_moment": 20,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 105,
+          "phi_wheel": 48,
+          "complete_period_blocks": 4096,
+          "horizon": 860160,
+          "rough_even_stratum_size": 196608,
+          "exact_density_among_evens": {
+            "exact": "16/35",
+            "numerator": "16",
+            "denominator": "35",
+            "decimal": 0.45714285714285713
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 67,
+          "power_only_loglog_moment": 20,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 1155,
+          "phi_wheel": 480,
+          "complete_period_blocks": 1,
+          "horizon": 2310,
+          "rough_even_stratum_size": 480,
+          "exact_density_among_evens": {
+            "exact": "32/77",
+            "numerator": "32",
+            "denominator": "77",
+            "decimal": 0.4155844155844156
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 34,
+          "power_only_loglog_moment": 16,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 1155,
+          "phi_wheel": 480,
+          "complete_period_blocks": 8,
+          "horizon": 18480,
+          "rough_even_stratum_size": 3840,
+          "exact_density_among_evens": {
+            "exact": "32/77",
+            "numerator": "32",
+            "denominator": "77",
+            "decimal": 0.4155844155844156
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 46,
+          "power_only_loglog_moment": 16,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 1155,
+          "phi_wheel": 480,
+          "complete_period_blocks": 64,
+          "horizon": 147840,
+          "rough_even_stratum_size": 30720,
+          "exact_density_among_evens": {
+            "exact": "32/77",
+            "numerator": "32",
+            "denominator": "77",
+            "decimal": 0.4155844155844156
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 57,
+          "power_only_loglog_moment": 20,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 1155,
+          "phi_wheel": 480,
+          "complete_period_blocks": 512,
+          "horizon": 1182720,
+          "rough_even_stratum_size": 245760,
+          "exact_density_among_evens": {
+            "exact": "32/77",
+            "numerator": "32",
+            "denominator": "77",
+            "decimal": 0.4155844155844156
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 69,
+          "power_only_loglog_moment": 20,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 1155,
+          "phi_wheel": 480,
+          "complete_period_blocks": 4096,
+          "horizon": 9461760,
+          "rough_even_stratum_size": 1966080,
+          "exact_density_among_evens": {
+            "exact": "32/77",
+            "numerator": "32",
+            "denominator": "77",
+            "decimal": 0.4155844155844156
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 80,
+          "power_only_loglog_moment": 20,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 15015,
+          "phi_wheel": 5760,
+          "complete_period_blocks": 1,
+          "horizon": 30030,
+          "rough_even_stratum_size": 5760,
+          "exact_density_among_evens": {
+            "exact": "384/1001",
+            "numerator": "384",
+            "denominator": "1001",
+            "decimal": 0.3836163836163836
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 48,
+          "power_only_loglog_moment": 16,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 15015,
+          "phi_wheel": 5760,
+          "complete_period_blocks": 8,
+          "horizon": 240240,
+          "rough_even_stratum_size": 46080,
+          "exact_density_among_evens": {
+            "exact": "384/1001",
+            "numerator": "384",
+            "denominator": "1001",
+            "decimal": 0.3836163836163836
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 59,
+          "power_only_loglog_moment": 20,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 15015,
+          "phi_wheel": 5760,
+          "complete_period_blocks": 64,
+          "horizon": 1921920,
+          "rough_even_stratum_size": 368640,
+          "exact_density_among_evens": {
+            "exact": "384/1001",
+            "numerator": "384",
+            "denominator": "1001",
+            "decimal": 0.3836163836163836
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 71,
+          "power_only_loglog_moment": 20,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 15015,
+          "phi_wheel": 5760,
+          "complete_period_blocks": 512,
+          "horizon": 15375360,
+          "rough_even_stratum_size": 2949120,
+          "exact_density_among_evens": {
+            "exact": "384/1001",
+            "numerator": "384",
+            "denominator": "1001",
+            "decimal": 0.3836163836163836
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 82,
+          "power_only_loglog_moment": 20,
+          "power_only_moment_is_insufficient": true
+        },
+        {
+          "wheel": 15015,
+          "phi_wheel": 5760,
+          "complete_period_blocks": 4096,
+          "horizon": 123002880,
+          "rough_even_stratum_size": 23592960,
+          "exact_density_among_evens": {
+            "exact": "384/1001",
+            "numerator": "384",
+            "denominator": "1001",
+            "decimal": 0.3836163836163836
+          },
+          "minimum_p_for_inflation_at_most_6_over_5": 94,
+          "power_only_loglog_moment": 20,
+          "power_only_moment_is_insufficient": true
+        }
+      ],
+      "direct_three_period_checks": 4,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "a growing-wheel stratification with a residual estimate uniform in both the analytic scale and the wheel level",
+      "discard": "extending the powers-of-two O(log log X) moment order to a fixed-wheel rough hard stratum",
+      "next_theorem": "BinaryGoldbachGrowingWheelResidualBoundK56"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-TD4a",
+          "label": "SparseHardStratumMomentToMaximumBridge",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.1",
+          "label": "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2",
+          "label": "BinaryGoldbachGrowingWheelResidualBoundK56",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "GB",
+          "label": "Strong Goldbach Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-TD4a",
+          "GB-TD4b.1"
+        ],
+        [
+          "GB-TD4b.1",
+          "GB-TD4b.2"
+        ],
+        [
+          "GB-TD4b.2",
+          "GB"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "wheel_count": 4,
+      "scale_count": 20,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The counting theorem and norm barrier are exact, but the spike is an inference countermodel, not the actual Goldbach residual. No K=56 minor-arc estimate or representation lower bound is proved."
+  }
+}

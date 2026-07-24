@@ -16,10 +16,10 @@ themselves discharge the remaining pointwise obligations.
 Machine-readable record:
 `data/open-problem/ticket132-admissibility-nullset-hard-stratum-local-parity.json`.
 
-> **Current boundary / 최신 경계:** TICKET-135 preserves the four results below
-> and separates exact conditional bridges from their remaining exceptional-set,
-> arithmetic-constant, and information barriers. See
-> [TICKET-135](conditional-bridges-and-exceptional-set.md).
+> **Current boundary / 최신 경계:** TICKET-136 preserves the results below and
+> further identifies dimension, affine-correction, hard-stratum density, and
+> hidden-periodicity barriers. See
+> [TICKET-136](scale-sensitive-obstructions-and-affine-bridge.md).
 
 ## 1. 결과 요약 / Executive result
 

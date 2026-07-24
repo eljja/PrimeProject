@@ -1,0 +1,492 @@
+{
+  "schema": "primeproject.ticket136-scale-sensitive-obstructions-and-affine-bridge.v1",
+  "generated_at": "2026-07-25T12:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-136",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "LeastCounterexampleAffineCorrectionInequality",
+  "bounded_result": {
+    "audit_ref": "collatz"
+  },
+  "candidate_theorem": "UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes",
+  "next_experiment": "Prove that every hypothetical least-counterexample code has one prefix whose valuation surplus exceeds k*log2(1+1/(3n)).",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The identity and least-counterexample necessity are universal, but PrimeProject has not proved that every possible least-counterexample valuation code eventually exceeds the affine correction. The finite orbit audit is a replay, not a proof of Collatz.",
+  "result": {
+    "theorem_name": "LeastCounterexampleAffineCorrectionInequality",
+    "title_ko": "최소 반례의 affine 보정 부등식",
+    "declared_target": "Replace slope-only contraction by an exact, integer-checkable criterion that includes the positive affine correction and applies to a hypothetical least Collatz counterexample.",
+    "proved_statement": "For the accelerated odd Collatz orbit n_{j+1}=(3n_j+1)/2^{a_j}, S_k=sum_{j<k} a_j, one has the exact identity n_k/n_0=(3^k/2^S_k) product_{j<k}(1+1/(3n_j)). If n_j>=n_0 for 0<=j<=k, then 2^S_k*n_0^k<=(3n_0+1)^k. Consequently the strict reverse inequality certifies a descent by time k. A hypothetical least counterexample must satisfy the non-strict inequality for every k.",
+    "proved_statement_ko": "가속 홀수 콜라츠 궤도는 기울기 항뿐 아니라 product(1+1/(3n_j))라는 양의 affine 보정항을 정확히 가진다. k단계 동안 시작값 아래로 내려가지 않았다면 2^S_k*n_0^k<=(3n_0+1)^k가 반드시 성립한다. 따라서 반대의 엄격한 부등식은 k단계 이내 하강의 정확한 충분조건이며, 가상의 최소 반례는 이 부등식을 모든 k에서 위반하지 못한다.",
+    "proof": "Multiplying n_{j+1}/n_j=(3/2^{a_j})(1+1/(3n_j)) gives the identity. Under n_j>=n_0, every correction factor is at most 1+1/(3n_0), so n_k/n_0 is at most ((3n_0+1)/n_0)^k/2^S_k. Non-descent forces this upper bound to be at least one, which is the displayed integer inequality. If n_0 were the least counterexample, reaching a smaller positive integer would join an orbit known by minimality to reach one; hence its orbit can never descend and the inequality is necessary for all k.",
+    "exact_bridge_contract": {
+      "iterate_identity": "n_k/n_0=(3^k/2^S_k)*product_{j<k}(1+1/(3n_j))",
+      "no_descent_necessary_condition": "2^S_k*n_0^k<=(3n_0+1)^k",
+      "descent_sufficient_condition": "2^S_k*n_0^k>(3n_0+1)^k",
+      "log_form": "S_k-k*log_2(3)<=k*log_2(1+1/(3n_0)) under no descent"
+    },
+    "finite_orbit_audit": {
+      "maximum_odd_start": 9999,
+      "maximum_depth": 64,
+      "odd_start_count": 5000,
+      "descended_start_count": 4999,
+      "exact_identity_check_count": 17311,
+      "necessary_cap_check_count": 12312,
+      "sufficient_threshold_check_count": 4996,
+      "selected_examples": [
+        {
+          "start": 1,
+          "first_descent_found": false,
+          "audited_rows": [
+            {
+              "depth": 1,
+              "iterate": "1",
+              "valuation_sum": 2,
+              "slope_contracts": true,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 2,
+              "iterate": "1",
+              "valuation_sum": 4,
+              "slope_contracts": true,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 4,
+              "iterate": "1",
+              "valuation_sum": 8,
+              "slope_contracts": true,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 8,
+              "iterate": "1",
+              "valuation_sum": 16,
+              "slope_contracts": true,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 16,
+              "iterate": "1",
+              "valuation_sum": 32,
+              "slope_contracts": true,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 32,
+              "iterate": "1",
+              "valuation_sum": 64,
+              "slope_contracts": true,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 64,
+              "iterate": "1",
+              "valuation_sum": 128,
+              "slope_contracts": true,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            }
+          ]
+        },
+        {
+          "start": 3,
+          "first_descent_found": true,
+          "audited_rows": [
+            {
+              "depth": 1,
+              "iterate": "5",
+              "valuation_sum": 1,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 2,
+              "iterate": "1",
+              "valuation_sum": 5,
+              "slope_contracts": true,
+              "affine_threshold_crossed": true,
+              "strict_descent": true
+            }
+          ]
+        },
+        {
+          "start": 7,
+          "first_descent_found": true,
+          "audited_rows": [
+            {
+              "depth": 1,
+              "iterate": "11",
+              "valuation_sum": 1,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 2,
+              "iterate": "17",
+              "valuation_sum": 2,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 4,
+              "iterate": "5",
+              "valuation_sum": 7,
+              "slope_contracts": true,
+              "affine_threshold_crossed": true,
+              "strict_descent": true
+            }
+          ]
+        },
+        {
+          "start": 27,
+          "first_descent_found": true,
+          "audited_rows": [
+            {
+              "depth": 1,
+              "iterate": "41",
+              "valuation_sum": 1,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 2,
+              "iterate": "31",
+              "valuation_sum": 3,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 4,
+              "iterate": "71",
+              "valuation_sum": 5,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 8,
+              "iterate": "91",
+              "valuation_sum": 11,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 16,
+              "iterate": "593",
+              "valuation_sum": 21,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 32,
+              "iterate": "3077",
+              "valuation_sum": 44,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            }
+          ]
+        },
+        {
+          "start": 31,
+          "first_descent_found": true,
+          "audited_rows": [
+            {
+              "depth": 1,
+              "iterate": "47",
+              "valuation_sum": 1,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 2,
+              "iterate": "71",
+              "valuation_sum": 2,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 4,
+              "iterate": "161",
+              "valuation_sum": 4,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 8,
+              "iterate": "103",
+              "valuation_sum": 11,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 16,
+              "iterate": "167",
+              "valuation_sum": 23,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 32,
+              "iterate": "433",
+              "valuation_sum": 47,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            }
+          ]
+        },
+        {
+          "start": 63,
+          "first_descent_found": true,
+          "audited_rows": [
+            {
+              "depth": 1,
+              "iterate": "95",
+              "valuation_sum": 1,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 2,
+              "iterate": "143",
+              "valuation_sum": 2,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 4,
+              "iterate": "323",
+              "valuation_sum": 4,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 8,
+              "iterate": "103",
+              "valuation_sum": 12,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 16,
+              "iterate": "167",
+              "valuation_sum": 24,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 32,
+              "iterate": "433",
+              "valuation_sum": 48,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            }
+          ]
+        },
+        {
+          "start": 703,
+          "first_descent_found": true,
+          "audited_rows": [
+            {
+              "depth": 1,
+              "iterate": "1055",
+              "valuation_sum": 1,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 2,
+              "iterate": "1583",
+              "valuation_sum": 2,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 4,
+              "iterate": "3563",
+              "valuation_sum": 4,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 8,
+              "iterate": "4511",
+              "valuation_sum": 10,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 16,
+              "iterate": "14455",
+              "valuation_sum": 21,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 32,
+              "iterate": "37111",
+              "valuation_sum": 45,
+              "slope_contracts": false,
+              "affine_threshold_crossed": false,
+              "strict_descent": false
+            },
+            {
+              "depth": 51,
+              "iterate": "157",
+              "valuation_sum": 83,
+              "slope_contracts": true,
+              "affine_threshold_crossed": true,
+              "strict_descent": true
+            }
+          ]
+        }
+      ],
+      "slope_only_counterexample_n_equals_1": [
+        {
+          "depth": 1,
+          "valuation_sum": 2,
+          "slope_left_2_pow_S": "4",
+          "slope_right_3_pow_k": "3",
+          "slope_contracts": true,
+          "affine_threshold_left": "4",
+          "affine_threshold_right": "4",
+          "strict_descent": false
+        },
+        {
+          "depth": 2,
+          "valuation_sum": 4,
+          "slope_left_2_pow_S": "16",
+          "slope_right_3_pow_k": "9",
+          "slope_contracts": true,
+          "affine_threshold_left": "16",
+          "affine_threshold_right": "16",
+          "strict_descent": false
+        },
+        {
+          "depth": 4,
+          "valuation_sum": 8,
+          "slope_left_2_pow_S": "256",
+          "slope_right_3_pow_k": "81",
+          "slope_contracts": true,
+          "affine_threshold_left": "256",
+          "affine_threshold_right": "256",
+          "strict_descent": false
+        },
+        {
+          "depth": 8,
+          "valuation_sum": 16,
+          "slope_left_2_pow_S": "65536",
+          "slope_right_3_pow_k": "6561",
+          "slope_contracts": true,
+          "affine_threshold_left": "65536",
+          "affine_threshold_right": "65536",
+          "strict_descent": false
+        },
+        {
+          "depth": 16,
+          "valuation_sum": 32,
+          "slope_left_2_pow_S": "4294967296",
+          "slope_right_3_pow_k": "43046721",
+          "slope_contracts": true,
+          "affine_threshold_left": "4294967296",
+          "affine_threshold_right": "4294967296",
+          "strict_descent": false
+        },
+        {
+          "depth": 32,
+          "valuation_sum": 64,
+          "slope_left_2_pow_S": "18446744073709551616",
+          "slope_right_3_pow_k": "1853020188851841",
+          "slope_contracts": true,
+          "affine_threshold_left": "18446744073709551616",
+          "affine_threshold_right": "18446744073709551616",
+          "strict_descent": false
+        }
+      ],
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "least-counterexample valuation surplus estimates that dominate the explicit n-dependent affine correction",
+      "discard": "using 2^S_k>3^k alone as a certificate of strict integer descent",
+      "next_theorem": "UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-TD4a",
+          "label": "MinimalNegativeSlopePrefixesFormFullMeasurePrefixFreeCover",
+          "status": "closed"
+        },
+        {
+          "id": "CO-TD4b.1",
+          "label": "LeastCounterexampleAffineCorrectionInequality",
+          "status": "closed"
+        },
+        {
+          "id": "CO-TD4b.2",
+          "label": "UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "CO",
+          "label": "Collatz Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-TD4a",
+          "CO-TD4b.1"
+        ],
+        [
+          "CO-TD4b.1",
+          "CO-TD4b.2"
+        ],
+        [
+          "CO-TD4b.2",
+          "CO"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "exact_identity_check_count": 17311,
+      "necessary_cap_check_count": 12312,
+      "slope_only_counterexample_verified": true,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The identity and least-counterexample necessity are universal, but PrimeProject has not proved that every possible least-counterexample valuation code eventually exceeds the affine correction. The finite orbit audit is a replay, not a proof of Collatz."
+  }
+}

@@ -5539,3 +5539,38 @@ modular transcripts. The next target is `NonCongruenceTypeIITwinSeparation`.
 
 All four conjectures remain open. TICKET-135 exact theorem count is four,
 route-correction count is four, and conjecture-resolution count is zero.
+
+# TICKET-136 continuation: scale-sensitive obstructions and affine descent
+
+TICKET-136 preserves the valid TICKET-135 bridges, closes four subordinate
+lemmas, and narrows the next premise in each proof DAG. The machine-readable
+audit is
+`data/open-problem/ticket136-scale-sensitive-obstructions-and-affine-bridge.json`.
+
+For RH, `SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo` turns absolute
+row/column sums into a usable cross-operator bound and proves with `J_n/n` that
+entrywise decay alone is insufficient. The next target is
+`ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin`.
+
+For Collatz, `LeastCounterexampleAffineCorrectionInequality` proves that
+non-descent through depth `k` forces `2^S*n^k<=(3n+1)^k`. The strict reverse
+inequality is an exact descent certificate. The next target is
+`UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes`.
+
+For Goldbach, `FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier` proves
+`|H_W(2WM)|=M*phi(W)` and blocks the extension of the powers-of-two
+`O(log log X)` moment scale to a fixed-wheel linear-density stratum. The next
+target is `BinaryGoldbachGrowingWheelResidualBoundK56`.
+
+For Twin Prime, `FiniteRationalFourierAlgebraCompositeLift` proves that every
+finite rational Fourier feature family remains a finite congruence transcript.
+The next target is `AperiodicScaleGrowingTypeIITwinSeparation`.
+
+한국어 요약: RH의 원소별 감소, Collatz의 기울기 수축, Goldbach의 희소층
+모멘트 차수 확대, Twin Prime의 유한 유리 Fourier 분리 경로를 각각 정확한
+반례 또는 필요조건으로 교정했다. 네 난제는 모두 미해결이며 해결 카운트는
+0이다.
+
+All four conjectures remain open. TICKET-136 exact theorem count is four,
+route-correction count is four, proof-DAG count is four, and
+conjecture-resolution count is zero.

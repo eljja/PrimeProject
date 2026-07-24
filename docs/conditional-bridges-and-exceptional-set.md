@@ -7,6 +7,12 @@ Status: `open_not_proven` for all four conjectures
 Machine record:
 `data/open-problem/ticket135-conditional-bridges-and-exceptional-set.json`
 
+> **Current continuation / 최신 연속 연구:** TICKET-136 preserves these four
+> results and refines their open premises through dimension-sensitive,
+> affine-corrected, density-sensitive, and periodicity-sensitive theorems. See
+> [TICKET-136](scale-sensitive-obstructions-and-affine-bridge.md). All four
+> conjectures remain open.
+
 ## Publication boundary / 논문 제출용 경계
 
 **English.** TICKET-135 proves four exact intermediate theorems. They are a

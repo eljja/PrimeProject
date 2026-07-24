@@ -62,34 +62,45 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-135
+## Latest Continuation After TICKET-136
 
-TICKET135 is the current boundary. Read
+TICKET136 is the current boundary. Read
+`docs/scale-sensitive-obstructions-and-affine-bridge.md` and
+`data/open-problem/ticket136-scale-sensitive-obstructions-and-affine-bridge.json`
+before proposing a new route. None of the four conjectures is resolved.
+
+For RH, the Schur test turns absolute row and column sums `R,S` into
+`||B||^2<=R*S`, but `J_n/n` proves that entrywise decay does not imply
+operator-norm decay. Attack
+`ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin`; use a fixed
+published Weil normalization and do not substitute finite matrix plots.
+
+For Collatz, the exact accelerated identity now includes the affine correction.
+Non-descent through depth `k` forces
+`2^S*n^k<=(3n+1)^k`; strict reversal certifies descent. Attack
+`UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes`.
+Slope contraction alone is invalid, as the fixed point `n=1` shows exactly.
+
+For Goldbach, a fixed-wheel rough stratum has
+`|H_W(2WM)|=M*phi(W)` and therefore requires `p=Theta(log X)` for arbitrary
+normalized-moment promotion. Attack
+`BinaryGoldbachGrowingWheelResidualBoundK56`; the powers-of-two
+`O(log log X)` moment order cannot be reused on a linear-density rough layer.
+
+For Twin Prime, every finite rational Fourier phase algebra factors through
+the least common multiple of its denominators and inherits the TICKET135 CRT
+composite lift. Attack `AperiodicScaleGrowingTypeIITwinSeparation`; merely
+renaming finite modular features as Fourier features does not escape parity.
+
+## Historical Continuation After TICKET-135
+
+TICKET135 is preserved in
 `docs/conditional-bridges-and-exceptional-set.md` and
-`data/open-problem/ticket135-conditional-bridges-and-exceptional-set.json` before
-proposing a new route. None of the four conjectures is resolved.
-
-For RH, the sharp generic block criterion is now closed:
-`A>=alpha I`, `C>=gamma I`, `||B||<=beta`, and
-`beta^2<=alpha*gamma` imply positivity of the full core/tail block. Attack
-`ProjectedWeilBlockConstantsWithPositiveSchurMargin`; the generic theorem does
-not supply the constants for an actual Weil form.
-
-For Collatz, minimal valuation prefixes satisfying `2^S>3^k` form a prefix-free
-full-measure cover in odd 2-adic code space. Attack
-`NaturalCodesCrossAffineDescentThreshold`; natural codes are a dense Haar-null
-set and negative slope alone does not dominate the positive affine term.
-
-For Goldbach, normalized moments on a hard stratum of size `h` promote with the
-sharp factor `h^(1/p)`. The choice `p=4 ceil(log_2 h)` and norm at most
-`(5/6)m_56` is sufficient for the pointwise K56 budget. Attack
-`BinaryGoldbachHardStratumLogMomentBoundK56`; no actual residual estimate has
-been proved.
-
-For Twin Prime, every admissible exact transcript over arbitrary finite moduli
-has a proper composite-pair lift below `2*lcm(m_i)*q*r`. Attack
-`NonCongruenceTypeIITwinSeparation`; finite modular feature classifiers cannot
-provide the missing parity-sensitive information.
+`data/open-problem/ticket135-conditional-bridges-and-exceptional-set.json`.
+It established the sharp generic block criterion, the almost-everywhere
+2-adic slope cover, the sparse finite-set norm bridge, and the arbitrary finite
+congruence-transcript composite lift. TICKET136 refines their open premises
+without changing the `open_not_proven` status.
 
 ## Historical Continuation After TICKET-134
 

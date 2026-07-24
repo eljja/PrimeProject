@@ -1396,6 +1396,41 @@ canvas {
   box-shadow: inset 5px 0 0 #2f7a5d;
 }
 
+#ticket136-scale-sensitive-obstructions .proof-table {
+  table-layout: fixed;
+  min-width: 0;
+}
+
+#ticket136-scale-sensitive-obstructions .proof-table th,
+#ticket136-scale-sensitive-obstructions .proof-table td {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  vertical-align: top;
+}
+
+#ticket136-scale-sensitive-obstructions .poc-equation {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 560px) {
+  #ticket136-scale-sensitive-obstructions .proof-table th {
+    padding: 7px 3px;
+    font-size: 8px;
+  }
+
+  #ticket136-scale-sensitive-obstructions .proof-table td {
+    padding: 7px 4px;
+    font-size: 10px;
+  }
+
+  #ticket136-scale-sensitive-obstructions .poc-equation {
+    font-size: 10px;
+  }
+}
+
 .poc-correction {
   margin: 12px 0;
   padding: 11px 13px;

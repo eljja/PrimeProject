@@ -17,6 +17,7 @@ let ticket132AttemptGlobal = null;
 let ticket133AttemptGlobal = null;
 let ticket134AttemptGlobal = null;
 let ticket135AttemptGlobal = null;
+let ticket136AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9845,7 +9846,7 @@ function renderTicket135ConditionalBridges(attempt) {
   }
   return `
     <div id="ticket135-conditional-bridges" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 135 conditional bridges and exceptional-set boundaries</h3>
       <div class="poc-head"><div><span>Status</span><strong>exact intermediate theorem; conjecture open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${machine.total_failure_count ?? 0}</strong></div></div>
       ${table(["TICKET135 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || "missing"], ["declared target / 선언 명제", section.declared_target || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}
@@ -9854,6 +9855,79 @@ function renderTicket135ConditionalBridges(attempt) {
       <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.proved_statement_ko || section.proved_statement || "")}</p></section><section><h3>Decisive open premise / 결정적 미증명 전제</h3><p>${escapeHtml(attempt.next_experiment || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
       <p class="proof-boundary">${escapeHtml(section.proof_boundary || attempt.claim_boundary || "")}</p>
       <p><a href="../docs/conditional-bridges-and-exceptional-set.md">Bilingual paper-style report / 한영 논문형 보고서</a></p>
+    </div>
+  `;
+}
+
+function renderTicket136ScaleSensitiveObstructions(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.scale_sensitive_obstruction_and_affine_bridge_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const machine = section.machine_audit || {};
+  const dag = section.proof_dag || {};
+  const dagNodes = dag.nodes || [];
+  const dagEdges = dag.edges || [];
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rational = section.rational_audit || {};
+    const contracts = rational.accepted_contracts || [];
+    const counterfamily = rational.entrywise_decay_counterfamily || [];
+    detail = `
+      <div class="poc-equation">||B||₂²≤(max absolute row sum)(max absolute column sum)≤αγ ⇒ full block positivity</div>
+      ${table(["alpha", "gamma", "row R", "column S", "margin"], contracts.map((row) => [row.alpha?.exact, row.gamma?.exact, row.maximum_absolute_row_sum?.exact, row.maximum_absolute_column_sum?.exact, row.certified_schur_margin?.exact]))}
+      ${table(["dimension", "max entry", "row sum", "operator witness"], counterfamily.map((row) => [row.dimension, row.maximum_entry?.exact, row.maximum_absolute_row_sum?.exact, row.operator_norm_witness_ratio?.exact]))}
+      <p class="proof-note">J<sub>n</sub>/n은 각 원소가 0으로 가지만 연산자 노름은 1입니다. 실제 Weil tail의 행합·열합 상계는 아직 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const finite = section.finite_orbit_audit || {};
+    const fixed = finite.slope_only_counterexample_n_equals_1 || [];
+    const examples = finite.selected_examples || [];
+    detail = `
+      <div class="poc-equation">no descent through k ⇒ 2<sup>S</sup>n<sup>k</sup>≤(3n+1)<sup>k</sup>; strict reversal ⇒ descent</div>
+      ${table(["start", "first descent found", "recorded checkpoints"], examples.map((row) => [row.start, row.first_descent_found, (row.audited_rows || []).length]))}
+      ${table(["n=1 depth", "valuation sum", "slope contracts", "strict descent"], fixed.map((row) => [row.depth, row.valuation_sum, row.slope_contracts, row.strict_descent]))}
+      <div class="poc-head"><div><span>Exact identities</span><strong>${formatter.format(finite.exact_identity_check_count || 0)}</strong></div><div><span>Necessary caps</span><strong>${formatter.format(finite.necessary_cap_check_count || 0)}</strong></div><div><span>Failures</span><strong>${finite.failure_count ?? "missing"}</strong></div></div>
+      <p class="proof-note">기울기 수축만으로는 affine 항을 이기지 못합니다. 정수 부등식은 정확하지만 모든 최소 반례 코드가 이를 깨는지는 미증명입니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const finite = section.finite_wheel_audit || {};
+    const rows = (finite.rows || []).filter((row) => [1, 64, 4096].includes(Number(row.complete_period_blocks)));
+    detail = `
+      <div class="poc-equation">H<sub>W</sub>(2WM)=Mφ(W), fixed W ⇒ |H<sub>W</sub>(X)|=Θ(X), required p=Θ(log X)</div>
+      ${table(["wheel", "blocks", "hard size", "minimum p for ≤6/5", "power-only p insufficient"], rows.map((row) => [row.wheel, row.complete_period_blocks, formatter.format(row.rough_even_stratum_size || 0), row.minimum_p_for_inflation_at_most_6_over_5, row.power_only_moment_is_insufficient]))}
+      <p class="proof-note">powers-of-two의 O(log log X) moment 차수는 선형 크기의 고정-wheel rough 층으로 확대할 수 없습니다. 실제 Goldbach residual 상계는 제공하지 않습니다.</p>
+    `;
+  } else if (problemKey === "twin-prime") {
+    const finite = section.finite_fourier_audit || {};
+    const rows = finite.rows || [];
+    detail = `
+      <div class="poc-equation">finite rational phases ⇒ n mod L=lcm(q<sub>j</sub>) ⇒ same phases with composite n,n+2 below 2Lrs</div>
+      ${table(["rational characters", "L", "forced factors", "witnesses"], rows.map((row) => [(row.rational_characters || []).map((item) => `${item.numerator}/${item.denominator}`).join(", "), formatter.format(row.factored_transcript_modulus || 0), (row.forced_composite_factors || []).join(", "), row.audited_admissible_residue_count]))}
+      <div class="poc-head"><div><span>Feature families</span><strong>${rows.length}</strong></div><div><span>Witnesses</span><strong>${finite.total_witnesses || 0}</strong></div><div><span>Failures</span><strong>${finite.failure_count ?? "missing"}</strong></div></div>
+      <p class="proof-note">유한 유리 Fourier 특성은 비합동 정보가 아니라 유한 주기 정보입니다. 비주기·scale-growing Type II 분리는 여전히 열려 있습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket136-scale-sensitive-obstructions" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 136 scale-sensitive obstructions and affine descent bridge</h3>
+      <div class="poc-head"><div><span>Status</span><strong>exact intermediate theorem; conjecture open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${machine.total_failure_count ?? 0}</strong></div></div>
+      ${table(["TICKET136 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || "missing"], ["declared target / 선언 명제", section.declared_target || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], dagNodes.map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], dagEdges.map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.proved_statement_ko || section.proved_statement || "")}</p></section><section><h3>Decisive open premise / 결정적 미증명 전제</h3><p>${escapeHtml(attempt.next_experiment || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.proof_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/scale-sensitive-obstructions-and-affine-bridge.md">Bilingual paper-style report / 한영 논문형 보고서</a></p>
     </div>
   `;
 }
@@ -10531,7 +10605,7 @@ function renderTicket125InfiniteBridgeContracts(attempt) {
 
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
-    return `${renderTicket135ConditionalBridges(ticket135AttemptGlobal)}${renderTicket134UniformityThresholds(ticket134AttemptGlobal)}${renderTicket133QuantifierPromotion(ticket133AttemptGlobal)}${renderTicket132AdmissibilityBoundary(ticket132AttemptGlobal)}${renderTicket131ProofViabilityTargetCorrection(ticket131AttemptGlobal)}${renderTicket130ComputabilityCapLanguageOptimality(ticket130AttemptGlobal)}${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
+    return `${renderTicket136ScaleSensitiveObstructions(ticket136AttemptGlobal)}${renderTicket135ConditionalBridges(ticket135AttemptGlobal)}${renderTicket134UniformityThresholds(ticket134AttemptGlobal)}${renderTicket133QuantifierPromotion(ticket133AttemptGlobal)}${renderTicket132AdmissibilityBoundary(ticket132AttemptGlobal)}${renderTicket131ProofViabilityTargetCorrection(ticket131AttemptGlobal)}${renderTicket130ComputabilityCapLanguageOptimality(ticket130AttemptGlobal)}${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
   }
   const direct = ticket.direct_counterexample || {};
   const candidate = ticket.candidate_counterexamples_found || {};
@@ -10596,6 +10670,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket136ScaleSensitiveObstructions(ticket136AttemptGlobal)}
     ${renderTicket135ConditionalBridges(ticket135AttemptGlobal)}
     ${renderTicket134UniformityThresholds(ticket134AttemptGlobal)}
     ${renderTicket133QuantifierPromotion(ticket133AttemptGlobal)}
@@ -10974,6 +11049,26 @@ async function loadTicket135Attempt() {
   }
 }
 
+async function loadTicket136Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket136-scale-sensitive-obstructions-and-affine-bridge.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket136AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket136AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket136AttemptGlobal) {
+      ticket136AttemptGlobal.bounded_result = ticket136AttemptGlobal.bounded_result || {};
+      ticket136AttemptGlobal.bounded_result.scale_sensitive_obstruction_and_affine_bridge_audit = payload.scale_sensitive_obstruction_and_affine_bridge_audit || {};
+    }
+    return Boolean(ticket136AttemptGlobal);
+  } catch (error) {
+    ticket136AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket131Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket131-proof-viability-target-correction.json", { cache: "no-store" });
@@ -11123,9 +11218,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const priorityLoads = await Promise.all([loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
+  const priorityLoads = await Promise.all([loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
   if (priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket136AttemptGlobal) await loadTicket136Attempt();
     if (!ticket135AttemptGlobal) await loadTicket135Attempt();
     if (!ticket134AttemptGlobal) await loadTicket134Attempt();
     if (!ticket133AttemptGlobal) await loadTicket133Attempt();
@@ -11139,7 +11235,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket135-priority";
+  document.documentElement.dataset.openProblemCache = "ticket136-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
