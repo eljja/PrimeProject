@@ -20,7 +20,8 @@ def theoremDecomposition : List String := [
   "CO-TD3 NoBoundedDepthContractingPrefixCover closed",
   "CO-TD4a MinimalNegativeSlopePrefixesFormFullMeasurePrefixFreeCover closed",
   "CO-TD4b.1 LeastCounterexampleAffineCorrectionInequality closed",
-  "CO-TD4b.2 UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes highest_risk_open",
+  "CO-TD4b.2a AffineCappedValuationCylinderMassDecay closed",
+  "CO-TD4b.2b ArithmeticEmptinessOfInfiniteAffineCappedNaturalCodeSet highest_risk_open",
   "CO-TD5 CycleAndDivergenceExclusionBridge"
 ]
 
@@ -34,18 +35,18 @@ def rankedCegisTarget : String :=
   "CO-TICKET-128 separates unresolved lift cylinders from integer candidates and directly closes all 4027109 nontrivial 28-bit frontier representatives"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-136 UniformValuationSurplusBeyondAffineCorrectionForLeastCounterexampleCodes."
+  "CO-TICKET-137 ArithmeticEmptinessOfInfiniteAffineCappedNaturalCodeSet."
 
 def topAttackProofAttemptProtocol : String :=
-  "Use an ordinal or rank argument allowing unbounded adaptive depth; every finite maximum depth is defeated by the exact all-one expanding cylinder n=-1 mod 2^(K+1)."
+  "Combine the exact affine cap with natural-residue stabilization and an Archimedean well-founded rank to exclude every infinite natural valuation code; exponentially small 2-adic mass and any fixed finite depth are insufficient."
 
 def latestExactResult : String :=
-  "LeastCounterexampleAffineCorrectionInequality: non-descent through k forces 2^S*n^k<=(3*n+1)^k, so strict reversal is an exact descent certificate and slope contraction alone is insufficient"
+  "AffineCappedValuationCylinderMassDecay: least-counterexample prefix caps have exponentially decaying 2-adic Haar mass, but every finite cylinder still has arbitrarily large natural representatives"
 
 def retiredRoute : String :=
   "treating the boundary ray -3^{-1} in Z_2 as a natural-integer obstruction"
 
 def retainedOpenPremise : String :=
-  "every hypothetical least-counterexample valuation code eventually has surplus beyond k*log2(1+1/(3*n))"
+  "the infinite affine-capped survivor set contains no valuation code of any positive natural integer"
 
 end PrimeProject.OpenProblems.Collatz

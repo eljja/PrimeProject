@@ -7,6 +7,15 @@ Status: `open_not_proven` for all four conjectures
 Machine record:
 `data/open-problem/ticket136-scale-sensitive-obstructions-and-affine-bridge.json`
 
+> **Current boundary / 최신 경계:** TICKET-137 proves that absolute Schur
+> sums can lose arbitrarily large signed cancellation, quantifies the
+> exponentially small Collatz affine-capped code set without confusing measure
+> zero with arithmetic emptiness, extends the Goldbach moment barrier to every
+> subpower squarefree wheel, and derives a scale-dependent rational Fourier
+> information budget for Twin Prime. See
+> [TICKET-137](cancellation-entropy-and-information-budget.md). All four
+> conjectures remain open.
+
 ## Publication boundary / 논문 제출용 경계
 
 **English.** TICKET-136 proves four elementary but exact intermediate

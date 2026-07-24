@@ -1,0 +1,588 @@
+{
+  "schema": "primeproject.ticket137-cancellation-entropy-and-information-budget.v1",
+  "generated_at": "2026-07-26T12:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-137",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "AffineCappedValuationCylinderMassDecay",
+  "bounded_result": {
+    "audit_ref": "collatz"
+  },
+  "candidate_theorem": "ArithmeticEmptinessOfInfiniteAffineCappedNaturalCodeSet",
+  "next_experiment": "Characterize the infinite affine-capped survivor set and prove that no embedded positive-integer valuation code can remain in it at every depth.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The exact measure formula and exponential upper bound concern 2-adic Haar mass. A measure-zero survivor set can still contain embedded natural integers, and every finite cylinder does. No arithmetic emptiness theorem, Collatz proof, or counterexample is supplied.",
+  "result": {
+    "theorem_name": "AffineCappedValuationCylinderMassDecay",
+    "title_ko": "Affine cap을 만족하는 valuation cylinder 질량 감소 정리",
+    "declared_target": "Quantify how exceptional the TICKET136 least-counterexample valuation constraint is, while testing whether small 2-adic measure can exclude a natural Collatz counterexample.",
+    "proved_statement": "Let B>=2 and let m_B(k) be the largest integer s with 2^s B^k<=(3B+1)^k. A least Collatz counterexample n_0>=B must have S_j<=m_B(j) for every j. Under normalized Haar measure on odd 2-adic integers, a valuation word of sum s has mass 2^-s, so the terminal-cap mass is exactly sum_{s=k}^{m_B(k)} C(s-1,k-1)2^-s. The all-prefix survivor mass is no larger and decays exponentially in k. Nevertheless every finite valuation cylinder is one odd residue class modulo 2^(s+1) and contains arbitrarily large positive integers.",
+    "proved_statement_ko": "B>=2에 대해 2^s B^k<=(3B+1)^k를 만족하는 최대 정수를 m_B(k)라 하자. B 이상인 최소 콜라츠 반례가 있다면 모든 j에서 S_j<=m_B(j)를 만족해야 한다. 홀수 2-adic 정수의 정규화 Haar 측도에서 valuation 합이 s인 word의 질량은 2^-s이므로 종단 cap 질량은 정확히 sum C(s-1,k-1)2^-s이며, 모든 prefix cap을 만족하는 질량은 이보다 작고 k에 대해 지수적으로 감소한다. 그러나 모든 유한 valuation cylinder는 modulo 2^(s+1)의 한 홀수 나머지류이므로 임의로 큰 양의 정수를 포함한다.",
+    "proof": "TICKET136 gives the cap for every non-descending prefix. A positive valuation composition a_1+...+a_k=s defines one odd cylinder of relative measure 2^-s, and there are C(s-1,k-1) such compositions. Summing gives the exact terminal mass; imposing every prefix cap only removes cylinders. For lambda=log_2(3+1/B) in (1,2), Chernoff applied to iid geometric masses P(a=r)=2^-r gives an exponential upper bound q(lambda)^k with q=(lambda/2)(lambda/(2(lambda-1)))^(lambda-1)<1. The residue-class description proves the finite-cylinder natural representatives.",
+    "exact_contract": {
+      "integer_cap": "m_B(k)=max{s:2^s*B^k<=(3B+1)^k}",
+      "word_mass": "mu(a_1,...,a_k)=2^-(a_1+...+a_k)",
+      "terminal_mass": "sum_{s=k}^{m_B(k)} binom(s-1,k-1)*2^-s",
+      "least_counterexample_condition": "S_j<=m_B(j) for every j"
+    },
+    "mass_audit": {
+      "rows": [
+        {
+          "least_counterexample_lower_bound": 2,
+          "depth": 8,
+          "exact_terminal_valuation_cap": 14,
+          "terminal_cap_mass": {
+            "exact": "1619/4096",
+            "numerator": "1619",
+            "denominator": "4096",
+            "decimal": 0.395263671875
+          },
+          "all_prefix_cap_mass": {
+            "exact": "2745/16384",
+            "numerator": "2745",
+            "denominator": "16384",
+            "decimal": 0.16754150390625
+          },
+          "chernoff_exponential_base": 0.9897662228068465,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 2,
+          "depth": 16,
+          "exact_terminal_valuation_cap": 28,
+          "terminal_cap_mass": {
+            "exact": "19179317/67108864",
+            "numerator": "19179317",
+            "denominator": "67108864",
+            "decimal": 0.28579409420490265
+          },
+          "all_prefix_cap_mass": {
+            "exact": "25020669/268435456",
+            "numerator": "25020669",
+            "denominator": "268435456",
+            "decimal": 0.09320925548672676
+          },
+          "chernoff_exponential_base": 0.9897662228068465,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 2,
+          "depth": 32,
+          "exact_terminal_valuation_cap": 57,
+          "terminal_cap_mass": {
+            "exact": "3846460098838585/18014398509481984",
+            "numerator": "3846460098838585",
+            "denominator": "18014398509481984",
+            "decimal": 0.21352142825162762
+          },
+          "all_prefix_cap_mass": {
+            "exact": "6450428541343117/144115188075855872",
+            "numerator": "6450428541343117",
+            "denominator": "144115188075855872",
+            "decimal": 0.04475883928311495
+          },
+          "chernoff_exponential_base": 0.9897662228068465,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 2,
+          "depth": 64,
+          "exact_terminal_valuation_cap": 115,
+          "terminal_cap_mass": {
+            "exact": "170731779671917098796199284627613/1298074214633706907132624082305024",
+            "numerator": "170731779671917098796199284627613",
+            "denominator": "1298074214633706907132624082305024",
+            "decimal": 0.13152697877146763
+          },
+          "all_prefix_cap_mass": {
+            "exact": "87888067574923438333849404405907/5192296858534827628530496329220096",
+            "numerator": "87888067574923438333849404405907",
+            "denominator": "5192296858534827628530496329220096",
+            "decimal": 0.01692662610968739
+          },
+          "chernoff_exponential_base": 0.9897662228068465,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 10,
+          "depth": 8,
+          "exact_terminal_valuation_cap": 13,
+          "terminal_cap_mass": {
+            "exact": "595/2048",
+            "numerator": "595",
+            "denominator": "2048",
+            "decimal": 0.29052734375
+          },
+          "all_prefix_cap_mass": {
+            "exact": "889/8192",
+            "numerator": "889",
+            "denominator": "8192",
+            "decimal": 0.1085205078125
+          },
+          "chernoff_exponential_base": 0.9590801337484964,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 10,
+          "depth": 16,
+          "exact_terminal_valuation_cap": 26,
+          "terminal_cap_mass": {
+            "exact": "342821/2097152",
+            "numerator": "342821",
+            "denominator": "2097152",
+            "decimal": 0.16346979141235352
+          },
+          "all_prefix_cap_mass": {
+            "exact": "1363943/33554432",
+            "numerator": "1363943",
+            "denominator": "33554432",
+            "decimal": 0.04064866900444031
+          },
+          "chernoff_exponential_base": 0.9590801337484964,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 10,
+          "depth": 32,
+          "exact_terminal_valuation_cap": 52,
+          "terminal_cap_mass": {
+            "exact": "35563540222183/562949953421312",
+            "numerator": "35563540222183",
+            "denominator": "562949953421312",
+            "decimal": 0.06317353790696068
+          },
+          "all_prefix_cap_mass": {
+            "exact": "45447383679849/4503599627370496",
+            "numerator": "45447383679849",
+            "denominator": "4503599627370496",
+            "decimal": 0.010091346354068387
+          },
+          "chernoff_exponential_base": 0.9590801337484964,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 10,
+          "depth": 64,
+          "exact_terminal_valuation_cap": 104,
+          "terminal_cap_mass": {
+            "exact": "29974404350971674109699822675/2535301200456458802993406410752",
+            "numerator": "29974404350971674109699822675",
+            "denominator": "2535301200456458802993406410752",
+            "decimal": 0.011822817874884074
+          },
+          "all_prefix_cap_mass": {
+            "exact": "23880327432778437150508502251/20282409603651670423947251286016",
+            "numerator": "23880327432778437150508502251",
+            "denominator": "20282409603651670423947251286016",
+            "decimal": 0.0011773910447247348
+          },
+          "chernoff_exponential_base": 0.9590801337484964,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 1000,
+          "depth": 8,
+          "exact_terminal_valuation_cap": 12,
+          "terminal_cap_mass": {
+            "exact": "397/2048",
+            "numerator": "397",
+            "denominator": "2048",
+            "decimal": 0.19384765625
+          },
+          "all_prefix_cap_mass": {
+            "exact": "367/4096",
+            "numerator": "367",
+            "denominator": "4096",
+            "decimal": 0.089599609375
+          },
+          "chernoff_exponential_base": 0.9466426458832188,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 1000,
+          "depth": 16,
+          "exact_terminal_valuation_cap": 25,
+          "terminal_cap_mass": {
+            "exact": "962689/8388608",
+            "numerator": "962689",
+            "denominator": "8388608",
+            "decimal": 0.11476147174835205
+          },
+          "all_prefix_cap_mass": {
+            "exact": "518687/16777216",
+            "numerator": "518687",
+            "denominator": "16777216",
+            "decimal": 0.030916154384613037
+          },
+          "chernoff_exponential_base": 0.9466426458832188,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 1000,
+          "depth": 32,
+          "exact_terminal_valuation_cap": 50,
+          "terminal_cap_mass": {
+            "exact": "4567539980747/140737488355328",
+            "numerator": "4567539980747",
+            "denominator": "140737488355328",
+            "decimal": 0.03245432353613609
+          },
+          "all_prefix_cap_mass": {
+            "exact": "834200090269/140737488355328",
+            "numerator": "834200090269",
+            "denominator": "140737488355328",
+            "decimal": 0.005927348143110578
+          },
+          "chernoff_exponential_base": 0.9466426458832188,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 1000,
+          "depth": 64,
+          "exact_terminal_valuation_cap": 101,
+          "terminal_cap_mass": {
+            "exact": "369799354790462131856222855/79228162514264337593543950336",
+            "numerator": "369799354790462131856222855",
+            "denominator": "79228162514264337593543950336",
+            "decimal": 0.004667524060322401
+          },
+          "all_prefix_cap_mass": {
+            "exact": "1142025540454435634817211795/2535301200456458802993406410752",
+            "numerator": "1142025540454435634817211795",
+            "denominator": "2535301200456458802993406410752",
+            "decimal": 0.00045044965081420066
+          },
+          "chernoff_exponential_base": 0.9466426458832188,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 1000000,
+          "depth": 8,
+          "exact_terminal_valuation_cap": 12,
+          "terminal_cap_mass": {
+            "exact": "397/2048",
+            "numerator": "397",
+            "denominator": "2048",
+            "decimal": 0.19384765625
+          },
+          "all_prefix_cap_mass": {
+            "exact": "367/4096",
+            "numerator": "367",
+            "denominator": "4096",
+            "decimal": 0.089599609375
+          },
+          "chernoff_exponential_base": 0.9465047150324255,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 1000000,
+          "depth": 16,
+          "exact_terminal_valuation_cap": 25,
+          "terminal_cap_mass": {
+            "exact": "962689/8388608",
+            "numerator": "962689",
+            "denominator": "8388608",
+            "decimal": 0.11476147174835205
+          },
+          "all_prefix_cap_mass": {
+            "exact": "518687/16777216",
+            "numerator": "518687",
+            "denominator": "16777216",
+            "decimal": 0.030916154384613037
+          },
+          "chernoff_exponential_base": 0.9465047150324255,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 1000000,
+          "depth": 32,
+          "exact_terminal_valuation_cap": 50,
+          "terminal_cap_mass": {
+            "exact": "4567539980747/140737488355328",
+            "numerator": "4567539980747",
+            "denominator": "140737488355328",
+            "decimal": 0.03245432353613609
+          },
+          "all_prefix_cap_mass": {
+            "exact": "834200090269/140737488355328",
+            "numerator": "834200090269",
+            "denominator": "140737488355328",
+            "decimal": 0.005927348143110578
+          },
+          "chernoff_exponential_base": 0.9465047150324255,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        },
+        {
+          "least_counterexample_lower_bound": 1000000,
+          "depth": 64,
+          "exact_terminal_valuation_cap": 101,
+          "terminal_cap_mass": {
+            "exact": "369799354790462131856222855/79228162514264337593543950336",
+            "numerator": "369799354790462131856222855",
+            "denominator": "79228162514264337593543950336",
+            "decimal": 0.004667524060322401
+          },
+          "all_prefix_cap_mass": {
+            "exact": "1136111575125541585929259675/2535301200456458802993406410752",
+            "numerator": "1136111575125541585929259675",
+            "denominator": "2535301200456458802993406410752",
+            "decimal": 0.00044811700279280217
+          },
+          "chernoff_exponential_base": 0.9465047150324255,
+          "checks": {
+            "integer_cap_exact": true,
+            "prefix_mass_bounded_by_terminal_mass": true,
+            "prefix_survivor_mass_nonincreasing": true,
+            "chernoff_base_strictly_below_one": true,
+            "terminal_mass_within_chernoff_bound": true
+          }
+        }
+      ],
+      "cylinder_rows": [
+        {
+          "valuation_word": [
+            1,
+            2,
+            1
+          ],
+          "valuation_sum": 4,
+          "odd_residue": 27,
+          "modulus": 32,
+          "relative_haar_mass": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "positive_representatives": [
+            59,
+            251,
+            1019
+          ],
+          "checks": {
+            "unique_class_measure": true,
+            "arbitrarily_large_representatives_replay": true
+          }
+        },
+        {
+          "valuation_word": [
+            2,
+            1,
+            3
+          ],
+          "valuation_sum": 6,
+          "odd_residue": 25,
+          "modulus": 128,
+          "relative_haar_mass": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "positive_representatives": [
+            153,
+            921,
+            3993
+          ],
+          "checks": {
+            "unique_class_measure": true,
+            "arbitrarily_large_representatives_replay": true
+          }
+        },
+        {
+          "valuation_word": [
+            3,
+            2,
+            2
+          ],
+          "valuation_sum": 7,
+          "odd_residue": 173,
+          "modulus": 256,
+          "relative_haar_mass": {
+            "exact": "1/128",
+            "numerator": "1",
+            "denominator": "128",
+            "decimal": 0.0078125
+          },
+          "positive_representatives": [
+            429,
+            1965,
+            8109
+          ],
+          "checks": {
+            "unique_class_measure": true,
+            "arbitrarily_large_representatives_replay": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            1,
+            1,
+            1,
+            2
+          ],
+          "valuation_sum": 6,
+          "odd_residue": 31,
+          "modulus": 128,
+          "relative_haar_mass": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "positive_representatives": [
+            159,
+            927,
+            3999
+          ],
+          "checks": {
+            "unique_class_measure": true,
+            "arbitrarily_large_representatives_replay": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "deterministic arithmetic exclusion of natural integer codes from the infinite affine-capped survivor set",
+      "discard": "promoting exponentially small or zero 2-adic measure to emptiness of the embedded natural Collatz codes",
+      "next_theorem": "ArithmeticEmptinessOfInfiniteAffineCappedNaturalCodeSet"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-TD4b.1",
+          "label": "LeastCounterexampleAffineCorrectionInequality",
+          "status": "closed"
+        },
+        {
+          "id": "CO-TD4b.2a",
+          "label": "AffineCappedValuationCylinderMassDecay",
+          "status": "closed"
+        },
+        {
+          "id": "CO-TD4b.2b",
+          "label": "ArithmeticEmptinessOfInfiniteAffineCappedNaturalCodeSet",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "CO",
+          "label": "Collatz Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-TD4b.1",
+          "CO-TD4b.2a"
+        ],
+        [
+          "CO-TD4b.2a",
+          "CO-TD4b.2b"
+        ],
+        [
+          "CO-TD4b.2b",
+          "CO"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "mass_row_count": 16,
+      "finite_cylinder_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The exact measure formula and exponential upper bound concern 2-adic Haar mass. A measure-zero survivor set can still contain embedded natural integers, and every finite cylinder does. No arithmetic emptiness theorem, Collatz proof, or counterexample is supplied."
+  }
+}

@@ -20,7 +20,8 @@ def theoremDecomposition : List String := [
   "RH-TD3 RationalCongruenceIntervalDichotomy closed",
   "RH-TD4a SharpBlockTailPositivityCertificate closed",
   "RH-TD4b.1 SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo closed",
-  "RH-TD4b.2 ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin highest_risk_open",
+  "RH-TD4b.2a HadamardCancellationSchurOverestimateNoGo closed",
+  "RH-TD4b.2b ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin highest_risk_open",
   "RH-TD5 WeilPositivityToRHImportAudit"
 ]
 
@@ -34,18 +35,18 @@ def rankedCegisTarget : String :=
   "RH-TICKET-128 proves that compact support removes the infinite prime tail exactly: only prime powers p^m<=B remain in the arithmetic side"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-136 ProjectedWeilAbsoluteRowColumnTailBoundsWithPositiveMargin."
+  "RH-TICKET-137 ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin."
 
 def topAttackProofAttemptProtocol : String :=
-  "Freeze one published Weil normalization, use rational congruence preconditioners to certify strict finite Gram signs, and prove a dimension-uniform tail theorem; singular PSD boundaries and finite prefixes do not imply RH."
+  "Freeze one published Weil normalization and prove a cancellation-sensitive signed cross-block operator estimate together with an independent tail spectral gap; absolute Schur sums and finite Gram prefixes do not imply RH."
 
 def latestExactResult : String :=
-  "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo: absolute row and column sums R,S give ||B||^2<=R*S, while J_n/n proves entrywise decay alone does not control the cross-operator norm"
+  "HadamardCancellationSchurOverestimateNoGo: B_N=H_N/N has R*S=1 but ||B_N||^2=1/N, so absolute Schur sums can reject blocks with positive true operator margin"
 
 def retiredRoute : String :=
   "full-test-space autocorrelation-cone density"
 
 def retainedOpenPremise : String :=
-  "actual projected Weil absolute row/column tail bounds and a tail spectral gap with positive Schur margin, or a certified strict-negative witness"
+  "an actual signed projected Weil cross-block cancellation estimate and tail spectral gap with positive true margin, or a certified strict-negative witness"
 
 end PrimeProject.OpenProblems.Riemann

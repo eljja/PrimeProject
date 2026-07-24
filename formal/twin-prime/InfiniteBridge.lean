@@ -19,7 +19,8 @@ def theoremDecomposition : List String := [
   "TP-TD2 ScaleDependentPrimorialCompositeLiftBound closed",
   "TP-TD3a FiniteCongruenceTranscriptCompositeLift closed",
   "TP-TD3b.1 FiniteRationalFourierAlgebraCompositeLift closed",
-  "TP-TD3b.2 AperiodicScaleGrowingTypeIITwinSeparation highest_risk_open",
+  "TP-TD3b.2a RationalFourierInformationBudgetLowerBound closed",
+  "TP-TD3b.2b IrrationalOrSupercriticalAperiodicTypeIITwinSeparation highest_risk_open",
   "TP-TD4 PositiveExactGapLowerBound",
   "TP-TD5 ExactGapInfinitudeBridge"
 ]
@@ -34,18 +35,18 @@ def rankedCegisTarget : String :=
   "TP-TICKET-128 gives an exact endpoint-only countermodel and proves that a within-dyadic-block envelope yields limsup Q<=0.92*c+delta"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-136 AperiodicScaleGrowingTypeIITwinSeparation."
+  "TP-TICKET-137 IrrationalOrSupercriticalAperiodicTypeIITwinSeparation."
 
 def topAttackProofAttemptProtocol : String :=
-  "Use near-full-scale Type II information that does not factor through W(z) for z<=(1-epsilon)log X, distinguish the n<2Wqr composite lifts, and transfer a signed lower bound to exact gap two."
+  "Build irrational or supercritical aperiodic Type II information that does not factor through a subcritical rational denominator lcm, distinguish the n<2Lrs composite collisions, and transport a signed lower bound to positive exact-gap-two mass."
 
 def latestFiniteResult : String :=
-  "FiniteRationalFourierAlgebraCompositeLift: finitely many rational additive characters factor through their denominator lcm and inherit a proper composite-pair CRT witness"
+  "RationalFourierInformationBudgetLowerBound: denominator lcm L has an in-range composite-pair collision whenever 2*L*r*s<=X"
 
 def finiteEvidenceBoundary : String :=
-  "the quantitative CRT theorem excludes residue-only z(X)<=(1-epsilon)log X classifiers but says nothing against near-full-scale analytic information and is not a Twin Prime counterexample"
+  "the information-budget theorem excludes transcript-only rational Fourier sufficient certificates when 2*L*r*s<=X, but not external arithmetic data, irrational phases, supercritical periods, or analytic Type II information; it is not a Twin Prime counterexample"
 
 def retainedOpenPremise : String :=
-  "an aperiodic scale-growing factor-sensitive Type II separator, its signed transport, and positive exact-gap-two mass"
+  "an irrational or supercritical aperiodic factor-sensitive Type II separator, its signed transport, and positive exact-gap-two mass"
 
 end PrimeProject.OpenProblems.TwinPrime

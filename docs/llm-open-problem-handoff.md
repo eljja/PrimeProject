@@ -62,9 +62,36 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-136
+## Latest Continuation After TICKET-137
 
-TICKET136 is the current boundary. Read
+TICKET137 is the current boundary. Read
+`docs/cancellation-entropy-and-information-budget.md` and
+`data/open-problem/ticket137-cancellation-entropy-and-information-budget.json`
+before proposing a new route. None of the four conjectures is resolved.
+
+For RH, Hadamard cancellation proves that absolute row/column Schur sums can
+overestimate the true squared cross-operator norm by an unbounded factor.
+Attack `ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin`; another
+absolute-value envelope is not the decisive target.
+
+For Collatz, the exact affine-capped valuation survivor mass decays
+exponentially, but every finite cylinder has arbitrarily large natural
+representatives. Attack `ArithmeticEmptinessOfInfiniteAffineCappedNaturalCodeSet`;
+almost-everywhere or measure-zero language cannot establish emptiness.
+
+For Goldbach, every odd squarefree wheel `W<=X^(1-epsilon)` leaves a
+polynomial-size hard stratum, so worst-case moment promotion still needs
+`p=Omega(log X)`. Attack
+`NearFullScaleWheelOrPointwiseBinaryGoldbachResidualK56`.
+
+For Twin Prime, rational Fourier denominator lcm `L` has a proper composite-pair
+collision below `2Lrs`. Attack
+`IrrationalOrSupercriticalAperiodicTypeIITwinSeparation`; subcritical rational
+periods remain congruence information.
+
+## Historical Continuation After TICKET-136
+
+TICKET136 is the preserved previous boundary. Read
 `docs/scale-sensitive-obstructions-and-affine-bridge.md` and
 `data/open-problem/ticket136-scale-sensitive-obstructions-and-affine-bridge.json`
 before proposing a new route. None of the four conjectures is resolved.

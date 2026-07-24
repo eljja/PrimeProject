@@ -1,0 +1,399 @@
+{
+  "schema": "primeproject.ticket137-cancellation-entropy-and-information-budget.v1",
+  "generated_at": "2026-07-26T12:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-137",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "HadamardCancellationSchurOverestimateNoGo",
+  "bounded_result": {
+    "audit_ref": "riemann"
+  },
+  "candidate_theorem": "ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin",
+  "next_experiment": "Fix one projected Weil normalization and derive a signed operator or orthogonality-based spectral estimate together with an independently certified tail gap.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The counterfamily is an exact linear-algebra theorem, not a projected Weil estimate. It proves that the absolute Schur route can be arbitrarily wasteful; it supplies neither a signed Weil cross-block bound nor an RH proof or counterexample.",
+  "result": {
+    "theorem_name": "HadamardCancellationSchurOverestimateNoGo",
+    "title_ko": "Hadamard 상쇄에 의한 절댓값 Schur 과대평가 한계 정리",
+    "declared_target": "Test whether the absolute row/column Schur target promoted by TICKET136 is close enough to the true projected cross-operator norm to remain the decisive RH route.",
+    "proved_statement": "For every N=2^m>=4, let H_N be a Sylvester Hadamard matrix and B_N=H_N/N. Then every absolute row and column sum of B_N is one, whereas ||B_N||_2^2=1/N. Consequently the self-adjoint block with A=I and C=(2/N)I has positive true Schur margin 1/N, while the absolute-sum certificate reports the negative margin 2/N-1. The multiplicative overestimate in squared norm is exactly N.",
+    "proved_statement_ko": "N=2^m>=4인 모든 차원에서 Sylvester Hadamard 행렬 H_N과 B_N=H_N/N을 잡으면 B_N의 절댓값 행합과 열합은 모두 1이지만 실제 연산자 노름의 제곱은 1/N이다. 따라서 A=I, C=(2/N)I인 블록은 실제로 1/N의 양의 여유를 가지지만 절댓값 Schur 인증서는 2/N-1이라는 음의 여유를 보고한다. 제곱 노름의 과대평가 배수는 정확히 N이다.",
+    "proof": "Sylvester matrices satisfy H_N H_N^T=N I. Hence all singular values of B_N=H_N/N equal 1/sqrt(N). Every entry has magnitude 1/N, so each absolute row and column sum equals one. The sharp block criterion from TICKET135 accepts because alpha*gamma-||B_N||^2=2/N-1/N=1/N>0, but the TICKET136 absolute Schur substitution gives alpha*gamma-R*S=2/N-1<0.",
+    "exact_contract": {
+      "orthogonality": "H_N*H_N^T=N*I",
+      "scaled_cross_block": "B_N=H_N/N",
+      "true_norm": "||B_N||_2^2=1/N",
+      "absolute_schur_bound": "R*S=1",
+      "positive_block_example": "A=I, C=(2/N)I"
+    },
+    "hadamard_audit": {
+      "rows": [
+        {
+          "dimension": 4,
+          "scaled_entry_absolute_value": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "tail_gap_gamma": {
+            "exact": "1/2",
+            "numerator": "1",
+            "denominator": "2",
+            "decimal": 0.5
+          },
+          "true_operator_margin": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "absolute_schur_margin": {
+            "exact": "-1/2",
+            "numerator": "-1",
+            "denominator": "2",
+            "decimal": -0.5
+          },
+          "schur_overestimate_factor_squared": 4,
+          "checks": {
+            "hadamard_diagonal_identity": true,
+            "hadamard_off_diagonal_identity": true,
+            "true_block_margin_positive": true,
+            "absolute_schur_margin_negative": true
+          }
+        },
+        {
+          "dimension": 8,
+          "scaled_entry_absolute_value": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "tail_gap_gamma": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "true_operator_margin": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "absolute_schur_margin": {
+            "exact": "-3/4",
+            "numerator": "-3",
+            "denominator": "4",
+            "decimal": -0.75
+          },
+          "schur_overestimate_factor_squared": 8,
+          "checks": {
+            "hadamard_diagonal_identity": true,
+            "hadamard_off_diagonal_identity": true,
+            "true_block_margin_positive": true,
+            "absolute_schur_margin_negative": true
+          }
+        },
+        {
+          "dimension": 16,
+          "scaled_entry_absolute_value": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "tail_gap_gamma": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "true_operator_margin": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "absolute_schur_margin": {
+            "exact": "-7/8",
+            "numerator": "-7",
+            "denominator": "8",
+            "decimal": -0.875
+          },
+          "schur_overestimate_factor_squared": 16,
+          "checks": {
+            "hadamard_diagonal_identity": true,
+            "hadamard_off_diagonal_identity": true,
+            "true_block_margin_positive": true,
+            "absolute_schur_margin_negative": true
+          }
+        },
+        {
+          "dimension": 32,
+          "scaled_entry_absolute_value": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "tail_gap_gamma": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "true_operator_margin": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "absolute_schur_margin": {
+            "exact": "-15/16",
+            "numerator": "-15",
+            "denominator": "16",
+            "decimal": -0.9375
+          },
+          "schur_overestimate_factor_squared": 32,
+          "checks": {
+            "hadamard_diagonal_identity": true,
+            "hadamard_off_diagonal_identity": true,
+            "true_block_margin_positive": true,
+            "absolute_schur_margin_negative": true
+          }
+        },
+        {
+          "dimension": 64,
+          "scaled_entry_absolute_value": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "tail_gap_gamma": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "true_operator_margin": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "absolute_schur_margin": {
+            "exact": "-31/32",
+            "numerator": "-31",
+            "denominator": "32",
+            "decimal": -0.96875
+          },
+          "schur_overestimate_factor_squared": 64,
+          "checks": {
+            "hadamard_diagonal_identity": true,
+            "hadamard_off_diagonal_identity": true,
+            "true_block_margin_positive": true,
+            "absolute_schur_margin_negative": true
+          }
+        },
+        {
+          "dimension": 128,
+          "scaled_entry_absolute_value": {
+            "exact": "1/128",
+            "numerator": "1",
+            "denominator": "128",
+            "decimal": 0.0078125
+          },
+          "maximum_absolute_row_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "maximum_absolute_column_sum": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/128",
+            "numerator": "1",
+            "denominator": "128",
+            "decimal": 0.0078125
+          },
+          "tail_gap_gamma": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "true_operator_margin": {
+            "exact": "1/128",
+            "numerator": "1",
+            "denominator": "128",
+            "decimal": 0.0078125
+          },
+          "absolute_schur_margin": {
+            "exact": "-63/64",
+            "numerator": "-63",
+            "denominator": "64",
+            "decimal": -0.984375
+          },
+          "schur_overestimate_factor_squared": 128,
+          "checks": {
+            "hadamard_diagonal_identity": true,
+            "hadamard_off_diagonal_identity": true,
+            "true_block_margin_positive": true,
+            "absolute_schur_margin_negative": true
+          }
+        }
+      ],
+      "dimension_count": 6,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "signed or cancellation-sensitive projected Weil cross-block operator estimates combined with certified core and tail gaps",
+      "discard": "requiring absolute row/column summability as though it were a necessary approximation to the true cross-operator norm",
+      "next_theorem": "ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-TD4b.1",
+          "label": "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2a",
+          "label": "HadamardCancellationSchurOverestimateNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2b",
+          "label": "ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "RH",
+          "label": "Riemann Hypothesis",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-TD4b.1",
+          "RH-TD4b.2a"
+        ],
+        [
+          "RH-TD4b.2a",
+          "RH-TD4b.2b"
+        ],
+        [
+          "RH-TD4b.2b",
+          "RH"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "hadamard_dimension_count": 6,
+      "positive_true_margin_count": 6,
+      "rejected_absolute_schur_count": 6,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The counterfamily is an exact linear-algebra theorem, not a projected Weil estimate. It proves that the absolute Schur route can be arbitrarily wasteful; it supplies neither a signed Weil cross-block bound nor an RH proof or counterexample."
+  }
+}

@@ -1,0 +1,1502 @@
+{
+  "schema": "primeproject.ticket137-cancellation-entropy-and-information-budget.v1",
+  "generated_at": "2026-07-26T12:00:00+09:00",
+  "status": "exact_intermediate_theorems_proved_all_conjectures_open",
+  "claim_boundary": "TICKET137 proves four exact intermediate or no-go theorems and revises four proof targets. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime. No conjecture proof and no certified conjecture counterexample is claimed; all resolution counters remain zero.",
+  "cancellation_entropy_and_information_budget_audit": {
+    "theorem_name": "FourConjectureCancellationEntropyAndInformationBudgetAudit",
+    "riemann": {
+      "theorem_name": "HadamardCancellationSchurOverestimateNoGo",
+      "title_ko": "Hadamard 상쇄에 의한 절댓값 Schur 과대평가 한계 정리",
+      "declared_target": "Test whether the absolute row/column Schur target promoted by TICKET136 is close enough to the true projected cross-operator norm to remain the decisive RH route.",
+      "proved_statement": "For every N=2^m>=4, let H_N be a Sylvester Hadamard matrix and B_N=H_N/N. Then every absolute row and column sum of B_N is one, whereas ||B_N||_2^2=1/N. Consequently the self-adjoint block with A=I and C=(2/N)I has positive true Schur margin 1/N, while the absolute-sum certificate reports the negative margin 2/N-1. The multiplicative overestimate in squared norm is exactly N.",
+      "proved_statement_ko": "N=2^m>=4인 모든 차원에서 Sylvester Hadamard 행렬 H_N과 B_N=H_N/N을 잡으면 B_N의 절댓값 행합과 열합은 모두 1이지만 실제 연산자 노름의 제곱은 1/N이다. 따라서 A=I, C=(2/N)I인 블록은 실제로 1/N의 양의 여유를 가지지만 절댓값 Schur 인증서는 2/N-1이라는 음의 여유를 보고한다. 제곱 노름의 과대평가 배수는 정확히 N이다.",
+      "proof": "Sylvester matrices satisfy H_N H_N^T=N I. Hence all singular values of B_N=H_N/N equal 1/sqrt(N). Every entry has magnitude 1/N, so each absolute row and column sum equals one. The sharp block criterion from TICKET135 accepts because alpha*gamma-||B_N||^2=2/N-1/N=1/N>0, but the TICKET136 absolute Schur substitution gives alpha*gamma-R*S=2/N-1<0.",
+      "exact_contract": {
+        "orthogonality": "H_N*H_N^T=N*I",
+        "scaled_cross_block": "B_N=H_N/N",
+        "true_norm": "||B_N||_2^2=1/N",
+        "absolute_schur_bound": "R*S=1",
+        "positive_block_example": "A=I, C=(2/N)I"
+      },
+      "hadamard_audit": {
+        "rows": [
+          {
+            "dimension": 4,
+            "scaled_entry_absolute_value": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "tail_gap_gamma": {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            "true_operator_margin": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "absolute_schur_margin": {
+              "exact": "-1/2",
+              "numerator": "-1",
+              "denominator": "2",
+              "decimal": -0.5
+            },
+            "schur_overestimate_factor_squared": 4,
+            "checks": {
+              "hadamard_diagonal_identity": true,
+              "hadamard_off_diagonal_identity": true,
+              "true_block_margin_positive": true,
+              "absolute_schur_margin_negative": true
+            }
+          },
+          {
+            "dimension": 8,
+            "scaled_entry_absolute_value": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "tail_gap_gamma": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "true_operator_margin": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "absolute_schur_margin": {
+              "exact": "-3/4",
+              "numerator": "-3",
+              "denominator": "4",
+              "decimal": -0.75
+            },
+            "schur_overestimate_factor_squared": 8,
+            "checks": {
+              "hadamard_diagonal_identity": true,
+              "hadamard_off_diagonal_identity": true,
+              "true_block_margin_positive": true,
+              "absolute_schur_margin_negative": true
+            }
+          },
+          {
+            "dimension": 16,
+            "scaled_entry_absolute_value": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "tail_gap_gamma": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "true_operator_margin": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "absolute_schur_margin": {
+              "exact": "-7/8",
+              "numerator": "-7",
+              "denominator": "8",
+              "decimal": -0.875
+            },
+            "schur_overestimate_factor_squared": 16,
+            "checks": {
+              "hadamard_diagonal_identity": true,
+              "hadamard_off_diagonal_identity": true,
+              "true_block_margin_positive": true,
+              "absolute_schur_margin_negative": true
+            }
+          },
+          {
+            "dimension": 32,
+            "scaled_entry_absolute_value": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "tail_gap_gamma": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "true_operator_margin": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "absolute_schur_margin": {
+              "exact": "-15/16",
+              "numerator": "-15",
+              "denominator": "16",
+              "decimal": -0.9375
+            },
+            "schur_overestimate_factor_squared": 32,
+            "checks": {
+              "hadamard_diagonal_identity": true,
+              "hadamard_off_diagonal_identity": true,
+              "true_block_margin_positive": true,
+              "absolute_schur_margin_negative": true
+            }
+          },
+          {
+            "dimension": 64,
+            "scaled_entry_absolute_value": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "tail_gap_gamma": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "true_operator_margin": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "absolute_schur_margin": {
+              "exact": "-31/32",
+              "numerator": "-31",
+              "denominator": "32",
+              "decimal": -0.96875
+            },
+            "schur_overestimate_factor_squared": 64,
+            "checks": {
+              "hadamard_diagonal_identity": true,
+              "hadamard_off_diagonal_identity": true,
+              "true_block_margin_positive": true,
+              "absolute_schur_margin_negative": true
+            }
+          },
+          {
+            "dimension": 128,
+            "scaled_entry_absolute_value": {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            "maximum_absolute_row_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "maximum_absolute_column_sum": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            "tail_gap_gamma": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "true_operator_margin": {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            "absolute_schur_margin": {
+              "exact": "-63/64",
+              "numerator": "-63",
+              "denominator": "64",
+              "decimal": -0.984375
+            },
+            "schur_overestimate_factor_squared": 128,
+            "checks": {
+              "hadamard_diagonal_identity": true,
+              "hadamard_off_diagonal_identity": true,
+              "true_block_margin_positive": true,
+              "absolute_schur_margin_negative": true
+            }
+          }
+        ],
+        "dimension_count": 6,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "signed or cancellation-sensitive projected Weil cross-block operator estimates combined with certified core and tail gaps",
+        "discard": "requiring absolute row/column summability as though it were a necessary approximation to the true cross-operator norm",
+        "next_theorem": "ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-TD4b.1",
+            "label": "SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-TD4b.2a",
+            "label": "HadamardCancellationSchurOverestimateNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-TD4b.2b",
+            "label": "ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-TD4b.1",
+            "RH-TD4b.2a"
+          ],
+          [
+            "RH-TD4b.2a",
+            "RH-TD4b.2b"
+          ],
+          [
+            "RH-TD4b.2b",
+            "RH"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "hadamard_dimension_count": 6,
+        "positive_true_margin_count": 6,
+        "rejected_absolute_schur_count": 6,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The counterfamily is an exact linear-algebra theorem, not a projected Weil estimate. It proves that the absolute Schur route can be arbitrarily wasteful; it supplies neither a signed Weil cross-block bound nor an RH proof or counterexample."
+    },
+    "collatz": {
+      "theorem_name": "AffineCappedValuationCylinderMassDecay",
+      "title_ko": "Affine cap을 만족하는 valuation cylinder 질량 감소 정리",
+      "declared_target": "Quantify how exceptional the TICKET136 least-counterexample valuation constraint is, while testing whether small 2-adic measure can exclude a natural Collatz counterexample.",
+      "proved_statement": "Let B>=2 and let m_B(k) be the largest integer s with 2^s B^k<=(3B+1)^k. A least Collatz counterexample n_0>=B must have S_j<=m_B(j) for every j. Under normalized Haar measure on odd 2-adic integers, a valuation word of sum s has mass 2^-s, so the terminal-cap mass is exactly sum_{s=k}^{m_B(k)} C(s-1,k-1)2^-s. The all-prefix survivor mass is no larger and decays exponentially in k. Nevertheless every finite valuation cylinder is one odd residue class modulo 2^(s+1) and contains arbitrarily large positive integers.",
+      "proved_statement_ko": "B>=2에 대해 2^s B^k<=(3B+1)^k를 만족하는 최대 정수를 m_B(k)라 하자. B 이상인 최소 콜라츠 반례가 있다면 모든 j에서 S_j<=m_B(j)를 만족해야 한다. 홀수 2-adic 정수의 정규화 Haar 측도에서 valuation 합이 s인 word의 질량은 2^-s이므로 종단 cap 질량은 정확히 sum C(s-1,k-1)2^-s이며, 모든 prefix cap을 만족하는 질량은 이보다 작고 k에 대해 지수적으로 감소한다. 그러나 모든 유한 valuation cylinder는 modulo 2^(s+1)의 한 홀수 나머지류이므로 임의로 큰 양의 정수를 포함한다.",
+      "proof": "TICKET136 gives the cap for every non-descending prefix. A positive valuation composition a_1+...+a_k=s defines one odd cylinder of relative measure 2^-s, and there are C(s-1,k-1) such compositions. Summing gives the exact terminal mass; imposing every prefix cap only removes cylinders. For lambda=log_2(3+1/B) in (1,2), Chernoff applied to iid geometric masses P(a=r)=2^-r gives an exponential upper bound q(lambda)^k with q=(lambda/2)(lambda/(2(lambda-1)))^(lambda-1)<1. The residue-class description proves the finite-cylinder natural representatives.",
+      "exact_contract": {
+        "integer_cap": "m_B(k)=max{s:2^s*B^k<=(3B+1)^k}",
+        "word_mass": "mu(a_1,...,a_k)=2^-(a_1+...+a_k)",
+        "terminal_mass": "sum_{s=k}^{m_B(k)} binom(s-1,k-1)*2^-s",
+        "least_counterexample_condition": "S_j<=m_B(j) for every j"
+      },
+      "mass_audit": {
+        "rows": [
+          {
+            "least_counterexample_lower_bound": 2,
+            "depth": 8,
+            "exact_terminal_valuation_cap": 14,
+            "terminal_cap_mass": {
+              "exact": "1619/4096",
+              "numerator": "1619",
+              "denominator": "4096",
+              "decimal": 0.395263671875
+            },
+            "all_prefix_cap_mass": {
+              "exact": "2745/16384",
+              "numerator": "2745",
+              "denominator": "16384",
+              "decimal": 0.16754150390625
+            },
+            "chernoff_exponential_base": 0.9897662228068465,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 2,
+            "depth": 16,
+            "exact_terminal_valuation_cap": 28,
+            "terminal_cap_mass": {
+              "exact": "19179317/67108864",
+              "numerator": "19179317",
+              "denominator": "67108864",
+              "decimal": 0.28579409420490265
+            },
+            "all_prefix_cap_mass": {
+              "exact": "25020669/268435456",
+              "numerator": "25020669",
+              "denominator": "268435456",
+              "decimal": 0.09320925548672676
+            },
+            "chernoff_exponential_base": 0.9897662228068465,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 2,
+            "depth": 32,
+            "exact_terminal_valuation_cap": 57,
+            "terminal_cap_mass": {
+              "exact": "3846460098838585/18014398509481984",
+              "numerator": "3846460098838585",
+              "denominator": "18014398509481984",
+              "decimal": 0.21352142825162762
+            },
+            "all_prefix_cap_mass": {
+              "exact": "6450428541343117/144115188075855872",
+              "numerator": "6450428541343117",
+              "denominator": "144115188075855872",
+              "decimal": 0.04475883928311495
+            },
+            "chernoff_exponential_base": 0.9897662228068465,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 2,
+            "depth": 64,
+            "exact_terminal_valuation_cap": 115,
+            "terminal_cap_mass": {
+              "exact": "170731779671917098796199284627613/1298074214633706907132624082305024",
+              "numerator": "170731779671917098796199284627613",
+              "denominator": "1298074214633706907132624082305024",
+              "decimal": 0.13152697877146763
+            },
+            "all_prefix_cap_mass": {
+              "exact": "87888067574923438333849404405907/5192296858534827628530496329220096",
+              "numerator": "87888067574923438333849404405907",
+              "denominator": "5192296858534827628530496329220096",
+              "decimal": 0.01692662610968739
+            },
+            "chernoff_exponential_base": 0.9897662228068465,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 10,
+            "depth": 8,
+            "exact_terminal_valuation_cap": 13,
+            "terminal_cap_mass": {
+              "exact": "595/2048",
+              "numerator": "595",
+              "denominator": "2048",
+              "decimal": 0.29052734375
+            },
+            "all_prefix_cap_mass": {
+              "exact": "889/8192",
+              "numerator": "889",
+              "denominator": "8192",
+              "decimal": 0.1085205078125
+            },
+            "chernoff_exponential_base": 0.9590801337484964,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 10,
+            "depth": 16,
+            "exact_terminal_valuation_cap": 26,
+            "terminal_cap_mass": {
+              "exact": "342821/2097152",
+              "numerator": "342821",
+              "denominator": "2097152",
+              "decimal": 0.16346979141235352
+            },
+            "all_prefix_cap_mass": {
+              "exact": "1363943/33554432",
+              "numerator": "1363943",
+              "denominator": "33554432",
+              "decimal": 0.04064866900444031
+            },
+            "chernoff_exponential_base": 0.9590801337484964,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 10,
+            "depth": 32,
+            "exact_terminal_valuation_cap": 52,
+            "terminal_cap_mass": {
+              "exact": "35563540222183/562949953421312",
+              "numerator": "35563540222183",
+              "denominator": "562949953421312",
+              "decimal": 0.06317353790696068
+            },
+            "all_prefix_cap_mass": {
+              "exact": "45447383679849/4503599627370496",
+              "numerator": "45447383679849",
+              "denominator": "4503599627370496",
+              "decimal": 0.010091346354068387
+            },
+            "chernoff_exponential_base": 0.9590801337484964,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 10,
+            "depth": 64,
+            "exact_terminal_valuation_cap": 104,
+            "terminal_cap_mass": {
+              "exact": "29974404350971674109699822675/2535301200456458802993406410752",
+              "numerator": "29974404350971674109699822675",
+              "denominator": "2535301200456458802993406410752",
+              "decimal": 0.011822817874884074
+            },
+            "all_prefix_cap_mass": {
+              "exact": "23880327432778437150508502251/20282409603651670423947251286016",
+              "numerator": "23880327432778437150508502251",
+              "denominator": "20282409603651670423947251286016",
+              "decimal": 0.0011773910447247348
+            },
+            "chernoff_exponential_base": 0.9590801337484964,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 1000,
+            "depth": 8,
+            "exact_terminal_valuation_cap": 12,
+            "terminal_cap_mass": {
+              "exact": "397/2048",
+              "numerator": "397",
+              "denominator": "2048",
+              "decimal": 0.19384765625
+            },
+            "all_prefix_cap_mass": {
+              "exact": "367/4096",
+              "numerator": "367",
+              "denominator": "4096",
+              "decimal": 0.089599609375
+            },
+            "chernoff_exponential_base": 0.9466426458832188,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 1000,
+            "depth": 16,
+            "exact_terminal_valuation_cap": 25,
+            "terminal_cap_mass": {
+              "exact": "962689/8388608",
+              "numerator": "962689",
+              "denominator": "8388608",
+              "decimal": 0.11476147174835205
+            },
+            "all_prefix_cap_mass": {
+              "exact": "518687/16777216",
+              "numerator": "518687",
+              "denominator": "16777216",
+              "decimal": 0.030916154384613037
+            },
+            "chernoff_exponential_base": 0.9466426458832188,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 1000,
+            "depth": 32,
+            "exact_terminal_valuation_cap": 50,
+            "terminal_cap_mass": {
+              "exact": "4567539980747/140737488355328",
+              "numerator": "4567539980747",
+              "denominator": "140737488355328",
+              "decimal": 0.03245432353613609
+            },
+            "all_prefix_cap_mass": {
+              "exact": "834200090269/140737488355328",
+              "numerator": "834200090269",
+              "denominator": "140737488355328",
+              "decimal": 0.005927348143110578
+            },
+            "chernoff_exponential_base": 0.9466426458832188,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 1000,
+            "depth": 64,
+            "exact_terminal_valuation_cap": 101,
+            "terminal_cap_mass": {
+              "exact": "369799354790462131856222855/79228162514264337593543950336",
+              "numerator": "369799354790462131856222855",
+              "denominator": "79228162514264337593543950336",
+              "decimal": 0.004667524060322401
+            },
+            "all_prefix_cap_mass": {
+              "exact": "1142025540454435634817211795/2535301200456458802993406410752",
+              "numerator": "1142025540454435634817211795",
+              "denominator": "2535301200456458802993406410752",
+              "decimal": 0.00045044965081420066
+            },
+            "chernoff_exponential_base": 0.9466426458832188,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 1000000,
+            "depth": 8,
+            "exact_terminal_valuation_cap": 12,
+            "terminal_cap_mass": {
+              "exact": "397/2048",
+              "numerator": "397",
+              "denominator": "2048",
+              "decimal": 0.19384765625
+            },
+            "all_prefix_cap_mass": {
+              "exact": "367/4096",
+              "numerator": "367",
+              "denominator": "4096",
+              "decimal": 0.089599609375
+            },
+            "chernoff_exponential_base": 0.9465047150324255,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 1000000,
+            "depth": 16,
+            "exact_terminal_valuation_cap": 25,
+            "terminal_cap_mass": {
+              "exact": "962689/8388608",
+              "numerator": "962689",
+              "denominator": "8388608",
+              "decimal": 0.11476147174835205
+            },
+            "all_prefix_cap_mass": {
+              "exact": "518687/16777216",
+              "numerator": "518687",
+              "denominator": "16777216",
+              "decimal": 0.030916154384613037
+            },
+            "chernoff_exponential_base": 0.9465047150324255,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 1000000,
+            "depth": 32,
+            "exact_terminal_valuation_cap": 50,
+            "terminal_cap_mass": {
+              "exact": "4567539980747/140737488355328",
+              "numerator": "4567539980747",
+              "denominator": "140737488355328",
+              "decimal": 0.03245432353613609
+            },
+            "all_prefix_cap_mass": {
+              "exact": "834200090269/140737488355328",
+              "numerator": "834200090269",
+              "denominator": "140737488355328",
+              "decimal": 0.005927348143110578
+            },
+            "chernoff_exponential_base": 0.9465047150324255,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          },
+          {
+            "least_counterexample_lower_bound": 1000000,
+            "depth": 64,
+            "exact_terminal_valuation_cap": 101,
+            "terminal_cap_mass": {
+              "exact": "369799354790462131856222855/79228162514264337593543950336",
+              "numerator": "369799354790462131856222855",
+              "denominator": "79228162514264337593543950336",
+              "decimal": 0.004667524060322401
+            },
+            "all_prefix_cap_mass": {
+              "exact": "1136111575125541585929259675/2535301200456458802993406410752",
+              "numerator": "1136111575125541585929259675",
+              "denominator": "2535301200456458802993406410752",
+              "decimal": 0.00044811700279280217
+            },
+            "chernoff_exponential_base": 0.9465047150324255,
+            "checks": {
+              "integer_cap_exact": true,
+              "prefix_mass_bounded_by_terminal_mass": true,
+              "prefix_survivor_mass_nonincreasing": true,
+              "chernoff_base_strictly_below_one": true,
+              "terminal_mass_within_chernoff_bound": true
+            }
+          }
+        ],
+        "cylinder_rows": [
+          {
+            "valuation_word": [
+              1,
+              2,
+              1
+            ],
+            "valuation_sum": 4,
+            "odd_residue": 27,
+            "modulus": 32,
+            "relative_haar_mass": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "positive_representatives": [
+              59,
+              251,
+              1019
+            ],
+            "checks": {
+              "unique_class_measure": true,
+              "arbitrarily_large_representatives_replay": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              1,
+              3
+            ],
+            "valuation_sum": 6,
+            "odd_residue": 25,
+            "modulus": 128,
+            "relative_haar_mass": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "positive_representatives": [
+              153,
+              921,
+              3993
+            ],
+            "checks": {
+              "unique_class_measure": true,
+              "arbitrarily_large_representatives_replay": true
+            }
+          },
+          {
+            "valuation_word": [
+              3,
+              2,
+              2
+            ],
+            "valuation_sum": 7,
+            "odd_residue": 173,
+            "modulus": 256,
+            "relative_haar_mass": {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            "positive_representatives": [
+              429,
+              1965,
+              8109
+            ],
+            "checks": {
+              "unique_class_measure": true,
+              "arbitrarily_large_representatives_replay": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              1,
+              1,
+              1,
+              2
+            ],
+            "valuation_sum": 6,
+            "odd_residue": 31,
+            "modulus": 128,
+            "relative_haar_mass": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "positive_representatives": [
+              159,
+              927,
+              3999
+            ],
+            "checks": {
+              "unique_class_measure": true,
+              "arbitrarily_large_representatives_replay": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "deterministic arithmetic exclusion of natural integer codes from the infinite affine-capped survivor set",
+        "discard": "promoting exponentially small or zero 2-adic measure to emptiness of the embedded natural Collatz codes",
+        "next_theorem": "ArithmeticEmptinessOfInfiniteAffineCappedNaturalCodeSet"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-TD4b.1",
+            "label": "LeastCounterexampleAffineCorrectionInequality",
+            "status": "closed"
+          },
+          {
+            "id": "CO-TD4b.2a",
+            "label": "AffineCappedValuationCylinderMassDecay",
+            "status": "closed"
+          },
+          {
+            "id": "CO-TD4b.2b",
+            "label": "ArithmeticEmptinessOfInfiniteAffineCappedNaturalCodeSet",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-TD4b.1",
+            "CO-TD4b.2a"
+          ],
+          [
+            "CO-TD4b.2a",
+            "CO-TD4b.2b"
+          ],
+          [
+            "CO-TD4b.2b",
+            "CO"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "mass_row_count": 16,
+        "finite_cylinder_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The exact measure formula and exponential upper bound concern 2-adic Haar mass. A measure-zero survivor set can still contain embedded natural integers, and every finite cylinder does. No arithmetic emptiness theorem, Collatz proof, or counterexample is supplied."
+    },
+    "goldbach": {
+      "theorem_name": "SubpowerGrowingWheelLogMomentBarrier",
+      "title_ko": "부분 거듭제곱 성장 wheel의 로그 모멘트 장벽 정리",
+      "declared_target": "Determine whether merely replacing the fixed Goldbach wheel in TICKET136 by a growing wheel can reduce the moment order below log X.",
+      "proved_statement": "Let W be odd and squarefree, X=2WM, and H_W(X) the even integers through X coprime to W. Then |H_W(X)|=M phi(W) and phi(W)^2>=W. If W<=X^(1-epsilon), then |H_W(X)|>=X^((1+epsilon)/2)/2. Therefore any normalized L^p-to-maximum promotion with inflation factor at most 6/5 still requires p>=(((1+epsilon)/2)log X-log 2)/log(6/5), which is Omega(log X).",
+      "proved_statement_ko": "W가 홀수 squarefree이고 X=2WM일 때 W와 서로소인 X 이하 짝수의 수는 M phi(W)이며 phi(W)^2>=W이다. W<=X^(1-epsilon)이면 hard stratum의 크기는 X^((1+epsilon)/2)/2 이상이다. 따라서 정규화 L^p 값을 최대값으로 올릴 때 팽창계수를 6/5 이하로 만들려면 여전히 p=Omega(log X)가 필요하다.",
+      "proof": "Writing each even N as 2m, oddness of W gives gcd(N,W)=gcd(m,W). Each complete block of W consecutive m therefore contributes phi(W) hard residues. For squarefree odd W, phi(W)^2/W=product_{p|W}(p-1)^2/p>=1. Substituting M=X/(2W) yields h=M phi(W)>=X/(2 sqrt(W)); the assumed wheel scale gives the displayed power lower bound. Since ||x||_infinity<=h^(1/p)||x||_p is sharp on one-point spikes, h^(1/p)<=6/5 forces p>=log(h)/log(6/5).",
+      "exact_contract": {
+        "hard_count": "|H_W(2WM)|=M*phi(W)",
+        "totient_bound": "phi(W)^2>=W for odd squarefree W",
+        "subpower_assumption": "0<epsilon<=1 and W<=X^(1-epsilon)",
+        "moment_threshold": "p>=log(|H_W(X)|)/log(6/5)"
+      },
+      "wheel_audit": {
+        "rows": [
+          {
+            "wheel": 3,
+            "scale_X": 18,
+            "complete_period_blocks": 3,
+            "hard_residues_per_period": 2,
+            "hard_stratum_size": 6,
+            "minimum_p_for_factor_at_most_6_over_5": 10,
+            "log_X": 2.8903717578961645,
+            "moment_over_log_X": 3.4597625626119357,
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "phi_square_lower_bound": true,
+              "hard_count_scale_lower_bound": true,
+              "half_power_wheel_condition": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 15,
+            "scale_X": 450,
+            "complete_period_blocks": 15,
+            "hard_residues_per_period": 8,
+            "hard_stratum_size": 120,
+            "minimum_p_for_factor_at_most_6_over_5": 27,
+            "log_X": 6.1092475827643655,
+            "moment_over_log_X": 4.419529513941028,
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "phi_square_lower_bound": true,
+              "hard_count_scale_lower_bound": true,
+              "half_power_wheel_condition": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 105,
+            "scale_X": 22050,
+            "complete_period_blocks": 105,
+            "hard_residues_per_period": 48,
+            "hard_stratum_size": 5040,
+            "minimum_p_for_factor_at_most_6_over_5": 47,
+            "log_X": 10.001067880874992,
+            "moment_over_log_X": 4.699498149580401,
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "phi_square_lower_bound": true,
+              "hard_count_scale_lower_bound": true,
+              "half_power_wheel_condition": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 1155,
+            "scale_X": 2668050,
+            "complete_period_blocks": 1155,
+            "hard_residues_per_period": 480,
+            "hard_stratum_size": 554400,
+            "minimum_p_for_factor_at_most_6_over_5": 73,
+            "log_X": 14.796858426471733,
+            "moment_over_log_X": 4.933479654667929,
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "phi_square_lower_bound": true,
+              "hard_count_scale_lower_bound": true,
+              "half_power_wheel_condition": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 15015,
+            "scale_X": 450900450,
+            "complete_period_blocks": 15015,
+            "hard_residues_per_period": 5760,
+            "hard_stratum_size": 86486400,
+            "minimum_p_for_factor_at_most_6_over_5": 101,
+            "log_X": 19.926757141394805,
+            "moment_over_log_X": 5.0685617977542305,
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "phi_square_lower_bound": true,
+              "hard_count_scale_lower_bound": true,
+              "half_power_wheel_condition": true,
+              "exact_moment_threshold": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "near-full-scale wheel localization or a direct pointwise signed binary Goldbach residual bound with K<=56",
+        "discard": "expecting any W(X)<=X^(1-epsilon) growing wheel by itself to turn a sublogarithmic moment estimate into pointwise positivity",
+        "next_theorem": "NearFullScaleWheelOrPointwiseBinaryGoldbachResidualK56"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-TD4b.1",
+            "label": "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier",
+            "status": "closed"
+          },
+          {
+            "id": "GB-TD4b.2a",
+            "label": "SubpowerGrowingWheelLogMomentBarrier",
+            "status": "closed"
+          },
+          {
+            "id": "GB-TD4b.2b",
+            "label": "NearFullScaleWheelOrPointwiseBinaryGoldbachResidualK56",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-TD4b.1",
+            "GB-TD4b.2a"
+          ],
+          [
+            "GB-TD4b.2a",
+            "GB-TD4b.2b"
+          ],
+          [
+            "GB-TD4b.2b",
+            "GB"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "wheel_scale_count": 5,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "This theorem is an inference barrier for subpower squarefree wheels. It proves no binary Goldbach residual estimate and does not cover near-full-scale localization or a direct pointwise argument."
+    },
+    "twin_prime": {
+      "theorem_name": "RationalFourierInformationBudgetLowerBound",
+      "title_ko": "유리 Fourier 분리기의 정보 예산 하한 정리",
+      "declared_target": "Quantify how fast the rational Fourier denominator budget must grow before the finite-period obstruction of TICKET136 can even cease to produce an in-range composite-pair collision.",
+      "proved_statement": "At scale X, let a finite rational Fourier pair-feature map use frequencies a_j/q_j and put L=lcm(q_j). For every locally admissible class modulo L and distinct primes r,s not dividing 2L, there is a proper composite pair n,n+2 with the same transcript as every integer in that class and n<2Lrs. Hence if 2Lrs<=X, no locally admissible transcript is by itself a sound sufficient certificate of twin primality on [1,X]. Any zero-false-positive separator that depends only on these transcripts must violate this budget, requiring L>X/(2rs) for the selected outside-prime pair.",
+      "proved_statement_ko": "규모 X에서 유한 rational Fourier pair-feature가 a_j/q_j를 사용하고 L=lcm(q_j)라 하자. modulo L의 모든 국소 허용류와 2L을 나누지 않는 서로 다른 소수 r,s에 대해 같은 feature transcript를 가지는 그 나머지류의 모든 정수와 같은 transcript를 가진 합성수 쌍 n,n+2가 n<2Lrs에 존재한다. 따라서 2Lrs<=X이면 국소 허용 transcript만으로는 X 이하 쌍둥이 소수성의 건전한 충분 인증서가 될 수 없다. 오탐이 없는 transcript 전용 유리 분리기는 최소한 L>X/(2rs)의 정보 예산을 가져야 한다.",
+      "proof": "Every character exp(2 pi i a_j n/q_j), evaluated at n and n+2, factors through n modulo L. CRT imposes n=a mod L, r|n, and s|n+2. Adding Lrs once when needed makes both factors proper while keeping n<2Lrs. The contrapositive gives the denominator-lcm lower bound for any in-range collision-free rational separator.",
+      "exact_contract": {
+        "feature_period": "L=lcm(q_1,...,q_m)",
+        "collision_bound": "n<2*L*r*s",
+        "subcritical_budget": "2*L*r*s<=X",
+        "certificate_scope": "feature-transcript-only sufficient certificates with zero composite-pair false positives on [1,X]",
+        "necessary_escape": "L>X/(2*r*s) or non-rational/aperiodic information"
+      },
+      "information_budget_audit": {
+        "rows": [
+          {
+            "characters": [
+              {
+                "numerator": 1,
+                "denominator": 3
+              },
+              {
+                "numerator": 2,
+                "denominator": 5
+              },
+              {
+                "numerator": 1,
+                "denominator": 8
+              }
+            ],
+            "denominator_lcm_L": 120,
+            "outside_primes": [
+              11,
+              13
+            ],
+            "audit_scale_X": 34320,
+            "exact_budget_ratio_X_over_2qr": 120,
+            "denominator_information_bits": 7,
+            "admissible_class_count": 12,
+            "collision_count": 12,
+            "examples": [
+              {
+                "admissible_residue": 11,
+                "composite_pair_start": "17171",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              },
+              {
+                "admissible_residue": 17,
+                "composite_pair_start": "6017",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              },
+              {
+                "admissible_residue": 29,
+                "composite_pair_start": "869",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              }
+            ],
+            "row_failure_count": 0
+          },
+          {
+            "characters": [
+              {
+                "numerator": 1,
+                "denominator": 7
+              },
+              {
+                "numerator": 3,
+                "denominator": 9
+              },
+              {
+                "numerator": 2,
+                "denominator": 11
+              }
+            ],
+            "denominator_lcm_L": 693,
+            "outside_primes": [
+              13,
+              17
+            ],
+            "audit_scale_X": 306306,
+            "exact_budget_ratio_X_over_2qr": 693,
+            "denominator_information_bits": 10,
+            "admissible_class_count": 32,
+            "collision_count": 32,
+            "examples": [
+              {
+                "admissible_residue": 2,
+                "composite_pair_start": "130286",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              },
+              {
+                "admissible_residue": 8,
+                "composite_pair_start": "7631",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              },
+              {
+                "admissible_residue": 17,
+                "composite_pair_start": "53378",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              }
+            ],
+            "row_failure_count": 0
+          },
+          {
+            "characters": [
+              {
+                "numerator": 1,
+                "denominator": 16
+              },
+              {
+                "numerator": 5,
+                "denominator": 21
+              },
+              {
+                "numerator": 7,
+                "denominator": 25
+              }
+            ],
+            "denominator_lcm_L": 8400,
+            "outside_primes": [
+              29,
+              31
+            ],
+            "audit_scale_X": 15103200,
+            "exact_budget_ratio_X_over_2qr": 8400,
+            "denominator_information_bits": 14,
+            "admissible_class_count": 32,
+            "collision_count": 32,
+            "examples": [
+              {
+                "admissible_residue": 11,
+                "composite_pair_start": "2713211",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              },
+              {
+                "admissible_residue": 17,
+                "composite_pair_start": "4326017",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              },
+              {
+                "admissible_residue": 29,
+                "composite_pair_start": "7551629",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              }
+            ],
+            "row_failure_count": 0
+          },
+          {
+            "characters": [
+              {
+                "numerator": 1,
+                "denominator": 27
+              },
+              {
+                "numerator": 4,
+                "denominator": 32
+              },
+              {
+                "numerator": 9,
+                "denominator": 35
+              }
+            ],
+            "denominator_lcm_L": 30240,
+            "outside_primes": [
+              37,
+              41
+            ],
+            "audit_scale_X": 91748160,
+            "exact_budget_ratio_X_over_2qr": 30240,
+            "denominator_information_bits": 15,
+            "admissible_class_count": 32,
+            "collision_count": 32,
+            "examples": [
+              {
+                "admissible_residue": 11,
+                "composite_pair_start": "44724971",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              },
+              {
+                "admissible_residue": 17,
+                "composite_pair_start": "36469457",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              },
+              {
+                "admissible_residue": 29,
+                "composite_pair_start": "19958429",
+                "checks": {
+                  "below_information_budget_scale": true,
+                  "same_rational_fourier_pair_transcript": true,
+                  "left_proper_composite": true,
+                  "right_proper_composite": true
+                }
+              }
+            ],
+            "row_failure_count": 0
+          }
+        ],
+        "total_collision_count": 108,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "irrational, aperiodic, factor-sensitive Type II information or a supercritical rational denominator budget with signed transport",
+        "discard": "subcritical rational Fourier feature families satisfying 2*lcm(q_j)*r*s<=X as exact twin-primality separators",
+        "next_theorem": "IrrationalOrSupercriticalAperiodicTypeIITwinSeparation"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-TD3b.1",
+            "label": "FiniteRationalFourierAlgebraCompositeLift",
+            "status": "closed"
+          },
+          {
+            "id": "TP-TD3b.2a",
+            "label": "RationalFourierInformationBudgetLowerBound",
+            "status": "closed"
+          },
+          {
+            "id": "TP-TD3b.2b",
+            "label": "IrrationalOrSupercriticalAperiodicTypeIITwinSeparation",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-TD3b.1",
+            "TP-TD3b.2a"
+          ],
+          [
+            "TP-TD3b.2a",
+            "TP-TD3b.2b"
+          ],
+          [
+            "TP-TD3b.2b",
+            "TP"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "feature_family_count": 4,
+        "composite_collision_count": 108,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The budget theorem excludes only transcript-only sufficient certificates built from exact finite rational Fourier features below the displayed scale. It does not exclude certificates using external arithmetic data, irrational phases, supercritical denominator growth, or analytic Type II cancellation, and it gives no positive exact-gap-two lower bound."
+    },
+    "cross_problem_synthesis": {
+      "shared_obstruction": "Magnitude-only, measure-only, and finite-period summaries can be quantitatively strong while still losing the signed or pointwise arithmetic information needed by the conjecture.",
+      "shared_upgrade": "The next routes must preserve cancellation, arithmetic emptiness, near-pointwise control, or aperiodic factor-sensitive information."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET137 proves four exact intermediate or no-go theorems and revises four proof targets. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime. No conjecture proof and no certified conjecture counterexample is claimed; all resolution counters remain zero."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-137",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "HadamardCancellationSchurOverestimateNoGo",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "candidate_theorem": "ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin",
+      "next_experiment": "Fix one projected Weil normalization and derive a signed operator or orthogonality-based spectral estimate together with an independently certified tail gap.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The counterfamily is an exact linear-algebra theorem, not a projected Weil estimate. It proves that the absolute Schur route can be arbitrarily wasteful; it supplies neither a signed Weil cross-block bound nor an RH proof or counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-137",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "AffineCappedValuationCylinderMassDecay",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "candidate_theorem": "ArithmeticEmptinessOfInfiniteAffineCappedNaturalCodeSet",
+      "next_experiment": "Characterize the infinite affine-capped survivor set and prove that no embedded positive-integer valuation code can remain in it at every depth.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The exact measure formula and exponential upper bound concern 2-adic Haar mass. A measure-zero survivor set can still contain embedded natural integers, and every finite cylinder does. No arithmetic emptiness theorem, Collatz proof, or counterexample is supplied."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-137",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "SubpowerGrowingWheelLogMomentBarrier",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "candidate_theorem": "NearFullScaleWheelOrPointwiseBinaryGoldbachResidualK56",
+      "next_experiment": "Either localize at near-full wheel scale with all complementary strata controlled or prove the signed residual bound pointwise with K<=56.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "This theorem is an inference barrier for subpower squarefree wheels. It proves no binary Goldbach residual estimate and does not cover near-full-scale localization or a direct pointwise argument."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-137",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "RationalFourierInformationBudgetLowerBound",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "candidate_theorem": "IrrationalOrSupercriticalAperiodicTypeIITwinSeparation",
+      "next_experiment": "Construct a factor-sensitive Type II statistic outside the subcritical rational-period budget and prove signed transport to positive exact-gap-two mass.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The budget theorem excludes only transcript-only sufficient certificates built from exact finite rational Fourier features below the displayed scale. It does not exclude certificates using external arithmetic data, irrational phases, supercritical denominator growth, or analytic Type II cancellation, and it gives no positive exact-gap-two lower bound."
+    }
+  ]
+}

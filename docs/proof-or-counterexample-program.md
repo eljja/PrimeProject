@@ -5574,3 +5574,41 @@ The next target is `AperiodicScaleGrowingTypeIITwinSeparation`.
 All four conjectures remain open. TICKET-136 exact theorem count is four,
 route-correction count is four, proof-DAG count is four, and
 conjecture-resolution count is zero.
+
+# TICKET-137 continuation: cancellation, entropy, and information budgets
+
+TICKET-137 preserves every valid TICKET-136 theorem while rejecting four
+remaining overstrong inference routes. The machine-readable audit is
+`data/open-problem/ticket137-cancellation-entropy-and-information-budget.json`.
+
+For RH, `HadamardCancellationSchurOverestimateNoGo` proves that
+`B_N=H_N/N` has absolute Schur product `R*S=1` but true squared operator norm
+`1/N`. Absolute row and column sums are therefore sufficient but can be
+arbitrarily too strong. The next target is
+`ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin`.
+
+For Collatz, `AffineCappedValuationCylinderMassDecay` gives the exact Haar mass
+of valuation words satisfying the TICKET-136 affine cap and proves exponential
+decay. Every finite cylinder still contains arbitrarily large positive
+integers, so measure zero cannot be promoted to arithmetic emptiness. The next
+target is `ArithmeticEmptinessOfInfiniteAffineCappedNaturalCodeSet`.
+
+For Goldbach, `SubpowerGrowingWheelLogMomentBarrier` proves that every odd
+squarefree `W<=X^(1-epsilon)` leaves a polynomial-size hard stratum and still
+requires `p=Omega(log X)` for worst-case moment promotion. The next target is
+`NearFullScaleWheelOrPointwiseBinaryGoldbachResidualK56`.
+
+For Twin Prime, `RationalFourierInformationBudgetLowerBound` proves that a
+rational Fourier denominator lcm `L` has an in-range proper composite-pair
+collision whenever `2Lrs<=X`. The next target is
+`IrrationalOrSupercriticalAperiodicTypeIITwinSeparation`.
+
+한국어 요약: 절댓값 크기는 RH의 부호 상쇄를, 작은 측도는 Collatz의 자연수
+공집합을, 낮은 모멘트는 Goldbach의 점별 양성을, 유한 유리 주기는 Twin
+Prime의 인수 민감 정보를 보존하지 못한다. TICKET-137은 이 네 손실을 정확한
+정리로 확정하고 다음 보조정리를 수정했다. 네 난제는 모두 미해결이며 해결
+카운트는 0이다.
+
+All four conjectures remain open. TICKET-137 exact theorem count is four,
+route-correction count is four, proof-DAG count is four, and
+conjecture-resolution count is zero.

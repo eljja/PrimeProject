@@ -1,0 +1,322 @@
+{
+  "schema": "primeproject.ticket137-cancellation-entropy-and-information-budget.v1",
+  "generated_at": "2026-07-26T12:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-137",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "RationalFourierInformationBudgetLowerBound",
+  "bounded_result": {
+    "audit_ref": "twin_prime"
+  },
+  "candidate_theorem": "IrrationalOrSupercriticalAperiodicTypeIITwinSeparation",
+  "next_experiment": "Construct a factor-sensitive Type II statistic outside the subcritical rational-period budget and prove signed transport to positive exact-gap-two mass.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The budget theorem excludes only transcript-only sufficient certificates built from exact finite rational Fourier features below the displayed scale. It does not exclude certificates using external arithmetic data, irrational phases, supercritical denominator growth, or analytic Type II cancellation, and it gives no positive exact-gap-two lower bound.",
+  "result": {
+    "theorem_name": "RationalFourierInformationBudgetLowerBound",
+    "title_ko": "유리 Fourier 분리기의 정보 예산 하한 정리",
+    "declared_target": "Quantify how fast the rational Fourier denominator budget must grow before the finite-period obstruction of TICKET136 can even cease to produce an in-range composite-pair collision.",
+    "proved_statement": "At scale X, let a finite rational Fourier pair-feature map use frequencies a_j/q_j and put L=lcm(q_j). For every locally admissible class modulo L and distinct primes r,s not dividing 2L, there is a proper composite pair n,n+2 with the same transcript as every integer in that class and n<2Lrs. Hence if 2Lrs<=X, no locally admissible transcript is by itself a sound sufficient certificate of twin primality on [1,X]. Any zero-false-positive separator that depends only on these transcripts must violate this budget, requiring L>X/(2rs) for the selected outside-prime pair.",
+    "proved_statement_ko": "규모 X에서 유한 rational Fourier pair-feature가 a_j/q_j를 사용하고 L=lcm(q_j)라 하자. modulo L의 모든 국소 허용류와 2L을 나누지 않는 서로 다른 소수 r,s에 대해 같은 feature transcript를 가지는 그 나머지류의 모든 정수와 같은 transcript를 가진 합성수 쌍 n,n+2가 n<2Lrs에 존재한다. 따라서 2Lrs<=X이면 국소 허용 transcript만으로는 X 이하 쌍둥이 소수성의 건전한 충분 인증서가 될 수 없다. 오탐이 없는 transcript 전용 유리 분리기는 최소한 L>X/(2rs)의 정보 예산을 가져야 한다.",
+    "proof": "Every character exp(2 pi i a_j n/q_j), evaluated at n and n+2, factors through n modulo L. CRT imposes n=a mod L, r|n, and s|n+2. Adding Lrs once when needed makes both factors proper while keeping n<2Lrs. The contrapositive gives the denominator-lcm lower bound for any in-range collision-free rational separator.",
+    "exact_contract": {
+      "feature_period": "L=lcm(q_1,...,q_m)",
+      "collision_bound": "n<2*L*r*s",
+      "subcritical_budget": "2*L*r*s<=X",
+      "certificate_scope": "feature-transcript-only sufficient certificates with zero composite-pair false positives on [1,X]",
+      "necessary_escape": "L>X/(2*r*s) or non-rational/aperiodic information"
+    },
+    "information_budget_audit": {
+      "rows": [
+        {
+          "characters": [
+            {
+              "numerator": 1,
+              "denominator": 3
+            },
+            {
+              "numerator": 2,
+              "denominator": 5
+            },
+            {
+              "numerator": 1,
+              "denominator": 8
+            }
+          ],
+          "denominator_lcm_L": 120,
+          "outside_primes": [
+            11,
+            13
+          ],
+          "audit_scale_X": 34320,
+          "exact_budget_ratio_X_over_2qr": 120,
+          "denominator_information_bits": 7,
+          "admissible_class_count": 12,
+          "collision_count": 12,
+          "examples": [
+            {
+              "admissible_residue": 11,
+              "composite_pair_start": "17171",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            },
+            {
+              "admissible_residue": 17,
+              "composite_pair_start": "6017",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            },
+            {
+              "admissible_residue": 29,
+              "composite_pair_start": "869",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            }
+          ],
+          "row_failure_count": 0
+        },
+        {
+          "characters": [
+            {
+              "numerator": 1,
+              "denominator": 7
+            },
+            {
+              "numerator": 3,
+              "denominator": 9
+            },
+            {
+              "numerator": 2,
+              "denominator": 11
+            }
+          ],
+          "denominator_lcm_L": 693,
+          "outside_primes": [
+            13,
+            17
+          ],
+          "audit_scale_X": 306306,
+          "exact_budget_ratio_X_over_2qr": 693,
+          "denominator_information_bits": 10,
+          "admissible_class_count": 32,
+          "collision_count": 32,
+          "examples": [
+            {
+              "admissible_residue": 2,
+              "composite_pair_start": "130286",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            },
+            {
+              "admissible_residue": 8,
+              "composite_pair_start": "7631",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            },
+            {
+              "admissible_residue": 17,
+              "composite_pair_start": "53378",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            }
+          ],
+          "row_failure_count": 0
+        },
+        {
+          "characters": [
+            {
+              "numerator": 1,
+              "denominator": 16
+            },
+            {
+              "numerator": 5,
+              "denominator": 21
+            },
+            {
+              "numerator": 7,
+              "denominator": 25
+            }
+          ],
+          "denominator_lcm_L": 8400,
+          "outside_primes": [
+            29,
+            31
+          ],
+          "audit_scale_X": 15103200,
+          "exact_budget_ratio_X_over_2qr": 8400,
+          "denominator_information_bits": 14,
+          "admissible_class_count": 32,
+          "collision_count": 32,
+          "examples": [
+            {
+              "admissible_residue": 11,
+              "composite_pair_start": "2713211",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            },
+            {
+              "admissible_residue": 17,
+              "composite_pair_start": "4326017",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            },
+            {
+              "admissible_residue": 29,
+              "composite_pair_start": "7551629",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            }
+          ],
+          "row_failure_count": 0
+        },
+        {
+          "characters": [
+            {
+              "numerator": 1,
+              "denominator": 27
+            },
+            {
+              "numerator": 4,
+              "denominator": 32
+            },
+            {
+              "numerator": 9,
+              "denominator": 35
+            }
+          ],
+          "denominator_lcm_L": 30240,
+          "outside_primes": [
+            37,
+            41
+          ],
+          "audit_scale_X": 91748160,
+          "exact_budget_ratio_X_over_2qr": 30240,
+          "denominator_information_bits": 15,
+          "admissible_class_count": 32,
+          "collision_count": 32,
+          "examples": [
+            {
+              "admissible_residue": 11,
+              "composite_pair_start": "44724971",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            },
+            {
+              "admissible_residue": 17,
+              "composite_pair_start": "36469457",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            },
+            {
+              "admissible_residue": 29,
+              "composite_pair_start": "19958429",
+              "checks": {
+                "below_information_budget_scale": true,
+                "same_rational_fourier_pair_transcript": true,
+                "left_proper_composite": true,
+                "right_proper_composite": true
+              }
+            }
+          ],
+          "row_failure_count": 0
+        }
+      ],
+      "total_collision_count": 108,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "irrational, aperiodic, factor-sensitive Type II information or a supercritical rational denominator budget with signed transport",
+      "discard": "subcritical rational Fourier feature families satisfying 2*lcm(q_j)*r*s<=X as exact twin-primality separators",
+      "next_theorem": "IrrationalOrSupercriticalAperiodicTypeIITwinSeparation"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-TD3b.1",
+          "label": "FiniteRationalFourierAlgebraCompositeLift",
+          "status": "closed"
+        },
+        {
+          "id": "TP-TD3b.2a",
+          "label": "RationalFourierInformationBudgetLowerBound",
+          "status": "closed"
+        },
+        {
+          "id": "TP-TD3b.2b",
+          "label": "IrrationalOrSupercriticalAperiodicTypeIITwinSeparation",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "TP",
+          "label": "Twin Prime Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-TD3b.1",
+          "TP-TD3b.2a"
+        ],
+        [
+          "TP-TD3b.2a",
+          "TP-TD3b.2b"
+        ],
+        [
+          "TP-TD3b.2b",
+          "TP"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "feature_family_count": 4,
+      "composite_collision_count": 108,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The budget theorem excludes only transcript-only sufficient certificates built from exact finite rational Fourier features below the displayed scale. It does not exclude certificates using external arithmetic data, irrational phases, supercritical denominator growth, or analytic Type II cancellation, and it gives no positive exact-gap-two lower bound."
+  }
+}

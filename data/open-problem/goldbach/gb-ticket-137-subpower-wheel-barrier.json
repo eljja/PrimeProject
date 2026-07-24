@@ -1,0 +1,178 @@
+{
+  "schema": "primeproject.ticket137-cancellation-entropy-and-information-budget.v1",
+  "generated_at": "2026-07-26T12:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-137",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "SubpowerGrowingWheelLogMomentBarrier",
+  "bounded_result": {
+    "audit_ref": "goldbach"
+  },
+  "candidate_theorem": "NearFullScaleWheelOrPointwiseBinaryGoldbachResidualK56",
+  "next_experiment": "Either localize at near-full wheel scale with all complementary strata controlled or prove the signed residual bound pointwise with K<=56.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "This theorem is an inference barrier for subpower squarefree wheels. It proves no binary Goldbach residual estimate and does not cover near-full-scale localization or a direct pointwise argument.",
+  "result": {
+    "theorem_name": "SubpowerGrowingWheelLogMomentBarrier",
+    "title_ko": "부분 거듭제곱 성장 wheel의 로그 모멘트 장벽 정리",
+    "declared_target": "Determine whether merely replacing the fixed Goldbach wheel in TICKET136 by a growing wheel can reduce the moment order below log X.",
+    "proved_statement": "Let W be odd and squarefree, X=2WM, and H_W(X) the even integers through X coprime to W. Then |H_W(X)|=M phi(W) and phi(W)^2>=W. If W<=X^(1-epsilon), then |H_W(X)|>=X^((1+epsilon)/2)/2. Therefore any normalized L^p-to-maximum promotion with inflation factor at most 6/5 still requires p>=(((1+epsilon)/2)log X-log 2)/log(6/5), which is Omega(log X).",
+    "proved_statement_ko": "W가 홀수 squarefree이고 X=2WM일 때 W와 서로소인 X 이하 짝수의 수는 M phi(W)이며 phi(W)^2>=W이다. W<=X^(1-epsilon)이면 hard stratum의 크기는 X^((1+epsilon)/2)/2 이상이다. 따라서 정규화 L^p 값을 최대값으로 올릴 때 팽창계수를 6/5 이하로 만들려면 여전히 p=Omega(log X)가 필요하다.",
+    "proof": "Writing each even N as 2m, oddness of W gives gcd(N,W)=gcd(m,W). Each complete block of W consecutive m therefore contributes phi(W) hard residues. For squarefree odd W, phi(W)^2/W=product_{p|W}(p-1)^2/p>=1. Substituting M=X/(2W) yields h=M phi(W)>=X/(2 sqrt(W)); the assumed wheel scale gives the displayed power lower bound. Since ||x||_infinity<=h^(1/p)||x||_p is sharp on one-point spikes, h^(1/p)<=6/5 forces p>=log(h)/log(6/5).",
+    "exact_contract": {
+      "hard_count": "|H_W(2WM)|=M*phi(W)",
+      "totient_bound": "phi(W)^2>=W for odd squarefree W",
+      "subpower_assumption": "0<epsilon<=1 and W<=X^(1-epsilon)",
+      "moment_threshold": "p>=log(|H_W(X)|)/log(6/5)"
+    },
+    "wheel_audit": {
+      "rows": [
+        {
+          "wheel": 3,
+          "scale_X": 18,
+          "complete_period_blocks": 3,
+          "hard_residues_per_period": 2,
+          "hard_stratum_size": 6,
+          "minimum_p_for_factor_at_most_6_over_5": 10,
+          "log_X": 2.8903717578961645,
+          "moment_over_log_X": 3.4597625626119357,
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "phi_square_lower_bound": true,
+            "hard_count_scale_lower_bound": true,
+            "half_power_wheel_condition": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 15,
+          "scale_X": 450,
+          "complete_period_blocks": 15,
+          "hard_residues_per_period": 8,
+          "hard_stratum_size": 120,
+          "minimum_p_for_factor_at_most_6_over_5": 27,
+          "log_X": 6.1092475827643655,
+          "moment_over_log_X": 4.419529513941028,
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "phi_square_lower_bound": true,
+            "hard_count_scale_lower_bound": true,
+            "half_power_wheel_condition": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 105,
+          "scale_X": 22050,
+          "complete_period_blocks": 105,
+          "hard_residues_per_period": 48,
+          "hard_stratum_size": 5040,
+          "minimum_p_for_factor_at_most_6_over_5": 47,
+          "log_X": 10.001067880874992,
+          "moment_over_log_X": 4.699498149580401,
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "phi_square_lower_bound": true,
+            "hard_count_scale_lower_bound": true,
+            "half_power_wheel_condition": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 1155,
+          "scale_X": 2668050,
+          "complete_period_blocks": 1155,
+          "hard_residues_per_period": 480,
+          "hard_stratum_size": 554400,
+          "minimum_p_for_factor_at_most_6_over_5": 73,
+          "log_X": 14.796858426471733,
+          "moment_over_log_X": 4.933479654667929,
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "phi_square_lower_bound": true,
+            "hard_count_scale_lower_bound": true,
+            "half_power_wheel_condition": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 15015,
+          "scale_X": 450900450,
+          "complete_period_blocks": 15015,
+          "hard_residues_per_period": 5760,
+          "hard_stratum_size": 86486400,
+          "minimum_p_for_factor_at_most_6_over_5": 101,
+          "log_X": 19.926757141394805,
+          "moment_over_log_X": 5.0685617977542305,
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "phi_square_lower_bound": true,
+            "hard_count_scale_lower_bound": true,
+            "half_power_wheel_condition": true,
+            "exact_moment_threshold": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "near-full-scale wheel localization or a direct pointwise signed binary Goldbach residual bound with K<=56",
+      "discard": "expecting any W(X)<=X^(1-epsilon) growing wheel by itself to turn a sublogarithmic moment estimate into pointwise positivity",
+      "next_theorem": "NearFullScaleWheelOrPointwiseBinaryGoldbachResidualK56"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-TD4b.1",
+          "label": "FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2a",
+          "label": "SubpowerGrowingWheelLogMomentBarrier",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2b",
+          "label": "NearFullScaleWheelOrPointwiseBinaryGoldbachResidualK56",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "GB",
+          "label": "Strong Goldbach Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-TD4b.1",
+          "GB-TD4b.2a"
+        ],
+        [
+          "GB-TD4b.2a",
+          "GB-TD4b.2b"
+        ],
+        [
+          "GB-TD4b.2b",
+          "GB"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "wheel_scale_count": 5,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "This theorem is an inference barrier for subpower squarefree wheels. It proves no binary Goldbach residual estimate and does not cover near-full-scale localization or a direct pointwise argument."
+  }
+}

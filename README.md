@@ -30,6 +30,11 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
+The latest four-problem continuation is
+[TICKET-137: Cancellation, Entropy, and Information Budgets](docs/cancellation-entropy-and-information-budget.md).
+It proves four exact intermediate/no-go statements, updates the proof DAGs, and
+keeps every conjecture status at `open_not_proven`.
+
 The corrected TICKET77 sublemma is written separately in [Collatz Fixed-Prefix Boundary Orbit](docs/collatz-fixed-prefix-boundary-orbit.md), with a bilingual theorem statement, equality-rollback correction, periodic-orbit classification, 2-adic admissibility analysis, and explicit remaining bridge.
 
 TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](docs/collatz-finite-cylinder-admissibility-no-go.md). It connects the corrected boundary orbit to established 2-adic conjugacy, proves that every finite accelerated valuation cylinder contains infinitely many positive integers, and blocks finite purely 2-adic natural classifiers without claiming novelty for the classical conjugacy.

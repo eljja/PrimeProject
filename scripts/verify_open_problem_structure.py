@@ -133,6 +133,7 @@ TICKET133_SCHEMA = "primeproject.ticket133-quantifier-promotion-exact-reductions
 TICKET134_SCHEMA = "primeproject.ticket134-uniformity-thresholds-and-scale-no-go.v1"
 TICKET135_SCHEMA = "primeproject.ticket135-conditional-bridges-and-exceptional-set.v1"
 TICKET136_SCHEMA = "primeproject.ticket136-scale-sensitive-obstructions-and-affine-bridge.v1"
+TICKET137_SCHEMA = "primeproject.ticket137-cancellation-entropy-and-information-budget.v1"
 
 
 def fail(message: str) -> int:
@@ -7862,6 +7863,48 @@ def main() -> int:
         return fail("ticket136 Twin rational-Fourier lift changed")
     if "does not prove or refute" not in str(audit136.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket136.get("claim_boundary", "")).lower():
         return fail("ticket136 proof boundary changed")
+
+    path137 = Path("data/open-problem/ticket137-cancellation-entropy-and-information-budget.json")
+    if not path137.exists():
+        return fail("missing ticket137 cancellation-entropy-information audit")
+    ticket137 = read_json(path137)
+    if ticket137.get("schema") != TICKET137_SCHEMA or ticket137.get("status") != "exact_intermediate_theorems_proved_all_conjectures_open":
+        return fail("ticket137 schema or status changed")
+    attempts137 = ticket137.get("attempts", [])
+    by_id137 = {str(row.get("problem_id")): row for row in attempts137 if isinstance(row, dict)} if isinstance(attempts137, list) else {}
+    if set(by_id137) != EXPECTED_PROBLEMS:
+        return fail("ticket137 attempts missing problems")
+    paths137 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-137-hadamard-schur-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-137-affine-cap-mass-decay.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-137-subpower-wheel-barrier.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-137-fourier-information-budget.json"),
+    }
+    for problem_id, attempt in by_id137.items():
+        if not paths137[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket137 artifact or proof boundary missing")
+    audit137 = ticket137.get("cancellation_entropy_and_information_budget_audit", {})
+    machine137 = audit137.get("machine_audit", {})
+    if audit137.get("theorem_name") != "FourConjectureCancellationEntropyAndInformationBudgetAudit" or int(machine137.get("exact_theorem_count", -1)) != 4 or int(machine137.get("route_correction_count", -1)) != 4 or int(machine137.get("proof_dag_count", -1)) != 4 or int(machine137.get("conjecture_resolution_count", -1)) != 0 or int(machine137.get("total_failure_count", -1)) != 0:
+        return fail("ticket137 global machine audit changed")
+    riemann137 = audit137.get("riemann", {})
+    hadamard137 = riemann137.get("hadamard_audit", {})
+    if riemann137.get("theorem_name") != "HadamardCancellationSchurOverestimateNoGo" or int(hadamard137.get("dimension_count", -1)) != 6 or int(hadamard137.get("failure_count", -1)) != 0:
+        return fail("ticket137 RH Hadamard cancellation no-go changed")
+    collatz137 = audit137.get("collatz", {})
+    mass137 = collatz137.get("mass_audit", {})
+    if collatz137.get("theorem_name") != "AffineCappedValuationCylinderMassDecay" or len(mass137.get("rows", [])) != 16 or len(mass137.get("cylinder_rows", [])) != 4 or int(mass137.get("failure_count", -1)) != 0:
+        return fail("ticket137 Collatz affine-capped mass theorem changed")
+    goldbach137 = audit137.get("goldbach", {})
+    wheel137 = goldbach137.get("wheel_audit", {})
+    if goldbach137.get("theorem_name") != "SubpowerGrowingWheelLogMomentBarrier" or len(wheel137.get("rows", [])) != 5 or int(wheel137.get("failure_count", -1)) != 0:
+        return fail("ticket137 Goldbach subpower-wheel barrier changed")
+    twin137 = audit137.get("twin_prime", {})
+    collision137 = twin137.get("information_budget_audit", {})
+    if twin137.get("theorem_name") != "RationalFourierInformationBudgetLowerBound" or int(collision137.get("total_collision_count", -1)) != 108 or int(collision137.get("failure_count", -1)) != 0:
+        return fail("ticket137 Twin Fourier information budget changed")
+    if "does not prove or refute" not in str(audit137.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket137.get("claim_boundary", "")).lower():
+        return fail("ticket137 proof boundary changed")
 
     print("open problem structure verified")
     return 0
