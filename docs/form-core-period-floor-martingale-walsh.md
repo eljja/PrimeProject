@@ -4,6 +4,18 @@ Date: 2026-07-25
 
 Status: `open_not_proven` for all four conjectures
 
+Superseded target notice: TICKET-144 proves that the unrestricted Collatz
+rank target is equivalent to the conjecture, that generic absolute martingale
+path variation is unbounded even for bounded signals, and that full Walsh
+`L1` balance is stronger than twin positivity requires. The current corrected
+targets are recorded in
+[`schur-rank-equivalence-variation-adverse-walsh.md`](schur-rank-equivalence-variation-adverse-walsh.md).
+
+목표 교정 알림: TICKET-144는 제약 없는 Collatz rank가 추측 자체와
+동치이고, bounded 신호에서도 일반 절대 martingale 경로변동이 무한히
+커질 수 있으며, 전체 Walsh `L1` 균형이 twin 양성에 필요한 것보다
+강하다는 점을 증명했다. 현재 교정된 목표는 위 링크 문서에 기록한다.
+
 Machine record:
 `data/open-problem/ticket143-form-core-period-floor-martingale-walsh.json`
 

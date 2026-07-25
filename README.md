@@ -31,16 +31,17 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-143: Form Cores, Published Period Floors, Martingales, and Walsh Inversion](docs/form-core-period-floor-martingale-walsh.md).
-It proves four exact intermediate/no-go statements: form-core density is the
-topology needed by the RH finite-section bridge; the period-15,601 Collatz
-branch is retired under a clearly labelled published odd-period floor; the
-Goldbach Haar target is rewritten as a scale-normalized martingale ledger; and
-the proposed Twin one-sided gap is shown to be exactly equivalent to blockwise
-twin positivity. Every conjecture remains `open_not_proven`.
+[TICKET-144: Schur Pivots, Rank Equivalence, Martingale Variation, and Adverse Walsh Control](docs/schur-rank-equivalence-variation-adverse-walsh.md).
+It proves four exact intermediate/no-go statements: nested RH Gram positivity
+is equivalent to exact Schur-pivot positivity while bounded positive prefixes
+cannot certify the infinite family; an unrestricted well-founded Collatz rank
+is equivalent to global termination and is not a weaker lemma; bounded
+dyadic signals can have linearly growing absolute path variation; and full
+Walsh `L1` balance can be weakened to the adverse signed parts that directly
+control the twin class. Every conjecture remains `open_not_proven`.
 
 The preserved previous boundary is
-[TICKET-142: Effective Rank, Cycle Direction, Haar Duals, and Liouville Parity](docs/effective-rank-cycle-direction-haar-liouville.md).
+[TICKET-143: Form Cores, Published Period Floors, Martingales, and Walsh Inversion](docs/form-core-period-floor-martingale-walsh.md).
 
 The corrected TICKET77 sublemma is written separately in [Collatz Fixed-Prefix Boundary Orbit](docs/collatz-fixed-prefix-boundary-orbit.md), with a bilingual theorem statement, equality-rollback correction, periodic-orbit classification, 2-adic admissibility analysis, and explicit remaining bridge.
 
@@ -96,33 +97,31 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-three-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-four-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-143. For RH it proves the exact
-closed-form-core promotion theorem and gives a Hilbert-dense positive
-finite-section countermodel showing why form-core density is indispensable.
-For Collatz it imports the published `K>7.2e10` odd-period floor with an
-explicit source boundary, retires period 15,601, and counts its raw ordered
-valuation space as a 7,069-digit integer. For Goldbach it replaces raw
-orthonormal Haar caps by the exact root-mean plus dyadic path-variation
-identity. For Twin Prime it proves Walsh-Hadamard inversion of all rough-pair
-parity classes and shows the old one-sided gap is exactly four times the twin
-count, then promotes a non-circular absolute-correlation contraction target.
-All four conjectures remain open. See [TICKET143](docs/form-core-period-floor-martingale-walsh.md), [TICKET142](docs/effective-rank-cycle-direction-haar-liouville.md), and [TICKET141](docs/one-sided-moving-floor-robust-dual-and-large-sieve.md).
+The latest proof-search track is TICKET-144. For RH it turns every nested Gram
+section into one exact Schur pivot and proves a finite-prefix extension no-go.
+For Collatz it proves that an unrestricted decreasing well-founded rank is
+equivalent to the original conjecture, so only an independently specified
+lift-closed rank would be progress. For Goldbach it constructs bounded dyadic
+signals whose absolute martingale path variation is `d/2`, retiring the
+generic absolute-variation target while retaining arithmetic signed
+cancellation. For Twin Prime it proves the Walsh `L1` simplex identity and
+replaces full two-sided parity balance by the strictly weaker adverse-part
+bound. All four conjectures remain open. See [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), [TICKET143](docs/form-core-period-floor-martingale-walsh.md), and [TICKET142](docs/effective-rank-cycle-direction-haar-liouville.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-143입니다. RH에서는 유한 압축
-양성을 전체 닫힌 형식으로 올리려면 Hilbert 조밀성이 아니라 form-core
-조밀성이 필요함을 증명하고 명시적 반례족으로 차이를 확정했습니다.
-Collatz에서는 출처를 명시한 공개 홀수 주기 하한 `K>7.2×10^10`을
-가져와 15,601주기 분기를 폐기하고, 해당 원시 valuation-word 공간이
-7,069자리임을 계산했습니다. Goldbach에서는 raw Haar 계수 대신 root
-평균과 척도 정규화된 dyadic martingale 경로합으로 점별 잔차를 정확히
-복원했습니다. Twin Prime에서는 rough-pair 네 parity 부류의
-Walsh-Hadamard 역변환을 증명하고 기존 단측 gap이 블록의 쌍둥이 수와
-정확히 동치임을 밝혀 순환적 목표를 폐기했습니다. 네 문제는 모두
-미해결이며 완전 증명이나 반례는 없습니다.
+한국어 최신 요약: 최신 탐색은 TICKET-144입니다. RH에서는 중첩 Gram
+절단의 양성을 정확한 Schur pivot 양성으로 환원하고 유한 prefix만으로
+무한 가족을 증명할 수 없음을 확정했습니다. Collatz에서는 제약 없는
+well-founded rank가 추측 자체와 동치임을 증명해 순환적 목표를
+폐기했습니다. Goldbach에서는 bounded dyadic 신호의 절대 martingale
+경로변동이 `d/2`로 증가하는 반례족을 구성해 일반 절대변동 경로를
+폐기했습니다. Twin Prime에서는 전체 Walsh `L1`이 네 parity 부류의
+양방향 균형임을 밝히고 twin 부류에 불리한 성분만 제어하는 더 약한
+충분조건을 도출했습니다. 네 문제는 모두 미해결이며 완전 증명이나
+반례는 없습니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -142,13 +141,14 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-143입니다. [Form core, 공개 주기 하한,
-martingale, Walsh 역변환 보고서](docs/form-core-period-floor-martingale-walsh.md)는
+최신 난제 연구 트랙은 TICKET-144입니다. [Schur pivot, rank 동치,
+martingale 변동, adverse Walsh 보고서](docs/schur-rank-equivalence-variation-adverse-walsh.md)는
 네 트랙의 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을
-한글과 영문으로 정리합니다. 특히 RH finite-section의 정확한 위상,
-Collatz의 오래된 유한 분기, Goldbach Haar 정규화, Twin Prime의 순환적
-ledger 목표를 교정합니다. 네 문제는 모두 미해결이며, 각 proof DAG에는
-닫힌 중간정리와 다음 단일 미해결 보조정리가 별도 상태로 기록됩니다.
+한글과 영문으로 정리합니다. 특히 RH의 유한 prefix 승격, Collatz의
+순환적 rank, Goldbach의 과도한 절대변동 목표, Twin Prime의 과도한
+양방향 parity 균형을 교정합니다. 네 문제는 모두 미해결이며, 각 proof
+DAG에는 닫힌 중간정리와 다음 단일 미해결 보조정리가 별도 상태로
+기록됩니다.
 
 주요 진입점:
 

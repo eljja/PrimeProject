@@ -37,6 +37,44 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-26 TICKET-144 Exact Certificate and Target-Strength Audit
+
+TICKET-144 attacks the four TICKET-143 targets at their quantifier and
+necessity boundaries before allocating another large finite search.
+
+1. **RH:** `NestedGramSchurPivotCertificateAndFinitePrefixExtensionNoGo`
+   proves that every nested Gram section is positive exactly when every exact
+   Schur pivot is positive. Any bounded positive prefix admits the unchanged
+   extension `diag(G_N,-1)`, so finite-prefix promotion is retired. Attack
+   `ExplicitWeilFormCoreSchurPivotLowerBound`.
+2. **Collatz:** `GlobalWellFoundedRankIffCollatzTermination` proves that an
+   unrestricted decreasing well-founded rank exists exactly when all
+   accelerated odd orbits terminate. Hitting-time ranks are therefore
+   circular. Attack `ExplicitLiftClosedFiniteDescriptionCollatzRank`, whose
+   finite semantics, lift closure, and descent must be independent of
+   termination.
+3. **Goldbach:**
+   `BoundedSignalLinearAbsoluteMartingaleVariationNoGo` constructs bounded
+   dyadic vectors with absolute path variation `d/2`; the generic `K=56`
+   budget is exceeded at depth 113 while the signed endpoint stays bounded.
+   The construction is not a Goldbach residual. Attack
+   `ArithmeticBinaryGoldbachSignedMartingaleCancellationK56`.
+4. **Twin Prime:**
+   `WalshL1SimplexBalanceIdentityAndAdversePartReduction` proves that full
+   Walsh `L1` means two-sided balance of every parity class and that only
+   `B=A10_+ + A01_+ + (-A11)_+` is needed for
+   `N-- >= (A00-B)/4`. Attack
+   `UniformCubicRoughAdverseWalshPartContraction`.
+
+All four conjectures remain open. The exact code, tests, JSON, proof DAGs, and
+bilingual report preserve `conjecture_resolution_count=0`.
+
+한국어 요약: TICKET-144는 RH의 유한 prefix 승격을 Schur pivot 전역
+하한으로 교정하고, Collatz의 제약 없는 rank가 추측과 동치임을 증명하며,
+Goldbach의 일반 절대변동 목표를 bounded 반례족으로 폐기하고, Twin의
+전체 Walsh 양방향 균형을 adverse 성분만 제어하는 조건으로 약화한다.
+네 난제는 모두 `open_not_proven`이며 해결 수는 0이다.
+
 ## 2026-07-25 TICKET-143 Form-Core, Period-Floor, Martingale, and Walsh Correction
 
 TICKET-143 audits the four TICKET-142 highest-risk nodes before allocating

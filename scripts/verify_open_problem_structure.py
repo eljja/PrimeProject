@@ -140,6 +140,7 @@ TICKET140_SCHEMA = "primeproject.ticket140-spectral-moments-fixed-floor-duality-
 TICKET141_SCHEMA = "primeproject.ticket141-one-sided-moving-floor-robust-dual-large-sieve.v1"
 TICKET142_SCHEMA = "primeproject.ticket142-effective-rank-cycle-direction-haar-liouville.v1"
 TICKET143_SCHEMA = "primeproject.ticket143-form-core-period-floor-martingale-walsh.v1"
+TICKET144_SCHEMA = "primeproject.ticket144-schur-rank-equivalence-variation-adverse-walsh.v1"
 
 
 def fail(message: str) -> int:
@@ -8169,6 +8170,79 @@ def main() -> int:
         return fail("ticket143 Twin Walsh theorem changed")
     if "does not prove or refute" not in str(audit143.get("proof_boundary", "")).lower() or "no " not in str(ticket143.get("claim_boundary", "")).lower():
         return fail("ticket143 proof boundary changed")
+
+    path144 = Path("data/open-problem/ticket144-schur-rank-equivalence-variation-adverse-walsh.json")
+    if not path144.exists():
+        return fail("missing ticket144 Schur-rank-variation-adverse-Walsh audit")
+    ticket144 = read_json(path144)
+    if ticket144.get("schema") != TICKET144_SCHEMA or ticket144.get("status") != "exact_reductions_and_no_go_theorems_all_conjectures_open":
+        return fail("ticket144 schema or status changed")
+    attempts144 = ticket144.get("attempts", [])
+    by_id144 = {str(row.get("problem_id")): row for row in attempts144 if isinstance(row, dict)} if isinstance(attempts144, list) else {}
+    if set(by_id144) != EXPECTED_PROBLEMS:
+        return fail("ticket144 attempts missing problems")
+    paths144 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-144-schur-pivots.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-144-rank-equivalence.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-144-variation-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-144-adverse-walsh.json"),
+    }
+    next144 = {
+        "riemann": "ExplicitWeilFormCoreSchurPivotLowerBound",
+        "collatz": "ExplicitLiftClosedFiniteDescriptionCollatzRank",
+        "goldbach": "ArithmeticBinaryGoldbachSignedMartingaleCancellationK56",
+        "twin-prime": "UniformCubicRoughAdverseWalshPartContraction",
+    }
+    for problem_id, attempt in by_id144.items():
+        if not paths144[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket144 artifact or proof boundary missing")
+        if attempt.get("candidate_theorem") != next144[problem_id]:
+            return fail(f"{problem_id}: ticket144 next theorem changed")
+    audit144 = ticket144.get("schur_rank_equivalence_variation_adverse_walsh_audit", {})
+    machine144 = audit144.get("machine_audit", {})
+    if audit144.get("theorem_name") != "FourConjectureSchurRankVariationAdverseWalshAudit" or int(machine144.get("exact_theorem_count", -1)) != 4 or int(machine144.get("route_correction_count", -1)) != 4 or int(machine144.get("proof_dag_count", -1)) != 4 or int(machine144.get("conjecture_resolution_count", -1)) != 0 or int(machine144.get("total_failure_count", -1)) != 0:
+        return fail("ticket144 global machine audit changed")
+
+    riemann144 = audit144.get("riemann", {})
+    schur144 = riemann144.get("schur_audit", {})
+    hilbert144 = schur144.get("hilbert_rows", [])
+    extensions144 = schur144.get("negative_extension_rows", [])
+    if riemann144.get("theorem_name") != "NestedGramSchurPivotCertificateAndFinitePrefixExtensionNoGo" or len(hilbert144) != 10 or len(extensions144) != 5 or hilbert144[-1].get("last_schur_pivot", {}).get("exact") != "1/44914183600" or int(schur144.get("failure_count", -1)) != 0:
+        return fail("ticket144 RH Schur-pivot theorem changed")
+
+    collatz144 = audit144.get("collatz", {})
+    rank144 = collatz144.get("rank_equivalence_audit", {})
+    finite_rank144 = rank144.get("finite_stopping_rank_audit", {})
+    if collatz144.get("theorem_name") != "GlobalWellFoundedRankIffCollatzTermination" or len(finite_rank144.get("selected_rows", [])) != 8 or int(finite_rank144.get("verified_odd_start_count", -1)) != 50000 or int(finite_rank144.get("maximum_input_rank", -1)) != 129 or int(finite_rank144.get("maximum_input_rank_start", -1)) != 77031 or int(rank144.get("failure_count", -1)) != 0:
+        return fail("ticket144 Collatz rank-equivalence theorem changed")
+
+    goldbach144 = audit144.get("goldbach", {})
+    variation144 = goldbach144.get("variation_audit", {})
+    variation_rows144 = variation144.get("rows", [])
+    first_crossing144 = next((row for row in variation_rows144 if row.get("absolute_variation_exceeds_56")), {})
+    if goldbach144.get("theorem_name") != "BoundedSignalLinearAbsoluteMartingaleVariationNoGo" or len(variation_rows144) != 9 or int(first_crossing144.get("depth", -1)) != 113 or first_crossing144.get("absolute_path_variation", {}).get("exact") != "113/2" or int(variation144.get("failure_count", -1)) != 0:
+        return fail("ticket144 Goldbach variation no-go changed")
+
+    twin144 = audit144.get("twin_prime", {})
+    adverse144 = twin144.get("adverse_walsh_audit", {})
+    adverse_rows144 = adverse144.get("rows", [])
+    witness144 = adverse144.get("synthetic_nonnecessity_witness", {})
+    if twin144.get("theorem_name") != "WalshL1SimplexBalanceIdentityAndAdversePartReduction" or len(adverse_rows144) != 4 or any(int(row.get("adverse_walsh_part", -1)) != 0 for row in adverse_rows144) or int(witness144.get("walsh_l1", -1)) != 260 or not witness144.get("l1_contraction_fails") or int(adverse144.get("failure_count", -1)) != 0:
+        return fail("ticket144 Twin adverse-Walsh theorem changed")
+
+    sections144 = {
+        "riemann": riemann144,
+        "collatz": collatz144,
+        "goldbach": goldbach144,
+        "twin-prime": twin144,
+    }
+    for problem_id, section in sections144.items():
+        dag = section.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if len(nodes) != 2 or nodes[-1].get("label") != next144[problem_id] or nodes[-1].get("status") != "open_not_proven":
+            return fail(f"{problem_id}: ticket144 proof DAG changed")
+    if "no conjecture proof or counterexample" not in str(audit144.get("proof_boundary", "")).lower() or "no conjecture proof or counterexample" not in str(ticket144.get("claim_boundary", "")).lower():
+        return fail("ticket144 proof boundary changed")
 
     print("open problem structure verified")
     return 0

@@ -1,0 +1,196 @@
+{
+  "schema": "primeproject.ticket144-schur-rank-equivalence-variation-adverse-walsh.v1",
+  "generated_at": "2026-07-26T00:30:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-144",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "Walsh simplex and adverse-part reduction",
+  "bounded_result": {
+    "audit_ref": "twin_prime"
+  },
+  "obstruction": "Four finite blocks have zero adverse part, but no eventual sign theorem or uniform all-scale contraction is proved. The sieve parity barrier remains.",
+  "candidate_theorem": "UniformCubicRoughAdverseWalshPartContraction",
+  "next_experiment": "control only A10_+, A01_+, and (-A11)_+ on cubic-rough pair blocks",
+  "claim_boundary": "No Twin Prime proof or counterexample. The result weakens one sufficient correlation target and audits four finite blocks.",
+  "result": {
+    "theorem_name": "WalshL1SimplexBalanceIdentityAndAdversePartReduction",
+    "declared_target": "Determine the exact combinatorial strength of full Walsh L1 contraction and derive a weaker twin-targeted sufficient bound.",
+    "declared_target_ko": "전체 Walsh L1 수축의 정확한 조합론적 강도를 판정하고 더 약한 twin 표적 충분조건을 도출한다.",
+    "proved_statement": "Walsh L1 equals the maximum two-sided deviation of any parity class from one quarter of the rough mass. Replacing it by the adverse positive parts alone still gives N_{-,-}>=(A00-B)/4.",
+    "proved_statement_ko": "Walsh L1은 각 parity 부류가 rough 질량의 1/4에서 벗어나는 최대 양방향 편차와 같다. twin에 불리한 양의 부분만 남겨도 N_{-,-}>=(A00-B)/4가 성립한다.",
+    "proof": "Walsh inversion and the eight signed character directions give the simplex identity. Bounding each adverse signed term by its positive part yields the targeted lower bound.",
+    "adverse_walsh_audit": {
+      "simplex_identity": "|A10|+|A01|+|A11|=max_{s,t}|4N_{s,t}-A00|",
+      "simplex_interpretation": "L1 <= (1-delta)A00 iff every parity class lies between delta*A00/4 and (2-delta)*A00/4.",
+      "adverse_part": "B=A10_+ + A01_+ + (-A11)_+; since A10+A01-A11<=B, N_{-,-}>=(A00-B)/4.",
+      "strictly_weaker_next_condition": "B <= (1-delta)A00 on all sufficiently large cubic-rough pair blocks",
+      "rows": [
+        {
+          "X": 1000,
+          "A00": 59,
+          "A10": -17,
+          "A01": -19,
+          "A11": 9,
+          "category_counts": [
+            8,
+            13,
+            12,
+            26
+          ],
+          "walsh_l1": 45,
+          "simplex_max_deviation": 45,
+          "adverse_walsh_part": 0,
+          "adverse_margin": 59,
+          "certified_twin_lower_bound": {
+            "exact": "59/4",
+            "decimal": 14.75
+          },
+          "direct_twin_count": 26,
+          "checks": {
+            "walsh_coefficients_match_source": true,
+            "l1_equals_max_simplex_deviation": true,
+            "adverse_part_is_no_larger_than_l1": true,
+            "targeted_twin_lower_bound_holds": true
+          }
+        },
+        {
+          "X": 10000,
+          "A00": 358,
+          "A10": -104,
+          "A01": -84,
+          "A11": 2,
+          "category_counts": [
+            43,
+            84,
+            94,
+            137
+          ],
+          "walsh_l1": 190,
+          "simplex_max_deviation": 190,
+          "adverse_walsh_part": 0,
+          "adverse_margin": 358,
+          "certified_twin_lower_bound": {
+            "exact": "179/2",
+            "decimal": 89.5
+          },
+          "direct_twin_count": 137,
+          "checks": {
+            "walsh_coefficients_match_source": true,
+            "l1_equals_max_simplex_deviation": true,
+            "adverse_part_is_no_larger_than_l1": true,
+            "targeted_twin_lower_bound_holds": true
+          }
+        },
+        {
+          "X": 100000,
+          "A00": 2486,
+          "A10": -564,
+          "A01": -556,
+          "A11": 138,
+          "category_counts": [
+            376,
+            585,
+            589,
+            936
+          ],
+          "walsh_l1": 1258,
+          "simplex_max_deviation": 1258,
+          "adverse_walsh_part": 0,
+          "adverse_margin": 2486,
+          "certified_twin_lower_bound": {
+            "exact": "1243/2",
+            "decimal": 621.5
+          },
+          "direct_twin_count": 936,
+          "checks": {
+            "walsh_coefficients_match_source": true,
+            "l1_equals_max_simplex_deviation": true,
+            "adverse_part_is_no_larger_than_l1": true,
+            "targeted_twin_lower_bound_holds": true
+          }
+        },
+        {
+          "X": 1000000,
+          "A00": 17634,
+          "A10": -3970,
+          "A01": -3992,
+          "A11": 1212,
+          "category_counts": [
+            2721,
+            4111,
+            4100,
+            6702
+          ],
+          "walsh_l1": 9174,
+          "simplex_max_deviation": 9174,
+          "adverse_walsh_part": 0,
+          "adverse_margin": 17634,
+          "certified_twin_lower_bound": {
+            "exact": "8817/2",
+            "decimal": 4408.5
+          },
+          "direct_twin_count": 6702,
+          "checks": {
+            "walsh_coefficients_match_source": true,
+            "l1_equals_max_simplex_deviation": true,
+            "adverse_part_is_no_larger_than_l1": true,
+            "targeted_twin_lower_bound_holds": true
+          }
+        }
+      ],
+      "synthetic_nonnecessity_witness": {
+        "category_counts": [
+          90,
+          5,
+          4,
+          1
+        ],
+        "A00": 100,
+        "A10": 90,
+        "A01": 88,
+        "A11": 82,
+        "walsh_l1": 260,
+        "twin_class_positive": true,
+        "l1_contraction_fails": true
+      },
+      "checks": {
+        "all_finite_rows_pass": true,
+        "all_observed_adverse_parts_are_zero": true,
+        "l1_is_not_necessary_for_positive_twin_class": true
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "Four finite blocks have zero adverse part, but no eventual sign theorem or uniform all-scale contraction is proved. The sieve parity barrier remains.",
+    "route_decision": {
+      "discard": "requiring two-sided balance of all four parity classes via full Walsh L1 as the primary twin target",
+      "retain": "control only A10_+, A01_+, and (-A11)_+ on cubic-rough pair blocks",
+      "next_theorem": "UniformCubicRoughAdverseWalshPartContraction"
+    },
+    "proof_boundary": "No Twin Prime proof or counterexample. The result weakens one sufficient correlation target and audits four finite blocks.",
+    "machine_audit": {
+      "row_count": 4,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T144-CLOSED",
+          "label": "WalshL1SimplexBalanceIdentityAndAdversePartReduction",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T144-OPEN",
+          "label": "UniformCubicRoughAdverseWalshPartContraction",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T144-CLOSED",
+          "TP-T144-OPEN"
+        ]
+      ]
+    }
+  }
+}

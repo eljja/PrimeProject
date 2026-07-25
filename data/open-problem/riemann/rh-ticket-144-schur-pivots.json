@@ -1,0 +1,255 @@
+{
+  "schema": "primeproject.ticket144-schur-rank-equivalence-variation-adverse-walsh.v1",
+  "generated_at": "2026-07-26T00:30:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-144",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "nested exact Schur-pivot audit",
+  "bounded_result": {
+    "audit_ref": "riemann"
+  },
+  "obstruction": "No actual Weil Gram entries or all-N pivot lower bound is proved. Hilbert matrices are exact conditioning controls, not zeta-form compressions.",
+  "candidate_theorem": "ExplicitWeilFormCoreSchurPivotLowerBound",
+  "next_experiment": "an explicit Weil form-core basis with a symbolic positive lower bound for every Schur pivot",
+  "claim_boundary": "No RH proof or counterexample. The result supplies an exact certificate grammar and a finite-prefix no-go only.",
+  "result": {
+    "theorem_name": "NestedGramSchurPivotCertificateAndFinitePrefixExtensionNoGo",
+    "declared_target": "Reduce all-section form-core compression positivity to exact scalar certificates and test whether finite prefix success can imply the infinite family.",
+    "declared_target_ko": "form-core의 모든 압축 양성을 정확한 스칼라 인증으로 환원하고 유한 prefix 성공이 무한 가족을 함의하는지 판정한다.",
+    "proved_statement": "Nested positive Gram sections are equivalent to positivity of every exact Schur pivot. Any finite positive prefix admits an unchanged negative-pivot extension.",
+    "proved_statement_ko": "중첩 Gram 절단의 양성은 모든 정확 Schur pivot의 양성과 동치다. 임의의 유한 양성 prefix는 그대로 둔 채 다음 pivot을 음수로 확장할 수 있다.",
+    "proof": "Block Gaussian elimination gives the Schur-complement criterion and determinant ratio. The extension diag(G_N,-1) preserves every audited principal section and is indefinite.",
+    "schur_audit": {
+      "schur_theorem": "For G_{N+1}=[[G_N,b],[b*,c]] with G_N positive definite, G_{N+1} is positive definite iff delta_{N+1}=c-b*G_N^{-1}b is positive; moreover delta_{N+1}=det(G_{N+1})/det(G_N).",
+      "inductive_certificate": "Every nested finite Gram section is positive definite iff every exact Schur pivot is positive.",
+      "finite_prefix_no_go": "Any finite positive prefix can be preserved and extended by diag(I_N,-1), so a bounded list of positive sections cannot certify the infinite family.",
+      "hilbert_rows": [
+        {
+          "dimension": 1,
+          "last_schur_pivot": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+          "pivot_denominator_digits": 1,
+          "checks": {
+            "all_exact_schur_pivots_positive": true,
+            "last_pivot_matches_closed_form": true,
+            "leading_determinant_ratio_positive": true
+          }
+        },
+        {
+          "dimension": 2,
+          "last_schur_pivot": {
+            "exact": "1/12",
+            "decimal": 0.08333333333333333
+          },
+          "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+          "pivot_denominator_digits": 2,
+          "checks": {
+            "all_exact_schur_pivots_positive": true,
+            "last_pivot_matches_closed_form": true,
+            "leading_determinant_ratio_positive": true
+          }
+        },
+        {
+          "dimension": 3,
+          "last_schur_pivot": {
+            "exact": "1/180",
+            "decimal": 0.005555555555555556
+          },
+          "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+          "pivot_denominator_digits": 3,
+          "checks": {
+            "all_exact_schur_pivots_positive": true,
+            "last_pivot_matches_closed_form": true,
+            "leading_determinant_ratio_positive": true
+          }
+        },
+        {
+          "dimension": 4,
+          "last_schur_pivot": {
+            "exact": "1/2800",
+            "decimal": 0.00035714285714285714
+          },
+          "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+          "pivot_denominator_digits": 4,
+          "checks": {
+            "all_exact_schur_pivots_positive": true,
+            "last_pivot_matches_closed_form": true,
+            "leading_determinant_ratio_positive": true
+          }
+        },
+        {
+          "dimension": 5,
+          "last_schur_pivot": {
+            "exact": "1/44100",
+            "decimal": 2.2675736961451248e-05
+          },
+          "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+          "pivot_denominator_digits": 5,
+          "checks": {
+            "all_exact_schur_pivots_positive": true,
+            "last_pivot_matches_closed_form": true,
+            "leading_determinant_ratio_positive": true
+          }
+        },
+        {
+          "dimension": 6,
+          "last_schur_pivot": {
+            "exact": "1/698544",
+            "decimal": 1.4315490505966697e-06
+          },
+          "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+          "pivot_denominator_digits": 6,
+          "checks": {
+            "all_exact_schur_pivots_positive": true,
+            "last_pivot_matches_closed_form": true,
+            "leading_determinant_ratio_positive": true
+          }
+        },
+        {
+          "dimension": 7,
+          "last_schur_pivot": {
+            "exact": "1/11099088",
+            "decimal": 9.00974926948953e-08
+          },
+          "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+          "pivot_denominator_digits": 8,
+          "checks": {
+            "all_exact_schur_pivots_positive": true,
+            "last_pivot_matches_closed_form": true,
+            "leading_determinant_ratio_positive": true
+          }
+        },
+        {
+          "dimension": 8,
+          "last_schur_pivot": {
+            "exact": "1/176679360",
+            "decimal": 5.65997069493573e-09
+          },
+          "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+          "pivot_denominator_digits": 9,
+          "checks": {
+            "all_exact_schur_pivots_positive": true,
+            "last_pivot_matches_closed_form": true,
+            "leading_determinant_ratio_positive": true
+          }
+        },
+        {
+          "dimension": 9,
+          "last_schur_pivot": {
+            "exact": "1/2815827300",
+            "decimal": 3.551354161528301e-10
+          },
+          "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+          "pivot_denominator_digits": 10,
+          "checks": {
+            "all_exact_schur_pivots_positive": true,
+            "last_pivot_matches_closed_form": true,
+            "leading_determinant_ratio_positive": true
+          }
+        },
+        {
+          "dimension": 10,
+          "last_schur_pivot": {
+            "exact": "1/44914183600",
+            "decimal": 2.226468166283223e-11
+          },
+          "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+          "pivot_denominator_digits": 11,
+          "checks": {
+            "all_exact_schur_pivots_positive": true,
+            "last_pivot_matches_closed_form": true,
+            "leading_determinant_ratio_positive": true
+          }
+        }
+      ],
+      "negative_extension_rows": [
+        {
+          "positive_prefix_dimension": 1,
+          "extension": "diag(I_N,-1)",
+          "new_schur_pivot": -1,
+          "checks": {
+            "audited_prefix_is_positive_definite": true,
+            "next_extension_is_indefinite": true,
+            "old_prefix_is_unchanged": true
+          }
+        },
+        {
+          "positive_prefix_dimension": 2,
+          "extension": "diag(I_N,-1)",
+          "new_schur_pivot": -1,
+          "checks": {
+            "audited_prefix_is_positive_definite": true,
+            "next_extension_is_indefinite": true,
+            "old_prefix_is_unchanged": true
+          }
+        },
+        {
+          "positive_prefix_dimension": 4,
+          "extension": "diag(I_N,-1)",
+          "new_schur_pivot": -1,
+          "checks": {
+            "audited_prefix_is_positive_definite": true,
+            "next_extension_is_indefinite": true,
+            "old_prefix_is_unchanged": true
+          }
+        },
+        {
+          "positive_prefix_dimension": 8,
+          "extension": "diag(I_N,-1)",
+          "new_schur_pivot": -1,
+          "checks": {
+            "audited_prefix_is_positive_definite": true,
+            "next_extension_is_indefinite": true,
+            "old_prefix_is_unchanged": true
+          }
+        },
+        {
+          "positive_prefix_dimension": 16,
+          "extension": "diag(I_N,-1)",
+          "new_schur_pivot": -1,
+          "checks": {
+            "audited_prefix_is_positive_definite": true,
+            "next_extension_is_indefinite": true,
+            "old_prefix_is_unchanged": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "No actual Weil Gram entries or all-N pivot lower bound is proved. Hilbert matrices are exact conditioning controls, not zeta-form compressions.",
+    "route_decision": {
+      "discard": "promoting any bounded list of positive finite sections to the infinite compression family",
+      "retain": "an explicit Weil form-core basis with a symbolic positive lower bound for every Schur pivot",
+      "next_theorem": "ExplicitWeilFormCoreSchurPivotLowerBound"
+    },
+    "proof_boundary": "No RH proof or counterexample. The result supplies an exact certificate grammar and a finite-prefix no-go only.",
+    "machine_audit": {
+      "row_count": 15,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T144-CLOSED",
+          "label": "NestedGramSchurPivotCertificateAndFinitePrefixExtensionNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T144-OPEN",
+          "label": "ExplicitWeilFormCoreSchurPivotLowerBound",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T144-CLOSED",
+          "RH-T144-OPEN"
+        ]
+      ]
+    }
+  }
+}

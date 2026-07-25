@@ -62,44 +62,61 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-143
+## Latest Continuation After TICKET-144
 
-TICKET143 is the current boundary. Read
-`docs/form-core-period-floor-martingale-walsh.md` and
-`data/open-problem/ticket143-form-core-period-floor-martingale-walsh.json`
+TICKET144 is the current boundary. Read
+`docs/schur-rank-equivalence-variation-adverse-walsh.md` and
+`data/open-problem/ticket144-schur-rank-equivalence-variation-adverse-walsh.json`
 before proposing a new route. None of the four conjectures is resolved.
 
-For RH, `ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo` proves that
-finite compression positivity promotes through a genuine form core, while an
-explicit closed-form counterexample has positive Hilbert-dense graph
-compressions and a negative full-form direction. Attack
-`ExplicitWeilFormCoreCompressionCertificateFamily`.
+For RH, `NestedGramSchurPivotCertificateAndFinitePrefixExtensionNoGo`
+reduces nested positive definiteness to exact scalar Schur pivots and proves
+that any finite positive prefix has an unchanged indefinite extension. Attack
+`ExplicitWeilFormCoreSchurPivotLowerBound`; a finite list of positive sections
+is not enough.
 
-For Collatz,
-`PublishedOddPeriodFloorRetiresPeriod15601AndCompositionExplosionNoGo`
-imports the cited published `K>7.2e10` odd-member floor and retires the
-period-15,601 branch. Its raw ordered valuation space has 7,069 decimal digits,
-but that count is not a universal complexity lower bound. Attack
-`PublishedFloorAwareAffineCappedNaturalCodeWellFoundedness`.
+For Collatz, `GlobalWellFoundedRankIffCollatzTermination` proves that an
+unrestricted strictly decreasing well-founded rank is equivalent to global
+termination. A rank defined by observed hitting time is circular. Attack
+`ExplicitLiftClosedFiniteDescriptionCollatzRank`, requiring independent finite
+semantics, lift closure, and descent.
 
 For Goldbach,
-`DyadicMartingaleResidualIdentityAndRootModeScalingNoGo` reconstructs every
-point exactly from the root mean and scale-normalized martingale differences.
-A constant bounded signal shows why a scale-independent raw orthonormal Haar
-cap is unnecessarily strong. Attack
-`UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56`.
+`BoundedSignalLinearAbsoluteMartingaleVariationNoGo` constructs exact bounded
+dyadic vectors with signed endpoint in `{0,1/2}` but absolute path variation
+`d/2`; it exceeds the `K=56` proxy at depth 113. This is not a Goldbach
+residual. Attack `ArithmeticBinaryGoldbachSignedMartingaleCancellationK56` on
+the actual arithmetic residual.
 
 For Twin Prime,
-`WalshHadamardRoughPairInversionAndCircularGapNoGo` reconstructs all four
-rough-pair parity classes and proves that the old one-sided gap is exactly four
-times the twin count. Attack the stronger but non-circular sufficient target
-`UniformCubicRoughWalshL1ContractionBelowOne`.
+`WalshL1SimplexBalanceIdentityAndAdversePartReduction` identifies full Walsh
+`L1` with two-sided balance of all four parity classes and proves
+`N-- >= (A00-B)/4` using only the adverse positive parts. Attack
+`UniformCubicRoughAdverseWalshPartContraction`.
 
-한국어 요약: TICKET143은 RH finite-section에 form-core 위상이 필요함을
-확정하고, 공개 주기 하한 아래인 Collatz 15,601 분기를 폐기하며,
-Goldbach를 root 평균과 martingale 경로합으로 다시 정규화하고, Twin
-단측 gap이 원래 블록 존재 명제와 정확히 동치임을 증명한다. 새 결과는
+한국어 요약: TICKET144는 RH를 정확한 Schur pivot 하한 문제로 바꾸고,
+Collatz의 제약 없는 rank가 추측 자체와 동치임을 증명하며, Goldbach의
+일반 절대변동 목표를 bounded 반례족으로 폐기하고, Twin의 전체 Walsh
+균형을 adverse 성분만 제어하는 더 약한 조건으로 바꾼다. 새 결과는
 증명 경로 교정이며 네 난제 해결은 0개다.
+
+## Historical Continuation After TICKET-143
+
+TICKET143 is a preserved historical boundary. Read
+`docs/form-core-period-floor-martingale-walsh.md` and
+`data/open-problem/ticket143-form-core-period-floor-martingale-walsh.json`
+for the targets corrected by TICKET144. None of the four conjectures is
+resolved.
+
+- RH: `ExplicitWeilFormCoreCompressionCertificateFamily` is now sharpened to
+  an all-section Schur-pivot lower bound.
+- Collatz: unrestricted natural-code well-foundedness is retired as exactly
+  equivalent to termination unless an independent finite description and
+  lift closure are supplied.
+- Goldbach: generic absolute path variation is retired; actual arithmetic
+  signed cancellation is required.
+- Twin Prime: full Walsh `L1` contraction is retained only as an overstrong
+  sufficient condition; adverse-part contraction is the corrected target.
 
 ## Historical Continuation After TICKET-142
 

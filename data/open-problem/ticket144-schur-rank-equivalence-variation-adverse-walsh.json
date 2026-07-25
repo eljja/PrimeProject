@@ -1,0 +1,953 @@
+{
+  "schema": "primeproject.ticket144-schur-rank-equivalence-variation-adverse-walsh.v1",
+  "generated_at": "2026-07-26T00:30:00+09:00",
+  "status": "exact_reductions_and_no_go_theorems_all_conjectures_open",
+  "claim_boundary": "No conjecture proof or counterexample. TICKET144 proves four exact linear-algebraic, dynamical, martingale, or Walsh statements, rejects overstrong or circular intermediate targets, and leaves all four conjectures open.",
+  "schur_rank_equivalence_variation_adverse_walsh_audit": {
+    "theorem_name": "FourConjectureSchurRankVariationAdverseWalshAudit",
+    "status": "exact_reductions_and_no_go_theorems_all_conjectures_open",
+    "proof_boundary": "No conjecture proof or counterexample. TICKET144 proves four exact linear-algebraic, dynamical, martingale, or Walsh statements, rejects overstrong or circular intermediate targets, and leaves all four conjectures open.",
+    "riemann": {
+      "theorem_name": "NestedGramSchurPivotCertificateAndFinitePrefixExtensionNoGo",
+      "declared_target": "Reduce all-section form-core compression positivity to exact scalar certificates and test whether finite prefix success can imply the infinite family.",
+      "declared_target_ko": "form-core의 모든 압축 양성을 정확한 스칼라 인증으로 환원하고 유한 prefix 성공이 무한 가족을 함의하는지 판정한다.",
+      "proved_statement": "Nested positive Gram sections are equivalent to positivity of every exact Schur pivot. Any finite positive prefix admits an unchanged negative-pivot extension.",
+      "proved_statement_ko": "중첩 Gram 절단의 양성은 모든 정확 Schur pivot의 양성과 동치다. 임의의 유한 양성 prefix는 그대로 둔 채 다음 pivot을 음수로 확장할 수 있다.",
+      "proof": "Block Gaussian elimination gives the Schur-complement criterion and determinant ratio. The extension diag(G_N,-1) preserves every audited principal section and is indefinite.",
+      "schur_audit": {
+        "schur_theorem": "For G_{N+1}=[[G_N,b],[b*,c]] with G_N positive definite, G_{N+1} is positive definite iff delta_{N+1}=c-b*G_N^{-1}b is positive; moreover delta_{N+1}=det(G_{N+1})/det(G_N).",
+        "inductive_certificate": "Every nested finite Gram section is positive definite iff every exact Schur pivot is positive.",
+        "finite_prefix_no_go": "Any finite positive prefix can be preserved and extended by diag(I_N,-1), so a bounded list of positive sections cannot certify the infinite family.",
+        "hilbert_rows": [
+          {
+            "dimension": 1,
+            "last_schur_pivot": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+            "pivot_denominator_digits": 1,
+            "checks": {
+              "all_exact_schur_pivots_positive": true,
+              "last_pivot_matches_closed_form": true,
+              "leading_determinant_ratio_positive": true
+            }
+          },
+          {
+            "dimension": 2,
+            "last_schur_pivot": {
+              "exact": "1/12",
+              "decimal": 0.08333333333333333
+            },
+            "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+            "pivot_denominator_digits": 2,
+            "checks": {
+              "all_exact_schur_pivots_positive": true,
+              "last_pivot_matches_closed_form": true,
+              "leading_determinant_ratio_positive": true
+            }
+          },
+          {
+            "dimension": 3,
+            "last_schur_pivot": {
+              "exact": "1/180",
+              "decimal": 0.005555555555555556
+            },
+            "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+            "pivot_denominator_digits": 3,
+            "checks": {
+              "all_exact_schur_pivots_positive": true,
+              "last_pivot_matches_closed_form": true,
+              "leading_determinant_ratio_positive": true
+            }
+          },
+          {
+            "dimension": 4,
+            "last_schur_pivot": {
+              "exact": "1/2800",
+              "decimal": 0.00035714285714285714
+            },
+            "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+            "pivot_denominator_digits": 4,
+            "checks": {
+              "all_exact_schur_pivots_positive": true,
+              "last_pivot_matches_closed_form": true,
+              "leading_determinant_ratio_positive": true
+            }
+          },
+          {
+            "dimension": 5,
+            "last_schur_pivot": {
+              "exact": "1/44100",
+              "decimal": 2.2675736961451248e-05
+            },
+            "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+            "pivot_denominator_digits": 5,
+            "checks": {
+              "all_exact_schur_pivots_positive": true,
+              "last_pivot_matches_closed_form": true,
+              "leading_determinant_ratio_positive": true
+            }
+          },
+          {
+            "dimension": 6,
+            "last_schur_pivot": {
+              "exact": "1/698544",
+              "decimal": 1.4315490505966697e-06
+            },
+            "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+            "pivot_denominator_digits": 6,
+            "checks": {
+              "all_exact_schur_pivots_positive": true,
+              "last_pivot_matches_closed_form": true,
+              "leading_determinant_ratio_positive": true
+            }
+          },
+          {
+            "dimension": 7,
+            "last_schur_pivot": {
+              "exact": "1/11099088",
+              "decimal": 9.00974926948953e-08
+            },
+            "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+            "pivot_denominator_digits": 8,
+            "checks": {
+              "all_exact_schur_pivots_positive": true,
+              "last_pivot_matches_closed_form": true,
+              "leading_determinant_ratio_positive": true
+            }
+          },
+          {
+            "dimension": 8,
+            "last_schur_pivot": {
+              "exact": "1/176679360",
+              "decimal": 5.65997069493573e-09
+            },
+            "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+            "pivot_denominator_digits": 9,
+            "checks": {
+              "all_exact_schur_pivots_positive": true,
+              "last_pivot_matches_closed_form": true,
+              "leading_determinant_ratio_positive": true
+            }
+          },
+          {
+            "dimension": 9,
+            "last_schur_pivot": {
+              "exact": "1/2815827300",
+              "decimal": 3.551354161528301e-10
+            },
+            "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+            "pivot_denominator_digits": 10,
+            "checks": {
+              "all_exact_schur_pivots_positive": true,
+              "last_pivot_matches_closed_form": true,
+              "leading_determinant_ratio_positive": true
+            }
+          },
+          {
+            "dimension": 10,
+            "last_schur_pivot": {
+              "exact": "1/44914183600",
+              "decimal": 2.226468166283223e-11
+            },
+            "closed_form": "1/((2N-1)*binom(2N-2,N-1)^2)",
+            "pivot_denominator_digits": 11,
+            "checks": {
+              "all_exact_schur_pivots_positive": true,
+              "last_pivot_matches_closed_form": true,
+              "leading_determinant_ratio_positive": true
+            }
+          }
+        ],
+        "negative_extension_rows": [
+          {
+            "positive_prefix_dimension": 1,
+            "extension": "diag(I_N,-1)",
+            "new_schur_pivot": -1,
+            "checks": {
+              "audited_prefix_is_positive_definite": true,
+              "next_extension_is_indefinite": true,
+              "old_prefix_is_unchanged": true
+            }
+          },
+          {
+            "positive_prefix_dimension": 2,
+            "extension": "diag(I_N,-1)",
+            "new_schur_pivot": -1,
+            "checks": {
+              "audited_prefix_is_positive_definite": true,
+              "next_extension_is_indefinite": true,
+              "old_prefix_is_unchanged": true
+            }
+          },
+          {
+            "positive_prefix_dimension": 4,
+            "extension": "diag(I_N,-1)",
+            "new_schur_pivot": -1,
+            "checks": {
+              "audited_prefix_is_positive_definite": true,
+              "next_extension_is_indefinite": true,
+              "old_prefix_is_unchanged": true
+            }
+          },
+          {
+            "positive_prefix_dimension": 8,
+            "extension": "diag(I_N,-1)",
+            "new_schur_pivot": -1,
+            "checks": {
+              "audited_prefix_is_positive_definite": true,
+              "next_extension_is_indefinite": true,
+              "old_prefix_is_unchanged": true
+            }
+          },
+          {
+            "positive_prefix_dimension": 16,
+            "extension": "diag(I_N,-1)",
+            "new_schur_pivot": -1,
+            "checks": {
+              "audited_prefix_is_positive_definite": true,
+              "next_extension_is_indefinite": true,
+              "old_prefix_is_unchanged": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "No actual Weil Gram entries or all-N pivot lower bound is proved. Hilbert matrices are exact conditioning controls, not zeta-form compressions.",
+      "route_decision": {
+        "discard": "promoting any bounded list of positive finite sections to the infinite compression family",
+        "retain": "an explicit Weil form-core basis with a symbolic positive lower bound for every Schur pivot",
+        "next_theorem": "ExplicitWeilFormCoreSchurPivotLowerBound"
+      },
+      "proof_boundary": "No RH proof or counterexample. The result supplies an exact certificate grammar and a finite-prefix no-go only.",
+      "machine_audit": {
+        "row_count": 15,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T144-CLOSED",
+            "label": "NestedGramSchurPivotCertificateAndFinitePrefixExtensionNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T144-OPEN",
+            "label": "ExplicitWeilFormCoreSchurPivotLowerBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T144-CLOSED",
+            "RH-T144-OPEN"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "theorem_name": "GlobalWellFoundedRankIffCollatzTermination",
+      "declared_target": "Determine whether an unrestricted well-founded natural-code rank is a genuine intermediate lemma.",
+      "declared_target_ko": "제약 없는 well-founded 자연 코드 rank가 실제 중간정리인지 판정한다.",
+      "proved_statement": "Global accelerated Collatz termination is equivalent to the existence of a well-founded rank strictly decreasing outside 1. The least hitting time supplies the reverse construction.",
+      "proved_statement_ko": "가속 Collatz의 전역 종료는 1 밖에서 엄격히 감소하는 well-founded rank의 존재와 동치다. 종료를 가정하면 최소 도달시간이 그 rank를 만든다.",
+      "proof": "Hitting time gives a natural-valued rank when termination is known. Conversely, a nonterminating orbit would be an infinite strict descent in a well-order.",
+      "rank_equivalence_audit": {
+        "equivalence": "Every positive odd accelerated Collatz orbit reaches 1 iff there exists a map R into a well-order with R(T(n))<R(n) for every n!=1.",
+        "forward_proof": "If every orbit reaches 1, define R(n) as the least accelerated hitting time of 1. Then R(T(n))=R(n)-1.",
+        "reverse_proof": "A nonterminating orbit would create an infinite strictly descending sequence in a well-order, which is impossible.",
+        "no_go": "An unrestricted global well-founded rank is an exact reparameterization of Collatz termination. A rank defined by the already observed hitting time is circular as a proof route.",
+        "published_odd_period_floor": {
+          "value": 72000000000,
+          "role": "preserved external premise from TICKET143; it does not weaken the aperiodic rank equivalence"
+        },
+        "finite_stopping_rank_audit": {
+          "limit": 100000,
+          "verified_odd_start_count": 50000,
+          "memoized_orbit_state_count": 79504,
+          "maximum_input_rank": 129,
+          "maximum_input_rank_start": 77031,
+          "selected_rows": [
+            {
+              "start": 1,
+              "successor": 1,
+              "finite_verified_hitting_rank": 0,
+              "successor_rank": 0,
+              "checks": {
+                "rank_is_nonnegative": true,
+                "sink_or_rank_drops_by_one": true
+              }
+            },
+            {
+              "start": 3,
+              "successor": 5,
+              "finite_verified_hitting_rank": 2,
+              "successor_rank": 1,
+              "checks": {
+                "rank_is_nonnegative": true,
+                "sink_or_rank_drops_by_one": true
+              }
+            },
+            {
+              "start": 7,
+              "successor": 11,
+              "finite_verified_hitting_rank": 5,
+              "successor_rank": 4,
+              "checks": {
+                "rank_is_nonnegative": true,
+                "sink_or_rank_drops_by_one": true
+              }
+            },
+            {
+              "start": 27,
+              "successor": 41,
+              "finite_verified_hitting_rank": 41,
+              "successor_rank": 40,
+              "checks": {
+                "rank_is_nonnegative": true,
+                "sink_or_rank_drops_by_one": true
+              }
+            },
+            {
+              "start": 97,
+              "successor": 73,
+              "finite_verified_hitting_rank": 43,
+              "successor_rank": 42,
+              "checks": {
+                "rank_is_nonnegative": true,
+                "sink_or_rank_drops_by_one": true
+              }
+            },
+            {
+              "start": 871,
+              "successor": 1307,
+              "finite_verified_hitting_rank": 65,
+              "successor_rank": 64,
+              "checks": {
+                "rank_is_nonnegative": true,
+                "sink_or_rank_drops_by_one": true
+              }
+            },
+            {
+              "start": 6171,
+              "successor": 9257,
+              "finite_verified_hitting_rank": 96,
+              "successor_rank": 95,
+              "checks": {
+                "rank_is_nonnegative": true,
+                "sink_or_rank_drops_by_one": true
+              }
+            },
+            {
+              "start": 77031,
+              "successor": 115547,
+              "finite_verified_hitting_rank": 129,
+              "successor_rank": 128,
+              "checks": {
+                "rank_is_nonnegative": true,
+                "sink_or_rank_drops_by_one": true
+              }
+            }
+          ],
+          "all_audited_input_ranks_drop": true,
+          "interpretation": "These ranks are computed after each finite trajectory reaches 1. They verify the equivalence on a bounded set but do not supply an independent global rank formula.",
+          "failure_count": 0
+        },
+        "checks": {
+          "finite_rank_rows_pass": true,
+          "maximum_rank_is_reproduced": true,
+          "published_floor_not_used_in_equivalence": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The equivalence does not construct an independent rank. The 100,000-start audit computes ranks only after bounded termination and cannot exclude a larger cycle or divergence.",
+      "route_decision": {
+        "discard": "presenting an unrestricted rank, or a rank defined by observed stopping time, as a weaker Collatz lemma",
+        "retain": "a finite-description residue/affine rank with independent lift closure and descent proof",
+        "next_theorem": "ExplicitLiftClosedFiniteDescriptionCollatzRank"
+      },
+      "proof_boundary": "No Collatz proof or counterexample. One rank formulation is proved exactly equivalent to the unresolved conjecture.",
+      "machine_audit": {
+        "row_count": 8,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T144-CLOSED",
+            "label": "GlobalWellFoundedRankIffCollatzTermination",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T144-OPEN",
+            "label": "ExplicitLiftClosedFiniteDescriptionCollatzRank",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T144-CLOSED",
+            "CO-T144-OPEN"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "theorem_name": "BoundedSignalLinearAbsoluteMartingaleVariationNoGo",
+      "declared_target": "Test whether uniformly bounded dyadic point values force a scale-independent absolute martingale path budget.",
+      "declared_target_ko": "균일하게 bounded인 dyadic 점값이 척도 독립 절대 martingale 경로 예산을 강제하는지 판정한다.",
+      "proved_statement": "There are exact dyadic vectors with sup norm at most one whose all-left absolute path variation is d/2 while the signed endpoint stays in {0,1/2}.",
+      "proved_statement_ko": "sup norm이 1 이하이지만 all-left 절대 경로변동은 d/2이고 부호 있는 endpoint는 0 또는 1/2인 정확한 dyadic 벡터족이 존재한다.",
+      "proof": "Alternate path conditional means between 0 and 1/2 and assign each sibling subtree the constant mean preserving its parent. Every increment has magnitude 1/2 and signs telescope.",
+      "variation_audit": {
+        "counterfamily": "Along the all-left path set m_l=0 for even l and m_l=1/2 for odd l. Give the sibling subtree at level l the constant mean 2m_l-m_{l+1}. Every leaf lies in [-1,1].",
+        "exact_identity": "The signed martingale path telescopes to m_d, while the absolute path variation equals d/2.",
+        "no_go": "Uniformly bounded point values do not imply a scale-independent absolute martingale path-variation bound. The variation reaches 56 at depth 112 and exceeds it at depth 113.",
+        "actual_residual_boundary": "The counterfamily is not an actual binary Goldbach residual. It refutes only absolute variation as a generic transform principle; arithmetic signed cancellation remains open.",
+        "rows": [
+          {
+            "depth": 4,
+            "dyadic_size": "2^4",
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "zero_path_endpoint": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "terminal_sup_norm": 1,
+            "signed_path_sum": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "absolute_path_variation": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "absolute_variation_exceeds_56": false,
+            "checks": {
+              "root_mean_is_zero": true,
+              "terminal_sup_norm_at_most_one": true,
+              "signed_path_telescopes": true,
+              "absolute_path_variation_is_depth_over_two": true,
+              "k56_crossing_flag_is_exact": true,
+              "direct_leaf_means_match_symbolic_path": true
+            }
+          },
+          {
+            "depth": 8,
+            "dyadic_size": "2^8",
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "zero_path_endpoint": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "terminal_sup_norm": 1,
+            "signed_path_sum": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "absolute_path_variation": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "absolute_variation_exceeds_56": false,
+            "checks": {
+              "root_mean_is_zero": true,
+              "terminal_sup_norm_at_most_one": true,
+              "signed_path_telescopes": true,
+              "absolute_path_variation_is_depth_over_two": true,
+              "k56_crossing_flag_is_exact": true,
+              "direct_leaf_means_match_symbolic_path": true
+            }
+          },
+          {
+            "depth": 16,
+            "dyadic_size": "2^16",
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "zero_path_endpoint": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "terminal_sup_norm": 1,
+            "signed_path_sum": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "absolute_path_variation": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "absolute_variation_exceeds_56": false,
+            "checks": {
+              "root_mean_is_zero": true,
+              "terminal_sup_norm_at_most_one": true,
+              "signed_path_telescopes": true,
+              "absolute_path_variation_is_depth_over_two": true,
+              "k56_crossing_flag_is_exact": true
+            }
+          },
+          {
+            "depth": 32,
+            "dyadic_size": "2^32",
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "zero_path_endpoint": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "terminal_sup_norm": 1,
+            "signed_path_sum": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "absolute_path_variation": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "absolute_variation_exceeds_56": false,
+            "checks": {
+              "root_mean_is_zero": true,
+              "terminal_sup_norm_at_most_one": true,
+              "signed_path_telescopes": true,
+              "absolute_path_variation_is_depth_over_two": true,
+              "k56_crossing_flag_is_exact": true
+            }
+          },
+          {
+            "depth": 64,
+            "dyadic_size": "2^64",
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "zero_path_endpoint": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "terminal_sup_norm": 1,
+            "signed_path_sum": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "absolute_path_variation": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "absolute_variation_exceeds_56": false,
+            "checks": {
+              "root_mean_is_zero": true,
+              "terminal_sup_norm_at_most_one": true,
+              "signed_path_telescopes": true,
+              "absolute_path_variation_is_depth_over_two": true,
+              "k56_crossing_flag_is_exact": true
+            }
+          },
+          {
+            "depth": 111,
+            "dyadic_size": "2^111",
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "zero_path_endpoint": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "terminal_sup_norm": 1,
+            "signed_path_sum": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "absolute_path_variation": {
+              "exact": "111/2",
+              "decimal": 55.5
+            },
+            "absolute_variation_exceeds_56": false,
+            "checks": {
+              "root_mean_is_zero": true,
+              "terminal_sup_norm_at_most_one": true,
+              "signed_path_telescopes": true,
+              "absolute_path_variation_is_depth_over_two": true,
+              "k56_crossing_flag_is_exact": true
+            }
+          },
+          {
+            "depth": 112,
+            "dyadic_size": "2^112",
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "zero_path_endpoint": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "terminal_sup_norm": 1,
+            "signed_path_sum": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "absolute_path_variation": {
+              "exact": "56/1",
+              "decimal": 56.0
+            },
+            "absolute_variation_exceeds_56": false,
+            "checks": {
+              "root_mean_is_zero": true,
+              "terminal_sup_norm_at_most_one": true,
+              "signed_path_telescopes": true,
+              "absolute_path_variation_is_depth_over_two": true,
+              "k56_crossing_flag_is_exact": true
+            }
+          },
+          {
+            "depth": 113,
+            "dyadic_size": "2^113",
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "zero_path_endpoint": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "terminal_sup_norm": 1,
+            "signed_path_sum": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "absolute_path_variation": {
+              "exact": "113/2",
+              "decimal": 56.5
+            },
+            "absolute_variation_exceeds_56": true,
+            "checks": {
+              "root_mean_is_zero": true,
+              "terminal_sup_norm_at_most_one": true,
+              "signed_path_telescopes": true,
+              "absolute_path_variation_is_depth_over_two": true,
+              "k56_crossing_flag_is_exact": true
+            }
+          },
+          {
+            "depth": 128,
+            "dyadic_size": "2^128",
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "zero_path_endpoint": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "terminal_sup_norm": 1,
+            "signed_path_sum": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "absolute_path_variation": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "absolute_variation_exceeds_56": true,
+            "checks": {
+              "root_mean_is_zero": true,
+              "terminal_sup_norm_at_most_one": true,
+              "signed_path_telescopes": true,
+              "absolute_path_variation_is_depth_over_two": true,
+              "k56_crossing_flag_is_exact": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The vector family is not an arithmetic Goldbach residual. It does not refute a K56 theorem for that residual; it refutes absolute path variation as a generic bounded-signal proxy.",
+      "route_decision": {
+        "discard": "deriving a uniform absolute path-variation budget from bounded point values or transform structure alone",
+        "retain": "signed arithmetic cancellation on actual binary Goldbach residuals, stratified by the hard rough classes",
+        "next_theorem": "ArithmeticBinaryGoldbachSignedMartingaleCancellationK56"
+      },
+      "proof_boundary": "No Goldbach proof or counterexample. An exact auxiliary counterfamily only removes an overstrong generic proxy.",
+      "machine_audit": {
+        "row_count": 9,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T144-CLOSED",
+            "label": "BoundedSignalLinearAbsoluteMartingaleVariationNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T144-OPEN",
+            "label": "ArithmeticBinaryGoldbachSignedMartingaleCancellationK56",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T144-CLOSED",
+            "GB-T144-OPEN"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "theorem_name": "WalshL1SimplexBalanceIdentityAndAdversePartReduction",
+      "declared_target": "Determine the exact combinatorial strength of full Walsh L1 contraction and derive a weaker twin-targeted sufficient bound.",
+      "declared_target_ko": "전체 Walsh L1 수축의 정확한 조합론적 강도를 판정하고 더 약한 twin 표적 충분조건을 도출한다.",
+      "proved_statement": "Walsh L1 equals the maximum two-sided deviation of any parity class from one quarter of the rough mass. Replacing it by the adverse positive parts alone still gives N_{-,-}>=(A00-B)/4.",
+      "proved_statement_ko": "Walsh L1은 각 parity 부류가 rough 질량의 1/4에서 벗어나는 최대 양방향 편차와 같다. twin에 불리한 양의 부분만 남겨도 N_{-,-}>=(A00-B)/4가 성립한다.",
+      "proof": "Walsh inversion and the eight signed character directions give the simplex identity. Bounding each adverse signed term by its positive part yields the targeted lower bound.",
+      "adverse_walsh_audit": {
+        "simplex_identity": "|A10|+|A01|+|A11|=max_{s,t}|4N_{s,t}-A00|",
+        "simplex_interpretation": "L1 <= (1-delta)A00 iff every parity class lies between delta*A00/4 and (2-delta)*A00/4.",
+        "adverse_part": "B=A10_+ + A01_+ + (-A11)_+; since A10+A01-A11<=B, N_{-,-}>=(A00-B)/4.",
+        "strictly_weaker_next_condition": "B <= (1-delta)A00 on all sufficiently large cubic-rough pair blocks",
+        "rows": [
+          {
+            "X": 1000,
+            "A00": 59,
+            "A10": -17,
+            "A01": -19,
+            "A11": 9,
+            "category_counts": [
+              8,
+              13,
+              12,
+              26
+            ],
+            "walsh_l1": 45,
+            "simplex_max_deviation": 45,
+            "adverse_walsh_part": 0,
+            "adverse_margin": 59,
+            "certified_twin_lower_bound": {
+              "exact": "59/4",
+              "decimal": 14.75
+            },
+            "direct_twin_count": 26,
+            "checks": {
+              "walsh_coefficients_match_source": true,
+              "l1_equals_max_simplex_deviation": true,
+              "adverse_part_is_no_larger_than_l1": true,
+              "targeted_twin_lower_bound_holds": true
+            }
+          },
+          {
+            "X": 10000,
+            "A00": 358,
+            "A10": -104,
+            "A01": -84,
+            "A11": 2,
+            "category_counts": [
+              43,
+              84,
+              94,
+              137
+            ],
+            "walsh_l1": 190,
+            "simplex_max_deviation": 190,
+            "adverse_walsh_part": 0,
+            "adverse_margin": 358,
+            "certified_twin_lower_bound": {
+              "exact": "179/2",
+              "decimal": 89.5
+            },
+            "direct_twin_count": 137,
+            "checks": {
+              "walsh_coefficients_match_source": true,
+              "l1_equals_max_simplex_deviation": true,
+              "adverse_part_is_no_larger_than_l1": true,
+              "targeted_twin_lower_bound_holds": true
+            }
+          },
+          {
+            "X": 100000,
+            "A00": 2486,
+            "A10": -564,
+            "A01": -556,
+            "A11": 138,
+            "category_counts": [
+              376,
+              585,
+              589,
+              936
+            ],
+            "walsh_l1": 1258,
+            "simplex_max_deviation": 1258,
+            "adverse_walsh_part": 0,
+            "adverse_margin": 2486,
+            "certified_twin_lower_bound": {
+              "exact": "1243/2",
+              "decimal": 621.5
+            },
+            "direct_twin_count": 936,
+            "checks": {
+              "walsh_coefficients_match_source": true,
+              "l1_equals_max_simplex_deviation": true,
+              "adverse_part_is_no_larger_than_l1": true,
+              "targeted_twin_lower_bound_holds": true
+            }
+          },
+          {
+            "X": 1000000,
+            "A00": 17634,
+            "A10": -3970,
+            "A01": -3992,
+            "A11": 1212,
+            "category_counts": [
+              2721,
+              4111,
+              4100,
+              6702
+            ],
+            "walsh_l1": 9174,
+            "simplex_max_deviation": 9174,
+            "adverse_walsh_part": 0,
+            "adverse_margin": 17634,
+            "certified_twin_lower_bound": {
+              "exact": "8817/2",
+              "decimal": 4408.5
+            },
+            "direct_twin_count": 6702,
+            "checks": {
+              "walsh_coefficients_match_source": true,
+              "l1_equals_max_simplex_deviation": true,
+              "adverse_part_is_no_larger_than_l1": true,
+              "targeted_twin_lower_bound_holds": true
+            }
+          }
+        ],
+        "synthetic_nonnecessity_witness": {
+          "category_counts": [
+            90,
+            5,
+            4,
+            1
+          ],
+          "A00": 100,
+          "A10": 90,
+          "A01": 88,
+          "A11": 82,
+          "walsh_l1": 260,
+          "twin_class_positive": true,
+          "l1_contraction_fails": true
+        },
+        "checks": {
+          "all_finite_rows_pass": true,
+          "all_observed_adverse_parts_are_zero": true,
+          "l1_is_not_necessary_for_positive_twin_class": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "Four finite blocks have zero adverse part, but no eventual sign theorem or uniform all-scale contraction is proved. The sieve parity barrier remains.",
+      "route_decision": {
+        "discard": "requiring two-sided balance of all four parity classes via full Walsh L1 as the primary twin target",
+        "retain": "control only A10_+, A01_+, and (-A11)_+ on cubic-rough pair blocks",
+        "next_theorem": "UniformCubicRoughAdverseWalshPartContraction"
+      },
+      "proof_boundary": "No Twin Prime proof or counterexample. The result weakens one sufficient correlation target and audits four finite blocks.",
+      "machine_audit": {
+        "row_count": 4,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T144-CLOSED",
+            "label": "WalshL1SimplexBalanceIdentityAndAdversePartReduction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T144-OPEN",
+            "label": "UniformCubicRoughAdverseWalshPartContraction",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T144-CLOSED",
+            "TP-T144-OPEN"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-144",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "nested exact Schur-pivot audit",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "obstruction": "No actual Weil Gram entries or all-N pivot lower bound is proved. Hilbert matrices are exact conditioning controls, not zeta-form compressions.",
+      "candidate_theorem": "ExplicitWeilFormCoreSchurPivotLowerBound",
+      "next_experiment": "an explicit Weil form-core basis with a symbolic positive lower bound for every Schur pivot",
+      "claim_boundary": "No RH proof or counterexample. The result supplies an exact certificate grammar and a finite-prefix no-go only."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-144",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "global well-founded rank equivalence audit",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "obstruction": "The equivalence does not construct an independent rank. The 100,000-start audit computes ranks only after bounded termination and cannot exclude a larger cycle or divergence.",
+      "candidate_theorem": "ExplicitLiftClosedFiniteDescriptionCollatzRank",
+      "next_experiment": "a finite-description residue/affine rank with independent lift closure and descent proof",
+      "claim_boundary": "No Collatz proof or counterexample. One rank formulation is proved exactly equivalent to the unresolved conjecture."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-144",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "bounded-signal absolute-variation counterfamily",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "obstruction": "The vector family is not an arithmetic Goldbach residual. It does not refute a K56 theorem for that residual; it refutes absolute path variation as a generic bounded-signal proxy.",
+      "candidate_theorem": "ArithmeticBinaryGoldbachSignedMartingaleCancellationK56",
+      "next_experiment": "signed arithmetic cancellation on actual binary Goldbach residuals, stratified by the hard rough classes",
+      "claim_boundary": "No Goldbach proof or counterexample. An exact auxiliary counterfamily only removes an overstrong generic proxy."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-144",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "Walsh simplex and adverse-part reduction",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "obstruction": "Four finite blocks have zero adverse part, but no eventual sign theorem or uniform all-scale contraction is proved. The sieve parity barrier remains.",
+      "candidate_theorem": "UniformCubicRoughAdverseWalshPartContraction",
+      "next_experiment": "control only A10_+, A01_+, and (-A11)_+ on cubic-rough pair blocks",
+      "claim_boundary": "No Twin Prime proof or counterexample. The result weakens one sufficient correlation target and audits four finite blocks."
+    }
+  ]
+}

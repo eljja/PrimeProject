@@ -1,0 +1,327 @@
+{
+  "schema": "primeproject.ticket144-schur-rank-equivalence-variation-adverse-walsh.v1",
+  "generated_at": "2026-07-26T00:30:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-144",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "bounded-signal absolute-variation counterfamily",
+  "bounded_result": {
+    "audit_ref": "goldbach"
+  },
+  "obstruction": "The vector family is not an arithmetic Goldbach residual. It does not refute a K56 theorem for that residual; it refutes absolute path variation as a generic bounded-signal proxy.",
+  "candidate_theorem": "ArithmeticBinaryGoldbachSignedMartingaleCancellationK56",
+  "next_experiment": "signed arithmetic cancellation on actual binary Goldbach residuals, stratified by the hard rough classes",
+  "claim_boundary": "No Goldbach proof or counterexample. An exact auxiliary counterfamily only removes an overstrong generic proxy.",
+  "result": {
+    "theorem_name": "BoundedSignalLinearAbsoluteMartingaleVariationNoGo",
+    "declared_target": "Test whether uniformly bounded dyadic point values force a scale-independent absolute martingale path budget.",
+    "declared_target_ko": "균일하게 bounded인 dyadic 점값이 척도 독립 절대 martingale 경로 예산을 강제하는지 판정한다.",
+    "proved_statement": "There are exact dyadic vectors with sup norm at most one whose all-left absolute path variation is d/2 while the signed endpoint stays in {0,1/2}.",
+    "proved_statement_ko": "sup norm이 1 이하이지만 all-left 절대 경로변동은 d/2이고 부호 있는 endpoint는 0 또는 1/2인 정확한 dyadic 벡터족이 존재한다.",
+    "proof": "Alternate path conditional means between 0 and 1/2 and assign each sibling subtree the constant mean preserving its parent. Every increment has magnitude 1/2 and signs telescope.",
+    "variation_audit": {
+      "counterfamily": "Along the all-left path set m_l=0 for even l and m_l=1/2 for odd l. Give the sibling subtree at level l the constant mean 2m_l-m_{l+1}. Every leaf lies in [-1,1].",
+      "exact_identity": "The signed martingale path telescopes to m_d, while the absolute path variation equals d/2.",
+      "no_go": "Uniformly bounded point values do not imply a scale-independent absolute martingale path-variation bound. The variation reaches 56 at depth 112 and exceeds it at depth 113.",
+      "actual_residual_boundary": "The counterfamily is not an actual binary Goldbach residual. It refutes only absolute variation as a generic transform principle; arithmetic signed cancellation remains open.",
+      "rows": [
+        {
+          "depth": 4,
+          "dyadic_size": "2^4",
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "zero_path_endpoint": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "terminal_sup_norm": 1,
+          "signed_path_sum": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "absolute_path_variation": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_variation_exceeds_56": false,
+          "checks": {
+            "root_mean_is_zero": true,
+            "terminal_sup_norm_at_most_one": true,
+            "signed_path_telescopes": true,
+            "absolute_path_variation_is_depth_over_two": true,
+            "k56_crossing_flag_is_exact": true,
+            "direct_leaf_means_match_symbolic_path": true
+          }
+        },
+        {
+          "depth": 8,
+          "dyadic_size": "2^8",
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "zero_path_endpoint": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "terminal_sup_norm": 1,
+          "signed_path_sum": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "absolute_path_variation": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "absolute_variation_exceeds_56": false,
+          "checks": {
+            "root_mean_is_zero": true,
+            "terminal_sup_norm_at_most_one": true,
+            "signed_path_telescopes": true,
+            "absolute_path_variation_is_depth_over_two": true,
+            "k56_crossing_flag_is_exact": true,
+            "direct_leaf_means_match_symbolic_path": true
+          }
+        },
+        {
+          "depth": 16,
+          "dyadic_size": "2^16",
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "zero_path_endpoint": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "terminal_sup_norm": 1,
+          "signed_path_sum": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "absolute_path_variation": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "absolute_variation_exceeds_56": false,
+          "checks": {
+            "root_mean_is_zero": true,
+            "terminal_sup_norm_at_most_one": true,
+            "signed_path_telescopes": true,
+            "absolute_path_variation_is_depth_over_two": true,
+            "k56_crossing_flag_is_exact": true
+          }
+        },
+        {
+          "depth": 32,
+          "dyadic_size": "2^32",
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "zero_path_endpoint": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "terminal_sup_norm": 1,
+          "signed_path_sum": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "absolute_path_variation": {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          "absolute_variation_exceeds_56": false,
+          "checks": {
+            "root_mean_is_zero": true,
+            "terminal_sup_norm_at_most_one": true,
+            "signed_path_telescopes": true,
+            "absolute_path_variation_is_depth_over_two": true,
+            "k56_crossing_flag_is_exact": true
+          }
+        },
+        {
+          "depth": 64,
+          "dyadic_size": "2^64",
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "zero_path_endpoint": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "terminal_sup_norm": 1,
+          "signed_path_sum": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "absolute_path_variation": {
+            "exact": "32/1",
+            "decimal": 32.0
+          },
+          "absolute_variation_exceeds_56": false,
+          "checks": {
+            "root_mean_is_zero": true,
+            "terminal_sup_norm_at_most_one": true,
+            "signed_path_telescopes": true,
+            "absolute_path_variation_is_depth_over_two": true,
+            "k56_crossing_flag_is_exact": true
+          }
+        },
+        {
+          "depth": 111,
+          "dyadic_size": "2^111",
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "zero_path_endpoint": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "terminal_sup_norm": 1,
+          "signed_path_sum": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_path_variation": {
+            "exact": "111/2",
+            "decimal": 55.5
+          },
+          "absolute_variation_exceeds_56": false,
+          "checks": {
+            "root_mean_is_zero": true,
+            "terminal_sup_norm_at_most_one": true,
+            "signed_path_telescopes": true,
+            "absolute_path_variation_is_depth_over_two": true,
+            "k56_crossing_flag_is_exact": true
+          }
+        },
+        {
+          "depth": 112,
+          "dyadic_size": "2^112",
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "zero_path_endpoint": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "terminal_sup_norm": 1,
+          "signed_path_sum": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "absolute_path_variation": {
+            "exact": "56/1",
+            "decimal": 56.0
+          },
+          "absolute_variation_exceeds_56": false,
+          "checks": {
+            "root_mean_is_zero": true,
+            "terminal_sup_norm_at_most_one": true,
+            "signed_path_telescopes": true,
+            "absolute_path_variation_is_depth_over_two": true,
+            "k56_crossing_flag_is_exact": true
+          }
+        },
+        {
+          "depth": 113,
+          "dyadic_size": "2^113",
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "zero_path_endpoint": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "terminal_sup_norm": 1,
+          "signed_path_sum": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_path_variation": {
+            "exact": "113/2",
+            "decimal": 56.5
+          },
+          "absolute_variation_exceeds_56": true,
+          "checks": {
+            "root_mean_is_zero": true,
+            "terminal_sup_norm_at_most_one": true,
+            "signed_path_telescopes": true,
+            "absolute_path_variation_is_depth_over_two": true,
+            "k56_crossing_flag_is_exact": true
+          }
+        },
+        {
+          "depth": 128,
+          "dyadic_size": "2^128",
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "zero_path_endpoint": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "terminal_sup_norm": 1,
+          "signed_path_sum": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "absolute_path_variation": {
+            "exact": "64/1",
+            "decimal": 64.0
+          },
+          "absolute_variation_exceeds_56": true,
+          "checks": {
+            "root_mean_is_zero": true,
+            "terminal_sup_norm_at_most_one": true,
+            "signed_path_telescopes": true,
+            "absolute_path_variation_is_depth_over_two": true,
+            "k56_crossing_flag_is_exact": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The vector family is not an arithmetic Goldbach residual. It does not refute a K56 theorem for that residual; it refutes absolute path variation as a generic bounded-signal proxy.",
+    "route_decision": {
+      "discard": "deriving a uniform absolute path-variation budget from bounded point values or transform structure alone",
+      "retain": "signed arithmetic cancellation on actual binary Goldbach residuals, stratified by the hard rough classes",
+      "next_theorem": "ArithmeticBinaryGoldbachSignedMartingaleCancellationK56"
+    },
+    "proof_boundary": "No Goldbach proof or counterexample. An exact auxiliary counterfamily only removes an overstrong generic proxy.",
+    "machine_audit": {
+      "row_count": 9,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T144-CLOSED",
+          "label": "BoundedSignalLinearAbsoluteMartingaleVariationNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T144-OPEN",
+          "label": "ArithmeticBinaryGoldbachSignedMartingaleCancellationK56",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T144-CLOSED",
+          "GB-T144-OPEN"
+        ]
+      ]
+    }
+  }
+}

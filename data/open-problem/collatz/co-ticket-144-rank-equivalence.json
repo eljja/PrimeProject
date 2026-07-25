@@ -1,0 +1,163 @@
+{
+  "schema": "primeproject.ticket144-schur-rank-equivalence-variation-adverse-walsh.v1",
+  "generated_at": "2026-07-26T00:30:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-144",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "global well-founded rank equivalence audit",
+  "bounded_result": {
+    "audit_ref": "collatz"
+  },
+  "obstruction": "The equivalence does not construct an independent rank. The 100,000-start audit computes ranks only after bounded termination and cannot exclude a larger cycle or divergence.",
+  "candidate_theorem": "ExplicitLiftClosedFiniteDescriptionCollatzRank",
+  "next_experiment": "a finite-description residue/affine rank with independent lift closure and descent proof",
+  "claim_boundary": "No Collatz proof or counterexample. One rank formulation is proved exactly equivalent to the unresolved conjecture.",
+  "result": {
+    "theorem_name": "GlobalWellFoundedRankIffCollatzTermination",
+    "declared_target": "Determine whether an unrestricted well-founded natural-code rank is a genuine intermediate lemma.",
+    "declared_target_ko": "제약 없는 well-founded 자연 코드 rank가 실제 중간정리인지 판정한다.",
+    "proved_statement": "Global accelerated Collatz termination is equivalent to the existence of a well-founded rank strictly decreasing outside 1. The least hitting time supplies the reverse construction.",
+    "proved_statement_ko": "가속 Collatz의 전역 종료는 1 밖에서 엄격히 감소하는 well-founded rank의 존재와 동치다. 종료를 가정하면 최소 도달시간이 그 rank를 만든다.",
+    "proof": "Hitting time gives a natural-valued rank when termination is known. Conversely, a nonterminating orbit would be an infinite strict descent in a well-order.",
+    "rank_equivalence_audit": {
+      "equivalence": "Every positive odd accelerated Collatz orbit reaches 1 iff there exists a map R into a well-order with R(T(n))<R(n) for every n!=1.",
+      "forward_proof": "If every orbit reaches 1, define R(n) as the least accelerated hitting time of 1. Then R(T(n))=R(n)-1.",
+      "reverse_proof": "A nonterminating orbit would create an infinite strictly descending sequence in a well-order, which is impossible.",
+      "no_go": "An unrestricted global well-founded rank is an exact reparameterization of Collatz termination. A rank defined by the already observed hitting time is circular as a proof route.",
+      "published_odd_period_floor": {
+        "value": 72000000000,
+        "role": "preserved external premise from TICKET143; it does not weaken the aperiodic rank equivalence"
+      },
+      "finite_stopping_rank_audit": {
+        "limit": 100000,
+        "verified_odd_start_count": 50000,
+        "memoized_orbit_state_count": 79504,
+        "maximum_input_rank": 129,
+        "maximum_input_rank_start": 77031,
+        "selected_rows": [
+          {
+            "start": 1,
+            "successor": 1,
+            "finite_verified_hitting_rank": 0,
+            "successor_rank": 0,
+            "checks": {
+              "rank_is_nonnegative": true,
+              "sink_or_rank_drops_by_one": true
+            }
+          },
+          {
+            "start": 3,
+            "successor": 5,
+            "finite_verified_hitting_rank": 2,
+            "successor_rank": 1,
+            "checks": {
+              "rank_is_nonnegative": true,
+              "sink_or_rank_drops_by_one": true
+            }
+          },
+          {
+            "start": 7,
+            "successor": 11,
+            "finite_verified_hitting_rank": 5,
+            "successor_rank": 4,
+            "checks": {
+              "rank_is_nonnegative": true,
+              "sink_or_rank_drops_by_one": true
+            }
+          },
+          {
+            "start": 27,
+            "successor": 41,
+            "finite_verified_hitting_rank": 41,
+            "successor_rank": 40,
+            "checks": {
+              "rank_is_nonnegative": true,
+              "sink_or_rank_drops_by_one": true
+            }
+          },
+          {
+            "start": 97,
+            "successor": 73,
+            "finite_verified_hitting_rank": 43,
+            "successor_rank": 42,
+            "checks": {
+              "rank_is_nonnegative": true,
+              "sink_or_rank_drops_by_one": true
+            }
+          },
+          {
+            "start": 871,
+            "successor": 1307,
+            "finite_verified_hitting_rank": 65,
+            "successor_rank": 64,
+            "checks": {
+              "rank_is_nonnegative": true,
+              "sink_or_rank_drops_by_one": true
+            }
+          },
+          {
+            "start": 6171,
+            "successor": 9257,
+            "finite_verified_hitting_rank": 96,
+            "successor_rank": 95,
+            "checks": {
+              "rank_is_nonnegative": true,
+              "sink_or_rank_drops_by_one": true
+            }
+          },
+          {
+            "start": 77031,
+            "successor": 115547,
+            "finite_verified_hitting_rank": 129,
+            "successor_rank": 128,
+            "checks": {
+              "rank_is_nonnegative": true,
+              "sink_or_rank_drops_by_one": true
+            }
+          }
+        ],
+        "all_audited_input_ranks_drop": true,
+        "interpretation": "These ranks are computed after each finite trajectory reaches 1. They verify the equivalence on a bounded set but do not supply an independent global rank formula.",
+        "failure_count": 0
+      },
+      "checks": {
+        "finite_rank_rows_pass": true,
+        "maximum_rank_is_reproduced": true,
+        "published_floor_not_used_in_equivalence": true
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The equivalence does not construct an independent rank. The 100,000-start audit computes ranks only after bounded termination and cannot exclude a larger cycle or divergence.",
+    "route_decision": {
+      "discard": "presenting an unrestricted rank, or a rank defined by observed stopping time, as a weaker Collatz lemma",
+      "retain": "a finite-description residue/affine rank with independent lift closure and descent proof",
+      "next_theorem": "ExplicitLiftClosedFiniteDescriptionCollatzRank"
+    },
+    "proof_boundary": "No Collatz proof or counterexample. One rank formulation is proved exactly equivalent to the unresolved conjecture.",
+    "machine_audit": {
+      "row_count": 8,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T144-CLOSED",
+          "label": "GlobalWellFoundedRankIffCollatzTermination",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T144-OPEN",
+          "label": "ExplicitLiftClosedFiniteDescriptionCollatzRank",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T144-CLOSED",
+          "CO-T144-OPEN"
+        ]
+      ]
+    }
+  }
+}
