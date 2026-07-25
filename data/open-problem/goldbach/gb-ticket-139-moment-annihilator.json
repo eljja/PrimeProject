@@ -1,0 +1,406 @@
+{
+  "schema": "primeproject.ticket139-uniformity-diophantine-complexity.v1",
+  "generated_at": "2026-07-28T12:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-139",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "PowerOfTwoBarycentricMomentAnnihilatorNoGo",
+  "bounded_result": {
+    "audit_ref": "goldbach"
+  },
+  "candidate_theorem": "LocalizedPowerOfTwoSignedGoldbachResidualK56",
+  "next_experiment": "Prove a localized maximal or all-frequency K=56 residual estimate for the actual binary Goldbach residual on powers of two.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The barycentric vectors are exact inference countermodels, not values of the actual Goldbach residual. The theorem excludes only standalone finite polynomial-moment promotion; it does not exclude localized analytic estimates, all-frequency control, or arithmetic structure, and it proves no Goldbach representation.",
+  "result": {
+    "theorem_name": "PowerOfTwoBarycentricMomentAnnihilatorNoGo",
+    "title_ko": "2의 거듭제곱 barycentric 모멘트 소거 한계 정리",
+    "declared_target": "Test whether finitely many exact signed polynomial moments on the Goldbach power-of-two hard stratum can force the pointwise K=56 residual bound.",
+    "proved_statement": "For any q>=1 and distinct points x_0,...,x_q, let w_i=1/product_{j!=i}(x_i-x_j). Then sum_i w_i x_i^r=0 for 0<=r<q and equals one for r=q. After clearing denominators this gives a nonzero integer vector whose first q signed polynomial moments vanish exactly. Taking x_i=2^(i+1) places the entire countermodel on the unavoidable Goldbach power-of-two hard stratum. Therefore any fixed finite moment transcript alone cannot control a pointwise residual.",
+    "proved_statement_ko": "서로 다른 x_0,...,x_q에 대해 w_i=1/product_{j!=i}(x_i-x_j)라 두면 r<q인 모든 차수에서 sum w_i x_i^r=0이고 q차 모멘트는 1이다. 분모를 제거하면 처음 q개 signed 다항 모멘트가 정확히 0이지만 점별 값은 0이 아닌 정수 벡터가 된다. x_i=2^(i+1)을 택하면 이 반대모형은 Goldbach의 필수 powers-of-two hard stratum 안에 놓인다.",
+    "proof": "The Lagrange basis polynomial L_i(x)=product_{j!=i}(x-x_j)/(x_i-x_j) has leading coefficient w_i. Interpolate x^r on q+1 nodes. For r<q its x^q coefficient is zero, so sum_i w_i x_i^r=0; for r=q that coefficient is one. Clearing denominators and dividing by the coefficient gcd preserves all zero moments and leaves a primitive nonzero integer vector.",
+    "exact_contract": {
+      "nodes": "x_i=2^(i+1)",
+      "weights": "w_i=1/product_{j!=i}(x_i-x_j)",
+      "annihilation": "sum_i w_i*x_i^r=0 for 0<=r<q",
+      "normalization": "sum_i w_i*x_i^q=1"
+    },
+    "moment_annihilator_audit": {
+      "rows": [
+        {
+          "moment_order": 1,
+          "support_size": 2,
+          "power_two_exponents": [
+            1,
+            2
+          ],
+          "integer_weights": [
+            "-1",
+            "1"
+          ],
+          "maximum_pointwise_amplitude": "1",
+          "l1_mass": "2",
+          "annihilated_moment_count": 1,
+          "first_surviving_moment": "2",
+          "checks": {
+            "all_points_are_even_powers_of_two": true,
+            "all_declared_moments_zero": true,
+            "first_surviving_moment_exact": true,
+            "pointwise_signal_nonzero": true,
+            "primitive_integer_weights": true
+          }
+        },
+        {
+          "moment_order": 2,
+          "support_size": 3,
+          "power_two_exponents": [
+            1,
+            2,
+            3
+          ],
+          "integer_weights": [
+            "2",
+            "-3",
+            "1"
+          ],
+          "maximum_pointwise_amplitude": "3",
+          "l1_mass": "6",
+          "annihilated_moment_count": 2,
+          "first_surviving_moment": "24",
+          "checks": {
+            "all_points_are_even_powers_of_two": true,
+            "all_declared_moments_zero": true,
+            "first_surviving_moment_exact": true,
+            "pointwise_signal_nonzero": true,
+            "primitive_integer_weights": true
+          }
+        },
+        {
+          "moment_order": 3,
+          "support_size": 4,
+          "power_two_exponents": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "integer_weights": [
+            "-8",
+            "14",
+            "-7",
+            "1"
+          ],
+          "maximum_pointwise_amplitude": "14",
+          "l1_mass": "30",
+          "annihilated_moment_count": 3,
+          "first_surviving_moment": "1344",
+          "checks": {
+            "all_points_are_even_powers_of_two": true,
+            "all_declared_moments_zero": true,
+            "first_surviving_moment_exact": true,
+            "pointwise_signal_nonzero": true,
+            "primitive_integer_weights": true
+          }
+        },
+        {
+          "moment_order": 4,
+          "support_size": 5,
+          "power_two_exponents": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "integer_weights": [
+            "64",
+            "-120",
+            "70",
+            "-15",
+            "1"
+          ],
+          "maximum_pointwise_amplitude": "120",
+          "l1_mass": "270",
+          "annihilated_moment_count": 4,
+          "first_surviving_moment": "322560",
+          "checks": {
+            "all_points_are_even_powers_of_two": true,
+            "all_declared_moments_zero": true,
+            "first_surviving_moment_exact": true,
+            "pointwise_signal_nonzero": true,
+            "primitive_integer_weights": true
+          }
+        },
+        {
+          "moment_order": 5,
+          "support_size": 6,
+          "power_two_exponents": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "integer_weights": [
+            "-1024",
+            "1984",
+            "-1240",
+            "310",
+            "-31",
+            "1"
+          ],
+          "maximum_pointwise_amplitude": "1984",
+          "l1_mass": "4590",
+          "annihilated_moment_count": 5,
+          "first_surviving_moment": "319979520",
+          "checks": {
+            "all_points_are_even_powers_of_two": true,
+            "all_declared_moments_zero": true,
+            "first_surviving_moment_exact": true,
+            "pointwise_signal_nonzero": true,
+            "primitive_integer_weights": true
+          }
+        },
+        {
+          "moment_order": 6,
+          "support_size": 7,
+          "power_two_exponents": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "integer_weights": [
+            "32768",
+            "-64512",
+            "41664",
+            "-11160",
+            "1302",
+            "-63",
+            "1"
+          ],
+          "maximum_pointwise_amplitude": "64512",
+          "l1_mass": "151470",
+          "annihilated_moment_count": 6,
+          "first_surviving_moment": "1290157424640",
+          "checks": {
+            "all_points_are_even_powers_of_two": true,
+            "all_declared_moments_zero": true,
+            "first_surviving_moment_exact": true,
+            "pointwise_signal_nonzero": true,
+            "primitive_integer_weights": true
+          }
+        },
+        {
+          "moment_order": 7,
+          "support_size": 8,
+          "power_two_exponents": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "integer_weights": [
+            "-2097152",
+            "4161536",
+            "-2731008",
+            "755904",
+            "-94488",
+            "5334",
+            "-127",
+            "1"
+          ],
+          "maximum_pointwise_amplitude": "4161536",
+          "l1_mass": "9845550",
+          "annihilated_moment_count": 7,
+          "first_surviving_moment": "20972799094947840",
+          "checks": {
+            "all_points_are_even_powers_of_two": true,
+            "all_declared_moments_zero": true,
+            "first_surviving_moment_exact": true,
+            "pointwise_signal_nonzero": true,
+            "primitive_integer_weights": true
+          }
+        },
+        {
+          "moment_order": 8,
+          "support_size": 9,
+          "power_two_exponents": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "integer_weights": [
+            "268435456",
+            "-534773760",
+            "353730560",
+            "-99486720",
+            "12850368",
+            "-777240",
+            "21590",
+            "-255",
+            "1"
+          ],
+          "maximum_pointwise_amplitude": "534773760",
+          "l1_mass": "1270075950",
+          "annihilated_moment_count": 8,
+          "first_surviving_moment": "1369104324918194995200",
+          "checks": {
+            "all_points_are_even_powers_of_two": true,
+            "all_declared_moments_zero": true,
+            "first_surviving_moment_exact": true,
+            "pointwise_signal_nonzero": true,
+            "primitive_integer_weights": true
+          }
+        },
+        {
+          "moment_order": 9,
+          "support_size": 10,
+          "power_two_exponents": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "integer_weights": [
+            "-68719476736",
+            "137170518016",
+            "-91089797120",
+            "25822330880",
+            "-3389180928",
+            "211823808",
+            "-6304280",
+            "86870",
+            "-511",
+            "1"
+          ],
+          "maximum_pointwise_amplitude": "137170518016",
+          "l1_mass": "326409519150",
+          "annihilated_moment_count": 9,
+          "first_surviving_moment": "358201502736997192984166400",
+          "checks": {
+            "all_points_are_even_powers_of_two": true,
+            "all_declared_moments_zero": true,
+            "first_surviving_moment_exact": true,
+            "pointwise_signal_nonzero": true,
+            "primitive_integer_weights": true
+          }
+        },
+        {
+          "moment_order": 10,
+          "support_size": 11,
+          "power_two_exponents": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "integer_weights": [
+            "35184372088832",
+            "-70300024700928",
+            "46775146643456",
+            "-13312123207680",
+            "1761082966016",
+            "-111842970624",
+            "3439615168",
+            "-50781720",
+            "348502",
+            "-1023",
+            "1"
+          ],
+          "maximum_pointwise_amplitude": "70300024700928",
+          "l1_mass": "167448083323950",
+          "annihilated_moment_count": 10,
+          "first_surviving_moment": "375234700595146883504949480652800",
+          "checks": {
+            "all_points_are_even_powers_of_two": true,
+            "all_declared_moments_zero": true,
+            "first_surviving_moment_exact": true,
+            "pointwise_signal_nonzero": true,
+            "primitive_integer_weights": true
+          }
+        }
+      ],
+      "row_count": 10,
+      "maximum_moment_order": 10,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "a localized maximal or all-frequency arithmetic estimate for the actual signed binary Goldbach residual on powers of two",
+      "discard": "any fixed finite collection of signed polynomial moments as a standalone pointwise K=56 certificate",
+      "next_theorem": "LocalizedPowerOfTwoSignedGoldbachResidualK56"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-TD4b.2b.1",
+          "label": "AllScaleOddSquarefreeWheelMomentBarrier",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2b.2a",
+          "label": "PowerOfTwoBarycentricMomentAnnihilatorNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2b.2b",
+          "label": "LocalizedPowerOfTwoSignedGoldbachResidualK56",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "GB",
+          "label": "Strong Goldbach Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-TD4b.2b.1",
+          "GB-TD4b.2b.2a"
+        ],
+        [
+          "GB-TD4b.2b.2a",
+          "GB-TD4b.2b.2b"
+        ],
+        [
+          "GB-TD4b.2b.2b",
+          "GB"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "moment_orders_audited": 10,
+      "exact_zero_moment_failure_count": 0,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The barycentric vectors are exact inference countermodels, not values of the actual Goldbach residual. The theorem excludes only standalone finite polynomial-moment promotion; it does not exclude localized analytic estimates, all-frequency control, or arithmetic structure, and it proves no Goldbach representation."
+  }
+}

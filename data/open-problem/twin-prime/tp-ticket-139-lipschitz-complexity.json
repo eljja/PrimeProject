@@ -1,0 +1,230 @@
+{
+  "schema": "primeproject.ticket139-uniformity-diophantine-complexity.v1",
+  "generated_at": "2026-07-28T12:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-139",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "FiniteIrrationalOrbitLipschitzLookupComplexityNoGo",
+  "bounded_result": {
+    "audit_ref": "twin_prime"
+  },
+  "candidate_theorem": "UniformSobolevAperiodicTypeIICancellationWithPositiveTwinMass",
+  "next_experiment": "Fix a scale-uniform analytic norm, prove signed Type II cancellation for that class, and transport it to positive exact-gap-two mass.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The theorem concerns worst-case labels on finite irrational orbits. It does not prove that the actual twin-prime label sequence has large Lipschitz complexity, does not estimate a Vaughan Type II sum, and supplies no positive exact-gap-two lower bound.",
+  "result": {
+    "theorem_name": "FiniteIrrationalOrbitLipschitzLookupComplexityNoGo",
+    "title_ko": "유한 무리수 궤도 Lipschitz lookup 복잡도 한계 정리",
+    "declared_target": "Add an explicit regularity restriction to the TICKET138 irrational lookup and determine whether scale-dependent Lipschitz regularity is already non-tautological Type II information.",
+    "proved_statement": "Let z_1,...,z_N be distinct points on the unit circle with minimum geodesic separation delta. Every binary labeling of these points has a piecewise-linear tent interpolant with Lipschitz constant at most 2/delta. Conversely, a labeling that separates a closest pair requires Lipschitz constant at least 1/delta. For N irrational-rotation points, delta<=1/N by the circle pigeonhole principle. Thus allowing the regularity budget to grow with 1/delta preserves finite lookup expressivity; a uniform complexity bound is essential.",
+    "proved_statement_ko": "원 위의 서로 다른 N개 점의 최소 원거리 간격을 delta라 하자. 모든 0/1 라벨은 Lipschitz 상수 2/delta 이하의 tent 함수로 보간할 수 있다. 반대로 가장 가까운 두 점에 다른 라벨을 주면 상수는 최소 1/delta여야 한다. 무리수 회전의 N개 점에서는 비둘기집 원리로 delta<=1/N이므로, 1/delta와 함께 커지는 정칙성 예산을 허용하면 유한 lookup을 제거하지 못한다.",
+    "proof": "Around each sample point place a geodesic tent of radius delta/2 and height equal to its binary label. The supports have disjoint interiors and every slope has magnitude at most 2/delta, giving the upper bound. A closest pair with labels zero and one forces |F(z_i)-F(z_j)|/d(z_i,z_j)=1/delta. Finally N circular gaps sum to one, so their minimum is at most 1/N.",
+    "exact_contract": {
+      "finite_upper_bound": "Lip(F)<=2/delta",
+      "worst_label_lower_bound": "Lip(F)>=1/delta",
+      "rotation_separation": "delta_N<=1/N",
+      "required_upgrade": "uniform analytic complexity plus arithmetic cancellation"
+    },
+    "irrational_rotation_audit": {
+      "alpha": "sqrt(2)",
+      "rows": [
+        {
+          "orbit_size": 8,
+          "closest_return_denominator": 5,
+          "nearest_integer": 7,
+          "pell_residual_p2_minus_2q2": -1,
+          "minimum_circle_separation_decimal": "7.1067811865475244008443621048490392848359E-2",
+          "worst_label_lipschitz_lower_bound": "1.40710678118654752440E+1",
+          "tent_interpolation_lipschitz_upper_bound": "2.81421356237309504880E+1",
+          "checks": {
+            "positive_minimum_separation": true,
+            "pigeonhole_upper_bound": true,
+            "worst_label_lipschitz_at_least_size": true,
+            "separation_nonincreasing": true,
+            "best_return_is_pell_unit": true
+          }
+        },
+        {
+          "orbit_size": 16,
+          "closest_return_denominator": 12,
+          "nearest_integer": 17,
+          "pell_residual_p2_minus_2q2": 1,
+          "minimum_circle_separation_decimal": "2.9437251522859414379735309483623057163937E-2",
+          "worst_label_lipschitz_lower_bound": "3.39705627484771405856E+1",
+          "tent_interpolation_lipschitz_upper_bound": "6.79411254969542811712E+1",
+          "checks": {
+            "positive_minimum_separation": true,
+            "pigeonhole_upper_bound": true,
+            "worst_label_lipschitz_at_least_size": true,
+            "separation_nonincreasing": true,
+            "best_return_is_pell_unit": true
+          }
+        },
+        {
+          "orbit_size": 32,
+          "closest_return_denominator": 29,
+          "nearest_integer": 41,
+          "pell_residual_p2_minus_2q2": -1,
+          "minimum_circle_separation_decimal": "1.2193308819756415248973002081244278520484E-2",
+          "worst_label_lipschitz_lower_bound": "8.20121933088197564152E+1",
+          "tent_interpolation_lipschitz_upper_bound": "1.64024386617639512830E+2",
+          "checks": {
+            "positive_minimum_separation": true,
+            "pigeonhole_upper_bound": true,
+            "worst_label_lipschitz_at_least_size": true,
+            "separation_nonincreasing": true,
+            "best_return_is_pell_unit": true
+          }
+        },
+        {
+          "orbit_size": 64,
+          "closest_return_denominator": 29,
+          "nearest_integer": 41,
+          "pell_residual_p2_minus_2q2": -1,
+          "minimum_circle_separation_decimal": "1.2193308819756415248973002081244278520484E-2",
+          "worst_label_lipschitz_lower_bound": "8.20121933088197564152E+1",
+          "tent_interpolation_lipschitz_upper_bound": "1.64024386617639512830E+2",
+          "checks": {
+            "positive_minimum_separation": true,
+            "pigeonhole_upper_bound": true,
+            "worst_label_lipschitz_at_least_size": true,
+            "separation_nonincreasing": true,
+            "best_return_is_pell_unit": true
+          }
+        },
+        {
+          "orbit_size": 128,
+          "closest_return_denominator": 70,
+          "nearest_integer": 99,
+          "pell_residual_p2_minus_2q2": 1,
+          "minimum_circle_separation_decimal": "5.0506338833465838817893053211345001229687E-3",
+          "worst_label_lipschitz_lower_bound": "1.97994949366116653416E+2",
+          "tent_interpolation_lipschitz_upper_bound": "3.95989898732233306832E+2",
+          "checks": {
+            "positive_minimum_separation": true,
+            "pigeonhole_upper_bound": true,
+            "worst_label_lipschitz_at_least_size": true,
+            "separation_nonincreasing": true,
+            "best_return_is_pell_unit": true
+          }
+        },
+        {
+          "orbit_size": 256,
+          "closest_return_denominator": 169,
+          "nearest_integer": 239,
+          "pell_residual_p2_minus_2q2": -1,
+          "minimum_circle_separation_decimal": "2.0920410530632474853943914389752782745469E-3",
+          "worst_label_lipschitz_lower_bound": "4.78002092041053063247E+2",
+          "tent_interpolation_lipschitz_upper_bound": "9.56004184082106126495E+2",
+          "checks": {
+            "positive_minimum_separation": true,
+            "pigeonhole_upper_bound": true,
+            "worst_label_lipschitz_at_least_size": true,
+            "separation_nonincreasing": true,
+            "best_return_is_pell_unit": true
+          }
+        },
+        {
+          "orbit_size": 512,
+          "closest_return_denominator": 408,
+          "nearest_integer": 577,
+          "pell_residual_p2_minus_2q2": 1,
+          "minimum_circle_separation_decimal": "8.6655177722008891100052244318394357387485E-4",
+          "worst_label_lipschitz_lower_bound": "1.15399913344822277991E+3",
+          "tent_interpolation_lipschitz_upper_bound": "2.30799826689644555982E+3",
+          "checks": {
+            "positive_minimum_separation": true,
+            "pigeonhole_upper_bound": true,
+            "worst_label_lipschitz_at_least_size": true,
+            "separation_nonincreasing": true,
+            "best_return_is_pell_unit": true
+          }
+        },
+        {
+          "orbit_size": 1024,
+          "closest_return_denominator": 985,
+          "nearest_integer": 1393,
+          "pell_residual_p2_minus_2q2": -1,
+          "minimum_circle_separation_decimal": "3.5893749862306966339334655260739112679725E-4",
+          "worst_label_lipschitz_lower_bound": "2.78600035893749862307E+3",
+          "tent_interpolation_lipschitz_upper_bound": "5.57200071787499724614E+3",
+          "checks": {
+            "positive_minimum_separation": true,
+            "pigeonhole_upper_bound": true,
+            "worst_label_lipschitz_at_least_size": true,
+            "separation_nonincreasing": true,
+            "best_return_is_pell_unit": true
+          }
+        },
+        {
+          "orbit_size": 2048,
+          "closest_return_denominator": 985,
+          "nearest_integer": 1393,
+          "pell_residual_p2_minus_2q2": -1,
+          "minimum_circle_separation_decimal": "3.5893749862306966339334655260739112679725E-4",
+          "worst_label_lipschitz_lower_bound": "2.78600035893749862307E+3",
+          "tent_interpolation_lipschitz_upper_bound": "5.57200071787499724614E+3",
+          "checks": {
+            "positive_minimum_separation": true,
+            "pigeonhole_upper_bound": true,
+            "worst_label_lipschitz_at_least_size": true,
+            "separation_nonincreasing": true,
+            "best_return_is_pell_unit": true
+          }
+        }
+      ],
+      "row_count": 9,
+      "failure_count": 0,
+      "numeric_boundary": "90-digit Decimal diagnostics; the interpolation theorem is independent of these finite rows"
+    },
+    "route_decision": {
+      "retain": "a scale-uniform Sobolev or analytic norm for the aperiodic observable, a signed Type II estimate, and positive gap-two mass",
+      "discard": "scale-dependent Lipschitz interpolation as evidence that an irrational classifier contains arithmetic Type II information",
+      "next_theorem": "UniformSobolevAperiodicTypeIICancellationWithPositiveTwinMass"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-TD3b.2b.1",
+          "label": "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "TP-TD3b.2b.2a",
+          "label": "FiniteIrrationalOrbitLipschitzLookupComplexityNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "TP-TD3b.2b.2b",
+          "label": "UniformSobolevAperiodicTypeIICancellationWithPositiveTwinMass",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "TP",
+          "label": "Twin Prime Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-TD3b.2b.1",
+          "TP-TD3b.2b.2a"
+        ],
+        [
+          "TP-TD3b.2b.2a",
+          "TP-TD3b.2b.2b"
+        ],
+        [
+          "TP-TD3b.2b.2b",
+          "TP"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "irrational_rotation_row_count": 9,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The theorem concerns worst-case labels on finite irrational orbits. It does not prove that the actual twin-prime label sequence has large Lipschitz complexity, does not estimate a Vaughan Type II sum, and supplies no positive exact-gap-two lower bound."
+  }
+}

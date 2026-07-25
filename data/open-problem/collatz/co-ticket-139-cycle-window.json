@@ -1,0 +1,195 @@
+{
+  "schema": "primeproject.ticket139-uniformity-diophantine-complexity.v1",
+  "generated_at": "2026-07-28T12:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-139",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "CollatzCycleDiophantineWindowAndVerifiedFloorExclusion",
+  "bounded_result": {
+    "audit_ref": "collatz"
+  },
+  "candidate_theorem": "AllPeriodSupercriticalCycleDiophantineExclusion",
+  "next_experiment": "Combine continued-fraction or linear-form lower bounds for |S log 2-k log 3| with the exact cycle window for every period.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The product-window theorem is universal for positive cycles. The 19,999 exclusions are finite and depend on the stored M=2^28 nontrivial-cycle floor. Period 15,601 is only unexcluded by this necessary condition, not a cycle candidate with a realized valuation word. Periods above 20,000 and every divergent aperiodic orbit remain open.",
+  "result": {
+    "theorem_name": "CollatzCycleDiophantineWindowAndVerifiedFloorExclusion",
+    "title_ko": "콜라츠 주기 디오판토스 창과 검증 하한 주기 배제 정리",
+    "declared_target": "Separate the remaining supercritical periodic branch from the aperiodic affine-capped branch and derive an exact, integer-checkable obstruction from the verified least cycle value.",
+    "proved_statement": "For a positive accelerated Collatz cycle with k odd terms n_i, valuations a_i, S=sum a_i, and m=min n_i, one has 2^S/3^k=product_i(1+1/(3n_i)). Hence 1<2^S/3^k<=(1+1/(3m))^k. If m>=M, the existence of the cycle requires a power of two in this explicit Diophantine window. Using PrimeProject's verified nontrivial-cycle floor M=2^28, exact integer comparison excludes 19,999 of the first 20,000 odd-step periods; the unique arithmetically unexcluded period is k=15,601 with S=24,727.",
+    "proved_statement_ko": "양의 가속 Collatz 주기의 홀수 항이 n_i, valuation 합이 S, 최솟값이 m이면 2^S/3^k=product(1+1/(3n_i))이다. 따라서 1<2^S/3^k<=(1+1/(3m))^k인 매우 좁은 디오판토스 창이 필요하다. PrimeProject의 비자명 주기 하한 M=2^28을 넣어 정수만으로 비교하면 k<=20,000 중 19,999개 주기가 배제되고, k=15,601, S=24,727만 이 조건으로는 배제되지 않는다.",
+    "proof": "Multiply the exact step identities 2^(a_i)n_(i+1)=3n_i+1 around the cycle. The n_i telescope and give 2^S/3^k=product_i(1+1/(3n_i)). Every factor exceeds one and is at most 1+1/(3m). For a floor m>=M, the only possible integer S at each k starts at S=ceil(k log_2 3). The audit avoids floating point: it compares exactly 2^S(3M)^k <= [3(3M+1)]^k. Higher S only increase the left side.",
+    "exact_contract": {
+      "cycle_identity": "2^S/3^k=product_i(1+1/(3n_i))",
+      "window": "1<2^S/3^k<=(1+1/(3m))^k",
+      "integer_comparison": "2^S(3M)^k <= [3(3M+1)]^k",
+      "verified_floor": "m>=2^28 for a nontrivial cycle"
+    },
+    "cycle_window_audit": {
+      "minimum_cycle_value": 268435456,
+      "maximum_period": 20000,
+      "excluded_period_count": 19999,
+      "arithmetically_unexcluded_periods": [
+        {
+          "period": 15601,
+          "candidate_total_valuation": 24727,
+          "window_difference_sign": 1,
+          "window_difference_bit_length": 486263,
+          "window_difference_sha256": "c2e2bb997e16ace848ce5e386b50a2e4c10f516853ed0d4b64f91e89bf72d127"
+        }
+      ],
+      "first_arithmetically_unexcluded_period": 15601,
+      "checkpoints": [
+        {
+          "period": 1,
+          "candidate_total_valuation": 2,
+          "three_power_below_candidate_power_two": true,
+          "candidate_fits_cycle_window": false,
+          "signed_window_difference": -1,
+          "absolute_difference_bit_length": 30,
+          "absolute_difference_sha256": "7f0f9a11f3917d8c5078859421dcb31e13851bc6b455b6301cecb2f43e9ee8f1"
+        },
+        {
+          "period": 10,
+          "candidate_total_valuation": 16,
+          "three_power_below_candidate_power_two": true,
+          "candidate_fits_cycle_window": false,
+          "signed_window_difference": -1,
+          "absolute_difference_bit_length": 309,
+          "absolute_difference_sha256": "524800d98ff702f8e5a56f906a392eb04d2b42df3d244f550913bcb7743509de"
+        },
+        {
+          "period": 100,
+          "candidate_total_valuation": 159,
+          "three_power_below_candidate_power_two": true,
+          "candidate_fits_cycle_window": false,
+          "signed_window_difference": -1,
+          "absolute_difference_bit_length": 3116,
+          "absolute_difference_sha256": "3997ba50fb3e1422d888b2a941c439a5bad3d1d413dc59d7803c82e1d6e37c68"
+        },
+        {
+          "period": 1000,
+          "candidate_total_valuation": 1585,
+          "three_power_below_candidate_power_two": true,
+          "candidate_fits_cycle_window": false,
+          "signed_window_difference": -1,
+          "absolute_difference_bit_length": 31165,
+          "absolute_difference_sha256": "b7cc433abfd9a78c6a6f89de433470c6fd2c546267b519ca307e2012c93e434e"
+        },
+        {
+          "period": 5000,
+          "candidate_total_valuation": 7925,
+          "three_power_below_candidate_power_two": true,
+          "candidate_fits_cycle_window": false,
+          "signed_window_difference": -1,
+          "absolute_difference_bit_length": 155847,
+          "absolute_difference_sha256": "5332cea5e1db3783aa179883bab204c68cb9bbdd777e1f1a6697743ef7ed1566"
+        },
+        {
+          "period": 10000,
+          "candidate_total_valuation": 15850,
+          "three_power_below_candidate_power_two": true,
+          "candidate_fits_cycle_window": false,
+          "signed_window_difference": -1,
+          "absolute_difference_bit_length": 311698,
+          "absolute_difference_sha256": "a6dad7ba636b519b383999e66f7ae4c358c3e8d84961d53592406ac50a4f82fd"
+        },
+        {
+          "period": 15600,
+          "candidate_total_valuation": 24726,
+          "three_power_below_candidate_power_two": true,
+          "candidate_fits_cycle_window": false,
+          "signed_window_difference": -1,
+          "absolute_difference_bit_length": 486250,
+          "absolute_difference_sha256": "ed9017c815b170a54bfc5cc2ca610489586d3548f5cc09bd65a94b472fe22605"
+        },
+        {
+          "period": 15601,
+          "candidate_total_valuation": 24727,
+          "three_power_below_candidate_power_two": true,
+          "candidate_fits_cycle_window": true,
+          "signed_window_difference": 1,
+          "absolute_difference_bit_length": 486263,
+          "absolute_difference_sha256": "c2e2bb997e16ace848ce5e386b50a2e4c10f516853ed0d4b64f91e89bf72d127"
+        },
+        {
+          "period": 20000,
+          "candidate_total_valuation": 31700,
+          "three_power_below_candidate_power_two": true,
+          "candidate_fits_cycle_window": false,
+          "signed_window_difference": -1,
+          "absolute_difference_bit_length": 623398,
+          "absolute_difference_sha256": "3d203db10a6d145c18ab937d3aa4b53de97c28fc877a7308a5c2d5dd2e0955b4"
+        }
+      ],
+      "checks": {
+        "verified_floor_positive": true,
+        "all_periods_audited": true,
+        "first_unexcluded_period_is_15601": true,
+        "unique_unexcluded_period_through_20000": true,
+        "excluded_period_count_19999": true
+      },
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "all-period Diophantine exclusion for supercritical cycles, followed separately by aperiodic natural-code descent",
+      "discard": "finite period enumeration, including the exact 20,000-period audit, as a proof of global Collatz convergence",
+      "next_theorem": "AllPeriodSupercriticalCycleDiophantineExclusion"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-TD4b.2b.1",
+          "label": "SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding",
+          "status": "closed"
+        },
+        {
+          "id": "CO-TD4b.2b.2a",
+          "label": "CollatzCycleDiophantineWindowAndVerifiedFloorExclusion",
+          "status": "closed"
+        },
+        {
+          "id": "CO-TD4b.2b.2b",
+          "label": "AllPeriodSupercriticalCycleDiophantineExclusion",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "CO-TD4b.2b.3",
+          "label": "AffineCappedAperiodicNaturalCodeWellFoundedness",
+          "status": "open"
+        },
+        {
+          "id": "CO",
+          "label": "Collatz Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-TD4b.2b.1",
+          "CO-TD4b.2b.2a"
+        ],
+        [
+          "CO-TD4b.2b.2a",
+          "CO-TD4b.2b.2b"
+        ],
+        [
+          "CO-TD4b.2b.2b",
+          "CO-TD4b.2b.3"
+        ],
+        [
+          "CO-TD4b.2b.3",
+          "CO"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "periods_audited": 20000,
+      "periods_excluded": 19999,
+      "arithmetically_unexcluded_period_count": 1,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The product-window theorem is universal for positive cycles. The 19,999 exclusions are finite and depend on the stored M=2^28 nontrivial-cycle floor. Period 15,601 is only unexcluded by this necessary condition, not a cycle candidate with a realized valuation word. Periods above 20,000 and every divergent aperiodic orbit remain open."
+  }
+}

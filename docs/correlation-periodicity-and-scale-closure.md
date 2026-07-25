@@ -7,6 +7,10 @@ Status: `open_not_proven` for all four conjectures
 Machine record:
 `data/open-problem/ticket138-correlation-periodicity-and-scale-closure.json`
 
+Current boundary: TICKET-139 supersedes this document as the latest research
+frontier. See `docs/uniformity-diophantine-and-complexity.md`. The theorems
+below remain preserved as valid earlier results.
+
 ## Publication boundary / 논문 제출용 경계
 
 **English.** TICKET-138 proves four exact intermediate or no-go statements.

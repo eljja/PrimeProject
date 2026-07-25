@@ -1,0 +1,1142 @@
+{
+  "schema": "primeproject.ticket139-uniformity-diophantine-complexity.v1",
+  "generated_at": "2026-07-28T12:00:00+09:00",
+  "status": "exact_intermediate_theorems_proved_all_conjectures_open",
+  "claim_boundary": "TICKET139 proves four exact intermediate or proof-route no-go theorems and revises four proof targets. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime. No conjecture proof and no certified conjecture counterexample is claimed.",
+  "uniformity_diophantine_complexity_audit": {
+    "theorem_name": "FourConjectureUniformityDiophantineComplexityAudit",
+    "riemann": {
+      "theorem_name": "TwoMutuallyUnbiasedBasesCrossGramL1NoGo",
+      "title_ko": "두 상호 비편향 기저의 cross-Gram L1 과대평가 한계 정리",
+      "declared_target": "Test whether the TICKET138 cross-Gram absolute row budget is dimension-uniformly close enough to the true operator norm to be a plausible projected Weil closure criterion.",
+      "proved_statement": "Let H be a real Hadamard matrix of square order N and form B by stacking the rows of I/sqrt(2) and H/sqrt(2N). Then B*B=I, so ||B||_2^2=1. Every row has energy 1/2, but each row has N cross-basis correlations of magnitude 1/(2sqrt(N)); hence the TICKET138 absolute cross-Gram row bound is (1+sqrt(N))/2. Its ratio to the true norm diverges like sqrt(N)/2. Thus the criterion is sufficient but not necessary and can reject uniformly bounded tight frames.",
+      "proved_statement_ko": "제곱 차수 N의 실 Hadamard 행렬 H에 대해 I/sqrt(2)의 행과 H/sqrt(2N)의 행을 쌓아 B를 만들면 B*B=I이므로 ||B||^2=1이다. 각 행 에너지는 1/2이지만 서로 다른 기저 사이의 상관 절댓값 합은 sqrt(N)/2여서 TICKET138 예산은 (1+sqrt(N))/2가 된다. 따라서 이 충분조건은 실제 노름을 sqrt(N) 규모로 과대평가할 수 있으며 projected Weil 경로의 필요조건으로 승격할 수 없다.",
+      "proof": "Hadamard orthogonality gives H^T H=N I. Therefore B*B=I/2+H^T H/(2N)=I. Rows within either basis are orthogonal. Every standard-basis row has inner product plus or minus 1/(2sqrt(N)) with each of the N Hadamard-basis rows, and the same holds in the reverse direction. The maximum absolute off-diagonal row sum is sqrt(N)/2, proving the formula and its divergence.",
+      "exact_contract": {
+        "frame_operator": "B*B=I",
+        "true_norm_squared": "||B||_2^2=1",
+        "cross_gram_l1_bound": "(1+sqrt(N))/2",
+        "scope": "square Sylvester-Hadamard orders"
+      },
+      "tight_frame_audit": {
+        "rows": [
+          {
+            "dimension": 4,
+            "frame": "rows of I/sqrt(2) union rows of H/sqrt(2N)",
+            "maximum_row_energy": {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            "maximum_absolute_cross_gram_budget": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "cross_gram_l1_bound": {
+              "exact": "3/2",
+              "numerator": "3",
+              "denominator": "2",
+              "decimal": 1.5
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "tail_gap_product": {
+              "exact": "2",
+              "numerator": "2",
+              "denominator": "1",
+              "decimal": 2.0
+            },
+            "true_operator_margin": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "l1_overestimate_factor": {
+              "exact": "3/2",
+              "numerator": "3",
+              "denominator": "2",
+              "decimal": 1.5
+            },
+            "checks": {
+              "dimension_is_square_hadamard_order": true,
+              "integer_hadamard_orthogonality": true,
+              "tight_frame_operator_norm_squared_one": true,
+              "true_tail_margin_positive": true,
+              "l1_cross_gram_rejects_from_dimension_16": true
+            }
+          },
+          {
+            "dimension": 16,
+            "frame": "rows of I/sqrt(2) union rows of H/sqrt(2N)",
+            "maximum_row_energy": {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            "maximum_absolute_cross_gram_budget": {
+              "exact": "2",
+              "numerator": "2",
+              "denominator": "1",
+              "decimal": 2.0
+            },
+            "cross_gram_l1_bound": {
+              "exact": "5/2",
+              "numerator": "5",
+              "denominator": "2",
+              "decimal": 2.5
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "tail_gap_product": {
+              "exact": "2",
+              "numerator": "2",
+              "denominator": "1",
+              "decimal": 2.0
+            },
+            "true_operator_margin": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "l1_overestimate_factor": {
+              "exact": "5/2",
+              "numerator": "5",
+              "denominator": "2",
+              "decimal": 2.5
+            },
+            "checks": {
+              "dimension_is_square_hadamard_order": true,
+              "integer_hadamard_orthogonality": true,
+              "tight_frame_operator_norm_squared_one": true,
+              "true_tail_margin_positive": true,
+              "l1_cross_gram_rejects_from_dimension_16": true
+            }
+          },
+          {
+            "dimension": 64,
+            "frame": "rows of I/sqrt(2) union rows of H/sqrt(2N)",
+            "maximum_row_energy": {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            "maximum_absolute_cross_gram_budget": {
+              "exact": "4",
+              "numerator": "4",
+              "denominator": "1",
+              "decimal": 4.0
+            },
+            "cross_gram_l1_bound": {
+              "exact": "9/2",
+              "numerator": "9",
+              "denominator": "2",
+              "decimal": 4.5
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "tail_gap_product": {
+              "exact": "2",
+              "numerator": "2",
+              "denominator": "1",
+              "decimal": 2.0
+            },
+            "true_operator_margin": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "l1_overestimate_factor": {
+              "exact": "9/2",
+              "numerator": "9",
+              "denominator": "2",
+              "decimal": 4.5
+            },
+            "checks": {
+              "dimension_is_square_hadamard_order": true,
+              "integer_hadamard_orthogonality": true,
+              "tight_frame_operator_norm_squared_one": true,
+              "true_tail_margin_positive": true,
+              "l1_cross_gram_rejects_from_dimension_16": true
+            }
+          },
+          {
+            "dimension": 256,
+            "frame": "rows of I/sqrt(2) union rows of H/sqrt(2N)",
+            "maximum_row_energy": {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            "maximum_absolute_cross_gram_budget": {
+              "exact": "8",
+              "numerator": "8",
+              "denominator": "1",
+              "decimal": 8.0
+            },
+            "cross_gram_l1_bound": {
+              "exact": "17/2",
+              "numerator": "17",
+              "denominator": "2",
+              "decimal": 8.5
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "tail_gap_product": {
+              "exact": "2",
+              "numerator": "2",
+              "denominator": "1",
+              "decimal": 2.0
+            },
+            "true_operator_margin": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "l1_overestimate_factor": {
+              "exact": "17/2",
+              "numerator": "17",
+              "denominator": "2",
+              "decimal": 8.5
+            },
+            "checks": {
+              "dimension_is_square_hadamard_order": true,
+              "integer_hadamard_orthogonality": true,
+              "tight_frame_operator_norm_squared_one": true,
+              "true_tail_margin_positive": true,
+              "l1_cross_gram_rejects_from_dimension_16": true
+            }
+          }
+        ],
+        "row_count": 4,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "signed spectral cancellation in the projected Weil Gram operator, with a dimension-uniform arithmetic estimate",
+        "discard": "the absolute cross-Gram row budget as a necessary or dimension-sharp projected Weil criterion",
+        "next_theorem": "ProjectedWeilSignedGramSpectralRadiusBelowTailGap"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-TD4b.2b.1",
+            "label": "CrossGramCorrelationBlockPositivityCriterion",
+            "status": "closed"
+          },
+          {
+            "id": "RH-TD4b.2b.2a",
+            "label": "TwoMutuallyUnbiasedBasesCrossGramL1NoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-TD4b.2b.2b",
+            "label": "ProjectedWeilSignedGramSpectralRadiusBelowTailGap",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-TD4b.2b.1",
+            "RH-TD4b.2b.2a"
+          ],
+          [
+            "RH-TD4b.2b.2a",
+            "RH-TD4b.2b.2b"
+          ],
+          [
+            "RH-TD4b.2b.2b",
+            "RH"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "tight_frame_row_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The theorem is an exact matrix no-go for an auxiliary sufficient criterion. It neither identifies the actual projected Weil Gram operator nor estimates its signed spectral radius, and it proves no RH implication or counterexample."
+    },
+    "collatz": {
+      "theorem_name": "CollatzCycleDiophantineWindowAndVerifiedFloorExclusion",
+      "title_ko": "콜라츠 주기 디오판토스 창과 검증 하한 주기 배제 정리",
+      "declared_target": "Separate the remaining supercritical periodic branch from the aperiodic affine-capped branch and derive an exact, integer-checkable obstruction from the verified least cycle value.",
+      "proved_statement": "For a positive accelerated Collatz cycle with k odd terms n_i, valuations a_i, S=sum a_i, and m=min n_i, one has 2^S/3^k=product_i(1+1/(3n_i)). Hence 1<2^S/3^k<=(1+1/(3m))^k. If m>=M, the existence of the cycle requires a power of two in this explicit Diophantine window. Using PrimeProject's verified nontrivial-cycle floor M=2^28, exact integer comparison excludes 19,999 of the first 20,000 odd-step periods; the unique arithmetically unexcluded period is k=15,601 with S=24,727.",
+      "proved_statement_ko": "양의 가속 Collatz 주기의 홀수 항이 n_i, valuation 합이 S, 최솟값이 m이면 2^S/3^k=product(1+1/(3n_i))이다. 따라서 1<2^S/3^k<=(1+1/(3m))^k인 매우 좁은 디오판토스 창이 필요하다. PrimeProject의 비자명 주기 하한 M=2^28을 넣어 정수만으로 비교하면 k<=20,000 중 19,999개 주기가 배제되고, k=15,601, S=24,727만 이 조건으로는 배제되지 않는다.",
+      "proof": "Multiply the exact step identities 2^(a_i)n_(i+1)=3n_i+1 around the cycle. The n_i telescope and give 2^S/3^k=product_i(1+1/(3n_i)). Every factor exceeds one and is at most 1+1/(3m). For a floor m>=M, the only possible integer S at each k starts at S=ceil(k log_2 3). The audit avoids floating point: it compares exactly 2^S(3M)^k <= [3(3M+1)]^k. Higher S only increase the left side.",
+      "exact_contract": {
+        "cycle_identity": "2^S/3^k=product_i(1+1/(3n_i))",
+        "window": "1<2^S/3^k<=(1+1/(3m))^k",
+        "integer_comparison": "2^S(3M)^k <= [3(3M+1)]^k",
+        "verified_floor": "m>=2^28 for a nontrivial cycle"
+      },
+      "cycle_window_audit": {
+        "minimum_cycle_value": 268435456,
+        "maximum_period": 20000,
+        "excluded_period_count": 19999,
+        "arithmetically_unexcluded_periods": [
+          {
+            "period": 15601,
+            "candidate_total_valuation": 24727,
+            "window_difference_sign": 1,
+            "window_difference_bit_length": 486263,
+            "window_difference_sha256": "c2e2bb997e16ace848ce5e386b50a2e4c10f516853ed0d4b64f91e89bf72d127"
+          }
+        ],
+        "first_arithmetically_unexcluded_period": 15601,
+        "checkpoints": [
+          {
+            "period": 1,
+            "candidate_total_valuation": 2,
+            "three_power_below_candidate_power_two": true,
+            "candidate_fits_cycle_window": false,
+            "signed_window_difference": -1,
+            "absolute_difference_bit_length": 30,
+            "absolute_difference_sha256": "7f0f9a11f3917d8c5078859421dcb31e13851bc6b455b6301cecb2f43e9ee8f1"
+          },
+          {
+            "period": 10,
+            "candidate_total_valuation": 16,
+            "three_power_below_candidate_power_two": true,
+            "candidate_fits_cycle_window": false,
+            "signed_window_difference": -1,
+            "absolute_difference_bit_length": 309,
+            "absolute_difference_sha256": "524800d98ff702f8e5a56f906a392eb04d2b42df3d244f550913bcb7743509de"
+          },
+          {
+            "period": 100,
+            "candidate_total_valuation": 159,
+            "three_power_below_candidate_power_two": true,
+            "candidate_fits_cycle_window": false,
+            "signed_window_difference": -1,
+            "absolute_difference_bit_length": 3116,
+            "absolute_difference_sha256": "3997ba50fb3e1422d888b2a941c439a5bad3d1d413dc59d7803c82e1d6e37c68"
+          },
+          {
+            "period": 1000,
+            "candidate_total_valuation": 1585,
+            "three_power_below_candidate_power_two": true,
+            "candidate_fits_cycle_window": false,
+            "signed_window_difference": -1,
+            "absolute_difference_bit_length": 31165,
+            "absolute_difference_sha256": "b7cc433abfd9a78c6a6f89de433470c6fd2c546267b519ca307e2012c93e434e"
+          },
+          {
+            "period": 5000,
+            "candidate_total_valuation": 7925,
+            "three_power_below_candidate_power_two": true,
+            "candidate_fits_cycle_window": false,
+            "signed_window_difference": -1,
+            "absolute_difference_bit_length": 155847,
+            "absolute_difference_sha256": "5332cea5e1db3783aa179883bab204c68cb9bbdd777e1f1a6697743ef7ed1566"
+          },
+          {
+            "period": 10000,
+            "candidate_total_valuation": 15850,
+            "three_power_below_candidate_power_two": true,
+            "candidate_fits_cycle_window": false,
+            "signed_window_difference": -1,
+            "absolute_difference_bit_length": 311698,
+            "absolute_difference_sha256": "a6dad7ba636b519b383999e66f7ae4c358c3e8d84961d53592406ac50a4f82fd"
+          },
+          {
+            "period": 15600,
+            "candidate_total_valuation": 24726,
+            "three_power_below_candidate_power_two": true,
+            "candidate_fits_cycle_window": false,
+            "signed_window_difference": -1,
+            "absolute_difference_bit_length": 486250,
+            "absolute_difference_sha256": "ed9017c815b170a54bfc5cc2ca610489586d3548f5cc09bd65a94b472fe22605"
+          },
+          {
+            "period": 15601,
+            "candidate_total_valuation": 24727,
+            "three_power_below_candidate_power_two": true,
+            "candidate_fits_cycle_window": true,
+            "signed_window_difference": 1,
+            "absolute_difference_bit_length": 486263,
+            "absolute_difference_sha256": "c2e2bb997e16ace848ce5e386b50a2e4c10f516853ed0d4b64f91e89bf72d127"
+          },
+          {
+            "period": 20000,
+            "candidate_total_valuation": 31700,
+            "three_power_below_candidate_power_two": true,
+            "candidate_fits_cycle_window": false,
+            "signed_window_difference": -1,
+            "absolute_difference_bit_length": 623398,
+            "absolute_difference_sha256": "3d203db10a6d145c18ab937d3aa4b53de97c28fc877a7308a5c2d5dd2e0955b4"
+          }
+        ],
+        "checks": {
+          "verified_floor_positive": true,
+          "all_periods_audited": true,
+          "first_unexcluded_period_is_15601": true,
+          "unique_unexcluded_period_through_20000": true,
+          "excluded_period_count_19999": true
+        },
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "all-period Diophantine exclusion for supercritical cycles, followed separately by aperiodic natural-code descent",
+        "discard": "finite period enumeration, including the exact 20,000-period audit, as a proof of global Collatz convergence",
+        "next_theorem": "AllPeriodSupercriticalCycleDiophantineExclusion"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-TD4b.2b.1",
+            "label": "SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding",
+            "status": "closed"
+          },
+          {
+            "id": "CO-TD4b.2b.2a",
+            "label": "CollatzCycleDiophantineWindowAndVerifiedFloorExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-TD4b.2b.2b",
+            "label": "AllPeriodSupercriticalCycleDiophantineExclusion",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO-TD4b.2b.3",
+            "label": "AffineCappedAperiodicNaturalCodeWellFoundedness",
+            "status": "open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-TD4b.2b.1",
+            "CO-TD4b.2b.2a"
+          ],
+          [
+            "CO-TD4b.2b.2a",
+            "CO-TD4b.2b.2b"
+          ],
+          [
+            "CO-TD4b.2b.2b",
+            "CO-TD4b.2b.3"
+          ],
+          [
+            "CO-TD4b.2b.3",
+            "CO"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "periods_audited": 20000,
+        "periods_excluded": 19999,
+        "arithmetically_unexcluded_period_count": 1,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The product-window theorem is universal for positive cycles. The 19,999 exclusions are finite and depend on the stored M=2^28 nontrivial-cycle floor. Period 15,601 is only unexcluded by this necessary condition, not a cycle candidate with a realized valuation word. Periods above 20,000 and every divergent aperiodic orbit remain open."
+    },
+    "goldbach": {
+      "theorem_name": "PowerOfTwoBarycentricMomentAnnihilatorNoGo",
+      "title_ko": "2의 거듭제곱 barycentric 모멘트 소거 한계 정리",
+      "declared_target": "Test whether finitely many exact signed polynomial moments on the Goldbach power-of-two hard stratum can force the pointwise K=56 residual bound.",
+      "proved_statement": "For any q>=1 and distinct points x_0,...,x_q, let w_i=1/product_{j!=i}(x_i-x_j). Then sum_i w_i x_i^r=0 for 0<=r<q and equals one for r=q. After clearing denominators this gives a nonzero integer vector whose first q signed polynomial moments vanish exactly. Taking x_i=2^(i+1) places the entire countermodel on the unavoidable Goldbach power-of-two hard stratum. Therefore any fixed finite moment transcript alone cannot control a pointwise residual.",
+      "proved_statement_ko": "서로 다른 x_0,...,x_q에 대해 w_i=1/product_{j!=i}(x_i-x_j)라 두면 r<q인 모든 차수에서 sum w_i x_i^r=0이고 q차 모멘트는 1이다. 분모를 제거하면 처음 q개 signed 다항 모멘트가 정확히 0이지만 점별 값은 0이 아닌 정수 벡터가 된다. x_i=2^(i+1)을 택하면 이 반대모형은 Goldbach의 필수 powers-of-two hard stratum 안에 놓인다.",
+      "proof": "The Lagrange basis polynomial L_i(x)=product_{j!=i}(x-x_j)/(x_i-x_j) has leading coefficient w_i. Interpolate x^r on q+1 nodes. For r<q its x^q coefficient is zero, so sum_i w_i x_i^r=0; for r=q that coefficient is one. Clearing denominators and dividing by the coefficient gcd preserves all zero moments and leaves a primitive nonzero integer vector.",
+      "exact_contract": {
+        "nodes": "x_i=2^(i+1)",
+        "weights": "w_i=1/product_{j!=i}(x_i-x_j)",
+        "annihilation": "sum_i w_i*x_i^r=0 for 0<=r<q",
+        "normalization": "sum_i w_i*x_i^q=1"
+      },
+      "moment_annihilator_audit": {
+        "rows": [
+          {
+            "moment_order": 1,
+            "support_size": 2,
+            "power_two_exponents": [
+              1,
+              2
+            ],
+            "integer_weights": [
+              "-1",
+              "1"
+            ],
+            "maximum_pointwise_amplitude": "1",
+            "l1_mass": "2",
+            "annihilated_moment_count": 1,
+            "first_surviving_moment": "2",
+            "checks": {
+              "all_points_are_even_powers_of_two": true,
+              "all_declared_moments_zero": true,
+              "first_surviving_moment_exact": true,
+              "pointwise_signal_nonzero": true,
+              "primitive_integer_weights": true
+            }
+          },
+          {
+            "moment_order": 2,
+            "support_size": 3,
+            "power_two_exponents": [
+              1,
+              2,
+              3
+            ],
+            "integer_weights": [
+              "2",
+              "-3",
+              "1"
+            ],
+            "maximum_pointwise_amplitude": "3",
+            "l1_mass": "6",
+            "annihilated_moment_count": 2,
+            "first_surviving_moment": "24",
+            "checks": {
+              "all_points_are_even_powers_of_two": true,
+              "all_declared_moments_zero": true,
+              "first_surviving_moment_exact": true,
+              "pointwise_signal_nonzero": true,
+              "primitive_integer_weights": true
+            }
+          },
+          {
+            "moment_order": 3,
+            "support_size": 4,
+            "power_two_exponents": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "integer_weights": [
+              "-8",
+              "14",
+              "-7",
+              "1"
+            ],
+            "maximum_pointwise_amplitude": "14",
+            "l1_mass": "30",
+            "annihilated_moment_count": 3,
+            "first_surviving_moment": "1344",
+            "checks": {
+              "all_points_are_even_powers_of_two": true,
+              "all_declared_moments_zero": true,
+              "first_surviving_moment_exact": true,
+              "pointwise_signal_nonzero": true,
+              "primitive_integer_weights": true
+            }
+          },
+          {
+            "moment_order": 4,
+            "support_size": 5,
+            "power_two_exponents": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "integer_weights": [
+              "64",
+              "-120",
+              "70",
+              "-15",
+              "1"
+            ],
+            "maximum_pointwise_amplitude": "120",
+            "l1_mass": "270",
+            "annihilated_moment_count": 4,
+            "first_surviving_moment": "322560",
+            "checks": {
+              "all_points_are_even_powers_of_two": true,
+              "all_declared_moments_zero": true,
+              "first_surviving_moment_exact": true,
+              "pointwise_signal_nonzero": true,
+              "primitive_integer_weights": true
+            }
+          },
+          {
+            "moment_order": 5,
+            "support_size": 6,
+            "power_two_exponents": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "integer_weights": [
+              "-1024",
+              "1984",
+              "-1240",
+              "310",
+              "-31",
+              "1"
+            ],
+            "maximum_pointwise_amplitude": "1984",
+            "l1_mass": "4590",
+            "annihilated_moment_count": 5,
+            "first_surviving_moment": "319979520",
+            "checks": {
+              "all_points_are_even_powers_of_two": true,
+              "all_declared_moments_zero": true,
+              "first_surviving_moment_exact": true,
+              "pointwise_signal_nonzero": true,
+              "primitive_integer_weights": true
+            }
+          },
+          {
+            "moment_order": 6,
+            "support_size": 7,
+            "power_two_exponents": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "integer_weights": [
+              "32768",
+              "-64512",
+              "41664",
+              "-11160",
+              "1302",
+              "-63",
+              "1"
+            ],
+            "maximum_pointwise_amplitude": "64512",
+            "l1_mass": "151470",
+            "annihilated_moment_count": 6,
+            "first_surviving_moment": "1290157424640",
+            "checks": {
+              "all_points_are_even_powers_of_two": true,
+              "all_declared_moments_zero": true,
+              "first_surviving_moment_exact": true,
+              "pointwise_signal_nonzero": true,
+              "primitive_integer_weights": true
+            }
+          },
+          {
+            "moment_order": 7,
+            "support_size": 8,
+            "power_two_exponents": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "integer_weights": [
+              "-2097152",
+              "4161536",
+              "-2731008",
+              "755904",
+              "-94488",
+              "5334",
+              "-127",
+              "1"
+            ],
+            "maximum_pointwise_amplitude": "4161536",
+            "l1_mass": "9845550",
+            "annihilated_moment_count": 7,
+            "first_surviving_moment": "20972799094947840",
+            "checks": {
+              "all_points_are_even_powers_of_two": true,
+              "all_declared_moments_zero": true,
+              "first_surviving_moment_exact": true,
+              "pointwise_signal_nonzero": true,
+              "primitive_integer_weights": true
+            }
+          },
+          {
+            "moment_order": 8,
+            "support_size": 9,
+            "power_two_exponents": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "integer_weights": [
+              "268435456",
+              "-534773760",
+              "353730560",
+              "-99486720",
+              "12850368",
+              "-777240",
+              "21590",
+              "-255",
+              "1"
+            ],
+            "maximum_pointwise_amplitude": "534773760",
+            "l1_mass": "1270075950",
+            "annihilated_moment_count": 8,
+            "first_surviving_moment": "1369104324918194995200",
+            "checks": {
+              "all_points_are_even_powers_of_two": true,
+              "all_declared_moments_zero": true,
+              "first_surviving_moment_exact": true,
+              "pointwise_signal_nonzero": true,
+              "primitive_integer_weights": true
+            }
+          },
+          {
+            "moment_order": 9,
+            "support_size": 10,
+            "power_two_exponents": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "integer_weights": [
+              "-68719476736",
+              "137170518016",
+              "-91089797120",
+              "25822330880",
+              "-3389180928",
+              "211823808",
+              "-6304280",
+              "86870",
+              "-511",
+              "1"
+            ],
+            "maximum_pointwise_amplitude": "137170518016",
+            "l1_mass": "326409519150",
+            "annihilated_moment_count": 9,
+            "first_surviving_moment": "358201502736997192984166400",
+            "checks": {
+              "all_points_are_even_powers_of_two": true,
+              "all_declared_moments_zero": true,
+              "first_surviving_moment_exact": true,
+              "pointwise_signal_nonzero": true,
+              "primitive_integer_weights": true
+            }
+          },
+          {
+            "moment_order": 10,
+            "support_size": 11,
+            "power_two_exponents": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "integer_weights": [
+              "35184372088832",
+              "-70300024700928",
+              "46775146643456",
+              "-13312123207680",
+              "1761082966016",
+              "-111842970624",
+              "3439615168",
+              "-50781720",
+              "348502",
+              "-1023",
+              "1"
+            ],
+            "maximum_pointwise_amplitude": "70300024700928",
+            "l1_mass": "167448083323950",
+            "annihilated_moment_count": 10,
+            "first_surviving_moment": "375234700595146883504949480652800",
+            "checks": {
+              "all_points_are_even_powers_of_two": true,
+              "all_declared_moments_zero": true,
+              "first_surviving_moment_exact": true,
+              "pointwise_signal_nonzero": true,
+              "primitive_integer_weights": true
+            }
+          }
+        ],
+        "row_count": 10,
+        "maximum_moment_order": 10,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "a localized maximal or all-frequency arithmetic estimate for the actual signed binary Goldbach residual on powers of two",
+        "discard": "any fixed finite collection of signed polynomial moments as a standalone pointwise K=56 certificate",
+        "next_theorem": "LocalizedPowerOfTwoSignedGoldbachResidualK56"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-TD4b.2b.1",
+            "label": "AllScaleOddSquarefreeWheelMomentBarrier",
+            "status": "closed"
+          },
+          {
+            "id": "GB-TD4b.2b.2a",
+            "label": "PowerOfTwoBarycentricMomentAnnihilatorNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-TD4b.2b.2b",
+            "label": "LocalizedPowerOfTwoSignedGoldbachResidualK56",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-TD4b.2b.1",
+            "GB-TD4b.2b.2a"
+          ],
+          [
+            "GB-TD4b.2b.2a",
+            "GB-TD4b.2b.2b"
+          ],
+          [
+            "GB-TD4b.2b.2b",
+            "GB"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "moment_orders_audited": 10,
+        "exact_zero_moment_failure_count": 0,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The barycentric vectors are exact inference countermodels, not values of the actual Goldbach residual. The theorem excludes only standalone finite polynomial-moment promotion; it does not exclude localized analytic estimates, all-frequency control, or arithmetic structure, and it proves no Goldbach representation."
+    },
+    "twin_prime": {
+      "theorem_name": "FiniteIrrationalOrbitLipschitzLookupComplexityNoGo",
+      "title_ko": "유한 무리수 궤도 Lipschitz lookup 복잡도 한계 정리",
+      "declared_target": "Add an explicit regularity restriction to the TICKET138 irrational lookup and determine whether scale-dependent Lipschitz regularity is already non-tautological Type II information.",
+      "proved_statement": "Let z_1,...,z_N be distinct points on the unit circle with minimum geodesic separation delta. Every binary labeling of these points has a piecewise-linear tent interpolant with Lipschitz constant at most 2/delta. Conversely, a labeling that separates a closest pair requires Lipschitz constant at least 1/delta. For N irrational-rotation points, delta<=1/N by the circle pigeonhole principle. Thus allowing the regularity budget to grow with 1/delta preserves finite lookup expressivity; a uniform complexity bound is essential.",
+      "proved_statement_ko": "원 위의 서로 다른 N개 점의 최소 원거리 간격을 delta라 하자. 모든 0/1 라벨은 Lipschitz 상수 2/delta 이하의 tent 함수로 보간할 수 있다. 반대로 가장 가까운 두 점에 다른 라벨을 주면 상수는 최소 1/delta여야 한다. 무리수 회전의 N개 점에서는 비둘기집 원리로 delta<=1/N이므로, 1/delta와 함께 커지는 정칙성 예산을 허용하면 유한 lookup을 제거하지 못한다.",
+      "proof": "Around each sample point place a geodesic tent of radius delta/2 and height equal to its binary label. The supports have disjoint interiors and every slope has magnitude at most 2/delta, giving the upper bound. A closest pair with labels zero and one forces |F(z_i)-F(z_j)|/d(z_i,z_j)=1/delta. Finally N circular gaps sum to one, so their minimum is at most 1/N.",
+      "exact_contract": {
+        "finite_upper_bound": "Lip(F)<=2/delta",
+        "worst_label_lower_bound": "Lip(F)>=1/delta",
+        "rotation_separation": "delta_N<=1/N",
+        "required_upgrade": "uniform analytic complexity plus arithmetic cancellation"
+      },
+      "irrational_rotation_audit": {
+        "alpha": "sqrt(2)",
+        "rows": [
+          {
+            "orbit_size": 8,
+            "closest_return_denominator": 5,
+            "nearest_integer": 7,
+            "pell_residual_p2_minus_2q2": -1,
+            "minimum_circle_separation_decimal": "7.1067811865475244008443621048490392848359E-2",
+            "worst_label_lipschitz_lower_bound": "1.40710678118654752440E+1",
+            "tent_interpolation_lipschitz_upper_bound": "2.81421356237309504880E+1",
+            "checks": {
+              "positive_minimum_separation": true,
+              "pigeonhole_upper_bound": true,
+              "worst_label_lipschitz_at_least_size": true,
+              "separation_nonincreasing": true,
+              "best_return_is_pell_unit": true
+            }
+          },
+          {
+            "orbit_size": 16,
+            "closest_return_denominator": 12,
+            "nearest_integer": 17,
+            "pell_residual_p2_minus_2q2": 1,
+            "minimum_circle_separation_decimal": "2.9437251522859414379735309483623057163937E-2",
+            "worst_label_lipschitz_lower_bound": "3.39705627484771405856E+1",
+            "tent_interpolation_lipschitz_upper_bound": "6.79411254969542811712E+1",
+            "checks": {
+              "positive_minimum_separation": true,
+              "pigeonhole_upper_bound": true,
+              "worst_label_lipschitz_at_least_size": true,
+              "separation_nonincreasing": true,
+              "best_return_is_pell_unit": true
+            }
+          },
+          {
+            "orbit_size": 32,
+            "closest_return_denominator": 29,
+            "nearest_integer": 41,
+            "pell_residual_p2_minus_2q2": -1,
+            "minimum_circle_separation_decimal": "1.2193308819756415248973002081244278520484E-2",
+            "worst_label_lipschitz_lower_bound": "8.20121933088197564152E+1",
+            "tent_interpolation_lipschitz_upper_bound": "1.64024386617639512830E+2",
+            "checks": {
+              "positive_minimum_separation": true,
+              "pigeonhole_upper_bound": true,
+              "worst_label_lipschitz_at_least_size": true,
+              "separation_nonincreasing": true,
+              "best_return_is_pell_unit": true
+            }
+          },
+          {
+            "orbit_size": 64,
+            "closest_return_denominator": 29,
+            "nearest_integer": 41,
+            "pell_residual_p2_minus_2q2": -1,
+            "minimum_circle_separation_decimal": "1.2193308819756415248973002081244278520484E-2",
+            "worst_label_lipschitz_lower_bound": "8.20121933088197564152E+1",
+            "tent_interpolation_lipschitz_upper_bound": "1.64024386617639512830E+2",
+            "checks": {
+              "positive_minimum_separation": true,
+              "pigeonhole_upper_bound": true,
+              "worst_label_lipschitz_at_least_size": true,
+              "separation_nonincreasing": true,
+              "best_return_is_pell_unit": true
+            }
+          },
+          {
+            "orbit_size": 128,
+            "closest_return_denominator": 70,
+            "nearest_integer": 99,
+            "pell_residual_p2_minus_2q2": 1,
+            "minimum_circle_separation_decimal": "5.0506338833465838817893053211345001229687E-3",
+            "worst_label_lipschitz_lower_bound": "1.97994949366116653416E+2",
+            "tent_interpolation_lipschitz_upper_bound": "3.95989898732233306832E+2",
+            "checks": {
+              "positive_minimum_separation": true,
+              "pigeonhole_upper_bound": true,
+              "worst_label_lipschitz_at_least_size": true,
+              "separation_nonincreasing": true,
+              "best_return_is_pell_unit": true
+            }
+          },
+          {
+            "orbit_size": 256,
+            "closest_return_denominator": 169,
+            "nearest_integer": 239,
+            "pell_residual_p2_minus_2q2": -1,
+            "minimum_circle_separation_decimal": "2.0920410530632474853943914389752782745469E-3",
+            "worst_label_lipschitz_lower_bound": "4.78002092041053063247E+2",
+            "tent_interpolation_lipschitz_upper_bound": "9.56004184082106126495E+2",
+            "checks": {
+              "positive_minimum_separation": true,
+              "pigeonhole_upper_bound": true,
+              "worst_label_lipschitz_at_least_size": true,
+              "separation_nonincreasing": true,
+              "best_return_is_pell_unit": true
+            }
+          },
+          {
+            "orbit_size": 512,
+            "closest_return_denominator": 408,
+            "nearest_integer": 577,
+            "pell_residual_p2_minus_2q2": 1,
+            "minimum_circle_separation_decimal": "8.6655177722008891100052244318394357387485E-4",
+            "worst_label_lipschitz_lower_bound": "1.15399913344822277991E+3",
+            "tent_interpolation_lipschitz_upper_bound": "2.30799826689644555982E+3",
+            "checks": {
+              "positive_minimum_separation": true,
+              "pigeonhole_upper_bound": true,
+              "worst_label_lipschitz_at_least_size": true,
+              "separation_nonincreasing": true,
+              "best_return_is_pell_unit": true
+            }
+          },
+          {
+            "orbit_size": 1024,
+            "closest_return_denominator": 985,
+            "nearest_integer": 1393,
+            "pell_residual_p2_minus_2q2": -1,
+            "minimum_circle_separation_decimal": "3.5893749862306966339334655260739112679725E-4",
+            "worst_label_lipschitz_lower_bound": "2.78600035893749862307E+3",
+            "tent_interpolation_lipschitz_upper_bound": "5.57200071787499724614E+3",
+            "checks": {
+              "positive_minimum_separation": true,
+              "pigeonhole_upper_bound": true,
+              "worst_label_lipschitz_at_least_size": true,
+              "separation_nonincreasing": true,
+              "best_return_is_pell_unit": true
+            }
+          },
+          {
+            "orbit_size": 2048,
+            "closest_return_denominator": 985,
+            "nearest_integer": 1393,
+            "pell_residual_p2_minus_2q2": -1,
+            "minimum_circle_separation_decimal": "3.5893749862306966339334655260739112679725E-4",
+            "worst_label_lipschitz_lower_bound": "2.78600035893749862307E+3",
+            "tent_interpolation_lipschitz_upper_bound": "5.57200071787499724614E+3",
+            "checks": {
+              "positive_minimum_separation": true,
+              "pigeonhole_upper_bound": true,
+              "worst_label_lipschitz_at_least_size": true,
+              "separation_nonincreasing": true,
+              "best_return_is_pell_unit": true
+            }
+          }
+        ],
+        "row_count": 9,
+        "failure_count": 0,
+        "numeric_boundary": "90-digit Decimal diagnostics; the interpolation theorem is independent of these finite rows"
+      },
+      "route_decision": {
+        "retain": "a scale-uniform Sobolev or analytic norm for the aperiodic observable, a signed Type II estimate, and positive gap-two mass",
+        "discard": "scale-dependent Lipschitz interpolation as evidence that an irrational classifier contains arithmetic Type II information",
+        "next_theorem": "UniformSobolevAperiodicTypeIICancellationWithPositiveTwinMass"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-TD3b.2b.1",
+            "label": "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-TD3b.2b.2a",
+            "label": "FiniteIrrationalOrbitLipschitzLookupComplexityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-TD3b.2b.2b",
+            "label": "UniformSobolevAperiodicTypeIICancellationWithPositiveTwinMass",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-TD3b.2b.1",
+            "TP-TD3b.2b.2a"
+          ],
+          [
+            "TP-TD3b.2b.2a",
+            "TP-TD3b.2b.2b"
+          ],
+          [
+            "TP-TD3b.2b.2b",
+            "TP"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "irrational_rotation_row_count": 9,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The theorem concerns worst-case labels on finite irrational orbits. It does not prove that the actual twin-prime label sequence has large Lipschitz complexity, does not estimate a Vaughan Type II sum, and supplies no positive exact-gap-two lower bound."
+    },
+    "cross_problem_synthesis": {
+      "shared_obstruction": "A finite certificate can fit every observed object while its dimension, period, localization, or regularity cost diverges.",
+      "shared_upgrade": "The remaining routes need scale-uniform signed spectral control, all-period Diophantine exclusion, localized Goldbach residual estimates, and uniform analytic Type II complexity."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET139 proves four exact intermediate or proof-route no-go theorems and revises four proof targets. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime. No conjecture proof and no certified conjecture counterexample is claimed."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-139",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "TwoMutuallyUnbiasedBasesCrossGramL1NoGo",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "candidate_theorem": "ProjectedWeilSignedGramSpectralRadiusBelowTailGap",
+      "next_experiment": "Estimate the signed spectral radius of one explicit projected Weil Gram tail without replacing it by absolute row sums.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The theorem is an exact matrix no-go for an auxiliary sufficient criterion. It neither identifies the actual projected Weil Gram operator nor estimates its signed spectral radius, and it proves no RH implication or counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-139",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "CollatzCycleDiophantineWindowAndVerifiedFloorExclusion",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "candidate_theorem": "AllPeriodSupercriticalCycleDiophantineExclusion",
+      "next_experiment": "Combine continued-fraction or linear-form lower bounds for |S log 2-k log 3| with the exact cycle window for every period.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The product-window theorem is universal for positive cycles. The 19,999 exclusions are finite and depend on the stored M=2^28 nontrivial-cycle floor. Period 15,601 is only unexcluded by this necessary condition, not a cycle candidate with a realized valuation word. Periods above 20,000 and every divergent aperiodic orbit remain open."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-139",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "PowerOfTwoBarycentricMomentAnnihilatorNoGo",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "candidate_theorem": "LocalizedPowerOfTwoSignedGoldbachResidualK56",
+      "next_experiment": "Prove a localized maximal or all-frequency K=56 residual estimate for the actual binary Goldbach residual on powers of two.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The barycentric vectors are exact inference countermodels, not values of the actual Goldbach residual. The theorem excludes only standalone finite polynomial-moment promotion; it does not exclude localized analytic estimates, all-frequency control, or arithmetic structure, and it proves no Goldbach representation."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-139",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "FiniteIrrationalOrbitLipschitzLookupComplexityNoGo",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "candidate_theorem": "UniformSobolevAperiodicTypeIICancellationWithPositiveTwinMass",
+      "next_experiment": "Fix a scale-uniform analytic norm, prove signed Type II cancellation for that class, and transport it to positive exact-gap-two mass.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The theorem concerns worst-case labels on finite irrational orbits. It does not prove that the actual twin-prime label sequence has large Lipschitz complexity, does not estimate a Vaughan Type II sum, and supplies no positive exact-gap-two lower bound."
+    }
+  ]
+}

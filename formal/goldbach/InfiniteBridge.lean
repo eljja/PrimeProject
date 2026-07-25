@@ -22,7 +22,8 @@ def theoremDecomposition : List String := [
   "GB-TD4b.1 FixedWheelRoughStratumHasLinearMassAndLogMomentBarrier closed",
   "GB-TD4b.2a SubpowerGrowingWheelLogMomentBarrier closed",
   "GB-TD4b.2b.1 AllScaleOddSquarefreeWheelMomentBarrier closed",
-  "GB-TD4b.2b.2 PointwiseSignedBinaryGoldbachResidualK56 highest_risk_open",
+  "GB-TD4b.2b.2 PowerOfTwoBarycentricMomentAnnihilatorNoGo closed",
+  "GB-TD4b.2b.3 LocalizedPowerOfTwoSignedGoldbachResidualK56 highest_risk_open",
   "GB-TD5 FiniteLargeNGlue"
 ]
 
@@ -36,18 +37,18 @@ def rankedCegisTarget : String :=
   "GB-TICKET-128 proves the rational tail bound 2*C2>1.31917 and makes the conservative pointwise residual target K=55 sufficient above H=4e18"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-138 PointwiseSignedBinaryGoldbachResidualK56."
+  "GB-TICKET-139 LocalizedPowerOfTwoSignedGoldbachResidualK56."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove a pointwise signed binary residual bound with K<=56 and join it to the explicit large-even cutoff; every complete-block odd squarefree wheel scale still has at least sqrt(X/2) hard points."
+  "Prove an all-frequency or localized maximal K<=56 estimate for the actual signed binary Goldbach residual on the power-of-two hard stratum, then join it to the explicit large-even cutoff."
 
 def latestExactResult : String :=
-  "AllScaleOddSquarefreeWheelMomentBarrier: every complete-block scale X=2WM has |H_W(X)|>=sqrt(X/2), including M=1 near-full wheel scales"
+  "PowerOfTwoBarycentricMomentAnnihilatorNoGo: for every q there is a nonzero primitive signed signal on q+1 powers of two whose first q polynomial moments vanish exactly"
 
 def closedPremise : String :=
   "proper-prime-power contamination constant B and normalized singular-series coefficient A=1"
 
 def retainedOpenPremise : String :=
-  "a K=56 pointwise signed binary Goldbach residual bound with explicit large-even glue"
+  "a localized K=56 signed binary Goldbach residual bound on the power-of-two hard stratum with explicit large-even glue"
 
 end PrimeProject.OpenProblems.Goldbach

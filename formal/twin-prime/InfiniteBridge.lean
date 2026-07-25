@@ -21,7 +21,8 @@ def theoremDecomposition : List String := [
   "TP-TD3b.1 FiniteRationalFourierAlgebraCompositeLift closed",
   "TP-TD3b.2a RationalFourierInformationBudgetLowerBound closed",
   "TP-TD3b.2b.1 IrrationalInjectivityWithoutRegularityIsTautologicalNoGo closed",
-  "TP-TD3b.2b.2 RegularAperiodicTypeIICancellationWithPositiveTwinMass highest_risk_open",
+  "TP-TD3b.2b.2 FiniteIrrationalOrbitLipschitzLookupComplexityNoGo closed",
+  "TP-TD3b.2b.3 UniformSobolevAperiodicTypeIICancellationWithPositiveTwinMass highest_risk_open",
   "TP-TD4 PositiveExactGapLowerBound",
   "TP-TD5 ExactGapInfinitudeBridge"
 ]
@@ -36,18 +37,18 @@ def rankedCegisTarget : String :=
   "TP-TICKET-128 gives an exact endpoint-only countermodel and proves that a within-dyadic-block envelope yields limsup Q<=0.92*c+delta"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-138 RegularAperiodicTypeIICancellationWithPositiveTwinMass."
+  "TP-TICKET-139 UniformSobolevAperiodicTypeIICancellationWithPositiveTwinMass."
 
 def topAttackProofAttemptProtocol : String :=
-  "Specify a computable regularity class for an aperiodic Type II statistic, prove uniform signed cancellation beyond rational-period and irrational-lookup shortcuts, and transport the estimate to positive exact-gap-two mass."
+  "Fix one scale-uniform Sobolev or variation budget, prove signed Type II cancellation inside that class, and transport the estimate to positive exact-gap-two mass."
 
 def latestFiniteResult : String :=
-  "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo: arbitrary lookup on an injective irrational phase image restates every integer predicate and provides no arithmetic estimate"
+  "FiniteIrrationalOrbitLipschitzLookupComplexityNoGo: every finite labeling has a tent interpolant with Lipschitz constant at most 2/delta, while a closest-pair labeling needs at least 1/delta"
 
 def finiteEvidenceBoundary : String :=
-  "the exact no-go excludes unrestricted irrational lookup expressivity as a proof step, but not regular analytic irrational phases or Type II cancellation; the Pell table is only a finite near-collision illustration"
+  "the exact no-go excludes scale-dependent Lipschitz lookup as a proof step, but does not prove that actual twin-prime labels have large complexity or establish Type II cancellation"
 
 def retainedOpenPremise : String :=
-  "a regular computable aperiodic Type II cancellation theorem, signed transport, and positive exact-gap-two mass"
+  "a scale-uniform Sobolev aperiodic Type II cancellation theorem, signed transport, and positive exact-gap-two mass"
 
 end PrimeProject.OpenProblems.TwinPrime

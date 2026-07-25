@@ -62,9 +62,41 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-138
+## Latest Continuation After TICKET-139
 
-TICKET138 is the current boundary. Read
+TICKET139 is the current boundary. Read
+`docs/uniformity-diophantine-and-complexity.md` and
+`data/open-problem/ticket139-uniformity-diophantine-complexity.json`
+before proposing a new route. None of the four conjectures is resolved.
+
+For RH, `TwoMutuallyUnbiasedBasesCrossGramL1NoGo` proves that a tight frame
+can have exact squared operator norm one while the absolute cross-Gram bound
+grows as `(1+sqrt(N))/2`. Attack
+`ProjectedWeilSignedGramSpectralRadiusBelowTailGap`; another absolute-value
+envelope is not a dimension-sharp route.
+
+For Collatz, `CollatzCycleDiophantineWindowAndVerifiedFloorExclusion` proves
+`1 < 2^S/3^k <= (1+1/(3m))^k` for every positive accelerated cycle. The
+verified `m>=2^28` floor excludes 19,999 period windows through 20,000; period
+15,601 is only arithmetically unexcluded, not a found cycle. Attack
+`AllPeriodSupercriticalCycleDiophantineExclusion`, then the aperiodic code
+problem separately.
+
+For Goldbach, `PowerOfTwoBarycentricMomentAnnihilatorNoGo` constructs a
+nonzero primitive signed signal on `q+1` powers of two whose first `q`
+polynomial moments vanish for every `q`. Attack
+`LocalizedPowerOfTwoSignedGoldbachResidualK56`; generic finite moments cannot
+force pointwise positivity.
+
+For Twin Prime, `FiniteIrrationalOrbitLipschitzLookupComplexityNoGo` proves
+that an `N`-point irrational orbit admits every finite binary labeling at
+Lipschitz cost at most `2/delta`, while a closest-pair labeling needs at least
+`1/delta`. Attack
+`UniformSobolevAperiodicTypeIICancellationWithPositiveTwinMass`.
+
+## Historical Continuation After TICKET-138
+
+TICKET138 is the preserved previous boundary. Read
 `docs/correlation-periodicity-and-scale-closure.md` and
 `data/open-problem/ticket138-correlation-periodicity-and-scale-closure.json`
 before proposing a new route. None of the four conjectures is resolved.

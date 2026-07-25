@@ -20,6 +20,7 @@ let ticket135AttemptGlobal = null;
 let ticket136AttemptGlobal = null;
 let ticket137AttemptGlobal = null;
 let ticket138AttemptGlobal = null;
+let ticket139AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9934,6 +9935,75 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket139UniformityDiophantineComplexity(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.uniformity_diophantine_complexity_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const machine = section.machine_audit || {};
+  const dag = section.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const frame = section.tight_frame_audit || {};
+    const rows = frame.rows || [];
+    detail = `
+      <div class="poc-equation">B*B=I, ||B||²=1, but absolute cross-Gram bound=(1+√N)/2</div>
+      ${table(["dimension", "row energy", "absolute cross-Gram", "L1 bound", "true norm²"], rows.map((row) => [row.dimension, row.maximum_row_energy?.exact, row.maximum_absolute_cross_gram_budget?.exact, row.cross_gram_l1_bound?.exact, row.exact_operator_norm_squared?.exact]))}
+      <div class="poc-head"><div><span>Tight-frame rows</span><strong>${rows.length}</strong></div><div><span>Largest L1 bound</span><strong>${rows.at(-1)?.cross_gram_l1_bound?.exact || "missing"}</strong></div><div><span>Failures</span><strong>${frame.failure_count ?? "missing"}</strong></div></div>
+      <p class="proof-note">절댓값 cross-Gram 합은 충분조건이지만 차원에 대해 sharp하지 않습니다. 실제 projected Weil signed spectral radius가 필요합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const cycle = section.cycle_window_audit || {};
+    const checkpoints = cycle.checkpoints || [];
+    detail = `
+      <div class="poc-equation">positive k-cycle: 1&lt;2<sup>S</sup>/3<sup>k</sup>≤(1+1/(3m))<sup>k</sup>, with verified m≥2<sup>28</sup></div>
+      ${table(["period k", "candidate S", "fits necessary window", "|difference| bits"], checkpoints.map((row) => [formatter.format(row.period || 0), row.candidate_total_valuation, row.candidate_fits_cycle_window, row.absolute_difference_bit_length]))}
+      <div class="poc-head"><div><span>Periods audited</span><strong>${formatter.format(cycle.maximum_period || 0)}</strong></div><div><span>Excluded</span><strong>${formatter.format(cycle.excluded_period_count || 0)}</strong></div><div><span>First unexcluded</span><strong>${formatter.format(cycle.first_arithmetically_unexcluded_period || 0)}</strong></div></div>
+      <p class="proof-note">k=15,601은 이 필요조건만으로 배제되지 않았을 뿐 실제 cycle이 아닙니다. 모든 period와 비주기 자연수 코드는 여전히 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const annihilator = section.moment_annihilator_audit || {};
+    const rows = annihilator.rows || [];
+    detail = `
+      <div class="poc-equation">wᵢ=1/∏<sub>j≠i</sub>(xᵢ-xⱼ): Σwᵢxᵢ<sup>r</sup>=0 for r&lt;q, and =1 for r=q</div>
+      ${table(["moment order q", "support", "zero moments", "max integer amplitude"], rows.map((row) => [row.moment_order, row.support_size, row.annihilated_moment_count, formatter.format(Number(row.maximum_pointwise_amplitude || 0))]))}
+      <div class="poc-head"><div><span>Moment orders</span><strong>${rows.length}</strong></div><div><span>Largest support</span><strong>${rows.at(-1)?.support_size || 0}</strong></div><div><span>Failures</span><strong>${annihilator.failure_count ?? "missing"}</strong></div></div>
+      <p class="proof-note">이는 실제 Goldbach residual의 반례가 아니라 유한 모멘트에서 점별 양성을 추론하는 경로의 정확한 반례입니다.</p>
+    `;
+  } else if (problemKey === "twin-prime") {
+    const rotation = section.irrational_rotation_audit || {};
+    const rows = rotation.rows || [];
+    detail = `
+      <div class="poc-equation">N finite orbit points, separation δ: every labeling has Lip≤2/δ; some labeling needs Lip≥1/δ</div>
+      ${table(["orbit N", "closest return q", "Pell residual", "minimum separation", "worst-label Lip lower"], rows.map((row) => [formatter.format(row.orbit_size || 0), row.closest_return_denominator, row.pell_residual_p2_minus_2q2, row.minimum_circle_separation_decimal, row.worst_label_lipschitz_lower_bound]))}
+      <div class="poc-head"><div><span>Orbit rows</span><strong>${rows.length}</strong></div><div><span>Largest lower bound</span><strong>${rows.at(-1)?.worst_label_lipschitz_lower_bound || "missing"}</strong></div><div><span>Failures</span><strong>${rotation.failure_count ?? "missing"}</strong></div></div>
+      <p class="proof-note">최악 labeling 정리이며 실제 twin-prime labeling의 복잡도 하한은 아닙니다. 규모와 무관한 analytic norm과 Type II 추정이 필요합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket139-uniformity-diophantine-complexity" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 139 uniformity, Diophantine windows, and complexity</h3>
+      <div class="poc-head"><div><span>Status</span><strong>exact intermediate theorem; conjecture open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${machine.total_failure_count ?? 0}</strong></div></div>
+      ${table(["TICKET139 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || "missing"], ["declared target / 선언 명제", section.declared_target || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.proved_statement_ko || section.proved_statement || "")}</p></section><section><h3>Decisive open premise / 결정적 미증명 전제</h3><p>${escapeHtml(attempt.next_experiment || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.proof_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/uniformity-diophantine-and-complexity.md">Bilingual paper-style report / 한영 논문형 보고서</a></p>
+    </div>
+  `;
+}
+
 function renderTicket138CorrelationPeriodicityScale(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.correlation_periodicity_and_scale_closure_audit || {};
@@ -9987,7 +10057,7 @@ function renderTicket138CorrelationPeriodicityScale(attempt) {
   }
   return `
     <div id="ticket138-correlation-periodicity-scale" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 138 correlation, periodicity, and scale closure</h3>
       <div class="poc-head"><div><span>Status</span><strong>exact intermediate theorem; conjecture open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${machine.total_failure_count ?? 0}</strong></div></div>
       ${table(["TICKET138 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || "missing"], ["declared target / 선언 명제", section.declared_target || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}
@@ -10744,7 +10814,7 @@ function renderTicket125InfiniteBridgeContracts(attempt) {
 
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
-    return `${renderTicket138CorrelationPeriodicityScale(ticket138AttemptGlobal)}${renderTicket137CancellationEntropyBudget(ticket137AttemptGlobal)}${renderTicket136ScaleSensitiveObstructions(ticket136AttemptGlobal)}${renderTicket135ConditionalBridges(ticket135AttemptGlobal)}${renderTicket134UniformityThresholds(ticket134AttemptGlobal)}${renderTicket133QuantifierPromotion(ticket133AttemptGlobal)}${renderTicket132AdmissibilityBoundary(ticket132AttemptGlobal)}${renderTicket131ProofViabilityTargetCorrection(ticket131AttemptGlobal)}${renderTicket130ComputabilityCapLanguageOptimality(ticket130AttemptGlobal)}${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
+    return `${renderTicket139UniformityDiophantineComplexity(ticket139AttemptGlobal)}${renderTicket138CorrelationPeriodicityScale(ticket138AttemptGlobal)}${renderTicket137CancellationEntropyBudget(ticket137AttemptGlobal)}${renderTicket136ScaleSensitiveObstructions(ticket136AttemptGlobal)}${renderTicket135ConditionalBridges(ticket135AttemptGlobal)}${renderTicket134UniformityThresholds(ticket134AttemptGlobal)}${renderTicket133QuantifierPromotion(ticket133AttemptGlobal)}${renderTicket132AdmissibilityBoundary(ticket132AttemptGlobal)}${renderTicket131ProofViabilityTargetCorrection(ticket131AttemptGlobal)}${renderTicket130ComputabilityCapLanguageOptimality(ticket130AttemptGlobal)}${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
   }
   const direct = ticket.direct_counterexample || {};
   const candidate = ticket.candidate_counterexamples_found || {};
@@ -10809,6 +10879,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket139UniformityDiophantineComplexity(ticket139AttemptGlobal)}
     ${renderTicket138CorrelationPeriodicityScale(ticket138AttemptGlobal)}
     ${renderTicket137CancellationEntropyBudget(ticket137AttemptGlobal)}
     ${renderTicket136ScaleSensitiveObstructions(ticket136AttemptGlobal)}
@@ -11230,6 +11301,26 @@ async function loadTicket137Attempt() {
   }
 }
 
+async function loadTicket139Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket139-uniformity-diophantine-complexity.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket139AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket139AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket139AttemptGlobal) {
+      ticket139AttemptGlobal.bounded_result = ticket139AttemptGlobal.bounded_result || {};
+      ticket139AttemptGlobal.bounded_result.uniformity_diophantine_complexity_audit = payload.uniformity_diophantine_complexity_audit || {};
+    }
+    return Boolean(ticket139AttemptGlobal);
+  } catch (error) {
+    ticket139AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket138Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket138-correlation-periodicity-and-scale-closure.json", { cache: "no-store" });
@@ -11399,9 +11490,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const priorityLoads = await Promise.all([loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
+  const priorityLoads = await Promise.all([loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
   if (priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket139AttemptGlobal) await loadTicket139Attempt();
     if (!ticket138AttemptGlobal) await loadTicket138Attempt();
     if (!ticket137AttemptGlobal) await loadTicket137Attempt();
     if (!ticket136AttemptGlobal) await loadTicket136Attempt();
@@ -11418,7 +11510,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket138-priority";
+  document.documentElement.dataset.openProblemCache = "ticket139-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

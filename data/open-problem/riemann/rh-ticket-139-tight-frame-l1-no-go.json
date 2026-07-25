@@ -1,0 +1,296 @@
+{
+  "schema": "primeproject.ticket139-uniformity-diophantine-complexity.v1",
+  "generated_at": "2026-07-28T12:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-139",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "TwoMutuallyUnbiasedBasesCrossGramL1NoGo",
+  "bounded_result": {
+    "audit_ref": "riemann"
+  },
+  "candidate_theorem": "ProjectedWeilSignedGramSpectralRadiusBelowTailGap",
+  "next_experiment": "Estimate the signed spectral radius of one explicit projected Weil Gram tail without replacing it by absolute row sums.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The theorem is an exact matrix no-go for an auxiliary sufficient criterion. It neither identifies the actual projected Weil Gram operator nor estimates its signed spectral radius, and it proves no RH implication or counterexample.",
+  "result": {
+    "theorem_name": "TwoMutuallyUnbiasedBasesCrossGramL1NoGo",
+    "title_ko": "두 상호 비편향 기저의 cross-Gram L1 과대평가 한계 정리",
+    "declared_target": "Test whether the TICKET138 cross-Gram absolute row budget is dimension-uniformly close enough to the true operator norm to be a plausible projected Weil closure criterion.",
+    "proved_statement": "Let H be a real Hadamard matrix of square order N and form B by stacking the rows of I/sqrt(2) and H/sqrt(2N). Then B*B=I, so ||B||_2^2=1. Every row has energy 1/2, but each row has N cross-basis correlations of magnitude 1/(2sqrt(N)); hence the TICKET138 absolute cross-Gram row bound is (1+sqrt(N))/2. Its ratio to the true norm diverges like sqrt(N)/2. Thus the criterion is sufficient but not necessary and can reject uniformly bounded tight frames.",
+    "proved_statement_ko": "제곱 차수 N의 실 Hadamard 행렬 H에 대해 I/sqrt(2)의 행과 H/sqrt(2N)의 행을 쌓아 B를 만들면 B*B=I이므로 ||B||^2=1이다. 각 행 에너지는 1/2이지만 서로 다른 기저 사이의 상관 절댓값 합은 sqrt(N)/2여서 TICKET138 예산은 (1+sqrt(N))/2가 된다. 따라서 이 충분조건은 실제 노름을 sqrt(N) 규모로 과대평가할 수 있으며 projected Weil 경로의 필요조건으로 승격할 수 없다.",
+    "proof": "Hadamard orthogonality gives H^T H=N I. Therefore B*B=I/2+H^T H/(2N)=I. Rows within either basis are orthogonal. Every standard-basis row has inner product plus or minus 1/(2sqrt(N)) with each of the N Hadamard-basis rows, and the same holds in the reverse direction. The maximum absolute off-diagonal row sum is sqrt(N)/2, proving the formula and its divergence.",
+    "exact_contract": {
+      "frame_operator": "B*B=I",
+      "true_norm_squared": "||B||_2^2=1",
+      "cross_gram_l1_bound": "(1+sqrt(N))/2",
+      "scope": "square Sylvester-Hadamard orders"
+    },
+    "tight_frame_audit": {
+      "rows": [
+        {
+          "dimension": 4,
+          "frame": "rows of I/sqrt(2) union rows of H/sqrt(2N)",
+          "maximum_row_energy": {
+            "exact": "1/2",
+            "numerator": "1",
+            "denominator": "2",
+            "decimal": 0.5
+          },
+          "maximum_absolute_cross_gram_budget": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "cross_gram_l1_bound": {
+            "exact": "3/2",
+            "numerator": "3",
+            "denominator": "2",
+            "decimal": 1.5
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "tail_gap_product": {
+            "exact": "2",
+            "numerator": "2",
+            "denominator": "1",
+            "decimal": 2.0
+          },
+          "true_operator_margin": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "l1_overestimate_factor": {
+            "exact": "3/2",
+            "numerator": "3",
+            "denominator": "2",
+            "decimal": 1.5
+          },
+          "checks": {
+            "dimension_is_square_hadamard_order": true,
+            "integer_hadamard_orthogonality": true,
+            "tight_frame_operator_norm_squared_one": true,
+            "true_tail_margin_positive": true,
+            "l1_cross_gram_rejects_from_dimension_16": true
+          }
+        },
+        {
+          "dimension": 16,
+          "frame": "rows of I/sqrt(2) union rows of H/sqrt(2N)",
+          "maximum_row_energy": {
+            "exact": "1/2",
+            "numerator": "1",
+            "denominator": "2",
+            "decimal": 0.5
+          },
+          "maximum_absolute_cross_gram_budget": {
+            "exact": "2",
+            "numerator": "2",
+            "denominator": "1",
+            "decimal": 2.0
+          },
+          "cross_gram_l1_bound": {
+            "exact": "5/2",
+            "numerator": "5",
+            "denominator": "2",
+            "decimal": 2.5
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "tail_gap_product": {
+            "exact": "2",
+            "numerator": "2",
+            "denominator": "1",
+            "decimal": 2.0
+          },
+          "true_operator_margin": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "l1_overestimate_factor": {
+            "exact": "5/2",
+            "numerator": "5",
+            "denominator": "2",
+            "decimal": 2.5
+          },
+          "checks": {
+            "dimension_is_square_hadamard_order": true,
+            "integer_hadamard_orthogonality": true,
+            "tight_frame_operator_norm_squared_one": true,
+            "true_tail_margin_positive": true,
+            "l1_cross_gram_rejects_from_dimension_16": true
+          }
+        },
+        {
+          "dimension": 64,
+          "frame": "rows of I/sqrt(2) union rows of H/sqrt(2N)",
+          "maximum_row_energy": {
+            "exact": "1/2",
+            "numerator": "1",
+            "denominator": "2",
+            "decimal": 0.5
+          },
+          "maximum_absolute_cross_gram_budget": {
+            "exact": "4",
+            "numerator": "4",
+            "denominator": "1",
+            "decimal": 4.0
+          },
+          "cross_gram_l1_bound": {
+            "exact": "9/2",
+            "numerator": "9",
+            "denominator": "2",
+            "decimal": 4.5
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "tail_gap_product": {
+            "exact": "2",
+            "numerator": "2",
+            "denominator": "1",
+            "decimal": 2.0
+          },
+          "true_operator_margin": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "l1_overestimate_factor": {
+            "exact": "9/2",
+            "numerator": "9",
+            "denominator": "2",
+            "decimal": 4.5
+          },
+          "checks": {
+            "dimension_is_square_hadamard_order": true,
+            "integer_hadamard_orthogonality": true,
+            "tight_frame_operator_norm_squared_one": true,
+            "true_tail_margin_positive": true,
+            "l1_cross_gram_rejects_from_dimension_16": true
+          }
+        },
+        {
+          "dimension": 256,
+          "frame": "rows of I/sqrt(2) union rows of H/sqrt(2N)",
+          "maximum_row_energy": {
+            "exact": "1/2",
+            "numerator": "1",
+            "denominator": "2",
+            "decimal": 0.5
+          },
+          "maximum_absolute_cross_gram_budget": {
+            "exact": "8",
+            "numerator": "8",
+            "denominator": "1",
+            "decimal": 8.0
+          },
+          "cross_gram_l1_bound": {
+            "exact": "17/2",
+            "numerator": "17",
+            "denominator": "2",
+            "decimal": 8.5
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "tail_gap_product": {
+            "exact": "2",
+            "numerator": "2",
+            "denominator": "1",
+            "decimal": 2.0
+          },
+          "true_operator_margin": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "l1_overestimate_factor": {
+            "exact": "17/2",
+            "numerator": "17",
+            "denominator": "2",
+            "decimal": 8.5
+          },
+          "checks": {
+            "dimension_is_square_hadamard_order": true,
+            "integer_hadamard_orthogonality": true,
+            "tight_frame_operator_norm_squared_one": true,
+            "true_tail_margin_positive": true,
+            "l1_cross_gram_rejects_from_dimension_16": true
+          }
+        }
+      ],
+      "row_count": 4,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "signed spectral cancellation in the projected Weil Gram operator, with a dimension-uniform arithmetic estimate",
+      "discard": "the absolute cross-Gram row budget as a necessary or dimension-sharp projected Weil criterion",
+      "next_theorem": "ProjectedWeilSignedGramSpectralRadiusBelowTailGap"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-TD4b.2b.1",
+          "label": "CrossGramCorrelationBlockPositivityCriterion",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2b.2a",
+          "label": "TwoMutuallyUnbiasedBasesCrossGramL1NoGo",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2b.2b",
+          "label": "ProjectedWeilSignedGramSpectralRadiusBelowTailGap",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "RH",
+          "label": "Riemann Hypothesis",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-TD4b.2b.1",
+          "RH-TD4b.2b.2a"
+        ],
+        [
+          "RH-TD4b.2b.2a",
+          "RH-TD4b.2b.2b"
+        ],
+        [
+          "RH-TD4b.2b.2b",
+          "RH"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "tight_frame_row_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The theorem is an exact matrix no-go for an auxiliary sufficient criterion. It neither identifies the actual projected Weil Gram operator nor estimates its signed spectral radius, and it proves no RH implication or counterexample."
+  }
+}

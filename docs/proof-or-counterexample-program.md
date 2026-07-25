@@ -5653,3 +5653,44 @@ estimate or parity break. The next target is
 All four conjectures remain open. TICKET-138 exact theorem count is four,
 route-correction count is four, proof-DAG count is four, and
 conjecture-resolution count is zero.
+
+# TICKET-139 continuation: uniformity, Diophantine windows, and complexity
+
+TICKET-139 preserves every valid TICKET-138 theorem while testing whether its
+remaining sufficient conditions are dimension-sharp or uniform enough. The
+machine-readable audit is
+`data/open-problem/ticket139-uniformity-diophantine-complexity.json`.
+
+For RH, `TwoMutuallyUnbiasedBasesCrossGramL1NoGo` constructs a Parseval tight
+frame from two mutually unbiased bases. Its exact squared operator norm is one,
+but its absolute cross-Gram bound is `(1+sqrt(N))/2`. The next target is
+`ProjectedWeilSignedGramSpectralRadiusBelowTailGap`.
+
+For Collatz, `CollatzCycleDiophantineWindowAndVerifiedFloorExclusion` proves
+the exact positive-cycle window
+`1 < 2^S/3^k <= (1+1/(3m))^k`. With the project's verified `m>=2^28` floor,
+exact integer arithmetic excludes 19,999 of the first 20,000 period windows.
+Period 15,601 is only unexcluded by this necessary condition. The next target
+is `AllPeriodSupercriticalCycleDiophantineExclusion`.
+
+For Goldbach, `PowerOfTwoBarycentricMomentAnnihilatorNoGo` uses Lagrange
+barycentric weights to build a nonzero signed signal on powers of two with its
+first `q` polynomial moments exactly zero for every finite `q`. The next target
+is `LocalizedPowerOfTwoSignedGoldbachResidualK56`.
+
+For Twin Prime, `FiniteIrrationalOrbitLipschitzLookupComplexityNoGo` proves
+upper and lower Lipschitz interpolation bounds in terms of the orbit's minimum
+separation. A regularity budget allowed to grow with inverse separation still
+contains arbitrary finite lookup. The next target is
+`UniformSobolevAperiodicTypeIICancellationWithPositiveTwinMass`.
+
+한국어 요약: TICKET-139는 RH의 절댓값 cross-Gram 경계가 상쇄를 무한히
+과대평가할 수 있음을 보이고, Collatz 양의 주기 궤도에 정확한 디오판토스
+창을 부여하며, Goldbach의 유한 모멘트만으로 점별 양성을 추론할 수 없음을
+거듭제곱 2 지지 신호로 증명하고, Twin Prime의 무리수 표현에는 규모와
+무관한 정칙성 예산이 필요함을 정량화한다. 어느 결과도 네 추측의 완전한
+증명이나 반례가 아니다.
+
+All four conjectures remain open. TICKET-139 exact theorem count is four,
+route-correction count is four, proof-DAG count is four, and
+conjecture-resolution count is zero.

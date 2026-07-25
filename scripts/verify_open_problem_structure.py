@@ -135,6 +135,7 @@ TICKET135_SCHEMA = "primeproject.ticket135-conditional-bridges-and-exceptional-s
 TICKET136_SCHEMA = "primeproject.ticket136-scale-sensitive-obstructions-and-affine-bridge.v1"
 TICKET137_SCHEMA = "primeproject.ticket137-cancellation-entropy-and-information-budget.v1"
 TICKET138_SCHEMA = "primeproject.ticket138-correlation-periodicity-and-scale-closure.v1"
+TICKET139_SCHEMA = "primeproject.ticket139-uniformity-diophantine-complexity.v1"
 
 
 def fail(message: str) -> int:
@@ -7948,6 +7949,48 @@ def main() -> int:
         return fail("ticket138 Twin irrational-injectivity no-go changed")
     if "does not prove or refute" not in str(audit138.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket138.get("claim_boundary", "")).lower():
         return fail("ticket138 proof boundary changed")
+
+    path139 = Path("data/open-problem/ticket139-uniformity-diophantine-complexity.json")
+    if not path139.exists():
+        return fail("missing ticket139 uniformity-diophantine-complexity audit")
+    ticket139 = read_json(path139)
+    if ticket139.get("schema") != TICKET139_SCHEMA or ticket139.get("status") != "exact_intermediate_theorems_proved_all_conjectures_open":
+        return fail("ticket139 schema or status changed")
+    attempts139 = ticket139.get("attempts", [])
+    by_id139 = {str(row.get("problem_id")): row for row in attempts139 if isinstance(row, dict)} if isinstance(attempts139, list) else {}
+    if set(by_id139) != EXPECTED_PROBLEMS:
+        return fail("ticket139 attempts missing problems")
+    paths139 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-139-tight-frame-l1-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-139-cycle-window.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-139-moment-annihilator.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-139-lipschitz-complexity.json"),
+    }
+    for problem_id, attempt in by_id139.items():
+        if not paths139[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket139 artifact or proof boundary missing")
+    audit139 = ticket139.get("uniformity_diophantine_complexity_audit", {})
+    machine139 = audit139.get("machine_audit", {})
+    if audit139.get("theorem_name") != "FourConjectureUniformityDiophantineComplexityAudit" or int(machine139.get("exact_theorem_count", -1)) != 4 or int(machine139.get("route_correction_count", -1)) != 4 or int(machine139.get("proof_dag_count", -1)) != 4 or int(machine139.get("conjecture_resolution_count", -1)) != 0 or int(machine139.get("total_failure_count", -1)) != 0:
+        return fail("ticket139 global machine audit changed")
+    riemann139 = audit139.get("riemann", {})
+    frame139 = riemann139.get("tight_frame_audit", {})
+    if riemann139.get("theorem_name") != "TwoMutuallyUnbiasedBasesCrossGramL1NoGo" or len(frame139.get("rows", [])) != 4 or int(frame139.get("failure_count", -1)) != 0:
+        return fail("ticket139 RH tight-frame no-go changed")
+    collatz139 = audit139.get("collatz", {})
+    cycle139 = collatz139.get("cycle_window_audit", {})
+    if collatz139.get("theorem_name") != "CollatzCycleDiophantineWindowAndVerifiedFloorExclusion" or int(cycle139.get("maximum_period", -1)) != 20000 or int(cycle139.get("excluded_period_count", -1)) != 19999 or int(cycle139.get("first_arithmetically_unexcluded_period", -1)) != 15601 or int(cycle139.get("failure_count", -1)) != 0:
+        return fail("ticket139 Collatz cycle window changed")
+    goldbach139 = audit139.get("goldbach", {})
+    annihilator139 = goldbach139.get("moment_annihilator_audit", {})
+    if goldbach139.get("theorem_name") != "PowerOfTwoBarycentricMomentAnnihilatorNoGo" or len(annihilator139.get("rows", [])) != 10 or int(annihilator139.get("failure_count", -1)) != 0:
+        return fail("ticket139 Goldbach moment annihilator changed")
+    twin139 = audit139.get("twin_prime", {})
+    rotation139 = twin139.get("irrational_rotation_audit", {})
+    if twin139.get("theorem_name") != "FiniteIrrationalOrbitLipschitzLookupComplexityNoGo" or len(rotation139.get("rows", [])) != 9 or int(rotation139.get("failure_count", -1)) != 0:
+        return fail("ticket139 Twin Lipschitz complexity no-go changed")
+    if "does not prove or refute" not in str(audit139.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket139.get("claim_boundary", "")).lower():
+        return fail("ticket139 proof boundary changed")
 
     print("open problem structure verified")
     return 0
