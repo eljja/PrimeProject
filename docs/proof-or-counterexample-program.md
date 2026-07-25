@@ -37,6 +37,43 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-25 TICKET-143 Form-Core, Period-Floor, Martingale, and Walsh Correction
+
+TICKET-143 audits the four TICKET-142 highest-risk nodes before allocating
+another large finite search.
+
+1. **RH:** `ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo` proves the
+   exact form-core promotion theorem. The graph family
+   `G_N=diag(2n^2)-11^T` is positive for every `N` and Hilbert dense, but the
+   full closed form has the negative witness `(1,0)`. Hilbert density is
+   therefore retired; attack
+   `ExplicitWeilFormCoreCompressionCertificateFamily`.
+2. **Collatz:** the cited published `K>7.2e10` odd-period floor makes period
+   15,601 obsolete. Its `a_0=1`, `S=24,727` raw composition count is
+   `binom(24725,15599)`, a 7,069-digit integer, and equal `(k,S)` does not
+   determine the affine numerator. Attack
+   `PublishedFloorAwareAffineCappedNaturalCodeWellFoundedness`.
+3. **Goldbach:** the exact dyadic martingale identity reconstructs every
+   residual point from the root mean and scale-normalized path differences.
+   A constant signal has bounded points, zero wavelets, and root coefficient
+   `sqrt(n)`, so the raw uniform Haar cap is retired. Attack
+   `UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56`.
+4. **Twin Prime:** Walsh-Hadamard inversion proves
+   `A00-A10-A01+A11=4*pi_2[X,2X]`; the previous one-sided gap is exactly the
+   desired block positivity and is circular as a separate bridge. Attack
+   `UniformCubicRoughWalshL1ContractionBelowOne`.
+
+All four conjectures remain open. The exact code, tests, JSON, proof DAGs, and
+bilingual report preserve `conjecture_resolution_count=0`.
+
+한국어 요약: TICKET-143은 더 큰 계산보다 먼저 네 목표의 위상과 논리
+강도를 교정한다. RH에는 form-core가 필요하고, Collatz 15,601주기는 공개
+하한 아래이며, Goldbach raw Haar 계수는 척도 정규화가 잘못됐고, Twin
+단측 gap은 원래 블록 쌍둥이 존재와 정확히 동치다. 다음 목표는 각각
+실제 Weil form-core 압축, 공개 주기 하한을 반영한 자연수 코드
+well-foundedness, Goldbach root 평균과 dyadic 경로변동, cubic-rough
+Walsh `L1` 수축이다.
+
 ## 2026-07-25 TICKET-142 Typed Targets and Direction Correction
 
 TICKET-142 audits the four TICKET-141 open nodes before spending more

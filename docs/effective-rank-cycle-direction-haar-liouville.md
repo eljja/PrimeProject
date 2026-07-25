@@ -7,6 +7,13 @@ Status: `open_not_proven` for all four conjectures
 Machine record:
 `data/open-problem/ticket142-effective-rank-cycle-direction-haar-liouville.json`
 
+> Superseded target notice / 후속 목표 교정: TICKET-143 proves that the RH
+> promotion topology must be a form core, retires the period-15,601 Collatz
+> branch under a cited published odd-period floor, replaces raw Goldbach Haar
+> caps by a scale-normalized martingale ledger, and proves that the proposed
+> Twin one-sided gap is exactly equivalent to blockwise twin positivity. See
+> [TICKET-143](form-core-period-floor-martingale-walsh.md).
+
 ## Publication boundary / 논문 제출용 경계
 
 **English.** TICKET-142 proves four exact intermediate or proof-route no-go

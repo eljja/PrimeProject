@@ -62,12 +62,52 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-142
+## Latest Continuation After TICKET-143
 
-TICKET142 is the current boundary. Read
+TICKET143 is the current boundary. Read
+`docs/form-core-period-floor-martingale-walsh.md` and
+`data/open-problem/ticket143-form-core-period-floor-martingale-walsh.json`
+before proposing a new route. None of the four conjectures is resolved.
+
+For RH, `ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo` proves that
+finite compression positivity promotes through a genuine form core, while an
+explicit closed-form counterexample has positive Hilbert-dense graph
+compressions and a negative full-form direction. Attack
+`ExplicitWeilFormCoreCompressionCertificateFamily`.
+
+For Collatz,
+`PublishedOddPeriodFloorRetiresPeriod15601AndCompositionExplosionNoGo`
+imports the cited published `K>7.2e10` odd-member floor and retires the
+period-15,601 branch. Its raw ordered valuation space has 7,069 decimal digits,
+but that count is not a universal complexity lower bound. Attack
+`PublishedFloorAwareAffineCappedNaturalCodeWellFoundedness`.
+
+For Goldbach,
+`DyadicMartingaleResidualIdentityAndRootModeScalingNoGo` reconstructs every
+point exactly from the root mean and scale-normalized martingale differences.
+A constant bounded signal shows why a scale-independent raw orthonormal Haar
+cap is unnecessarily strong. Attack
+`UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56`.
+
+For Twin Prime,
+`WalshHadamardRoughPairInversionAndCircularGapNoGo` reconstructs all four
+rough-pair parity classes and proves that the old one-sided gap is exactly four
+times the twin count. Attack the stronger but non-circular sufficient target
+`UniformCubicRoughWalshL1ContractionBelowOne`.
+
+한국어 요약: TICKET143은 RH finite-section에 form-core 위상이 필요함을
+확정하고, 공개 주기 하한 아래인 Collatz 15,601 분기를 폐기하며,
+Goldbach를 root 평균과 martingale 경로합으로 다시 정규화하고, Twin
+단측 gap이 원래 블록 존재 명제와 정확히 동치임을 증명한다. 새 결과는
+증명 경로 교정이며 네 난제 해결은 0개다.
+
+## Historical Continuation After TICKET-142
+
+TICKET142 is a preserved historical boundary. Read
 `docs/effective-rank-cycle-direction-haar-liouville.md` and
 `data/open-problem/ticket142-effective-rank-cycle-direction-haar-liouville.json`
-before proposing a new route. None of the four conjectures is resolved.
+for the previous targets corrected by TICKET143. None of the four conjectures
+is resolved.
 
 For RH, `EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo`
 shows that shifted moments depend on both the spectral edge and exact effective

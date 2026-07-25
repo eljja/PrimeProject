@@ -27,8 +27,9 @@ def theoremDecomposition : List String := [
   "CO-TD4b.2b.4a PeriodDependentFloorLinearGrowthBarrier closed",
   "CO-TD4b.2b.4b CycleMinimumAboveExactPowerOfTwoWindowThreshold superseded_wrong_direction",
   "CO-TD4b.2b.5a PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo closed",
-  "CO-TD4b.2b.5b Period15601AffineNumeratorNondivisibilityCertificate highest_risk_open",
-  "CO-TD4b.2b.6 AffineCappedAperiodicNaturalCodeWellFoundedness open",
+  "CO-TD4b.2b.5b Period15601AffineNumeratorNondivisibilityCertificate retired_below_published_odd_period_floor",
+  "CO-TD4b.2b.6a PublishedOddPeriodFloorRetiresPeriod15601AndCompositionExplosionNoGo closed",
+  "CO-TD4b.2b.6b PublishedFloorAwareAffineCappedNaturalCodeWellFoundedness highest_risk_open",
   "CO-TD5 CycleAndDivergenceExclusionBridge"
 ]
 
@@ -42,18 +43,18 @@ def rankedCegisTarget : String :=
   "CO-TICKET-128 separates unresolved lift cylinders from integer candidates and directly closes all 4027109 nontrivial 28-bit frontier representatives"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-142 Period15601AffineNumeratorNondivisibilityCertificate."
+  "CO-TICKET-143 PublishedFloorAwareAffineCappedNaturalCodeWellFoundedness."
 
 def topAttackProofAttemptProtocol : String :=
-  "Enumerate or symbolically cover admissible length-15601 valuation words with sum 24727 and prove the cycle affine numerator is never divisible by 2^24727-3^15601."
+  "Import the published odd-cycle period floor explicitly, then build an unbounded-depth well-founded descent certificate for natural valuation codes without spending computation below that floor."
 
 def latestExactResult : String :=
-  "PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo: the cycle product window gives an upper bound, forces m=3 mod 4, and leaves 4340106 period-15601 minimum candidates above 2^28"
+  "PublishedOddPeriodFloorRetiresPeriod15601AndCompositionExplosionNoGo: the cited K>7.2e10 odd-member floor retires period 15601, whose raw ordered valuation space already has 7069 decimal digits"
 
 def retiredRoute : String :=
   "treating the boundary ray -3^{-1} in Z_2 as a natural-integer obstruction"
 
 def retainedOpenPremise : String :=
-  "period-15601 affine-numerator nondivisibility, all larger cycle periods, and a global well-founded descent certificate for every aperiodic natural code"
+  "cycles beyond the published odd-period floor and a global well-founded descent certificate for every aperiodic natural valuation code"
 
 end PrimeProject.OpenProblems.Collatz

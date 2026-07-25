@@ -1,0 +1,179 @@
+{
+  "schema": "primeproject.ticket143-form-core-period-floor-martingale-walsh.v1",
+  "generated_at": "2026-07-25T23:35:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-143",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "cubic-rough Walsh inversion and circularity audit",
+  "bounded_result": {
+    "audit_ref": "twin_prime"
+  },
+  "obstruction": "Finite positive L1 margins through X=1e6 do not prove a uniform all-scale contraction. Establishing it for the actual Liouville correlations still crosses the sieve parity barrier.",
+  "candidate_theorem": "UniformCubicRoughWalshL1ContractionBelowOne",
+  "next_experiment": "a uniform absolute Walsh-correlation contraction on the cubic-rough pair support",
+  "claim_boundary": "No Twin Prime proof or counterexample. The circular target is retired and replaced by a stronger sufficient correlation inequality that remains unproved.",
+  "result": {
+    "theorem_name": "WalshHadamardRoughPairInversionAndCircularGapNoGo",
+    "declared_target": "Determine whether the one-sided cubic-rough Liouville ledger gap is a genuine intermediate theorem or a restatement.",
+    "declared_target_ko": "세제곱 rough Liouville 단측 ledger gap이 실제 중간정리인지 원문제의 재진술인지 판정한다.",
+    "proved_statement": "Walsh-Hadamard inversion recovers all four Liouville parity classes. The proposed one-sided gap equals four times the twin count, so its strict positivity is exactly blockwise twin existence. An absolute Walsh L1 contraction is a stronger, non-circular sufficient target.",
+    "proved_statement_ko": "Walsh-Hadamard 역변환은 네 Liouville parity 부류를 모두 복원한다. 기존 단측 gap은 쌍둥이 수의 정확히 4배이므로 그 양성은 블록별 쌍둥이 존재와 동치다. 절대 Walsh L1 수축은 더 강하지만 순환적이지 않은 충분조건이다.",
+    "proof": "Fourier inversion on {+1,-1}^2 gives the category formulas. Substituting (-1,-1) yields the exact twin projector. Triangle inequality gives every category at least (A00-|A10|-|A01|-|A11|)/4.",
+    "walsh_audit": {
+      "walsh_inversion": "N_{s,t}=(A00+s*A10+t*A01+s*t*A11)/4 for s,t in {+1,-1}",
+      "circularity_identity": "A00-A10-A01+A11=4*N_{-,-}=4*pi_2[X,2X]",
+      "strictly_stronger_sufficient_condition": "|A10|+|A01|+|A11| <= (1-delta)*A00 for fixed delta>0",
+      "rows": [
+        {
+          "X": 1000,
+          "A00": 59,
+          "A10": -17,
+          "A01": -19,
+          "A11": 9,
+          "reconstructed_twin_count": 26,
+          "direct_twin_count": 26,
+          "checks": {
+            "category_counts_sum_to_rough_mass": true,
+            "minus_minus_is_direct_twin_count": true,
+            "one_sided_gap_is_exactly_four_twins": true,
+            "finite_row_walsh_l1_contraction": true,
+            "all_four_categories_positive": true
+          },
+          "category_counts": {
+            "lambda_plus_plus": 8,
+            "lambda_plus_minus": 13,
+            "lambda_minus_plus": 12,
+            "lambda_minus_minus_twins": 26
+          },
+          "one_sided_gap": 104,
+          "walsh_l1": 45,
+          "walsh_l1_margin": 14,
+          "walsh_l1_contraction_delta": {
+            "exact": "14/59",
+            "decimal": 0.23728813559322035
+          }
+        },
+        {
+          "X": 10000,
+          "A00": 358,
+          "A10": -104,
+          "A01": -84,
+          "A11": 2,
+          "reconstructed_twin_count": 137,
+          "direct_twin_count": 137,
+          "checks": {
+            "category_counts_sum_to_rough_mass": true,
+            "minus_minus_is_direct_twin_count": true,
+            "one_sided_gap_is_exactly_four_twins": true,
+            "finite_row_walsh_l1_contraction": true,
+            "all_four_categories_positive": true
+          },
+          "category_counts": {
+            "lambda_plus_plus": 43,
+            "lambda_plus_minus": 84,
+            "lambda_minus_plus": 94,
+            "lambda_minus_minus_twins": 137
+          },
+          "one_sided_gap": 548,
+          "walsh_l1": 190,
+          "walsh_l1_margin": 168,
+          "walsh_l1_contraction_delta": {
+            "exact": "84/179",
+            "decimal": 0.4692737430167598
+          }
+        },
+        {
+          "X": 100000,
+          "A00": 2486,
+          "A10": -564,
+          "A01": -556,
+          "A11": 138,
+          "reconstructed_twin_count": 936,
+          "direct_twin_count": 936,
+          "checks": {
+            "category_counts_sum_to_rough_mass": true,
+            "minus_minus_is_direct_twin_count": true,
+            "one_sided_gap_is_exactly_four_twins": true,
+            "finite_row_walsh_l1_contraction": true,
+            "all_four_categories_positive": true
+          },
+          "category_counts": {
+            "lambda_plus_plus": 376,
+            "lambda_plus_minus": 585,
+            "lambda_minus_plus": 589,
+            "lambda_minus_minus_twins": 936
+          },
+          "one_sided_gap": 3744,
+          "walsh_l1": 1258,
+          "walsh_l1_margin": 1228,
+          "walsh_l1_contraction_delta": {
+            "exact": "614/1243",
+            "decimal": 0.49396621078037006
+          }
+        },
+        {
+          "X": 1000000,
+          "A00": 17634,
+          "A10": -3970,
+          "A01": -3992,
+          "A11": 1212,
+          "reconstructed_twin_count": 6702,
+          "direct_twin_count": 6702,
+          "checks": {
+            "category_counts_sum_to_rough_mass": true,
+            "minus_minus_is_direct_twin_count": true,
+            "one_sided_gap_is_exactly_four_twins": true,
+            "finite_row_walsh_l1_contraction": true,
+            "all_four_categories_positive": true
+          },
+          "category_counts": {
+            "lambda_plus_plus": 2721,
+            "lambda_plus_minus": 4111,
+            "lambda_minus_plus": 4100,
+            "lambda_minus_minus_twins": 6702
+          },
+          "one_sided_gap": 26808,
+          "walsh_l1": 9174,
+          "walsh_l1_margin": 8460,
+          "walsh_l1_contraction_delta": {
+            "exact": "1410/2939",
+            "decimal": 0.47975501871384824
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "Finite positive L1 margins through X=1e6 do not prove a uniform all-scale contraction. Establishing it for the actual Liouville correlations still crosses the sieve parity barrier.",
+    "route_decision": {
+      "discard": "OneSidedCubicRoughLiouvilleLedgerGap as a distinct bridge; it is algebraically equivalent to positive twin mass",
+      "retain": "a uniform absolute Walsh-correlation contraction on the cubic-rough pair support",
+      "next_theorem": "UniformCubicRoughWalshL1ContractionBelowOne"
+    },
+    "proof_boundary": "No Twin Prime proof or counterexample. The circular target is retired and replaced by a stronger sufficient correlation inequality that remains unproved.",
+    "machine_audit": {
+      "row_count": 4,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T143-CLOSED",
+          "label": "WalshHadamardRoughPairInversionAndCircularGapNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T143-OPEN",
+          "label": "UniformCubicRoughWalshL1ContractionBelowOne",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T143-CLOSED",
+          "TP-T143-OPEN"
+        ]
+      ]
+    }
+  }
+}

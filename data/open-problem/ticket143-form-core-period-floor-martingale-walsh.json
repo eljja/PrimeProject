@@ -1,0 +1,727 @@
+{
+  "schema": "primeproject.ticket143-form-core-period-floor-martingale-walsh.v1",
+  "generated_at": "2026-07-25T23:35:00+09:00",
+  "status": "exact_route_corrections_proved_all_conjectures_open",
+  "claim_boundary": "No conjecture proof or counterexample. This audit proves four exact promotion, counting, transform, or inversion results and uses one clearly labelled published Collatz premise. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime.",
+  "form_core_period_floor_martingale_walsh_audit": {
+    "theorem_name": "FourConjectureFormCorePeriodFloorMartingaleWalshAudit",
+    "status": "exact_route_corrections_proved_all_conjectures_open",
+    "proof_boundary": "No conjecture proof or counterexample. This audit proves four exact promotion, counting, transform, or inversion results and uses one clearly labelled published Collatz premise. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime.",
+    "riemann": {
+      "theorem_name": "ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo",
+      "declared_target": "Determine the exact topology needed to promote nonnegative finite compressions of a closed semibounded form.",
+      "declared_target_ko": "닫힌 아래유계 형식의 유한 압축 양성을 전체 양성으로 올리는 데 필요한 정확한 위상을 판정한다.",
+      "proved_statement": "Nonnegativity on nested finite subspaces promotes to the full closed form when their union is a form core. Hilbert-space density alone is insufficient.",
+      "proved_statement_ko": "중첩 유한부분공간의 합집합이 form core이면 양성이 전체 닫힌 형식으로 승격된다. Hilbert 공간 조밀성만으로는 부족하다.",
+      "proof": "Form-norm approximation and continuity prove the positive bridge. The explicit graph subspaces have positive rank-one Schur margins and Hilbert-dense union, while q(1,0)=-1.",
+      "form_core_audit": {
+        "closed_form": "q(a,y)=2*sum_{n>=1} n^2*|y_n|^2-|a|^2 on C direct_sum l2",
+        "finite_graph_subspace": "V_N=span{f_n=(1,e_n):1<=n<=N}; Gram(V_N)=diag(2n^2)-11^T",
+        "strict_positivity_certificate": "sum_{n=1}^N 1/(2n^2)<1; for n>=2 use 1/n^2<1/(n(n-1)), so the infinite sum is also below one",
+        "hilbert_density_certificate": "an orthogonal vector (alpha,z) satisfies z_n=-alpha for every n; l2 membership forces alpha=0 and z=0",
+        "negative_witness": {
+          "vector": "(1,0)",
+          "form_value": -1
+        },
+        "rows": [
+          {
+            "dimension": 1,
+            "reciprocal_energy_sum": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "rank_one_schur_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "finite_graph_gram_is_strictly_positive": true,
+              "margin_identity": true,
+              "margin_below_one": true
+            }
+          },
+          {
+            "dimension": 2,
+            "reciprocal_energy_sum": {
+              "exact": "5/8",
+              "decimal": 0.625
+            },
+            "rank_one_schur_margin": {
+              "exact": "3/8",
+              "decimal": 0.375
+            },
+            "checks": {
+              "finite_graph_gram_is_strictly_positive": true,
+              "margin_identity": true,
+              "margin_below_one": true
+            }
+          },
+          {
+            "dimension": 4,
+            "reciprocal_energy_sum": {
+              "exact": "205/288",
+              "decimal": 0.7118055555555556
+            },
+            "rank_one_schur_margin": {
+              "exact": "83/288",
+              "decimal": 0.2881944444444444
+            },
+            "checks": {
+              "finite_graph_gram_is_strictly_positive": true,
+              "margin_identity": true,
+              "margin_below_one": true
+            }
+          },
+          {
+            "dimension": 8,
+            "reciprocal_energy_sum": {
+              "exact": "1077749/1411200",
+              "decimal": 0.7637110260770975
+            },
+            "rank_one_schur_margin": {
+              "exact": "333451/1411200",
+              "decimal": 0.2362889739229025
+            },
+            "checks": {
+              "finite_graph_gram_is_strictly_positive": true,
+              "margin_identity": true,
+              "margin_below_one": true
+            }
+          },
+          {
+            "dimension": 16,
+            "reciprocal_energy_sum": {
+              "exact": "822968714749/1038874636800",
+              "decimal": 0.7921732667224936
+            },
+            "rank_one_schur_margin": {
+              "exact": "215905922051/1038874636800",
+              "decimal": 0.20782673327750648
+            },
+            "checks": {
+              "finite_graph_gram_is_strictly_positive": true,
+              "margin_identity": true,
+              "margin_below_one": true
+            }
+          },
+          {
+            "dimension": 32,
+            "reciprocal_energy_sum": {
+              "exact": "33659238975573797429256624061/41704772176589465865841920000",
+              "decimal": 0.8070836314139622
+            },
+            "rank_one_schur_margin": {
+              "exact": "8045533201015668436585295939/41704772176589465865841920000",
+              "decimal": 0.19291636858603783
+            },
+            "checks": {
+              "finite_graph_gram_is_strictly_positive": true,
+              "margin_identity": true,
+              "margin_below_one": true
+            }
+          },
+          {
+            "dimension": 64,
+            "reciprocal_energy_sum": {
+              "exact": "41409901935572392721815151397221689468404267553321859/50827454008952588350673318020170429352690366761984000",
+              "decimal": 0.8147152507044437
+            },
+            "rank_one_schur_margin": {
+              "exact": "9417552073380195628858166622948739884286099208662141/50827454008952588350673318020170429352690366761984000",
+              "decimal": 0.18528474929555624
+            },
+            "checks": {
+              "finite_graph_gram_is_strictly_positive": true,
+              "margin_identity": true,
+              "margin_below_one": true
+            }
+          },
+          {
+            "dimension": 128,
+            "reciprocal_energy_sum": {
+              "exact": "291941532394218885756982342847350121162685167611070858686868173678957591233410303149000422103612048376974176901/356645603475700940012786997747963218092285008283360900308936661706220525855395392282206560930186960122368000000",
+              "decimal": 0.818576002477231
+            },
+            "rank_one_schur_margin": {
+              "exact": "64704071081482054255804654900613096929599840672290041622068488027262934621985089133206138826574911745393823099/356645603475700940012786997747963218092285008283360900308936661706220525855395392282206560930186960122368000000",
+              "decimal": 0.18142399752276908
+            },
+            "checks": {
+              "finite_graph_gram_is_strictly_positive": true,
+              "margin_identity": true,
+              "margin_below_one": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "PrimeProject still has no explicit Weil form, form-core basis, interval-certified Gram entries, or all-section positivity theorem. The counterexample is functional-analytic, not an RH counterexample.",
+      "route_decision": {
+        "discard": "Hilbert-dense finite-section positivity without a form-core contract",
+        "retain": "closed-form compression on an explicit Weil form core with certified entries for every section",
+        "next_theorem": "ExplicitWeilFormCoreCompressionCertificateFamily"
+      },
+      "proof_boundary": "No conjecture proof or RH counterexample. The exact abstract promotion theorem and topology no-go only repair the proof route.",
+      "machine_audit": {
+        "row_count": 8,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T143-CLOSED",
+            "label": "ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T143-OPEN",
+            "label": "ExplicitWeilFormCoreCompressionCertificateFamily",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T143-CLOSED",
+            "RH-T143-OPEN"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "theorem_name": "PublishedOddPeriodFloorRetiresPeriod15601AndCompositionExplosionNoGo",
+      "declared_target": "Audit whether period 15,601 is still a live academic branch and quantify the exact raw valuation-word search space.",
+      "declared_target_ko": "15,601주기 분기가 현재 학술적으로 유효한지 감사하고 원시 valuation-word 탐색공간을 정확히 계량한다.",
+      "proved_statement": "Under the published odd-period floor K>7.2e10, period 15,601 cannot be a nontrivial cycle. Its raw a0=1 composition space has 7,069 decimal digits and the affine numerator depends on word order.",
+      "proved_statement_ko": "공개된 홀수 주기 하한 K>7.2×10^10을 전제로 하면 15,601주기는 비자명 순환일 수 없다. a0=1 원시 조합 수는 7,069자리이고 affine numerator는 valuation 순서에 의존한다.",
+      "proof": "The period comparison imports the cited published theorem. Stars-and-bars gives binom(24725,15599); direct affine expansion shows equal length and sum do not determine the numerator.",
+      "period_floor_audit": {
+        "external_published_premise": {
+          "statement": "Every nontrivial Collatz cycle has more than 7.2e10 odd members.",
+          "source": "https://arxiv.org/abs/2201.00406",
+          "source_role": "published theorem imported as a premise; not re-proved by PrimeProject"
+        },
+        "retired_ticket142_branch": {
+          "odd_period": 15601,
+          "valuation_sum": 24727,
+          "published_odd_period_floor": 72000000000,
+          "closed_under_published_premise": true
+        },
+        "raw_valuation_word_space": {
+          "constraints": "a_0=1, a_i>=1, length=15601, sum=24727",
+          "exact_count_formula": "binom(24725,15599)",
+          "exact_count": "2398619283800659371869545700630133139228414930822774813653897234249078490536964229869045032910570827844030946439865615647689527812384205096682357470300926500868741747250128995186571284680920664212196275763836296368670118929981802949718503611568902244247528985181537001608379266210108141717890242511467570334099537150745333567454709870649354301388595854336334518846901072839869871383779229945077479804116317123285144934889676627702258123386716609465099564234697341584622520671655545658381774736299035649923670618132319785313255256805413768684524018250292462171117094683010016682722713787860280918130952717176569401388559191528851379048616157341954835782693247739544295951582377192930051906597891245143680698628751528131487628637739927309053234562381891222540620949335637109458933942419858162252547463787275696451792828819151427339428069261403564932693573683924760760335566996032983280664191843363590278069232636073487220936841416134027730561679439960110411322719148448953969864455110631026215367320322440156636557607325516849212413063186267703671116817503897867873259263518150746082824089178583873609064157468655201486189509444624410318420837725407445265384784366890512541912218920318147004156491438469587136960068777238501829121138657782703547641521477607007180385261059509514056524441298166140760761318451908116531368113846747615278627258150132236399054632241442308753378320567097043827129716048644365439055691245161948422091851240847004378389383100580712287913555461807166821549661659940660503504452690171058154183444234015524933310184005283670762640335104417242174088908671524787494274751379043406071097896385492728775641150154274261597709922012156437626001766516216967544587040714624000838627211896230076314826863154828126030916882555328357403655676589045093487949738597573955103579363496104408457194929552973181552707562475457674559486007055310013038016007562585199746875055290758405935689165236858930048293573864616797633705555365445171602098143776688639376886569245117291866772377194655557597029073563122340807993103630241081111789322111941064424984816749155064303500694544952241461940220873690810986750024382831776542461089599565245787422270649124635089467575679318459965249387698310930356899160819384046065763310526834610658214049012043347172716609863847362078256498135819387350589832240196147928057575133054436542770708391877294325755543973217053289786592068645999659752002850242376488674157525724706194188242511104027679937335292321333473818475937026137458839849812784277876624829276985652675366065528403481442845177498773960187768296593113674991034199584140834645051237408833900264532596700293370111802144598987478459411377485419794714087295210792283961908832622007453098255838649423829815482756475885159410946621792648166532025540073951611550766884244655492380059137782238039717454186044360797662389257018131792446717685899785994330871951247416502060594044397583475383810233521807368394313413875079552565734262092057247956404380758700837491969713900016290485181809151197132831479969471884787381182678375283398956026106158622258951342411570568593618614796844350702805189546205795119992160653105067099929128262146649233704876196909348376866183846890546125193542326606676290023481346092428561065203902420049309363232914067468874636919269366140898007931162149972941134519877687879186374714052377685340392864120005577827637872229648932546018450105850768565660023758013812865687548189246733612393169735123023640335424163337338279593506535433590332380823402868345183776230647252143090040750329418833741779525262043284958940804502230605096742208870007113987518201202435224312576004791907189697792752867374612602089420493571564557341021941136376936433474585490797257238720039522675399252981574560845730435111079069188686559286580865075334138886021645666110821622784496330245611098528561151872921766912407277727797182577193919191365960096069429924723979790274320364799268705654096084670717889829263419877037385233199700625120751336971740263473564415798473599055829239271693103668684704141394859386495128181143497903720410162609793594700579927251175016691409129101590335958497136028164853511504583088796611788696876283019027859774747042844375641779615631904402376796906684985393544902337176005404926821769126501642024458418189554322553679404376268145162947052837318229044315933721465154957984088567149958101691079159319420554373366700199101128030733151165531975828569531666527876606920191175980449825887366672371794136067450435909764986275719001771140000749974953674235443629036925164380271322195379207827722352836890859966614287997757529767587946284769399654365044733654084618540198457041591749471754295588417382164793353973929233368613361491494622085981049516210100126714710559618618272099965810259144402998196082060132404086097791781945159396338950082794468379758648125782718814724905438204076493850568627473629924244791759619497767932904449413029830246800741954792690482717243476179943054541990414932084776775842905468992015023340786041730103489702287548736725388214939906297893318904280154234959433278949897251579513658118797550446316608356059132810656595246631048384388048052449472265243785922735991121577846370916889159355176825616195810206071147081005153308987122208435254441228008698266730628639543967231129492207422308084079871173030059019114477676172422543777743582127422596360863614519886183430152714807552355765832736899228992892810705046328668419569580150859360935080034723666872810076130931604048616262510517448022834844134570137630399532988734285373711081871397833112285074806010036422886906102859186412746828342293795038474482690729373291752101951059329041733123900068484147089370442421460553621628206145977384217490224871305548273617760433496550989136708254103331578673660786505309990690861417201870904420417079402922499580006786596871919546581623922352769159241414734826562170035319613120623434016414544039855341487205401008908073832511199389749460548002090226130440034981842065667459947626597494619601464249456454011982305325235572616446763000606270961077473389312775282309344423273976966527599253105774794672987706147512874960878616219877654783797773097947821568788890526060777213285674025886910961418722483183746483397812544803573551403133374551935199462876102302966513571196795413108842368962601071297542219617324719834880095973898009842266506324993947375739738552476730915531486057827848776078765548959402016361206033976756546650908124337147779556695164055020759165699025444335246804563014869388451702686071150385526818800113359014370646015843577628973277068516138492322717533097696332025923488309031148932770371935093702052683852103183323329077721511167061812831604479184193013687661184454153696198153052473607756617439180410406793365380189383443618330604117391562867896113595031630750765125050477257500154330564600131812040310989003264840529721517623374787020476500718672303670728810143738615353025335079480890224263339217536049655258783834142599330279362568875236319081852477728030523335985829763221905112648093046403892905178260638566943309186782885429631516923581686463242864803949254285039897273968343420306118941672563512399558566400000",
+          "decimal_digits": 7069,
+          "log2_count": 23480.649978850703,
+          "interpretation": "raw positive compositions only; not a count of cycles or minimum-compatible words"
+        },
+        "order_sensitivity_rows": [
+          {
+            "word": [
+              1,
+              1,
+              4
+            ],
+            "length": 3,
+            "valuation_sum": 6,
+            "affine_numerator": 19,
+            "cycle_denominator": 37,
+            "numerator_mod_denominator": 19
+          },
+          {
+            "word": [
+              1,
+              2,
+              3
+            ],
+            "length": 3,
+            "valuation_sum": 6,
+            "affine_numerator": 23,
+            "cycle_denominator": 37,
+            "numerator_mod_denominator": 23
+          },
+          {
+            "word": [
+              1,
+              3,
+              2
+            ],
+            "length": 3,
+            "valuation_sum": 6,
+            "affine_numerator": 31,
+            "cycle_denominator": 37,
+            "numerator_mod_denominator": 31
+          },
+          {
+            "word": [
+              1,
+              4,
+              1
+            ],
+            "length": 3,
+            "valuation_sum": 6,
+            "affine_numerator": 47,
+            "cycle_denominator": 37,
+            "numerator_mod_denominator": 10
+          }
+        ],
+        "checks": {
+          "ticket142_period_below_published_floor": true,
+          "raw_composition_count_has_expected_digits": true,
+          "same_length_and_sum_can_change_numerator": true,
+          "small_order_rows_share_length_and_sum": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The published premise concerns nontrivial cycles, not divergent aperiodic orbits. PrimeProject does not re-prove the 7.2e10 floor, and raw composition size is not a complexity lower bound against every symbolic algorithm.",
+      "route_decision": {
+        "discard": "enumerating period-15601 affine numerators as the current decisive Collatz branch",
+        "retain": "unbounded-depth natural-code descent together with cycle handling beyond the published odd-period floor",
+        "next_theorem": "PublishedFloorAwareAffineCappedNaturalCodeWellFoundedness"
+      },
+      "proof_boundary": "No Collatz proof or counterexample. One obsolete finite-cycle branch is retired under a published external theorem; aperiodic divergence and longer cycles remain open.",
+      "machine_audit": {
+        "row_count": 4,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T143-CLOSED",
+            "label": "PublishedOddPeriodFloorRetiresPeriod15601AndCompositionExplosionNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T143-OPEN",
+            "label": "PublishedFloorAwareAffineCappedNaturalCodeWellFoundedness",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T143-CLOSED",
+            "CO-T143-OPEN"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "theorem_name": "DyadicMartingaleResidualIdentityAndRootModeScalingNoGo",
+      "declared_target": "Replace ambiguous orthonormal Haar caps by a scale-normalized pointwise residual ledger.",
+      "declared_target_ko": "모호한 정규직교 Haar 계수 상한을 척도 정규화된 점별 잔차 ledger로 교체한다.",
+      "proved_statement": "Every dyadic residual is reconstructed exactly from its root mean and signed martingale differences. A constant pointwise signal has zero wavelets but root coefficient sqrt(n), so a uniform orthonormal coefficient cap is unnecessarily strong.",
+      "proved_statement_ko": "모든 dyadic 잔차는 root 평균과 부호 있는 martingale 차이로 정확히 복원된다. 상수 점별 신호는 wavelet이 모두 0이지만 root 계수는 √n이므로 균일 정규직교 계수 상한은 과도하다.",
+      "proof": "Conditional means telescope along the unique dyadic path to a point. Haar normalization multiplies each martingale difference by sqrt(interval size); the constant-vector no-go follows.",
+      "martingale_audit": {
+        "pointwise_identity": "rho_j=mean(rho)+sum_{dyadic I containing j} sign(I,j)*(mean(left I)-mean(right I))/2",
+        "orthonormal_conversion": "c_root=sqrt(n)*mean(rho), c_I=sqrt(|I|)*(mean(left I)-mean(right I))/2",
+        "rows": [
+          {
+            "depth": 2,
+            "size": 4,
+            "root_mean": {
+              "exact": "-13/4",
+              "decimal": -3.25
+            },
+            "maximum_absolute_point": 7,
+            "maximum_path_variation_envelope": {
+              "exact": "19/2",
+              "decimal": 9.5
+            },
+            "checks": {
+              "all_points_reconstruct_exactly": true,
+              "all_points_obey_path_envelope": true
+            }
+          },
+          {
+            "depth": 3,
+            "size": 8,
+            "root_mean": {
+              "exact": "-19/8",
+              "decimal": -2.375
+            },
+            "maximum_absolute_point": 7,
+            "maximum_path_variation_envelope": {
+              "exact": "19/2",
+              "decimal": 9.5
+            },
+            "checks": {
+              "all_points_reconstruct_exactly": true,
+              "all_points_obey_path_envelope": true
+            }
+          },
+          {
+            "depth": 4,
+            "size": 16,
+            "root_mean": {
+              "exact": "-25/16",
+              "decimal": -1.5625
+            },
+            "maximum_absolute_point": 8,
+            "maximum_path_variation_envelope": {
+              "exact": "89/8",
+              "decimal": 11.125
+            },
+            "checks": {
+              "all_points_reconstruct_exactly": true,
+              "all_points_obey_path_envelope": true
+            }
+          },
+          {
+            "depth": 5,
+            "size": 32,
+            "root_mean": {
+              "exact": "-25/16",
+              "decimal": -1.5625
+            },
+            "maximum_absolute_point": 8,
+            "maximum_path_variation_envelope": {
+              "exact": "89/8",
+              "decimal": 11.125
+            },
+            "checks": {
+              "all_points_reconstruct_exactly": true,
+              "all_points_obey_path_envelope": true
+            }
+          },
+          {
+            "depth": 6,
+            "size": 64,
+            "root_mean": {
+              "exact": "-37/32",
+              "decimal": -1.15625
+            },
+            "maximum_absolute_point": 8,
+            "maximum_path_variation_envelope": {
+              "exact": "197/16",
+              "decimal": 12.3125
+            },
+            "checks": {
+              "all_points_reconstruct_exactly": true,
+              "all_points_obey_path_envelope": true
+            }
+          }
+        ],
+        "root_mode_no_go_rows": [
+          {
+            "depth": 4,
+            "size": 16,
+            "constant_point_value": 1,
+            "pointwise_below_K56": true,
+            "orthonormal_root_coefficient_squared": 16,
+            "root_coefficient_exceeds_23": false,
+            "all_wavelet_coefficients_zero": true
+          },
+          {
+            "depth": 6,
+            "size": 64,
+            "constant_point_value": 1,
+            "pointwise_below_K56": true,
+            "orthonormal_root_coefficient_squared": 64,
+            "root_coefficient_exceeds_23": false,
+            "all_wavelet_coefficients_zero": true
+          },
+          {
+            "depth": 8,
+            "size": 256,
+            "constant_point_value": 1,
+            "pointwise_below_K56": true,
+            "orthonormal_root_coefficient_squared": 256,
+            "root_coefficient_exceeds_23": false,
+            "all_wavelet_coefficients_zero": true
+          },
+          {
+            "depth": 9,
+            "size": 512,
+            "constant_point_value": 1,
+            "pointwise_below_K56": true,
+            "orthonormal_root_coefficient_squared": 512,
+            "root_coefficient_exceeds_23": false,
+            "all_wavelet_coefficients_zero": true
+          },
+          {
+            "depth": 10,
+            "size": 1024,
+            "constant_point_value": 1,
+            "pointwise_below_K56": true,
+            "orthonormal_root_coefficient_squared": 1024,
+            "root_coefficient_exceeds_23": true,
+            "all_wavelet_coefficients_zero": true
+          },
+          {
+            "depth": 12,
+            "size": 4096,
+            "constant_point_value": 1,
+            "pointwise_below_K56": true,
+            "orthonormal_root_coefficient_squared": 4096,
+            "root_coefficient_exceeds_23": true,
+            "all_wavelet_coefficients_zero": true
+          }
+        ],
+        "exact_checks": {
+          "first_dyadic_constant_root_failure_is_depth_10": true,
+          "constant_vector_remains_pointwise_below_56": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The exact transform is not an arithmetic estimate for the actual binary Goldbach residual. Neither its root mean nor every dyadic path variation is bounded below K=56 here.",
+      "route_decision": {
+        "discard": "a scale-independent cap on every orthonormal Haar coefficient as the primary arithmetic target",
+        "retain": "separate arithmetic control of the normalized residual root mean and the total dyadic path variation",
+        "next_theorem": "UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56"
+      },
+      "proof_boundary": "No Goldbach proof or counterexample. The martingale identity and root-mode countermodel correct the target normalization only.",
+      "machine_audit": {
+        "row_count": 5,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T143-CLOSED",
+            "label": "DyadicMartingaleResidualIdentityAndRootModeScalingNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T143-OPEN",
+            "label": "UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T143-CLOSED",
+            "GB-T143-OPEN"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "theorem_name": "WalshHadamardRoughPairInversionAndCircularGapNoGo",
+      "declared_target": "Determine whether the one-sided cubic-rough Liouville ledger gap is a genuine intermediate theorem or a restatement.",
+      "declared_target_ko": "세제곱 rough Liouville 단측 ledger gap이 실제 중간정리인지 원문제의 재진술인지 판정한다.",
+      "proved_statement": "Walsh-Hadamard inversion recovers all four Liouville parity classes. The proposed one-sided gap equals four times the twin count, so its strict positivity is exactly blockwise twin existence. An absolute Walsh L1 contraction is a stronger, non-circular sufficient target.",
+      "proved_statement_ko": "Walsh-Hadamard 역변환은 네 Liouville parity 부류를 모두 복원한다. 기존 단측 gap은 쌍둥이 수의 정확히 4배이므로 그 양성은 블록별 쌍둥이 존재와 동치다. 절대 Walsh L1 수축은 더 강하지만 순환적이지 않은 충분조건이다.",
+      "proof": "Fourier inversion on {+1,-1}^2 gives the category formulas. Substituting (-1,-1) yields the exact twin projector. Triangle inequality gives every category at least (A00-|A10|-|A01|-|A11|)/4.",
+      "walsh_audit": {
+        "walsh_inversion": "N_{s,t}=(A00+s*A10+t*A01+s*t*A11)/4 for s,t in {+1,-1}",
+        "circularity_identity": "A00-A10-A01+A11=4*N_{-,-}=4*pi_2[X,2X]",
+        "strictly_stronger_sufficient_condition": "|A10|+|A01|+|A11| <= (1-delta)*A00 for fixed delta>0",
+        "rows": [
+          {
+            "X": 1000,
+            "A00": 59,
+            "A10": -17,
+            "A01": -19,
+            "A11": 9,
+            "reconstructed_twin_count": 26,
+            "direct_twin_count": 26,
+            "checks": {
+              "category_counts_sum_to_rough_mass": true,
+              "minus_minus_is_direct_twin_count": true,
+              "one_sided_gap_is_exactly_four_twins": true,
+              "finite_row_walsh_l1_contraction": true,
+              "all_four_categories_positive": true
+            },
+            "category_counts": {
+              "lambda_plus_plus": 8,
+              "lambda_plus_minus": 13,
+              "lambda_minus_plus": 12,
+              "lambda_minus_minus_twins": 26
+            },
+            "one_sided_gap": 104,
+            "walsh_l1": 45,
+            "walsh_l1_margin": 14,
+            "walsh_l1_contraction_delta": {
+              "exact": "14/59",
+              "decimal": 0.23728813559322035
+            }
+          },
+          {
+            "X": 10000,
+            "A00": 358,
+            "A10": -104,
+            "A01": -84,
+            "A11": 2,
+            "reconstructed_twin_count": 137,
+            "direct_twin_count": 137,
+            "checks": {
+              "category_counts_sum_to_rough_mass": true,
+              "minus_minus_is_direct_twin_count": true,
+              "one_sided_gap_is_exactly_four_twins": true,
+              "finite_row_walsh_l1_contraction": true,
+              "all_four_categories_positive": true
+            },
+            "category_counts": {
+              "lambda_plus_plus": 43,
+              "lambda_plus_minus": 84,
+              "lambda_minus_plus": 94,
+              "lambda_minus_minus_twins": 137
+            },
+            "one_sided_gap": 548,
+            "walsh_l1": 190,
+            "walsh_l1_margin": 168,
+            "walsh_l1_contraction_delta": {
+              "exact": "84/179",
+              "decimal": 0.4692737430167598
+            }
+          },
+          {
+            "X": 100000,
+            "A00": 2486,
+            "A10": -564,
+            "A01": -556,
+            "A11": 138,
+            "reconstructed_twin_count": 936,
+            "direct_twin_count": 936,
+            "checks": {
+              "category_counts_sum_to_rough_mass": true,
+              "minus_minus_is_direct_twin_count": true,
+              "one_sided_gap_is_exactly_four_twins": true,
+              "finite_row_walsh_l1_contraction": true,
+              "all_four_categories_positive": true
+            },
+            "category_counts": {
+              "lambda_plus_plus": 376,
+              "lambda_plus_minus": 585,
+              "lambda_minus_plus": 589,
+              "lambda_minus_minus_twins": 936
+            },
+            "one_sided_gap": 3744,
+            "walsh_l1": 1258,
+            "walsh_l1_margin": 1228,
+            "walsh_l1_contraction_delta": {
+              "exact": "614/1243",
+              "decimal": 0.49396621078037006
+            }
+          },
+          {
+            "X": 1000000,
+            "A00": 17634,
+            "A10": -3970,
+            "A01": -3992,
+            "A11": 1212,
+            "reconstructed_twin_count": 6702,
+            "direct_twin_count": 6702,
+            "checks": {
+              "category_counts_sum_to_rough_mass": true,
+              "minus_minus_is_direct_twin_count": true,
+              "one_sided_gap_is_exactly_four_twins": true,
+              "finite_row_walsh_l1_contraction": true,
+              "all_four_categories_positive": true
+            },
+            "category_counts": {
+              "lambda_plus_plus": 2721,
+              "lambda_plus_minus": 4111,
+              "lambda_minus_plus": 4100,
+              "lambda_minus_minus_twins": 6702
+            },
+            "one_sided_gap": 26808,
+            "walsh_l1": 9174,
+            "walsh_l1_margin": 8460,
+            "walsh_l1_contraction_delta": {
+              "exact": "1410/2939",
+              "decimal": 0.47975501871384824
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "Finite positive L1 margins through X=1e6 do not prove a uniform all-scale contraction. Establishing it for the actual Liouville correlations still crosses the sieve parity barrier.",
+      "route_decision": {
+        "discard": "OneSidedCubicRoughLiouvilleLedgerGap as a distinct bridge; it is algebraically equivalent to positive twin mass",
+        "retain": "a uniform absolute Walsh-correlation contraction on the cubic-rough pair support",
+        "next_theorem": "UniformCubicRoughWalshL1ContractionBelowOne"
+      },
+      "proof_boundary": "No Twin Prime proof or counterexample. The circular target is retired and replaced by a stronger sufficient correlation inequality that remains unproved.",
+      "machine_audit": {
+        "row_count": 4,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T143-CLOSED",
+            "label": "WalshHadamardRoughPairInversionAndCircularGapNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T143-OPEN",
+            "label": "UniformCubicRoughWalshL1ContractionBelowOne",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T143-CLOSED",
+            "TP-T143-OPEN"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-143",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "closed-form core promotion audit",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "obstruction": "PrimeProject still has no explicit Weil form, form-core basis, interval-certified Gram entries, or all-section positivity theorem. The counterexample is functional-analytic, not an RH counterexample.",
+      "candidate_theorem": "ExplicitWeilFormCoreCompressionCertificateFamily",
+      "next_experiment": "closed-form compression on an explicit Weil form core with certified entries for every section",
+      "claim_boundary": "No conjecture proof or RH counterexample. The exact abstract promotion theorem and topology no-go only repair the proof route."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-143",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "published odd-period floor and composition-space audit",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "obstruction": "The published premise concerns nontrivial cycles, not divergent aperiodic orbits. PrimeProject does not re-prove the 7.2e10 floor, and raw composition size is not a complexity lower bound against every symbolic algorithm.",
+      "candidate_theorem": "PublishedFloorAwareAffineCappedNaturalCodeWellFoundedness",
+      "next_experiment": "unbounded-depth natural-code descent together with cycle handling beyond the published odd-period floor",
+      "claim_boundary": "No Collatz proof or counterexample. One obsolete finite-cycle branch is retired under a published external theorem; aperiodic divergence and longer cycles remain open."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-143",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "dyadic martingale residual normalization audit",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "obstruction": "The exact transform is not an arithmetic estimate for the actual binary Goldbach residual. Neither its root mean nor every dyadic path variation is bounded below K=56 here.",
+      "candidate_theorem": "UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56",
+      "next_experiment": "separate arithmetic control of the normalized residual root mean and the total dyadic path variation",
+      "claim_boundary": "No Goldbach proof or counterexample. The martingale identity and root-mode countermodel correct the target normalization only."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-143",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "cubic-rough Walsh inversion and circularity audit",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "obstruction": "Finite positive L1 margins through X=1e6 do not prove a uniform all-scale contraction. Establishing it for the actual Liouville correlations still crosses the sieve parity barrier.",
+      "candidate_theorem": "UniformCubicRoughWalshL1ContractionBelowOne",
+      "next_experiment": "a uniform absolute Walsh-correlation contraction on the cubic-rough pair support",
+      "claim_boundary": "No Twin Prime proof or counterexample. The circular target is retired and replaced by a stronger sufficient correlation inequality that remains unproved."
+    }
+  ]
+}

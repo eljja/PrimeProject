@@ -27,7 +27,9 @@ def theoremDecomposition : List String := [
   "RH-TD4b.2b.4a ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo closed",
   "RH-TD4b.2b.4b ProjectedWeilShiftedLogMomentBelowTailGap superseded_underspecified",
   "RH-TD4b.2b.5a EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo closed",
-  "RH-TD4b.2b.5b ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract highest_risk_open",
+  "RH-TD4b.2b.5b ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract superseded_topology_corrected",
+  "RH-TD4b.2b.6a ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo closed",
+  "RH-TD4b.2b.6b ExplicitWeilFormCoreCompressionCertificateFamily highest_risk_open",
   "RH-TD5 WeilPositivityToRHImportAudit"
 ]
 
@@ -41,18 +43,18 @@ def rankedCegisTarget : String :=
   "RH-TICKET-128 proves that compact support removes the infinite prime tail exactly: only prime powers p^m<=B remain in the arithmetic side"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-142 ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract."
+  "RH-TICKET-143 ExplicitWeilFormCoreCompressionCertificateFamily."
 
 def topAttackProofAttemptProtocol : String :=
-  "Define nested projected Weil finite sections, explicit matrices and spectral constants, then prove a tail-convergence theorem that transports finite positivity to the full core."
+  "Define the actual closed Weil form, prove that a concrete enumerable basis is a form core, interval-certify every finite Gram entry, and prove positivity for every compression."
 
 def latestExactResult : String :=
-  "EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo: shifted moments factor exactly into spectral edge and effective rank, and the worst-case logarithmic coefficient is sharp"
+  "ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo: finite compression positivity promotes through a form core, while Hilbert-dense positive graph compressions can coexist with a negative closed-form direction"
 
 def retiredRoute : String :=
   "full-test-space autocorrelation-cone density"
 
 def retainedOpenPremise : String :=
-  "explicit projected Weil finite sections, independently certified spectral constants, and a tail-convergence bridge to the full positivity problem"
+  "an explicit Weil closed form, a proved form-core basis, certified finite Gram entries, and positivity of every compression"
 
 end PrimeProject.OpenProblems.Riemann

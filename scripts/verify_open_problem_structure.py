@@ -139,6 +139,7 @@ TICKET139_SCHEMA = "primeproject.ticket139-uniformity-diophantine-complexity.v1"
 TICKET140_SCHEMA = "primeproject.ticket140-spectral-moments-fixed-floor-duality-rotation.v1"
 TICKET141_SCHEMA = "primeproject.ticket141-one-sided-moving-floor-robust-dual-large-sieve.v1"
 TICKET142_SCHEMA = "primeproject.ticket142-effective-rank-cycle-direction-haar-liouville.v1"
+TICKET143_SCHEMA = "primeproject.ticket143-form-core-period-floor-martingale-walsh.v1"
 
 
 def fail(message: str) -> int:
@@ -8123,6 +8124,51 @@ def main() -> int:
         return fail("ticket142 Twin Liouville projector changed")
     if "does not prove or refute" not in str(audit142.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket142.get("claim_boundary", "")).lower():
         return fail("ticket142 proof boundary changed")
+
+    path143 = Path("data/open-problem/ticket143-form-core-period-floor-martingale-walsh.json")
+    if not path143.exists():
+        return fail("missing ticket143 form-core-period-floor-martingale-walsh audit")
+    ticket143 = read_json(path143)
+    if ticket143.get("schema") != TICKET143_SCHEMA or ticket143.get("status") != "exact_route_corrections_proved_all_conjectures_open":
+        return fail("ticket143 schema or status changed")
+    attempts143 = ticket143.get("attempts", [])
+    by_id143 = {str(row.get("problem_id")): row for row in attempts143 if isinstance(row, dict)} if isinstance(attempts143, list) else {}
+    if set(by_id143) != EXPECTED_PROBLEMS:
+        return fail("ticket143 attempts missing problems")
+    paths143 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-143-form-core.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-143-period-floor.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-143-martingale.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-143-walsh.json"),
+    }
+    for problem_id, attempt in by_id143.items():
+        if not paths143[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket143 artifact or proof boundary missing")
+    audit143 = ticket143.get("form_core_period_floor_martingale_walsh_audit", {})
+    machine143 = audit143.get("machine_audit", {})
+    if audit143.get("theorem_name") != "FourConjectureFormCorePeriodFloorMartingaleWalshAudit" or int(machine143.get("exact_theorem_count", -1)) != 4 or int(machine143.get("route_correction_count", -1)) != 4 or int(machine143.get("proof_dag_count", -1)) != 4 or int(machine143.get("conjecture_resolution_count", -1)) != 0 or int(machine143.get("total_failure_count", -1)) != 0:
+        return fail("ticket143 global machine audit changed")
+    riemann143 = audit143.get("riemann", {})
+    form143 = riemann143.get("form_core_audit", {})
+    if riemann143.get("theorem_name") != "ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo" or len(form143.get("rows", [])) != 8 or int(form143.get("negative_witness", {}).get("form_value", 0)) != -1 or int(form143.get("failure_count", -1)) != 0:
+        return fail("ticket143 RH form-core theorem changed")
+    collatz143 = audit143.get("collatz", {})
+    floor143 = collatz143.get("period_floor_audit", {})
+    branch143 = floor143.get("retired_ticket142_branch", {})
+    space143 = floor143.get("raw_valuation_word_space", {})
+    if collatz143.get("theorem_name") != "PublishedOddPeriodFloorRetiresPeriod15601AndCompositionExplosionNoGo" or not branch143.get("closed_under_published_premise") or int(space143.get("decimal_digits", -1)) != 7069 or int(floor143.get("failure_count", -1)) != 0:
+        return fail("ticket143 Collatz period-floor theorem changed")
+    goldbach143 = audit143.get("goldbach", {})
+    martingale143 = goldbach143.get("martingale_audit", {})
+    if goldbach143.get("theorem_name") != "DyadicMartingaleResidualIdentityAndRootModeScalingNoGo" or len(martingale143.get("rows", [])) != 5 or int(martingale143.get("failure_count", -1)) != 0:
+        return fail("ticket143 Goldbach martingale theorem changed")
+    twin143 = audit143.get("twin_prime", {})
+    walsh143 = twin143.get("walsh_audit", {})
+    walsh_rows143 = walsh143.get("rows", [])
+    if twin143.get("theorem_name") != "WalshHadamardRoughPairInversionAndCircularGapNoGo" or len(walsh_rows143) != 4 or int(walsh_rows143[-1].get("walsh_l1_margin", -1)) != 8460 or int(walsh143.get("failure_count", -1)) != 0:
+        return fail("ticket143 Twin Walsh theorem changed")
+    if "does not prove or refute" not in str(audit143.get("proof_boundary", "")).lower() or "no " not in str(ticket143.get("claim_boundary", "")).lower():
+        return fail("ticket143 proof boundary changed")
 
     print("open problem structure verified")
     return 0

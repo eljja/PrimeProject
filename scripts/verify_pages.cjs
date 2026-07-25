@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET142/TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET143/TICKET142/TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260725-ticket142-priority")) {
-      errors.push(`${page}: missing TICKET142 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260725-ticket143-priority")) {
+      errors.push(`${page}: missing TICKET143 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,31 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket143 title", "Ticket 143 form cores, published period floors, martingales, and Walsh inversion");
+    requireText("ticket143 table", "TICKET143 audit");
+    requireText("ticket143 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket143 resolutions", "Resolution count0");
+    requireText("ticket143 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket143 RH theorem", "ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo");
+      requireText("ticket143 RH rows", "Form-core rows8");
+      requireText("ticket143 RH target", "ExplicitWeilFormCoreCompressionCertificateFamily");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket143 Collatz theorem", "PublishedOddPeriodFloorRetiresPeriod15601AndCompositionExplosionNoGo");
+      requireText("ticket143 Collatz digits", "Raw word-count digits7,069");
+      requireText("ticket143 Collatz target", "PublishedFloorAwareAffineCappedNaturalCodeWellFoundedness");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket143 Goldbach theorem", "DyadicMartingaleResidualIdentityAndRootModeScalingNoGo");
+      requireText("ticket143 Goldbach rows", "Martingale rows5");
+      requireText("ticket143 Goldbach target", "UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56");
+    } else {
+      requireText("ticket143 Twin theorem", "WalshHadamardRoughPairInversionAndCircularGapNoGo");
+      requireText("ticket143 Twin rows", "Walsh rows4");
+      requireText("ticket143 Twin target", "UniformCubicRoughWalshL1ContractionBelowOne");
+    }
     requireText("ticket142 title", "Ticket 142 effective rank, cycle direction, Haar duals, and Liouville parity");
     requireText("ticket142 table", "TICKET142 audit");
-    requireText("ticket142 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket142 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket142 resolutions", "Resolution count0");
     requireText("ticket142 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {
@@ -2287,6 +2309,10 @@ async function main() {
     ["panel", metrics.evolutionPanel, "Provenance"],
     ["panel", metrics.evolutionPanel, "Evidence pack"],
     ["panel", metrics.evolutionPanel, "Publication consistency"],
+    ["panel", metrics.evolutionPanel, "TICKET-143"],
+    ["panel", metrics.evolutionPanel, "Open-Proof"],
+    ["panel", metrics.evolutionPanel, "93%"],
+    ["panel", metrics.evolutionPanel, "Form-core topology"],
     ["panel", metrics.evolutionPanel, "TICKET-57"],
     ["panel", metrics.evolutionPanel, "TICKET-58"],
     ["panel", metrics.evolutionPanel, "TICKET-59"],
@@ -2416,6 +2442,10 @@ async function main() {
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("Evidence pack") ||
     !metrics.evolutionPanel.includes("Publication consistency") ||
+    !metrics.evolutionPanel.includes("TICKET-143") ||
+    !metrics.evolutionPanel.includes("Open-Proof") ||
+    !metrics.evolutionPanel.includes("93%") ||
+    !metrics.evolutionPanel.includes("Form-core topology") ||
     !metrics.evolutionPanel.includes("TICKET-57") ||
     !metrics.evolutionPanel.includes("TICKET-58") ||
     !metrics.evolutionPanel.includes("TICKET-59") ||

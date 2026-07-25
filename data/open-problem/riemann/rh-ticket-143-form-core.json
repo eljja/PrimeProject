@@ -1,0 +1,196 @@
+{
+  "schema": "primeproject.ticket143-form-core-period-floor-martingale-walsh.v1",
+  "generated_at": "2026-07-25T23:35:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-143",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "closed-form core promotion audit",
+  "bounded_result": {
+    "audit_ref": "riemann"
+  },
+  "obstruction": "PrimeProject still has no explicit Weil form, form-core basis, interval-certified Gram entries, or all-section positivity theorem. The counterexample is functional-analytic, not an RH counterexample.",
+  "candidate_theorem": "ExplicitWeilFormCoreCompressionCertificateFamily",
+  "next_experiment": "closed-form compression on an explicit Weil form core with certified entries for every section",
+  "claim_boundary": "No conjecture proof or RH counterexample. The exact abstract promotion theorem and topology no-go only repair the proof route.",
+  "result": {
+    "theorem_name": "ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo",
+    "declared_target": "Determine the exact topology needed to promote nonnegative finite compressions of a closed semibounded form.",
+    "declared_target_ko": "닫힌 아래유계 형식의 유한 압축 양성을 전체 양성으로 올리는 데 필요한 정확한 위상을 판정한다.",
+    "proved_statement": "Nonnegativity on nested finite subspaces promotes to the full closed form when their union is a form core. Hilbert-space density alone is insufficient.",
+    "proved_statement_ko": "중첩 유한부분공간의 합집합이 form core이면 양성이 전체 닫힌 형식으로 승격된다. Hilbert 공간 조밀성만으로는 부족하다.",
+    "proof": "Form-norm approximation and continuity prove the positive bridge. The explicit graph subspaces have positive rank-one Schur margins and Hilbert-dense union, while q(1,0)=-1.",
+    "form_core_audit": {
+      "closed_form": "q(a,y)=2*sum_{n>=1} n^2*|y_n|^2-|a|^2 on C direct_sum l2",
+      "finite_graph_subspace": "V_N=span{f_n=(1,e_n):1<=n<=N}; Gram(V_N)=diag(2n^2)-11^T",
+      "strict_positivity_certificate": "sum_{n=1}^N 1/(2n^2)<1; for n>=2 use 1/n^2<1/(n(n-1)), so the infinite sum is also below one",
+      "hilbert_density_certificate": "an orthogonal vector (alpha,z) satisfies z_n=-alpha for every n; l2 membership forces alpha=0 and z=0",
+      "negative_witness": {
+        "vector": "(1,0)",
+        "form_value": -1
+      },
+      "rows": [
+        {
+          "dimension": 1,
+          "reciprocal_energy_sum": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "rank_one_schur_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "finite_graph_gram_is_strictly_positive": true,
+            "margin_identity": true,
+            "margin_below_one": true
+          }
+        },
+        {
+          "dimension": 2,
+          "reciprocal_energy_sum": {
+            "exact": "5/8",
+            "decimal": 0.625
+          },
+          "rank_one_schur_margin": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "checks": {
+            "finite_graph_gram_is_strictly_positive": true,
+            "margin_identity": true,
+            "margin_below_one": true
+          }
+        },
+        {
+          "dimension": 4,
+          "reciprocal_energy_sum": {
+            "exact": "205/288",
+            "decimal": 0.7118055555555556
+          },
+          "rank_one_schur_margin": {
+            "exact": "83/288",
+            "decimal": 0.2881944444444444
+          },
+          "checks": {
+            "finite_graph_gram_is_strictly_positive": true,
+            "margin_identity": true,
+            "margin_below_one": true
+          }
+        },
+        {
+          "dimension": 8,
+          "reciprocal_energy_sum": {
+            "exact": "1077749/1411200",
+            "decimal": 0.7637110260770975
+          },
+          "rank_one_schur_margin": {
+            "exact": "333451/1411200",
+            "decimal": 0.2362889739229025
+          },
+          "checks": {
+            "finite_graph_gram_is_strictly_positive": true,
+            "margin_identity": true,
+            "margin_below_one": true
+          }
+        },
+        {
+          "dimension": 16,
+          "reciprocal_energy_sum": {
+            "exact": "822968714749/1038874636800",
+            "decimal": 0.7921732667224936
+          },
+          "rank_one_schur_margin": {
+            "exact": "215905922051/1038874636800",
+            "decimal": 0.20782673327750648
+          },
+          "checks": {
+            "finite_graph_gram_is_strictly_positive": true,
+            "margin_identity": true,
+            "margin_below_one": true
+          }
+        },
+        {
+          "dimension": 32,
+          "reciprocal_energy_sum": {
+            "exact": "33659238975573797429256624061/41704772176589465865841920000",
+            "decimal": 0.8070836314139622
+          },
+          "rank_one_schur_margin": {
+            "exact": "8045533201015668436585295939/41704772176589465865841920000",
+            "decimal": 0.19291636858603783
+          },
+          "checks": {
+            "finite_graph_gram_is_strictly_positive": true,
+            "margin_identity": true,
+            "margin_below_one": true
+          }
+        },
+        {
+          "dimension": 64,
+          "reciprocal_energy_sum": {
+            "exact": "41409901935572392721815151397221689468404267553321859/50827454008952588350673318020170429352690366761984000",
+            "decimal": 0.8147152507044437
+          },
+          "rank_one_schur_margin": {
+            "exact": "9417552073380195628858166622948739884286099208662141/50827454008952588350673318020170429352690366761984000",
+            "decimal": 0.18528474929555624
+          },
+          "checks": {
+            "finite_graph_gram_is_strictly_positive": true,
+            "margin_identity": true,
+            "margin_below_one": true
+          }
+        },
+        {
+          "dimension": 128,
+          "reciprocal_energy_sum": {
+            "exact": "291941532394218885756982342847350121162685167611070858686868173678957591233410303149000422103612048376974176901/356645603475700940012786997747963218092285008283360900308936661706220525855395392282206560930186960122368000000",
+            "decimal": 0.818576002477231
+          },
+          "rank_one_schur_margin": {
+            "exact": "64704071081482054255804654900613096929599840672290041622068488027262934621985089133206138826574911745393823099/356645603475700940012786997747963218092285008283360900308936661706220525855395392282206560930186960122368000000",
+            "decimal": 0.18142399752276908
+          },
+          "checks": {
+            "finite_graph_gram_is_strictly_positive": true,
+            "margin_identity": true,
+            "margin_below_one": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "PrimeProject still has no explicit Weil form, form-core basis, interval-certified Gram entries, or all-section positivity theorem. The counterexample is functional-analytic, not an RH counterexample.",
+    "route_decision": {
+      "discard": "Hilbert-dense finite-section positivity without a form-core contract",
+      "retain": "closed-form compression on an explicit Weil form core with certified entries for every section",
+      "next_theorem": "ExplicitWeilFormCoreCompressionCertificateFamily"
+    },
+    "proof_boundary": "No conjecture proof or RH counterexample. The exact abstract promotion theorem and topology no-go only repair the proof route.",
+    "machine_audit": {
+      "row_count": 8,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T143-CLOSED",
+          "label": "ClosedFormCoreFiniteSectionBridgeAndHilbertDenseNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T143-OPEN",
+          "label": "ExplicitWeilFormCoreCompressionCertificateFamily",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T143-CLOSED",
+          "RH-T143-OPEN"
+        ]
+      ]
+    }
+  }
+}

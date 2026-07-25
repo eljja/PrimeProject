@@ -1,0 +1,207 @@
+{
+  "schema": "primeproject.ticket143-form-core-period-floor-martingale-walsh.v1",
+  "generated_at": "2026-07-25T23:35:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-143",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "dyadic martingale residual normalization audit",
+  "bounded_result": {
+    "audit_ref": "goldbach"
+  },
+  "obstruction": "The exact transform is not an arithmetic estimate for the actual binary Goldbach residual. Neither its root mean nor every dyadic path variation is bounded below K=56 here.",
+  "candidate_theorem": "UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56",
+  "next_experiment": "separate arithmetic control of the normalized residual root mean and the total dyadic path variation",
+  "claim_boundary": "No Goldbach proof or counterexample. The martingale identity and root-mode countermodel correct the target normalization only.",
+  "result": {
+    "theorem_name": "DyadicMartingaleResidualIdentityAndRootModeScalingNoGo",
+    "declared_target": "Replace ambiguous orthonormal Haar caps by a scale-normalized pointwise residual ledger.",
+    "declared_target_ko": "모호한 정규직교 Haar 계수 상한을 척도 정규화된 점별 잔차 ledger로 교체한다.",
+    "proved_statement": "Every dyadic residual is reconstructed exactly from its root mean and signed martingale differences. A constant pointwise signal has zero wavelets but root coefficient sqrt(n), so a uniform orthonormal coefficient cap is unnecessarily strong.",
+    "proved_statement_ko": "모든 dyadic 잔차는 root 평균과 부호 있는 martingale 차이로 정확히 복원된다. 상수 점별 신호는 wavelet이 모두 0이지만 root 계수는 √n이므로 균일 정규직교 계수 상한은 과도하다.",
+    "proof": "Conditional means telescope along the unique dyadic path to a point. Haar normalization multiplies each martingale difference by sqrt(interval size); the constant-vector no-go follows.",
+    "martingale_audit": {
+      "pointwise_identity": "rho_j=mean(rho)+sum_{dyadic I containing j} sign(I,j)*(mean(left I)-mean(right I))/2",
+      "orthonormal_conversion": "c_root=sqrt(n)*mean(rho), c_I=sqrt(|I|)*(mean(left I)-mean(right I))/2",
+      "rows": [
+        {
+          "depth": 2,
+          "size": 4,
+          "root_mean": {
+            "exact": "-13/4",
+            "decimal": -3.25
+          },
+          "maximum_absolute_point": 7,
+          "maximum_path_variation_envelope": {
+            "exact": "19/2",
+            "decimal": 9.5
+          },
+          "checks": {
+            "all_points_reconstruct_exactly": true,
+            "all_points_obey_path_envelope": true
+          }
+        },
+        {
+          "depth": 3,
+          "size": 8,
+          "root_mean": {
+            "exact": "-19/8",
+            "decimal": -2.375
+          },
+          "maximum_absolute_point": 7,
+          "maximum_path_variation_envelope": {
+            "exact": "19/2",
+            "decimal": 9.5
+          },
+          "checks": {
+            "all_points_reconstruct_exactly": true,
+            "all_points_obey_path_envelope": true
+          }
+        },
+        {
+          "depth": 4,
+          "size": 16,
+          "root_mean": {
+            "exact": "-25/16",
+            "decimal": -1.5625
+          },
+          "maximum_absolute_point": 8,
+          "maximum_path_variation_envelope": {
+            "exact": "89/8",
+            "decimal": 11.125
+          },
+          "checks": {
+            "all_points_reconstruct_exactly": true,
+            "all_points_obey_path_envelope": true
+          }
+        },
+        {
+          "depth": 5,
+          "size": 32,
+          "root_mean": {
+            "exact": "-25/16",
+            "decimal": -1.5625
+          },
+          "maximum_absolute_point": 8,
+          "maximum_path_variation_envelope": {
+            "exact": "89/8",
+            "decimal": 11.125
+          },
+          "checks": {
+            "all_points_reconstruct_exactly": true,
+            "all_points_obey_path_envelope": true
+          }
+        },
+        {
+          "depth": 6,
+          "size": 64,
+          "root_mean": {
+            "exact": "-37/32",
+            "decimal": -1.15625
+          },
+          "maximum_absolute_point": 8,
+          "maximum_path_variation_envelope": {
+            "exact": "197/16",
+            "decimal": 12.3125
+          },
+          "checks": {
+            "all_points_reconstruct_exactly": true,
+            "all_points_obey_path_envelope": true
+          }
+        }
+      ],
+      "root_mode_no_go_rows": [
+        {
+          "depth": 4,
+          "size": 16,
+          "constant_point_value": 1,
+          "pointwise_below_K56": true,
+          "orthonormal_root_coefficient_squared": 16,
+          "root_coefficient_exceeds_23": false,
+          "all_wavelet_coefficients_zero": true
+        },
+        {
+          "depth": 6,
+          "size": 64,
+          "constant_point_value": 1,
+          "pointwise_below_K56": true,
+          "orthonormal_root_coefficient_squared": 64,
+          "root_coefficient_exceeds_23": false,
+          "all_wavelet_coefficients_zero": true
+        },
+        {
+          "depth": 8,
+          "size": 256,
+          "constant_point_value": 1,
+          "pointwise_below_K56": true,
+          "orthonormal_root_coefficient_squared": 256,
+          "root_coefficient_exceeds_23": false,
+          "all_wavelet_coefficients_zero": true
+        },
+        {
+          "depth": 9,
+          "size": 512,
+          "constant_point_value": 1,
+          "pointwise_below_K56": true,
+          "orthonormal_root_coefficient_squared": 512,
+          "root_coefficient_exceeds_23": false,
+          "all_wavelet_coefficients_zero": true
+        },
+        {
+          "depth": 10,
+          "size": 1024,
+          "constant_point_value": 1,
+          "pointwise_below_K56": true,
+          "orthonormal_root_coefficient_squared": 1024,
+          "root_coefficient_exceeds_23": true,
+          "all_wavelet_coefficients_zero": true
+        },
+        {
+          "depth": 12,
+          "size": 4096,
+          "constant_point_value": 1,
+          "pointwise_below_K56": true,
+          "orthonormal_root_coefficient_squared": 4096,
+          "root_coefficient_exceeds_23": true,
+          "all_wavelet_coefficients_zero": true
+        }
+      ],
+      "exact_checks": {
+        "first_dyadic_constant_root_failure_is_depth_10": true,
+        "constant_vector_remains_pointwise_below_56": true
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The exact transform is not an arithmetic estimate for the actual binary Goldbach residual. Neither its root mean nor every dyadic path variation is bounded below K=56 here.",
+    "route_decision": {
+      "discard": "a scale-independent cap on every orthonormal Haar coefficient as the primary arithmetic target",
+      "retain": "separate arithmetic control of the normalized residual root mean and the total dyadic path variation",
+      "next_theorem": "UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56"
+    },
+    "proof_boundary": "No Goldbach proof or counterexample. The martingale identity and root-mode countermodel correct the target normalization only.",
+    "machine_audit": {
+      "row_count": 5,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T143-CLOSED",
+          "label": "DyadicMartingaleResidualIdentityAndRootModeScalingNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T143-OPEN",
+          "label": "UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T143-CLOSED",
+          "GB-T143-OPEN"
+        ]
+      ]
+    }
+  }
+}

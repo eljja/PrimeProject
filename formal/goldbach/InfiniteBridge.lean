@@ -27,7 +27,9 @@ def theoremDecomposition : List String := [
   "GB-TD4b.2b.4a PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo closed",
   "GB-TD4b.2b.4b LocalizedOrthogonalArithmeticK56DualCertificate superseded_underspecified",
   "GB-TD4b.2b.5a RobustDualBasisChangeInvarianceAndHaarK56Reduction closed",
-  "GB-TD4b.2b.5b UniformEvenGoldbachHaarScaleBudgetBelow56 highest_risk_open",
+  "GB-TD4b.2b.5b UniformEvenGoldbachHaarScaleBudgetBelow56 superseded_scale_normalization",
+  "GB-TD4b.2b.6a DyadicMartingaleResidualIdentityAndRootModeScalingNoGo closed",
+  "GB-TD4b.2b.6b UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56 highest_risk_open",
   "GB-TD5 FiniteLargeNGlue"
 ]
 
@@ -41,18 +43,18 @@ def rankedCegisTarget : String :=
   "GB-TICKET-128 proves the rational tail bound 2*C2>1.31917 and makes the conservative pointwise residual target K=55 sufficient above H=4e18"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-142 UniformEvenGoldbachHaarScaleBudgetBelow56."
+  "GB-TICKET-143 UniformBinaryGoldbachRootMeanPlusDyadicPathVariationBelow56."
 
 def topAttackProofAttemptProtocol : String :=
-  "Define normalized Goldbach residuals on every large dyadic even block and prove that the Haar scaling plus scale-wavelet l1 ledger is uniformly at most 56."
+  "Define the actual normalized binary Goldbach residual on every large even dyadic block, then bound its root mean plus every scale-normalized martingale path variation strictly below 56."
 
 def latestExactResult : String :=
-  "RobustDualBasisChangeInvarianceAndHaarK56Reduction: honest basis changes preserve robust recovery, while uniform Haar coefficient budget 23 implies pointwise residual below K=56"
+  "DyadicMartingaleResidualIdentityAndRootModeScalingNoGo: point values telescope from the root mean and scale-normalized differences, while raw orthonormal root coefficients can grow like sqrt(n) for a bounded constant signal"
 
 def closedPremise : String :=
   "proper-prime-power contamination constant B and normalized singular-series coefficient A=1"
 
 def retainedOpenPremise : String :=
-  "uniform arithmetic bounds for the actual Goldbach Haar scaling and wavelet coefficients on every sufficiently large dyadic even block"
+  "uniform arithmetic bounds for the actual Goldbach root mean and every dyadic path-variation ledger on sufficiently large even blocks"
 
 end PrimeProject.OpenProblems.Goldbach
