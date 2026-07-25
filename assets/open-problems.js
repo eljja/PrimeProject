@@ -27,6 +27,7 @@ let ticket142AttemptGlobal = null;
 let ticket143AttemptGlobal = null;
 let ticket144AttemptGlobal = null;
 let ticket145AttemptGlobal = null;
+let ticket146AttemptGlobal = null;
 
 const pageLinks = {
   riemann: "riemann.html",
@@ -9941,6 +9942,74 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket146ToeplitzPolynomialPhaseFrechet(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.toeplitz_polynomial_phase_frechet_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const dag = section.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.fixed_lag_rows || [];
+    const sample = computation.sample_recurrence?.rows || [];
+    detail = `
+      <div class="poc-equation">E<sub>m</sub>=E<sub>m−1</sub>(1−κ<sub>m</sub>²); &nbsp; all Toeplitz sections positive ⇔ |κ<sub>m</sub>|&lt;1 for every m</div>
+      ${table(["order", "reflection κ", "next Schur pivot"], sample.map((row) => [row.order, row.reflection_coefficient?.exact, row.next_error?.exact]))}
+      <div class="poc-head"><div><span>Exact sample orders</span><strong>${sample.length}</strong></div><div><span>Fixed-lag no-go rows</span><strong>${rows.length}</strong></div><div><span>Unseen pivot</span><strong>${rows.at(-1)?.last_schur_pivot ?? "missing"}</strong></div></div>
+      <p class="proof-note">involution-compatible shift-generated Weil convolution core는 Toeplitz로 환원되고 Schur pivot은 reflection 계수로 정확히 갱신됩니다. 추가 제약 없는 Hermitian Toeplitz moment 공간에서는 임의의 고정 lag 뒤에 κ=−2, pivot=−3을 숨길 수 있습니다. 이 반례 moment가 실제 Weil functional에서 나온다고 주장하지 않으므로, 다음 단계에는 모든 차수의 실제 Weil 계수 추정이 필요합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.rows || [];
+    detail = `
+      <div class="poc-equation">P(6Mk−1)−P(4Mk−1) has leading term a<sub>d</sub>M<sup>d</sup>(6<sup>d</sup>−4<sup>d</sup>)k<sup>d</sup>&gt;0</div>
+      ${table(["M", "profile", "degree", "first k", "rank difference"], rows.slice(0, 15).map((row) => [row.modulus, row.profile, row.degree, row.first_audited_counteredge?.k, Number(row.first_audited_counteredge?.rank_difference || 0).toLocaleString()]))}
+      <div class="poc-head"><div><span>Exact rows</span><strong>${rows.length}</strong></div><div><span>Polynomial degrees</span><strong>0–5</strong></div><div><span>Failures</span><strong>${computation.failure_count ?? "missing"}</strong></div></div>
+      <p class="proof-note">같은 residue의 확장 간선은 affine뿐 아니라 하방 유계인 모든 polynomial 1-step rank를 결국 증가시키거나 같게 만듭니다. 다음 경로는 stopping time을 정의에 넣지 않은 symbolic-cylinder adaptive block descent입니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.rows || [];
+    detail = `
+      <div class="poc-equation">(f*f)(N)=q<sup>−1</sup>Σ f̂(k)²e(kN/q); &nbsp; |f̂|² alone loses the endpoint phase</div>
+      ${table(["q", "base support", "shifted support", "base endpoint", "shifted endpoint"], rows.map((row) => [row.modulus, (row.base_support || []).join(","), (row.translated_support || []).join(","), row.base_endpoint_convolution, row.translated_endpoint_convolution]))}
+      <div class="poc-head"><div><span>Exact cyclic rows</span><strong>${rows.length}</strong></div><div><span>Same power data</span><strong>all frequencies</strong></div><div><span>Endpoint split</span><strong>1 vs 0</strong></div></div>
+      <p class="proof-note">translation은 mean·autocorrelation·Fourier magnitude를 모두 보존하지만 binary convolution endpoint를 옮깁니다. 실제 K56 증명은 Λ exponential sum의 제곱 위상과 N-dependent phase를 scale 끝까지 보존해야 합니다.</p>
+    `;
+  } else {
+    const pair = computation.same_marginal_counterpair || [];
+    const rows = computation.finite_cubic_rough_rows || [];
+    detail = `
+      <div class="poc-equation">max(0,u+v−A<sub>00</sub>)≤N<sub>--</sub>≤min(u,v); &nbsp; N<sub>--</sub>=(A<sub>00</sub>−A<sub>10</sub>−A<sub>01</sub>+A<sub>11</sub>)/4</div>
+      ${table(["table", "A10", "A01", "A11", "twin class"], pair.map((row, index) => [`counter ${index + 1}`, row.A10, row.A01, row.A11, row.reconstructed_twin_class]))}
+      ${table(["X", "A10", "A01", "A11", "twins"], rows.map((row) => [Number(row.X).toLocaleString(), row.A10, row.A01, row.A11, row.reconstructed_twin_class]))}
+      <div class="poc-head"><div><span>Same marginals</span><strong>A10=A01=0</strong></div><div><span>Twin split</span><strong>0 vs 25</strong></div><div><span>Failures</span><strong>${computation.failure_count ?? "missing"}</strong></div></div>
+      <p class="proof-note">완벽한 일변량 Liouville 상쇄도 joint A11을 결정하지 못합니다. 필요한 것은 A10·A01의 단측 상계와 A11의 단측 하계를 실제 cubic-rough Type I/II 산술에서 합계 1 미만으로 만드는 정리입니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket146-toeplitz-polynomial-phase-frechet" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 146 Toeplitz reflection, polynomial ranks, Fourier phase, and Frechet bounds</h3>
+      <div class="poc-head"><div><span>Status</span><strong>exact reduction and route no-go; conjecture open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
+      ${table(["TICKET146 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || "")}</p></section><section><h3>Decisive open premise / 결정적 미증명 전제</h3><p>${escapeHtml(section.logical_limit || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/toeplitz-polynomial-phase-frechet.md">Bilingual paper-style report / 한영 논문형 보고서</a></p>
+    </div>
+  `;
+}
+
 function renderTicket145NormalizationAffineEndpointSeparable(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.normalization_affine_endpoint_separable_no_go_audit || {};
@@ -9996,7 +10065,7 @@ function renderTicket145NormalizationAffineEndpointSeparable(attempt) {
   }
   return `
     <div id="ticket145-normalization-affine-endpoint-separable" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 145 normalization, affine ranks, signed endpoints, and separable Walsh no-go theorems</h3>
       <div class="poc-head"><div><span>Status</span><strong>exact structural no-go; conjecture open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${machine.failure_count ?? "missing"}</strong></div></div>
       ${table(["TICKET145 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || "missing"], ["declared target / 선언 명제", section.declared_target_ko || section.declared_target || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}
@@ -11243,7 +11312,7 @@ function renderTicket125InfiniteBridgeContracts(attempt) {
 
 function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket, pressureTicket, valuationPrefixTicket, twoAdicBranchTicket, negationPressureTicket, cegisRankTicket, bridgeWeightTicket, formalKernelTicket, microLemmaTicket, rankFrontierTicket, trichotomyTicket, adaptiveFrontierTicket, potentialSynthesisTicket, featureStutterTicket, statefulMeasureTicket, globalMeasureTicket, highBranchAutomatonTicket, limsupMassRefinementTicket, nullFrontierArithmeticTicket, pointwiseRankSynthesisTicket, symbolicFrontierExtensionTicket, phaseStatePotentialTicket, transitionClosureTicket, rankEscapeNormalizationTicket, parametricTemplateTicket, liftConstraintMeasureTicket, featureMeasureCounteredgeTicket, symbolicRankClauseTicket, stableClauseGrammarTicket, periodicStateLassoTicket, automatonReachabilityTicket, symbolicPreimageTicket, phaseLiftExceptionTicket, terminalLiftTicket, frontierBudgetTicket, symbolicTerminalTicket, newTemplateFamilyTicket, phase5GateTicket, preGateProjectionTicket, parametricAutomatonTicket, affineBoundaryLiftTicket, symbolicLiftMismatchTicket, mixedCylinderSeparatorTicket, symbolicFailureOffsetTicket, mod16TransitionCoverTicket, mod16AutomatonCoverTicket, symbolicMod16TransitionTicket, startTemplateChainExtinctionTicket, complementCoverTicket, openTemplateRankTicket, cycleSccRefinementTicket, prefixConsumedRankTicket, prefixFrontierExpansionTicket, strongerFrontierCoordinateTicket, infiniteFrontierLiftClosureTicket, lineagePressureForestTicket, coverageLeakageEscapeForestTicket, escapeCoordinateClosureTicket, symbolicBoundaryRecurrenceTicket, fixedPrefixBoundaryOrbitTicket, finiteCylinderNoGoTicket, archimedeanTwoAdicRankNoGoTicket, leastCounterexampleCompactnessNoGoTicket, mersennePostCompensationNoGoTicket, fixedMersenneWindowNoGoTicket, mersenneLogWindowLowerBoundTicket, twoAdicCycleLogDelayTicket, accessibleCycleSupremumTicket, coefficientOneBoundaryTicket, digitRunBoundaryTicket, runLengthTwoNoGoTicket, goldenMeanReductionTicket, normalizedErrorTicket, errorTailInvariantSetTicket, scaleSensitiveThresholdTicket, twinCorrelationExcessTicket, signedRemainderGoldbachTicket, sharpContaminationEquivalenceTicket, fourierPhaseInformationTicket, periodicProjectionResidualTicket, growingModulusLeakageTicket, outOfSampleLocalModelTicket, extendedResidualVaughanTicket, vaughanCutoffEnergyTicket, twinDyadicHoldoutTicket, twinLocalBlockTicket, twinTypeIIMobiusTicket, twinCenteredProgressionTicket, twinGroupedDispersionTicket, twinSparseTailTicket, twinSmoothingTicket, twinSpectralTicket, twinRationalArcTicket, twinTypeIIPhaseTicket, twinFareyEndpointTicket, twinFareyDenominatorTicket, twinRamanujanDispersionTicket, twinComplexCyclotomicTicket, twinMobiusSignTicket, twinDyadicGramTicket, twinCanonicalPairHoldoutTicket, twinCanonicalPairDoublingTicket) {
   if (!ticket) {
-    return `${renderTicket145NormalizationAffineEndpointSeparable(ticket145AttemptGlobal)}${renderTicket144SchurRankVariationAdverseWalsh(ticket144AttemptGlobal)}${renderTicket143FormCorePeriodFloorMartingaleWalsh(ticket143AttemptGlobal)}${renderTicket142EffectiveRankCycleDirectionHaarLiouville(ticket142AttemptGlobal)}${renderTicket141OneSidedMovingFloorRobustDualLargeSieve(ticket141AttemptGlobal)}${renderTicket140SpectralMomentsDualityRotation(ticket140AttemptGlobal)}${renderTicket139UniformityDiophantineComplexity(ticket139AttemptGlobal)}${renderTicket138CorrelationPeriodicityScale(ticket138AttemptGlobal)}${renderTicket137CancellationEntropyBudget(ticket137AttemptGlobal)}${renderTicket136ScaleSensitiveObstructions(ticket136AttemptGlobal)}${renderTicket135ConditionalBridges(ticket135AttemptGlobal)}${renderTicket134UniformityThresholds(ticket134AttemptGlobal)}${renderTicket133QuantifierPromotion(ticket133AttemptGlobal)}${renderTicket132AdmissibilityBoundary(ticket132AttemptGlobal)}${renderTicket131ProofViabilityTargetCorrection(ticket131AttemptGlobal)}${renderTicket130ComputabilityCapLanguageOptimality(ticket130AttemptGlobal)}${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
+    return `${renderTicket146ToeplitzPolynomialPhaseFrechet(ticket146AttemptGlobal)}${renderTicket145NormalizationAffineEndpointSeparable(ticket145AttemptGlobal)}${renderTicket144SchurRankVariationAdverseWalsh(ticket144AttemptGlobal)}${renderTicket143FormCorePeriodFloorMartingaleWalsh(ticket143AttemptGlobal)}${renderTicket142EffectiveRankCycleDirectionHaarLiouville(ticket142AttemptGlobal)}${renderTicket141OneSidedMovingFloorRobustDualLargeSieve(ticket141AttemptGlobal)}${renderTicket140SpectralMomentsDualityRotation(ticket140AttemptGlobal)}${renderTicket139UniformityDiophantineComplexity(ticket139AttemptGlobal)}${renderTicket138CorrelationPeriodicityScale(ticket138AttemptGlobal)}${renderTicket137CancellationEntropyBudget(ticket137AttemptGlobal)}${renderTicket136ScaleSensitiveObstructions(ticket136AttemptGlobal)}${renderTicket135ConditionalBridges(ticket135AttemptGlobal)}${renderTicket134UniformityThresholds(ticket134AttemptGlobal)}${renderTicket133QuantifierPromotion(ticket133AttemptGlobal)}${renderTicket132AdmissibilityBoundary(ticket132AttemptGlobal)}${renderTicket131ProofViabilityTargetCorrection(ticket131AttemptGlobal)}${renderTicket130ComputabilityCapLanguageOptimality(ticket130AttemptGlobal)}${renderTicket129EnumerableCoreValuationCapEndpointBudget(ticket129AttemptGlobal)}${renderTicket128FiniteCorePrefixConstantInterpolation(ticket128AttemptGlobal)}${renderTicket127EffectiveBridge(ticket127AttemptGlobal)}${renderTicket126RouteCorrection(ticket126AttemptGlobal)}${renderTicket125InfiniteBridgeContracts(ticket125AttemptGlobal)}<div class="proof-note">Historical proof ledger is loading. / 이전 증명 기록을 불러오는 중입니다.</div>`;
   }
   const direct = ticket.direct_counterexample || {};
   const candidate = ticket.candidate_counterexamples_found || {};
@@ -11308,6 +11377,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket146ToeplitzPolynomialPhaseFrechet(ticket146AttemptGlobal)}
     ${renderTicket145NormalizationAffineEndpointSeparable(ticket145AttemptGlobal)}
     ${renderTicket144SchurRankVariationAdverseWalsh(ticket144AttemptGlobal)}
     ${renderTicket143FormCorePeriodFloorMartingaleWalsh(ticket143AttemptGlobal)}
@@ -11776,6 +11846,26 @@ async function loadTicket143Attempt() {
   }
 }
 
+async function loadTicket146Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket146-toeplitz-polynomial-phase-frechet.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket146AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket146AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket146AttemptGlobal) {
+      ticket146AttemptGlobal.bounded_result = ticket146AttemptGlobal.bounded_result || {};
+      ticket146AttemptGlobal.bounded_result.toeplitz_polynomial_phase_frechet_audit = payload.toeplitz_polynomial_phase_frechet_audit || {};
+    }
+    return Boolean(ticket146AttemptGlobal);
+  } catch (error) {
+    ticket146AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket145Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket145-normalization-affine-endpoint-separable-no-go.json", { cache: "no-store" });
@@ -12045,9 +12135,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const priorityLoads = await Promise.all([loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
+  const priorityLoads = await Promise.all([loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
   if (priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket146AttemptGlobal) await loadTicket146Attempt();
     if (!ticket145AttemptGlobal) await loadTicket145Attempt();
     if (!ticket144AttemptGlobal) await loadTicket144Attempt();
     if (!ticket143AttemptGlobal) await loadTicket143Attempt();
@@ -12071,7 +12162,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket145-priority";
+  document.documentElement.dataset.openProblemCache = "ticket146-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

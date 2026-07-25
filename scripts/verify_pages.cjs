@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET145/TICKET144/TICKET143/TICKET142/TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET146/TICKET145/TICKET144/TICKET143/TICKET142/TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260726-ticket145-priority")) {
-      errors.push(`${page}: missing TICKET145 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260726-ticket146-priority")) {
+      errors.push(`${page}: missing TICKET146 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,37 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket146 title", "Ticket 146 Toeplitz reflection, polynomial ranks, Fourier phase, and Frechet bounds");
+    requireText("ticket146 table", "TICKET146 audit");
+    requireText("ticket146 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket146 resolutions", "Resolution count0");
+    requireText("ticket146 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket146 RH theorem", "ShiftGeneratedWeilToeplitzLevinsonReductionAndFiniteLagNoGo");
+      requireText("ticket146 RH sample", "Exact sample orders6");
+      requireText("ticket146 RH no-go", "Fixed-lag no-go rows12");
+      requireText("ticket146 RH pivot", "Unseen pivot-3");
+      requireText("ticket146 RH target", "ExplicitWeilShiftCoreReflectionCoefficientUnitDiskBound");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket146 Collatz theorem", "FiniteModulusPiecewisePolynomialCollatzRankNoGo");
+      requireText("ticket146 Collatz rows", "Exact rows30");
+      requireText("ticket146 Collatz degrees", "Polynomial degrees0–5");
+      requireText("ticket146 Collatz target", "SymbolicCylinderAdaptiveBlockDescentBeyondPolynomialRanks");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket146 Goldbach theorem", "PowerSpectrumInsufficiencyForPointwiseBinaryConvolution");
+      requireText("ticket146 Goldbach rows", "Exact cyclic rows6");
+      requireText("ticket146 Goldbach power", "Same power dataall frequencies");
+      requireText("ticket146 Goldbach endpoint", "Endpoint split1 vs 0");
+      requireText("ticket146 Goldbach target", "PhaseResolvedBinaryGoldbachScaleEnvelopeSummableK56");
+    } else {
+      requireText("ticket146 Twin theorem", "FrechetMarginalLiouvilleNoGoAndOneSidedWalshReduction");
+      requireText("ticket146 Twin marginals", "Same marginalsA10=A01=0");
+      requireText("ticket146 Twin split", "Twin split0 vs 25");
+      requireText("ticket146 Twin target", "CubicRoughOneSidedJointLiouvilleTypeIIMargin");
+    }
     requireText("ticket145 title", "Ticket 145 normalization, affine ranks, signed endpoints, and separable Walsh no-go theorems");
     requireText("ticket145 table", "TICKET145 audit");
-    requireText("ticket145 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket145 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket145 resolutions", "Resolution count0");
     requireText("ticket145 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {
@@ -2361,9 +2389,9 @@ async function main() {
     ["panel", metrics.evolutionPanel, "Provenance"],
     ["panel", metrics.evolutionPanel, "Evidence pack"],
     ["panel", metrics.evolutionPanel, "Publication consistency"],
-    ["panel", metrics.evolutionPanel, "TICKET-143"],
+    ["panel", metrics.evolutionPanel, "TICKET-146"],
     ["panel", metrics.evolutionPanel, "Open-Proof"],
-    ["panel", metrics.evolutionPanel, "95%"],
+    ["panel", metrics.evolutionPanel, "96%"],
     ["panel", metrics.evolutionPanel, "Form-core topology"],
     ["panel", metrics.evolutionPanel, "TICKET-57"],
     ["panel", metrics.evolutionPanel, "TICKET-58"],
@@ -2494,9 +2522,9 @@ async function main() {
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("Evidence pack") ||
     !metrics.evolutionPanel.includes("Publication consistency") ||
-    !metrics.evolutionPanel.includes("TICKET-143") ||
+    !metrics.evolutionPanel.includes("TICKET-146") ||
     !metrics.evolutionPanel.includes("Open-Proof") ||
-    !metrics.evolutionPanel.includes("95%") ||
+    !metrics.evolutionPanel.includes("96%") ||
     !metrics.evolutionPanel.includes("Form-core topology") ||
     !metrics.evolutionPanel.includes("TICKET-57") ||
     !metrics.evolutionPanel.includes("TICKET-58") ||

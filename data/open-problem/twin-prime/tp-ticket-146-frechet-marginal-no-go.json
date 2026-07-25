@@ -1,0 +1,252 @@
+{
+  "schema": "primeproject.ticket146-toeplitz-polynomial-phase-frechet.v1",
+  "generated_at": "2026-07-26T18:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-146",
+  "attempt": "Let N=A00 and let u=(N-A10)/2 and v=(N-A01)/2 be the two negative Liouville marginals. Then every joint table satisfies max(0,u+v-N)<=N_(-- )<=min(u,v), and both bounds are sharp.",
+  "bounded_result": {
+    "audit_ref": "toeplitz_polynomial_phase_frechet_audit.twin_prime"
+  },
+  "obstruction": "The exact tables are abstract rough-support parity tables. The four finite arithmetic rows do not prove eventual Walsh signs or a scale-uniform Type II margin.",
+  "candidate_theorem": "CubicRoughOneSidedJointLiouvilleTypeIIMargin",
+  "next_experiment": "one-sided arithmetic bounds for A10, A01, and the joint A11 term with a total budget below one",
+  "claim_boundary": "No Twin Prime proof or counterexample. Exact Frechet bounds, a marginal no-go pair, and a sufficient one-sided budget reduction only.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-146",
+    "theorem_name": "FrechetMarginalLiouvilleNoGoAndOneSidedWalshReduction",
+    "declared_proposition": "Let N=A00 and let u=(N-A10)/2 and v=(N-A01)/2 be the two negative Liouville marginals. Then every joint table satisfies max(0,u+v-N)<=N_(-- )<=min(u,v), and both bounds are sharp.",
+    "mathematical_argument": "The tables (0,50,50,0) and (25,25,25,25) have identical (A00,A10,A01)=(100,0,0), but twin masses 0 and 25. Even perfect one-variable Liouville cancellation does not control the joint prime class. If A10<=epsilon_1 A00, A01<=epsilon_2 A00, and A11>=-gamma A00 with epsilon_1+epsilon_2+gamma<1, then N_(-- ) >= (1-epsilon_1-epsilon_2-gamma)A00/4 > 0. Helpful signs need no absolute-value control.",
+    "reproducible_computation": {
+      "frechet_theorem": "Let N=A00 and let u=(N-A10)/2 and v=(N-A01)/2 be the two negative Liouville marginals. Then every joint table satisfies max(0,u+v-N)<=N_(-- )<=min(u,v), and both bounds are sharp.",
+      "marginal_no_go": "The tables (0,50,50,0) and (25,25,25,25) have identical (A00,A10,A01)=(100,0,0), but twin masses 0 and 25. Even perfect one-variable Liouville cancellation does not control the joint prime class.",
+      "one_sided_sufficient_reduction": "If A10<=epsilon_1 A00, A01<=epsilon_2 A00, and A11>=-gamma A00 with epsilon_1+epsilon_2+gamma<1, then N_(-- ) >= (1-epsilon_1-epsilon_2-gamma)A00/4 > 0. Helpful signs need no absolute-value control.",
+      "same_marginal_counterpair": [
+        {
+          "category_counts": [
+            0,
+            50,
+            50,
+            0
+          ],
+          "A00": 100,
+          "A10": 0,
+          "A01": 0,
+          "A11": -100,
+          "first_negative_marginal": 50,
+          "second_negative_marginal": 50,
+          "frechet_lower": 0,
+          "frechet_upper": 50,
+          "reconstructed_twin_class": 0,
+          "checks": {
+            "marginal_first_is_integral": true,
+            "marginal_second_is_integral": true,
+            "walsh_reconstruction_is_integral": true,
+            "walsh_reconstructs_twin_class": true,
+            "frechet_lower_bound_holds": true,
+            "frechet_upper_bound_holds": true
+          }
+        },
+        {
+          "category_counts": [
+            25,
+            25,
+            25,
+            25
+          ],
+          "A00": 100,
+          "A10": 0,
+          "A01": 0,
+          "A11": 0,
+          "first_negative_marginal": 50,
+          "second_negative_marginal": 50,
+          "frechet_lower": 0,
+          "frechet_upper": 50,
+          "reconstructed_twin_class": 25,
+          "checks": {
+            "marginal_first_is_integral": true,
+            "marginal_second_is_integral": true,
+            "walsh_reconstruction_is_integral": true,
+            "walsh_reconstructs_twin_class": true,
+            "frechet_lower_bound_holds": true,
+            "frechet_upper_bound_holds": true
+          }
+        }
+      ],
+      "finite_cubic_rough_rows": [
+        {
+          "category_counts": [
+            8,
+            13,
+            12,
+            26
+          ],
+          "A00": 59,
+          "A10": -17,
+          "A01": -19,
+          "A11": 9,
+          "first_negative_marginal": 38,
+          "second_negative_marginal": 39,
+          "frechet_lower": 18,
+          "frechet_upper": 38,
+          "reconstructed_twin_class": 26,
+          "checks": {
+            "marginal_first_is_integral": true,
+            "marginal_second_is_integral": true,
+            "walsh_reconstruction_is_integral": true,
+            "walsh_reconstructs_twin_class": true,
+            "frechet_lower_bound_holds": true,
+            "frechet_upper_bound_holds": true
+          },
+          "X": 1000,
+          "one_sided_zero_budget_checks": {
+            "A10_nonpositive": true,
+            "A01_nonpositive": true,
+            "A11_nonnegative": true,
+            "certified_quarter_mass": true
+          }
+        },
+        {
+          "category_counts": [
+            43,
+            84,
+            94,
+            137
+          ],
+          "A00": 358,
+          "A10": -104,
+          "A01": -84,
+          "A11": 2,
+          "first_negative_marginal": 231,
+          "second_negative_marginal": 221,
+          "frechet_lower": 94,
+          "frechet_upper": 221,
+          "reconstructed_twin_class": 137,
+          "checks": {
+            "marginal_first_is_integral": true,
+            "marginal_second_is_integral": true,
+            "walsh_reconstruction_is_integral": true,
+            "walsh_reconstructs_twin_class": true,
+            "frechet_lower_bound_holds": true,
+            "frechet_upper_bound_holds": true
+          },
+          "X": 10000,
+          "one_sided_zero_budget_checks": {
+            "A10_nonpositive": true,
+            "A01_nonpositive": true,
+            "A11_nonnegative": true,
+            "certified_quarter_mass": true
+          }
+        },
+        {
+          "category_counts": [
+            376,
+            585,
+            589,
+            936
+          ],
+          "A00": 2486,
+          "A10": -564,
+          "A01": -556,
+          "A11": 138,
+          "first_negative_marginal": 1525,
+          "second_negative_marginal": 1521,
+          "frechet_lower": 560,
+          "frechet_upper": 1521,
+          "reconstructed_twin_class": 936,
+          "checks": {
+            "marginal_first_is_integral": true,
+            "marginal_second_is_integral": true,
+            "walsh_reconstruction_is_integral": true,
+            "walsh_reconstructs_twin_class": true,
+            "frechet_lower_bound_holds": true,
+            "frechet_upper_bound_holds": true
+          },
+          "X": 100000,
+          "one_sided_zero_budget_checks": {
+            "A10_nonpositive": true,
+            "A01_nonpositive": true,
+            "A11_nonnegative": true,
+            "certified_quarter_mass": true
+          }
+        },
+        {
+          "category_counts": [
+            2721,
+            4111,
+            4100,
+            6702
+          ],
+          "A00": 17634,
+          "A10": -3970,
+          "A01": -3992,
+          "A11": 1212,
+          "first_negative_marginal": 10802,
+          "second_negative_marginal": 10813,
+          "frechet_lower": 3981,
+          "frechet_upper": 10802,
+          "reconstructed_twin_class": 6702,
+          "checks": {
+            "marginal_first_is_integral": true,
+            "marginal_second_is_integral": true,
+            "walsh_reconstruction_is_integral": true,
+            "walsh_reconstructs_twin_class": true,
+            "frechet_lower_bound_holds": true,
+            "frechet_upper_bound_holds": true
+          },
+          "X": 1000000,
+          "one_sided_zero_budget_checks": {
+            "A10_nonpositive": true,
+            "A01_nonpositive": true,
+            "A11_nonnegative": true,
+            "certified_quarter_mass": true
+          }
+        }
+      ],
+      "checks": {
+        "counterpair_has_same_marginal_Walsh_data": true,
+        "counterpair_has_different_twin_mass": true,
+        "zero_twin_row_has_perfect_marginal_cancellation": true,
+        "all_rows_pass_frechet_contract": true,
+        "all_finite_rows_pass_zero_budget_sign_pattern": true
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The exact tables are abstract rough-support parity tables. The four finite arithmetic rows do not prove eventual Walsh signs or a scale-uniform Type II margin.",
+    "route_decision": {
+      "discard": "separate marginal Liouville cancellation as a route to positive twin mass",
+      "retain": "one-sided arithmetic bounds for A10, A01, and the joint A11 term with a total budget below one",
+      "next_theorem": "CubicRoughOneSidedJointLiouvilleTypeIIMargin"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T146-REJECTED",
+          "label": "IndependentMarginalLiouvilleCancellationImpliesTwins",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T146-CLOSED",
+          "label": "FrechetMarginalLiouvilleNoGoAndOneSidedWalshReduction",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T146-OPEN",
+          "label": "CubicRoughOneSidedJointLiouvilleTypeIIMargin",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T146-REJECTED",
+          "TP-T146-CLOSED"
+        ],
+        [
+          "TP-T146-CLOSED",
+          "TP-T146-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof or counterexample. Exact Frechet bounds, a marginal no-go pair, and a sufficient one-sided budget reduction only."
+  }
+}

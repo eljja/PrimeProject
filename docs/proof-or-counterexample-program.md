@@ -5894,3 +5894,42 @@ them as genuine progress. It proves:
 `ArithmeticBinaryGoldbachScaleEnvelopeSummableK56`,
 `IndependentCubicRoughJointWalshTypeIIBound`이다. 완전 증명이나 추측의
 반례가 없으므로 네 해결 상태는 모두 `open_not_proven`이다.
+
+## TICKET-146 continuation: Toeplitz, polynomial, phase, and Frechet gates
+
+TICKET-146 attacks the four TICKET-145 open targets without promoting finite
+evidence to an infinite conclusion.
+
+1. **Riemann Hypothesis.** Under the stated involution compatibility, a
+   shift-generated Weil convolution-form core has an exact Hermitian Toeplitz
+   Gram family. Its Schur pivots obey the Levinson recurrence
+   `E_m=E_(m-1)(1-kappa_m^2)`. For every fixed lag `L`, moments identical to
+   the identity through `L` can hide `kappa_(L+1)=-2` and pivot `-3`.
+   This adversarial family belongs to the unrestricted Hermitian Toeplitz
+   moment class and is not asserted to be Weil-realizable. Therefore generic
+   fixed-lag recurrences without additional Weil structure are discarded.
+   The next target is
+   `ExplicitWeilShiftCoreReflectionCoefficientUnitDiskBound`.
+2. **Collatz.** The same-residue family `4Mk-1 -> 6Mk-1` excludes every
+   lower-bounded rank that is polynomial on each class of a fixed finite
+   residue partition. Constant polynomials give equality and positive-leading
+   polynomials eventually increase. The next target is
+   `SymbolicCylinderAdaptiveBlockDescentBeyondPolynomialRanks`.
+3. **Goldbach.** Translation preserves mean, cyclic autocorrelation, and all
+   Fourier magnitudes but shifts a binary convolution endpoint by twice the
+   translation. Thus power-spectrum-only envelopes cannot recover signed
+   pointwise cancellation. The next target is
+   `PhaseResolvedBinaryGoldbachScaleEnvelopeSummableK56`.
+4. **Twin Prime.** Sharp Frechet bounds show that
+   `(A00,A10,A01)=(100,0,0)` is compatible with both zero and positive twin
+   mass. Separate marginal Liouville cancellation is insufficient. A
+   sufficient one-sided budget is
+   `A10<=epsilon_1 A00`, `A01<=epsilon_2 A00`,
+   `A11>=-gamma A00`, with `epsilon_1+epsilon_2+gamma<1`. The next target is
+   `CubicRoughOneSidedJointLiouvilleTypeIIMargin`.
+
+한국어 경계: 이번 TICKET은 네 난제를 해결하거나 반증하지 않는다. RH의
+실제 all-order reflection 계수, Collatz의 lift-closed adaptive block
+descent, Goldbach의 phase-resolved 점별 K56 추정, Twin의 joint
+Liouville Type I/II margin은 모두 미증명이다. 정확한 정리와 반례는
+잘못된 증명 경로를 폐기하고 다음 보조정리를 더 좁히는 역할만 한다.

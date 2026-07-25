@@ -142,6 +142,7 @@ TICKET142_SCHEMA = "primeproject.ticket142-effective-rank-cycle-direction-haar-l
 TICKET143_SCHEMA = "primeproject.ticket143-form-core-period-floor-martingale-walsh.v1"
 TICKET144_SCHEMA = "primeproject.ticket144-schur-rank-equivalence-variation-adverse-walsh.v1"
 TICKET145_SCHEMA = "primeproject.ticket145-normalization-affine-endpoint-separable-no-go.v1"
+TICKET146_SCHEMA = "primeproject.ticket146-toeplitz-polynomial-phase-frechet.v1"
 
 
 def fail(message: str) -> int:
@@ -8315,6 +8316,73 @@ def main() -> int:
             return fail(f"{problem_id}: ticket145 proof DAG changed")
     if "no conjecture proof or counterexample" not in str(audit145.get("proof_boundary", "")).lower() or "no conjecture proof or counterexample" not in str(ticket145.get("claim_boundary", "")).lower():
         return fail("ticket145 proof boundary changed")
+
+    path146 = Path("data/open-problem/ticket146-toeplitz-polynomial-phase-frechet.json")
+    if not path146.exists():
+        return fail("missing ticket146 Toeplitz-polynomial-phase-Frechet audit")
+    ticket146 = read_json(path146)
+    if ticket146.get("schema") != TICKET146_SCHEMA or ticket146.get("status") != "exact_reductions_and_route_no_go_theorems_all_conjectures_open":
+        return fail("ticket146 schema or status changed")
+    attempts146 = ticket146.get("attempts", [])
+    by_id146 = {str(row.get("problem_id")): row for row in attempts146 if isinstance(row, dict)} if isinstance(attempts146, list) else {}
+    if set(by_id146) != EXPECTED_PROBLEMS:
+        return fail("ticket146 attempts missing problems")
+    paths146 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-146-toeplitz-levinson.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-146-piecewise-polynomial-rank-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-146-power-spectrum-phase-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-146-frechet-marginal-no-go.json"),
+    }
+    next146 = {
+        "riemann": "ExplicitWeilShiftCoreReflectionCoefficientUnitDiskBound",
+        "collatz": "SymbolicCylinderAdaptiveBlockDescentBeyondPolynomialRanks",
+        "goldbach": "PhaseResolvedBinaryGoldbachScaleEnvelopeSummableK56",
+        "twin-prime": "CubicRoughOneSidedJointLiouvilleTypeIIMargin",
+    }
+    for problem_id, attempt in by_id146.items():
+        if not paths146[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket146 artifact or proof boundary missing")
+        if attempt.get("candidate_theorem") != next146[problem_id]:
+            return fail(f"{problem_id}: ticket146 next theorem changed")
+
+    audit146 = ticket146.get("toeplitz_polynomial_phase_frechet_audit", {})
+    machine146 = audit146.get("machine_audit", {})
+    if audit146.get("theorem_name") != "FourConjectureToeplitzPolynomialPhaseFrechetAudit" or int(machine146.get("exact_theorem_count", -1)) != 4 or int(machine146.get("rejected_target_count", -1)) != 4 or int(machine146.get("proof_dag_count", -1)) != 4 or int(machine146.get("conjecture_resolution_count", -1)) != 0 or int(machine146.get("total_failure_count", -1)) != 0:
+        return fail("ticket146 global machine audit changed")
+
+    riemann146 = audit146.get("riemann", {})
+    toeplitz146 = riemann146.get("reproducible_computation", {})
+    if riemann146.get("theorem_name") != "ShiftGeneratedWeilToeplitzLevinsonReductionAndFiniteLagNoGo" or len(toeplitz146.get("sample_recurrence", {}).get("rows", [])) != 6 or len(toeplitz146.get("fixed_lag_rows", [])) != 12 or int(toeplitz146.get("fixed_lag_rows", [])[-1].get("last_schur_pivot", 0)) != -3 or int(toeplitz146.get("failure_count", -1)) != 0:
+        return fail("ticket146 RH Toeplitz-Levinson theorem changed")
+
+    collatz146 = audit146.get("collatz", {})
+    polynomial146 = collatz146.get("reproducible_computation", {})
+    if collatz146.get("theorem_name") != "FiniteModulusPiecewisePolynomialCollatzRankNoGo" or int(polynomial146.get("profile_count", -1)) != 6 or len(polynomial146.get("rows", [])) != 30 or any(not all(row.get("checks", {}).values()) for row in polynomial146.get("rows", [])) or int(polynomial146.get("failure_count", -1)) != 0:
+        return fail("ticket146 Collatz polynomial rank no-go changed")
+
+    goldbach146 = audit146.get("goldbach", {})
+    phase146 = goldbach146.get("reproducible_computation", {})
+    if goldbach146.get("theorem_name") != "PowerSpectrumInsufficiencyForPointwiseBinaryConvolution" or len(phase146.get("rows", [])) != 6 or any(int(row.get("base_endpoint_convolution", -1)) != 1 or int(row.get("translated_endpoint_convolution", -1)) != 0 for row in phase146.get("rows", [])) or int(phase146.get("failure_count", -1)) != 0:
+        return fail("ticket146 Goldbach phase no-go changed")
+
+    twin146 = audit146.get("twin_prime", {})
+    frechet146 = twin146.get("reproducible_computation", {})
+    pair146 = frechet146.get("same_marginal_counterpair", [])
+    if twin146.get("theorem_name") != "FrechetMarginalLiouvilleNoGoAndOneSidedWalshReduction" or len(pair146) != 2 or len(frechet146.get("finite_cubic_rough_rows", [])) != 4 or [int(row.get("reconstructed_twin_class", -1)) for row in pair146] != [0, 25] or not frechet146.get("checks", {}).get("counterpair_has_same_marginal_Walsh_data") or int(frechet146.get("failure_count", -1)) != 0:
+        return fail("ticket146 Twin Frechet theorem changed")
+
+    sections146 = {
+        "riemann": riemann146,
+        "collatz": collatz146,
+        "goldbach": goldbach146,
+        "twin-prime": twin146,
+    }
+    for problem_id, section in sections146.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if len(nodes) != 3 or [node.get("status") for node in nodes] != ["refuted_or_insufficient", "proved_exact", "open_not_proven"] or nodes[-1].get("label") != next146[problem_id]:
+            return fail(f"{problem_id}: ticket146 proof DAG changed")
+    if "no conjecture proof or counterexample" not in str(audit146.get("proof_boundary", "")).lower() or "no conjecture proof or counterexample" not in str(ticket146.get("claim_boundary", "")).lower():
+        return fail("ticket146 proof boundary changed")
 
     print("open problem structure verified")
     return 0

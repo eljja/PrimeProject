@@ -1,0 +1,832 @@
+{
+  "schema": "primeproject.ticket146-toeplitz-polynomial-phase-frechet.v1",
+  "generated_at": "2026-07-26T18:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-146",
+  "attempt": "Fix M. Let R(n)=P_r(n) on each odd residue r mod M, with real polynomials P_r, and suppose R is bounded below on positive odd integers. Then R(T(n))<R(n) cannot hold on every accelerated Collatz edge.",
+  "bounded_result": {
+    "audit_ref": "toeplitz_polynomial_phase_frechet_audit.collatz"
+  },
+  "obstruction": "The theorem excludes every fixed finite-modulus piecewise-polynomial lower-bounded one-step rank. It does not exclude oscillatory, history-dependent, unbounded-state, or adaptive block-descent certificates.",
+  "candidate_theorem": "SymbolicCylinderAdaptiveBlockDescentBeyondPolynomialRanks",
+  "next_experiment": "adaptive multi-step descent on symbolic cylinders with a lift-closed proof independent of stopping time",
+  "claim_boundary": "No Collatz proof or orbit counterexample. A broad nonoscillatory one-step rank grammar is excluded.",
+  "result": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-146",
+    "theorem_name": "FiniteModulusPiecewisePolynomialCollatzRankNoGo",
+    "declared_proposition": "Fix M. Let R(n)=P_r(n) on each odd residue r mod M, with real polynomials P_r, and suppose R is bounded below on positive odd integers. Then R(T(n))<R(n) cannot hold on every accelerated Collatz edge.",
+    "mathematical_argument": "Use n=4Mk-1 and T(n)=6Mk-1 in the same residue -1 mod M. A polynomial P_(-1) bounded below along the positive ray is constant or has positive leading coefficient. In the first case the rank difference is zero; in the second, P(6Mk-1)-P(4Mk-1) has positive leading coefficient a_d M^d(6^d-4^d), so it is positive for all sufficiently large k.",
+    "reproducible_computation": {
+      "theorem": "Fix M. Let R(n)=P_r(n) on each odd residue r mod M, with real polynomials P_r, and suppose R is bounded below on positive odd integers. Then R(T(n))<R(n) cannot hold on every accelerated Collatz edge.",
+      "proof": "Use n=4Mk-1 and T(n)=6Mk-1 in the same residue -1 mod M. A polynomial P_(-1) bounded below along the positive ray is constant or has positive leading coefficient. In the first case the rank difference is zero; in the second, P(6Mk-1)-P(4Mk-1) has positive leading coefficient a_d M^d(6^d-4^d), so it is positive for all sufficiently large k.",
+      "scope": "The theorem excludes every fixed finite-modulus piecewise-polynomial lower-bounded one-step rank. It does not exclude oscillatory, history-dependent, unbounded-state, or adaptive block-descent certificates.",
+      "profile_count": 6,
+      "row_count": 30,
+      "rows": [
+        {
+          "modulus": 1,
+          "degree": 0,
+          "coefficients_ascending": [
+            7
+          ],
+          "difference_leading_coefficient_in_k": 0,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 3,
+            "successor": 5,
+            "rank_difference": 0
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "constant"
+        },
+        {
+          "modulus": 1,
+          "degree": 1,
+          "coefficients_ascending": [
+            -100,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 2,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 3,
+            "successor": 5,
+            "rank_difference": 2
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "linear"
+        },
+        {
+          "modulus": 1,
+          "degree": 2,
+          "coefficients_ascending": [
+            17,
+            -1000,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 20,
+          "first_audited_counteredge": {
+            "k": 101,
+            "start": 403,
+            "successor": 605,
+            "rank_difference": 1616
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quadratic_delayed"
+        },
+        {
+          "modulus": 1,
+          "degree": 3,
+          "coefficients_ascending": [
+            -2,
+            7,
+            -50,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 152,
+          "first_audited_counteredge": {
+            "k": 7,
+            "start": 27,
+            "successor": 41,
+            "rank_difference": 1736
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "cubic"
+        },
+        {
+          "modulus": 1,
+          "degree": 4,
+          "coefficients_ascending": [
+            3,
+            -1,
+            2,
+            -5,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 1040,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 3,
+            "successor": 5,
+            "rank_difference": 84
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quartic"
+        },
+        {
+          "modulus": 1,
+          "degree": 5,
+          "coefficients_ascending": [
+            -11,
+            4,
+            -3,
+            2,
+            -1,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 6752,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 3,
+            "successor": 5,
+            "rank_difference": 2494
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quintic"
+        },
+        {
+          "modulus": 2,
+          "degree": 0,
+          "coefficients_ascending": [
+            7
+          ],
+          "difference_leading_coefficient_in_k": 0,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 7,
+            "successor": 11,
+            "rank_difference": 0
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "constant"
+        },
+        {
+          "modulus": 2,
+          "degree": 1,
+          "coefficients_ascending": [
+            -100,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 4,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 7,
+            "successor": 11,
+            "rank_difference": 4
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "linear"
+        },
+        {
+          "modulus": 2,
+          "degree": 2,
+          "coefficients_ascending": [
+            17,
+            -1000,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 80,
+          "first_audited_counteredge": {
+            "k": 51,
+            "start": 407,
+            "successor": 611,
+            "rank_difference": 3672
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quadratic_delayed"
+        },
+        {
+          "modulus": 2,
+          "degree": 3,
+          "coefficients_ascending": [
+            -2,
+            7,
+            -50,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 1216,
+          "first_audited_counteredge": {
+            "k": 4,
+            "start": 31,
+            "successor": 47,
+            "rank_difference": 11744
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "cubic"
+        },
+        {
+          "modulus": 2,
+          "degree": 4,
+          "coefficients_ascending": [
+            3,
+            -1,
+            2,
+            -5,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 16640,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 7,
+            "successor": 11,
+            "rank_difference": 7440
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quartic"
+        },
+        {
+          "modulus": 2,
+          "degree": 5,
+          "coefficients_ascending": [
+            -11,
+            4,
+            -3,
+            2,
+            -1,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 216064,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 7,
+            "successor": 11,
+            "rank_difference": 133780
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quintic"
+        },
+        {
+          "modulus": 5,
+          "degree": 0,
+          "coefficients_ascending": [
+            7
+          ],
+          "difference_leading_coefficient_in_k": 0,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 19,
+            "successor": 29,
+            "rank_difference": 0
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "constant"
+        },
+        {
+          "modulus": 5,
+          "degree": 1,
+          "coefficients_ascending": [
+            -100,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 10,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 19,
+            "successor": 29,
+            "rank_difference": 10
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "linear"
+        },
+        {
+          "modulus": 5,
+          "degree": 2,
+          "coefficients_ascending": [
+            17,
+            -1000,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 500,
+          "first_audited_counteredge": {
+            "k": 21,
+            "start": 419,
+            "successor": 629,
+            "rank_difference": 10080
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quadratic_delayed"
+        },
+        {
+          "modulus": 5,
+          "degree": 3,
+          "coefficients_ascending": [
+            -2,
+            7,
+            -50,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 19000,
+          "first_audited_counteredge": {
+            "k": 2,
+            "start": 39,
+            "successor": 59,
+            "rank_difference": 48200
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "cubic"
+        },
+        {
+          "modulus": 5,
+          "degree": 4,
+          "coefficients_ascending": [
+            3,
+            -1,
+            2,
+            -5,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 650000,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 19,
+            "successor": 29,
+            "rank_difference": 490260
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quartic"
+        },
+        {
+          "modulus": 5,
+          "degree": 5,
+          "coefficients_ascending": [
+            -11,
+            4,
+            -3,
+            2,
+            -1,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 21100000,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 19,
+            "successor": 29,
+            "rank_difference": 17491750
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quintic"
+        },
+        {
+          "modulus": 16,
+          "degree": 0,
+          "coefficients_ascending": [
+            7
+          ],
+          "difference_leading_coefficient_in_k": 0,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 63,
+            "successor": 95,
+            "rank_difference": 0
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "constant"
+        },
+        {
+          "modulus": 16,
+          "degree": 1,
+          "coefficients_ascending": [
+            -100,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 32,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 63,
+            "successor": 95,
+            "rank_difference": 32
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "linear"
+        },
+        {
+          "modulus": 16,
+          "degree": 2,
+          "coefficients_ascending": [
+            17,
+            -1000,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 5120,
+          "first_audited_counteredge": {
+            "k": 7,
+            "start": 447,
+            "successor": 671,
+            "rank_difference": 26432
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quadratic_delayed"
+        },
+        {
+          "modulus": 16,
+          "degree": 3,
+          "coefficients_ascending": [
+            -2,
+            7,
+            -50,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 622592,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 63,
+            "successor": 95,
+            "rank_difference": 354752
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "cubic"
+        },
+        {
+          "modulus": 16,
+          "degree": 4,
+          "coefficients_ascending": [
+            3,
+            -1,
+            2,
+            -5,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 68157440,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 63,
+            "successor": 95,
+            "rank_difference": 62671104
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quartic"
+        },
+        {
+          "modulus": 16,
+          "degree": 5,
+          "coefficients_ascending": [
+            -11,
+            4,
+            -3,
+            2,
+            -1,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 7079985152,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 63,
+            "successor": 95,
+            "rank_difference": 6680874784
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quintic"
+        },
+        {
+          "modulus": 31,
+          "degree": 0,
+          "coefficients_ascending": [
+            7
+          ],
+          "difference_leading_coefficient_in_k": 0,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 123,
+            "successor": 185,
+            "rank_difference": 0
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "constant"
+        },
+        {
+          "modulus": 31,
+          "degree": 1,
+          "coefficients_ascending": [
+            -100,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 62,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 123,
+            "successor": 185,
+            "rank_difference": 62
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "linear"
+        },
+        {
+          "modulus": 31,
+          "degree": 2,
+          "coefficients_ascending": [
+            17,
+            -1000,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 19220,
+          "first_audited_counteredge": {
+            "k": 4,
+            "start": 495,
+            "successor": 743,
+            "rank_difference": 59024
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quadratic_delayed"
+        },
+        {
+          "modulus": 31,
+          "degree": 3,
+          "coefficients_ascending": [
+            -2,
+            7,
+            -50,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 4528232,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 123,
+            "successor": 185,
+            "rank_difference": 3516392
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "cubic"
+        },
+        {
+          "modulus": 31,
+          "degree": 4,
+          "coefficients_ascending": [
+            3,
+            -1,
+            2,
+            -5,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 960461840,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 123,
+            "successor": 185,
+            "rank_difference": 920148324
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quartic"
+        },
+        {
+          "modulus": 31,
+          "degree": 5,
+          "coefficients_ascending": [
+            -11,
+            4,
+            -3,
+            2,
+            -1,
+            1
+          ],
+          "difference_leading_coefficient_in_k": 193304027552,
+          "first_audited_counteredge": {
+            "k": 1,
+            "start": 123,
+            "successor": 185,
+            "rank_difference": 187613229274
+          },
+          "checks": {
+            "same_residue_mod_M": true,
+            "residue_is_minus_one": true,
+            "accelerated_valuation_is_one": true,
+            "accelerated_successor_matches": true,
+            "rank_does_not_decrease": true,
+            "difference_leading_term_is_nonnegative": true
+          },
+          "profile": "quintic"
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The theorem excludes every fixed finite-modulus piecewise-polynomial lower-bounded one-step rank. It does not exclude oscillatory, history-dependent, unbounded-state, or adaptive block-descent certificates.",
+    "route_decision": {
+      "discard": "every lower-bounded one-step rank polynomial on each class of a fixed finite residue partition",
+      "retain": "adaptive multi-step descent on symbolic cylinders with a lift-closed proof independent of stopping time",
+      "next_theorem": "SymbolicCylinderAdaptiveBlockDescentBeyondPolynomialRanks"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T146-REJECTED",
+          "label": "FiniteModulusPiecewisePolynomialOneStepRank",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "CO-T146-CLOSED",
+          "label": "FiniteModulusPiecewisePolynomialCollatzRankNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T146-OPEN",
+          "label": "SymbolicCylinderAdaptiveBlockDescentBeyondPolynomialRanks",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T146-REJECTED",
+          "CO-T146-CLOSED"
+        ],
+        [
+          "CO-T146-CLOSED",
+          "CO-T146-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Collatz proof or orbit counterexample. A broad nonoscillatory one-step rank grammar is excluded."
+  }
+}

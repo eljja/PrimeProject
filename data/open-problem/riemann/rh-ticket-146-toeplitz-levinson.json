@@ -1,0 +1,568 @@
+{
+  "schema": "primeproject.ticket146-toeplitz-polynomial-phase-frechet.v1",
+  "generated_at": "2026-07-26T18:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-146",
+  "attempt": "An involution-compatible shift-generated convolution core is Hermitian Toeplitz and its Schur pivots satisfy the exact Levinson reflection recurrence; in the unrestricted Hermitian Toeplitz moment class, no fixed number of moments certifies every future pivot.",
+  "bounded_result": {
+    "audit_ref": "toeplitz_polynomial_phase_frechet_audit.riemann"
+  },
+  "obstruction": "No actual all-order Weil reflection coefficient is bounded here. The adversarial finite-lag moments are not asserted to arise from the Weil functional, and density of one lattice shift orbit in the full Weil test core is not asserted.",
+  "candidate_theorem": "ExplicitWeilShiftCoreReflectionCoefficientUnitDiskBound",
+  "next_experiment": "compute the actual shift moments from the Weil explicit formula and prove every resulting reflection coefficient lies in the open unit disk",
+  "claim_boundary": "No RH proof or zeta-zero counterexample. Exact Toeplitz reduction plus an unrestricted-Toeplitz finite-lag proof-route no-go only.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-146",
+    "theorem_name": "ShiftGeneratedWeilToeplitzLevinsonReductionAndFiniteLagNoGo",
+    "declared_proposition": "An involution-compatible shift-generated convolution core is Hermitian Toeplitz and its Schur pivots satisfy the exact Levinson reflection recurrence; in the unrestricted Hermitian Toeplitz moment class, no fixed number of moments certifies every future pivot.",
+    "mathematical_argument": "Assume W(tilde(phi))=conjugate(W(phi)). For Q(f,g)=W(f*tilde(g)) and log-translations tau_h, Q(tau_(jh)f,tau_(kh)f)=r_(j-k), where r_m=W(tau_(mh)(f*tilde(f))). The Gram family is Hermitian Toeplitz. For every nonzero preceding prediction error E_(m-1), the exact Toeplitz Schur pivot satisfies E_m=E_(m-1)(1-|kappa_m|^2). If E_0>0, all nested sections are positive exactly when every reflection coefficient obeys |kappa_m|<1.",
+    "reproducible_computation": {
+      "exact_shift_core_identity": "Assume W(tilde(phi))=conjugate(W(phi)). For Q(f,g)=W(f*tilde(g)) and log-translations tau_h, Q(tau_(jh)f,tau_(kh)f)=r_(j-k), where r_m=W(tau_(mh)(f*tilde(f))). The Gram family is Hermitian Toeplitz.",
+      "levinson_reduction": "For every nonzero preceding prediction error E_(m-1), the exact Toeplitz Schur pivot satisfies E_m=E_(m-1)(1-|kappa_m|^2). If E_0>0, all nested sections are positive exactly when every reflection coefficient obeys |kappa_m|<1.",
+      "finite_lag_no_go": "For every L, moments r_0=1, r_1=...=r_L=0, and r_(L+1)=2 agree with the identity core through lag L, but the next reflection coefficient is -2 and the next Schur pivot is -3. In the unrestricted Hermitian Toeplitz moment class, no fixed-lag rule certifies all sections without additional structural constraints.",
+      "sample_moments": [
+        {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        {
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        {
+          "exact": "1/5",
+          "decimal": 0.2
+        },
+        {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        {
+          "exact": "1/13",
+          "decimal": 0.07692307692307693
+        }
+      ],
+      "sample_recurrence": {
+        "reflection_coefficients": [
+          {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "exact": "-1/6",
+            "decimal": -0.16666666666666666
+          },
+          {
+            "exact": "1/10",
+            "decimal": 0.1
+          },
+          {
+            "exact": "1/2079",
+            "decimal": 0.000481000481000481
+          },
+          {
+            "exact": "-165367/5402800",
+            "decimal": -0.03060764788628119
+          },
+          {
+            "exact": "302738263/98191587863",
+            "decimal": 0.0030831384804815456
+          }
+        ],
+        "prediction_errors": [
+          {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          {
+            "exact": "35/24",
+            "decimal": 1.4583333333333333
+          },
+          {
+            "exact": "231/160",
+            "decimal": 1.44375
+          },
+          {
+            "exact": "27014/18711",
+            "decimal": 1.4437496659718883
+          },
+          {
+            "exact": "98191587863/68075280000",
+            "decimal": 1.442397120702258
+          },
+          {
+            "exact": "46029723122629/31912266055475",
+            "decimal": 1.4423834096460835
+          }
+        ],
+        "rows": [
+          {
+            "order": 1,
+            "reflection_coefficient": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "previous_error": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "next_error": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "recurrence_factor": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "prediction_coefficients": [
+              {
+                "exact": "-1/2",
+                "decimal": -0.5
+              }
+            ]
+          },
+          {
+            "order": 2,
+            "reflection_coefficient": {
+              "exact": "-1/6",
+              "decimal": -0.16666666666666666
+            },
+            "previous_error": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "next_error": {
+              "exact": "35/24",
+              "decimal": 1.4583333333333333
+            },
+            "recurrence_factor": {
+              "exact": "35/36",
+              "decimal": 0.9722222222222222
+            },
+            "prediction_coefficients": [
+              {
+                "exact": "-5/12",
+                "decimal": -0.4166666666666667
+              },
+              {
+                "exact": "-1/6",
+                "decimal": -0.16666666666666666
+              }
+            ]
+          },
+          {
+            "order": 3,
+            "reflection_coefficient": {
+              "exact": "1/10",
+              "decimal": 0.1
+            },
+            "previous_error": {
+              "exact": "35/24",
+              "decimal": 1.4583333333333333
+            },
+            "next_error": {
+              "exact": "231/160",
+              "decimal": 1.44375
+            },
+            "recurrence_factor": {
+              "exact": "99/100",
+              "decimal": 0.99
+            },
+            "prediction_coefficients": [
+              {
+                "exact": "-13/30",
+                "decimal": -0.43333333333333335
+              },
+              {
+                "exact": "-5/24",
+                "decimal": -0.20833333333333334
+              },
+              {
+                "exact": "1/10",
+                "decimal": 0.1
+              }
+            ]
+          },
+          {
+            "order": 4,
+            "reflection_coefficient": {
+              "exact": "1/2079",
+              "decimal": 0.000481000481000481
+            },
+            "previous_error": {
+              "exact": "231/160",
+              "decimal": 1.44375
+            },
+            "next_error": {
+              "exact": "27014/18711",
+              "decimal": 1.4437496659718883
+            },
+            "recurrence_factor": {
+              "exact": "4322240/4322241",
+              "decimal": 0.9999997686385372
+            },
+            "prediction_coefficients": [
+              {
+                "exact": "-4504/10395",
+                "decimal": -0.4332852332852333
+              },
+              {
+                "exact": "-1300/6237",
+                "decimal": -0.2084335417668751
+              },
+              {
+                "exact": "3112/31185",
+                "decimal": 0.09979156645823313
+              },
+              {
+                "exact": "1/2079",
+                "decimal": 0.000481000481000481
+              }
+            ]
+          },
+          {
+            "order": 5,
+            "reflection_coefficient": {
+              "exact": "-165367/5402800",
+              "decimal": -0.03060764788628119
+            },
+            "previous_error": {
+              "exact": "27014/18711",
+              "decimal": 1.4437496659718883
+            },
+            "next_error": {
+              "exact": "98191587863/68075280000",
+              "decimal": 1.442397120702258
+            },
+            "recurrence_factor": {
+              "exact": "29162901595311/29190247840000",
+              "decimal": 0.9990631718908695
+            },
+            "prediction_coefficients": [
+              {
+                "exact": "-2341033/5402800",
+                "decimal": -0.43329995557858886
+              },
+              {
+                "exact": "-4998993/23637250",
+                "decimal": -0.21148792689504914
+              },
+              {
+                "exact": "46331/436380",
+                "decimal": 0.10617122691232413
+              },
+              {
+                "exact": "324843/23637250",
+                "decimal": 0.013742842335720103
+              },
+              {
+                "exact": "-165367/5402800",
+                "decimal": -0.03060764788628119
+              }
+            ]
+          },
+          {
+            "order": 6,
+            "reflection_coefficient": {
+              "exact": "302738263/98191587863",
+              "decimal": 0.0030831384804815456
+            },
+            "previous_error": {
+              "exact": "98191587863/68075280000",
+              "decimal": 1.442397120702258
+            },
+            "next_error": {
+              "exact": "46029723122629/31912266055475",
+              "decimal": 1.4423834096460835
+            },
+            "recurrence_factor": {
+              "exact": "9641496276601364649600/9641587927057248906769",
+              "decimal": 0.9999904942571102
+            },
+            "prediction_coefficients": [
+              {
+                "exact": "-553223797950/1276490642219",
+                "decimal": -0.43339432319558413
+              },
+              {
+                "exact": "-269908273329/1276490642219",
+                "decimal": -0.21144555580901267
+              },
+              {
+                "exact": "104572634487/981915878630",
+                "decimal": 0.10649856750753744
+              },
+              {
+                "exact": "83551391499/6382453211095",
+                "decimal": 0.01309079577015271
+              },
+              {
+                "exact": "-40775670294/1276490642219",
+                "decimal": -0.03194357165291648
+              },
+              {
+                "exact": "302738263/98191587863",
+                "decimal": 0.0030831384804815456
+              }
+            ]
+          }
+        ]
+      },
+      "sample_exact_schur_pivots": [
+        {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        {
+          "exact": "35/24",
+          "decimal": 1.4583333333333333
+        },
+        {
+          "exact": "231/160",
+          "decimal": 1.44375
+        },
+        {
+          "exact": "27014/18711",
+          "decimal": 1.4437496659718883
+        },
+        {
+          "exact": "98191587863/68075280000",
+          "decimal": 1.442397120702258
+        },
+        {
+          "exact": "46029723122629/31912266055475",
+          "decimal": 1.4423834096460835
+        }
+      ],
+      "sample_checks": {
+        "levinson_errors_equal_exact_schur_pivots": true,
+        "sample_sections_are_positive": true,
+        "sample_has_nontrivial_reflections": true
+      },
+      "fixed_lag_rows": [
+        {
+          "visible_lag_count": 1,
+          "first_unseen_lag": 2,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 2,
+          "first_unseen_lag": 3,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 3,
+          "first_unseen_lag": 4,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 4,
+          "first_unseen_lag": 5,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 5,
+          "first_unseen_lag": 6,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 6,
+          "first_unseen_lag": 7,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 7,
+          "first_unseen_lag": 8,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 8,
+          "first_unseen_lag": 9,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 9,
+          "first_unseen_lag": 10,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 10,
+          "first_unseen_lag": 11,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 11,
+          "first_unseen_lag": 12,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        },
+        {
+          "visible_lag_count": 12,
+          "first_unseen_lag": 13,
+          "unseen_moment": 2,
+          "last_reflection_coefficient": -2,
+          "last_schur_pivot": -3,
+          "checks": {
+            "first_lag_reflections_are_zero": true,
+            "new_reflection_is_minus_two": true,
+            "prefix_is_identity": true,
+            "first_unseen_section_is_indefinite": true,
+            "levinson_matches_schur": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "No actual all-order Weil reflection coefficient is bounded here. The adversarial finite-lag moments are not asserted to arise from the Weil functional, and density of one lattice shift orbit in the full Weil test core is not asserted.",
+    "route_decision": {
+      "discard": "a fixed-lag normalized moment recurrence as an all-section positivity certificate without extra Weil-specific structure",
+      "retain": "compute the actual shift moments from the Weil explicit formula and prove every resulting reflection coefficient lies in the open unit disk",
+      "next_theorem": "ExplicitWeilShiftCoreReflectionCoefficientUnitDiskBound"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T146-REJECTED",
+          "label": "FixedLagNormalizedWeilMomentSignRecurrence",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T146-CLOSED",
+          "label": "ShiftGeneratedWeilToeplitzLevinsonReductionAndFiniteLagNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T146-OPEN",
+          "label": "ExplicitWeilShiftCoreReflectionCoefficientUnitDiskBound",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T146-REJECTED",
+          "RH-T146-CLOSED"
+        ],
+        [
+          "RH-T146-CLOSED",
+          "RH-T146-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof or zeta-zero counterexample. Exact Toeplitz reduction plus an unrestricted-Toeplitz finite-lag proof-route no-go only."
+  }
+}

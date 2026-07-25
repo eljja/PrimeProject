@@ -1,0 +1,1980 @@
+{
+  "schema": "primeproject.ticket146-toeplitz-polynomial-phase-frechet.v1",
+  "generated_at": "2026-07-26T18:00:00+09:00",
+  "status": "exact_reductions_and_route_no_go_theorems_all_conjectures_open",
+  "claim_boundary": "TICKET146 proves four exact reductions or route no-go theorems. It supplies no conjecture proof or counterexample. The RH translation core lacks an all-core unit-disk estimate, the Collatz theorem excludes only finite-modulus polynomial one-step ranks, the Goldbach counterexample is not arithmetic, and the Twin result does not prove any eventual Type II bound.",
+  "toeplitz_polynomial_phase_frechet_audit": {
+    "theorem_name": "FourConjectureToeplitzPolynomialPhaseFrechetAudit",
+    "status": "exact_reductions_and_route_no_go_theorems_all_conjectures_open",
+    "proof_boundary": "TICKET146 proves four exact reductions or route no-go theorems. It supplies no conjecture proof or counterexample. The RH translation core lacks an all-core unit-disk estimate, the Collatz theorem excludes only finite-modulus polynomial one-step ranks, the Goldbach counterexample is not arithmetic, and the Twin result does not prove any eventual Type II bound.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-146",
+      "theorem_name": "ShiftGeneratedWeilToeplitzLevinsonReductionAndFiniteLagNoGo",
+      "declared_proposition": "An involution-compatible shift-generated convolution core is Hermitian Toeplitz and its Schur pivots satisfy the exact Levinson reflection recurrence; in the unrestricted Hermitian Toeplitz moment class, no fixed number of moments certifies every future pivot.",
+      "mathematical_argument": "Assume W(tilde(phi))=conjugate(W(phi)). For Q(f,g)=W(f*tilde(g)) and log-translations tau_h, Q(tau_(jh)f,tau_(kh)f)=r_(j-k), where r_m=W(tau_(mh)(f*tilde(f))). The Gram family is Hermitian Toeplitz. For every nonzero preceding prediction error E_(m-1), the exact Toeplitz Schur pivot satisfies E_m=E_(m-1)(1-|kappa_m|^2). If E_0>0, all nested sections are positive exactly when every reflection coefficient obeys |kappa_m|<1.",
+      "reproducible_computation": {
+        "exact_shift_core_identity": "Assume W(tilde(phi))=conjugate(W(phi)). For Q(f,g)=W(f*tilde(g)) and log-translations tau_h, Q(tau_(jh)f,tau_(kh)f)=r_(j-k), where r_m=W(tau_(mh)(f*tilde(f))). The Gram family is Hermitian Toeplitz.",
+        "levinson_reduction": "For every nonzero preceding prediction error E_(m-1), the exact Toeplitz Schur pivot satisfies E_m=E_(m-1)(1-|kappa_m|^2). If E_0>0, all nested sections are positive exactly when every reflection coefficient obeys |kappa_m|<1.",
+        "finite_lag_no_go": "For every L, moments r_0=1, r_1=...=r_L=0, and r_(L+1)=2 agree with the identity core through lag L, but the next reflection coefficient is -2 and the next Schur pivot is -3. In the unrestricted Hermitian Toeplitz moment class, no fixed-lag rule certifies all sections without additional structural constraints.",
+        "sample_moments": [
+          {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          {
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          {
+            "exact": "1/13",
+            "decimal": 0.07692307692307693
+          }
+        ],
+        "sample_recurrence": {
+          "reflection_coefficients": [
+            {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            {
+              "exact": "-1/6",
+              "decimal": -0.16666666666666666
+            },
+            {
+              "exact": "1/10",
+              "decimal": 0.1
+            },
+            {
+              "exact": "1/2079",
+              "decimal": 0.000481000481000481
+            },
+            {
+              "exact": "-165367/5402800",
+              "decimal": -0.03060764788628119
+            },
+            {
+              "exact": "302738263/98191587863",
+              "decimal": 0.0030831384804815456
+            }
+          ],
+          "prediction_errors": [
+            {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            {
+              "exact": "35/24",
+              "decimal": 1.4583333333333333
+            },
+            {
+              "exact": "231/160",
+              "decimal": 1.44375
+            },
+            {
+              "exact": "27014/18711",
+              "decimal": 1.4437496659718883
+            },
+            {
+              "exact": "98191587863/68075280000",
+              "decimal": 1.442397120702258
+            },
+            {
+              "exact": "46029723122629/31912266055475",
+              "decimal": 1.4423834096460835
+            }
+          ],
+          "rows": [
+            {
+              "order": 1,
+              "reflection_coefficient": {
+                "exact": "-1/2",
+                "decimal": -0.5
+              },
+              "previous_error": {
+                "exact": "2/1",
+                "decimal": 2.0
+              },
+              "next_error": {
+                "exact": "3/2",
+                "decimal": 1.5
+              },
+              "recurrence_factor": {
+                "exact": "3/4",
+                "decimal": 0.75
+              },
+              "prediction_coefficients": [
+                {
+                  "exact": "-1/2",
+                  "decimal": -0.5
+                }
+              ]
+            },
+            {
+              "order": 2,
+              "reflection_coefficient": {
+                "exact": "-1/6",
+                "decimal": -0.16666666666666666
+              },
+              "previous_error": {
+                "exact": "3/2",
+                "decimal": 1.5
+              },
+              "next_error": {
+                "exact": "35/24",
+                "decimal": 1.4583333333333333
+              },
+              "recurrence_factor": {
+                "exact": "35/36",
+                "decimal": 0.9722222222222222
+              },
+              "prediction_coefficients": [
+                {
+                  "exact": "-5/12",
+                  "decimal": -0.4166666666666667
+                },
+                {
+                  "exact": "-1/6",
+                  "decimal": -0.16666666666666666
+                }
+              ]
+            },
+            {
+              "order": 3,
+              "reflection_coefficient": {
+                "exact": "1/10",
+                "decimal": 0.1
+              },
+              "previous_error": {
+                "exact": "35/24",
+                "decimal": 1.4583333333333333
+              },
+              "next_error": {
+                "exact": "231/160",
+                "decimal": 1.44375
+              },
+              "recurrence_factor": {
+                "exact": "99/100",
+                "decimal": 0.99
+              },
+              "prediction_coefficients": [
+                {
+                  "exact": "-13/30",
+                  "decimal": -0.43333333333333335
+                },
+                {
+                  "exact": "-5/24",
+                  "decimal": -0.20833333333333334
+                },
+                {
+                  "exact": "1/10",
+                  "decimal": 0.1
+                }
+              ]
+            },
+            {
+              "order": 4,
+              "reflection_coefficient": {
+                "exact": "1/2079",
+                "decimal": 0.000481000481000481
+              },
+              "previous_error": {
+                "exact": "231/160",
+                "decimal": 1.44375
+              },
+              "next_error": {
+                "exact": "27014/18711",
+                "decimal": 1.4437496659718883
+              },
+              "recurrence_factor": {
+                "exact": "4322240/4322241",
+                "decimal": 0.9999997686385372
+              },
+              "prediction_coefficients": [
+                {
+                  "exact": "-4504/10395",
+                  "decimal": -0.4332852332852333
+                },
+                {
+                  "exact": "-1300/6237",
+                  "decimal": -0.2084335417668751
+                },
+                {
+                  "exact": "3112/31185",
+                  "decimal": 0.09979156645823313
+                },
+                {
+                  "exact": "1/2079",
+                  "decimal": 0.000481000481000481
+                }
+              ]
+            },
+            {
+              "order": 5,
+              "reflection_coefficient": {
+                "exact": "-165367/5402800",
+                "decimal": -0.03060764788628119
+              },
+              "previous_error": {
+                "exact": "27014/18711",
+                "decimal": 1.4437496659718883
+              },
+              "next_error": {
+                "exact": "98191587863/68075280000",
+                "decimal": 1.442397120702258
+              },
+              "recurrence_factor": {
+                "exact": "29162901595311/29190247840000",
+                "decimal": 0.9990631718908695
+              },
+              "prediction_coefficients": [
+                {
+                  "exact": "-2341033/5402800",
+                  "decimal": -0.43329995557858886
+                },
+                {
+                  "exact": "-4998993/23637250",
+                  "decimal": -0.21148792689504914
+                },
+                {
+                  "exact": "46331/436380",
+                  "decimal": 0.10617122691232413
+                },
+                {
+                  "exact": "324843/23637250",
+                  "decimal": 0.013742842335720103
+                },
+                {
+                  "exact": "-165367/5402800",
+                  "decimal": -0.03060764788628119
+                }
+              ]
+            },
+            {
+              "order": 6,
+              "reflection_coefficient": {
+                "exact": "302738263/98191587863",
+                "decimal": 0.0030831384804815456
+              },
+              "previous_error": {
+                "exact": "98191587863/68075280000",
+                "decimal": 1.442397120702258
+              },
+              "next_error": {
+                "exact": "46029723122629/31912266055475",
+                "decimal": 1.4423834096460835
+              },
+              "recurrence_factor": {
+                "exact": "9641496276601364649600/9641587927057248906769",
+                "decimal": 0.9999904942571102
+              },
+              "prediction_coefficients": [
+                {
+                  "exact": "-553223797950/1276490642219",
+                  "decimal": -0.43339432319558413
+                },
+                {
+                  "exact": "-269908273329/1276490642219",
+                  "decimal": -0.21144555580901267
+                },
+                {
+                  "exact": "104572634487/981915878630",
+                  "decimal": 0.10649856750753744
+                },
+                {
+                  "exact": "83551391499/6382453211095",
+                  "decimal": 0.01309079577015271
+                },
+                {
+                  "exact": "-40775670294/1276490642219",
+                  "decimal": -0.03194357165291648
+                },
+                {
+                  "exact": "302738263/98191587863",
+                  "decimal": 0.0030831384804815456
+                }
+              ]
+            }
+          ]
+        },
+        "sample_exact_schur_pivots": [
+          {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          {
+            "exact": "35/24",
+            "decimal": 1.4583333333333333
+          },
+          {
+            "exact": "231/160",
+            "decimal": 1.44375
+          },
+          {
+            "exact": "27014/18711",
+            "decimal": 1.4437496659718883
+          },
+          {
+            "exact": "98191587863/68075280000",
+            "decimal": 1.442397120702258
+          },
+          {
+            "exact": "46029723122629/31912266055475",
+            "decimal": 1.4423834096460835
+          }
+        ],
+        "sample_checks": {
+          "levinson_errors_equal_exact_schur_pivots": true,
+          "sample_sections_are_positive": true,
+          "sample_has_nontrivial_reflections": true
+        },
+        "fixed_lag_rows": [
+          {
+            "visible_lag_count": 1,
+            "first_unseen_lag": 2,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 2,
+            "first_unseen_lag": 3,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 3,
+            "first_unseen_lag": 4,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 4,
+            "first_unseen_lag": 5,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 5,
+            "first_unseen_lag": 6,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 6,
+            "first_unseen_lag": 7,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 7,
+            "first_unseen_lag": 8,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 8,
+            "first_unseen_lag": 9,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 9,
+            "first_unseen_lag": 10,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 10,
+            "first_unseen_lag": 11,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 11,
+            "first_unseen_lag": 12,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          },
+          {
+            "visible_lag_count": 12,
+            "first_unseen_lag": 13,
+            "unseen_moment": 2,
+            "last_reflection_coefficient": -2,
+            "last_schur_pivot": -3,
+            "checks": {
+              "first_lag_reflections_are_zero": true,
+              "new_reflection_is_minus_two": true,
+              "prefix_is_identity": true,
+              "first_unseen_section_is_indefinite": true,
+              "levinson_matches_schur": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "No actual all-order Weil reflection coefficient is bounded here. The adversarial finite-lag moments are not asserted to arise from the Weil functional, and density of one lattice shift orbit in the full Weil test core is not asserted.",
+      "route_decision": {
+        "discard": "a fixed-lag normalized moment recurrence as an all-section positivity certificate without extra Weil-specific structure",
+        "retain": "compute the actual shift moments from the Weil explicit formula and prove every resulting reflection coefficient lies in the open unit disk",
+        "next_theorem": "ExplicitWeilShiftCoreReflectionCoefficientUnitDiskBound"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T146-REJECTED",
+            "label": "FixedLagNormalizedWeilMomentSignRecurrence",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T146-CLOSED",
+            "label": "ShiftGeneratedWeilToeplitzLevinsonReductionAndFiniteLagNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T146-OPEN",
+            "label": "ExplicitWeilShiftCoreReflectionCoefficientUnitDiskBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T146-REJECTED",
+            "RH-T146-CLOSED"
+          ],
+          [
+            "RH-T146-CLOSED",
+            "RH-T146-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or zeta-zero counterexample. Exact Toeplitz reduction plus an unrestricted-Toeplitz finite-lag proof-route no-go only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-146",
+      "theorem_name": "FiniteModulusPiecewisePolynomialCollatzRankNoGo",
+      "declared_proposition": "Fix M. Let R(n)=P_r(n) on each odd residue r mod M, with real polynomials P_r, and suppose R is bounded below on positive odd integers. Then R(T(n))<R(n) cannot hold on every accelerated Collatz edge.",
+      "mathematical_argument": "Use n=4Mk-1 and T(n)=6Mk-1 in the same residue -1 mod M. A polynomial P_(-1) bounded below along the positive ray is constant or has positive leading coefficient. In the first case the rank difference is zero; in the second, P(6Mk-1)-P(4Mk-1) has positive leading coefficient a_d M^d(6^d-4^d), so it is positive for all sufficiently large k.",
+      "reproducible_computation": {
+        "theorem": "Fix M. Let R(n)=P_r(n) on each odd residue r mod M, with real polynomials P_r, and suppose R is bounded below on positive odd integers. Then R(T(n))<R(n) cannot hold on every accelerated Collatz edge.",
+        "proof": "Use n=4Mk-1 and T(n)=6Mk-1 in the same residue -1 mod M. A polynomial P_(-1) bounded below along the positive ray is constant or has positive leading coefficient. In the first case the rank difference is zero; in the second, P(6Mk-1)-P(4Mk-1) has positive leading coefficient a_d M^d(6^d-4^d), so it is positive for all sufficiently large k.",
+        "scope": "The theorem excludes every fixed finite-modulus piecewise-polynomial lower-bounded one-step rank. It does not exclude oscillatory, history-dependent, unbounded-state, or adaptive block-descent certificates.",
+        "profile_count": 6,
+        "row_count": 30,
+        "rows": [
+          {
+            "modulus": 1,
+            "degree": 0,
+            "coefficients_ascending": [
+              7
+            ],
+            "difference_leading_coefficient_in_k": 0,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 3,
+              "successor": 5,
+              "rank_difference": 0
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "constant"
+          },
+          {
+            "modulus": 1,
+            "degree": 1,
+            "coefficients_ascending": [
+              -100,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 2,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 3,
+              "successor": 5,
+              "rank_difference": 2
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "linear"
+          },
+          {
+            "modulus": 1,
+            "degree": 2,
+            "coefficients_ascending": [
+              17,
+              -1000,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 20,
+            "first_audited_counteredge": {
+              "k": 101,
+              "start": 403,
+              "successor": 605,
+              "rank_difference": 1616
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quadratic_delayed"
+          },
+          {
+            "modulus": 1,
+            "degree": 3,
+            "coefficients_ascending": [
+              -2,
+              7,
+              -50,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 152,
+            "first_audited_counteredge": {
+              "k": 7,
+              "start": 27,
+              "successor": 41,
+              "rank_difference": 1736
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "cubic"
+          },
+          {
+            "modulus": 1,
+            "degree": 4,
+            "coefficients_ascending": [
+              3,
+              -1,
+              2,
+              -5,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 1040,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 3,
+              "successor": 5,
+              "rank_difference": 84
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quartic"
+          },
+          {
+            "modulus": 1,
+            "degree": 5,
+            "coefficients_ascending": [
+              -11,
+              4,
+              -3,
+              2,
+              -1,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 6752,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 3,
+              "successor": 5,
+              "rank_difference": 2494
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quintic"
+          },
+          {
+            "modulus": 2,
+            "degree": 0,
+            "coefficients_ascending": [
+              7
+            ],
+            "difference_leading_coefficient_in_k": 0,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 7,
+              "successor": 11,
+              "rank_difference": 0
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "constant"
+          },
+          {
+            "modulus": 2,
+            "degree": 1,
+            "coefficients_ascending": [
+              -100,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 4,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 7,
+              "successor": 11,
+              "rank_difference": 4
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "linear"
+          },
+          {
+            "modulus": 2,
+            "degree": 2,
+            "coefficients_ascending": [
+              17,
+              -1000,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 80,
+            "first_audited_counteredge": {
+              "k": 51,
+              "start": 407,
+              "successor": 611,
+              "rank_difference": 3672
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quadratic_delayed"
+          },
+          {
+            "modulus": 2,
+            "degree": 3,
+            "coefficients_ascending": [
+              -2,
+              7,
+              -50,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 1216,
+            "first_audited_counteredge": {
+              "k": 4,
+              "start": 31,
+              "successor": 47,
+              "rank_difference": 11744
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "cubic"
+          },
+          {
+            "modulus": 2,
+            "degree": 4,
+            "coefficients_ascending": [
+              3,
+              -1,
+              2,
+              -5,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 16640,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 7,
+              "successor": 11,
+              "rank_difference": 7440
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quartic"
+          },
+          {
+            "modulus": 2,
+            "degree": 5,
+            "coefficients_ascending": [
+              -11,
+              4,
+              -3,
+              2,
+              -1,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 216064,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 7,
+              "successor": 11,
+              "rank_difference": 133780
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quintic"
+          },
+          {
+            "modulus": 5,
+            "degree": 0,
+            "coefficients_ascending": [
+              7
+            ],
+            "difference_leading_coefficient_in_k": 0,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 19,
+              "successor": 29,
+              "rank_difference": 0
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "constant"
+          },
+          {
+            "modulus": 5,
+            "degree": 1,
+            "coefficients_ascending": [
+              -100,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 10,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 19,
+              "successor": 29,
+              "rank_difference": 10
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "linear"
+          },
+          {
+            "modulus": 5,
+            "degree": 2,
+            "coefficients_ascending": [
+              17,
+              -1000,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 500,
+            "first_audited_counteredge": {
+              "k": 21,
+              "start": 419,
+              "successor": 629,
+              "rank_difference": 10080
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quadratic_delayed"
+          },
+          {
+            "modulus": 5,
+            "degree": 3,
+            "coefficients_ascending": [
+              -2,
+              7,
+              -50,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 19000,
+            "first_audited_counteredge": {
+              "k": 2,
+              "start": 39,
+              "successor": 59,
+              "rank_difference": 48200
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "cubic"
+          },
+          {
+            "modulus": 5,
+            "degree": 4,
+            "coefficients_ascending": [
+              3,
+              -1,
+              2,
+              -5,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 650000,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 19,
+              "successor": 29,
+              "rank_difference": 490260
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quartic"
+          },
+          {
+            "modulus": 5,
+            "degree": 5,
+            "coefficients_ascending": [
+              -11,
+              4,
+              -3,
+              2,
+              -1,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 21100000,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 19,
+              "successor": 29,
+              "rank_difference": 17491750
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quintic"
+          },
+          {
+            "modulus": 16,
+            "degree": 0,
+            "coefficients_ascending": [
+              7
+            ],
+            "difference_leading_coefficient_in_k": 0,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 63,
+              "successor": 95,
+              "rank_difference": 0
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "constant"
+          },
+          {
+            "modulus": 16,
+            "degree": 1,
+            "coefficients_ascending": [
+              -100,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 32,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 63,
+              "successor": 95,
+              "rank_difference": 32
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "linear"
+          },
+          {
+            "modulus": 16,
+            "degree": 2,
+            "coefficients_ascending": [
+              17,
+              -1000,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 5120,
+            "first_audited_counteredge": {
+              "k": 7,
+              "start": 447,
+              "successor": 671,
+              "rank_difference": 26432
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quadratic_delayed"
+          },
+          {
+            "modulus": 16,
+            "degree": 3,
+            "coefficients_ascending": [
+              -2,
+              7,
+              -50,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 622592,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 63,
+              "successor": 95,
+              "rank_difference": 354752
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "cubic"
+          },
+          {
+            "modulus": 16,
+            "degree": 4,
+            "coefficients_ascending": [
+              3,
+              -1,
+              2,
+              -5,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 68157440,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 63,
+              "successor": 95,
+              "rank_difference": 62671104
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quartic"
+          },
+          {
+            "modulus": 16,
+            "degree": 5,
+            "coefficients_ascending": [
+              -11,
+              4,
+              -3,
+              2,
+              -1,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 7079985152,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 63,
+              "successor": 95,
+              "rank_difference": 6680874784
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quintic"
+          },
+          {
+            "modulus": 31,
+            "degree": 0,
+            "coefficients_ascending": [
+              7
+            ],
+            "difference_leading_coefficient_in_k": 0,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 123,
+              "successor": 185,
+              "rank_difference": 0
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "constant"
+          },
+          {
+            "modulus": 31,
+            "degree": 1,
+            "coefficients_ascending": [
+              -100,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 62,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 123,
+              "successor": 185,
+              "rank_difference": 62
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "linear"
+          },
+          {
+            "modulus": 31,
+            "degree": 2,
+            "coefficients_ascending": [
+              17,
+              -1000,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 19220,
+            "first_audited_counteredge": {
+              "k": 4,
+              "start": 495,
+              "successor": 743,
+              "rank_difference": 59024
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quadratic_delayed"
+          },
+          {
+            "modulus": 31,
+            "degree": 3,
+            "coefficients_ascending": [
+              -2,
+              7,
+              -50,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 4528232,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 123,
+              "successor": 185,
+              "rank_difference": 3516392
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "cubic"
+          },
+          {
+            "modulus": 31,
+            "degree": 4,
+            "coefficients_ascending": [
+              3,
+              -1,
+              2,
+              -5,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 960461840,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 123,
+              "successor": 185,
+              "rank_difference": 920148324
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quartic"
+          },
+          {
+            "modulus": 31,
+            "degree": 5,
+            "coefficients_ascending": [
+              -11,
+              4,
+              -3,
+              2,
+              -1,
+              1
+            ],
+            "difference_leading_coefficient_in_k": 193304027552,
+            "first_audited_counteredge": {
+              "k": 1,
+              "start": 123,
+              "successor": 185,
+              "rank_difference": 187613229274
+            },
+            "checks": {
+              "same_residue_mod_M": true,
+              "residue_is_minus_one": true,
+              "accelerated_valuation_is_one": true,
+              "accelerated_successor_matches": true,
+              "rank_does_not_decrease": true,
+              "difference_leading_term_is_nonnegative": true
+            },
+            "profile": "quintic"
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem excludes every fixed finite-modulus piecewise-polynomial lower-bounded one-step rank. It does not exclude oscillatory, history-dependent, unbounded-state, or adaptive block-descent certificates.",
+      "route_decision": {
+        "discard": "every lower-bounded one-step rank polynomial on each class of a fixed finite residue partition",
+        "retain": "adaptive multi-step descent on symbolic cylinders with a lift-closed proof independent of stopping time",
+        "next_theorem": "SymbolicCylinderAdaptiveBlockDescentBeyondPolynomialRanks"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T146-REJECTED",
+            "label": "FiniteModulusPiecewisePolynomialOneStepRank",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T146-CLOSED",
+            "label": "FiniteModulusPiecewisePolynomialCollatzRankNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T146-OPEN",
+            "label": "SymbolicCylinderAdaptiveBlockDescentBeyondPolynomialRanks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T146-REJECTED",
+            "CO-T146-CLOSED"
+          ],
+          [
+            "CO-T146-CLOSED",
+            "CO-T146-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or orbit counterexample. A broad nonoscillatory one-step rank grammar is excluded."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-146",
+      "theorem_name": "PowerSpectrumInsufficiencyForPointwiseBinaryConvolution",
+      "declared_proposition": "On Z/qZ, translation g(x)=f(x-a) preserves the mean, every cyclic autocorrelation, and hence every Fourier magnitude |f_hat(k)|. Nevertheless (g*g)(t)=(f*f)(t-2a), so a fixed endpoint convolution is not determined by the power spectrum.",
+      "mathematical_argument": "(f*f)(N)=q^(-1) sum_k f_hat(k)^2 exp(2*pi*i*k*N/q). The square retains twice the Fourier phase; replacing it by |f_hat(k)|^2 changes the mathematical object.",
+      "reproducible_computation": {
+        "theorem": "On Z/qZ, translation g(x)=f(x-a) preserves the mean, every cyclic autocorrelation, and hence every Fourier magnitude |f_hat(k)|. Nevertheless (g*g)(t)=(f*f)(t-2a), so a fixed endpoint convolution is not determined by the power spectrum.",
+        "circle_method_identity": "(f*f)(N)=q^(-1) sum_k f_hat(k)^2 exp(2*pi*i*k*N/q). The square retains twice the Fourier phase; replacing it by |f_hat(k)|^2 changes the mathematical object.",
+        "exact_counterexample": "For q>=11, f=1_{0,1}, a=2, and endpoint N=0, the original convolution equals 1 while the translated convolution equals 0, although all magnitude-only Fourier data agree.",
+        "scope": "These vectors are not the von Mangoldt function and are not Goldbach counterexamples. The theorem refutes only a magnitude-only or power-spectrum derivation of signed pointwise scale cancellation. Coarse absolute upper bounds from magnitudes remain valid but discard the phase saving needed for a tight K=56 budget.",
+        "rows": [
+          {
+            "modulus": 11,
+            "base_support": [
+              0,
+              1
+            ],
+            "translated_support": [
+              2,
+              3
+            ],
+            "endpoint": 0,
+            "base_endpoint_convolution": 1,
+            "translated_endpoint_convolution": 0,
+            "cyclic_autocorrelation": [
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "checks": {
+              "means_match": true,
+              "all_power_spectrum_data_match_via_autocorrelation": true,
+              "base_endpoint_is_one": true,
+              "shifted_endpoint_is_zero": true,
+              "translation_convolution_identity": true
+            }
+          },
+          {
+            "modulus": 13,
+            "base_support": [
+              0,
+              1
+            ],
+            "translated_support": [
+              2,
+              3
+            ],
+            "endpoint": 0,
+            "base_endpoint_convolution": 1,
+            "translated_endpoint_convolution": 0,
+            "cyclic_autocorrelation": [
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "checks": {
+              "means_match": true,
+              "all_power_spectrum_data_match_via_autocorrelation": true,
+              "base_endpoint_is_one": true,
+              "shifted_endpoint_is_zero": true,
+              "translation_convolution_identity": true
+            }
+          },
+          {
+            "modulus": 17,
+            "base_support": [
+              0,
+              1
+            ],
+            "translated_support": [
+              2,
+              3
+            ],
+            "endpoint": 0,
+            "base_endpoint_convolution": 1,
+            "translated_endpoint_convolution": 0,
+            "cyclic_autocorrelation": [
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "checks": {
+              "means_match": true,
+              "all_power_spectrum_data_match_via_autocorrelation": true,
+              "base_endpoint_is_one": true,
+              "shifted_endpoint_is_zero": true,
+              "translation_convolution_identity": true
+            }
+          },
+          {
+            "modulus": 19,
+            "base_support": [
+              0,
+              1
+            ],
+            "translated_support": [
+              2,
+              3
+            ],
+            "endpoint": 0,
+            "base_endpoint_convolution": 1,
+            "translated_endpoint_convolution": 0,
+            "cyclic_autocorrelation": [
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "checks": {
+              "means_match": true,
+              "all_power_spectrum_data_match_via_autocorrelation": true,
+              "base_endpoint_is_one": true,
+              "shifted_endpoint_is_zero": true,
+              "translation_convolution_identity": true
+            }
+          },
+          {
+            "modulus": 23,
+            "base_support": [
+              0,
+              1
+            ],
+            "translated_support": [
+              2,
+              3
+            ],
+            "endpoint": 0,
+            "base_endpoint_convolution": 1,
+            "translated_endpoint_convolution": 0,
+            "cyclic_autocorrelation": [
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "checks": {
+              "means_match": true,
+              "all_power_spectrum_data_match_via_autocorrelation": true,
+              "base_endpoint_is_one": true,
+              "shifted_endpoint_is_zero": true,
+              "translation_convolution_identity": true
+            }
+          },
+          {
+            "modulus": 29,
+            "base_support": [
+              0,
+              1
+            ],
+            "translated_support": [
+              2,
+              3
+            ],
+            "endpoint": 0,
+            "base_endpoint_convolution": 1,
+            "translated_endpoint_convolution": 0,
+            "cyclic_autocorrelation": [
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "checks": {
+              "means_match": true,
+              "all_power_spectrum_data_match_via_autocorrelation": true,
+              "base_endpoint_is_one": true,
+              "shifted_endpoint_is_zero": true,
+              "translation_convolution_identity": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "These vectors are not the von Mangoldt function and are not Goldbach counterexamples. The theorem refutes only a magnitude-only or power-spectrum derivation of signed pointwise scale cancellation. Coarse absolute upper bounds from magnitudes remain valid but discard the phase saving needed for a tight K=56 budget.",
+      "route_decision": {
+        "discard": "a signed pointwise K56 envelope inferred only from Fourier magnitudes, energy, or power spectrum",
+        "retain": "major/minor-arc scale bounds that preserve the squared Fourier phase and the target endpoint",
+        "next_theorem": "PhaseResolvedBinaryGoldbachScaleEnvelopeSummableK56"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T146-REJECTED",
+            "label": "MagnitudeOnlyBinaryGoldbachScaleEnvelopeK56",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T146-CLOSED",
+            "label": "PowerSpectrumInsufficiencyForPointwiseBinaryConvolution",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T146-OPEN",
+            "label": "PhaseResolvedBinaryGoldbachScaleEnvelopeSummableK56",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T146-REJECTED",
+            "GB-T146-CLOSED"
+          ],
+          [
+            "GB-T146-CLOSED",
+            "GB-T146-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or Goldbach counterexample. The exact cyclic vectors refute a magnitude-only inference, not an estimate for the von Mangoldt residual."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-146",
+      "theorem_name": "FrechetMarginalLiouvilleNoGoAndOneSidedWalshReduction",
+      "declared_proposition": "Let N=A00 and let u=(N-A10)/2 and v=(N-A01)/2 be the two negative Liouville marginals. Then every joint table satisfies max(0,u+v-N)<=N_(-- )<=min(u,v), and both bounds are sharp.",
+      "mathematical_argument": "The tables (0,50,50,0) and (25,25,25,25) have identical (A00,A10,A01)=(100,0,0), but twin masses 0 and 25. Even perfect one-variable Liouville cancellation does not control the joint prime class. If A10<=epsilon_1 A00, A01<=epsilon_2 A00, and A11>=-gamma A00 with epsilon_1+epsilon_2+gamma<1, then N_(-- ) >= (1-epsilon_1-epsilon_2-gamma)A00/4 > 0. Helpful signs need no absolute-value control.",
+      "reproducible_computation": {
+        "frechet_theorem": "Let N=A00 and let u=(N-A10)/2 and v=(N-A01)/2 be the two negative Liouville marginals. Then every joint table satisfies max(0,u+v-N)<=N_(-- )<=min(u,v), and both bounds are sharp.",
+        "marginal_no_go": "The tables (0,50,50,0) and (25,25,25,25) have identical (A00,A10,A01)=(100,0,0), but twin masses 0 and 25. Even perfect one-variable Liouville cancellation does not control the joint prime class.",
+        "one_sided_sufficient_reduction": "If A10<=epsilon_1 A00, A01<=epsilon_2 A00, and A11>=-gamma A00 with epsilon_1+epsilon_2+gamma<1, then N_(-- ) >= (1-epsilon_1-epsilon_2-gamma)A00/4 > 0. Helpful signs need no absolute-value control.",
+        "same_marginal_counterpair": [
+          {
+            "category_counts": [
+              0,
+              50,
+              50,
+              0
+            ],
+            "A00": 100,
+            "A10": 0,
+            "A01": 0,
+            "A11": -100,
+            "first_negative_marginal": 50,
+            "second_negative_marginal": 50,
+            "frechet_lower": 0,
+            "frechet_upper": 50,
+            "reconstructed_twin_class": 0,
+            "checks": {
+              "marginal_first_is_integral": true,
+              "marginal_second_is_integral": true,
+              "walsh_reconstruction_is_integral": true,
+              "walsh_reconstructs_twin_class": true,
+              "frechet_lower_bound_holds": true,
+              "frechet_upper_bound_holds": true
+            }
+          },
+          {
+            "category_counts": [
+              25,
+              25,
+              25,
+              25
+            ],
+            "A00": 100,
+            "A10": 0,
+            "A01": 0,
+            "A11": 0,
+            "first_negative_marginal": 50,
+            "second_negative_marginal": 50,
+            "frechet_lower": 0,
+            "frechet_upper": 50,
+            "reconstructed_twin_class": 25,
+            "checks": {
+              "marginal_first_is_integral": true,
+              "marginal_second_is_integral": true,
+              "walsh_reconstruction_is_integral": true,
+              "walsh_reconstructs_twin_class": true,
+              "frechet_lower_bound_holds": true,
+              "frechet_upper_bound_holds": true
+            }
+          }
+        ],
+        "finite_cubic_rough_rows": [
+          {
+            "category_counts": [
+              8,
+              13,
+              12,
+              26
+            ],
+            "A00": 59,
+            "A10": -17,
+            "A01": -19,
+            "A11": 9,
+            "first_negative_marginal": 38,
+            "second_negative_marginal": 39,
+            "frechet_lower": 18,
+            "frechet_upper": 38,
+            "reconstructed_twin_class": 26,
+            "checks": {
+              "marginal_first_is_integral": true,
+              "marginal_second_is_integral": true,
+              "walsh_reconstruction_is_integral": true,
+              "walsh_reconstructs_twin_class": true,
+              "frechet_lower_bound_holds": true,
+              "frechet_upper_bound_holds": true
+            },
+            "X": 1000,
+            "one_sided_zero_budget_checks": {
+              "A10_nonpositive": true,
+              "A01_nonpositive": true,
+              "A11_nonnegative": true,
+              "certified_quarter_mass": true
+            }
+          },
+          {
+            "category_counts": [
+              43,
+              84,
+              94,
+              137
+            ],
+            "A00": 358,
+            "A10": -104,
+            "A01": -84,
+            "A11": 2,
+            "first_negative_marginal": 231,
+            "second_negative_marginal": 221,
+            "frechet_lower": 94,
+            "frechet_upper": 221,
+            "reconstructed_twin_class": 137,
+            "checks": {
+              "marginal_first_is_integral": true,
+              "marginal_second_is_integral": true,
+              "walsh_reconstruction_is_integral": true,
+              "walsh_reconstructs_twin_class": true,
+              "frechet_lower_bound_holds": true,
+              "frechet_upper_bound_holds": true
+            },
+            "X": 10000,
+            "one_sided_zero_budget_checks": {
+              "A10_nonpositive": true,
+              "A01_nonpositive": true,
+              "A11_nonnegative": true,
+              "certified_quarter_mass": true
+            }
+          },
+          {
+            "category_counts": [
+              376,
+              585,
+              589,
+              936
+            ],
+            "A00": 2486,
+            "A10": -564,
+            "A01": -556,
+            "A11": 138,
+            "first_negative_marginal": 1525,
+            "second_negative_marginal": 1521,
+            "frechet_lower": 560,
+            "frechet_upper": 1521,
+            "reconstructed_twin_class": 936,
+            "checks": {
+              "marginal_first_is_integral": true,
+              "marginal_second_is_integral": true,
+              "walsh_reconstruction_is_integral": true,
+              "walsh_reconstructs_twin_class": true,
+              "frechet_lower_bound_holds": true,
+              "frechet_upper_bound_holds": true
+            },
+            "X": 100000,
+            "one_sided_zero_budget_checks": {
+              "A10_nonpositive": true,
+              "A01_nonpositive": true,
+              "A11_nonnegative": true,
+              "certified_quarter_mass": true
+            }
+          },
+          {
+            "category_counts": [
+              2721,
+              4111,
+              4100,
+              6702
+            ],
+            "A00": 17634,
+            "A10": -3970,
+            "A01": -3992,
+            "A11": 1212,
+            "first_negative_marginal": 10802,
+            "second_negative_marginal": 10813,
+            "frechet_lower": 3981,
+            "frechet_upper": 10802,
+            "reconstructed_twin_class": 6702,
+            "checks": {
+              "marginal_first_is_integral": true,
+              "marginal_second_is_integral": true,
+              "walsh_reconstruction_is_integral": true,
+              "walsh_reconstructs_twin_class": true,
+              "frechet_lower_bound_holds": true,
+              "frechet_upper_bound_holds": true
+            },
+            "X": 1000000,
+            "one_sided_zero_budget_checks": {
+              "A10_nonpositive": true,
+              "A01_nonpositive": true,
+              "A11_nonnegative": true,
+              "certified_quarter_mass": true
+            }
+          }
+        ],
+        "checks": {
+          "counterpair_has_same_marginal_Walsh_data": true,
+          "counterpair_has_different_twin_mass": true,
+          "zero_twin_row_has_perfect_marginal_cancellation": true,
+          "all_rows_pass_frechet_contract": true,
+          "all_finite_rows_pass_zero_budget_sign_pattern": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The exact tables are abstract rough-support parity tables. The four finite arithmetic rows do not prove eventual Walsh signs or a scale-uniform Type II margin.",
+      "route_decision": {
+        "discard": "separate marginal Liouville cancellation as a route to positive twin mass",
+        "retain": "one-sided arithmetic bounds for A10, A01, and the joint A11 term with a total budget below one",
+        "next_theorem": "CubicRoughOneSidedJointLiouvilleTypeIIMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T146-REJECTED",
+            "label": "IndependentMarginalLiouvilleCancellationImpliesTwins",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T146-CLOSED",
+            "label": "FrechetMarginalLiouvilleNoGoAndOneSidedWalshReduction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T146-OPEN",
+            "label": "CubicRoughOneSidedJointLiouvilleTypeIIMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T146-REJECTED",
+            "TP-T146-CLOSED"
+          ],
+          [
+            "TP-T146-CLOSED",
+            "TP-T146-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. Exact Frechet bounds, a marginal no-go pair, and a sufficient one-sided budget reduction only."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-146",
+      "attempt": "An involution-compatible shift-generated convolution core is Hermitian Toeplitz and its Schur pivots satisfy the exact Levinson reflection recurrence; in the unrestricted Hermitian Toeplitz moment class, no fixed number of moments certifies every future pivot.",
+      "bounded_result": {
+        "audit_ref": "toeplitz_polynomial_phase_frechet_audit.riemann"
+      },
+      "obstruction": "No actual all-order Weil reflection coefficient is bounded here. The adversarial finite-lag moments are not asserted to arise from the Weil functional, and density of one lattice shift orbit in the full Weil test core is not asserted.",
+      "candidate_theorem": "ExplicitWeilShiftCoreReflectionCoefficientUnitDiskBound",
+      "next_experiment": "compute the actual shift moments from the Weil explicit formula and prove every resulting reflection coefficient lies in the open unit disk",
+      "claim_boundary": "No RH proof or zeta-zero counterexample. Exact Toeplitz reduction plus an unrestricted-Toeplitz finite-lag proof-route no-go only."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-146",
+      "attempt": "Fix M. Let R(n)=P_r(n) on each odd residue r mod M, with real polynomials P_r, and suppose R is bounded below on positive odd integers. Then R(T(n))<R(n) cannot hold on every accelerated Collatz edge.",
+      "bounded_result": {
+        "audit_ref": "toeplitz_polynomial_phase_frechet_audit.collatz"
+      },
+      "obstruction": "The theorem excludes every fixed finite-modulus piecewise-polynomial lower-bounded one-step rank. It does not exclude oscillatory, history-dependent, unbounded-state, or adaptive block-descent certificates.",
+      "candidate_theorem": "SymbolicCylinderAdaptiveBlockDescentBeyondPolynomialRanks",
+      "next_experiment": "adaptive multi-step descent on symbolic cylinders with a lift-closed proof independent of stopping time",
+      "claim_boundary": "No Collatz proof or orbit counterexample. A broad nonoscillatory one-step rank grammar is excluded."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-146",
+      "attempt": "On Z/qZ, translation g(x)=f(x-a) preserves the mean, every cyclic autocorrelation, and hence every Fourier magnitude |f_hat(k)|. Nevertheless (g*g)(t)=(f*f)(t-2a), so a fixed endpoint convolution is not determined by the power spectrum.",
+      "bounded_result": {
+        "audit_ref": "toeplitz_polynomial_phase_frechet_audit.goldbach"
+      },
+      "obstruction": "These vectors are not the von Mangoldt function and are not Goldbach counterexamples. The theorem refutes only a magnitude-only or power-spectrum derivation of signed pointwise scale cancellation. Coarse absolute upper bounds from magnitudes remain valid but discard the phase saving needed for a tight K=56 budget.",
+      "candidate_theorem": "PhaseResolvedBinaryGoldbachScaleEnvelopeSummableK56",
+      "next_experiment": "major/minor-arc scale bounds that preserve the squared Fourier phase and the target endpoint",
+      "claim_boundary": "No Goldbach proof or Goldbach counterexample. The exact cyclic vectors refute a magnitude-only inference, not an estimate for the von Mangoldt residual."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-146",
+      "attempt": "Let N=A00 and let u=(N-A10)/2 and v=(N-A01)/2 be the two negative Liouville marginals. Then every joint table satisfies max(0,u+v-N)<=N_(-- )<=min(u,v), and both bounds are sharp.",
+      "bounded_result": {
+        "audit_ref": "toeplitz_polynomial_phase_frechet_audit.twin_prime"
+      },
+      "obstruction": "The exact tables are abstract rough-support parity tables. The four finite arithmetic rows do not prove eventual Walsh signs or a scale-uniform Type II margin.",
+      "candidate_theorem": "CubicRoughOneSidedJointLiouvilleTypeIIMargin",
+      "next_experiment": "one-sided arithmetic bounds for A10, A01, and the joint A11 term with a total budget below one",
+      "claim_boundary": "No Twin Prime proof or counterexample. Exact Frechet bounds, a marginal no-go pair, and a sufficient one-sided budget reduction only."
+    }
+  ]
+}

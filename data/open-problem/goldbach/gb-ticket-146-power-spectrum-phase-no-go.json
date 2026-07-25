@@ -1,0 +1,316 @@
+{
+  "schema": "primeproject.ticket146-toeplitz-polynomial-phase-frechet.v1",
+  "generated_at": "2026-07-26T18:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-146",
+  "attempt": "On Z/qZ, translation g(x)=f(x-a) preserves the mean, every cyclic autocorrelation, and hence every Fourier magnitude |f_hat(k)|. Nevertheless (g*g)(t)=(f*f)(t-2a), so a fixed endpoint convolution is not determined by the power spectrum.",
+  "bounded_result": {
+    "audit_ref": "toeplitz_polynomial_phase_frechet_audit.goldbach"
+  },
+  "obstruction": "These vectors are not the von Mangoldt function and are not Goldbach counterexamples. The theorem refutes only a magnitude-only or power-spectrum derivation of signed pointwise scale cancellation. Coarse absolute upper bounds from magnitudes remain valid but discard the phase saving needed for a tight K=56 budget.",
+  "candidate_theorem": "PhaseResolvedBinaryGoldbachScaleEnvelopeSummableK56",
+  "next_experiment": "major/minor-arc scale bounds that preserve the squared Fourier phase and the target endpoint",
+  "claim_boundary": "No Goldbach proof or Goldbach counterexample. The exact cyclic vectors refute a magnitude-only inference, not an estimate for the von Mangoldt residual.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-146",
+    "theorem_name": "PowerSpectrumInsufficiencyForPointwiseBinaryConvolution",
+    "declared_proposition": "On Z/qZ, translation g(x)=f(x-a) preserves the mean, every cyclic autocorrelation, and hence every Fourier magnitude |f_hat(k)|. Nevertheless (g*g)(t)=(f*f)(t-2a), so a fixed endpoint convolution is not determined by the power spectrum.",
+    "mathematical_argument": "(f*f)(N)=q^(-1) sum_k f_hat(k)^2 exp(2*pi*i*k*N/q). The square retains twice the Fourier phase; replacing it by |f_hat(k)|^2 changes the mathematical object.",
+    "reproducible_computation": {
+      "theorem": "On Z/qZ, translation g(x)=f(x-a) preserves the mean, every cyclic autocorrelation, and hence every Fourier magnitude |f_hat(k)|. Nevertheless (g*g)(t)=(f*f)(t-2a), so a fixed endpoint convolution is not determined by the power spectrum.",
+      "circle_method_identity": "(f*f)(N)=q^(-1) sum_k f_hat(k)^2 exp(2*pi*i*k*N/q). The square retains twice the Fourier phase; replacing it by |f_hat(k)|^2 changes the mathematical object.",
+      "exact_counterexample": "For q>=11, f=1_{0,1}, a=2, and endpoint N=0, the original convolution equals 1 while the translated convolution equals 0, although all magnitude-only Fourier data agree.",
+      "scope": "These vectors are not the von Mangoldt function and are not Goldbach counterexamples. The theorem refutes only a magnitude-only or power-spectrum derivation of signed pointwise scale cancellation. Coarse absolute upper bounds from magnitudes remain valid but discard the phase saving needed for a tight K=56 budget.",
+      "rows": [
+        {
+          "modulus": 11,
+          "base_support": [
+            0,
+            1
+          ],
+          "translated_support": [
+            2,
+            3
+          ],
+          "endpoint": 0,
+          "base_endpoint_convolution": 1,
+          "translated_endpoint_convolution": 0,
+          "cyclic_autocorrelation": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "checks": {
+            "means_match": true,
+            "all_power_spectrum_data_match_via_autocorrelation": true,
+            "base_endpoint_is_one": true,
+            "shifted_endpoint_is_zero": true,
+            "translation_convolution_identity": true
+          }
+        },
+        {
+          "modulus": 13,
+          "base_support": [
+            0,
+            1
+          ],
+          "translated_support": [
+            2,
+            3
+          ],
+          "endpoint": 0,
+          "base_endpoint_convolution": 1,
+          "translated_endpoint_convolution": 0,
+          "cyclic_autocorrelation": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "checks": {
+            "means_match": true,
+            "all_power_spectrum_data_match_via_autocorrelation": true,
+            "base_endpoint_is_one": true,
+            "shifted_endpoint_is_zero": true,
+            "translation_convolution_identity": true
+          }
+        },
+        {
+          "modulus": 17,
+          "base_support": [
+            0,
+            1
+          ],
+          "translated_support": [
+            2,
+            3
+          ],
+          "endpoint": 0,
+          "base_endpoint_convolution": 1,
+          "translated_endpoint_convolution": 0,
+          "cyclic_autocorrelation": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "checks": {
+            "means_match": true,
+            "all_power_spectrum_data_match_via_autocorrelation": true,
+            "base_endpoint_is_one": true,
+            "shifted_endpoint_is_zero": true,
+            "translation_convolution_identity": true
+          }
+        },
+        {
+          "modulus": 19,
+          "base_support": [
+            0,
+            1
+          ],
+          "translated_support": [
+            2,
+            3
+          ],
+          "endpoint": 0,
+          "base_endpoint_convolution": 1,
+          "translated_endpoint_convolution": 0,
+          "cyclic_autocorrelation": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "checks": {
+            "means_match": true,
+            "all_power_spectrum_data_match_via_autocorrelation": true,
+            "base_endpoint_is_one": true,
+            "shifted_endpoint_is_zero": true,
+            "translation_convolution_identity": true
+          }
+        },
+        {
+          "modulus": 23,
+          "base_support": [
+            0,
+            1
+          ],
+          "translated_support": [
+            2,
+            3
+          ],
+          "endpoint": 0,
+          "base_endpoint_convolution": 1,
+          "translated_endpoint_convolution": 0,
+          "cyclic_autocorrelation": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "checks": {
+            "means_match": true,
+            "all_power_spectrum_data_match_via_autocorrelation": true,
+            "base_endpoint_is_one": true,
+            "shifted_endpoint_is_zero": true,
+            "translation_convolution_identity": true
+          }
+        },
+        {
+          "modulus": 29,
+          "base_support": [
+            0,
+            1
+          ],
+          "translated_support": [
+            2,
+            3
+          ],
+          "endpoint": 0,
+          "base_endpoint_convolution": 1,
+          "translated_endpoint_convolution": 0,
+          "cyclic_autocorrelation": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "checks": {
+            "means_match": true,
+            "all_power_spectrum_data_match_via_autocorrelation": true,
+            "base_endpoint_is_one": true,
+            "shifted_endpoint_is_zero": true,
+            "translation_convolution_identity": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "These vectors are not the von Mangoldt function and are not Goldbach counterexamples. The theorem refutes only a magnitude-only or power-spectrum derivation of signed pointwise scale cancellation. Coarse absolute upper bounds from magnitudes remain valid but discard the phase saving needed for a tight K=56 budget.",
+    "route_decision": {
+      "discard": "a signed pointwise K56 envelope inferred only from Fourier magnitudes, energy, or power spectrum",
+      "retain": "major/minor-arc scale bounds that preserve the squared Fourier phase and the target endpoint",
+      "next_theorem": "PhaseResolvedBinaryGoldbachScaleEnvelopeSummableK56"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T146-REJECTED",
+          "label": "MagnitudeOnlyBinaryGoldbachScaleEnvelopeK56",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T146-CLOSED",
+          "label": "PowerSpectrumInsufficiencyForPointwiseBinaryConvolution",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T146-OPEN",
+          "label": "PhaseResolvedBinaryGoldbachScaleEnvelopeSummableK56",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T146-REJECTED",
+          "GB-T146-CLOSED"
+        ],
+        [
+          "GB-T146-CLOSED",
+          "GB-T146-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof or Goldbach counterexample. The exact cyclic vectors refute a magnitude-only inference, not an estimate for the von Mangoldt residual."
+  }
+}

@@ -31,20 +31,22 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-145: Normalization, Affine Ranks, Signed Endpoints, and Separable Walsh No-Go Theorems](docs/normalization-affine-endpoint-separable-no-go.md).
-It proves four exact structural no-go statements. Absolute RH Schur pivots are
-basis-scale dependent, while normalized pivots are invariant but need not
-have a uniform positive margin. Every lower-bounded finite-modulus
-piecewise-affine one-step Collatz rank is defeated by an exact same-residue
-expanding family. A signed Goldbach martingale endpoint is exactly the
-original pointwise residual, while aggregate signed cancellation can coexist
-with a point of size `57`. The Twin adverse Walsh quantity is the minimal
-nonnegative separable majorant of the joint deficit, but its contraction is
-not necessary for positive twin mass. Every conjecture remains
-`open_not_proven`.
+[TICKET-146: Toeplitz Reflection, Polynomial Ranks, Fourier Phase, and Frechet Bounds](docs/toeplitz-polynomial-phase-frechet.md).
+It proves four exact reductions or route no-go theorems. A shift-generated
+Weil convolution core is Toeplitz and has an exact Levinson reflection
+recurrence, while unrestricted Hermitian Toeplitz moments admit an unseen
+negative-pivot counterfamily behind every fixed lag. This no-go does not
+assert that the counterfamily consists of actual Weil moments. Every
+lower-bounded finite-modulus piecewise-polynomial
+Collatz one-step rank is defeated by the same-residue expanding family.
+Fourier power spectra do not determine a pointwise binary convolution, so a
+signed Goldbach `K56` envelope must retain endpoint phase. Sharp Frechet
+bounds show that even perfect marginal Liouville cancellation does not
+determine twin mass; a joint one-sided Type I/II margin remains necessary.
+Every conjecture remains `open_not_proven`.
 
 The preserved previous boundary is
-[TICKET-144: Schur Pivots, Rank Equivalence, Martingale Variation, and Adverse Walsh Control](docs/schur-rank-equivalence-variation-adverse-walsh.md).
+[TICKET-145: Normalization, Affine Ranks, Signed Endpoints, and Separable Walsh No-Go Theorems](docs/normalization-affine-endpoint-separable-no-go.md).
 
 The corrected TICKET77 sublemma is written separately in [Collatz Fixed-Prefix Boundary Orbit](docs/collatz-fixed-prefix-boundary-orbit.md), with a bilingual theorem statement, equality-rollback correction, periodic-orbit classification, 2-adic admissibility analysis, and explicit remaining bridge.
 
@@ -100,32 +102,37 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-five-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-six-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-145. For RH it separates the
-basis-dependent absolute Schur pivot from the invariant normalized angle and
-uses exact Hilbert sections to refute a uniform-margin requirement. For
-Collatz it refutes every lower-bounded finite-modulus piecewise-affine
-one-step rank. For Goldbach it retires both pointwise signed-endpoint renaming
-and automatic aggregate cancellation as independent `K56` bridges. For Twin
-Prime it proves that the adverse Walsh bound is optimal only inside a
-separable majorant class and supplies an exact positive-twin witness where
-that bound fails. All four conjectures remain open. See
+The latest proof-search track is TICKET-146. For RH it derives the exact
+Toeplitz-Levinson recurrence on a shift-generated Weil convolution core and
+refutes fixed-lag positivity certificates over unrestricted Hermitian
+Toeplitz moments unless additional Weil-specific structure is used. For
+Collatz it extends the
+same-residue rank obstruction from affine to every fixed finite-modulus
+piecewise-polynomial one-step rank. For Goldbach it proves that identical
+Fourier power data can have different pointwise binary convolutions, forcing
+the next `K56` route to preserve complex endpoint phase. For Twin Prime it
+proves sharp Frechet bounds, refutes marginal Liouville cancellation alone,
+and isolates a weaker one-sided joint Type I/II budget. All four conjectures
+remain open. See
+[TICKET146](docs/toeplitz-polynomial-phase-frechet.md),
 [TICKET145](docs/normalization-affine-endpoint-separable-no-go.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-145입니다. RH에서는 절대 Schur
-pivot이 기저 배율에 의존함을 증명하고, 불변량인 정규화 pivot조차 균일
-양수 margin을 가질 필요가 없음을 정확한 Hilbert 대조군으로
-확인했습니다. Collatz에서는 하방 유계인 모든 유한 modulus별
-piecewise-affine 1-step rank를 동일 residue 확장족으로 배제했습니다.
-Goldbach에서는 signed endpoint가 원래 점별 잔차의 재표현이고 level
-전체 상쇄는 점별 `K56`을 주지 못함을 증명했습니다. Twin Prime에서는
-adverse Walsh 양이 separable majorant 안에서는 최소이지만 twin 질량
-양성의 필요조건은 아님을 정확한 count 증거로 보였습니다. 네 문제는
+한국어 최신 요약: 최신 탐색은 TICKET-146입니다. RH에서는 shift-generated
+Weil convolution core를 Toeplitz-Levinson reflection 문제로 정확히
+환원하고, 실제 Weil moment라고 주장하지 않는 일반 Hermitian Toeplitz
+반례족으로 추가 구조 없는 고정 lag 인증을 폐기했습니다. Collatz에서는
+동일 residue 확장족으로 유한 modulus별 모든 piecewise-polynomial
+1-step rank를 배제했습니다. Goldbach에서는 같은 Fourier magnitude와
+autocorrelation을 가진 벡터가 다른 endpoint convolution을 가질 수
+있음을 증명해 복소 위상을 보존하는 `K56` 경로만 남겼습니다. Twin
+Prime에서는 최적 Frechet 경계와 같은 marginal을 가진 `0 대 25` twin
+질량 반례쌍을 만들고 joint `A11` 단측 예산을 분리했습니다. 네 문제는
 모두 미해결이며 완전 증명이나 추측의 반례는 없습니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
@@ -146,12 +153,12 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-145입니다. [정규화, affine rank, signed
-endpoint, separable Walsh no-go 보고서](docs/normalization-affine-endpoint-separable-no-go.md)는
+최신 난제 연구 트랙은 TICKET-146입니다. [Toeplitz reflection,
+polynomial rank, Fourier phase, Frechet 보고서](docs/toeplitz-polynomial-phase-frechet.md)는
 네 트랙의 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을
-한글과 영문으로 정리합니다. RH의 좌표 의존 pivot margin, Collatz의
-유한 residue-affine rank, Goldbach의 순환적 signed endpoint와 무력한
-전체 상쇄, Twin Prime의 과강한 separable adverse bound를 교정합니다.
+한글과 영문으로 정리합니다. RH의 fixed-lag moment 인증, Collatz의
+유한 residue-polynomial rank, Goldbach의 magnitude-only endpoint
+추론, Twin Prime의 marginal-only Liouville 상쇄를 정확히 교정합니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

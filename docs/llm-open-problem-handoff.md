@@ -62,7 +62,42 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-145
+## Latest Continuation After TICKET-146
+
+Read `docs/toeplitz-polynomial-phase-frechet.md`,
+`data/open-problem/ticket146-toeplitz-polynomial-phase-frechet.json`,
+`scripts/ticket146_toeplitz_polynomial_phase_frechet.py`, and
+`tests/test_ticket146_toeplitz_polynomial_phase_frechet.py` first.
+
+Do not reopen these rejected routes without genuinely stronger arithmetic
+input:
+
+- a fixed-lag rule claimed to certify every unrestricted Hermitian Toeplitz
+  continuation without additional Weil-specific constraints;
+- a lower-bounded finite-modulus piecewise-polynomial Collatz one-step rank;
+- a signed pointwise Goldbach envelope inferred only from Fourier magnitude,
+  autocorrelation, energy, or power spectrum;
+- separate one-variable Liouville cancellation as a substitute for the joint
+  cubic-rough parity term.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `ExplicitWeilShiftCoreReflectionCoefficientUnitDiskBound` |
+| Collatz | `SymbolicCylinderAdaptiveBlockDescentBeyondPolynomialRanks` |
+| Goldbach | `PhaseResolvedBinaryGoldbachScaleEnvelopeSummableK56` |
+| Twin Prime | `CubicRoughOneSidedJointLiouvilleTypeIIMargin` |
+
+한국어: RH의 다음 시도는 실제 Weil shift moment의 모든 reflection 계수를
+열린 단위원 안에 넣어야 한다. TICKET-146의 고정 lag 반례는 일반
+Hermitian Toeplitz moment 계열에 대한 것이며 실제 Weil moment의
+실현 가능성을 주장하지 않는다. Collatz는
+polynomial 차수를 더 높이지 말고 lift-closed symbolic cylinder의
+adaptive block descent를 구성해야 한다. Goldbach는 Fourier magnitude가
+아니라 `Lambda` exponential sum 제곱의 endpoint 위상을 보존해야 한다.
+Twin Prime은 marginal 합 두 개가 아니라 joint `A11` 단측 Type I/II
+예산까지 독립적으로 증명해야 한다. 네 난제는 모두 미해결이다.
+
+## Historical Continuation After TICKET-145
 
 Read `docs/normalization-affine-endpoint-separable-no-go.md`,
 `data/open-problem/ticket145-normalization-affine-endpoint-separable-no-go.json`,

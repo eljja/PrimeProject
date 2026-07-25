@@ -4,6 +4,11 @@ Date: 2026-07-26
 
 Status: `open_not_proven` for all four conjectures
 
+> Historical boundary: TICKET-146 supersedes the four next targets below.
+> Continue from
+> [Toeplitz Reflection, Polynomial Ranks, Fourier Phase, and Frechet Bounds](toeplitz-polynomial-phase-frechet.md).
+> TICKET-145 remains an exact record of the routes it closed.
+
 Machine record:
 `data/open-problem/ticket145-normalization-affine-endpoint-separable-no-go.json`
 
