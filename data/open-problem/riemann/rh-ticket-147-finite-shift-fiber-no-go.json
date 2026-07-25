@@ -1,0 +1,265 @@
+{
+  "schema": "primeproject.ticket147-fiber-compensation-phase-graph.v1",
+  "generated_at": "2026-07-27T09:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-147",
+  "attempt": "For h>0 and finitely many generators f_1,...,f_K in L2(R), the closed span of all lattice translates f_j(x-nh), n in Z, is a proper subspace of L2(R).",
+  "bounded_result": {
+    "audit_ref": "fiber_compensation_phase_graph_audit.riemann"
+  },
+  "obstruction": "The theorem concerns L2 completeness. It does not prove that the exact Weil test topology is L2, does not bound any actual Weil reflection coefficient, and does not exclude a determining family obtained from infinitely many scales or non-lattice translations.",
+  "candidate_theorem": "InfiniteMultiscaleWeilFiberCompletenessAndMatrixSchurBound",
+  "next_experiment": "an infinite multiscale or continuum-shift core with a proved test-space completeness theorem and matrix Schur bounds for its actual Weil moments",
+  "claim_boundary": "No RH proof or zeta-zero counterexample. An exact finite-generator L2 completeness no-go only.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-147",
+    "theorem_name": "FiniteGeneratorLatticeShiftFiberIncompleteness",
+    "declared_proposition": "For h>0 and finitely many generators f_1,...,f_K in L2(R), the closed span of all lattice translates f_j(x-nh), n in Z, is a proper subspace of L2(R).",
+    "mathematical_argument": "Under Fourier fiberization over a fundamental interval of length 2*pi/h, L2(R) becomes L2([0,2*pi/h),ell2(Z)). At almost every frequency, all lattice translates multiply each generator fiber by a scalar Fourier character. Their range therefore has dimension at most K, while the ambient fiber ell2(Z) has infinite dimension. A finite-generator lattice shift space cannot equal L2(R).",
+    "reproducible_computation": {
+      "theorem": "For h>0 and finitely many generators f_1,...,f_K in L2(R), the closed span of all lattice translates f_j(x-nh), n in Z, is a proper subspace of L2(R).",
+      "proof": "Under Fourier fiberization over a fundamental interval of length 2*pi/h, L2(R) becomes L2([0,2*pi/h),ell2(Z)). At almost every frequency, all lattice translates multiply each generator fiber by a scalar Fourier character. Their range therefore has dimension at most K, while the ambient fiber ell2(Z) has infinite dimension. A finite-generator lattice shift space cannot equal L2(R).",
+      "finite_exact_model": "For K generators on K+1 aliases, the K Vandermonde rows (1,j,...,j^K) are annihilated by the coefficient vector of prod_(j=1)^K (x-j).",
+      "rows": [
+        {
+          "generator_count": 1,
+          "alias_count": 2,
+          "fiber_rank": 1,
+          "annihilator_coefficients_ascending": [
+            -1,
+            1
+          ],
+          "orthogonality_residuals": [
+            0
+          ],
+          "checks": {
+            "fiber_rank_equals_generator_count": true,
+            "nonzero_annihilator": true,
+            "annihilator_is_orthogonal": true,
+            "alias_dimension_exceeds_rank": true
+          }
+        },
+        {
+          "generator_count": 2,
+          "alias_count": 3,
+          "fiber_rank": 2,
+          "annihilator_coefficients_ascending": [
+            2,
+            -3,
+            1
+          ],
+          "orthogonality_residuals": [
+            0,
+            0
+          ],
+          "checks": {
+            "fiber_rank_equals_generator_count": true,
+            "nonzero_annihilator": true,
+            "annihilator_is_orthogonal": true,
+            "alias_dimension_exceeds_rank": true
+          }
+        },
+        {
+          "generator_count": 3,
+          "alias_count": 4,
+          "fiber_rank": 3,
+          "annihilator_coefficients_ascending": [
+            -6,
+            11,
+            -6,
+            1
+          ],
+          "orthogonality_residuals": [
+            0,
+            0,
+            0
+          ],
+          "checks": {
+            "fiber_rank_equals_generator_count": true,
+            "nonzero_annihilator": true,
+            "annihilator_is_orthogonal": true,
+            "alias_dimension_exceeds_rank": true
+          }
+        },
+        {
+          "generator_count": 4,
+          "alias_count": 5,
+          "fiber_rank": 4,
+          "annihilator_coefficients_ascending": [
+            24,
+            -50,
+            35,
+            -10,
+            1
+          ],
+          "orthogonality_residuals": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "checks": {
+            "fiber_rank_equals_generator_count": true,
+            "nonzero_annihilator": true,
+            "annihilator_is_orthogonal": true,
+            "alias_dimension_exceeds_rank": true
+          }
+        },
+        {
+          "generator_count": 5,
+          "alias_count": 6,
+          "fiber_rank": 5,
+          "annihilator_coefficients_ascending": [
+            -120,
+            274,
+            -225,
+            85,
+            -15,
+            1
+          ],
+          "orthogonality_residuals": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "checks": {
+            "fiber_rank_equals_generator_count": true,
+            "nonzero_annihilator": true,
+            "annihilator_is_orthogonal": true,
+            "alias_dimension_exceeds_rank": true
+          }
+        },
+        {
+          "generator_count": 6,
+          "alias_count": 7,
+          "fiber_rank": 6,
+          "annihilator_coefficients_ascending": [
+            720,
+            -1764,
+            1624,
+            -735,
+            175,
+            -21,
+            1
+          ],
+          "orthogonality_residuals": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "checks": {
+            "fiber_rank_equals_generator_count": true,
+            "nonzero_annihilator": true,
+            "annihilator_is_orthogonal": true,
+            "alias_dimension_exceeds_rank": true
+          }
+        },
+        {
+          "generator_count": 7,
+          "alias_count": 8,
+          "fiber_rank": 7,
+          "annihilator_coefficients_ascending": [
+            -5040,
+            13068,
+            -13132,
+            6769,
+            -1960,
+            322,
+            -28,
+            1
+          ],
+          "orthogonality_residuals": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "checks": {
+            "fiber_rank_equals_generator_count": true,
+            "nonzero_annihilator": true,
+            "annihilator_is_orthogonal": true,
+            "alias_dimension_exceeds_rank": true
+          }
+        },
+        {
+          "generator_count": 8,
+          "alias_count": 9,
+          "fiber_rank": 8,
+          "annihilator_coefficients_ascending": [
+            40320,
+            -109584,
+            118124,
+            -67284,
+            22449,
+            -4536,
+            546,
+            -36,
+            1
+          ],
+          "orthogonality_residuals": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "checks": {
+            "fiber_rank_equals_generator_count": true,
+            "nonzero_annihilator": true,
+            "annihilator_is_orthogonal": true,
+            "alias_dimension_exceeds_rank": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The theorem concerns L2 completeness. It does not prove that the exact Weil test topology is L2, does not bound any actual Weil reflection coefficient, and does not exclude a determining family obtained from infinitely many scales or non-lattice translations.",
+    "route_decision": {
+      "discard": "promoting positivity on finitely many lattice-shift generator orbits to full L2 test-space positivity",
+      "retain": "an infinite multiscale or continuum-shift core with a proved test-space completeness theorem and matrix Schur bounds for its actual Weil moments",
+      "next_theorem": "InfiniteMultiscaleWeilFiberCompletenessAndMatrixSchurBound"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T147-REJECTED",
+          "label": "FiniteLatticeShiftCoreIsComplete",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T147-CLOSED",
+          "label": "FiniteGeneratorLatticeShiftFiberIncompleteness",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T147-OPEN",
+          "label": "InfiniteMultiscaleWeilFiberCompletenessAndMatrixSchurBound",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T147-REJECTED",
+          "RH-T147-CLOSED"
+        ],
+        [
+          "RH-T147-CLOSED",
+          "RH-T147-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof or zeta-zero counterexample. An exact finite-generator L2 completeness no-go only."
+  }
+}

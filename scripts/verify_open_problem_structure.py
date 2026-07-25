@@ -143,6 +143,7 @@ TICKET143_SCHEMA = "primeproject.ticket143-form-core-period-floor-martingale-wal
 TICKET144_SCHEMA = "primeproject.ticket144-schur-rank-equivalence-variation-adverse-walsh.v1"
 TICKET145_SCHEMA = "primeproject.ticket145-normalization-affine-endpoint-separable-no-go.v1"
 TICKET146_SCHEMA = "primeproject.ticket146-toeplitz-polynomial-phase-frechet.v1"
+TICKET147_SCHEMA = "primeproject.ticket147-fiber-compensation-phase-graph.v1"
 
 
 def fail(message: str) -> int:
@@ -8383,6 +8384,82 @@ def main() -> int:
             return fail(f"{problem_id}: ticket146 proof DAG changed")
     if "no conjecture proof or counterexample" not in str(audit146.get("proof_boundary", "")).lower() or "no conjecture proof or counterexample" not in str(ticket146.get("claim_boundary", "")).lower():
         return fail("ticket146 proof boundary changed")
+
+    path147 = Path("data/open-problem/ticket147-fiber-compensation-phase-graph.json")
+    if not path147.exists():
+        return fail("missing ticket147 fiber-compensation-phase-graph audit")
+    ticket147 = read_json(path147)
+    if ticket147.get("schema") != TICKET147_SCHEMA or ticket147.get("status") != "exact_partial_theorems_and_route_no_go_all_conjectures_open":
+        return fail("ticket147 schema or status changed")
+    attempts147 = ticket147.get("attempts", [])
+    by_id147 = {str(row.get("problem_id")): row for row in attempts147 if isinstance(row, dict)} if isinstance(attempts147, list) else {}
+    if set(by_id147) != EXPECTED_PROBLEMS:
+        return fail("ticket147 attempts missing problems")
+    paths147 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-147-finite-shift-fiber-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-147-run-compensation-cover.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-147-phase-quantization.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-147-path-cut-no-go.json"),
+    }
+    next147 = {
+        "riemann": "InfiniteMultiscaleWeilFiberCompletenessAndMatrixSchurBound",
+        "collatz": "ResidualThirdIteratedRunCompensationRenewalDescent",
+        "goldbach": "ArithmeticPhaseSectorImbalanceBoundSummableK56",
+        "twin-prime": "CubicRoughLiouvillePathSwitchDeficitTypeIIBound",
+    }
+    for problem_id, attempt in by_id147.items():
+        if not paths147[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket147 artifact or proof boundary missing")
+        per_problem147 = read_json(paths147[problem_id])
+        if per_problem147.get("schema") != TICKET147_SCHEMA or per_problem147.get("problem_id") != problem_id:
+            return fail(f"{problem_id}: ticket147 per-problem schema changed")
+        if attempt.get("candidate_theorem") != next147[problem_id] or per_problem147.get("candidate_theorem") != next147[problem_id]:
+            return fail(f"{problem_id}: ticket147 next theorem changed")
+
+    audit147 = ticket147.get("fiber_compensation_phase_graph_audit", {})
+    machine147 = audit147.get("machine_audit", {})
+    if audit147.get("theorem_name") != "FourConjectureFiberCompensationPhaseGraphAudit" or int(machine147.get("exact_theorem_count", -1)) != 4 or int(machine147.get("rejected_target_count", -1)) != 4 or int(machine147.get("proof_dag_count", -1)) != 4 or int(machine147.get("conjecture_resolution_count", -1)) != 0 or int(machine147.get("total_failure_count", -1)) != 0:
+        return fail("ticket147 global machine audit changed")
+
+    riemann147 = audit147.get("riemann", {})
+    fiber147 = riemann147.get("reproducible_computation", {})
+    fiber_rows147 = fiber147.get("rows", [])
+    if riemann147.get("theorem_name") != "FiniteGeneratorLatticeShiftFiberIncompleteness" or len(fiber_rows147) != 8 or any(not all(row.get("checks", {}).values()) for row in fiber_rows147) or any(int(row.get("alias_count", 0)) != int(row.get("fiber_rank", 0)) + 1 for row in fiber_rows147) or int(fiber147.get("failure_count", -1)) != 0:
+        return fail("ticket147 RH finite-generator fiber theorem changed")
+
+    collatz147 = audit147.get("collatz", {})
+    compensation147 = collatz147.get("reproducible_computation", {})
+    natural147 = compensation147.get("finite_natural_audit", {})
+    residual147 = compensation147.get("residual_b_equals_two_rows", [])
+    if collatz147.get("theorem_name") != "FirstRunCompensationTwoThirdsPointwiseDescentCover" or compensation147.get("exact_haar_mass", {}).get("exact") != "2/3" or int(natural147.get("odd_values_tested", -1)) != 100000 or int(natural147.get("formula_failure_count", -1)) != 0 or int(natural147.get("descent_failure_count", -1)) != 0 or len(residual147) != 12 or any(not all(row.get("checks", {}).values()) for row in residual147) or int(compensation147.get("failure_count", -1)) != 0:
+        return fail("ticket147 Collatz run-compensation theorem changed")
+
+    goldbach147 = audit147.get("goldbach", {})
+    phase147 = goldbach147.get("reproducible_computation", {})
+    finite_phase147 = phase147.get("finite_prime_indicator_rows", [])
+    scale147 = phase147.get("scale_rows", [])
+    if goldbach147.get("theorem_name") != "EndpointPhaseQuantizationEnergyBoundAndFixedResolutionNoGo" or len(finite_phase147) != 12 or any(not all(row.get("checks", {}).values()) for row in finite_phase147) or len(scale147) != 10 or any(not all(row.get("checks", {}).values()) for row in scale147) or float(scale147[-1].get("fixed_64_sector_ratio", 0)) <= float(scale147[0].get("fixed_64_sector_ratio", 0)) or int(phase147.get("failure_count", -1)) != 0:
+        return fail("ticket147 Goldbach phase-resolution theorem changed")
+
+    twin147 = audit147.get("twin_prime", {})
+    path_cut147 = twin147.get("reproducible_computation", {})
+    counter147 = path_cut147.get("counterfamily_rows", [])
+    arithmetic147 = path_cut147.get("finite_cubic_rough_rows", [])
+    if twin147.get("theorem_name") != "GapTwoPathCutMarginalNoGoAndArithmeticLabelReduction" or len(counter147) != 16 or any(not all(row.get("checks", {}).values()) for row in counter147) or len(arithmetic147) != 4 or any(not all(row.get("checks", {}).values()) for row in arithmetic147) or int(path_cut147.get("failure_count", -1)) != 0:
+        return fail("ticket147 Twin path-cut theorem changed")
+
+    sections147 = {
+        "riemann": riemann147,
+        "collatz": collatz147,
+        "goldbach": goldbach147,
+        "twin-prime": twin147,
+    }
+    for problem_id, section in sections147.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if len(nodes) != 3 or [node.get("status") for node in nodes] != ["refuted_or_insufficient", "proved_exact", "open_not_proven"] or nodes[-1].get("label") != next147[problem_id]:
+            return fail(f"{problem_id}: ticket147 proof DAG changed")
+    if "no proof or counterexample" not in str(audit147.get("proof_boundary", "")).lower() or "no proof or counterexample" not in str(ticket147.get("claim_boundary", "")).lower():
+        return fail("ticket147 proof boundary changed")
 
     print("open problem structure verified")
     return 0

@@ -1,0 +1,565 @@
+{
+  "schema": "primeproject.ticket147-fiber-compensation-phase-graph.v1",
+  "generated_at": "2026-07-27T09:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-147",
+  "attempt": "Every finite gap-two support graph is a disjoint union of paths. For a +/-1 labeling, A11=|E|-2*Cut. The unsigned graph and both directed endpoint marginals do not determine A11 or the negative-negative edge count.",
+  "bounded_result": {
+    "audit_ref": "fiber_compensation_phase_graph_audit.twin_prime"
+  },
+  "obstruction": "The counterfamily uses abstract +/-1 labels on an exact gap-two path, not alternative values of the Liouville function. The finite cubic-rough rows do not prove a uniform switch deficit or Type II estimate.",
+  "candidate_theorem": "CubicRoughLiouvillePathSwitchDeficitTypeIIBound",
+  "next_experiment": "prove an arithmetic upper bound on actual cubic-rough Liouville sign switches together with the one-sided marginal budget",
+  "claim_boundary": "No Twin Prime proof or counterexample. Exact path-cut identity, an infinite abstract-label no-go family, and an arithmetic next target only.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-147",
+    "theorem_name": "GapTwoPathCutMarginalNoGoAndArithmeticLabelReduction",
+    "declared_proposition": "Every finite gap-two support graph is a disjoint union of paths. For a +/-1 labeling, A11=|E|-2*Cut. The unsigned graph and both directed endpoint marginals do not determine A11 or the negative-negative edge count.",
+    "mathematical_argument": "On P_(4m), alternating signs and one block of 2m plus signs followed by 2m minus signs both have (A00,A10,A01)=(4m-1,1,-1). Their A11 values are -(4m-1) and 4m-3, while their negative-negative edge counts are 0 and 2m-1. The alternating labeling attains A11=-A00 on the same path geometry. Therefore no lower bound A11>=-gamma*A00 with gamma<1 can follow from unsigned gap-two support topology alone. Arithmetic information about the actual Liouville labels is indispensable.",
+    "reproducible_computation": {
+      "theorem": "Every finite gap-two support graph is a disjoint union of paths. For a +/-1 labeling, A11=|E|-2*Cut. The unsigned graph and both directed endpoint marginals do not determine A11 or the negative-negative edge count.",
+      "counterfamily": "On P_(4m), alternating signs and one block of 2m plus signs followed by 2m minus signs both have (A00,A10,A01)=(4m-1,1,-1). Their A11 values are -(4m-1) and 4m-3, while their negative-negative edge counts are 0 and 2m-1.",
+      "support_only_no_go": "The alternating labeling attains A11=-A00 on the same path geometry. Therefore no lower bound A11>=-gamma*A00 with gamma<1 can follow from unsigned gap-two support topology alone. Arithmetic information about the actual Liouville labels is indispensable.",
+      "counterfamily_rows": [
+        {
+          "vertex_count": 4,
+          "alternating_ledger": {
+            "A00": 3,
+            "A10": 1,
+            "A01": -1,
+            "A11": -3,
+            "negative_negative_edges": 0,
+            "cut_count": 3
+          },
+          "single_block_ledger": {
+            "A00": 3,
+            "A10": 1,
+            "A01": -1,
+            "A11": 1,
+            "negative_negative_edges": 1,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 8,
+          "alternating_ledger": {
+            "A00": 7,
+            "A10": 1,
+            "A01": -1,
+            "A11": -7,
+            "negative_negative_edges": 0,
+            "cut_count": 7
+          },
+          "single_block_ledger": {
+            "A00": 7,
+            "A10": 1,
+            "A01": -1,
+            "A11": 5,
+            "negative_negative_edges": 3,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 12,
+          "alternating_ledger": {
+            "A00": 11,
+            "A10": 1,
+            "A01": -1,
+            "A11": -11,
+            "negative_negative_edges": 0,
+            "cut_count": 11
+          },
+          "single_block_ledger": {
+            "A00": 11,
+            "A10": 1,
+            "A01": -1,
+            "A11": 9,
+            "negative_negative_edges": 5,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 16,
+          "alternating_ledger": {
+            "A00": 15,
+            "A10": 1,
+            "A01": -1,
+            "A11": -15,
+            "negative_negative_edges": 0,
+            "cut_count": 15
+          },
+          "single_block_ledger": {
+            "A00": 15,
+            "A10": 1,
+            "A01": -1,
+            "A11": 13,
+            "negative_negative_edges": 7,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 20,
+          "alternating_ledger": {
+            "A00": 19,
+            "A10": 1,
+            "A01": -1,
+            "A11": -19,
+            "negative_negative_edges": 0,
+            "cut_count": 19
+          },
+          "single_block_ledger": {
+            "A00": 19,
+            "A10": 1,
+            "A01": -1,
+            "A11": 17,
+            "negative_negative_edges": 9,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 24,
+          "alternating_ledger": {
+            "A00": 23,
+            "A10": 1,
+            "A01": -1,
+            "A11": -23,
+            "negative_negative_edges": 0,
+            "cut_count": 23
+          },
+          "single_block_ledger": {
+            "A00": 23,
+            "A10": 1,
+            "A01": -1,
+            "A11": 21,
+            "negative_negative_edges": 11,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 28,
+          "alternating_ledger": {
+            "A00": 27,
+            "A10": 1,
+            "A01": -1,
+            "A11": -27,
+            "negative_negative_edges": 0,
+            "cut_count": 27
+          },
+          "single_block_ledger": {
+            "A00": 27,
+            "A10": 1,
+            "A01": -1,
+            "A11": 25,
+            "negative_negative_edges": 13,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 32,
+          "alternating_ledger": {
+            "A00": 31,
+            "A10": 1,
+            "A01": -1,
+            "A11": -31,
+            "negative_negative_edges": 0,
+            "cut_count": 31
+          },
+          "single_block_ledger": {
+            "A00": 31,
+            "A10": 1,
+            "A01": -1,
+            "A11": 29,
+            "negative_negative_edges": 15,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 36,
+          "alternating_ledger": {
+            "A00": 35,
+            "A10": 1,
+            "A01": -1,
+            "A11": -35,
+            "negative_negative_edges": 0,
+            "cut_count": 35
+          },
+          "single_block_ledger": {
+            "A00": 35,
+            "A10": 1,
+            "A01": -1,
+            "A11": 33,
+            "negative_negative_edges": 17,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 40,
+          "alternating_ledger": {
+            "A00": 39,
+            "A10": 1,
+            "A01": -1,
+            "A11": -39,
+            "negative_negative_edges": 0,
+            "cut_count": 39
+          },
+          "single_block_ledger": {
+            "A00": 39,
+            "A10": 1,
+            "A01": -1,
+            "A11": 37,
+            "negative_negative_edges": 19,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 44,
+          "alternating_ledger": {
+            "A00": 43,
+            "A10": 1,
+            "A01": -1,
+            "A11": -43,
+            "negative_negative_edges": 0,
+            "cut_count": 43
+          },
+          "single_block_ledger": {
+            "A00": 43,
+            "A10": 1,
+            "A01": -1,
+            "A11": 41,
+            "negative_negative_edges": 21,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 48,
+          "alternating_ledger": {
+            "A00": 47,
+            "A10": 1,
+            "A01": -1,
+            "A11": -47,
+            "negative_negative_edges": 0,
+            "cut_count": 47
+          },
+          "single_block_ledger": {
+            "A00": 47,
+            "A10": 1,
+            "A01": -1,
+            "A11": 45,
+            "negative_negative_edges": 23,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 52,
+          "alternating_ledger": {
+            "A00": 51,
+            "A10": 1,
+            "A01": -1,
+            "A11": -51,
+            "negative_negative_edges": 0,
+            "cut_count": 51
+          },
+          "single_block_ledger": {
+            "A00": 51,
+            "A10": 1,
+            "A01": -1,
+            "A11": 49,
+            "negative_negative_edges": 25,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 56,
+          "alternating_ledger": {
+            "A00": 55,
+            "A10": 1,
+            "A01": -1,
+            "A11": -55,
+            "negative_negative_edges": 0,
+            "cut_count": 55
+          },
+          "single_block_ledger": {
+            "A00": 55,
+            "A10": 1,
+            "A01": -1,
+            "A11": 53,
+            "negative_negative_edges": 27,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 60,
+          "alternating_ledger": {
+            "A00": 59,
+            "A10": 1,
+            "A01": -1,
+            "A11": -59,
+            "negative_negative_edges": 0,
+            "cut_count": 59
+          },
+          "single_block_ledger": {
+            "A00": 59,
+            "A10": 1,
+            "A01": -1,
+            "A11": 57,
+            "negative_negative_edges": 29,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        },
+        {
+          "vertex_count": 64,
+          "alternating_ledger": {
+            "A00": 63,
+            "A10": 1,
+            "A01": -1,
+            "A11": -63,
+            "negative_negative_edges": 0,
+            "cut_count": 63
+          },
+          "single_block_ledger": {
+            "A00": 63,
+            "A10": 1,
+            "A01": -1,
+            "A11": 61,
+            "negative_negative_edges": 31,
+            "cut_count": 1
+          },
+          "checks": {
+            "same_unsigned_path": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "alternating_joint_is_negative_extreme": true,
+            "block_joint_is_positive_extreme": true,
+            "twin_cells_differ": true,
+            "cut_identity_both": true
+          }
+        }
+      ],
+      "finite_cubic_rough_rows": [
+        {
+          "X": 1000,
+          "edge_count_A00": 59,
+          "joint_A11": 9,
+          "liouville_sign_switch_edges": 25,
+          "switch_ratio": 0.423728813559,
+          "checks": {
+            "cut_count_is_integral": true,
+            "cut_count_is_nonnegative": true,
+            "cut_count_at_most_edges": true
+          }
+        },
+        {
+          "X": 10000,
+          "edge_count_A00": 358,
+          "joint_A11": 2,
+          "liouville_sign_switch_edges": 178,
+          "switch_ratio": 0.497206703911,
+          "checks": {
+            "cut_count_is_integral": true,
+            "cut_count_is_nonnegative": true,
+            "cut_count_at_most_edges": true
+          }
+        },
+        {
+          "X": 100000,
+          "edge_count_A00": 2486,
+          "joint_A11": 138,
+          "liouville_sign_switch_edges": 1174,
+          "switch_ratio": 0.47224456959,
+          "checks": {
+            "cut_count_is_integral": true,
+            "cut_count_is_nonnegative": true,
+            "cut_count_at_most_edges": true
+          }
+        },
+        {
+          "X": 1000000,
+          "edge_count_A00": 17634,
+          "joint_A11": 1212,
+          "liouville_sign_switch_edges": 8211,
+          "switch_ratio": 0.465634569581,
+          "checks": {
+            "cut_count_is_integral": true,
+            "cut_count_is_nonnegative": true,
+            "cut_count_at_most_edges": true
+          }
+        }
+      ],
+      "source_artifact": "data/open-problem/twin-prime/tp-ticket-142-liouville-projector.json",
+      "source_sha256": "474a77d08d5a6c9e66d796e0b881a9ba51e1bdf46b09243c1e27e8c3c7bc1e6e",
+      "failure_count": 0
+    },
+    "logical_limit": "The counterfamily uses abstract +/-1 labels on an exact gap-two path, not alternative values of the Liouville function. The finite cubic-rough rows do not prove a uniform switch deficit or Type II estimate.",
+    "route_decision": {
+      "discard": "deriving a joint A11 margin from unsigned gap-two support topology and endpoint marginals alone",
+      "retain": "prove an arithmetic upper bound on actual cubic-rough Liouville sign switches together with the one-sided marginal budget",
+      "next_theorem": "CubicRoughLiouvillePathSwitchDeficitTypeIIBound"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T147-REJECTED",
+          "label": "UnsignedPathTopologyAndMarginalsControlJointParity",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T147-CLOSED",
+          "label": "GapTwoPathCutMarginalNoGoAndArithmeticLabelReduction",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T147-OPEN",
+          "label": "CubicRoughLiouvillePathSwitchDeficitTypeIIBound",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T147-REJECTED",
+          "TP-T147-CLOSED"
+        ],
+        [
+          "TP-T147-CLOSED",
+          "TP-T147-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof or counterexample. Exact path-cut identity, an infinite abstract-label no-go family, and an arithmetic next target only."
+  }
+}

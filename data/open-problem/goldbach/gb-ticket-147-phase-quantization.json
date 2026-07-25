@@ -1,0 +1,360 @@
+{
+  "schema": "primeproject.ticket147-fiber-compensation-phase-graph.v1",
+  "generated_at": "2026-07-27T09:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-147",
+  "attempt": "For the endpoint-aligned terms z_k=f_hat(k)^2 exp(2*pi*i*k*N/q), nearest M-sector phase quantization gives |c_N-c_N^(M)| <= 22/(7M) sum_x |f(x)|^2.",
+  "bounded_result": {
+    "audit_ref": "fiber_compensation_phase_graph_audit.goldbach"
+  },
+  "obstruction": "Phase quantization only approximates the exact endpoint convolution. The theorem does not bound the signed imbalance among quantized Lambda phase sectors, major/minor arc errors, or the full binary Goldbach residual.",
+  "candidate_theorem": "ArithmeticPhaseSectorImbalanceBoundSummableK56",
+  "next_experiment": "growing phase sectors together with arithmetic major/minor-arc bounds for the signed sector imbalance",
+  "claim_boundary": "No Goldbach proof or Goldbach counterexample. Exact phase discretization control and a limitation of one energy-only certification route.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-147",
+    "theorem_name": "EndpointPhaseQuantizationEnergyBoundAndFixedResolutionNoGo",
+    "declared_proposition": "For the endpoint-aligned terms z_k=f_hat(k)^2 exp(2*pi*i*k*N/q), nearest M-sector phase quantization gives |c_N-c_N^(M)| <= 22/(7M) sum_x |f(x)|^2.",
+    "mathematical_argument": "The angular error is at most pi/M, so each chord is at most pi|z_k|/M <=22|z_k|/(7M). Sum and use Parseval: q^(-1)sum_k|f_hat(k)|^2=sum_x|f(x)|^2. For Lambda supported on [1,N], the elementary energy bound sum Lambda(n)^2<=N log(N)^2 makes the quantization error at most 22N log(N)^2/(7M). To fit 56N/log(N), it suffices that M>=ceil(11 log(N)^3/196).",
+    "reproducible_computation": {
+      "theorem": "For the endpoint-aligned terms z_k=f_hat(k)^2 exp(2*pi*i*k*N/q), nearest M-sector phase quantization gives |c_N-c_N^(M)| <= 22/(7M) sum_x |f(x)|^2.",
+      "proof": "The angular error is at most pi/M, so each chord is at most pi|z_k|/M <=22|z_k|/(7M). Sum and use Parseval: q^(-1)sum_k|f_hat(k)|^2=sum_x|f(x)|^2.",
+      "lambda_corollary": "For Lambda supported on [1,N], the elementary energy bound sum Lambda(n)^2<=N log(N)^2 makes the quantization error at most 22N log(N)^2/(7M). To fit 56N/log(N), it suffices that M>=ceil(11 log(N)^3/196).",
+      "fixed_resolution_no_go": "For fixed M, this Parseval-only guarantee divided by the K56 budget is 11 log(N)^3/(196M), which diverges. This refutes fixed phase resolution only for this uniform energy route; it does not refute arithmetic cancellation of the actual Lambda phases.",
+      "finite_prime_indicator_rows": [
+        {
+          "cyclic_length": 31,
+          "target": 20,
+          "sector_count": 8,
+          "direct_convolution": 4,
+          "energy": 10,
+          "actual_quantization_error": 0.599155101212,
+          "rational_energy_bound": {
+            "exact": "55/14",
+            "decimal": 3.9285714285714284
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 31,
+          "target": 20,
+          "sector_count": 16,
+          "direct_convolution": 4,
+          "energy": 10,
+          "actual_quantization_error": 0.418005809193,
+          "rational_energy_bound": {
+            "exact": "55/28",
+            "decimal": 1.9642857142857142
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 31,
+          "target": 20,
+          "sector_count": 32,
+          "direct_convolution": 4,
+          "energy": 10,
+          "actual_quantization_error": 0.200599180972,
+          "rational_energy_bound": {
+            "exact": "55/56",
+            "decimal": 0.9821428571428571
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 31,
+          "target": 20,
+          "sector_count": 64,
+          "direct_convolution": 4,
+          "energy": 10,
+          "actual_quantization_error": 0.008030951987,
+          "rational_energy_bound": {
+            "exact": "55/112",
+            "decimal": 0.49107142857142855
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 61,
+          "target": 40,
+          "sector_count": 8,
+          "direct_convolution": 6,
+          "energy": 17,
+          "actual_quantization_error": 0.205606407606,
+          "rational_energy_bound": {
+            "exact": "187/28",
+            "decimal": 6.678571428571429
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 61,
+          "target": 40,
+          "sector_count": 16,
+          "direct_convolution": 6,
+          "energy": 17,
+          "actual_quantization_error": 0.669694680783,
+          "rational_energy_bound": {
+            "exact": "187/56",
+            "decimal": 3.3392857142857144
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 61,
+          "target": 40,
+          "sector_count": 32,
+          "direct_convolution": 6,
+          "energy": 17,
+          "actual_quantization_error": 0.156741579607,
+          "rational_energy_bound": {
+            "exact": "187/112",
+            "decimal": 1.6696428571428572
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 61,
+          "target": 40,
+          "sector_count": 64,
+          "direct_convolution": 6,
+          "energy": 17,
+          "actual_quantization_error": 0.061555368833,
+          "rational_energy_bound": {
+            "exact": "187/224",
+            "decimal": 0.8348214285714286
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 127,
+          "target": 84,
+          "sector_count": 8,
+          "direct_convolution": 16,
+          "energy": 30,
+          "actual_quantization_error": 0.733792767682,
+          "rational_energy_bound": {
+            "exact": "165/14",
+            "decimal": 11.785714285714286
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 127,
+          "target": 84,
+          "sector_count": 16,
+          "direct_convolution": 16,
+          "energy": 30,
+          "actual_quantization_error": 0.092163337876,
+          "rational_energy_bound": {
+            "exact": "165/28",
+            "decimal": 5.892857142857143
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 127,
+          "target": 84,
+          "sector_count": 32,
+          "direct_convolution": 16,
+          "energy": 30,
+          "actual_quantization_error": 0.369052250026,
+          "rational_energy_bound": {
+            "exact": "165/56",
+            "decimal": 2.9464285714285716
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        },
+        {
+          "cyclic_length": 127,
+          "target": 84,
+          "sector_count": 64,
+          "direct_convolution": 16,
+          "energy": 30,
+          "actual_quantization_error": 0.039750677844,
+          "rational_energy_bound": {
+            "exact": "165/112",
+            "decimal": 1.4732142857142858
+          },
+          "checks": {
+            "fourier_matches_direct_convolution": true,
+            "quantization_error_within_rational_bound": true
+          }
+        }
+      ],
+      "scale_rows": [
+        {
+          "N": 1000,
+          "sufficient_sector_count_crude_lambda_bound": 19,
+          "guarantee_to_K56_ratio": 0.973629766774,
+          "fixed_64_sector_ratio": 0.289046337011,
+          "checks": {
+            "sufficient_sector_formula_meets_k56": true,
+            "positive_sector_count": true
+          }
+        },
+        {
+          "N": 10000,
+          "sufficient_sector_count_crude_lambda_bound": 44,
+          "guarantee_to_K56_ratio": 0.996577269695,
+          "fixed_64_sector_ratio": 0.685146872915,
+          "checks": {
+            "sufficient_sector_formula_meets_k56": true,
+            "positive_sector_count": true
+          }
+        },
+        {
+          "N": 100000,
+          "sufficient_sector_count_crude_lambda_bound": 86,
+          "guarantee_to_K56_ratio": 0.995853012958,
+          "fixed_64_sector_ratio": 1.338177486162,
+          "checks": {
+            "sufficient_sector_formula_meets_k56": true,
+            "positive_sector_count": true
+          }
+        },
+        {
+          "N": 1000000,
+          "sufficient_sector_count_crude_lambda_bound": 148,
+          "guarantee_to_K56_ratio": 0.999944084795,
+          "fixed_64_sector_ratio": 2.312370696089,
+          "checks": {
+            "sufficient_sector_formula_meets_k56": true,
+            "positive_sector_count": true
+          }
+        },
+        {
+          "N": 10000000,
+          "sufficient_sector_count_crude_lambda_bound": 236,
+          "guarantee_to_K56_ratio": 0.9957854975,
+          "fixed_64_sector_ratio": 3.67195902203,
+          "checks": {
+            "sufficient_sector_formula_meets_k56": true,
+            "positive_sector_count": true
+          }
+        },
+        {
+          "N": 100000000,
+          "sufficient_sector_count_crude_lambda_bound": 351,
+          "guarantee_to_K56_ratio": 0.999416521175,
+          "fixed_64_sector_ratio": 5.481174983321,
+          "checks": {
+            "sufficient_sector_formula_meets_k56": true,
+            "positive_sector_count": true
+          }
+        },
+        {
+          "N": 1000000000,
+          "sufficient_sector_count_crude_lambda_bound": 500,
+          "guarantee_to_K56_ratio": 0.99894414071,
+          "fixed_64_sector_ratio": 7.804251099299,
+          "checks": {
+            "sufficient_sector_formula_meets_k56": true,
+            "positive_sector_count": true
+          }
+        },
+        {
+          "N": 10000000000,
+          "sufficient_sector_count_crude_lambda_bound": 686,
+          "guarantee_to_K56_ratio": 0.998756374512,
+          "fixed_64_sector_ratio": 10.705419889299,
+          "checks": {
+            "sufficient_sector_formula_meets_k56": true,
+            "positive_sector_count": true
+          }
+        },
+        {
+          "N": 100000000000,
+          "sufficient_sector_count_crude_lambda_bound": 912,
+          "guarantee_to_K56_ratio": 0.999923780537,
+          "fixed_64_sector_ratio": 14.248913872657,
+          "checks": {
+            "sufficient_sector_formula_meets_k56": true,
+            "positive_sector_count": true
+          }
+        },
+        {
+          "N": 1000000000000,
+          "sufficient_sector_count_crude_lambda_bound": 1184,
+          "guarantee_to_K56_ratio": 0.999944084795,
+          "fixed_64_sector_ratio": 18.498965568709,
+          "checks": {
+            "sufficient_sector_formula_meets_k56": true,
+            "positive_sector_count": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "Phase quantization only approximates the exact endpoint convolution. The theorem does not bound the signed imbalance among quantized Lambda phase sectors, major/minor arc errors, or the full binary Goldbach residual.",
+    "route_decision": {
+      "discard": "fixed endpoint-phase resolution combined only with Parseval energy as a scale-uniform K56 certificate",
+      "retain": "growing phase sectors together with arithmetic major/minor-arc bounds for the signed sector imbalance",
+      "next_theorem": "ArithmeticPhaseSectorImbalanceBoundSummableK56"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T147-REJECTED",
+          "label": "FixedResolutionParsevalPhaseEnvelopeK56",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T147-CLOSED",
+          "label": "EndpointPhaseQuantizationEnergyBoundAndFixedResolutionNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T147-OPEN",
+          "label": "ArithmeticPhaseSectorImbalanceBoundSummableK56",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T147-REJECTED",
+          "GB-T147-CLOSED"
+        ],
+        [
+          "GB-T147-CLOSED",
+          "GB-T147-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof or Goldbach counterexample. Exact phase discretization control and a limitation of one energy-only certification route."
+  }
+}

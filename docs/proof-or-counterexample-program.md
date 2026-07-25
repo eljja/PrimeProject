@@ -5933,3 +5933,40 @@ evidence to an infinite conclusion.
 descent, Goldbach의 phase-resolved 점별 K56 추정, Twin의 joint
 Liouville Type I/II margin은 모두 미증명이다. 정확한 정리와 반례는
 잘못된 증명 경로를 폐기하고 다음 보조정리를 더 좁히는 역할만 한다.
+
+## TICKET-147 continuation: fiber, compensation, phase, and path-cut gates
+
+TICKET-147 attacks the four TICKET-146 open nodes by separating completeness,
+pointwise coverage, phase resolution, and arithmetic label information.
+
+1. **Riemann Hypothesis.** Fourier fiberization proves that finitely many
+   generators and every translate on one fixed lattice have fiber dimension
+   at most the number of generators, while the ambient `L2(R)` fiber is
+   infinite-dimensional. Finite fixed-lattice cores are therefore
+   incomplete in `L2(R)`. The next target is
+   `InfiniteMultiscaleWeilFiberCompletenessAndMatrixSchurBound`.
+2. **Collatz.** If the first `r` accelerated valuations are one and the next
+   valuation is `b>=r+2`, then the exact formula
+   `T^(r+1)(n)=(3^(r+1)q-1)/2^(b-1)` proves strict descent for every positive
+   `n>1` in that cylinder. These cylinders have exact relative odd-Haar mass
+   `2/3`. The residual third contains infinite positive `b=2` families. The
+   next target is `ResidualThirdIteratedRunCompensationRenewalDescent`.
+3. **Goldbach.** Nearest `M`-sector quantization of the endpoint-aligned
+   squared Fourier phase has error at most
+   `22/(7M) sum_x |f(x)|^2`. The elementary Lambda energy bound requires
+   `M>=ceil(11 log(N)^3/196)` merely to fit the quantization error inside
+   `56N/log N`; fixed resolution plus Parseval is discarded. The next target
+   is `ArithmeticPhaseSectorImbalanceBoundSummableK56`.
+4. **Twin Prime.** The joint Liouville coefficient on a gap-two support graph
+   is `A11=A00-2*Cut`. Paths with `4m` vertices admit alternating and
+   single-block labels having the same `(A00,A10,A01)` but `A11` values
+   `-(4m-1)` and `4m-3`. Unsigned topology and marginals cannot replace
+   arithmetic label control. The next target is
+   `CubicRoughLiouvillePathSwitchDeficitTypeIIBound`.
+
+한국어 경계: Collatz의 `2/3`은 실제 pointwise 무한 가족 정리이지만 남은
+`1/3` 때문에 추측의 증명이 아니다. RH 결과는 `L2` 완전성 no-go이며
+실제 Weil topology를 자동으로 결정하지 않는다. Goldbach 결과는 위상
+양자화 오차만 제어하고 sector별 산술 상쇄를 증명하지 않는다. Twin의
+반례 label은 실제 Liouville 함수가 아니다. 네 해결 상태는 모두
+`open_not_proven`이다.

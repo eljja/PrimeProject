@@ -62,7 +62,41 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-146
+## Latest Continuation After TICKET-147
+
+Read `docs/fiber-compensation-phase-graph.md`,
+`data/open-problem/ticket147-fiber-compensation-phase-graph.json`,
+`scripts/ticket147_fiber_compensation_phase_graph.py`, and
+`tests/test_ticket147_fiber_compensation_phase_graph.py` first.
+
+Do not reopen these rejected routes without stronger problem-specific input:
+
+- completeness of finitely many fixed-lattice shift-generator orbits in
+  `L2(R)`;
+- promotion of the exact Collatz first-compensation `2/3` cover to all
+  positive integers while ignoring the residual third;
+- a fixed endpoint-phase resolution certified only by Parseval energy at the
+  binary Goldbach `K56` scale;
+- a Twin `A11` lower bound inferred only from unsigned gap-two support
+  topology and endpoint marginals.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `InfiniteMultiscaleWeilFiberCompletenessAndMatrixSchurBound` |
+| Collatz | `ResidualThirdIteratedRunCompensationRenewalDescent` |
+| Goldbach | `ArithmeticPhaseSectorImbalanceBoundSummableK56` |
+| Twin Prime | `CubicRoughLiouvillePathSwitchDeficitTypeIIBound` |
+
+한국어: RH는 실제 Weil test topology에서 infinite multiscale core의
+완전성과 matrix Schur 양성을 함께 증명해야 한다. Collatz는 정확한
+pointwise `2/3` cover 뒤에 남는 `1/3` cylinder를 재귀적으로 분해해
+stopping time을 쓰지 않는 renewal descent를 증명해야 한다. Goldbach는
+`M=Omega(log^3 N)` 규모의 endpoint phase sector 사이에서 실제
+von Mangoldt 제곱합의 adverse imbalance를 제어해야 한다. Twin Prime은
+unsigned path가 아니라 실제 cubic-rough Liouville label의 sign-switch
+deficit을 Type I/II 산술로 증명해야 한다. 네 난제는 모두 미해결이다.
+
+## Historical Continuation After TICKET-146
 
 Read `docs/toeplitz-polynomial-phase-frechet.md`,
 `data/open-problem/ticket146-toeplitz-polynomial-phase-frechet.json`,

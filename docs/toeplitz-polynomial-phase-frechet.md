@@ -1,5 +1,8 @@
 # TICKET-146: Toeplitz Reflection, Polynomial Ranks, Fourier Phase, and Frechet Bounds
 
+> Historical boundary: TICKET-147 supersedes the four next targets below.
+> The TICKET-146 theorems remain valid with their stated scope.
+
 Date: 2026-07-26
 
 Status: `open_not_proven` for all four conjectures
