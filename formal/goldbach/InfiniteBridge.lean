@@ -24,7 +24,8 @@ def theoremDecomposition : List String := [
   "GB-TD4b.2b.1 AllScaleOddSquarefreeWheelMomentBarrier closed",
   "GB-TD4b.2b.2 PowerOfTwoBarycentricMomentAnnihilatorNoGo closed",
   "GB-TD4b.2b.3 FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo closed",
-  "GB-TD4b.2b.4 ArithmeticK56DualCertificateOnPowerOfTwoHardStratum highest_risk_open",
+  "GB-TD4b.2b.4a PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo closed",
+  "GB-TD4b.2b.4b LocalizedOrthogonalArithmeticK56DualCertificate highest_risk_open",
   "GB-TD5 FiniteLargeNGlue"
 ]
 
@@ -38,18 +39,18 @@ def rankedCegisTarget : String :=
   "GB-TICKET-128 proves the rational tail bound 2*C2>1.31917 and makes the conservative pointwise residual target K=55 sufficient above H=4e18"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-140 ArithmeticK56DualCertificateOnPowerOfTwoHardStratum."
+  "GB-TICKET-141 LocalizedOrthogonalArithmeticK56DualCertificate."
 
 def topAttackProofAttemptProtocol : String :=
-  "Construct a row-space dual for point evaluation from actual localized or all-frequency Goldbach residual measurements and keep its weighted amplification within K<=56."
+  "Replace raw monomial moments by localized orthogonal major/minor-arc measurements and prove that the resulting arithmetic dual norm fits inside the exact K=56 residual margin."
 
 def latestExactResult : String :=
-  "FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo: pointwise control is possible only when the evaluation functional lies in the measurement row space; q moments on q+1 powers of two fail every coordinate"
+  "PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo: endpoint reconstruction from raw moments has dual norm greater than 2^(q(q-1)/2)"
 
 def closedPremise : String :=
   "proper-prime-power contamination constant B and normalized singular-series coefficient A=1"
 
 def retainedOpenPremise : String :=
-  "an arithmetic K=56 row-space dual certificate on the power-of-two hard stratum with explicit large-even glue"
+  "a localized orthogonal arithmetic K=56 dual certificate with uniformly controlled norm on the power-of-two hard stratum and explicit large-even glue"
 
 end PrimeProject.OpenProblems.Goldbach

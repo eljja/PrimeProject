@@ -1,0 +1,366 @@
+{
+  "schema": "primeproject.ticket141-one-sided-moving-floor-robust-dual-large-sieve.v1",
+  "generated_at": "2026-07-30T12:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-141",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo",
+  "bounded_result": {
+    "audit_ref": "riemann"
+  },
+  "candidate_theorem": "ProjectedWeilShiftedLogMomentBelowTailGap",
+  "next_experiment": "Construct a shifted moment majorant for one explicit projected Weil tail and prove its upper spectral input independently.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The theorem is exact finite-dimensional spectral algebra. It does not prove the required upper spectral bound or shifted trace estimates for the projected Weil operator, does not close the infinite test-function limit, and proves no RH implication or counterexample.",
+  "result": {
+    "theorem_name": "ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo",
+    "title_ko": "이동 trace moment 단측 인증과 부호 맹목성 한계 정리",
+    "declared_target": "Test whether TICKET140 even moments contain the one-sided spectral information needed for projected Weil positivity, and replace them by a sign-sensitive computable certificate.",
+    "proved_statement": "Let E be self-adjoint with lambda_max(E)<=R and let A>=gI. For every m>=1, if tr((RI-E)^(2m))<(R+g)^(2m), then A+E>0. Indeed RI-E is positive semidefinite and its spectral radius is R-lambda_min(E). In contrast, the complete sequence of even moments tr(E^(2m)) is sign-blind: E=cI and E=-cI have identical even moments, while for A=gI and c>g the first perturbation is positive and the second is not. Therefore even moments of E alone cannot be a sound-and-complete positivity decision rule.",
+    "proved_statement_ko": "E가 자기수반이고 lambda_max(E)<=R, A>=gI라 하자. m>=1에서 tr((RI-E)^(2m))<(R+g)^(2m)이면 A+E>0이다. RI-E의 spectral radius가 R-lambda_min(E)이므로 이 이동 moment는 음의 spectral edge를 직접 본다. 반면 E=cI와 E=-cI는 모든 짝수 moment가 같지만 c>g일 때 A=gI에 대한 양의 정부호 여부는 반대다. 따라서 E의 짝수 moment만으로는 positivity를 필요충분하게 판정할 수 없다.",
+    "proof": "The eigenvalues of F=RI-E are R-lambda_i(E), all nonnegative. Hence rho(F)^(2m)<=tr(F^(2m)). The strict trace inequality gives R-lambda_min(E)=rho(F)<R+g, so lambda_min(E)>-g. Weyl's lower bound yields lambda_min(A+E)>=g+lambda_min(E)>0. For the no-go, all even powers of cI and -cI have the same trace, but gI+cI>0 and gI-cI has negative eigenvalue when c>g.",
+    "exact_contract": {
+      "upper_spectral_input": "lambda_max(E)<=R",
+      "one_sided_certificate": "tr((RI-E)^(2m))<(R+g)^(2m) implies A+E>0",
+      "sign_blind_family": "E=cI versus E=-cI with c>g",
+      "scope": "finite-dimensional certificate; projected Weil estimate open"
+    },
+    "shifted_trace_audit": {
+      "rows": [
+        {
+          "rank": 4,
+          "moment_order_m": 4,
+          "spike_c": {
+            "exact": "6/5",
+            "numerator": "6",
+            "denominator": "5",
+            "decimal": 1.2
+          },
+          "base_gap_g": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "common_even_trace_moment": {
+            "exact": "6718464/390625",
+            "numerator": "6718464",
+            "denominator": "390625",
+            "decimal": 17.19926784
+          },
+          "positive_shifted_trace_moment": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "negative_shifted_trace_moment": {
+            "exact": "1719926784/390625",
+            "numerator": "1719926784",
+            "denominator": "390625",
+            "decimal": 4403.01256704
+          },
+          "shifted_threshold_moment": {
+            "exact": "214358881/390625",
+            "numerator": "214358881",
+            "denominator": "390625",
+            "decimal": 548.75873536
+          },
+          "checks": {
+            "opposite_spikes_have_identical_even_moments": true,
+            "positive_spike_passes_shifted_certificate": true,
+            "negative_spike_fails_shifted_certificate": true,
+            "positive_base_sum_is_strictly_positive": true,
+            "negative_base_sum_is_not_positive": true
+          }
+        },
+        {
+          "rank": 16,
+          "moment_order_m": 8,
+          "spike_c": {
+            "exact": "6/5",
+            "numerator": "6",
+            "denominator": "5",
+            "decimal": 1.2
+          },
+          "base_gap_g": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "common_even_trace_moment": {
+            "exact": "45137758519296/152587890625",
+            "numerator": "45137758519296",
+            "denominator": "152587890625",
+            "decimal": 295.81481423205827
+          },
+          "positive_shifted_trace_moment": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "negative_shifted_trace_moment": {
+            "exact": "2958148142320582656/152587890625",
+            "numerator": "2958148142320582656",
+            "denominator": "152587890625",
+            "decimal": 19386519.66551217
+          },
+          "shifted_threshold_moment": {
+            "exact": "45949729863572161/152587890625",
+            "numerator": "45949729863572161",
+            "denominator": "152587890625",
+            "decimal": 301136.1496339065
+          },
+          "checks": {
+            "opposite_spikes_have_identical_even_moments": true,
+            "positive_spike_passes_shifted_certificate": true,
+            "negative_spike_fails_shifted_certificate": true,
+            "positive_base_sum_is_strictly_positive": true,
+            "negative_base_sum_is_not_positive": true
+          }
+        },
+        {
+          "rank": 64,
+          "moment_order_m": 12,
+          "spike_c": {
+            "exact": "6/5",
+            "numerator": "6",
+            "denominator": "5",
+            "decimal": 1.2
+          },
+          "base_gap_g": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "common_even_trace_moment": {
+            "exact": "303256405652583481344/59604644775390625",
+            "numerator": "303256405652583481344",
+            "denominator": "59604644775390625",
+            "decimal": 5087.798221017014
+          },
+          "positive_shifted_trace_moment": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "negative_shifted_trace_moment": {
+            "exact": "5087798221017014024540258304/59604644775390625",
+            "numerator": "5087798221017014024540258304",
+            "denominator": "59604644775390625",
+            "decimal": 85359089718.41818
+          },
+          "shifted_threshold_moment": {
+            "exact": "9849732675807611094711841/59604644775390625",
+            "numerator": "9849732675807611094711841",
+            "denominator": "59604644775390625",
+            "decimal": 165251092.64428225
+          },
+          "checks": {
+            "opposite_spikes_have_identical_even_moments": true,
+            "positive_spike_passes_shifted_certificate": true,
+            "negative_spike_fails_shifted_certificate": true,
+            "positive_base_sum_is_strictly_positive": true,
+            "negative_base_sum_is_not_positive": true
+          }
+        },
+        {
+          "rank": 256,
+          "moment_order_m": 16,
+          "spike_c": {
+            "exact": "6/5",
+            "numerator": "6",
+            "denominator": "5",
+            "decimal": 1.2
+          },
+          "base_gap_g": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "common_even_trace_moment": {
+            "exact": "2037417244146278626404335616/23283064365386962890625",
+            "numerator": "2037417244146278626404335616",
+            "denominator": "23283064365386962890625",
+            "decimal": 87506.40431914714
+          },
+          "positive_shifted_trace_moment": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "negative_shifted_trace_moment": {
+            "exact": "8750640431914714140510423543328014336/23283064365386962890625",
+            "numerator": "8750640431914714140510423543328014336",
+            "denominator": "23283064365386962890625",
+            "decimal": 375837144741290.1
+          },
+          "shifted_threshold_moment": {
+            "exact": "2111377674535255285545615254209921/23283064365386962890625",
+            "numerator": "2111377674535255285545615254209921",
+            "denominator": "23283064365386962890625",
+            "decimal": 90682980616.33453
+          },
+          "checks": {
+            "opposite_spikes_have_identical_even_moments": true,
+            "positive_spike_passes_shifted_certificate": true,
+            "negative_spike_fails_shifted_certificate": true,
+            "positive_base_sum_is_strictly_positive": true,
+            "negative_base_sum_is_not_positive": true
+          }
+        },
+        {
+          "rank": 1024,
+          "moment_order_m": 20,
+          "spike_c": {
+            "exact": "6/5",
+            "numerator": "6",
+            "denominator": "5",
+            "decimal": 1.2
+          },
+          "base_gap_g": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "common_even_trace_moment": {
+            "exact": "13688314407775983685466978280013824/9094947017729282379150390625",
+            "numerator": "13688314407775983685466978280013824",
+            "denominator": "9094947017729282379150390625",
+            "decimal": 1505046.0856003445
+          },
+          "positive_shifted_trace_moment": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "negative_shifted_trace_moment": {
+            "exact": "15050460856003445253967416883354036354022375424/9094947017729282379150390625",
+            "numerator": "15050460856003445253967416883354036354022375424",
+            "denominator": "9094947017729282379150390625",
+            "decimal": 1.6548156714563318e+18
+          },
+          "shifted_threshold_moment": {
+            "exact": "452592555681759518058893560348969204658401/9094947017729282379150390625",
+            "numerator": "452592555681759518058893560348969204658401",
+            "denominator": "9094947017729282379150390625",
+            "decimal": 49763077761695.13
+          },
+          "checks": {
+            "opposite_spikes_have_identical_even_moments": true,
+            "positive_spike_passes_shifted_certificate": true,
+            "negative_spike_fails_shifted_certificate": true,
+            "positive_base_sum_is_strictly_positive": true,
+            "negative_base_sum_is_not_positive": true
+          }
+        },
+        {
+          "rank": 4096,
+          "moment_order_m": 23,
+          "spike_c": {
+            "exact": "6/5",
+            "numerator": "6",
+            "denominator": "5",
+            "decimal": 1.2
+          },
+          "base_gap_g": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "common_even_trace_moment": {
+            "exact": "2554567988036785179316589354529299890176/142108547152020037174224853515625",
+            "numerator": "2554567988036785179316589354529299890176",
+            "denominator": "142108547152020037174224853515625",
+            "decimal": 17976174.123461038
+          },
+          "positive_shifted_trace_moment": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "negative_shifted_trace_moment": {
+            "exact": "179761741234610365892890573340100075554116594632228864/142108547152020037174224853515625",
+            "numerator": "179761741234610365892890573340100075554116594632228864",
+            "denominator": "142108547152020037174224853515625",
+            "decimal": 1.2649607981869732e+21
+          },
+          "shifted_threshold_moment": {
+            "exact": "801795320536133573571931534665380233173841533961/142108547152020037174224853515625",
+            "numerator": "801795320536133573571931534665380233173841533961",
+            "denominator": "142108547152020037174224853515625",
+            "decimal": 5642132979365529.0
+          },
+          "checks": {
+            "opposite_spikes_have_identical_even_moments": true,
+            "positive_spike_passes_shifted_certificate": true,
+            "negative_spike_fails_shifted_certificate": true,
+            "positive_base_sum_is_strictly_positive": true,
+            "negative_base_sum_is_not_positive": true
+          }
+        }
+      ],
+      "row_count": 6,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "shifted one-sided moments of the actual projected Weil tail with an independently proved upper spectral bound",
+      "discard": "unshifted even moments of the tail as a necessary-and-sufficient positivity decision rule",
+      "next_theorem": "ProjectedWeilShiftedLogMomentBelowTailGap"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-TD4b.2b.3a",
+          "label": "EvenTraceMomentSpectralCertificateAndLogOrderBarrier",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2b.4a",
+          "label": "ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2b.4b",
+          "label": "ProjectedWeilShiftedLogMomentBelowTailGap",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "RH",
+          "label": "Riemann Hypothesis",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-TD4b.2b.3a",
+          "RH-TD4b.2b.4a"
+        ],
+        [
+          "RH-TD4b.2b.4a",
+          "RH-TD4b.2b.4b"
+        ],
+        [
+          "RH-TD4b.2b.4b",
+          "RH"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "shifted_trace_row_count": 6,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The theorem is exact finite-dimensional spectral algebra. It does not prove the required upper spectral bound or shifted trace estimates for the projected Weil operator, does not close the infinite test-function limit, and proves no RH implication or counterexample."
+  }
+}

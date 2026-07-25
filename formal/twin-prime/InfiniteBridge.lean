@@ -23,7 +23,8 @@ def theoremDecomposition : List String := [
   "TP-TD3b.2b.1 IrrationalInjectivityWithoutRegularityIsTautologicalNoGo closed",
   "TP-TD3b.2b.2 FiniteIrrationalOrbitLipschitzLookupComplexityNoGo closed",
   "TP-TD3b.2b.3 QuadraticIrrationalSobolevRotationCancellation closed",
-  "TP-TD3b.2b.4 DiophantineSobolevTypeIIBilinearCancellationWithPositiveTwinMass highest_risk_open",
+  "TP-TD3b.2b.4a QuadraticIrrationalBilinearLargeSieveCancellation closed",
+  "TP-TD3b.2b.4b UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass highest_risk_open",
   "TP-TD4 PositiveExactGapLowerBound",
   "TP-TD5 ExactGapInfinitudeBridge"
 ]
@@ -38,18 +39,18 @@ def rankedCegisTarget : String :=
   "TP-TICKET-128 gives an exact endpoint-only countermodel and proves that a within-dyadic-block envelope yields limsup Q<=0.92*c+delta"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-140 DiophantineSobolevTypeIIBilinearCancellationWithPositiveTwinMass."
+  "TP-TICKET-141 UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass."
 
 def topAttackProofAttemptProtocol : String :=
-  "Insert Vaughan or Mobius bilinear coefficients into the scale-uniform quadratic-irrational Sobolev cancellation theorem and preserve a positive exact-gap-two main term."
+  "Extend the fixed sqrt(2) bilinear large-sieve estimate uniformly across the required minor arcs, insert the actual Vaughan or Mobius coefficients, and preserve a positive exact-gap-two main term."
 
 def latestFiniteResult : String :=
-  "QuadraticIrrationalSobolevRotationCancellation: mean-zero H^s observables with s>3/2 have Birkhoff sums along sqrt(2) rotation uniformly bounded in the sample length"
+  "QuadraticIrrationalBilinearLargeSieveCancellation: arbitrary separable coefficients at the fixed sqrt(2) phase gain the balanced relative factor sqrt(5/L)"
 
 def finiteEvidenceBoundary : String :=
-  "the exact theorem gives unweighted irrational-rotation cancellation, but not Vaughan or Mobius Type II cancellation, a parity break, or positive gap-two mass"
+  "the exact theorem treats one fixed quadratic-irrational phase, but not uniform minor arcs, the full Vaughan or Mobius decomposition, the sieve parity obstruction, or positive gap-two mass"
 
 def retainedOpenPremise : String :=
-  "a Diophantine Sobolev bilinear Type II cancellation theorem with arithmetic weights, signed transport, and positive exact-gap-two mass"
+  "uniform minor-arc large-sieve cancellation for the actual arithmetic Type II coefficients, signed transport, and positive exact-gap-two mass"
 
 end PrimeProject.OpenProblems.TwinPrime

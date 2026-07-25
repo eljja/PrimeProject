@@ -37,6 +37,31 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-30 TICKET-141 Directional and Robustness Correction
+
+TICKET-141 attacks the four TICKET-140 open nodes and separates one exact
+advance from each still-missing arithmetic theorem.
+
+1. **Riemann:** shifted trace moments provide a one-sided positivity
+   certificate. Opposite scalar spikes have identical unshifted even moments,
+   so the unshifted sequence cannot completely decide positivity.
+2. **Collatz:** avoiding automatic relaxed-window vacuity requires a
+   period-dependent minimum floor with asymptotic slope at least
+   `1/(3 log 2)`. This is necessary, not a cycle exclusion.
+3. **Goldbach:** the endpoint raw-moment dual on normalized power-of-two nodes
+   has norm greater than `2^(q(q-1)/2)`. A localized orthogonal arithmetic dual
+   is required; no Goldbach residual is bounded here.
+4. **Twin Prime:** the analytic large sieve gives arbitrary-coefficient
+   bilinear cancellation at the fixed `sqrt(2)` phase. Uniform minor arcs,
+   the actual Vaughan or Mobius decomposition, the parity obstruction, and
+   positive exact-gap-two mass remain open.
+
+한국어 요약: TICKET-141은 네 경로에 방향성과 강건성 조건을 추가한다.
+RH의 짝수 moment 부호 손실, Collatz의 느린 moving floor, Goldbach raw
+moment의 폭발적 dual norm, Twin Prime의 단일 위상 한계를 각각 정확히
+분리했다. 네 난제는 모두 `open_not_proven`이다. 전체 증명과 재현 명령은
+`docs/one-sided-moving-floor-robust-dual-and-large-sieve.md`에 있다.
+
 ## 2026-07-17 TICKET-130 Computability and Route-Optimality Correction
 
 TICKET-130 keeps the strongest TICKET-129 reductions and applies the

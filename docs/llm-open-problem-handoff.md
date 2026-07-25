@@ -62,7 +62,36 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-140
+## Latest Continuation After TICKET-141
+
+TICKET141 is the current boundary. Read
+`docs/one-sided-moving-floor-robust-dual-and-large-sieve.md` and
+`data/open-problem/ticket141-one-sided-moving-floor-robust-dual-large-sieve.json`
+before proposing a new route. None of the four conjectures is resolved.
+
+For RH, `ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo` replaces
+sign-blind even moments by a shifted one-sided certificate. Attack
+`ProjectedWeilShiftedLogMomentBelowTailGap`.
+
+For Collatz, `PeriodDependentFloorLinearGrowthBarrier` proves that the relaxed
+cycle window requires asymptotic floor slope at least `1/(3 log 2)` merely to
+avoid automatic vacuity. Attack
+`CycleMinimumAboveExactPowerOfTwoWindowThreshold`; aperiodic well-foundedness
+remains separate.
+
+For Goldbach,
+`PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo` proves
+`||lambda||_1>2^(q(q-1)/2)` for endpoint reconstruction from raw moments.
+Attack `LocalizedOrthogonalArithmeticK56DualCertificate`. The symbol `q=56`
+in the stress audit is a moment order and is not the Goldbach cutoff parameter
+`K=56`.
+
+For Twin Prime, `QuadraticIrrationalBilinearLargeSieveCancellation` proves
+weighted bilinear cancellation at the fixed `sqrt(2)` phase. Attack
+`UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass`; fixed-phase
+cancellation alone does not resolve the sieve parity obstruction.
+
+## Historical Continuation After TICKET-140
 
 TICKET140 is the current boundary. Read
 `docs/spectral-moments-fixed-floor-duality-and-rotation.md` and

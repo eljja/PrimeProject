@@ -1,0 +1,164 @@
+{
+  "schema": "primeproject.ticket141-one-sided-moving-floor-robust-dual-large-sieve.v1",
+  "generated_at": "2026-07-30T12:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-141",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "QuadraticIrrationalBilinearLargeSieveCancellation",
+  "bounded_result": {
+    "audit_ref": "twin_prime"
+  },
+  "candidate_theorem": "UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass",
+  "next_experiment": "Lift the fixed sqrt(2) estimate to every required minor arc, insert the actual Vaughan coefficients, and preserve a positive gap-two main term.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The theorem is a specialization of the standard analytic large sieve to one fixed quadratic irrational. It does not provide uniform minor-arc control over rational approximants, does not complete a Vaughan or Mobius decomposition, does not resolve the sieve parity obstruction, and provides no positive exact-gap-two mass.",
+  "result": {
+    "theorem_name": "QuadraticIrrationalBilinearLargeSieveCancellation",
+    "title_ko": "이차 무리수 쌍선형 large-sieve 상쇄 정리",
+    "declared_target": "Insert arbitrary separable Type-II-style coefficients into the TICKET140 sqrt(2) phase and prove a sample-length-uniform power saving rather than an unweighted rotation estimate.",
+    "proved_statement": "For arbitrary complex vectors a_1,...,a_M and b_1,...,b_N, |sum_(m<=M,n<=N) a_m b_n e(sqrt(2)mn)| is at most sqrt(M+4N)||a||_2||b||_2. In particular, if both coefficient sequences are bounded by one, the ratio to the trivial MN bound is at most sqrt(1/N+4/M), and for M=N=L this is sqrt(5/L).",
+    "proved_statement_ko": "임의의 복소 계수 a_m,b_n에 대해 |sum a_m b_n e(sqrt(2)mn)|<=sqrt(M+4N)||a||_2||b||_2이다. 두 계수열의 절댓값이 1 이하이면 자명한 MN 상계에 대한 비율은 sqrt(1/N+4/M) 이하이고, M=N=L이면 sqrt(5/L)이다. 따라서 TICKET140의 비가중 회전합을 고정 sqrt(2) 위의 실제 쌍선형 상쇄로 강화한다.",
+    "proof": "The points x_n={n sqrt(2)} are delta-separated because for 1<=|h|<N, ||h sqrt(2)||>1/(4|h|)>1/(4N). The analytic large sieve for delta-separated points gives sum_(m<=M)|sum_(n<=N)b_n e(mx_n)|^2<=(M-1+delta^(-1))||b||_2^2, which is strictly below (M+4N)||b||_2^2. Cauchy-Schwarz in m proves the bilinear bound. The bounded-coefficient corollary uses ||a||_2<=sqrt(M) and ||b||_2<=sqrt(N).",
+    "standard_input": {
+      "name": "analytic large sieve for well-spaced points",
+      "priority_claim": "none",
+      "reference": "Montgomery and Vaughan, The large sieve, Mathematika 20 (1973), 119-134, DOI 10.1112/S0025579300004708"
+    },
+    "exact_contract": {
+      "spacing": "||h sqrt(2)||>1/(4|h|)",
+      "energy_bound": "sum_m|sum_n b_n e(sqrt(2)mn)|^2<=(M+4N)||b||_2^2",
+      "bilinear_bound": "|sum_mn a_m b_n e(sqrt(2)mn)|<=sqrt(M+4N)||a||_2||b||_2",
+      "balanced_ratio": "sqrt(5/L)"
+    },
+    "bilinear_large_sieve_audit": {
+      "rows": [
+        {
+          "M": 8,
+          "N": 8,
+          "minimum_phase_spacing": 0.0710678118654755,
+          "spacing_lower_bound": 0.03125,
+          "large_sieve_operator_norm_squared_bound": 40,
+          "observed_operator_norm_squared": 13.976778038756322,
+          "bounded_coefficient_relative_bound": 0.7905694150420949,
+          "checks": {
+            "quadratic_spacing_certificate_holds": true,
+            "minimum_spacing_beats_uniform_bound": true,
+            "observed_operator_norm_is_below_large_sieve_bound": true,
+            "balanced_relative_bound_matches_formula": true
+          }
+        },
+        {
+          "M": 16,
+          "N": 16,
+          "minimum_phase_spacing": 0.029437251522857366,
+          "spacing_lower_bound": 0.015625,
+          "large_sieve_operator_norm_squared_bound": 80,
+          "observed_operator_norm_squared": 31.255095651706593,
+          "bounded_coefficient_relative_bound": 0.5590169943749475,
+          "checks": {
+            "quadratic_spacing_certificate_holds": true,
+            "minimum_spacing_beats_uniform_bound": true,
+            "observed_operator_norm_is_below_large_sieve_bound": true,
+            "balanced_relative_bound_matches_formula": true
+          }
+        },
+        {
+          "M": 32,
+          "N": 32,
+          "minimum_phase_spacing": 0.012193308819760773,
+          "spacing_lower_bound": 0.0078125,
+          "large_sieve_operator_norm_squared_bound": 160,
+          "observed_operator_norm_squared": 67.01656081147881,
+          "bounded_coefficient_relative_bound": 0.39528470752104744,
+          "checks": {
+            "quadratic_spacing_certificate_holds": true,
+            "minimum_spacing_beats_uniform_bound": true,
+            "observed_operator_norm_is_below_large_sieve_bound": true,
+            "balanced_relative_bound_matches_formula": true
+          }
+        },
+        {
+          "M": 64,
+          "N": 64,
+          "minimum_phase_spacing": 0.012193308819760773,
+          "spacing_lower_bound": 0.00390625,
+          "large_sieve_operator_norm_squared_bound": 320,
+          "observed_operator_norm_squared": 90.27213670873553,
+          "bounded_coefficient_relative_bound": 0.2795084971874737,
+          "checks": {
+            "quadratic_spacing_certificate_holds": true,
+            "minimum_spacing_beats_uniform_bound": true,
+            "observed_operator_norm_is_below_large_sieve_bound": true,
+            "balanced_relative_bound_matches_formula": true
+          }
+        },
+        {
+          "M": 128,
+          "N": 128,
+          "minimum_phase_spacing": 0.005050633883342925,
+          "spacing_lower_bound": 0.001953125,
+          "large_sieve_operator_norm_squared_bound": 640,
+          "observed_operator_norm_squared": 205.7505742481857,
+          "bounded_coefficient_relative_bound": 0.19764235376052372,
+          "checks": {
+            "quadratic_spacing_certificate_holds": true,
+            "minimum_spacing_beats_uniform_bound": true,
+            "observed_operator_norm_is_below_large_sieve_bound": true,
+            "balanced_relative_bound_matches_formula": true
+          }
+        }
+      ],
+      "row_count": 5,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "large-sieve energy control for arithmetic bilinear coefficients uniformly over the full minor-arc phase family",
+      "discard": "a single fixed quadratic-irrational phase estimate as a twin-prime lower-bound or parity-obstruction theorem",
+      "next_theorem": "UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-TD3b.2b.3a",
+          "label": "QuadraticIrrationalSobolevRotationCancellation",
+          "status": "closed"
+        },
+        {
+          "id": "TP-TD3b.2b.4a",
+          "label": "QuadraticIrrationalBilinearLargeSieveCancellation",
+          "status": "closed"
+        },
+        {
+          "id": "TP-TD3b.2b.4b",
+          "label": "UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "TP",
+          "label": "Twin Prime Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-TD3b.2b.3a",
+          "TP-TD3b.2b.4a"
+        ],
+        [
+          "TP-TD3b.2b.4a",
+          "TP-TD3b.2b.4b"
+        ],
+        [
+          "TP-TD3b.2b.4b",
+          "TP"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "bilinear_large_sieve_row_count": 5,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The theorem is a specialization of the standard analytic large sieve to one fixed quadratic irrational. It does not provide uniform minor-arc control over rational approximants, does not complete a Vaughan or Mobius decomposition, does not resolve the sieve parity obstruction, and provides no positive exact-gap-two mass."
+  }
+}

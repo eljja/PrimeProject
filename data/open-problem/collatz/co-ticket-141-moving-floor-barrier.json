@@ -1,0 +1,166 @@
+{
+  "schema": "primeproject.ticket141-one-sided-moving-floor-robust-dual-large-sieve.v1",
+  "generated_at": "2026-07-30T12:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-141",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "PeriodDependentFloorLinearGrowthBarrier",
+  "bounded_result": {
+    "audit_ref": "collatz"
+  },
+  "candidate_theorem": "CycleMinimumAboveExactPowerOfTwoWindowThreshold",
+  "next_experiment": "Compare a rigorous period-dependent cycle-minimum lower bound with the exact threshold induced by ceil(k log_2 3).",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "This is a sharp necessary-growth theorem for one relaxed cycle window. It neither supplies the required cycle-minimum lower bound nor realizes a valuation word or integer cycle. It says nothing about divergent aperiodic trajectories and is not a Collatz proof or counterexample.",
+  "result": {
+    "theorem_name": "PeriodDependentFloorLinearGrowthBarrier",
+    "title_ko": "주기 의존 최솟값 하한의 선형 성장 장벽 정리",
+    "declared_target": "Attack the TICKET140 period-dependent cycle-minimum route by determining the minimum growth rate needed merely to keep its relaxed Diophantine window from becoming automatically vacuous.",
+    "proved_statement": "Let M_k>=1 be a period-dependent lower bound for the minimum element of a hypothetical positive k-cycle. The TICKET139 window has upper factor U_k=(1+1/(3M_k))^k. Since q_k=2^ceil(k log_2 3)/3^k lies strictly between one and two, U_k>=2 automatically leaves q_k inside the relaxed window. Avoiding this automatic failure requires M_k>1/(3(2^(1/k)-1)). The threshold divided by k tends to 1/(3 log 2). Consequently every floor with limsup M_k/k<1/(3 log 2) is eventually insufficient.",
+    "proved_statement_ko": "가상 양의 k-cycle의 최솟값 하한을 M_k라 하자. TICKET139 창의 상단은 U_k=(1+1/(3M_k))^k이다. q_k=2^ceil(k log_2 3)/3^k는 항상 1과 2 사이이므로 U_k>=2이면 완화 창이 q_k를 자동으로 허용한다. 이를 피하려면 M_k>1/(3(2^(1/k)-1))가 필요하고, 이 임계값을 k로 나눈 값은 1/(3 log 2)로 수렴한다. 따라서 그보다 작은 선형 기울기의 주기 의존 하한은 결국 충분하지 않다.",
+    "proof": "The candidate q_k is in (1,2) by irrationality of log_2 3. Thus U_k>=2 places q_k below the upper endpoint. Because the map M -> (1+1/(3M))^k is strictly decreasing, U_k<2 is equivalent to M>1/(3(2^(1/k)-1)). Finally k(2^(1/k)-1) tends to log 2, giving the stated slope and the limsup consequence.",
+    "exact_contract": {
+      "automatic_vacuity": "(1+1/(3M_k))^k>=2 leaves 2^ceil(k log_2 3)/3^k in the relaxed window",
+      "necessary_floor_threshold": "M_k>1/(3(2^(1/k)-1))",
+      "asymptotic_slope": "1/(3 log 2)",
+      "scope": "necessary condition only; no cycle construction"
+    },
+    "moving_floor_audit": {
+      "rows": [
+        {
+          "period_k": 16,
+          "minimum_integer_floor_for_window_below_two": 8,
+          "floor_to_period_ratio": 0.5,
+          "asymptotic_required_slope": 0.48089834696298783,
+          "ratio_error": 0.019101653037012167,
+          "checks": {
+            "minimum_floor_makes_window_strictly_below_two": true,
+            "previous_floor_keeps_window_at_least_two": true,
+            "ratio_is_positive": true
+          }
+        },
+        {
+          "period_k": 64,
+          "minimum_integer_floor_for_window_below_two": 31,
+          "floor_to_period_ratio": 0.484375,
+          "asymptotic_required_slope": 0.48089834696298783,
+          "ratio_error": 0.0034766530370121673,
+          "checks": {
+            "minimum_floor_makes_window_strictly_below_two": true,
+            "previous_floor_keeps_window_at_least_two": true,
+            "ratio_is_positive": true
+          }
+        },
+        {
+          "period_k": 256,
+          "minimum_integer_floor_for_window_below_two": 123,
+          "floor_to_period_ratio": 0.48046875,
+          "asymptotic_required_slope": 0.48089834696298783,
+          "ratio_error": -0.0004295969629878327,
+          "checks": {
+            "minimum_floor_makes_window_strictly_below_two": true,
+            "previous_floor_keeps_window_at_least_two": true,
+            "ratio_is_positive": true
+          }
+        },
+        {
+          "period_k": 1024,
+          "minimum_integer_floor_for_window_below_two": 493,
+          "floor_to_period_ratio": 0.4814453125,
+          "asymptotic_required_slope": 0.48089834696298783,
+          "ratio_error": 0.0005469655370121673,
+          "checks": {
+            "minimum_floor_makes_window_strictly_below_two": true,
+            "previous_floor_keeps_window_at_least_two": true,
+            "ratio_is_positive": true
+          }
+        },
+        {
+          "period_k": 4096,
+          "minimum_integer_floor_for_window_below_two": 1970,
+          "floor_to_period_ratio": 0.48095703125,
+          "asymptotic_required_slope": 0.48089834696298783,
+          "ratio_error": 5.8684287012167324e-05,
+          "checks": {
+            "minimum_floor_makes_window_strictly_below_two": true,
+            "previous_floor_keeps_window_at_least_two": true,
+            "ratio_is_positive": true
+          }
+        },
+        {
+          "period_k": 16384,
+          "minimum_integer_floor_for_window_below_two": 7879,
+          "floor_to_period_ratio": 0.48089599609375,
+          "asymptotic_required_slope": 0.48089834696298783,
+          "ratio_error": -2.3508692378326757e-06,
+          "checks": {
+            "minimum_floor_makes_window_strictly_below_two": true,
+            "previous_floor_keeps_window_at_least_two": true,
+            "ratio_is_positive": true
+          }
+        }
+      ],
+      "row_count": 6,
+      "asymptotic_required_slope": 0.48089834696298783,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "a cycle-minimum lower bound that beats the exact power-of-two approximation threshold for each period",
+      "discard": "every subcritical-linear period-dependent minimum floor as an all-period exclusion through the relaxed product window",
+      "next_theorem": "CycleMinimumAboveExactPowerOfTwoWindowThreshold"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-TD4b.2b.3a",
+          "label": "FixedCycleMinimumWindowEventuallyVacuousNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "CO-TD4b.2b.4a",
+          "label": "PeriodDependentFloorLinearGrowthBarrier",
+          "status": "closed"
+        },
+        {
+          "id": "CO-TD4b.2b.4b",
+          "label": "CycleMinimumAboveExactPowerOfTwoWindowThreshold",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "CO-TD4c",
+          "label": "AperiodicNaturalCodeWellFoundedness",
+          "status": "open"
+        },
+        {
+          "id": "CO",
+          "label": "Collatz Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-TD4b.2b.3a",
+          "CO-TD4b.2b.4a"
+        ],
+        [
+          "CO-TD4b.2b.4a",
+          "CO-TD4b.2b.4b"
+        ],
+        [
+          "CO-TD4b.2b.4b",
+          "CO"
+        ],
+        [
+          "CO-TD4c",
+          "CO"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "moving_floor_row_count": 6,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "This is a sharp necessary-growth theorem for one relaxed cycle window. It neither supplies the required cycle-minimum lower bound nor realizes a valuation word or integer cycle. It says nothing about divergent aperiodic trajectories and is not a Collatz proof or counterexample."
+  }
+}

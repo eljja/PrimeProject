@@ -24,7 +24,8 @@ def theoremDecomposition : List String := [
   "RH-TD4b.2b.1 CrossGramCorrelationBlockPositivityCriterion closed",
   "RH-TD4b.2b.2 TwoMutuallyUnbiasedBasesCrossGramL1NoGo closed",
   "RH-TD4b.2b.3 EvenTraceMomentSpectralCertificateAndLogOrderBarrier closed",
-  "RH-TD4b.2b.4 ProjectedWeilLogOrderEvenTraceMomentBelowTailGap highest_risk_open",
+  "RH-TD4b.2b.4a ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo closed",
+  "RH-TD4b.2b.4b ProjectedWeilShiftedLogMomentBelowTailGap highest_risk_open",
   "RH-TD5 WeilPositivityToRHImportAudit"
 ]
 
@@ -38,18 +39,18 @@ def rankedCegisTarget : String :=
   "RH-TICKET-128 proves that compact support removes the infinite prime tail exactly: only prime powers p^m<=B remain in the arithmetic side"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-140 ProjectedWeilLogOrderEvenTraceMomentBelowTailGap."
+  "RH-TICKET-141 ProjectedWeilShiftedLogMomentBelowTailGap."
 
 def topAttackProofAttemptProtocol : String :=
-  "Bound dimension-growing even trace moments of the actual projected Weil signed Gram tail at order proportional to log dimension, below an independently certified tail gap."
+  "Prove an upper spectral input and a logarithmic-order shifted trace-moment bound for the actual projected Weil tail below the independently certified positivity threshold."
 
 def latestExactResult : String :=
-  "EvenTraceMomentSpectralCertificateAndLogOrderBarrier: even trace moments give a signed spectral certificate, but fixed-factor worst-case control requires moment order proportional to log dimension"
+  "ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo: a shifted moment sees the negative spectral edge, while every unshifted even moment is identical on opposite scalar spikes"
 
 def retiredRoute : String :=
   "full-test-space autocorrelation-cone density"
 
 def retainedOpenPremise : String :=
-  "logarithmic-order even trace moments of the projected Weil signed Gram tail remain below the positive tail gap, or a certified strict-negative witness"
+  "an upper spectral bound and logarithmic-order shifted moments of the projected Weil tail remain below the one-sided positivity threshold, or a certified strict-negative witness"
 
 end PrimeProject.OpenProblems.Riemann

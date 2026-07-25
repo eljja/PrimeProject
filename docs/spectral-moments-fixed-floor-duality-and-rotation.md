@@ -7,6 +7,9 @@ Status: `open_not_proven` for all four conjectures
 Machine record:
 `data/open-problem/ticket140-spectral-moments-fixed-floor-duality-rotation.json`
 
+Current continuation / 최신 후속 연구:
+[`TICKET-141`](one-sided-moving-floor-robust-dual-and-large-sieve.md)
+
 ## Publication boundary / 논문 제출용 경계
 
 **English.** TICKET-140 proves four exact intermediate or proof-route no-go

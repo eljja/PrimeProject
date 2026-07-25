@@ -1,0 +1,311 @@
+{
+  "schema": "primeproject.ticket141-one-sided-moving-floor-robust-dual-large-sieve.v1",
+  "generated_at": "2026-07-30T12:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-141",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo",
+  "bounded_result": {
+    "audit_ref": "goldbach"
+  },
+  "candidate_theorem": "LocalizedOrthogonalArithmeticK56DualCertificate",
+  "next_experiment": "Replace raw moments by localized orthogonal major/minor-arc measurements and prove a dual norm below the exact K=56 margin.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The null and conditioning vectors are linear-inference stress objects, not Goldbach residuals. This theorem rejects one raw-moment coordinate system; it neither constructs the localized arithmetic measurements nor proves a K=56 residual margin, a Goldbach representation, or a counterexample.",
+  "result": {
+    "theorem_name": "PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo",
+    "title_ko": "거듭제곱 2 원시 모멘트 dual의 이차지수 조건수 한계 정리",
+    "declared_target": "Test whether the TICKET140 exact row-space dual can be made robust enough for a pointwise Goldbach residual certificate when the available measurements are raw monomial moments.",
+    "proved_statement": "On q+1 normalized power-of-two nodes x_i=2^(i-q), the unique degree-q polynomial dual that reconstructs the first coordinate from moments 0 through q has leading coefficient 2^(q^2)/product_(j=1)^q(2^j-1), which is strictly larger than 2^(q(q-1)/2). Its l1 norm is at least this large. If every raw moment has independent error at most epsilon, the worst-case endpoint reconstruction error is exactly epsilon times the dual l1 norm. Thus raw monomial moments are quadratically exponentially ill-conditioned for this pointwise task.",
+    "proved_statement_ko": "정규화된 q+1개 거듭제곱 2 점 x_i=2^(i-q)에서 0차부터 q차 모멘트로 첫 좌표를 복원하는 유일한 dual 다항식의 최고차 계수 절댓값은 2^(q^2)/product(2^j-1)이고 2^(q(q-1)/2)보다 크다. dual의 l1 norm도 최소 이만큼 크며, 각 원시 모멘트 오차가 epsilon 이하이면 최악의 복원 오차는 정확히 epsilon 곱하기 dual l1 norm이다. 따라서 이 원시 모멘트 좌표계는 점별 Goldbach residual 인증에 매우 불안정하다.",
+    "proof": "The endpoint Lagrange polynomial is L_0(x)=product_(j=1)^q(x-x_j)/(x_0-x_j). Its leading coefficient has magnitude 1/product_(j=1)^q(x_j-x_0). Since x_j-x_0=(2^j-1)/2^q, the displayed closed formula follows. Replacing every factor 2^j-1 by the larger 2^j gives the strict lower bound 2^(q^2-q(q+1)/2)=2^(q(q-1)/2). The l1 statement is immediate, and choosing each measurement error with the sign of the matching dual coefficient attains epsilon||lambda||_1.",
+    "exact_contract": {
+      "nodes": "x_i=2^(i-q), 0<=i<=q",
+      "leading_dual_coefficient": "2^(q^2)/product_(j=1)^q(2^j-1)",
+      "conditioning_lower_bound": "||lambda||_1>2^(q(q-1)/2)",
+      "robust_error": "worst endpoint error=epsilon||lambda||_1"
+    },
+    "raw_moment_conditioning_audit": {
+      "rows": [
+        {
+          "moment_order_q": 2,
+          "support_size": 3,
+          "endpoint_leading_dual_coefficient": {
+            "exact": "16/3",
+            "numerator": "16",
+            "denominator": "3",
+            "decimal": 5.333333333333333,
+            "log2_magnitude": 2.415037499278844
+          },
+          "endpoint_l1_amplification": {
+            "exact": "16",
+            "numerator": "16",
+            "denominator": "1",
+            "decimal": 16.0,
+            "log2_magnitude": 4.0
+          },
+          "strict_lower_bound_power_of_two_exponent": 1,
+          "strict_lower_bound": "2^1",
+          "amplification_bit_length": 5,
+          "checks": {
+            "dual_reconstructs_endpoint_coordinate": true,
+            "leading_coefficient_matches_closed_formula": true,
+            "l1_amplification_dominates_leading_coefficient": true,
+            "quadratic_exponential_lower_bound_is_strict": true,
+            "adversarial_unit_error_attains_l1_amplification": true
+          }
+        },
+        {
+          "moment_order_q": 4,
+          "support_size": 5,
+          "endpoint_leading_dual_coefficient": {
+            "exact": "65536/315",
+            "numerator": "65536",
+            "denominator": "315",
+            "decimal": 208.05079365079365,
+            "log2_magnitude": 7.700791981612721
+          },
+          "endpoint_l1_amplification": {
+            "exact": "6144/7",
+            "numerator": "6144",
+            "denominator": "7",
+            "decimal": 877.7142857142857,
+            "log2_magnitude": 9.777607578663552
+          },
+          "strict_lower_bound_power_of_two_exponent": 6,
+          "strict_lower_bound": "2^6",
+          "amplification_bit_length": 13,
+          "checks": {
+            "dual_reconstructs_endpoint_coordinate": true,
+            "leading_coefficient_matches_closed_formula": true,
+            "l1_amplification_dominates_leading_coefficient": true,
+            "quadratic_exponential_lower_bound_is_strict": true,
+            "adversarial_unit_error_attains_l1_amplification": true
+          }
+        },
+        {
+          "moment_order_q": 6,
+          "support_size": 7,
+          "endpoint_leading_dual_coefficient": {
+            "exact": "68719476736/615195",
+            "numerator": "68719476736",
+            "denominator": "615195",
+            "decimal": 111703.56835800031,
+            "log2_magnitude": 16.76931574772593
+          },
+          "endpoint_l1_amplification": {
+            "exact": "784334848/1519",
+            "numerator": "784334848",
+            "denominator": "1519",
+            "decimal": 516349.47202106647,
+            "log2_magnitude": 18.97798830538555
+          },
+          "strict_lower_bound_power_of_two_exponent": 15,
+          "strict_lower_bound": "2^15",
+          "amplification_bit_length": 30,
+          "checks": {
+            "dual_reconstructs_endpoint_coordinate": true,
+            "leading_coefficient_matches_closed_formula": true,
+            "l1_amplification_dominates_leading_coefficient": true,
+            "quadratic_exponential_lower_bound_is_strict": true,
+            "adversarial_unit_error_attains_l1_amplification": true
+          }
+        },
+        {
+          "moment_order_q": 8,
+          "support_size": 9,
+          "endpoint_leading_dual_coefficient": {
+            "exact": "18446744073709551616/19923090075",
+            "numerator": "18446744073709551616",
+            "denominator": "19923090075",
+            "decimal": 925897739.972425,
+            "log2_magnitude": 29.786277624094907
+          },
+          "endpoint_l1_amplification": {
+            "exact": "845112124899328/192913",
+            "numerator": "845112124899328",
+            "denominator": "192913",
+            "decimal": 4380794062.086681,
+            "log2_magnitude": 32.02854525020624
+          },
+          "strict_lower_bound_power_of_two_exponent": 28,
+          "strict_lower_bound": "2^28",
+          "amplification_bit_length": 50,
+          "checks": {
+            "dual_reconstructs_endpoint_coordinate": true,
+            "leading_coefficient_matches_closed_formula": true,
+            "l1_amplification_dominates_leading_coefficient": true,
+            "quadratic_exponential_lower_bound_is_strict": true,
+            "adversarial_unit_error_attains_l1_amplification": true
+          }
+        },
+        {
+          "moment_order_q": 10,
+          "support_size": 11,
+          "endpoint_leading_dual_coefficient": {
+            "exact": "1267650600228229401496703205376/10414855105976475",
+            "numerator": "1267650600228229401496703205376",
+            "denominator": "10414855105976475",
+            "decimal": 121715625165135.42,
+            "log2_magnitude": 46.790507713411955
+          },
+          "endpoint_l1_amplification": {
+            "exact": "1770193732618313822896128/3055934833",
+            "numerator": "1770193732618313822896128",
+            "denominator": "3055934833",
+            "decimal": 579264228249435.9,
+            "log2_magnitude": 49.04121490432422
+          },
+          "strict_lower_bound_power_of_two_exponent": 45,
+          "strict_lower_bound": "2^45",
+          "amplification_bit_length": 81,
+          "checks": {
+            "dual_reconstructs_endpoint_coordinate": true,
+            "leading_coefficient_matches_closed_formula": true,
+            "l1_amplification_dominates_leading_coefficient": true,
+            "quadratic_exponential_lower_bound_is_strict": true,
+            "adversarial_unit_error_attains_l1_amplification": true
+          }
+        },
+        {
+          "moment_order_q": 12,
+          "support_size": 13,
+          "endpoint_leading_dual_coefficient": {
+            "exact": "22300745198530623141535718272648361505980416/87302158405919092510875",
+            "numerator": "22300745198530623141535718272648361505980416",
+            "denominator": "87302158405919092510875",
+            "decimal": 2.5544322850348486e+20,
+            "log2_magnitude": 67.79156458986017
+          },
+          "endpoint_l1_amplification": {
+            "exact": "53311469869191375310261661718282240/43788490222057",
+            "numerator": "53311469869191375310261661718282240",
+            "denominator": "43788490222057",
+            "decimal": 1.2174767752631372e+21,
+            "log2_magnitude": 70.04438424417648
+          },
+          "strict_lower_bound_power_of_two_exponent": 66,
+          "strict_lower_bound": "2^66",
+          "amplification_bit_length": 116,
+          "checks": {
+            "dual_reconstructs_endpoint_coordinate": true,
+            "leading_coefficient_matches_closed_formula": true,
+            "l1_amplification_dominates_leading_coefficient": true,
+            "quadratic_exponential_lower_bound_is_strict": true,
+            "adversarial_unit_error_attains_l1_amplification": true
+          }
+        },
+        {
+          "moment_order_q": 16,
+          "support_size": 17,
+          "endpoint_leading_dual_coefficient": {
+            "exact": "115792089237316195423570985008687907853269984665640564039457584007913129639936/25157374981998228022475852722520640286875",
+            "numerator": "115792089237316195423570985008687907853269984665640564039457584007913129639936",
+            "denominator": "25157374981998228022475852722520640286875",
+            "decimal": 4.6027095164011795e+36,
+            "log2_magnitude": 121.79189481082673
+          },
+          "endpoint_l1_amplification": {
+            "exact": "32757891802471629083968035244820935773741121060455895227432960/1492578905557377666181783",
+            "numerator": "32757891802471629083968035244820935773741121060455895227432960",
+            "denominator": "1492578905557377666181783",
+            "decimal": 2.1947175911774504e+37,
+            "log2_magnitude": 124.04537482142673
+          },
+          "strict_lower_bound_power_of_two_exponent": 120,
+          "strict_lower_bound": "2^120",
+          "amplification_bit_length": 205,
+          "checks": {
+            "dual_reconstructs_endpoint_coordinate": true,
+            "leading_coefficient_matches_closed_formula": true,
+            "l1_amplification_dominates_leading_coefficient": true,
+            "quadratic_exponential_lower_bound_is_strict": true,
+            "adversarial_unit_error_attains_l1_amplification": true
+          }
+        },
+        {
+          "moment_order_q": 56,
+          "support_size": 57,
+          "endpoint_leading_dual_coefficient": {
+            "exact": "107168314965678254660650132049318831979720018837783493670545379304687410762831436940198124586302617613104123153341074439768522769467112377165177261389384810027121619566825787613824754561611462995700961498187684843629585733103122369722945598558317226471786501283044595765494548760519443476477279450219550698617776905083897064882898053781253625230886508116784154245823080583816038969542221098055918191915976880347825182270145135640339079460700006833714441464346019115297885340023983166830242455797392246169607382370683304430110253091844701721839996180171614675174481947457183477336243520241819399265758730095769273809634745165924170331266087171045479302098908102187980257023293241500121955212016213365834240816777913209168270500259790927715894397491868277897450488750478356102939253433137628813750040071358669681813865990418636883486495786033909169683996402900867504467983258334796356006172419159043640546212508699546489591183928013756774781812736/802513534835447086417540393250988837415958155036314059393540249543569363191391591608151738418499087120429011416382951105151993973120735850258532196597943531174497508170774481860718970379979646474515107834251608646559335026362806917811352328306340360350629218449709848441174054191708797933453138569910524499026418111375769871051786578151614216146813445655113453132108124287488830760538621993355279746082429029966931590164757606997037819382816984321126477696092902074662322998046875",
+            "numerator": "107168314965678254660650132049318831979720018837783493670545379304687410762831436940198124586302617613104123153341074439768522769467112377165177261389384810027121619566825787613824754561611462995700961498187684843629585733103122369722945598558317226471786501283044595765494548760519443476477279450219550698617776905083897064882898053781253625230886508116784154245823080583816038969542221098055918191915976880347825182270145135640339079460700006833714441464346019115297885340023983166830242455797392246169607382370683304430110253091844701721839996180171614675174481947457183477336243520241819399265758730095769273809634745165924170331266087171045479302098908102187980257023293241500121955212016213365834240816777913209168270500259790927715894397491868277897450488750478356102939253433137628813750040071358669681813865990418636883486495786033909169683996402900867504467983258334796356006172419159043640546212508699546489591183928013756774781812736",
+            "denominator": "802513534835447086417540393250988837415958155036314059393540249543569363191391591608151738418499087120429011416382951105151993973120735850258532196597943531174497508170774481860718970379979646474515107834251608646559335026362806917811352328306340360350629218449709848441174054191708797933453138569910524499026418111375769871051786578151614216146813445655113453132108124287488830760538621993355279746082429029966931590164757606997037819382816984321126477696092902074662322998046875",
+            "decimal": null,
+            "log2_magnitude": 1541.791916824662
+          },
+          "endpoint_l1_amplification": {
+            "exact": "52142526025964125319260680038858393891763904533484554592370411830580431631104946390601589078952240455555319785965377947514048555121530485013644428542375116949390906985929583448299254419968925780039313049764101615010163218444875476818194748403973601293758878880535028143861693841156337609837522390164038134768891700189837767076126623756875410059632206597150057994334641818777417934392147104696101008386825054493902462697202499461295198781490863453330772751916303486123012984644603281725814331493687962200605924279399343305189592334108543044230015252263622962036021312299442172861484656769865138392348856270677515844784484646248941606033491846430728390293947306310607991700431544003568233038922402501508842242280614817507059198405854447854610644175684107363547329785196377328844800/81884122386063449488149792176159105278122276972139976607036821628021412733315439951644600415585338020640325798975385092447906717945028278412181629252107808822577519890896719774972074480181445030197653939061486667889156131427102260801942548324435990261806664046364617977904384603784945803740651000643796721659996633",
+            "numerator": "52142526025964125319260680038858393891763904533484554592370411830580431631104946390601589078952240455555319785965377947514048555121530485013644428542375116949390906985929583448299254419968925780039313049764101615010163218444875476818194748403973601293758878880535028143861693841156337609837522390164038134768891700189837767076126623756875410059632206597150057994334641818777417934392147104696101008386825054493902462697202499461295198781490863453330772751916303486123012984644603281725814331493687962200605924279399343305189592334108543044230015252263622962036021312299442172861484656769865138392348856270677515844784484646248941606033491846430728390293947306310607991700431544003568233038922402501508842242280614817507059198405854447854610644175684107363547329785196377328844800",
+            "denominator": "81884122386063449488149792176159105278122276972139976607036821628021412733315439951644600415585338020640325798975385092447906717945028278412181629252107808822577519890896719774972074480181445030197653939061486667889156131427102260801942548324435990261806664046364617977904384603784945803740651000643796721659996633",
+            "decimal": null,
+            "log2_magnitude": 1544.0454408625967
+          },
+          "strict_lower_bound_power_of_two_exponent": 1540,
+          "strict_lower_bound": "2^1540",
+          "amplification_bit_length": 2587,
+          "checks": {
+            "dual_reconstructs_endpoint_coordinate": true,
+            "leading_coefficient_matches_closed_formula": true,
+            "l1_amplification_dominates_leading_coefficient": true,
+            "quadratic_exponential_lower_bound_is_strict": true,
+            "adversarial_unit_error_attains_l1_amplification": true
+          }
+        }
+      ],
+      "row_count": 8,
+      "largest_order": 56,
+      "largest_lower_bound_exponent": 1540,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "localized or orthogonal arithmetic measurements with a uniformly controlled dual norm",
+      "discard": "high-order raw monomial moments on the power-of-two hard stratum as a numerically and analytically robust pointwise certificate",
+      "next_theorem": "LocalizedOrthogonalArithmeticK56DualCertificate"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-TD4b.2b.3a",
+          "label": "FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2b.4a",
+          "label": "PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2b.4b",
+          "label": "LocalizedOrthogonalArithmeticK56DualCertificate",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "GB",
+          "label": "Strong Goldbach Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-TD4b.2b.3a",
+          "GB-TD4b.2b.4a"
+        ],
+        [
+          "GB-TD4b.2b.4a",
+          "GB-TD4b.2b.4b"
+        ],
+        [
+          "GB-TD4b.2b.4b",
+          "GB"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "conditioning_order_count": 8,
+      "largest_lower_bound_exponent": 1540,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The null and conditioning vectors are linear-inference stress objects, not Goldbach residuals. This theorem rejects one raw-moment coordinate system; it neither constructs the localized arithmetic measurements nor proves a K=56 residual margin, a Goldbach representation, or a counterexample."
+  }
+}

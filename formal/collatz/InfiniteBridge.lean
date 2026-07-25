@@ -24,7 +24,8 @@ def theoremDecomposition : List String := [
   "CO-TD4b.2b.1 SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding closed",
   "CO-TD4b.2b.2 CollatzCycleDiophantineWindowAndVerifiedFloorExclusion closed",
   "CO-TD4b.2b.3 FixedCycleMinimumWindowEventuallyVacuousNoGo closed",
-  "CO-TD4b.2b.4 PeriodDependentCycleMinimumDiophantineSeparation highest_risk_open",
+  "CO-TD4b.2b.4a PeriodDependentFloorLinearGrowthBarrier closed",
+  "CO-TD4b.2b.4b CycleMinimumAboveExactPowerOfTwoWindowThreshold highest_risk_open",
   "CO-TD4b.2b.5 AffineCappedAperiodicNaturalCodeWellFoundedness open",
   "CO-TD5 CycleAndDivergenceExclusionBridge"
 ]
@@ -39,18 +40,18 @@ def rankedCegisTarget : String :=
   "CO-TICKET-128 separates unresolved lift cylinders from integer candidates and directly closes all 4027109 nontrivial 28-bit frontier representatives"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-140 PeriodDependentCycleMinimumDiophantineSeparation."
+  "CO-TICKET-141 CycleMinimumAboveExactPowerOfTwoWindowThreshold."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove a period-dependent lower bound for the cycle minimum and combine it with an explicit lower bound for |S log 2-k log 3|; fixed minimum floors are eventually vacuous."
+  "Prove that every hypothetical k-cycle minimum exceeds the exact threshold determined by 2^ceil(k log_2 3)/3^k; subcritical-linear floor growth is insufficient."
 
 def latestExactResult : String :=
-  "FixedCycleMinimumWindowEventuallyVacuousNoGo: for every fixed minimum floor M, the product window contains S=ceil(k log_2 3) for all k>=ceil(7(3M+1)/10)"
+  "PeriodDependentFloorLinearGrowthBarrier: avoiding automatic product-window vacuity requires asymptotic minimum-floor slope at least 1/(3 log 2)"
 
 def retiredRoute : String :=
   "treating the boundary ray -3^{-1} in Z_2 as a natural-integer obstruction"
 
 def retainedOpenPremise : String :=
-  "cycle minima grow with period fast enough to beat logarithmic approximation, and every aperiodic affine-capped natural code has a global well-founded descent certificate"
+  "cycle minima beat the exact power-of-two approximation threshold period by period, and every aperiodic affine-capped natural code has a global well-founded descent certificate"
 
 end PrimeProject.OpenProblems.Collatz

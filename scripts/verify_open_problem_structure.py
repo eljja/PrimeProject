@@ -137,6 +137,7 @@ TICKET137_SCHEMA = "primeproject.ticket137-cancellation-entropy-and-information-
 TICKET138_SCHEMA = "primeproject.ticket138-correlation-periodicity-and-scale-closure.v1"
 TICKET139_SCHEMA = "primeproject.ticket139-uniformity-diophantine-complexity.v1"
 TICKET140_SCHEMA = "primeproject.ticket140-spectral-moments-fixed-floor-duality-rotation.v1"
+TICKET141_SCHEMA = "primeproject.ticket141-one-sided-moving-floor-robust-dual-large-sieve.v1"
 
 
 def fail(message: str) -> int:
@@ -8034,6 +8035,49 @@ def main() -> int:
         return fail("ticket140 Twin Sobolev-rotation theorem changed")
     if "does not prove or refute" not in str(audit140.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket140.get("claim_boundary", "")).lower():
         return fail("ticket140 proof boundary changed")
+
+    path141 = Path("data/open-problem/ticket141-one-sided-moving-floor-robust-dual-large-sieve.json")
+    if not path141.exists():
+        return fail("missing ticket141 one-sided-moving-floor-robust-dual-large-sieve audit")
+    ticket141 = read_json(path141)
+    if ticket141.get("schema") != TICKET141_SCHEMA or ticket141.get("status") != "exact_intermediate_theorems_proved_all_conjectures_open":
+        return fail("ticket141 schema or status changed")
+    attempts141 = ticket141.get("attempts", [])
+    by_id141 = {str(row.get("problem_id")): row for row in attempts141 if isinstance(row, dict)} if isinstance(attempts141, list) else {}
+    if set(by_id141) != EXPECTED_PROBLEMS:
+        return fail("ticket141 attempts missing problems")
+    paths141 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-141-shifted-trace-moment.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-141-moving-floor-barrier.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-141-raw-moment-conditioning.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-141-bilinear-large-sieve.json"),
+    }
+    for problem_id, attempt in by_id141.items():
+        if not paths141[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket141 artifact or proof boundary missing")
+    audit141 = ticket141.get("one_sided_moving_floor_robust_dual_large_sieve_audit", {})
+    machine141 = audit141.get("machine_audit", {})
+    if audit141.get("theorem_name") != "FourConjectureOneSidedMovingFloorRobustDualLargeSieveAudit" or int(machine141.get("exact_theorem_count", -1)) != 4 or int(machine141.get("route_correction_count", -1)) != 4 or int(machine141.get("proof_dag_count", -1)) != 4 or int(machine141.get("conjecture_resolution_count", -1)) != 0 or int(machine141.get("total_failure_count", -1)) != 0:
+        return fail("ticket141 global machine audit changed")
+    riemann141 = audit141.get("riemann", {})
+    shifted141 = riemann141.get("shifted_trace_audit", {})
+    if riemann141.get("theorem_name") != "ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo" or len(shifted141.get("rows", [])) != 6 or int(shifted141.get("failure_count", -1)) != 0:
+        return fail("ticket141 RH shifted-trace theorem changed")
+    collatz141 = audit141.get("collatz", {})
+    moving141 = collatz141.get("moving_floor_audit", {})
+    moving_rows141 = moving141.get("rows", [])
+    if collatz141.get("theorem_name") != "PeriodDependentFloorLinearGrowthBarrier" or len(moving_rows141) != 6 or int(moving_rows141[-1].get("minimum_integer_floor_for_window_below_two", -1)) != 7879 or int(moving141.get("failure_count", -1)) != 0:
+        return fail("ticket141 Collatz moving-floor barrier changed")
+    goldbach141 = audit141.get("goldbach", {})
+    conditioning141 = goldbach141.get("raw_moment_conditioning_audit", {})
+    if goldbach141.get("theorem_name") != "PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo" or len(conditioning141.get("rows", [])) != 8 or int(conditioning141.get("largest_lower_bound_exponent", -1)) != 1540 or int(conditioning141.get("failure_count", -1)) != 0:
+        return fail("ticket141 Goldbach raw-moment conditioning changed")
+    twin141 = audit141.get("twin_prime", {})
+    sieve141 = twin141.get("bilinear_large_sieve_audit", {})
+    if twin141.get("theorem_name") != "QuadraticIrrationalBilinearLargeSieveCancellation" or len(sieve141.get("rows", [])) != 5 or int(sieve141.get("failure_count", -1)) != 0:
+        return fail("ticket141 Twin bilinear large-sieve theorem changed")
+    if "does not prove or refute" not in str(audit141.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket141.get("claim_boundary", "")).lower():
+        return fail("ticket141 proof boundary changed")
 
     print("open problem structure verified")
     return 0

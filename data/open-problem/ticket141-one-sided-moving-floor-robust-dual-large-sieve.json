@@ -1,0 +1,1022 @@
+{
+  "schema": "primeproject.ticket141-one-sided-moving-floor-robust-dual-large-sieve.v1",
+  "generated_at": "2026-07-30T12:00:00+09:00",
+  "status": "exact_intermediate_theorems_proved_all_conjectures_open",
+  "claim_boundary": "TICKET141 proves four exact intermediate, corollary, or proof-route no-go theorems and revises four proof targets. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime. No conjecture proof and no certified conjecture counterexample is claimed.",
+  "one_sided_moving_floor_robust_dual_large_sieve_audit": {
+    "theorem_name": "FourConjectureOneSidedMovingFloorRobustDualLargeSieveAudit",
+    "riemann": {
+      "theorem_name": "ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo",
+      "title_ko": "이동 trace moment 단측 인증과 부호 맹목성 한계 정리",
+      "declared_target": "Test whether TICKET140 even moments contain the one-sided spectral information needed for projected Weil positivity, and replace them by a sign-sensitive computable certificate.",
+      "proved_statement": "Let E be self-adjoint with lambda_max(E)<=R and let A>=gI. For every m>=1, if tr((RI-E)^(2m))<(R+g)^(2m), then A+E>0. Indeed RI-E is positive semidefinite and its spectral radius is R-lambda_min(E). In contrast, the complete sequence of even moments tr(E^(2m)) is sign-blind: E=cI and E=-cI have identical even moments, while for A=gI and c>g the first perturbation is positive and the second is not. Therefore even moments of E alone cannot be a sound-and-complete positivity decision rule.",
+      "proved_statement_ko": "E가 자기수반이고 lambda_max(E)<=R, A>=gI라 하자. m>=1에서 tr((RI-E)^(2m))<(R+g)^(2m)이면 A+E>0이다. RI-E의 spectral radius가 R-lambda_min(E)이므로 이 이동 moment는 음의 spectral edge를 직접 본다. 반면 E=cI와 E=-cI는 모든 짝수 moment가 같지만 c>g일 때 A=gI에 대한 양의 정부호 여부는 반대다. 따라서 E의 짝수 moment만으로는 positivity를 필요충분하게 판정할 수 없다.",
+      "proof": "The eigenvalues of F=RI-E are R-lambda_i(E), all nonnegative. Hence rho(F)^(2m)<=tr(F^(2m)). The strict trace inequality gives R-lambda_min(E)=rho(F)<R+g, so lambda_min(E)>-g. Weyl's lower bound yields lambda_min(A+E)>=g+lambda_min(E)>0. For the no-go, all even powers of cI and -cI have the same trace, but gI+cI>0 and gI-cI has negative eigenvalue when c>g.",
+      "exact_contract": {
+        "upper_spectral_input": "lambda_max(E)<=R",
+        "one_sided_certificate": "tr((RI-E)^(2m))<(R+g)^(2m) implies A+E>0",
+        "sign_blind_family": "E=cI versus E=-cI with c>g",
+        "scope": "finite-dimensional certificate; projected Weil estimate open"
+      },
+      "shifted_trace_audit": {
+        "rows": [
+          {
+            "rank": 4,
+            "moment_order_m": 4,
+            "spike_c": {
+              "exact": "6/5",
+              "numerator": "6",
+              "denominator": "5",
+              "decimal": 1.2
+            },
+            "base_gap_g": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "common_even_trace_moment": {
+              "exact": "6718464/390625",
+              "numerator": "6718464",
+              "denominator": "390625",
+              "decimal": 17.19926784
+            },
+            "positive_shifted_trace_moment": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "negative_shifted_trace_moment": {
+              "exact": "1719926784/390625",
+              "numerator": "1719926784",
+              "denominator": "390625",
+              "decimal": 4403.01256704
+            },
+            "shifted_threshold_moment": {
+              "exact": "214358881/390625",
+              "numerator": "214358881",
+              "denominator": "390625",
+              "decimal": 548.75873536
+            },
+            "checks": {
+              "opposite_spikes_have_identical_even_moments": true,
+              "positive_spike_passes_shifted_certificate": true,
+              "negative_spike_fails_shifted_certificate": true,
+              "positive_base_sum_is_strictly_positive": true,
+              "negative_base_sum_is_not_positive": true
+            }
+          },
+          {
+            "rank": 16,
+            "moment_order_m": 8,
+            "spike_c": {
+              "exact": "6/5",
+              "numerator": "6",
+              "denominator": "5",
+              "decimal": 1.2
+            },
+            "base_gap_g": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "common_even_trace_moment": {
+              "exact": "45137758519296/152587890625",
+              "numerator": "45137758519296",
+              "denominator": "152587890625",
+              "decimal": 295.81481423205827
+            },
+            "positive_shifted_trace_moment": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "negative_shifted_trace_moment": {
+              "exact": "2958148142320582656/152587890625",
+              "numerator": "2958148142320582656",
+              "denominator": "152587890625",
+              "decimal": 19386519.66551217
+            },
+            "shifted_threshold_moment": {
+              "exact": "45949729863572161/152587890625",
+              "numerator": "45949729863572161",
+              "denominator": "152587890625",
+              "decimal": 301136.1496339065
+            },
+            "checks": {
+              "opposite_spikes_have_identical_even_moments": true,
+              "positive_spike_passes_shifted_certificate": true,
+              "negative_spike_fails_shifted_certificate": true,
+              "positive_base_sum_is_strictly_positive": true,
+              "negative_base_sum_is_not_positive": true
+            }
+          },
+          {
+            "rank": 64,
+            "moment_order_m": 12,
+            "spike_c": {
+              "exact": "6/5",
+              "numerator": "6",
+              "denominator": "5",
+              "decimal": 1.2
+            },
+            "base_gap_g": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "common_even_trace_moment": {
+              "exact": "303256405652583481344/59604644775390625",
+              "numerator": "303256405652583481344",
+              "denominator": "59604644775390625",
+              "decimal": 5087.798221017014
+            },
+            "positive_shifted_trace_moment": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "negative_shifted_trace_moment": {
+              "exact": "5087798221017014024540258304/59604644775390625",
+              "numerator": "5087798221017014024540258304",
+              "denominator": "59604644775390625",
+              "decimal": 85359089718.41818
+            },
+            "shifted_threshold_moment": {
+              "exact": "9849732675807611094711841/59604644775390625",
+              "numerator": "9849732675807611094711841",
+              "denominator": "59604644775390625",
+              "decimal": 165251092.64428225
+            },
+            "checks": {
+              "opposite_spikes_have_identical_even_moments": true,
+              "positive_spike_passes_shifted_certificate": true,
+              "negative_spike_fails_shifted_certificate": true,
+              "positive_base_sum_is_strictly_positive": true,
+              "negative_base_sum_is_not_positive": true
+            }
+          },
+          {
+            "rank": 256,
+            "moment_order_m": 16,
+            "spike_c": {
+              "exact": "6/5",
+              "numerator": "6",
+              "denominator": "5",
+              "decimal": 1.2
+            },
+            "base_gap_g": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "common_even_trace_moment": {
+              "exact": "2037417244146278626404335616/23283064365386962890625",
+              "numerator": "2037417244146278626404335616",
+              "denominator": "23283064365386962890625",
+              "decimal": 87506.40431914714
+            },
+            "positive_shifted_trace_moment": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "negative_shifted_trace_moment": {
+              "exact": "8750640431914714140510423543328014336/23283064365386962890625",
+              "numerator": "8750640431914714140510423543328014336",
+              "denominator": "23283064365386962890625",
+              "decimal": 375837144741290.1
+            },
+            "shifted_threshold_moment": {
+              "exact": "2111377674535255285545615254209921/23283064365386962890625",
+              "numerator": "2111377674535255285545615254209921",
+              "denominator": "23283064365386962890625",
+              "decimal": 90682980616.33453
+            },
+            "checks": {
+              "opposite_spikes_have_identical_even_moments": true,
+              "positive_spike_passes_shifted_certificate": true,
+              "negative_spike_fails_shifted_certificate": true,
+              "positive_base_sum_is_strictly_positive": true,
+              "negative_base_sum_is_not_positive": true
+            }
+          },
+          {
+            "rank": 1024,
+            "moment_order_m": 20,
+            "spike_c": {
+              "exact": "6/5",
+              "numerator": "6",
+              "denominator": "5",
+              "decimal": 1.2
+            },
+            "base_gap_g": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "common_even_trace_moment": {
+              "exact": "13688314407775983685466978280013824/9094947017729282379150390625",
+              "numerator": "13688314407775983685466978280013824",
+              "denominator": "9094947017729282379150390625",
+              "decimal": 1505046.0856003445
+            },
+            "positive_shifted_trace_moment": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "negative_shifted_trace_moment": {
+              "exact": "15050460856003445253967416883354036354022375424/9094947017729282379150390625",
+              "numerator": "15050460856003445253967416883354036354022375424",
+              "denominator": "9094947017729282379150390625",
+              "decimal": 1.6548156714563318e+18
+            },
+            "shifted_threshold_moment": {
+              "exact": "452592555681759518058893560348969204658401/9094947017729282379150390625",
+              "numerator": "452592555681759518058893560348969204658401",
+              "denominator": "9094947017729282379150390625",
+              "decimal": 49763077761695.13
+            },
+            "checks": {
+              "opposite_spikes_have_identical_even_moments": true,
+              "positive_spike_passes_shifted_certificate": true,
+              "negative_spike_fails_shifted_certificate": true,
+              "positive_base_sum_is_strictly_positive": true,
+              "negative_base_sum_is_not_positive": true
+            }
+          },
+          {
+            "rank": 4096,
+            "moment_order_m": 23,
+            "spike_c": {
+              "exact": "6/5",
+              "numerator": "6",
+              "denominator": "5",
+              "decimal": 1.2
+            },
+            "base_gap_g": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "common_even_trace_moment": {
+              "exact": "2554567988036785179316589354529299890176/142108547152020037174224853515625",
+              "numerator": "2554567988036785179316589354529299890176",
+              "denominator": "142108547152020037174224853515625",
+              "decimal": 17976174.123461038
+            },
+            "positive_shifted_trace_moment": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "negative_shifted_trace_moment": {
+              "exact": "179761741234610365892890573340100075554116594632228864/142108547152020037174224853515625",
+              "numerator": "179761741234610365892890573340100075554116594632228864",
+              "denominator": "142108547152020037174224853515625",
+              "decimal": 1.2649607981869732e+21
+            },
+            "shifted_threshold_moment": {
+              "exact": "801795320536133573571931534665380233173841533961/142108547152020037174224853515625",
+              "numerator": "801795320536133573571931534665380233173841533961",
+              "denominator": "142108547152020037174224853515625",
+              "decimal": 5642132979365529.0
+            },
+            "checks": {
+              "opposite_spikes_have_identical_even_moments": true,
+              "positive_spike_passes_shifted_certificate": true,
+              "negative_spike_fails_shifted_certificate": true,
+              "positive_base_sum_is_strictly_positive": true,
+              "negative_base_sum_is_not_positive": true
+            }
+          }
+        ],
+        "row_count": 6,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "shifted one-sided moments of the actual projected Weil tail with an independently proved upper spectral bound",
+        "discard": "unshifted even moments of the tail as a necessary-and-sufficient positivity decision rule",
+        "next_theorem": "ProjectedWeilShiftedLogMomentBelowTailGap"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-TD4b.2b.3a",
+            "label": "EvenTraceMomentSpectralCertificateAndLogOrderBarrier",
+            "status": "closed"
+          },
+          {
+            "id": "RH-TD4b.2b.4a",
+            "label": "ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-TD4b.2b.4b",
+            "label": "ProjectedWeilShiftedLogMomentBelowTailGap",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-TD4b.2b.3a",
+            "RH-TD4b.2b.4a"
+          ],
+          [
+            "RH-TD4b.2b.4a",
+            "RH-TD4b.2b.4b"
+          ],
+          [
+            "RH-TD4b.2b.4b",
+            "RH"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "shifted_trace_row_count": 6,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The theorem is exact finite-dimensional spectral algebra. It does not prove the required upper spectral bound or shifted trace estimates for the projected Weil operator, does not close the infinite test-function limit, and proves no RH implication or counterexample."
+    },
+    "collatz": {
+      "theorem_name": "PeriodDependentFloorLinearGrowthBarrier",
+      "title_ko": "주기 의존 최솟값 하한의 선형 성장 장벽 정리",
+      "declared_target": "Attack the TICKET140 period-dependent cycle-minimum route by determining the minimum growth rate needed merely to keep its relaxed Diophantine window from becoming automatically vacuous.",
+      "proved_statement": "Let M_k>=1 be a period-dependent lower bound for the minimum element of a hypothetical positive k-cycle. The TICKET139 window has upper factor U_k=(1+1/(3M_k))^k. Since q_k=2^ceil(k log_2 3)/3^k lies strictly between one and two, U_k>=2 automatically leaves q_k inside the relaxed window. Avoiding this automatic failure requires M_k>1/(3(2^(1/k)-1)). The threshold divided by k tends to 1/(3 log 2). Consequently every floor with limsup M_k/k<1/(3 log 2) is eventually insufficient.",
+      "proved_statement_ko": "가상 양의 k-cycle의 최솟값 하한을 M_k라 하자. TICKET139 창의 상단은 U_k=(1+1/(3M_k))^k이다. q_k=2^ceil(k log_2 3)/3^k는 항상 1과 2 사이이므로 U_k>=2이면 완화 창이 q_k를 자동으로 허용한다. 이를 피하려면 M_k>1/(3(2^(1/k)-1))가 필요하고, 이 임계값을 k로 나눈 값은 1/(3 log 2)로 수렴한다. 따라서 그보다 작은 선형 기울기의 주기 의존 하한은 결국 충분하지 않다.",
+      "proof": "The candidate q_k is in (1,2) by irrationality of log_2 3. Thus U_k>=2 places q_k below the upper endpoint. Because the map M -> (1+1/(3M))^k is strictly decreasing, U_k<2 is equivalent to M>1/(3(2^(1/k)-1)). Finally k(2^(1/k)-1) tends to log 2, giving the stated slope and the limsup consequence.",
+      "exact_contract": {
+        "automatic_vacuity": "(1+1/(3M_k))^k>=2 leaves 2^ceil(k log_2 3)/3^k in the relaxed window",
+        "necessary_floor_threshold": "M_k>1/(3(2^(1/k)-1))",
+        "asymptotic_slope": "1/(3 log 2)",
+        "scope": "necessary condition only; no cycle construction"
+      },
+      "moving_floor_audit": {
+        "rows": [
+          {
+            "period_k": 16,
+            "minimum_integer_floor_for_window_below_two": 8,
+            "floor_to_period_ratio": 0.5,
+            "asymptotic_required_slope": 0.48089834696298783,
+            "ratio_error": 0.019101653037012167,
+            "checks": {
+              "minimum_floor_makes_window_strictly_below_two": true,
+              "previous_floor_keeps_window_at_least_two": true,
+              "ratio_is_positive": true
+            }
+          },
+          {
+            "period_k": 64,
+            "minimum_integer_floor_for_window_below_two": 31,
+            "floor_to_period_ratio": 0.484375,
+            "asymptotic_required_slope": 0.48089834696298783,
+            "ratio_error": 0.0034766530370121673,
+            "checks": {
+              "minimum_floor_makes_window_strictly_below_two": true,
+              "previous_floor_keeps_window_at_least_two": true,
+              "ratio_is_positive": true
+            }
+          },
+          {
+            "period_k": 256,
+            "minimum_integer_floor_for_window_below_two": 123,
+            "floor_to_period_ratio": 0.48046875,
+            "asymptotic_required_slope": 0.48089834696298783,
+            "ratio_error": -0.0004295969629878327,
+            "checks": {
+              "minimum_floor_makes_window_strictly_below_two": true,
+              "previous_floor_keeps_window_at_least_two": true,
+              "ratio_is_positive": true
+            }
+          },
+          {
+            "period_k": 1024,
+            "minimum_integer_floor_for_window_below_two": 493,
+            "floor_to_period_ratio": 0.4814453125,
+            "asymptotic_required_slope": 0.48089834696298783,
+            "ratio_error": 0.0005469655370121673,
+            "checks": {
+              "minimum_floor_makes_window_strictly_below_two": true,
+              "previous_floor_keeps_window_at_least_two": true,
+              "ratio_is_positive": true
+            }
+          },
+          {
+            "period_k": 4096,
+            "minimum_integer_floor_for_window_below_two": 1970,
+            "floor_to_period_ratio": 0.48095703125,
+            "asymptotic_required_slope": 0.48089834696298783,
+            "ratio_error": 5.8684287012167324e-05,
+            "checks": {
+              "minimum_floor_makes_window_strictly_below_two": true,
+              "previous_floor_keeps_window_at_least_two": true,
+              "ratio_is_positive": true
+            }
+          },
+          {
+            "period_k": 16384,
+            "minimum_integer_floor_for_window_below_two": 7879,
+            "floor_to_period_ratio": 0.48089599609375,
+            "asymptotic_required_slope": 0.48089834696298783,
+            "ratio_error": -2.3508692378326757e-06,
+            "checks": {
+              "minimum_floor_makes_window_strictly_below_two": true,
+              "previous_floor_keeps_window_at_least_two": true,
+              "ratio_is_positive": true
+            }
+          }
+        ],
+        "row_count": 6,
+        "asymptotic_required_slope": 0.48089834696298783,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "a cycle-minimum lower bound that beats the exact power-of-two approximation threshold for each period",
+        "discard": "every subcritical-linear period-dependent minimum floor as an all-period exclusion through the relaxed product window",
+        "next_theorem": "CycleMinimumAboveExactPowerOfTwoWindowThreshold"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-TD4b.2b.3a",
+            "label": "FixedCycleMinimumWindowEventuallyVacuousNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-TD4b.2b.4a",
+            "label": "PeriodDependentFloorLinearGrowthBarrier",
+            "status": "closed"
+          },
+          {
+            "id": "CO-TD4b.2b.4b",
+            "label": "CycleMinimumAboveExactPowerOfTwoWindowThreshold",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO-TD4c",
+            "label": "AperiodicNaturalCodeWellFoundedness",
+            "status": "open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-TD4b.2b.3a",
+            "CO-TD4b.2b.4a"
+          ],
+          [
+            "CO-TD4b.2b.4a",
+            "CO-TD4b.2b.4b"
+          ],
+          [
+            "CO-TD4b.2b.4b",
+            "CO"
+          ],
+          [
+            "CO-TD4c",
+            "CO"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "moving_floor_row_count": 6,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "This is a sharp necessary-growth theorem for one relaxed cycle window. It neither supplies the required cycle-minimum lower bound nor realizes a valuation word or integer cycle. It says nothing about divergent aperiodic trajectories and is not a Collatz proof or counterexample."
+    },
+    "goldbach": {
+      "theorem_name": "PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo",
+      "title_ko": "거듭제곱 2 원시 모멘트 dual의 이차지수 조건수 한계 정리",
+      "declared_target": "Test whether the TICKET140 exact row-space dual can be made robust enough for a pointwise Goldbach residual certificate when the available measurements are raw monomial moments.",
+      "proved_statement": "On q+1 normalized power-of-two nodes x_i=2^(i-q), the unique degree-q polynomial dual that reconstructs the first coordinate from moments 0 through q has leading coefficient 2^(q^2)/product_(j=1)^q(2^j-1), which is strictly larger than 2^(q(q-1)/2). Its l1 norm is at least this large. If every raw moment has independent error at most epsilon, the worst-case endpoint reconstruction error is exactly epsilon times the dual l1 norm. Thus raw monomial moments are quadratically exponentially ill-conditioned for this pointwise task.",
+      "proved_statement_ko": "정규화된 q+1개 거듭제곱 2 점 x_i=2^(i-q)에서 0차부터 q차 모멘트로 첫 좌표를 복원하는 유일한 dual 다항식의 최고차 계수 절댓값은 2^(q^2)/product(2^j-1)이고 2^(q(q-1)/2)보다 크다. dual의 l1 norm도 최소 이만큼 크며, 각 원시 모멘트 오차가 epsilon 이하이면 최악의 복원 오차는 정확히 epsilon 곱하기 dual l1 norm이다. 따라서 이 원시 모멘트 좌표계는 점별 Goldbach residual 인증에 매우 불안정하다.",
+      "proof": "The endpoint Lagrange polynomial is L_0(x)=product_(j=1)^q(x-x_j)/(x_0-x_j). Its leading coefficient has magnitude 1/product_(j=1)^q(x_j-x_0). Since x_j-x_0=(2^j-1)/2^q, the displayed closed formula follows. Replacing every factor 2^j-1 by the larger 2^j gives the strict lower bound 2^(q^2-q(q+1)/2)=2^(q(q-1)/2). The l1 statement is immediate, and choosing each measurement error with the sign of the matching dual coefficient attains epsilon||lambda||_1.",
+      "exact_contract": {
+        "nodes": "x_i=2^(i-q), 0<=i<=q",
+        "leading_dual_coefficient": "2^(q^2)/product_(j=1)^q(2^j-1)",
+        "conditioning_lower_bound": "||lambda||_1>2^(q(q-1)/2)",
+        "robust_error": "worst endpoint error=epsilon||lambda||_1"
+      },
+      "raw_moment_conditioning_audit": {
+        "rows": [
+          {
+            "moment_order_q": 2,
+            "support_size": 3,
+            "endpoint_leading_dual_coefficient": {
+              "exact": "16/3",
+              "numerator": "16",
+              "denominator": "3",
+              "decimal": 5.333333333333333,
+              "log2_magnitude": 2.415037499278844
+            },
+            "endpoint_l1_amplification": {
+              "exact": "16",
+              "numerator": "16",
+              "denominator": "1",
+              "decimal": 16.0,
+              "log2_magnitude": 4.0
+            },
+            "strict_lower_bound_power_of_two_exponent": 1,
+            "strict_lower_bound": "2^1",
+            "amplification_bit_length": 5,
+            "checks": {
+              "dual_reconstructs_endpoint_coordinate": true,
+              "leading_coefficient_matches_closed_formula": true,
+              "l1_amplification_dominates_leading_coefficient": true,
+              "quadratic_exponential_lower_bound_is_strict": true,
+              "adversarial_unit_error_attains_l1_amplification": true
+            }
+          },
+          {
+            "moment_order_q": 4,
+            "support_size": 5,
+            "endpoint_leading_dual_coefficient": {
+              "exact": "65536/315",
+              "numerator": "65536",
+              "denominator": "315",
+              "decimal": 208.05079365079365,
+              "log2_magnitude": 7.700791981612721
+            },
+            "endpoint_l1_amplification": {
+              "exact": "6144/7",
+              "numerator": "6144",
+              "denominator": "7",
+              "decimal": 877.7142857142857,
+              "log2_magnitude": 9.777607578663552
+            },
+            "strict_lower_bound_power_of_two_exponent": 6,
+            "strict_lower_bound": "2^6",
+            "amplification_bit_length": 13,
+            "checks": {
+              "dual_reconstructs_endpoint_coordinate": true,
+              "leading_coefficient_matches_closed_formula": true,
+              "l1_amplification_dominates_leading_coefficient": true,
+              "quadratic_exponential_lower_bound_is_strict": true,
+              "adversarial_unit_error_attains_l1_amplification": true
+            }
+          },
+          {
+            "moment_order_q": 6,
+            "support_size": 7,
+            "endpoint_leading_dual_coefficient": {
+              "exact": "68719476736/615195",
+              "numerator": "68719476736",
+              "denominator": "615195",
+              "decimal": 111703.56835800031,
+              "log2_magnitude": 16.76931574772593
+            },
+            "endpoint_l1_amplification": {
+              "exact": "784334848/1519",
+              "numerator": "784334848",
+              "denominator": "1519",
+              "decimal": 516349.47202106647,
+              "log2_magnitude": 18.97798830538555
+            },
+            "strict_lower_bound_power_of_two_exponent": 15,
+            "strict_lower_bound": "2^15",
+            "amplification_bit_length": 30,
+            "checks": {
+              "dual_reconstructs_endpoint_coordinate": true,
+              "leading_coefficient_matches_closed_formula": true,
+              "l1_amplification_dominates_leading_coefficient": true,
+              "quadratic_exponential_lower_bound_is_strict": true,
+              "adversarial_unit_error_attains_l1_amplification": true
+            }
+          },
+          {
+            "moment_order_q": 8,
+            "support_size": 9,
+            "endpoint_leading_dual_coefficient": {
+              "exact": "18446744073709551616/19923090075",
+              "numerator": "18446744073709551616",
+              "denominator": "19923090075",
+              "decimal": 925897739.972425,
+              "log2_magnitude": 29.786277624094907
+            },
+            "endpoint_l1_amplification": {
+              "exact": "845112124899328/192913",
+              "numerator": "845112124899328",
+              "denominator": "192913",
+              "decimal": 4380794062.086681,
+              "log2_magnitude": 32.02854525020624
+            },
+            "strict_lower_bound_power_of_two_exponent": 28,
+            "strict_lower_bound": "2^28",
+            "amplification_bit_length": 50,
+            "checks": {
+              "dual_reconstructs_endpoint_coordinate": true,
+              "leading_coefficient_matches_closed_formula": true,
+              "l1_amplification_dominates_leading_coefficient": true,
+              "quadratic_exponential_lower_bound_is_strict": true,
+              "adversarial_unit_error_attains_l1_amplification": true
+            }
+          },
+          {
+            "moment_order_q": 10,
+            "support_size": 11,
+            "endpoint_leading_dual_coefficient": {
+              "exact": "1267650600228229401496703205376/10414855105976475",
+              "numerator": "1267650600228229401496703205376",
+              "denominator": "10414855105976475",
+              "decimal": 121715625165135.42,
+              "log2_magnitude": 46.790507713411955
+            },
+            "endpoint_l1_amplification": {
+              "exact": "1770193732618313822896128/3055934833",
+              "numerator": "1770193732618313822896128",
+              "denominator": "3055934833",
+              "decimal": 579264228249435.9,
+              "log2_magnitude": 49.04121490432422
+            },
+            "strict_lower_bound_power_of_two_exponent": 45,
+            "strict_lower_bound": "2^45",
+            "amplification_bit_length": 81,
+            "checks": {
+              "dual_reconstructs_endpoint_coordinate": true,
+              "leading_coefficient_matches_closed_formula": true,
+              "l1_amplification_dominates_leading_coefficient": true,
+              "quadratic_exponential_lower_bound_is_strict": true,
+              "adversarial_unit_error_attains_l1_amplification": true
+            }
+          },
+          {
+            "moment_order_q": 12,
+            "support_size": 13,
+            "endpoint_leading_dual_coefficient": {
+              "exact": "22300745198530623141535718272648361505980416/87302158405919092510875",
+              "numerator": "22300745198530623141535718272648361505980416",
+              "denominator": "87302158405919092510875",
+              "decimal": 2.5544322850348486e+20,
+              "log2_magnitude": 67.79156458986017
+            },
+            "endpoint_l1_amplification": {
+              "exact": "53311469869191375310261661718282240/43788490222057",
+              "numerator": "53311469869191375310261661718282240",
+              "denominator": "43788490222057",
+              "decimal": 1.2174767752631372e+21,
+              "log2_magnitude": 70.04438424417648
+            },
+            "strict_lower_bound_power_of_two_exponent": 66,
+            "strict_lower_bound": "2^66",
+            "amplification_bit_length": 116,
+            "checks": {
+              "dual_reconstructs_endpoint_coordinate": true,
+              "leading_coefficient_matches_closed_formula": true,
+              "l1_amplification_dominates_leading_coefficient": true,
+              "quadratic_exponential_lower_bound_is_strict": true,
+              "adversarial_unit_error_attains_l1_amplification": true
+            }
+          },
+          {
+            "moment_order_q": 16,
+            "support_size": 17,
+            "endpoint_leading_dual_coefficient": {
+              "exact": "115792089237316195423570985008687907853269984665640564039457584007913129639936/25157374981998228022475852722520640286875",
+              "numerator": "115792089237316195423570985008687907853269984665640564039457584007913129639936",
+              "denominator": "25157374981998228022475852722520640286875",
+              "decimal": 4.6027095164011795e+36,
+              "log2_magnitude": 121.79189481082673
+            },
+            "endpoint_l1_amplification": {
+              "exact": "32757891802471629083968035244820935773741121060455895227432960/1492578905557377666181783",
+              "numerator": "32757891802471629083968035244820935773741121060455895227432960",
+              "denominator": "1492578905557377666181783",
+              "decimal": 2.1947175911774504e+37,
+              "log2_magnitude": 124.04537482142673
+            },
+            "strict_lower_bound_power_of_two_exponent": 120,
+            "strict_lower_bound": "2^120",
+            "amplification_bit_length": 205,
+            "checks": {
+              "dual_reconstructs_endpoint_coordinate": true,
+              "leading_coefficient_matches_closed_formula": true,
+              "l1_amplification_dominates_leading_coefficient": true,
+              "quadratic_exponential_lower_bound_is_strict": true,
+              "adversarial_unit_error_attains_l1_amplification": true
+            }
+          },
+          {
+            "moment_order_q": 56,
+            "support_size": 57,
+            "endpoint_leading_dual_coefficient": {
+              "exact": "107168314965678254660650132049318831979720018837783493670545379304687410762831436940198124586302617613104123153341074439768522769467112377165177261389384810027121619566825787613824754561611462995700961498187684843629585733103122369722945598558317226471786501283044595765494548760519443476477279450219550698617776905083897064882898053781253625230886508116784154245823080583816038969542221098055918191915976880347825182270145135640339079460700006833714441464346019115297885340023983166830242455797392246169607382370683304430110253091844701721839996180171614675174481947457183477336243520241819399265758730095769273809634745165924170331266087171045479302098908102187980257023293241500121955212016213365834240816777913209168270500259790927715894397491868277897450488750478356102939253433137628813750040071358669681813865990418636883486495786033909169683996402900867504467983258334796356006172419159043640546212508699546489591183928013756774781812736/802513534835447086417540393250988837415958155036314059393540249543569363191391591608151738418499087120429011416382951105151993973120735850258532196597943531174497508170774481860718970379979646474515107834251608646559335026362806917811352328306340360350629218449709848441174054191708797933453138569910524499026418111375769871051786578151614216146813445655113453132108124287488830760538621993355279746082429029966931590164757606997037819382816984321126477696092902074662322998046875",
+              "numerator": "107168314965678254660650132049318831979720018837783493670545379304687410762831436940198124586302617613104123153341074439768522769467112377165177261389384810027121619566825787613824754561611462995700961498187684843629585733103122369722945598558317226471786501283044595765494548760519443476477279450219550698617776905083897064882898053781253625230886508116784154245823080583816038969542221098055918191915976880347825182270145135640339079460700006833714441464346019115297885340023983166830242455797392246169607382370683304430110253091844701721839996180171614675174481947457183477336243520241819399265758730095769273809634745165924170331266087171045479302098908102187980257023293241500121955212016213365834240816777913209168270500259790927715894397491868277897450488750478356102939253433137628813750040071358669681813865990418636883486495786033909169683996402900867504467983258334796356006172419159043640546212508699546489591183928013756774781812736",
+              "denominator": "802513534835447086417540393250988837415958155036314059393540249543569363191391591608151738418499087120429011416382951105151993973120735850258532196597943531174497508170774481860718970379979646474515107834251608646559335026362806917811352328306340360350629218449709848441174054191708797933453138569910524499026418111375769871051786578151614216146813445655113453132108124287488830760538621993355279746082429029966931590164757606997037819382816984321126477696092902074662322998046875",
+              "decimal": null,
+              "log2_magnitude": 1541.791916824662
+            },
+            "endpoint_l1_amplification": {
+              "exact": "52142526025964125319260680038858393891763904533484554592370411830580431631104946390601589078952240455555319785965377947514048555121530485013644428542375116949390906985929583448299254419968925780039313049764101615010163218444875476818194748403973601293758878880535028143861693841156337609837522390164038134768891700189837767076126623756875410059632206597150057994334641818777417934392147104696101008386825054493902462697202499461295198781490863453330772751916303486123012984644603281725814331493687962200605924279399343305189592334108543044230015252263622962036021312299442172861484656769865138392348856270677515844784484646248941606033491846430728390293947306310607991700431544003568233038922402501508842242280614817507059198405854447854610644175684107363547329785196377328844800/81884122386063449488149792176159105278122276972139976607036821628021412733315439951644600415585338020640325798975385092447906717945028278412181629252107808822577519890896719774972074480181445030197653939061486667889156131427102260801942548324435990261806664046364617977904384603784945803740651000643796721659996633",
+              "numerator": "52142526025964125319260680038858393891763904533484554592370411830580431631104946390601589078952240455555319785965377947514048555121530485013644428542375116949390906985929583448299254419968925780039313049764101615010163218444875476818194748403973601293758878880535028143861693841156337609837522390164038134768891700189837767076126623756875410059632206597150057994334641818777417934392147104696101008386825054493902462697202499461295198781490863453330772751916303486123012984644603281725814331493687962200605924279399343305189592334108543044230015252263622962036021312299442172861484656769865138392348856270677515844784484646248941606033491846430728390293947306310607991700431544003568233038922402501508842242280614817507059198405854447854610644175684107363547329785196377328844800",
+              "denominator": "81884122386063449488149792176159105278122276972139976607036821628021412733315439951644600415585338020640325798975385092447906717945028278412181629252107808822577519890896719774972074480181445030197653939061486667889156131427102260801942548324435990261806664046364617977904384603784945803740651000643796721659996633",
+              "decimal": null,
+              "log2_magnitude": 1544.0454408625967
+            },
+            "strict_lower_bound_power_of_two_exponent": 1540,
+            "strict_lower_bound": "2^1540",
+            "amplification_bit_length": 2587,
+            "checks": {
+              "dual_reconstructs_endpoint_coordinate": true,
+              "leading_coefficient_matches_closed_formula": true,
+              "l1_amplification_dominates_leading_coefficient": true,
+              "quadratic_exponential_lower_bound_is_strict": true,
+              "adversarial_unit_error_attains_l1_amplification": true
+            }
+          }
+        ],
+        "row_count": 8,
+        "largest_order": 56,
+        "largest_lower_bound_exponent": 1540,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "localized or orthogonal arithmetic measurements with a uniformly controlled dual norm",
+        "discard": "high-order raw monomial moments on the power-of-two hard stratum as a numerically and analytically robust pointwise certificate",
+        "next_theorem": "LocalizedOrthogonalArithmeticK56DualCertificate"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-TD4b.2b.3a",
+            "label": "FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-TD4b.2b.4a",
+            "label": "PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-TD4b.2b.4b",
+            "label": "LocalizedOrthogonalArithmeticK56DualCertificate",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-TD4b.2b.3a",
+            "GB-TD4b.2b.4a"
+          ],
+          [
+            "GB-TD4b.2b.4a",
+            "GB-TD4b.2b.4b"
+          ],
+          [
+            "GB-TD4b.2b.4b",
+            "GB"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "conditioning_order_count": 8,
+        "largest_lower_bound_exponent": 1540,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The null and conditioning vectors are linear-inference stress objects, not Goldbach residuals. This theorem rejects one raw-moment coordinate system; it neither constructs the localized arithmetic measurements nor proves a K=56 residual margin, a Goldbach representation, or a counterexample."
+    },
+    "twin_prime": {
+      "theorem_name": "QuadraticIrrationalBilinearLargeSieveCancellation",
+      "title_ko": "이차 무리수 쌍선형 large-sieve 상쇄 정리",
+      "declared_target": "Insert arbitrary separable Type-II-style coefficients into the TICKET140 sqrt(2) phase and prove a sample-length-uniform power saving rather than an unweighted rotation estimate.",
+      "proved_statement": "For arbitrary complex vectors a_1,...,a_M and b_1,...,b_N, |sum_(m<=M,n<=N) a_m b_n e(sqrt(2)mn)| is at most sqrt(M+4N)||a||_2||b||_2. In particular, if both coefficient sequences are bounded by one, the ratio to the trivial MN bound is at most sqrt(1/N+4/M), and for M=N=L this is sqrt(5/L).",
+      "proved_statement_ko": "임의의 복소 계수 a_m,b_n에 대해 |sum a_m b_n e(sqrt(2)mn)|<=sqrt(M+4N)||a||_2||b||_2이다. 두 계수열의 절댓값이 1 이하이면 자명한 MN 상계에 대한 비율은 sqrt(1/N+4/M) 이하이고, M=N=L이면 sqrt(5/L)이다. 따라서 TICKET140의 비가중 회전합을 고정 sqrt(2) 위의 실제 쌍선형 상쇄로 강화한다.",
+      "proof": "The points x_n={n sqrt(2)} are delta-separated because for 1<=|h|<N, ||h sqrt(2)||>1/(4|h|)>1/(4N). The analytic large sieve for delta-separated points gives sum_(m<=M)|sum_(n<=N)b_n e(mx_n)|^2<=(M-1+delta^(-1))||b||_2^2, which is strictly below (M+4N)||b||_2^2. Cauchy-Schwarz in m proves the bilinear bound. The bounded-coefficient corollary uses ||a||_2<=sqrt(M) and ||b||_2<=sqrt(N).",
+      "standard_input": {
+        "name": "analytic large sieve for well-spaced points",
+        "priority_claim": "none",
+        "reference": "Montgomery and Vaughan, The large sieve, Mathematika 20 (1973), 119-134, DOI 10.1112/S0025579300004708"
+      },
+      "exact_contract": {
+        "spacing": "||h sqrt(2)||>1/(4|h|)",
+        "energy_bound": "sum_m|sum_n b_n e(sqrt(2)mn)|^2<=(M+4N)||b||_2^2",
+        "bilinear_bound": "|sum_mn a_m b_n e(sqrt(2)mn)|<=sqrt(M+4N)||a||_2||b||_2",
+        "balanced_ratio": "sqrt(5/L)"
+      },
+      "bilinear_large_sieve_audit": {
+        "rows": [
+          {
+            "M": 8,
+            "N": 8,
+            "minimum_phase_spacing": 0.0710678118654755,
+            "spacing_lower_bound": 0.03125,
+            "large_sieve_operator_norm_squared_bound": 40,
+            "observed_operator_norm_squared": 13.976778038756322,
+            "bounded_coefficient_relative_bound": 0.7905694150420949,
+            "checks": {
+              "quadratic_spacing_certificate_holds": true,
+              "minimum_spacing_beats_uniform_bound": true,
+              "observed_operator_norm_is_below_large_sieve_bound": true,
+              "balanced_relative_bound_matches_formula": true
+            }
+          },
+          {
+            "M": 16,
+            "N": 16,
+            "minimum_phase_spacing": 0.029437251522857366,
+            "spacing_lower_bound": 0.015625,
+            "large_sieve_operator_norm_squared_bound": 80,
+            "observed_operator_norm_squared": 31.255095651706593,
+            "bounded_coefficient_relative_bound": 0.5590169943749475,
+            "checks": {
+              "quadratic_spacing_certificate_holds": true,
+              "minimum_spacing_beats_uniform_bound": true,
+              "observed_operator_norm_is_below_large_sieve_bound": true,
+              "balanced_relative_bound_matches_formula": true
+            }
+          },
+          {
+            "M": 32,
+            "N": 32,
+            "minimum_phase_spacing": 0.012193308819760773,
+            "spacing_lower_bound": 0.0078125,
+            "large_sieve_operator_norm_squared_bound": 160,
+            "observed_operator_norm_squared": 67.01656081147881,
+            "bounded_coefficient_relative_bound": 0.39528470752104744,
+            "checks": {
+              "quadratic_spacing_certificate_holds": true,
+              "minimum_spacing_beats_uniform_bound": true,
+              "observed_operator_norm_is_below_large_sieve_bound": true,
+              "balanced_relative_bound_matches_formula": true
+            }
+          },
+          {
+            "M": 64,
+            "N": 64,
+            "minimum_phase_spacing": 0.012193308819760773,
+            "spacing_lower_bound": 0.00390625,
+            "large_sieve_operator_norm_squared_bound": 320,
+            "observed_operator_norm_squared": 90.27213670873553,
+            "bounded_coefficient_relative_bound": 0.2795084971874737,
+            "checks": {
+              "quadratic_spacing_certificate_holds": true,
+              "minimum_spacing_beats_uniform_bound": true,
+              "observed_operator_norm_is_below_large_sieve_bound": true,
+              "balanced_relative_bound_matches_formula": true
+            }
+          },
+          {
+            "M": 128,
+            "N": 128,
+            "minimum_phase_spacing": 0.005050633883342925,
+            "spacing_lower_bound": 0.001953125,
+            "large_sieve_operator_norm_squared_bound": 640,
+            "observed_operator_norm_squared": 205.7505742481857,
+            "bounded_coefficient_relative_bound": 0.19764235376052372,
+            "checks": {
+              "quadratic_spacing_certificate_holds": true,
+              "minimum_spacing_beats_uniform_bound": true,
+              "observed_operator_norm_is_below_large_sieve_bound": true,
+              "balanced_relative_bound_matches_formula": true
+            }
+          }
+        ],
+        "row_count": 5,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "large-sieve energy control for arithmetic bilinear coefficients uniformly over the full minor-arc phase family",
+        "discard": "a single fixed quadratic-irrational phase estimate as a twin-prime lower-bound or parity-obstruction theorem",
+        "next_theorem": "UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-TD3b.2b.3a",
+            "label": "QuadraticIrrationalSobolevRotationCancellation",
+            "status": "closed"
+          },
+          {
+            "id": "TP-TD3b.2b.4a",
+            "label": "QuadraticIrrationalBilinearLargeSieveCancellation",
+            "status": "closed"
+          },
+          {
+            "id": "TP-TD3b.2b.4b",
+            "label": "UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-TD3b.2b.3a",
+            "TP-TD3b.2b.4a"
+          ],
+          [
+            "TP-TD3b.2b.4a",
+            "TP-TD3b.2b.4b"
+          ],
+          [
+            "TP-TD3b.2b.4b",
+            "TP"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "bilinear_large_sieve_row_count": 5,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The theorem is a specialization of the standard analytic large sieve to one fixed quadratic irrational. It does not provide uniform minor-arc control over rational approximants, does not complete a Vaughan or Mobius decomposition, does not resolve the sieve parity obstruction, and provides no positive exact-gap-two mass."
+    },
+    "cross_problem_synthesis": {
+      "shared_obstruction": "The previous finite certificates still lacked directional or robust arithmetic information: sign-blind moments, subcritical moving floors, ill-conditioned raw moments, and one unweighted phase cannot close the infinite targets.",
+      "shared_upgrade": "The surviving routes require a shifted projected-Weil one-sided estimate, an exact Collatz minimum threshold tied to power-of-two approximation, a localized orthogonal Goldbach dual, and uniform minor-arc Vaughan bilinear cancellation with positive twin mass."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET141 proves four exact intermediate, corollary, or proof-route no-go theorems and revises four proof targets. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime. No conjecture proof and no certified conjecture counterexample is claimed."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-141",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "candidate_theorem": "ProjectedWeilShiftedLogMomentBelowTailGap",
+      "next_experiment": "Construct a shifted moment majorant for one explicit projected Weil tail and prove its upper spectral input independently.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The theorem is exact finite-dimensional spectral algebra. It does not prove the required upper spectral bound or shifted trace estimates for the projected Weil operator, does not close the infinite test-function limit, and proves no RH implication or counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-141",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "PeriodDependentFloorLinearGrowthBarrier",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "candidate_theorem": "CycleMinimumAboveExactPowerOfTwoWindowThreshold",
+      "next_experiment": "Compare a rigorous period-dependent cycle-minimum lower bound with the exact threshold induced by ceil(k log_2 3).",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "This is a sharp necessary-growth theorem for one relaxed cycle window. It neither supplies the required cycle-minimum lower bound nor realizes a valuation word or integer cycle. It says nothing about divergent aperiodic trajectories and is not a Collatz proof or counterexample."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-141",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "candidate_theorem": "LocalizedOrthogonalArithmeticK56DualCertificate",
+      "next_experiment": "Replace raw moments by localized orthogonal major/minor-arc measurements and prove a dual norm below the exact K=56 margin.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The null and conditioning vectors are linear-inference stress objects, not Goldbach residuals. This theorem rejects one raw-moment coordinate system; it neither constructs the localized arithmetic measurements nor proves a K=56 residual margin, a Goldbach representation, or a counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-141",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "QuadraticIrrationalBilinearLargeSieveCancellation",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "candidate_theorem": "UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass",
+      "next_experiment": "Lift the fixed sqrt(2) estimate to every required minor arc, insert the actual Vaughan coefficients, and preserve a positive gap-two main term.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The theorem is a specialization of the standard analytic large sieve to one fixed quadratic irrational. It does not provide uniform minor-arc control over rational approximants, does not complete a Vaughan or Mobius decomposition, does not resolve the sieve parity obstruction, and provides no positive exact-gap-two mass."
+    }
+  ]
+}

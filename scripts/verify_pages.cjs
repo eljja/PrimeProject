@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260729-ticket140-priority")) {
-      errors.push(`${page}: missing TICKET140 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260730-ticket141-priority")) {
+      errors.push(`${page}: missing TICKET141 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,31 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket141 title", "Ticket 141 one-sided spectra, moving floors, robust duals, and large sieve");
+    requireText("ticket141 table", "TICKET141 audit");
+    requireText("ticket141 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket141 resolutions", "Resolution count0");
+    requireText("ticket141 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket141 RH theorem", "ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo");
+      requireText("ticket141 RH rows", "Shifted rows6");
+      requireText("ticket141 RH target", "ProjectedWeilShiftedLogMomentBelowTailGap");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket141 Collatz theorem", "PeriodDependentFloorLinearGrowthBarrier");
+      requireText("ticket141 Collatz rows", "Moving-floor rows6");
+      requireText("ticket141 Collatz target", "CycleMinimumAboveExactPowerOfTwoWindowThreshold");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket141 Goldbach theorem", "PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo");
+      requireText("ticket141 Goldbach orders", "Conditioning orders8");
+      requireText("ticket141 Goldbach target", "LocalizedOrthogonalArithmeticK56DualCertificate");
+    } else {
+      requireText("ticket141 Twin theorem", "QuadraticIrrationalBilinearLargeSieveCancellation");
+      requireText("ticket141 Twin rows", "Bilinear rows5");
+      requireText("ticket141 Twin target", "UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass");
+    }
     requireText("ticket140 title", "Ticket 140 spectral moments, fixed-floor limits, duality, and rotation");
     requireText("ticket140 table", "TICKET140 audit");
-    requireText("ticket140 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket140 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket140 resolutions", "Resolution count0");
     requireText("ticket140 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {
