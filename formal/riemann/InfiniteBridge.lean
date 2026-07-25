@@ -25,7 +25,9 @@ def theoremDecomposition : List String := [
   "RH-TD4b.2b.2 TwoMutuallyUnbiasedBasesCrossGramL1NoGo closed",
   "RH-TD4b.2b.3 EvenTraceMomentSpectralCertificateAndLogOrderBarrier closed",
   "RH-TD4b.2b.4a ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo closed",
-  "RH-TD4b.2b.4b ProjectedWeilShiftedLogMomentBelowTailGap highest_risk_open",
+  "RH-TD4b.2b.4b ProjectedWeilShiftedLogMomentBelowTailGap superseded_underspecified",
+  "RH-TD4b.2b.5a EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo closed",
+  "RH-TD4b.2b.5b ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract highest_risk_open",
   "RH-TD5 WeilPositivityToRHImportAudit"
 ]
 
@@ -39,18 +41,18 @@ def rankedCegisTarget : String :=
   "RH-TICKET-128 proves that compact support removes the infinite prime tail exactly: only prime powers p^m<=B remain in the arithmetic side"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-141 ProjectedWeilShiftedLogMomentBelowTailGap."
+  "RH-TICKET-142 ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove an upper spectral input and a logarithmic-order shifted trace-moment bound for the actual projected Weil tail below the independently certified positivity threshold."
+  "Define nested projected Weil finite sections, explicit matrices and spectral constants, then prove a tail-convergence theorem that transports finite positivity to the full core."
 
 def latestExactResult : String :=
-  "ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo: a shifted moment sees the negative spectral edge, while every unshifted even moment is identical on opposite scalar spikes"
+  "EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo: shifted moments factor exactly into spectral edge and effective rank, and the worst-case logarithmic coefficient is sharp"
 
 def retiredRoute : String :=
   "full-test-space autocorrelation-cone density"
 
 def retainedOpenPremise : String :=
-  "an upper spectral bound and logarithmic-order shifted moments of the projected Weil tail remain below the one-sided positivity threshold, or a certified strict-negative witness"
+  "explicit projected Weil finite sections, independently certified spectral constants, and a tail-convergence bridge to the full positivity problem"
 
 end PrimeProject.OpenProblems.Riemann

@@ -1,0 +1,118 @@
+{
+  "schema": "primeproject.ticket142-effective-rank-cycle-direction-haar-liouville.v1",
+  "generated_at": "2026-07-25T12:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-142",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "cubic rough Liouville exact twin projector audit",
+  "bounded_result": {
+    "audit_ref": "twin_prime"
+  },
+  "obstruction": "Finite ledger identities do not control the one-sided Liouville combination at all scales. Generic absolute minor-arc bounds do not supply the missing sign.",
+  "candidate_theorem": "OneSidedCubicRoughLiouvilleLedgerGap",
+  "next_experiment": "the cubic rough-pair support together with a one-sided Liouville mixed-correlation ledger",
+  "claim_boundary": "No conjecture proof or counterexample. The projector is an exact finite identity; the all-scale one-sided Liouville gap is open.",
+  "result": {
+    "theorem_name": "CubicRoughnessLiouvilleExactTwinProjector",
+    "declared_target": "Separate unsigned rough-pair mass from the parity-sensitive one-sided information required for positive exact-gap-two mass.",
+    "declared_target_ko": "부호 없는 rough-pair 질량과 양의 gap-2 질량에 필요한 parity-sensitive 단측 정보를 분리한다.",
+    "proved_statement": "At cubic roughness, Liouville parity is an exact prime indicator and yields a four-term exact twin-prime ledger.",
+    "proved_statement_ko": "세제곱 roughness에서는 Liouville parity가 정확한 소수 지시자가 되어 네 항의 정확한 쌍둥이 소수 ledger를 준다.",
+    "proof": "A z-rough integer at most 2X+2 with z^3=2X+2 has at most two prime factors with multiplicity. Hence lambda=-1 is equivalent to primality on that support; expand the two projectors.",
+    "liouville_ledger_audit": {
+      "pointwise_projector": "1_P(n)1_P(n+2)=R_X(n)R_X(n+2)(1-lambda(n))(1-lambda(n+2))/4",
+      "ledger_identity": "4*pi_2[X,2X]=A00-A10-A01+A11",
+      "rows": [
+        {
+          "X": 1000,
+          "A00": 59,
+          "A10": -17,
+          "A01": -19,
+          "A11": 9,
+          "reconstructed_twin_count": 26,
+          "direct_twin_count": 26,
+          "checks": {
+            "ledger_divisible_by_four": true,
+            "projector_matches_direct_twin_count": true,
+            "rough_pair_mass_dominates_twins": true
+          }
+        },
+        {
+          "X": 10000,
+          "A00": 358,
+          "A10": -104,
+          "A01": -84,
+          "A11": 2,
+          "reconstructed_twin_count": 137,
+          "direct_twin_count": 137,
+          "checks": {
+            "ledger_divisible_by_four": true,
+            "projector_matches_direct_twin_count": true,
+            "rough_pair_mass_dominates_twins": true
+          }
+        },
+        {
+          "X": 100000,
+          "A00": 2486,
+          "A10": -564,
+          "A01": -556,
+          "A11": 138,
+          "reconstructed_twin_count": 936,
+          "direct_twin_count": 936,
+          "checks": {
+            "ledger_divisible_by_four": true,
+            "projector_matches_direct_twin_count": true,
+            "rough_pair_mass_dominates_twins": true
+          }
+        },
+        {
+          "X": 1000000,
+          "A00": 17634,
+          "A10": -3970,
+          "A01": -3992,
+          "A11": 1212,
+          "reconstructed_twin_count": 6702,
+          "direct_twin_count": 6702,
+          "checks": {
+            "ledger_divisible_by_four": true,
+            "projector_matches_direct_twin_count": true,
+            "rough_pair_mass_dominates_twins": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "Finite ledger identities do not control the one-sided Liouville combination at all scales. Generic absolute minor-arc bounds do not supply the missing sign.",
+    "route_decision": {
+      "discard": "promoting unsigned or absolute-value minor-arc cancellation directly to positive exact-gap-two mass",
+      "retain": "the cubic rough-pair support together with a one-sided Liouville mixed-correlation ledger",
+      "next_theorem": "OneSidedCubicRoughLiouvilleLedgerGap"
+    },
+    "proof_boundary": "No conjecture proof or counterexample. The projector is an exact finite identity; the all-scale one-sided Liouville gap is open.",
+    "machine_audit": {
+      "row_count": 4,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T142-CLOSED",
+          "label": "CubicRoughnessLiouvilleExactTwinProjector",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T142-OPEN",
+          "label": "OneSidedCubicRoughLiouvilleLedgerGap",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T142-CLOSED",
+          "TP-T142-OPEN"
+        ]
+      ]
+    }
+  }
+}

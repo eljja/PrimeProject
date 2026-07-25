@@ -1,0 +1,160 @@
+{
+  "schema": "primeproject.ticket142-effective-rank-cycle-direction-haar-liouville.v1",
+  "generated_at": "2026-07-25T12:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-142",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "cycle-window direction and distinct-successor product audit",
+  "bounded_result": {
+    "audit_ref": "collatz"
+  },
+  "obstruction": "The strengthened bound leaves 4,340,106 possible minima at period 15,601 above the verified 2^28 floor. These are minima candidates, not cycles or valuation words.",
+  "candidate_theorem": "Period15601AffineNumeratorNondivisibilityCertificate",
+  "next_experiment": "exact valuation-word divisibility and affine numerator certificates on the first surviving period",
+  "claim_boundary": "No conjecture proof or Collatz counterexample. The result corrects a proof direction and narrows one finite period branch.",
+  "result": {
+    "theorem_name": "PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo",
+    "declared_target": "Audit the direction of the exact power-of-two cycle window and strengthen it using the forced successor and distinct odd terms.",
+    "declared_target_ko": "2의 거듭제곱 순환 창의 부등호 방향을 감사하고, 강제되는 다음 항과 서로 다른 홀수 항을 이용해 강화한다.",
+    "proved_statement": "A primitive nontrivial cycle minimum obeys a strict upper bound, is 3 mod 4, and must satisfy the successor-distinct product inequality.",
+    "proved_statement_ko": "원시 비자명 순환의 최솟값은 엄격한 상한을 가지며 3 mod 4이고, successor-distinct 곱 부등식을 만족해야 한다.",
+    "proof": "Multiply the k odd Collatz equations, use S>=ceil(k log_2 3), monotonicity of 1+1/(3x), the forced valuation a_0=1 at the minimum, and distinctness of primitive-cycle terms.",
+    "cycle_direction_audit": {
+      "exact_direction": "Every primitive nontrivial cycle minimum satisfies an upper bound; the product window does not supply a lower bound",
+      "rows": [
+        {
+          "period_k": 16,
+          "minimum_valuation_sum_s_k": 26,
+          "maximum_minimum_surviving_distinct_product_bound": 3,
+          "checks": {
+            "expected_maximum_reproduced": true,
+            "maximum_is_admitted": true,
+            "next_mod4_candidate_is_rejected": true,
+            "minimum_congruence_is_three_mod_four": true
+          }
+        },
+        {
+          "period_k": 64,
+          "minimum_valuation_sum_s_k": 102,
+          "maximum_minimum_surviving_distinct_product_bound": 11,
+          "checks": {
+            "expected_maximum_reproduced": true,
+            "maximum_is_admitted": true,
+            "next_mod4_candidate_is_rejected": true,
+            "minimum_congruence_is_three_mod_four": true
+          }
+        },
+        {
+          "period_k": 256,
+          "minimum_valuation_sum_s_k": 406,
+          "maximum_minimum_surviving_distinct_product_bound": 279,
+          "checks": {
+            "expected_maximum_reproduced": true,
+            "maximum_is_admitted": true,
+            "next_mod4_candidate_is_rejected": true,
+            "minimum_congruence_is_three_mod_four": true
+          }
+        },
+        {
+          "period_k": 1024,
+          "minimum_valuation_sum_s_k": 1624,
+          "maximum_minimum_surviving_distinct_product_bound": 31,
+          "checks": {
+            "expected_maximum_reproduced": true,
+            "maximum_is_admitted": true,
+            "next_mod4_candidate_is_rejected": true,
+            "minimum_congruence_is_three_mod_four": true
+          }
+        },
+        {
+          "period_k": 4096,
+          "minimum_valuation_sum_s_k": 6493,
+          "maximum_minimum_surviving_distinct_product_bound": 131,
+          "checks": {
+            "expected_maximum_reproduced": true,
+            "maximum_is_admitted": true,
+            "next_mod4_candidate_is_rejected": true,
+            "minimum_congruence_is_three_mod_four": true
+          }
+        },
+        {
+          "period_k": 15601,
+          "minimum_valuation_sum_s_k": 24727,
+          "maximum_minimum_surviving_distinct_product_bound": 285795879,
+          "checks": {
+            "expected_maximum_reproduced": true,
+            "maximum_is_admitted": true,
+            "next_mod4_candidate_is_rejected": true,
+            "minimum_congruence_is_three_mod_four": true
+          }
+        },
+        {
+          "period_k": 16384,
+          "minimum_valuation_sum_s_k": 25969,
+          "maximum_minimum_surviving_distinct_product_bound": 579,
+          "checks": {
+            "expected_maximum_reproduced": true,
+            "maximum_is_admitted": true,
+            "next_mod4_candidate_is_rejected": true,
+            "minimum_congruence_is_three_mod_four": true
+          }
+        },
+        {
+          "period_k": 20000,
+          "minimum_valuation_sum_s_k": 31700,
+          "maximum_minimum_surviving_distinct_product_bound": 1847,
+          "checks": {
+            "expected_maximum_reproduced": true,
+            "maximum_is_admitted": true,
+            "next_mod4_candidate_is_rejected": true,
+            "minimum_congruence_is_three_mod_four": true
+          }
+        }
+      ],
+      "period_15601_holdout": {
+        "verified_minimum_floor": 268435456,
+        "first_mod4_candidate": 268435459,
+        "last_distinct_product_candidate": 285795879,
+        "candidate_minimum_count": 4340106,
+        "checks": {
+          "first_candidate": true,
+          "last_candidate": true,
+          "candidate_count": true
+        }
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The strengthened bound leaves 4,340,106 possible minima at period 15,601 above the verified 2^28 floor. These are minima candidates, not cycles or valuation words.",
+    "route_decision": {
+      "discard": "deriving a cycle-minimum lower bound from the product window; the window gives the opposite direction",
+      "retain": "exact valuation-word divisibility and affine numerator certificates on the first surviving period",
+      "next_theorem": "Period15601AffineNumeratorNondivisibilityCertificate"
+    },
+    "proof_boundary": "No conjecture proof or Collatz counterexample. The result corrects a proof direction and narrows one finite period branch.",
+    "machine_audit": {
+      "row_count": 8,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T142-CLOSED",
+          "label": "PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T142-OPEN",
+          "label": "Period15601AffineNumeratorNondivisibilityCertificate",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T142-CLOSED",
+          "CO-T142-OPEN"
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,682 @@
+{
+  "schema": "primeproject.ticket142-effective-rank-cycle-direction-haar-liouville.v1",
+  "generated_at": "2026-07-25T12:00:00+09:00",
+  "status": "exact_intermediate_theorems_proved_all_conjectures_open",
+  "claim_boundary": "No conjecture proof. This audit proves four exact finite-dimensional, arithmetic, or linear-algebraic intermediate theorems. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime.",
+  "effective_rank_cycle_direction_haar_liouville_audit": {
+    "theorem_name": "FourConjectureEffectiveRankCycleDirectionHaarLiouvilleAudit",
+    "status": "exact_intermediate_theorems_proved_all_conjectures_open",
+    "proof_boundary": "No conjecture proof. This audit proves four exact finite-dimensional, arithmetic, or linear-algebraic intermediate theorems. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime.",
+    "riemann": {
+      "theorem_name": "EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo",
+      "declared_target": "Determine exactly when a shifted trace moment certifies a positive spectral margin and whether O(log rank) alone suffices.",
+      "declared_target_ko": "shifted trace moment가 양의 spectral margin을 인증하는 정확 조건과 O(log rank) 성장률만으로 충분한지 판정한다.",
+      "proved_statement": "The shifted moment is exactly ||F||^q times the q-effective rank. The worst-case logarithmic coefficient is sharp.",
+      "proved_statement_ko": "shifted moment는 ||F||^q와 q-유효 rank의 정확한 곱이며, 최악 경우 로그 차수의 계수는 sharp하다.",
+      "proof": "Diagonalize F. Normalized eigenvalues lie in [0,1] and one is one, so their q-power sum is between one and rank. Scalar F=(1/2)I at rank 4^k attains the boundary exactly.",
+      "effective_rank_audit": {
+        "identity": "tr(F^q)=||F||^q*kappa_q with 1<=kappa_q<=rank(F)",
+        "sharp_log_condition": "q>log(rank)/(-log(1-eta)) is sufficient when only kappa_q<=rank is known, and scalar F makes it sharp",
+        "rows": [
+          {
+            "k": 1,
+            "rank": 4,
+            "relative_spectral_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "boundary_even_moment_order": 2,
+            "boundary_normalized_trace": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "next_even_moment_order": 4,
+            "next_normalized_trace": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "positive_margin_exact": true,
+              "boundary_trace_equals_threshold": true,
+              "next_even_order_passes": true,
+              "effective_rank_equals_rank": true
+            }
+          },
+          {
+            "k": 2,
+            "rank": 16,
+            "relative_spectral_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "boundary_even_moment_order": 4,
+            "boundary_normalized_trace": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "next_even_moment_order": 6,
+            "next_normalized_trace": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "positive_margin_exact": true,
+              "boundary_trace_equals_threshold": true,
+              "next_even_order_passes": true,
+              "effective_rank_equals_rank": true
+            }
+          },
+          {
+            "k": 3,
+            "rank": 64,
+            "relative_spectral_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "boundary_even_moment_order": 6,
+            "boundary_normalized_trace": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "next_even_moment_order": 8,
+            "next_normalized_trace": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "positive_margin_exact": true,
+              "boundary_trace_equals_threshold": true,
+              "next_even_order_passes": true,
+              "effective_rank_equals_rank": true
+            }
+          },
+          {
+            "k": 4,
+            "rank": 256,
+            "relative_spectral_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "boundary_even_moment_order": 8,
+            "boundary_normalized_trace": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "next_even_moment_order": 10,
+            "next_normalized_trace": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "positive_margin_exact": true,
+              "boundary_trace_equals_threshold": true,
+              "next_even_order_passes": true,
+              "effective_rank_equals_rank": true
+            }
+          },
+          {
+            "k": 5,
+            "rank": 1024,
+            "relative_spectral_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "boundary_even_moment_order": 10,
+            "boundary_normalized_trace": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "next_even_moment_order": 12,
+            "next_normalized_trace": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "positive_margin_exact": true,
+              "boundary_trace_equals_threshold": true,
+              "next_even_order_passes": true,
+              "effective_rank_equals_rank": true
+            }
+          },
+          {
+            "k": 6,
+            "rank": 4096,
+            "relative_spectral_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "boundary_even_moment_order": 12,
+            "boundary_normalized_trace": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "next_even_moment_order": 14,
+            "next_normalized_trace": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "positive_margin_exact": true,
+              "boundary_trace_equals_threshold": true,
+              "next_even_order_passes": true,
+              "effective_rank_equals_rank": true
+            }
+          },
+          {
+            "k": 7,
+            "rank": 16384,
+            "relative_spectral_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "boundary_even_moment_order": 14,
+            "boundary_normalized_trace": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "next_even_moment_order": 16,
+            "next_normalized_trace": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "positive_margin_exact": true,
+              "boundary_trace_equals_threshold": true,
+              "next_even_order_passes": true,
+              "effective_rank_equals_rank": true
+            }
+          },
+          {
+            "k": 8,
+            "rank": 65536,
+            "relative_spectral_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "boundary_even_moment_order": 16,
+            "boundary_normalized_trace": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "next_even_moment_order": 18,
+            "next_normalized_trace": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "positive_margin_exact": true,
+              "boundary_trace_equals_threshold": true,
+              "next_even_order_passes": true,
+              "effective_rank_equals_rank": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The projected Weil finite sections, spectral constants, and tail convergence map are not yet defined; finite scalar rows are not evidence for those missing arithmetic objects.",
+      "route_decision": {
+        "discard": "O(log rank) as a coefficient-free automatic shifted-moment certificate",
+        "retain": "one-sided shifted moments after an explicit finite-section and tail-convergence contract is supplied",
+        "next_theorem": "ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract"
+      },
+      "proof_boundary": "No conjecture proof. This is a finite-dimensional spectral identity and sharp proof-route no-go, not RH.",
+      "machine_audit": {
+        "row_count": 8,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T142-CLOSED",
+            "label": "EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T142-OPEN",
+            "label": "ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T142-CLOSED",
+            "RH-T142-OPEN"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "theorem_name": "PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo",
+      "declared_target": "Audit the direction of the exact power-of-two cycle window and strengthen it using the forced successor and distinct odd terms.",
+      "declared_target_ko": "2의 거듭제곱 순환 창의 부등호 방향을 감사하고, 강제되는 다음 항과 서로 다른 홀수 항을 이용해 강화한다.",
+      "proved_statement": "A primitive nontrivial cycle minimum obeys a strict upper bound, is 3 mod 4, and must satisfy the successor-distinct product inequality.",
+      "proved_statement_ko": "원시 비자명 순환의 최솟값은 엄격한 상한을 가지며 3 mod 4이고, successor-distinct 곱 부등식을 만족해야 한다.",
+      "proof": "Multiply the k odd Collatz equations, use S>=ceil(k log_2 3), monotonicity of 1+1/(3x), the forced valuation a_0=1 at the minimum, and distinctness of primitive-cycle terms.",
+      "cycle_direction_audit": {
+        "exact_direction": "Every primitive nontrivial cycle minimum satisfies an upper bound; the product window does not supply a lower bound",
+        "rows": [
+          {
+            "period_k": 16,
+            "minimum_valuation_sum_s_k": 26,
+            "maximum_minimum_surviving_distinct_product_bound": 3,
+            "checks": {
+              "expected_maximum_reproduced": true,
+              "maximum_is_admitted": true,
+              "next_mod4_candidate_is_rejected": true,
+              "minimum_congruence_is_three_mod_four": true
+            }
+          },
+          {
+            "period_k": 64,
+            "minimum_valuation_sum_s_k": 102,
+            "maximum_minimum_surviving_distinct_product_bound": 11,
+            "checks": {
+              "expected_maximum_reproduced": true,
+              "maximum_is_admitted": true,
+              "next_mod4_candidate_is_rejected": true,
+              "minimum_congruence_is_three_mod_four": true
+            }
+          },
+          {
+            "period_k": 256,
+            "minimum_valuation_sum_s_k": 406,
+            "maximum_minimum_surviving_distinct_product_bound": 279,
+            "checks": {
+              "expected_maximum_reproduced": true,
+              "maximum_is_admitted": true,
+              "next_mod4_candidate_is_rejected": true,
+              "minimum_congruence_is_three_mod_four": true
+            }
+          },
+          {
+            "period_k": 1024,
+            "minimum_valuation_sum_s_k": 1624,
+            "maximum_minimum_surviving_distinct_product_bound": 31,
+            "checks": {
+              "expected_maximum_reproduced": true,
+              "maximum_is_admitted": true,
+              "next_mod4_candidate_is_rejected": true,
+              "minimum_congruence_is_three_mod_four": true
+            }
+          },
+          {
+            "period_k": 4096,
+            "minimum_valuation_sum_s_k": 6493,
+            "maximum_minimum_surviving_distinct_product_bound": 131,
+            "checks": {
+              "expected_maximum_reproduced": true,
+              "maximum_is_admitted": true,
+              "next_mod4_candidate_is_rejected": true,
+              "minimum_congruence_is_three_mod_four": true
+            }
+          },
+          {
+            "period_k": 15601,
+            "minimum_valuation_sum_s_k": 24727,
+            "maximum_minimum_surviving_distinct_product_bound": 285795879,
+            "checks": {
+              "expected_maximum_reproduced": true,
+              "maximum_is_admitted": true,
+              "next_mod4_candidate_is_rejected": true,
+              "minimum_congruence_is_three_mod_four": true
+            }
+          },
+          {
+            "period_k": 16384,
+            "minimum_valuation_sum_s_k": 25969,
+            "maximum_minimum_surviving_distinct_product_bound": 579,
+            "checks": {
+              "expected_maximum_reproduced": true,
+              "maximum_is_admitted": true,
+              "next_mod4_candidate_is_rejected": true,
+              "minimum_congruence_is_three_mod_four": true
+            }
+          },
+          {
+            "period_k": 20000,
+            "minimum_valuation_sum_s_k": 31700,
+            "maximum_minimum_surviving_distinct_product_bound": 1847,
+            "checks": {
+              "expected_maximum_reproduced": true,
+              "maximum_is_admitted": true,
+              "next_mod4_candidate_is_rejected": true,
+              "minimum_congruence_is_three_mod_four": true
+            }
+          }
+        ],
+        "period_15601_holdout": {
+          "verified_minimum_floor": 268435456,
+          "first_mod4_candidate": 268435459,
+          "last_distinct_product_candidate": 285795879,
+          "candidate_minimum_count": 4340106,
+          "checks": {
+            "first_candidate": true,
+            "last_candidate": true,
+            "candidate_count": true
+          }
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The strengthened bound leaves 4,340,106 possible minima at period 15,601 above the verified 2^28 floor. These are minima candidates, not cycles or valuation words.",
+      "route_decision": {
+        "discard": "deriving a cycle-minimum lower bound from the product window; the window gives the opposite direction",
+        "retain": "exact valuation-word divisibility and affine numerator certificates on the first surviving period",
+        "next_theorem": "Period15601AffineNumeratorNondivisibilityCertificate"
+      },
+      "proof_boundary": "No conjecture proof or Collatz counterexample. The result corrects a proof direction and narrows one finite period branch.",
+      "machine_audit": {
+        "row_count": 8,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T142-CLOSED",
+            "label": "PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T142-OPEN",
+            "label": "Period15601AffineNumeratorNondivisibilityCertificate",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T142-CLOSED",
+            "CO-T142-OPEN"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "theorem_name": "RobustDualBasisChangeInvarianceAndHaarK56Reduction",
+      "declared_target": "Specify a localized orthogonal dual and determine whether basis change alone can fit pointwise Goldbach residuals below K=56.",
+      "declared_target_ko": "국소 직교 dual을 명시하고 기저변환만으로 Goldbach 점별 잔차를 K=56 아래에 둘 수 있는지 판정한다.",
+      "proved_statement": "Robust recovery is invariant under simultaneous invertible basis/error-set change. Haar localization converts uniform coefficient budget 23 into a pointwise bound below 56.",
+      "proved_statement_ko": "강건 복원은 기저와 오차집합의 동시 가역변환에 불변이다. Haar 국소화에서는 균일 계수 예산 23이 점별 56 미만을 준다.",
+      "proof": "Af in U iff TAf in TU proves invariance. Orthogonal inversion gives the exact row-l1 dual. A Haar row has one coefficient per scale and l1 below 1+sqrt(2); 23(1+sqrt(2))<56.",
+      "haar_dual_audit": {
+        "basis_change_identity": "C_j(TA,TU)=C_j(A,U) for invertible T",
+        "haar_pointwise_identity": "sup|rho_j|=sum_k |Q_kj| epsilon_k; Haar row l1 is below 1+sqrt(2)",
+        "uniform_integer_coefficient_budget_below_K56": 23,
+        "endpoint_margin": {
+          "exact": "23019645297/2140000000000",
+          "decimal": 0.010756843596728972
+        },
+        "rows": [
+          {
+            "basis": "haar",
+            "depth": 4,
+            "size": 16,
+            "coefficient_budget": 23,
+            "pointwise_amplification": 2.060660171779821,
+            "pointwise_bound": 47.39518395093588,
+            "below_K56": true,
+            "checks": {
+              "finite_value": true,
+              "expected_k56_side": true
+            }
+          },
+          {
+            "basis": "haar",
+            "depth": 8,
+            "size": 256,
+            "coefficient_budget": 23,
+            "pointwise_amplification": 2.3258252147247767,
+            "pointwise_bound": 53.49397993866987,
+            "below_K56": true,
+            "checks": {
+              "finite_value": true,
+              "expected_k56_side": true
+            }
+          },
+          {
+            "basis": "haar",
+            "depth": 12,
+            "size": 4096,
+            "coefficient_budget": 23,
+            "pointwise_amplification": 2.3921164754610156,
+            "pointwise_bound": 55.01867893560336,
+            "below_K56": true,
+            "checks": {
+              "finite_value": true,
+              "expected_k56_side": true
+            }
+          },
+          {
+            "basis": "haar",
+            "depth": 9,
+            "size": 512,
+            "coefficient_budget": 24,
+            "pointwise_amplification": 2.351713562373095,
+            "pointwise_bound": 56.44112549695428,
+            "below_K56": false,
+            "checks": {
+              "finite_value": true,
+              "expected_k56_side": true
+            }
+          },
+          {
+            "basis": "hadamard",
+            "depth": 3,
+            "size": 8,
+            "coefficient_budget": 23,
+            "pointwise_amplification": 2.8284271247461903,
+            "pointwise_bound": 65.05382386916237,
+            "below_K56": false,
+            "checks": {
+              "finite_value": true,
+              "expected_k56_side": true
+            }
+          }
+        ],
+        "exact_checks": {
+          "23_uniform_haar_budget_below_56": true,
+          "24_uniform_haar_budget_not_below_56": true,
+          "endpoint_margin_is_positive": true,
+          "endpoint_margin_exact_value": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "No arithmetic theorem currently bounds every actual normalized Goldbach Haar scaling and wavelet coefficient by the required budgets. K=56 is a residual constant, not moment order 56.",
+      "route_decision": {
+        "discard": "claiming improved robustness from invertible orthogonalization while silently replacing the transformed joint error set",
+        "retain": "a fully specified Haar ledger whose actual arithmetic coefficient budgets are proved scale by scale",
+        "next_theorem": "UniformEvenGoldbachHaarScaleBudgetBelow56"
+      },
+      "proof_boundary": "No conjecture proof. The linear-algebra reduction is exact, but the uniform arithmetic Haar coefficient theorem is open.",
+      "machine_audit": {
+        "row_count": 5,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T142-CLOSED",
+            "label": "RobustDualBasisChangeInvarianceAndHaarK56Reduction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T142-OPEN",
+            "label": "UniformEvenGoldbachHaarScaleBudgetBelow56",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T142-CLOSED",
+            "GB-T142-OPEN"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "theorem_name": "CubicRoughnessLiouvilleExactTwinProjector",
+      "declared_target": "Separate unsigned rough-pair mass from the parity-sensitive one-sided information required for positive exact-gap-two mass.",
+      "declared_target_ko": "부호 없는 rough-pair 질량과 양의 gap-2 질량에 필요한 parity-sensitive 단측 정보를 분리한다.",
+      "proved_statement": "At cubic roughness, Liouville parity is an exact prime indicator and yields a four-term exact twin-prime ledger.",
+      "proved_statement_ko": "세제곱 roughness에서는 Liouville parity가 정확한 소수 지시자가 되어 네 항의 정확한 쌍둥이 소수 ledger를 준다.",
+      "proof": "A z-rough integer at most 2X+2 with z^3=2X+2 has at most two prime factors with multiplicity. Hence lambda=-1 is equivalent to primality on that support; expand the two projectors.",
+      "liouville_ledger_audit": {
+        "pointwise_projector": "1_P(n)1_P(n+2)=R_X(n)R_X(n+2)(1-lambda(n))(1-lambda(n+2))/4",
+        "ledger_identity": "4*pi_2[X,2X]=A00-A10-A01+A11",
+        "rows": [
+          {
+            "X": 1000,
+            "A00": 59,
+            "A10": -17,
+            "A01": -19,
+            "A11": 9,
+            "reconstructed_twin_count": 26,
+            "direct_twin_count": 26,
+            "checks": {
+              "ledger_divisible_by_four": true,
+              "projector_matches_direct_twin_count": true,
+              "rough_pair_mass_dominates_twins": true
+            }
+          },
+          {
+            "X": 10000,
+            "A00": 358,
+            "A10": -104,
+            "A01": -84,
+            "A11": 2,
+            "reconstructed_twin_count": 137,
+            "direct_twin_count": 137,
+            "checks": {
+              "ledger_divisible_by_four": true,
+              "projector_matches_direct_twin_count": true,
+              "rough_pair_mass_dominates_twins": true
+            }
+          },
+          {
+            "X": 100000,
+            "A00": 2486,
+            "A10": -564,
+            "A01": -556,
+            "A11": 138,
+            "reconstructed_twin_count": 936,
+            "direct_twin_count": 936,
+            "checks": {
+              "ledger_divisible_by_four": true,
+              "projector_matches_direct_twin_count": true,
+              "rough_pair_mass_dominates_twins": true
+            }
+          },
+          {
+            "X": 1000000,
+            "A00": 17634,
+            "A10": -3970,
+            "A01": -3992,
+            "A11": 1212,
+            "reconstructed_twin_count": 6702,
+            "direct_twin_count": 6702,
+            "checks": {
+              "ledger_divisible_by_four": true,
+              "projector_matches_direct_twin_count": true,
+              "rough_pair_mass_dominates_twins": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "Finite ledger identities do not control the one-sided Liouville combination at all scales. Generic absolute minor-arc bounds do not supply the missing sign.",
+      "route_decision": {
+        "discard": "promoting unsigned or absolute-value minor-arc cancellation directly to positive exact-gap-two mass",
+        "retain": "the cubic rough-pair support together with a one-sided Liouville mixed-correlation ledger",
+        "next_theorem": "OneSidedCubicRoughLiouvilleLedgerGap"
+      },
+      "proof_boundary": "No conjecture proof or counterexample. The projector is an exact finite identity; the all-scale one-sided Liouville gap is open.",
+      "machine_audit": {
+        "row_count": 4,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T142-CLOSED",
+            "label": "CubicRoughnessLiouvilleExactTwinProjector",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T142-OPEN",
+            "label": "OneSidedCubicRoughLiouvilleLedgerGap",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T142-CLOSED",
+            "TP-T142-OPEN"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-142",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "effective-rank shifted-moment coefficient audit",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "obstruction": "The projected Weil finite sections, spectral constants, and tail convergence map are not yet defined; finite scalar rows are not evidence for those missing arithmetic objects.",
+      "candidate_theorem": "ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract",
+      "next_experiment": "one-sided shifted moments after an explicit finite-section and tail-convergence contract is supplied",
+      "claim_boundary": "No conjecture proof. This is a finite-dimensional spectral identity and sharp proof-route no-go, not RH."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-142",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "cycle-window direction and distinct-successor product audit",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "obstruction": "The strengthened bound leaves 4,340,106 possible minima at period 15,601 above the verified 2^28 floor. These are minima candidates, not cycles or valuation words.",
+      "candidate_theorem": "Period15601AffineNumeratorNondivisibilityCertificate",
+      "next_experiment": "exact valuation-word divisibility and affine numerator certificates on the first surviving period",
+      "claim_boundary": "No conjecture proof or Collatz counterexample. The result corrects a proof direction and narrows one finite period branch."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-142",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "robust basis-change and Haar K56 reduction audit",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "obstruction": "No arithmetic theorem currently bounds every actual normalized Goldbach Haar scaling and wavelet coefficient by the required budgets. K=56 is a residual constant, not moment order 56.",
+      "candidate_theorem": "UniformEvenGoldbachHaarScaleBudgetBelow56",
+      "next_experiment": "a fully specified Haar ledger whose actual arithmetic coefficient budgets are proved scale by scale",
+      "claim_boundary": "No conjecture proof. The linear-algebra reduction is exact, but the uniform arithmetic Haar coefficient theorem is open."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-142",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "cubic rough Liouville exact twin projector audit",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "obstruction": "Finite ledger identities do not control the one-sided Liouville combination at all scales. Generic absolute minor-arc bounds do not supply the missing sign.",
+      "candidate_theorem": "OneSidedCubicRoughLiouvilleLedgerGap",
+      "next_experiment": "the cubic rough-pair support together with a one-sided Liouville mixed-correlation ledger",
+      "claim_boundary": "No conjecture proof or counterexample. The projector is an exact finite identity; the all-scale one-sided Liouville gap is open."
+    }
+  ]
+}

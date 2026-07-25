@@ -25,7 +25,9 @@ def theoremDecomposition : List String := [
   "GB-TD4b.2b.2 PowerOfTwoBarycentricMomentAnnihilatorNoGo closed",
   "GB-TD4b.2b.3 FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo closed",
   "GB-TD4b.2b.4a PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo closed",
-  "GB-TD4b.2b.4b LocalizedOrthogonalArithmeticK56DualCertificate highest_risk_open",
+  "GB-TD4b.2b.4b LocalizedOrthogonalArithmeticK56DualCertificate superseded_underspecified",
+  "GB-TD4b.2b.5a RobustDualBasisChangeInvarianceAndHaarK56Reduction closed",
+  "GB-TD4b.2b.5b UniformEvenGoldbachHaarScaleBudgetBelow56 highest_risk_open",
   "GB-TD5 FiniteLargeNGlue"
 ]
 
@@ -39,18 +41,18 @@ def rankedCegisTarget : String :=
   "GB-TICKET-128 proves the rational tail bound 2*C2>1.31917 and makes the conservative pointwise residual target K=55 sufficient above H=4e18"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-141 LocalizedOrthogonalArithmeticK56DualCertificate."
+  "GB-TICKET-142 UniformEvenGoldbachHaarScaleBudgetBelow56."
 
 def topAttackProofAttemptProtocol : String :=
-  "Replace raw monomial moments by localized orthogonal major/minor-arc measurements and prove that the resulting arithmetic dual norm fits inside the exact K=56 residual margin."
+  "Define normalized Goldbach residuals on every large dyadic even block and prove that the Haar scaling plus scale-wavelet l1 ledger is uniformly at most 56."
 
 def latestExactResult : String :=
-  "PowerOfTwoRawMomentDualQuadraticExponentialConditioningNoGo: endpoint reconstruction from raw moments has dual norm greater than 2^(q(q-1)/2)"
+  "RobustDualBasisChangeInvarianceAndHaarK56Reduction: honest basis changes preserve robust recovery, while uniform Haar coefficient budget 23 implies pointwise residual below K=56"
 
 def closedPremise : String :=
   "proper-prime-power contamination constant B and normalized singular-series coefficient A=1"
 
 def retainedOpenPremise : String :=
-  "a localized orthogonal arithmetic K=56 dual certificate with uniformly controlled norm on the power-of-two hard stratum and explicit large-even glue"
+  "uniform arithmetic bounds for the actual Goldbach Haar scaling and wavelet coefficients on every sufficiently large dyadic even block"
 
 end PrimeProject.OpenProblems.Goldbach

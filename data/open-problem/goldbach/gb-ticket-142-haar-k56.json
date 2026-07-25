@@ -1,0 +1,138 @@
+{
+  "schema": "primeproject.ticket142-effective-rank-cycle-direction-haar-liouville.v1",
+  "generated_at": "2026-07-25T12:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-142",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "robust basis-change and Haar K56 reduction audit",
+  "bounded_result": {
+    "audit_ref": "goldbach"
+  },
+  "obstruction": "No arithmetic theorem currently bounds every actual normalized Goldbach Haar scaling and wavelet coefficient by the required budgets. K=56 is a residual constant, not moment order 56.",
+  "candidate_theorem": "UniformEvenGoldbachHaarScaleBudgetBelow56",
+  "next_experiment": "a fully specified Haar ledger whose actual arithmetic coefficient budgets are proved scale by scale",
+  "claim_boundary": "No conjecture proof. The linear-algebra reduction is exact, but the uniform arithmetic Haar coefficient theorem is open.",
+  "result": {
+    "theorem_name": "RobustDualBasisChangeInvarianceAndHaarK56Reduction",
+    "declared_target": "Specify a localized orthogonal dual and determine whether basis change alone can fit pointwise Goldbach residuals below K=56.",
+    "declared_target_ko": "국소 직교 dual을 명시하고 기저변환만으로 Goldbach 점별 잔차를 K=56 아래에 둘 수 있는지 판정한다.",
+    "proved_statement": "Robust recovery is invariant under simultaneous invertible basis/error-set change. Haar localization converts uniform coefficient budget 23 into a pointwise bound below 56.",
+    "proved_statement_ko": "강건 복원은 기저와 오차집합의 동시 가역변환에 불변이다. Haar 국소화에서는 균일 계수 예산 23이 점별 56 미만을 준다.",
+    "proof": "Af in U iff TAf in TU proves invariance. Orthogonal inversion gives the exact row-l1 dual. A Haar row has one coefficient per scale and l1 below 1+sqrt(2); 23(1+sqrt(2))<56.",
+    "haar_dual_audit": {
+      "basis_change_identity": "C_j(TA,TU)=C_j(A,U) for invertible T",
+      "haar_pointwise_identity": "sup|rho_j|=sum_k |Q_kj| epsilon_k; Haar row l1 is below 1+sqrt(2)",
+      "uniform_integer_coefficient_budget_below_K56": 23,
+      "endpoint_margin": {
+        "exact": "23019645297/2140000000000",
+        "decimal": 0.010756843596728972
+      },
+      "rows": [
+        {
+          "basis": "haar",
+          "depth": 4,
+          "size": 16,
+          "coefficient_budget": 23,
+          "pointwise_amplification": 2.060660171779821,
+          "pointwise_bound": 47.39518395093588,
+          "below_K56": true,
+          "checks": {
+            "finite_value": true,
+            "expected_k56_side": true
+          }
+        },
+        {
+          "basis": "haar",
+          "depth": 8,
+          "size": 256,
+          "coefficient_budget": 23,
+          "pointwise_amplification": 2.3258252147247767,
+          "pointwise_bound": 53.49397993866987,
+          "below_K56": true,
+          "checks": {
+            "finite_value": true,
+            "expected_k56_side": true
+          }
+        },
+        {
+          "basis": "haar",
+          "depth": 12,
+          "size": 4096,
+          "coefficient_budget": 23,
+          "pointwise_amplification": 2.3921164754610156,
+          "pointwise_bound": 55.01867893560336,
+          "below_K56": true,
+          "checks": {
+            "finite_value": true,
+            "expected_k56_side": true
+          }
+        },
+        {
+          "basis": "haar",
+          "depth": 9,
+          "size": 512,
+          "coefficient_budget": 24,
+          "pointwise_amplification": 2.351713562373095,
+          "pointwise_bound": 56.44112549695428,
+          "below_K56": false,
+          "checks": {
+            "finite_value": true,
+            "expected_k56_side": true
+          }
+        },
+        {
+          "basis": "hadamard",
+          "depth": 3,
+          "size": 8,
+          "coefficient_budget": 23,
+          "pointwise_amplification": 2.8284271247461903,
+          "pointwise_bound": 65.05382386916237,
+          "below_K56": false,
+          "checks": {
+            "finite_value": true,
+            "expected_k56_side": true
+          }
+        }
+      ],
+      "exact_checks": {
+        "23_uniform_haar_budget_below_56": true,
+        "24_uniform_haar_budget_not_below_56": true,
+        "endpoint_margin_is_positive": true,
+        "endpoint_margin_exact_value": true
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "No arithmetic theorem currently bounds every actual normalized Goldbach Haar scaling and wavelet coefficient by the required budgets. K=56 is a residual constant, not moment order 56.",
+    "route_decision": {
+      "discard": "claiming improved robustness from invertible orthogonalization while silently replacing the transformed joint error set",
+      "retain": "a fully specified Haar ledger whose actual arithmetic coefficient budgets are proved scale by scale",
+      "next_theorem": "UniformEvenGoldbachHaarScaleBudgetBelow56"
+    },
+    "proof_boundary": "No conjecture proof. The linear-algebra reduction is exact, but the uniform arithmetic Haar coefficient theorem is open.",
+    "machine_audit": {
+      "row_count": 5,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T142-CLOSED",
+          "label": "RobustDualBasisChangeInvarianceAndHaarK56Reduction",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T142-OPEN",
+          "label": "UniformEvenGoldbachHaarScaleBudgetBelow56",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T142-CLOSED",
+          "GB-T142-OPEN"
+        ]
+      ]
+    }
+  }
+}

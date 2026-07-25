@@ -37,6 +37,35 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-25 TICKET-142 Typed Targets and Direction Correction
+
+TICKET-142 audits the four TICKET-141 open nodes before spending more
+computation on them.
+
+1. **Riemann:** shifted moments factor exactly into the spectral edge and
+   `q`-effective rank. A scalar family proves that `O(log rank)` without its
+   coefficient is not an automatic positivity certificate. The actual
+   projected Weil finite sections and tail convergence must be defined first.
+2. **Collatz:** the product window gives an upper bound on a hypothetical
+   primitive-cycle minimum, not the lower bound proposed by the previous next
+   target. The forced successor and distinct terms sharpen that upper bound,
+   but period 15,601 still leaves 4,340,106 possible minima above `2^28`.
+3. **Goldbach:** robust recovery is invariant under an honest simultaneous
+   basis/error-set transform. Haar localization gives an exact route from
+   coefficient budget 23 to pointwise residual below 56, but the corresponding
+   arithmetic coefficient theorem is open.
+4. **Twin Prime:** cubic roughness reduces primality exactly to Liouville
+   parity and yields `4*pi_2=A00-A10-A01+A11`. Unsigned minor-arc cancellation
+   cannot determine the missing one-sided parity combination.
+
+한국어 요약: TICKET-142는 더 큰 유한 계산보다 먼저 네 다음 목표의
+논리적 형식을 교정한다. RH에는 명시적 유한절단과 tail 수렴 계약이
+필요하고, Collatz product window의 하한 방향은 폐기되며, Goldbach
+직교화는 실제 공동 오차집합을 바꾸지 않는 한 난이도를 줄이지 못한다.
+Twin Prime에서는 양의 gap-2 질량을 Liouville parity 혼합항으로
+분해한다. 네 난제는 모두 `open_not_proven`이다. 전체 증명과 재현
+명령은 `docs/effective-rank-cycle-direction-haar-liouville.md`에 있다.
+
 ## 2026-07-30 TICKET-141 Directional and Robustness Correction
 
 TICKET-141 attacks the four TICKET-140 open nodes and separates one exact

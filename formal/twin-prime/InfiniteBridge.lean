@@ -24,7 +24,9 @@ def theoremDecomposition : List String := [
   "TP-TD3b.2b.2 FiniteIrrationalOrbitLipschitzLookupComplexityNoGo closed",
   "TP-TD3b.2b.3 QuadraticIrrationalSobolevRotationCancellation closed",
   "TP-TD3b.2b.4a QuadraticIrrationalBilinearLargeSieveCancellation closed",
-  "TP-TD3b.2b.4b UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass highest_risk_open",
+  "TP-TD3b.2b.4b UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass superseded_circular_target",
+  "TP-TD3b.2b.5a CubicRoughnessLiouvilleExactTwinProjector closed",
+  "TP-TD3b.2b.5b OneSidedCubicRoughLiouvilleLedgerGap highest_risk_open",
   "TP-TD4 PositiveExactGapLowerBound",
   "TP-TD5 ExactGapInfinitudeBridge"
 ]
@@ -39,18 +41,18 @@ def rankedCegisTarget : String :=
   "TP-TICKET-128 gives an exact endpoint-only countermodel and proves that a within-dyadic-block envelope yields limsup Q<=0.92*c+delta"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-141 UniformMinorArcVaughanBilinearCancellationWithPositiveTwinMass."
+  "TP-TICKET-142 OneSidedCubicRoughLiouvilleLedgerGap."
 
 def topAttackProofAttemptProtocol : String :=
-  "Extend the fixed sqrt(2) bilinear large-sieve estimate uniformly across the required minor arcs, insert the actual Vaughan or Mobius coefficients, and preserve a positive exact-gap-two main term."
+  "Control the one-sided combination A10+A01-A11 strictly below the cubic-rough pair mass A00 using parity-sensitive arithmetic rather than unsigned sieve norms."
 
 def latestFiniteResult : String :=
-  "QuadraticIrrationalBilinearLargeSieveCancellation: arbitrary separable coefficients at the fixed sqrt(2) phase gain the balanced relative factor sqrt(5/L)"
+  "CubicRoughnessLiouvilleExactTwinProjector: on [X,2X], cubic roughness turns Liouville parity into an exact four-term twin-prime ledger"
 
 def finiteEvidenceBoundary : String :=
-  "the exact theorem treats one fixed quadratic-irrational phase, but not uniform minor arcs, the full Vaughan or Mobius decomposition, the sieve parity obstruction, or positive gap-two mass"
+  "the finite ledger reconstructs observed twin counts exactly but supplies no all-scale one-sided Liouville correlation inequality"
 
 def retainedOpenPremise : String :=
-  "uniform minor-arc large-sieve cancellation for the actual arithmetic Type II coefficients, signed transport, and positive exact-gap-two mass"
+  "a parity-sensitive one-sided cubic-rough Liouville ledger gap strong enough to force unbounded positive exact-gap-two mass"
 
 end PrimeProject.OpenProblems.TwinPrime

@@ -138,6 +138,7 @@ TICKET138_SCHEMA = "primeproject.ticket138-correlation-periodicity-and-scale-clo
 TICKET139_SCHEMA = "primeproject.ticket139-uniformity-diophantine-complexity.v1"
 TICKET140_SCHEMA = "primeproject.ticket140-spectral-moments-fixed-floor-duality-rotation.v1"
 TICKET141_SCHEMA = "primeproject.ticket141-one-sided-moving-floor-robust-dual-large-sieve.v1"
+TICKET142_SCHEMA = "primeproject.ticket142-effective-rank-cycle-direction-haar-liouville.v1"
 
 
 def fail(message: str) -> int:
@@ -8078,6 +8079,50 @@ def main() -> int:
         return fail("ticket141 Twin bilinear large-sieve theorem changed")
     if "does not prove or refute" not in str(audit141.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket141.get("claim_boundary", "")).lower():
         return fail("ticket141 proof boundary changed")
+
+    path142 = Path("data/open-problem/ticket142-effective-rank-cycle-direction-haar-liouville.json")
+    if not path142.exists():
+        return fail("missing ticket142 effective-rank-cycle-direction-haar-liouville audit")
+    ticket142 = read_json(path142)
+    if ticket142.get("schema") != TICKET142_SCHEMA or ticket142.get("status") != "exact_intermediate_theorems_proved_all_conjectures_open":
+        return fail("ticket142 schema or status changed")
+    attempts142 = ticket142.get("attempts", [])
+    by_id142 = {str(row.get("problem_id")): row for row in attempts142 if isinstance(row, dict)} if isinstance(attempts142, list) else {}
+    if set(by_id142) != EXPECTED_PROBLEMS:
+        return fail("ticket142 attempts missing problems")
+    paths142 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-142-effective-rank-moment.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-142-cycle-direction.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-142-haar-k56.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-142-liouville-projector.json"),
+    }
+    for problem_id, attempt in by_id142.items():
+        if not paths142[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket142 artifact or proof boundary missing")
+    audit142 = ticket142.get("effective_rank_cycle_direction_haar_liouville_audit", {})
+    machine142 = audit142.get("machine_audit", {})
+    if audit142.get("theorem_name") != "FourConjectureEffectiveRankCycleDirectionHaarLiouvilleAudit" or int(machine142.get("exact_theorem_count", -1)) != 4 or int(machine142.get("route_correction_count", -1)) != 4 or int(machine142.get("proof_dag_count", -1)) != 4 or int(machine142.get("conjecture_resolution_count", -1)) != 0 or int(machine142.get("total_failure_count", -1)) != 0:
+        return fail("ticket142 global machine audit changed")
+    riemann142 = audit142.get("riemann", {})
+    effective142 = riemann142.get("effective_rank_audit", {})
+    if riemann142.get("theorem_name") != "EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo" or len(effective142.get("rows", [])) != 8 or int(effective142.get("failure_count", -1)) != 0:
+        return fail("ticket142 RH effective-rank theorem changed")
+    collatz142 = audit142.get("collatz", {})
+    direction142 = collatz142.get("cycle_direction_audit", {})
+    holdout142 = direction142.get("period_15601_holdout", {})
+    if collatz142.get("theorem_name") != "PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo" or len(direction142.get("rows", [])) != 8 or int(holdout142.get("candidate_minimum_count", -1)) != 4340106 or int(direction142.get("failure_count", -1)) != 0:
+        return fail("ticket142 Collatz direction theorem changed")
+    goldbach142 = audit142.get("goldbach", {})
+    haar142 = goldbach142.get("haar_dual_audit", {})
+    if goldbach142.get("theorem_name") != "RobustDualBasisChangeInvarianceAndHaarK56Reduction" or len(haar142.get("rows", [])) != 5 or int(haar142.get("uniform_integer_coefficient_budget_below_K56", -1)) != 23 or int(haar142.get("failure_count", -1)) != 0:
+        return fail("ticket142 Goldbach Haar theorem changed")
+    twin142 = audit142.get("twin_prime", {})
+    ledger142 = twin142.get("liouville_ledger_audit", {})
+    ledger_rows142 = ledger142.get("rows", [])
+    if twin142.get("theorem_name") != "CubicRoughnessLiouvilleExactTwinProjector" or len(ledger_rows142) != 4 or int(ledger_rows142[-1].get("reconstructed_twin_count", -1)) != 6702 or int(ledger142.get("failure_count", -1)) != 0:
+        return fail("ticket142 Twin Liouville projector changed")
+    if "does not prove or refute" not in str(audit142.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket142.get("claim_boundary", "")).lower():
+        return fail("ticket142 proof boundary changed")
 
     print("open problem structure verified")
     return 0

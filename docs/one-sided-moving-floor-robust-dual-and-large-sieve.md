@@ -7,6 +7,14 @@ Status: `open_not_proven` for all four conjectures
 Machine record:
 `data/open-problem/ticket141-one-sided-moving-floor-robust-dual-large-sieve.json`
 
+> Superseded target notice / 후속 목표 교정: TICKET-142 proves that the
+> Collatz product window gives an upper, not lower, bound on a hypothetical
+> cycle minimum; it also replaces three underspecified or circular next
+> targets with typed effective-rank, Haar, and Liouville ledgers. See
+> [TICKET-142](effective-rank-cycle-direction-haar-liouville.md). The exact
+> TICKET-141 theorems below remain valid, but its proposed next targets are
+> historical rather than current.
+
 ## Publication boundary / 논문 제출용 경계
 
 **English.** TICKET-141 proves three elementary exact theorems and one exact

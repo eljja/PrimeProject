@@ -25,8 +25,10 @@ def theoremDecomposition : List String := [
   "CO-TD4b.2b.2 CollatzCycleDiophantineWindowAndVerifiedFloorExclusion closed",
   "CO-TD4b.2b.3 FixedCycleMinimumWindowEventuallyVacuousNoGo closed",
   "CO-TD4b.2b.4a PeriodDependentFloorLinearGrowthBarrier closed",
-  "CO-TD4b.2b.4b CycleMinimumAboveExactPowerOfTwoWindowThreshold highest_risk_open",
-  "CO-TD4b.2b.5 AffineCappedAperiodicNaturalCodeWellFoundedness open",
+  "CO-TD4b.2b.4b CycleMinimumAboveExactPowerOfTwoWindowThreshold superseded_wrong_direction",
+  "CO-TD4b.2b.5a PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo closed",
+  "CO-TD4b.2b.5b Period15601AffineNumeratorNondivisibilityCertificate highest_risk_open",
+  "CO-TD4b.2b.6 AffineCappedAperiodicNaturalCodeWellFoundedness open",
   "CO-TD5 CycleAndDivergenceExclusionBridge"
 ]
 
@@ -40,18 +42,18 @@ def rankedCegisTarget : String :=
   "CO-TICKET-128 separates unresolved lift cylinders from integer candidates and directly closes all 4027109 nontrivial 28-bit frontier representatives"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-141 CycleMinimumAboveExactPowerOfTwoWindowThreshold."
+  "CO-TICKET-142 Period15601AffineNumeratorNondivisibilityCertificate."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove that every hypothetical k-cycle minimum exceeds the exact threshold determined by 2^ceil(k log_2 3)/3^k; subcritical-linear floor growth is insufficient."
+  "Enumerate or symbolically cover admissible length-15601 valuation words with sum 24727 and prove the cycle affine numerator is never divisible by 2^24727-3^15601."
 
 def latestExactResult : String :=
-  "PeriodDependentFloorLinearGrowthBarrier: avoiding automatic product-window vacuity requires asymptotic minimum-floor slope at least 1/(3 log 2)"
+  "PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo: the cycle product window gives an upper bound, forces m=3 mod 4, and leaves 4340106 period-15601 minimum candidates above 2^28"
 
 def retiredRoute : String :=
   "treating the boundary ray -3^{-1} in Z_2 as a natural-integer obstruction"
 
 def retainedOpenPremise : String :=
-  "cycle minima beat the exact power-of-two approximation threshold period by period, and every aperiodic affine-capped natural code has a global well-founded descent certificate"
+  "period-15601 affine-numerator nondivisibility, all larger cycle periods, and a global well-founded descent certificate for every aperiodic natural code"
 
 end PrimeProject.OpenProblems.Collatz

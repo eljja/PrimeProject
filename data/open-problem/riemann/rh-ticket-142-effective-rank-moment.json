@@ -1,0 +1,254 @@
+{
+  "schema": "primeproject.ticket142-effective-rank-cycle-direction-haar-liouville.v1",
+  "generated_at": "2026-07-25T12:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-142",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "effective-rank shifted-moment coefficient audit",
+  "bounded_result": {
+    "audit_ref": "riemann"
+  },
+  "obstruction": "The projected Weil finite sections, spectral constants, and tail convergence map are not yet defined; finite scalar rows are not evidence for those missing arithmetic objects.",
+  "candidate_theorem": "ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract",
+  "next_experiment": "one-sided shifted moments after an explicit finite-section and tail-convergence contract is supplied",
+  "claim_boundary": "No conjecture proof. This is a finite-dimensional spectral identity and sharp proof-route no-go, not RH.",
+  "result": {
+    "theorem_name": "EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo",
+    "declared_target": "Determine exactly when a shifted trace moment certifies a positive spectral margin and whether O(log rank) alone suffices.",
+    "declared_target_ko": "shifted trace moment가 양의 spectral margin을 인증하는 정확 조건과 O(log rank) 성장률만으로 충분한지 판정한다.",
+    "proved_statement": "The shifted moment is exactly ||F||^q times the q-effective rank. The worst-case logarithmic coefficient is sharp.",
+    "proved_statement_ko": "shifted moment는 ||F||^q와 q-유효 rank의 정확한 곱이며, 최악 경우 로그 차수의 계수는 sharp하다.",
+    "proof": "Diagonalize F. Normalized eigenvalues lie in [0,1] and one is one, so their q-power sum is between one and rank. Scalar F=(1/2)I at rank 4^k attains the boundary exactly.",
+    "effective_rank_audit": {
+      "identity": "tr(F^q)=||F||^q*kappa_q with 1<=kappa_q<=rank(F)",
+      "sharp_log_condition": "q>log(rank)/(-log(1-eta)) is sufficient when only kappa_q<=rank is known, and scalar F makes it sharp",
+      "rows": [
+        {
+          "k": 1,
+          "rank": 4,
+          "relative_spectral_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "boundary_even_moment_order": 2,
+          "boundary_normalized_trace": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "next_even_moment_order": 4,
+          "next_normalized_trace": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "positive_margin_exact": true,
+            "boundary_trace_equals_threshold": true,
+            "next_even_order_passes": true,
+            "effective_rank_equals_rank": true
+          }
+        },
+        {
+          "k": 2,
+          "rank": 16,
+          "relative_spectral_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "boundary_even_moment_order": 4,
+          "boundary_normalized_trace": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "next_even_moment_order": 6,
+          "next_normalized_trace": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "positive_margin_exact": true,
+            "boundary_trace_equals_threshold": true,
+            "next_even_order_passes": true,
+            "effective_rank_equals_rank": true
+          }
+        },
+        {
+          "k": 3,
+          "rank": 64,
+          "relative_spectral_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "boundary_even_moment_order": 6,
+          "boundary_normalized_trace": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "next_even_moment_order": 8,
+          "next_normalized_trace": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "positive_margin_exact": true,
+            "boundary_trace_equals_threshold": true,
+            "next_even_order_passes": true,
+            "effective_rank_equals_rank": true
+          }
+        },
+        {
+          "k": 4,
+          "rank": 256,
+          "relative_spectral_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "boundary_even_moment_order": 8,
+          "boundary_normalized_trace": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "next_even_moment_order": 10,
+          "next_normalized_trace": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "positive_margin_exact": true,
+            "boundary_trace_equals_threshold": true,
+            "next_even_order_passes": true,
+            "effective_rank_equals_rank": true
+          }
+        },
+        {
+          "k": 5,
+          "rank": 1024,
+          "relative_spectral_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "boundary_even_moment_order": 10,
+          "boundary_normalized_trace": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "next_even_moment_order": 12,
+          "next_normalized_trace": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "positive_margin_exact": true,
+            "boundary_trace_equals_threshold": true,
+            "next_even_order_passes": true,
+            "effective_rank_equals_rank": true
+          }
+        },
+        {
+          "k": 6,
+          "rank": 4096,
+          "relative_spectral_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "boundary_even_moment_order": 12,
+          "boundary_normalized_trace": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "next_even_moment_order": 14,
+          "next_normalized_trace": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "positive_margin_exact": true,
+            "boundary_trace_equals_threshold": true,
+            "next_even_order_passes": true,
+            "effective_rank_equals_rank": true
+          }
+        },
+        {
+          "k": 7,
+          "rank": 16384,
+          "relative_spectral_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "boundary_even_moment_order": 14,
+          "boundary_normalized_trace": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "next_even_moment_order": 16,
+          "next_normalized_trace": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "positive_margin_exact": true,
+            "boundary_trace_equals_threshold": true,
+            "next_even_order_passes": true,
+            "effective_rank_equals_rank": true
+          }
+        },
+        {
+          "k": 8,
+          "rank": 65536,
+          "relative_spectral_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "boundary_even_moment_order": 16,
+          "boundary_normalized_trace": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "next_even_moment_order": 18,
+          "next_normalized_trace": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "positive_margin_exact": true,
+            "boundary_trace_equals_threshold": true,
+            "next_even_order_passes": true,
+            "effective_rank_equals_rank": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The projected Weil finite sections, spectral constants, and tail convergence map are not yet defined; finite scalar rows are not evidence for those missing arithmetic objects.",
+    "route_decision": {
+      "discard": "O(log rank) as a coefficient-free automatic shifted-moment certificate",
+      "retain": "one-sided shifted moments after an explicit finite-section and tail-convergence contract is supplied",
+      "next_theorem": "ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract"
+    },
+    "proof_boundary": "No conjecture proof. This is a finite-dimensional spectral identity and sharp proof-route no-go, not RH.",
+    "machine_audit": {
+      "row_count": 8,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T142-CLOSED",
+          "label": "EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T142-OPEN",
+          "label": "ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T142-CLOSED",
+          "RH-T142-OPEN"
+        ]
+      ]
+    }
+  }
+}

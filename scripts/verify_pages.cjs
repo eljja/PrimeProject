@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET142/TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260730-ticket141-priority")) {
-      errors.push(`${page}: missing TICKET141 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260725-ticket142-priority")) {
+      errors.push(`${page}: missing TICKET142 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,31 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket142 title", "Ticket 142 effective rank, cycle direction, Haar duals, and Liouville parity");
+    requireText("ticket142 table", "TICKET142 audit");
+    requireText("ticket142 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket142 resolutions", "Resolution count0");
+    requireText("ticket142 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket142 RH theorem", "EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo");
+      requireText("ticket142 RH rows", "Effective-rank rows8");
+      requireText("ticket142 RH target", "ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket142 Collatz theorem", "PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo");
+      requireText("ticket142 Collatz rows", "Exact period rows8");
+      requireText("ticket142 Collatz target", "Period15601AffineNumeratorNondivisibilityCertificate");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket142 Goldbach theorem", "RobustDualBasisChangeInvarianceAndHaarK56Reduction");
+      requireText("ticket142 Goldbach rows", "Dual rows5");
+      requireText("ticket142 Goldbach target", "UniformEvenGoldbachHaarScaleBudgetBelow56");
+    } else {
+      requireText("ticket142 Twin theorem", "CubicRoughnessLiouvilleExactTwinProjector");
+      requireText("ticket142 Twin rows", "Liouville ledger rows4");
+      requireText("ticket142 Twin target", "OneSidedCubicRoughLiouvilleLedgerGap");
+    }
     requireText("ticket141 title", "Ticket 141 one-sided spectra, moving floors, robust duals, and large sieve");
     requireText("ticket141 table", "TICKET141 audit");
-    requireText("ticket141 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket141 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket141 resolutions", "Resolution count0");
     requireText("ticket141 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {

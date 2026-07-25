@@ -62,12 +62,48 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-141
+## Latest Continuation After TICKET-142
 
-TICKET141 is the current boundary. Read
+TICKET142 is the current boundary. Read
+`docs/effective-rank-cycle-direction-haar-liouville.md` and
+`data/open-problem/ticket142-effective-rank-cycle-direction-haar-liouville.json`
+before proposing a new route. None of the four conjectures is resolved.
+
+For RH, `EffectiveRankShiftedMomentIdentityAndSharpLogCoefficientNoGo`
+shows that shifted moments depend on both the spectral edge and exact effective
+rank. The former TICKET141 target was underspecified because no projected Weil
+finite-section or tail-convergence contract had been defined. Attack
+`ExplicitProjectedWeilFiniteSectionAndTailConvergenceContract`.
+
+For Collatz,
+`PrimitiveCycleSuccessorDistinctProductUpperBoundAndTargetCollapseNoGo`
+corrects the central inequality direction: the product window gives an upper
+bound on a hypothetical primitive-cycle minimum. At period 15,601 the stronger
+distinct-successor inequality still leaves 4,340,106 possible minima above
+`2^28`. Attack `Period15601AffineNumeratorNondivisibilityCertificate`.
+
+For Goldbach, `RobustDualBasisChangeInvarianceAndHaarK56Reduction` proves
+that an honest invertible basis/error-set change cannot improve robust recovery
+by itself. Haar localization makes the actual missing arithmetic statement
+explicit. Attack `UniformEvenGoldbachHaarScaleBudgetBelow56`.
+
+For Twin Prime, `CubicRoughnessLiouvilleExactTwinProjector` expresses the exact
+gap-two count as `A00-A10-A01+A11` on a cubic-rough support. Generic unsigned
+minor-arc bounds do not control this one-sided parity ledger. Attack
+`OneSidedCubicRoughLiouvilleLedgerGap`.
+
+한국어 요약: TICKET142는 RH의 미정의 유한절단 계약, Collatz의 부등호
+방향 오류, Goldbach의 정직하지 않은 오차집합 교체, Twin Prime의
+unsigned cancellation에서 양의 질량으로의 순환적 승격을 교정한다.
+새 결과는 네 개의 정확 중간정리이며 난제 해결은 0개다.
+
+## Historical Continuation After TICKET-141
+
+TICKET141 is a preserved historical boundary. Read
 `docs/one-sided-moving-floor-robust-dual-and-large-sieve.md` and
 `data/open-problem/ticket141-one-sided-moving-floor-robust-dual-large-sieve.json`
-before proposing a new route. None of the four conjectures is resolved.
+for the preceding exact theorems. Its proposed next targets were corrected by
+TICKET142. None of the four conjectures is resolved.
 
 For RH, `ShiftedTraceMomentOneSidedCertificateAndSignBlindnessNoGo` replaces
 sign-blind even moments by a shifted one-sided certificate. Attack
