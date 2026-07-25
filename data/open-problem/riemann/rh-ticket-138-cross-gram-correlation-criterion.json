@@ -1,0 +1,628 @@
+{
+  "schema": "primeproject.ticket138-correlation-periodicity-and-scale-closure.v1",
+  "generated_at": "2026-07-27T12:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-138",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "CrossGramCorrelationBlockPositivityCriterion",
+  "bounded_result": {
+    "audit_ref": "riemann"
+  },
+  "candidate_theorem": "ProjectedWeilCrossGramCorrelationBudgetBelowTailGap",
+  "next_experiment": "Fix one projected Weil basis and bound row energy plus off-diagonal signed Gram correlations uniformly below the independently certified core-tail gap.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The theorem is exact finite-dimensional linear algebra. It does not provide the required projected Weil row-correlation estimate, a uniform tail gap, an RH proof, or an RH counterexample.",
+  "result": {
+    "theorem_name": "CrossGramCorrelationBlockPositivityCriterion",
+    "title_ko": "cross-Gram 상관 예산 블록 양성 판정 정리",
+    "declared_target": "Replace the TICKET137 absolute Schur target by a signed, cancellation-sensitive quantity that can still certify block positivity, and test whether signed row or column means alone suffice.",
+    "proved_statement": "Let B have rows b_i. Put d=max_i ||b_i||_2^2 and c=max_i sum_{j!=i}|<b_i,b_j>|. Then ||B||_2^2<=d+c. Hence a self-adjoint block [[A,B],[B*,C]] is positive definite whenever alpha>0, gamma>0, A>=alpha I, C>=gamma I, and d+c<alpha*gamma. The bound preserves signed cancellation inside row inner products. In contrast, for balanced sign vectors s,t, B=s*t^T/N has every signed row and column sum zero but ||B||_2^2=1, so signed means alone do not control the operator norm.",
+    "proved_statement_ko": "B의 행을 b_i라 하고 d=max ||b_i||^2, c=max_i sum_{j!=i}|<b_i,b_j>|라 하면 ||B||^2<=d+c이다. 따라서 alpha>0, gamma>0, A>=alpha I, C>=gamma I이고 d+c<alpha*gamma이면 대응하는 자기수반 블록은 양의 정부호다. 이 예산은 행 내적의 부호 상쇄를 보존한다. 반면 균형 부호 벡터 s,t에 대한 B=s*t^T/N은 모든 부호 행합과 열합이 0이지만 ||B||^2=1이므로 평균 상쇄만으로는 연산자 노름을 제어할 수 없다.",
+    "proof": "The nonzero eigenvalues of B*B and BB* agree. The Gram matrix G=BB* has diagonal entries ||b_i||^2 and off-diagonal entries <b_i,b_j>. Gershgorin, equivalently the Hermitian row-sum bound, gives lambda_max(G)<=d+c. The Schur-complement criterion then gives block positivity under alpha>0, gamma>0, and d+c<alpha*gamma. For the no-go family, balanced signs make all signed row and column sums vanish, while B=(s/sqrt(N))(t/sqrt(N))^T is rank one with singular value one.",
+    "exact_contract": {
+      "row_energy": "d=max_i ||b_i||_2^2",
+      "signed_cross_correlation": "c=max_i sum_{j!=i}|<b_i,b_j>|",
+      "operator_bound": "||B||_2^2<=d+c",
+      "positive_tail_bounds": "alpha>0 and gamma>0",
+      "block_certificate": "d+c<alpha*gamma",
+      "mean_cancellation_no_go": "signed row sums=signed column sums=0 does not imply ||B||<1"
+    },
+    "correlation_audit": {
+      "hadamard_rows": [
+        {
+          "dimension": 4,
+          "maximum_row_energy": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "tail_gap_product": {
+            "exact": "1/2",
+            "numerator": "1",
+            "denominator": "2",
+            "decimal": 0.5
+          },
+          "certified_margin": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "integer_hadamard_orthogonality": true,
+            "cross_gram_bound_equals_true_norm_squared": true,
+            "positive_block_margin": true
+          }
+        },
+        {
+          "dimension": 8,
+          "maximum_row_energy": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "tail_gap_product": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "certified_margin": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "checks": {
+            "integer_hadamard_orthogonality": true,
+            "cross_gram_bound_equals_true_norm_squared": true,
+            "positive_block_margin": true
+          }
+        },
+        {
+          "dimension": 16,
+          "maximum_row_energy": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "tail_gap_product": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "certified_margin": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "checks": {
+            "integer_hadamard_orthogonality": true,
+            "cross_gram_bound_equals_true_norm_squared": true,
+            "positive_block_margin": true
+          }
+        },
+        {
+          "dimension": 32,
+          "maximum_row_energy": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "tail_gap_product": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "certified_margin": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "checks": {
+            "integer_hadamard_orthogonality": true,
+            "cross_gram_bound_equals_true_norm_squared": true,
+            "positive_block_margin": true
+          }
+        },
+        {
+          "dimension": 64,
+          "maximum_row_energy": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "tail_gap_product": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "certified_margin": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "checks": {
+            "integer_hadamard_orthogonality": true,
+            "cross_gram_bound_equals_true_norm_squared": true,
+            "positive_block_margin": true
+          }
+        },
+        {
+          "dimension": 128,
+          "maximum_row_energy": {
+            "exact": "1/128",
+            "numerator": "1",
+            "denominator": "128",
+            "decimal": 0.0078125
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1/128",
+            "numerator": "1",
+            "denominator": "128",
+            "decimal": 0.0078125
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1/128",
+            "numerator": "1",
+            "denominator": "128",
+            "decimal": 0.0078125
+          },
+          "tail_gap_product": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "certified_margin": {
+            "exact": "1/128",
+            "numerator": "1",
+            "denominator": "128",
+            "decimal": 0.0078125
+          },
+          "checks": {
+            "integer_hadamard_orthogonality": true,
+            "cross_gram_bound_equals_true_norm_squared": true,
+            "positive_block_margin": true
+          }
+        }
+      ],
+      "coherent_counterfamily_rows": [
+        {
+          "dimension": 4,
+          "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+          "signed_row_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "signed_column_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "maximum_row_energy": {
+            "exact": "1/4",
+            "numerator": "1",
+            "denominator": "4",
+            "decimal": 0.25
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "3/4",
+            "numerator": "3",
+            "denominator": "4",
+            "decimal": 0.75
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "all_signed_row_sums_zero": true,
+            "all_signed_column_sums_zero": true,
+            "coherent_cross_gram_bound_exact": true,
+            "operator_norm_squared_one": true
+          }
+        },
+        {
+          "dimension": 8,
+          "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+          "signed_row_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "signed_column_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "maximum_row_energy": {
+            "exact": "1/8",
+            "numerator": "1",
+            "denominator": "8",
+            "decimal": 0.125
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "7/8",
+            "numerator": "7",
+            "denominator": "8",
+            "decimal": 0.875
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "all_signed_row_sums_zero": true,
+            "all_signed_column_sums_zero": true,
+            "coherent_cross_gram_bound_exact": true,
+            "operator_norm_squared_one": true
+          }
+        },
+        {
+          "dimension": 16,
+          "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+          "signed_row_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "signed_column_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "maximum_row_energy": {
+            "exact": "1/16",
+            "numerator": "1",
+            "denominator": "16",
+            "decimal": 0.0625
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "15/16",
+            "numerator": "15",
+            "denominator": "16",
+            "decimal": 0.9375
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "all_signed_row_sums_zero": true,
+            "all_signed_column_sums_zero": true,
+            "coherent_cross_gram_bound_exact": true,
+            "operator_norm_squared_one": true
+          }
+        },
+        {
+          "dimension": 32,
+          "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+          "signed_row_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "signed_column_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "maximum_row_energy": {
+            "exact": "1/32",
+            "numerator": "1",
+            "denominator": "32",
+            "decimal": 0.03125
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "31/32",
+            "numerator": "31",
+            "denominator": "32",
+            "decimal": 0.96875
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "all_signed_row_sums_zero": true,
+            "all_signed_column_sums_zero": true,
+            "coherent_cross_gram_bound_exact": true,
+            "operator_norm_squared_one": true
+          }
+        },
+        {
+          "dimension": 64,
+          "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+          "signed_row_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "signed_column_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "maximum_row_energy": {
+            "exact": "1/64",
+            "numerator": "1",
+            "denominator": "64",
+            "decimal": 0.015625
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "63/64",
+            "numerator": "63",
+            "denominator": "64",
+            "decimal": 0.984375
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "all_signed_row_sums_zero": true,
+            "all_signed_column_sums_zero": true,
+            "coherent_cross_gram_bound_exact": true,
+            "operator_norm_squared_one": true
+          }
+        },
+        {
+          "dimension": 128,
+          "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+          "signed_row_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "signed_column_sum": {
+            "exact": "0",
+            "numerator": "0",
+            "denominator": "1",
+            "decimal": 0.0
+          },
+          "maximum_row_energy": {
+            "exact": "1/128",
+            "numerator": "1",
+            "denominator": "128",
+            "decimal": 0.0078125
+          },
+          "maximum_off_diagonal_correlation_budget": {
+            "exact": "127/128",
+            "numerator": "127",
+            "denominator": "128",
+            "decimal": 0.9921875
+          },
+          "cross_gram_operator_bound": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "exact_operator_norm_squared": {
+            "exact": "1",
+            "numerator": "1",
+            "denominator": "1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "all_signed_row_sums_zero": true,
+            "all_signed_column_sums_zero": true,
+            "coherent_cross_gram_bound_exact": true,
+            "operator_norm_squared_one": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "projected Weil row-energy and off-diagonal cross-Gram correlation estimates below an independently certified tail gap",
+      "discard": "using signed row means, signed column means, or total signed mass as a substitute for cross-operator control",
+      "next_theorem": "ProjectedWeilCrossGramCorrelationBudgetBelowTailGap"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-TD4b.2a",
+          "label": "HadamardCancellationSchurOverestimateNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2b.1",
+          "label": "CrossGramCorrelationBlockPositivityCriterion",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2b.2",
+          "label": "ProjectedWeilCrossGramCorrelationBudgetBelowTailGap",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "RH",
+          "label": "Riemann Hypothesis",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-TD4b.2a",
+          "RH-TD4b.2b.1"
+        ],
+        [
+          "RH-TD4b.2b.1",
+          "RH-TD4b.2b.2"
+        ],
+        [
+          "RH-TD4b.2b.2",
+          "RH"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "hadamard_scale_count": 6,
+      "signed_mean_counterexample_count": 6,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The theorem is exact finite-dimensional linear algebra. It does not provide the required projected Weil row-correlation estimate, a uniform tail gap, an RH proof, or an RH counterexample."
+  }
+}

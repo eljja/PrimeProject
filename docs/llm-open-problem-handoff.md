@@ -62,9 +62,38 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-137
+## Latest Continuation After TICKET-138
 
-TICKET137 is the current boundary. Read
+TICKET138 is the current boundary. Read
+`docs/correlation-periodicity-and-scale-closure.md` and
+`data/open-problem/ticket138-correlation-periodicity-and-scale-closure.json`
+before proposing a new route. None of the four conjectures is resolved.
+
+For RH, `CrossGramCorrelationBlockPositivityCriterion` replaces absolute
+Schur sums and signed means by row energy plus off-diagonal signed Gram
+correlation. Attack
+`ProjectedWeilCrossGramCorrelationBudgetBelowTailGap`.
+
+For Collatz,
+`SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding` excludes
+every exactly periodic valuation code with `2^S<=3^k` from positive natural
+embedding. Attack `AffineCappedNaturalCodeWellFoundedness`; supercritical
+periodic and aperiodic natural codes remain open.
+
+For Goldbach, `AllScaleOddSquarefreeWheelMomentBarrier` proves
+`|H_W(X)|>=sqrt(X/2)` at every complete-block wheel scale. Attack
+`PointwiseSignedBinaryGoldbachResidualK56`; wheel cardinality cannot replace
+the pointwise signed estimate.
+
+For Twin Prime,
+`IrrationalInjectivityWithoutRegularityIsTautologicalNoGo` proves that an
+arbitrary classifier on an injective irrational phase image only restates the
+original predicate. Attack
+`RegularAperiodicTypeIICancellationWithPositiveTwinMass`.
+
+## Historical Continuation After TICKET-137
+
+TICKET137 is the preserved previous boundary. Read
 `docs/cancellation-entropy-and-information-budget.md` and
 `data/open-problem/ticket137-cancellation-entropy-and-information-budget.json`
 before proposing a new route. None of the four conjectures is resolved.

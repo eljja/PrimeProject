@@ -20,7 +20,8 @@ def theoremDecomposition : List String := [
   "TP-TD3a FiniteCongruenceTranscriptCompositeLift closed",
   "TP-TD3b.1 FiniteRationalFourierAlgebraCompositeLift closed",
   "TP-TD3b.2a RationalFourierInformationBudgetLowerBound closed",
-  "TP-TD3b.2b IrrationalOrSupercriticalAperiodicTypeIITwinSeparation highest_risk_open",
+  "TP-TD3b.2b.1 IrrationalInjectivityWithoutRegularityIsTautologicalNoGo closed",
+  "TP-TD3b.2b.2 RegularAperiodicTypeIICancellationWithPositiveTwinMass highest_risk_open",
   "TP-TD4 PositiveExactGapLowerBound",
   "TP-TD5 ExactGapInfinitudeBridge"
 ]
@@ -35,18 +36,18 @@ def rankedCegisTarget : String :=
   "TP-TICKET-128 gives an exact endpoint-only countermodel and proves that a within-dyadic-block envelope yields limsup Q<=0.92*c+delta"
 
 def topAttackTheoremTicket : String :=
-  "TP-TICKET-137 IrrationalOrSupercriticalAperiodicTypeIITwinSeparation."
+  "TP-TICKET-138 RegularAperiodicTypeIICancellationWithPositiveTwinMass."
 
 def topAttackProofAttemptProtocol : String :=
-  "Build irrational or supercritical aperiodic Type II information that does not factor through a subcritical rational denominator lcm, distinguish the n<2Lrs composite collisions, and transport a signed lower bound to positive exact-gap-two mass."
+  "Specify a computable regularity class for an aperiodic Type II statistic, prove uniform signed cancellation beyond rational-period and irrational-lookup shortcuts, and transport the estimate to positive exact-gap-two mass."
 
 def latestFiniteResult : String :=
-  "RationalFourierInformationBudgetLowerBound: denominator lcm L has an in-range composite-pair collision whenever 2*L*r*s<=X"
+  "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo: arbitrary lookup on an injective irrational phase image restates every integer predicate and provides no arithmetic estimate"
 
 def finiteEvidenceBoundary : String :=
-  "the information-budget theorem excludes transcript-only rational Fourier sufficient certificates when 2*L*r*s<=X, but not external arithmetic data, irrational phases, supercritical periods, or analytic Type II information; it is not a Twin Prime counterexample"
+  "the exact no-go excludes unrestricted irrational lookup expressivity as a proof step, but not regular analytic irrational phases or Type II cancellation; the Pell table is only a finite near-collision illustration"
 
 def retainedOpenPremise : String :=
-  "an irrational or supercritical aperiodic factor-sensitive Type II separator, its signed transport, and positive exact-gap-two mass"
+  "a regular computable aperiodic Type II cancellation theorem, signed transport, and positive exact-gap-two mass"
 
 end PrimeProject.OpenProblems.TwinPrime

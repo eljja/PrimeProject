@@ -5612,3 +5612,44 @@ Prime의 인수 민감 정보를 보존하지 못한다. TICKET-137은 이 네 �
 All four conjectures remain open. TICKET-137 exact theorem count is four,
 route-correction count is four, proof-DAG count is four, and
 conjecture-resolution count is zero.
+
+# TICKET-138 continuation: correlation, periodicity, and scale closure
+
+TICKET-138 preserves every valid TICKET-137 theorem while rejecting four
+remaining representational shortcuts. The machine-readable audit is
+`data/open-problem/ticket138-correlation-periodicity-and-scale-closure.json`.
+
+For RH, `CrossGramCorrelationBlockPositivityCriterion` proves
+`||B||^2<=d+c`, where `d` is maximum row energy and `c` is the maximum
+off-diagonal signed Gram-correlation budget. Balanced rank-one sign matrices
+prove that zero signed row and column means do not control the operator norm.
+The next target is
+`ProjectedWeilCrossGramCorrelationBudgetBelowTailGap`.
+
+For Collatz,
+`SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding` derives
+the exact periodic 2-adic start `n=C/(2^S-3^k)` and excludes every periodic
+code with `2^S<=3^k` from positive natural embedding. The next target is
+`AffineCappedNaturalCodeWellFoundedness`.
+
+For Goldbach, `AllScaleOddSquarefreeWheelMomentBarrier` strengthens the
+subpower result to every complete-block wheel scale:
+`|H_W(X)|>=sqrt(X/2)`. Near-full wheel size alone therefore does not avoid
+`p=Omega(log X)` worst-case promotion. The next target is
+`PointwiseSignedBinaryGoldbachResidualK56`.
+
+For Twin Prime,
+`IrrationalInjectivityWithoutRegularityIsTautologicalNoGo` proves that every
+integer predicate factors through an injective irrational phase by an
+unrestricted lookup. Injectivity alone supplies no regular arithmetic
+estimate or parity break. The next target is
+`RegularAperiodicTypeIICancellationWithPositiveTwinMass`.
+
+한국어 요약: TICKET-138은 평균 부호 상쇄를 cross-Gram 상관으로, Collatz
+무한 언어를 정확 주기 고정점으로, wheel 크기 선택을 전 규모 하한으로,
+무리수 feature 표현력을 계산 가능한 analytic regularity 문제로 교정했다.
+네 난제는 모두 미해결이며 해결 카운트는 0이다.
+
+All four conjectures remain open. TICKET-138 exact theorem count is four,
+route-correction count is four, proof-DAG count is four, and
+conjecture-resolution count is zero.

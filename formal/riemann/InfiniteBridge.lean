@@ -21,7 +21,8 @@ def theoremDecomposition : List String := [
   "RH-TD4a SharpBlockTailPositivityCertificate closed",
   "RH-TD4b.1 SchurTestWeilBlockBridgeAndEntrywiseDecayNoGo closed",
   "RH-TD4b.2a HadamardCancellationSchurOverestimateNoGo closed",
-  "RH-TD4b.2b ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin highest_risk_open",
+  "RH-TD4b.2b.1 CrossGramCorrelationBlockPositivityCriterion closed",
+  "RH-TD4b.2b.2 ProjectedWeilCrossGramCorrelationBudgetBelowTailGap highest_risk_open",
   "RH-TD5 WeilPositivityToRHImportAudit"
 ]
 
@@ -35,18 +36,18 @@ def rankedCegisTarget : String :=
   "RH-TICKET-128 proves that compact support removes the infinite prime tail exactly: only prime powers p^m<=B remain in the arithmetic side"
 
 def topAttackTheoremTicket : String :=
-  "RH-TICKET-137 ProjectedWeilSignedCrossBlockCancellationWithPositiveMargin."
+  "RH-TICKET-138 ProjectedWeilCrossGramCorrelationBudgetBelowTailGap."
 
 def topAttackProofAttemptProtocol : String :=
-  "Freeze one published Weil normalization and prove a cancellation-sensitive signed cross-block operator estimate together with an independent tail spectral gap; absolute Schur sums and finite Gram prefixes do not imply RH."
+  "Freeze one projected Weil basis and prove a dimension-uniform row-energy plus off-diagonal signed Gram-correlation budget below an independent tail spectral gap; signed means, absolute Schur sums, and finite Gram prefixes do not imply RH."
 
 def latestExactResult : String :=
-  "HadamardCancellationSchurOverestimateNoGo: B_N=H_N/N has R*S=1 but ||B_N||^2=1/N, so absolute Schur sums can reject blocks with positive true operator margin"
+  "CrossGramCorrelationBlockPositivityCriterion: ||B||^2 is bounded by maximum row energy plus the off-diagonal signed Gram-correlation budget, while zero signed means alone permit norm-one rank-one counterfamilies"
 
 def retiredRoute : String :=
   "full-test-space autocorrelation-cone density"
 
 def retainedOpenPremise : String :=
-  "an actual signed projected Weil cross-block cancellation estimate and tail spectral gap with positive true margin, or a certified strict-negative witness"
+  "an actual projected Weil cross-Gram correlation budget below a certified tail spectral gap, or a certified strict-negative witness"
 
 end PrimeProject.OpenProblems.Riemann

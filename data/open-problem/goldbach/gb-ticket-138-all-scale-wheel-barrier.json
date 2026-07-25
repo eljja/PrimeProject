@@ -1,0 +1,426 @@
+{
+  "schema": "primeproject.ticket138-correlation-periodicity-and-scale-closure.v1",
+  "generated_at": "2026-07-27T12:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-138",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "AllScaleOddSquarefreeWheelMomentBarrier",
+  "bounded_result": {
+    "audit_ref": "goldbach"
+  },
+  "candidate_theorem": "PointwiseSignedBinaryGoldbachResidualK56",
+  "next_experiment": "Abandon wheel-cardinality promotion and prove the signed binary residual pointwise with K<=56, then combine it with the certified finite cutoff.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "This is a sharp worst-case norm-promotion barrier for complete wheel blocks, not an estimate of the actual signed Goldbach residual. Analytic use of a wheel together with additional pointwise information is not excluded. No Goldbach proof or counterexample is supplied.",
+  "result": {
+    "theorem_name": "AllScaleOddSquarefreeWheelMomentBarrier",
+    "title_ko": "전 규모 홀수 squarefree wheel 로그 모멘트 장벽 정리",
+    "declared_target": "Test the remaining TICKET137 near-full-scale wheel escape and decide whether wheel scale alone can ever reduce worst-case moment-to-pointwise promotion below logarithmic order.",
+    "proved_statement": "Let W be odd and squarefree, M>=1, X=2WM, and H_W(X) the even integers through X coprime to W. Then h=|H_W(X)|=M*phi(W) and phi(W)^2>=W, so h^2>=M^2 W=M X/2>=X/2. Therefore h>=sqrt(X/2) at every complete-block wheel scale, including near-full scales. The sharp normalized L^p-to-maximum factor h^(1/p) can be at most 6/5 only if p>=(log X-log 2)/(2 log(6/5))=Omega(log X).",
+    "proved_statement_ko": "W가 홀수 squarefree이고 X=2WM, M>=1이면 hard stratum의 크기는 h=M*phi(W)이다. phi(W)^2>=W이므로 h^2>=M^2 W=M X/2>=X/2이고, 모든 complete-block 규모에서 h>=sqrt(X/2)이다. 따라서 near-full wheel에서도 정규화 L^p를 최대값으로 승격하는 최악의 팽창을 6/5 이하로 만들려면 p=Omega(log X)가 필요하다.",
+    "proof": "Oddness of W identifies even N=2m coprime to W with m coprime to W, giving M*phi(W) elements in M complete residue blocks. For squarefree odd W, phi(W)^2/W=product_{p|W}(p-1)^2/p>=1. Thus h^2=M^2 phi(W)^2>=M^2 W=M X/2>=X/2. The norm comparison ||x||_infinity<=h^(1/p)||x||_p is sharp on a one-point spike, so the displayed logarithmic lower bound on p is necessary.",
+    "exact_contract": {
+      "hard_count": "|H_W(2WM)|=M*phi(W)",
+      "totient_bound": "phi(W)^2>=W",
+      "all_scale_size_bound": "|H_W(X)|>=sqrt(X/2)",
+      "moment_threshold": "p>=(log X-log 2)/(2*log(6/5))"
+    },
+    "wheel_audit": {
+      "rows": [
+        {
+          "wheel": 3,
+          "complete_period_blocks_M": 1,
+          "scale_X": 6,
+          "hard_residues_per_period": 2,
+          "hard_stratum_size": 2,
+          "minimum_p_for_factor_at_most_6_over_5": 4,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 3,
+          "complete_period_blocks_M": 2,
+          "scale_X": 12,
+          "hard_residues_per_period": 2,
+          "hard_stratum_size": 4,
+          "minimum_p_for_factor_at_most_6_over_5": 8,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 3,
+          "complete_period_blocks_M": 5,
+          "scale_X": 30,
+          "hard_residues_per_period": 2,
+          "hard_stratum_size": 10,
+          "minimum_p_for_factor_at_most_6_over_5": 13,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 3,
+          "complete_period_blocks_M": 10,
+          "scale_X": 60,
+          "hard_residues_per_period": 2,
+          "hard_stratum_size": 20,
+          "minimum_p_for_factor_at_most_6_over_5": 17,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 15,
+          "complete_period_blocks_M": 1,
+          "scale_X": 30,
+          "hard_residues_per_period": 8,
+          "hard_stratum_size": 8,
+          "minimum_p_for_factor_at_most_6_over_5": 12,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 15,
+          "complete_period_blocks_M": 2,
+          "scale_X": 60,
+          "hard_residues_per_period": 8,
+          "hard_stratum_size": 16,
+          "minimum_p_for_factor_at_most_6_over_5": 16,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 15,
+          "complete_period_blocks_M": 5,
+          "scale_X": 150,
+          "hard_residues_per_period": 8,
+          "hard_stratum_size": 40,
+          "minimum_p_for_factor_at_most_6_over_5": 21,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 15,
+          "complete_period_blocks_M": 10,
+          "scale_X": 300,
+          "hard_residues_per_period": 8,
+          "hard_stratum_size": 80,
+          "minimum_p_for_factor_at_most_6_over_5": 25,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 105,
+          "complete_period_blocks_M": 1,
+          "scale_X": 210,
+          "hard_residues_per_period": 48,
+          "hard_stratum_size": 48,
+          "minimum_p_for_factor_at_most_6_over_5": 22,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 105,
+          "complete_period_blocks_M": 2,
+          "scale_X": 420,
+          "hard_residues_per_period": 48,
+          "hard_stratum_size": 96,
+          "minimum_p_for_factor_at_most_6_over_5": 26,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 105,
+          "complete_period_blocks_M": 5,
+          "scale_X": 1050,
+          "hard_residues_per_period": 48,
+          "hard_stratum_size": 240,
+          "minimum_p_for_factor_at_most_6_over_5": 31,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 105,
+          "complete_period_blocks_M": 10,
+          "scale_X": 2100,
+          "hard_residues_per_period": 48,
+          "hard_stratum_size": 480,
+          "minimum_p_for_factor_at_most_6_over_5": 34,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 1155,
+          "complete_period_blocks_M": 1,
+          "scale_X": 2310,
+          "hard_residues_per_period": 480,
+          "hard_stratum_size": 480,
+          "minimum_p_for_factor_at_most_6_over_5": 34,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 1155,
+          "complete_period_blocks_M": 2,
+          "scale_X": 4620,
+          "hard_residues_per_period": 480,
+          "hard_stratum_size": 960,
+          "minimum_p_for_factor_at_most_6_over_5": 38,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 1155,
+          "complete_period_blocks_M": 5,
+          "scale_X": 11550,
+          "hard_residues_per_period": 480,
+          "hard_stratum_size": 2400,
+          "minimum_p_for_factor_at_most_6_over_5": 43,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 1155,
+          "complete_period_blocks_M": 10,
+          "scale_X": 23100,
+          "hard_residues_per_period": 480,
+          "hard_stratum_size": 4800,
+          "minimum_p_for_factor_at_most_6_over_5": 47,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 15015,
+          "complete_period_blocks_M": 1,
+          "scale_X": 30030,
+          "hard_residues_per_period": 5760,
+          "hard_stratum_size": 5760,
+          "minimum_p_for_factor_at_most_6_over_5": 48,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 15015,
+          "complete_period_blocks_M": 2,
+          "scale_X": 60060,
+          "hard_residues_per_period": 5760,
+          "hard_stratum_size": 11520,
+          "minimum_p_for_factor_at_most_6_over_5": 52,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 15015,
+          "complete_period_blocks_M": 5,
+          "scale_X": 150150,
+          "hard_residues_per_period": 5760,
+          "hard_stratum_size": 28800,
+          "minimum_p_for_factor_at_most_6_over_5": 57,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        },
+        {
+          "wheel": 15015,
+          "complete_period_blocks_M": 10,
+          "scale_X": 300300,
+          "hard_residues_per_period": 5760,
+          "hard_stratum_size": 57600,
+          "minimum_p_for_factor_at_most_6_over_5": 61,
+          "universal_lower_bound": "sqrt(X/2)",
+          "checks": {
+            "wheel_odd_squarefree": true,
+            "complete_residue_block_count": true,
+            "exact_hard_count": true,
+            "totient_square_bound": true,
+            "universal_half_scale_square_bound": true,
+            "exact_moment_threshold": true
+          }
+        }
+      ],
+      "wheel_count": 5,
+      "block_count_setting_count": 4,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "a direct pointwise signed binary Goldbach residual estimate with K<=56, with explicit large-even glue",
+      "discard": "near-full wheel scale by itself as an escape from logarithmic worst-case moment promotion",
+      "next_theorem": "PointwiseSignedBinaryGoldbachResidualK56"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-TD4b.2a",
+          "label": "SubpowerGrowingWheelLogMomentBarrier",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2b.1",
+          "label": "AllScaleOddSquarefreeWheelMomentBarrier",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2b.2",
+          "label": "PointwiseSignedBinaryGoldbachResidualK56",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "GB",
+          "label": "Strong Goldbach Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-TD4b.2a",
+          "GB-TD4b.2b.1"
+        ],
+        [
+          "GB-TD4b.2b.1",
+          "GB-TD4b.2b.2"
+        ],
+        [
+          "GB-TD4b.2b.2",
+          "GB"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "wheel_scale_row_count": 20,
+      "near_full_block_count_one_rows": 5,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "This is a sharp worst-case norm-promotion barrier for complete wheel blocks, not an estimate of the actual signed Goldbach residual. Analytic use of a wheel together with additional pointwise information is not excluded. No Goldbach proof or counterexample is supplied."
+  }
+}

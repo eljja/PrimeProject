@@ -1,0 +1,254 @@
+{
+  "schema": "primeproject.ticket138-correlation-periodicity-and-scale-closure.v1",
+  "generated_at": "2026-07-27T12:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-138",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo",
+  "bounded_result": {
+    "audit_ref": "twin_prime"
+  },
+  "candidate_theorem": "RegularAperiodicTypeIICancellationWithPositiveTwinMass",
+  "next_experiment": "Specify a computable regularity class for an aperiodic Type II statistic, prove uniform signed cancellation, and transport it to positive exact-gap-two mass.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The theorem is a no-go for unrestricted feature expressivity, not a no-go for analytic irrational phases. It neither estimates a Vaughan Type II sum nor proves positive exact-gap-two mass. The Pell table is a finite illustration of near-collision, not the general injectivity proof.",
+  "result": {
+    "theorem_name": "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo",
+    "title_ko": "정칙성 없는 무리수 injectivity의 동어반복 한계 정리",
+    "declared_target": "Test the TICKET137 irrational-phase escape and determine whether injective aperiodic features alone create any arithmetic separation or break the parity barrier.",
+    "proved_statement": "For irrational alpha, phi_alpha(n)=exp(2*pi*i*alpha*n) is injective on the integers. Consequently every predicate P on Z, including the twin-prime-pair predicate, factors set-theoretically as P=F o phi_alpha for a unique lookup F on phi_alpha(Z). Thus the bare existence of an arbitrary classifier on an irrational phase image is equivalent to restating P and supplies no arithmetic estimate, computable regularity, parity break, or infinitude proof. Moreover irrational injectivity can coexist with arbitrarily close phase returns, as the Pell convergents to sqrt(2) demonstrate.",
+    "proved_statement_ko": "alpha가 무리수이면 phi_alpha(n)=exp(2*pi*i*alpha*n)은 정수에서 단사다. 따라서 쌍둥이 소수 판정을 포함한 모든 정수 술어 P는 상 phi_alpha(Z) 위의 lookup F를 정의하여 P=F o phi_alpha로 쓸 수 있다. 정칙성이나 계산 가능한 복잡도 제한이 없는 임의 분류기의 존재는 원래 술어를 다시 적은 것일 뿐이며 산술 추정, parity 돌파, 무한성 증명을 주지 않는다. sqrt(2)의 Pell 수렴분수는 단사성과 임의로 가까운 위상 재귀가 공존함도 보인다.",
+    "proof": "If phi_alpha(m)=phi_alpha(n), then alpha(m-n) is an integer. Irrationality forces m=n. Injectivity makes F(phi_alpha(n))=P(n) well-defined for every predicate P, proving the factorization. This construction merely stores the original labels and has no regularity guarantee. For alpha=sqrt(2), Pell solutions p_j^2-2q_j^2=(-1)^j give nonzero errors |q_j sqrt(2)-p_j|=1/(p_j+q_j sqrt(2))->0, hence unit-circle phase returns approach one without ever becoming exact.",
+    "exact_contract": {
+      "feature": "phi_alpha(n)=exp(2*pi*i*alpha*n)",
+      "injectivity": "alpha irrational implies phi_alpha injective on Z",
+      "tautological_factorization": "for every P:Z->{0,1}, F(phi_alpha(n))=P(n)",
+      "missing_structure": "effective regularity plus signed Type II transport"
+    },
+    "irrational_phase_audit": {
+      "algebraic_irrational": "sqrt(2)",
+      "pell_rows": [
+        {
+          "index": 1,
+          "convergent": "1/1",
+          "numerator": "1",
+          "denominator": "1",
+          "pell_residual_p2_minus_2q2": -1,
+          "absolute_phase_error": 0.41421356237309515,
+          "unit_circle_chord_distance_to_one": 1.9278050656997547,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 2,
+          "convergent": "3/2",
+          "numerator": "3",
+          "denominator": "2",
+          "pell_residual_p2_minus_2q2": 1,
+          "absolute_phase_error": 0.1715728752538097,
+          "unit_circle_chord_distance_to_one": 1.0265767943141222,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 3,
+          "convergent": "7/5",
+          "numerator": "7",
+          "denominator": "5",
+          "pell_residual_p2_minus_2q2": -1,
+          "absolute_phase_error": 0.0710678118654755,
+          "unit_circle_chord_distance_to_one": 0.44283169475296696,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 4,
+          "convergent": "17/12",
+          "numerator": "17",
+          "denominator": "12",
+          "pell_residual_p2_minus_2q2": 1,
+          "absolute_phase_error": 0.029437251522857366,
+          "unit_circle_chord_distance_to_one": 0.18469617360668134,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 5,
+          "convergent": "41/29",
+          "numerator": "41",
+          "denominator": "29",
+          "pell_residual_p2_minus_2q2": -1,
+          "absolute_phase_error": 0.012193308819760773,
+          "unit_circle_chord_distance_to_one": 0.07659408349772874,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 6,
+          "convergent": "99/70",
+          "numerator": "99",
+          "denominator": "70",
+          "pell_residual_p2_minus_2q2": 1,
+          "absolute_phase_error": 0.005050633883342925,
+          "unit_circle_chord_distance_to_one": 0.03173273704831606,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 7,
+          "convergent": "239/169",
+          "numerator": "239",
+          "denominator": "169",
+          "pell_residual_p2_minus_2q2": -1,
+          "absolute_phase_error": 0.002092041053089133,
+          "unit_circle_chord_distance_to_one": 0.013144586974782987,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 8,
+          "convergent": "577/408",
+          "numerator": "577",
+          "denominator": "408",
+          "pell_residual_p2_minus_2q2": 1,
+          "absolute_phase_error": 0.0008665517772215026,
+          "unit_circle_chord_distance_to_one": 0.005444698669247072,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 9,
+          "convergent": "1393/985",
+          "numerator": "1393",
+          "denominator": "985",
+          "pell_residual_p2_minus_2q2": -1,
+          "absolute_phase_error": 0.00035893749873139313,
+          "unit_circle_chord_distance_to_one": 0.002255270340272277,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 10,
+          "convergent": "3363/2378",
+          "numerator": "3363",
+          "denominator": "2378",
+          "pell_residual_p2_minus_2q2": 1,
+          "absolute_phase_error": 0.00014867677964502946,
+          "unit_circle_chord_distance_to_one": 0.0009341637234173787,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 11,
+          "convergent": "8119/5741",
+          "numerator": "8119",
+          "denominator": "5741",
+          "pell_residual_p2_minus_2q2": -1,
+          "absolute_phase_error": 6.158393898658687e-05,
+          "unit_circle_chord_distance_to_one": 0.00038694329818480297,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        },
+        {
+          "index": 12,
+          "convergent": "19601/13860",
+          "numerator": "19601",
+          "denominator": "13860",
+          "pell_residual_p2_minus_2q2": 1,
+          "absolute_phase_error": 2.5508899852866307e-05,
+          "unit_circle_chord_distance_to_one": 0.00016027714458629003,
+          "checks": {
+            "pell_residual_unit": true,
+            "no_exact_rational_collision": true,
+            "phase_near_collision_improves": true
+          }
+        }
+      ],
+      "row_count": 12,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "a regular, computable aperiodic Type II statistic with a quantitative signed-cancellation theorem and transport to positive exact-gap-two mass",
+      "discard": "irrational injectivity or arbitrary lookup expressivity by itself as a parity-breaking Twin Prime argument",
+      "next_theorem": "RegularAperiodicTypeIICancellationWithPositiveTwinMass"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-TD3b.2a",
+          "label": "RationalFourierInformationBudgetLowerBound",
+          "status": "closed"
+        },
+        {
+          "id": "TP-TD3b.2b.1",
+          "label": "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "TP-TD3b.2b.2",
+          "label": "RegularAperiodicTypeIICancellationWithPositiveTwinMass",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "TP",
+          "label": "Twin Prime Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-TD3b.2a",
+          "TP-TD3b.2b.1"
+        ],
+        [
+          "TP-TD3b.2b.1",
+          "TP-TD3b.2b.2"
+        ],
+        [
+          "TP-TD3b.2b.2",
+          "TP"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "pell_near_collision_row_count": 12,
+      "exact_irrational_collision_count": 0,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The theorem is a no-go for unrestricted feature expressivity, not a no-go for analytic irrational phases. It neither estimates a Vaughan Type II sum nor proves positive exact-gap-two mass. The Pell table is a finite illustration of near-collision, not the general injectivity proof."
+  }
+}

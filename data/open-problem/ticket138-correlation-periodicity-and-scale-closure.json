@@ -1,0 +1,1620 @@
+{
+  "schema": "primeproject.ticket138-correlation-periodicity-and-scale-closure.v1",
+  "generated_at": "2026-07-27T12:00:00+09:00",
+  "status": "exact_intermediate_theorems_proved_all_conjectures_open",
+  "claim_boundary": "TICKET138 proves four exact intermediate or no-go theorems and revises four proof targets. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime. No conjecture proof and no certified conjecture counterexample is claimed; all resolution counters remain zero.",
+  "correlation_periodicity_and_scale_closure_audit": {
+    "theorem_name": "FourConjectureCorrelationPeriodicityAndScaleClosureAudit",
+    "riemann": {
+      "theorem_name": "CrossGramCorrelationBlockPositivityCriterion",
+      "title_ko": "cross-Gram 상관 예산 블록 양성 판정 정리",
+      "declared_target": "Replace the TICKET137 absolute Schur target by a signed, cancellation-sensitive quantity that can still certify block positivity, and test whether signed row or column means alone suffice.",
+      "proved_statement": "Let B have rows b_i. Put d=max_i ||b_i||_2^2 and c=max_i sum_{j!=i}|<b_i,b_j>|. Then ||B||_2^2<=d+c. Hence a self-adjoint block [[A,B],[B*,C]] is positive definite whenever alpha>0, gamma>0, A>=alpha I, C>=gamma I, and d+c<alpha*gamma. The bound preserves signed cancellation inside row inner products. In contrast, for balanced sign vectors s,t, B=s*t^T/N has every signed row and column sum zero but ||B||_2^2=1, so signed means alone do not control the operator norm.",
+      "proved_statement_ko": "B의 행을 b_i라 하고 d=max ||b_i||^2, c=max_i sum_{j!=i}|<b_i,b_j>|라 하면 ||B||^2<=d+c이다. 따라서 alpha>0, gamma>0, A>=alpha I, C>=gamma I이고 d+c<alpha*gamma이면 대응하는 자기수반 블록은 양의 정부호다. 이 예산은 행 내적의 부호 상쇄를 보존한다. 반면 균형 부호 벡터 s,t에 대한 B=s*t^T/N은 모든 부호 행합과 열합이 0이지만 ||B||^2=1이므로 평균 상쇄만으로는 연산자 노름을 제어할 수 없다.",
+      "proof": "The nonzero eigenvalues of B*B and BB* agree. The Gram matrix G=BB* has diagonal entries ||b_i||^2 and off-diagonal entries <b_i,b_j>. Gershgorin, equivalently the Hermitian row-sum bound, gives lambda_max(G)<=d+c. The Schur-complement criterion then gives block positivity under alpha>0, gamma>0, and d+c<alpha*gamma. For the no-go family, balanced signs make all signed row and column sums vanish, while B=(s/sqrt(N))(t/sqrt(N))^T is rank one with singular value one.",
+      "exact_contract": {
+        "row_energy": "d=max_i ||b_i||_2^2",
+        "signed_cross_correlation": "c=max_i sum_{j!=i}|<b_i,b_j>|",
+        "operator_bound": "||B||_2^2<=d+c",
+        "positive_tail_bounds": "alpha>0 and gamma>0",
+        "block_certificate": "d+c<alpha*gamma",
+        "mean_cancellation_no_go": "signed row sums=signed column sums=0 does not imply ||B||<1"
+      },
+      "correlation_audit": {
+        "hadamard_rows": [
+          {
+            "dimension": 4,
+            "maximum_row_energy": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "tail_gap_product": {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            "certified_margin": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "integer_hadamard_orthogonality": true,
+              "cross_gram_bound_equals_true_norm_squared": true,
+              "positive_block_margin": true
+            }
+          },
+          {
+            "dimension": 8,
+            "maximum_row_energy": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "tail_gap_product": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "certified_margin": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "checks": {
+              "integer_hadamard_orthogonality": true,
+              "cross_gram_bound_equals_true_norm_squared": true,
+              "positive_block_margin": true
+            }
+          },
+          {
+            "dimension": 16,
+            "maximum_row_energy": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "tail_gap_product": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "certified_margin": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "integer_hadamard_orthogonality": true,
+              "cross_gram_bound_equals_true_norm_squared": true,
+              "positive_block_margin": true
+            }
+          },
+          {
+            "dimension": 32,
+            "maximum_row_energy": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "tail_gap_product": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "certified_margin": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "checks": {
+              "integer_hadamard_orthogonality": true,
+              "cross_gram_bound_equals_true_norm_squared": true,
+              "positive_block_margin": true
+            }
+          },
+          {
+            "dimension": 64,
+            "maximum_row_energy": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "tail_gap_product": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "certified_margin": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "checks": {
+              "integer_hadamard_orthogonality": true,
+              "cross_gram_bound_equals_true_norm_squared": true,
+              "positive_block_margin": true
+            }
+          },
+          {
+            "dimension": 128,
+            "maximum_row_energy": {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            "tail_gap_product": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "certified_margin": {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            "checks": {
+              "integer_hadamard_orthogonality": true,
+              "cross_gram_bound_equals_true_norm_squared": true,
+              "positive_block_margin": true
+            }
+          }
+        ],
+        "coherent_counterfamily_rows": [
+          {
+            "dimension": 4,
+            "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+            "signed_row_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "signed_column_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "maximum_row_energy": {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "3/4",
+              "numerator": "3",
+              "denominator": "4",
+              "decimal": 0.75
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "all_signed_row_sums_zero": true,
+              "all_signed_column_sums_zero": true,
+              "coherent_cross_gram_bound_exact": true,
+              "operator_norm_squared_one": true
+            }
+          },
+          {
+            "dimension": 8,
+            "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+            "signed_row_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "signed_column_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "maximum_row_energy": {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "7/8",
+              "numerator": "7",
+              "denominator": "8",
+              "decimal": 0.875
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "all_signed_row_sums_zero": true,
+              "all_signed_column_sums_zero": true,
+              "coherent_cross_gram_bound_exact": true,
+              "operator_norm_squared_one": true
+            }
+          },
+          {
+            "dimension": 16,
+            "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+            "signed_row_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "signed_column_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "maximum_row_energy": {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "15/16",
+              "numerator": "15",
+              "denominator": "16",
+              "decimal": 0.9375
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "all_signed_row_sums_zero": true,
+              "all_signed_column_sums_zero": true,
+              "coherent_cross_gram_bound_exact": true,
+              "operator_norm_squared_one": true
+            }
+          },
+          {
+            "dimension": 32,
+            "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+            "signed_row_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "signed_column_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "maximum_row_energy": {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "31/32",
+              "numerator": "31",
+              "denominator": "32",
+              "decimal": 0.96875
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "all_signed_row_sums_zero": true,
+              "all_signed_column_sums_zero": true,
+              "coherent_cross_gram_bound_exact": true,
+              "operator_norm_squared_one": true
+            }
+          },
+          {
+            "dimension": 64,
+            "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+            "signed_row_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "signed_column_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "maximum_row_energy": {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "63/64",
+              "numerator": "63",
+              "denominator": "64",
+              "decimal": 0.984375
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "all_signed_row_sums_zero": true,
+              "all_signed_column_sums_zero": true,
+              "coherent_cross_gram_bound_exact": true,
+              "operator_norm_squared_one": true
+            }
+          },
+          {
+            "dimension": 128,
+            "entry_model": "B_ij=s_i*t_j/N with balanced signs",
+            "signed_row_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "signed_column_sum": {
+              "exact": "0",
+              "numerator": "0",
+              "denominator": "1",
+              "decimal": 0.0
+            },
+            "maximum_row_energy": {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            "maximum_off_diagonal_correlation_budget": {
+              "exact": "127/128",
+              "numerator": "127",
+              "denominator": "128",
+              "decimal": 0.9921875
+            },
+            "cross_gram_operator_bound": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "exact_operator_norm_squared": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "all_signed_row_sums_zero": true,
+              "all_signed_column_sums_zero": true,
+              "coherent_cross_gram_bound_exact": true,
+              "operator_norm_squared_one": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "projected Weil row-energy and off-diagonal cross-Gram correlation estimates below an independently certified tail gap",
+        "discard": "using signed row means, signed column means, or total signed mass as a substitute for cross-operator control",
+        "next_theorem": "ProjectedWeilCrossGramCorrelationBudgetBelowTailGap"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-TD4b.2a",
+            "label": "HadamardCancellationSchurOverestimateNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-TD4b.2b.1",
+            "label": "CrossGramCorrelationBlockPositivityCriterion",
+            "status": "closed"
+          },
+          {
+            "id": "RH-TD4b.2b.2",
+            "label": "ProjectedWeilCrossGramCorrelationBudgetBelowTailGap",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-TD4b.2a",
+            "RH-TD4b.2b.1"
+          ],
+          [
+            "RH-TD4b.2b.1",
+            "RH-TD4b.2b.2"
+          ],
+          [
+            "RH-TD4b.2b.2",
+            "RH"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "hadamard_scale_count": 6,
+        "signed_mean_counterexample_count": 6,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The theorem is exact finite-dimensional linear algebra. It does not provide the required projected Weil row-correlation estimate, a uniform tail gap, an RH proof, or an RH counterexample."
+    },
+    "collatz": {
+      "theorem_name": "SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding",
+      "title_ko": "임계 이하 주기 valuation 코드의 양의 자연수 비매장 정리",
+      "declared_target": "Close a nontrivial infinite subclass of the TICKET137 affine-capped survivor language by deciding exactly which periodic valuation codes can represent positive natural Collatz orbits.",
+      "proved_statement": "Let a_1,...,a_k be a positive valuation word, S=sum a_i, and C=sum_{j=0}^{k-1}3^(k-1-j)2^(a_1+...+a_j). The infinite periodic itinerary (a_1,...,a_k)^infinity has the unique odd 2-adic start n=C/(2^S-3^k). If 2^S<=3^k, then n<0 and the itinerary has no positive natural embedding. Consequently every positive periodic Collatz orbit must satisfy the strict supercritical inequality 2^S>3^k. This excludes every subcritical periodic branch of the affine-capped survivor language at all periods.",
+      "proved_statement_ko": "양의 valuation 주기어 a_1,...,a_k의 합을 S라 하고 정확한 affine 보정항을 C라 하면 무한 반복 itinerary의 유일한 홀수 2-adic 시작점은 n=C/(2^S-3^k)이다. 2^S<=3^k이면 C>0이고 분모가 음수이므로 n<0이다. 따라서 이 임계 이하 주기 코드는 양의 자연수 Collatz 궤도를 나타낼 수 없다. 모든 양의 주기 궤도는 반드시 2^S>3^k를 만족해야 한다.",
+      "proof": "Finite valuation prefixes determine nested odd residue classes whose moduli tend to infinity, hence an infinite itinerary has at most one odd 2-adic start. Shifting a periodic itinerary by k symbols leaves it unchanged, so its k-step accelerated image equals its start. Iterating the exact affine identity gives 2^S n=3^k n+C, with C>0. Thus (2^S-3^k)n=C. Equality 2^S=3^k is impossible for positive k, and 2^S<3^k forces n<0.",
+      "exact_contract": {
+        "affine_correction": "C=sum_{j=0}^{k-1}3^(k-1-j)*2^(S_j), S_0=0",
+        "periodic_fixed_point": "n=C/(2^S-3^k)",
+        "positive_cycle_necessary_condition": "2^S>3^k",
+        "closed_subclass": "all exactly periodic infinite valuation codes with 2^S<=3^k"
+      },
+      "periodic_code_audit": {
+        "rows": [
+          {
+            "period": 1,
+            "alphabet": [
+              1,
+              2,
+              3
+            ],
+            "word_count": 3,
+            "subcritical_word_count": 1,
+            "positive_rational_fixed_point_count": 2,
+            "positive_integer_fixed_point_count": 1,
+            "nontrivial_positive_integer_fixed_point_count": 0,
+            "affine_capped_subcritical_word_count_B_1e6": 1,
+            "row_failure_count": 0
+          },
+          {
+            "period": 2,
+            "alphabet": [
+              1,
+              2,
+              3
+            ],
+            "word_count": 9,
+            "subcritical_word_count": 3,
+            "positive_rational_fixed_point_count": 6,
+            "positive_integer_fixed_point_count": 1,
+            "nontrivial_positive_integer_fixed_point_count": 0,
+            "affine_capped_subcritical_word_count_B_1e6": 2,
+            "row_failure_count": 0
+          },
+          {
+            "period": 3,
+            "alphabet": [
+              1,
+              2,
+              3
+            ],
+            "word_count": 27,
+            "subcritical_word_count": 4,
+            "positive_rational_fixed_point_count": 23,
+            "positive_integer_fixed_point_count": 1,
+            "nontrivial_positive_integer_fixed_point_count": 0,
+            "affine_capped_subcritical_word_count_B_1e6": 3,
+            "row_failure_count": 0
+          },
+          {
+            "period": 4,
+            "alphabet": [
+              1,
+              2,
+              3
+            ],
+            "word_count": 81,
+            "subcritical_word_count": 15,
+            "positive_rational_fixed_point_count": 66,
+            "positive_integer_fixed_point_count": 1,
+            "nontrivial_positive_integer_fixed_point_count": 0,
+            "affine_capped_subcritical_word_count_B_1e6": 7,
+            "row_failure_count": 0
+          },
+          {
+            "period": 5,
+            "alphabet": [
+              1,
+              2,
+              3
+            ],
+            "word_count": 243,
+            "subcritical_word_count": 21,
+            "positive_rational_fixed_point_count": 222,
+            "positive_integer_fixed_point_count": 1,
+            "nontrivial_positive_integer_fixed_point_count": 0,
+            "affine_capped_subcritical_word_count_B_1e6": 12,
+            "row_failure_count": 0
+          },
+          {
+            "period": 6,
+            "alphabet": [
+              1,
+              2,
+              3
+            ],
+            "word_count": 729,
+            "subcritical_word_count": 78,
+            "positive_rational_fixed_point_count": 651,
+            "positive_integer_fixed_point_count": 1,
+            "nontrivial_positive_integer_fixed_point_count": 0,
+            "affine_capped_subcritical_word_count_B_1e6": 29,
+            "row_failure_count": 0
+          },
+          {
+            "period": 7,
+            "alphabet": [
+              1,
+              2,
+              3
+            ],
+            "word_count": 2187,
+            "subcritical_word_count": 274,
+            "positive_rational_fixed_point_count": 1913,
+            "positive_integer_fixed_point_count": 1,
+            "nontrivial_positive_integer_fixed_point_count": 0,
+            "affine_capped_subcritical_word_count_B_1e6": 76,
+            "row_failure_count": 0
+          },
+          {
+            "period": 8,
+            "alphabet": [
+              1,
+              2,
+              3
+            ],
+            "word_count": 6561,
+            "subcritical_word_count": 423,
+            "positive_rational_fixed_point_count": 6138,
+            "positive_integer_fixed_point_count": 1,
+            "nontrivial_positive_integer_fixed_point_count": 0,
+            "affine_capped_subcritical_word_count_B_1e6": 154,
+            "row_failure_count": 0
+          }
+        ],
+        "examples": [
+          {
+            "word": [
+              1
+            ],
+            "valuation_sum": 1,
+            "affine_correction": "1",
+            "denominator": "-1",
+            "fixed_point": {
+              "exact": "-1",
+              "numerator": "-1",
+              "denominator": "1",
+              "decimal": -1.0
+            },
+            "subcritical": true,
+            "affine_capped_through_four_periods_B_1e6": true
+          },
+          {
+            "word": [
+              1,
+              2
+            ],
+            "valuation_sum": 3,
+            "affine_correction": "5",
+            "denominator": "-1",
+            "fixed_point": {
+              "exact": "-5",
+              "numerator": "-5",
+              "denominator": "1",
+              "decimal": -5.0
+            },
+            "subcritical": true,
+            "affine_capped_through_four_periods_B_1e6": true
+          },
+          {
+            "word": [
+              2
+            ],
+            "valuation_sum": 2,
+            "affine_correction": "1",
+            "denominator": "1",
+            "fixed_point": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "subcritical": false,
+            "affine_capped_through_four_periods_B_1e6": false
+          },
+          {
+            "word": [
+              1,
+              1,
+              2
+            ],
+            "valuation_sum": 4,
+            "affine_correction": "19",
+            "denominator": "-11",
+            "fixed_point": {
+              "exact": "-19/11",
+              "numerator": "-19",
+              "denominator": "11",
+              "decimal": -1.7272727272727273
+            },
+            "subcritical": true,
+            "affine_capped_through_four_periods_B_1e6": true
+          },
+          {
+            "word": [
+              2,
+              2,
+              2
+            ],
+            "valuation_sum": 6,
+            "affine_correction": "37",
+            "denominator": "37",
+            "fixed_point": {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            },
+            "subcritical": false,
+            "affine_capped_through_four_periods_B_1e6": false
+          }
+        ],
+        "total_word_count": 9840,
+        "total_subcritical_word_count": 819,
+        "total_positive_integer_fixed_point_count": 8,
+        "total_nontrivial_positive_integer_fixed_point_count": 0,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "Archimedean well-foundedness for supercritical periodic and aperiodic affine-capped natural codes",
+        "discard": "subcritical periodic valuation words, including the all-one boundary code, as possible positive natural counterexample codes",
+        "next_theorem": "AffineCappedNaturalCodeWellFoundedness"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-TD4b.2a",
+            "label": "AffineCappedValuationCylinderMassDecay",
+            "status": "closed"
+          },
+          {
+            "id": "CO-TD4b.2b.1",
+            "label": "SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding",
+            "status": "closed"
+          },
+          {
+            "id": "CO-TD4b.2b.2",
+            "label": "AffineCappedNaturalCodeWellFoundedness",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-TD4b.2a",
+            "CO-TD4b.2b.1"
+          ],
+          [
+            "CO-TD4b.2b.1",
+            "CO-TD4b.2b.2"
+          ],
+          [
+            "CO-TD4b.2b.2",
+            "CO"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "period_rows": 8,
+        "enumerated_word_count": 9840,
+        "subcritical_word_count": 819,
+        "nontrivial_positive_integer_fixed_point_count": 0,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The general theorem closes only exactly periodic subcritical valuation codes. The finite alphabet audit through period eight is not a cycle-exclusion proof at arbitrary period. Supercritical periodic codes and all aperiodic natural codes remain open."
+    },
+    "goldbach": {
+      "theorem_name": "AllScaleOddSquarefreeWheelMomentBarrier",
+      "title_ko": "전 규모 홀수 squarefree wheel 로그 모멘트 장벽 정리",
+      "declared_target": "Test the remaining TICKET137 near-full-scale wheel escape and decide whether wheel scale alone can ever reduce worst-case moment-to-pointwise promotion below logarithmic order.",
+      "proved_statement": "Let W be odd and squarefree, M>=1, X=2WM, and H_W(X) the even integers through X coprime to W. Then h=|H_W(X)|=M*phi(W) and phi(W)^2>=W, so h^2>=M^2 W=M X/2>=X/2. Therefore h>=sqrt(X/2) at every complete-block wheel scale, including near-full scales. The sharp normalized L^p-to-maximum factor h^(1/p) can be at most 6/5 only if p>=(log X-log 2)/(2 log(6/5))=Omega(log X).",
+      "proved_statement_ko": "W가 홀수 squarefree이고 X=2WM, M>=1이면 hard stratum의 크기는 h=M*phi(W)이다. phi(W)^2>=W이므로 h^2>=M^2 W=M X/2>=X/2이고, 모든 complete-block 규모에서 h>=sqrt(X/2)이다. 따라서 near-full wheel에서도 정규화 L^p를 최대값으로 승격하는 최악의 팽창을 6/5 이하로 만들려면 p=Omega(log X)가 필요하다.",
+      "proof": "Oddness of W identifies even N=2m coprime to W with m coprime to W, giving M*phi(W) elements in M complete residue blocks. For squarefree odd W, phi(W)^2/W=product_{p|W}(p-1)^2/p>=1. Thus h^2=M^2 phi(W)^2>=M^2 W=M X/2>=X/2. The norm comparison ||x||_infinity<=h^(1/p)||x||_p is sharp on a one-point spike, so the displayed logarithmic lower bound on p is necessary.",
+      "exact_contract": {
+        "hard_count": "|H_W(2WM)|=M*phi(W)",
+        "totient_bound": "phi(W)^2>=W",
+        "all_scale_size_bound": "|H_W(X)|>=sqrt(X/2)",
+        "moment_threshold": "p>=(log X-log 2)/(2*log(6/5))"
+      },
+      "wheel_audit": {
+        "rows": [
+          {
+            "wheel": 3,
+            "complete_period_blocks_M": 1,
+            "scale_X": 6,
+            "hard_residues_per_period": 2,
+            "hard_stratum_size": 2,
+            "minimum_p_for_factor_at_most_6_over_5": 4,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 3,
+            "complete_period_blocks_M": 2,
+            "scale_X": 12,
+            "hard_residues_per_period": 2,
+            "hard_stratum_size": 4,
+            "minimum_p_for_factor_at_most_6_over_5": 8,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 3,
+            "complete_period_blocks_M": 5,
+            "scale_X": 30,
+            "hard_residues_per_period": 2,
+            "hard_stratum_size": 10,
+            "minimum_p_for_factor_at_most_6_over_5": 13,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 3,
+            "complete_period_blocks_M": 10,
+            "scale_X": 60,
+            "hard_residues_per_period": 2,
+            "hard_stratum_size": 20,
+            "minimum_p_for_factor_at_most_6_over_5": 17,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 15,
+            "complete_period_blocks_M": 1,
+            "scale_X": 30,
+            "hard_residues_per_period": 8,
+            "hard_stratum_size": 8,
+            "minimum_p_for_factor_at_most_6_over_5": 12,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 15,
+            "complete_period_blocks_M": 2,
+            "scale_X": 60,
+            "hard_residues_per_period": 8,
+            "hard_stratum_size": 16,
+            "minimum_p_for_factor_at_most_6_over_5": 16,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 15,
+            "complete_period_blocks_M": 5,
+            "scale_X": 150,
+            "hard_residues_per_period": 8,
+            "hard_stratum_size": 40,
+            "minimum_p_for_factor_at_most_6_over_5": 21,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 15,
+            "complete_period_blocks_M": 10,
+            "scale_X": 300,
+            "hard_residues_per_period": 8,
+            "hard_stratum_size": 80,
+            "minimum_p_for_factor_at_most_6_over_5": 25,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 105,
+            "complete_period_blocks_M": 1,
+            "scale_X": 210,
+            "hard_residues_per_period": 48,
+            "hard_stratum_size": 48,
+            "minimum_p_for_factor_at_most_6_over_5": 22,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 105,
+            "complete_period_blocks_M": 2,
+            "scale_X": 420,
+            "hard_residues_per_period": 48,
+            "hard_stratum_size": 96,
+            "minimum_p_for_factor_at_most_6_over_5": 26,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 105,
+            "complete_period_blocks_M": 5,
+            "scale_X": 1050,
+            "hard_residues_per_period": 48,
+            "hard_stratum_size": 240,
+            "minimum_p_for_factor_at_most_6_over_5": 31,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 105,
+            "complete_period_blocks_M": 10,
+            "scale_X": 2100,
+            "hard_residues_per_period": 48,
+            "hard_stratum_size": 480,
+            "minimum_p_for_factor_at_most_6_over_5": 34,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 1155,
+            "complete_period_blocks_M": 1,
+            "scale_X": 2310,
+            "hard_residues_per_period": 480,
+            "hard_stratum_size": 480,
+            "minimum_p_for_factor_at_most_6_over_5": 34,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 1155,
+            "complete_period_blocks_M": 2,
+            "scale_X": 4620,
+            "hard_residues_per_period": 480,
+            "hard_stratum_size": 960,
+            "minimum_p_for_factor_at_most_6_over_5": 38,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 1155,
+            "complete_period_blocks_M": 5,
+            "scale_X": 11550,
+            "hard_residues_per_period": 480,
+            "hard_stratum_size": 2400,
+            "minimum_p_for_factor_at_most_6_over_5": 43,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 1155,
+            "complete_period_blocks_M": 10,
+            "scale_X": 23100,
+            "hard_residues_per_period": 480,
+            "hard_stratum_size": 4800,
+            "minimum_p_for_factor_at_most_6_over_5": 47,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 15015,
+            "complete_period_blocks_M": 1,
+            "scale_X": 30030,
+            "hard_residues_per_period": 5760,
+            "hard_stratum_size": 5760,
+            "minimum_p_for_factor_at_most_6_over_5": 48,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 15015,
+            "complete_period_blocks_M": 2,
+            "scale_X": 60060,
+            "hard_residues_per_period": 5760,
+            "hard_stratum_size": 11520,
+            "minimum_p_for_factor_at_most_6_over_5": 52,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 15015,
+            "complete_period_blocks_M": 5,
+            "scale_X": 150150,
+            "hard_residues_per_period": 5760,
+            "hard_stratum_size": 28800,
+            "minimum_p_for_factor_at_most_6_over_5": 57,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          },
+          {
+            "wheel": 15015,
+            "complete_period_blocks_M": 10,
+            "scale_X": 300300,
+            "hard_residues_per_period": 5760,
+            "hard_stratum_size": 57600,
+            "minimum_p_for_factor_at_most_6_over_5": 61,
+            "universal_lower_bound": "sqrt(X/2)",
+            "checks": {
+              "wheel_odd_squarefree": true,
+              "complete_residue_block_count": true,
+              "exact_hard_count": true,
+              "totient_square_bound": true,
+              "universal_half_scale_square_bound": true,
+              "exact_moment_threshold": true
+            }
+          }
+        ],
+        "wheel_count": 5,
+        "block_count_setting_count": 4,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "a direct pointwise signed binary Goldbach residual estimate with K<=56, with explicit large-even glue",
+        "discard": "near-full wheel scale by itself as an escape from logarithmic worst-case moment promotion",
+        "next_theorem": "PointwiseSignedBinaryGoldbachResidualK56"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-TD4b.2a",
+            "label": "SubpowerGrowingWheelLogMomentBarrier",
+            "status": "closed"
+          },
+          {
+            "id": "GB-TD4b.2b.1",
+            "label": "AllScaleOddSquarefreeWheelMomentBarrier",
+            "status": "closed"
+          },
+          {
+            "id": "GB-TD4b.2b.2",
+            "label": "PointwiseSignedBinaryGoldbachResidualK56",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-TD4b.2a",
+            "GB-TD4b.2b.1"
+          ],
+          [
+            "GB-TD4b.2b.1",
+            "GB-TD4b.2b.2"
+          ],
+          [
+            "GB-TD4b.2b.2",
+            "GB"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "wheel_scale_row_count": 20,
+        "near_full_block_count_one_rows": 5,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "This is a sharp worst-case norm-promotion barrier for complete wheel blocks, not an estimate of the actual signed Goldbach residual. Analytic use of a wheel together with additional pointwise information is not excluded. No Goldbach proof or counterexample is supplied."
+    },
+    "twin_prime": {
+      "theorem_name": "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo",
+      "title_ko": "정칙성 없는 무리수 injectivity의 동어반복 한계 정리",
+      "declared_target": "Test the TICKET137 irrational-phase escape and determine whether injective aperiodic features alone create any arithmetic separation or break the parity barrier.",
+      "proved_statement": "For irrational alpha, phi_alpha(n)=exp(2*pi*i*alpha*n) is injective on the integers. Consequently every predicate P on Z, including the twin-prime-pair predicate, factors set-theoretically as P=F o phi_alpha for a unique lookup F on phi_alpha(Z). Thus the bare existence of an arbitrary classifier on an irrational phase image is equivalent to restating P and supplies no arithmetic estimate, computable regularity, parity break, or infinitude proof. Moreover irrational injectivity can coexist with arbitrarily close phase returns, as the Pell convergents to sqrt(2) demonstrate.",
+      "proved_statement_ko": "alpha가 무리수이면 phi_alpha(n)=exp(2*pi*i*alpha*n)은 정수에서 단사다. 따라서 쌍둥이 소수 판정을 포함한 모든 정수 술어 P는 상 phi_alpha(Z) 위의 lookup F를 정의하여 P=F o phi_alpha로 쓸 수 있다. 정칙성이나 계산 가능한 복잡도 제한이 없는 임의 분류기의 존재는 원래 술어를 다시 적은 것일 뿐이며 산술 추정, parity 돌파, 무한성 증명을 주지 않는다. sqrt(2)의 Pell 수렴분수는 단사성과 임의로 가까운 위상 재귀가 공존함도 보인다.",
+      "proof": "If phi_alpha(m)=phi_alpha(n), then alpha(m-n) is an integer. Irrationality forces m=n. Injectivity makes F(phi_alpha(n))=P(n) well-defined for every predicate P, proving the factorization. This construction merely stores the original labels and has no regularity guarantee. For alpha=sqrt(2), Pell solutions p_j^2-2q_j^2=(-1)^j give nonzero errors |q_j sqrt(2)-p_j|=1/(p_j+q_j sqrt(2))->0, hence unit-circle phase returns approach one without ever becoming exact.",
+      "exact_contract": {
+        "feature": "phi_alpha(n)=exp(2*pi*i*alpha*n)",
+        "injectivity": "alpha irrational implies phi_alpha injective on Z",
+        "tautological_factorization": "for every P:Z->{0,1}, F(phi_alpha(n))=P(n)",
+        "missing_structure": "effective regularity plus signed Type II transport"
+      },
+      "irrational_phase_audit": {
+        "algebraic_irrational": "sqrt(2)",
+        "pell_rows": [
+          {
+            "index": 1,
+            "convergent": "1/1",
+            "numerator": "1",
+            "denominator": "1",
+            "pell_residual_p2_minus_2q2": -1,
+            "absolute_phase_error": 0.41421356237309515,
+            "unit_circle_chord_distance_to_one": 1.9278050656997547,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 2,
+            "convergent": "3/2",
+            "numerator": "3",
+            "denominator": "2",
+            "pell_residual_p2_minus_2q2": 1,
+            "absolute_phase_error": 0.1715728752538097,
+            "unit_circle_chord_distance_to_one": 1.0265767943141222,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 3,
+            "convergent": "7/5",
+            "numerator": "7",
+            "denominator": "5",
+            "pell_residual_p2_minus_2q2": -1,
+            "absolute_phase_error": 0.0710678118654755,
+            "unit_circle_chord_distance_to_one": 0.44283169475296696,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 4,
+            "convergent": "17/12",
+            "numerator": "17",
+            "denominator": "12",
+            "pell_residual_p2_minus_2q2": 1,
+            "absolute_phase_error": 0.029437251522857366,
+            "unit_circle_chord_distance_to_one": 0.18469617360668134,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 5,
+            "convergent": "41/29",
+            "numerator": "41",
+            "denominator": "29",
+            "pell_residual_p2_minus_2q2": -1,
+            "absolute_phase_error": 0.012193308819760773,
+            "unit_circle_chord_distance_to_one": 0.07659408349772874,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 6,
+            "convergent": "99/70",
+            "numerator": "99",
+            "denominator": "70",
+            "pell_residual_p2_minus_2q2": 1,
+            "absolute_phase_error": 0.005050633883342925,
+            "unit_circle_chord_distance_to_one": 0.03173273704831606,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 7,
+            "convergent": "239/169",
+            "numerator": "239",
+            "denominator": "169",
+            "pell_residual_p2_minus_2q2": -1,
+            "absolute_phase_error": 0.002092041053089133,
+            "unit_circle_chord_distance_to_one": 0.013144586974782987,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 8,
+            "convergent": "577/408",
+            "numerator": "577",
+            "denominator": "408",
+            "pell_residual_p2_minus_2q2": 1,
+            "absolute_phase_error": 0.0008665517772215026,
+            "unit_circle_chord_distance_to_one": 0.005444698669247072,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 9,
+            "convergent": "1393/985",
+            "numerator": "1393",
+            "denominator": "985",
+            "pell_residual_p2_minus_2q2": -1,
+            "absolute_phase_error": 0.00035893749873139313,
+            "unit_circle_chord_distance_to_one": 0.002255270340272277,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 10,
+            "convergent": "3363/2378",
+            "numerator": "3363",
+            "denominator": "2378",
+            "pell_residual_p2_minus_2q2": 1,
+            "absolute_phase_error": 0.00014867677964502946,
+            "unit_circle_chord_distance_to_one": 0.0009341637234173787,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 11,
+            "convergent": "8119/5741",
+            "numerator": "8119",
+            "denominator": "5741",
+            "pell_residual_p2_minus_2q2": -1,
+            "absolute_phase_error": 6.158393898658687e-05,
+            "unit_circle_chord_distance_to_one": 0.00038694329818480297,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          },
+          {
+            "index": 12,
+            "convergent": "19601/13860",
+            "numerator": "19601",
+            "denominator": "13860",
+            "pell_residual_p2_minus_2q2": 1,
+            "absolute_phase_error": 2.5508899852866307e-05,
+            "unit_circle_chord_distance_to_one": 0.00016027714458629003,
+            "checks": {
+              "pell_residual_unit": true,
+              "no_exact_rational_collision": true,
+              "phase_near_collision_improves": true
+            }
+          }
+        ],
+        "row_count": 12,
+        "failure_count": 0
+      },
+      "route_decision": {
+        "retain": "a regular, computable aperiodic Type II statistic with a quantitative signed-cancellation theorem and transport to positive exact-gap-two mass",
+        "discard": "irrational injectivity or arbitrary lookup expressivity by itself as a parity-breaking Twin Prime argument",
+        "next_theorem": "RegularAperiodicTypeIICancellationWithPositiveTwinMass"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-TD3b.2a",
+            "label": "RationalFourierInformationBudgetLowerBound",
+            "status": "closed"
+          },
+          {
+            "id": "TP-TD3b.2b.1",
+            "label": "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-TD3b.2b.2",
+            "label": "RegularAperiodicTypeIICancellationWithPositiveTwinMass",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-TD3b.2a",
+            "TP-TD3b.2b.1"
+          ],
+          [
+            "TP-TD3b.2b.1",
+            "TP-TD3b.2b.2"
+          ],
+          [
+            "TP-TD3b.2b.2",
+            "TP"
+          ]
+        ]
+      },
+      "machine_audit": {
+        "pell_near_collision_row_count": 12,
+        "exact_irrational_collision_count": 0,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0
+      },
+      "proof_boundary": "The theorem is a no-go for unrestricted feature expressivity, not a no-go for analytic irrational phases. It neither estimates a Vaughan Type II sum nor proves positive exact-gap-two mass. The Pell table is a finite illustration of near-collision, not the general injectivity proof."
+    },
+    "cross_problem_synthesis": {
+      "shared_obstruction": "A richer representation can remain proof-theoretically empty unless it carries quantitative correlation, well-foundedness, pointwise control, or analytic regularity.",
+      "shared_upgrade": "The next routes must control cross-Gram coherence, natural-code well-foundedness, pointwise Goldbach residuals, and regular aperiodic Type II cancellation."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "TICKET138 proves four exact intermediate or no-go theorems and revises four proof targets. It does not prove or refute RH, Collatz, strong Goldbach, or Twin Prime. No conjecture proof and no certified conjecture counterexample is claimed; all resolution counters remain zero."
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-138",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "CrossGramCorrelationBlockPositivityCriterion",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "candidate_theorem": "ProjectedWeilCrossGramCorrelationBudgetBelowTailGap",
+      "next_experiment": "Fix one projected Weil basis and bound row energy plus off-diagonal signed Gram correlations uniformly below the independently certified core-tail gap.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The theorem is exact finite-dimensional linear algebra. It does not provide the required projected Weil row-correlation estimate, a uniform tail gap, an RH proof, or an RH counterexample."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-138",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "candidate_theorem": "AffineCappedNaturalCodeWellFoundedness",
+      "next_experiment": "Construct an Archimedean well-founded rank that excludes supercritical periodic and aperiodic natural codes from the infinite affine-capped survivor set.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The general theorem closes only exactly periodic subcritical valuation codes. The finite alphabet audit through period eight is not a cycle-exclusion proof at arbitrary period. Supercritical periodic codes and all aperiodic natural codes remain open."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-138",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "AllScaleOddSquarefreeWheelMomentBarrier",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "candidate_theorem": "PointwiseSignedBinaryGoldbachResidualK56",
+      "next_experiment": "Abandon wheel-cardinality promotion and prove the signed binary residual pointwise with K<=56, then combine it with the certified finite cutoff.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "This is a sharp worst-case norm-promotion barrier for complete wheel blocks, not an estimate of the actual signed Goldbach residual. Analytic use of a wheel together with additional pointwise information is not excluded. No Goldbach proof or counterexample is supplied."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-138",
+      "status": "exact_intermediate_theorem_conjecture_open",
+      "route": "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "candidate_theorem": "RegularAperiodicTypeIICancellationWithPositiveTwinMass",
+      "next_experiment": "Specify a computable regularity class for an aperiodic Type II statistic, prove uniform signed cancellation, and transport it to positive exact-gap-two mass.",
+      "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+      "proof_boundary": "The theorem is a no-go for unrestricted feature expressivity, not a no-go for analytic irrational phases. It neither estimates a Vaughan Type II sum nor proves positive exact-gap-two mass. The Pell table is a finite illustration of near-collision, not the general injectivity proof."
+    }
+  ]
+}

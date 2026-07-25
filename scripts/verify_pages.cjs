@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260726-ticket137-priority")) {
-      errors.push(`${page}: missing TICKET137 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260727-ticket138-priority")) {
+      errors.push(`${page}: missing TICKET138 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,31 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket138 title", "Ticket 138 correlation, periodicity, and scale closure");
+    requireText("ticket138 table", "TICKET138 audit");
+    requireText("ticket138 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket138 resolutions", "Resolution count0");
+    requireText("ticket138 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket138 RH theorem", "CrossGramCorrelationBlockPositivityCriterion");
+      requireText("ticket138 RH no-go", "signed-mean no-go");
+      requireText("ticket138 RH target", "ProjectedWeilCrossGramCorrelationBudgetBelowTailGap");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket138 Collatz theorem", "SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding");
+      requireText("ticket138 Collatz words", "Words replayed9,840");
+      requireText("ticket138 Collatz target", "AffineCappedNaturalCodeWellFoundedness");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket138 Goldbach theorem", "AllScaleOddSquarefreeWheelMomentBarrier");
+      requireText("ticket138 Goldbach near-full", "M=1 near-full");
+      requireText("ticket138 Goldbach target", "PointwiseSignedBinaryGoldbachResidualK56");
+    } else {
+      requireText("ticket138 Twin theorem", "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo");
+      requireText("ticket138 Twin Pell", "Pell rows12");
+      requireText("ticket138 Twin target", "RegularAperiodicTypeIICancellationWithPositiveTwinMass");
+    }
     requireText("ticket137 title", "Ticket 137 cancellation, entropy, and information budgets");
     requireText("ticket137 table", "TICKET137 audit");
-    requireText("ticket137 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket137 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket137 resolutions", "Resolution count0");
     requireText("ticket137 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {

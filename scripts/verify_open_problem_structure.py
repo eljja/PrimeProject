@@ -134,6 +134,7 @@ TICKET134_SCHEMA = "primeproject.ticket134-uniformity-thresholds-and-scale-no-go
 TICKET135_SCHEMA = "primeproject.ticket135-conditional-bridges-and-exceptional-set.v1"
 TICKET136_SCHEMA = "primeproject.ticket136-scale-sensitive-obstructions-and-affine-bridge.v1"
 TICKET137_SCHEMA = "primeproject.ticket137-cancellation-entropy-and-information-budget.v1"
+TICKET138_SCHEMA = "primeproject.ticket138-correlation-periodicity-and-scale-closure.v1"
 
 
 def fail(message: str) -> int:
@@ -7905,6 +7906,48 @@ def main() -> int:
         return fail("ticket137 Twin Fourier information budget changed")
     if "does not prove or refute" not in str(audit137.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket137.get("claim_boundary", "")).lower():
         return fail("ticket137 proof boundary changed")
+
+    path138 = Path("data/open-problem/ticket138-correlation-periodicity-and-scale-closure.json")
+    if not path138.exists():
+        return fail("missing ticket138 correlation-periodicity-scale audit")
+    ticket138 = read_json(path138)
+    if ticket138.get("schema") != TICKET138_SCHEMA or ticket138.get("status") != "exact_intermediate_theorems_proved_all_conjectures_open":
+        return fail("ticket138 schema or status changed")
+    attempts138 = ticket138.get("attempts", [])
+    by_id138 = {str(row.get("problem_id")): row for row in attempts138 if isinstance(row, dict)} if isinstance(attempts138, list) else {}
+    if set(by_id138) != EXPECTED_PROBLEMS:
+        return fail("ticket138 attempts missing problems")
+    paths138 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-138-cross-gram-correlation-criterion.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-138-subcritical-periodic-code-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-138-all-scale-wheel-barrier.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-138-irrational-injectivity-no-go.json"),
+    }
+    for problem_id, attempt in by_id138.items():
+        if not paths138[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket138 artifact or proof boundary missing")
+    audit138 = ticket138.get("correlation_periodicity_and_scale_closure_audit", {})
+    machine138 = audit138.get("machine_audit", {})
+    if audit138.get("theorem_name") != "FourConjectureCorrelationPeriodicityAndScaleClosureAudit" or int(machine138.get("exact_theorem_count", -1)) != 4 or int(machine138.get("route_correction_count", -1)) != 4 or int(machine138.get("proof_dag_count", -1)) != 4 or int(machine138.get("conjecture_resolution_count", -1)) != 0 or int(machine138.get("total_failure_count", -1)) != 0:
+        return fail("ticket138 global machine audit changed")
+    riemann138 = audit138.get("riemann", {})
+    correlation138 = riemann138.get("correlation_audit", {})
+    if riemann138.get("theorem_name") != "CrossGramCorrelationBlockPositivityCriterion" or len(correlation138.get("hadamard_rows", [])) != 6 or len(correlation138.get("coherent_counterfamily_rows", [])) != 6 or int(correlation138.get("failure_count", -1)) != 0:
+        return fail("ticket138 RH cross-Gram criterion changed")
+    collatz138 = audit138.get("collatz", {})
+    periodic138 = collatz138.get("periodic_code_audit", {})
+    if collatz138.get("theorem_name") != "SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding" or len(periodic138.get("rows", [])) != 8 or int(periodic138.get("total_word_count", -1)) != 9840 or int(periodic138.get("total_subcritical_word_count", -1)) != 819 or int(periodic138.get("total_nontrivial_positive_integer_fixed_point_count", -1)) != 0 or int(periodic138.get("failure_count", -1)) != 0:
+        return fail("ticket138 Collatz periodic-code theorem changed")
+    goldbach138 = audit138.get("goldbach", {})
+    wheel138 = goldbach138.get("wheel_audit", {})
+    if goldbach138.get("theorem_name") != "AllScaleOddSquarefreeWheelMomentBarrier" or len(wheel138.get("rows", [])) != 20 or int(goldbach138.get("machine_audit", {}).get("near_full_block_count_one_rows", -1)) != 5 or int(wheel138.get("failure_count", -1)) != 0:
+        return fail("ticket138 Goldbach all-scale wheel barrier changed")
+    twin138 = audit138.get("twin_prime", {})
+    irrational138 = twin138.get("irrational_phase_audit", {})
+    if twin138.get("theorem_name") != "IrrationalInjectivityWithoutRegularityIsTautologicalNoGo" or len(irrational138.get("pell_rows", [])) != 12 or int(twin138.get("machine_audit", {}).get("exact_irrational_collision_count", -1)) != 0 or int(irrational138.get("failure_count", -1)) != 0:
+        return fail("ticket138 Twin irrational-injectivity no-go changed")
+    if "does not prove or refute" not in str(audit138.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket138.get("claim_boundary", "")).lower():
+        return fail("ticket138 proof boundary changed")
 
     print("open problem structure verified")
     return 0

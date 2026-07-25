@@ -7,6 +7,15 @@ Status: `open_not_proven` for all four conjectures
 Machine record:
 `data/open-problem/ticket137-cancellation-entropy-and-information-budget.json`
 
+> **Current boundary / 최신 경계:** TICKET-138 replaces signed means by a
+> cross-Gram correlation criterion, excludes every subcritical periodic
+> Collatz valuation code from positive natural embedding, extends the
+> Goldbach wheel moment barrier to every complete-block scale, and proves that
+> irrational injectivity without analytic regularity is tautological for Twin
+> Prime. See
+> [TICKET-138](correlation-periodicity-and-scale-closure.md). All four
+> conjectures remain open.
+
 ## Publication boundary / 논문 제출용 경계
 
 **English.** TICKET-137 proves four exact intermediate or no-go statements.
