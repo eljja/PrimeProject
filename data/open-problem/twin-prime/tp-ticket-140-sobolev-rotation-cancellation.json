@@ -1,0 +1,296 @@
+{
+  "schema": "primeproject.ticket140-spectral-moments-fixed-floor-duality-rotation.v1",
+  "generated_at": "2026-07-29T12:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-140",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "QuadraticIrrationalSobolevRotationCancellation",
+  "bounded_result": {
+    "audit_ref": "twin_prime"
+  },
+  "candidate_theorem": "DiophantineSobolevTypeIIBilinearCancellationWithPositiveTwinMass",
+  "next_experiment": "Insert Vaughan or Mobius bilinear coefficients into the uniform Sobolev rotation estimate and preserve a positive exact-gap-two main term.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The theorem proves uniform cancellation only for an unweighted quadratic-irrational rotation and a regular Fourier observable. It does not control Vaughan or Mobius bilinear coefficients, does not break the sieve parity barrier, and provides no positive exact-gap-two mass.",
+  "result": {
+    "theorem_name": "QuadraticIrrationalSobolevRotationCancellation",
+    "title_ko": "이차 무리수 Sobolev 회전 상쇄 정리",
+    "declared_target": "Prove the first genuinely scale-uniform analytic cancellation statement inside the TICKET139 irrational-feature route, while separating it from the still-missing arithmetic Type II estimate.",
+    "proved_statement": "Let F(x)=sum_(0<|h|<=H)c_h exp(2pi i h x) have zero mean. For alpha=sqrt(2), ||h alpha||>1/(4|h|), so every N satisfies |sum_(n=1)^N F(n alpha)|<=2 sum_(0<|h|<=H)|h c_h|. By Cauchy-Schwarz this is at most 2 C_(s,H)||F||_(H^s), where C_(s,H)^2=sum_(0<|h|<=H)|h|^(2-2s). For s>3/2 the constants remain bounded as H grows. This is uniform in N.",
+    "proved_statement_ko": "평균 0인 삼각다항식 F와 alpha=sqrt(2)에 대해 ||h alpha||>1/(4|h|)이므로 모든 N에서 |sum_{n<=N}F(n alpha)|<=2 sum |h c_h|이다. Cauchy-Schwarz를 적용하면 이는 2 C_(s,H)||F||_(H^s) 이하이고, s>3/2이면 H가 증가해도 C_(s,H)는 유계다. 따라서 TICKET139에서 요구한 규모 독립 정칙성으로 순수 무리수 회전합의 N-균일 상쇄를 실제로 얻는다.",
+    "proof": "For p nearest to h sqrt(2), the nonzero integer |p^2-2h^2| is at least one. Since p<2h and sqrt(2)<2, ||h sqrt(2)||=|p-h sqrt(2)|=|p^2-2h^2|/(p+h sqrt(2))>1/(4h). The geometric-sum identity and |sin(pi x)|>=2||x|| give |sum_(n<=N)e(h n sqrt(2))|<=1/(2||h sqrt(2)||)<2h. Summing Fourier modes and applying Cauchy-Schwarz proves both displayed bounds. The p-series converges exactly when s>3/2.",
+    "exact_contract": {
+      "diophantine_bound": "||h sqrt(2)||>1/(4|h|)",
+      "mode_sum_bound": "|sum_(n<=N)e(h n sqrt(2))|<2|h|",
+      "sobolev_bound": "|sum F(n sqrt(2))|<=2 C_(s,H)||F||_(H^s)",
+      "uniform_sobolev_threshold": "s>3/2"
+    },
+    "sobolev_rotation_audit": {
+      "alpha": "sqrt(2)",
+      "rows": [
+        {
+          "harmonic_limit_H": 4,
+          "coefficient_family": "c_h=c_-h=1/h^3",
+          "sobolev_order_s": 2,
+          "sample_counts": [
+            10,
+            100,
+            1000,
+            10000
+          ],
+          "exact_uniform_bound": {
+            "exact": "205/36",
+            "numerator": "205",
+            "denominator": "36",
+            "decimal": 5.694444444444445
+          },
+          "maximum_observed_absolute_sum": 1.6468283041130642,
+          "maximum_observation_sample_count": 100,
+          "observations": [
+            {
+              "sample_count_N": 10,
+              "absolute_birkhoff_sum": 0.5928754889647759
+            },
+            {
+              "sample_count_N": 100,
+              "absolute_birkhoff_sum": 1.6468283041130642
+            },
+            {
+              "sample_count_N": 1000,
+              "absolute_birkhoff_sum": 0.923514657767639
+            },
+            {
+              "sample_count_N": 10000,
+              "absolute_birkhoff_sum": 0.5574663345671458
+            }
+          ],
+          "checks": {
+            "quadratic_irrational_bound_verified_for_harmonics": true,
+            "numeric_sums_below_exact_uniform_bound": true,
+            "bound_independent_of_sample_count": true
+          }
+        },
+        {
+          "harmonic_limit_H": 8,
+          "coefficient_family": "c_h=c_-h=1/h^3",
+          "sobolev_order_s": 2,
+          "sample_counts": [
+            10,
+            100,
+            1000,
+            10000
+          ],
+          "exact_uniform_bound": {
+            "exact": "1077749/176400",
+            "numerator": "1077749",
+            "denominator": "176400",
+            "decimal": 6.10968820861678
+          },
+          "maximum_observed_absolute_sum": 1.6356011759911704,
+          "maximum_observation_sample_count": 100,
+          "observations": [
+            {
+              "sample_count_N": 10,
+              "absolute_birkhoff_sum": 0.6384271148799538
+            },
+            {
+              "sample_count_N": 100,
+              "absolute_birkhoff_sum": 1.6356011759911704
+            },
+            {
+              "sample_count_N": 1000,
+              "absolute_birkhoff_sum": 0.9248144246698596
+            },
+            {
+              "sample_count_N": 10000,
+              "absolute_birkhoff_sum": 0.6006489649447669
+            }
+          ],
+          "checks": {
+            "quadratic_irrational_bound_verified_for_harmonics": true,
+            "numeric_sums_below_exact_uniform_bound": true,
+            "bound_independent_of_sample_count": true
+          }
+        },
+        {
+          "harmonic_limit_H": 16,
+          "coefficient_family": "c_h=c_-h=1/h^3",
+          "sobolev_order_s": 2,
+          "sample_counts": [
+            10,
+            100,
+            1000,
+            10000
+          ],
+          "exact_uniform_bound": {
+            "exact": "822968714749/129859329600",
+            "numerator": "822968714749",
+            "denominator": "129859329600",
+            "decimal": 6.337386133779948
+          },
+          "maximum_observed_absolute_sum": 1.6384403821674314,
+          "maximum_observation_sample_count": 100,
+          "observations": [
+            {
+              "sample_count_N": 10,
+              "absolute_birkhoff_sum": 0.6387493917372907
+            },
+            {
+              "sample_count_N": 100,
+              "absolute_birkhoff_sum": 1.6384403821674314
+            },
+            {
+              "sample_count_N": 1000,
+              "absolute_birkhoff_sum": 0.9240781062028942
+            },
+            {
+              "sample_count_N": 10000,
+              "absolute_birkhoff_sum": 0.6014387603048593
+            }
+          ],
+          "checks": {
+            "quadratic_irrational_bound_verified_for_harmonics": true,
+            "numeric_sums_below_exact_uniform_bound": true,
+            "bound_independent_of_sample_count": true
+          }
+        },
+        {
+          "harmonic_limit_H": 32,
+          "coefficient_family": "c_h=c_-h=1/h^3",
+          "sobolev_order_s": 2,
+          "sample_counts": [
+            10,
+            100,
+            1000,
+            10000
+          ],
+          "exact_uniform_bound": {
+            "exact": "33659238975573797429256624061/5213096522073683233230240000",
+            "numerator": "33659238975573797429256624061",
+            "denominator": "5213096522073683233230240000",
+            "decimal": 6.456669051311698
+          },
+          "maximum_observed_absolute_sum": 1.637264131641992,
+          "maximum_observation_sample_count": 100,
+          "observations": [
+            {
+              "sample_count_N": 10,
+              "absolute_birkhoff_sum": 0.6386834613025062
+            },
+            {
+              "sample_count_N": 100,
+              "absolute_birkhoff_sum": 1.637264131641992
+            },
+            {
+              "sample_count_N": 1000,
+              "absolute_birkhoff_sum": 0.9261373447901974
+            },
+            {
+              "sample_count_N": 10000,
+              "absolute_birkhoff_sum": 0.6023506857438009
+            }
+          ],
+          "checks": {
+            "quadratic_irrational_bound_verified_for_harmonics": true,
+            "numeric_sums_below_exact_uniform_bound": true,
+            "bound_independent_of_sample_count": true
+          }
+        },
+        {
+          "harmonic_limit_H": 64,
+          "coefficient_family": "c_h=c_-h=1/h^3",
+          "sobolev_order_s": 2,
+          "sample_counts": [
+            10,
+            100,
+            1000,
+            10000
+          ],
+          "exact_uniform_bound": {
+            "exact": "41409901935572392721815151397221689468404267553321859/6353431751119073543834164752521303669086295845248000",
+            "numerator": "41409901935572392721815151397221689468404267553321859",
+            "denominator": "6353431751119073543834164752521303669086295845248000",
+            "decimal": 6.51772200563555
+          },
+          "maximum_observed_absolute_sum": 1.6378858522665984,
+          "maximum_observation_sample_count": 100,
+          "observations": [
+            {
+              "sample_count_N": 10,
+              "absolute_birkhoff_sum": 0.6388068128653999
+            },
+            {
+              "sample_count_N": 100,
+              "absolute_birkhoff_sum": 1.6378858522665984
+            },
+            {
+              "sample_count_N": 1000,
+              "absolute_birkhoff_sum": 0.9261189709478553
+            },
+            {
+              "sample_count_N": 10000,
+              "absolute_birkhoff_sum": 0.6026690166732157
+            }
+          ],
+          "checks": {
+            "quadratic_irrational_bound_verified_for_harmonics": true,
+            "numeric_sums_below_exact_uniform_bound": true,
+            "bound_independent_of_sample_count": true
+          }
+        }
+      ],
+      "row_count": 5,
+      "failure_count": 0,
+      "numeric_boundary": "floating-point geometric sums are diagnostics only; the Diophantine and Sobolev theorem is algebraic"
+    },
+    "route_decision": {
+      "retain": "scale-uniform Sobolev regularity combined with arithmetic bilinear Type II coefficients and positive exact-gap-two mass",
+      "discard": "unweighted irrational-rotation cancellation alone as a parity-breaking or twin-prime lower-bound theorem",
+      "next_theorem": "DiophantineSobolevTypeIIBilinearCancellationWithPositiveTwinMass"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-TD3b.2b.2",
+          "label": "FiniteIrrationalOrbitLipschitzLookupComplexityNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "TP-TD3b.2b.3a",
+          "label": "QuadraticIrrationalSobolevRotationCancellation",
+          "status": "closed"
+        },
+        {
+          "id": "TP-TD3b.2b.3b",
+          "label": "DiophantineSobolevTypeIIBilinearCancellationWithPositiveTwinMass",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "TP",
+          "label": "Twin Prime Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-TD3b.2b.2",
+          "TP-TD3b.2b.3a"
+        ],
+        [
+          "TP-TD3b.2b.3a",
+          "TP-TD3b.2b.3b"
+        ],
+        [
+          "TP-TD3b.2b.3b",
+          "TP"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "sobolev_rotation_row_count": 5,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The theorem proves uniform cancellation only for an unweighted quadratic-irrational rotation and a regular Fourier observable. It does not control Vaughan or Mobius bilinear coefficients, does not break the sieve parity barrier, and provides no positive exact-gap-two mass."
+  }
+}

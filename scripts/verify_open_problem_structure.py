@@ -136,6 +136,7 @@ TICKET136_SCHEMA = "primeproject.ticket136-scale-sensitive-obstructions-and-affi
 TICKET137_SCHEMA = "primeproject.ticket137-cancellation-entropy-and-information-budget.v1"
 TICKET138_SCHEMA = "primeproject.ticket138-correlation-periodicity-and-scale-closure.v1"
 TICKET139_SCHEMA = "primeproject.ticket139-uniformity-diophantine-complexity.v1"
+TICKET140_SCHEMA = "primeproject.ticket140-spectral-moments-fixed-floor-duality-rotation.v1"
 
 
 def fail(message: str) -> int:
@@ -7991,6 +7992,48 @@ def main() -> int:
         return fail("ticket139 Twin Lipschitz complexity no-go changed")
     if "does not prove or refute" not in str(audit139.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket139.get("claim_boundary", "")).lower():
         return fail("ticket139 proof boundary changed")
+
+    path140 = Path("data/open-problem/ticket140-spectral-moments-fixed-floor-duality-rotation.json")
+    if not path140.exists():
+        return fail("missing ticket140 spectral-moments-fixed-floor-duality-rotation audit")
+    ticket140 = read_json(path140)
+    if ticket140.get("schema") != TICKET140_SCHEMA or ticket140.get("status") != "exact_intermediate_theorems_proved_all_conjectures_open":
+        return fail("ticket140 schema or status changed")
+    attempts140 = ticket140.get("attempts", [])
+    by_id140 = {str(row.get("problem_id")): row for row in attempts140 if isinstance(row, dict)} if isinstance(attempts140, list) else {}
+    if set(by_id140) != EXPECTED_PROBLEMS:
+        return fail("ticket140 attempts missing problems")
+    paths140 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-140-even-trace-moment.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-140-fixed-floor-window-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-140-measurement-duality.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-140-sobolev-rotation-cancellation.json"),
+    }
+    for problem_id, attempt in by_id140.items():
+        if not paths140[problem_id].exists() or "No conjecture proof" not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket140 artifact or proof boundary missing")
+    audit140 = ticket140.get("spectral_moment_duality_rotation_audit", {})
+    machine140 = audit140.get("machine_audit", {})
+    if audit140.get("theorem_name") != "FourConjectureSpectralMomentDualityRotationAudit" or int(machine140.get("exact_theorem_count", -1)) != 4 or int(machine140.get("route_correction_count", -1)) != 4 or int(machine140.get("proof_dag_count", -1)) != 4 or int(machine140.get("conjecture_resolution_count", -1)) != 0 or int(machine140.get("total_failure_count", -1)) != 0:
+        return fail("ticket140 global machine audit changed")
+    riemann140 = audit140.get("riemann", {})
+    moment140 = riemann140.get("trace_moment_audit", {})
+    if riemann140.get("theorem_name") != "EvenTraceMomentSpectralCertificateAndLogOrderBarrier" or len(moment140.get("rows", [])) != 6 or int(moment140.get("failure_count", -1)) != 0:
+        return fail("ticket140 RH even-trace-moment theorem changed")
+    collatz140 = audit140.get("collatz", {})
+    floor140 = collatz140.get("fixed_floor_audit", {})
+    if collatz140.get("theorem_name") != "FixedCycleMinimumWindowEventuallyVacuousNoGo" or len(floor140.get("rows", [])) != 6 or int(floor140.get("verified_floor_certified_vacuity_period", -1)) != 563714459 or int(floor140.get("failure_count", -1)) != 0:
+        return fail("ticket140 Collatz fixed-floor no-go changed")
+    goldbach140 = audit140.get("goldbach", {})
+    duality140 = goldbach140.get("measurement_duality_audit", {})
+    if goldbach140.get("theorem_name") != "FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo" or len(duality140.get("rows", [])) != 10 or int(duality140.get("failure_count", -1)) != 0:
+        return fail("ticket140 Goldbach measurement-duality theorem changed")
+    twin140 = audit140.get("twin_prime", {})
+    sobolev140 = twin140.get("sobolev_rotation_audit", {})
+    if twin140.get("theorem_name") != "QuadraticIrrationalSobolevRotationCancellation" or len(sobolev140.get("rows", [])) != 5 or int(sobolev140.get("failure_count", -1)) != 0:
+        return fail("ticket140 Twin Sobolev-rotation theorem changed")
+    if "does not prove or refute" not in str(audit140.get("proof_boundary", "")).lower() or "no conjecture proof" not in str(ticket140.get("claim_boundary", "")).lower():
+        return fail("ticket140 proof boundary changed")
 
     print("open problem structure verified")
     return 0

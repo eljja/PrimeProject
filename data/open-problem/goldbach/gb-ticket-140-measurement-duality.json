@@ -1,0 +1,1100 @@
+{
+  "schema": "primeproject.ticket140-spectral-moments-fixed-floor-duality-rotation.v1",
+  "generated_at": "2026-07-29T12:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-140",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo",
+  "bounded_result": {
+    "audit_ref": "goldbach"
+  },
+  "candidate_theorem": "ArithmeticK56DualCertificateOnPowerOfTwoHardStratum",
+  "next_experiment": "Build a dual point-evaluation certificate from actual localized Goldbach major/minor-arc measurements and audit its K=56 amplification.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The theorem characterizes information sufficiency for finite linear measurements. The null signals are inference countermodels, not actual Goldbach residuals. No arithmetic K=56 dual certificate, minor-arc estimate, or all-even cutoff is proved.",
+  "result": {
+    "theorem_name": "FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo",
+    "title_ko": "유한 측정 dual 인증과 거듭제곱 2 nullspace 한계 정리",
+    "declared_target": "Turn the TICKET139 moment annihilator into an exact criterion for when bounded linear measurements can or cannot control one Goldbach residual coordinate.",
+    "proved_statement": "Let A be a real r by n measurement matrix. A coordinate f_j is bounded by constraints |Af|<=b only if e_j belongs to the row space of A. If not, there is z in ker(A) with z_j nonzero, and f+t z makes the coordinate unbounded without changing any measurement. If e_j=A^T lambda, then |f_j|<=sum_i |lambda_i|b_i. For q polynomial moments on q+1 distinct powers of two, the TICKET139 barycentric vector lies in the kernel and has every coordinate nonzero, so no coordinate is controlled. Adding moment q makes the Vandermonde matrix invertible, but the exact Lagrange dual amplification grows rapidly on the normalized power-of-two support.",
+    "proved_statement_ko": "실수 측정 행렬 A에 대해 |Af|<=b만으로 좌표 f_j를 제어하려면 e_j가 A의 row space에 있어야 한다. 그렇지 않으면 z_j!=0인 z in ker(A)가 존재해 측정값을 바꾸지 않고 f+t z의 좌표를 무한히 키울 수 있다. e_j=A^T lambda이면 |f_j|<=sum |lambda_i|b_i다. q+1개 거듭제곱 2 점에서 q개 모멘트만 쓰면 TICKET139 barycentric 벡터가 모든 좌표가 0이 아닌 null 벡터이므로 어느 점도 제어되지 않는다. 모멘트 하나를 더하면 대수적 복원은 가능하지만 dual 증폭이 빠르게 증가한다.",
+    "proof": "The orthogonal complement of row(A) is ker(A). If e_j is not in row(A), its projection onto ker(A) gives z with z_j=<e_j,z> nonzero. Then A(f+t z)=Af for every t. Conversely, e_j=A^T lambda gives f_j=<lambda,Af>, and the weighted triangle inequality proves the bound. Distinct-node Vandermonde rank and the exact barycentric identities prove the power-of-two specialization. Lagrange interpolation supplies the displayed dual after the final moment is added.",
+    "exact_contract": {
+      "boundedness_criterion": "e_j belongs to row(A)",
+      "nullspace_no_go": "z in ker(A), z_j!=0 implies unbounded f_j",
+      "dual_certificate": "A^T lambda=e_j implies |f_j|<=sum |lambda_i|b_i",
+      "power_two_rank": "q moments on q+1 nodes have rank q and nullity one"
+    },
+    "measurement_duality_audit": {
+      "rows": [
+        {
+          "moment_order_q": 1,
+          "support_size": 2,
+          "q_measurement_rank": 1,
+          "nullity": 1,
+          "all_coordinates_unbounded_under_q_measurements": true,
+          "normalized_support": [
+            {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          ],
+          "first_coordinate_dual_coefficients": [
+            {
+              "exact": "2",
+              "numerator": "2",
+              "denominator": "1",
+              "decimal": 2.0
+            },
+            {
+              "exact": "-2",
+              "numerator": "-2",
+              "denominator": "1",
+              "decimal": -2.0
+            }
+          ],
+          "first_coordinate_l1_amplification": {
+            "exact": "4",
+            "numerator": "4",
+            "denominator": "1",
+            "decimal": 4.0
+          },
+          "checks": {
+            "q_moments_have_nonzero_null_vector": true,
+            "null_vector_moves_every_coordinate": true,
+            "q_plus_one_moments_reconstruct_first_coordinate": true,
+            "dual_amplification_positive": true
+          }
+        },
+        {
+          "moment_order_q": 2,
+          "support_size": 3,
+          "q_measurement_rank": 2,
+          "nullity": 1,
+          "all_coordinates_unbounded_under_q_measurements": true,
+          "normalized_support": [
+            {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          ],
+          "first_coordinate_dual_coefficients": [
+            {
+              "exact": "8/3",
+              "numerator": "8",
+              "denominator": "3",
+              "decimal": 2.6666666666666665
+            },
+            {
+              "exact": "-8",
+              "numerator": "-8",
+              "denominator": "1",
+              "decimal": -8.0
+            },
+            {
+              "exact": "16/3",
+              "numerator": "16",
+              "denominator": "3",
+              "decimal": 5.333333333333333
+            }
+          ],
+          "first_coordinate_l1_amplification": {
+            "exact": "16",
+            "numerator": "16",
+            "denominator": "1",
+            "decimal": 16.0
+          },
+          "checks": {
+            "q_moments_have_nonzero_null_vector": true,
+            "null_vector_moves_every_coordinate": true,
+            "q_plus_one_moments_reconstruct_first_coordinate": true,
+            "dual_amplification_positive": true
+          }
+        },
+        {
+          "moment_order_q": 3,
+          "support_size": 4,
+          "q_measurement_rank": 3,
+          "nullity": 1,
+          "all_coordinates_unbounded_under_q_measurements": true,
+          "normalized_support": [
+            {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          ],
+          "first_coordinate_dual_coefficients": [
+            {
+              "exact": "64/21",
+              "numerator": "64",
+              "denominator": "21",
+              "decimal": 3.0476190476190474
+            },
+            {
+              "exact": "-64/3",
+              "numerator": "-64",
+              "denominator": "3",
+              "decimal": -21.333333333333332
+            },
+            {
+              "exact": "128/3",
+              "numerator": "128",
+              "denominator": "3",
+              "decimal": 42.666666666666664
+            },
+            {
+              "exact": "-512/21",
+              "numerator": "-512",
+              "denominator": "21",
+              "decimal": -24.38095238095238
+            }
+          ],
+          "first_coordinate_l1_amplification": {
+            "exact": "640/7",
+            "numerator": "640",
+            "denominator": "7",
+            "decimal": 91.42857142857143
+          },
+          "checks": {
+            "q_moments_have_nonzero_null_vector": true,
+            "null_vector_moves_every_coordinate": true,
+            "q_plus_one_moments_reconstruct_first_coordinate": true,
+            "dual_amplification_positive": true
+          }
+        },
+        {
+          "moment_order_q": 4,
+          "support_size": 5,
+          "q_measurement_rank": 4,
+          "nullity": 1,
+          "all_coordinates_unbounded_under_q_measurements": true,
+          "normalized_support": [
+            {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          ],
+          "first_coordinate_dual_coefficients": [
+            {
+              "exact": "1024/315",
+              "numerator": "1024",
+              "denominator": "315",
+              "decimal": 3.250793650793651
+            },
+            {
+              "exact": "-1024/21",
+              "numerator": "-1024",
+              "denominator": "21",
+              "decimal": -48.76190476190476
+            },
+            {
+              "exact": "2048/9",
+              "numerator": "2048",
+              "denominator": "9",
+              "decimal": 227.55555555555554
+            },
+            {
+              "exact": "-8192/21",
+              "numerator": "-8192",
+              "denominator": "21",
+              "decimal": -390.0952380952381
+            },
+            {
+              "exact": "65536/315",
+              "numerator": "65536",
+              "denominator": "315",
+              "decimal": 208.05079365079365
+            }
+          ],
+          "first_coordinate_l1_amplification": {
+            "exact": "6144/7",
+            "numerator": "6144",
+            "denominator": "7",
+            "decimal": 877.7142857142857
+          },
+          "checks": {
+            "q_moments_have_nonzero_null_vector": true,
+            "null_vector_moves_every_coordinate": true,
+            "q_plus_one_moments_reconstruct_first_coordinate": true,
+            "dual_amplification_positive": true
+          }
+        },
+        {
+          "moment_order_q": 5,
+          "support_size": 6,
+          "q_measurement_rank": 5,
+          "nullity": 1,
+          "all_coordinates_unbounded_under_q_measurements": true,
+          "normalized_support": [
+            {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          ],
+          "first_coordinate_dual_coefficients": [
+            {
+              "exact": "32768/9765",
+              "numerator": "32768",
+              "denominator": "9765",
+              "decimal": 3.355657962109575
+            },
+            {
+              "exact": "-32768/315",
+              "numerator": "-32768",
+              "denominator": "315",
+              "decimal": -104.02539682539683
+            },
+            {
+              "exact": "65536/63",
+              "numerator": "65536",
+              "denominator": "63",
+              "decimal": 1040.2539682539682
+            },
+            {
+              "exact": "-262144/63",
+              "numerator": "-262144",
+              "denominator": "63",
+              "decimal": -4161.015873015873
+            },
+            {
+              "exact": "2097152/315",
+              "numerator": "2097152",
+              "denominator": "315",
+              "decimal": 6657.625396825397
+            },
+            {
+              "exact": "-33554432/9765",
+              "numerator": "-33554432",
+              "denominator": "9765",
+              "decimal": -3436.193753200205
+            }
+          ],
+          "first_coordinate_l1_amplification": {
+            "exact": "3342336/217",
+            "numerator": "3342336",
+            "denominator": "217",
+            "decimal": 15402.47004608295
+          },
+          "checks": {
+            "q_moments_have_nonzero_null_vector": true,
+            "null_vector_moves_every_coordinate": true,
+            "q_plus_one_moments_reconstruct_first_coordinate": true,
+            "dual_amplification_positive": true
+          }
+        },
+        {
+          "moment_order_q": 6,
+          "support_size": 7,
+          "q_measurement_rank": 6,
+          "nullity": 1,
+          "all_coordinates_unbounded_under_q_measurements": true,
+          "normalized_support": [
+            {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          ],
+          "first_coordinate_dual_coefficients": [
+            {
+              "exact": "2097152/615195",
+              "numerator": "2097152",
+              "denominator": "615195",
+              "decimal": 3.4089223742065524
+            },
+            {
+              "exact": "-2097152/9765",
+              "numerator": "-2097152",
+              "denominator": "9765",
+              "decimal": -214.7621095750128
+            },
+            {
+              "exact": "4194304/945",
+              "numerator": "4194304",
+              "denominator": "945",
+              "decimal": 4438.4169312169315
+            },
+            {
+              "exact": "-16777216/441",
+              "numerator": "-16777216",
+              "denominator": "441",
+              "decimal": -38043.573696145126
+            },
+            {
+              "exact": "134217728/945",
+              "numerator": "134217728",
+              "denominator": "945",
+              "decimal": 142029.3417989418
+            },
+            {
+              "exact": "-2147483648/9765",
+              "numerator": "-2147483648",
+              "denominator": "9765",
+              "decimal": -219916.4002048131
+            },
+            {
+              "exact": "68719476736/615195",
+              "numerator": "68719476736",
+              "denominator": "615195",
+              "decimal": 111703.56835800031
+            }
+          ],
+          "first_coordinate_l1_amplification": {
+            "exact": "784334848/1519",
+            "numerator": "784334848",
+            "denominator": "1519",
+            "decimal": 516349.47202106647
+          },
+          "checks": {
+            "q_moments_have_nonzero_null_vector": true,
+            "null_vector_moves_every_coordinate": true,
+            "q_plus_one_moments_reconstruct_first_coordinate": true,
+            "dual_amplification_positive": true
+          }
+        },
+        {
+          "moment_order_q": 7,
+          "support_size": 8,
+          "q_measurement_rank": 7,
+          "nullity": 1,
+          "all_coordinates_unbounded_under_q_measurements": true,
+          "normalized_support": [
+            {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          ],
+          "first_coordinate_dual_coefficients": [
+            {
+              "exact": "268435456/78129765",
+              "numerator": "268435456",
+              "denominator": "78129765",
+              "decimal": 3.4357642826648718
+            },
+            {
+              "exact": "-268435456/615195",
+              "numerator": "-268435456",
+              "denominator": "615195",
+              "decimal": -436.3420638984387
+            },
+            {
+              "exact": "536870912/29295",
+              "numerator": "536870912",
+              "denominator": "29295",
+              "decimal": 18326.366683734424
+            },
+            {
+              "exact": "-2147483648/6615",
+              "numerator": "-2147483648",
+              "denominator": "6615",
+              "decimal": -324638.4955404384
+            },
+            {
+              "exact": "17179869184/6615",
+              "numerator": "17179869184",
+              "denominator": "6615",
+              "decimal": 2597107.964323507
+            },
+            {
+              "exact": "-274877906944/29295",
+              "numerator": "-274877906944",
+              "denominator": "29295",
+              "decimal": -9383099.742072025
+            },
+            {
+              "exact": "8796093022208/615195",
+              "numerator": "8796093022208",
+              "denominator": "615195",
+              "decimal": 14298056.74982404
+            },
+            {
+              "exact": "-562949953421312/78129765",
+              "numerator": "-562949953421312",
+              "denominator": "78129765",
+              "decimal": -7205319.936919201
+            }
+          ],
+          "first_coordinate_l1_amplification": {
+            "exact": "6525665935360/192913",
+            "numerator": "6525665935360",
+            "denominator": "192913",
+            "decimal": 33826989.03319113
+          },
+          "checks": {
+            "q_moments_have_nonzero_null_vector": true,
+            "null_vector_moves_every_coordinate": true,
+            "q_plus_one_moments_reconstruct_first_coordinate": true,
+            "dual_amplification_positive": true
+          }
+        },
+        {
+          "moment_order_q": 8,
+          "support_size": 9,
+          "q_measurement_rank": 8,
+          "nullity": 1,
+          "all_coordinates_unbounded_under_q_measurements": true,
+          "normalized_support": [
+            {
+              "exact": "1/256",
+              "numerator": "1",
+              "denominator": "256",
+              "decimal": 0.00390625
+            },
+            {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          ],
+          "first_coordinate_dual_coefficients": [
+            {
+              "exact": "68719476736/19923090075",
+              "numerator": "68719476736",
+              "denominator": "19923090075",
+              "decimal": 3.4492378680870868
+            },
+            {
+              "exact": "-68719476736/78129765",
+              "numerator": "-68719476736",
+              "denominator": "78129765",
+              "decimal": -879.5556563622072
+            },
+            {
+              "exact": "137438953472/1845585",
+              "numerator": "137438953472",
+              "denominator": "1845585",
+              "decimal": 74469.0455720002
+            },
+            {
+              "exact": "-549755813888/205065",
+              "numerator": "-549755813888",
+              "denominator": "205065",
+              "decimal": -2680885.6405920074
+            },
+            {
+              "exact": "4398046511104/99225",
+              "numerator": "4398046511104",
+              "denominator": "99225",
+              "decimal": 44323975.924454525
+            },
+            {
+              "exact": "-70368744177664/205065",
+              "numerator": "-70368744177664",
+              "denominator": "205065",
+              "decimal": -343153361.99577695
+            },
+            {
+              "exact": "2251799813685248/1845585",
+              "numerator": "2251799813685248",
+              "denominator": "1845585",
+              "decimal": 1220100842.6516514
+            },
+            {
+              "exact": "-144115188075855872/78129765",
+              "numerator": "-144115188075855872",
+              "denominator": "78129765",
+              "decimal": -1844561903.8513155
+            },
+            {
+              "exact": "18446744073709551616/19923090075",
+              "numerator": "18446744073709551616",
+              "denominator": "19923090075",
+              "decimal": 925897739.972425
+            }
+          ],
+          "first_coordinate_l1_amplification": {
+            "exact": "845112124899328/192913",
+            "numerator": "845112124899328",
+            "denominator": "192913",
+            "decimal": 4380794062.086681
+          },
+          "checks": {
+            "q_moments_have_nonzero_null_vector": true,
+            "null_vector_moves_every_coordinate": true,
+            "q_plus_one_moments_reconstruct_first_coordinate": true,
+            "dual_amplification_positive": true
+          }
+        },
+        {
+          "moment_order_q": 9,
+          "support_size": 10,
+          "q_measurement_rank": 9,
+          "nullity": 1,
+          "all_coordinates_unbounded_under_q_measurements": true,
+          "normalized_support": [
+            {
+              "exact": "1/512",
+              "numerator": "1",
+              "denominator": "512",
+              "decimal": 0.001953125
+            },
+            {
+              "exact": "1/256",
+              "numerator": "1",
+              "denominator": "256",
+              "decimal": 0.00390625
+            },
+            {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          ],
+          "first_coordinate_dual_coefficients": [
+            {
+              "exact": "35184372088832/10180699028325",
+              "numerator": "35184372088832",
+              "denominator": "10180699028325",
+              "decimal": 3.4559878443455743
+            },
+            {
+              "exact": "-35184372088832/19923090075",
+              "numerator": "-35184372088832",
+              "denominator": "19923090075",
+              "decimal": -1766.0097884605884
+            },
+            {
+              "exact": "70368744177664/234389295",
+              "numerator": "70368744177664",
+              "denominator": "234389295",
+              "decimal": 300221.66403830005
+            },
+            {
+              "exact": "-281474976710656/12919095",
+              "numerator": "-281474976710656",
+              "denominator": "12919095",
+              "decimal": -21787515.047350917
+            },
+            {
+              "exact": "2251799813685248/3075975",
+              "numerator": "2251799813685248",
+              "denominator": "3075975",
+              "decimal": 732060505.5909908
+            },
+            {
+              "exact": "-36028797018963968/3075975",
+              "numerator": "-36028797018963968",
+              "denominator": "3075975",
+              "decimal": -11712968089.455853
+            },
+            {
+              "exact": "1152921504606846976/12919095",
+              "numerator": "1152921504606846976",
+              "denominator": "12919095",
+              "decimal": 89241661633.94936
+            },
+            {
+              "exact": "-73786976294838206464/234389295",
+              "numerator": "-73786976294838206464",
+              "denominator": "234389295",
+              "decimal": -314805231590.6245
+            },
+            {
+              "exact": "9444732965739290427392/19923090075",
+              "numerator": "9444732965739290427392",
+              "denominator": "19923090075",
+              "decimal": 474059642865.8816
+            },
+            {
+              "exact": "-2417851639229258349412352/10180699028325",
+              "numerator": "-2417851639229258349412352",
+              "denominator": "10180699028325",
+              "decimal": -237493676269.40448
+            }
+          ],
+          "first_coordinate_l1_amplification": {
+            "exact": "111203233842753175552/98578543",
+            "numerator": "111203233842753175552",
+            "denominator": "98578543",
+            "decimal": 1128067330461.084
+          },
+          "checks": {
+            "q_moments_have_nonzero_null_vector": true,
+            "null_vector_moves_every_coordinate": true,
+            "q_plus_one_moments_reconstruct_first_coordinate": true,
+            "dual_amplification_positive": true
+          }
+        },
+        {
+          "moment_order_q": 10,
+          "support_size": 11,
+          "q_measurement_rank": 10,
+          "nullity": 1,
+          "all_coordinates_unbounded_under_q_measurements": true,
+          "normalized_support": [
+            {
+              "exact": "1/1024",
+              "numerator": "1",
+              "denominator": "1024",
+              "decimal": 0.0009765625
+            },
+            {
+              "exact": "1/512",
+              "numerator": "1",
+              "denominator": "512",
+              "decimal": 0.001953125
+            },
+            {
+              "exact": "1/256",
+              "numerator": "1",
+              "denominator": "256",
+              "decimal": 0.00390625
+            },
+            {
+              "exact": "1/128",
+              "numerator": "1",
+              "denominator": "128",
+              "decimal": 0.0078125
+            },
+            {
+              "exact": "1/64",
+              "numerator": "1",
+              "denominator": "64",
+              "decimal": 0.015625
+            },
+            {
+              "exact": "1/32",
+              "numerator": "1",
+              "denominator": "32",
+              "decimal": 0.03125
+            },
+            {
+              "exact": "1/16",
+              "numerator": "1",
+              "denominator": "16",
+              "decimal": 0.0625
+            },
+            {
+              "exact": "1/8",
+              "numerator": "1",
+              "denominator": "8",
+              "decimal": 0.125
+            },
+            {
+              "exact": "1/4",
+              "numerator": "1",
+              "denominator": "4",
+              "decimal": 0.25
+            },
+            {
+              "exact": "1/2",
+              "numerator": "1",
+              "denominator": "2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1",
+              "numerator": "1",
+              "denominator": "1",
+              "decimal": 1.0
+            }
+          ],
+          "first_coordinate_dual_coefficients": [
+            {
+              "exact": "36028797018963968/10414855105976475",
+              "numerator": "36028797018963968",
+              "denominator": "10414855105976475",
+              "decimal": 3.4593661315834487
+            },
+            {
+              "exact": "-36028797018963968/10180699028325",
+              "numerator": "-36028797018963968",
+              "denominator": "10180699028325",
+              "decimal": -3538.931552609868
+            },
+            {
+              "exact": "72057594037927936/59769270225",
+              "numerator": "72057594037927936",
+              "denominator": "59769270225",
+              "decimal": 1205596.0155890952
+            },
+            {
+              "exact": "-288230376151711744/1640725065",
+              "numerator": "-288230376151711744",
+              "denominator": "1640725065",
+              "decimal": -175672562.27155384
+            },
+            {
+              "exact": "2305843009213693952/193786425",
+              "numerator": "2305843009213693952",
+              "denominator": "193786425",
+              "decimal": 11898888217.859915
+            },
+            {
+              "exact": "-36893488147419103232/95355225",
+              "numerator": "-36893488147419103232",
+              "denominator": "95355225",
+              "decimal": -386905784632.3482
+            },
+            {
+              "exact": "1180591620717411303424/193786425",
+              "numerator": "1180591620717411303424",
+              "denominator": "193786425",
+              "decimal": 6092230767544.276
+            },
+            {
+              "exact": "-75557863725914323419136/1640725065",
+              "numerator": "-75557863725914323419136",
+              "denominator": "1640725065",
+              "decimal": -46051508164114.21
+            },
+            {
+              "exact": "9671406556917033397649408/59769270225",
+              "numerator": "9671406556917033397649408",
+              "denominator": "59769270225",
+              "decimal": 161812358098220.94
+            },
+            {
+              "exact": "-2475880078570760549798248448/10180699028325",
+              "numerator": "-2475880078570760549798248448",
+              "denominator": "10180699028325",
+              "decimal": -243193524499870.2
+            },
+            {
+              "exact": "1267650600228229401496703205376/10414855105976475",
+              "numerator": "1267650600228229401496703205376",
+              "denominator": "10414855105976475",
+              "decimal": 121715625165135.42
+            }
+          ],
+          "first_coordinate_l1_amplification": {
+            "exact": "1770193732618313822896128/3055934833",
+            "numerator": "1770193732618313822896128",
+            "denominator": "3055934833",
+            "decimal": 579264228249435.9
+          },
+          "checks": {
+            "q_moments_have_nonzero_null_vector": true,
+            "null_vector_moves_every_coordinate": true,
+            "q_plus_one_moments_reconstruct_first_coordinate": true,
+            "dual_amplification_positive": true
+          }
+        }
+      ],
+      "row_count": 10,
+      "largest_first_coordinate_amplification": {
+        "exact": "1770193732618313822896128/3055934833",
+        "numerator": "1770193732618313822896128",
+        "denominator": "3055934833",
+        "decimal": 579264228249435.9
+      },
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "an arithmetic dual certificate whose rows are actual localized or all-frequency Goldbach residual estimates",
+      "discard": "any incomplete finite measurement family whose row space does not contain the required point-evaluation functional",
+      "next_theorem": "ArithmeticK56DualCertificateOnPowerOfTwoHardStratum"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-TD4b.2b.2",
+          "label": "PowerOfTwoBarycentricMomentAnnihilatorNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2b.3a",
+          "label": "FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "GB-TD4b.2b.3b",
+          "label": "ArithmeticK56DualCertificateOnPowerOfTwoHardStratum",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "GB",
+          "label": "Strong Goldbach Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-TD4b.2b.2",
+          "GB-TD4b.2b.3a"
+        ],
+        [
+          "GB-TD4b.2b.3a",
+          "GB-TD4b.2b.3b"
+        ],
+        [
+          "GB-TD4b.2b.3b",
+          "GB"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "measurement_order_count": 10,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The theorem characterizes information sufficiency for finite linear measurements. The null signals are inference countermodels, not actual Goldbach residuals. No arithmetic K=56 dual certificate, minor-arc estimate, or all-even cutoff is proved."
+  }
+}

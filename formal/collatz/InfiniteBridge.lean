@@ -23,8 +23,9 @@ def theoremDecomposition : List String := [
   "CO-TD4b.2a AffineCappedValuationCylinderMassDecay closed",
   "CO-TD4b.2b.1 SubcriticalPeriodicValuationCodesHaveNoPositiveNaturalEmbedding closed",
   "CO-TD4b.2b.2 CollatzCycleDiophantineWindowAndVerifiedFloorExclusion closed",
-  "CO-TD4b.2b.3 AllPeriodSupercriticalCycleDiophantineExclusion highest_risk_open",
-  "CO-TD4b.2b.4 AffineCappedAperiodicNaturalCodeWellFoundedness open",
+  "CO-TD4b.2b.3 FixedCycleMinimumWindowEventuallyVacuousNoGo closed",
+  "CO-TD4b.2b.4 PeriodDependentCycleMinimumDiophantineSeparation highest_risk_open",
+  "CO-TD4b.2b.5 AffineCappedAperiodicNaturalCodeWellFoundedness open",
   "CO-TD5 CycleAndDivergenceExclusionBridge"
 ]
 
@@ -38,18 +39,18 @@ def rankedCegisTarget : String :=
   "CO-TICKET-128 separates unresolved lift cylinders from integer candidates and directly closes all 4027109 nontrivial 28-bit frontier representatives"
 
 def topAttackTheoremTicket : String :=
-  "CO-TICKET-139 AllPeriodSupercriticalCycleDiophantineExclusion."
+  "CO-TICKET-140 PeriodDependentCycleMinimumDiophantineSeparation."
 
 def topAttackProofAttemptProtocol : String :=
-  "Combine a lower bound for |S log 2-k log 3| with the exact cycle product window and the verified minimum-cycle floor; then treat aperiodic natural codes separately."
+  "Prove a period-dependent lower bound for the cycle minimum and combine it with an explicit lower bound for |S log 2-k log 3|; fixed minimum floors are eventually vacuous."
 
 def latestExactResult : String :=
-  "CollatzCycleDiophantineWindowAndVerifiedFloorExclusion: every positive accelerated k-cycle with minimum m satisfies 1<2^S/3^k<=(1+1/(3m))^k; the 2^28 floor excludes 19999 of the first 20000 period windows"
+  "FixedCycleMinimumWindowEventuallyVacuousNoGo: for every fixed minimum floor M, the product window contains S=ceil(k log_2 3) for all k>=ceil(7(3M+1)/10)"
 
 def retiredRoute : String :=
   "treating the boundary ray -3^{-1} in Z_2 as a natural-integer obstruction"
 
 def retainedOpenPremise : String :=
-  "all remaining supercritical period windows are impossible, and every aperiodic affine-capped natural code has a global well-founded descent certificate"
+  "cycle minima grow with period fast enough to beat logarithmic approximation, and every aperiodic affine-capped natural code has a global well-founded descent certificate"
 
 end PrimeProject.OpenProblems.Collatz

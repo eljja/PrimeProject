@@ -1,0 +1,178 @@
+{
+  "schema": "primeproject.ticket140-spectral-moments-fixed-floor-duality-rotation.v1",
+  "generated_at": "2026-07-29T12:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-140",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "FixedCycleMinimumWindowEventuallyVacuousNoGo",
+  "bounded_result": {
+    "audit_ref": "collatz"
+  },
+  "candidate_theorem": "PeriodDependentCycleMinimumDiophantineSeparation",
+  "next_experiment": "Join a period-dependent lower bound for the cycle minimum to explicit separation of k log 3 from powers of two.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "This is an exact no-go for one necessary-condition method, not evidence for a Collatz cycle. Admitting a valuation sum does not construct a valuation word or integer orbit. Period-dependent minimum bounds, all cycle realizability constraints, and every aperiodic trajectory remain open.",
+  "result": {
+    "theorem_name": "FixedCycleMinimumWindowEventuallyVacuousNoGo",
+    "title_ko": "고정 주기 최솟값 창의 대주기 무력화 한계 정리",
+    "declared_target": "Test whether the TICKET139 fixed minimum-cycle floor and product window can possibly exclude every supercritical period.",
+    "proved_statement": "Fix M>=1 and let K=ceil(7(3M+1)/10). For every k>=K, (1+1/(3M))^k>2. Since S=ceil(k log_2 3) always gives 1<2^S/3^k<2, the fixed-floor TICKET139 necessary window admits a valuation sum at every k>=K. Thus no fixed lower bound m>=M, regardless of its size, can yield an all-period cycle exclusion through this window alone.",
+    "proved_statement_ko": "M>=1을 고정하고 K=ceil(7(3M+1)/10)라 하자. 모든 k>=K에서 (1+1/(3M))^k>2이다. 한편 S=ceil(k log_2 3)이면 항상 1<2^S/3^k<2이므로 TICKET139의 고정 하한 창은 k>=K인 모든 주기에서 valuation 합 하나를 허용한다. 따라서 아무리 큰 고정 최솟값 하한도 이 창만으로 모든 주기를 배제할 수 없다.",
+    "proof": "For x>0, log(1+x)>=x/(1+x), so log(1+1/(3M))>=1/(3M+1). If k>=7(3M+1)/10, the logarithm of the upper window is at least 7/10. The first four exponential-series terms give exp(7/10)>1+7/10+49/200+343/6000=12013/6000>2. Irrationality of log_2 3 gives 2^(S-1)<3^k<2^S for S=ceil(k log_2 3), hence the candidate ratio lies strictly between one and two and is admitted.",
+    "exact_contract": {
+      "certified_period": "K=ceil(7(3M+1)/10)",
+      "log_lower_bound": "log(1+1/(3M))>=1/(3M+1)",
+      "rational_exponential_witness": "1+7/10+49/200+343/6000=12013/6000>2",
+      "candidate_ratio": "1<2^ceil(k log_2 3)/3^k<2"
+    },
+    "fixed_floor_audit": {
+      "rows": [
+        {
+          "minimum_cycle_floor_M": 16,
+          "floor_exponent": 4,
+          "certified_vacuity_period_K": 35,
+          "exact_first_vacuity_period_if_computed": 34,
+          "certificate_overhead": 1,
+          "checks": {
+            "certified_period_meets_rational_threshold": true,
+            "truncated_exponential_proves_exp_point_seven_gt_two": true,
+            "exact_small_threshold_not_above_certificate": true,
+            "exact_threshold_passes": true,
+            "preceding_period_fails": true
+          }
+        },
+        {
+          "minimum_cycle_floor_M": 64,
+          "floor_exponent": 6,
+          "certified_vacuity_period_K": 136,
+          "exact_first_vacuity_period_if_computed": 134,
+          "certificate_overhead": 2,
+          "checks": {
+            "certified_period_meets_rational_threshold": true,
+            "truncated_exponential_proves_exp_point_seven_gt_two": true,
+            "exact_small_threshold_not_above_certificate": true,
+            "exact_threshold_passes": true,
+            "preceding_period_fails": true
+          }
+        },
+        {
+          "minimum_cycle_floor_M": 256,
+          "floor_exponent": 8,
+          "certified_vacuity_period_K": 539,
+          "exact_first_vacuity_period_if_computed": 533,
+          "certificate_overhead": 6,
+          "checks": {
+            "certified_period_meets_rational_threshold": true,
+            "truncated_exponential_proves_exp_point_seven_gt_two": true,
+            "exact_small_threshold_not_above_certificate": true,
+            "exact_threshold_passes": true,
+            "preceding_period_fails": true
+          }
+        },
+        {
+          "minimum_cycle_floor_M": 1024,
+          "floor_exponent": 10,
+          "certified_vacuity_period_K": 2152,
+          "exact_first_vacuity_period_if_computed": 2130,
+          "certificate_overhead": 22,
+          "checks": {
+            "certified_period_meets_rational_threshold": true,
+            "truncated_exponential_proves_exp_point_seven_gt_two": true,
+            "exact_small_threshold_not_above_certificate": true,
+            "exact_threshold_passes": true,
+            "preceding_period_fails": true
+          }
+        },
+        {
+          "minimum_cycle_floor_M": 4096,
+          "floor_exponent": 12,
+          "certified_vacuity_period_K": 8603,
+          "exact_first_vacuity_period_if_computed": 8518,
+          "certificate_overhead": 85,
+          "checks": {
+            "certified_period_meets_rational_threshold": true,
+            "truncated_exponential_proves_exp_point_seven_gt_two": true,
+            "exact_small_threshold_not_above_certificate": true,
+            "exact_threshold_passes": true,
+            "preceding_period_fails": true
+          }
+        },
+        {
+          "minimum_cycle_floor_M": 268435456,
+          "floor_exponent": 28,
+          "certified_vacuity_period_K": 563714459,
+          "exact_first_vacuity_period_if_computed": null,
+          "certificate_overhead": null,
+          "checks": {
+            "certified_period_meets_rational_threshold": true,
+            "truncated_exponential_proves_exp_point_seven_gt_two": true,
+            "exact_small_threshold_not_above_certificate": true
+          }
+        }
+      ],
+      "row_count": 6,
+      "verified_floor_M": 268435456,
+      "verified_floor_certified_vacuity_period": 563714459,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "a period-dependent lower bound for the cycle minimum joined to an explicit lower bound for the logarithmic separation",
+      "discard": "the fixed M=2^28 minimum-cycle floor and product window as an all-period supercritical cycle exclusion",
+      "next_theorem": "PeriodDependentCycleMinimumDiophantineSeparation"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-TD4b.2b.2",
+          "label": "CollatzCycleDiophantineWindowAndVerifiedFloorExclusion",
+          "status": "closed"
+        },
+        {
+          "id": "CO-TD4b.2b.3a",
+          "label": "FixedCycleMinimumWindowEventuallyVacuousNoGo",
+          "status": "closed"
+        },
+        {
+          "id": "CO-TD4b.2b.3b",
+          "label": "PeriodDependentCycleMinimumDiophantineSeparation",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "CO-TD4b.2b.4",
+          "label": "AffineCappedAperiodicNaturalCodeWellFoundedness",
+          "status": "open"
+        },
+        {
+          "id": "CO",
+          "label": "Collatz Conjecture",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-TD4b.2b.2",
+          "CO-TD4b.2b.3a"
+        ],
+        [
+          "CO-TD4b.2b.3a",
+          "CO-TD4b.2b.3b"
+        ],
+        [
+          "CO-TD4b.2b.3b",
+          "CO-TD4b.2b.4"
+        ],
+        [
+          "CO-TD4b.2b.4",
+          "CO"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "fixed_floor_row_count": 6,
+      "verified_floor_certified_vacuity_period": 563714459,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "This is an exact no-go for one necessary-condition method, not evidence for a Collatz cycle. Admitting a valuation sum does not construct a valuation word or integer orbit. Period-dependent minimum bounds, all cycle realizability constraints, and every aperiodic trajectory remain open."
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.project-evolution.v1",
-  "updated_at": "2026-07-28T12:00:00+09:00",
+  "updated_at": "2026-07-29T12:00:00+09:00",
   "headline": "From prime regularity exploration to generator-fingerprint research tooling.",
   "metrics": {
     "live_compute_limit": 10000000,
@@ -52,10 +52,10 @@
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
-    "claim_language_scanned_files": 83,
-    "claim_language_scanned_lines": 26674,
-    "claim_language_triggered_mentions": 120,
-    "claim_language_guarded_mentions": 120,
+    "claim_language_scanned_files": 84,
+    "claim_language_scanned_lines": 27195,
+    "claim_language_triggered_mentions": 121,
+    "claim_language_guarded_mentions": 121,
     "claim_language_failures": 0,
     "blocking_gaps": 2,
     "claim_ledger_allowed": 3,
@@ -804,6 +804,13 @@
           "state": "bounded",
           "measure": "RH 4 tight-frame rows / Collatz 20,000 periods and 19,999 exclusions / Goldbach 10 annihilator orders / Twin 9 rotation rows / 0 conjecture resolutions",
           "proof": "TICKET-139 proves an unbounded absolute cross-Gram overestimate on tight frames, derives and audits the positive Collatz cycle Diophantine window, constructs exact power-of-two moment annihilators, and proves that scale-dependent Lipschitz budgets retain arbitrary finite irrational-orbit lookup"
+        },
+        {
+          "marker": "100",
+          "title": "Spectral moments, fixed-floor limits, duality, and rotation sharpen four proof frontiers",
+          "state": "bounded",
+          "measure": "RH 6 trace-moment rows / Collatz 6 fixed-floor rows and K=563,714,459 / Goldbach 10 dual orders / Twin 5 Sobolev rows / 0 conjecture resolutions",
+          "proof": "TICKET-140 proves an even-trace spectral certificate with a logarithmic-order barrier, proves every fixed Collatz cycle-minimum window eventually becomes non-excluding, characterizes finite-measurement pointwise control by exact row-space duality, and proves sample-length-uniform Sobolev cancellation for unweighted sqrt(2) rotations"
         }
       ],
       "evidence_flow": [
@@ -923,11 +930,11 @@
         },
         {
           "layer": "Open-Proof",
-          "score": 89,
+          "score": 90,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket139-uniformity-diophantine-complexity.json", "data/open-problem/ticket138-correlation-periodicity-and-scale-closure.json", "docs/uniformity-diophantine-and-complexity.md", "docs/proof-or-counterexample-program.md"],
-          "gate": "TICKET139 proves four exact intermediate or no-go theorems, excludes 19,999 of the first 20,000 Collatz period windows under the verified floor, and keeps all four conjecture-resolution counters at zero.",
-          "proof": "The workbench now requires a signed projected-Weil spectral-radius bound, all-period supercritical Collatz exclusion plus aperiodic well-foundedness, a localized K56 Goldbach residual estimate on powers of two, and uniform-Sobolev aperiodic Type II Twin cancellation with positive mass."
+          "artifacts": ["data/open-problem/ticket140-spectral-moments-fixed-floor-duality-rotation.json", "data/open-problem/ticket139-uniformity-diophantine-complexity.json", "docs/spectral-moments-fixed-floor-duality-and-rotation.md", "docs/proof-or-counterexample-program.md"],
+          "gate": "TICKET140 proves four exact intermediate or proof-route no-go theorems, records four proof DAGs with zero machine failures, and keeps all four conjecture-resolution counters at zero.",
+          "proof": "The workbench now requires a projected-Weil logarithmic-order trace-moment bound below the tail gap, period-dependent Collatz cycle-minimum Diophantine separation plus aperiodic well-foundedness, an arithmetic K56 Goldbach dual certificate, and Diophantine-Sobolev Type II Twin cancellation with positive gap-two mass."
         }
       ]
     },

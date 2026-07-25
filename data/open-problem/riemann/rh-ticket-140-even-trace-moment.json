@@ -1,0 +1,156 @@
+{
+  "schema": "primeproject.ticket140-spectral-moments-fixed-floor-duality-rotation.v1",
+  "generated_at": "2026-07-29T12:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-140",
+  "status": "exact_intermediate_theorem_conjecture_open",
+  "route": "EvenTraceMomentSpectralCertificateAndLogOrderBarrier",
+  "bounded_result": {
+    "audit_ref": "riemann"
+  },
+  "candidate_theorem": "ProjectedWeilLogOrderEvenTraceMomentBelowTailGap",
+  "next_experiment": "Compute signed even trace moments of one explicit projected Weil Gram tail at moment order proportional to log dimension.",
+  "claim_boundary": "No conjecture proof and no certified conjecture counterexample.",
+  "proof_boundary": "The theorem is exact finite-dimensional linear algebra. It does not identify or bound the actual projected Weil trace moments, does not establish a uniform positive tail gap, and proves no RH implication or counterexample.",
+  "result": {
+    "theorem_name": "EvenTraceMomentSpectralCertificateAndLogOrderBarrier",
+    "title_ko": "짝수 trace moment 스펙트럼 인증과 로그 차수 장벽 정리",
+    "declared_target": "Replace the TICKET139 absolute cross-Gram budget by a signed, computable spectral certificate and determine how its moment order must scale with matrix dimension.",
+    "proved_statement": "For every self-adjoint r by r matrix E and integer m>=1, rho(E)^(2m)<=tr(E^(2m))<=r rho(E)^(2m). Hence a positive base operator A>=gI remains positive after adding E whenever tr(E^(2m))<g^(2m). The certificate preserves signed closed-walk cancellation inside the trace expansion. It is sharp on E=I_r: the Schatten estimate overstates rho(E) by r^(1/(2m)). Therefore a fixed factor 1+epsilon requires m>=log(r)/(2log(1+epsilon)) in the worst case.",
+    "proved_statement_ko": "r차 자기수반 행렬 E와 m>=1에 대해 rho(E)^(2m)<=tr(E^(2m))<=r rho(E)^(2m)이다. 따라서 A>=gI이고 tr(E^(2m))<g^(2m)이면 A+E는 양의 정부호다. trace 전개 내부의 부호 있는 닫힌 경로 상쇄를 보존하지만, E=I_r에서는 추정값이 실제 spectral radius를 r^(1/(2m))배 과대평가한다. 고정 상대 정확도를 얻으려면 최악의 경우 moment 차수가 log r 규모로 증가해야 한다.",
+    "proof": "Diagonalize E with real eigenvalues lambda_i. Then tr(E^(2m))=sum_i |lambda_i|^(2m), which is at least the largest term rho(E)^(2m) and at most r times that term. Thus the strict trace inequality implies ||E||=rho(E)<g, and <x,(A+E)x>>=(g-||E||)||x||^2 for nonzero x. For E=I_r, the trace root is exactly r^(1/(2m)) while rho(E)=1, proving the worst-case order barrier.",
+    "exact_contract": {
+      "spectral_sandwich": "rho(E)^(2m)<=tr(E^(2m))<=r*rho(E)^(2m)",
+      "positivity_certificate": "tr(E^(2m))<g^(2m) implies A+E>0",
+      "sharp_family": "E=I_r",
+      "six_fifths_order": "r*5^(2m)<=6^(2m)"
+    },
+    "trace_moment_audit": {
+      "rows": [
+        {
+          "rank": 4,
+          "target_schatten_factor": "6/5",
+          "minimum_even_moment_order_m": 4,
+          "moment_power": 8,
+          "sharp_identity_family_factor_decimal": 1.189207115002721,
+          "checks": {
+            "minimum_order_passes_exact_integer_test": true,
+            "previous_order_fails_exact_integer_test": true,
+            "logarithmic_order_is_positive": true
+          }
+        },
+        {
+          "rank": 16,
+          "target_schatten_factor": "6/5",
+          "minimum_even_moment_order_m": 8,
+          "moment_power": 16,
+          "sharp_identity_family_factor_decimal": 1.189207115002721,
+          "checks": {
+            "minimum_order_passes_exact_integer_test": true,
+            "previous_order_fails_exact_integer_test": true,
+            "logarithmic_order_is_positive": true
+          }
+        },
+        {
+          "rank": 64,
+          "target_schatten_factor": "6/5",
+          "minimum_even_moment_order_m": 12,
+          "moment_power": 24,
+          "sharp_identity_family_factor_decimal": 1.189207115002721,
+          "checks": {
+            "minimum_order_passes_exact_integer_test": true,
+            "previous_order_fails_exact_integer_test": true,
+            "logarithmic_order_is_positive": true
+          }
+        },
+        {
+          "rank": 256,
+          "target_schatten_factor": "6/5",
+          "minimum_even_moment_order_m": 16,
+          "moment_power": 32,
+          "sharp_identity_family_factor_decimal": 1.189207115002721,
+          "checks": {
+            "minimum_order_passes_exact_integer_test": true,
+            "previous_order_fails_exact_integer_test": true,
+            "logarithmic_order_is_positive": true
+          }
+        },
+        {
+          "rank": 1024,
+          "target_schatten_factor": "6/5",
+          "minimum_even_moment_order_m": 20,
+          "moment_power": 40,
+          "sharp_identity_family_factor_decimal": 1.189207115002721,
+          "checks": {
+            "minimum_order_passes_exact_integer_test": true,
+            "previous_order_fails_exact_integer_test": true,
+            "logarithmic_order_is_positive": true
+          }
+        },
+        {
+          "rank": 4096,
+          "target_schatten_factor": "6/5",
+          "minimum_even_moment_order_m": 23,
+          "moment_power": 46,
+          "sharp_identity_family_factor_decimal": 1.19820068651685,
+          "checks": {
+            "minimum_order_passes_exact_integer_test": true,
+            "previous_order_fails_exact_integer_test": true,
+            "logarithmic_order_is_positive": true
+          }
+        }
+      ],
+      "row_count": 6,
+      "failure_count": 0
+    },
+    "route_decision": {
+      "retain": "dimension-growing even trace moments of the actual projected Weil signed Gram tail",
+      "discard": "any fixed finite trace-moment order as a dimension-uniform replacement for the signed spectral-radius theorem",
+      "next_theorem": "ProjectedWeilLogOrderEvenTraceMomentBelowTailGap"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-TD4b.2b.2",
+          "label": "TwoMutuallyUnbiasedBasesCrossGramL1NoGo",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2b.3a",
+          "label": "EvenTraceMomentSpectralCertificateAndLogOrderBarrier",
+          "status": "closed"
+        },
+        {
+          "id": "RH-TD4b.2b.3b",
+          "label": "ProjectedWeilLogOrderEvenTraceMomentBelowTailGap",
+          "status": "highest_risk_open"
+        },
+        {
+          "id": "RH",
+          "label": "Riemann Hypothesis",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-TD4b.2b.2",
+          "RH-TD4b.2b.3a"
+        ],
+        [
+          "RH-TD4b.2b.3a",
+          "RH-TD4b.2b.3b"
+        ],
+        [
+          "RH-TD4b.2b.3b",
+          "RH"
+        ]
+      ]
+    },
+    "machine_audit": {
+      "trace_moment_row_count": 6,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    },
+    "proof_boundary": "The theorem is exact finite-dimensional linear algebra. It does not identify or bound the actual projected Weil trace moments, does not establish a uniform positive tail gap, and proves no RH implication or counterexample."
+  }
+}

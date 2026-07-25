@@ -62,9 +62,39 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-139
+## Latest Continuation After TICKET-140
 
-TICKET139 is the current boundary. Read
+TICKET140 is the current boundary. Read
+`docs/spectral-moments-fixed-floor-duality-and-rotation.md` and
+`data/open-problem/ticket140-spectral-moments-fixed-floor-duality-rotation.json`
+before proposing a new route. None of the four conjectures is resolved.
+
+For RH, `EvenTraceMomentSpectralCertificateAndLogOrderBarrier` proves that
+even trace moments give a cancellation-sensitive spectral certificate, but
+fixed-factor worst-case control requires moment order proportional to log
+dimension. Attack `ProjectedWeilLogOrderEvenTraceMomentBelowTailGap`.
+
+For Collatz, `FixedCycleMinimumWindowEventuallyVacuousNoGo` proves that every
+fixed minimum-cycle floor admits `S=ceil(k log_2 3)` in the TICKET139 product
+window for all sufficiently large periods. For `M=2^28`, the rationally
+certified vacuity threshold is `563,714,459`. This does not construct a cycle.
+Attack `PeriodDependentCycleMinimumDiophantineSeparation`.
+
+For Goldbach,
+`FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo` proves that
+point evaluation is controlled only by a measurement row-space dual. The
+TICKET139 power-of-two annihilator shows that `q` moments on `q+1` points
+control no coordinate. Attack
+`ArithmeticK56DualCertificateOnPowerOfTwoHardStratum`.
+
+For Twin Prime, `QuadraticIrrationalSobolevRotationCancellation` proves an
+`N`-uniform Birkhoff-sum bound for mean-zero `H^s`, `s>3/2`, observables along
+the `sqrt(2)` rotation. It is unweighted and does not break parity. Attack
+`DiophantineSobolevTypeIIBilinearCancellationWithPositiveTwinMass`.
+
+## Historical Continuation After TICKET-139
+
+TICKET139 is the preserved previous boundary. Read
 `docs/uniformity-diophantine-and-complexity.md` and
 `data/open-problem/ticket139-uniformity-diophantine-complexity.json`
 before proposing a new route. None of the four conjectures is resolved.

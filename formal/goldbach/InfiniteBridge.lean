@@ -23,7 +23,8 @@ def theoremDecomposition : List String := [
   "GB-TD4b.2a SubpowerGrowingWheelLogMomentBarrier closed",
   "GB-TD4b.2b.1 AllScaleOddSquarefreeWheelMomentBarrier closed",
   "GB-TD4b.2b.2 PowerOfTwoBarycentricMomentAnnihilatorNoGo closed",
-  "GB-TD4b.2b.3 LocalizedPowerOfTwoSignedGoldbachResidualK56 highest_risk_open",
+  "GB-TD4b.2b.3 FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo closed",
+  "GB-TD4b.2b.4 ArithmeticK56DualCertificateOnPowerOfTwoHardStratum highest_risk_open",
   "GB-TD5 FiniteLargeNGlue"
 ]
 
@@ -37,18 +38,18 @@ def rankedCegisTarget : String :=
   "GB-TICKET-128 proves the rational tail bound 2*C2>1.31917 and makes the conservative pointwise residual target K=55 sufficient above H=4e18"
 
 def topAttackTheoremTicket : String :=
-  "GB-TICKET-139 LocalizedPowerOfTwoSignedGoldbachResidualK56."
+  "GB-TICKET-140 ArithmeticK56DualCertificateOnPowerOfTwoHardStratum."
 
 def topAttackProofAttemptProtocol : String :=
-  "Prove an all-frequency or localized maximal K<=56 estimate for the actual signed binary Goldbach residual on the power-of-two hard stratum, then join it to the explicit large-even cutoff."
+  "Construct a row-space dual for point evaluation from actual localized or all-frequency Goldbach residual measurements and keep its weighted amplification within K<=56."
 
 def latestExactResult : String :=
-  "PowerOfTwoBarycentricMomentAnnihilatorNoGo: for every q there is a nonzero primitive signed signal on q+1 powers of two whose first q polynomial moments vanish exactly"
+  "FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo: pointwise control is possible only when the evaluation functional lies in the measurement row space; q moments on q+1 powers of two fail every coordinate"
 
 def closedPremise : String :=
   "proper-prime-power contamination constant B and normalized singular-series coefficient A=1"
 
 def retainedOpenPremise : String :=
-  "a localized K=56 signed binary Goldbach residual bound on the power-of-two hard stratum with explicit large-even glue"
+  "an arithmetic K=56 row-space dual certificate on the power-of-two hard stratum with explicit large-even glue"
 
 end PrimeProject.OpenProblems.Goldbach

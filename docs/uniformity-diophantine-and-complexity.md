@@ -7,6 +7,10 @@ Status: `open_not_proven` for all four conjectures
 Machine record:
 `data/open-problem/ticket139-uniformity-diophantine-complexity.json`
 
+Current boundary: TICKET-140 supersedes this document as the latest research
+frontier. See `docs/spectral-moments-fixed-floor-duality-and-rotation.md`.
+The theorems below remain preserved as valid earlier results.
+
 ## Publication boundary / 논문 제출용 경계
 
 **English.** TICKET-139 proves four exact intermediate or proof-route no-go

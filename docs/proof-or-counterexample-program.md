@@ -5694,3 +5694,43 @@ contains arbitrary finite lookup. The next target is
 All four conjectures remain open. TICKET-139 exact theorem count is four,
 route-correction count is four, proof-DAG count is four, and
 conjecture-resolution count is zero.
+
+# TICKET-140 continuation: spectral moments, fixed-floor limits, duality, and rotation
+
+TICKET-140 preserves every valid TICKET-139 theorem while replacing four
+remaining qualitative targets by exact quantitative contracts. The
+machine-readable audit is
+`data/open-problem/ticket140-spectral-moments-fixed-floor-duality-rotation.json`.
+
+For RH, `EvenTraceMomentSpectralCertificateAndLogOrderBarrier` proves
+`rho(E)^(2m)<=tr(E^(2m))<=r rho(E)^(2m)` and turns even trace moments into a
+signed positivity certificate. The identity family proves fixed-factor
+control needs `m=Omega(log r)`. The next target is
+`ProjectedWeilLogOrderEvenTraceMomentBelowTailGap`.
+
+For Collatz, `FixedCycleMinimumWindowEventuallyVacuousNoGo` proves that the
+fixed-floor product window exceeds factor two for every
+`k>=ceil(7(3M+1)/10)`, so it then admits the canonical valuation sum at every
+period. The next target is
+`PeriodDependentCycleMinimumDiophantineSeparation`.
+
+For Goldbach,
+`FiniteMeasurementDualCertificateAndPowerOfTwoNullspaceNoGo` characterizes
+pointwise information by membership of the evaluation functional in the
+measurement row space. The next target is
+`ArithmeticK56DualCertificateOnPowerOfTwoHardStratum`.
+
+For Twin Prime, `QuadraticIrrationalSobolevRotationCancellation` proves
+sample-length-uniform cancellation for unweighted mean-zero Sobolev
+observables along the `sqrt(2)` rotation. The next target is
+`DiophantineSobolevTypeIIBilinearCancellationWithPositiveTwinMass`.
+
+한국어 요약: TICKET-140은 RH의 signed spectral norm을 로그 차수 trace
+moment 문제로, Collatz의 고정 최솟값 창을 period-dependent minimum
+문제로, Goldbach 점별 추정을 exact dual certificate 문제로, Twin Prime
+무리수 정칙성을 arithmetic Type II 가중 상쇄 문제로 바꾼다. 네 결과는
+정확한 부분정리 또는 no-go지만 어느 추측의 완전한 증명이나 반례도 아니다.
+
+All four conjectures remain open. TICKET-140 exact theorem count is four,
+route-correction count is four, proof-DAG count is four, and
+conjecture-resolution count is zero.
