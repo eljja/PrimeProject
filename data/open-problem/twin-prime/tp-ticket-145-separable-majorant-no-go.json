@@ -1,0 +1,166 @@
+{
+  "schema": "primeproject.ticket145-normalization-affine-endpoint-separable-no-go.v1",
+  "generated_at": "2026-07-26T03:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-145",
+  "status": "exact_no_go_theorem_conjecture_open",
+  "route": "minimal separable Walsh majorant no-go",
+  "bounded_result": {
+    "audit_ref": "twin_prime"
+  },
+  "obstruction": "The exact joint deficit C<A00 is itself equivalent to positive twin mass. Progress now requires an independent arithmetic Type I/II estimate that preserves joint cancellation.",
+  "candidate_theorem": "IndependentCubicRoughJointWalshTypeIIBound",
+  "next_experiment": "a joint signed cubic-rough Type I/II estimate derived without using the twin count it must lower-bound",
+  "claim_boundary": "No Twin Prime proof or counterexample. The theorem proves a minimal-majorant no-go and requires joint arithmetic cancellation beyond the sieve parity barrier.",
+  "result": {
+    "theorem_name": "AdverseWalshSlackIdentityAndMinimalSeparableMajorantNoGo",
+    "declared_target": "Determine whether adverse Walsh contraction is close to necessary and whether any sharper separable majorant exists.",
+    "declared_target_ko": "adverse Walsh 수축이 필요조건에 가까운지, 더 날카로운 separable majorant가 존재하는지 판정한다.",
+    "proved_statement": "The adverse part B is the pointwise-smallest nonnegative separable majorant of the joint deficit C, yet B<A00 is not necessary for positive twin mass.",
+    "proved_statement_ko": "adverse part B는 joint deficit C의 점별 최소 비음수 separable majorant이지만 B<A00은 twin 질량 양성의 필요조건이 아니다.",
+    "proof": "The exact slack identity proves B>=C. Testing one coordinate at a time forces every nonnegative separable majorant to dominate the three positive parts defining B. Counts (90,5,4,1) then give positive twin mass while B>A00.",
+    "separable_majorant_audit": {
+      "slack_identity": "For C=A10+A01-A11 and B=(A10)_+ +(A01)_+ +(-A11)_+, B-C=(-A10)_+ +(-A01)_+ +(A11)_+=F>=0.",
+      "minimal_separable_majorant_theorem": "Let f,g,h:R->[0,infinity) vanish at zero and suppose f(x)+g(y)+h(z)>=x+y-z for all x,y,z. Setting two variables to zero forces f(x)>=x_+, g(y)>=y_+, and h(z)>=(-z)_+. Therefore B is the pointwise-smallest nonnegative separable majorant of the joint Walsh deficit C.",
+      "nonnecessity_no_go": "Counts (90,5,4,1) give (A00,A10,A01,A11)=(100,90,88,82), C=96 and N--=1, but B=178>A00. Thus adverse-part contraction is sufficient but not necessary even for positive twin mass. No separable nonnegative componentwise majorant can be sharper than B; future work must preserve joint signed cancellation.",
+      "grid_audit": {
+        "coordinate_range": [
+          -8,
+          8
+        ],
+        "triple_count": 4913,
+        "failure_count": 0
+      },
+      "actual_rows": [
+        {
+          "X": 1000,
+          "A00": 59,
+          "A10": -17,
+          "A01": -19,
+          "A11": 9,
+          "joint_deficit_C": -45,
+          "adverse_part_B": 0,
+          "favorable_slack_F": 45,
+          "direct_twin_count": 26,
+          "checks": {
+            "walsh_inversion": true,
+            "slack_identity": true,
+            "adverse_majorizes_joint_deficit": true
+          }
+        },
+        {
+          "X": 10000,
+          "A00": 358,
+          "A10": -104,
+          "A01": -84,
+          "A11": 2,
+          "joint_deficit_C": -190,
+          "adverse_part_B": 0,
+          "favorable_slack_F": 190,
+          "direct_twin_count": 137,
+          "checks": {
+            "walsh_inversion": true,
+            "slack_identity": true,
+            "adverse_majorizes_joint_deficit": true
+          }
+        },
+        {
+          "X": 100000,
+          "A00": 2486,
+          "A10": -564,
+          "A01": -556,
+          "A11": 138,
+          "joint_deficit_C": -1258,
+          "adverse_part_B": 0,
+          "favorable_slack_F": 1258,
+          "direct_twin_count": 936,
+          "checks": {
+            "walsh_inversion": true,
+            "slack_identity": true,
+            "adverse_majorizes_joint_deficit": true
+          }
+        },
+        {
+          "X": 1000000,
+          "A00": 17634,
+          "A10": -3970,
+          "A01": -3992,
+          "A11": 1212,
+          "joint_deficit_C": -9174,
+          "adverse_part_B": 0,
+          "favorable_slack_F": 9174,
+          "direct_twin_count": 6702,
+          "checks": {
+            "walsh_inversion": true,
+            "slack_identity": true,
+            "adverse_majorizes_joint_deficit": true
+          }
+        }
+      ],
+      "synthetic_nonnecessity_witness": {
+        "category_counts": [
+          90,
+          5,
+          4,
+          1
+        ],
+        "A00": 100,
+        "A10": 90,
+        "A01": 88,
+        "A11": 82,
+        "joint_deficit_C": 96,
+        "adverse_part_B": 178,
+        "favorable_slack_F": 82,
+        "direct_twin_count": 1,
+        "checks": {
+          "twin_class_positive": true,
+          "exact_walsh_inversion": true,
+          "adverse_contraction_fails": true,
+          "slack_identity": true
+        }
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The exact joint deficit C<A00 is itself equivalent to positive twin mass. Progress now requires an independent arithmetic Type I/II estimate that preserves joint cancellation.",
+    "route_decision": {
+      "discard": "uniform adverse-part contraction and every nonnegative separable componentwise Walsh majorant as the primary target",
+      "retain": "a joint signed cubic-rough Type I/II estimate derived without using the twin count it must lower-bound",
+      "next_theorem": "IndependentCubicRoughJointWalshTypeIIBound"
+    },
+    "proof_boundary": "No Twin Prime proof or counterexample. The theorem proves a minimal-majorant no-go and requires joint arithmetic cancellation beyond the sieve parity barrier.",
+    "machine_audit": {
+      "row_count": 5,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T145-REJECTED",
+          "label": "UniformCubicRoughAdverseWalshPartContraction",
+          "status": "refuted_or_circular"
+        },
+        {
+          "id": "TP-T145-CLOSED",
+          "label": "AdverseWalshSlackIdentityAndMinimalSeparableMajorantNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T145-OPEN",
+          "label": "IndependentCubicRoughJointWalshTypeIIBound",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T145-REJECTED",
+          "TP-T145-CLOSED"
+        ],
+        [
+          "TP-T145-CLOSED",
+          "TP-T145-OPEN"
+        ]
+      ]
+    }
+  }
+}

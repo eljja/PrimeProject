@@ -62,12 +62,43 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-144
+## Latest Continuation After TICKET-145
 
-TICKET144 is the current boundary. Read
+Read `docs/normalization-affine-endpoint-separable-no-go.md`,
+`data/open-problem/ticket145-normalization-affine-endpoint-separable-no-go.json`,
+`scripts/ticket145_normalization_affine_endpoint_separable_no_go.py`, and
+`tests/test_ticket145_normalization_affine_endpoint_separable_no_go.py`
+first. Do not reopen these refuted targets without new assumptions that
+survive their exact witnesses:
+
+- an absolute or uniform-normalized Schur-pivot margin as a necessary RH
+  condition;
+- any lower-bounded finite-modulus piecewise-affine Collatz one-step rank;
+- Goldbach `K56` stated only as a signed martingale endpoint or aggregate
+  level cancellation;
+- Twin adverse-part contraction or another nonnegative separable Walsh
+  majorant as if it were necessary.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `ExplicitWeilFormCoreNormalizedSchurSignRecurrence` |
+| Collatz | `NonlinearLiftClosedCollatzRankBeyondFiniteResidueAffine` |
+| Goldbach | `ArithmeticBinaryGoldbachScaleEnvelopeSummableK56` |
+| Twin Prime | `IndependentCubicRoughJointWalshTypeIIBound` |
+
+한국어: 후속 LLM은 위 네 폐기 경로를 이름만 바꿔 반복하면 안 된다.
+새 후보는 실제 Weil 형식, 모든 자연수 lift, 실제 이진 Goldbach 잔차,
+독립적인 cubic-rough Type I/II 분해 중 해당 문제의 산술 객체를
+사용해야 한다. 유한 계산은 반례 탐색이나 보조정리 감사로만 보고하고
+무한 추측의 증명으로 승격하지 않는다.
+
+## Historical Continuation After TICKET-144
+
+TICKET144 is a preserved historical boundary. Read
 `docs/schur-rank-equivalence-variation-adverse-walsh.md` and
 `data/open-problem/ticket144-schur-rank-equivalence-variation-adverse-walsh.json`
-before proposing a new route. None of the four conjectures is resolved.
+for the targets corrected by TICKET145. None of the four conjectures is
+resolved.
 
 For RH, `NestedGramSchurPivotCertificateAndFinitePrefixExtensionNoGo`
 reduces nested positive definiteness to exact scalar Schur pivots and proves
@@ -186,7 +217,7 @@ cancellation alone does not resolve the sieve parity obstruction.
 
 ## Historical Continuation After TICKET-140
 
-TICKET140 is the current boundary. Read
+TICKET140 is a preserved historical boundary. Read
 `docs/spectral-moments-fixed-floor-duality-and-rotation.md` and
 `data/open-problem/ticket140-spectral-moments-fixed-floor-duality-rotation.json`
 before proposing a new route. None of the four conjectures is resolved.

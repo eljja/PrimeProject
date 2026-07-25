@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.project-evolution.v1",
-  "updated_at": "2026-07-26T00:30:00+09:00",
+  "updated_at": "2026-07-26T03:00:00+09:00",
   "headline": "From prime regularity exploration to generator-fingerprint research tooling.",
   "metrics": {
     "live_compute_limit": 10000000,
@@ -52,8 +52,8 @@
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
-    "claim_language_scanned_files": 88,
-    "claim_language_scanned_lines": 29219,
+    "claim_language_scanned_files": 89,
+    "claim_language_scanned_lines": 29845,
     "claim_language_triggered_mentions": 121,
     "claim_language_guarded_mentions": 121,
     "claim_language_failures": 0,
@@ -839,6 +839,13 @@
           "state": "bounded",
           "measure": "RH 15 exact Schur rows / Collatz 50,000 bounded starts and max rank 129 / Goldbach 9 variation rows with K56 crossing at depth 113 / Twin 4 adverse rows and 1 L1 no-go witness / 0 conjecture resolutions",
           "proof": "TICKET-144 reduces nested Gram positivity to exact Schur pivots, proves unrestricted Collatz rank is equivalent to termination, refutes generic bounded-signal absolute path variation, and replaces full Walsh L1 balance by the weaker adverse-part contraction target"
+        },
+        {
+          "marker": "105",
+          "title": "Normalization, affine-rank, endpoint, and separability audits reject four false proof targets",
+          "state": "bounded",
+          "measure": "RH 20 exact normalization rows / Collatz 48 same-residue expansion rows / Goldbach 9 exact zero-mean spike rows / Twin 4,913 majorant triples plus 1 nonnecessity witness / 0 conjecture resolutions",
+          "proof": "TICKET-145 proves absolute Schur pivots are basis-scale dependent and uniform normalized margins unnecessary, excludes every lower-bounded finite-modulus piecewise-affine Collatz one-step rank, exposes signed Goldbach endpoint cancellation as circular and aggregate cancellation as insufficient, and proves the adverse Walsh quantity is the minimal separable majorant but not a necessary twin condition"
         }
       ],
       "evidence_flow": [
@@ -958,11 +965,11 @@
         },
         {
           "layer": "Open-Proof",
-          "score": 94,
+          "score": 95,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket144-schur-rank-equivalence-variation-adverse-walsh.json", "data/open-problem/ticket143-form-core-period-floor-martingale-walsh.json", "docs/schur-rank-equivalence-variation-adverse-walsh.md", "docs/proof-or-counterexample-program.md"],
-          "gate": "TICKET144 proves four exact reduction or no-go theorems, records four updated proof DAGs with zero machine failures, and keeps all four conjecture-resolution counters at zero.",
-          "proof": "The workbench now requires an explicit Weil form-core Schur-pivot lower bound, an independently defined lift-closed finite Collatz rank, arithmetic signed Goldbach martingale cancellation below K56, and uniform cubic-rough adverse-Walsh-part contraction."
+          "artifacts": ["data/open-problem/ticket145-normalization-affine-endpoint-separable-no-go.json", "data/open-problem/ticket144-schur-rank-equivalence-variation-adverse-walsh.json", "docs/normalization-affine-endpoint-separable-no-go.md", "docs/proof-or-counterexample-program.md"],
+          "gate": "TICKET145 proves four exact structural no-go theorems, rejects four overstrong or circular TICKET144 targets, records three-state proof DAGs with zero machine failures, and keeps all four conjecture-resolution counters at zero.",
+          "proof": "The workbench now requires an actual normalized Weil Schur-sign recurrence, a nonlinear lift-closed Collatz rank beyond finite residue-affine forms, independently summable arithmetic Goldbach scale envelopes below K56, and an independent joint cubic-rough Walsh Type II bound."
         }
       ]
     },

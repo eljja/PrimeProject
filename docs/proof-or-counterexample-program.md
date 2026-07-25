@@ -5863,3 +5863,34 @@ moment 문제로, Collatz의 고정 최솟값 창을 period-dependent minimum
 All four conjectures remain open. TICKET-140 exact theorem count is four,
 route-correction count is four, proof-DAG count is four, and
 conjecture-resolution count is zero.
+# TICKET-145 continuation: normalization and separability no-go audit
+
+Machine record:
+`data/open-problem/ticket145-normalization-affine-endpoint-separable-no-go.json`.
+Full bilingual proof:
+`docs/normalization-affine-endpoint-separable-no-go.md`.
+
+TICKET-145 re-audits the four open nodes proposed by TICKET-144 before treating
+them as genuine progress. It proves:
+
+1. `SchurPivotBasisScalingNoGoAndNormalizedAngleReduction`: absolute pivots
+   are basis-scale dependent, and positive Hilbert sections refute the
+   necessity of a uniform normalized pivot margin.
+2. `FiniteModulusPiecewiseAffineCollatzRankNoGo`: the exact family
+   `4Mk-1 -> 6Mk-1` defeats every lower-bounded finite-modulus
+   piecewise-affine one-step rank.
+3. `SignedMartingaleEndpointEquivalenceAndAggregateCancellationNoGo`: the
+   signed endpoint is the original pointwise residual, while aggregate level
+   cancellation admits an exact size-57 spike.
+4. `AdverseWalshSlackIdentityAndMinimalSeparableMajorantNoGo`: the adverse
+   part is the smallest nonnegative separable majorant, but counts
+   `(90,5,4,1)` have positive twin mass with `B=178>A00=100`.
+
+한국어 경계: 이번 TICKET은 네 난제를 해결하지 않는다. TICKET-144의
+다음 표적 중 좌표 의존적이거나 순환적이거나 과도한 조건을 정확히
+폐기했다. 다음 단일 미증명 정리는 각각
+`ExplicitWeilFormCoreNormalizedSchurSignRecurrence`,
+`NonlinearLiftClosedCollatzRankBeyondFiniteResidueAffine`,
+`ArithmeticBinaryGoldbachScaleEnvelopeSummableK56`,
+`IndependentCubicRoughJointWalshTypeIIBound`이다. 완전 증명이나 추측의
+반례가 없으므로 네 해결 상태는 모두 `open_not_proven`이다.

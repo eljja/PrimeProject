@@ -1,0 +1,811 @@
+{
+  "schema": "primeproject.ticket145-normalization-affine-endpoint-separable-no-go.v1",
+  "generated_at": "2026-07-26T03:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-145",
+  "status": "exact_no_go_theorem_conjecture_open",
+  "route": "finite-modulus piecewise-affine rank no-go",
+  "bounded_result": {
+    "audit_ref": "collatz"
+  },
+  "obstruction": "The result excludes this finite residue-affine one-step class only. It neither proves termination nor excludes nonlinear, history-dependent, or adaptive block ranks.",
+  "candidate_theorem": "NonlinearLiftClosedCollatzRankBeyondFiniteResidueAffine",
+  "next_experiment": "a nonlinear lift-closed rank or adaptive block descent that handles same-residue expanding self-loops",
+  "claim_boundary": "No Collatz proof or counterexample. One broad finite-state piecewise-affine rank class is refuted exactly.",
+  "result": {
+    "theorem_name": "FiniteModulusPiecewiseAffineCollatzRankNoGo",
+    "declared_target": "Test every lower-bounded finite-modulus piecewise-affine one-step rank using an exact same-state expanding family.",
+    "declared_target_ko": "정확한 동일 상태 확장족으로 하방 유계인 모든 유한 modulus별 affine 1-step rank를 판정한다.",
+    "proved_statement": "For every modulus M, no lower-bounded rank R(n)=a_(n mod M)n+b_(n mod M) strictly decreases on every accelerated odd Collatz edge.",
+    "proved_statement_ko": "모든 modulus M에 대해 R(n)=a_(n mod M)n+b_(n mod M) 형태의 하방 유계 rank는 모든 가속 홀수 Collatz 간선에서 엄격히 감소할 수 없다.",
+    "proof": "On the residue r=-1 mod M, lower boundedness along arbitrarily large n forces a_r>=0. If a_r=0, R(T(n))=R(n); if a_r>0, R(T(n))-R(n)=2Mk*a_r>0. Strict one-step descent is impossible.",
+    "piecewise_affine_rank_audit": {
+      "rank_class": "R(n)=a_r*n+b_r for odd n congruent to r (mod M), with finitely many coefficients and R bounded below on positive odd integers.",
+      "exact_witness_family": "For every M,k>=1, n_(M,k)=4Mk-1 has v2(3n+1)=1 and T(n)=6Mk-1. Both values are -1 mod M and T(n)-n=2Mk>0.",
+      "no_go_proof": "On the residue r=-1 mod M, lower boundedness along arbitrarily large n forces a_r>=0. If a_r=0, R(T(n))=R(n); if a_r>0, R(T(n))-R(n)=2Mk*a_r>0. Strict one-step descent is impossible.",
+      "scope": "The theorem excludes finite-modulus piecewise-affine, lower-bounded one-step ranks. It does not exclude nonlinear unbounded-state ranks, adaptive block descent, or a direct termination argument.",
+      "moduli": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        16,
+        31,
+        64
+      ],
+      "multipliers": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "rows": [
+        {
+          "modulus": 1,
+          "multiplier": 1,
+          "start": 3,
+          "successor": 5,
+          "shared_residue": 0,
+          "growth_difference": 2,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 1,
+          "multiplier": 2,
+          "start": 7,
+          "successor": 11,
+          "shared_residue": 0,
+          "growth_difference": 4,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 1,
+          "multiplier": 4,
+          "start": 15,
+          "successor": 23,
+          "shared_residue": 0,
+          "growth_difference": 8,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 1,
+          "multiplier": 8,
+          "start": 31,
+          "successor": 47,
+          "shared_residue": 0,
+          "growth_difference": 16,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 1,
+          "multiplier": 16,
+          "start": 63,
+          "successor": 95,
+          "shared_residue": 0,
+          "growth_difference": 32,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 1,
+          "multiplier": 32,
+          "start": 127,
+          "successor": 191,
+          "shared_residue": 0,
+          "growth_difference": 64,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 2,
+          "multiplier": 1,
+          "start": 7,
+          "successor": 11,
+          "shared_residue": 1,
+          "growth_difference": 4,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 2,
+          "multiplier": 2,
+          "start": 15,
+          "successor": 23,
+          "shared_residue": 1,
+          "growth_difference": 8,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 2,
+          "multiplier": 4,
+          "start": 31,
+          "successor": 47,
+          "shared_residue": 1,
+          "growth_difference": 16,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 2,
+          "multiplier": 8,
+          "start": 63,
+          "successor": 95,
+          "shared_residue": 1,
+          "growth_difference": 32,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 2,
+          "multiplier": 16,
+          "start": 127,
+          "successor": 191,
+          "shared_residue": 1,
+          "growth_difference": 64,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 2,
+          "multiplier": 32,
+          "start": 255,
+          "successor": 383,
+          "shared_residue": 1,
+          "growth_difference": 128,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 3,
+          "multiplier": 1,
+          "start": 11,
+          "successor": 17,
+          "shared_residue": 2,
+          "growth_difference": 6,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 3,
+          "multiplier": 2,
+          "start": 23,
+          "successor": 35,
+          "shared_residue": 2,
+          "growth_difference": 12,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 3,
+          "multiplier": 4,
+          "start": 47,
+          "successor": 71,
+          "shared_residue": 2,
+          "growth_difference": 24,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 3,
+          "multiplier": 8,
+          "start": 95,
+          "successor": 143,
+          "shared_residue": 2,
+          "growth_difference": 48,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 3,
+          "multiplier": 16,
+          "start": 191,
+          "successor": 287,
+          "shared_residue": 2,
+          "growth_difference": 96,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 3,
+          "multiplier": 32,
+          "start": 383,
+          "successor": 575,
+          "shared_residue": 2,
+          "growth_difference": 192,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 5,
+          "multiplier": 1,
+          "start": 19,
+          "successor": 29,
+          "shared_residue": 4,
+          "growth_difference": 10,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 5,
+          "multiplier": 2,
+          "start": 39,
+          "successor": 59,
+          "shared_residue": 4,
+          "growth_difference": 20,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 5,
+          "multiplier": 4,
+          "start": 79,
+          "successor": 119,
+          "shared_residue": 4,
+          "growth_difference": 40,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 5,
+          "multiplier": 8,
+          "start": 159,
+          "successor": 239,
+          "shared_residue": 4,
+          "growth_difference": 80,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 5,
+          "multiplier": 16,
+          "start": 319,
+          "successor": 479,
+          "shared_residue": 4,
+          "growth_difference": 160,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 5,
+          "multiplier": 32,
+          "start": 639,
+          "successor": 959,
+          "shared_residue": 4,
+          "growth_difference": 320,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 7,
+          "multiplier": 1,
+          "start": 27,
+          "successor": 41,
+          "shared_residue": 6,
+          "growth_difference": 14,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 7,
+          "multiplier": 2,
+          "start": 55,
+          "successor": 83,
+          "shared_residue": 6,
+          "growth_difference": 28,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 7,
+          "multiplier": 4,
+          "start": 111,
+          "successor": 167,
+          "shared_residue": 6,
+          "growth_difference": 56,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 7,
+          "multiplier": 8,
+          "start": 223,
+          "successor": 335,
+          "shared_residue": 6,
+          "growth_difference": 112,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 7,
+          "multiplier": 16,
+          "start": 447,
+          "successor": 671,
+          "shared_residue": 6,
+          "growth_difference": 224,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 7,
+          "multiplier": 32,
+          "start": 895,
+          "successor": 1343,
+          "shared_residue": 6,
+          "growth_difference": 448,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 16,
+          "multiplier": 1,
+          "start": 63,
+          "successor": 95,
+          "shared_residue": 15,
+          "growth_difference": 32,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 16,
+          "multiplier": 2,
+          "start": 127,
+          "successor": 191,
+          "shared_residue": 15,
+          "growth_difference": 64,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 16,
+          "multiplier": 4,
+          "start": 255,
+          "successor": 383,
+          "shared_residue": 15,
+          "growth_difference": 128,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 16,
+          "multiplier": 8,
+          "start": 511,
+          "successor": 767,
+          "shared_residue": 15,
+          "growth_difference": 256,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 16,
+          "multiplier": 16,
+          "start": 1023,
+          "successor": 1535,
+          "shared_residue": 15,
+          "growth_difference": 512,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 16,
+          "multiplier": 32,
+          "start": 2047,
+          "successor": 3071,
+          "shared_residue": 15,
+          "growth_difference": 1024,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 31,
+          "multiplier": 1,
+          "start": 123,
+          "successor": 185,
+          "shared_residue": 30,
+          "growth_difference": 62,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 31,
+          "multiplier": 2,
+          "start": 247,
+          "successor": 371,
+          "shared_residue": 30,
+          "growth_difference": 124,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 31,
+          "multiplier": 4,
+          "start": 495,
+          "successor": 743,
+          "shared_residue": 30,
+          "growth_difference": 248,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 31,
+          "multiplier": 8,
+          "start": 991,
+          "successor": 1487,
+          "shared_residue": 30,
+          "growth_difference": 496,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 31,
+          "multiplier": 16,
+          "start": 1983,
+          "successor": 2975,
+          "shared_residue": 30,
+          "growth_difference": 992,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 31,
+          "multiplier": 32,
+          "start": 3967,
+          "successor": 5951,
+          "shared_residue": 30,
+          "growth_difference": 1984,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 64,
+          "multiplier": 1,
+          "start": 255,
+          "successor": 383,
+          "shared_residue": 63,
+          "growth_difference": 128,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 64,
+          "multiplier": 2,
+          "start": 511,
+          "successor": 767,
+          "shared_residue": 63,
+          "growth_difference": 256,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 64,
+          "multiplier": 4,
+          "start": 1023,
+          "successor": 1535,
+          "shared_residue": 63,
+          "growth_difference": 512,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 64,
+          "multiplier": 8,
+          "start": 2047,
+          "successor": 3071,
+          "shared_residue": 63,
+          "growth_difference": 1024,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 64,
+          "multiplier": 16,
+          "start": 4095,
+          "successor": 6143,
+          "shared_residue": 63,
+          "growth_difference": 2048,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        },
+        {
+          "modulus": 64,
+          "multiplier": 32,
+          "start": 8191,
+          "successor": 12287,
+          "shared_residue": 63,
+          "growth_difference": 4096,
+          "checks": {
+            "valuation_is_one": true,
+            "successor_formula": true,
+            "same_residue_state": true,
+            "strict_archimedean_expansion": true,
+            "exact_growth_difference": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The result excludes this finite residue-affine one-step class only. It neither proves termination nor excludes nonlinear, history-dependent, or adaptive block ranks.",
+    "route_decision": {
+      "discard": "all finite-modulus piecewise-affine lower-bounded one-step ranks, including the TICKET144 finite-description affine candidate",
+      "retain": "a nonlinear lift-closed rank or adaptive block descent that handles same-residue expanding self-loops",
+      "next_theorem": "NonlinearLiftClosedCollatzRankBeyondFiniteResidueAffine"
+    },
+    "proof_boundary": "No Collatz proof or counterexample. One broad finite-state piecewise-affine rank class is refuted exactly.",
+    "machine_audit": {
+      "row_count": 48,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T145-REJECTED",
+          "label": "ExplicitLiftClosedFiniteDescriptionCollatzAffineRank",
+          "status": "refuted_or_circular"
+        },
+        {
+          "id": "CO-T145-CLOSED",
+          "label": "FiniteModulusPiecewiseAffineCollatzRankNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T145-OPEN",
+          "label": "NonlinearLiftClosedCollatzRankBeyondFiniteResidueAffine",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T145-REJECTED",
+          "CO-T145-CLOSED"
+        ],
+        [
+          "CO-T145-CLOSED",
+          "CO-T145-OPEN"
+        ]
+      ]
+    }
+  }
+}

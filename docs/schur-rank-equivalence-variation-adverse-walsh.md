@@ -7,6 +7,12 @@ Status: `open_not_proven` for all four conjectures
 Machine record:
 `data/open-problem/ticket144-schur-rank-equivalence-variation-adverse-walsh.json`
 
+> Superseded target note / 후속 교정:
+> [TICKET-145](normalization-affine-endpoint-separable-no-go.md) proves that
+> the proposed Goldbach signed-endpoint target is circular when interpreted
+> pointwise, and that the Twin adverse-part contraction is not necessary even
+> for positive twin mass. TICKET-144 remains the historical exact record.
+
 ## Publication boundary / 논문 제출용 경계
 
 **English.** TICKET-144 proves four exact auxiliary statements. It does not

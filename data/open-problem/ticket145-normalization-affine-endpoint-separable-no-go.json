@@ -1,0 +1,2076 @@
+{
+  "schema": "primeproject.ticket145-normalization-affine-endpoint-separable-no-go.v1",
+  "generated_at": "2026-07-26T03:00:00+09:00",
+  "status": "exact_structural_no_go_theorems_all_conjectures_open",
+  "claim_boundary": "No conjecture proof or counterexample. TICKET145 proves four exact structural no-go theorems, rejects four overstrong or circular TICKET144 targets, and leaves all conjectures open.",
+  "normalization_affine_endpoint_separable_no_go_audit": {
+    "theorem_name": "FourConjectureNormalizationAffineEndpointSeparableNoGoAudit",
+    "status": "exact_structural_no_go_theorems_all_conjectures_open",
+    "proof_boundary": "No conjecture proof or counterexample. TICKET145 proves four exact structural no-go theorems, rejects four overstrong or circular TICKET144 targets, and leaves all conjectures open.",
+    "riemann": {
+      "theorem_name": "SchurPivotBasisScalingNoGoAndNormalizedAngleReduction",
+      "declared_target": "Determine which Schur-pivot lower bounds are basis invariant and whether a uniform normalized pivot margin is necessary.",
+      "declared_target_ko": "어떤 Schur pivot 하한이 기저 불변인지, 균일 정규화 pivot 여유가 모든 절단 양성에 필요한지 판정한다.",
+      "proved_statement": "Absolute Schur pivots scale quadratically with individual basis vectors, while eta_n=delta_n/G_nn is invariant. Positive Hilbert sections have eta_n tending to zero, so neither absolute nor uniform normalized margins are valid necessary targets.",
+      "proved_statement_ko": "절대 Schur pivot은 개별 기저 벡터 배율의 제곱에 따라 변하지만 eta_n=delta_n/G_nn은 불변이다. Hilbert 양성 절단에서는 eta_n이 0으로 가므로 절대 하한과 균일 정규화 하한 모두 필요한 조건이 아니다.",
+      "proof": "Diagonal congruence cancels every predecessor scale in the Schur complement and leaves |d_n|^2. Dividing by the nth diagonal removes that factor. The exact Hilbert pivot formula gives eta_n=binom(2n-2,n-1)^(-2), which tends to zero.",
+      "normalized_schur_audit": {
+        "scaling_theorem": "For a nested Gram family G and diagonal basis rescaling D=diag(d_1,...), the nth Schur pivot obeys delta'_n=|d_n|^2*delta_n.",
+        "normalized_invariant": "eta_n=delta_n/G_nn is invariant under every nonzero diagonal basis rescaling and equals the squared relative distance of the nth vector from the span of its predecessors.",
+        "arbitrary_margin_no_go": "If every delta_n is positive, any prescribed positive pivot sequence t_n can be obtained by choosing |d_n|^2=t_n/delta_n. Absolute pivot margins therefore have no basis-independent meaning.",
+        "uniform_normalized_margin_no_go": "Every finite Hilbert section is positive definite, but eta_N=1/binom(2N-2,N-1)^2 tends to zero. Thus even a uniform positive normalized margin is not necessary for all-section positivity.",
+        "hilbert_rows": [
+          {
+            "dimension": 1,
+            "last_pivot": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "last_diagonal": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "normalized_pivot": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 2,
+            "last_pivot": {
+              "exact": "1/12",
+              "decimal": 0.08333333333333333
+            },
+            "last_diagonal": {
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "normalized_pivot": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 3,
+            "last_pivot": {
+              "exact": "1/180",
+              "decimal": 0.005555555555555556
+            },
+            "last_diagonal": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "normalized_pivot": {
+              "exact": "1/36",
+              "decimal": 0.027777777777777776
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 4,
+            "last_pivot": {
+              "exact": "1/2800",
+              "decimal": 0.00035714285714285714
+            },
+            "last_diagonal": {
+              "exact": "1/7",
+              "decimal": 0.14285714285714285
+            },
+            "normalized_pivot": {
+              "exact": "1/400",
+              "decimal": 0.0025
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 5,
+            "last_pivot": {
+              "exact": "1/44100",
+              "decimal": 2.2675736961451248e-05
+            },
+            "last_diagonal": {
+              "exact": "1/9",
+              "decimal": 0.1111111111111111
+            },
+            "normalized_pivot": {
+              "exact": "1/4900",
+              "decimal": 0.00020408163265306123
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 6,
+            "last_pivot": {
+              "exact": "1/698544",
+              "decimal": 1.4315490505966697e-06
+            },
+            "last_diagonal": {
+              "exact": "1/11",
+              "decimal": 0.09090909090909091
+            },
+            "normalized_pivot": {
+              "exact": "1/63504",
+              "decimal": 1.5747039556563368e-05
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 7,
+            "last_pivot": {
+              "exact": "1/11099088",
+              "decimal": 9.00974926948953e-08
+            },
+            "last_diagonal": {
+              "exact": "1/13",
+              "decimal": 0.07692307692307693
+            },
+            "normalized_pivot": {
+              "exact": "1/853776",
+              "decimal": 1.1712674050336388e-06
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 8,
+            "last_pivot": {
+              "exact": "1/176679360",
+              "decimal": 5.65997069493573e-09
+            },
+            "last_diagonal": {
+              "exact": "1/15",
+              "decimal": 0.06666666666666667
+            },
+            "normalized_pivot": {
+              "exact": "1/11778624",
+              "decimal": 8.489956042403595e-08
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 9,
+            "last_pivot": {
+              "exact": "1/2815827300",
+              "decimal": 3.551354161528301e-10
+            },
+            "last_diagonal": {
+              "exact": "1/17",
+              "decimal": 0.058823529411764705
+            },
+            "normalized_pivot": {
+              "exact": "1/165636900",
+              "decimal": 6.037302074598112e-09
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 10,
+            "last_pivot": {
+              "exact": "1/44914183600",
+              "decimal": 2.226468166283223e-11
+            },
+            "last_diagonal": {
+              "exact": "1/19",
+              "decimal": 0.05263157894736842
+            },
+            "normalized_pivot": {
+              "exact": "1/2363904400",
+              "decimal": 4.2302895159381234e-10
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 11,
+            "last_pivot": {
+              "exact": "1/716830370256",
+              "decimal": 1.3950301793754529e-12
+            },
+            "last_diagonal": {
+              "exact": "1/21",
+              "decimal": 0.047619047619047616
+            },
+            "normalized_pivot": {
+              "exact": "1/34134779536",
+              "decimal": 2.9295633766884514e-11
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          },
+          {
+            "dimension": 12,
+            "last_pivot": {
+              "exact": "1/11445589052352",
+              "decimal": 8.736990253852475e-14
+            },
+            "last_diagonal": {
+              "exact": "1/23",
+              "decimal": 0.043478260869565216
+            },
+            "normalized_pivot": {
+              "exact": "1/497634306624",
+              "decimal": 2.0095077583860692e-12
+            },
+            "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+            "checks": {
+              "pivot_positive": true,
+              "normalized_pivot_positive": true,
+              "normalized_closed_form": true,
+              "normalized_at_most_one": true
+            }
+          }
+        ],
+        "scaling_rows": [
+          {
+            "index": 1,
+            "basis_scale": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "original_pivot": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scaled_pivot": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "original_normalized_pivot": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scaled_normalized_pivot": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "pivot_scales_quadratically": true,
+              "normalized_pivot_is_invariant": true
+            }
+          },
+          {
+            "index": 2,
+            "basis_scale": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "original_pivot": {
+              "exact": "1/12",
+              "decimal": 0.08333333333333333
+            },
+            "scaled_pivot": {
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "original_normalized_pivot": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "scaled_normalized_pivot": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "pivot_scales_quadratically": true,
+              "normalized_pivot_is_invariant": true
+            }
+          },
+          {
+            "index": 3,
+            "basis_scale": {
+              "exact": "3/1",
+              "decimal": 3.0
+            },
+            "original_pivot": {
+              "exact": "1/180",
+              "decimal": 0.005555555555555556
+            },
+            "scaled_pivot": {
+              "exact": "1/20",
+              "decimal": 0.05
+            },
+            "original_normalized_pivot": {
+              "exact": "1/36",
+              "decimal": 0.027777777777777776
+            },
+            "scaled_normalized_pivot": {
+              "exact": "1/36",
+              "decimal": 0.027777777777777776
+            },
+            "checks": {
+              "pivot_scales_quadratically": true,
+              "normalized_pivot_is_invariant": true
+            }
+          },
+          {
+            "index": 4,
+            "basis_scale": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "original_pivot": {
+              "exact": "1/2800",
+              "decimal": 0.00035714285714285714
+            },
+            "scaled_pivot": {
+              "exact": "1/175",
+              "decimal": 0.005714285714285714
+            },
+            "original_normalized_pivot": {
+              "exact": "1/400",
+              "decimal": 0.0025
+            },
+            "scaled_normalized_pivot": {
+              "exact": "1/400",
+              "decimal": 0.0025
+            },
+            "checks": {
+              "pivot_scales_quadratically": true,
+              "normalized_pivot_is_invariant": true
+            }
+          },
+          {
+            "index": 5,
+            "basis_scale": {
+              "exact": "5/1",
+              "decimal": 5.0
+            },
+            "original_pivot": {
+              "exact": "1/44100",
+              "decimal": 2.2675736961451248e-05
+            },
+            "scaled_pivot": {
+              "exact": "1/1764",
+              "decimal": 0.0005668934240362812
+            },
+            "original_normalized_pivot": {
+              "exact": "1/4900",
+              "decimal": 0.00020408163265306123
+            },
+            "scaled_normalized_pivot": {
+              "exact": "1/4900",
+              "decimal": 0.00020408163265306123
+            },
+            "checks": {
+              "pivot_scales_quadratically": true,
+              "normalized_pivot_is_invariant": true
+            }
+          },
+          {
+            "index": 6,
+            "basis_scale": {
+              "exact": "6/1",
+              "decimal": 6.0
+            },
+            "original_pivot": {
+              "exact": "1/698544",
+              "decimal": 1.4315490505966697e-06
+            },
+            "scaled_pivot": {
+              "exact": "1/19404",
+              "decimal": 5.1535765821480104e-05
+            },
+            "original_normalized_pivot": {
+              "exact": "1/63504",
+              "decimal": 1.5747039556563368e-05
+            },
+            "scaled_normalized_pivot": {
+              "exact": "1/63504",
+              "decimal": 1.5747039556563368e-05
+            },
+            "checks": {
+              "pivot_scales_quadratically": true,
+              "normalized_pivot_is_invariant": true
+            }
+          },
+          {
+            "index": 7,
+            "basis_scale": {
+              "exact": "7/1",
+              "decimal": 7.0
+            },
+            "original_pivot": {
+              "exact": "1/11099088",
+              "decimal": 9.00974926948953e-08
+            },
+            "scaled_pivot": {
+              "exact": "1/226512",
+              "decimal": 4.414777142049869e-06
+            },
+            "original_normalized_pivot": {
+              "exact": "1/853776",
+              "decimal": 1.1712674050336388e-06
+            },
+            "scaled_normalized_pivot": {
+              "exact": "1/853776",
+              "decimal": 1.1712674050336388e-06
+            },
+            "checks": {
+              "pivot_scales_quadratically": true,
+              "normalized_pivot_is_invariant": true
+            }
+          },
+          {
+            "index": 8,
+            "basis_scale": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "original_pivot": {
+              "exact": "1/176679360",
+              "decimal": 5.65997069493573e-09
+            },
+            "scaled_pivot": {
+              "exact": "1/2760615",
+              "decimal": 3.6223812447588674e-07
+            },
+            "original_normalized_pivot": {
+              "exact": "1/11778624",
+              "decimal": 8.489956042403595e-08
+            },
+            "scaled_normalized_pivot": {
+              "exact": "1/11778624",
+              "decimal": 8.489956042403595e-08
+            },
+            "checks": {
+              "pivot_scales_quadratically": true,
+              "normalized_pivot_is_invariant": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "No actual Weil form-core Gram entry or all-section sign recurrence is derived. Hilbert matrices are controls only.",
+      "route_decision": {
+        "discard": "an unnormalized absolute Schur-pivot lower bound, or a uniform normalized margin, as a necessary RH certificate",
+        "retain": "derive actual normalized Weil Gram entries and an exact Schur-sign recurrence without assuming positivity",
+        "next_theorem": "ExplicitWeilFormCoreNormalizedSchurSignRecurrence"
+      },
+      "proof_boundary": "No RH proof or counterexample. This theorem corrects the normalization and excludes two overstrong pivot targets.",
+      "machine_audit": {
+        "row_count": 20,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T145-REJECTED",
+            "label": "UniformAbsoluteOrNormalizedSchurPivotMargin",
+            "status": "refuted_or_circular"
+          },
+          {
+            "id": "RH-T145-CLOSED",
+            "label": "SchurPivotBasisScalingNoGoAndNormalizedAngleReduction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T145-OPEN",
+            "label": "ExplicitWeilFormCoreNormalizedSchurSignRecurrence",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T145-REJECTED",
+            "RH-T145-CLOSED"
+          ],
+          [
+            "RH-T145-CLOSED",
+            "RH-T145-OPEN"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "theorem_name": "FiniteModulusPiecewiseAffineCollatzRankNoGo",
+      "declared_target": "Test every lower-bounded finite-modulus piecewise-affine one-step rank using an exact same-state expanding family.",
+      "declared_target_ko": "정확한 동일 상태 확장족으로 하방 유계인 모든 유한 modulus별 affine 1-step rank를 판정한다.",
+      "proved_statement": "For every modulus M, no lower-bounded rank R(n)=a_(n mod M)n+b_(n mod M) strictly decreases on every accelerated odd Collatz edge.",
+      "proved_statement_ko": "모든 modulus M에 대해 R(n)=a_(n mod M)n+b_(n mod M) 형태의 하방 유계 rank는 모든 가속 홀수 Collatz 간선에서 엄격히 감소할 수 없다.",
+      "proof": "On the residue r=-1 mod M, lower boundedness along arbitrarily large n forces a_r>=0. If a_r=0, R(T(n))=R(n); if a_r>0, R(T(n))-R(n)=2Mk*a_r>0. Strict one-step descent is impossible.",
+      "piecewise_affine_rank_audit": {
+        "rank_class": "R(n)=a_r*n+b_r for odd n congruent to r (mod M), with finitely many coefficients and R bounded below on positive odd integers.",
+        "exact_witness_family": "For every M,k>=1, n_(M,k)=4Mk-1 has v2(3n+1)=1 and T(n)=6Mk-1. Both values are -1 mod M and T(n)-n=2Mk>0.",
+        "no_go_proof": "On the residue r=-1 mod M, lower boundedness along arbitrarily large n forces a_r>=0. If a_r=0, R(T(n))=R(n); if a_r>0, R(T(n))-R(n)=2Mk*a_r>0. Strict one-step descent is impossible.",
+        "scope": "The theorem excludes finite-modulus piecewise-affine, lower-bounded one-step ranks. It does not exclude nonlinear unbounded-state ranks, adaptive block descent, or a direct termination argument.",
+        "moduli": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          16,
+          31,
+          64
+        ],
+        "multipliers": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "rows": [
+          {
+            "modulus": 1,
+            "multiplier": 1,
+            "start": 3,
+            "successor": 5,
+            "shared_residue": 0,
+            "growth_difference": 2,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 1,
+            "multiplier": 2,
+            "start": 7,
+            "successor": 11,
+            "shared_residue": 0,
+            "growth_difference": 4,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 1,
+            "multiplier": 4,
+            "start": 15,
+            "successor": 23,
+            "shared_residue": 0,
+            "growth_difference": 8,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 1,
+            "multiplier": 8,
+            "start": 31,
+            "successor": 47,
+            "shared_residue": 0,
+            "growth_difference": 16,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 1,
+            "multiplier": 16,
+            "start": 63,
+            "successor": 95,
+            "shared_residue": 0,
+            "growth_difference": 32,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 1,
+            "multiplier": 32,
+            "start": 127,
+            "successor": 191,
+            "shared_residue": 0,
+            "growth_difference": 64,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 2,
+            "multiplier": 1,
+            "start": 7,
+            "successor": 11,
+            "shared_residue": 1,
+            "growth_difference": 4,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 2,
+            "multiplier": 2,
+            "start": 15,
+            "successor": 23,
+            "shared_residue": 1,
+            "growth_difference": 8,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 2,
+            "multiplier": 4,
+            "start": 31,
+            "successor": 47,
+            "shared_residue": 1,
+            "growth_difference": 16,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 2,
+            "multiplier": 8,
+            "start": 63,
+            "successor": 95,
+            "shared_residue": 1,
+            "growth_difference": 32,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 2,
+            "multiplier": 16,
+            "start": 127,
+            "successor": 191,
+            "shared_residue": 1,
+            "growth_difference": 64,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 2,
+            "multiplier": 32,
+            "start": 255,
+            "successor": 383,
+            "shared_residue": 1,
+            "growth_difference": 128,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 3,
+            "multiplier": 1,
+            "start": 11,
+            "successor": 17,
+            "shared_residue": 2,
+            "growth_difference": 6,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 3,
+            "multiplier": 2,
+            "start": 23,
+            "successor": 35,
+            "shared_residue": 2,
+            "growth_difference": 12,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 3,
+            "multiplier": 4,
+            "start": 47,
+            "successor": 71,
+            "shared_residue": 2,
+            "growth_difference": 24,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 3,
+            "multiplier": 8,
+            "start": 95,
+            "successor": 143,
+            "shared_residue": 2,
+            "growth_difference": 48,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 3,
+            "multiplier": 16,
+            "start": 191,
+            "successor": 287,
+            "shared_residue": 2,
+            "growth_difference": 96,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 3,
+            "multiplier": 32,
+            "start": 383,
+            "successor": 575,
+            "shared_residue": 2,
+            "growth_difference": 192,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 5,
+            "multiplier": 1,
+            "start": 19,
+            "successor": 29,
+            "shared_residue": 4,
+            "growth_difference": 10,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 5,
+            "multiplier": 2,
+            "start": 39,
+            "successor": 59,
+            "shared_residue": 4,
+            "growth_difference": 20,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 5,
+            "multiplier": 4,
+            "start": 79,
+            "successor": 119,
+            "shared_residue": 4,
+            "growth_difference": 40,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 5,
+            "multiplier": 8,
+            "start": 159,
+            "successor": 239,
+            "shared_residue": 4,
+            "growth_difference": 80,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 5,
+            "multiplier": 16,
+            "start": 319,
+            "successor": 479,
+            "shared_residue": 4,
+            "growth_difference": 160,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 5,
+            "multiplier": 32,
+            "start": 639,
+            "successor": 959,
+            "shared_residue": 4,
+            "growth_difference": 320,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 7,
+            "multiplier": 1,
+            "start": 27,
+            "successor": 41,
+            "shared_residue": 6,
+            "growth_difference": 14,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 7,
+            "multiplier": 2,
+            "start": 55,
+            "successor": 83,
+            "shared_residue": 6,
+            "growth_difference": 28,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 7,
+            "multiplier": 4,
+            "start": 111,
+            "successor": 167,
+            "shared_residue": 6,
+            "growth_difference": 56,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 7,
+            "multiplier": 8,
+            "start": 223,
+            "successor": 335,
+            "shared_residue": 6,
+            "growth_difference": 112,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 7,
+            "multiplier": 16,
+            "start": 447,
+            "successor": 671,
+            "shared_residue": 6,
+            "growth_difference": 224,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 7,
+            "multiplier": 32,
+            "start": 895,
+            "successor": 1343,
+            "shared_residue": 6,
+            "growth_difference": 448,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 16,
+            "multiplier": 1,
+            "start": 63,
+            "successor": 95,
+            "shared_residue": 15,
+            "growth_difference": 32,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 16,
+            "multiplier": 2,
+            "start": 127,
+            "successor": 191,
+            "shared_residue": 15,
+            "growth_difference": 64,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 16,
+            "multiplier": 4,
+            "start": 255,
+            "successor": 383,
+            "shared_residue": 15,
+            "growth_difference": 128,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 16,
+            "multiplier": 8,
+            "start": 511,
+            "successor": 767,
+            "shared_residue": 15,
+            "growth_difference": 256,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 16,
+            "multiplier": 16,
+            "start": 1023,
+            "successor": 1535,
+            "shared_residue": 15,
+            "growth_difference": 512,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 16,
+            "multiplier": 32,
+            "start": 2047,
+            "successor": 3071,
+            "shared_residue": 15,
+            "growth_difference": 1024,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 31,
+            "multiplier": 1,
+            "start": 123,
+            "successor": 185,
+            "shared_residue": 30,
+            "growth_difference": 62,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 31,
+            "multiplier": 2,
+            "start": 247,
+            "successor": 371,
+            "shared_residue": 30,
+            "growth_difference": 124,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 31,
+            "multiplier": 4,
+            "start": 495,
+            "successor": 743,
+            "shared_residue": 30,
+            "growth_difference": 248,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 31,
+            "multiplier": 8,
+            "start": 991,
+            "successor": 1487,
+            "shared_residue": 30,
+            "growth_difference": 496,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 31,
+            "multiplier": 16,
+            "start": 1983,
+            "successor": 2975,
+            "shared_residue": 30,
+            "growth_difference": 992,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 31,
+            "multiplier": 32,
+            "start": 3967,
+            "successor": 5951,
+            "shared_residue": 30,
+            "growth_difference": 1984,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 64,
+            "multiplier": 1,
+            "start": 255,
+            "successor": 383,
+            "shared_residue": 63,
+            "growth_difference": 128,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 64,
+            "multiplier": 2,
+            "start": 511,
+            "successor": 767,
+            "shared_residue": 63,
+            "growth_difference": 256,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 64,
+            "multiplier": 4,
+            "start": 1023,
+            "successor": 1535,
+            "shared_residue": 63,
+            "growth_difference": 512,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 64,
+            "multiplier": 8,
+            "start": 2047,
+            "successor": 3071,
+            "shared_residue": 63,
+            "growth_difference": 1024,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 64,
+            "multiplier": 16,
+            "start": 4095,
+            "successor": 6143,
+            "shared_residue": 63,
+            "growth_difference": 2048,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          },
+          {
+            "modulus": 64,
+            "multiplier": 32,
+            "start": 8191,
+            "successor": 12287,
+            "shared_residue": 63,
+            "growth_difference": 4096,
+            "checks": {
+              "valuation_is_one": true,
+              "successor_formula": true,
+              "same_residue_state": true,
+              "strict_archimedean_expansion": true,
+              "exact_growth_difference": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The result excludes this finite residue-affine one-step class only. It neither proves termination nor excludes nonlinear, history-dependent, or adaptive block ranks.",
+      "route_decision": {
+        "discard": "all finite-modulus piecewise-affine lower-bounded one-step ranks, including the TICKET144 finite-description affine candidate",
+        "retain": "a nonlinear lift-closed rank or adaptive block descent that handles same-residue expanding self-loops",
+        "next_theorem": "NonlinearLiftClosedCollatzRankBeyondFiniteResidueAffine"
+      },
+      "proof_boundary": "No Collatz proof or counterexample. One broad finite-state piecewise-affine rank class is refuted exactly.",
+      "machine_audit": {
+        "row_count": 48,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T145-REJECTED",
+            "label": "ExplicitLiftClosedFiniteDescriptionCollatzAffineRank",
+            "status": "refuted_or_circular"
+          },
+          {
+            "id": "CO-T145-CLOSED",
+            "label": "FiniteModulusPiecewiseAffineCollatzRankNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T145-OPEN",
+            "label": "NonlinearLiftClosedCollatzRankBeyondFiniteResidueAffine",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T145-REJECTED",
+            "CO-T145-CLOSED"
+          ],
+          [
+            "CO-T145-CLOSED",
+            "CO-T145-OPEN"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "theorem_name": "SignedMartingaleEndpointEquivalenceAndAggregateCancellationNoGo",
+      "declared_target": "Determine whether signed martingale endpoint cancellation or levelwise aggregate cancellation is a genuine route to K56.",
+      "declared_target_ko": "부호 있는 martingale endpoint 상쇄나 level별 전체 상쇄가 K56으로 가는 실제 중간정리인지 판정한다.",
+      "proved_statement": "The signed endpoint expression is exactly the original pointwise residual. Levelwise aggregate signed cancellation is automatic and can coexist with a point of size 57.",
+      "proved_statement_ko": "부호 있는 endpoint 식은 원래 점별 잔차와 정확히 같다. level별 전체 부호 상쇄는 자동 항등식이며 크기 57인 점과도 동시에 성립할 수 있다.",
+      "proof": "Conditional means telescope on each leaf. Summing each level difference over all leaves gives zero because each child mean averages to its parent. The exact zero-mean spike family separates aggregate cancellation from pointwise K56.",
+      "signed_endpoint_audit": {
+        "endpoint_equivalence": "For every dyadic vector rho and leaf j, conditional means telescope exactly: rho_j=mu_root+sum_l Delta_l(j). Hence max_j|mu_root+sum_l Delta_l(j)|<=56 is exactly the original pointwise K56 condition, not a weaker bridge.",
+        "aggregate_cancellation_identity": "At every level, the sum over all leaves of the signed martingale increment is zero. This is an automatic conditional-expectation identity and supplies no pointwise bound.",
+        "spike_counterfamily": "On 2^d leaves take rho_0=57 and rho_j=-57/(2^d-1) for j>0. The root mean and every level aggregate signed increment vanish, but the first point violates K56.",
+        "actual_residual_boundary": "The spike family is not the actual binary Goldbach residual. It refutes only endpoint renaming and aggregate-cancellation promotion; a pointwise arithmetic K56 estimate remains open.",
+        "rows": [
+          {
+            "depth": 2,
+            "size": 4,
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "bad_leaf_value": {
+              "exact": "57/1",
+              "decimal": 57.0
+            },
+            "other_leaf_value": {
+              "exact": "-19/1",
+              "decimal": -19.0
+            },
+            "level_signed_increment_sums": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "endpoint_failure_count": 0,
+            "maximum_absolute_endpoint": 57,
+            "checks": {
+              "root_mean_is_zero": true,
+              "every_level_global_increment_sum_is_zero": true,
+              "all_leaf_endpoints_telescope": true,
+              "pointwise_K56_fails": true,
+              "bad_leaf_value_is_57": true
+            }
+          },
+          {
+            "depth": 3,
+            "size": 8,
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "bad_leaf_value": {
+              "exact": "57/1",
+              "decimal": 57.0
+            },
+            "other_leaf_value": {
+              "exact": "-57/7",
+              "decimal": -8.142857142857142
+            },
+            "level_signed_increment_sums": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "endpoint_failure_count": 0,
+            "maximum_absolute_endpoint": 57,
+            "checks": {
+              "root_mean_is_zero": true,
+              "every_level_global_increment_sum_is_zero": true,
+              "all_leaf_endpoints_telescope": true,
+              "pointwise_K56_fails": true,
+              "bad_leaf_value_is_57": true
+            }
+          },
+          {
+            "depth": 4,
+            "size": 16,
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "bad_leaf_value": {
+              "exact": "57/1",
+              "decimal": 57.0
+            },
+            "other_leaf_value": {
+              "exact": "-19/5",
+              "decimal": -3.8
+            },
+            "level_signed_increment_sums": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "endpoint_failure_count": 0,
+            "maximum_absolute_endpoint": 57,
+            "checks": {
+              "root_mean_is_zero": true,
+              "every_level_global_increment_sum_is_zero": true,
+              "all_leaf_endpoints_telescope": true,
+              "pointwise_K56_fails": true,
+              "bad_leaf_value_is_57": true
+            }
+          },
+          {
+            "depth": 5,
+            "size": 32,
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "bad_leaf_value": {
+              "exact": "57/1",
+              "decimal": 57.0
+            },
+            "other_leaf_value": {
+              "exact": "-57/31",
+              "decimal": -1.8387096774193548
+            },
+            "level_signed_increment_sums": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "endpoint_failure_count": 0,
+            "maximum_absolute_endpoint": 57,
+            "checks": {
+              "root_mean_is_zero": true,
+              "every_level_global_increment_sum_is_zero": true,
+              "all_leaf_endpoints_telescope": true,
+              "pointwise_K56_fails": true,
+              "bad_leaf_value_is_57": true
+            }
+          },
+          {
+            "depth": 6,
+            "size": 64,
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "bad_leaf_value": {
+              "exact": "57/1",
+              "decimal": 57.0
+            },
+            "other_leaf_value": {
+              "exact": "-19/21",
+              "decimal": -0.9047619047619048
+            },
+            "level_signed_increment_sums": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "endpoint_failure_count": 0,
+            "maximum_absolute_endpoint": 57,
+            "checks": {
+              "root_mean_is_zero": true,
+              "every_level_global_increment_sum_is_zero": true,
+              "all_leaf_endpoints_telescope": true,
+              "pointwise_K56_fails": true,
+              "bad_leaf_value_is_57": true
+            }
+          },
+          {
+            "depth": 7,
+            "size": 128,
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "bad_leaf_value": {
+              "exact": "57/1",
+              "decimal": 57.0
+            },
+            "other_leaf_value": {
+              "exact": "-57/127",
+              "decimal": -0.44881889763779526
+            },
+            "level_signed_increment_sums": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "endpoint_failure_count": 0,
+            "maximum_absolute_endpoint": 57,
+            "checks": {
+              "root_mean_is_zero": true,
+              "every_level_global_increment_sum_is_zero": true,
+              "all_leaf_endpoints_telescope": true,
+              "pointwise_K56_fails": true,
+              "bad_leaf_value_is_57": true
+            }
+          },
+          {
+            "depth": 8,
+            "size": 256,
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "bad_leaf_value": {
+              "exact": "57/1",
+              "decimal": 57.0
+            },
+            "other_leaf_value": {
+              "exact": "-19/85",
+              "decimal": -0.2235294117647059
+            },
+            "level_signed_increment_sums": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "endpoint_failure_count": 0,
+            "maximum_absolute_endpoint": 57,
+            "checks": {
+              "root_mean_is_zero": true,
+              "every_level_global_increment_sum_is_zero": true,
+              "all_leaf_endpoints_telescope": true,
+              "pointwise_K56_fails": true,
+              "bad_leaf_value_is_57": true
+            }
+          },
+          {
+            "depth": 9,
+            "size": 512,
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "bad_leaf_value": {
+              "exact": "57/1",
+              "decimal": 57.0
+            },
+            "other_leaf_value": {
+              "exact": "-57/511",
+              "decimal": -0.11154598825831702
+            },
+            "level_signed_increment_sums": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "endpoint_failure_count": 0,
+            "maximum_absolute_endpoint": 57,
+            "checks": {
+              "root_mean_is_zero": true,
+              "every_level_global_increment_sum_is_zero": true,
+              "all_leaf_endpoints_telescope": true,
+              "pointwise_K56_fails": true,
+              "bad_leaf_value_is_57": true
+            }
+          },
+          {
+            "depth": 10,
+            "size": 1024,
+            "root_mean": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "bad_leaf_value": {
+              "exact": "57/1",
+              "decimal": 57.0
+            },
+            "other_leaf_value": {
+              "exact": "-19/341",
+              "decimal": -0.05571847507331378
+            },
+            "level_signed_increment_sums": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "endpoint_failure_count": 0,
+            "maximum_absolute_endpoint": 57,
+            "checks": {
+              "root_mean_is_zero": true,
+              "every_level_global_increment_sum_is_zero": true,
+              "all_leaf_endpoints_telescope": true,
+              "pointwise_K56_fails": true,
+              "bad_leaf_value_is_57": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The spike family is not the actual binary Goldbach residual. It refutes only endpoint renaming and aggregate-cancellation promotion; a pointwise arithmetic K56 estimate remains open.",
+      "route_decision": {
+        "discard": "renaming the pointwise residual as signed endpoint cancellation, or using aggregate signed cancellation alone",
+        "retain": "independently prove summable arithmetic envelopes for every dyadic scale increment of the actual binary residual",
+        "next_theorem": "ArithmeticBinaryGoldbachScaleEnvelopeSummableK56"
+      },
+      "proof_boundary": "No strong Goldbach proof or counterexample. The theorem exposes a circular target and an exact aggregate-cancellation no-go.",
+      "machine_audit": {
+        "row_count": 9,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T145-REJECTED",
+            "label": "ArithmeticBinaryGoldbachSignedMartingaleCancellationK56",
+            "status": "refuted_or_circular"
+          },
+          {
+            "id": "GB-T145-CLOSED",
+            "label": "SignedMartingaleEndpointEquivalenceAndAggregateCancellationNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T145-OPEN",
+            "label": "ArithmeticBinaryGoldbachScaleEnvelopeSummableK56",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T145-REJECTED",
+            "GB-T145-CLOSED"
+          ],
+          [
+            "GB-T145-CLOSED",
+            "GB-T145-OPEN"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "theorem_name": "AdverseWalshSlackIdentityAndMinimalSeparableMajorantNoGo",
+      "declared_target": "Determine whether adverse Walsh contraction is close to necessary and whether any sharper separable majorant exists.",
+      "declared_target_ko": "adverse Walsh 수축이 필요조건에 가까운지, 더 날카로운 separable majorant가 존재하는지 판정한다.",
+      "proved_statement": "The adverse part B is the pointwise-smallest nonnegative separable majorant of the joint deficit C, yet B<A00 is not necessary for positive twin mass.",
+      "proved_statement_ko": "adverse part B는 joint deficit C의 점별 최소 비음수 separable majorant이지만 B<A00은 twin 질량 양성의 필요조건이 아니다.",
+      "proof": "The exact slack identity proves B>=C. Testing one coordinate at a time forces every nonnegative separable majorant to dominate the three positive parts defining B. Counts (90,5,4,1) then give positive twin mass while B>A00.",
+      "separable_majorant_audit": {
+        "slack_identity": "For C=A10+A01-A11 and B=(A10)_+ +(A01)_+ +(-A11)_+, B-C=(-A10)_+ +(-A01)_+ +(A11)_+=F>=0.",
+        "minimal_separable_majorant_theorem": "Let f,g,h:R->[0,infinity) vanish at zero and suppose f(x)+g(y)+h(z)>=x+y-z for all x,y,z. Setting two variables to zero forces f(x)>=x_+, g(y)>=y_+, and h(z)>=(-z)_+. Therefore B is the pointwise-smallest nonnegative separable majorant of the joint Walsh deficit C.",
+        "nonnecessity_no_go": "Counts (90,5,4,1) give (A00,A10,A01,A11)=(100,90,88,82), C=96 and N--=1, but B=178>A00. Thus adverse-part contraction is sufficient but not necessary even for positive twin mass. No separable nonnegative componentwise majorant can be sharper than B; future work must preserve joint signed cancellation.",
+        "grid_audit": {
+          "coordinate_range": [
+            -8,
+            8
+          ],
+          "triple_count": 4913,
+          "failure_count": 0
+        },
+        "actual_rows": [
+          {
+            "X": 1000,
+            "A00": 59,
+            "A10": -17,
+            "A01": -19,
+            "A11": 9,
+            "joint_deficit_C": -45,
+            "adverse_part_B": 0,
+            "favorable_slack_F": 45,
+            "direct_twin_count": 26,
+            "checks": {
+              "walsh_inversion": true,
+              "slack_identity": true,
+              "adverse_majorizes_joint_deficit": true
+            }
+          },
+          {
+            "X": 10000,
+            "A00": 358,
+            "A10": -104,
+            "A01": -84,
+            "A11": 2,
+            "joint_deficit_C": -190,
+            "adverse_part_B": 0,
+            "favorable_slack_F": 190,
+            "direct_twin_count": 137,
+            "checks": {
+              "walsh_inversion": true,
+              "slack_identity": true,
+              "adverse_majorizes_joint_deficit": true
+            }
+          },
+          {
+            "X": 100000,
+            "A00": 2486,
+            "A10": -564,
+            "A01": -556,
+            "A11": 138,
+            "joint_deficit_C": -1258,
+            "adverse_part_B": 0,
+            "favorable_slack_F": 1258,
+            "direct_twin_count": 936,
+            "checks": {
+              "walsh_inversion": true,
+              "slack_identity": true,
+              "adverse_majorizes_joint_deficit": true
+            }
+          },
+          {
+            "X": 1000000,
+            "A00": 17634,
+            "A10": -3970,
+            "A01": -3992,
+            "A11": 1212,
+            "joint_deficit_C": -9174,
+            "adverse_part_B": 0,
+            "favorable_slack_F": 9174,
+            "direct_twin_count": 6702,
+            "checks": {
+              "walsh_inversion": true,
+              "slack_identity": true,
+              "adverse_majorizes_joint_deficit": true
+            }
+          }
+        ],
+        "synthetic_nonnecessity_witness": {
+          "category_counts": [
+            90,
+            5,
+            4,
+            1
+          ],
+          "A00": 100,
+          "A10": 90,
+          "A01": 88,
+          "A11": 82,
+          "joint_deficit_C": 96,
+          "adverse_part_B": 178,
+          "favorable_slack_F": 82,
+          "direct_twin_count": 1,
+          "checks": {
+            "twin_class_positive": true,
+            "exact_walsh_inversion": true,
+            "adverse_contraction_fails": true,
+            "slack_identity": true
+          }
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The exact joint deficit C<A00 is itself equivalent to positive twin mass. Progress now requires an independent arithmetic Type I/II estimate that preserves joint cancellation.",
+      "route_decision": {
+        "discard": "uniform adverse-part contraction and every nonnegative separable componentwise Walsh majorant as the primary target",
+        "retain": "a joint signed cubic-rough Type I/II estimate derived without using the twin count it must lower-bound",
+        "next_theorem": "IndependentCubicRoughJointWalshTypeIIBound"
+      },
+      "proof_boundary": "No Twin Prime proof or counterexample. The theorem proves a minimal-majorant no-go and requires joint arithmetic cancellation beyond the sieve parity barrier.",
+      "machine_audit": {
+        "row_count": 5,
+        "failure_count": 0,
+        "conjecture_resolution_count": 0
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T145-REJECTED",
+            "label": "UniformCubicRoughAdverseWalshPartContraction",
+            "status": "refuted_or_circular"
+          },
+          {
+            "id": "TP-T145-CLOSED",
+            "label": "AdverseWalshSlackIdentityAndMinimalSeparableMajorantNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T145-OPEN",
+            "label": "IndependentCubicRoughJointWalshTypeIIBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T145-REJECTED",
+            "TP-T145-CLOSED"
+          ],
+          [
+            "TP-T145-CLOSED",
+            "TP-T145-OPEN"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-145",
+      "status": "exact_no_go_theorem_conjecture_open",
+      "route": "basis-invariant normalized Schur audit",
+      "bounded_result": {
+        "audit_ref": "riemann"
+      },
+      "obstruction": "No actual Weil form-core Gram entry or all-section sign recurrence is derived. Hilbert matrices are controls only.",
+      "candidate_theorem": "ExplicitWeilFormCoreNormalizedSchurSignRecurrence",
+      "next_experiment": "derive actual normalized Weil Gram entries and an exact Schur-sign recurrence without assuming positivity",
+      "claim_boundary": "No RH proof or counterexample. This theorem corrects the normalization and excludes two overstrong pivot targets."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-145",
+      "status": "exact_no_go_theorem_conjecture_open",
+      "route": "finite-modulus piecewise-affine rank no-go",
+      "bounded_result": {
+        "audit_ref": "collatz"
+      },
+      "obstruction": "The result excludes this finite residue-affine one-step class only. It neither proves termination nor excludes nonlinear, history-dependent, or adaptive block ranks.",
+      "candidate_theorem": "NonlinearLiftClosedCollatzRankBeyondFiniteResidueAffine",
+      "next_experiment": "a nonlinear lift-closed rank or adaptive block descent that handles same-residue expanding self-loops",
+      "claim_boundary": "No Collatz proof or counterexample. One broad finite-state piecewise-affine rank class is refuted exactly."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-145",
+      "status": "exact_no_go_theorem_conjecture_open",
+      "route": "signed endpoint and aggregate cancellation no-go",
+      "bounded_result": {
+        "audit_ref": "goldbach"
+      },
+      "obstruction": "The spike family is not the actual binary Goldbach residual. It refutes only endpoint renaming and aggregate-cancellation promotion; a pointwise arithmetic K56 estimate remains open.",
+      "candidate_theorem": "ArithmeticBinaryGoldbachScaleEnvelopeSummableK56",
+      "next_experiment": "independently prove summable arithmetic envelopes for every dyadic scale increment of the actual binary residual",
+      "claim_boundary": "No strong Goldbach proof or counterexample. The theorem exposes a circular target and an exact aggregate-cancellation no-go."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-145",
+      "status": "exact_no_go_theorem_conjecture_open",
+      "route": "minimal separable Walsh majorant no-go",
+      "bounded_result": {
+        "audit_ref": "twin_prime"
+      },
+      "obstruction": "The exact joint deficit C<A00 is itself equivalent to positive twin mass. Progress now requires an independent arithmetic Type I/II estimate that preserves joint cancellation.",
+      "candidate_theorem": "IndependentCubicRoughJointWalshTypeIIBound",
+      "next_experiment": "a joint signed cubic-rough Type I/II estimate derived without using the twin count it must lower-bound",
+      "claim_boundary": "No Twin Prime proof or counterexample. The theorem proves a minimal-majorant no-go and requires joint arithmetic cancellation beyond the sieve parity barrier."
+    }
+  ]
+}

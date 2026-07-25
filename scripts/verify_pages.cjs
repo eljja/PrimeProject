@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET144/TICKET143/TICKET142/TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET145/TICKET144/TICKET143/TICKET142/TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260726-ticket144-priority")) {
-      errors.push(`${page}: missing TICKET144 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260726-ticket145-priority")) {
+      errors.push(`${page}: missing TICKET145 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,35 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket145 title", "Ticket 145 normalization, affine ranks, signed endpoints, and separable Walsh no-go theorems");
+    requireText("ticket145 table", "TICKET145 audit");
+    requireText("ticket145 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket145 resolutions", "Resolution count0");
+    requireText("ticket145 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket145 RH theorem", "SchurPivotBasisScalingNoGoAndNormalizedAngleReduction");
+      requireText("ticket145 RH rows", "Exact rows20");
+      requireText("ticket145 RH eta", "Hilbert η at N=121/497634306624");
+      requireText("ticket145 RH target", "ExplicitWeilFormCoreNormalizedSchurSignRecurrence");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket145 Collatz theorem", "FiniteModulusPiecewiseAffineCollatzRankNoGo");
+      requireText("ticket145 Collatz rows", "Exact family rows48");
+      requireText("ticket145 Collatz quantifier", "Quantifierevery M,k≥1");
+      requireText("ticket145 Collatz target", "NonlinearLiftClosedCollatzRankBeyondFiniteResidueAffine");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket145 Goldbach theorem", "SignedMartingaleEndpointEquivalenceAndAggregateCancellationNoGo");
+      requireText("ticket145 Goldbach rows", "Exact spike rows9");
+      requireText("ticket145 Goldbach endpoint", "Bad endpoint57 > 56");
+      requireText("ticket145 Goldbach target", "ArithmeticBinaryGoldbachScaleEnvelopeSummableK56");
+    } else {
+      requireText("ticket145 Twin theorem", "AdverseWalshSlackIdentityAndMinimalSeparableMajorantNoGo");
+      requireText("ticket145 Twin grid", "Majorant grid4,913");
+      requireText("ticket145 Twin witness", "B=178 > A00=100, twins=1");
+      requireText("ticket145 Twin target", "IndependentCubicRoughJointWalshTypeIIBound");
+    }
     requireText("ticket144 title", "Ticket 144 Schur pivots, rank equivalence, martingale variation, and adverse Walsh control");
     requireText("ticket144 table", "TICKET144 audit");
-    requireText("ticket144 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket144 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket144 resolutions", "Resolution count0");
     requireText("ticket144 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {
@@ -2337,7 +2363,7 @@ async function main() {
     ["panel", metrics.evolutionPanel, "Publication consistency"],
     ["panel", metrics.evolutionPanel, "TICKET-143"],
     ["panel", metrics.evolutionPanel, "Open-Proof"],
-    ["panel", metrics.evolutionPanel, "94%"],
+    ["panel", metrics.evolutionPanel, "95%"],
     ["panel", metrics.evolutionPanel, "Form-core topology"],
     ["panel", metrics.evolutionPanel, "TICKET-57"],
     ["panel", metrics.evolutionPanel, "TICKET-58"],
@@ -2470,7 +2496,7 @@ async function main() {
     !metrics.evolutionPanel.includes("Publication consistency") ||
     !metrics.evolutionPanel.includes("TICKET-143") ||
     !metrics.evolutionPanel.includes("Open-Proof") ||
-    !metrics.evolutionPanel.includes("94%") ||
+    !metrics.evolutionPanel.includes("95%") ||
     !metrics.evolutionPanel.includes("Form-core topology") ||
     !metrics.evolutionPanel.includes("TICKET-57") ||
     !metrics.evolutionPanel.includes("TICKET-58") ||

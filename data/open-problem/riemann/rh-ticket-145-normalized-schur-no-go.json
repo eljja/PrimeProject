@@ -1,0 +1,555 @@
+{
+  "schema": "primeproject.ticket145-normalization-affine-endpoint-separable-no-go.v1",
+  "generated_at": "2026-07-26T03:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-145",
+  "status": "exact_no_go_theorem_conjecture_open",
+  "route": "basis-invariant normalized Schur audit",
+  "bounded_result": {
+    "audit_ref": "riemann"
+  },
+  "obstruction": "No actual Weil form-core Gram entry or all-section sign recurrence is derived. Hilbert matrices are controls only.",
+  "candidate_theorem": "ExplicitWeilFormCoreNormalizedSchurSignRecurrence",
+  "next_experiment": "derive actual normalized Weil Gram entries and an exact Schur-sign recurrence without assuming positivity",
+  "claim_boundary": "No RH proof or counterexample. This theorem corrects the normalization and excludes two overstrong pivot targets.",
+  "result": {
+    "theorem_name": "SchurPivotBasisScalingNoGoAndNormalizedAngleReduction",
+    "declared_target": "Determine which Schur-pivot lower bounds are basis invariant and whether a uniform normalized pivot margin is necessary.",
+    "declared_target_ko": "어떤 Schur pivot 하한이 기저 불변인지, 균일 정규화 pivot 여유가 모든 절단 양성에 필요한지 판정한다.",
+    "proved_statement": "Absolute Schur pivots scale quadratically with individual basis vectors, while eta_n=delta_n/G_nn is invariant. Positive Hilbert sections have eta_n tending to zero, so neither absolute nor uniform normalized margins are valid necessary targets.",
+    "proved_statement_ko": "절대 Schur pivot은 개별 기저 벡터 배율의 제곱에 따라 변하지만 eta_n=delta_n/G_nn은 불변이다. Hilbert 양성 절단에서는 eta_n이 0으로 가므로 절대 하한과 균일 정규화 하한 모두 필요한 조건이 아니다.",
+    "proof": "Diagonal congruence cancels every predecessor scale in the Schur complement and leaves |d_n|^2. Dividing by the nth diagonal removes that factor. The exact Hilbert pivot formula gives eta_n=binom(2n-2,n-1)^(-2), which tends to zero.",
+    "normalized_schur_audit": {
+      "scaling_theorem": "For a nested Gram family G and diagonal basis rescaling D=diag(d_1,...), the nth Schur pivot obeys delta'_n=|d_n|^2*delta_n.",
+      "normalized_invariant": "eta_n=delta_n/G_nn is invariant under every nonzero diagonal basis rescaling and equals the squared relative distance of the nth vector from the span of its predecessors.",
+      "arbitrary_margin_no_go": "If every delta_n is positive, any prescribed positive pivot sequence t_n can be obtained by choosing |d_n|^2=t_n/delta_n. Absolute pivot margins therefore have no basis-independent meaning.",
+      "uniform_normalized_margin_no_go": "Every finite Hilbert section is positive definite, but eta_N=1/binom(2N-2,N-1)^2 tends to zero. Thus even a uniform positive normalized margin is not necessary for all-section positivity.",
+      "hilbert_rows": [
+        {
+          "dimension": 1,
+          "last_pivot": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "last_diagonal": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "normalized_pivot": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 2,
+          "last_pivot": {
+            "exact": "1/12",
+            "decimal": 0.08333333333333333
+          },
+          "last_diagonal": {
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          "normalized_pivot": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 3,
+          "last_pivot": {
+            "exact": "1/180",
+            "decimal": 0.005555555555555556
+          },
+          "last_diagonal": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "normalized_pivot": {
+            "exact": "1/36",
+            "decimal": 0.027777777777777776
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 4,
+          "last_pivot": {
+            "exact": "1/2800",
+            "decimal": 0.00035714285714285714
+          },
+          "last_diagonal": {
+            "exact": "1/7",
+            "decimal": 0.14285714285714285
+          },
+          "normalized_pivot": {
+            "exact": "1/400",
+            "decimal": 0.0025
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 5,
+          "last_pivot": {
+            "exact": "1/44100",
+            "decimal": 2.2675736961451248e-05
+          },
+          "last_diagonal": {
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          },
+          "normalized_pivot": {
+            "exact": "1/4900",
+            "decimal": 0.00020408163265306123
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 6,
+          "last_pivot": {
+            "exact": "1/698544",
+            "decimal": 1.4315490505966697e-06
+          },
+          "last_diagonal": {
+            "exact": "1/11",
+            "decimal": 0.09090909090909091
+          },
+          "normalized_pivot": {
+            "exact": "1/63504",
+            "decimal": 1.5747039556563368e-05
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 7,
+          "last_pivot": {
+            "exact": "1/11099088",
+            "decimal": 9.00974926948953e-08
+          },
+          "last_diagonal": {
+            "exact": "1/13",
+            "decimal": 0.07692307692307693
+          },
+          "normalized_pivot": {
+            "exact": "1/853776",
+            "decimal": 1.1712674050336388e-06
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 8,
+          "last_pivot": {
+            "exact": "1/176679360",
+            "decimal": 5.65997069493573e-09
+          },
+          "last_diagonal": {
+            "exact": "1/15",
+            "decimal": 0.06666666666666667
+          },
+          "normalized_pivot": {
+            "exact": "1/11778624",
+            "decimal": 8.489956042403595e-08
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 9,
+          "last_pivot": {
+            "exact": "1/2815827300",
+            "decimal": 3.551354161528301e-10
+          },
+          "last_diagonal": {
+            "exact": "1/17",
+            "decimal": 0.058823529411764705
+          },
+          "normalized_pivot": {
+            "exact": "1/165636900",
+            "decimal": 6.037302074598112e-09
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 10,
+          "last_pivot": {
+            "exact": "1/44914183600",
+            "decimal": 2.226468166283223e-11
+          },
+          "last_diagonal": {
+            "exact": "1/19",
+            "decimal": 0.05263157894736842
+          },
+          "normalized_pivot": {
+            "exact": "1/2363904400",
+            "decimal": 4.2302895159381234e-10
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 11,
+          "last_pivot": {
+            "exact": "1/716830370256",
+            "decimal": 1.3950301793754529e-12
+          },
+          "last_diagonal": {
+            "exact": "1/21",
+            "decimal": 0.047619047619047616
+          },
+          "normalized_pivot": {
+            "exact": "1/34134779536",
+            "decimal": 2.9295633766884514e-11
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        },
+        {
+          "dimension": 12,
+          "last_pivot": {
+            "exact": "1/11445589052352",
+            "decimal": 8.736990253852475e-14
+          },
+          "last_diagonal": {
+            "exact": "1/23",
+            "decimal": 0.043478260869565216
+          },
+          "normalized_pivot": {
+            "exact": "1/497634306624",
+            "decimal": 2.0095077583860692e-12
+          },
+          "normalized_closed_form": "1/binom(2N-2,N-1)^2",
+          "checks": {
+            "pivot_positive": true,
+            "normalized_pivot_positive": true,
+            "normalized_closed_form": true,
+            "normalized_at_most_one": true
+          }
+        }
+      ],
+      "scaling_rows": [
+        {
+          "index": 1,
+          "basis_scale": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "original_pivot": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "scaled_pivot": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "original_normalized_pivot": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "scaled_normalized_pivot": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "pivot_scales_quadratically": true,
+            "normalized_pivot_is_invariant": true
+          }
+        },
+        {
+          "index": 2,
+          "basis_scale": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "original_pivot": {
+            "exact": "1/12",
+            "decimal": 0.08333333333333333
+          },
+          "scaled_pivot": {
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          "original_normalized_pivot": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "scaled_normalized_pivot": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "pivot_scales_quadratically": true,
+            "normalized_pivot_is_invariant": true
+          }
+        },
+        {
+          "index": 3,
+          "basis_scale": {
+            "exact": "3/1",
+            "decimal": 3.0
+          },
+          "original_pivot": {
+            "exact": "1/180",
+            "decimal": 0.005555555555555556
+          },
+          "scaled_pivot": {
+            "exact": "1/20",
+            "decimal": 0.05
+          },
+          "original_normalized_pivot": {
+            "exact": "1/36",
+            "decimal": 0.027777777777777776
+          },
+          "scaled_normalized_pivot": {
+            "exact": "1/36",
+            "decimal": 0.027777777777777776
+          },
+          "checks": {
+            "pivot_scales_quadratically": true,
+            "normalized_pivot_is_invariant": true
+          }
+        },
+        {
+          "index": 4,
+          "basis_scale": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "original_pivot": {
+            "exact": "1/2800",
+            "decimal": 0.00035714285714285714
+          },
+          "scaled_pivot": {
+            "exact": "1/175",
+            "decimal": 0.005714285714285714
+          },
+          "original_normalized_pivot": {
+            "exact": "1/400",
+            "decimal": 0.0025
+          },
+          "scaled_normalized_pivot": {
+            "exact": "1/400",
+            "decimal": 0.0025
+          },
+          "checks": {
+            "pivot_scales_quadratically": true,
+            "normalized_pivot_is_invariant": true
+          }
+        },
+        {
+          "index": 5,
+          "basis_scale": {
+            "exact": "5/1",
+            "decimal": 5.0
+          },
+          "original_pivot": {
+            "exact": "1/44100",
+            "decimal": 2.2675736961451248e-05
+          },
+          "scaled_pivot": {
+            "exact": "1/1764",
+            "decimal": 0.0005668934240362812
+          },
+          "original_normalized_pivot": {
+            "exact": "1/4900",
+            "decimal": 0.00020408163265306123
+          },
+          "scaled_normalized_pivot": {
+            "exact": "1/4900",
+            "decimal": 0.00020408163265306123
+          },
+          "checks": {
+            "pivot_scales_quadratically": true,
+            "normalized_pivot_is_invariant": true
+          }
+        },
+        {
+          "index": 6,
+          "basis_scale": {
+            "exact": "6/1",
+            "decimal": 6.0
+          },
+          "original_pivot": {
+            "exact": "1/698544",
+            "decimal": 1.4315490505966697e-06
+          },
+          "scaled_pivot": {
+            "exact": "1/19404",
+            "decimal": 5.1535765821480104e-05
+          },
+          "original_normalized_pivot": {
+            "exact": "1/63504",
+            "decimal": 1.5747039556563368e-05
+          },
+          "scaled_normalized_pivot": {
+            "exact": "1/63504",
+            "decimal": 1.5747039556563368e-05
+          },
+          "checks": {
+            "pivot_scales_quadratically": true,
+            "normalized_pivot_is_invariant": true
+          }
+        },
+        {
+          "index": 7,
+          "basis_scale": {
+            "exact": "7/1",
+            "decimal": 7.0
+          },
+          "original_pivot": {
+            "exact": "1/11099088",
+            "decimal": 9.00974926948953e-08
+          },
+          "scaled_pivot": {
+            "exact": "1/226512",
+            "decimal": 4.414777142049869e-06
+          },
+          "original_normalized_pivot": {
+            "exact": "1/853776",
+            "decimal": 1.1712674050336388e-06
+          },
+          "scaled_normalized_pivot": {
+            "exact": "1/853776",
+            "decimal": 1.1712674050336388e-06
+          },
+          "checks": {
+            "pivot_scales_quadratically": true,
+            "normalized_pivot_is_invariant": true
+          }
+        },
+        {
+          "index": 8,
+          "basis_scale": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "original_pivot": {
+            "exact": "1/176679360",
+            "decimal": 5.65997069493573e-09
+          },
+          "scaled_pivot": {
+            "exact": "1/2760615",
+            "decimal": 3.6223812447588674e-07
+          },
+          "original_normalized_pivot": {
+            "exact": "1/11778624",
+            "decimal": 8.489956042403595e-08
+          },
+          "scaled_normalized_pivot": {
+            "exact": "1/11778624",
+            "decimal": 8.489956042403595e-08
+          },
+          "checks": {
+            "pivot_scales_quadratically": true,
+            "normalized_pivot_is_invariant": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "No actual Weil form-core Gram entry or all-section sign recurrence is derived. Hilbert matrices are controls only.",
+    "route_decision": {
+      "discard": "an unnormalized absolute Schur-pivot lower bound, or a uniform normalized margin, as a necessary RH certificate",
+      "retain": "derive actual normalized Weil Gram entries and an exact Schur-sign recurrence without assuming positivity",
+      "next_theorem": "ExplicitWeilFormCoreNormalizedSchurSignRecurrence"
+    },
+    "proof_boundary": "No RH proof or counterexample. This theorem corrects the normalization and excludes two overstrong pivot targets.",
+    "machine_audit": {
+      "row_count": 20,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T145-REJECTED",
+          "label": "UniformAbsoluteOrNormalizedSchurPivotMargin",
+          "status": "refuted_or_circular"
+        },
+        {
+          "id": "RH-T145-CLOSED",
+          "label": "SchurPivotBasisScalingNoGoAndNormalizedAngleReduction",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T145-OPEN",
+          "label": "ExplicitWeilFormCoreNormalizedSchurSignRecurrence",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T145-REJECTED",
+          "RH-T145-CLOSED"
+        ],
+        [
+          "RH-T145-CLOSED",
+          "RH-T145-OPEN"
+        ]
+      ]
+    }
+  }
+}

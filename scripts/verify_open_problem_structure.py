@@ -141,6 +141,7 @@ TICKET141_SCHEMA = "primeproject.ticket141-one-sided-moving-floor-robust-dual-la
 TICKET142_SCHEMA = "primeproject.ticket142-effective-rank-cycle-direction-haar-liouville.v1"
 TICKET143_SCHEMA = "primeproject.ticket143-form-core-period-floor-martingale-walsh.v1"
 TICKET144_SCHEMA = "primeproject.ticket144-schur-rank-equivalence-variation-adverse-walsh.v1"
+TICKET145_SCHEMA = "primeproject.ticket145-normalization-affine-endpoint-separable-no-go.v1"
 
 
 def fail(message: str) -> int:
@@ -8243,6 +8244,77 @@ def main() -> int:
             return fail(f"{problem_id}: ticket144 proof DAG changed")
     if "no conjecture proof or counterexample" not in str(audit144.get("proof_boundary", "")).lower() or "no conjecture proof or counterexample" not in str(ticket144.get("claim_boundary", "")).lower():
         return fail("ticket144 proof boundary changed")
+
+    path145 = Path("data/open-problem/ticket145-normalization-affine-endpoint-separable-no-go.json")
+    if not path145.exists():
+        return fail("missing ticket145 normalization-affine-endpoint-separable audit")
+    ticket145 = read_json(path145)
+    if ticket145.get("schema") != TICKET145_SCHEMA or ticket145.get("status") != "exact_structural_no_go_theorems_all_conjectures_open":
+        return fail("ticket145 schema or status changed")
+    attempts145 = ticket145.get("attempts", [])
+    by_id145 = {str(row.get("problem_id")): row for row in attempts145 if isinstance(row, dict)} if isinstance(attempts145, list) else {}
+    if set(by_id145) != EXPECTED_PROBLEMS:
+        return fail("ticket145 attempts missing problems")
+    paths145 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-145-normalized-schur-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-145-piecewise-affine-rank-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-145-signed-endpoint-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-145-separable-majorant-no-go.json"),
+    }
+    next145 = {
+        "riemann": "ExplicitWeilFormCoreNormalizedSchurSignRecurrence",
+        "collatz": "NonlinearLiftClosedCollatzRankBeyondFiniteResidueAffine",
+        "goldbach": "ArithmeticBinaryGoldbachScaleEnvelopeSummableK56",
+        "twin-prime": "IndependentCubicRoughJointWalshTypeIIBound",
+    }
+    for problem_id, attempt in by_id145.items():
+        if not paths145[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket145 artifact or proof boundary missing")
+        if attempt.get("candidate_theorem") != next145[problem_id]:
+            return fail(f"{problem_id}: ticket145 next theorem changed")
+
+    audit145 = ticket145.get("normalization_affine_endpoint_separable_no_go_audit", {})
+    machine145 = audit145.get("machine_audit", {})
+    if audit145.get("theorem_name") != "FourConjectureNormalizationAffineEndpointSeparableNoGoAudit" or int(machine145.get("exact_theorem_count", -1)) != 4 or int(machine145.get("rejected_target_count", -1)) != 4 or int(machine145.get("proof_dag_count", -1)) != 4 or int(machine145.get("conjecture_resolution_count", -1)) != 0 or int(machine145.get("total_failure_count", -1)) != 0:
+        return fail("ticket145 global machine audit changed")
+
+    riemann145 = audit145.get("riemann", {})
+    normalized145 = riemann145.get("normalized_schur_audit", {})
+    hilbert145 = normalized145.get("hilbert_rows", [])
+    scaling145 = normalized145.get("scaling_rows", [])
+    if riemann145.get("theorem_name") != "SchurPivotBasisScalingNoGoAndNormalizedAngleReduction" or len(hilbert145) != 12 or len(scaling145) != 8 or hilbert145[-1].get("normalized_pivot", {}).get("exact") != "1/497634306624" or int(normalized145.get("failure_count", -1)) != 0:
+        return fail("ticket145 RH normalized Schur theorem changed")
+
+    collatz145 = audit145.get("collatz", {})
+    affine145 = collatz145.get("piecewise_affine_rank_audit", {})
+    affine_rows145 = affine145.get("rows", [])
+    if collatz145.get("theorem_name") != "FiniteModulusPiecewiseAffineCollatzRankNoGo" or len(affine_rows145) != 48 or any(not all(row.get("checks", {}).values()) for row in affine_rows145) or int(affine145.get("failure_count", -1)) != 0:
+        return fail("ticket145 Collatz finite-modulus affine no-go changed")
+
+    goldbach145 = audit145.get("goldbach", {})
+    endpoint145 = goldbach145.get("signed_endpoint_audit", {})
+    endpoint_rows145 = endpoint145.get("rows", [])
+    if goldbach145.get("theorem_name") != "SignedMartingaleEndpointEquivalenceAndAggregateCancellationNoGo" or len(endpoint_rows145) != 9 or any(int(row.get("maximum_absolute_endpoint", -1)) != 57 for row in endpoint_rows145) or any(not row.get("checks", {}).get("every_level_global_increment_sum_is_zero") for row in endpoint_rows145) or int(endpoint145.get("failure_count", -1)) != 0:
+        return fail("ticket145 Goldbach endpoint no-go changed")
+
+    twin145 = audit145.get("twin_prime", {})
+    separable145 = twin145.get("separable_majorant_audit", {})
+    witness145 = separable145.get("synthetic_nonnecessity_witness", {})
+    if twin145.get("theorem_name") != "AdverseWalshSlackIdentityAndMinimalSeparableMajorantNoGo" or int(separable145.get("grid_audit", {}).get("triple_count", -1)) != 4913 or len(separable145.get("actual_rows", [])) != 4 or int(witness145.get("joint_deficit_C", -1)) != 96 or int(witness145.get("adverse_part_B", -1)) != 178 or not witness145.get("checks", {}).get("adverse_contraction_fails") or int(separable145.get("failure_count", -1)) != 0:
+        return fail("ticket145 Twin separable-majorant no-go changed")
+
+    sections145 = {
+        "riemann": riemann145,
+        "collatz": collatz145,
+        "goldbach": goldbach145,
+        "twin-prime": twin145,
+    }
+    for problem_id, section in sections145.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if len(nodes) != 3 or [node.get("status") for node in nodes] != ["refuted_or_circular", "proved_exact", "open_not_proven"] or nodes[-1].get("label") != next145[problem_id]:
+            return fail(f"{problem_id}: ticket145 proof DAG changed")
+    if "no conjecture proof or counterexample" not in str(audit145.get("proof_boundary", "")).lower() or "no conjecture proof or counterexample" not in str(ticket145.get("claim_boundary", "")).lower():
+        return fail("ticket145 proof boundary changed")
 
     print("open problem structure verified")
     return 0

@@ -1,0 +1,532 @@
+{
+  "schema": "primeproject.ticket145-normalization-affine-endpoint-separable-no-go.v1",
+  "generated_at": "2026-07-26T03:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-145",
+  "status": "exact_no_go_theorem_conjecture_open",
+  "route": "signed endpoint and aggregate cancellation no-go",
+  "bounded_result": {
+    "audit_ref": "goldbach"
+  },
+  "obstruction": "The spike family is not the actual binary Goldbach residual. It refutes only endpoint renaming and aggregate-cancellation promotion; a pointwise arithmetic K56 estimate remains open.",
+  "candidate_theorem": "ArithmeticBinaryGoldbachScaleEnvelopeSummableK56",
+  "next_experiment": "independently prove summable arithmetic envelopes for every dyadic scale increment of the actual binary residual",
+  "claim_boundary": "No strong Goldbach proof or counterexample. The theorem exposes a circular target and an exact aggregate-cancellation no-go.",
+  "result": {
+    "theorem_name": "SignedMartingaleEndpointEquivalenceAndAggregateCancellationNoGo",
+    "declared_target": "Determine whether signed martingale endpoint cancellation or levelwise aggregate cancellation is a genuine route to K56.",
+    "declared_target_ko": "부호 있는 martingale endpoint 상쇄나 level별 전체 상쇄가 K56으로 가는 실제 중간정리인지 판정한다.",
+    "proved_statement": "The signed endpoint expression is exactly the original pointwise residual. Levelwise aggregate signed cancellation is automatic and can coexist with a point of size 57.",
+    "proved_statement_ko": "부호 있는 endpoint 식은 원래 점별 잔차와 정확히 같다. level별 전체 부호 상쇄는 자동 항등식이며 크기 57인 점과도 동시에 성립할 수 있다.",
+    "proof": "Conditional means telescope on each leaf. Summing each level difference over all leaves gives zero because each child mean averages to its parent. The exact zero-mean spike family separates aggregate cancellation from pointwise K56.",
+    "signed_endpoint_audit": {
+      "endpoint_equivalence": "For every dyadic vector rho and leaf j, conditional means telescope exactly: rho_j=mu_root+sum_l Delta_l(j). Hence max_j|mu_root+sum_l Delta_l(j)|<=56 is exactly the original pointwise K56 condition, not a weaker bridge.",
+      "aggregate_cancellation_identity": "At every level, the sum over all leaves of the signed martingale increment is zero. This is an automatic conditional-expectation identity and supplies no pointwise bound.",
+      "spike_counterfamily": "On 2^d leaves take rho_0=57 and rho_j=-57/(2^d-1) for j>0. The root mean and every level aggregate signed increment vanish, but the first point violates K56.",
+      "actual_residual_boundary": "The spike family is not the actual binary Goldbach residual. It refutes only endpoint renaming and aggregate-cancellation promotion; a pointwise arithmetic K56 estimate remains open.",
+      "rows": [
+        {
+          "depth": 2,
+          "size": 4,
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "bad_leaf_value": {
+            "exact": "57/1",
+            "decimal": 57.0
+          },
+          "other_leaf_value": {
+            "exact": "-19/1",
+            "decimal": -19.0
+          },
+          "level_signed_increment_sums": [
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            }
+          ],
+          "endpoint_failure_count": 0,
+          "maximum_absolute_endpoint": 57,
+          "checks": {
+            "root_mean_is_zero": true,
+            "every_level_global_increment_sum_is_zero": true,
+            "all_leaf_endpoints_telescope": true,
+            "pointwise_K56_fails": true,
+            "bad_leaf_value_is_57": true
+          }
+        },
+        {
+          "depth": 3,
+          "size": 8,
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "bad_leaf_value": {
+            "exact": "57/1",
+            "decimal": 57.0
+          },
+          "other_leaf_value": {
+            "exact": "-57/7",
+            "decimal": -8.142857142857142
+          },
+          "level_signed_increment_sums": [
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            }
+          ],
+          "endpoint_failure_count": 0,
+          "maximum_absolute_endpoint": 57,
+          "checks": {
+            "root_mean_is_zero": true,
+            "every_level_global_increment_sum_is_zero": true,
+            "all_leaf_endpoints_telescope": true,
+            "pointwise_K56_fails": true,
+            "bad_leaf_value_is_57": true
+          }
+        },
+        {
+          "depth": 4,
+          "size": 16,
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "bad_leaf_value": {
+            "exact": "57/1",
+            "decimal": 57.0
+          },
+          "other_leaf_value": {
+            "exact": "-19/5",
+            "decimal": -3.8
+          },
+          "level_signed_increment_sums": [
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            }
+          ],
+          "endpoint_failure_count": 0,
+          "maximum_absolute_endpoint": 57,
+          "checks": {
+            "root_mean_is_zero": true,
+            "every_level_global_increment_sum_is_zero": true,
+            "all_leaf_endpoints_telescope": true,
+            "pointwise_K56_fails": true,
+            "bad_leaf_value_is_57": true
+          }
+        },
+        {
+          "depth": 5,
+          "size": 32,
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "bad_leaf_value": {
+            "exact": "57/1",
+            "decimal": 57.0
+          },
+          "other_leaf_value": {
+            "exact": "-57/31",
+            "decimal": -1.8387096774193548
+          },
+          "level_signed_increment_sums": [
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            }
+          ],
+          "endpoint_failure_count": 0,
+          "maximum_absolute_endpoint": 57,
+          "checks": {
+            "root_mean_is_zero": true,
+            "every_level_global_increment_sum_is_zero": true,
+            "all_leaf_endpoints_telescope": true,
+            "pointwise_K56_fails": true,
+            "bad_leaf_value_is_57": true
+          }
+        },
+        {
+          "depth": 6,
+          "size": 64,
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "bad_leaf_value": {
+            "exact": "57/1",
+            "decimal": 57.0
+          },
+          "other_leaf_value": {
+            "exact": "-19/21",
+            "decimal": -0.9047619047619048
+          },
+          "level_signed_increment_sums": [
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            }
+          ],
+          "endpoint_failure_count": 0,
+          "maximum_absolute_endpoint": 57,
+          "checks": {
+            "root_mean_is_zero": true,
+            "every_level_global_increment_sum_is_zero": true,
+            "all_leaf_endpoints_telescope": true,
+            "pointwise_K56_fails": true,
+            "bad_leaf_value_is_57": true
+          }
+        },
+        {
+          "depth": 7,
+          "size": 128,
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "bad_leaf_value": {
+            "exact": "57/1",
+            "decimal": 57.0
+          },
+          "other_leaf_value": {
+            "exact": "-57/127",
+            "decimal": -0.44881889763779526
+          },
+          "level_signed_increment_sums": [
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            }
+          ],
+          "endpoint_failure_count": 0,
+          "maximum_absolute_endpoint": 57,
+          "checks": {
+            "root_mean_is_zero": true,
+            "every_level_global_increment_sum_is_zero": true,
+            "all_leaf_endpoints_telescope": true,
+            "pointwise_K56_fails": true,
+            "bad_leaf_value_is_57": true
+          }
+        },
+        {
+          "depth": 8,
+          "size": 256,
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "bad_leaf_value": {
+            "exact": "57/1",
+            "decimal": 57.0
+          },
+          "other_leaf_value": {
+            "exact": "-19/85",
+            "decimal": -0.2235294117647059
+          },
+          "level_signed_increment_sums": [
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            }
+          ],
+          "endpoint_failure_count": 0,
+          "maximum_absolute_endpoint": 57,
+          "checks": {
+            "root_mean_is_zero": true,
+            "every_level_global_increment_sum_is_zero": true,
+            "all_leaf_endpoints_telescope": true,
+            "pointwise_K56_fails": true,
+            "bad_leaf_value_is_57": true
+          }
+        },
+        {
+          "depth": 9,
+          "size": 512,
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "bad_leaf_value": {
+            "exact": "57/1",
+            "decimal": 57.0
+          },
+          "other_leaf_value": {
+            "exact": "-57/511",
+            "decimal": -0.11154598825831702
+          },
+          "level_signed_increment_sums": [
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            }
+          ],
+          "endpoint_failure_count": 0,
+          "maximum_absolute_endpoint": 57,
+          "checks": {
+            "root_mean_is_zero": true,
+            "every_level_global_increment_sum_is_zero": true,
+            "all_leaf_endpoints_telescope": true,
+            "pointwise_K56_fails": true,
+            "bad_leaf_value_is_57": true
+          }
+        },
+        {
+          "depth": 10,
+          "size": 1024,
+          "root_mean": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "bad_leaf_value": {
+            "exact": "57/1",
+            "decimal": 57.0
+          },
+          "other_leaf_value": {
+            "exact": "-19/341",
+            "decimal": -0.05571847507331378
+          },
+          "level_signed_increment_sums": [
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0/1",
+              "decimal": 0.0
+            }
+          ],
+          "endpoint_failure_count": 0,
+          "maximum_absolute_endpoint": 57,
+          "checks": {
+            "root_mean_is_zero": true,
+            "every_level_global_increment_sum_is_zero": true,
+            "all_leaf_endpoints_telescope": true,
+            "pointwise_K56_fails": true,
+            "bad_leaf_value_is_57": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The spike family is not the actual binary Goldbach residual. It refutes only endpoint renaming and aggregate-cancellation promotion; a pointwise arithmetic K56 estimate remains open.",
+    "route_decision": {
+      "discard": "renaming the pointwise residual as signed endpoint cancellation, or using aggregate signed cancellation alone",
+      "retain": "independently prove summable arithmetic envelopes for every dyadic scale increment of the actual binary residual",
+      "next_theorem": "ArithmeticBinaryGoldbachScaleEnvelopeSummableK56"
+    },
+    "proof_boundary": "No strong Goldbach proof or counterexample. The theorem exposes a circular target and an exact aggregate-cancellation no-go.",
+    "machine_audit": {
+      "row_count": 9,
+      "failure_count": 0,
+      "conjecture_resolution_count": 0
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T145-REJECTED",
+          "label": "ArithmeticBinaryGoldbachSignedMartingaleCancellationK56",
+          "status": "refuted_or_circular"
+        },
+        {
+          "id": "GB-T145-CLOSED",
+          "label": "SignedMartingaleEndpointEquivalenceAndAggregateCancellationNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T145-OPEN",
+          "label": "ArithmeticBinaryGoldbachScaleEnvelopeSummableK56",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T145-REJECTED",
+          "GB-T145-CLOSED"
+        ],
+        [
+          "GB-T145-CLOSED",
+          "GB-T145-OPEN"
+        ]
+      ]
+    }
+  }
+}
