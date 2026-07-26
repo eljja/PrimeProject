@@ -1,0 +1,332 @@
+{
+  "schema": "primeproject.ticket162-formnorm-explicitbaker-integral-multiscale.v1",
+  "generated_at": "2026-07-27T23:30:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-162",
+  "status": "open_not_proven",
+  "theorem_name": "ResolvedH2ToH1TransportAndUniformH1BallNoGo",
+  "declared_proposition": "Let 0<a<L, extend f in H^2(-a,a) with f=f'=0 at the support boundary by zero to I_L=(-L,L), and let P_{L,N} retain Fourier modes |k|<=N. Then ||f-P_{L,N}f||_{H1} <= L sqrt(||f'||_2^2+||f''||_2^2)/(pi(N+1)). Hence N/L->infinity transports every H2-bounded compact source family in H1. If quadratic forms Q_L satisfy the uniform H1 continuity estimate |Q_L(u)-Q_L(v)| <= C(||u||_{H1}+||v||_{H1})||u-v||_{H1}, their values also transport. This cannot be extended uniformly to the whole H1 unit ball: the normalized single Fourier mode N+1 has H1 norm one, zero projection, and H1 error one.",
+  "mathematical_argument": "Parseval bounds the L2 tail by omega_{N+1}^{-2}||f'||_2^2 and the derivative tail by omega_{N+1}^{-2}||f''||_2^2, where omega_{N+1}=pi(N+1)/L. Adding the two estimates proves the H1 bound. The form estimate follows by substitution. For the no-go, u=exp(i*pi*(N+1)x/L)/sqrt(2L(1+omega_{N+1}^2)) is orthogonal to the retained band and has unit H1 norm.",
+  "reproducible_computation": {
+    "theorem": "Let 0<a<L, extend f in H^2(-a,a) with f=f'=0 at the support boundary by zero to I_L=(-L,L), and let P_{L,N} retain Fourier modes |k|<=N. Then ||f-P_{L,N}f||_{H1} <= L sqrt(||f'||_2^2+||f''||_2^2)/(pi(N+1)). Hence N/L->infinity transports every H2-bounded compact source family in H1. If quadratic forms Q_L satisfy the uniform H1 continuity estimate |Q_L(u)-Q_L(v)| <= C(||u||_{H1}+||v||_{H1})||u-v||_{H1}, their values also transport. This cannot be extended uniformly to the whole H1 unit ball: the normalized single Fourier mode N+1 has H1 norm one, zero projection, and H1 error one.",
+    "proof": "Parseval bounds the L2 tail by omega_{N+1}^{-2}||f'||_2^2 and the derivative tail by omega_{N+1}^{-2}||f''||_2^2, where omega_{N+1}=pi(N+1)/L. Adding the two estimates proves the H1 bound. The form estimate follows by substitution. For the no-go, u=exp(i*pi*(N+1)x/L)/sqrt(2L(1+omega_{N+1}^2)) is orthogonal to the retained band and has unit H1 norm.",
+    "finite_smooth_bump_transport_rows": [
+      {
+        "schedule": "resolved_quadratic",
+        "interval_half_length_L": 2,
+        "frequency_band_N": 4,
+        "resolution_ratio_N_over_L": 2.0,
+        "smooth_bump_h1_projection_error": 0.15858259663816504,
+        "captured_h1_energy_fraction": 0.992183616784872,
+        "h2_parseval_upper_bound": 0.659381661895123,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "critical_linear",
+        "interval_half_length_L": 2,
+        "frequency_band_N": 8,
+        "resolution_ratio_N_over_L": 4.0,
+        "smooth_bump_h1_projection_error": 0.052253927358125424,
+        "captured_h1_energy_fraction": 0.9991513420803775,
+        "h2_parseval_upper_bound": 0.36632314549729056,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "underresolved_square_root",
+        "interval_half_length_L": 2,
+        "frequency_band_N": 1,
+        "resolution_ratio_N_over_L": 0.5,
+        "smooth_bump_h1_projection_error": 1.3108238302641861,
+        "captured_h1_energy_fraction": 0.46594811761485744,
+        "h2_parseval_upper_bound": 1.6484541547378075,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "resolved_quadratic",
+        "interval_half_length_L": 4,
+        "frequency_band_N": 16,
+        "resolution_ratio_N_over_L": 4.0,
+        "smooth_bump_h1_projection_error": 0.05258448778063284,
+        "captured_h1_energy_fraction": 0.9991405708306256,
+        "h2_parseval_upper_bound": 0.38787156582066057,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "critical_linear",
+        "interval_half_length_L": 4,
+        "frequency_band_N": 16,
+        "resolution_ratio_N_over_L": 4.0,
+        "smooth_bump_h1_projection_error": 0.05258448778063284,
+        "captured_h1_energy_fraction": 0.9991405708306256,
+        "h2_parseval_upper_bound": 0.38787156582066057,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "underresolved_square_root",
+        "interval_half_length_L": 4,
+        "frequency_band_N": 2,
+        "resolution_ratio_N_over_L": 0.5,
+        "smooth_bump_h1_projection_error": 1.4474273393077102,
+        "captured_h1_energy_fraction": 0.34883906691084915,
+        "h2_parseval_upper_bound": 2.1979388729837432,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "resolved_quadratic",
+        "interval_half_length_L": 8,
+        "frequency_band_N": 64,
+        "resolution_ratio_N_over_L": 8.0,
+        "smooth_bump_h1_projection_error": 0.018177921395961583,
+        "captured_h1_energy_fraction": 0.9998972969748007,
+        "h2_parseval_upper_bound": 0.2028866651984994,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "critical_linear",
+        "interval_half_length_L": 8,
+        "frequency_band_N": 32,
+        "resolution_ratio_N_over_L": 4.0,
+        "smooth_bump_h1_projection_error": 0.05259953526618821,
+        "captured_h1_energy_fraction": 0.9991400788947375,
+        "h2_parseval_upper_bound": 0.3996252496334079,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "underresolved_square_root",
+        "interval_half_length_L": 8,
+        "frequency_band_N": 2,
+        "resolution_ratio_N_over_L": 0.25,
+        "smooth_bump_h1_projection_error": 1.6814023748899005,
+        "captured_h1_energy_fraction": 0.12130509744461318,
+        "h2_parseval_upper_bound": 4.3958777459674865,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "resolved_quadratic",
+        "interval_half_length_L": 16,
+        "frequency_band_N": 256,
+        "resolution_ratio_N_over_L": 16.0,
+        "smooth_bump_h1_projection_error": 0.006390820385668208,
+        "captured_h1_energy_fraction": 0.9999873057216278,
+        "h2_parseval_upper_bound": 0.10262749601480514,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "critical_linear",
+        "interval_half_length_L": 16,
+        "frequency_band_N": 64,
+        "resolution_ratio_N_over_L": 4.0,
+        "smooth_bump_h1_projection_error": 0.05260041135911391,
+        "captured_h1_energy_fraction": 0.9991400502489683,
+        "h2_parseval_upper_bound": 0.4057733303969988,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "underresolved_square_root",
+        "interval_half_length_L": 16,
+        "frequency_band_N": 4,
+        "resolution_ratio_N_over_L": 0.25,
+        "smooth_bump_h1_projection_error": 1.696239565320554,
+        "captured_h1_energy_fraction": 0.10572894914615508,
+        "h2_parseval_upper_bound": 5.275053295160984,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "resolved_quadratic",
+        "interval_half_length_L": 32,
+        "frequency_band_N": 1024,
+        "resolution_ratio_N_over_L": 32.0,
+        "smooth_bump_h1_projection_error": 0.0022563286030142264,
+        "captured_h1_energy_fraction": 0.9999984176611476,
+        "h2_parseval_upper_bound": 0.05146393458693643,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "critical_linear",
+        "interval_half_length_L": 32,
+        "frequency_band_N": 128,
+        "resolution_ratio_N_over_L": 4.0,
+        "smooth_bump_h1_projection_error": 0.05260046517827585,
+        "captured_h1_energy_fraction": 0.999140048489218,
+        "h2_parseval_upper_bound": 0.4089188600899988,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "underresolved_square_root",
+        "interval_half_length_L": 32,
+        "frequency_band_N": 5,
+        "resolution_ratio_N_over_L": 0.15625,
+        "smooth_bump_h1_projection_error": 1.7411118954203728,
+        "captured_h1_energy_fraction": 0.05778902353277551,
+        "h2_parseval_upper_bound": 8.791755491934973,
+        "checks": {
+          "h1_error_is_nonnegative": true,
+          "captured_h1_fraction_is_in_unit_interval": true,
+          "h2_to_h1_tail_bound_holds": true
+        }
+      }
+    ],
+    "exact_h1_unit_ball_no_go_rows": [
+      {
+        "interval_half_length_L": 2,
+        "frequency_band_N": 4,
+        "omitted_mode": 5,
+        "normalization": "1/sqrt(2*2*(1+(7.853981633974483)^2))",
+        "source_h1_norm": 1.0,
+        "h1_projection_error": 1.0,
+        "checks": {
+          "source_h1_norm_is_one": true,
+          "projected_source_is_zero": true,
+          "h1_projection_error_is_one": true
+        }
+      },
+      {
+        "interval_half_length_L": 4,
+        "frequency_band_N": 16,
+        "omitted_mode": 17,
+        "normalization": "1/sqrt(2*4*(1+(13.351768777756622)^2))",
+        "source_h1_norm": 1.0,
+        "h1_projection_error": 1.0,
+        "checks": {
+          "source_h1_norm_is_one": true,
+          "projected_source_is_zero": true,
+          "h1_projection_error_is_one": true
+        }
+      },
+      {
+        "interval_half_length_L": 8,
+        "frequency_band_N": 64,
+        "omitted_mode": 65,
+        "normalization": "1/sqrt(2*8*(1+(25.525440310417068)^2))",
+        "source_h1_norm": 1.0,
+        "h1_projection_error": 1.0,
+        "checks": {
+          "source_h1_norm_is_one": true,
+          "projected_source_is_zero": true,
+          "h1_projection_error_is_one": true
+        }
+      },
+      {
+        "interval_half_length_L": 16,
+        "frequency_band_N": 256,
+        "omitted_mode": 257,
+        "normalization": "1/sqrt(2*16*(1+(50.46183199828605)^2))",
+        "source_h1_norm": 1.0,
+        "h1_projection_error": 1.0,
+        "checks": {
+          "source_h1_norm_is_one": true,
+          "projected_source_is_zero": true,
+          "h1_projection_error_is_one": true
+        }
+      },
+      {
+        "interval_half_length_L": 32,
+        "frequency_band_N": 1024,
+        "omitted_mode": 1025,
+        "normalization": "1/sqrt(2*32*(1+(100.62913968529806)^2))",
+        "source_h1_norm": 1.0,
+        "h1_projection_error": 1.0,
+        "checks": {
+          "source_h1_norm_is_one": true,
+          "projected_source_is_zero": true,
+          "h1_projection_error_is_one": true
+        }
+      }
+    ],
+    "trend_checks": {
+      "resolved_h1_error_strictly_decreases": true,
+      "critical_linear_h1_error_stays_positive": true,
+      "h1_unit_ball_has_no_uniform_projection_rate": true
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "uniform H1 transport over the whole H1 unit ball, and any inference from H1 convergence without a uniform quadratic-form continuity constant",
+  "remaining_gap": "The actual truncated Guinand-Weil forms have not yet been proved uniformly H1-continuous on this moving common core. No Weil positivity margin or off-critical-zero exclusion follows.",
+  "candidate_theorem": "UniformFiniteGuinandWeilH1ContinuityOnResolvedCommonCore",
+  "claim_boundary": "No RH proof and no off-critical zero. One exact H2-to-H1 transport theorem, one conditional form bridge, and one uniform-H1-ball no-go.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T162-REJECTED",
+        "label": "UniformH1UnitBallTransportAcrossGalerkinCutoffs",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T162-CLOSED",
+        "label": "ResolvedH2ToH1TransportAndUniformH1BallNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T162-OPEN",
+        "label": "UniformFiniteGuinandWeilH1ContinuityOnResolvedCommonCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T162-REJECTED",
+        "RH-T162-CLOSED"
+      ],
+      [
+        "RH-T162-CLOSED",
+        "RH-T162-OPEN"
+      ]
+    ]
+  }
+}

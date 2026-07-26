@@ -1,0 +1,202 @@
+{
+  "schema": "primeproject.ticket162-formnorm-explicitbaker-integral-multiscale.v1",
+  "generated_at": "2026-07-27T23:30:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-162",
+  "status": "open_not_proven",
+  "theorem_name": "IntegralExceptionalSetMomentBridgeAndUnitSpikeSharpness",
+  "declared_proposition": "Let G_N be nonnegative integers, let M_N>0, and write G_N=M_N+E_N on a finite target set A. Then #{N in A:G_N=0} <= sum_A (E_N^-/M_N)^2. Consequently a normalized negative-error moment strictly below one proves G_N>0 for every N in A. The constant one is sharp: one target with M=1, E=-1, G=0 has budget exactly one. Thus average minor-arc control can become pointwise only after targetwise normalization and an integral budget below one.",
+  "mathematical_argument": "If G_N=0, then E_N=-M_N and its summand is exactly one; otherwise the indicator is nonnegative and at most the same summand whenever it is needed. Summation proves the bound. The one-spike construction proves sharpness. The finite DFT rows below instantiate M and E using one Farey mask, but their budgets exceed one and therefore supply diagnostics only.",
+  "reproducible_computation": {
+    "theorem": "Let G_N be nonnegative integers, let M_N>0, and write G_N=M_N+E_N on a finite target set A. Then #{N in A:G_N=0} <= sum_A (E_N^-/M_N)^2. Consequently a normalized negative-error moment strictly below one proves G_N>0 for every N in A. The constant one is sharp: one target with M=1, E=-1, G=0 has budget exactly one. Thus average minor-arc control can become pointwise only after targetwise normalization and an integral budget below one.",
+    "proof": "If G_N=0, then E_N=-M_N and its summand is exactly one; otherwise the indicator is nonnegative and at most the same summand whenever it is needed. Summation proves the bound. The one-spike construction proves sharpness. The finite DFT rows below instantiate M and E using one Farey mask, but their budgets exceed one and therefore supply diagnostics only.",
+    "finite_prime_normalized_moment_rows": [
+      {
+        "even_endpoint_N": 1000,
+        "transform_size_L": 2048,
+        "farey_denominator_limit_Q": 8,
+        "major_half_width_bins": 2,
+        "audited_even_count": 499,
+        "positive_major_count": 499,
+        "observed_zero_count": 0,
+        "normalized_negative_minor_moment_budget": 7.127332213397333,
+        "mean_normalized_negative_minor_moment": 0.014283230888571809,
+        "maximum_normalized_minor_deficit": 0.8874273477921878,
+        "unit_exception_gate_passes": false,
+        "maximum_fft_rounding_error": 7.105427357601002e-13,
+        "checks": {
+          "all_finite_major_coefficients_are_positive": true,
+          "finite_goldbach_range_has_no_observed_zero": true,
+          "fft_coefficients_are_near_integers": true,
+          "farey_mask_budget_does_not_cross_unit_gate": true
+        }
+      },
+      {
+        "even_endpoint_N": 2000,
+        "transform_size_L": 4096,
+        "farey_denominator_limit_Q": 8,
+        "major_half_width_bins": 2,
+        "audited_even_count": 999,
+        "positive_major_count": 999,
+        "observed_zero_count": 0,
+        "normalized_negative_minor_moment_budget": 14.626891675384664,
+        "mean_normalized_negative_minor_moment": 0.014641533208593257,
+        "maximum_normalized_minor_deficit": 0.928768848980614,
+        "unit_exception_gate_passes": false,
+        "maximum_fft_rounding_error": 1.4949819160392508e-11,
+        "checks": {
+          "all_finite_major_coefficients_are_positive": true,
+          "finite_goldbach_range_has_no_observed_zero": true,
+          "fft_coefficients_are_near_integers": true,
+          "farey_mask_budget_does_not_cross_unit_gate": true
+        }
+      },
+      {
+        "even_endpoint_N": 4000,
+        "transform_size_L": 8192,
+        "farey_denominator_limit_Q": 8,
+        "major_half_width_bins": 2,
+        "audited_even_count": 1999,
+        "positive_major_count": 1999,
+        "observed_zero_count": 0,
+        "normalized_negative_minor_moment_budget": 29.720517118217323,
+        "mean_normalized_negative_minor_moment": 0.014867692405311318,
+        "maximum_normalized_minor_deficit": 0.9566468796279997,
+        "unit_exception_gate_passes": false,
+        "maximum_fft_rounding_error": 7.219114195322618e-12,
+        "checks": {
+          "all_finite_major_coefficients_are_positive": true,
+          "finite_goldbach_range_has_no_observed_zero": true,
+          "fft_coefficients_are_near_integers": true,
+          "farey_mask_budget_does_not_cross_unit_gate": true
+        }
+      },
+      {
+        "even_endpoint_N": 8000,
+        "transform_size_L": 16384,
+        "farey_denominator_limit_Q": 8,
+        "major_half_width_bins": 2,
+        "audited_even_count": 3999,
+        "positive_major_count": 3999,
+        "observed_zero_count": 0,
+        "normalized_negative_minor_moment_budget": 62.75840103695641,
+        "mean_normalized_negative_minor_moment": 0.01569352364014914,
+        "maximum_normalized_minor_deficit": 0.9742513757029443,
+        "unit_exception_gate_passes": false,
+        "maximum_fft_rounding_error": 2.198703441536054e-10,
+        "checks": {
+          "all_finite_major_coefficients_are_positive": true,
+          "finite_goldbach_range_has_no_observed_zero": true,
+          "fft_coefficients_are_near_integers": true,
+          "farey_mask_budget_does_not_cross_unit_gate": true
+        }
+      },
+      {
+        "even_endpoint_N": 16000,
+        "transform_size_L": 32768,
+        "farey_denominator_limit_Q": 8,
+        "major_half_width_bins": 2,
+        "audited_even_count": 7999,
+        "positive_major_count": 7999,
+        "observed_zero_count": 0,
+        "normalized_negative_minor_moment_budget": 135.36169777626608,
+        "mean_normalized_negative_minor_moment": 0.01692232751297238,
+        "maximum_normalized_minor_deficit": 0.9840623317698719,
+        "unit_exception_gate_passes": false,
+        "maximum_fft_rounding_error": 1.0252279025735334e-09,
+        "checks": {
+          "all_finite_major_coefficients_are_positive": true,
+          "finite_goldbach_range_has_no_observed_zero": true,
+          "fft_coefficients_are_near_integers": true,
+          "farey_mask_budget_does_not_cross_unit_gate": true
+        }
+      }
+    ],
+    "exact_unit_spike_sharpness_rows": [
+      {
+        "target_count": 1,
+        "zero_representation_count": 1,
+        "normalized_negative_error_budget": 1.0,
+        "checks": {
+          "one_zero_target_has_unit_budget": true,
+          "exception_count_equals_budget": true,
+          "budget_below_one_is_sharp": true
+        }
+      },
+      {
+        "target_count": 2,
+        "zero_representation_count": 1,
+        "normalized_negative_error_budget": 1.0,
+        "checks": {
+          "one_zero_target_has_unit_budget": true,
+          "exception_count_equals_budget": true,
+          "budget_below_one_is_sharp": true
+        }
+      },
+      {
+        "target_count": 8,
+        "zero_representation_count": 1,
+        "normalized_negative_error_budget": 1.0,
+        "checks": {
+          "one_zero_target_has_unit_budget": true,
+          "exception_count_equals_budget": true,
+          "budget_below_one_is_sharp": true
+        }
+      },
+      {
+        "target_count": 32,
+        "zero_representation_count": 1,
+        "normalized_negative_error_budget": 1.0,
+        "checks": {
+          "one_zero_target_has_unit_budget": true,
+          "exception_count_equals_budget": true,
+          "budget_below_one_is_sharp": true
+        }
+      },
+      {
+        "target_count": 128,
+        "zero_representation_count": 1,
+        "normalized_negative_error_budget": 1.0,
+        "checks": {
+          "one_zero_target_has_unit_budget": true,
+          "exception_count_equals_budget": true,
+          "budget_below_one_is_sharp": true
+        }
+      }
+    ],
+    "failure_count": 0
+  },
+  "discarded_route": "unnormalized average or L2 minor bounds whose total exception budget remains at least one",
+  "remaining_gap": "The tested finite Farey mask has normalized budgets above one at every scale. No analytic binary minor-arc estimate crosses the unit gate, and no Goldbach counterexample is found.",
+  "candidate_theorem": "UniformNormalizedNegativeMinorMomentBelowOneAfterCutoff",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact integrality-to-pointwise criterion and its sharp unit-spike no-go; finite prime DFT budgets remain noncertifying.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T162-REJECTED",
+        "label": "AnyVanishingAverageMinorMomentExcludesAllExceptions",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T162-CLOSED",
+        "label": "IntegralExceptionalSetMomentBridgeAndUnitSpikeSharpness",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T162-OPEN",
+        "label": "UniformNormalizedNegativeMinorMomentBelowOneAfterCutoff",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T162-REJECTED",
+        "GB-T162-CLOSED"
+      ],
+      [
+        "GB-T162-CLOSED",
+        "GB-T162-OPEN"
+      ]
+    ]
+  }
+}

@@ -62,7 +62,44 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-161
+## Latest Continuation After TICKET-162
+
+Read
+`data/open-problem/ticket162-formnorm-explicitbaker-integral-multiscale.json`,
+`scripts/ticket162_formnorm_explicitbaker_integral_multiscale.py`, and
+`tests/test_ticket162_formnorm_explicitbaker_integral_multiscale.py` first.
+
+Do not reopen these rejected routes without defeating the exact TICKET-162
+counterexample or no-go theorem:
+
+1. uniform RH cutoff transport on the whole `H1` unit ball;
+2. promoting one sparse Collatz valuation family to all natural orbits;
+3. using a normalized Goldbach exception budget at least one to exclude the
+   last exception;
+4. treating one fixed Twin incidence binning as full Type-II control.
+
+Exact TICKET-162 results:
+
+1. `ResolvedH2ToH1TransportAndUniformH1BallNoGo`;
+2. `ExplicitMinimalFrontLoadedFamilyClosureAndCoverageNoGo`;
+3. `IntegralExceptionalSetMomentBridgeAndUnitSpikeSharpness`;
+4. `DyadicIncidenceEnergyDecompositionAndFixedBinNoGo`.
+
+The next single lemmas are:
+
+1. `UniformFiniteGuinandWeilH1ContinuityOnResolvedCommonCore`;
+2. `EveryNaturalOddOrbitHitsAFrontLoadedDominatingDescentPrefix`;
+3. `UniformNormalizedNegativeMinorMomentBelowOneAfterCutoff`;
+4. `UniformMultiscaleCenteredIncidenceCarlesonBoundWithPrimeWeights`.
+
+한국어 인계: TICKET-162의 가장 큰 새 결과는 선택한 최소
+front-loaded Collatz 계열을 모든 길이에서 닫았다는 것입니다. 그러나
+그 계열의 valuation 조합 비율은 0으로 수렴하므로 전체 궤도 coverage
+정리가 없으면 Collatz 추측으로 승격할 수 없습니다. 다른 세 트랙도
+정확한 수송/예외예산/다중척도 정리를 얻었지만 위의 다음 보조정리는
+모두 미증명입니다.
+
+## Previous Continuation After TICKET-161
 
 Read `docs/commoncore-baker-angle-typeii.md`,
 `data/open-problem/ticket161-commoncore-baker-angle-typeii.json`,

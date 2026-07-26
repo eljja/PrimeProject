@@ -1,0 +1,282 @@
+{
+  "schema": "primeproject.ticket162-formnorm-explicitbaker-integral-multiscale.v1",
+  "generated_at": "2026-07-27T23:30:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-162",
+  "status": "open_not_proven",
+  "theorem_name": "ExplicitMinimalFrontLoadedFamilyClosureAndCoverageNoGo",
+  "declared_proposition": "Let alpha=log_2(3), S_m=ceil(m alpha), b_m=S_m-m+1, and w_m=(b_m,1,...,1). Every natural realizer of w_m descends for every m>=2. More precisely, failure would imply that the reduced S_m/m is an upper continued-fraction convergent p/q. Matveev's explicit two-logarithm estimate excludes m>=21,554,214,227. An exact rational enclosure of log(3)/log(2) certifies every convergent below that threshold; the primitive cases descend, and if 2^p-3^q>2^(p-q)-1 then every admissible multiple (kp,kq) also descends. The family nevertheless has compositional share 1/binom(S_m-1,m-1), tending to zero, so this infinite closure is not a proof of the Collatz conjecture.",
+  "mathematical_argument": "TICKET-161 proves that failure gives a reduced upper convergent. For Lambda=2^S*3^(-m)-1, failure gives 0<Lambda<1/(2^m-1)<2^(1-m). Matveev gives log|Lambda|>-K(1+log(2m)), with K=1.4*30^5*2^4.5*log(2)*log(3); the certified threshold makes these inequalities incompatible. Below it, exact atanh-series log intervals certify the complete convergent list. The reduced denominator q=1 is impossible for m>=4: 3^3<2^5 gives alpha<5/3, hence S_m<alpha*m+1<2m, while the only integer above alpha is at least two. For consecutive denominators q,q_next, an upper convergent obeys p/q-alpha>1/[q(q+q_next)]. Thus 2^(q-2)>q+q_next rules out failure; the sole smaller primitive case is checked by integer arithmetic. Finally, with A=2^p, B=3^q, C=2^(p-q), A,B>C and A-B>C-1 imply A^k-B^k>C^k-1, proving inheritance.",
+  "reproducible_computation": {
+    "theorem": "Let alpha=log_2(3), S_m=ceil(m alpha), b_m=S_m-m+1, and w_m=(b_m,1,...,1). Every natural realizer of w_m descends for every m>=2. More precisely, failure would imply that the reduced S_m/m is an upper continued-fraction convergent p/q. Matveev's explicit two-logarithm estimate excludes m>=21,554,214,227. An exact rational enclosure of log(3)/log(2) certifies every convergent below that threshold; the primitive cases descend, and if 2^p-3^q>2^(p-q)-1 then every admissible multiple (kp,kq) also descends. The family nevertheless has compositional share 1/binom(S_m-1,m-1), tending to zero, so this infinite closure is not a proof of the Collatz conjecture.",
+    "proof": "TICKET-161 proves that failure gives a reduced upper convergent. For Lambda=2^S*3^(-m)-1, failure gives 0<Lambda<1/(2^m-1)<2^(1-m). Matveev gives log|Lambda|>-K(1+log(2m)), with K=1.4*30^5*2^4.5*log(2)*log(3); the certified threshold makes these inequalities incompatible. Below it, exact atanh-series log intervals certify the complete convergent list. The reduced denominator q=1 is impossible for m>=4: 3^3<2^5 gives alpha<5/3, hence S_m<alpha*m+1<2m, while the only integer above alpha is at least two. For consecutive denominators q,q_next, an upper convergent obeys p/q-alpha>1/[q(q+q_next)]. Thus 2^(q-2)>q+q_next rules out failure; the sole smaller primitive case is checked by integer arithmetic. Finally, with A=2^p, B=3^q, C=2^(p-q), A,B>C and A-B>C-1 imply A^k-B^k>C^k-1, proving inheritance.",
+    "matveev_threshold_certificate": {
+      "matveev_constant": {
+        "lower_decimal": 586191077.0755479,
+        "upper_decimal": 586191077.0755479,
+        "formula": "1.4*30^5*2^4.5*log(2)*log(3)"
+      },
+      "first_certified_asymptotic_length_M": 21554214227,
+      "threshold_margin_lower": 0.2599766138971399,
+      "previous_margin_upper": -0.4059744429296168,
+      "derivative_lower_at_threshold": 0.6659510568273876,
+      "checks": {
+        "threshold_condition_certified_positive": true,
+        "previous_integer_certified_nonpositive": true,
+        "condition_is_increasing_from_threshold": true
+      }
+    },
+    "certified_partial_quotients": [
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      1,
+      5,
+      2,
+      23,
+      2,
+      2,
+      1,
+      1,
+      55,
+      1,
+      4,
+      3,
+      1,
+      1,
+      15,
+      1,
+      9,
+      2
+    ],
+    "continued_fraction_interval_certificate": {
+      "terms_per_log_interval": 97,
+      "alpha_interval_width_log10_upper": -60.405740494611706,
+      "last_certified_denominator": 137528045312
+    },
+    "primitive_upper_convergent_rows": [
+      {
+        "convergent_numerator_p": 8,
+        "convergent_denominator_q": 5,
+        "next_denominator": 12,
+        "certificate": "exact_integer_margin",
+        "certificate_value": "6",
+        "checks": {
+          "upper_convergent_side_is_certified": true,
+          "primitive_front_loaded_word_descends": true,
+          "all_admissible_multiples_inherit_descent": true
+        }
+      },
+      {
+        "convergent_numerator_p": 65,
+        "convergent_denominator_q": 41,
+        "next_denominator": 53,
+        "certificate": "continued_fraction_lower_bound",
+        "certificate_value": "2^(41-2)>94",
+        "checks": {
+          "upper_convergent_side_is_certified": true,
+          "primitive_front_loaded_word_descends": true,
+          "all_admissible_multiples_inherit_descent": true
+        }
+      },
+      {
+        "convergent_numerator_p": 485,
+        "convergent_denominator_q": 306,
+        "next_denominator": 665,
+        "certificate": "continued_fraction_lower_bound",
+        "certificate_value": "2^(306-2)>971",
+        "checks": {
+          "upper_convergent_side_is_certified": true,
+          "primitive_front_loaded_word_descends": true,
+          "all_admissible_multiples_inherit_descent": true
+        }
+      },
+      {
+        "convergent_numerator_p": 24727,
+        "convergent_denominator_q": 15601,
+        "next_denominator": 31867,
+        "certificate": "continued_fraction_lower_bound",
+        "certificate_value": "2^(15601-2)>47468",
+        "checks": {
+          "upper_convergent_side_is_certified": true,
+          "primitive_front_loaded_word_descends": true,
+          "all_admissible_multiples_inherit_descent": true
+        }
+      },
+      {
+        "convergent_numerator_p": 125743,
+        "convergent_denominator_q": 79335,
+        "next_denominator": 111202,
+        "certificate": "continued_fraction_lower_bound",
+        "certificate_value": "2^(79335-2)>190537",
+        "checks": {
+          "upper_convergent_side_is_certified": true,
+          "primitive_front_loaded_word_descends": true,
+          "all_admissible_multiples_inherit_descent": true
+        }
+      },
+      {
+        "convergent_numerator_p": 301994,
+        "convergent_denominator_q": 190537,
+        "next_denominator": 10590737,
+        "certificate": "continued_fraction_lower_bound",
+        "certificate_value": "2^(190537-2)>10781274",
+        "checks": {
+          "upper_convergent_side_is_certified": true,
+          "primitive_front_loaded_word_descends": true,
+          "all_admissible_multiples_inherit_descent": true
+        }
+      },
+      {
+        "convergent_numerator_p": 17087915,
+        "convergent_denominator_q": 10781274,
+        "next_denominator": 53715833,
+        "certificate": "continued_fraction_lower_bound",
+        "certificate_value": "2^(10781274-2)>64497107",
+        "checks": {
+          "upper_convergent_side_is_certified": true,
+          "primitive_front_loaded_word_descends": true,
+          "all_admissible_multiples_inherit_descent": true
+        }
+      },
+      {
+        "convergent_numerator_p": 272500658,
+        "convergent_denominator_q": 171928773,
+        "next_denominator": 225644606,
+        "certificate": "continued_fraction_lower_bound",
+        "certificate_value": "2^(171928773-2)>397573379",
+        "checks": {
+          "upper_convergent_side_is_certified": true,
+          "primitive_front_loaded_word_descends": true,
+          "all_admissible_multiples_inherit_descent": true
+        }
+      },
+      {
+        "convergent_numerator_p": 630138897,
+        "convergent_denominator_q": 397573379,
+        "next_denominator": 6189245291,
+        "certificate": "continued_fraction_lower_bound",
+        "certificate_value": "2^(397573379-2)>6586818670",
+        "checks": {
+          "upper_convergent_side_is_certified": true,
+          "primitive_front_loaded_word_descends": true,
+          "all_admissible_multiples_inherit_descent": true
+        }
+      },
+      {
+        "convergent_numerator_p": 10439860591,
+        "convergent_denominator_q": 6586818670,
+        "next_denominator": 65470613321,
+        "certificate": "continued_fraction_lower_bound",
+        "certificate_value": "2^(6586818670-2)>72057431991",
+        "checks": {
+          "upper_convergent_side_is_certified": true,
+          "primitive_front_loaded_word_descends": true,
+          "all_admissible_multiples_inherit_descent": true
+        }
+      }
+    ],
+    "direct_small_length_rows": [
+      {
+        "word_length_m": 2,
+        "minimal_total_S": 4,
+        "front_valuation_b": 3,
+        "descent_margin_at_t_one": 4,
+        "checks": {
+          "minimal_total_is_contracting": true,
+          "least_parameter_one_already_descends": true
+        }
+      },
+      {
+        "word_length_m": 3,
+        "minimal_total_S": 5,
+        "front_valuation_b": 3,
+        "descent_margin_at_t_one": 2,
+        "checks": {
+          "minimal_total_is_contracting": true,
+          "least_parameter_one_already_descends": true
+        }
+      }
+    ],
+    "exact_compositional_coverage_no_go_rows": [
+      {
+        "word_length_m": 5,
+        "minimal_contracting_total_S": 8,
+        "positive_valuation_composition_count": "35",
+        "selected_front_loaded_word_count": 1,
+        "selected_compositional_fraction": 0.02857142857142857
+      },
+      {
+        "word_length_m": 10,
+        "minimal_contracting_total_S": 16,
+        "positive_valuation_composition_count": "5005",
+        "selected_front_loaded_word_count": 1,
+        "selected_compositional_fraction": 0.0001998001998001998
+      },
+      {
+        "word_length_m": 20,
+        "minimal_contracting_total_S": 32,
+        "positive_valuation_composition_count": "141120525",
+        "selected_front_loaded_word_count": 1,
+        "selected_compositional_fraction": 7.0861414383201876e-09
+      },
+      {
+        "word_length_m": 50,
+        "minimal_contracting_total_S": 80,
+        "positive_valuation_composition_count": "5544632834275283414380",
+        "selected_front_loaded_word_count": 1,
+        "selected_compositional_fraction": 1.8035459333182447e-22
+      },
+      {
+        "word_length_m": 100,
+        "minimal_contracting_total_S": 159,
+        "positive_valuation_composition_count": "143189733233596341882651762012459148338766000",
+        "selected_front_loaded_word_count": 1,
+        "selected_compositional_fraction": 6.983740924837283e-45
+      }
+    ],
+    "summary_checks": {
+      "certified_cf_extends_beyond_matveev_threshold": true,
+      "all_primitive_upper_candidates_below_threshold_close": true,
+      "small_denominators_are_closed_directly": true,
+      "selected_family_fraction_decreases": true
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "brute-force scanning all m up to the 21.5B Matveev threshold, and treating closure of one sparse valuation family as coverage of all Collatz orbits",
+  "remaining_gap": "The closed family is only one valuation composition at each length and its share tends to zero. No theorem shows that every natural orbit reaches this family or a stronger descending prefix.",
+  "candidate_theorem": "EveryNaturalOddOrbitHitsAFrontLoadedDominatingDescentPrefix",
+  "claim_boundary": "No Collatz proof and no divergent orbit. One explicit infinite valuation family is now closed for every m>=2; its vanishing compositional coverage is also proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T162-REJECTED",
+        "label": "MinimalFrontLoadedFamilyHasPositiveGlobalOrbitCoverage",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T162-CLOSED",
+        "label": "ExplicitMinimalFrontLoadedFamilyClosureAndCoverageNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T162-OPEN",
+        "label": "EveryNaturalOddOrbitHitsAFrontLoadedDominatingDescentPrefix",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T162-REJECTED",
+        "CO-T162-CLOSED"
+      ],
+      [
+        "CO-T162-CLOSED",
+        "CO-T162-OPEN"
+      ]
+    ]
+  }
+}

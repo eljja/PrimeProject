@@ -167,6 +167,9 @@ TICKET160_SCHEMA = (
 TICKET161_SCHEMA = (
     "primeproject.ticket161-commoncore-baker-angle-typeii.v1"
 )
+TICKET162_SCHEMA = (
+    "primeproject.ticket162-formnorm-explicitbaker-integral-multiscale.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -11757,6 +11760,243 @@ def main() -> int:
         not in str(ticket161.get("claim_boundary", "")).lower()
     ):
         return fail("ticket161 proof boundary changed")
+
+    path162 = Path(
+        "data/open-problem/"
+        "ticket162-formnorm-explicitbaker-integral-multiscale.json"
+    )
+    if not path162.exists():
+        return fail("missing ticket162 formnorm-explicitbaker audit")
+    ticket162 = read_json(path162)
+    if (
+        ticket162.get("schema") != TICKET162_SCHEMA
+        or ticket162.get("status")
+        != "four_exact_reductions_and_no_go_results_all_conjectures_open"
+    ):
+        return fail("ticket162 schema or status changed")
+    attempts162 = ticket162.get("attempts", [])
+    if (
+        len(attempts162) != 4
+        or {attempt.get("problem_id") for attempt in attempts162}
+        != EXPECTED_PROBLEMS
+        or any(
+            attempt.get("status") != "open_not_proven"
+            for attempt in attempts162
+        )
+    ):
+        return fail("ticket162 attempts missing problems")
+    audit162 = ticket162.get(
+        "formnorm_explicitbaker_integral_multiscale_audit",
+        {},
+    )
+    machine162 = audit162.get("machine_audit", {})
+    if machine162 != {
+        "exact_theorem_count": 4,
+        "rejected_target_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket162 global machine audit changed")
+
+    per_problem162 = {
+        "riemann": (
+            "riemann/rh-ticket-162-h1-form-transport.json"
+        ),
+        "collatz": (
+            "collatz/co-ticket-162-explicit-family-closure.json"
+        ),
+        "goldbach": "goldbach/gb-ticket-162-integral-moment.json",
+        "twin-prime": (
+            "twin-prime/tp-ticket-162-multiscale-incidence.json"
+        ),
+    }
+    next162 = {
+        "riemann": (
+            "UniformFiniteGuinandWeilH1ContinuityOnResolvedCommonCore"
+        ),
+        "collatz": (
+            "EveryNaturalOddOrbitHitsAFrontLoadedDominatingDescentPrefix"
+        ),
+        "goldbach": (
+            "UniformNormalizedNegativeMinorMomentBelowOneAfterCutoff"
+        ),
+        "twin-prime": (
+            "UniformMultiscaleCenteredIncidenceCarlesonBoundWithPrimeWeights"
+        ),
+    }
+    for problem_id, relative in per_problem162.items():
+        problem_path = Path("data/open-problem") / relative
+        if not problem_path.exists():
+            return fail(f"{problem_id}: ticket162 artifact missing")
+        problem_payload = read_json(problem_path)
+        if (
+            problem_payload.get("schema") != TICKET162_SCHEMA
+            or problem_payload.get("problem_id") != problem_id
+            or problem_payload.get("status") != "open_not_proven"
+            or problem_payload.get("candidate_theorem")
+            != next162[problem_id]
+            or "No " not in str(problem_payload.get("claim_boundary", ""))
+        ):
+            return fail(f"{problem_id}: ticket162 contract changed")
+
+    riemann162 = audit162.get("riemann", {})
+    rh_computation162 = riemann162.get("reproducible_computation", {})
+    rh_rows162 = rh_computation162.get(
+        "finite_smooth_bump_transport_rows",
+        [],
+    )
+    rh_unit162 = rh_computation162.get(
+        "exact_h1_unit_ball_no_go_rows",
+        [],
+    )
+    if (
+        riemann162.get("theorem_name")
+        != "ResolvedH2ToH1TransportAndUniformH1BallNoGo"
+        or len(rh_rows162) != 15
+        or len(rh_unit162) != 5
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in rh_rows162 + rh_unit162
+        )
+        or not all(rh_computation162.get("trend_checks", {}).values())
+        or int(rh_computation162.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket162 RH H1 transport audit changed")
+
+    collatz162 = audit162.get("collatz", {})
+    collatz_computation162 = collatz162.get(
+        "reproducible_computation",
+        {},
+    )
+    threshold162 = collatz_computation162.get(
+        "matveev_threshold_certificate",
+        {},
+    )
+    candidates162 = collatz_computation162.get(
+        "primitive_upper_convergent_rows",
+        [],
+    )
+    coverage162 = collatz_computation162.get(
+        "exact_compositional_coverage_no_go_rows",
+        [],
+    )
+    if (
+        collatz162.get("theorem_name")
+        != "ExplicitMinimalFrontLoadedFamilyClosureAndCoverageNoGo"
+        or threshold162.get("first_certified_asymptotic_length_M")
+        != 21_554_214_227
+        or not all(threshold162.get("checks", {}).values())
+        or len(candidates162) != 10
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in candidates162
+        )
+        or len(coverage162) != 5
+        or not all(
+            coverage162[index]["selected_compositional_fraction"]
+            > coverage162[index + 1]["selected_compositional_fraction"]
+            for index in range(len(coverage162) - 1)
+        )
+        or not all(collatz_computation162.get("summary_checks", {}).values())
+        or int(collatz_computation162.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket162 Collatz explicit closure audit changed")
+
+    goldbach162 = audit162.get("goldbach", {})
+    goldbach_computation162 = goldbach162.get(
+        "reproducible_computation",
+        {},
+    )
+    moment_rows162 = goldbach_computation162.get(
+        "finite_prime_normalized_moment_rows",
+        [],
+    )
+    spike_rows162 = goldbach_computation162.get(
+        "exact_unit_spike_sharpness_rows",
+        [],
+    )
+    if (
+        goldbach162.get("theorem_name")
+        != "IntegralExceptionalSetMomentBridgeAndUnitSpikeSharpness"
+        or len(moment_rows162) != 5
+        or len(spike_rows162) != 5
+        or any(
+            row.get("normalized_negative_minor_moment_budget", 0) < 1
+            or row.get("unit_exception_gate_passes") is not False
+            or not all(row.get("checks", {}).values())
+            for row in moment_rows162
+        )
+        or any(
+            row.get("normalized_negative_error_budget") != 1.0
+            or not all(row.get("checks", {}).values())
+            for row in spike_rows162
+        )
+        or int(goldbach_computation162.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket162 Goldbach integral moment audit changed")
+
+    twin162 = audit162.get("twin_prime", {})
+    twin_computation162 = twin162.get("reproducible_computation", {})
+    checker162 = twin_computation162.get(
+        "exact_fixed_bin_checkerboard_no_go",
+        {},
+    )
+    multiscale162 = twin_computation162.get(
+        "finite_cubic_rough_multiscale_rows",
+        [],
+    )
+    if (
+        twin162.get("theorem_name")
+        != "DyadicIncidenceEnergyDecompositionAndFixedBinNoGo"
+        or checker162.get(
+            "coarse_two_by_two_projection_energy",
+            {},
+        ).get("exact")
+        != "0/1"
+        or checker162.get("fine_four_by_four_energy", {}).get("exact")
+        != "16/1"
+        or not all(checker162.get("checks", {}).values())
+        or len(multiscale162) != 3
+        or [
+            row.get("double_semiprime_pair_count_QQ")
+            for row in multiscale162
+        ]
+        != [284, 2453, 19074]
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in multiscale162
+        )
+        or int(twin_computation162.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket162 Twin multiscale audit changed")
+
+    sections162 = {
+        "riemann": riemann162,
+        "collatz": collatz162,
+        "goldbach": goldbach162,
+        "twin-prime": twin162,
+    }
+    for problem_id, section in sections162.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next162[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket162 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit162.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket162.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket162 proof boundary changed")
 
     print("open problem structure verified")
     return 0

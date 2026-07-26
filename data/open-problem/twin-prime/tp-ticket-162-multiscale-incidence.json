@@ -1,0 +1,335 @@
+{
+  "schema": "primeproject.ticket162-formnorm-explicitbaker-integral-multiscale.v1",
+  "generated_at": "2026-07-27T23:30:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-162",
+  "status": "open_not_proven",
+  "theorem_name": "DyadicIncidenceEnergyDecompositionAndFixedBinNoGo",
+  "declared_proposition": "Let H be a finite centered incidence matrix and let P_j be the Frobenius-orthogonal conditional expectation onto nested dyadic blocks with 2^j bins per axis. Then ||P_J H||_F^2=||P_0 H||_F^2+sum_{j=1}^J ||P_j H-P_{j-1}H||_F^2. A fixed coarse partition cannot certify Type-II cancellation: the 4x4 checkerboard has zero row and column margins and zero 2x2 coarse projection, but fine energy 16. Therefore a valid Twin-prime incidence route must control all relevant scales, not one fixed binning.",
+  "mathematical_argument": "Nested conditional expectations are orthogonal projections, so their martingale differences are pairwise orthogonal and the Pythagorean identity follows. Direct block summation proves the checkerboard no-go. For a count matrix C with total T and margins r,c, H=T*C-r*c^T has zero margins identically; the finite rows compute its exact dyadic projection energies after cubic roughness. No observed finite energy profile is promoted to a uniform asymptotic estimate.",
+  "reproducible_computation": {
+    "theorem": "Let H be a finite centered incidence matrix and let P_j be the Frobenius-orthogonal conditional expectation onto nested dyadic blocks with 2^j bins per axis. Then ||P_J H||_F^2=||P_0 H||_F^2+sum_{j=1}^J ||P_j H-P_{j-1}H||_F^2. A fixed coarse partition cannot certify Type-II cancellation: the 4x4 checkerboard has zero row and column margins and zero 2x2 coarse projection, but fine energy 16. Therefore a valid Twin-prime incidence route must control all relevant scales, not one fixed binning.",
+    "proof": "Nested conditional expectations are orthogonal projections, so their martingale differences are pairwise orthogonal and the Pythagorean identity follows. Direct block summation proves the checkerboard no-go. For a count matrix C with total T and margins r,c, H=T*C-r*c^T has zero margins identically; the finite rows compute its exact dyadic projection energies after cubic roughness. No observed finite energy profile is promoted to a uniform asymptotic estimate.",
+    "exact_fixed_bin_checkerboard_no_go": {
+      "matrix": [
+        [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          -1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          -1,
+          1
+        ]
+      ],
+      "coarse_two_by_two_projection_energy": {
+        "exact": "0/1",
+        "decimal": 0.0
+      },
+      "fine_four_by_four_energy": {
+        "exact": "16/1",
+        "decimal": 16.0
+      },
+      "checks": {
+        "all_fine_row_margins_vanish": true,
+        "all_fine_column_margins_vanish": true,
+        "two_by_two_coarse_projection_is_zero": true,
+        "fine_checkerboard_energy_is_positive": true
+      }
+    },
+    "finite_cubic_rough_multiscale_rows": [
+      {
+        "cutoff_X": 100000,
+        "cubic_roughness_z": 46,
+        "double_semiprime_pair_count_QQ": 284,
+        "finest_bins_per_axis": 16,
+        "dyadic_projection_levels": [
+          {
+            "bins_per_axis": 1,
+            "projection_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "detail_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "normalized_projection_frobenius": 0.0,
+            "detail_share_of_finest_energy": 0.0
+          },
+          {
+            "bins_per_axis": 2,
+            "projection_energy": {
+              "exact": "3744225/16",
+              "decimal": 234014.0625
+            },
+            "detail_energy": {
+              "exact": "3744225/16",
+              "decimal": 234014.0625
+            },
+            "normalized_projection_frobenius": 0.005997693909938504,
+            "detail_share_of_finest_energy": 0.01268398601528231
+          },
+          {
+            "bins_per_axis": 4,
+            "projection_energy": {
+              "exact": "5995759/4",
+              "decimal": 1498939.75
+            },
+            "detail_energy": {
+              "exact": "20238811/16",
+              "decimal": 1264925.6875
+            },
+            "normalized_projection_frobenius": 0.015179428060246207,
+            "detail_share_of_finest_energy": 0.06856126319597293
+          },
+          {
+            "bins_per_axis": 8,
+            "projection_energy": {
+              "exact": "5460504/1",
+              "decimal": 5460504.0
+            },
+            "detail_energy": {
+              "exact": "15846257/4",
+              "decimal": 3961564.25
+            },
+            "normalized_projection_frobenius": 0.028972080597414417,
+            "detail_share_of_finest_energy": 0.2147239572221962
+          },
+          {
+            "bins_per_axis": 16,
+            "projection_energy": {
+              "exact": "18449568/1",
+              "decimal": 18449568.0
+            },
+            "detail_energy": {
+              "exact": "12989064/1",
+              "decimal": 12989064.0
+            },
+            "normalized_projection_frobenius": 0.05325451338657067,
+            "detail_share_of_finest_energy": 0.7040307935665485
+          }
+        ],
+        "checks": {
+          "double_semiprime_pairs_exist": true,
+          "centered_rows_have_zero_margins": true,
+          "centered_columns_have_zero_margins": true,
+          "dyadic_projection_energies_are_monotone": true,
+          "orthogonal_detail_energy_telescopes_exactly": true,
+          "finest_centered_energy_is_nonzero": true
+        }
+      },
+      {
+        "cutoff_X": 1000000,
+        "cubic_roughness_z": 100,
+        "double_semiprime_pair_count_QQ": 2453,
+        "finest_bins_per_axis": 16,
+        "dyadic_projection_levels": [
+          {
+            "bins_per_axis": 1,
+            "projection_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "detail_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "normalized_projection_frobenius": 0.0,
+            "detail_share_of_finest_energy": 0.0
+          },
+          {
+            "bins_per_axis": 2,
+            "projection_energy": {
+              "exact": "363016809/1",
+              "decimal": 363016809.0
+            },
+            "detail_energy": {
+              "exact": "363016809/1",
+              "decimal": 363016809.0
+            },
+            "normalized_projection_frobenius": 0.003166418184909316,
+            "detail_share_of_finest_energy": 0.036453027600677264
+          },
+          {
+            "bins_per_axis": 4,
+            "projection_energy": {
+              "exact": "2548849611/4",
+              "decimal": 637212402.75
+            },
+            "detail_energy": {
+              "exact": "1096782375/4",
+              "decimal": 274195593.75
+            },
+            "normalized_projection_frobenius": 0.004195145362113852,
+            "detail_share_of_finest_energy": 0.027533875289374937
+          },
+          {
+            "bins_per_axis": 8,
+            "projection_energy": {
+              "exact": "7388449439/2",
+              "decimal": 3694224719.5
+            },
+            "detail_energy": {
+              "exact": "12228049267/4",
+              "decimal": 3057012316.75
+            },
+            "normalized_projection_frobenius": 0.010101050877645696,
+            "detail_share_of_finest_energy": 0.30697574215660656
+          },
+          {
+            "bins_per_axis": 16,
+            "projection_energy": {
+              "exact": "9958481720/1",
+              "decimal": 9958481720.0
+            },
+            "detail_energy": {
+              "exact": "12528514001/2",
+              "decimal": 6264257000.5
+            },
+            "normalized_projection_frobenius": 0.01658446510343749,
+            "detail_share_of_finest_energy": 0.6290373549533412
+          }
+        ],
+        "checks": {
+          "double_semiprime_pairs_exist": true,
+          "centered_rows_have_zero_margins": true,
+          "centered_columns_have_zero_margins": true,
+          "dyadic_projection_energies_are_monotone": true,
+          "orthogonal_detail_energy_telescopes_exactly": true,
+          "finest_centered_energy_is_nonzero": true
+        }
+      },
+      {
+        "cutoff_X": 10000000,
+        "cubic_roughness_z": 215,
+        "double_semiprime_pair_count_QQ": 19074,
+        "finest_bins_per_axis": 16,
+        "dyadic_projection_levels": [
+          {
+            "bins_per_axis": 1,
+            "projection_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "detail_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "normalized_projection_frobenius": 0.0,
+            "detail_share_of_finest_energy": 0.0
+          },
+          {
+            "bins_per_axis": 2,
+            "projection_energy": {
+              "exact": "3948419365969/4",
+              "decimal": 987104841492.25
+            },
+            "detail_energy": {
+              "exact": "3948419365969/4",
+              "decimal": 987104841492.25
+            },
+            "normalized_projection_frobenius": 0.0027308514998328447,
+            "detail_share_of_finest_energy": 0.14279429726261267
+          },
+          {
+            "bins_per_axis": 4,
+            "projection_energy": {
+              "exact": "2871245599247/2",
+              "decimal": 1435622799623.5
+            },
+            "detail_energy": {
+              "exact": "1794071832525/4",
+              "decimal": 448517958131.25
+            },
+            "normalized_projection_frobenius": 0.0032933403628262123,
+            "detail_share_of_finest_energy": 0.06488247645933222
+          },
+          {
+            "bins_per_axis": 8,
+            "projection_energy": {
+              "exact": "2548850148204/1",
+              "decimal": 2548850148204.0
+            },
+            "detail_energy": {
+              "exact": "2226454697161/2",
+              "decimal": 1113227348580.5
+            },
+            "normalized_projection_frobenius": 0.004388222046563813,
+            "detail_share_of_finest_energy": 0.1610391421986781
+          },
+          {
+            "bins_per_axis": 16,
+            "projection_energy": {
+              "exact": "6912774952608/1",
+              "decimal": 6912774952608.0
+            },
+            "detail_energy": {
+              "exact": "4363924804404/1",
+              "decimal": 4363924804404.0
+            },
+            "normalized_projection_frobenius": 0.007226743702382586,
+            "detail_share_of_finest_energy": 0.631284084079377
+          }
+        ],
+        "checks": {
+          "double_semiprime_pairs_exist": true,
+          "centered_rows_have_zero_margins": true,
+          "centered_columns_have_zero_margins": true,
+          "dyadic_projection_energies_are_monotone": true,
+          "orthogonal_detail_energy_telescopes_exactly": true,
+          "finest_centered_energy_is_nonzero": true
+        }
+      }
+    ],
+    "failure_count": 0
+  },
+  "discarded_route": "fixed-bin centered-incidence decay as a stand-alone Type-II certificate",
+  "remaining_gap": "The exact martingale identity only locates dependence by scale. It supplies neither a uniform Carleson/spectral bound nor prime-producing weights, so it does not imply infinitely many twin primes.",
+  "candidate_theorem": "UniformMultiscaleCenteredIncidenceCarlesonBoundWithPrimeWeights",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample. One exact multiscale energy identity, one fixed-bin no-go, and finite cubic-rough audits through 10M.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T162-REJECTED",
+        "label": "OneFixedIncidencePartitionControlsAllTypeIIDependence",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T162-CLOSED",
+        "label": "DyadicIncidenceEnergyDecompositionAndFixedBinNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T162-OPEN",
+        "label": "UniformMultiscaleCenteredIncidenceCarlesonBoundWithPrimeWeights",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T162-REJECTED",
+        "TP-T162-CLOSED"
+      ],
+      [
+        "TP-T162-CLOSED",
+        "TP-T162-OPEN"
+      ]
+    ]
+  }
+}

@@ -14,19 +14,19 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET161 through TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET162 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260808-ticket161-priority")) {
-      errors.push(`${page}: missing TICKET161 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260727-ticket162-priority")) {
+      errors.push(`${page}: missing TICKET162 priority cache key`);
     }
-    if (!source.includes("styles.css?v=20260808-ticket161")) {
-      errors.push(`${page}: missing TICKET161 style cache key`);
+    if (!source.includes("styles.css?v=20260727-ticket162")) {
+      errors.push(`${page}: missing TICKET162 style cache key`);
     }
   }
 
@@ -1248,9 +1248,38 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket162 title", "Ticket 162 H1 form transport, explicit Collatz closure, integral Goldbach budgets, and multiscale Twin Type II");
+    requireText("ticket162 table", "TICKET162 audit");
+    requireText("ticket162 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket162 resolutions", "Resolution count0");
+    requireText("ticket162 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket162 RH theorem", "ResolvedH2ToH1TransportAndUniformH1BallNoGo");
+      requireText("ticket162 RH rows", "Transport rows15");
+      requireText("ticket162 RH error", "Resolved final H1 error0.002256");
+      requireText("ticket162 RH no-go", "H1 unit-ball no-go rows5");
+      requireText("ticket162 RH target", "UniformFiniteGuinandWeilH1ContinuityOnResolvedCommonCore");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket162 Collatz theorem", "ExplicitMinimalFrontLoadedFamilyClosureAndCoverageNoGo");
+      requireText("ticket162 Collatz threshold", "Explicit threshold M21,554,214,227");
+      requireText("ticket162 Collatz candidates", "Primitive candidates10");
+      requireText("ticket162 Collatz closure", "Closed lengthsall m ≥ 2");
+      requireText("ticket162 Collatz target", "EveryNaturalOddOrbitHitsAFrontLoadedDominatingDescentPrefix");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket162 Goldbach theorem", "IntegralExceptionalSetMomentBridgeAndUnitSpikeSharpness");
+      requireText("ticket162 Goldbach rows", "Prime DFT rows5");
+      requireText("ticket162 Goldbach budget", "Budget range7.13 → 135.36");
+      requireText("ticket162 Goldbach spike", "Sharp unit spikes5");
+      requireText("ticket162 Goldbach target", "UniformNormalizedNegativeMinorMomentBelowOneAfterCutoff");
+    } else {
+      requireText("ticket162 Twin theorem", "DyadicIncidenceEnergyDecompositionAndFixedBinNoGo");
+      requireText("ticket162 Twin coarse", "Coarse checkerboard energy0/1");
+      requireText("ticket162 Twin fine", "Fine checkerboard energy16/1");
+      requireText("ticket162 Twin target", "UniformMultiscaleCenteredIncidenceCarlesonBoundWithPrimeWeights");
+    }
     requireText("ticket161 title", "Ticket 161 common-core resolution, Baker reduction, reflection angles, and Type II incidence");
     requireText("ticket161 table", "TICKET161 audit");
-    requireText("ticket161 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket161 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket161 resolutions", "Resolution count0");
     requireText("ticket161 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {
@@ -2999,6 +3028,7 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-120") ||
     !metrics.evolutionPanel.includes("TICKET-121") ||
     !metrics.evolutionPanel.includes("TICKET-161") ||
+    !metrics.evolutionPanel.includes("TICKET-162") ||
     !metrics.evolutionPanel.includes("TICKET-129") ||
     !metrics.evolutionPanel.includes("TICKET-130") ||
     !metrics.evolutionPanel.includes("TICKET-131")

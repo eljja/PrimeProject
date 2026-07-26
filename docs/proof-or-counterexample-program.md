@@ -37,6 +37,39 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-27 TICKET-162 Form-Norm, Explicit Baker, Integral, and Multiscale Audit
+
+TICKET-162 attacks the four open nodes left by TICKET-161.
+
+1. **Riemann:** `ResolvedH2ToH1TransportAndUniformH1BallNoGo`
+   proves effective `H2`-to-`H1` Fourier transport under `N/L -> infinity`
+   and refutes a uniform rate on the whole `H1` unit ball. The remaining
+   target is actual uniform `H1` continuity of the finite Guinand-Weil forms.
+2. **Collatz:** `ExplicitMinimalFrontLoadedFamilyClosureAndCoverageNoGo`
+   combines Matveev's explicit constant with certified continued fractions
+   to close the selected minimal front-loaded family for every `m>=2`.
+   Its share among equal-length positive valuation compositions tends to
+   zero, so the remaining target is a natural-orbit coverage theorem.
+3. **Goldbach:** `IntegralExceptionalSetMomentBridgeAndUnitSpikeSharpness`
+   proves that a target-normalized negative-error moment below one excludes
+   every zero representation count, and that one is the sharp gate. The
+   tested prime DFT budgets remain above one.
+4. **Twin Prime:**
+   `DyadicIncidenceEnergyDecompositionAndFixedBinNoGo` gives the exact
+   martingale energy identity and proves that one fixed incidence partition
+   can miss all fine checkerboard dependence. A uniform multiscale bound
+   with prime-producing weights remains open.
+
+한국어 요약: TICKET-162는 리만 가설의 `H2→H1` 수송, 콜라츠 선택
+계열의 모든 길이 폐쇄, 골드바흐 적분 예외예산의 정확한 `<1` gate,
+쌍둥이 소수 Type-II incidence의 dyadic 에너지 분해를 증명했습니다.
+동시에 전체 `H1` 단위공 수송, 선택 Collatz 계열의 전체 궤도 포괄,
+예산 1 이상의 평균 Goldbach 추정, 고정 Twin binning을 각각
+폐기했습니다. 네 추측 자체의 해결 수는 여전히 0입니다. 전체 증명과
+재현 명령은
+[TICKET-162 formnorm-explicitbaker-integral-multiscale](formnorm-explicitbaker-integral-multiscale.md)에
+있습니다.
+
 ## 2026-07-26 TICKET-144 Exact Certificate and Target-Strength Audit
 
 TICKET-144 attacks the four TICKET-143 targets at their quantifier and
