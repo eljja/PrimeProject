@@ -1,0 +1,594 @@
+{
+  "schema": "primeproject.ticket148-multiscale-renewal-sharpness-matching.v1",
+  "generated_at": "2026-07-27T15:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-148",
+  "attempt": "For X>=13, the cubic-rough gap-two support defined by spf(n)^3>2X+2 and spf(n+2)^3>2X+2 is a matching. No two admitted edges share a vertex. On a matching, however, A00 and the two endpoint marginals A10,A01 still do not determine the joint A11 or the -- cell count.",
+  "bounded_result": {
+    "audit_ref": "multiscale_renewal_sharpness_matching_audit.twin_prime"
+  },
+  "obstruction": "The matching counterfamily uses abstract signs, not the actual Liouville function. Exact finite cell inversion does not prove a uniform arithmetic coupling estimate, a Type II bound, or infinitely many twin primes.",
+  "candidate_theorem": "CubicRoughLiouvilleMatchingCouplingTypeIIBound",
+  "next_experiment": "estimate the actual Liouville endpoint coupling across the cubic-rough matching by a Type II bilinear bound",
+  "claim_boundary": "No Twin Prime proof or counterexample. One exact support geometry correction and one matching-coupling no-go.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-148",
+    "theorem_name": "CubicRoughGapTwoMatchingAndCouplingNoGo",
+    "declared_proposition": "For X>=13, the cubic-rough gap-two support defined by spf(n)^3>2X+2 and spf(n+2)^3>2X+2 is a matching. No two admitted edges share a vertex. On a matching, however, A00 and the two endpoint marginals A10,A01 still do not determine the joint A11 or the -- cell count.",
+    "mathematical_argument": "If edges (n,n+2) and (n+2,n+4) were both admitted, all three numbers would have smallest prime factor greater than 3, because 3^3=27<=2X+2. But one of three consecutive odd numbers spaced by two is divisible by 3. This contradiction shows that the maximum degree is one. On 4m disjoint edges, use 2m ++ and 2m -- labels, or instead 2m +- and 2m -+ labels. Both assignments have (A00,A10,A01)=(4m,0,0), but A11 is +4m versus -4m and the -- count is 2m versus 0. The missing object is endpoint coupling, not long-path geometry.",
+    "reproducible_computation": {
+      "theorem": "For X>=13, the cubic-rough gap-two support defined by spf(n)^3>2X+2 and spf(n+2)^3>2X+2 is a matching. No two admitted edges share a vertex. On a matching, however, A00 and the two endpoint marginals A10,A01 still do not determine the joint A11 or the -- cell count.",
+      "matching_proof": "If edges (n,n+2) and (n+2,n+4) were both admitted, all three numbers would have smallest prime factor greater than 3, because 3^3=27<=2X+2. But one of three consecutive odd numbers spaced by two is divisible by 3. This contradiction shows that the maximum degree is one.",
+      "coupling_no_go": "On 4m disjoint edges, use 2m ++ and 2m -- labels, or instead 2m +- and 2m -+ labels. Both assignments have (A00,A10,A01)=(4m,0,0), but A11 is +4m versus -4m and the -- count is 2m versus 0. The missing object is endpoint coupling, not long-path geometry.",
+      "correction_to_ticket147": "TICKET-147's path-cut identity remains true for arbitrary gap-two graphs, but its long-path counterfamily cannot occur inside the actual TICKET-142 cubic-rough support when X>=13. This ticket replaces that application with the exact matching coupling no-go.",
+      "finite_graph_rows": [
+        {
+          "X": 13,
+          "edge_count": 2,
+          "vertex_count": 4,
+          "maximum_degree": 1,
+          "checks": {
+            "support_is_matching": true,
+            "edge_endpoints_in_range": true
+          }
+        },
+        {
+          "X": 100,
+          "edge_count": 11,
+          "vertex_count": 22,
+          "maximum_degree": 1,
+          "checks": {
+            "support_is_matching": true,
+            "edge_endpoints_in_range": true
+          }
+        },
+        {
+          "X": 1000,
+          "edge_count": 59,
+          "vertex_count": 118,
+          "maximum_degree": 1,
+          "checks": {
+            "support_is_matching": true,
+            "edge_endpoints_in_range": true
+          }
+        },
+        {
+          "X": 10000,
+          "edge_count": 358,
+          "vertex_count": 716,
+          "maximum_degree": 1,
+          "checks": {
+            "support_is_matching": true,
+            "edge_endpoints_in_range": true
+          }
+        },
+        {
+          "X": 100000,
+          "edge_count": 2486,
+          "vertex_count": 4972,
+          "maximum_degree": 1,
+          "checks": {
+            "support_is_matching": true,
+            "edge_endpoints_in_range": true
+          }
+        }
+      ],
+      "matching_counterfamily_rows": [
+        {
+          "edge_count": 4,
+          "correlated_ledger": {
+            "A00": 4,
+            "A10": 0,
+            "A01": 0,
+            "A11": 4,
+            "negative_negative_edges": 2
+          },
+          "anticorrelated_ledger": {
+            "A00": 4,
+            "A10": 0,
+            "A01": 0,
+            "A11": -4,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 8,
+          "correlated_ledger": {
+            "A00": 8,
+            "A10": 0,
+            "A01": 0,
+            "A11": 8,
+            "negative_negative_edges": 4
+          },
+          "anticorrelated_ledger": {
+            "A00": 8,
+            "A10": 0,
+            "A01": 0,
+            "A11": -8,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 12,
+          "correlated_ledger": {
+            "A00": 12,
+            "A10": 0,
+            "A01": 0,
+            "A11": 12,
+            "negative_negative_edges": 6
+          },
+          "anticorrelated_ledger": {
+            "A00": 12,
+            "A10": 0,
+            "A01": 0,
+            "A11": -12,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 16,
+          "correlated_ledger": {
+            "A00": 16,
+            "A10": 0,
+            "A01": 0,
+            "A11": 16,
+            "negative_negative_edges": 8
+          },
+          "anticorrelated_ledger": {
+            "A00": 16,
+            "A10": 0,
+            "A01": 0,
+            "A11": -16,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 20,
+          "correlated_ledger": {
+            "A00": 20,
+            "A10": 0,
+            "A01": 0,
+            "A11": 20,
+            "negative_negative_edges": 10
+          },
+          "anticorrelated_ledger": {
+            "A00": 20,
+            "A10": 0,
+            "A01": 0,
+            "A11": -20,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 24,
+          "correlated_ledger": {
+            "A00": 24,
+            "A10": 0,
+            "A01": 0,
+            "A11": 24,
+            "negative_negative_edges": 12
+          },
+          "anticorrelated_ledger": {
+            "A00": 24,
+            "A10": 0,
+            "A01": 0,
+            "A11": -24,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 28,
+          "correlated_ledger": {
+            "A00": 28,
+            "A10": 0,
+            "A01": 0,
+            "A11": 28,
+            "negative_negative_edges": 14
+          },
+          "anticorrelated_ledger": {
+            "A00": 28,
+            "A10": 0,
+            "A01": 0,
+            "A11": -28,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 32,
+          "correlated_ledger": {
+            "A00": 32,
+            "A10": 0,
+            "A01": 0,
+            "A11": 32,
+            "negative_negative_edges": 16
+          },
+          "anticorrelated_ledger": {
+            "A00": 32,
+            "A10": 0,
+            "A01": 0,
+            "A11": -32,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 36,
+          "correlated_ledger": {
+            "A00": 36,
+            "A10": 0,
+            "A01": 0,
+            "A11": 36,
+            "negative_negative_edges": 18
+          },
+          "anticorrelated_ledger": {
+            "A00": 36,
+            "A10": 0,
+            "A01": 0,
+            "A11": -36,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 40,
+          "correlated_ledger": {
+            "A00": 40,
+            "A10": 0,
+            "A01": 0,
+            "A11": 40,
+            "negative_negative_edges": 20
+          },
+          "anticorrelated_ledger": {
+            "A00": 40,
+            "A10": 0,
+            "A01": 0,
+            "A11": -40,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 44,
+          "correlated_ledger": {
+            "A00": 44,
+            "A10": 0,
+            "A01": 0,
+            "A11": 44,
+            "negative_negative_edges": 22
+          },
+          "anticorrelated_ledger": {
+            "A00": 44,
+            "A10": 0,
+            "A01": 0,
+            "A11": -44,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 48,
+          "correlated_ledger": {
+            "A00": 48,
+            "A10": 0,
+            "A01": 0,
+            "A11": 48,
+            "negative_negative_edges": 24
+          },
+          "anticorrelated_ledger": {
+            "A00": 48,
+            "A10": 0,
+            "A01": 0,
+            "A11": -48,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 52,
+          "correlated_ledger": {
+            "A00": 52,
+            "A10": 0,
+            "A01": 0,
+            "A11": 52,
+            "negative_negative_edges": 26
+          },
+          "anticorrelated_ledger": {
+            "A00": 52,
+            "A10": 0,
+            "A01": 0,
+            "A11": -52,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 56,
+          "correlated_ledger": {
+            "A00": 56,
+            "A10": 0,
+            "A01": 0,
+            "A11": 56,
+            "negative_negative_edges": 28
+          },
+          "anticorrelated_ledger": {
+            "A00": 56,
+            "A10": 0,
+            "A01": 0,
+            "A11": -56,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 60,
+          "correlated_ledger": {
+            "A00": 60,
+            "A10": 0,
+            "A01": 0,
+            "A11": 60,
+            "negative_negative_edges": 30
+          },
+          "anticorrelated_ledger": {
+            "A00": 60,
+            "A10": 0,
+            "A01": 0,
+            "A11": -60,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        },
+        {
+          "edge_count": 64,
+          "correlated_ledger": {
+            "A00": 64,
+            "A10": 0,
+            "A01": 0,
+            "A11": 64,
+            "negative_negative_edges": 32
+          },
+          "anticorrelated_ledger": {
+            "A00": 64,
+            "A10": 0,
+            "A01": 0,
+            "A11": -64,
+            "negative_negative_edges": 0
+          },
+          "checks": {
+            "same_edge_count": true,
+            "same_left_marginal": true,
+            "same_right_marginal": true,
+            "opposite_joint_extremes": true,
+            "negative_negative_cells_differ": true
+          }
+        }
+      ],
+      "finite_cubic_rough_cell_rows": [
+        {
+          "X": 1000,
+          "ledger": {
+            "A00": 59,
+            "A10": -17,
+            "A01": -19,
+            "A11": 9
+          },
+          "exact_cell_counts": {
+            "++": 8,
+            "+-": 13,
+            "-+": 12,
+            "--": 26
+          },
+          "checks": {
+            "all_cell_numerators_divisible_by_four": true,
+            "all_cells_nonnegative": true,
+            "cells_sum_to_edge_count": true,
+            "negative_negative_matches_direct_twins": true,
+            "ledger_reconstruction_matches": true
+          }
+        },
+        {
+          "X": 10000,
+          "ledger": {
+            "A00": 358,
+            "A10": -104,
+            "A01": -84,
+            "A11": 2
+          },
+          "exact_cell_counts": {
+            "++": 43,
+            "+-": 84,
+            "-+": 94,
+            "--": 137
+          },
+          "checks": {
+            "all_cell_numerators_divisible_by_four": true,
+            "all_cells_nonnegative": true,
+            "cells_sum_to_edge_count": true,
+            "negative_negative_matches_direct_twins": true,
+            "ledger_reconstruction_matches": true
+          }
+        },
+        {
+          "X": 100000,
+          "ledger": {
+            "A00": 2486,
+            "A10": -564,
+            "A01": -556,
+            "A11": 138
+          },
+          "exact_cell_counts": {
+            "++": 376,
+            "+-": 585,
+            "-+": 589,
+            "--": 936
+          },
+          "checks": {
+            "all_cell_numerators_divisible_by_four": true,
+            "all_cells_nonnegative": true,
+            "cells_sum_to_edge_count": true,
+            "negative_negative_matches_direct_twins": true,
+            "ledger_reconstruction_matches": true
+          }
+        },
+        {
+          "X": 1000000,
+          "ledger": {
+            "A00": 17634,
+            "A10": -3970,
+            "A01": -3992,
+            "A11": 1212
+          },
+          "exact_cell_counts": {
+            "++": 2721,
+            "+-": 4111,
+            "-+": 4100,
+            "--": 6702
+          },
+          "checks": {
+            "all_cell_numerators_divisible_by_four": true,
+            "all_cells_nonnegative": true,
+            "cells_sum_to_edge_count": true,
+            "negative_negative_matches_direct_twins": true,
+            "ledger_reconstruction_matches": true
+          }
+        }
+      ],
+      "source_artifact": "data/open-problem/twin-prime/tp-ticket-142-liouville-projector.json",
+      "source_sha256": "474a77d08d5a6c9e66d796e0b881a9ba51e1bdf46b09243c1e27e8c3c7bc1e6e",
+      "failure_count": 0
+    },
+    "logical_limit": "The matching counterfamily uses abstract signs, not the actual Liouville function. Exact finite cell inversion does not prove a uniform arithmetic coupling estimate, a Type II bound, or infinitely many twin primes.",
+    "route_decision": {
+      "discard": "the TICKET-147 long-path switch-deficit target on the actual cubic-rough support, and any inference of joint parity from matching topology plus marginals",
+      "retain": "estimate the actual Liouville endpoint coupling across the cubic-rough matching by a Type II bilinear bound",
+      "next_theorem": "CubicRoughLiouvilleMatchingCouplingTypeIIBound"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T148-REJECTED",
+          "label": "CubicRoughLongPathSwitchDeficitOrMarginalClosure",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T148-CLOSED",
+          "label": "CubicRoughGapTwoMatchingAndCouplingNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T148-OPEN",
+          "label": "CubicRoughLiouvilleMatchingCouplingTypeIIBound",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T148-REJECTED",
+          "TP-T148-CLOSED"
+        ],
+        [
+          "TP-T148-CLOSED",
+          "TP-T148-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof or counterexample. One exact support geometry correction and one matching-coupling no-go."
+  }
+}

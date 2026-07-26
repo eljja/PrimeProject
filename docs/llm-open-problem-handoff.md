@@ -62,7 +62,40 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-147
+## Latest Continuation After TICKET-148
+
+Read `docs/multiscale-renewal-sharpness-matching.md`,
+`data/open-problem/ticket148-multiscale-renewal-sharpness-matching.json`,
+`scripts/ticket148_multiscale_renewal_sharpness_matching.py`, and
+`tests/test_ticket148_multiscale_renewal_sharpness_matching.py` first.
+
+Do not reopen these rejected or corrected routes without a strictly stronger
+problem-specific theorem:
+
+- promotion from a complete multiscale coordinate system and any finite
+  positivity prefix to global Weil positivity;
+- a universal fixed Collatz renewal depth;
+- a generic `o(E/M)` endpoint phase error based only on nonnegativity,
+  conjugate symmetry, and energy;
+- long-path geometry inside the actual TICKET-142 cubic-rough support, or
+  reconstruction of joint parity from matching topology and marginals.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `SmoothWeilWaveletCoreAndUniformMatrixTailPositivityBound` |
+| Collatz | `AdaptiveRenewalRankEscapingMinusFiveTwoAdicShadow` |
+| Goldbach | `VonMangoldtEndpointSectorCancellationBeyondSharpGeometricRate` |
+| Twin Prime | `CubicRoughLiouvilleMatchingCouplingTypeIIBound` |
+
+한국어: RH는 실제 Weil test topology에 포함되는 smooth wavelet core와
+검사하지 않은 matrix tail의 균일 양성을 함께 증명해야 한다. Collatz는
+임의로 긴 `-5,-7` 2-adic shadow에서 모든 양의 정수가 빠져나온다는
+adaptive 정리가 필요하다. Goldbach는 일반 기하학의 최적 `1/M` 장벽을
+넘는 von Mangoldt 고유의 endpoint sector 상쇄를 증명해야 한다. Twin
+Prime은 실제 cubic-rough matching 위 Liouville endpoint coupling을
+Type II 산술로 제어해야 한다. 네 난제는 모두 미해결이다.
+
+## Historical Continuation After TICKET-147
 
 Read `docs/fiber-compensation-phase-graph.md`,
 `data/open-problem/ticket147-fiber-compensation-phase-graph.json`,

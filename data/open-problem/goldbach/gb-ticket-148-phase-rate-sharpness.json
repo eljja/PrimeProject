@@ -1,0 +1,202 @@
+{
+  "schema": "primeproject.ticket148-multiscale-renewal-sharpness-matching.v1",
+  "generated_at": "2026-07-27T15:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-148",
+  "attempt": "The O(E/M) endpoint-phase quantization rate from TICKET-147 is order-sharp even for nonnegative real functions. For every M divisible by 4, let q=4M^2, N=M^2+2M-1, and f(x)=1+cos(2*pi*x/q) on Z/qZ. Nearest M-sector phase quantization has error (q/2)sin(pi/M-pi/(2M^2)); with E=sum f^2=3q/2, M*error/E tends to pi/3.",
+  "bounded_result": {
+    "audit_ref": "multiscale_renewal_sharpness_matching_audit.goldbach"
+  },
+  "obstruction": "The sharp example is a nonnegative trigonometric function, not the von Mangoldt function. It proves a generic geometric lower barrier only and does not exclude arithmetic phase cancellation, major/minor-arc bounds, or a Goldbach representation theorem.",
+  "candidate_theorem": "VonMangoldtEndpointSectorCancellationBeyondSharpGeometricRate",
+  "next_experiment": "prove von Mangoldt-specific endpoint sector cancellation beyond the now sharp generic 1/M rate",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact order-sharpness theorem for a generic analytic route.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-148",
+    "theorem_name": "NonnegativeEndpointPhaseQuantizationOrderSharpness",
+    "declared_proposition": "The O(E/M) endpoint-phase quantization rate from TICKET-147 is order-sharp even for nonnegative real functions. For every M divisible by 4, let q=4M^2, N=M^2+2M-1, and f(x)=1+cos(2*pi*x/q) on Z/qZ. Nearest M-sector phase quantization has error (q/2)sin(pi/M-pi/(2M^2)); with E=sum f^2=3q/2, M*error/E tends to pi/3.",
+    "mathematical_argument": "The unnormalized Fourier transform of f is supported at 0,+1,-1 with coefficients q,q/2,q/2. The exact endpoint convolution is q+(q/2)cos(2*pi*N/q). The endpoint phase is pi/2+delta, delta=pi/M-pi/(2M^2), while nearest-sector quantization replaces the +/-1 phases by +/-pi/2, canceling their pair. Hence the stated error is exact. Parseval gives E=3q/2, and M sin(delta)/3 tends to pi/3.",
+    "reproducible_computation": {
+      "theorem": "The O(E/M) endpoint-phase quantization rate from TICKET-147 is order-sharp even for nonnegative real functions. For every M divisible by 4, let q=4M^2, N=M^2+2M-1, and f(x)=1+cos(2*pi*x/q) on Z/qZ. Nearest M-sector phase quantization has error (q/2)sin(pi/M-pi/(2M^2)); with E=sum f^2=3q/2, M*error/E tends to pi/3.",
+      "proof": "The unnormalized Fourier transform of f is supported at 0,+1,-1 with coefficients q,q/2,q/2. The exact endpoint convolution is q+(q/2)cos(2*pi*N/q). The endpoint phase is pi/2+delta, delta=pi/M-pi/(2M^2), while nearest-sector quantization replaces the +/-1 phases by +/-pi/2, canceling their pair. Hence the stated error is exact. Parseval gives E=3q/2, and M sin(delta)/3 tends to pi/3.",
+      "finite_numeric_rows": [
+        {
+          "sector_count_M": 4,
+          "modulus_q": 64,
+          "endpoint_N": 23,
+          "endpoint_phase": 2.2580197197676637,
+          "phase_offset_delta": 0.6872233929727672,
+          "direct_convolution": 43.699414906763344,
+          "quantized_convolution": 64.0,
+          "absolute_error": 20.300585093236656,
+          "expected_error": 20.300585093236656,
+          "energy": 95.99999999999997,
+          "relative_error_error_over_energy": 0.21146442805454857,
+          "scaled_relative_error_M_times_error_over_energy": 0.8458577122181943,
+          "limit_target_pi_over_three": 1.0471975511965976,
+          "checks": {
+            "function_is_nonnegative": true,
+            "endpoint_phase_identity": true,
+            "nearest_sector_is_pi_over_two": true,
+            "direct_convolution_matches_formula": true,
+            "error_formula_matches": true,
+            "parseval_energy_matches": true
+          }
+        },
+        {
+          "sector_count_M": 8,
+          "modulus_q": 256,
+          "endpoint_N": 79,
+          "endpoint_phase": 1.9389517158874505,
+          "phase_offset_delta": 0.36815538909255385,
+          "direct_convolution": 209.9334353235214,
+          "quantized_convolution": 256.0,
+          "absolute_error": 46.066564676478606,
+          "expected_error": 46.06656467647848,
+          "energy": 383.99999999999983,
+          "relative_error_error_over_energy": 0.11996501217832976,
+          "scaled_relative_error_M_times_error_over_energy": 0.9597200974266381,
+          "limit_target_pi_over_three": 1.0471975511965976,
+          "checks": {
+            "function_is_nonnegative": true,
+            "endpoint_phase_identity": true,
+            "nearest_sector_is_pi_over_two": true,
+            "direct_convolution_matches_formula": true,
+            "error_formula_matches": true,
+            "parseval_energy_matches": true
+          }
+        },
+        {
+          "sector_count_M": 16,
+          "modulus_q": 1024,
+          "endpoint_N": 287,
+          "endpoint_phase": 1.761009944492716,
+          "phase_offset_delta": 0.1902136176978195,
+          "direct_convolution": 927.1968439552974,
+          "quantized_convolution": 1024.0,
+          "absolute_error": 96.80315604470263,
+          "expected_error": 96.80315604470077,
+          "energy": 1536.0000000000005,
+          "relative_error_error_over_energy": 0.0630228880499366,
+          "scaled_relative_error_M_times_error_over_energy": 1.0083662087989855,
+          "limit_target_pi_over_three": 1.0471975511965976,
+          "checks": {
+            "function_is_nonnegative": true,
+            "endpoint_phase_identity": true,
+            "nearest_sector_is_pi_over_two": true,
+            "direct_convolution_matches_formula": true,
+            "error_formula_matches": true,
+            "parseval_energy_matches": true
+          }
+        },
+        {
+          "sector_count_M": 32,
+          "modulus_q": 4096,
+          "endpoint_N": 1087,
+          "endpoint_phase": 1.667437116431692,
+          "phase_offset_delta": 0.0966407896367954,
+          "direct_convolution": 3898.38759658446,
+          "quantized_convolution": 4096.0,
+          "absolute_error": 197.61240341554003,
+          "expected_error": 197.6124034155573,
+          "energy": 6144.000000000001,
+          "relative_error_error_over_energy": 0.03216347711841471,
+          "scaled_relative_error_M_times_error_over_energy": 1.0292312677892708,
+          "limit_target_pi_over_three": 1.0471975511965976,
+          "checks": {
+            "function_is_nonnegative": true,
+            "endpoint_phase_identity": true,
+            "nearest_sector_is_pi_over_two": true,
+            "direct_convolution_matches_formula": true,
+            "error_formula_matches": true,
+            "parseval_energy_matches": true
+          }
+        },
+        {
+          "sector_count_M": 64,
+          "modulus_q": 16384,
+          "endpoint_N": 4223,
+          "endpoint_phase": 1.6195002168102657,
+          "phase_offset_delta": 0.04870389001536911,
+          "direct_convolution": 15985.175449858601,
+          "quantized_convolution": 16384.0,
+          "absolute_error": 398.8245501413985,
+          "expected_error": 398.8245501414518,
+          "energy": 24576.00000000005,
+          "relative_error_error_over_energy": 0.016228212489477443,
+          "scaled_relative_error_M_times_error_over_energy": 1.0386055993265564,
+          "limit_target_pi_over_three": 1.0471975511965976,
+          "checks": {
+            "function_is_nonnegative": true,
+            "endpoint_phase_identity": true,
+            "nearest_sector_is_pi_over_two": true,
+            "direct_convolution_matches_formula": true,
+            "error_formula_matches": true,
+            "parseval_energy_matches": true
+          }
+        },
+        {
+          "sector_count_M": 128,
+          "modulus_q": 65536,
+          "endpoint_N": 16639,
+          "endpoint_phase": 1.595244145601824,
+          "phase_offset_delta": 0.024447818806927406,
+          "direct_convolution": 64734.97367391636,
+          "quantized_convolution": 65536.0,
+          "absolute_error": 801.0263260836364,
+          "expected_error": 801.0263260831176,
+          "energy": 98303.99999999924,
+          "relative_error_error_over_energy": 0.00814846116214643,
+          "scaled_relative_error_M_times_error_over_energy": 1.043003028754743,
+          "limit_target_pi_over_three": 1.0471975511965976,
+          "checks": {
+            "function_is_nonnegative": true,
+            "endpoint_phase_identity": true,
+            "nearest_sector_is_pi_over_two": true,
+            "direct_convolution_matches_formula": true,
+            "error_formula_matches": true,
+            "parseval_energy_matches": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The sharp example is a nonnegative trigonometric function, not the von Mangoldt function. It proves a generic geometric lower barrier only and does not exclude arithmetic phase cancellation, major/minor-arc bounds, or a Goldbach representation theorem.",
+    "route_decision": {
+      "discard": "improving the TICKET-147 phase error to o(E/M) using only nonnegativity, reality, conjugate symmetry, and Parseval energy",
+      "retain": "prove von Mangoldt-specific endpoint sector cancellation beyond the now sharp generic 1/M rate",
+      "next_theorem": "VonMangoldtEndpointSectorCancellationBeyondSharpGeometricRate"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T148-REJECTED",
+          "label": "GenericNonnegativePhaseQuantizationIsLittleOEnergyOverM",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T148-CLOSED",
+          "label": "NonnegativeEndpointPhaseQuantizationOrderSharpness",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T148-OPEN",
+          "label": "VonMangoldtEndpointSectorCancellationBeyondSharpGeometricRate",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T148-REJECTED",
+          "GB-T148-CLOSED"
+        ],
+        [
+          "GB-T148-CLOSED",
+          "GB-T148-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One exact order-sharpness theorem for a generic analytic route."
+  }
+}

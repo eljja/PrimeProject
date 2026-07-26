@@ -30,6 +30,7 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 | `docs/crypto-prime-catalog.md` | catalog of public cryptographic primes | provenance and parameter recognition | blocked secret-prime recovery |
 | `docs/generator-fingerprint-research.md` | generator fingerprint theory | feature extraction and defensive attribution scaffolding | definitive source attribution |
 | `docs/open-problem-workbench.md` | open-problem proof lab specification | bounded certificates, AI solver frontier, falsification and proof-obligation tracking | proof of the four open conjectures |
+| `docs/multiscale-renewal-sharpness-matching.md` | latest four-problem intermediate-theorem report | four exact route no-gos/corrections with reproducible audits | a proof or counterexample to any target conjecture |
 | `docs/prime-regularity-and-crypto-prime-plan.md` | initial research plan | defensive interpretation of prime-generation traces | blocked operational exploitation or blocked private-key recovery |
 | `docs/real-world-baseline-research.md` | sim-to-real baseline protocol | collection, provenance, intake, and publication gates | accepted baseline evidence before submission |
 | `docs/validation-experiment-results.md` | validation result note | synthetic validation outcomes | deployment-grade attribution |
@@ -48,6 +49,7 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 | `docs/crypto-prime-catalog.md` | 공개 암호 소수 카탈로그 | provenance와 parameter recognition | 비밀 소수 복원 |
 | `docs/generator-fingerprint-research.md` | 생성기 fingerprint 이론 | feature extraction 및 방어적 attribution scaffolding | 단정적 source attribution |
 | `docs/open-problem-workbench.md` | 미해결 문제 proof lab 규격 | bounded certificate, AI solver frontier, 반증/증명 의무 추적 | 네 개 난제의 증명 |
+| `docs/multiscale-renewal-sharpness-matching.md` | 최신 네 난제 중간정리 보고서 | 재현 감사가 있는 정확한 경로 no-go/교정 4건 | 어떤 대상 추측의 증명 또는 반례 |
 | `docs/prime-regularity-and-crypto-prime-plan.md` | 초기 연구 계획 | 소수 생성 흔적의 방어적 해석 | 차단된 운영 공격 또는 차단된 private-key 복구 |
 | `docs/real-world-baseline-research.md` | sim-to-real baseline 프로토콜 | 수집, provenance, intake, publication gate | 제출 전 accepted baseline evidence가 이미 있다는 주장 |
 | `docs/validation-experiment-results.md` | 검증 결과 노트 | 합성 검증 결과 | 배포 수준 attribution |
@@ -60,6 +62,7 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 4. `docs/open-problem-workbench.md` has a bilingual abstract and includes the newest proof-workbench schemas, so the document no longer lags behind GitHub Pages.
 5. The reviewed-document tables now repeat `blocked`/`차단` inside sensitive blocked-claim cells, reducing the risk that an older planning phrase is read as an endorsed attack or recovery claim.
 6. This review records the allowed and blocked claim for every Markdown document, reducing the risk that an older strategic or planning document is read as a proof or real-world attribution result.
+7. TICKET-148 explicitly records the TICKET-147 Twin support-geometry correction and preserves zero conjecture resolutions rather than silently rewriting the historical claim.
 
 ## Submission Boundary / 제출 경계
 

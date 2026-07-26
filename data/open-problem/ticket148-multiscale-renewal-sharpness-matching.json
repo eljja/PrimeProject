@@ -1,0 +1,2307 @@
+{
+  "schema": "primeproject.ticket148-multiscale-renewal-sharpness-matching.v1",
+  "generated_at": "2026-07-27T15:00:00+09:00",
+  "status": "exact_partial_theorems_route_no_go_and_geometry_correction_all_conjectures_open",
+  "claim_boundary": "TICKET-148 proves four exact intermediate results and resolves no target conjecture. It closes an L2 multiscale completeness subproblem while refuting finite-prefix positivity promotion; constructs an expanding Collatz cylinder for every fixed renewal horizon; proves generic endpoint-phase quantization cannot beat order 1/M; and corrects the cubic-rough support from a path model to a matching while preserving a coupling no-go.",
+  "multiscale_renewal_sharpness_matching_audit": {
+    "theorem_name": "FourConjectureMultiscaleRenewalSharpnessMatchingAudit",
+    "status": "exact_partial_theorems_route_no_go_and_geometry_correction_all_conjectures_open",
+    "proof_boundary": "TICKET-148 proves four exact intermediate results and resolves no target conjecture. It closes an L2 multiscale completeness subproblem while refuting finite-prefix positivity promotion; constructs an expanding Collatz cylinder for every fixed renewal horizon; proves generic endpoint-phase quantization cannot beat order 1/M; and corrects the cubic-rough support from a path model to a matching while preserving a coupling no-go.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-148",
+      "theorem_name": "DyadicHaarMultiscaleCompletenessAndFiniteScalePositivityNoGo",
+      "declared_proposition": "The unit-interval translates together with all dyadic Haar wavelets form a complete orthonormal basis of L2(R). Nevertheless, for every N there is a bounded self-adjoint operator diagonal in that basis whose first N tested directions are positive and whose (N+1)-st direction is negative.",
+      "mathematical_argument": "On each unit interval, dyadic conditional expectations converge in L2 to the function. Their successive differences are exactly the Haar detail spaces. Truncating first to finitely many unit intervals and then refining the dyadic partition proves density; orthogonality gives an orthonormal basis after normalization. Enumerate the complete basis as e_1,e_2,... and define A_N e_j=e_j except A_N e_(N+1)=-e_(N+1). Then A_N is bounded and self-adjoint. Its quadratic form is positive on each of e_1,...,e_N but is -1 on e_(N+1). Completeness therefore does not turn any finite prefix positivity audit into global positivity.",
+      "reproducible_computation": {
+        "theorem": "The unit-interval translates together with all dyadic Haar wavelets form a complete orthonormal basis of L2(R). Nevertheless, for every N there is a bounded self-adjoint operator diagonal in that basis whose first N tested directions are positive and whose (N+1)-st direction is negative.",
+        "completeness_proof": "On each unit interval, dyadic conditional expectations converge in L2 to the function. Their successive differences are exactly the Haar detail spaces. Truncating first to finitely many unit intervals and then refining the dyadic partition proves density; orthogonality gives an orthonormal basis after normalization.",
+        "finite_positivity_no_go_proof": "Enumerate the complete basis as e_1,e_2,... and define A_N e_j=e_j except A_N e_(N+1)=-e_(N+1). Then A_N is bounded and self-adjoint. Its quadratic form is positive on each of e_1,...,e_N but is -1 on e_(N+1). Completeness therefore does not turn any finite prefix positivity audit into global positivity.",
+        "finite_exact_rows": [
+          {
+            "level": 1,
+            "dimension": 2,
+            "row_count": 2,
+            "exact_rank": 2,
+            "off_diagonal_dot_product_max": 0,
+            "row_norm_min": 2,
+            "row_norm_max": 2,
+            "positive_prefix_size": 1,
+            "first_negative_basis_index_zero_based": 1,
+            "checks": {
+              "row_count_equals_dimension": true,
+              "exact_full_rank": true,
+              "pairwise_orthogonal": true,
+              "positive_row_norms": true,
+              "finite_prefix_positive": true,
+              "hidden_next_direction_negative": true
+            }
+          },
+          {
+            "level": 2,
+            "dimension": 4,
+            "row_count": 4,
+            "exact_rank": 4,
+            "off_diagonal_dot_product_max": 0,
+            "row_norm_min": 2,
+            "row_norm_max": 4,
+            "positive_prefix_size": 3,
+            "first_negative_basis_index_zero_based": 3,
+            "checks": {
+              "row_count_equals_dimension": true,
+              "exact_full_rank": true,
+              "pairwise_orthogonal": true,
+              "positive_row_norms": true,
+              "finite_prefix_positive": true,
+              "hidden_next_direction_negative": true
+            }
+          },
+          {
+            "level": 3,
+            "dimension": 8,
+            "row_count": 8,
+            "exact_rank": 8,
+            "off_diagonal_dot_product_max": 0,
+            "row_norm_min": 2,
+            "row_norm_max": 8,
+            "positive_prefix_size": 7,
+            "first_negative_basis_index_zero_based": 7,
+            "checks": {
+              "row_count_equals_dimension": true,
+              "exact_full_rank": true,
+              "pairwise_orthogonal": true,
+              "positive_row_norms": true,
+              "finite_prefix_positive": true,
+              "hidden_next_direction_negative": true
+            }
+          },
+          {
+            "level": 4,
+            "dimension": 16,
+            "row_count": 16,
+            "exact_rank": 16,
+            "off_diagonal_dot_product_max": 0,
+            "row_norm_min": 2,
+            "row_norm_max": 16,
+            "positive_prefix_size": 8,
+            "first_negative_basis_index_zero_based": 8,
+            "checks": {
+              "row_count_equals_dimension": true,
+              "exact_full_rank": true,
+              "pairwise_orthogonal": true,
+              "positive_row_norms": true,
+              "finite_prefix_positive": true,
+              "hidden_next_direction_negative": true
+            }
+          },
+          {
+            "level": 5,
+            "dimension": 32,
+            "row_count": 32,
+            "exact_rank": 32,
+            "off_diagonal_dot_product_max": 0,
+            "row_norm_min": 2,
+            "row_norm_max": 32,
+            "positive_prefix_size": 8,
+            "first_negative_basis_index_zero_based": 8,
+            "checks": {
+              "row_count_equals_dimension": true,
+              "exact_full_rank": true,
+              "pairwise_orthogonal": true,
+              "positive_row_norms": true,
+              "finite_prefix_positive": true,
+              "hidden_next_direction_negative": true
+            }
+          },
+          {
+            "level": 6,
+            "dimension": 64,
+            "row_count": 64,
+            "exact_rank": 64,
+            "off_diagonal_dot_product_max": 0,
+            "row_norm_min": 2,
+            "row_norm_max": 64,
+            "positive_prefix_size": 8,
+            "first_negative_basis_index_zero_based": 8,
+            "checks": {
+              "row_count_equals_dimension": true,
+              "exact_full_rank": true,
+              "pairwise_orthogonal": true,
+              "positive_row_norms": true,
+              "finite_prefix_positive": true,
+              "hidden_next_direction_negative": true
+            }
+          },
+          {
+            "level": 7,
+            "dimension": 128,
+            "row_count": 128,
+            "exact_rank": 128,
+            "off_diagonal_dot_product_max": 0,
+            "row_norm_min": 2,
+            "row_norm_max": 128,
+            "positive_prefix_size": 8,
+            "first_negative_basis_index_zero_based": 8,
+            "checks": {
+              "row_count_equals_dimension": true,
+              "exact_full_rank": true,
+              "pairwise_orthogonal": true,
+              "positive_row_norms": true,
+              "finite_prefix_positive": true,
+              "hidden_next_direction_negative": true
+            }
+          },
+          {
+            "level": 8,
+            "dimension": 256,
+            "row_count": 256,
+            "exact_rank": 256,
+            "off_diagonal_dot_product_max": 0,
+            "row_norm_min": 2,
+            "row_norm_max": 256,
+            "positive_prefix_size": 8,
+            "first_negative_basis_index_zero_based": 8,
+            "checks": {
+              "row_count_equals_dimension": true,
+              "exact_full_rank": true,
+              "pairwise_orthogonal": true,
+              "positive_row_norms": true,
+              "finite_prefix_positive": true,
+              "hidden_next_direction_negative": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The Haar theorem is for L2(R), whereas the exact Weil criterion uses a specific smooth test space and quadratic form. Haar wavelets are discontinuous, and the synthetic diagonal operator is not the Weil operator. No actual zeta-zero or Weil-matrix tail is controlled.",
+      "route_decision": {
+        "discard": "complete multiscale coordinates plus positivity on any finite prefix as a global positivity certificate",
+        "retain": "construct a smooth wavelet core inside the exact Weil test topology and prove a uniform positive tail bound for the actual Weil matrix",
+        "next_theorem": "SmoothWeilWaveletCoreAndUniformMatrixTailPositivityBound"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T148-REJECTED",
+            "label": "FinitePrefixPositivityPromotesOnCompleteCoordinates",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T148-CLOSED",
+            "label": "DyadicHaarMultiscaleCompletenessAndFiniteScalePositivityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T148-OPEN",
+            "label": "SmoothWeilWaveletCoreAndUniformMatrixTailPositivityBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T148-REJECTED",
+            "RH-T148-CLOSED"
+          ],
+          [
+            "RH-T148-CLOSED",
+            "RH-T148-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero. One exact L2 completeness theorem and one operator-theoretic no-go."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-148",
+      "theorem_name": "MinusFiveCylinderNoFixedRenewalHorizon",
+      "declared_proposition": "For every L>=1, n_L=2^(3L+1)-5 has first 2L accelerated Collatz valuations (1,2)^L and T^(2L)(n_L)=2*9^L-5>n_L. More strongly, every nonnegative lift n_L+2^(3L+1)t has the same valuation word and maps to 2*9^L(1+t)-5, which is larger than its input.",
+      "mathematical_argument": "For r>=1 and integer c>=1, x=2*c*8^r-5 satisfies v2(3x+1)=1 and its first accelerated image is 3*c*8^r-7. The next valuation is exactly 2 and the second image is 2*(9c)*8^(r-1)-5. Iterating L pairs from c=1+t,r=L gives the formula. Strict expansion follows from 9^L>8^L.",
+      "reproducible_computation": {
+        "theorem": "For every L>=1, n_L=2^(3L+1)-5 has first 2L accelerated Collatz valuations (1,2)^L and T^(2L)(n_L)=2*9^L-5>n_L. More strongly, every nonnegative lift n_L+2^(3L+1)t has the same valuation word and maps to 2*9^L(1+t)-5, which is larger than its input.",
+        "proof": "For r>=1 and integer c>=1, x=2*c*8^r-5 satisfies v2(3x+1)=1 and its first accelerated image is 3*c*8^r-7. The next valuation is exactly 2 and the second image is 2*(9c)*8^(r-1)-5. Iterating L pairs from c=1+t,r=L gives the formula. Strict expansion follows from 9^L>8^L.",
+        "cylinder_measure": "The exact residue class modulo 2^(3L+1) has Haar mass 2^(-3L) relative to odd 2-adic integers.",
+        "finite_exact_rows": [
+          {
+            "renewal_pair_count": 1,
+            "residue_modulus": 16,
+            "least_positive_representative": 11,
+            "valuation_word": [
+              1,
+              2
+            ],
+            "image_after_pairs": 13,
+            "expected_image": 13,
+            "expansion": 2,
+            "odd_haar_mass": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 11,
+                "image": 13,
+                "expected_image": 13,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 27,
+                "image": 31,
+                "expected_image": 31,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 43,
+                "image": 49,
+                "expected_image": 49,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 123,
+                "image": 139,
+                "expected_image": 139,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 2,
+            "residue_modulus": 128,
+            "least_positive_representative": 123,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 157,
+            "expected_image": 157,
+            "expansion": 34,
+            "odd_haar_mass": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 123,
+                "image": 157,
+                "expected_image": 157,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 251,
+                "image": 319,
+                "expected_image": 319,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 379,
+                "image": 481,
+                "expected_image": 481,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 1019,
+                "image": 1291,
+                "expected_image": 1291,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 3,
+            "residue_modulus": 1024,
+            "least_positive_representative": 1019,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 1453,
+            "expected_image": 1453,
+            "expansion": 434,
+            "odd_haar_mass": {
+              "exact": "1/512",
+              "decimal": 0.001953125
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 1019,
+                "image": 1453,
+                "expected_image": 1453,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 2043,
+                "image": 2911,
+                "expected_image": 2911,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 3067,
+                "image": 4369,
+                "expected_image": 4369,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 8187,
+                "image": 11659,
+                "expected_image": 11659,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 4,
+            "residue_modulus": 8192,
+            "least_positive_representative": 8187,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 13117,
+            "expected_image": 13117,
+            "expansion": 4930,
+            "odd_haar_mass": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 8187,
+                "image": 13117,
+                "expected_image": 13117,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 16379,
+                "image": 26239,
+                "expected_image": 26239,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 24571,
+                "image": 39361,
+                "expected_image": 39361,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 65531,
+                "image": 104971,
+                "expected_image": 104971,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 5,
+            "residue_modulus": 65536,
+            "least_positive_representative": 65531,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 118093,
+            "expected_image": 118093,
+            "expansion": 52562,
+            "odd_haar_mass": {
+              "exact": "1/32768",
+              "decimal": 3.0517578125e-05
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 65531,
+                "image": 118093,
+                "expected_image": 118093,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 131067,
+                "image": 236191,
+                "expected_image": 236191,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 196603,
+                "image": 354289,
+                "expected_image": 354289,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 524283,
+                "image": 944779,
+                "expected_image": 944779,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 6,
+            "residue_modulus": 524288,
+            "least_positive_representative": 524283,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 1062877,
+            "expected_image": 1062877,
+            "expansion": 538594,
+            "odd_haar_mass": {
+              "exact": "1/262144",
+              "decimal": 3.814697265625e-06
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 524283,
+                "image": 1062877,
+                "expected_image": 1062877,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 1048571,
+                "image": 2125759,
+                "expected_image": 2125759,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 1572859,
+                "image": 3188641,
+                "expected_image": 3188641,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 4194299,
+                "image": 8503051,
+                "expected_image": 8503051,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 7,
+            "residue_modulus": 4194304,
+            "least_positive_representative": 4194299,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 9565933,
+            "expected_image": 9565933,
+            "expansion": 5371634,
+            "odd_haar_mass": {
+              "exact": "1/2097152",
+              "decimal": 4.76837158203125e-07
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 4194299,
+                "image": 9565933,
+                "expected_image": 9565933,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 8388603,
+                "image": 19131871,
+                "expected_image": 19131871,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 12582907,
+                "image": 28697809,
+                "expected_image": 28697809,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 33554427,
+                "image": 76527499,
+                "expected_image": 76527499,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 8,
+            "residue_modulus": 33554432,
+            "least_positive_representative": 33554427,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 86093437,
+            "expected_image": 86093437,
+            "expansion": 52539010,
+            "odd_haar_mass": {
+              "exact": "1/16777216",
+              "decimal": 5.960464477539063e-08
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 33554427,
+                "image": 86093437,
+                "expected_image": 86093437,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 67108859,
+                "image": 172186879,
+                "expected_image": 172186879,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 100663291,
+                "image": 258280321,
+                "expected_image": 258280321,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 268435451,
+                "image": 688747531,
+                "expected_image": 688747531,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 9,
+            "residue_modulus": 268435456,
+            "least_positive_representative": 268435451,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 774840973,
+            "expected_image": 774840973,
+            "expansion": 506405522,
+            "odd_haar_mass": {
+              "exact": "1/134217728",
+              "decimal": 7.450580596923828e-09
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 268435451,
+                "image": 774840973,
+                "expected_image": 774840973,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 536870907,
+                "image": 1549681951,
+                "expected_image": 1549681951,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 805306363,
+                "image": 2324522929,
+                "expected_image": 2324522929,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 2147483643,
+                "image": 6198727819,
+                "expected_image": 6198727819,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 10,
+            "residue_modulus": 2147483648,
+            "least_positive_representative": 2147483643,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 6973568797,
+            "expected_image": 6973568797,
+            "expansion": 4826085154,
+            "odd_haar_mass": {
+              "exact": "1/1073741824",
+              "decimal": 9.313225746154785e-10
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 2147483643,
+                "image": 6973568797,
+                "expected_image": 6973568797,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 4294967291,
+                "image": 13947137599,
+                "expected_image": 13947137599,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 6442450939,
+                "image": 20920706401,
+                "expected_image": 20920706401,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 17179869179,
+                "image": 55788550411,
+                "expected_image": 55788550411,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 11,
+            "residue_modulus": 17179869184,
+            "least_positive_representative": 17179869179,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 62762119213,
+            "expected_image": 62762119213,
+            "expansion": 45582250034,
+            "odd_haar_mass": {
+              "exact": "1/8589934592",
+              "decimal": 1.1641532182693481e-10
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 17179869179,
+                "image": 62762119213,
+                "expected_image": 62762119213,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 34359738363,
+                "image": 125524238431,
+                "expected_image": 125524238431,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 51539607547,
+                "image": 188286357649,
+                "expected_image": 188286357649,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 137438953467,
+                "image": 502096953739,
+                "expected_image": 502096953739,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 12,
+            "residue_modulus": 137438953472,
+            "least_positive_representative": 137438953467,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 564859072957,
+            "expected_image": 564859072957,
+            "expansion": 427420119490,
+            "odd_haar_mass": {
+              "exact": "1/68719476736",
+              "decimal": 1.4551915228366852e-11
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 137438953467,
+                "image": 564859072957,
+                "expected_image": 564859072957,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 274877906939,
+                "image": 1129718145919,
+                "expected_image": 1129718145919,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 412316860411,
+                "image": 1694577218881,
+                "expected_image": 1694577218881,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 1099511627771,
+                "image": 4518872583691,
+                "expected_image": 4518872583691,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 13,
+            "residue_modulus": 1099511627776,
+            "least_positive_representative": 1099511627771,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 5083731656653,
+            "expected_image": 5083731656653,
+            "expansion": 3984220028882,
+            "odd_haar_mass": {
+              "exact": "1/549755813888",
+              "decimal": 1.8189894035458565e-12
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 1099511627771,
+                "image": 5083731656653,
+                "expected_image": 5083731656653,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 2199023255547,
+                "image": 10167463313311,
+                "expected_image": 10167463313311,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 3298534883323,
+                "image": 15251194969969,
+                "expected_image": 15251194969969,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 8796093022203,
+                "image": 40669853253259,
+                "expected_image": 40669853253259,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 14,
+            "residue_modulus": 8796093022208,
+            "least_positive_representative": 8796093022203,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 45753584909917,
+            "expected_image": 45753584909917,
+            "expansion": 36957491887714,
+            "odd_haar_mass": {
+              "exact": "1/4398046511104",
+              "decimal": 2.2737367544323206e-13
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 8796093022203,
+                "image": 45753584909917,
+                "expected_image": 45753584909917,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 17592186044411,
+                "image": 91507169819839,
+                "expected_image": 91507169819839,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 26388279066619,
+                "image": 137260754729761,
+                "expected_image": 137260754729761,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 70368744177659,
+                "image": 366028679279371,
+                "expected_image": 366028679279371,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 15,
+            "residue_modulus": 70368744177664,
+            "least_positive_representative": 70368744177659,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 411782264189293,
+            "expected_image": 411782264189293,
+            "expansion": 341413520011634,
+            "odd_haar_mass": {
+              "exact": "1/35184372088832",
+              "decimal": 2.842170943040401e-14
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 70368744177659,
+                "image": 411782264189293,
+                "expected_image": 411782264189293,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 140737488355323,
+                "image": 823564528378591,
+                "expected_image": 823564528378591,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 211106232532987,
+                "image": 1235346792567889,
+                "expected_image": 1235346792567889,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 562949953421307,
+                "image": 3294258113514379,
+                "expected_image": 3294258113514379,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          },
+          {
+            "renewal_pair_count": 16,
+            "residue_modulus": 562949953421312,
+            "least_positive_representative": 562949953421307,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "image_after_pairs": 3706040377703677,
+            "expected_image": 3706040377703677,
+            "expansion": 3143090424282370,
+            "odd_haar_mass": {
+              "exact": "1/281474976710656",
+              "decimal": 3.552713678800501e-15
+            },
+            "sample_lifts": [
+              {
+                "lift": 0,
+                "input": 562949953421307,
+                "image": 3706040377703677,
+                "expected_image": 3706040377703677,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 1,
+                "input": 1125899906842619,
+                "image": 7412080755407359,
+                "expected_image": 7412080755407359,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 2,
+                "input": 1688849860263931,
+                "image": 11118121133111041,
+                "expected_image": 11118121133111041,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              },
+              {
+                "lift": 7,
+                "input": 4503599627370491,
+                "image": 29648323021629451,
+                "expected_image": 29648323021629451,
+                "valuation_word_matches": true,
+                "formula_matches": true,
+                "strictly_expands": true
+              }
+            ],
+            "checks": {
+              "valuation_word_is_repeated_1_2": true,
+              "representative_formula_matches": true,
+              "representative_strictly_expands": true,
+              "all_sampled_lifts_match": true,
+              "all_sampled_lifts_expand": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "Each cylinder is sparse and finite-horizon expansion does not imply a divergent positive orbit. The construction shadows the known negative 2-adic cycle -5,-7 and only rules out a universal fixed renewal depth; adaptive or unbounded descent remains possible.",
+      "route_decision": {
+        "discard": "any proof claiming that a fixed number of repeated renewal blocks forces descent for every positive odd integer",
+        "retain": "build an adaptive renewal rank that detects escape from arbitrarily long finite shadows of the -5,-7 2-adic cycle",
+        "next_theorem": "AdaptiveRenewalRankEscapingMinusFiveTwoAdicShadow"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T148-REJECTED",
+            "label": "FixedRenewalHorizonForcesUniversalDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T148-CLOSED",
+            "label": "MinusFiveCylinderNoFixedRenewalHorizon",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T148-OPEN",
+            "label": "AdaptiveRenewalRankEscapingMinusFiveTwoAdicShadow",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T148-REJECTED",
+            "CO-T148-CLOSED"
+          ],
+          [
+            "CO-T148-CLOSED",
+            "CO-T148-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent positive orbit. An infinite exact family defeating every fixed horizon."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-148",
+      "theorem_name": "NonnegativeEndpointPhaseQuantizationOrderSharpness",
+      "declared_proposition": "The O(E/M) endpoint-phase quantization rate from TICKET-147 is order-sharp even for nonnegative real functions. For every M divisible by 4, let q=4M^2, N=M^2+2M-1, and f(x)=1+cos(2*pi*x/q) on Z/qZ. Nearest M-sector phase quantization has error (q/2)sin(pi/M-pi/(2M^2)); with E=sum f^2=3q/2, M*error/E tends to pi/3.",
+      "mathematical_argument": "The unnormalized Fourier transform of f is supported at 0,+1,-1 with coefficients q,q/2,q/2. The exact endpoint convolution is q+(q/2)cos(2*pi*N/q). The endpoint phase is pi/2+delta, delta=pi/M-pi/(2M^2), while nearest-sector quantization replaces the +/-1 phases by +/-pi/2, canceling their pair. Hence the stated error is exact. Parseval gives E=3q/2, and M sin(delta)/3 tends to pi/3.",
+      "reproducible_computation": {
+        "theorem": "The O(E/M) endpoint-phase quantization rate from TICKET-147 is order-sharp even for nonnegative real functions. For every M divisible by 4, let q=4M^2, N=M^2+2M-1, and f(x)=1+cos(2*pi*x/q) on Z/qZ. Nearest M-sector phase quantization has error (q/2)sin(pi/M-pi/(2M^2)); with E=sum f^2=3q/2, M*error/E tends to pi/3.",
+        "proof": "The unnormalized Fourier transform of f is supported at 0,+1,-1 with coefficients q,q/2,q/2. The exact endpoint convolution is q+(q/2)cos(2*pi*N/q). The endpoint phase is pi/2+delta, delta=pi/M-pi/(2M^2), while nearest-sector quantization replaces the +/-1 phases by +/-pi/2, canceling their pair. Hence the stated error is exact. Parseval gives E=3q/2, and M sin(delta)/3 tends to pi/3.",
+        "finite_numeric_rows": [
+          {
+            "sector_count_M": 4,
+            "modulus_q": 64,
+            "endpoint_N": 23,
+            "endpoint_phase": 2.2580197197676637,
+            "phase_offset_delta": 0.6872233929727672,
+            "direct_convolution": 43.699414906763344,
+            "quantized_convolution": 64.0,
+            "absolute_error": 20.300585093236656,
+            "expected_error": 20.300585093236656,
+            "energy": 95.99999999999997,
+            "relative_error_error_over_energy": 0.21146442805454857,
+            "scaled_relative_error_M_times_error_over_energy": 0.8458577122181943,
+            "limit_target_pi_over_three": 1.0471975511965976,
+            "checks": {
+              "function_is_nonnegative": true,
+              "endpoint_phase_identity": true,
+              "nearest_sector_is_pi_over_two": true,
+              "direct_convolution_matches_formula": true,
+              "error_formula_matches": true,
+              "parseval_energy_matches": true
+            }
+          },
+          {
+            "sector_count_M": 8,
+            "modulus_q": 256,
+            "endpoint_N": 79,
+            "endpoint_phase": 1.9389517158874505,
+            "phase_offset_delta": 0.36815538909255385,
+            "direct_convolution": 209.9334353235214,
+            "quantized_convolution": 256.0,
+            "absolute_error": 46.066564676478606,
+            "expected_error": 46.06656467647848,
+            "energy": 383.99999999999983,
+            "relative_error_error_over_energy": 0.11996501217832976,
+            "scaled_relative_error_M_times_error_over_energy": 0.9597200974266381,
+            "limit_target_pi_over_three": 1.0471975511965976,
+            "checks": {
+              "function_is_nonnegative": true,
+              "endpoint_phase_identity": true,
+              "nearest_sector_is_pi_over_two": true,
+              "direct_convolution_matches_formula": true,
+              "error_formula_matches": true,
+              "parseval_energy_matches": true
+            }
+          },
+          {
+            "sector_count_M": 16,
+            "modulus_q": 1024,
+            "endpoint_N": 287,
+            "endpoint_phase": 1.761009944492716,
+            "phase_offset_delta": 0.1902136176978195,
+            "direct_convolution": 927.1968439552974,
+            "quantized_convolution": 1024.0,
+            "absolute_error": 96.80315604470263,
+            "expected_error": 96.80315604470077,
+            "energy": 1536.0000000000005,
+            "relative_error_error_over_energy": 0.0630228880499366,
+            "scaled_relative_error_M_times_error_over_energy": 1.0083662087989855,
+            "limit_target_pi_over_three": 1.0471975511965976,
+            "checks": {
+              "function_is_nonnegative": true,
+              "endpoint_phase_identity": true,
+              "nearest_sector_is_pi_over_two": true,
+              "direct_convolution_matches_formula": true,
+              "error_formula_matches": true,
+              "parseval_energy_matches": true
+            }
+          },
+          {
+            "sector_count_M": 32,
+            "modulus_q": 4096,
+            "endpoint_N": 1087,
+            "endpoint_phase": 1.667437116431692,
+            "phase_offset_delta": 0.0966407896367954,
+            "direct_convolution": 3898.38759658446,
+            "quantized_convolution": 4096.0,
+            "absolute_error": 197.61240341554003,
+            "expected_error": 197.6124034155573,
+            "energy": 6144.000000000001,
+            "relative_error_error_over_energy": 0.03216347711841471,
+            "scaled_relative_error_M_times_error_over_energy": 1.0292312677892708,
+            "limit_target_pi_over_three": 1.0471975511965976,
+            "checks": {
+              "function_is_nonnegative": true,
+              "endpoint_phase_identity": true,
+              "nearest_sector_is_pi_over_two": true,
+              "direct_convolution_matches_formula": true,
+              "error_formula_matches": true,
+              "parseval_energy_matches": true
+            }
+          },
+          {
+            "sector_count_M": 64,
+            "modulus_q": 16384,
+            "endpoint_N": 4223,
+            "endpoint_phase": 1.6195002168102657,
+            "phase_offset_delta": 0.04870389001536911,
+            "direct_convolution": 15985.175449858601,
+            "quantized_convolution": 16384.0,
+            "absolute_error": 398.8245501413985,
+            "expected_error": 398.8245501414518,
+            "energy": 24576.00000000005,
+            "relative_error_error_over_energy": 0.016228212489477443,
+            "scaled_relative_error_M_times_error_over_energy": 1.0386055993265564,
+            "limit_target_pi_over_three": 1.0471975511965976,
+            "checks": {
+              "function_is_nonnegative": true,
+              "endpoint_phase_identity": true,
+              "nearest_sector_is_pi_over_two": true,
+              "direct_convolution_matches_formula": true,
+              "error_formula_matches": true,
+              "parseval_energy_matches": true
+            }
+          },
+          {
+            "sector_count_M": 128,
+            "modulus_q": 65536,
+            "endpoint_N": 16639,
+            "endpoint_phase": 1.595244145601824,
+            "phase_offset_delta": 0.024447818806927406,
+            "direct_convolution": 64734.97367391636,
+            "quantized_convolution": 65536.0,
+            "absolute_error": 801.0263260836364,
+            "expected_error": 801.0263260831176,
+            "energy": 98303.99999999924,
+            "relative_error_error_over_energy": 0.00814846116214643,
+            "scaled_relative_error_M_times_error_over_energy": 1.043003028754743,
+            "limit_target_pi_over_three": 1.0471975511965976,
+            "checks": {
+              "function_is_nonnegative": true,
+              "endpoint_phase_identity": true,
+              "nearest_sector_is_pi_over_two": true,
+              "direct_convolution_matches_formula": true,
+              "error_formula_matches": true,
+              "parseval_energy_matches": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The sharp example is a nonnegative trigonometric function, not the von Mangoldt function. It proves a generic geometric lower barrier only and does not exclude arithmetic phase cancellation, major/minor-arc bounds, or a Goldbach representation theorem.",
+      "route_decision": {
+        "discard": "improving the TICKET-147 phase error to o(E/M) using only nonnegativity, reality, conjugate symmetry, and Parseval energy",
+        "retain": "prove von Mangoldt-specific endpoint sector cancellation beyond the now sharp generic 1/M rate",
+        "next_theorem": "VonMangoldtEndpointSectorCancellationBeyondSharpGeometricRate"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T148-REJECTED",
+            "label": "GenericNonnegativePhaseQuantizationIsLittleOEnergyOverM",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T148-CLOSED",
+            "label": "NonnegativeEndpointPhaseQuantizationOrderSharpness",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T148-OPEN",
+            "label": "VonMangoldtEndpointSectorCancellationBeyondSharpGeometricRate",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T148-REJECTED",
+            "GB-T148-CLOSED"
+          ],
+          [
+            "GB-T148-CLOSED",
+            "GB-T148-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact order-sharpness theorem for a generic analytic route."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-148",
+      "theorem_name": "CubicRoughGapTwoMatchingAndCouplingNoGo",
+      "declared_proposition": "For X>=13, the cubic-rough gap-two support defined by spf(n)^3>2X+2 and spf(n+2)^3>2X+2 is a matching. No two admitted edges share a vertex. On a matching, however, A00 and the two endpoint marginals A10,A01 still do not determine the joint A11 or the -- cell count.",
+      "mathematical_argument": "If edges (n,n+2) and (n+2,n+4) were both admitted, all three numbers would have smallest prime factor greater than 3, because 3^3=27<=2X+2. But one of three consecutive odd numbers spaced by two is divisible by 3. This contradiction shows that the maximum degree is one. On 4m disjoint edges, use 2m ++ and 2m -- labels, or instead 2m +- and 2m -+ labels. Both assignments have (A00,A10,A01)=(4m,0,0), but A11 is +4m versus -4m and the -- count is 2m versus 0. The missing object is endpoint coupling, not long-path geometry.",
+      "reproducible_computation": {
+        "theorem": "For X>=13, the cubic-rough gap-two support defined by spf(n)^3>2X+2 and spf(n+2)^3>2X+2 is a matching. No two admitted edges share a vertex. On a matching, however, A00 and the two endpoint marginals A10,A01 still do not determine the joint A11 or the -- cell count.",
+        "matching_proof": "If edges (n,n+2) and (n+2,n+4) were both admitted, all three numbers would have smallest prime factor greater than 3, because 3^3=27<=2X+2. But one of three consecutive odd numbers spaced by two is divisible by 3. This contradiction shows that the maximum degree is one.",
+        "coupling_no_go": "On 4m disjoint edges, use 2m ++ and 2m -- labels, or instead 2m +- and 2m -+ labels. Both assignments have (A00,A10,A01)=(4m,0,0), but A11 is +4m versus -4m and the -- count is 2m versus 0. The missing object is endpoint coupling, not long-path geometry.",
+        "correction_to_ticket147": "TICKET-147's path-cut identity remains true for arbitrary gap-two graphs, but its long-path counterfamily cannot occur inside the actual TICKET-142 cubic-rough support when X>=13. This ticket replaces that application with the exact matching coupling no-go.",
+        "finite_graph_rows": [
+          {
+            "X": 13,
+            "edge_count": 2,
+            "vertex_count": 4,
+            "maximum_degree": 1,
+            "checks": {
+              "support_is_matching": true,
+              "edge_endpoints_in_range": true
+            }
+          },
+          {
+            "X": 100,
+            "edge_count": 11,
+            "vertex_count": 22,
+            "maximum_degree": 1,
+            "checks": {
+              "support_is_matching": true,
+              "edge_endpoints_in_range": true
+            }
+          },
+          {
+            "X": 1000,
+            "edge_count": 59,
+            "vertex_count": 118,
+            "maximum_degree": 1,
+            "checks": {
+              "support_is_matching": true,
+              "edge_endpoints_in_range": true
+            }
+          },
+          {
+            "X": 10000,
+            "edge_count": 358,
+            "vertex_count": 716,
+            "maximum_degree": 1,
+            "checks": {
+              "support_is_matching": true,
+              "edge_endpoints_in_range": true
+            }
+          },
+          {
+            "X": 100000,
+            "edge_count": 2486,
+            "vertex_count": 4972,
+            "maximum_degree": 1,
+            "checks": {
+              "support_is_matching": true,
+              "edge_endpoints_in_range": true
+            }
+          }
+        ],
+        "matching_counterfamily_rows": [
+          {
+            "edge_count": 4,
+            "correlated_ledger": {
+              "A00": 4,
+              "A10": 0,
+              "A01": 0,
+              "A11": 4,
+              "negative_negative_edges": 2
+            },
+            "anticorrelated_ledger": {
+              "A00": 4,
+              "A10": 0,
+              "A01": 0,
+              "A11": -4,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 8,
+            "correlated_ledger": {
+              "A00": 8,
+              "A10": 0,
+              "A01": 0,
+              "A11": 8,
+              "negative_negative_edges": 4
+            },
+            "anticorrelated_ledger": {
+              "A00": 8,
+              "A10": 0,
+              "A01": 0,
+              "A11": -8,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 12,
+            "correlated_ledger": {
+              "A00": 12,
+              "A10": 0,
+              "A01": 0,
+              "A11": 12,
+              "negative_negative_edges": 6
+            },
+            "anticorrelated_ledger": {
+              "A00": 12,
+              "A10": 0,
+              "A01": 0,
+              "A11": -12,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 16,
+            "correlated_ledger": {
+              "A00": 16,
+              "A10": 0,
+              "A01": 0,
+              "A11": 16,
+              "negative_negative_edges": 8
+            },
+            "anticorrelated_ledger": {
+              "A00": 16,
+              "A10": 0,
+              "A01": 0,
+              "A11": -16,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 20,
+            "correlated_ledger": {
+              "A00": 20,
+              "A10": 0,
+              "A01": 0,
+              "A11": 20,
+              "negative_negative_edges": 10
+            },
+            "anticorrelated_ledger": {
+              "A00": 20,
+              "A10": 0,
+              "A01": 0,
+              "A11": -20,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 24,
+            "correlated_ledger": {
+              "A00": 24,
+              "A10": 0,
+              "A01": 0,
+              "A11": 24,
+              "negative_negative_edges": 12
+            },
+            "anticorrelated_ledger": {
+              "A00": 24,
+              "A10": 0,
+              "A01": 0,
+              "A11": -24,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 28,
+            "correlated_ledger": {
+              "A00": 28,
+              "A10": 0,
+              "A01": 0,
+              "A11": 28,
+              "negative_negative_edges": 14
+            },
+            "anticorrelated_ledger": {
+              "A00": 28,
+              "A10": 0,
+              "A01": 0,
+              "A11": -28,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 32,
+            "correlated_ledger": {
+              "A00": 32,
+              "A10": 0,
+              "A01": 0,
+              "A11": 32,
+              "negative_negative_edges": 16
+            },
+            "anticorrelated_ledger": {
+              "A00": 32,
+              "A10": 0,
+              "A01": 0,
+              "A11": -32,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 36,
+            "correlated_ledger": {
+              "A00": 36,
+              "A10": 0,
+              "A01": 0,
+              "A11": 36,
+              "negative_negative_edges": 18
+            },
+            "anticorrelated_ledger": {
+              "A00": 36,
+              "A10": 0,
+              "A01": 0,
+              "A11": -36,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 40,
+            "correlated_ledger": {
+              "A00": 40,
+              "A10": 0,
+              "A01": 0,
+              "A11": 40,
+              "negative_negative_edges": 20
+            },
+            "anticorrelated_ledger": {
+              "A00": 40,
+              "A10": 0,
+              "A01": 0,
+              "A11": -40,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 44,
+            "correlated_ledger": {
+              "A00": 44,
+              "A10": 0,
+              "A01": 0,
+              "A11": 44,
+              "negative_negative_edges": 22
+            },
+            "anticorrelated_ledger": {
+              "A00": 44,
+              "A10": 0,
+              "A01": 0,
+              "A11": -44,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 48,
+            "correlated_ledger": {
+              "A00": 48,
+              "A10": 0,
+              "A01": 0,
+              "A11": 48,
+              "negative_negative_edges": 24
+            },
+            "anticorrelated_ledger": {
+              "A00": 48,
+              "A10": 0,
+              "A01": 0,
+              "A11": -48,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 52,
+            "correlated_ledger": {
+              "A00": 52,
+              "A10": 0,
+              "A01": 0,
+              "A11": 52,
+              "negative_negative_edges": 26
+            },
+            "anticorrelated_ledger": {
+              "A00": 52,
+              "A10": 0,
+              "A01": 0,
+              "A11": -52,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 56,
+            "correlated_ledger": {
+              "A00": 56,
+              "A10": 0,
+              "A01": 0,
+              "A11": 56,
+              "negative_negative_edges": 28
+            },
+            "anticorrelated_ledger": {
+              "A00": 56,
+              "A10": 0,
+              "A01": 0,
+              "A11": -56,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 60,
+            "correlated_ledger": {
+              "A00": 60,
+              "A10": 0,
+              "A01": 0,
+              "A11": 60,
+              "negative_negative_edges": 30
+            },
+            "anticorrelated_ledger": {
+              "A00": 60,
+              "A10": 0,
+              "A01": 0,
+              "A11": -60,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          },
+          {
+            "edge_count": 64,
+            "correlated_ledger": {
+              "A00": 64,
+              "A10": 0,
+              "A01": 0,
+              "A11": 64,
+              "negative_negative_edges": 32
+            },
+            "anticorrelated_ledger": {
+              "A00": 64,
+              "A10": 0,
+              "A01": 0,
+              "A11": -64,
+              "negative_negative_edges": 0
+            },
+            "checks": {
+              "same_edge_count": true,
+              "same_left_marginal": true,
+              "same_right_marginal": true,
+              "opposite_joint_extremes": true,
+              "negative_negative_cells_differ": true
+            }
+          }
+        ],
+        "finite_cubic_rough_cell_rows": [
+          {
+            "X": 1000,
+            "ledger": {
+              "A00": 59,
+              "A10": -17,
+              "A01": -19,
+              "A11": 9
+            },
+            "exact_cell_counts": {
+              "++": 8,
+              "+-": 13,
+              "-+": 12,
+              "--": 26
+            },
+            "checks": {
+              "all_cell_numerators_divisible_by_four": true,
+              "all_cells_nonnegative": true,
+              "cells_sum_to_edge_count": true,
+              "negative_negative_matches_direct_twins": true,
+              "ledger_reconstruction_matches": true
+            }
+          },
+          {
+            "X": 10000,
+            "ledger": {
+              "A00": 358,
+              "A10": -104,
+              "A01": -84,
+              "A11": 2
+            },
+            "exact_cell_counts": {
+              "++": 43,
+              "+-": 84,
+              "-+": 94,
+              "--": 137
+            },
+            "checks": {
+              "all_cell_numerators_divisible_by_four": true,
+              "all_cells_nonnegative": true,
+              "cells_sum_to_edge_count": true,
+              "negative_negative_matches_direct_twins": true,
+              "ledger_reconstruction_matches": true
+            }
+          },
+          {
+            "X": 100000,
+            "ledger": {
+              "A00": 2486,
+              "A10": -564,
+              "A01": -556,
+              "A11": 138
+            },
+            "exact_cell_counts": {
+              "++": 376,
+              "+-": 585,
+              "-+": 589,
+              "--": 936
+            },
+            "checks": {
+              "all_cell_numerators_divisible_by_four": true,
+              "all_cells_nonnegative": true,
+              "cells_sum_to_edge_count": true,
+              "negative_negative_matches_direct_twins": true,
+              "ledger_reconstruction_matches": true
+            }
+          },
+          {
+            "X": 1000000,
+            "ledger": {
+              "A00": 17634,
+              "A10": -3970,
+              "A01": -3992,
+              "A11": 1212
+            },
+            "exact_cell_counts": {
+              "++": 2721,
+              "+-": 4111,
+              "-+": 4100,
+              "--": 6702
+            },
+            "checks": {
+              "all_cell_numerators_divisible_by_four": true,
+              "all_cells_nonnegative": true,
+              "cells_sum_to_edge_count": true,
+              "negative_negative_matches_direct_twins": true,
+              "ledger_reconstruction_matches": true
+            }
+          }
+        ],
+        "source_artifact": "data/open-problem/twin-prime/tp-ticket-142-liouville-projector.json",
+        "source_sha256": "474a77d08d5a6c9e66d796e0b881a9ba51e1bdf46b09243c1e27e8c3c7bc1e6e",
+        "failure_count": 0
+      },
+      "logical_limit": "The matching counterfamily uses abstract signs, not the actual Liouville function. Exact finite cell inversion does not prove a uniform arithmetic coupling estimate, a Type II bound, or infinitely many twin primes.",
+      "route_decision": {
+        "discard": "the TICKET-147 long-path switch-deficit target on the actual cubic-rough support, and any inference of joint parity from matching topology plus marginals",
+        "retain": "estimate the actual Liouville endpoint coupling across the cubic-rough matching by a Type II bilinear bound",
+        "next_theorem": "CubicRoughLiouvilleMatchingCouplingTypeIIBound"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T148-REJECTED",
+            "label": "CubicRoughLongPathSwitchDeficitOrMarginalClosure",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T148-CLOSED",
+            "label": "CubicRoughGapTwoMatchingAndCouplingNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T148-OPEN",
+            "label": "CubicRoughLiouvilleMatchingCouplingTypeIIBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T148-REJECTED",
+            "TP-T148-CLOSED"
+          ],
+          [
+            "TP-T148-CLOSED",
+            "TP-T148-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. One exact support geometry correction and one matching-coupling no-go."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "historical_correction_count": 1,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-148",
+      "attempt": "The unit-interval translates together with all dyadic Haar wavelets form a complete orthonormal basis of L2(R). Nevertheless, for every N there is a bounded self-adjoint operator diagonal in that basis whose first N tested directions are positive and whose (N+1)-st direction is negative.",
+      "bounded_result": {
+        "audit_ref": "multiscale_renewal_sharpness_matching_audit.riemann"
+      },
+      "obstruction": "The Haar theorem is for L2(R), whereas the exact Weil criterion uses a specific smooth test space and quadratic form. Haar wavelets are discontinuous, and the synthetic diagonal operator is not the Weil operator. No actual zeta-zero or Weil-matrix tail is controlled.",
+      "candidate_theorem": "SmoothWeilWaveletCoreAndUniformMatrixTailPositivityBound",
+      "next_experiment": "construct a smooth wavelet core inside the exact Weil test topology and prove a uniform positive tail bound for the actual Weil matrix",
+      "claim_boundary": "No RH proof and no off-critical zero. One exact L2 completeness theorem and one operator-theoretic no-go."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-148",
+      "attempt": "For every L>=1, n_L=2^(3L+1)-5 has first 2L accelerated Collatz valuations (1,2)^L and T^(2L)(n_L)=2*9^L-5>n_L. More strongly, every nonnegative lift n_L+2^(3L+1)t has the same valuation word and maps to 2*9^L(1+t)-5, which is larger than its input.",
+      "bounded_result": {
+        "audit_ref": "multiscale_renewal_sharpness_matching_audit.collatz"
+      },
+      "obstruction": "Each cylinder is sparse and finite-horizon expansion does not imply a divergent positive orbit. The construction shadows the known negative 2-adic cycle -5,-7 and only rules out a universal fixed renewal depth; adaptive or unbounded descent remains possible.",
+      "candidate_theorem": "AdaptiveRenewalRankEscapingMinusFiveTwoAdicShadow",
+      "next_experiment": "build an adaptive renewal rank that detects escape from arbitrarily long finite shadows of the -5,-7 2-adic cycle",
+      "claim_boundary": "No Collatz proof and no divergent positive orbit. An infinite exact family defeating every fixed horizon."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-148",
+      "attempt": "The O(E/M) endpoint-phase quantization rate from TICKET-147 is order-sharp even for nonnegative real functions. For every M divisible by 4, let q=4M^2, N=M^2+2M-1, and f(x)=1+cos(2*pi*x/q) on Z/qZ. Nearest M-sector phase quantization has error (q/2)sin(pi/M-pi/(2M^2)); with E=sum f^2=3q/2, M*error/E tends to pi/3.",
+      "bounded_result": {
+        "audit_ref": "multiscale_renewal_sharpness_matching_audit.goldbach"
+      },
+      "obstruction": "The sharp example is a nonnegative trigonometric function, not the von Mangoldt function. It proves a generic geometric lower barrier only and does not exclude arithmetic phase cancellation, major/minor-arc bounds, or a Goldbach representation theorem.",
+      "candidate_theorem": "VonMangoldtEndpointSectorCancellationBeyondSharpGeometricRate",
+      "next_experiment": "prove von Mangoldt-specific endpoint sector cancellation beyond the now sharp generic 1/M rate",
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact order-sharpness theorem for a generic analytic route."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-148",
+      "attempt": "For X>=13, the cubic-rough gap-two support defined by spf(n)^3>2X+2 and spf(n+2)^3>2X+2 is a matching. No two admitted edges share a vertex. On a matching, however, A00 and the two endpoint marginals A10,A01 still do not determine the joint A11 or the -- cell count.",
+      "bounded_result": {
+        "audit_ref": "multiscale_renewal_sharpness_matching_audit.twin_prime"
+      },
+      "obstruction": "The matching counterfamily uses abstract signs, not the actual Liouville function. Exact finite cell inversion does not prove a uniform arithmetic coupling estimate, a Type II bound, or infinitely many twin primes.",
+      "candidate_theorem": "CubicRoughLiouvilleMatchingCouplingTypeIIBound",
+      "next_experiment": "estimate the actual Liouville endpoint coupling across the cubic-rough matching by a Type II bilinear bound",
+      "claim_boundary": "No Twin Prime proof or counterexample. One exact support geometry correction and one matching-coupling no-go."
+    }
+  ]
+}

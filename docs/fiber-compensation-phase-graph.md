@@ -7,6 +7,19 @@ Status: `open_not_proven` for all four conjectures
 Machine record:
 `data/open-problem/ticket147-fiber-compensation-phase-graph.json`
 
+> **TICKET-148 scope correction / 후속 범위 교정.** The general path-cut
+> identity proved here remains valid. However, TICKET-148 proves that the
+> actual TICKET-142 cubic-rough support is a matching for `X>=13`, so the
+> long-path counterfamily below is not realizable inside that arithmetic
+> support. The valid information-theoretic obstruction is now stated as a
+> matching-coupling no-go. See
+> [TICKET-148](multiscale-renewal-sharpness-matching.md).
+>
+> 이 문서의 일반 path-cut 항등식은 그대로 참이다. 다만 실제
+> TICKET-142 cubic-rough support는 `X>=13`에서 matching이므로 아래
+> 장경로 반례족을 그 support에 적용할 수 없다. TICKET-148은 이를
+> matching의 endpoint coupling no-go로 교정한다.
+
 ## Publication boundary / 논문 제출용 경계
 
 **English.** TICKET-147 proves four exact intermediate statements. It does

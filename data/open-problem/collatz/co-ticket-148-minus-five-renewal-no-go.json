@@ -1,0 +1,1281 @@
+{
+  "schema": "primeproject.ticket148-multiscale-renewal-sharpness-matching.v1",
+  "generated_at": "2026-07-27T15:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-148",
+  "attempt": "For every L>=1, n_L=2^(3L+1)-5 has first 2L accelerated Collatz valuations (1,2)^L and T^(2L)(n_L)=2*9^L-5>n_L. More strongly, every nonnegative lift n_L+2^(3L+1)t has the same valuation word and maps to 2*9^L(1+t)-5, which is larger than its input.",
+  "bounded_result": {
+    "audit_ref": "multiscale_renewal_sharpness_matching_audit.collatz"
+  },
+  "obstruction": "Each cylinder is sparse and finite-horizon expansion does not imply a divergent positive orbit. The construction shadows the known negative 2-adic cycle -5,-7 and only rules out a universal fixed renewal depth; adaptive or unbounded descent remains possible.",
+  "candidate_theorem": "AdaptiveRenewalRankEscapingMinusFiveTwoAdicShadow",
+  "next_experiment": "build an adaptive renewal rank that detects escape from arbitrarily long finite shadows of the -5,-7 2-adic cycle",
+  "claim_boundary": "No Collatz proof and no divergent positive orbit. An infinite exact family defeating every fixed horizon.",
+  "result": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-148",
+    "theorem_name": "MinusFiveCylinderNoFixedRenewalHorizon",
+    "declared_proposition": "For every L>=1, n_L=2^(3L+1)-5 has first 2L accelerated Collatz valuations (1,2)^L and T^(2L)(n_L)=2*9^L-5>n_L. More strongly, every nonnegative lift n_L+2^(3L+1)t has the same valuation word and maps to 2*9^L(1+t)-5, which is larger than its input.",
+    "mathematical_argument": "For r>=1 and integer c>=1, x=2*c*8^r-5 satisfies v2(3x+1)=1 and its first accelerated image is 3*c*8^r-7. The next valuation is exactly 2 and the second image is 2*(9c)*8^(r-1)-5. Iterating L pairs from c=1+t,r=L gives the formula. Strict expansion follows from 9^L>8^L.",
+    "reproducible_computation": {
+      "theorem": "For every L>=1, n_L=2^(3L+1)-5 has first 2L accelerated Collatz valuations (1,2)^L and T^(2L)(n_L)=2*9^L-5>n_L. More strongly, every nonnegative lift n_L+2^(3L+1)t has the same valuation word and maps to 2*9^L(1+t)-5, which is larger than its input.",
+      "proof": "For r>=1 and integer c>=1, x=2*c*8^r-5 satisfies v2(3x+1)=1 and its first accelerated image is 3*c*8^r-7. The next valuation is exactly 2 and the second image is 2*(9c)*8^(r-1)-5. Iterating L pairs from c=1+t,r=L gives the formula. Strict expansion follows from 9^L>8^L.",
+      "cylinder_measure": "The exact residue class modulo 2^(3L+1) has Haar mass 2^(-3L) relative to odd 2-adic integers.",
+      "finite_exact_rows": [
+        {
+          "renewal_pair_count": 1,
+          "residue_modulus": 16,
+          "least_positive_representative": 11,
+          "valuation_word": [
+            1,
+            2
+          ],
+          "image_after_pairs": 13,
+          "expected_image": 13,
+          "expansion": 2,
+          "odd_haar_mass": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 11,
+              "image": 13,
+              "expected_image": 13,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 27,
+              "image": 31,
+              "expected_image": 31,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 43,
+              "image": 49,
+              "expected_image": 49,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 123,
+              "image": 139,
+              "expected_image": 139,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 2,
+          "residue_modulus": 128,
+          "least_positive_representative": 123,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 157,
+          "expected_image": 157,
+          "expansion": 34,
+          "odd_haar_mass": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 123,
+              "image": 157,
+              "expected_image": 157,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 251,
+              "image": 319,
+              "expected_image": 319,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 379,
+              "image": 481,
+              "expected_image": 481,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 1019,
+              "image": 1291,
+              "expected_image": 1291,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 3,
+          "residue_modulus": 1024,
+          "least_positive_representative": 1019,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 1453,
+          "expected_image": 1453,
+          "expansion": 434,
+          "odd_haar_mass": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 1019,
+              "image": 1453,
+              "expected_image": 1453,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 2043,
+              "image": 2911,
+              "expected_image": 2911,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 3067,
+              "image": 4369,
+              "expected_image": 4369,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 8187,
+              "image": 11659,
+              "expected_image": 11659,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 4,
+          "residue_modulus": 8192,
+          "least_positive_representative": 8187,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 13117,
+          "expected_image": 13117,
+          "expansion": 4930,
+          "odd_haar_mass": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 8187,
+              "image": 13117,
+              "expected_image": 13117,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 16379,
+              "image": 26239,
+              "expected_image": 26239,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 24571,
+              "image": 39361,
+              "expected_image": 39361,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 65531,
+              "image": 104971,
+              "expected_image": 104971,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 5,
+          "residue_modulus": 65536,
+          "least_positive_representative": 65531,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 118093,
+          "expected_image": 118093,
+          "expansion": 52562,
+          "odd_haar_mass": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 65531,
+              "image": 118093,
+              "expected_image": 118093,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 131067,
+              "image": 236191,
+              "expected_image": 236191,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 196603,
+              "image": 354289,
+              "expected_image": 354289,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 524283,
+              "image": 944779,
+              "expected_image": 944779,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 6,
+          "residue_modulus": 524288,
+          "least_positive_representative": 524283,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 1062877,
+          "expected_image": 1062877,
+          "expansion": 538594,
+          "odd_haar_mass": {
+            "exact": "1/262144",
+            "decimal": 3.814697265625e-06
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 524283,
+              "image": 1062877,
+              "expected_image": 1062877,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 1048571,
+              "image": 2125759,
+              "expected_image": 2125759,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 1572859,
+              "image": 3188641,
+              "expected_image": 3188641,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 4194299,
+              "image": 8503051,
+              "expected_image": 8503051,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 7,
+          "residue_modulus": 4194304,
+          "least_positive_representative": 4194299,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 9565933,
+          "expected_image": 9565933,
+          "expansion": 5371634,
+          "odd_haar_mass": {
+            "exact": "1/2097152",
+            "decimal": 4.76837158203125e-07
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 4194299,
+              "image": 9565933,
+              "expected_image": 9565933,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 8388603,
+              "image": 19131871,
+              "expected_image": 19131871,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 12582907,
+              "image": 28697809,
+              "expected_image": 28697809,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 33554427,
+              "image": 76527499,
+              "expected_image": 76527499,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 8,
+          "residue_modulus": 33554432,
+          "least_positive_representative": 33554427,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 86093437,
+          "expected_image": 86093437,
+          "expansion": 52539010,
+          "odd_haar_mass": {
+            "exact": "1/16777216",
+            "decimal": 5.960464477539063e-08
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 33554427,
+              "image": 86093437,
+              "expected_image": 86093437,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 67108859,
+              "image": 172186879,
+              "expected_image": 172186879,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 100663291,
+              "image": 258280321,
+              "expected_image": 258280321,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 268435451,
+              "image": 688747531,
+              "expected_image": 688747531,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 9,
+          "residue_modulus": 268435456,
+          "least_positive_representative": 268435451,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 774840973,
+          "expected_image": 774840973,
+          "expansion": 506405522,
+          "odd_haar_mass": {
+            "exact": "1/134217728",
+            "decimal": 7.450580596923828e-09
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 268435451,
+              "image": 774840973,
+              "expected_image": 774840973,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 536870907,
+              "image": 1549681951,
+              "expected_image": 1549681951,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 805306363,
+              "image": 2324522929,
+              "expected_image": 2324522929,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 2147483643,
+              "image": 6198727819,
+              "expected_image": 6198727819,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 10,
+          "residue_modulus": 2147483648,
+          "least_positive_representative": 2147483643,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 6973568797,
+          "expected_image": 6973568797,
+          "expansion": 4826085154,
+          "odd_haar_mass": {
+            "exact": "1/1073741824",
+            "decimal": 9.313225746154785e-10
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 2147483643,
+              "image": 6973568797,
+              "expected_image": 6973568797,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 4294967291,
+              "image": 13947137599,
+              "expected_image": 13947137599,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 6442450939,
+              "image": 20920706401,
+              "expected_image": 20920706401,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 17179869179,
+              "image": 55788550411,
+              "expected_image": 55788550411,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 11,
+          "residue_modulus": 17179869184,
+          "least_positive_representative": 17179869179,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 62762119213,
+          "expected_image": 62762119213,
+          "expansion": 45582250034,
+          "odd_haar_mass": {
+            "exact": "1/8589934592",
+            "decimal": 1.1641532182693481e-10
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 17179869179,
+              "image": 62762119213,
+              "expected_image": 62762119213,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 34359738363,
+              "image": 125524238431,
+              "expected_image": 125524238431,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 51539607547,
+              "image": 188286357649,
+              "expected_image": 188286357649,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 137438953467,
+              "image": 502096953739,
+              "expected_image": 502096953739,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 12,
+          "residue_modulus": 137438953472,
+          "least_positive_representative": 137438953467,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 564859072957,
+          "expected_image": 564859072957,
+          "expansion": 427420119490,
+          "odd_haar_mass": {
+            "exact": "1/68719476736",
+            "decimal": 1.4551915228366852e-11
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 137438953467,
+              "image": 564859072957,
+              "expected_image": 564859072957,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 274877906939,
+              "image": 1129718145919,
+              "expected_image": 1129718145919,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 412316860411,
+              "image": 1694577218881,
+              "expected_image": 1694577218881,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 1099511627771,
+              "image": 4518872583691,
+              "expected_image": 4518872583691,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 13,
+          "residue_modulus": 1099511627776,
+          "least_positive_representative": 1099511627771,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 5083731656653,
+          "expected_image": 5083731656653,
+          "expansion": 3984220028882,
+          "odd_haar_mass": {
+            "exact": "1/549755813888",
+            "decimal": 1.8189894035458565e-12
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 1099511627771,
+              "image": 5083731656653,
+              "expected_image": 5083731656653,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 2199023255547,
+              "image": 10167463313311,
+              "expected_image": 10167463313311,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 3298534883323,
+              "image": 15251194969969,
+              "expected_image": 15251194969969,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 8796093022203,
+              "image": 40669853253259,
+              "expected_image": 40669853253259,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 14,
+          "residue_modulus": 8796093022208,
+          "least_positive_representative": 8796093022203,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 45753584909917,
+          "expected_image": 45753584909917,
+          "expansion": 36957491887714,
+          "odd_haar_mass": {
+            "exact": "1/4398046511104",
+            "decimal": 2.2737367544323206e-13
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 8796093022203,
+              "image": 45753584909917,
+              "expected_image": 45753584909917,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 17592186044411,
+              "image": 91507169819839,
+              "expected_image": 91507169819839,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 26388279066619,
+              "image": 137260754729761,
+              "expected_image": 137260754729761,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 70368744177659,
+              "image": 366028679279371,
+              "expected_image": 366028679279371,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 15,
+          "residue_modulus": 70368744177664,
+          "least_positive_representative": 70368744177659,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 411782264189293,
+          "expected_image": 411782264189293,
+          "expansion": 341413520011634,
+          "odd_haar_mass": {
+            "exact": "1/35184372088832",
+            "decimal": 2.842170943040401e-14
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 70368744177659,
+              "image": 411782264189293,
+              "expected_image": 411782264189293,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 140737488355323,
+              "image": 823564528378591,
+              "expected_image": 823564528378591,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 211106232532987,
+              "image": 1235346792567889,
+              "expected_image": 1235346792567889,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 562949953421307,
+              "image": 3294258113514379,
+              "expected_image": 3294258113514379,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        },
+        {
+          "renewal_pair_count": 16,
+          "residue_modulus": 562949953421312,
+          "least_positive_representative": 562949953421307,
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "image_after_pairs": 3706040377703677,
+          "expected_image": 3706040377703677,
+          "expansion": 3143090424282370,
+          "odd_haar_mass": {
+            "exact": "1/281474976710656",
+            "decimal": 3.552713678800501e-15
+          },
+          "sample_lifts": [
+            {
+              "lift": 0,
+              "input": 562949953421307,
+              "image": 3706040377703677,
+              "expected_image": 3706040377703677,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 1,
+              "input": 1125899906842619,
+              "image": 7412080755407359,
+              "expected_image": 7412080755407359,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 2,
+              "input": 1688849860263931,
+              "image": 11118121133111041,
+              "expected_image": 11118121133111041,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            },
+            {
+              "lift": 7,
+              "input": 4503599627370491,
+              "image": 29648323021629451,
+              "expected_image": 29648323021629451,
+              "valuation_word_matches": true,
+              "formula_matches": true,
+              "strictly_expands": true
+            }
+          ],
+          "checks": {
+            "valuation_word_is_repeated_1_2": true,
+            "representative_formula_matches": true,
+            "representative_strictly_expands": true,
+            "all_sampled_lifts_match": true,
+            "all_sampled_lifts_expand": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "Each cylinder is sparse and finite-horizon expansion does not imply a divergent positive orbit. The construction shadows the known negative 2-adic cycle -5,-7 and only rules out a universal fixed renewal depth; adaptive or unbounded descent remains possible.",
+    "route_decision": {
+      "discard": "any proof claiming that a fixed number of repeated renewal blocks forces descent for every positive odd integer",
+      "retain": "build an adaptive renewal rank that detects escape from arbitrarily long finite shadows of the -5,-7 2-adic cycle",
+      "next_theorem": "AdaptiveRenewalRankEscapingMinusFiveTwoAdicShadow"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T148-REJECTED",
+          "label": "FixedRenewalHorizonForcesUniversalDescent",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "CO-T148-CLOSED",
+          "label": "MinusFiveCylinderNoFixedRenewalHorizon",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T148-OPEN",
+          "label": "AdaptiveRenewalRankEscapingMinusFiveTwoAdicShadow",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T148-REJECTED",
+          "CO-T148-CLOSED"
+        ],
+        [
+          "CO-T148-CLOSED",
+          "CO-T148-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Collatz proof and no divergent positive orbit. An infinite exact family defeating every fixed horizon."
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "schema": "primeproject.ticket148-multiscale-renewal-sharpness-matching.v1",
+  "generated_at": "2026-07-27T15:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-148",
+  "attempt": "The unit-interval translates together with all dyadic Haar wavelets form a complete orthonormal basis of L2(R). Nevertheless, for every N there is a bounded self-adjoint operator diagonal in that basis whose first N tested directions are positive and whose (N+1)-st direction is negative.",
+  "bounded_result": {
+    "audit_ref": "multiscale_renewal_sharpness_matching_audit.riemann"
+  },
+  "obstruction": "The Haar theorem is for L2(R), whereas the exact Weil criterion uses a specific smooth test space and quadratic form. Haar wavelets are discontinuous, and the synthetic diagonal operator is not the Weil operator. No actual zeta-zero or Weil-matrix tail is controlled.",
+  "candidate_theorem": "SmoothWeilWaveletCoreAndUniformMatrixTailPositivityBound",
+  "next_experiment": "construct a smooth wavelet core inside the exact Weil test topology and prove a uniform positive tail bound for the actual Weil matrix",
+  "claim_boundary": "No RH proof and no off-critical zero. One exact L2 completeness theorem and one operator-theoretic no-go.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-148",
+    "theorem_name": "DyadicHaarMultiscaleCompletenessAndFiniteScalePositivityNoGo",
+    "declared_proposition": "The unit-interval translates together with all dyadic Haar wavelets form a complete orthonormal basis of L2(R). Nevertheless, for every N there is a bounded self-adjoint operator diagonal in that basis whose first N tested directions are positive and whose (N+1)-st direction is negative.",
+    "mathematical_argument": "On each unit interval, dyadic conditional expectations converge in L2 to the function. Their successive differences are exactly the Haar detail spaces. Truncating first to finitely many unit intervals and then refining the dyadic partition proves density; orthogonality gives an orthonormal basis after normalization. Enumerate the complete basis as e_1,e_2,... and define A_N e_j=e_j except A_N e_(N+1)=-e_(N+1). Then A_N is bounded and self-adjoint. Its quadratic form is positive on each of e_1,...,e_N but is -1 on e_(N+1). Completeness therefore does not turn any finite prefix positivity audit into global positivity.",
+    "reproducible_computation": {
+      "theorem": "The unit-interval translates together with all dyadic Haar wavelets form a complete orthonormal basis of L2(R). Nevertheless, for every N there is a bounded self-adjoint operator diagonal in that basis whose first N tested directions are positive and whose (N+1)-st direction is negative.",
+      "completeness_proof": "On each unit interval, dyadic conditional expectations converge in L2 to the function. Their successive differences are exactly the Haar detail spaces. Truncating first to finitely many unit intervals and then refining the dyadic partition proves density; orthogonality gives an orthonormal basis after normalization.",
+      "finite_positivity_no_go_proof": "Enumerate the complete basis as e_1,e_2,... and define A_N e_j=e_j except A_N e_(N+1)=-e_(N+1). Then A_N is bounded and self-adjoint. Its quadratic form is positive on each of e_1,...,e_N but is -1 on e_(N+1). Completeness therefore does not turn any finite prefix positivity audit into global positivity.",
+      "finite_exact_rows": [
+        {
+          "level": 1,
+          "dimension": 2,
+          "row_count": 2,
+          "exact_rank": 2,
+          "off_diagonal_dot_product_max": 0,
+          "row_norm_min": 2,
+          "row_norm_max": 2,
+          "positive_prefix_size": 1,
+          "first_negative_basis_index_zero_based": 1,
+          "checks": {
+            "row_count_equals_dimension": true,
+            "exact_full_rank": true,
+            "pairwise_orthogonal": true,
+            "positive_row_norms": true,
+            "finite_prefix_positive": true,
+            "hidden_next_direction_negative": true
+          }
+        },
+        {
+          "level": 2,
+          "dimension": 4,
+          "row_count": 4,
+          "exact_rank": 4,
+          "off_diagonal_dot_product_max": 0,
+          "row_norm_min": 2,
+          "row_norm_max": 4,
+          "positive_prefix_size": 3,
+          "first_negative_basis_index_zero_based": 3,
+          "checks": {
+            "row_count_equals_dimension": true,
+            "exact_full_rank": true,
+            "pairwise_orthogonal": true,
+            "positive_row_norms": true,
+            "finite_prefix_positive": true,
+            "hidden_next_direction_negative": true
+          }
+        },
+        {
+          "level": 3,
+          "dimension": 8,
+          "row_count": 8,
+          "exact_rank": 8,
+          "off_diagonal_dot_product_max": 0,
+          "row_norm_min": 2,
+          "row_norm_max": 8,
+          "positive_prefix_size": 7,
+          "first_negative_basis_index_zero_based": 7,
+          "checks": {
+            "row_count_equals_dimension": true,
+            "exact_full_rank": true,
+            "pairwise_orthogonal": true,
+            "positive_row_norms": true,
+            "finite_prefix_positive": true,
+            "hidden_next_direction_negative": true
+          }
+        },
+        {
+          "level": 4,
+          "dimension": 16,
+          "row_count": 16,
+          "exact_rank": 16,
+          "off_diagonal_dot_product_max": 0,
+          "row_norm_min": 2,
+          "row_norm_max": 16,
+          "positive_prefix_size": 8,
+          "first_negative_basis_index_zero_based": 8,
+          "checks": {
+            "row_count_equals_dimension": true,
+            "exact_full_rank": true,
+            "pairwise_orthogonal": true,
+            "positive_row_norms": true,
+            "finite_prefix_positive": true,
+            "hidden_next_direction_negative": true
+          }
+        },
+        {
+          "level": 5,
+          "dimension": 32,
+          "row_count": 32,
+          "exact_rank": 32,
+          "off_diagonal_dot_product_max": 0,
+          "row_norm_min": 2,
+          "row_norm_max": 32,
+          "positive_prefix_size": 8,
+          "first_negative_basis_index_zero_based": 8,
+          "checks": {
+            "row_count_equals_dimension": true,
+            "exact_full_rank": true,
+            "pairwise_orthogonal": true,
+            "positive_row_norms": true,
+            "finite_prefix_positive": true,
+            "hidden_next_direction_negative": true
+          }
+        },
+        {
+          "level": 6,
+          "dimension": 64,
+          "row_count": 64,
+          "exact_rank": 64,
+          "off_diagonal_dot_product_max": 0,
+          "row_norm_min": 2,
+          "row_norm_max": 64,
+          "positive_prefix_size": 8,
+          "first_negative_basis_index_zero_based": 8,
+          "checks": {
+            "row_count_equals_dimension": true,
+            "exact_full_rank": true,
+            "pairwise_orthogonal": true,
+            "positive_row_norms": true,
+            "finite_prefix_positive": true,
+            "hidden_next_direction_negative": true
+          }
+        },
+        {
+          "level": 7,
+          "dimension": 128,
+          "row_count": 128,
+          "exact_rank": 128,
+          "off_diagonal_dot_product_max": 0,
+          "row_norm_min": 2,
+          "row_norm_max": 128,
+          "positive_prefix_size": 8,
+          "first_negative_basis_index_zero_based": 8,
+          "checks": {
+            "row_count_equals_dimension": true,
+            "exact_full_rank": true,
+            "pairwise_orthogonal": true,
+            "positive_row_norms": true,
+            "finite_prefix_positive": true,
+            "hidden_next_direction_negative": true
+          }
+        },
+        {
+          "level": 8,
+          "dimension": 256,
+          "row_count": 256,
+          "exact_rank": 256,
+          "off_diagonal_dot_product_max": 0,
+          "row_norm_min": 2,
+          "row_norm_max": 256,
+          "positive_prefix_size": 8,
+          "first_negative_basis_index_zero_based": 8,
+          "checks": {
+            "row_count_equals_dimension": true,
+            "exact_full_rank": true,
+            "pairwise_orthogonal": true,
+            "positive_row_norms": true,
+            "finite_prefix_positive": true,
+            "hidden_next_direction_negative": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The Haar theorem is for L2(R), whereas the exact Weil criterion uses a specific smooth test space and quadratic form. Haar wavelets are discontinuous, and the synthetic diagonal operator is not the Weil operator. No actual zeta-zero or Weil-matrix tail is controlled.",
+    "route_decision": {
+      "discard": "complete multiscale coordinates plus positivity on any finite prefix as a global positivity certificate",
+      "retain": "construct a smooth wavelet core inside the exact Weil test topology and prove a uniform positive tail bound for the actual Weil matrix",
+      "next_theorem": "SmoothWeilWaveletCoreAndUniformMatrixTailPositivityBound"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T148-REJECTED",
+          "label": "FinitePrefixPositivityPromotesOnCompleteCoordinates",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T148-CLOSED",
+          "label": "DyadicHaarMultiscaleCompletenessAndFiniteScalePositivityNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T148-OPEN",
+          "label": "SmoothWeilWaveletCoreAndUniformMatrixTailPositivityBound",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T148-REJECTED",
+          "RH-T148-CLOSED"
+        ],
+        [
+          "RH-T148-CLOSED",
+          "RH-T148-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One exact L2 completeness theorem and one operator-theoretic no-go."
+  }
+}

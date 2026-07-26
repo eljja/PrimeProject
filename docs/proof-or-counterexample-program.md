@@ -5970,3 +5970,44 @@ pointwise coverage, phase resolution, and arithmetic label information.
 양자화 오차만 제어하고 sector별 산술 상쇄를 증명하지 않는다. Twin의
 반례 label은 실제 Liouville 함수가 아니다. 네 해결 상태는 모두
 `open_not_proven`이다.
+
+## TICKET-148 continuation: multiscale, renewal, sharpness, and matching gates
+
+TICKET-148 attacks the four TICKET-147 open nodes and records one required
+scope correction.
+
+1. **Riemann Hypothesis.** Unit-interval scaling functions and all dyadic
+   Haar wavelets form a complete orthonormal basis of `L2(R)`. For every
+   finite prefix, a bounded self-adjoint diagonal operator can be positive on
+   the prefix and negative on the next basis vector. Multiscale completeness
+   is therefore insufficient without an actual Weil-matrix tail bound. The
+   next target is
+   `SmoothWeilWaveletCoreAndUniformMatrixTailPositivityBound`.
+2. **Collatz.** For every `L>=1`, all positive integers
+   `2*8^L(1+t)-5` follow the accelerated valuation word `(1,2)^L` and map
+   to `2*9^L(1+t)-5`, which is larger. This exact cylinder family rejects
+   every universal fixed renewal horizon but does not give a divergent
+   positive orbit. The next target is
+   `AdaptiveRenewalRankEscapingMinusFiveTwoAdicShadow`.
+3. **Goldbach.** For the nonnegative function
+   `f(x)=1+cos(2*pi*x/q)`, with `q=4M^2` and
+   `N=M^2+2M-1`, nearest-sector phase quantization satisfies
+   `M*error/E -> pi/3`. Hence the TICKET-147 `O(E/M)` rate is
+   order-sharp under generic positivity and energy assumptions. The next
+   target is
+   `VonMangoldtEndpointSectorCancellationBeyondSharpGeometricRate`.
+4. **Twin Prime.** The actual TICKET-142 cubic-rough support is a matching
+   for `X>=13`, because two adjacent gap-two edges would require three
+   numbers spaced by two all to avoid the prime `3`. TICKET-147's general
+   path identity remains true, but its long-path counterfamily is not
+   realizable in that support. On a matching, correlated and anticorrelated
+   labels still have identical endpoint marginals and opposite joint terms.
+   The next target is
+   `CubicRoughLiouvilleMatchingCouplingTypeIIBound`.
+
+한국어 경계: 이번 TICKET은 완전 증명이나 네 추측의 반례를 제시하지
+않는다. RH에서는 실제 Weil tail, Collatz에서는 adaptive shadow escape,
+Goldbach에서는 von Mangoldt 고유 상쇄, Twin Prime에서는 실제 Liouville
+matching coupling이 미증명이다. TICKET-147의 Twin 장경로 적용은
+TICKET-148의 matching 정리로 명시적으로 교정되며, 일반 path-cut
+항등식 자체는 유지된다.

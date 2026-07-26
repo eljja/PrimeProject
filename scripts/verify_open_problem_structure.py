@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 import sys
 from fractions import Fraction
 from pathlib import Path
@@ -144,6 +145,7 @@ TICKET144_SCHEMA = "primeproject.ticket144-schur-rank-equivalence-variation-adve
 TICKET145_SCHEMA = "primeproject.ticket145-normalization-affine-endpoint-separable-no-go.v1"
 TICKET146_SCHEMA = "primeproject.ticket146-toeplitz-polynomial-phase-frechet.v1"
 TICKET147_SCHEMA = "primeproject.ticket147-fiber-compensation-phase-graph.v1"
+TICKET148_SCHEMA = "primeproject.ticket148-multiscale-renewal-sharpness-matching.v1"
 
 
 def fail(message: str) -> int:
@@ -8460,6 +8462,83 @@ def main() -> int:
             return fail(f"{problem_id}: ticket147 proof DAG changed")
     if "no proof or counterexample" not in str(audit147.get("proof_boundary", "")).lower() or "no proof or counterexample" not in str(ticket147.get("claim_boundary", "")).lower():
         return fail("ticket147 proof boundary changed")
+
+    path148 = Path("data/open-problem/ticket148-multiscale-renewal-sharpness-matching.json")
+    if not path148.exists():
+        return fail("missing ticket148 multiscale-renewal-sharpness-matching audit")
+    ticket148 = read_json(path148)
+    expected_status148 = "exact_partial_theorems_route_no_go_and_geometry_correction_all_conjectures_open"
+    if ticket148.get("schema") != TICKET148_SCHEMA or ticket148.get("status") != expected_status148:
+        return fail("ticket148 schema or status changed")
+    attempts148 = ticket148.get("attempts", [])
+    by_id148 = {str(row.get("problem_id")): row for row in attempts148 if isinstance(row, dict)} if isinstance(attempts148, list) else {}
+    if set(by_id148) != EXPECTED_PROBLEMS:
+        return fail("ticket148 attempts missing problems")
+    paths148 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-148-haar-multiscale-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-148-minus-five-renewal-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-148-phase-rate-sharpness.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-148-matching-coupling-correction.json"),
+    }
+    next148 = {
+        "riemann": "SmoothWeilWaveletCoreAndUniformMatrixTailPositivityBound",
+        "collatz": "AdaptiveRenewalRankEscapingMinusFiveTwoAdicShadow",
+        "goldbach": "VonMangoldtEndpointSectorCancellationBeyondSharpGeometricRate",
+        "twin-prime": "CubicRoughLiouvilleMatchingCouplingTypeIIBound",
+    }
+    for problem_id, attempt in by_id148.items():
+        if not paths148[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket148 artifact or proof boundary missing")
+        per_problem148 = read_json(paths148[problem_id])
+        if per_problem148.get("schema") != TICKET148_SCHEMA or per_problem148.get("problem_id") != problem_id:
+            return fail(f"{problem_id}: ticket148 per-problem schema changed")
+        if attempt.get("candidate_theorem") != next148[problem_id] or per_problem148.get("candidate_theorem") != next148[problem_id]:
+            return fail(f"{problem_id}: ticket148 next theorem changed")
+
+    audit148 = ticket148.get("multiscale_renewal_sharpness_matching_audit", {})
+    machine148 = audit148.get("machine_audit", {})
+    if audit148.get("theorem_name") != "FourConjectureMultiscaleRenewalSharpnessMatchingAudit" or int(machine148.get("exact_theorem_count", -1)) != 4 or int(machine148.get("rejected_target_count", -1)) != 4 or int(machine148.get("proof_dag_count", -1)) != 4 or int(machine148.get("conjecture_resolution_count", -1)) != 0 or int(machine148.get("historical_correction_count", -1)) != 1 or int(machine148.get("total_failure_count", -1)) != 0:
+        return fail("ticket148 global machine audit changed")
+
+    riemann148 = audit148.get("riemann", {})
+    haar148 = riemann148.get("reproducible_computation", {})
+    haar_rows148 = haar148.get("finite_exact_rows", [])
+    if riemann148.get("theorem_name") != "DyadicHaarMultiscaleCompletenessAndFiniteScalePositivityNoGo" or len(haar_rows148) != 8 or any(not all(row.get("checks", {}).values()) for row in haar_rows148) or int(haar_rows148[-1].get("dimension", -1)) != 256 or int(haar148.get("failure_count", -1)) != 0:
+        return fail("ticket148 RH Haar theorem changed")
+
+    collatz148 = audit148.get("collatz", {})
+    renewal148 = collatz148.get("reproducible_computation", {})
+    renewal_rows148 = renewal148.get("finite_exact_rows", [])
+    if collatz148.get("theorem_name") != "MinusFiveCylinderNoFixedRenewalHorizon" or len(renewal_rows148) != 16 or any(not all(row.get("checks", {}).values()) for row in renewal_rows148) or any(row.get("valuation_word") != [1, 2] * int(row.get("renewal_pair_count", 0)) for row in renewal_rows148) or int(renewal148.get("failure_count", -1)) != 0:
+        return fail("ticket148 Collatz renewal no-go changed")
+
+    goldbach148 = audit148.get("goldbach", {})
+    sharp148 = goldbach148.get("reproducible_computation", {})
+    phase_rows148 = sharp148.get("finite_numeric_rows", [])
+    scaled148 = [float(row.get("scaled_relative_error_M_times_error_over_energy", 0)) for row in phase_rows148]
+    if goldbach148.get("theorem_name") != "NonnegativeEndpointPhaseQuantizationOrderSharpness" or len(phase_rows148) != 6 or any(not all(row.get("checks", {}).values()) for row in phase_rows148) or scaled148 != sorted(scaled148) or abs(scaled148[-1] - math.pi / 3) >= 0.02 or int(sharp148.get("failure_count", -1)) != 0:
+        return fail("ticket148 Goldbach phase sharpness changed")
+
+    twin148 = audit148.get("twin_prime", {})
+    matching148 = twin148.get("reproducible_computation", {})
+    graph148 = matching148.get("finite_graph_rows", [])
+    counter148 = matching148.get("matching_counterfamily_rows", [])
+    cells148 = matching148.get("finite_cubic_rough_cell_rows", [])
+    if twin148.get("theorem_name") != "CubicRoughGapTwoMatchingAndCouplingNoGo" or len(graph148) != 5 or any(int(row.get("maximum_degree", -1)) > 1 or not all(row.get("checks", {}).values()) for row in graph148) or len(counter148) != 16 or any(not all(row.get("checks", {}).values()) for row in counter148) or len(cells148) != 4 or [int(row.get("exact_cell_counts", {}).get("--", -1)) for row in cells148] != [26, 137, 936, 6702] or any(not all(row.get("checks", {}).values()) for row in cells148) or int(matching148.get("failure_count", -1)) != 0:
+        return fail("ticket148 Twin matching correction changed")
+
+    sections148 = {
+        "riemann": riemann148,
+        "collatz": collatz148,
+        "goldbach": goldbach148,
+        "twin-prime": twin148,
+    }
+    for problem_id, section in sections148.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if len(nodes) != 3 or [node.get("status") for node in nodes] != ["refuted_or_insufficient", "proved_exact", "open_not_proven"] or nodes[-1].get("label") != next148[problem_id]:
+            return fail(f"{problem_id}: ticket148 proof DAG changed")
+    if "resolves no target conjecture" not in str(audit148.get("proof_boundary", "")).lower() or "resolves no target conjecture" not in str(ticket148.get("claim_boundary", "")).lower():
+        return fail("ticket148 proof boundary changed")
 
     print("open problem structure verified")
     return 0

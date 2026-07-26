@@ -31,19 +31,19 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-147: Fiber Completeness, Compensation Cover, Phase Resolution, and Path Cuts](docs/fiber-compensation-phase-graph.md).
-It proves four exact partial theorems or route no-gos. Finitely many
-fixed-lattice shift generators cannot be complete in `L2(R)`. The first
-Collatz run-compensation cylinders with `b>=r+2` give actual pointwise descent
-for every positive `n>1` in an exact odd-Haar mass `2/3` cover. Endpoint
-Fourier phase quantization has an explicit energy error, while fixed
-resolution plus Parseval alone cannot meet `K56` uniformly. Gap-two support
-is a path forest, but the same path and endpoint marginals admit opposite
-joint Liouville behavior, so arithmetic label control remains indispensable.
-Every conjecture remains `open_not_proven`.
+[TICKET-148: Multiscale Completeness, Renewal Shadows, Phase Sharpness, and Matching Coupling](docs/multiscale-renewal-sharpness-matching.md).
+It proves four exact partial theorems or route no-gos and records one
+historical correction. An explicit multiscale Haar system is complete in
+`L2(R)`, but positivity on any finite prefix does not imply global
+positivity. Every fixed Collatz renewal horizon has an infinite positive
+cylinder that follows it and expands. The TICKET-147 endpoint phase error
+is order-sharp at `E/M`, even for nonnegative real functions. The actual
+cubic-rough gap-two support is a matching for `X>=13`, not a long path
+forest, while its topology and endpoint marginals still fail to determine
+joint Liouville coupling. Every conjecture remains `open_not_proven`.
 
 The preserved previous boundary is
-[TICKET-146: Toeplitz Reflection, Polynomial Ranks, Fourier Phase, and Frechet Bounds](docs/toeplitz-polynomial-phase-frechet.md).
+[TICKET-147: Fiber Completeness, Compensation Cover, Phase Resolution, and Path Cuts](docs/fiber-compensation-phase-graph.md).
 
 The corrected TICKET77 sublemma is written separately in [Collatz Fixed-Prefix Boundary Orbit](docs/collatz-fixed-prefix-boundary-orbit.md), with a bilingual theorem statement, equality-rollback correction, periodic-orbit classification, 2-adic admissibility analysis, and explicit remaining bridge.
 
@@ -99,36 +99,35 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-seven-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-eight-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-147. For RH it proves that no finite
-family of fixed-lattice shift orbits is complete in `L2(R)`, forcing an
-infinite multiscale completeness theorem before Toeplitz positivity can be
-promoted. For Collatz it proves pointwise descent on an exact two-thirds
-run-compensation cylinder cover and isolates the residual third. For
-Goldbach it supplies an endpoint-phase quantization bound and shows why a
-fixed-resolution Parseval route cannot close `K56`. For Twin Prime it turns
-the joint Liouville coefficient into a path-cut statistic and refutes
-support-topology-plus-marginal control with an infinite counterfamily. All
-four conjectures remain open. See
+The latest proof-search track is TICKET-148. For RH it closes explicit Haar
+multiscale completeness but proves that no finite positivity prefix can
+certify the untested tail. For Collatz it constructs an exact expanding
+cylinder for every proposed fixed renewal horizon. For Goldbach it proves
+the generic endpoint-phase error cannot improve beyond order `E/M` even
+under nonnegativity. For Twin Prime it corrects the actual cubic-rough
+support geometry to a matching and reduces the missing information to
+Liouville endpoint coupling. All four conjectures remain open. See
+[TICKET148](docs/multiscale-renewal-sharpness-matching.md),
 [TICKET147](docs/fiber-compensation-phase-graph.md),
 [TICKET146](docs/toeplitz-polynomial-phase-frechet.md),
 [TICKET145](docs/normalization-affine-endpoint-separable-no-go.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-147입니다. RH에서는 유한 개
-fixed-lattice shift generator가 `L2(R)` 전체를 생성할 수 없음을 fiber
-차원으로 증명했습니다. Collatz에서는 최초 run 보상이 `b>=r+2`인 정확한
-odd-Haar 질량 `2/3` cylinder에서 모든 양의 `n>1`의 실제 하강을
-증명하고 나머지 `1/3`을 분리했습니다. Goldbach에서는 endpoint 위상
-sector 양자화 오차를 증명하고 고정 해상도 Parseval-only `K56` 경로를
-폐기했습니다. Twin Prime에서는 gap-two support를 path cut으로 바꾸고,
-같은 path와 marginal에서 `A11`과 twin cell이 달라지는 무한 반례족을
-구성했습니다. 네 문제는 모두 미해결이며 완전 증명이나 추측의 반례는
-없습니다.
+한국어 최신 요약: 최신 탐색은 TICKET-148입니다. RH에서는 Haar 다중
+스케일 완전성을 닫았지만 유한 prefix 양성으로 전역 양성을 결론내는
+경로를 반례로 폐기했습니다. Collatz에서는 임의의 고정 갱신 깊이마다
+그 깊이를 모두 통과하며 증가하는 양의 정수 cylinder를 정확히
+구성했습니다. Goldbach에서는 비음수 실함수에서도 endpoint 위상
+양자화 오차가 `E/M` 차수보다 일반적으로 좋아질 수 없음을
+증명했습니다. Twin Prime에서는 실제 cubic-rough support가 긴 경로가
+아니라 matching임을 증명해 TICKET-147의 적용 범위를 교정했고, 남은
+정보가 실제 Liouville endpoint coupling임을 고정했습니다. 네 문제는
+모두 미해결이며 완전 증명이나 추측의 반례는 없습니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -148,12 +147,12 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-147입니다. [Fiber completeness,
-compensation cover, phase resolution, path cut 보고서](docs/fiber-compensation-phase-graph.md)는
+최신 난제 연구 트랙은 TICKET-148입니다. [Multiscale completeness,
+renewal shadow, phase sharpness, matching coupling 보고서](docs/multiscale-renewal-sharpness-matching.md)는
 네 트랙의 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을
-한글과 영문으로 정리합니다. RH의 유한 lattice-shift 완전성, Collatz의
-최초 보상 전체 cover, Goldbach의 고정 phase-resolution energy 인증,
-Twin Prime의 support-topology-plus-marginal 추론을 정확히 교정합니다.
+한글과 영문으로 정리합니다. RH의 유한 양성 prefix 승격, Collatz의
+고정 갱신 깊이, Goldbach의 일반적 sub-`E/M` phase 인증, Twin Prime의
+cubic-rough 장경로 모형을 정확히 교정합니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET147/TICKET146/TICKET145/TICKET144/TICKET143/TICKET142/TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET148/TICKET147/TICKET146/TICKET145/TICKET144/TICKET143/TICKET142/TICKET141/TICKET140/TICKET139/TICKET138/TICKET137/TICKET136/TICKET135/TICKET134/TICKET133/TICKET132/TICKET131/TICKET130/TICKET129/TICKET128/TICKET127/TICKET126/TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260727-ticket147-priority")) {
-      errors.push(`${page}: missing TICKET147 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260727-ticket148-priority")) {
+      errors.push(`${page}: missing TICKET148 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,36 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket148 title", "Ticket 148 multiscale completeness, renewal shadows, phase sharpness, and matching coupling");
+    requireText("ticket148 table", "TICKET148 audit");
+    requireText("ticket148 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket148 resolutions", "Resolution count0");
+    requireText("ticket148 correction", "Historical corrections1");
+    requireText("ticket148 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket148 RH theorem", "DyadicHaarMultiscaleCompletenessAndFiniteScalePositivityNoGo");
+      requireText("ticket148 RH rows", "Exact Haar levels8");
+      requireText("ticket148 RH dimension", "Largest dimension256");
+      requireText("ticket148 RH target", "SmoothWeilWaveletCoreAndUniformMatrixTailPositivityBound");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket148 Collatz theorem", "MinusFiveCylinderNoFixedRenewalHorizon");
+      requireText("ticket148 Collatz horizons", "Exact horizons16");
+      requireText("ticket148 Collatz word", "Longest valuation word32");
+      requireText("ticket148 Collatz target", "AdaptiveRenewalRankEscapingMinusFiveTwoAdicShadow");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket148 Goldbach theorem", "NonnegativeEndpointPhaseQuantizationOrderSharpness");
+      requireText("ticket148 Goldbach examples", "Nonnegative examples6");
+      requireText("ticket148 Goldbach order", "Sharp orderE / M");
+      requireText("ticket148 Goldbach target", "VonMangoldtEndpointSectorCancellationBeyondSharpGeometricRate");
+    } else {
+      requireText("ticket148 Twin theorem", "CubicRoughGapTwoMatchingAndCouplingNoGo");
+      requireText("ticket148 Twin geometry", "Geometrymatching, not long paths");
+      requireText("ticket148 Twin counterfamily", "Coupling counterfamilies16");
+      requireText("ticket148 Twin target", "CubicRoughLiouvilleMatchingCouplingTypeIIBound");
+    }
     requireText("ticket147 title", "Ticket 147 fiber completeness, compensation cover, phase resolution, and path cuts");
     requireText("ticket147 table", "TICKET147 audit");
-    requireText("ticket147 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket147 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket147 resolutions", "Resolution count0");
     requireText("ticket147 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {
@@ -2416,9 +2443,9 @@ async function main() {
     ["panel", metrics.evolutionPanel, "Provenance"],
     ["panel", metrics.evolutionPanel, "Evidence pack"],
     ["panel", metrics.evolutionPanel, "Publication consistency"],
-    ["panel", metrics.evolutionPanel, "TICKET-147"],
+    ["panel", metrics.evolutionPanel, "TICKET-148"],
     ["panel", metrics.evolutionPanel, "Open-Proof"],
-    ["panel", metrics.evolutionPanel, "97%"],
+    ["panel", metrics.evolutionPanel, "98%"],
     ["panel", metrics.evolutionPanel, "Form-core topology"],
     ["panel", metrics.evolutionPanel, "TICKET-57"],
     ["panel", metrics.evolutionPanel, "TICKET-58"],
@@ -2549,9 +2576,9 @@ async function main() {
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("Evidence pack") ||
     !metrics.evolutionPanel.includes("Publication consistency") ||
-    !metrics.evolutionPanel.includes("TICKET-147") ||
+    !metrics.evolutionPanel.includes("TICKET-148") ||
     !metrics.evolutionPanel.includes("Open-Proof") ||
-    !metrics.evolutionPanel.includes("97%") ||
+    !metrics.evolutionPanel.includes("98%") ||
     !metrics.evolutionPanel.includes("Form-core topology") ||
     !metrics.evolutionPanel.includes("TICKET-57") ||
     !metrics.evolutionPanel.includes("TICKET-58") ||
