@@ -150,6 +150,7 @@ TICKET149_SCHEMA = "primeproject.ticket149-smooth-escape-wheel-cover.v1"
 TICKET150_SCHEMA = "primeproject.ticket150-relative-delay-hole-parity.v1"
 TICKET151_SCHEMA = "primeproject.ticket151-negative-affine-transversal-logtwo.v1"
 TICKET152_SCHEMA = "primeproject.ticket152-compression-cylinder-energy-selection.v1"
+TICKET153_SCHEMA = "primeproject.ticket153-essential-tail-geometric-reflection-parity.v1"
 
 
 def fail(message: str) -> int:
@@ -9244,6 +9245,270 @@ def main() -> int:
         not in str(ticket152.get("claim_boundary", "")).lower()
     ):
         return fail("ticket152 proof boundary changed")
+
+    path153 = Path(
+        "data/open-problem/"
+        "ticket153-essential-tail-geometric-reflection-parity.json"
+    )
+    if not path153.exists():
+        return fail(
+            "missing ticket153 essential-tail-geometric-reflection-parity "
+            "audit"
+        )
+    ticket153 = read_json(path153)
+    if (
+        ticket153.get("schema") != TICKET153_SCHEMA
+        or ticket153.get("status")
+        != "exact_decompositions_all_four_conjectures_open"
+    ):
+        return fail("ticket153 schema or status changed")
+    attempts153 = ticket153.get("attempts", [])
+    by_id153 = {
+        str(row.get("problem_id")): row
+        for row in attempts153
+        if isinstance(row, dict)
+    }
+    if set(by_id153) != EXPECTED_PROBLEMS:
+        return fail("ticket153 attempts missing problems")
+
+    paths153 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-153-essential-tail-schur.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-153-geometric-cylinder-tail.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-153-reflection-energy.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-153-cubic-rough-parity.json"
+        ),
+    }
+    next153 = {
+        "riemann": (
+            "ActualWeilPositiveTailDecompositionWithCertified"
+            "SchurComplement"
+        ),
+        "collatz": (
+            "UniformAffineOffsetControlOnNaturalValuationRays"
+        ),
+        "goldbach": (
+            "ExplicitBinaryPrimeThetaMinorArcBoundBelowMajorArc"
+            "ReflectionGap"
+        ),
+        "twin-prime": (
+            "UnboundedCubicRoughPrimePrimeExcessOverSemiprimePairs"
+        ),
+    }
+    for problem_id, attempt in by_id153.items():
+        if (
+            not paths153[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+        ):
+            return fail(
+                f"{problem_id}: ticket153 artifact or boundary missing"
+            )
+        per_problem153 = read_json(paths153[problem_id])
+        if (
+            per_problem153.get("schema") != TICKET153_SCHEMA
+            or per_problem153.get("problem_id") != problem_id
+            or per_problem153.get("candidate_theorem")
+            != next153[problem_id]
+            or attempt.get("candidate_theorem") != next153[problem_id]
+        ):
+            return fail(
+                f"{problem_id}: ticket153 per-problem contract changed"
+            )
+
+    audit153 = ticket153.get(
+        "essential_tail_geometric_reflection_parity_audit",
+        {},
+    )
+    machine153 = audit153.get("machine_audit", {})
+    if (
+        audit153.get("theorem_name")
+        != "FourConjectureEssentialTailGeometricReflectionParityAudit"
+        or int(machine153.get("exact_theorem_count", -1)) != 4
+        or int(machine153.get("rejected_target_count", -1)) != 4
+        or int(machine153.get("proof_dag_count", -1)) != 4
+        or int(machine153.get("conjecture_resolution_count", -1)) != 0
+        or int(machine153.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket153 global machine audit changed")
+
+    riemann153 = audit153.get("riemann", {})
+    essential153 = riemann153.get("reproducible_computation", {})
+    norm_rows153 = essential153.get("finite_essential_norm_rows", [])
+    schur_rows153 = essential153.get(
+        "finite_schur_complement_rows",
+        [],
+    )
+    if (
+        riemann153.get("theorem_name")
+        != (
+            "PositiveEssentialTailSchurComplementAnd"
+            "FiniteRankNormNoGo"
+        )
+        or len(norm_rows153) != 5
+        or len(schur_rows153) != 8
+        or any(
+            Fraction(
+                row.get(
+                    "operator_norm_distance_lower_bound",
+                    {},
+                ).get("exact", "0")
+            )
+            != Fraction(
+                row.get(
+                    "positive_identity_tail_delta",
+                    {},
+                ).get("exact", "-1")
+            )
+            or not all(row.get("checks", {}).values())
+            for row in norm_rows153
+        )
+        or any(
+            bool(row.get("certified_positive"))
+            != (
+                Fraction(
+                    row.get(
+                        "exact_schur_margin",
+                        {},
+                    ).get("exact", "-1")
+                )
+                >= 0
+            )
+            or not all(row.get("checks", {}).values())
+            for row in schur_rows153
+        )
+        or int(essential153.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket153 RH essential-tail audit changed")
+
+    collatz153 = audit153.get("collatz", {})
+    geometric153 = collatz153.get("reproducible_computation", {})
+    extension_rows153 = geometric153.get(
+        "finite_extension_partition_rows",
+        [],
+    )
+    drift_rows153 = geometric153.get(
+        "finite_negative_drift_rows",
+        [],
+    )
+    if (
+        collatz153.get("theorem_name")
+        != "CountableGeometricCylinderPartitionAndNegativeDriftLaw"
+        or len(extension_rows153) != 21
+        or len(drift_rows153) != 6
+        or any(
+            Fraction(
+                row.get("conditional_tail_mass", {}).get(
+                    "exact",
+                    "0",
+                )
+            )
+            != Fraction(1, 1 << int(row.get("lift_residue_bits_B", 0)))
+            or not all(row.get("checks", {}).values())
+            for row in extension_rows153
+        )
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in drift_rows153
+        )
+        or not geometric153.get(
+            "finite_noncontracting_probabilities_strictly_decreasing"
+        )
+        or int(geometric153.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket153 Collatz geometric-tail audit changed")
+
+    goldbach153 = audit153.get("goldbach", {})
+    reflection153 = goldbach153.get("reproducible_computation", {})
+    reflection_rows153 = reflection153.get(
+        "finite_reflection_energy_rows",
+        [],
+    )
+    if (
+        goldbach153.get("theorem_name")
+        != (
+            "PrimeThetaReflectionEnergyIdentityAnd"
+            "SymmetricBaselineNoGo"
+        )
+        or [int(row.get("even_endpoint_N", -1))
+            for row in reflection_rows153]
+        != [1000, 10000, 100000, 1000000]
+        or any(
+            int(row.get("unordered_prime_pair_representations", 0))
+            <= 0
+            or float(
+                row.get("prime_theta_reflection_correlation", 0)
+            )
+            <= 0
+            or not all(row.get("checks", {}).values())
+            for row in reflection_rows153
+        )
+        or int(reflection153.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket153 Goldbach reflection audit changed")
+
+    twin153 = audit153.get("twin_prime", {})
+    parity153 = twin153.get("reproducible_computation", {})
+    parity_rows153 = parity153.get(
+        "finite_cubic_rough_parity_rows",
+        [],
+    )
+    if (
+        twin153.get("theorem_name")
+        != "CubicRoughLiouvilleParityIdentity"
+        or [int(row.get("X", -1)) for row in parity_rows153]
+        != [1000, 10000, 100000, 1000000, 10000000]
+        or any(
+            int(row.get("symmetrized_shifted_liouville_sum", 1))
+            != 2
+            * (
+                int(row.get("semiprime_semiprime_pairs_QQ", 0))
+                - int(row.get("prime_prime_pairs_PP", 0))
+            )
+            or int(row.get("prime_prime_excess_PP_minus_QQ", 0))
+            <= 0
+            or not all(row.get("checks", {}).values())
+            for row in parity_rows153
+        )
+        or int(parity153.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket153 Twin cubic-rough parity audit changed")
+
+    sections153 = {
+        "riemann": riemann153,
+        "collatz": collatz153,
+        "goldbach": goldbach153,
+        "twin-prime": twin153,
+    }
+    for problem_id, section in sections153.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next153[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket153 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit153.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket153.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket153 proof boundary changed")
 
     print("open problem structure verified")
     return 0

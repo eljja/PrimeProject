@@ -1,5 +1,18 @@
 # TICKET-152: Compression Exhaustion, Collatz Cylinders, Goldbach Energy, and Twin Selection
 
+> Continued by [TICKET-153: Essential Tail, Geometric Cylinders, Reflection
+> Energy, and Cubic-Rough Parity](essential-tail-geometric-reflection-parity.md).
+> TICKET-153 replaces whole-tail finite-rank norm approximation by a positive
+> Schur-complement tail contract, proves the exact countable Collatz geometric
+> law, diagonalizes prime-only Goldbach reflection energy, and reduces the
+> cubic-rough Twin Liouville sign to `2(QQ-PP)`.
+>
+> 다음 단계는 [TICKET-153: essential tail, geometric cylinder, reflection
+> energy, cubic-rough parity](essential-tail-geometric-reflection-parity.md)에
+> 정리되어 있다. 양의 tail Schur 계약, 정확한 가산 Collatz 기하 법칙,
+> 소수 전용 Goldbach 반사 에너지, cubic-rough Twin `2(QQ-PP)` 환원을
+> 추가한다.
+
 ## Claim boundary / 주장 경계
 
 **English.** This report does not prove or disprove the Riemann Hypothesis,

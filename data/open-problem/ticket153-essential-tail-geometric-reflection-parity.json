@@ -1,0 +1,1761 @@
+{
+  "schema": "primeproject.ticket153-essential-tail-geometric-reflection-parity.v1",
+  "generated_at": "2026-07-26T13:30:00+09:00",
+  "status": "exact_decompositions_all_four_conjectures_open",
+  "claim_boundary": "TICKET-153 proves four exact partial or no-go theorems and resolves no target conjecture. It replaces full finite-rank RH tail approximation by a Schur-complement contract, completes the countable geometric Collatz cylinder law without promoting measure to universality, diagonalizes prime-only Goldbach reflection energy, and identifies the cubic-rough Twin Liouville sum exactly as twice QQ minus PP.",
+  "essential_tail_geometric_reflection_parity_audit": {
+    "theorem_name": "FourConjectureEssentialTailGeometricReflectionParityAudit",
+    "status": "exact_decompositions_all_four_conjectures_open",
+    "proof_boundary": "TICKET-153 proves four exact partial or no-go theorems and resolves no target conjecture. It replaces full finite-rank RH tail approximation by a Schur-complement contract, completes the countable geometric Collatz cylinder law without promoting measure to universality, diagonalizes prime-only Goldbach reflection energy, and identifies the cubic-rough Twin Liouville sum exactly as twice QQ minus PP.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-153",
+      "theorem_name": "PositiveEssentialTailSchurComplementAndFiniteRankNormNoGo",
+      "declared_proposition": "Let G on H0 direct-sum H1 have self-adjoint block form [A,C*;C,D], with D>=delta I for delta>0. If A>=||C||^2/delta times I, then G>=0. More exactly, when D is invertible, G>=0 iff D>=0 and A-C*D^(-1)C>=0. In contrast, on an infinite-dimensional tail, every finite-rank F satisfies ||delta I-F||>=delta. Thus a known positive essential tail must be retained and certified by a Schur complement; treating the entire operator as a small finite-rank norm remainder is impossible below its essential norm.",
+      "mathematical_argument": "Complete the square: <G(x,y),(x,y)> equals <(A-C*D^(-1)C)x,x> plus <D(y+D^(-1)Cx),y+D^(-1)Cx>. The bound C*D^(-1)C<=||C||^2/delta gives the sufficient condition. For the no-go, a finite-rank F has a nonzero unit vector x in its kernel, so ||(delta I-F)x||=delta. The rational audit evaluates the exact Schur margins and the minimizing vectors.",
+      "reproducible_computation": {
+        "theorem": "Let G on H0 direct-sum H1 have self-adjoint block form [A,C*;C,D], with D>=delta I for delta>0. If A>=||C||^2/delta times I, then G>=0. More exactly, when D is invertible, G>=0 iff D>=0 and A-C*D^(-1)C>=0. In contrast, on an infinite-dimensional tail, every finite-rank F satisfies ||delta I-F||>=delta. Thus a known positive essential tail must be retained and certified by a Schur complement; treating the entire operator as a small finite-rank norm remainder is impossible below its essential norm.",
+        "proof": "Complete the square: <G(x,y),(x,y)> equals <(A-C*D^(-1)C)x,x> plus <D(y+D^(-1)Cx),y+D^(-1)Cx>. The bound C*D^(-1)C<=||C||^2/delta gives the sufficient condition. For the no-go, a finite-rank F has a nonzero unit vector x in its kernel, so ||(delta I-F)x||=delta. The rational audit evaluates the exact Schur margins and the minimizing vectors.",
+        "finite_essential_norm_rows": [
+          {
+            "tested_finite_rank": 1,
+            "positive_identity_tail_delta": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "witness_coordinate": 2,
+            "operator_norm_distance_lower_bound": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "hidden_kernel_direction_exists": true,
+              "finite_rank_distance_at_least_delta": true,
+              "positive_essential_tail_not_small_norm_remainder": true
+            }
+          },
+          {
+            "tested_finite_rank": 2,
+            "positive_identity_tail_delta": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "witness_coordinate": 3,
+            "operator_norm_distance_lower_bound": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "hidden_kernel_direction_exists": true,
+              "finite_rank_distance_at_least_delta": true,
+              "positive_essential_tail_not_small_norm_remainder": true
+            }
+          },
+          {
+            "tested_finite_rank": 4,
+            "positive_identity_tail_delta": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "witness_coordinate": 5,
+            "operator_norm_distance_lower_bound": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "checks": {
+              "hidden_kernel_direction_exists": true,
+              "finite_rank_distance_at_least_delta": true,
+              "positive_essential_tail_not_small_norm_remainder": true
+            }
+          },
+          {
+            "tested_finite_rank": 8,
+            "positive_identity_tail_delta": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "witness_coordinate": 9,
+            "operator_norm_distance_lower_bound": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "hidden_kernel_direction_exists": true,
+              "finite_rank_distance_at_least_delta": true,
+              "positive_essential_tail_not_small_norm_remainder": true
+            }
+          },
+          {
+            "tested_finite_rank": 16,
+            "positive_identity_tail_delta": {
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            "witness_coordinate": 17,
+            "operator_norm_distance_lower_bound": {
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            "checks": {
+              "hidden_kernel_direction_exists": true,
+              "finite_rank_distance_at_least_delta": true,
+              "positive_essential_tail_not_small_norm_remainder": true
+            }
+          }
+        ],
+        "finite_schur_complement_rows": [
+          {
+            "tail_coercivity_delta": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "coupling_coordinates": [
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              }
+            ],
+            "coupling_norm_squared": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "finite_core_floor": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "schur_cost_normC_squared_over_delta": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "exact_schur_margin": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "certified_positive": true,
+            "minimizing_test_vector_quadratic_value": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "classification_matches_exact_schur_margin": true,
+              "positive_case_has_nonnegative_margin": true,
+              "failed_case_has_explicit_negative_direction": true
+            }
+          },
+          {
+            "tail_coercivity_delta": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "coupling_coordinates": [
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "1/3",
+                "decimal": 0.3333333333333333
+              }
+            ],
+            "coupling_norm_squared": {
+              "exact": "13/36",
+              "decimal": 0.3611111111111111
+            },
+            "finite_core_floor": {
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "schur_cost_normC_squared_over_delta": {
+              "exact": "13/72",
+              "decimal": 0.18055555555555555
+            },
+            "exact_schur_margin": {
+              "exact": "11/72",
+              "decimal": 0.1527777777777778
+            },
+            "certified_positive": true,
+            "minimizing_test_vector_quadratic_value": {
+              "exact": "11/72",
+              "decimal": 0.1527777777777778
+            },
+            "checks": {
+              "classification_matches_exact_schur_margin": true,
+              "positive_case_has_nonnegative_margin": true,
+              "failed_case_has_explicit_negative_direction": true
+            }
+          },
+          {
+            "tail_coercivity_delta": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "coupling_coordinates": [
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              },
+              {
+                "exact": "1/5",
+                "decimal": 0.2
+              },
+              {
+                "exact": "1/6",
+                "decimal": 0.16666666666666666
+              }
+            ],
+            "coupling_norm_squared": {
+              "exact": "469/3600",
+              "decimal": 0.13027777777777777
+            },
+            "finite_core_floor": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "schur_cost_normC_squared_over_delta": {
+              "exact": "469/5400",
+              "decimal": 0.08685185185185185
+            },
+            "exact_schur_margin": {
+              "exact": "881/5400",
+              "decimal": 0.16314814814814815
+            },
+            "certified_positive": true,
+            "minimizing_test_vector_quadratic_value": {
+              "exact": "881/5400",
+              "decimal": 0.16314814814814815
+            },
+            "checks": {
+              "classification_matches_exact_schur_margin": true,
+              "positive_case_has_nonnegative_margin": true,
+              "failed_case_has_explicit_negative_direction": true
+            }
+          },
+          {
+            "tail_coercivity_delta": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "coupling_coordinates": [
+              {
+                "exact": "1/5",
+                "decimal": 0.2
+              },
+              {
+                "exact": "1/7",
+                "decimal": 0.14285714285714285
+              }
+            ],
+            "coupling_norm_squared": {
+              "exact": "74/1225",
+              "decimal": 0.060408163265306125
+            },
+            "finite_core_floor": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "schur_cost_normC_squared_over_delta": {
+              "exact": "296/3675",
+              "decimal": 0.08054421768707483
+            },
+            "exact_schur_margin": {
+              "exact": "1307/29400",
+              "decimal": 0.04445578231292517
+            },
+            "certified_positive": true,
+            "minimizing_test_vector_quadratic_value": {
+              "exact": "1307/29400",
+              "decimal": 0.04445578231292517
+            },
+            "checks": {
+              "classification_matches_exact_schur_margin": true,
+              "positive_case_has_nonnegative_margin": true,
+              "failed_case_has_explicit_negative_direction": true
+            }
+          },
+          {
+            "tail_coercivity_delta": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "coupling_coordinates": [
+              {
+                "exact": "3/4",
+                "decimal": 0.75
+              }
+            ],
+            "coupling_norm_squared": {
+              "exact": "9/16",
+              "decimal": 0.5625
+            },
+            "finite_core_floor": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "schur_cost_normC_squared_over_delta": {
+              "exact": "9/16",
+              "decimal": 0.5625
+            },
+            "exact_schur_margin": {
+              "exact": "-1/16",
+              "decimal": -0.0625
+            },
+            "certified_positive": false,
+            "minimizing_test_vector_quadratic_value": {
+              "exact": "-1/16",
+              "decimal": -0.0625
+            },
+            "checks": {
+              "classification_matches_exact_schur_margin": true,
+              "positive_case_has_nonnegative_margin": true,
+              "failed_case_has_explicit_negative_direction": true
+            }
+          },
+          {
+            "tail_coercivity_delta": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "coupling_coordinates": [
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "1/3",
+                "decimal": 0.3333333333333333
+              }
+            ],
+            "coupling_norm_squared": {
+              "exact": "13/36",
+              "decimal": 0.3611111111111111
+            },
+            "finite_core_floor": {
+              "exact": "2/3",
+              "decimal": 0.6666666666666666
+            },
+            "schur_cost_normC_squared_over_delta": {
+              "exact": "13/18",
+              "decimal": 0.7222222222222222
+            },
+            "exact_schur_margin": {
+              "exact": "-1/18",
+              "decimal": -0.05555555555555555
+            },
+            "certified_positive": false,
+            "minimizing_test_vector_quadratic_value": {
+              "exact": "-1/18",
+              "decimal": -0.05555555555555555
+            },
+            "checks": {
+              "classification_matches_exact_schur_margin": true,
+              "positive_case_has_nonnegative_margin": true,
+              "failed_case_has_explicit_negative_direction": true
+            }
+          },
+          {
+            "tail_coercivity_delta": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "coupling_coordinates": [
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              }
+            ],
+            "coupling_norm_squared": {
+              "exact": "5/16",
+              "decimal": 0.3125
+            },
+            "finite_core_floor": {
+              "exact": "3/8",
+              "decimal": 0.375
+            },
+            "schur_cost_normC_squared_over_delta": {
+              "exact": "5/12",
+              "decimal": 0.4166666666666667
+            },
+            "exact_schur_margin": {
+              "exact": "-1/24",
+              "decimal": -0.041666666666666664
+            },
+            "certified_positive": false,
+            "minimizing_test_vector_quadratic_value": {
+              "exact": "-1/24",
+              "decimal": -0.041666666666666664
+            },
+            "checks": {
+              "classification_matches_exact_schur_margin": true,
+              "positive_case_has_nonnegative_margin": true,
+              "failed_case_has_explicit_negative_direction": true
+            }
+          },
+          {
+            "tail_coercivity_delta": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "coupling_coordinates": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "3/4",
+                "decimal": 0.75
+              }
+            ],
+            "coupling_norm_squared": {
+              "exact": "25/16",
+              "decimal": 1.5625
+            },
+            "finite_core_floor": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "schur_cost_normC_squared_over_delta": {
+              "exact": "25/32",
+              "decimal": 0.78125
+            },
+            "exact_schur_margin": {
+              "exact": "-1/32",
+              "decimal": -0.03125
+            },
+            "certified_positive": false,
+            "minimizing_test_vector_quadratic_value": {
+              "exact": "-1/32",
+              "decimal": -0.03125
+            },
+            "checks": {
+              "classification_matches_exact_schur_margin": true,
+              "positive_case_has_nonnegative_margin": true,
+              "failed_case_has_explicit_negative_direction": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The block theorem is exact but abstract. PrimeProject has not identified a proved positive essential tail, coupling operator, or finite core for the actual Weil form. No off-critical zeta zero is excluded.",
+      "route_decision": {
+        "discard": "approximating a nonzero positive essential tail itself by finite-rank operators in arbitrarily small operator norm",
+        "retain": "separate a rigorously coercive actual-Weil tail and bound its coupling to the finite core by a Schur complement",
+        "next_theorem": "ActualWeilPositiveTailDecompositionWithCertifiedSchurComplement"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T153-REJECTED",
+            "label": "FiniteRankNormApproximationOfPositiveEssentialWeilTail",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T153-CLOSED",
+            "label": "PositiveEssentialTailSchurComplementAndFiniteRankNormNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T153-OPEN",
+            "label": "ActualWeilPositiveTailDecompositionWithCertifiedSchurComplement",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T153-REJECTED",
+            "RH-T153-CLOSED"
+          ],
+          [
+            "RH-T153-CLOSED",
+            "RH-T153-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero. One exact positive-tail certificate and one essential-norm no-go."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-153",
+      "theorem_name": "CountableGeometricCylinderPartitionAndNegativeDriftLaw",
+      "declared_proposition": "Every accelerated Collatz valuation cylinder is the disjoint countable union of its children indexed by the next valuation b>=1. Their conditional 2-adic Haar masses are exactly 2^(-b), and the tail mass for b>B is 2^(-B). Iterating gives word mass 2^(-sum a_i), so the valuation coordinates have the exact geometric cylinder law. Consequently the expected logarithm of the linear multiplier 3/2^a is log(3/4)<0, and the exact noncontracting coefficient probability after m odd steps is sum_{s=m}^{floor(m log_2 3)} binom(s-1,m-1)2^(-s), with an explicit exponentially decaying Chernoff bound.",
+      "mathematical_argument": "On the lift index k, the next-step numerator divided by two is an affine map with odd coefficient modulo 2^B, hence a permutation. Exactly 2^(B-b) residues have next valuation b for 1<=b<=B, while one residue has valuation greater than B. Multiplying child masses proves the word law. The number of positive compositions of s into m parts is binom(s-1,m-1), which gives the negative-binomial formula. Applying Markov's inequality to exp(-t sum a_i) and optimizing t gives the reported Chernoff base.",
+      "reproducible_computation": {
+        "theorem": "Every accelerated Collatz valuation cylinder is the disjoint countable union of its children indexed by the next valuation b>=1. Their conditional 2-adic Haar masses are exactly 2^(-b), and the tail mass for b>B is 2^(-B). Iterating gives word mass 2^(-sum a_i), so the valuation coordinates have the exact geometric cylinder law. Consequently the expected logarithm of the linear multiplier 3/2^a is log(3/4)<0, and the exact noncontracting coefficient probability after m odd steps is sum_{s=m}^{floor(m log_2 3)} binom(s-1,m-1)2^(-s), with an explicit exponentially decaying Chernoff bound.",
+        "proof": "On the lift index k, the next-step numerator divided by two is an affine map with odd coefficient modulo 2^B, hence a permutation. Exactly 2^(B-b) residues have next valuation b for 1<=b<=B, while one residue has valuation greater than B. Multiplying child masses proves the word law. The number of positive compositions of s into m parts is binom(s-1,m-1), which gives the negative-binomial formula. Applying Markov's inequality to exp(-t sum a_i) and optimizing t gives the reported Chernoff base.",
+        "finite_extension_partition_rows": [
+          {
+            "parent_word": [
+              1
+            ],
+            "lift_residue_bits_B": 4,
+            "lift_count": 16,
+            "exact_next_valuation_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "expected_geometric_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              1
+            ],
+            "lift_residue_bits_B": 8,
+            "lift_count": 256,
+            "exact_next_valuation_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "expected_geometric_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              1
+            ],
+            "lift_residue_bits_B": 12,
+            "lift_count": 4096,
+            "exact_next_valuation_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "expected_geometric_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              2
+            ],
+            "lift_residue_bits_B": 4,
+            "lift_count": 16,
+            "exact_next_valuation_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "expected_geometric_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              2
+            ],
+            "lift_residue_bits_B": 8,
+            "lift_count": 256,
+            "exact_next_valuation_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "expected_geometric_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              2
+            ],
+            "lift_residue_bits_B": 12,
+            "lift_count": 4096,
+            "exact_next_valuation_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "expected_geometric_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              1
+            ],
+            "lift_residue_bits_B": 4,
+            "lift_count": 16,
+            "exact_next_valuation_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "expected_geometric_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              1
+            ],
+            "lift_residue_bits_B": 8,
+            "lift_count": 256,
+            "exact_next_valuation_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "expected_geometric_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              1
+            ],
+            "lift_residue_bits_B": 12,
+            "lift_count": 4096,
+            "exact_next_valuation_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "expected_geometric_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              2
+            ],
+            "lift_residue_bits_B": 4,
+            "lift_count": 16,
+            "exact_next_valuation_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "expected_geometric_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              2
+            ],
+            "lift_residue_bits_B": 8,
+            "lift_count": 256,
+            "exact_next_valuation_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "expected_geometric_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              2
+            ],
+            "lift_residue_bits_B": 12,
+            "lift_count": 4096,
+            "exact_next_valuation_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "expected_geometric_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              1
+            ],
+            "lift_residue_bits_B": 4,
+            "lift_count": 16,
+            "exact_next_valuation_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "expected_geometric_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              1
+            ],
+            "lift_residue_bits_B": 8,
+            "lift_count": 256,
+            "exact_next_valuation_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "expected_geometric_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              1
+            ],
+            "lift_residue_bits_B": 12,
+            "lift_count": 4096,
+            "exact_next_valuation_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "expected_geometric_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              3,
+              1,
+              2
+            ],
+            "lift_residue_bits_B": 4,
+            "lift_count": 16,
+            "exact_next_valuation_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "expected_geometric_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              3,
+              1,
+              2
+            ],
+            "lift_residue_bits_B": 8,
+            "lift_count": 256,
+            "exact_next_valuation_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "expected_geometric_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              3,
+              1,
+              2
+            ],
+            "lift_residue_bits_B": 12,
+            "lift_count": 4096,
+            "exact_next_valuation_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "expected_geometric_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              3,
+              1,
+              1
+            ],
+            "lift_residue_bits_B": 4,
+            "lift_count": 16,
+            "exact_next_valuation_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "expected_geometric_counts": {
+              "1": 8,
+              "2": 4,
+              "3": 2,
+              "4": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              3,
+              1,
+              1
+            ],
+            "lift_residue_bits_B": 8,
+            "lift_count": 256,
+            "exact_next_valuation_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "expected_geometric_counts": {
+              "1": 128,
+              "2": 64,
+              "3": 32,
+              "4": 16,
+              "5": 8,
+              "6": 4,
+              "7": 2,
+              "8": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              3,
+              1,
+              1
+            ],
+            "lift_residue_bits_B": 12,
+            "lift_count": 4096,
+            "exact_next_valuation_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "expected_geometric_counts": {
+              "1": 2048,
+              "2": 1024,
+              "3": 512,
+              "4": 256,
+              "5": 128,
+              "6": 64,
+              "7": 32,
+              "8": 16,
+              "9": 8,
+              "10": 4,
+              "11": 2,
+              "12": 1
+            },
+            "tail_next_valuation_greater_than_B": 1,
+            "conditional_tail_mass": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "checks": {
+              "each_exact_child_count_is_geometric": true,
+              "tail_count_is_one": true,
+              "partition_count_is_complete": true
+            }
+          }
+        ],
+        "finite_negative_drift_rows": [
+          {
+            "word_length_m": 4,
+            "maximum_sum_with_2_power_S_below_3_power_m": 6,
+            "exact_noncontracting_linear_coefficient_probability": {
+              "exact": "11/32",
+              "decimal": 0.34375
+            },
+            "optimized_chernoff_upper_bound": 0.8025846944885368,
+            "checks": {
+              "threshold_is_exact": true,
+              "exact_probability_below_chernoff_bound": true,
+              "probability_is_strictly_between_zero_and_one": true
+            }
+          },
+          {
+            "word_length_m": 8,
+            "maximum_sum_with_2_power_S_below_3_power_m": 12,
+            "exact_noncontracting_linear_coefficient_probability": {
+              "exact": "397/2048",
+              "decimal": 0.19384765625
+            },
+            "optimized_chernoff_upper_bound": 0.6441421918272578,
+            "checks": {
+              "threshold_is_exact": true,
+              "exact_probability_below_chernoff_bound": true,
+              "probability_is_strictly_between_zero_and_one": true
+            }
+          },
+          {
+            "word_length_m": 16,
+            "maximum_sum_with_2_power_S_below_3_power_m": 25,
+            "exact_noncontracting_linear_coefficient_probability": {
+              "exact": "962689/8388608",
+              "decimal": 0.11476147174835205
+            },
+            "optimized_chernoff_upper_bound": 0.4149191632920239,
+            "checks": {
+              "threshold_is_exact": true,
+              "exact_probability_below_chernoff_bound": true,
+              "probability_is_strictly_between_zero_and_one": true
+            }
+          },
+          {
+            "word_length_m": 32,
+            "maximum_sum_with_2_power_S_below_3_power_m": 50,
+            "exact_noncontracting_linear_coefficient_probability": {
+              "exact": "4567539980747/140737488355328",
+              "decimal": 0.03245432353613609
+            },
+            "optimized_chernoff_upper_bound": 0.1721579120669532,
+            "checks": {
+              "threshold_is_exact": true,
+              "exact_probability_below_chernoff_bound": true,
+              "probability_is_strictly_between_zero_and_one": true
+            }
+          },
+          {
+            "word_length_m": 64,
+            "maximum_sum_with_2_power_S_below_3_power_m": 101,
+            "exact_noncontracting_linear_coefficient_probability": {
+              "exact": "369799354790462131856222855/79228162514264337593543950336",
+              "decimal": 0.004667524060322401
+            },
+            "optimized_chernoff_upper_bound": 0.029638346687252782,
+            "checks": {
+              "threshold_is_exact": true,
+              "exact_probability_below_chernoff_bound": true,
+              "probability_is_strictly_between_zero_and_one": true
+            }
+          },
+          {
+            "word_length_m": 128,
+            "maximum_sum_with_2_power_S_below_3_power_m": 202,
+            "exact_noncontracting_linear_coefficient_probability": {
+              "exact": "4450113112237790663028221719057389883460835534759009971/50216813883093446110686315385661331328818843555712276103168",
+              "decimal": 8.861799003413109e-05
+            },
+            "optimized_chernoff_upper_bound": 0.000878431594353788,
+            "checks": {
+              "threshold_is_exact": true,
+              "exact_probability_below_chernoff_bound": true,
+              "probability_is_strictly_between_zero_and_one": true
+            }
+          }
+        ],
+        "finite_noncontracting_probabilities_strictly_decreasing": true,
+        "constants": {
+          "expected_valuation": 2.0,
+          "expected_log_linear_multiplier": -0.2876820724517809,
+          "optimized_chernoff_base": 0.9465045768325842
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem controls 2-adic cylinder mass and the linear multiplier, not every natural orbit. A measure-zero nested ray may survive, and the affine offset C_a/(2^S-3^m) is not uniformly bounded over all words.",
+      "route_decision": {
+        "discard": "promoting negative expected logarithmic multiplier or a density-one cylinder statement to an all-natural-numbers theorem",
+        "retain": "control affine offsets uniformly along every natural valuation ray, including the zero-density exceptional set",
+        "next_theorem": "UniformAffineOffsetControlOnNaturalValuationRays"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T153-REJECTED",
+            "label": "NegativeAverageValuationDriftImpliesUniversalDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T153-CLOSED",
+            "label": "CountableGeometricCylinderPartitionAndNegativeDriftLaw",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T153-OPEN",
+            "label": "UniformAffineOffsetControlOnNaturalValuationRays",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T153-REJECTED",
+            "CO-T153-CLOSED"
+          ],
+          [
+            "CO-T153-CLOSED",
+            "CO-T153-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit. The countable extension tail is exact, while the universal natural-integer bridge remains open."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-153",
+      "theorem_name": "PrimeThetaReflectionEnergyIdentityAndSymmetricBaselineNoGo",
+      "declared_proposition": "For even N, let R_N f(a)=f(N-a), let theta(n)=log n on primes and zero otherwise, and let P_plus/minus=(I plus/minus R_N)/2. Then the prime-weighted Goldbach coefficient is exactly <theta,R_N theta>=||P_plus theta||^2-||P_minus theta||^2. It is positive exactly when N is a sum of two primes. For every symmetric baseline w=R_N w, P_minus(theta-w)=P_minus theta; the best symmetric L2 approximation is uniquely P_plus theta and its squared error is the full antisymmetric energy. Thus no symmetric baseline choice can remove the negative reflection sector.",
+      "mathematical_argument": "The reflection is a self-adjoint involution, so its orthogonal eigenspace projections satisfy R_N=P_plus-P_minus. This gives the energy identity. Every summand theta(a)theta(N-a) is nonnegative and is positive exactly for a prime pair. If w is symmetric then P_minus w=0, proving invariance of the antisymmetric residual. Orthogonal projection gives the unique minimum over all symmetric baselines.",
+      "reproducible_computation": {
+        "theorem": "For even N, let R_N f(a)=f(N-a), let theta(n)=log n on primes and zero otherwise, and let P_plus/minus=(I plus/minus R_N)/2. Then the prime-weighted Goldbach coefficient is exactly <theta,R_N theta>=||P_plus theta||^2-||P_minus theta||^2. It is positive exactly when N is a sum of two primes. For every symmetric baseline w=R_N w, P_minus(theta-w)=P_minus theta; the best symmetric L2 approximation is uniquely P_plus theta and its squared error is the full antisymmetric energy. Thus no symmetric baseline choice can remove the negative reflection sector.",
+        "proof": "The reflection is a self-adjoint involution, so its orthogonal eigenspace projections satisfy R_N=P_plus-P_minus. This gives the energy identity. Every summand theta(a)theta(N-a) is nonnegative and is positive exactly for a prime pair. If w is symmetric then P_minus w=0, proving invariance of the antisymmetric residual. Orthogonal projection gives the unique minimum over all symmetric baselines.",
+        "finite_reflection_energy_rows": [
+          {
+            "even_endpoint_N": 1000,
+            "unordered_prime_pair_representations": 28,
+            "prime_theta_total_energy": 5686.96575854331,
+            "prime_theta_reflection_correlation": 1823.044590690665,
+            "symmetric_projection_energy": 3755.0051746169875,
+            "antisymmetric_projection_energy": 1931.9605839263222,
+            "normalized_reflection_gap": 0.3205654241810715,
+            "irreducible_antisymmetric_energy_fraction": 0.33971728790946426,
+            "checks": {
+              "reflection_energy_identity": true,
+              "direct_projection_energy_matches": true,
+              "positive_correlation_matches_prime_representation": true,
+              "finite_endpoint_has_goldbach_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 10000,
+            "unordered_prime_pair_representations": 127,
+            "prime_theta_total_energy": 81399.38488445983,
+            "prime_theta_reflection_correlation": 16743.136805576996,
+            "symmetric_projection_energy": 49071.26084501841,
+            "antisymmetric_projection_energy": 32328.124039441413,
+            "normalized_reflection_gap": 0.20569119569321798,
+            "irreducible_antisymmetric_energy_fraction": 0.397154402153391,
+            "checks": {
+              "reflection_energy_identity": true,
+              "direct_projection_energy_matches": true,
+              "positive_correlation_matches_prime_representation": true,
+              "finite_endpoint_has_goldbach_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 100000,
+            "unordered_prime_pair_representations": 810,
+            "prime_theta_total_energy": 1048435.8661728668,
+            "prime_theta_reflection_correlation": 176154.3252963836,
+            "symmetric_projection_energy": 612295.0957346252,
+            "antisymmetric_projection_energy": 436140.7704382416,
+            "normalized_reflection_gap": 0.1680163098000495,
+            "irreducible_antisymmetric_energy_fraction": 0.4159918450999753,
+            "checks": {
+              "reflection_energy_identity": true,
+              "direct_projection_energy_matches": true,
+              "positive_correlation_matches_prime_representation": true,
+              "finite_endpoint_has_goldbach_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 1000000,
+            "unordered_prime_pair_representations": 5402,
+            "prime_theta_total_energy": 12796869.461412897,
+            "prime_theta_reflection_correlation": 1756441.8442655685,
+            "symmetric_projection_energy": 7276655.652839233,
+            "antisymmetric_projection_energy": 5520213.808573664,
+            "normalized_reflection_gap": 0.13725558813910418,
+            "irreducible_antisymmetric_energy_fraction": 0.4313722059304479,
+            "checks": {
+              "reflection_energy_identity": true,
+              "direct_projection_energy_matches": true,
+              "positive_correlation_matches_prime_representation": true,
+              "finite_endpoint_has_goldbach_representation": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The reflection identity is an exact reformulation, not a uniform lower bound. The computed endpoints are finite. PrimeProject has not bounded the binary minor arcs below the major-arc margin for every even N.",
+      "route_decision": {
+        "discard": "trying to remove endpoint antisymmetric prime energy by choosing a different symmetric baseline",
+        "retain": "prove an explicit binary circle-method coefficient bound that leaves a positive reflection-energy gap at every sufficiently large even endpoint",
+        "next_theorem": "ExplicitBinaryPrimeThetaMinorArcBoundBelowMajorArcReflectionGap"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T153-REJECTED",
+            "label": "SymmetricBaselineEliminatesGoldbachAntisymmetricEnergy",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T153-CLOSED",
+            "label": "PrimeThetaReflectionEnergyIdentityAndSymmetricBaselineNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T153-OPEN",
+            "label": "ExplicitBinaryPrimeThetaMinorArcBoundBelowMajorArcReflectionGap",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T153-REJECTED",
+            "GB-T153-CLOSED"
+          ],
+          [
+            "GB-T153-CLOSED",
+            "GB-T153-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact prime-only reflection criterion and a symmetric-baseline no-go."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-153",
+      "theorem_name": "CubicRoughLiouvilleParityIdentity",
+      "declared_proposition": "For X>=27, let z=floor(X^(1/3)) and retain 2<=n<=X-2 for which both n and n+2 have no prime factor at most z. Every retained value is either prime or semiprime. If PP counts prime-prime pairs, QQ counts semiprime-semiprime pairs, and mixed pairs have one of each, then the exact symmetrized shifted Liouville identity is sum[lambda(n)+lambda(n+2)]=2(QQ-PP). Hence negativity of this sum is exactly PP>QQ. If PP>QQ on an unbounded sequence of X, then twin primes are infinite, because every retained twin has both primes greater than z and z tends to infinity.",
+      "mathematical_argument": "Three prime factors larger than floor(X^(1/3)) have product at least (floor(X^(1/3))+1)^3>X, so a retained n or n+2 has at most two prime factors. Its Liouville sign is therefore -1 for a prime and +1 for a semiprime. A prime-prime pair contributes -2, a mixed pair zero, and a semiprime-semiprime pair +2. Summing proves the identity and the unbounded-scale implication.",
+      "reproducible_computation": {
+        "theorem": "For X>=27, let z=floor(X^(1/3)) and retain 2<=n<=X-2 for which both n and n+2 have no prime factor at most z. Every retained value is either prime or semiprime. If PP counts prime-prime pairs, QQ counts semiprime-semiprime pairs, and mixed pairs have one of each, then the exact symmetrized shifted Liouville identity is sum[lambda(n)+lambda(n+2)]=2(QQ-PP). Hence negativity of this sum is exactly PP>QQ. If PP>QQ on an unbounded sequence of X, then twin primes are infinite, because every retained twin has both primes greater than z and z tends to infinity.",
+        "proof": "Three prime factors larger than floor(X^(1/3)) have product at least (floor(X^(1/3))+1)^3>X, so a retained n or n+2 has at most two prime factors. Its Liouville sign is therefore -1 for a prime and +1 for a semiprime. A prime-prime pair contributes -2, a mixed pair zero, and a semiprime-semiprime pair +2. Summing proves the identity and the unbounded-scale implication.",
+        "finite_cubic_rough_parity_rows": [
+          {
+            "X": 1000,
+            "cubic_roughness_floor_z": 10,
+            "rough_gap_two_pair_count": 70,
+            "prime_prime_pairs_PP": 33,
+            "semiprime_semiprime_pairs_QQ": 4,
+            "mixed_pairs_PQ_QP": 33,
+            "prime_prime_excess_PP_minus_QQ": 29,
+            "symmetrized_shifted_liouville_sum": -58,
+            "exact_two_times_QQ_minus_PP": -58,
+            "normalized_prime_prime_excess": 0.4142857142857143,
+            "checks": {
+              "all_rough_values_are_prime_or_semiprime": true,
+              "symmetrized_liouville_identity_is_exact": true,
+              "finite_prime_prime_excess_is_positive": true,
+              "finite_symmetrized_sum_is_negative": true,
+              "rough_pair_population_is_nonempty": true
+            }
+          },
+          {
+            "X": 10000,
+            "cubic_roughness_floor_z": 21,
+            "rough_gap_two_pair_count": 390,
+            "prime_prime_pairs_PP": 201,
+            "semiprime_semiprime_pairs_QQ": 35,
+            "mixed_pairs_PQ_QP": 154,
+            "prime_prime_excess_PP_minus_QQ": 166,
+            "symmetrized_shifted_liouville_sum": -332,
+            "exact_two_times_QQ_minus_PP": -332,
+            "normalized_prime_prime_excess": 0.4256410256410256,
+            "checks": {
+              "all_rough_values_are_prime_or_semiprime": true,
+              "symmetrized_liouville_identity_is_exact": true,
+              "finite_prime_prime_excess_is_positive": true,
+              "finite_symmetrized_sum_is_negative": true,
+              "rough_pair_population_is_nonempty": true
+            }
+          },
+          {
+            "X": 100000,
+            "cubic_roughness_floor_z": 46,
+            "rough_gap_two_pair_count": 2681,
+            "prime_prime_pairs_PP": 1218,
+            "semiprime_semiprime_pairs_QQ": 284,
+            "mixed_pairs_PQ_QP": 1179,
+            "prime_prime_excess_PP_minus_QQ": 934,
+            "symmetrized_shifted_liouville_sum": -1868,
+            "exact_two_times_QQ_minus_PP": -1868,
+            "normalized_prime_prime_excess": 0.3483774710928758,
+            "checks": {
+              "all_rough_values_are_prime_or_semiprime": true,
+              "symmetrized_liouville_identity_is_exact": true,
+              "finite_prime_prime_excess_is_positive": true,
+              "finite_symmetrized_sum_is_negative": true,
+              "rough_pair_population_is_nonempty": true
+            }
+          },
+          {
+            "X": 1000000,
+            "cubic_roughness_floor_z": 100,
+            "rough_gap_two_pair_count": 19296,
+            "prime_prime_pairs_PP": 8161,
+            "semiprime_semiprime_pairs_QQ": 2453,
+            "mixed_pairs_PQ_QP": 8682,
+            "prime_prime_excess_PP_minus_QQ": 5708,
+            "symmetrized_shifted_liouville_sum": -11416,
+            "exact_two_times_QQ_minus_PP": -11416,
+            "normalized_prime_prime_excess": 0.29581260364842454,
+            "checks": {
+              "all_rough_values_are_prime_or_semiprime": true,
+              "symmetrized_liouville_identity_is_exact": true,
+              "finite_prime_prime_excess_is_positive": true,
+              "finite_symmetrized_sum_is_negative": true,
+              "rough_pair_population_is_nonempty": true
+            }
+          },
+          {
+            "X": 10000000,
+            "cubic_roughness_floor_z": 215,
+            "rough_gap_two_pair_count": 142907,
+            "prime_prime_pairs_PP": 58965,
+            "semiprime_semiprime_pairs_QQ": 19074,
+            "mixed_pairs_PQ_QP": 64868,
+            "prime_prime_excess_PP_minus_QQ": 39891,
+            "symmetrized_shifted_liouville_sum": -79782,
+            "exact_two_times_QQ_minus_PP": -79782,
+            "normalized_prime_prime_excess": 0.27913958028648,
+            "checks": {
+              "all_rough_values_are_prime_or_semiprime": true,
+              "symmetrized_liouville_identity_is_exact": true,
+              "finite_prime_prime_excess_is_positive": true,
+              "finite_symmetrized_sum_is_negative": true,
+              "rough_pair_population_is_nonempty": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The identity isolates the parity barrier but does not prove PP>QQ at unbounded scales. Negativity through ten million is finite evidence only and supplies no uniform sieve-breaking estimate.",
+      "route_decision": {
+        "discard": "treating a negative finite shifted Liouville sum as an asymptotic theorem or as a completed Twin Prime proof",
+        "retain": "prove that cubic-rough prime-prime pairs exceed semiprime-semiprime pairs on an unbounded sequence of scales",
+        "next_theorem": "UnboundedCubicRoughPrimePrimeExcessOverSemiprimePairs"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T153-REJECTED",
+            "label": "FiniteShiftedLiouvilleNegativityImpliesInfiniteTwinPrimes",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T153-CLOSED",
+            "label": "CubicRoughLiouvilleParityIdentity",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T153-OPEN",
+            "label": "UnboundedCubicRoughPrimePrimeExcessOverSemiprimePairs",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T153-REJECTED",
+            "TP-T153-CLOSED"
+          ],
+          [
+            "TP-T153-CLOSED",
+            "TP-T153-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no counterexample. One exact prime/semiprime parity identity and finite evidence through X=10,000,000."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Connes and Consani, Weil positivity and Trace formula, the archimedean place",
+        "url": "https://arxiv.org/abs/2006.13771",
+        "role": "Primary Hilbert-space Weil-positivity context. TICKET-153 contributes only abstract block-operator logic, not the actual semi-local decomposition."
+      },
+      {
+        "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values",
+        "url": "https://arxiv.org/abs/1909.03562",
+        "role": "Primary modern almost-all boundary. The exact geometric cylinder law here does not upgrade almost-all behavior to every natural start."
+      },
+      {
+        "citation": "Helfgott, Minor arcs for Goldbach's problem",
+        "url": "https://arxiv.org/abs/1205.5252",
+        "role": "Primary explicit minor-arc context. TICKET-153 isolates the prime-only endpoint reflection gap that a binary estimate must preserve."
+      },
+      {
+        "citation": "Maynard, On the Twin Prime Conjecture",
+        "url": "https://arxiv.org/abs/1910.14674",
+        "role": "Primary sieve and parity-barrier context. The new exact identity makes the unresolved prime-versus-semiprime comparison explicit."
+      }
+    ],
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-153",
+      "attempt": "Let G on H0 direct-sum H1 have self-adjoint block form [A,C*;C,D], with D>=delta I for delta>0. If A>=||C||^2/delta times I, then G>=0. More exactly, when D is invertible, G>=0 iff D>=0 and A-C*D^(-1)C>=0. In contrast, on an infinite-dimensional tail, every finite-rank F satisfies ||delta I-F||>=delta. Thus a known positive essential tail must be retained and certified by a Schur complement; treating the entire operator as a small finite-rank norm remainder is impossible below its essential norm.",
+      "bounded_result": {
+        "audit_ref": "essential_tail_geometric_reflection_parity_audit.riemann"
+      },
+      "obstruction": "The block theorem is exact but abstract. PrimeProject has not identified a proved positive essential tail, coupling operator, or finite core for the actual Weil form. No off-critical zeta zero is excluded.",
+      "candidate_theorem": "ActualWeilPositiveTailDecompositionWithCertifiedSchurComplement",
+      "next_experiment": "separate a rigorously coercive actual-Weil tail and bound its coupling to the finite core by a Schur complement",
+      "claim_boundary": "No RH proof and no off-critical zero. One exact positive-tail certificate and one essential-norm no-go."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-153",
+      "attempt": "Every accelerated Collatz valuation cylinder is the disjoint countable union of its children indexed by the next valuation b>=1. Their conditional 2-adic Haar masses are exactly 2^(-b), and the tail mass for b>B is 2^(-B). Iterating gives word mass 2^(-sum a_i), so the valuation coordinates have the exact geometric cylinder law. Consequently the expected logarithm of the linear multiplier 3/2^a is log(3/4)<0, and the exact noncontracting coefficient probability after m odd steps is sum_{s=m}^{floor(m log_2 3)} binom(s-1,m-1)2^(-s), with an explicit exponentially decaying Chernoff bound.",
+      "bounded_result": {
+        "audit_ref": "essential_tail_geometric_reflection_parity_audit.collatz"
+      },
+      "obstruction": "The theorem controls 2-adic cylinder mass and the linear multiplier, not every natural orbit. A measure-zero nested ray may survive, and the affine offset C_a/(2^S-3^m) is not uniformly bounded over all words.",
+      "candidate_theorem": "UniformAffineOffsetControlOnNaturalValuationRays",
+      "next_experiment": "control affine offsets uniformly along every natural valuation ray, including the zero-density exceptional set",
+      "claim_boundary": "No Collatz proof and no divergent orbit. The countable extension tail is exact, while the universal natural-integer bridge remains open."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-153",
+      "attempt": "For even N, let R_N f(a)=f(N-a), let theta(n)=log n on primes and zero otherwise, and let P_plus/minus=(I plus/minus R_N)/2. Then the prime-weighted Goldbach coefficient is exactly <theta,R_N theta>=||P_plus theta||^2-||P_minus theta||^2. It is positive exactly when N is a sum of two primes. For every symmetric baseline w=R_N w, P_minus(theta-w)=P_minus theta; the best symmetric L2 approximation is uniquely P_plus theta and its squared error is the full antisymmetric energy. Thus no symmetric baseline choice can remove the negative reflection sector.",
+      "bounded_result": {
+        "audit_ref": "essential_tail_geometric_reflection_parity_audit.goldbach"
+      },
+      "obstruction": "The reflection identity is an exact reformulation, not a uniform lower bound. The computed endpoints are finite. PrimeProject has not bounded the binary minor arcs below the major-arc margin for every even N.",
+      "candidate_theorem": "ExplicitBinaryPrimeThetaMinorArcBoundBelowMajorArcReflectionGap",
+      "next_experiment": "prove an explicit binary circle-method coefficient bound that leaves a positive reflection-energy gap at every sufficiently large even endpoint",
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact prime-only reflection criterion and a symmetric-baseline no-go."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-153",
+      "attempt": "For X>=27, let z=floor(X^(1/3)) and retain 2<=n<=X-2 for which both n and n+2 have no prime factor at most z. Every retained value is either prime or semiprime. If PP counts prime-prime pairs, QQ counts semiprime-semiprime pairs, and mixed pairs have one of each, then the exact symmetrized shifted Liouville identity is sum[lambda(n)+lambda(n+2)]=2(QQ-PP). Hence negativity of this sum is exactly PP>QQ. If PP>QQ on an unbounded sequence of X, then twin primes are infinite, because every retained twin has both primes greater than z and z tends to infinity.",
+      "bounded_result": {
+        "audit_ref": "essential_tail_geometric_reflection_parity_audit.twin_prime"
+      },
+      "obstruction": "The identity isolates the parity barrier but does not prove PP>QQ at unbounded scales. Negativity through ten million is finite evidence only and supplies no uniform sieve-breaking estimate.",
+      "candidate_theorem": "UnboundedCubicRoughPrimePrimeExcessOverSemiprimePairs",
+      "next_experiment": "prove that cubic-rough prime-prime pairs exceed semiprime-semiprime pairs on an unbounded sequence of scales",
+      "claim_boundary": "No Twin Prime proof and no counterexample. One exact prime/semiprime parity identity and finite evidence through X=10,000,000."
+    }
+  ]
+}

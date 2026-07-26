@@ -6160,3 +6160,42 @@ Twin 정리는 주변 편향의 이전을 폐기했을 뿐 실제 shifted Liouvi
 
 Full bilingual report / 전체 한영 보고서:
 [TICKET-152 compression-cylinder-energy-selection](compression-cylinder-energy-selection.md).
+
+## TICKET-153 continuation: essential tails, geometric cylinders, reflection energy, and cubic-rough parity
+
+TICKET-153 attacks the four TICKET-152 next lemmas and closes one exact
+subcomponent in each route without changing any conjecture-resolution
+counter.
+
+1. **Riemann Hypothesis.** A nonzero positive infinite-dimensional tail
+   cannot be approximated by finite-rank operators with norm error below its
+   essential size. The correct abstract certificate retains a coercive tail
+   `D>=delta I` and pays the coupling cost through
+   `A-C*D^(-1)C>=0`. The next target is
+   `ActualWeilPositiveTailDecompositionWithCertifiedSchurComplement`.
+2. **Collatz.** Every valuation cylinder has the exact countable child law
+   `P(a_next=b)=2^-b` and tail `P(a_next>B)=2^-B`. Finite-word linear
+   multipliers have negative expected log and an exact negative-binomial
+   upper tail. This measure statement does not control affine offsets or
+   every natural ray. The next target is
+   `UniformAffineOffsetControlOnNaturalValuationRays`.
+3. **Goldbach.** For the prime-only theta vector, the endpoint coefficient
+   is exactly `||P+ theta||^2-||P- theta||^2`, and it is positive exactly
+   when the endpoint has a prime-pair representation. Every symmetric
+   baseline leaves `P- theta` unchanged. The next target is
+   `ExplicitBinaryPrimeThetaMinorArcBoundBelowMajorArcReflectionGap`.
+4. **Twin Prime.** On cubic-rough gap-two support, every endpoint is prime
+   or semiprime and the symmetrized shifted Liouville sum is exactly
+   `2(QQ-PP)`. Finite checks through 10M have `PP>QQ`, but the next target
+   remains the unbounded statement
+   `UnboundedCubicRoughPrimePrimeExcessOverSemiprimePairs`.
+
+한국어 경계: RH 정리는 실제 Weil block을 구성하지 않는다. Collatz
+정리는 정확한 측도 법칙이지만 모든 자연수 affine threshold를 통제하지
+않는다. Goldbach 항등식은 endpoint 양성의 재표현이지 모든 짝수의
+하계가 아니다. Twin 항등식은 parity 장벽을 정확히 드러내지만 10M
+유한 부호를 무한 scale로 승격하지 않는다. 네 추측은 모두
+`open_not_proven`이며 완전한 증명이나 반례는 없다.
+
+Full bilingual report / 전체 한영 보고서:
+[TICKET-153 essential-tail-geometric-reflection-parity](essential-tail-geometric-reflection-parity.md).

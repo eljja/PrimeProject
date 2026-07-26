@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET152 through TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET153 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260730-ticket152-priority")) {
-      errors.push(`${page}: missing TICKET152 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260731-ticket153-priority")) {
+      errors.push(`${page}: missing TICKET153 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,35 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket153 title", "Ticket 153 essential tails, geometric cylinders, reflection energy, and cubic-rough parity");
+    requireText("ticket153 table", "TICKET153 audit");
+    requireText("ticket153 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket153 resolutions", "Resolution count0");
+    requireText("ticket153 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket153 RH theorem", "PositiveEssentialTailSchurComplementAndFiniteRankNormNoGo");
+      requireText("ticket153 RH essential", "Essential-norm witnesses5");
+      requireText("ticket153 RH Schur", "Exact Schur margins8");
+      requireText("ticket153 RH target", "ActualWeilPositiveTailDecompositionWithCertifiedSchurComplement");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket153 Collatz theorem", "CountableGeometricCylinderPartitionAndNegativeDriftLaw");
+      requireText("ticket153 Collatz children", "Geometric child audits21");
+      requireText("ticket153 Collatz drift", "Exact drift tails6");
+      requireText("ticket153 Collatz target", "UniformAffineOffsetControlOnNaturalValuationRays");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket153 Goldbach theorem", "PrimeThetaReflectionEnergyIdentityAndSymmetricBaselineNoGo");
+      requireText("ticket153 Goldbach scales", "Reflection scales4");
+      requireText("ticket153 Goldbach largest", "Largest N1,000,000");
+      requireText("ticket153 Goldbach target", "ExplicitBinaryPrimeThetaMinorArcBoundBelowMajorArcReflectionGap");
+    } else {
+      requireText("ticket153 Twin theorem", "CubicRoughLiouvilleParityIdentity");
+      requireText("ticket153 Twin scales", "Cubic-rough scales5");
+      requireText("ticket153 Twin excess", "Largest finite excess39,891");
+      requireText("ticket153 Twin target", "UnboundedCubicRoughPrimePrimeExcessOverSemiprimePairs");
+    }
     requireText("ticket152 title", "Ticket 152 compression exhaustion, Collatz cylinders, Goldbach energy, and Twin selection");
     requireText("ticket152 table", "TICKET152 audit");
-    requireText("ticket152 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket152 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket152 resolutions", "Resolution count0");
     requireText("ticket152 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {
@@ -2680,10 +2706,12 @@ async function main() {
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("Evidence pack") ||
     !metrics.evolutionPanel.includes("Publication consistency") ||
+    !metrics.evolutionPanel.includes("TICKET-153") ||
     !metrics.evolutionPanel.includes("TICKET-152") ||
     !metrics.evolutionPanel.includes("TICKET-151") ||
     !metrics.evolutionPanel.includes("TICKET-150") ||
     !metrics.evolutionPanel.includes("TICKET-149") ||
+    !metrics.evolutionPanel.includes("Essential tails") ||
     !metrics.evolutionPanel.includes("Compression exhaustion") ||
     !metrics.evolutionPanel.includes("Negative spectra") ||
     !metrics.evolutionPanel.includes("0 conjecture resolutions") ||

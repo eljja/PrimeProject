@@ -1,0 +1,128 @@
+{
+  "schema": "primeproject.ticket153-essential-tail-geometric-reflection-parity.v1",
+  "generated_at": "2026-07-26T13:30:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-153",
+  "attempt": "For even N, let R_N f(a)=f(N-a), let theta(n)=log n on primes and zero otherwise, and let P_plus/minus=(I plus/minus R_N)/2. Then the prime-weighted Goldbach coefficient is exactly <theta,R_N theta>=||P_plus theta||^2-||P_minus theta||^2. It is positive exactly when N is a sum of two primes. For every symmetric baseline w=R_N w, P_minus(theta-w)=P_minus theta; the best symmetric L2 approximation is uniquely P_plus theta and its squared error is the full antisymmetric energy. Thus no symmetric baseline choice can remove the negative reflection sector.",
+  "bounded_result": {
+    "audit_ref": "essential_tail_geometric_reflection_parity_audit.goldbach"
+  },
+  "obstruction": "The reflection identity is an exact reformulation, not a uniform lower bound. The computed endpoints are finite. PrimeProject has not bounded the binary minor arcs below the major-arc margin for every even N.",
+  "candidate_theorem": "ExplicitBinaryPrimeThetaMinorArcBoundBelowMajorArcReflectionGap",
+  "next_experiment": "prove an explicit binary circle-method coefficient bound that leaves a positive reflection-energy gap at every sufficiently large even endpoint",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact prime-only reflection criterion and a symmetric-baseline no-go.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-153",
+    "theorem_name": "PrimeThetaReflectionEnergyIdentityAndSymmetricBaselineNoGo",
+    "declared_proposition": "For even N, let R_N f(a)=f(N-a), let theta(n)=log n on primes and zero otherwise, and let P_plus/minus=(I plus/minus R_N)/2. Then the prime-weighted Goldbach coefficient is exactly <theta,R_N theta>=||P_plus theta||^2-||P_minus theta||^2. It is positive exactly when N is a sum of two primes. For every symmetric baseline w=R_N w, P_minus(theta-w)=P_minus theta; the best symmetric L2 approximation is uniquely P_plus theta and its squared error is the full antisymmetric energy. Thus no symmetric baseline choice can remove the negative reflection sector.",
+    "mathematical_argument": "The reflection is a self-adjoint involution, so its orthogonal eigenspace projections satisfy R_N=P_plus-P_minus. This gives the energy identity. Every summand theta(a)theta(N-a) is nonnegative and is positive exactly for a prime pair. If w is symmetric then P_minus w=0, proving invariance of the antisymmetric residual. Orthogonal projection gives the unique minimum over all symmetric baselines.",
+    "reproducible_computation": {
+      "theorem": "For even N, let R_N f(a)=f(N-a), let theta(n)=log n on primes and zero otherwise, and let P_plus/minus=(I plus/minus R_N)/2. Then the prime-weighted Goldbach coefficient is exactly <theta,R_N theta>=||P_plus theta||^2-||P_minus theta||^2. It is positive exactly when N is a sum of two primes. For every symmetric baseline w=R_N w, P_minus(theta-w)=P_minus theta; the best symmetric L2 approximation is uniquely P_plus theta and its squared error is the full antisymmetric energy. Thus no symmetric baseline choice can remove the negative reflection sector.",
+      "proof": "The reflection is a self-adjoint involution, so its orthogonal eigenspace projections satisfy R_N=P_plus-P_minus. This gives the energy identity. Every summand theta(a)theta(N-a) is nonnegative and is positive exactly for a prime pair. If w is symmetric then P_minus w=0, proving invariance of the antisymmetric residual. Orthogonal projection gives the unique minimum over all symmetric baselines.",
+      "finite_reflection_energy_rows": [
+        {
+          "even_endpoint_N": 1000,
+          "unordered_prime_pair_representations": 28,
+          "prime_theta_total_energy": 5686.96575854331,
+          "prime_theta_reflection_correlation": 1823.044590690665,
+          "symmetric_projection_energy": 3755.0051746169875,
+          "antisymmetric_projection_energy": 1931.9605839263222,
+          "normalized_reflection_gap": 0.3205654241810715,
+          "irreducible_antisymmetric_energy_fraction": 0.33971728790946426,
+          "checks": {
+            "reflection_energy_identity": true,
+            "direct_projection_energy_matches": true,
+            "positive_correlation_matches_prime_representation": true,
+            "finite_endpoint_has_goldbach_representation": true
+          }
+        },
+        {
+          "even_endpoint_N": 10000,
+          "unordered_prime_pair_representations": 127,
+          "prime_theta_total_energy": 81399.38488445983,
+          "prime_theta_reflection_correlation": 16743.136805576996,
+          "symmetric_projection_energy": 49071.26084501841,
+          "antisymmetric_projection_energy": 32328.124039441413,
+          "normalized_reflection_gap": 0.20569119569321798,
+          "irreducible_antisymmetric_energy_fraction": 0.397154402153391,
+          "checks": {
+            "reflection_energy_identity": true,
+            "direct_projection_energy_matches": true,
+            "positive_correlation_matches_prime_representation": true,
+            "finite_endpoint_has_goldbach_representation": true
+          }
+        },
+        {
+          "even_endpoint_N": 100000,
+          "unordered_prime_pair_representations": 810,
+          "prime_theta_total_energy": 1048435.8661728668,
+          "prime_theta_reflection_correlation": 176154.3252963836,
+          "symmetric_projection_energy": 612295.0957346252,
+          "antisymmetric_projection_energy": 436140.7704382416,
+          "normalized_reflection_gap": 0.1680163098000495,
+          "irreducible_antisymmetric_energy_fraction": 0.4159918450999753,
+          "checks": {
+            "reflection_energy_identity": true,
+            "direct_projection_energy_matches": true,
+            "positive_correlation_matches_prime_representation": true,
+            "finite_endpoint_has_goldbach_representation": true
+          }
+        },
+        {
+          "even_endpoint_N": 1000000,
+          "unordered_prime_pair_representations": 5402,
+          "prime_theta_total_energy": 12796869.461412897,
+          "prime_theta_reflection_correlation": 1756441.8442655685,
+          "symmetric_projection_energy": 7276655.652839233,
+          "antisymmetric_projection_energy": 5520213.808573664,
+          "normalized_reflection_gap": 0.13725558813910418,
+          "irreducible_antisymmetric_energy_fraction": 0.4313722059304479,
+          "checks": {
+            "reflection_energy_identity": true,
+            "direct_projection_energy_matches": true,
+            "positive_correlation_matches_prime_representation": true,
+            "finite_endpoint_has_goldbach_representation": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The reflection identity is an exact reformulation, not a uniform lower bound. The computed endpoints are finite. PrimeProject has not bounded the binary minor arcs below the major-arc margin for every even N.",
+    "route_decision": {
+      "discard": "trying to remove endpoint antisymmetric prime energy by choosing a different symmetric baseline",
+      "retain": "prove an explicit binary circle-method coefficient bound that leaves a positive reflection-energy gap at every sufficiently large even endpoint",
+      "next_theorem": "ExplicitBinaryPrimeThetaMinorArcBoundBelowMajorArcReflectionGap"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T153-REJECTED",
+          "label": "SymmetricBaselineEliminatesGoldbachAntisymmetricEnergy",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T153-CLOSED",
+          "label": "PrimeThetaReflectionEnergyIdentityAndSymmetricBaselineNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T153-OPEN",
+          "label": "ExplicitBinaryPrimeThetaMinorArcBoundBelowMajorArcReflectionGap",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T153-REJECTED",
+          "GB-T153-CLOSED"
+        ],
+        [
+          "GB-T153-CLOSED",
+          "GB-T153-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One exact prime-only reflection criterion and a symmetric-baseline no-go."
+  }
+}

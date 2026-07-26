@@ -30,6 +30,7 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 | `docs/crypto-prime-catalog.md` | catalog of public cryptographic primes | provenance and parameter recognition | blocked secret-prime recovery |
 | `docs/generator-fingerprint-research.md` | generator fingerprint theory | feature extraction and defensive attribution scaffolding | definitive source attribution |
 | `docs/open-problem-workbench.md` | open-problem proof lab specification | bounded certificates, AI solver frontier, falsification and proof-obligation tracking | proof of the four open conjectures |
+| `docs/essential-tail-geometric-reflection-parity.md` | latest four-conjecture exact decomposition and no-go report | four reproducible Schur/geometric/reflection/parity results | proof or counterexample for any target conjecture |
 | `docs/compression-cylinder-energy-selection.md` | latest four-problem target-correction and no-go report | four exact compression/cylinder/energy/selection results with reproducible audits | a proof or counterexample to any target conjecture |
 | `docs/negative-affine-transversal-logtwo.md` | preserved prior four-problem target-correction and no-go report | four exact negative-spectrum/affine/reflection/log-two results with reproducible audits | a proof or counterexample to any target conjecture |
 | `docs/relative-delay-hole-parity.md` | preserved prior four-problem sharp-threshold and no-go report | four exact relative/delay/hole/parity theorems with reproducible audits | a proof or counterexample to any target conjecture |
@@ -53,6 +54,7 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 | `docs/crypto-prime-catalog.md` | 공개 암호 소수 카탈로그 | provenance와 parameter recognition | 비밀 소수 복원 |
 | `docs/generator-fingerprint-research.md` | 생성기 fingerprint 이론 | feature extraction 및 방어적 attribution scaffolding | 단정적 source attribution |
 | `docs/open-problem-workbench.md` | 미해결 문제 proof lab 규격 | bounded certificate, AI solver frontier, 반증/증명 의무 추적 | 네 개 난제의 증명 |
+| `docs/essential-tail-geometric-reflection-parity.md` | 최신 네 난제 정확 분해/no-go 보고서 | 재현 감사가 있는 Schur/geometric/reflection/parity 결과 4건 | 어떤 대상 추측의 증명 또는 반례 |
 | `docs/compression-cylinder-energy-selection.md` | 최신 네 난제 표적 교정/no-go 보고서 | 재현 감사가 있는 압축/cylinder/energy/selection 결과 4건 | 어떤 대상 추측의 증명 또는 반례 |
 | `docs/negative-affine-transversal-logtwo.md` | 보존된 이전 네 난제 표적 교정/no-go 보고서 | 재현 감사가 있는 음의 스펙트럼/affine/반사/log-two 결과 4건 | 어떤 대상 추측의 증명 또는 반례 |
 | `docs/relative-delay-hole-parity.md` | 보존된 이전 네 난제 sharp threshold/no-go 보고서 | 재현 감사가 있는 상대 form/지연/hole/parity 정리 4건 | 어떤 대상 추측의 증명 또는 반례 |
@@ -75,6 +77,7 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 9. TICKET-150 corrects compact ambient coercivity, fixed Collatz post-shadow windows, growing-wheel relative-`L2` transfer, and parity-free Twin cover interpretations; every proof DAG still ends at `open_not_proven`.
 10. TICKET-151 replaces the RH full-norm target by the exact negative-part criterion, inserts the Collatz affine threshold omitted by surplus-only reasoning, makes Goldbach endpoint control reflection-orbit resolved, and separates the Twin one-variable `log 2` bias from the missing shifted-selection theorem; all four proof DAGs still end at `open_not_proven`.
 11. TICKET-152 proves that fixed RH compression cutoffs, finite strict Collatz extension covers, bounded-baseline global Goldbach `L2` transfer, and high-retention Twin marginal transfer cannot close the remaining infinite gaps. It replaces them with an actual-Weil tail certificate, a countable Collatz valuation-tail theorem, endpoint Goldbach bilinear control, and direct shifted Twin Liouville control. No conjecture-resolution counter changes.
+12. TICKET-153 proves a positive-essential-tail Schur certificate and finite-rank norm no-go, the exact countable Collatz geometric cylinder law, the prime-only Goldbach reflection-energy identity and symmetric-baseline no-go, and the cubic-rough Twin identity `S=2(QQ-PP)`. Finite evidence through 10M is explicitly blocked from infinite promotion, and every proof DAG still ends at `open_not_proven`.
 
 ## Submission Boundary / 제출 경계
 

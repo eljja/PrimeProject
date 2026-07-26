@@ -1,0 +1,483 @@
+{
+  "schema": "primeproject.ticket153-essential-tail-geometric-reflection-parity.v1",
+  "generated_at": "2026-07-26T13:30:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-153",
+  "attempt": "Let G on H0 direct-sum H1 have self-adjoint block form [A,C*;C,D], with D>=delta I for delta>0. If A>=||C||^2/delta times I, then G>=0. More exactly, when D is invertible, G>=0 iff D>=0 and A-C*D^(-1)C>=0. In contrast, on an infinite-dimensional tail, every finite-rank F satisfies ||delta I-F||>=delta. Thus a known positive essential tail must be retained and certified by a Schur complement; treating the entire operator as a small finite-rank norm remainder is impossible below its essential norm.",
+  "bounded_result": {
+    "audit_ref": "essential_tail_geometric_reflection_parity_audit.riemann"
+  },
+  "obstruction": "The block theorem is exact but abstract. PrimeProject has not identified a proved positive essential tail, coupling operator, or finite core for the actual Weil form. No off-critical zeta zero is excluded.",
+  "candidate_theorem": "ActualWeilPositiveTailDecompositionWithCertifiedSchurComplement",
+  "next_experiment": "separate a rigorously coercive actual-Weil tail and bound its coupling to the finite core by a Schur complement",
+  "claim_boundary": "No RH proof and no off-critical zero. One exact positive-tail certificate and one essential-norm no-go.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-153",
+    "theorem_name": "PositiveEssentialTailSchurComplementAndFiniteRankNormNoGo",
+    "declared_proposition": "Let G on H0 direct-sum H1 have self-adjoint block form [A,C*;C,D], with D>=delta I for delta>0. If A>=||C||^2/delta times I, then G>=0. More exactly, when D is invertible, G>=0 iff D>=0 and A-C*D^(-1)C>=0. In contrast, on an infinite-dimensional tail, every finite-rank F satisfies ||delta I-F||>=delta. Thus a known positive essential tail must be retained and certified by a Schur complement; treating the entire operator as a small finite-rank norm remainder is impossible below its essential norm.",
+    "mathematical_argument": "Complete the square: <G(x,y),(x,y)> equals <(A-C*D^(-1)C)x,x> plus <D(y+D^(-1)Cx),y+D^(-1)Cx>. The bound C*D^(-1)C<=||C||^2/delta gives the sufficient condition. For the no-go, a finite-rank F has a nonzero unit vector x in its kernel, so ||(delta I-F)x||=delta. The rational audit evaluates the exact Schur margins and the minimizing vectors.",
+    "reproducible_computation": {
+      "theorem": "Let G on H0 direct-sum H1 have self-adjoint block form [A,C*;C,D], with D>=delta I for delta>0. If A>=||C||^2/delta times I, then G>=0. More exactly, when D is invertible, G>=0 iff D>=0 and A-C*D^(-1)C>=0. In contrast, on an infinite-dimensional tail, every finite-rank F satisfies ||delta I-F||>=delta. Thus a known positive essential tail must be retained and certified by a Schur complement; treating the entire operator as a small finite-rank norm remainder is impossible below its essential norm.",
+      "proof": "Complete the square: <G(x,y),(x,y)> equals <(A-C*D^(-1)C)x,x> plus <D(y+D^(-1)Cx),y+D^(-1)Cx>. The bound C*D^(-1)C<=||C||^2/delta gives the sufficient condition. For the no-go, a finite-rank F has a nonzero unit vector x in its kernel, so ||(delta I-F)x||=delta. The rational audit evaluates the exact Schur margins and the minimizing vectors.",
+      "finite_essential_norm_rows": [
+        {
+          "tested_finite_rank": 1,
+          "positive_identity_tail_delta": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "witness_coordinate": 2,
+          "operator_norm_distance_lower_bound": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "hidden_kernel_direction_exists": true,
+            "finite_rank_distance_at_least_delta": true,
+            "positive_essential_tail_not_small_norm_remainder": true
+          }
+        },
+        {
+          "tested_finite_rank": 2,
+          "positive_identity_tail_delta": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "witness_coordinate": 3,
+          "operator_norm_distance_lower_bound": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "hidden_kernel_direction_exists": true,
+            "finite_rank_distance_at_least_delta": true,
+            "positive_essential_tail_not_small_norm_remainder": true
+          }
+        },
+        {
+          "tested_finite_rank": 4,
+          "positive_identity_tail_delta": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "witness_coordinate": 5,
+          "operator_norm_distance_lower_bound": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "checks": {
+            "hidden_kernel_direction_exists": true,
+            "finite_rank_distance_at_least_delta": true,
+            "positive_essential_tail_not_small_norm_remainder": true
+          }
+        },
+        {
+          "tested_finite_rank": 8,
+          "positive_identity_tail_delta": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "witness_coordinate": 9,
+          "operator_norm_distance_lower_bound": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "hidden_kernel_direction_exists": true,
+            "finite_rank_distance_at_least_delta": true,
+            "positive_essential_tail_not_small_norm_remainder": true
+          }
+        },
+        {
+          "tested_finite_rank": 16,
+          "positive_identity_tail_delta": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "witness_coordinate": 17,
+          "operator_norm_distance_lower_bound": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "checks": {
+            "hidden_kernel_direction_exists": true,
+            "finite_rank_distance_at_least_delta": true,
+            "positive_essential_tail_not_small_norm_remainder": true
+          }
+        }
+      ],
+      "finite_schur_complement_rows": [
+        {
+          "tail_coercivity_delta": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "coupling_coordinates": [
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            }
+          ],
+          "coupling_norm_squared": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "finite_core_floor": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "schur_cost_normC_squared_over_delta": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "exact_schur_margin": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "certified_positive": true,
+          "minimizing_test_vector_quadratic_value": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "classification_matches_exact_schur_margin": true,
+            "positive_case_has_nonnegative_margin": true,
+            "failed_case_has_explicit_negative_direction": true
+          }
+        },
+        {
+          "tail_coercivity_delta": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "coupling_coordinates": [
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            }
+          ],
+          "coupling_norm_squared": {
+            "exact": "13/36",
+            "decimal": 0.3611111111111111
+          },
+          "finite_core_floor": {
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          "schur_cost_normC_squared_over_delta": {
+            "exact": "13/72",
+            "decimal": 0.18055555555555555
+          },
+          "exact_schur_margin": {
+            "exact": "11/72",
+            "decimal": 0.1527777777777778
+          },
+          "certified_positive": true,
+          "minimizing_test_vector_quadratic_value": {
+            "exact": "11/72",
+            "decimal": 0.1527777777777778
+          },
+          "checks": {
+            "classification_matches_exact_schur_margin": true,
+            "positive_case_has_nonnegative_margin": true,
+            "failed_case_has_explicit_negative_direction": true
+          }
+        },
+        {
+          "tail_coercivity_delta": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "coupling_coordinates": [
+            {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            {
+              "exact": "1/6",
+              "decimal": 0.16666666666666666
+            }
+          ],
+          "coupling_norm_squared": {
+            "exact": "469/3600",
+            "decimal": 0.13027777777777777
+          },
+          "finite_core_floor": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "schur_cost_normC_squared_over_delta": {
+            "exact": "469/5400",
+            "decimal": 0.08685185185185185
+          },
+          "exact_schur_margin": {
+            "exact": "881/5400",
+            "decimal": 0.16314814814814815
+          },
+          "certified_positive": true,
+          "minimizing_test_vector_quadratic_value": {
+            "exact": "881/5400",
+            "decimal": 0.16314814814814815
+          },
+          "checks": {
+            "classification_matches_exact_schur_margin": true,
+            "positive_case_has_nonnegative_margin": true,
+            "failed_case_has_explicit_negative_direction": true
+          }
+        },
+        {
+          "tail_coercivity_delta": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "coupling_coordinates": [
+            {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            {
+              "exact": "1/7",
+              "decimal": 0.14285714285714285
+            }
+          ],
+          "coupling_norm_squared": {
+            "exact": "74/1225",
+            "decimal": 0.060408163265306125
+          },
+          "finite_core_floor": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "schur_cost_normC_squared_over_delta": {
+            "exact": "296/3675",
+            "decimal": 0.08054421768707483
+          },
+          "exact_schur_margin": {
+            "exact": "1307/29400",
+            "decimal": 0.04445578231292517
+          },
+          "certified_positive": true,
+          "minimizing_test_vector_quadratic_value": {
+            "exact": "1307/29400",
+            "decimal": 0.04445578231292517
+          },
+          "checks": {
+            "classification_matches_exact_schur_margin": true,
+            "positive_case_has_nonnegative_margin": true,
+            "failed_case_has_explicit_negative_direction": true
+          }
+        },
+        {
+          "tail_coercivity_delta": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "coupling_coordinates": [
+            {
+              "exact": "3/4",
+              "decimal": 0.75
+            }
+          ],
+          "coupling_norm_squared": {
+            "exact": "9/16",
+            "decimal": 0.5625
+          },
+          "finite_core_floor": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "schur_cost_normC_squared_over_delta": {
+            "exact": "9/16",
+            "decimal": 0.5625
+          },
+          "exact_schur_margin": {
+            "exact": "-1/16",
+            "decimal": -0.0625
+          },
+          "certified_positive": false,
+          "minimizing_test_vector_quadratic_value": {
+            "exact": "-1/16",
+            "decimal": -0.0625
+          },
+          "checks": {
+            "classification_matches_exact_schur_margin": true,
+            "positive_case_has_nonnegative_margin": true,
+            "failed_case_has_explicit_negative_direction": true
+          }
+        },
+        {
+          "tail_coercivity_delta": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "coupling_coordinates": [
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            }
+          ],
+          "coupling_norm_squared": {
+            "exact": "13/36",
+            "decimal": 0.3611111111111111
+          },
+          "finite_core_floor": {
+            "exact": "2/3",
+            "decimal": 0.6666666666666666
+          },
+          "schur_cost_normC_squared_over_delta": {
+            "exact": "13/18",
+            "decimal": 0.7222222222222222
+          },
+          "exact_schur_margin": {
+            "exact": "-1/18",
+            "decimal": -0.05555555555555555
+          },
+          "certified_positive": false,
+          "minimizing_test_vector_quadratic_value": {
+            "exact": "-1/18",
+            "decimal": -0.05555555555555555
+          },
+          "checks": {
+            "classification_matches_exact_schur_margin": true,
+            "positive_case_has_nonnegative_margin": true,
+            "failed_case_has_explicit_negative_direction": true
+          }
+        },
+        {
+          "tail_coercivity_delta": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "coupling_coordinates": [
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "1/4",
+              "decimal": 0.25
+            }
+          ],
+          "coupling_norm_squared": {
+            "exact": "5/16",
+            "decimal": 0.3125
+          },
+          "finite_core_floor": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "schur_cost_normC_squared_over_delta": {
+            "exact": "5/12",
+            "decimal": 0.4166666666666667
+          },
+          "exact_schur_margin": {
+            "exact": "-1/24",
+            "decimal": -0.041666666666666664
+          },
+          "certified_positive": false,
+          "minimizing_test_vector_quadratic_value": {
+            "exact": "-1/24",
+            "decimal": -0.041666666666666664
+          },
+          "checks": {
+            "classification_matches_exact_schur_margin": true,
+            "positive_case_has_nonnegative_margin": true,
+            "failed_case_has_explicit_negative_direction": true
+          }
+        },
+        {
+          "tail_coercivity_delta": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "coupling_coordinates": [
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "exact": "3/4",
+              "decimal": 0.75
+            }
+          ],
+          "coupling_norm_squared": {
+            "exact": "25/16",
+            "decimal": 1.5625
+          },
+          "finite_core_floor": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "schur_cost_normC_squared_over_delta": {
+            "exact": "25/32",
+            "decimal": 0.78125
+          },
+          "exact_schur_margin": {
+            "exact": "-1/32",
+            "decimal": -0.03125
+          },
+          "certified_positive": false,
+          "minimizing_test_vector_quadratic_value": {
+            "exact": "-1/32",
+            "decimal": -0.03125
+          },
+          "checks": {
+            "classification_matches_exact_schur_margin": true,
+            "positive_case_has_nonnegative_margin": true,
+            "failed_case_has_explicit_negative_direction": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The block theorem is exact but abstract. PrimeProject has not identified a proved positive essential tail, coupling operator, or finite core for the actual Weil form. No off-critical zeta zero is excluded.",
+    "route_decision": {
+      "discard": "approximating a nonzero positive essential tail itself by finite-rank operators in arbitrarily small operator norm",
+      "retain": "separate a rigorously coercive actual-Weil tail and bound its coupling to the finite core by a Schur complement",
+      "next_theorem": "ActualWeilPositiveTailDecompositionWithCertifiedSchurComplement"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T153-REJECTED",
+          "label": "FiniteRankNormApproximationOfPositiveEssentialWeilTail",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T153-CLOSED",
+          "label": "PositiveEssentialTailSchurComplementAndFiniteRankNormNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T153-OPEN",
+          "label": "ActualWeilPositiveTailDecompositionWithCertifiedSchurComplement",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T153-REJECTED",
+          "RH-T153-CLOSED"
+        ],
+        [
+          "RH-T153-CLOSED",
+          "RH-T153-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One exact positive-tail certificate and one essential-norm no-go."
+  }
+}

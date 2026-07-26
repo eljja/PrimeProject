@@ -62,7 +62,58 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-152
+## Latest Continuation After TICKET-153
+
+Read `docs/essential-tail-geometric-reflection-parity.md`,
+`data/open-problem/ticket153-essential-tail-geometric-reflection-parity.json`,
+`scripts/ticket153_essential_tail_geometric_reflection_parity.py`, and
+`tests/test_ticket153_essential_tail_geometric_reflection_parity.py` first.
+
+Do not reopen these rejected routes without defeating the exact theorem or
+counterexample recorded in TICKET-153:
+
+- approximating a nonzero positive RH essential tail itself by finite-rank
+  operators with arbitrarily small operator-norm error;
+- promoting the exact geometric Collatz valuation law or negative expected
+  log multiplier to descent of every natural start;
+- removing Goldbach's antisymmetric prime-theta reflection energy by
+  changing one symmetric baseline for another;
+- promoting finite cubic-rough shifted-Liouville negativity, including the
+  10M row, to an unbounded-scale Twin Prime theorem.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `ActualWeilPositiveTailDecompositionWithCertifiedSchurComplement` |
+| Collatz | `UniformAffineOffsetControlOnNaturalValuationRays` |
+| Goldbach | `ExplicitBinaryPrimeThetaMinorArcBoundBelowMajorArcReflectionGap` |
+| Twin Prime | `UnboundedCubicRoughPrimePrimeExcessOverSemiprimePairs` |
+
+한국어: RH는 실제 Weil 형식에서 coercive positive tail과 finite core를
+분리하고 coupling Schur 비용을 인증해야 한다. Collatz는 측도 법칙을
+넘어 모든 자연 valuation ray의 affine offset을 균일하게 통제해야
+한다. Goldbach는 prime-only major-arc 계수가 binary minor-arc 오차보다
+크다는 명시적 endpoint 정리가 필요하다. Twin Prime은 cubic-rough
+prime-prime 개수 `PP`가 semiprime-semiprime 개수 `QQ`보다 큰 scale이
+무한히 존재함을 증명해야 한다.
+
+Exact TICKET-153 corrections:
+
+- RH: a positive essential tail is not a vanishing finite-rank norm
+  remainder; a Schur complement is the correct abstract certificate.
+- Collatz: child valuations have exact conditional law `2^-b` and an
+  exponentially small noncontracting linear-coefficient tail, but affine
+  offsets and zero-measure natural rays remain.
+- Goldbach: the prime-only coefficient is exactly symmetric energy minus
+  antisymmetric energy, and the latter is invariant under every symmetric
+  baseline.
+- Twin Prime: the symmetrized cubic-rough Liouville sum is exactly
+  `2(QQ-PP)`; finite checks through 10M have `PP>QQ` but prove no unbounded
+  statement.
+
+These are exact partial and no-go theorems, not solutions or counterexamples
+to the four conjectures.
+
+## Historical Continuation After TICKET-152
 
 Read `docs/compression-cylinder-energy-selection.md`,
 `data/open-problem/ticket152-compression-cylinder-energy-selection.json`,
