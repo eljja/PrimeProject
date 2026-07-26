@@ -1,0 +1,276 @@
+{
+  "schema": "primeproject.ticket154-compact-suffix-wheel-leastfactor.v1",
+  "generated_at": "2026-07-26T16:15:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-154",
+  "attempt": "For X>=27 and z=floor(X^(1/3)), retain 2<=n<=X-2 with P^-(n(n+2))>z. Define ell_X(n)=0 when n is prime and 1 when n is composite; cubic roughness makes every composite a semiprime and ell_X records its unique least prime factor in (z,sqrt(n)]. If R is the rough pair count and M=sum(ell_X(n)+ell_X(n+2)), then exactly R-M=PP-QQ and M=2QQ+PQ+QP. Hence PP>QQ is equivalent to mean medium-least-factor incidence M/R<1. Divisibility data from primes at most z is identically zero on the retained set and cannot distinguish PP from QQ; explicit PP and QQ pairs with the same all-zero small-prime fingerprint exist at every audited scale.",
+  "bounded_result": {
+    "audit_ref": "compact_suffix_wheel_leastfactor_audit.twin_prime"
+  },
+  "obstruction": "The deficit identity is exact but equivalent to the unproved PP>QQ inequality. The observed mean incidence below one through ten million is finite evidence, and the 2 log(3/2) comparison is heuristic.",
+  "candidate_theorem": "UnboundedCubicRoughMeanLeastFactorIncidenceBelowOne",
+  "next_experiment": "bound the average incidence of unique medium least prime factors below one on an unbounded sequence of cubic-rough gap-two populations",
+  "claim_boundary": "No Twin Prime proof and no counterexample. One exact least-factor incidence reduction and finite evidence through X=10,000,000.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-154",
+    "theorem_name": "CubicRoughLeastFactorDeficitIdentityAndSmallPrimeFingerprintNoGo",
+    "declared_proposition": "For X>=27 and z=floor(X^(1/3)), retain 2<=n<=X-2 with P^-(n(n+2))>z. Define ell_X(n)=0 when n is prime and 1 when n is composite; cubic roughness makes every composite a semiprime and ell_X records its unique least prime factor in (z,sqrt(n)]. If R is the rough pair count and M=sum(ell_X(n)+ell_X(n+2)), then exactly R-M=PP-QQ and M=2QQ+PQ+QP. Hence PP>QQ is equivalent to mean medium-least-factor incidence M/R<1. Divisibility data from primes at most z is identically zero on the retained set and cannot distinguish PP from QQ; explicit PP and QQ pairs with the same all-zero small-prime fingerprint exist at every audited scale.",
+    "mathematical_argument": "A z-rough integer at most X has at most two prime factors. A composite therefore has a unique least factor p with z<p<=sqrt(n), while a prime has no such factor. On a rough pair, 1-ell_X(n)-ell_X(n+2) contributes +1 for PP, zero for a mixed pair, and -1 for QQ. Summation proves R-M=PP-QQ. Every retained number has no divisor among primes at most z, so all such sieve fingerprints coincide regardless of the prime/semiprime parity label.",
+    "reproducible_computation": {
+      "theorem": "For X>=27 and z=floor(X^(1/3)), retain 2<=n<=X-2 with P^-(n(n+2))>z. Define ell_X(n)=0 when n is prime and 1 when n is composite; cubic roughness makes every composite a semiprime and ell_X records its unique least prime factor in (z,sqrt(n)]. If R is the rough pair count and M=sum(ell_X(n)+ell_X(n+2)), then exactly R-M=PP-QQ and M=2QQ+PQ+QP. Hence PP>QQ is equivalent to mean medium-least-factor incidence M/R<1. Divisibility data from primes at most z is identically zero on the retained set and cannot distinguish PP from QQ; explicit PP and QQ pairs with the same all-zero small-prime fingerprint exist at every audited scale.",
+      "proof": "A z-rough integer at most X has at most two prime factors. A composite therefore has a unique least factor p with z<p<=sqrt(n), while a prime has no such factor. On a rough pair, 1-ell_X(n)-ell_X(n+2) contributes +1 for PP, zero for a mixed pair, and -1 for QQ. Summation proves R-M=PP-QQ. Every retained number has no divisor among primes at most z, so all such sieve fingerprints coincide regardless of the prime/semiprime parity label.",
+      "finite_least_factor_deficit_rows": [
+        {
+          "X": 1000,
+          "cubic_roughness_floor_z": 10,
+          "rough_gap_two_pair_count_R": 70,
+          "prime_prime_pairs_PP": 33,
+          "semiprime_semiprime_pairs_QQ": 4,
+          "mixed_pairs_PQ_QP": 33,
+          "left_medium_least_factor_incidence": 18,
+          "right_medium_least_factor_incidence": 23,
+          "total_medium_least_factor_incidence_M": 41,
+          "mean_pair_incidence_M_over_R": 0.5857142857142857,
+          "deficit_R_minus_M": 29,
+          "prime_prime_excess_PP_minus_QQ": 29,
+          "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+          "checks": {
+            "rough_population_partition_is_exact": true,
+            "least_factor_deficit_identity_is_exact": true,
+            "incidence_decomposition_is_exact": true,
+            "all_composites_are_semiprimes_with_unique_least_factor": true,
+            "finite_mean_incidence_is_below_one": true
+          }
+        },
+        {
+          "X": 10000,
+          "cubic_roughness_floor_z": 21,
+          "rough_gap_two_pair_count_R": 390,
+          "prime_prime_pairs_PP": 201,
+          "semiprime_semiprime_pairs_QQ": 35,
+          "mixed_pairs_PQ_QP": 154,
+          "left_medium_least_factor_incidence": 111,
+          "right_medium_least_factor_incidence": 113,
+          "total_medium_least_factor_incidence_M": 224,
+          "mean_pair_incidence_M_over_R": 0.5743589743589743,
+          "deficit_R_minus_M": 166,
+          "prime_prime_excess_PP_minus_QQ": 166,
+          "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+          "checks": {
+            "rough_population_partition_is_exact": true,
+            "least_factor_deficit_identity_is_exact": true,
+            "incidence_decomposition_is_exact": true,
+            "all_composites_are_semiprimes_with_unique_least_factor": true,
+            "finite_mean_incidence_is_below_one": true
+          }
+        },
+        {
+          "X": 100000,
+          "cubic_roughness_floor_z": 46,
+          "rough_gap_two_pair_count_R": 2681,
+          "prime_prime_pairs_PP": 1218,
+          "semiprime_semiprime_pairs_QQ": 284,
+          "mixed_pairs_PQ_QP": 1179,
+          "left_medium_least_factor_incidence": 856,
+          "right_medium_least_factor_incidence": 891,
+          "total_medium_least_factor_incidence_M": 1747,
+          "mean_pair_incidence_M_over_R": 0.6516225289071242,
+          "deficit_R_minus_M": 934,
+          "prime_prime_excess_PP_minus_QQ": 934,
+          "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+          "checks": {
+            "rough_population_partition_is_exact": true,
+            "least_factor_deficit_identity_is_exact": true,
+            "incidence_decomposition_is_exact": true,
+            "all_composites_are_semiprimes_with_unique_least_factor": true,
+            "finite_mean_incidence_is_below_one": true
+          }
+        },
+        {
+          "X": 1000000,
+          "cubic_roughness_floor_z": 100,
+          "rough_gap_two_pair_count_R": 19296,
+          "prime_prime_pairs_PP": 8161,
+          "semiprime_semiprime_pairs_QQ": 2453,
+          "mixed_pairs_PQ_QP": 8682,
+          "left_medium_least_factor_incidence": 6803,
+          "right_medium_least_factor_incidence": 6785,
+          "total_medium_least_factor_incidence_M": 13588,
+          "mean_pair_incidence_M_over_R": 0.7041873963515755,
+          "deficit_R_minus_M": 5708,
+          "prime_prime_excess_PP_minus_QQ": 5708,
+          "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+          "checks": {
+            "rough_population_partition_is_exact": true,
+            "least_factor_deficit_identity_is_exact": true,
+            "incidence_decomposition_is_exact": true,
+            "all_composites_are_semiprimes_with_unique_least_factor": true,
+            "finite_mean_incidence_is_below_one": true
+          }
+        },
+        {
+          "X": 10000000,
+          "cubic_roughness_floor_z": 215,
+          "rough_gap_two_pair_count_R": 142907,
+          "prime_prime_pairs_PP": 58965,
+          "semiprime_semiprime_pairs_QQ": 19074,
+          "mixed_pairs_PQ_QP": 64868,
+          "left_medium_least_factor_incidence": 51529,
+          "right_medium_least_factor_incidence": 51487,
+          "total_medium_least_factor_incidence_M": 103016,
+          "mean_pair_incidence_M_over_R": 0.72086041971352,
+          "deficit_R_minus_M": 39891,
+          "prime_prime_excess_PP_minus_QQ": 39891,
+          "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+          "checks": {
+            "rough_population_partition_is_exact": true,
+            "least_factor_deficit_identity_is_exact": true,
+            "incidence_decomposition_is_exact": true,
+            "all_composites_are_semiprimes_with_unique_least_factor": true,
+            "finite_mean_incidence_is_below_one": true
+          }
+        }
+      ],
+      "finite_small_prime_fingerprint_collision_rows": [
+        {
+          "X": 1000,
+          "small_prime_cutoff_z": 10,
+          "prime_prime_example": [
+            11,
+            13
+          ],
+          "semiprime_semiprime_example": [
+            527,
+            529
+          ],
+          "shared_small_prime_divisibility_fingerprint": "all_zero_for_primes_at_most_z",
+          "checks": {
+            "prime_prime_example_exists": true,
+            "semiprime_semiprime_example_exists": true,
+            "both_examples_have_all_small_prime_bits_zero": true,
+            "examples_have_opposite_parity_labels": true
+          }
+        },
+        {
+          "X": 10000,
+          "small_prime_cutoff_z": 21,
+          "prime_prime_example": [
+            29,
+            31
+          ],
+          "semiprime_semiprime_example": [
+            1679,
+            1681
+          ],
+          "shared_small_prime_divisibility_fingerprint": "all_zero_for_primes_at_most_z",
+          "checks": {
+            "prime_prime_example_exists": true,
+            "semiprime_semiprime_example_exists": true,
+            "both_examples_have_all_small_prime_bits_zero": true,
+            "examples_have_opposite_parity_labels": true
+          }
+        },
+        {
+          "X": 100000,
+          "small_prime_cutoff_z": 46,
+          "prime_prime_example": [
+            59,
+            61
+          ],
+          "semiprime_semiprime_example": [
+            4187,
+            4189
+          ],
+          "shared_small_prime_divisibility_fingerprint": "all_zero_for_primes_at_most_z",
+          "checks": {
+            "prime_prime_example_exists": true,
+            "semiprime_semiprime_example_exists": true,
+            "both_examples_have_all_small_prime_bits_zero": true,
+            "examples_have_opposite_parity_labels": true
+          }
+        },
+        {
+          "X": 1000000,
+          "small_prime_cutoff_z": 100,
+          "prime_prime_example": [
+            101,
+            103
+          ],
+          "semiprime_semiprime_example": [
+            24287,
+            24289
+          ],
+          "shared_small_prime_divisibility_fingerprint": "all_zero_for_primes_at_most_z",
+          "checks": {
+            "prime_prime_example_exists": true,
+            "semiprime_semiprime_example_exists": true,
+            "both_examples_have_all_small_prime_bits_zero": true,
+            "examples_have_opposite_parity_labels": true
+          }
+        },
+        {
+          "X": 10000000,
+          "small_prime_cutoff_z": 215,
+          "prime_prime_example": [
+            227,
+            229
+          ],
+          "semiprime_semiprime_example": [
+            59987,
+            59989
+          ],
+          "shared_small_prime_divisibility_fingerprint": "all_zero_for_primes_at_most_z",
+          "checks": {
+            "prime_prime_example_exists": true,
+            "semiprime_semiprime_example_exists": true,
+            "both_examples_have_all_small_prime_bits_zero": true,
+            "examples_have_opposite_parity_labels": true
+          }
+        }
+      ],
+      "finite_mean_incidence_increases_after_ten_thousand": true,
+      "constants": {
+        "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+        "heuristic_status": "heuristic_not_theorem"
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The deficit identity is exact but equivalent to the unproved PP>QQ inequality. The observed mean incidence below one through ten million is finite evidence, and the 2 log(3/2) comparison is heuristic.",
+    "route_decision": {
+      "discard": "classifying cubic-rough prime-prime versus semiprime-semiprime pairs from divisibility bits at primes no larger than the roughness cutoff",
+      "retain": "bound the average incidence of unique medium least prime factors below one on an unbounded sequence of cubic-rough gap-two populations",
+      "next_theorem": "UnboundedCubicRoughMeanLeastFactorIncidenceBelowOne"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T154-REJECTED",
+          "label": "SmallPrimeRoughnessFingerprintSeparatesPrimePairParity",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T154-CLOSED",
+          "label": "CubicRoughLeastFactorDeficitIdentityAndSmallPrimeFingerprintNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T154-OPEN",
+          "label": "UnboundedCubicRoughMeanLeastFactorIncidenceBelowOne",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T154-REJECTED",
+          "TP-T154-CLOSED"
+        ],
+        [
+          "TP-T154-CLOSED",
+          "TP-T154-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof and no counterexample. One exact least-factor incidence reduction and finite evidence through X=10,000,000."
+  }
+}

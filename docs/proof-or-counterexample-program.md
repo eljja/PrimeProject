@@ -6199,3 +6199,43 @@ counter.
 
 Full bilingual report / 전체 한영 보고서:
 [TICKET-153 essential-tail-geometric-reflection-parity](essential-tail-geometric-reflection-parity.md).
+
+## TICKET-154 continuation: compact tails, reverse-suffix descent, wheel projection, and least-factor deficit
+
+TICKET-154 attacks the four TICKET-153 next lemmas and closes one exact
+subcomponent in each route without changing any conjecture-resolution
+counter.
+
+1. **Riemann Hypothesis.** For a finite core, the preconditioned coupling
+   `K=D^(-1/2)C` is compact, and a finite Schur margin promotes to the full
+   operator when it pays the exact omitted cost
+   `||(I-Q_N)K||^2`. A rank-one hidden-direction family refutes every
+   uncertified isolated cutoff. The next target is
+   `ActualWeilCompactCouplingWithEffectivePreconditionedTailRate`.
+2. **Collatz.** If every reverse suffix of a valuation word has average
+   valuation at least two, its affine threshold is at most one and every
+   odd start above one realizing that word strictly descends. The exact
+   geometric mass of length-`m` certificate words is
+   `binom(2m,m)/4^m`, so universal occurrence remains open. The next target
+   is
+   `EveryNaturalValuationRayHitsAReverseSuffixSurplusDescentBlock`.
+3. **Goldbach.** Orthogonal projection onto a reflection-symmetric wheel
+   space gives an exact sufficient energy certificate. For each fixed
+   modulus its energy fraction tends to zero by PNT in arithmetic
+   progressions, so fixed-wheel domination is retired. The next target is
+   `EffectiveGrowingWheelProjectionDominanceAtEveryLargeEvenEndpoint`.
+4. **Twin Prime.** On cubic-rough gap-two support,
+   `PP-QQ=R-M`, where `M` counts medium least-prime-factor incidences.
+   Small-prime divisibility fingerprints are identical on explicit PP and
+   QQ pairs. The next target is
+   `UnboundedCubicRoughMeanLeastFactorIncidenceBelowOne`.
+
+한국어 경계: RH 정리는 actual Weil operator를 구성하지 않는다.
+Collatz의 reverse-suffix block은 정확한 충분조건이지만 모든 자연수
+ray에서의 발생 정리가 없다. Goldbach의 fixed-wheel no-go는 growing
+major-arc dominance를 증명하지 않는다. Twin의 incidence 항등식은
+`M/R<1`을 무한 scale에서 증명하지 않는다. 네 추측은 모두
+`open_not_proven`이며 완전한 증명이나 반례는 없다.
+
+Full bilingual report / 전체 한영 보고서:
+[TICKET-154 compact-suffix-wheel-leastfactor](compact-suffix-wheel-leastfactor.md).

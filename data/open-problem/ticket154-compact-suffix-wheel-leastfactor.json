@@ -1,0 +1,1414 @@
+{
+  "schema": "primeproject.ticket154-compact-suffix-wheel-leastfactor.v1",
+  "generated_at": "2026-07-26T16:15:00+09:00",
+  "status": "exact_reductions_and_no_go_results_all_four_conjectures_open",
+  "claim_boundary": "TICKET-154 proves four exact promotion, descent, projection, or parity-reduction results and resolves no target conjecture. It also gives explicit no-go examples for uncertified RH finite tails, Collatz final-surplus-only reasoning, fixed-wheel Goldbach energy domination, and small-prime-only Twin parity classification.",
+  "compact_suffix_wheel_leastfactor_audit": {
+    "theorem_name": "FourConjectureCompactSuffixWheelLeastFactorAudit",
+    "status": "exact_reductions_and_no_go_results_all_four_conjectures_open",
+    "proof_boundary": "TICKET-154 proves four exact promotion, descent, projection, or parity-reduction results and resolves no target conjecture. It also gives explicit no-go examples for uncertified RH finite tails, Collatz final-surplus-only reasoning, fixed-wheel Goldbach energy domination, and small-prime-only Twin parity classification.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-154",
+      "theorem_name": "CompactCouplingFiniteSectionPromotionAndHiddenTailNoGo",
+      "declared_proposition": "Let H0 be finite dimensional, D>=delta I>0 on H1, K=D^(-1/2)C, and Q_N finite-rank orthogonal projections converging strongly to I. Then K is compact, e_N=||(I-Q_N)K||^2 tends to zero, and the full Schur complement S=A-K*K satisfies S=S_N-K*(I-Q_N)K with S_N=A-K*Q_NK. Hence S_N>=e_N I implies S>=0 and therefore the full block operator is positive. A finite cutoff without a certified e_N is insufficient: for every cutoff, a rank-one compact coupling hidden in the first omitted direction can leave a positive observed margin while making the full Schur complement negative.",
+      "mathematical_argument": "Finite-dimensional H0 makes K compact. Strong convergence Q_N->I is uniform on the compact image of the unit ball under K, so ||(I-Q_N)K||->0. The exact identity follows by adding and subtracting K*Q_NK, and 0<=K*(I-Q_N)K<=e_N I. For the no-go, take scalar H0, put Kx=x e_(N+1), and A=1/2. The observed cost is zero and the observed margin is 1/2, while K*K=1 and the full margin is -1/2.",
+      "reproducible_computation": {
+        "theorem": "Let H0 be finite dimensional, D>=delta I>0 on H1, K=D^(-1/2)C, and Q_N finite-rank orthogonal projections converging strongly to I. Then K is compact, e_N=||(I-Q_N)K||^2 tends to zero, and the full Schur complement S=A-K*K satisfies S=S_N-K*(I-Q_N)K with S_N=A-K*Q_NK. Hence S_N>=e_N I implies S>=0 and therefore the full block operator is positive. A finite cutoff without a certified e_N is insufficient: for every cutoff, a rank-one compact coupling hidden in the first omitted direction can leave a positive observed margin while making the full Schur complement negative.",
+        "proof": "Finite-dimensional H0 makes K compact. Strong convergence Q_N->I is uniform on the compact image of the unit ball under K, so ||(I-Q_N)K||->0. The exact identity follows by adding and subtracting K*Q_NK, and 0<=K*(I-Q_N)K<=e_N I. For the no-go, take scalar H0, put Kx=x e_(N+1), and A=1/2. The observed cost is zero and the observed margin is 1/2, while K*K=1 and the full margin is -1/2.",
+        "finite_compact_promotion_rows": [
+          {
+            "finite_tail_cutoff_N": 1,
+            "finite_schur_cost": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "preconditioned_coupling_tail_norm_squared": {
+              "exact": "1/12",
+              "decimal": 0.08333333333333333
+            },
+            "finite_schur_margin": {
+              "exact": "1/12",
+              "decimal": 0.08333333333333333
+            },
+            "certified_full_schur_margin": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "geometric_cost_partition_is_exact": true,
+              "preconditioned_tail_norm_squared_is_exact": true,
+              "finite_margin_pays_full_omitted_cost": true,
+              "certified_full_margin_is_nonnegative": true
+            }
+          },
+          {
+            "finite_tail_cutoff_N": 2,
+            "finite_schur_cost": {
+              "exact": "5/16",
+              "decimal": 0.3125
+            },
+            "preconditioned_coupling_tail_norm_squared": {
+              "exact": "1/48",
+              "decimal": 0.020833333333333332
+            },
+            "finite_schur_margin": {
+              "exact": "1/48",
+              "decimal": 0.020833333333333332
+            },
+            "certified_full_schur_margin": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "geometric_cost_partition_is_exact": true,
+              "preconditioned_tail_norm_squared_is_exact": true,
+              "finite_margin_pays_full_omitted_cost": true,
+              "certified_full_margin_is_nonnegative": true
+            }
+          },
+          {
+            "finite_tail_cutoff_N": 4,
+            "finite_schur_cost": {
+              "exact": "85/256",
+              "decimal": 0.33203125
+            },
+            "preconditioned_coupling_tail_norm_squared": {
+              "exact": "1/768",
+              "decimal": 0.0013020833333333333
+            },
+            "finite_schur_margin": {
+              "exact": "1/768",
+              "decimal": 0.0013020833333333333
+            },
+            "certified_full_schur_margin": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "geometric_cost_partition_is_exact": true,
+              "preconditioned_tail_norm_squared_is_exact": true,
+              "finite_margin_pays_full_omitted_cost": true,
+              "certified_full_margin_is_nonnegative": true
+            }
+          },
+          {
+            "finite_tail_cutoff_N": 8,
+            "finite_schur_cost": {
+              "exact": "21845/65536",
+              "decimal": 0.3333282470703125
+            },
+            "preconditioned_coupling_tail_norm_squared": {
+              "exact": "1/196608",
+              "decimal": 5.086263020833333e-06
+            },
+            "finite_schur_margin": {
+              "exact": "1/196608",
+              "decimal": 5.086263020833333e-06
+            },
+            "certified_full_schur_margin": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "geometric_cost_partition_is_exact": true,
+              "preconditioned_tail_norm_squared_is_exact": true,
+              "finite_margin_pays_full_omitted_cost": true,
+              "certified_full_margin_is_nonnegative": true
+            }
+          },
+          {
+            "finite_tail_cutoff_N": 12,
+            "finite_schur_cost": {
+              "exact": "5592405/16777216",
+              "decimal": 0.3333333134651184
+            },
+            "preconditioned_coupling_tail_norm_squared": {
+              "exact": "1/50331648",
+              "decimal": 1.9868214925130207e-08
+            },
+            "finite_schur_margin": {
+              "exact": "1/50331648",
+              "decimal": 1.9868214925130207e-08
+            },
+            "certified_full_schur_margin": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "geometric_cost_partition_is_exact": true,
+              "preconditioned_tail_norm_squared_is_exact": true,
+              "finite_margin_pays_full_omitted_cost": true,
+              "certified_full_margin_is_nonnegative": true
+            }
+          },
+          {
+            "finite_tail_cutoff_N": 16,
+            "finite_schur_cost": {
+              "exact": "1431655765/4294967296",
+              "decimal": 0.3333333332557231
+            },
+            "preconditioned_coupling_tail_norm_squared": {
+              "exact": "1/12884901888",
+              "decimal": 7.761021455128987e-11
+            },
+            "finite_schur_margin": {
+              "exact": "1/12884901888",
+              "decimal": 7.761021455128987e-11
+            },
+            "certified_full_schur_margin": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "geometric_cost_partition_is_exact": true,
+              "preconditioned_tail_norm_squared_is_exact": true,
+              "finite_margin_pays_full_omitted_cost": true,
+              "certified_full_margin_is_nonnegative": true
+            }
+          }
+        ],
+        "finite_hidden_tail_counterexample_rows": [
+          {
+            "observed_tail_dimension": 1,
+            "full_model_dimension": 2,
+            "observed_coupling_cost": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "observed_schur_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "first_omitted_direction_cost": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "full_schur_margin": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "checks": {
+              "finite_cutoff_reports_positive_margin": true,
+              "omitted_rank_one_coupling_is_compact": true,
+              "full_schur_complement_has_negative_direction": true,
+              "tail_bound_would_detect_failure": true
+            }
+          },
+          {
+            "observed_tail_dimension": 2,
+            "full_model_dimension": 3,
+            "observed_coupling_cost": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "observed_schur_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "first_omitted_direction_cost": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "full_schur_margin": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "checks": {
+              "finite_cutoff_reports_positive_margin": true,
+              "omitted_rank_one_coupling_is_compact": true,
+              "full_schur_complement_has_negative_direction": true,
+              "tail_bound_would_detect_failure": true
+            }
+          },
+          {
+            "observed_tail_dimension": 4,
+            "full_model_dimension": 5,
+            "observed_coupling_cost": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "observed_schur_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "first_omitted_direction_cost": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "full_schur_margin": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "checks": {
+              "finite_cutoff_reports_positive_margin": true,
+              "omitted_rank_one_coupling_is_compact": true,
+              "full_schur_complement_has_negative_direction": true,
+              "tail_bound_would_detect_failure": true
+            }
+          },
+          {
+            "observed_tail_dimension": 8,
+            "full_model_dimension": 9,
+            "observed_coupling_cost": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "observed_schur_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "first_omitted_direction_cost": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "full_schur_margin": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "checks": {
+              "finite_cutoff_reports_positive_margin": true,
+              "omitted_rank_one_coupling_is_compact": true,
+              "full_schur_complement_has_negative_direction": true,
+              "tail_bound_would_detect_failure": true
+            }
+          },
+          {
+            "observed_tail_dimension": 16,
+            "full_model_dimension": 17,
+            "observed_coupling_cost": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "observed_schur_margin": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "first_omitted_direction_cost": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "full_schur_margin": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "checks": {
+              "finite_cutoff_reports_positive_margin": true,
+              "omitted_rank_one_coupling_is_compact": true,
+              "full_schur_complement_has_negative_direction": true,
+              "tail_bound_would_detect_failure": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The promotion theorem is abstract. PrimeProject has not constructed a coercive actual-Weil tail, proved the preconditioned coupling compact, or supplied an effective tail rate. The hidden-direction examples exclude no zeta zero.",
+      "route_decision": {
+        "discard": "accepting a positive finite Schur margin without an operator-norm bound on the omitted preconditioned coupling",
+        "retain": "construct the actual Weil block decomposition and prove an effective compact-coupling tail bound below the computed Schur margin",
+        "next_theorem": "ActualWeilCompactCouplingWithEffectivePreconditionedTailRate"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T154-REJECTED",
+            "label": "FiniteSchurMarginWithoutCertifiedCouplingTail",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T154-CLOSED",
+            "label": "CompactCouplingFiniteSectionPromotionAndHiddenTailNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T154-OPEN",
+            "label": "ActualWeilCompactCouplingWithEffectivePreconditionedTailRate",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T154-REJECTED",
+            "RH-T154-CLOSED"
+          ],
+          [
+            "RH-T154-CLOSED",
+            "RH-T154-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero. One abstract compact promotion theorem and a sharp finite-cutoff no-go."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-154",
+      "theorem_name": "ReverseSuffixSurplusAffineDescentAndTotalSurplusNoGo",
+      "declared_proposition": "For an accelerated Collatz valuation word a_1,...,a_m, write T^m(n)=(3^m n+C_a)/2^S. If every reverse suffix of length k has valuation sum at least qk for an integer q>=2, then C_a/(2^S-3^m)<=1/(2^q-3). In particular q=2 forces T^m(n)<n for every odd n>1 realizing the word. Under the exact geometric cylinder law, the mass of q=2 certificate words of length m is binom(2m,m)/4^m, which tends to zero. Moreover, for a fixed valuation multiset, ascending order minimizes C_a and descending order maximizes it. Thus final surplus S-m log_2 3 alone cannot control the affine threshold.",
+      "mathematical_argument": "The affine constant is C_a=sum_{j=0}^{m-1}3^(m-1-j)2^S_j. Divide by 2^S and index by reverse suffix length k. The suffix hypothesis bounds the k-th term by 3^(k-1)/2^(qk); summing the geometric series and comparing with 1-3^m/2^S gives the threshold bound. For the mass formula, reverse the i.i.d. geometric valuations and apply the skip-free ballot identity to increments a_i-2. For ordering, an adjacent swap changes only one prefix term; putting the larger valuation first increases that term.",
+      "reproducible_computation": {
+        "theorem": "For an accelerated Collatz valuation word a_1,...,a_m, write T^m(n)=(3^m n+C_a)/2^S. If every reverse suffix of length k has valuation sum at least qk for an integer q>=2, then C_a/(2^S-3^m)<=1/(2^q-3). In particular q=2 forces T^m(n)<n for every odd n>1 realizing the word. Under the exact geometric cylinder law, the mass of q=2 certificate words of length m is binom(2m,m)/4^m, which tends to zero. Moreover, for a fixed valuation multiset, ascending order minimizes C_a and descending order maximizes it. Thus final surplus S-m log_2 3 alone cannot control the affine threshold.",
+        "proof": "The affine constant is C_a=sum_{j=0}^{m-1}3^(m-1-j)2^S_j. Divide by 2^S and index by reverse suffix length k. The suffix hypothesis bounds the k-th term by 3^(k-1)/2^(qk); summing the geometric series and comparing with 1-3^m/2^S gives the threshold bound. For the mass formula, reverse the i.i.d. geometric valuations and apply the skip-free ballot identity to increments a_i-2. For ordering, an adjacent swap changes only one prefix term; putting the larger valuation first increases that term.",
+        "finite_reverse_suffix_certificate_rows": [
+          {
+            "valuation_word": [
+              2
+            ],
+            "reverse_suffix_floor_q": 2,
+            "total_valuation_S": 2,
+            "affine_constant_C": 1,
+            "descent_denominator_2S_minus_3m": 1,
+            "exact_affine_threshold": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "theorem_threshold_upper_bound": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "every_reverse_suffix_meets_floor": true,
+              "linear_multiplier_is_contracting": true,
+              "affine_threshold_meets_theorem_bound": true,
+              "floor_two_forces_descent_for_every_odd_n_above_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              3
+            ],
+            "reverse_suffix_floor_q": 2,
+            "total_valuation_S": 4,
+            "affine_constant_C": 5,
+            "descent_denominator_2S_minus_3m": 7,
+            "exact_affine_threshold": {
+              "exact": "5/7",
+              "decimal": 0.7142857142857143
+            },
+            "theorem_threshold_upper_bound": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "every_reverse_suffix_meets_floor": true,
+              "linear_multiplier_is_contracting": true,
+              "affine_threshold_meets_theorem_bound": true,
+              "floor_two_forces_descent_for_every_odd_n_above_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              2
+            ],
+            "reverse_suffix_floor_q": 2,
+            "total_valuation_S": 4,
+            "affine_constant_C": 7,
+            "descent_denominator_2S_minus_3m": 7,
+            "exact_affine_threshold": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "theorem_threshold_upper_bound": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "every_reverse_suffix_meets_floor": true,
+              "linear_multiplier_is_contracting": true,
+              "affine_threshold_meets_theorem_bound": true,
+              "floor_two_forces_descent_for_every_odd_n_above_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              1,
+              4
+            ],
+            "reverse_suffix_floor_q": 2,
+            "total_valuation_S": 6,
+            "affine_constant_C": 19,
+            "descent_denominator_2S_minus_3m": 37,
+            "exact_affine_threshold": {
+              "exact": "19/37",
+              "decimal": 0.5135135135135135
+            },
+            "theorem_threshold_upper_bound": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "every_reverse_suffix_meets_floor": true,
+              "linear_multiplier_is_contracting": true,
+              "affine_threshold_meets_theorem_bound": true,
+              "floor_two_forces_descent_for_every_odd_n_above_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              3
+            ],
+            "reverse_suffix_floor_q": 3,
+            "total_valuation_S": 3,
+            "affine_constant_C": 1,
+            "descent_denominator_2S_minus_3m": 5,
+            "exact_affine_threshold": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "theorem_threshold_upper_bound": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "checks": {
+              "every_reverse_suffix_meets_floor": true,
+              "linear_multiplier_is_contracting": true,
+              "affine_threshold_meets_theorem_bound": true,
+              "floor_two_forces_descent_for_every_odd_n_above_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              4
+            ],
+            "reverse_suffix_floor_q": 3,
+            "total_valuation_S": 6,
+            "affine_constant_C": 7,
+            "descent_denominator_2S_minus_3m": 55,
+            "exact_affine_threshold": {
+              "exact": "7/55",
+              "decimal": 0.12727272727272726
+            },
+            "theorem_threshold_upper_bound": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "checks": {
+              "every_reverse_suffix_meets_floor": true,
+              "linear_multiplier_is_contracting": true,
+              "affine_threshold_meets_theorem_bound": true,
+              "floor_two_forces_descent_for_every_odd_n_above_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              2,
+              6
+            ],
+            "reverse_suffix_floor_q": 3,
+            "total_valuation_S": 9,
+            "affine_constant_C": 23,
+            "descent_denominator_2S_minus_3m": 485,
+            "exact_affine_threshold": {
+              "exact": "23/485",
+              "decimal": 0.04742268041237113
+            },
+            "theorem_threshold_upper_bound": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "checks": {
+              "every_reverse_suffix_meets_floor": true,
+              "linear_multiplier_is_contracting": true,
+              "affine_threshold_meets_theorem_bound": true,
+              "floor_two_forces_descent_for_every_odd_n_above_one": true
+            }
+          }
+        ],
+        "finite_certificate_mass_rows": [
+          {
+            "word_length_m": 1,
+            "exact_reverse_suffix_certificate_mass": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "sqrt_pi_m_scaled_mass": 0.8862269254527579,
+            "checks": {
+              "coverage_mass_is_positive": true,
+              "coverage_mass_is_at_most_one": true,
+              "central_binomial_identity_is_exact": true
+            }
+          },
+          {
+            "word_length_m": 2,
+            "exact_reverse_suffix_certificate_mass": {
+              "exact": "3/8",
+              "decimal": 0.375
+            },
+            "sqrt_pi_m_scaled_mass": 0.9399856029866251,
+            "checks": {
+              "coverage_mass_is_positive": true,
+              "coverage_mass_is_at_most_one": true,
+              "central_binomial_identity_is_exact": true
+            }
+          },
+          {
+            "word_length_m": 4,
+            "exact_reverse_suffix_certificate_mass": {
+              "exact": "35/128",
+              "decimal": 0.2734375
+            },
+            "sqrt_pi_m_scaled_mass": 0.969310699713954,
+            "checks": {
+              "coverage_mass_is_positive": true,
+              "coverage_mass_is_at_most_one": true,
+              "central_binomial_identity_is_exact": true
+            }
+          },
+          {
+            "word_length_m": 8,
+            "exact_reverse_suffix_certificate_mass": {
+              "exact": "6435/32768",
+              "decimal": 0.196380615234375
+            },
+            "sqrt_pi_m_scaled_mass": 0.9845064054718314,
+            "checks": {
+              "coverage_mass_is_positive": true,
+              "coverage_mass_is_at_most_one": true,
+              "central_binomial_identity_is_exact": true
+            }
+          },
+          {
+            "word_length_m": 16,
+            "exact_reverse_suffix_certificate_mass": {
+              "exact": "300540195/2147483648",
+              "decimal": 0.13994993409141898
+            },
+            "sqrt_pi_m_scaled_mass": 0.9922191984572348,
+            "checks": {
+              "coverage_mass_is_positive": true,
+              "coverage_mass_is_at_most_one": true,
+              "central_binomial_identity_is_exact": true
+            }
+          },
+          {
+            "word_length_m": 32,
+            "exact_reverse_suffix_certificate_mass": {
+              "exact": "916312070471295267/9223372036854775808",
+              "decimal": 0.09934675374796689
+            },
+            "sqrt_pi_m_scaled_mass": 0.9961015277498284,
+            "checks": {
+              "coverage_mass_is_positive": true,
+              "coverage_mass_is_at_most_one": true,
+              "central_binomial_identity_is_exact": true
+            }
+          },
+          {
+            "word_length_m": 64,
+            "exact_reverse_suffix_certificate_mass": {
+              "exact": "11975573020964041433067793888190275875/170141183460469231731687303715884105728",
+              "decimal": 0.07038609217001514
+            },
+            "sqrt_pi_m_scaled_mass": 0.9980488009354713,
+            "checks": {
+              "coverage_mass_is_positive": true,
+              "coverage_mass_is_at_most_one": true,
+              "central_binomial_identity_is_exact": true
+            }
+          },
+          {
+            "word_length_m": 128,
+            "exact_reverse_suffix_certificate_mass": {
+              "exact": "2884329411724603169044874178931143443870105850987581016304218283632259375395/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+              "decimal": 0.04981910993614015
+            },
+            "sqrt_pi_m_scaled_mass": 0.9990239166630329,
+            "checks": {
+              "coverage_mass_is_positive": true,
+              "coverage_mass_is_at_most_one": true,
+              "central_binomial_identity_is_exact": true
+            }
+          }
+        ],
+        "finite_affine_ordering_rows": [
+          {
+            "valuation_multiset": [
+              1,
+              2,
+              3
+            ],
+            "permutation_count": 6,
+            "minimum_word_ascending": [
+              1,
+              2,
+              3
+            ],
+            "minimum_affine_threshold": {
+              "exact": "23/37",
+              "decimal": 0.6216216216216216
+            },
+            "maximum_word_descending": [
+              3,
+              2,
+              1
+            ],
+            "maximum_affine_threshold": {
+              "exact": "65/37",
+              "decimal": 1.7567567567567568
+            },
+            "checks": {
+              "ascending_order_minimizes_affine_constant": true,
+              "descending_order_maximizes_affine_constant": true,
+              "same_total_valuation_has_order_dependent_threshold": true
+            }
+          },
+          {
+            "valuation_multiset": [
+              1,
+              1,
+              4
+            ],
+            "permutation_count": 3,
+            "minimum_word_ascending": [
+              1,
+              1,
+              4
+            ],
+            "minimum_affine_threshold": {
+              "exact": "19/37",
+              "decimal": 0.5135135135135135
+            },
+            "maximum_word_descending": [
+              4,
+              1,
+              1
+            ],
+            "maximum_affine_threshold": {
+              "exact": "89/37",
+              "decimal": 2.4054054054054053
+            },
+            "checks": {
+              "ascending_order_minimizes_affine_constant": true,
+              "descending_order_maximizes_affine_constant": true,
+              "same_total_valuation_has_order_dependent_threshold": true
+            }
+          },
+          {
+            "valuation_multiset": [
+              1,
+              2,
+              2,
+              3
+            ],
+            "permutation_count": 12,
+            "minimum_word_ascending": [
+              1,
+              2,
+              2,
+              3
+            ],
+            "minimum_affine_threshold": {
+              "exact": "101/175",
+              "decimal": 0.5771428571428572
+            },
+            "maximum_word_descending": [
+              3,
+              2,
+              2,
+              1
+            ],
+            "maximum_affine_threshold": {
+              "exact": "323/175",
+              "decimal": 1.8457142857142856
+            },
+            "checks": {
+              "ascending_order_minimizes_affine_constant": true,
+              "descending_order_maximizes_affine_constant": true,
+              "same_total_valuation_has_order_dependent_threshold": true
+            }
+          },
+          {
+            "valuation_multiset": [
+              1,
+              1,
+              2,
+              4
+            ],
+            "permutation_count": 12,
+            "minimum_word_ascending": [
+              1,
+              1,
+              2,
+              4
+            ],
+            "minimum_affine_threshold": {
+              "exact": "73/175",
+              "decimal": 0.41714285714285715
+            },
+            "maximum_word_descending": [
+              4,
+              2,
+              1,
+              1
+            ],
+            "maximum_affine_threshold": {
+              "exact": "491/175",
+              "decimal": 2.8057142857142856
+            },
+            "checks": {
+              "ascending_order_minimizes_affine_constant": true,
+              "descending_order_maximizes_affine_constant": true,
+              "same_total_valuation_has_order_dependent_threshold": true
+            }
+          }
+        ],
+        "same_surplus_affine_threshold_no_go": {
+          "word_one": [
+            1,
+            3
+          ],
+          "word_two": [
+            3,
+            1
+          ],
+          "common_length": 2,
+          "common_total_valuation": 4,
+          "common_linear_multiplier": {
+            "exact": "9/16",
+            "decimal": 0.5625
+          },
+          "word_one_threshold": {
+            "exact": "5/7",
+            "decimal": 0.7142857142857143
+          },
+          "word_two_threshold": {
+            "exact": "11/7",
+            "decimal": 1.5714285714285714
+          },
+          "checks": {
+            "same_total_valuation": true,
+            "same_multiset": true,
+            "different_affine_thresholds": true,
+            "only_one_order_meets_reverse_suffix_floor_two": true
+          }
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The reverse-suffix condition is sufficient but its length-m geometric cylinder mass tends to zero. No proof shows that every natural valuation ray eventually enters such a block.",
+      "route_decision": {
+        "discard": "using only final valuation surplus or the linear multiplier while ignoring valuation order in the affine constant",
+        "retain": "prove that every natural Collatz valuation ray reaches a reverse-suffix surplus block, then use strong induction on the certified strict descent",
+        "next_theorem": "EveryNaturalValuationRayHitsAReverseSuffixSurplusDescentBlock"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T154-REJECTED",
+            "label": "FinalValuationSurplusAloneControlsAffineDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T154-CLOSED",
+            "label": "ReverseSuffixSurplusAffineDescentAndTotalSurplusNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T154-OPEN",
+            "label": "EveryNaturalValuationRayHitsAReverseSuffixSurplusDescentBlock",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T154-REJECTED",
+            "CO-T154-CLOSED"
+          ],
+          [
+            "CO-T154-CLOSED",
+            "CO-T154-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit. One exact affine-descent certificate whose universal occurrence remains open."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-154",
+      "theorem_name": "SymmetricWheelProjectionCertificateAndFixedModulusEnergyNoGo",
+      "declared_proposition": "For even N and fixed squarefree W, let U_(N,W) be the reflection-symmetric functions that are constant on the residue orbits generated by a mod W and N-a mod W, and let u be the orthogonal projection of the prime-only theta vector onto U_(N,W). Then <theta,R_N theta>=||u||^2+||P_+(theta-u)||^2-||P_-(theta-u)||^2, so ||u||^2>||theta-u||^2 is a sufficient Goldbach certificate. For every fixed W, the prime number theorem in arithmetic progressions gives ||u||^2=O_W(N), while ||theta||^2 is asymptotic to N log N. Therefore the projection energy fraction tends to zero and no fixed wheel can satisfy this L2 certificate for all large endpoints. The exact local support count is product over p|W of p-1 when p|N and p-2 otherwise.",
+      "mathematical_argument": "Because U_(N,W) lies in the +1 reflection eigenspace and u is an orthogonal projection, the symmetric residual is orthogonal to u. Expanding the reflection quadratic form gives the exact identity and the stated lower bound. For fixed W, PNT in arithmetic progressions makes every relevant residue cell mean O_W(1), so the finitely many cell contributions total O_W(N); partial summation gives sum_(p<N)(log p)^2~N log N. The local support formula follows independently prime by prime and then by the Chinese remainder theorem.",
+      "reproducible_computation": {
+        "theorem": "For even N and fixed squarefree W, let U_(N,W) be the reflection-symmetric functions that are constant on the residue orbits generated by a mod W and N-a mod W, and let u be the orthogonal projection of the prime-only theta vector onto U_(N,W). Then <theta,R_N theta>=||u||^2+||P_+(theta-u)||^2-||P_-(theta-u)||^2, so ||u||^2>||theta-u||^2 is a sufficient Goldbach certificate. For every fixed W, the prime number theorem in arithmetic progressions gives ||u||^2=O_W(N), while ||theta||^2 is asymptotic to N log N. Therefore the projection energy fraction tends to zero and no fixed wheel can satisfy this L2 certificate for all large endpoints. The exact local support count is product over p|W of p-1 when p|N and p-2 otherwise.",
+        "proof": "Because U_(N,W) lies in the +1 reflection eigenspace and u is an orthogonal projection, the symmetric residual is orthogonal to u. Expanding the reflection quadratic form gives the exact identity and the stated lower bound. For fixed W, PNT in arithmetic progressions makes every relevant residue cell mean O_W(1), so the finitely many cell contributions total O_W(N); partial summation gives sum_(p<N)(log p)^2~N log N. The local support formula follows independently prime by prime and then by the Chinese remainder theorem.",
+        "finite_fixed_wheel_projection_rows": [
+          {
+            "even_endpoint_N": 10000,
+            "fixed_wheel_W": 6,
+            "reflection_orbit_cell_count": 4,
+            "prime_theta_total_energy": 81399.38488445983,
+            "symmetric_wheel_projection_energy": 22062.136878469628,
+            "orthogonal_residual_energy": 59337.2480059902,
+            "projection_energy_fraction": 0.2710356707214082,
+            "projection_certificate_lower_bound": -37275.11112752058,
+            "projection_certificate_positive": false,
+            "actual_prime_theta_reflection_correlation": 16743.136805576996,
+            "unordered_prime_pair_representations": 127,
+            "admissible_residue_pair_count_direct": 1,
+            "admissible_residue_pair_count_formula": 1,
+            "checks": {
+              "orthogonal_energy_partition": true,
+              "reflection_correlation_exceeds_projection_lower_bound": true,
+              "local_admissible_residue_formula_is_exact": true,
+              "finite_endpoint_has_prime_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 10000,
+            "fixed_wheel_W": 30,
+            "reflection_orbit_cell_count": 16,
+            "prime_theta_total_energy": 81399.38488445983,
+            "symmetric_wheel_projection_energy": 27574.684361892054,
+            "orthogonal_residual_energy": 53824.70052256777,
+            "projection_energy_fraction": 0.3387578960336396,
+            "projection_certificate_lower_bound": -26250.016160675717,
+            "projection_certificate_positive": false,
+            "actual_prime_theta_reflection_correlation": 16743.136805576996,
+            "unordered_prime_pair_representations": 127,
+            "admissible_residue_pair_count_direct": 4,
+            "admissible_residue_pair_count_formula": 4,
+            "checks": {
+              "orthogonal_energy_partition": true,
+              "reflection_correlation_exceeds_projection_lower_bound": true,
+              "local_admissible_residue_formula_is_exact": true,
+              "finite_endpoint_has_prime_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 10000,
+            "fixed_wheel_W": 210,
+            "reflection_orbit_cell_count": 106,
+            "prime_theta_total_energy": 81399.38488445983,
+            "symmetric_wheel_projection_energy": 30448.1988484166,
+            "orthogonal_residual_energy": 50951.186036043226,
+            "projection_energy_fraction": 0.37405932356412125,
+            "projection_certificate_lower_bound": -20502.987187626626,
+            "projection_certificate_positive": false,
+            "actual_prime_theta_reflection_correlation": 16743.136805576996,
+            "unordered_prime_pair_representations": 127,
+            "admissible_residue_pair_count_direct": 20,
+            "admissible_residue_pair_count_formula": 20,
+            "checks": {
+              "orthogonal_energy_partition": true,
+              "reflection_correlation_exceeds_projection_lower_bound": true,
+              "local_admissible_residue_formula_is_exact": true,
+              "finite_endpoint_has_prime_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 100000,
+            "fixed_wheel_W": 6,
+            "reflection_orbit_cell_count": 4,
+            "prime_theta_total_energy": 1048435.8661728668,
+            "symmetric_wheel_projection_energy": 223851.22790522626,
+            "orthogonal_residual_energy": 824584.6382676405,
+            "projection_energy_fraction": 0.2135097006194154,
+            "projection_certificate_lower_bound": -600733.4103624142,
+            "projection_certificate_positive": false,
+            "actual_prime_theta_reflection_correlation": 176154.3252963836,
+            "unordered_prime_pair_representations": 810,
+            "admissible_residue_pair_count_direct": 1,
+            "admissible_residue_pair_count_formula": 1,
+            "checks": {
+              "orthogonal_energy_partition": true,
+              "reflection_correlation_exceeds_projection_lower_bound": true,
+              "local_admissible_residue_formula_is_exact": true,
+              "finite_endpoint_has_prime_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 100000,
+            "fixed_wheel_W": 30,
+            "reflection_orbit_cell_count": 16,
+            "prime_theta_total_energy": 1048435.8661728668,
+            "symmetric_wheel_projection_energy": 279813.4931345593,
+            "orthogonal_residual_energy": 768622.3730383075,
+            "projection_energy_fraction": 0.2668866090550392,
+            "projection_certificate_lower_bound": -488808.8799037482,
+            "projection_certificate_positive": false,
+            "actual_prime_theta_reflection_correlation": 176154.3252963836,
+            "unordered_prime_pair_representations": 810,
+            "admissible_residue_pair_count_direct": 4,
+            "admissible_residue_pair_count_formula": 4,
+            "checks": {
+              "orthogonal_energy_partition": true,
+              "reflection_correlation_exceeds_projection_lower_bound": true,
+              "local_admissible_residue_formula_is_exact": true,
+              "finite_endpoint_has_prime_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 100000,
+            "fixed_wheel_W": 210,
+            "reflection_orbit_cell_count": 106,
+            "prime_theta_total_energy": 1048435.8661728668,
+            "symmetric_wheel_projection_energy": 308682.96329215076,
+            "orthogonal_residual_energy": 739752.902880716,
+            "projection_energy_fraction": 0.29442236120645543,
+            "projection_certificate_lower_bound": -431069.93958856526,
+            "projection_certificate_positive": false,
+            "actual_prime_theta_reflection_correlation": 176154.3252963836,
+            "unordered_prime_pair_representations": 810,
+            "admissible_residue_pair_count_direct": 20,
+            "admissible_residue_pair_count_formula": 20,
+            "checks": {
+              "orthogonal_energy_partition": true,
+              "reflection_correlation_exceeds_projection_lower_bound": true,
+              "local_admissible_residue_formula_is_exact": true,
+              "finite_endpoint_has_prime_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 1000000,
+            "fixed_wheel_W": 6,
+            "reflection_orbit_cell_count": 4,
+            "prime_theta_total_energy": 12796869.461412897,
+            "symmetric_wheel_projection_energy": 2243583.26077287,
+            "orthogonal_residual_energy": 10553286.200640026,
+            "projection_energy_fraction": 0.17532282153366255,
+            "projection_certificate_lower_bound": -8309702.939867157,
+            "projection_certificate_positive": false,
+            "actual_prime_theta_reflection_correlation": 1756441.8442655685,
+            "unordered_prime_pair_representations": 5402,
+            "admissible_residue_pair_count_direct": 1,
+            "admissible_residue_pair_count_formula": 1,
+            "checks": {
+              "orthogonal_energy_partition": true,
+              "reflection_correlation_exceeds_projection_lower_bound": true,
+              "local_admissible_residue_formula_is_exact": true,
+              "finite_endpoint_has_prime_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 1000000,
+            "fixed_wheel_W": 30,
+            "reflection_orbit_cell_count": 16,
+            "prime_theta_total_energy": 12796869.461412897,
+            "symmetric_wheel_projection_energy": 2804478.2818574733,
+            "orthogonal_residual_energy": 9992391.179555424,
+            "projection_energy_fraction": 0.21915346486216575,
+            "projection_certificate_lower_bound": -7187912.89769795,
+            "projection_certificate_positive": false,
+            "actual_prime_theta_reflection_correlation": 1756441.8442655685,
+            "unordered_prime_pair_representations": 5402,
+            "admissible_residue_pair_count_direct": 4,
+            "admissible_residue_pair_count_formula": 4,
+            "checks": {
+              "orthogonal_energy_partition": true,
+              "reflection_correlation_exceeds_projection_lower_bound": true,
+              "local_admissible_residue_formula_is_exact": true,
+              "finite_endpoint_has_prime_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 1000000,
+            "fixed_wheel_W": 210,
+            "reflection_orbit_cell_count": 106,
+            "prime_theta_total_energy": 12796869.461412897,
+            "symmetric_wheel_projection_energy": 3090797.6663261373,
+            "orthogonal_residual_energy": 9706071.79508676,
+            "projection_energy_fraction": 0.24152763889996604,
+            "projection_certificate_lower_bound": -6615274.128760623,
+            "projection_certificate_positive": false,
+            "actual_prime_theta_reflection_correlation": 1756441.8442655685,
+            "unordered_prime_pair_representations": 5402,
+            "admissible_residue_pair_count_direct": 20,
+            "admissible_residue_pair_count_formula": 20,
+            "checks": {
+              "orthogonal_energy_partition": true,
+              "reflection_correlation_exceeds_projection_lower_bound": true,
+              "local_admissible_residue_formula_is_exact": true,
+              "finite_endpoint_has_prime_representation": true
+            }
+          }
+        ],
+        "fixed_wheel_projection_fractions_strictly_decrease": {
+          "6": true,
+          "30": true,
+          "210": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The exact projection criterion is only sufficient. Fixed wheels provably lose relative L2 energy, while no effective growing-modulus or binary major-arc projection bound has been proved for every even endpoint.",
+      "route_decision": {
+        "discard": "holding the wheel modulus fixed and expecting its residue-orbit projection to dominate prime-theta L2 energy at arbitrarily large endpoints",
+        "retain": "use a growing endpoint-adaptive major-arc subspace and prove its symmetric projection energy exceeds the full orthogonal residual",
+        "next_theorem": "EffectiveGrowingWheelProjectionDominanceAtEveryLargeEvenEndpoint"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T154-REJECTED",
+            "label": "FixedWheelProjectionDominatesAllLargeGoldbachEndpoints",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T154-CLOSED",
+            "label": "SymmetricWheelProjectionCertificateAndFixedModulusEnergyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T154-OPEN",
+            "label": "EffectiveGrowingWheelProjectionDominanceAtEveryLargeEvenEndpoint",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T154-REJECTED",
+            "GB-T154-CLOSED"
+          ],
+          [
+            "GB-T154-CLOSED",
+            "GB-T154-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact projection certificate and a fixed-modulus asymptotic no-go."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-154",
+      "theorem_name": "CubicRoughLeastFactorDeficitIdentityAndSmallPrimeFingerprintNoGo",
+      "declared_proposition": "For X>=27 and z=floor(X^(1/3)), retain 2<=n<=X-2 with P^-(n(n+2))>z. Define ell_X(n)=0 when n is prime and 1 when n is composite; cubic roughness makes every composite a semiprime and ell_X records its unique least prime factor in (z,sqrt(n)]. If R is the rough pair count and M=sum(ell_X(n)+ell_X(n+2)), then exactly R-M=PP-QQ and M=2QQ+PQ+QP. Hence PP>QQ is equivalent to mean medium-least-factor incidence M/R<1. Divisibility data from primes at most z is identically zero on the retained set and cannot distinguish PP from QQ; explicit PP and QQ pairs with the same all-zero small-prime fingerprint exist at every audited scale.",
+      "mathematical_argument": "A z-rough integer at most X has at most two prime factors. A composite therefore has a unique least factor p with z<p<=sqrt(n), while a prime has no such factor. On a rough pair, 1-ell_X(n)-ell_X(n+2) contributes +1 for PP, zero for a mixed pair, and -1 for QQ. Summation proves R-M=PP-QQ. Every retained number has no divisor among primes at most z, so all such sieve fingerprints coincide regardless of the prime/semiprime parity label.",
+      "reproducible_computation": {
+        "theorem": "For X>=27 and z=floor(X^(1/3)), retain 2<=n<=X-2 with P^-(n(n+2))>z. Define ell_X(n)=0 when n is prime and 1 when n is composite; cubic roughness makes every composite a semiprime and ell_X records its unique least prime factor in (z,sqrt(n)]. If R is the rough pair count and M=sum(ell_X(n)+ell_X(n+2)), then exactly R-M=PP-QQ and M=2QQ+PQ+QP. Hence PP>QQ is equivalent to mean medium-least-factor incidence M/R<1. Divisibility data from primes at most z is identically zero on the retained set and cannot distinguish PP from QQ; explicit PP and QQ pairs with the same all-zero small-prime fingerprint exist at every audited scale.",
+        "proof": "A z-rough integer at most X has at most two prime factors. A composite therefore has a unique least factor p with z<p<=sqrt(n), while a prime has no such factor. On a rough pair, 1-ell_X(n)-ell_X(n+2) contributes +1 for PP, zero for a mixed pair, and -1 for QQ. Summation proves R-M=PP-QQ. Every retained number has no divisor among primes at most z, so all such sieve fingerprints coincide regardless of the prime/semiprime parity label.",
+        "finite_least_factor_deficit_rows": [
+          {
+            "X": 1000,
+            "cubic_roughness_floor_z": 10,
+            "rough_gap_two_pair_count_R": 70,
+            "prime_prime_pairs_PP": 33,
+            "semiprime_semiprime_pairs_QQ": 4,
+            "mixed_pairs_PQ_QP": 33,
+            "left_medium_least_factor_incidence": 18,
+            "right_medium_least_factor_incidence": 23,
+            "total_medium_least_factor_incidence_M": 41,
+            "mean_pair_incidence_M_over_R": 0.5857142857142857,
+            "deficit_R_minus_M": 29,
+            "prime_prime_excess_PP_minus_QQ": 29,
+            "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+            "checks": {
+              "rough_population_partition_is_exact": true,
+              "least_factor_deficit_identity_is_exact": true,
+              "incidence_decomposition_is_exact": true,
+              "all_composites_are_semiprimes_with_unique_least_factor": true,
+              "finite_mean_incidence_is_below_one": true
+            }
+          },
+          {
+            "X": 10000,
+            "cubic_roughness_floor_z": 21,
+            "rough_gap_two_pair_count_R": 390,
+            "prime_prime_pairs_PP": 201,
+            "semiprime_semiprime_pairs_QQ": 35,
+            "mixed_pairs_PQ_QP": 154,
+            "left_medium_least_factor_incidence": 111,
+            "right_medium_least_factor_incidence": 113,
+            "total_medium_least_factor_incidence_M": 224,
+            "mean_pair_incidence_M_over_R": 0.5743589743589743,
+            "deficit_R_minus_M": 166,
+            "prime_prime_excess_PP_minus_QQ": 166,
+            "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+            "checks": {
+              "rough_population_partition_is_exact": true,
+              "least_factor_deficit_identity_is_exact": true,
+              "incidence_decomposition_is_exact": true,
+              "all_composites_are_semiprimes_with_unique_least_factor": true,
+              "finite_mean_incidence_is_below_one": true
+            }
+          },
+          {
+            "X": 100000,
+            "cubic_roughness_floor_z": 46,
+            "rough_gap_two_pair_count_R": 2681,
+            "prime_prime_pairs_PP": 1218,
+            "semiprime_semiprime_pairs_QQ": 284,
+            "mixed_pairs_PQ_QP": 1179,
+            "left_medium_least_factor_incidence": 856,
+            "right_medium_least_factor_incidence": 891,
+            "total_medium_least_factor_incidence_M": 1747,
+            "mean_pair_incidence_M_over_R": 0.6516225289071242,
+            "deficit_R_minus_M": 934,
+            "prime_prime_excess_PP_minus_QQ": 934,
+            "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+            "checks": {
+              "rough_population_partition_is_exact": true,
+              "least_factor_deficit_identity_is_exact": true,
+              "incidence_decomposition_is_exact": true,
+              "all_composites_are_semiprimes_with_unique_least_factor": true,
+              "finite_mean_incidence_is_below_one": true
+            }
+          },
+          {
+            "X": 1000000,
+            "cubic_roughness_floor_z": 100,
+            "rough_gap_two_pair_count_R": 19296,
+            "prime_prime_pairs_PP": 8161,
+            "semiprime_semiprime_pairs_QQ": 2453,
+            "mixed_pairs_PQ_QP": 8682,
+            "left_medium_least_factor_incidence": 6803,
+            "right_medium_least_factor_incidence": 6785,
+            "total_medium_least_factor_incidence_M": 13588,
+            "mean_pair_incidence_M_over_R": 0.7041873963515755,
+            "deficit_R_minus_M": 5708,
+            "prime_prime_excess_PP_minus_QQ": 5708,
+            "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+            "checks": {
+              "rough_population_partition_is_exact": true,
+              "least_factor_deficit_identity_is_exact": true,
+              "incidence_decomposition_is_exact": true,
+              "all_composites_are_semiprimes_with_unique_least_factor": true,
+              "finite_mean_incidence_is_below_one": true
+            }
+          },
+          {
+            "X": 10000000,
+            "cubic_roughness_floor_z": 215,
+            "rough_gap_two_pair_count_R": 142907,
+            "prime_prime_pairs_PP": 58965,
+            "semiprime_semiprime_pairs_QQ": 19074,
+            "mixed_pairs_PQ_QP": 64868,
+            "left_medium_least_factor_incidence": 51529,
+            "right_medium_least_factor_incidence": 51487,
+            "total_medium_least_factor_incidence_M": 103016,
+            "mean_pair_incidence_M_over_R": 0.72086041971352,
+            "deficit_R_minus_M": 39891,
+            "prime_prime_excess_PP_minus_QQ": 39891,
+            "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+            "checks": {
+              "rough_population_partition_is_exact": true,
+              "least_factor_deficit_identity_is_exact": true,
+              "incidence_decomposition_is_exact": true,
+              "all_composites_are_semiprimes_with_unique_least_factor": true,
+              "finite_mean_incidence_is_below_one": true
+            }
+          }
+        ],
+        "finite_small_prime_fingerprint_collision_rows": [
+          {
+            "X": 1000,
+            "small_prime_cutoff_z": 10,
+            "prime_prime_example": [
+              11,
+              13
+            ],
+            "semiprime_semiprime_example": [
+              527,
+              529
+            ],
+            "shared_small_prime_divisibility_fingerprint": "all_zero_for_primes_at_most_z",
+            "checks": {
+              "prime_prime_example_exists": true,
+              "semiprime_semiprime_example_exists": true,
+              "both_examples_have_all_small_prime_bits_zero": true,
+              "examples_have_opposite_parity_labels": true
+            }
+          },
+          {
+            "X": 10000,
+            "small_prime_cutoff_z": 21,
+            "prime_prime_example": [
+              29,
+              31
+            ],
+            "semiprime_semiprime_example": [
+              1679,
+              1681
+            ],
+            "shared_small_prime_divisibility_fingerprint": "all_zero_for_primes_at_most_z",
+            "checks": {
+              "prime_prime_example_exists": true,
+              "semiprime_semiprime_example_exists": true,
+              "both_examples_have_all_small_prime_bits_zero": true,
+              "examples_have_opposite_parity_labels": true
+            }
+          },
+          {
+            "X": 100000,
+            "small_prime_cutoff_z": 46,
+            "prime_prime_example": [
+              59,
+              61
+            ],
+            "semiprime_semiprime_example": [
+              4187,
+              4189
+            ],
+            "shared_small_prime_divisibility_fingerprint": "all_zero_for_primes_at_most_z",
+            "checks": {
+              "prime_prime_example_exists": true,
+              "semiprime_semiprime_example_exists": true,
+              "both_examples_have_all_small_prime_bits_zero": true,
+              "examples_have_opposite_parity_labels": true
+            }
+          },
+          {
+            "X": 1000000,
+            "small_prime_cutoff_z": 100,
+            "prime_prime_example": [
+              101,
+              103
+            ],
+            "semiprime_semiprime_example": [
+              24287,
+              24289
+            ],
+            "shared_small_prime_divisibility_fingerprint": "all_zero_for_primes_at_most_z",
+            "checks": {
+              "prime_prime_example_exists": true,
+              "semiprime_semiprime_example_exists": true,
+              "both_examples_have_all_small_prime_bits_zero": true,
+              "examples_have_opposite_parity_labels": true
+            }
+          },
+          {
+            "X": 10000000,
+            "small_prime_cutoff_z": 215,
+            "prime_prime_example": [
+              227,
+              229
+            ],
+            "semiprime_semiprime_example": [
+              59987,
+              59989
+            ],
+            "shared_small_prime_divisibility_fingerprint": "all_zero_for_primes_at_most_z",
+            "checks": {
+              "prime_prime_example_exists": true,
+              "semiprime_semiprime_example_exists": true,
+              "both_examples_have_all_small_prime_bits_zero": true,
+              "examples_have_opposite_parity_labels": true
+            }
+          }
+        ],
+        "finite_mean_incidence_increases_after_ten_thousand": true,
+        "constants": {
+          "independence_heuristic_two_log_three_over_two": 0.8109302162163288,
+          "heuristic_status": "heuristic_not_theorem"
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The deficit identity is exact but equivalent to the unproved PP>QQ inequality. The observed mean incidence below one through ten million is finite evidence, and the 2 log(3/2) comparison is heuristic.",
+      "route_decision": {
+        "discard": "classifying cubic-rough prime-prime versus semiprime-semiprime pairs from divisibility bits at primes no larger than the roughness cutoff",
+        "retain": "bound the average incidence of unique medium least prime factors below one on an unbounded sequence of cubic-rough gap-two populations",
+        "next_theorem": "UnboundedCubicRoughMeanLeastFactorIncidenceBelowOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T154-REJECTED",
+            "label": "SmallPrimeRoughnessFingerprintSeparatesPrimePairParity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T154-CLOSED",
+            "label": "CubicRoughLeastFactorDeficitIdentityAndSmallPrimeFingerprintNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T154-OPEN",
+            "label": "UnboundedCubicRoughMeanLeastFactorIncidenceBelowOne",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T154-REJECTED",
+            "TP-T154-CLOSED"
+          ],
+          [
+            "TP-T154-CLOSED",
+            "TP-T154-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no counterexample. One exact least-factor incidence reduction and finite evidence through X=10,000,000."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Connes and Consani, The Scaling Hamiltonian",
+        "url": "https://arxiv.org/abs/1910.14368",
+        "role": "Primary operator-theoretic Weil-positivity context; the compact coupling required by TICKET-154 is not asserted to follow from this paper."
+      },
+      {
+        "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values, arXiv v7 (2026)",
+        "url": "https://arxiv.org/abs/1909.03562",
+        "role": "Latest almost-all boundary. The reverse-suffix block theorem does not promote logarithmic-density behavior to every natural start."
+      },
+      {
+        "citation": "Helfgott, Major arcs for Goldbach's problem",
+        "url": "https://arxiv.org/abs/1305.2897",
+        "role": "Primary explicit major-arc context. The fixed-wheel projection no-go motivates an endpoint-adaptive growing major-arc space."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary Type I/II lower-bound context. The least-factor incidence target still requires parity-breaking information beyond small-prime roughness."
+      }
+    ],
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-154",
+      "attempt": "Let H0 be finite dimensional, D>=delta I>0 on H1, K=D^(-1/2)C, and Q_N finite-rank orthogonal projections converging strongly to I. Then K is compact, e_N=||(I-Q_N)K||^2 tends to zero, and the full Schur complement S=A-K*K satisfies S=S_N-K*(I-Q_N)K with S_N=A-K*Q_NK. Hence S_N>=e_N I implies S>=0 and therefore the full block operator is positive. A finite cutoff without a certified e_N is insufficient: for every cutoff, a rank-one compact coupling hidden in the first omitted direction can leave a positive observed margin while making the full Schur complement negative.",
+      "bounded_result": {
+        "audit_ref": "compact_suffix_wheel_leastfactor_audit.riemann"
+      },
+      "obstruction": "The promotion theorem is abstract. PrimeProject has not constructed a coercive actual-Weil tail, proved the preconditioned coupling compact, or supplied an effective tail rate. The hidden-direction examples exclude no zeta zero.",
+      "candidate_theorem": "ActualWeilCompactCouplingWithEffectivePreconditionedTailRate",
+      "next_experiment": "construct the actual Weil block decomposition and prove an effective compact-coupling tail bound below the computed Schur margin",
+      "claim_boundary": "No RH proof and no off-critical zero. One abstract compact promotion theorem and a sharp finite-cutoff no-go."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-154",
+      "attempt": "For an accelerated Collatz valuation word a_1,...,a_m, write T^m(n)=(3^m n+C_a)/2^S. If every reverse suffix of length k has valuation sum at least qk for an integer q>=2, then C_a/(2^S-3^m)<=1/(2^q-3). In particular q=2 forces T^m(n)<n for every odd n>1 realizing the word. Under the exact geometric cylinder law, the mass of q=2 certificate words of length m is binom(2m,m)/4^m, which tends to zero. Moreover, for a fixed valuation multiset, ascending order minimizes C_a and descending order maximizes it. Thus final surplus S-m log_2 3 alone cannot control the affine threshold.",
+      "bounded_result": {
+        "audit_ref": "compact_suffix_wheel_leastfactor_audit.collatz"
+      },
+      "obstruction": "The reverse-suffix condition is sufficient but its length-m geometric cylinder mass tends to zero. No proof shows that every natural valuation ray eventually enters such a block.",
+      "candidate_theorem": "EveryNaturalValuationRayHitsAReverseSuffixSurplusDescentBlock",
+      "next_experiment": "prove that every natural Collatz valuation ray reaches a reverse-suffix surplus block, then use strong induction on the certified strict descent",
+      "claim_boundary": "No Collatz proof and no divergent orbit. One exact affine-descent certificate whose universal occurrence remains open."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-154",
+      "attempt": "For even N and fixed squarefree W, let U_(N,W) be the reflection-symmetric functions that are constant on the residue orbits generated by a mod W and N-a mod W, and let u be the orthogonal projection of the prime-only theta vector onto U_(N,W). Then <theta,R_N theta>=||u||^2+||P_+(theta-u)||^2-||P_-(theta-u)||^2, so ||u||^2>||theta-u||^2 is a sufficient Goldbach certificate. For every fixed W, the prime number theorem in arithmetic progressions gives ||u||^2=O_W(N), while ||theta||^2 is asymptotic to N log N. Therefore the projection energy fraction tends to zero and no fixed wheel can satisfy this L2 certificate for all large endpoints. The exact local support count is product over p|W of p-1 when p|N and p-2 otherwise.",
+      "bounded_result": {
+        "audit_ref": "compact_suffix_wheel_leastfactor_audit.goldbach"
+      },
+      "obstruction": "The exact projection criterion is only sufficient. Fixed wheels provably lose relative L2 energy, while no effective growing-modulus or binary major-arc projection bound has been proved for every even endpoint.",
+      "candidate_theorem": "EffectiveGrowingWheelProjectionDominanceAtEveryLargeEvenEndpoint",
+      "next_experiment": "use a growing endpoint-adaptive major-arc subspace and prove its symmetric projection energy exceeds the full orthogonal residual",
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact projection certificate and a fixed-modulus asymptotic no-go."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-154",
+      "attempt": "For X>=27 and z=floor(X^(1/3)), retain 2<=n<=X-2 with P^-(n(n+2))>z. Define ell_X(n)=0 when n is prime and 1 when n is composite; cubic roughness makes every composite a semiprime and ell_X records its unique least prime factor in (z,sqrt(n)]. If R is the rough pair count and M=sum(ell_X(n)+ell_X(n+2)), then exactly R-M=PP-QQ and M=2QQ+PQ+QP. Hence PP>QQ is equivalent to mean medium-least-factor incidence M/R<1. Divisibility data from primes at most z is identically zero on the retained set and cannot distinguish PP from QQ; explicit PP and QQ pairs with the same all-zero small-prime fingerprint exist at every audited scale.",
+      "bounded_result": {
+        "audit_ref": "compact_suffix_wheel_leastfactor_audit.twin_prime"
+      },
+      "obstruction": "The deficit identity is exact but equivalent to the unproved PP>QQ inequality. The observed mean incidence below one through ten million is finite evidence, and the 2 log(3/2) comparison is heuristic.",
+      "candidate_theorem": "UnboundedCubicRoughMeanLeastFactorIncidenceBelowOne",
+      "next_experiment": "bound the average incidence of unique medium least prime factors below one on an unbounded sequence of cubic-rough gap-two populations",
+      "claim_boundary": "No Twin Prime proof and no counterexample. One exact least-factor incidence reduction and finite evidence through X=10,000,000."
+    }
+  ]
+}

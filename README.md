@@ -31,24 +31,23 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-153: Essential Tail, Geometric Cylinders, Reflection Energy, and
-Cubic-Rough Parity](docs/essential-tail-geometric-reflection-parity.md). It
-proves four exact partial or no-go theorems. For RH, a positive
-infinite-dimensional tail must be retained and coupled to the finite core by
-a Schur complement; it cannot itself be a vanishing finite-rank norm
-remainder. For Collatz, every valuation cylinder has an exact countable
-geometric child law and negative expected log linear multiplier, while the
-affine-offset and zero-density natural-ray bridge remains open. For Goldbach,
-the prime-only endpoint coefficient is exactly symmetric reflection energy
-minus antisymmetric energy, and no symmetric baseline can remove the latter.
-For Twin Prime, the symmetrized cubic-rough Liouville sum is exactly
-`2(QQ-PP)`, so the next theorem must prove prime-prime excess over
-semiprime-semiprime pairs at unbounded scales. Every conjecture remains
-`open_not_proven`.
+[TICKET-154: Compact Schur Tails, Reverse-Suffix Descent, Wheel Projection,
+and Least-Factor Deficit](docs/compact-suffix-wheel-leastfactor.md). It proves
+four exact partial or no-go theorems. For RH, a compact preconditioned
+coupling promotes finite Schur margins only when the omitted coupling-tail
+norm is explicitly paid; a rank-one hidden direction refutes uncertified
+cutoffs. For Collatz, a reverse-suffix valuation surplus gives an explicit
+affine descent threshold, while equal final surplus can have different
+thresholds because valuation order matters. For Goldbach, symmetric wheel
+projection gives a sufficient energy certificate, but every fixed modulus
+captures a vanishing fraction of prime-theta energy. For Twin Prime,
+`PP-QQ=R-M` reduces cubic-rough parity to a mean medium-least-factor
+incidence bound, while small-prime roughness fingerprints have explicit
+PP/QQ collisions. Every conjecture remains `open_not_proven`.
 
 The preserved previous boundary is
-[TICKET-152: Compression Exhaustion, Collatz Cylinders, Goldbach Energy, and
-Twin Selection](docs/compression-cylinder-energy-selection.md).
+[TICKET-153: Essential Tail, Geometric Cylinders, Reflection Energy, and
+Cubic-Rough Parity](docs/essential-tail-geometric-reflection-parity.md).
 
 The corrected TICKET77 sublemma is written separately in [Collatz Fixed-Prefix Boundary Orbit](docs/collatz-fixed-prefix-boundary-orbit.md), with a bilingual theorem statement, equality-rollback correction, periodic-orbit classification, 2-adic admissibility analysis, and explicit remaining bridge.
 
@@ -104,17 +103,19 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-thirteen-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-fourteen-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-153. It proves the RH positive-tail
-Schur certificate and essential-norm no-go; the exact countable geometric
-Collatz cylinder law and negative-drift formula; the prime-only Goldbach
-reflection identity and symmetric-baseline no-go; and the cubic-rough Twin
-parity identity `S=2(QQ-PP)`. The finite Twin audit reaches 10M, but no finite
-row is promoted to an infinite theorem. All four conjectures remain open.
+The latest proof-search track is TICKET-154. It proves the compact-coupling
+Schur promotion rule and hidden-tail no-go; the Collatz reverse-suffix affine
+descent bound and final-surplus no-go; the Goldbach wheel-projection
+certificate and fixed-modulus energy no-go; and the cubic-rough Twin
+least-factor identity `PP-QQ=R-M`. The finite Twin audit reaches 10M, but no
+finite row is promoted to an infinite theorem. All four conjectures remain
+open.
 See
+[TICKET154](docs/compact-suffix-wheel-leastfactor.md),
 [TICKET153](docs/essential-tail-geometric-reflection-parity.md),
 [TICKET152](docs/compression-cylinder-energy-selection.md),
 [TICKET151](docs/negative-affine-transversal-logtwo.md),
@@ -127,18 +128,18 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-153입니다. RH에서는 양의
-무한차원 tail 전체를 작은 유한랭크 norm remainder로 만들 수 없음을
-증명하고, finite core와 tail coupling을 Schur complement로 인증하는
-정확 조건을 제시했습니다. Collatz에서는 모든 valuation cylinder의
-다음 valuation이 조건부 확률 `2^-b`를 갖는 정확한 가산 분해와 음의
-평균 로그 선형 계수를 증명했지만, affine offset과 측도 0 자연수
-ray는 통제하지 못했습니다. Goldbach에서는 prime-only theta 반사
-계수가 대칭 에너지에서 반대칭 에너지를 뺀 값임을 증명하고, 대칭
-baseline으로 반대칭 sector를 제거할 수 없음을 확정했습니다. Twin
-Prime에서는 cubic-rough 대칭 Liouville 합이 정확히 `2(QQ-PP)`임을
-증명했으며, 10M까지 `PP>QQ`를 재현했지만 이를 무한 scale 정리로
-승격하지 않습니다. 네 문제는 모두 미해결이며 완전 증명이나 반례는
+한국어 최신 요약: 최신 탐색은 TICKET-154입니다. RH에서는 compact
+preconditioned coupling의 생략 tail norm을 유한 Schur margin이 전부
+지불하면 무한 양성으로 승격됨을 증명했고, tail bound 없는 cutoff는
+rank-one 숨은 방향으로 반박했습니다. Collatz에서는 모든 역방향
+suffix의 평균 valuation이 2 이상이면 affine threshold가 1 이하임을
+증명했지만, 해당 block이 모든 자연수 ray에 나타나는지는 열려
+있습니다. Goldbach에서는 대칭 wheel projection의 충분조건과 고정
+modulus가 prime-theta 에너지의 점근적으로 0인 비율만 잡는다는
+no-go를 증명했습니다. Twin Prime에서는 `PP-QQ=R-M`으로 문제를 중간
+최소소인수 평균 발생률 `M/R<1`에 환원했고, 작은 소수 divisibility
+fingerprint만으로 PP와 QQ를 구분할 수 없음을 명시적 충돌쌍으로
+확정했습니다. 네 문제는 모두 미해결이며 완전 증명이나 반례는
 없습니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
@@ -159,13 +160,13 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-153입니다.
-[essential tail, geometric cylinder, reflection energy, cubic-rough
-parity 보고서](docs/essential-tail-geometric-reflection-parity.md)는 네
+최신 난제 연구 트랙은 TICKET-154입니다.
+[compact Schur tail, reverse-suffix descent, wheel projection,
+least-factor deficit 보고서](docs/compact-suffix-wheel-leastfactor.md)는 네
 트랙의 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을
-한글과 영문으로 정리합니다. RH의 Schur-complement tail 계약,
-Collatz의 정확한 countable geometric law, Goldbach의 prime-only 반사
-에너지 항등식, Twin의 `2(QQ-PP)` parity 항등식을 확정했습니다. 각
+한글과 영문으로 정리합니다. RH의 compact-coupling tail 계약,
+Collatz의 reverse-suffix affine 하강 정리, Goldbach의 fixed-wheel
+에너지 no-go, Twin의 `PP-QQ=R-M` least-factor 항등식을 확정했습니다. 각
 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

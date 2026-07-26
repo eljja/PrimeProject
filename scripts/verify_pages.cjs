@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET153 through TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET154 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260731-ticket153-priority")) {
-      errors.push(`${page}: missing TICKET153 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260801-ticket154-priority")) {
+      errors.push(`${page}: missing TICKET154 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,37 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket154 title", "Ticket 154 compact Schur tails, reverse-suffix descent, wheel projection, and least-factor deficit");
+    requireText("ticket154 table", "TICKET154 audit");
+    requireText("ticket154 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket154 resolutions", "Resolution count0");
+    requireText("ticket154 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket154 RH theorem", "CompactCouplingFiniteSectionPromotionAndHiddenTailNoGo");
+      requireText("ticket154 RH compact", "Compact-tail rows6");
+      requireText("ticket154 RH hidden", "Hidden rank-one no-gos5");
+      requireText("ticket154 RH target", "ActualWeilCompactCouplingWithEffectivePreconditionedTailRate");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket154 Collatz theorem", "ReverseSuffixSurplusAffineDescentAndTotalSurplusNoGo");
+      requireText("ticket154 Collatz certificates", "Affine certificates7");
+      requireText("ticket154 Collatz ballot", "Ballot mass scales8");
+      requireText("ticket154 Collatz thresholds", "5/7 vs 11/7");
+      requireText("ticket154 Collatz target", "EveryNaturalValuationRayHitsAReverseSuffixSurplusDescentBlock");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket154 Goldbach theorem", "SymmetricWheelProjectionCertificateAndFixedModulusEnergyNoGo");
+      requireText("ticket154 Goldbach rows", "Fixed-wheel rows9");
+      requireText("ticket154 Goldbach fraction", "Largest-N W=210 fraction0.241528");
+      requireText("ticket154 Goldbach target", "EffectiveGrowingWheelProjectionDominanceAtEveryLargeEvenEndpoint");
+    } else {
+      requireText("ticket154 Twin theorem", "CubicRoughLeastFactorDeficitIdentityAndSmallPrimeFingerprintNoGo");
+      requireText("ticket154 Twin scales", "Least-factor scales5");
+      requireText("ticket154 Twin collisions", "PP/QQ fingerprint collisions5");
+      requireText("ticket154 Twin ratio", "Largest finite M/R0.720860");
+      requireText("ticket154 Twin target", "UnboundedCubicRoughMeanLeastFactorIncidenceBelowOne");
+    }
     requireText("ticket153 title", "Ticket 153 essential tails, geometric cylinders, reflection energy, and cubic-rough parity");
     requireText("ticket153 table", "TICKET153 audit");
-    requireText("ticket153 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket153 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket153 resolutions", "Resolution count0");
     requireText("ticket153 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {

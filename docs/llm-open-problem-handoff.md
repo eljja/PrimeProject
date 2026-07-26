@@ -62,7 +62,58 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-153
+## Latest Continuation After TICKET-154
+
+Read `docs/compact-suffix-wheel-leastfactor.md`,
+`data/open-problem/ticket154-compact-suffix-wheel-leastfactor.json`,
+`scripts/ticket154_compact_suffix_wheel_leastfactor.py`, and
+`tests/test_ticket154_compact_suffix_wheel_leastfactor.py` first.
+
+Do not reopen these rejected routes without defeating the exact theorem or
+counterexample recorded in TICKET-154:
+
+- accepting a positive finite RH Schur margin without an operator-norm
+  bound for the omitted preconditioned coupling;
+- deciding Collatz affine descent from final valuation surplus while
+  ignoring the order of the valuations;
+- expecting a fixed Goldbach wheel modulus to retain a positive fraction
+  of prime-theta `L2` energy at arbitrarily large endpoints;
+- distinguishing cubic-rough prime-prime and semiprime-semiprime pairs
+  using only divisibility bits from primes at most the roughness cutoff.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `ActualWeilCompactCouplingWithEffectivePreconditionedTailRate` |
+| Collatz | `EveryNaturalValuationRayHitsAReverseSuffixSurplusDescentBlock` |
+| Goldbach | `EffectiveGrowingWheelProjectionDominanceAtEveryLargeEvenEndpoint` |
+| Twin Prime | `UnboundedCubicRoughMeanLeastFactorIncidenceBelowOne` |
+
+한국어: RH는 actual Weil decomposition에서 preconditioned coupling의
+compactness와 유효 tail rate를 증명해야 한다. Collatz는 모든 자연수
+valuation ray가 reverse-suffix surplus 하강 block을 만난다는 전칭
+정리가 필요하다. Goldbach는 고정 wheel이 아니라 커지는 endpoint별
+major-arc subspace의 투영 에너지가 residual을 지배함을 증명해야 한다.
+Twin Prime은 cubic-rough gap-two 집합에서 중간 최소소인수 평균 발생률
+`M/R`이 1보다 작은 scale이 무한히 존재함을 증명해야 한다.
+
+Exact TICKET-154 corrections:
+
+- RH: compactness turns strong tail projections into norm convergence only
+  after composition with the finite-core coupling; every finite cutoff can
+  still hide a rank-one negative Schur direction without an effective tail
+  bound.
+- Collatz: reverse-suffix surplus controls the affine threshold exactly,
+  but its length-`m` geometric mass is `binom(2m,m)/4^m` and tends to zero.
+- Goldbach: symmetric wheel projection gives an exact sufficient
+  certificate, while every fixed modulus captures `o(1)` of total
+  prime-theta energy.
+- Twin Prime: `PP-QQ=R-M` is exact; small-prime roughness fingerprints have
+  explicit PP/QQ collisions and cannot resolve parity.
+
+These are exact partial and no-go theorems, not solutions or counterexamples
+to the four conjectures.
+
+## Previous Continuation After TICKET-153
 
 Read `docs/essential-tail-geometric-reflection-parity.md`,
 `data/open-problem/ticket153-essential-tail-geometric-reflection-parity.json`,

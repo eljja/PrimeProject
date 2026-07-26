@@ -151,6 +151,7 @@ TICKET150_SCHEMA = "primeproject.ticket150-relative-delay-hole-parity.v1"
 TICKET151_SCHEMA = "primeproject.ticket151-negative-affine-transversal-logtwo.v1"
 TICKET152_SCHEMA = "primeproject.ticket152-compression-cylinder-energy-selection.v1"
 TICKET153_SCHEMA = "primeproject.ticket153-essential-tail-geometric-reflection-parity.v1"
+TICKET154_SCHEMA = "primeproject.ticket154-compact-suffix-wheel-leastfactor.v1"
 
 
 def fail(message: str) -> int:
@@ -9509,6 +9510,312 @@ def main() -> int:
         not in str(ticket153.get("claim_boundary", "")).lower()
     ):
         return fail("ticket153 proof boundary changed")
+
+    path154 = Path(
+        "data/open-problem/"
+        "ticket154-compact-suffix-wheel-leastfactor.json"
+    )
+    if not path154.exists():
+        return fail(
+            "missing ticket154 compact-suffix-wheel-leastfactor audit"
+        )
+    ticket154 = read_json(path154)
+    if (
+        ticket154.get("schema") != TICKET154_SCHEMA
+        or ticket154.get("status")
+        != "exact_reductions_and_no_go_results_all_four_conjectures_open"
+    ):
+        return fail("ticket154 schema or status changed")
+    attempts154 = ticket154.get("attempts", [])
+    by_id154 = {
+        str(row.get("problem_id")): row
+        for row in attempts154
+        if isinstance(row, dict)
+    }
+    if set(by_id154) != EXPECTED_PROBLEMS:
+        return fail("ticket154 attempts missing problems")
+
+    paths154 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-154-compact-schur-tail.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-154-reverse-suffix-descent.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-154-fixed-wheel-projection.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-154-least-factor-deficit.json"
+        ),
+    }
+    next154 = {
+        "riemann": (
+            "ActualWeilCompactCouplingWithEffective"
+            "PreconditionedTailRate"
+        ),
+        "collatz": (
+            "EveryNaturalValuationRayHitsAReverseSuffix"
+            "SurplusDescentBlock"
+        ),
+        "goldbach": (
+            "EffectiveGrowingWheelProjectionDominanceAtEvery"
+            "LargeEvenEndpoint"
+        ),
+        "twin-prime": (
+            "UnboundedCubicRoughMeanLeastFactorIncidenceBelowOne"
+        ),
+    }
+    for problem_id, attempt in by_id154.items():
+        if (
+            not paths154[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+        ):
+            return fail(
+                f"{problem_id}: ticket154 artifact or boundary missing"
+            )
+        per_problem154 = read_json(paths154[problem_id])
+        if (
+            per_problem154.get("schema") != TICKET154_SCHEMA
+            or per_problem154.get("problem_id") != problem_id
+            or per_problem154.get("candidate_theorem")
+            != next154[problem_id]
+            or attempt.get("candidate_theorem") != next154[problem_id]
+        ):
+            return fail(
+                f"{problem_id}: ticket154 per-problem contract changed"
+            )
+
+    audit154 = ticket154.get(
+        "compact_suffix_wheel_leastfactor_audit",
+        {},
+    )
+    machine154 = audit154.get("machine_audit", {})
+    if (
+        audit154.get("theorem_name")
+        != "FourConjectureCompactSuffixWheelLeastFactorAudit"
+        or int(machine154.get("exact_theorem_count", -1)) != 4
+        or int(machine154.get("rejected_target_count", -1)) != 4
+        or int(machine154.get("proof_dag_count", -1)) != 4
+        or int(machine154.get("conjecture_resolution_count", -1)) != 0
+        or int(machine154.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket154 global machine audit changed")
+
+    riemann154 = audit154.get("riemann", {})
+    compact154 = riemann154.get("reproducible_computation", {})
+    promotion154 = compact154.get(
+        "finite_compact_promotion_rows",
+        [],
+    )
+    hidden154 = compact154.get(
+        "finite_hidden_tail_counterexample_rows",
+        [],
+    )
+    if (
+        riemann154.get("theorem_name")
+        != "CompactCouplingFiniteSectionPromotionAndHiddenTailNoGo"
+        or len(promotion154) != 6
+        or len(hidden154) != 5
+        or any(
+            Fraction(
+                row.get(
+                    "preconditioned_coupling_tail_norm_squared",
+                    {},
+                ).get("exact", "0")
+            )
+            != Fraction(
+                1,
+                3 * 4 ** int(row.get("finite_tail_cutoff_N", 0)),
+            )
+            or Fraction(
+                row.get(
+                    "certified_full_schur_margin",
+                    {},
+                ).get("exact", "-1")
+            )
+            != 0
+            or not all(row.get("checks", {}).values())
+            for row in promotion154
+        )
+        or any(
+            Fraction(
+                row.get("observed_schur_margin", {}).get("exact", "0")
+            )
+            != Fraction(1, 2)
+            or Fraction(
+                row.get("full_schur_margin", {}).get("exact", "0")
+            )
+            != Fraction(-1, 2)
+            or not all(row.get("checks", {}).values())
+            for row in hidden154
+        )
+        or int(compact154.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket154 RH compact-tail audit changed")
+
+    collatz154 = audit154.get("collatz", {})
+    suffix154 = collatz154.get("reproducible_computation", {})
+    certificate154 = suffix154.get(
+        "finite_reverse_suffix_certificate_rows",
+        [],
+    )
+    masses154 = suffix154.get("finite_certificate_mass_rows", [])
+    ordering154 = suffix154.get("finite_affine_ordering_rows", [])
+    no_go154 = suffix154.get(
+        "same_surplus_affine_threshold_no_go",
+        {},
+    )
+    if (
+        collatz154.get("theorem_name")
+        != "ReverseSuffixSurplusAffineDescentAndTotalSurplusNoGo"
+        or len(certificate154) != 7
+        or len(masses154) != 8
+        or len(ordering154) != 4
+        or any(
+            Fraction(
+                row.get("exact_affine_threshold", {}).get("exact", "1")
+            )
+            > Fraction(
+                row.get(
+                    "theorem_threshold_upper_bound",
+                    {},
+                ).get("exact", "0")
+            )
+            or not all(row.get("checks", {}).values())
+            for row in certificate154
+        )
+        or any(
+            Fraction(
+                row.get(
+                    "exact_reverse_suffix_certificate_mass",
+                    {},
+                ).get("exact", "0")
+            )
+            != Fraction(
+                math.comb(
+                    2 * int(row.get("word_length_m", 0)),
+                    int(row.get("word_length_m", 0)),
+                ),
+                4 ** int(row.get("word_length_m", 0)),
+            )
+            or not all(row.get("checks", {}).values())
+            for row in masses154
+        )
+        or Fraction(
+            no_go154.get("word_one_threshold", {}).get("exact", "0")
+        )
+        != Fraction(5, 7)
+        or Fraction(
+            no_go154.get("word_two_threshold", {}).get("exact", "0")
+        )
+        != Fraction(11, 7)
+        or not all(no_go154.get("checks", {}).values())
+        or int(suffix154.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket154 Collatz reverse-suffix audit changed")
+
+    goldbach154 = audit154.get("goldbach", {})
+    wheel154 = goldbach154.get("reproducible_computation", {})
+    wheel_rows154 = wheel154.get(
+        "finite_fixed_wheel_projection_rows",
+        [],
+    )
+    decrease154 = wheel154.get(
+        "fixed_wheel_projection_fractions_strictly_decrease",
+        {},
+    )
+    if (
+        goldbach154.get("theorem_name")
+        != (
+            "SymmetricWheelProjectionCertificateAnd"
+            "FixedModulusEnergyNoGo"
+        )
+        or len(wheel_rows154) != 9
+        or any(
+            int(row.get("admissible_residue_pair_count_direct", -1))
+            != int(row.get("admissible_residue_pair_count_formula", -2))
+            or bool(row.get("projection_certificate_positive", True))
+            or float(
+                row.get("actual_prime_theta_reflection_correlation", 0)
+            )
+            <= 0
+            or not all(row.get("checks", {}).values())
+            for row in wheel_rows154
+        )
+        or not all(bool(value) for value in decrease154.values())
+        or int(wheel154.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket154 Goldbach wheel-projection audit changed")
+
+    twin154 = audit154.get("twin_prime", {})
+    least154 = twin154.get("reproducible_computation", {})
+    deficit154 = least154.get("finite_least_factor_deficit_rows", [])
+    collision154 = least154.get(
+        "finite_small_prime_fingerprint_collision_rows",
+        [],
+    )
+    if (
+        twin154.get("theorem_name")
+        != (
+            "CubicRoughLeastFactorDeficitIdentityAnd"
+            "SmallPrimeFingerprintNoGo"
+        )
+        or [int(row.get("X", -1)) for row in deficit154]
+        != [1000, 10000, 100000, 1000000, 10000000]
+        or len(collision154) != 5
+        or any(
+            int(row.get("deficit_R_minus_M", 0))
+            != int(row.get("prime_prime_excess_PP_minus_QQ", 1))
+            or int(
+                row.get("total_medium_least_factor_incidence_M", 0)
+            )
+            != 2 * int(row.get("semiprime_semiprime_pairs_QQ", 0))
+            + int(row.get("mixed_pairs_PQ_QP", 0))
+            or float(row.get("mean_pair_incidence_M_over_R", 1)) >= 1
+            or not all(row.get("checks", {}).values())
+            for row in deficit154
+        )
+        or any(
+            row.get("prime_prime_example") is None
+            or row.get("semiprime_semiprime_example") is None
+            or not all(row.get("checks", {}).values())
+            for row in collision154
+        )
+        or int(least154.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket154 Twin least-factor audit changed")
+
+    sections154 = {
+        "riemann": riemann154,
+        "collatz": collatz154,
+        "goldbach": goldbach154,
+        "twin-prime": twin154,
+    }
+    for problem_id, section in sections154.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next154[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket154 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit154.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket154.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket154 proof boundary changed")
 
     print("open problem structure verified")
     return 0

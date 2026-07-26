@@ -1,0 +1,500 @@
+{
+  "schema": "primeproject.ticket154-compact-suffix-wheel-leastfactor.v1",
+  "generated_at": "2026-07-26T16:15:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-154",
+  "attempt": "For an accelerated Collatz valuation word a_1,...,a_m, write T^m(n)=(3^m n+C_a)/2^S. If every reverse suffix of length k has valuation sum at least qk for an integer q>=2, then C_a/(2^S-3^m)<=1/(2^q-3). In particular q=2 forces T^m(n)<n for every odd n>1 realizing the word. Under the exact geometric cylinder law, the mass of q=2 certificate words of length m is binom(2m,m)/4^m, which tends to zero. Moreover, for a fixed valuation multiset, ascending order minimizes C_a and descending order maximizes it. Thus final surplus S-m log_2 3 alone cannot control the affine threshold.",
+  "bounded_result": {
+    "audit_ref": "compact_suffix_wheel_leastfactor_audit.collatz"
+  },
+  "obstruction": "The reverse-suffix condition is sufficient but its length-m geometric cylinder mass tends to zero. No proof shows that every natural valuation ray eventually enters such a block.",
+  "candidate_theorem": "EveryNaturalValuationRayHitsAReverseSuffixSurplusDescentBlock",
+  "next_experiment": "prove that every natural Collatz valuation ray reaches a reverse-suffix surplus block, then use strong induction on the certified strict descent",
+  "claim_boundary": "No Collatz proof and no divergent orbit. One exact affine-descent certificate whose universal occurrence remains open.",
+  "result": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-154",
+    "theorem_name": "ReverseSuffixSurplusAffineDescentAndTotalSurplusNoGo",
+    "declared_proposition": "For an accelerated Collatz valuation word a_1,...,a_m, write T^m(n)=(3^m n+C_a)/2^S. If every reverse suffix of length k has valuation sum at least qk for an integer q>=2, then C_a/(2^S-3^m)<=1/(2^q-3). In particular q=2 forces T^m(n)<n for every odd n>1 realizing the word. Under the exact geometric cylinder law, the mass of q=2 certificate words of length m is binom(2m,m)/4^m, which tends to zero. Moreover, for a fixed valuation multiset, ascending order minimizes C_a and descending order maximizes it. Thus final surplus S-m log_2 3 alone cannot control the affine threshold.",
+    "mathematical_argument": "The affine constant is C_a=sum_{j=0}^{m-1}3^(m-1-j)2^S_j. Divide by 2^S and index by reverse suffix length k. The suffix hypothesis bounds the k-th term by 3^(k-1)/2^(qk); summing the geometric series and comparing with 1-3^m/2^S gives the threshold bound. For the mass formula, reverse the i.i.d. geometric valuations and apply the skip-free ballot identity to increments a_i-2. For ordering, an adjacent swap changes only one prefix term; putting the larger valuation first increases that term.",
+    "reproducible_computation": {
+      "theorem": "For an accelerated Collatz valuation word a_1,...,a_m, write T^m(n)=(3^m n+C_a)/2^S. If every reverse suffix of length k has valuation sum at least qk for an integer q>=2, then C_a/(2^S-3^m)<=1/(2^q-3). In particular q=2 forces T^m(n)<n for every odd n>1 realizing the word. Under the exact geometric cylinder law, the mass of q=2 certificate words of length m is binom(2m,m)/4^m, which tends to zero. Moreover, for a fixed valuation multiset, ascending order minimizes C_a and descending order maximizes it. Thus final surplus S-m log_2 3 alone cannot control the affine threshold.",
+      "proof": "The affine constant is C_a=sum_{j=0}^{m-1}3^(m-1-j)2^S_j. Divide by 2^S and index by reverse suffix length k. The suffix hypothesis bounds the k-th term by 3^(k-1)/2^(qk); summing the geometric series and comparing with 1-3^m/2^S gives the threshold bound. For the mass formula, reverse the i.i.d. geometric valuations and apply the skip-free ballot identity to increments a_i-2. For ordering, an adjacent swap changes only one prefix term; putting the larger valuation first increases that term.",
+      "finite_reverse_suffix_certificate_rows": [
+        {
+          "valuation_word": [
+            2
+          ],
+          "reverse_suffix_floor_q": 2,
+          "total_valuation_S": 2,
+          "affine_constant_C": 1,
+          "descent_denominator_2S_minus_3m": 1,
+          "exact_affine_threshold": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "theorem_threshold_upper_bound": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "every_reverse_suffix_meets_floor": true,
+            "linear_multiplier_is_contracting": true,
+            "affine_threshold_meets_theorem_bound": true,
+            "floor_two_forces_descent_for_every_odd_n_above_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            3
+          ],
+          "reverse_suffix_floor_q": 2,
+          "total_valuation_S": 4,
+          "affine_constant_C": 5,
+          "descent_denominator_2S_minus_3m": 7,
+          "exact_affine_threshold": {
+            "exact": "5/7",
+            "decimal": 0.7142857142857143
+          },
+          "theorem_threshold_upper_bound": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "every_reverse_suffix_meets_floor": true,
+            "linear_multiplier_is_contracting": true,
+            "affine_threshold_meets_theorem_bound": true,
+            "floor_two_forces_descent_for_every_odd_n_above_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            2,
+            2
+          ],
+          "reverse_suffix_floor_q": 2,
+          "total_valuation_S": 4,
+          "affine_constant_C": 7,
+          "descent_denominator_2S_minus_3m": 7,
+          "exact_affine_threshold": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "theorem_threshold_upper_bound": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "every_reverse_suffix_meets_floor": true,
+            "linear_multiplier_is_contracting": true,
+            "affine_threshold_meets_theorem_bound": true,
+            "floor_two_forces_descent_for_every_odd_n_above_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            1,
+            4
+          ],
+          "reverse_suffix_floor_q": 2,
+          "total_valuation_S": 6,
+          "affine_constant_C": 19,
+          "descent_denominator_2S_minus_3m": 37,
+          "exact_affine_threshold": {
+            "exact": "19/37",
+            "decimal": 0.5135135135135135
+          },
+          "theorem_threshold_upper_bound": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "every_reverse_suffix_meets_floor": true,
+            "linear_multiplier_is_contracting": true,
+            "affine_threshold_meets_theorem_bound": true,
+            "floor_two_forces_descent_for_every_odd_n_above_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            3
+          ],
+          "reverse_suffix_floor_q": 3,
+          "total_valuation_S": 3,
+          "affine_constant_C": 1,
+          "descent_denominator_2S_minus_3m": 5,
+          "exact_affine_threshold": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "theorem_threshold_upper_bound": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "checks": {
+            "every_reverse_suffix_meets_floor": true,
+            "linear_multiplier_is_contracting": true,
+            "affine_threshold_meets_theorem_bound": true,
+            "floor_two_forces_descent_for_every_odd_n_above_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            2,
+            4
+          ],
+          "reverse_suffix_floor_q": 3,
+          "total_valuation_S": 6,
+          "affine_constant_C": 7,
+          "descent_denominator_2S_minus_3m": 55,
+          "exact_affine_threshold": {
+            "exact": "7/55",
+            "decimal": 0.12727272727272726
+          },
+          "theorem_threshold_upper_bound": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "checks": {
+            "every_reverse_suffix_meets_floor": true,
+            "linear_multiplier_is_contracting": true,
+            "affine_threshold_meets_theorem_bound": true,
+            "floor_two_forces_descent_for_every_odd_n_above_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            2,
+            6
+          ],
+          "reverse_suffix_floor_q": 3,
+          "total_valuation_S": 9,
+          "affine_constant_C": 23,
+          "descent_denominator_2S_minus_3m": 485,
+          "exact_affine_threshold": {
+            "exact": "23/485",
+            "decimal": 0.04742268041237113
+          },
+          "theorem_threshold_upper_bound": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "checks": {
+            "every_reverse_suffix_meets_floor": true,
+            "linear_multiplier_is_contracting": true,
+            "affine_threshold_meets_theorem_bound": true,
+            "floor_two_forces_descent_for_every_odd_n_above_one": true
+          }
+        }
+      ],
+      "finite_certificate_mass_rows": [
+        {
+          "word_length_m": 1,
+          "exact_reverse_suffix_certificate_mass": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "sqrt_pi_m_scaled_mass": 0.8862269254527579,
+          "checks": {
+            "coverage_mass_is_positive": true,
+            "coverage_mass_is_at_most_one": true,
+            "central_binomial_identity_is_exact": true
+          }
+        },
+        {
+          "word_length_m": 2,
+          "exact_reverse_suffix_certificate_mass": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "sqrt_pi_m_scaled_mass": 0.9399856029866251,
+          "checks": {
+            "coverage_mass_is_positive": true,
+            "coverage_mass_is_at_most_one": true,
+            "central_binomial_identity_is_exact": true
+          }
+        },
+        {
+          "word_length_m": 4,
+          "exact_reverse_suffix_certificate_mass": {
+            "exact": "35/128",
+            "decimal": 0.2734375
+          },
+          "sqrt_pi_m_scaled_mass": 0.969310699713954,
+          "checks": {
+            "coverage_mass_is_positive": true,
+            "coverage_mass_is_at_most_one": true,
+            "central_binomial_identity_is_exact": true
+          }
+        },
+        {
+          "word_length_m": 8,
+          "exact_reverse_suffix_certificate_mass": {
+            "exact": "6435/32768",
+            "decimal": 0.196380615234375
+          },
+          "sqrt_pi_m_scaled_mass": 0.9845064054718314,
+          "checks": {
+            "coverage_mass_is_positive": true,
+            "coverage_mass_is_at_most_one": true,
+            "central_binomial_identity_is_exact": true
+          }
+        },
+        {
+          "word_length_m": 16,
+          "exact_reverse_suffix_certificate_mass": {
+            "exact": "300540195/2147483648",
+            "decimal": 0.13994993409141898
+          },
+          "sqrt_pi_m_scaled_mass": 0.9922191984572348,
+          "checks": {
+            "coverage_mass_is_positive": true,
+            "coverage_mass_is_at_most_one": true,
+            "central_binomial_identity_is_exact": true
+          }
+        },
+        {
+          "word_length_m": 32,
+          "exact_reverse_suffix_certificate_mass": {
+            "exact": "916312070471295267/9223372036854775808",
+            "decimal": 0.09934675374796689
+          },
+          "sqrt_pi_m_scaled_mass": 0.9961015277498284,
+          "checks": {
+            "coverage_mass_is_positive": true,
+            "coverage_mass_is_at_most_one": true,
+            "central_binomial_identity_is_exact": true
+          }
+        },
+        {
+          "word_length_m": 64,
+          "exact_reverse_suffix_certificate_mass": {
+            "exact": "11975573020964041433067793888190275875/170141183460469231731687303715884105728",
+            "decimal": 0.07038609217001514
+          },
+          "sqrt_pi_m_scaled_mass": 0.9980488009354713,
+          "checks": {
+            "coverage_mass_is_positive": true,
+            "coverage_mass_is_at_most_one": true,
+            "central_binomial_identity_is_exact": true
+          }
+        },
+        {
+          "word_length_m": 128,
+          "exact_reverse_suffix_certificate_mass": {
+            "exact": "2884329411724603169044874178931143443870105850987581016304218283632259375395/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+            "decimal": 0.04981910993614015
+          },
+          "sqrt_pi_m_scaled_mass": 0.9990239166630329,
+          "checks": {
+            "coverage_mass_is_positive": true,
+            "coverage_mass_is_at_most_one": true,
+            "central_binomial_identity_is_exact": true
+          }
+        }
+      ],
+      "finite_affine_ordering_rows": [
+        {
+          "valuation_multiset": [
+            1,
+            2,
+            3
+          ],
+          "permutation_count": 6,
+          "minimum_word_ascending": [
+            1,
+            2,
+            3
+          ],
+          "minimum_affine_threshold": {
+            "exact": "23/37",
+            "decimal": 0.6216216216216216
+          },
+          "maximum_word_descending": [
+            3,
+            2,
+            1
+          ],
+          "maximum_affine_threshold": {
+            "exact": "65/37",
+            "decimal": 1.7567567567567568
+          },
+          "checks": {
+            "ascending_order_minimizes_affine_constant": true,
+            "descending_order_maximizes_affine_constant": true,
+            "same_total_valuation_has_order_dependent_threshold": true
+          }
+        },
+        {
+          "valuation_multiset": [
+            1,
+            1,
+            4
+          ],
+          "permutation_count": 3,
+          "minimum_word_ascending": [
+            1,
+            1,
+            4
+          ],
+          "minimum_affine_threshold": {
+            "exact": "19/37",
+            "decimal": 0.5135135135135135
+          },
+          "maximum_word_descending": [
+            4,
+            1,
+            1
+          ],
+          "maximum_affine_threshold": {
+            "exact": "89/37",
+            "decimal": 2.4054054054054053
+          },
+          "checks": {
+            "ascending_order_minimizes_affine_constant": true,
+            "descending_order_maximizes_affine_constant": true,
+            "same_total_valuation_has_order_dependent_threshold": true
+          }
+        },
+        {
+          "valuation_multiset": [
+            1,
+            2,
+            2,
+            3
+          ],
+          "permutation_count": 12,
+          "minimum_word_ascending": [
+            1,
+            2,
+            2,
+            3
+          ],
+          "minimum_affine_threshold": {
+            "exact": "101/175",
+            "decimal": 0.5771428571428572
+          },
+          "maximum_word_descending": [
+            3,
+            2,
+            2,
+            1
+          ],
+          "maximum_affine_threshold": {
+            "exact": "323/175",
+            "decimal": 1.8457142857142856
+          },
+          "checks": {
+            "ascending_order_minimizes_affine_constant": true,
+            "descending_order_maximizes_affine_constant": true,
+            "same_total_valuation_has_order_dependent_threshold": true
+          }
+        },
+        {
+          "valuation_multiset": [
+            1,
+            1,
+            2,
+            4
+          ],
+          "permutation_count": 12,
+          "minimum_word_ascending": [
+            1,
+            1,
+            2,
+            4
+          ],
+          "minimum_affine_threshold": {
+            "exact": "73/175",
+            "decimal": 0.41714285714285715
+          },
+          "maximum_word_descending": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "maximum_affine_threshold": {
+            "exact": "491/175",
+            "decimal": 2.8057142857142856
+          },
+          "checks": {
+            "ascending_order_minimizes_affine_constant": true,
+            "descending_order_maximizes_affine_constant": true,
+            "same_total_valuation_has_order_dependent_threshold": true
+          }
+        }
+      ],
+      "same_surplus_affine_threshold_no_go": {
+        "word_one": [
+          1,
+          3
+        ],
+        "word_two": [
+          3,
+          1
+        ],
+        "common_length": 2,
+        "common_total_valuation": 4,
+        "common_linear_multiplier": {
+          "exact": "9/16",
+          "decimal": 0.5625
+        },
+        "word_one_threshold": {
+          "exact": "5/7",
+          "decimal": 0.7142857142857143
+        },
+        "word_two_threshold": {
+          "exact": "11/7",
+          "decimal": 1.5714285714285714
+        },
+        "checks": {
+          "same_total_valuation": true,
+          "same_multiset": true,
+          "different_affine_thresholds": true,
+          "only_one_order_meets_reverse_suffix_floor_two": true
+        }
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The reverse-suffix condition is sufficient but its length-m geometric cylinder mass tends to zero. No proof shows that every natural valuation ray eventually enters such a block.",
+    "route_decision": {
+      "discard": "using only final valuation surplus or the linear multiplier while ignoring valuation order in the affine constant",
+      "retain": "prove that every natural Collatz valuation ray reaches a reverse-suffix surplus block, then use strong induction on the certified strict descent",
+      "next_theorem": "EveryNaturalValuationRayHitsAReverseSuffixSurplusDescentBlock"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T154-REJECTED",
+          "label": "FinalValuationSurplusAloneControlsAffineDescent",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "CO-T154-CLOSED",
+          "label": "ReverseSuffixSurplusAffineDescentAndTotalSurplusNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T154-OPEN",
+          "label": "EveryNaturalValuationRayHitsAReverseSuffixSurplusDescentBlock",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T154-REJECTED",
+          "CO-T154-CLOSED"
+        ],
+        [
+          "CO-T154-CLOSED",
+          "CO-T154-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Collatz proof and no divergent orbit. One exact affine-descent certificate whose universal occurrence remains open."
+  }
+}

@@ -1,5 +1,8 @@
 # TICKET-153: Essential Tail, Geometric Cylinders, Reflection Energy, and Cubic-Rough Parity
 
+Continued by / 다음 연구:
+[TICKET-154 compact-suffix-wheel-leastfactor](compact-suffix-wheel-leastfactor.md).
+
 ## Claim boundary / 주장 경계
 
 This document does **not** prove or disprove the Riemann hypothesis, the

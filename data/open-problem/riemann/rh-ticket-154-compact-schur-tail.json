@@ -1,0 +1,346 @@
+{
+  "schema": "primeproject.ticket154-compact-suffix-wheel-leastfactor.v1",
+  "generated_at": "2026-07-26T16:15:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-154",
+  "attempt": "Let H0 be finite dimensional, D>=delta I>0 on H1, K=D^(-1/2)C, and Q_N finite-rank orthogonal projections converging strongly to I. Then K is compact, e_N=||(I-Q_N)K||^2 tends to zero, and the full Schur complement S=A-K*K satisfies S=S_N-K*(I-Q_N)K with S_N=A-K*Q_NK. Hence S_N>=e_N I implies S>=0 and therefore the full block operator is positive. A finite cutoff without a certified e_N is insufficient: for every cutoff, a rank-one compact coupling hidden in the first omitted direction can leave a positive observed margin while making the full Schur complement negative.",
+  "bounded_result": {
+    "audit_ref": "compact_suffix_wheel_leastfactor_audit.riemann"
+  },
+  "obstruction": "The promotion theorem is abstract. PrimeProject has not constructed a coercive actual-Weil tail, proved the preconditioned coupling compact, or supplied an effective tail rate. The hidden-direction examples exclude no zeta zero.",
+  "candidate_theorem": "ActualWeilCompactCouplingWithEffectivePreconditionedTailRate",
+  "next_experiment": "construct the actual Weil block decomposition and prove an effective compact-coupling tail bound below the computed Schur margin",
+  "claim_boundary": "No RH proof and no off-critical zero. One abstract compact promotion theorem and a sharp finite-cutoff no-go.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-154",
+    "theorem_name": "CompactCouplingFiniteSectionPromotionAndHiddenTailNoGo",
+    "declared_proposition": "Let H0 be finite dimensional, D>=delta I>0 on H1, K=D^(-1/2)C, and Q_N finite-rank orthogonal projections converging strongly to I. Then K is compact, e_N=||(I-Q_N)K||^2 tends to zero, and the full Schur complement S=A-K*K satisfies S=S_N-K*(I-Q_N)K with S_N=A-K*Q_NK. Hence S_N>=e_N I implies S>=0 and therefore the full block operator is positive. A finite cutoff without a certified e_N is insufficient: for every cutoff, a rank-one compact coupling hidden in the first omitted direction can leave a positive observed margin while making the full Schur complement negative.",
+    "mathematical_argument": "Finite-dimensional H0 makes K compact. Strong convergence Q_N->I is uniform on the compact image of the unit ball under K, so ||(I-Q_N)K||->0. The exact identity follows by adding and subtracting K*Q_NK, and 0<=K*(I-Q_N)K<=e_N I. For the no-go, take scalar H0, put Kx=x e_(N+1), and A=1/2. The observed cost is zero and the observed margin is 1/2, while K*K=1 and the full margin is -1/2.",
+    "reproducible_computation": {
+      "theorem": "Let H0 be finite dimensional, D>=delta I>0 on H1, K=D^(-1/2)C, and Q_N finite-rank orthogonal projections converging strongly to I. Then K is compact, e_N=||(I-Q_N)K||^2 tends to zero, and the full Schur complement S=A-K*K satisfies S=S_N-K*(I-Q_N)K with S_N=A-K*Q_NK. Hence S_N>=e_N I implies S>=0 and therefore the full block operator is positive. A finite cutoff without a certified e_N is insufficient: for every cutoff, a rank-one compact coupling hidden in the first omitted direction can leave a positive observed margin while making the full Schur complement negative.",
+      "proof": "Finite-dimensional H0 makes K compact. Strong convergence Q_N->I is uniform on the compact image of the unit ball under K, so ||(I-Q_N)K||->0. The exact identity follows by adding and subtracting K*Q_NK, and 0<=K*(I-Q_N)K<=e_N I. For the no-go, take scalar H0, put Kx=x e_(N+1), and A=1/2. The observed cost is zero and the observed margin is 1/2, while K*K=1 and the full margin is -1/2.",
+      "finite_compact_promotion_rows": [
+        {
+          "finite_tail_cutoff_N": 1,
+          "finite_schur_cost": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "preconditioned_coupling_tail_norm_squared": {
+            "exact": "1/12",
+            "decimal": 0.08333333333333333
+          },
+          "finite_schur_margin": {
+            "exact": "1/12",
+            "decimal": 0.08333333333333333
+          },
+          "certified_full_schur_margin": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "geometric_cost_partition_is_exact": true,
+            "preconditioned_tail_norm_squared_is_exact": true,
+            "finite_margin_pays_full_omitted_cost": true,
+            "certified_full_margin_is_nonnegative": true
+          }
+        },
+        {
+          "finite_tail_cutoff_N": 2,
+          "finite_schur_cost": {
+            "exact": "5/16",
+            "decimal": 0.3125
+          },
+          "preconditioned_coupling_tail_norm_squared": {
+            "exact": "1/48",
+            "decimal": 0.020833333333333332
+          },
+          "finite_schur_margin": {
+            "exact": "1/48",
+            "decimal": 0.020833333333333332
+          },
+          "certified_full_schur_margin": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "geometric_cost_partition_is_exact": true,
+            "preconditioned_tail_norm_squared_is_exact": true,
+            "finite_margin_pays_full_omitted_cost": true,
+            "certified_full_margin_is_nonnegative": true
+          }
+        },
+        {
+          "finite_tail_cutoff_N": 4,
+          "finite_schur_cost": {
+            "exact": "85/256",
+            "decimal": 0.33203125
+          },
+          "preconditioned_coupling_tail_norm_squared": {
+            "exact": "1/768",
+            "decimal": 0.0013020833333333333
+          },
+          "finite_schur_margin": {
+            "exact": "1/768",
+            "decimal": 0.0013020833333333333
+          },
+          "certified_full_schur_margin": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "geometric_cost_partition_is_exact": true,
+            "preconditioned_tail_norm_squared_is_exact": true,
+            "finite_margin_pays_full_omitted_cost": true,
+            "certified_full_margin_is_nonnegative": true
+          }
+        },
+        {
+          "finite_tail_cutoff_N": 8,
+          "finite_schur_cost": {
+            "exact": "21845/65536",
+            "decimal": 0.3333282470703125
+          },
+          "preconditioned_coupling_tail_norm_squared": {
+            "exact": "1/196608",
+            "decimal": 5.086263020833333e-06
+          },
+          "finite_schur_margin": {
+            "exact": "1/196608",
+            "decimal": 5.086263020833333e-06
+          },
+          "certified_full_schur_margin": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "geometric_cost_partition_is_exact": true,
+            "preconditioned_tail_norm_squared_is_exact": true,
+            "finite_margin_pays_full_omitted_cost": true,
+            "certified_full_margin_is_nonnegative": true
+          }
+        },
+        {
+          "finite_tail_cutoff_N": 12,
+          "finite_schur_cost": {
+            "exact": "5592405/16777216",
+            "decimal": 0.3333333134651184
+          },
+          "preconditioned_coupling_tail_norm_squared": {
+            "exact": "1/50331648",
+            "decimal": 1.9868214925130207e-08
+          },
+          "finite_schur_margin": {
+            "exact": "1/50331648",
+            "decimal": 1.9868214925130207e-08
+          },
+          "certified_full_schur_margin": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "geometric_cost_partition_is_exact": true,
+            "preconditioned_tail_norm_squared_is_exact": true,
+            "finite_margin_pays_full_omitted_cost": true,
+            "certified_full_margin_is_nonnegative": true
+          }
+        },
+        {
+          "finite_tail_cutoff_N": 16,
+          "finite_schur_cost": {
+            "exact": "1431655765/4294967296",
+            "decimal": 0.3333333332557231
+          },
+          "preconditioned_coupling_tail_norm_squared": {
+            "exact": "1/12884901888",
+            "decimal": 7.761021455128987e-11
+          },
+          "finite_schur_margin": {
+            "exact": "1/12884901888",
+            "decimal": 7.761021455128987e-11
+          },
+          "certified_full_schur_margin": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "geometric_cost_partition_is_exact": true,
+            "preconditioned_tail_norm_squared_is_exact": true,
+            "finite_margin_pays_full_omitted_cost": true,
+            "certified_full_margin_is_nonnegative": true
+          }
+        }
+      ],
+      "finite_hidden_tail_counterexample_rows": [
+        {
+          "observed_tail_dimension": 1,
+          "full_model_dimension": 2,
+          "observed_coupling_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "observed_schur_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "first_omitted_direction_cost": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "full_schur_margin": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "checks": {
+            "finite_cutoff_reports_positive_margin": true,
+            "omitted_rank_one_coupling_is_compact": true,
+            "full_schur_complement_has_negative_direction": true,
+            "tail_bound_would_detect_failure": true
+          }
+        },
+        {
+          "observed_tail_dimension": 2,
+          "full_model_dimension": 3,
+          "observed_coupling_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "observed_schur_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "first_omitted_direction_cost": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "full_schur_margin": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "checks": {
+            "finite_cutoff_reports_positive_margin": true,
+            "omitted_rank_one_coupling_is_compact": true,
+            "full_schur_complement_has_negative_direction": true,
+            "tail_bound_would_detect_failure": true
+          }
+        },
+        {
+          "observed_tail_dimension": 4,
+          "full_model_dimension": 5,
+          "observed_coupling_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "observed_schur_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "first_omitted_direction_cost": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "full_schur_margin": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "checks": {
+            "finite_cutoff_reports_positive_margin": true,
+            "omitted_rank_one_coupling_is_compact": true,
+            "full_schur_complement_has_negative_direction": true,
+            "tail_bound_would_detect_failure": true
+          }
+        },
+        {
+          "observed_tail_dimension": 8,
+          "full_model_dimension": 9,
+          "observed_coupling_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "observed_schur_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "first_omitted_direction_cost": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "full_schur_margin": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "checks": {
+            "finite_cutoff_reports_positive_margin": true,
+            "omitted_rank_one_coupling_is_compact": true,
+            "full_schur_complement_has_negative_direction": true,
+            "tail_bound_would_detect_failure": true
+          }
+        },
+        {
+          "observed_tail_dimension": 16,
+          "full_model_dimension": 17,
+          "observed_coupling_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "observed_schur_margin": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "first_omitted_direction_cost": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "full_schur_margin": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "checks": {
+            "finite_cutoff_reports_positive_margin": true,
+            "omitted_rank_one_coupling_is_compact": true,
+            "full_schur_complement_has_negative_direction": true,
+            "tail_bound_would_detect_failure": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The promotion theorem is abstract. PrimeProject has not constructed a coercive actual-Weil tail, proved the preconditioned coupling compact, or supplied an effective tail rate. The hidden-direction examples exclude no zeta zero.",
+    "route_decision": {
+      "discard": "accepting a positive finite Schur margin without an operator-norm bound on the omitted preconditioned coupling",
+      "retain": "construct the actual Weil block decomposition and prove an effective compact-coupling tail bound below the computed Schur margin",
+      "next_theorem": "ActualWeilCompactCouplingWithEffectivePreconditionedTailRate"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T154-REJECTED",
+          "label": "FiniteSchurMarginWithoutCertifiedCouplingTail",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T154-CLOSED",
+          "label": "CompactCouplingFiniteSectionPromotionAndHiddenTailNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T154-OPEN",
+          "label": "ActualWeilCompactCouplingWithEffectivePreconditionedTailRate",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T154-REJECTED",
+          "RH-T154-CLOSED"
+        ],
+        [
+          "RH-T154-CLOSED",
+          "RH-T154-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One abstract compact promotion theorem and a sharp finite-cutoff no-go."
+  }
+}
