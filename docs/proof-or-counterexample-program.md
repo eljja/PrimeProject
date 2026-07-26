@@ -6358,3 +6358,39 @@ target-fitted 진단이며 analytic major-arc 모형이 아니다. Twin의 다�
 
 Full bilingual report / 전체 한영 보고서:
 [TICKET-157 formcore-inversion-proxy-margin](formcore-inversion-proxy-margin.md).
+
+## TICKET-158 continuation: two cutoffs, localized gain, phase variation, and directional information
+
+TICKET-158 attacks the four TICKET-157 open lemmas. It incorporates a new
+fixed-`(c,N)` archimedean-tail literature boundary without claiming that
+external theorem as a PrimeProject result, and proves four new exact
+composition or no-go statements.
+
+1. **Riemann Hypothesis.** A positive archimedean tail and an absolute
+   prime/band remainder compose into exact positive and negative form
+   certificates. A scalar family proves that sending only the archimedean
+   tail to zero cannot control the full form. The next target is
+   `UniformPrimeBandRemainderOnExplicitNestedWeilCoreWithJointCutoffSchedule`.
+2. **Collatz.** The words `(K,1,1,1,2)` and `(2,1,1,K,1)` have the same
+   length, valuation sum, multiset, and ordinary inversion count but
+   different exact affine gains for every `K>=6`. The next target is
+   `NaturalValuationPrefixLocalizedGainCrossesAffineThresholdOnEveryRay`.
+3. **Goldbach.** A cyclic width-`b` moving average obeys the sharp bound
+   `||w-A_b w||_1 <= (b-1)TV(w)/2`. Alternating signs saturate it and all
+   18 raw finite variation certificates fail. The next target is
+   `ArithmeticMinorArcPhaseVariationBelowMajorMarginWithEffectiveFiniteJoin`.
+4. **Twin Prime.** The target upper bound needs information budget only on
+   positive conditional shifts. Four of five finite rows improve strictly,
+   but symmetric Bernoulli tables show that mutual information cannot
+   determine the shift sign. The next target is
+   `UniformPositiveCubicRoughInformationBudgetOrSemiprimeAnticorrelationAfterEffectiveCutoff`.
+
+한국어 경계: RH의 새 문헌은 고정 `(c,N)` archimedean tail을 다루지만
+prime/band joint limit를 증명하지 않는다. Collatz 반례군은 affine
+valuation word에 대한 no-go이며 발산 orbit이 아니다. Goldbach
+variation 값은 유한 DFT 관측이고 균일 산술 상계가 아니다. Twin의
+shift 부호는 유한 데이터에서 계산되었지만 mutual information만으로
+전칭 승격할 수 없다. 네 추측은 모두 `open_not_proven`이다.
+
+Full bilingual report / 전체 한영 보고서:
+[TICKET-158 two-cutoff-localized-variation-directional](two-cutoff-localized-variation-directional.md).

@@ -155,6 +155,9 @@ TICKET154_SCHEMA = "primeproject.ticket154-compact-suffix-wheel-leastfactor.v1"
 TICKET155_SCHEMA = "primeproject.ticket155-range-prefix-sublinear-conditional.v1"
 TICKET156_SCHEMA = "primeproject.ticket156-cutoff-potential-signed-information.v1"
 TICKET157_SCHEMA = "primeproject.ticket157-formcore-inversion-proxy-margin.v1"
+TICKET158_SCHEMA = (
+    "primeproject.ticket158-two-cutoff-localized-variation-directional.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -10645,6 +10648,323 @@ def main() -> int:
         not in str(ticket157.get("claim_boundary", "")).lower()
     ):
         return fail("ticket157 proof boundary changed")
+
+    path158 = Path(
+        "data/open-problem/"
+        "ticket158-two-cutoff-localized-variation-directional.json"
+    )
+    if not path158.exists():
+        return fail(
+            "missing ticket158 two-cutoff-localized-variation audit"
+        )
+    ticket158 = read_json(path158)
+    if (
+        ticket158.get("schema") != TICKET158_SCHEMA
+        or ticket158.get("status")
+        != (
+            "four_exact_compositions_or_no_go_results_"
+            "all_conjectures_open"
+        )
+    ):
+        return fail("ticket158 schema or status changed")
+    attempts158 = ticket158.get("attempts", [])
+    by_id158 = {
+        str(row.get("problem_id")): row
+        for row in attempts158
+        if isinstance(row, dict)
+    }
+    if set(by_id158) != EXPECTED_PROBLEMS:
+        return fail("ticket158 attempts missing problems")
+
+    paths158 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-158-two-cutoff-budget.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-158-localized-inversion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-158-variation-proxy.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-158-directional-information.json"
+        ),
+    }
+    next158 = {
+        "riemann": (
+            "UniformPrimeBandRemainderOnExplicitNestedWeilCore"
+            "WithJointCutoffSchedule"
+        ),
+        "collatz": (
+            "NaturalValuationPrefixLocalizedGainCrosses"
+            "AffineThresholdOnEveryRay"
+        ),
+        "goldbach": (
+            "ArithmeticMinorArcPhaseVariationBelowMajorMargin"
+            "WithEffectiveFiniteJoin"
+        ),
+        "twin-prime": (
+            "UniformPositiveCubicRoughInformationBudgetOr"
+            "SemiprimeAnticorrelationAfterEffectiveCutoff"
+        ),
+    }
+    for problem_id, attempt in by_id158.items():
+        if (
+            not paths158[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+        ):
+            return fail(
+                f"{problem_id}: ticket158 artifact or boundary missing"
+            )
+        per_problem158 = read_json(paths158[problem_id])
+        if (
+            per_problem158.get("schema") != TICKET158_SCHEMA
+            or per_problem158.get("problem_id") != problem_id
+            or per_problem158.get("candidate_theorem")
+            != next158[problem_id]
+            or attempt.get("candidate_theorem")
+            != next158[problem_id]
+        ):
+            return fail(
+                f"{problem_id}: ticket158 per-problem contract changed"
+            )
+
+    audit158 = ticket158.get(
+        "two_cutoff_localized_variation_directional_audit",
+        {},
+    )
+    machine158 = audit158.get("machine_audit", {})
+    if (
+        audit158.get("theorem_name")
+        != (
+            "FourConjectureTwoCutoffLocalizedVariation"
+            "DirectionalAudit"
+        )
+        or int(machine158.get("exact_theorem_count", -1)) != 4
+        or int(machine158.get("rejected_target_count", -1)) != 4
+        or int(machine158.get("proof_dag_count", -1)) != 4
+        or int(machine158.get("conjecture_resolution_count", -1)) != 0
+        or int(machine158.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket158 global machine audit changed")
+
+    riemann158 = audit158.get("riemann", {})
+    two_cutoff158 = riemann158.get("reproducible_computation", {})
+    positive158 = two_cutoff158.get(
+        "finite_positive_composition_rows",
+        [],
+    )
+    negative158 = two_cutoff158.get(
+        "finite_negative_composition_rows",
+        [],
+    )
+    single158 = two_cutoff158.get("single_cutoff_no_go_rows", [])
+    if (
+        riemann158.get("theorem_name")
+        != (
+            "TwoCutoffFormBudgetCompositionAnd"
+            "SingleCutoffNoGo"
+        )
+        or len(positive158) != 4
+        or len(negative158) != 3
+        or len(single158) != 4
+        or any(
+            Fraction(
+                row.get("promoted_full_form_lower_bound", {}).get(
+                    "exact",
+                    "-1",
+                )
+            )
+            < 0
+            or not all(row.get("checks", {}).values())
+            for row in positive158
+        )
+        or any(
+            Fraction(
+                row.get("promoted_full_form_upper_bound", {}).get(
+                    "exact",
+                    "0",
+                )
+            )
+            >= 0
+            or not all(row.get("checks", {}).values())
+            for row in negative158
+        )
+        or any(
+            Fraction(row.get("full_form_value", {}).get("exact", "0"))
+            != -1
+            or not all(row.get("checks", {}).values())
+            for row in single158
+        )
+        or int(two_cutoff158.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket158 RH two-cutoff audit changed")
+
+    collatz158 = audit158.get("collatz", {})
+    localized158 = collatz158.get("reproducible_computation", {})
+    family158 = localized158.get(
+        "parametric_coarse_inversion_no_go_rows",
+        [],
+    )
+    collision158 = localized158.get(
+        "finite_natural_first_descent_collision_scan",
+        {},
+    )
+    if (
+        collatz158.get("theorem_name")
+        != "LocalizedInversionGainAndCoarseStatisticNoGo"
+        or [int(row.get("large_valuation_K", -1)) for row in family158]
+        != [6, 8, 10, 12]
+        or any(
+            bool(row.get("abstract_start_one_descends_under_A"))
+            or not bool(row.get("abstract_start_one_descends_under_B"))
+            or not all(row.get("checks", {}).values())
+            for row in family158
+        )
+        or int(collision158.get("audited_odd_start_count", -1))
+        != 49999
+        or int(collision158.get("coarse_signature_count", -1)) != 3862
+        or int(
+            collision158.get(
+                "ambiguous_coarse_signature_count",
+                -1,
+            )
+        )
+        != 677
+        or not all(collision158.get("checks", {}).values())
+        or int(localized158.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket158 Collatz localized-gain audit changed")
+
+    goldbach158 = audit158.get("goldbach", {})
+    variation158 = goldbach158.get("reproducible_computation", {})
+    variation_rows158 = variation158.get(
+        "finite_goldbach_variation_proxy_rows",
+        [],
+    )
+    sharp158 = variation158.get(
+        "exact_variation_constant_sharpness_rows",
+        [],
+    )
+    if (
+        goldbach158.get("theorem_name")
+        != "MovingAverageVariationProxyAndSharpnessNoGo"
+        or [
+            int(row.get("even_endpoint_N", -1))
+            for row in variation_rows158
+        ]
+        != [1000, 2000, 4000, 8000, 16000, 32000]
+        or variation158.get("variation_proxy_certificate_counts")
+        != {"2": 0, "4": 0, "8": 0}
+        or [int(row.get("dimension_m", -1)) for row in sharp158]
+        != [8, 32, 128]
+        or any(
+            float(row.get("actual_residual_l1", -1))
+            != float(row.get("variation_residual_upper_bound", -2))
+            or not all(row.get("checks", {}).values())
+            for row in sharp158
+        )
+        or any(
+            any(
+                not all(proxy.get("checks", {}).values())
+                for proxy in row.get(
+                    "moving_average_variation_rows",
+                    [],
+                )
+            )
+            for row in variation_rows158
+        )
+        or int(variation158.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket158 Goldbach variation audit changed")
+
+    twin158 = audit158.get("twin_prime", {})
+    directional158 = twin158.get("reproducible_computation", {})
+    directional_rows158 = directional158.get(
+        "finite_directional_information_margin_rows",
+        [],
+    )
+    direction_no_go158 = directional158.get(
+        "exact_information_direction_blindness_rows",
+        [],
+    )
+    if (
+        twin158.get("theorem_name")
+        != "SignedInformationBudgetAndDirectionBlindnessNoGo"
+        or [int(row.get("X", -1)) for row in directional_rows158]
+        != [1000, 10000, 100000, 1000000, 10000000]
+        or int(
+            directional158.get(
+                "finite_directional_certificate_count",
+                -1,
+            )
+        )
+        != 5
+        or int(
+            directional158.get(
+                "finite_rows_with_strict_directional_saving",
+                -1,
+            )
+        )
+        != 4
+        or len(direction_no_go158) != 3
+        or any(
+            float(row.get("directional_information_upper_ratio", 1))
+            >= 1
+            or float(row.get("directional_budget_saving", -1)) < 0
+            or not all(row.get("checks", {}).values())
+            for row in directional_rows158
+        )
+        or any(
+            Fraction(
+                row.get("positive_conditional_shift", {}).get(
+                    "exact",
+                    "0",
+                )
+            )
+            != -Fraction(
+                row.get("negative_conditional_shift", {}).get(
+                    "exact",
+                    "1",
+                )
+            )
+            or not all(row.get("checks", {}).values())
+            for row in direction_no_go158
+        )
+        or int(directional158.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket158 Twin directional-information audit changed")
+
+    sections158 = {
+        "riemann": riemann158,
+        "collatz": collatz158,
+        "goldbach": goldbach158,
+        "twin-prime": twin158,
+    }
+    for problem_id, section in sections158.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next158[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket158 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit158.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket158.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket158 proof boundary changed")
 
     print("open problem structure verified")
     return 0

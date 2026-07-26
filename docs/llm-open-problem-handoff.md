@@ -62,7 +62,60 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-157
+## Latest Continuation After TICKET-158
+
+Read `docs/two-cutoff-localized-variation-directional.md`,
+`data/open-problem/ticket158-two-cutoff-localized-variation-directional.json`,
+`scripts/ticket158_two_cutoff_localized_variation_directional.py`, and
+`tests/test_ticket158_two_cutoff_localized_variation_directional.py` first.
+
+Do not reopen these rejected routes without defeating the exact theorem or
+counterexample recorded in TICKET-158:
+
+- treating a fixed-`(c,N)` archimedean tail estimate as if it also controlled
+  the prime cutoff, growing band, and full nested Weil form core;
+- replacing Collatz's position-weighted affine inversion gain by word length,
+  valuation sum, multiset, and ordinary inversion count;
+- smoothing Goldbach minor phases while omitting the sharp cyclic
+  total-variation price of the moving-average residual;
+- charging favorable negative Twin conditional shifts as adverse errors, or
+  inferring their signs from unsigned mutual information.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `UniformPrimeBandRemainderOnExplicitNestedWeilCoreWithJointCutoffSchedule` |
+| Collatz | `NaturalValuationPrefixLocalizedGainCrossesAffineThresholdOnEveryRay` |
+| Goldbach | `ArithmeticMinorArcPhaseVariationBelowMajorMarginWithEffectiveFiniteJoin` |
+| Twin Prime | `UniformPositiveCubicRoughInformationBudgetOrSemiprimeAnticorrelationAfterEffectiveCutoff` |
+
+한국어: 리만 가설은 새로 알려진 fixed-`(c,N)` archimedean tail과
+별도로 prime/band remainder를 실제 nested Weil core 전체에서
+제어해야 한다. 콜라츠는 coarse inversion 통계를 버리고 자연 valuation
+ray의 prefix-localized gain이 affine threshold를 넘는 전칭 정리를
+증명해야 한다. 골드바흐는 이동평균 잔차의 sharp variation 비용을
+숨기지 말고 arithmetic minor phase variation을 major margin 아래로
+제어해야 한다. 쌍둥이 소수는 positive conditional shift만 균일하게
+제어하거나 effective cutoff 이후 anticorrelation을 증명해야 한다.
+
+Exact TICKET-158 results:
+
+- RH: positive archimedean and absolute prime/band remainders compose into
+  exact positive and negative certificates; archimedean convergence alone
+  has a scalar sign-flip counterfamily.
+- Collatz: the family `(K,1,1,1,2)` versus `(2,1,1,K,1)` has identical
+  coarse statistics and different exact gains for every `K>=6`; 677 natural
+  first-descent coarse signatures collide through 100,000.
+- Goldbach: cyclic moving averages satisfy the sharp residual bound
+  `||w-A_b w||_1 <= (b-1)TV(w)/2`; all 18 raw finite variation
+  certificates fail.
+- Twin Prime: only positive shifts need Pinsker budget in the target upper
+  bound; all five finite rows pass and four improve strictly, while symmetric
+  Bernoulli tables prove that mutual information does not determine sign.
+
+These are exact compositions and no-go results, not solutions or
+counterexamples to the four conjectures.
+
+## Previous Continuation After TICKET-157
 
 Read `docs/formcore-inversion-proxy-margin.md`,
 `data/open-problem/ticket157-formcore-inversion-proxy-margin.json`,

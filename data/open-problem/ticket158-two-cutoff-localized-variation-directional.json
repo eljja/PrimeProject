@@ -1,0 +1,2208 @@
+{
+  "schema": "primeproject.ticket158-two-cutoff-localized-variation-directional.v1",
+  "generated_at": "2026-07-26T20:10:00+09:00",
+  "status": "four_exact_compositions_or_no_go_results_all_conjectures_open",
+  "claim_boundary": "TICKET-158 proves four exact composition or no-go results and resolves no target conjecture. It separates RH archimedean and prime/band cutoffs, proves Collatz gain needs position localization, converts Goldbach proxy residual into a sharp phase-variation obligation, and makes the Twin information budget one-sided while proving information alone cannot determine the sign.",
+  "two_cutoff_localized_variation_directional_audit": {
+    "theorem_name": "FourConjectureTwoCutoffLocalizedVariationDirectionalAudit",
+    "status": "four_exact_compositions_or_no_go_results_all_conjectures_open",
+    "proof_boundary": "TICKET-158 proves four exact composition or no-go results and resolves no target conjecture. It separates RH archimedean and prime/band cutoffs, proves Collatz gain needs position localization, converts Goldbach proxy residual into a sharp phase-variation obligation, and makes the Twin information budget one-sided while proving information alone cannot determine the sign.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-158",
+      "theorem_name": "TwoCutoffFormBudgetCompositionAndSingleCutoffNoGo",
+      "declared_proposition": "Let V_N be a nested form core. On V_N suppose q_c,N,infty and q_c,N,T satisfy 0<=q_c,N,infty-q_c,N,T<=B_c,N,T||f||^2, and suppose the full form satisfies |q-q_c,N,infty|<=A_c,N||f||^2. Then q(f)>=q_c,N,T(f)-A_c,N||f||^2 and q(f)<=q_c,N,T(f)+(A_c,N+B_c,N,T)||f||^2. Hence positivity of every nested finite form above A_c,N promotes to q>=0, while a value below -(A_c,N+B_c,N,T) certifies a negative direction. Driving only B_c,N,T to zero cannot close the argument when A_c,N is uncontrolled.",
+      "mathematical_argument": "The positive tail gives q_c,N,infty>=q_c,N,T. Subtracting the absolute prime/band remainder A_c,N proves the lower bound. The upper tail budget gives q_c,N,infty<=q_c,N,T+B_c,N,T, and adding A_c,N proves the negative certificate. Form-core density promotes positivity when the lower bound holds for every N. The scalar no-go rows keep q_c,N,T=1 and let B tend to zero, but choose an uncontrolled prime/band remainder that sends the full value to -1.",
+      "reproducible_computation": {
+        "theorem": "Let V_N be a nested form core. On V_N suppose q_c,N,infty and q_c,N,T satisfy 0<=q_c,N,infty-q_c,N,T<=B_c,N,T||f||^2, and suppose the full form satisfies |q-q_c,N,infty|<=A_c,N||f||^2. Then q(f)>=q_c,N,T(f)-A_c,N||f||^2 and q(f)<=q_c,N,T(f)+(A_c,N+B_c,N,T)||f||^2. Hence positivity of every nested finite form above A_c,N promotes to q>=0, while a value below -(A_c,N+B_c,N,T) certifies a negative direction. Driving only B_c,N,T to zero cannot close the argument when A_c,N is uncontrolled.",
+        "proof": "The positive tail gives q_c,N,infty>=q_c,N,T. Subtracting the absolute prime/band remainder A_c,N proves the lower bound. The upper tail budget gives q_c,N,infty<=q_c,N,T+B_c,N,T, and adding A_c,N proves the negative certificate. Form-core density promotes positivity when the lower bound holds for every N. The scalar no-go rows keep q_c,N,T=1 and let B tend to zero, but choose an uncontrolled prime/band remainder that sends the full value to -1.",
+        "finite_positive_composition_rows": [
+          {
+            "nested_core_dimension_N": 1,
+            "finite_archimedean_cutoff_value_q_c_N_T": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "prime_band_remainder_A_c_N": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "archimedean_tail_budget_B_c_N_T": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "promoted_full_form_lower_bound": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "finite_value_dominates_prime_band_error": true,
+              "positive_archimedean_tail_needs_no_subtraction": true,
+              "promoted_lower_bound_is_nonnegative": true
+            }
+          },
+          {
+            "nested_core_dimension_N": 2,
+            "finite_archimedean_cutoff_value_q_c_N_T": {
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            "prime_band_remainder_A_c_N": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "archimedean_tail_budget_B_c_N_T": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "promoted_full_form_lower_bound": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "finite_value_dominates_prime_band_error": true,
+              "positive_archimedean_tail_needs_no_subtraction": true,
+              "promoted_lower_bound_is_nonnegative": true
+            }
+          },
+          {
+            "nested_core_dimension_N": 4,
+            "finite_archimedean_cutoff_value_q_c_N_T": {
+              "exact": "9/8",
+              "decimal": 1.125
+            },
+            "prime_band_remainder_A_c_N": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "archimedean_tail_budget_B_c_N_T": {
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "promoted_full_form_lower_bound": {
+              "exact": "5/8",
+              "decimal": 0.625
+            },
+            "checks": {
+              "finite_value_dominates_prime_band_error": true,
+              "positive_archimedean_tail_needs_no_subtraction": true,
+              "promoted_lower_bound_is_nonnegative": true
+            }
+          },
+          {
+            "nested_core_dimension_N": 8,
+            "finite_archimedean_cutoff_value_q_c_N_T": {
+              "exact": "17/16",
+              "decimal": 1.0625
+            },
+            "prime_band_remainder_A_c_N": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "archimedean_tail_budget_B_c_N_T": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "promoted_full_form_lower_bound": {
+              "exact": "13/16",
+              "decimal": 0.8125
+            },
+            "checks": {
+              "finite_value_dominates_prime_band_error": true,
+              "positive_archimedean_tail_needs_no_subtraction": true,
+              "promoted_lower_bound_is_nonnegative": true
+            }
+          }
+        ],
+        "finite_negative_composition_rows": [
+          {
+            "nested_core_dimension_N": 1,
+            "finite_archimedean_cutoff_value_q_c_N_T": {
+              "exact": "-2/1",
+              "decimal": -2.0
+            },
+            "prime_band_remainder_A_c_N": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "archimedean_tail_budget_B_c_N_T": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "promoted_full_form_upper_bound": {
+              "exact": "-3/2",
+              "decimal": -1.5
+            },
+            "checks": {
+              "finite_value_beats_both_error_budgets": true,
+              "promoted_upper_bound_is_negative": true
+            }
+          },
+          {
+            "nested_core_dimension_N": 2,
+            "finite_archimedean_cutoff_value_q_c_N_T": {
+              "exact": "-3/2",
+              "decimal": -1.5
+            },
+            "prime_band_remainder_A_c_N": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "archimedean_tail_budget_B_c_N_T": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "promoted_full_form_upper_bound": {
+              "exact": "-9/8",
+              "decimal": -1.125
+            },
+            "checks": {
+              "finite_value_beats_both_error_budgets": true,
+              "promoted_upper_bound_is_negative": true
+            }
+          },
+          {
+            "nested_core_dimension_N": 4,
+            "finite_archimedean_cutoff_value_q_c_N_T": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "prime_band_remainder_A_c_N": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "archimedean_tail_budget_B_c_N_T": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "promoted_full_form_upper_bound": {
+              "exact": "-13/16",
+              "decimal": -0.8125
+            },
+            "checks": {
+              "finite_value_beats_both_error_budgets": true,
+              "promoted_upper_bound_is_negative": true
+            }
+          }
+        ],
+        "single_cutoff_no_go_rows": [
+          {
+            "tail_refinement_exponent": 2,
+            "finite_archimedean_cutoff_value": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "positive_archimedean_tail": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "cutoff_free_fixed_prime_band_value": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "uncontrolled_prime_band_remainder": {
+              "exact": "5/2",
+              "decimal": 2.5
+            },
+            "full_form_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "archimedean_budget_tends_toward_zero": true,
+              "finite_archimedean_value_is_positive": true,
+              "full_value_is_negative": true,
+              "missing_prime_band_remainder_explains_sign_flip": true
+            }
+          },
+          {
+            "tail_refinement_exponent": 4,
+            "finite_archimedean_cutoff_value": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "positive_archimedean_tail": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "cutoff_free_fixed_prime_band_value": {
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            "uncontrolled_prime_band_remainder": {
+              "exact": "9/4",
+              "decimal": 2.25
+            },
+            "full_form_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "archimedean_budget_tends_toward_zero": true,
+              "finite_archimedean_value_is_positive": true,
+              "full_value_is_negative": true,
+              "missing_prime_band_remainder_explains_sign_flip": true
+            }
+          },
+          {
+            "tail_refinement_exponent": 8,
+            "finite_archimedean_cutoff_value": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "positive_archimedean_tail": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "cutoff_free_fixed_prime_band_value": {
+              "exact": "9/8",
+              "decimal": 1.125
+            },
+            "uncontrolled_prime_band_remainder": {
+              "exact": "17/8",
+              "decimal": 2.125
+            },
+            "full_form_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "archimedean_budget_tends_toward_zero": true,
+              "finite_archimedean_value_is_positive": true,
+              "full_value_is_negative": true,
+              "missing_prime_band_remainder_explains_sign_flip": true
+            }
+          },
+          {
+            "tail_refinement_exponent": 16,
+            "finite_archimedean_cutoff_value": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "positive_archimedean_tail": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "cutoff_free_fixed_prime_band_value": {
+              "exact": "17/16",
+              "decimal": 1.0625
+            },
+            "uncontrolled_prime_band_remainder": {
+              "exact": "33/16",
+              "decimal": 2.0625
+            },
+            "full_form_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "archimedean_budget_tends_toward_zero": true,
+              "finite_archimedean_value_is_positive": true,
+              "full_value_is_negative": true,
+              "missing_prime_band_remainder_explains_sign_flip": true
+            }
+          }
+        ],
+        "published_leading_order_scaling_rows": [
+          {
+            "prime_cutoff_c": 13,
+            "frequency_band_N": 4,
+            "archimedean_cutoff_T": 800,
+            "rho_2pi_over_log_c": 2.449633279854652,
+            "leading_order_tail_indicator": 0.018665087800118933,
+            "claim_boundary": "This is the published leading-order scaling indicator B_T~(2N+1)rho log(T)/(pi^2 T), not the paper's exact interval certificate."
+          },
+          {
+            "prime_cutoff_c": 29,
+            "frequency_band_N": 16,
+            "archimedean_cutoff_T": 10000,
+            "rho_2pi_over_log_c": 1.8659439575301064,
+            "leading_order_tail_indicator": 0.005746302311221233,
+            "claim_boundary": "This is the published leading-order scaling indicator B_T~(2N+1)rho log(T)/(pi^2 T), not the paper's exact interval certificate."
+          },
+          {
+            "prime_cutoff_c": 100,
+            "frequency_band_N": 50,
+            "archimedean_cutoff_T": 1000000,
+            "rho_2pi_over_log_c": 1.3643763538418412,
+            "leading_order_tail_indicator": 0.00019289579102737715,
+            "claim_boundary": "This is the published leading-order scaling indicator B_T~(2N+1)rho log(T)/(pi^2 T), not the paper's exact interval certificate."
+          },
+          {
+            "prime_cutoff_c": 100,
+            "frequency_band_N": 200,
+            "archimedean_cutoff_T": 1000000000,
+            "rho_2pi_over_log_c": 1.3643763538418412,
+            "leading_order_tail_indicator": 1.1487803792373005e-06,
+            "claim_boundary": "This is the published leading-order scaling indicator B_T~(2N+1)rho log(T)/(pi^2 T), not the paper's exact interval certificate."
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The July 2026 archimedean tail-order theorem supplies the fixed-(c,N) B axis, but PrimeProject has not proved the prime/band remainder A_c,N, a joint (c,N,T) schedule, or positivity on every member of an explicit nested Weil form core.",
+      "route_decision": {
+        "discard": "treating archimedean cutoff convergence alone as a continuum RH certificate",
+        "retain": "combine the published positive archimedean tail with a new uniform prime/band remainder on a nested explicit Weil core and a joint cutoff schedule",
+        "next_theorem": "UniformPrimeBandRemainderOnExplicitNestedWeilCoreWithJointCutoffSchedule"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T158-REJECTED",
+            "label": "ArchimedeanTailControlAlonePromotesToWeilPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T158-CLOSED",
+            "label": "TwoCutoffFormBudgetCompositionAndSingleCutoffNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T158-OPEN",
+            "label": "UniformPrimeBandRemainderOnExplicitNestedWeilCoreWithJointCutoffSchedule",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T158-REJECTED",
+            "RH-T158-CLOSED"
+          ],
+          [
+            "RH-T158-CLOSED",
+            "RH-T158-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero. One exact two-cutoff composition theorem, scalar single-cutoff counterfamily, and noncertifying literature scaling audit."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-158",
+      "theorem_name": "LocalizedInversionGainAndCoarseStatisticNoGo",
+      "declared_proposition": "The exact Collatz inversion gain is localized: it is not a function of word length m, valuation sum S, the valuation multiset, and ordinary inversion count. For every K>=6, A_K=(K,1,1,1,2) and B_K=(2,1,1,K,1) share all four coarse statistics and have inversion count three, but C(A_K)=81+65*2^K and C(B_K)=309+16*2^K. Relative to the same descending word their gains are 38*2^K and 87*2^K-228. At the abstract start n=1, B_K satisfies the affine descent inequality while A_K does not.",
+      "mathematical_argument": "Direct substitution in C(w)=sum_j 3^(m-j)2^(a_1+...+a_(j-1)) gives the two closed forms. Their common descending arrangement has Cmax=81+103*2^K. Subtraction gives the gains. Both words have exactly three pairs a_i<a_j. Their common denominator is D=2^(K+5)-243. For K>=6, 309+16*2^K<D, while 81+65*2^K>D. Thus any route replacing the position-weighted gain by ordinary inversion count loses information required even by the affine word inequality.",
+      "reproducible_computation": {
+        "theorem": "The exact Collatz inversion gain is localized: it is not a function of word length m, valuation sum S, the valuation multiset, and ordinary inversion count. For every K>=6, A_K=(K,1,1,1,2) and B_K=(2,1,1,K,1) share all four coarse statistics and have inversion count three, but C(A_K)=81+65*2^K and C(B_K)=309+16*2^K. Relative to the same descending word their gains are 38*2^K and 87*2^K-228. At the abstract start n=1, B_K satisfies the affine descent inequality while A_K does not.",
+        "proof": "Direct substitution in C(w)=sum_j 3^(m-j)2^(a_1+...+a_(j-1)) gives the two closed forms. Their common descending arrangement has Cmax=81+103*2^K. Subtraction gives the gains. Both words have exactly three pairs a_i<a_j. Their common denominator is D=2^(K+5)-243. For K>=6, 309+16*2^K<D, while 81+65*2^K>D. Thus any route replacing the position-weighted gain by ordinary inversion count loses information required even by the affine word inequality.",
+        "parametric_coarse_inversion_no_go_rows": [
+          {
+            "large_valuation_K": 6,
+            "word_A": [
+              6,
+              1,
+              1,
+              1,
+              2
+            ],
+            "word_B": [
+              2,
+              1,
+              1,
+              6,
+              1
+            ],
+            "ordinary_inversion_count": 3,
+            "contracting_denominator_D": 1805,
+            "affine_constant_A": 4241,
+            "affine_constant_B": 1333,
+            "descending_affine_constant_Cmax": 6673,
+            "localized_inversion_gain_A": 2432,
+            "localized_inversion_gain_B": 5340,
+            "gain_ratio_B_over_A": 2.195723684210526,
+            "abstract_start_one_descends_under_A": false,
+            "abstract_start_one_descends_under_B": true,
+            "checks": {
+              "same_length_total_and_multiset": true,
+              "same_ordinary_inversion_count": true,
+              "closed_form_constant_a": true,
+              "closed_form_constant_b": true,
+              "closed_form_gain_a": true,
+              "closed_form_gain_b": true,
+              "abstract_word_b_descends_at_one": true,
+              "abstract_word_a_does_not_descend_at_one": true
+            }
+          },
+          {
+            "large_valuation_K": 8,
+            "word_A": [
+              8,
+              1,
+              1,
+              1,
+              2
+            ],
+            "word_B": [
+              2,
+              1,
+              1,
+              8,
+              1
+            ],
+            "ordinary_inversion_count": 3,
+            "contracting_denominator_D": 7949,
+            "affine_constant_A": 16721,
+            "affine_constant_B": 4405,
+            "descending_affine_constant_Cmax": 26449,
+            "localized_inversion_gain_A": 9728,
+            "localized_inversion_gain_B": 22044,
+            "gain_ratio_B_over_A": 2.266036184210526,
+            "abstract_start_one_descends_under_A": false,
+            "abstract_start_one_descends_under_B": true,
+            "checks": {
+              "same_length_total_and_multiset": true,
+              "same_ordinary_inversion_count": true,
+              "closed_form_constant_a": true,
+              "closed_form_constant_b": true,
+              "closed_form_gain_a": true,
+              "closed_form_gain_b": true,
+              "abstract_word_b_descends_at_one": true,
+              "abstract_word_a_does_not_descend_at_one": true
+            }
+          },
+          {
+            "large_valuation_K": 10,
+            "word_A": [
+              10,
+              1,
+              1,
+              1,
+              2
+            ],
+            "word_B": [
+              2,
+              1,
+              1,
+              10,
+              1
+            ],
+            "ordinary_inversion_count": 3,
+            "contracting_denominator_D": 32525,
+            "affine_constant_A": 66641,
+            "affine_constant_B": 16693,
+            "descending_affine_constant_Cmax": 105553,
+            "localized_inversion_gain_A": 38912,
+            "localized_inversion_gain_B": 88860,
+            "gain_ratio_B_over_A": 2.283614309210526,
+            "abstract_start_one_descends_under_A": false,
+            "abstract_start_one_descends_under_B": true,
+            "checks": {
+              "same_length_total_and_multiset": true,
+              "same_ordinary_inversion_count": true,
+              "closed_form_constant_a": true,
+              "closed_form_constant_b": true,
+              "closed_form_gain_a": true,
+              "closed_form_gain_b": true,
+              "abstract_word_b_descends_at_one": true,
+              "abstract_word_a_does_not_descend_at_one": true
+            }
+          },
+          {
+            "large_valuation_K": 12,
+            "word_A": [
+              12,
+              1,
+              1,
+              1,
+              2
+            ],
+            "word_B": [
+              2,
+              1,
+              1,
+              12,
+              1
+            ],
+            "ordinary_inversion_count": 3,
+            "contracting_denominator_D": 130829,
+            "affine_constant_A": 266321,
+            "affine_constant_B": 65845,
+            "descending_affine_constant_Cmax": 421969,
+            "localized_inversion_gain_A": 155648,
+            "localized_inversion_gain_B": 356124,
+            "gain_ratio_B_over_A": 2.288008840460526,
+            "abstract_start_one_descends_under_A": false,
+            "abstract_start_one_descends_under_B": true,
+            "checks": {
+              "same_length_total_and_multiset": true,
+              "same_ordinary_inversion_count": true,
+              "closed_form_constant_a": true,
+              "closed_form_constant_b": true,
+              "closed_form_gain_a": true,
+              "closed_form_gain_b": true,
+              "abstract_word_b_descends_at_one": true,
+              "abstract_word_a_does_not_descend_at_one": true
+            }
+          }
+        ],
+        "finite_natural_first_descent_collision_scan": {
+          "odd_start_range": "3<=n<=100000",
+          "audited_odd_start_count": 49999,
+          "coarse_signature_count": 3862,
+          "ambiguous_coarse_signature_count": 677,
+          "sampled_ambiguous_start_count": 2029,
+          "sample_ambiguous_signature_rows": [
+            {
+              "word_length_m": 10,
+              "total_valuation_S": 16,
+              "descending_multiset": [
+                3,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "ordinary_inversion_count": 23,
+              "distinct_localized_gain_count": 19,
+              "minimum_localized_gain": 673906,
+              "maximum_localized_gain": 690186,
+              "examples": [
+                {
+                  "initial_odd_start_n": 3695,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    3,
+                    1,
+                    2,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 677650
+                },
+                {
+                  "initial_odd_start_n": 3815,
+                  "valuation_word": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    3,
+                    2,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 685642
+                },
+                {
+                  "initial_odd_start_n": 14363,
+                  "valuation_word": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    3,
+                    2,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 680350
+                },
+                {
+                  "initial_odd_start_n": 27879,
+                  "valuation_word": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    2,
+                    2,
+                    1,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 689226
+                },
+                {
+                  "initial_odd_start_n": 28447,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    3,
+                    2,
+                    1,
+                    2,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 674626
+                }
+              ]
+            },
+            {
+              "word_length_m": 10,
+              "total_valuation_S": 16,
+              "descending_multiset": [
+                3,
+                3,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "ordinary_inversion_count": 22,
+              "distinct_localized_gain_count": 19,
+              "minimum_localized_gain": 971842,
+              "maximum_localized_gain": 990762,
+              "examples": [
+                {
+                  "initial_odd_start_n": 4319,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    2,
+                    1,
+                    1,
+                    2,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 980706
+                },
+                {
+                  "initial_odd_start_n": 4379,
+                  "valuation_word": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    2,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 984702
+                },
+                {
+                  "initial_odd_start_n": 5087,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    2,
+                    1,
+                    3,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 979426
+                },
+                {
+                  "initial_odd_start_n": 17391,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    3,
+                    2,
+                    1,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 986226
+                },
+                {
+                  "initial_odd_start_n": 19151,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    1,
+                    2,
+                    3,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 972370
+                }
+              ]
+            },
+            {
+              "word_length_m": 10,
+              "total_valuation_S": 16,
+              "descending_multiset": [
+                3,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "ordinary_inversion_count": 22,
+              "distinct_localized_gain_count": 18,
+              "minimum_localized_gain": 666994,
+              "maximum_localized_gain": 684042,
+              "examples": [
+                {
+                  "initial_odd_start_n": 603,
+                  "valuation_word": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    2,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 681438
+                },
+                {
+                  "initial_odd_start_n": 1351,
+                  "valuation_word": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2,
+                    3,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 678826
+                },
+                {
+                  "initial_odd_start_n": 3535,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    2,
+                    1,
+                    2,
+                    2,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 666994
+                },
+                {
+                  "initial_odd_start_n": 10727,
+                  "valuation_word": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    3,
+                    1,
+                    2,
+                    2,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 674122
+                },
+                {
+                  "initial_odd_start_n": 13615,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    2,
+                    2,
+                    1,
+                    2,
+                    1,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 682962
+                }
+              ]
+            },
+            {
+              "word_length_m": 10,
+              "total_valuation_S": 16,
+              "descending_multiset": [
+                3,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "ordinary_inversion_count": 21,
+              "distinct_localized_gain_count": 15,
+              "minimum_localized_gain": 657778,
+              "maximum_localized_gain": 676266,
+              "examples": [
+                {
+                  "initial_odd_start_n": 2887,
+                  "valuation_word": [
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 676266
+                },
+                {
+                  "initial_odd_start_n": 24731,
+                  "valuation_word": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2,
+                    3,
+                    1,
+                    2,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 663070
+                },
+                {
+                  "initial_odd_start_n": 28327,
+                  "valuation_word": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    3,
+                    1,
+                    2,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 666634
+                },
+                {
+                  "initial_odd_start_n": 35279,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    2,
+                    2,
+                    1,
+                    2,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 657778
+                },
+                {
+                  "initial_odd_start_n": 40187,
+                  "valuation_word": [
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2,
+                    3,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 670078
+                }
+              ]
+            },
+            {
+              "word_length_m": 10,
+              "total_valuation_S": 16,
+              "descending_multiset": [
+                3,
+                3,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "ordinary_inversion_count": 23,
+              "distinct_localized_gain_count": 15,
+              "minimum_localized_gain": 980562,
+              "maximum_localized_gain": 996594,
+              "examples": [
+                {
+                  "initial_odd_start_n": 17511,
+                  "valuation_word": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    3,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 994218
+                },
+                {
+                  "initial_odd_start_n": 39919,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    3,
+                    1,
+                    2,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 992370
+                },
+                {
+                  "initial_odd_start_n": 40687,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3,
+                    3,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 991090
+                },
+                {
+                  "initial_odd_start_n": 54751,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    2,
+                    3,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 984034
+                },
+                {
+                  "initial_odd_start_n": 63519,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    3,
+                    1,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 991266
+                }
+              ]
+            },
+            {
+              "word_length_m": 10,
+              "total_valuation_S": 16,
+              "descending_multiset": [
+                3,
+                3,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "ordinary_inversion_count": 21,
+              "distinct_localized_gain_count": 14,
+              "minimum_localized_gain": 964066,
+              "maximum_localized_gain": 985578,
+              "examples": [
+                {
+                  "initial_odd_start_n": 6703,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    1,
+                    3,
+                    1,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 982194
+                },
+                {
+                  "initial_odd_start_n": 14303,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    3,
+                    1,
+                    2,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 964066
+                },
+                {
+                  "initial_odd_start_n": 20687,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 969810
+                },
+                {
+                  "initial_odd_start_n": 51055,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    3,
+                    1,
+                    1,
+                    3,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 973810
+                },
+                {
+                  "initial_odd_start_n": 60955,
+                  "valuation_word": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    2,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 977790
+                }
+              ]
+            },
+            {
+              "word_length_m": 10,
+              "total_valuation_S": 17,
+              "descending_multiset": [
+                4,
+                3,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "ordinary_inversion_count": 22,
+              "distinct_localized_gain_count": 12,
+              "minimum_localized_gain": 2023026,
+              "maximum_localized_gain": 2045618,
+              "examples": [
+                {
+                  "initial_odd_start_n": 19099,
+                  "valuation_word": [
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    3,
+                    4
+                  ],
+                  "localized_inversion_gain_G": 2042054
+                },
+                {
+                  "initial_odd_start_n": 22695,
+                  "valuation_word": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    3,
+                    4
+                  ],
+                  "localized_inversion_gain_G": 2045618
+                },
+                {
+                  "initial_odd_start_n": 23143,
+                  "valuation_word": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    4,
+                    1,
+                    2,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 2023026
+                },
+                {
+                  "initial_odd_start_n": 34255,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    2,
+                    1,
+                    1,
+                    2,
+                    4
+                  ],
+                  "localized_inversion_gain_G": 2029082
+                },
+                {
+                  "initial_odd_start_n": 36639,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    3,
+                    2,
+                    1,
+                    1,
+                    4
+                  ],
+                  "localized_inversion_gain_G": 2030570
+                }
+              ]
+            },
+            {
+              "word_length_m": 10,
+              "total_valuation_S": 16,
+              "descending_multiset": [
+                4,
+                3,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "ordinary_inversion_count": 20,
+              "distinct_localized_gain_count": 11,
+              "minimum_localized_gain": 1367562,
+              "maximum_localized_gain": 1387066,
+              "examples": [
+                {
+                  "initial_odd_start_n": 1183,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    4,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 1386858
+                },
+                {
+                  "initial_odd_start_n": 4335,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    4
+                  ],
+                  "localized_inversion_gain_G": 1387066
+                },
+                {
+                  "initial_odd_start_n": 30079,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    4,
+                    1,
+                    3,
+                    2
+                  ],
+                  "localized_inversion_gain_G": 1371466
+                },
+                {
+                  "initial_odd_start_n": 36159,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    3,
+                    1,
+                    2,
+                    1,
+                    4
+                  ],
+                  "localized_inversion_gain_G": 1383178
+                },
+                {
+                  "initial_odd_start_n": 38847,
+                  "valuation_word": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2,
+                    1,
+                    4,
+                    1,
+                    3
+                  ],
+                  "localized_inversion_gain_G": 1378698
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "audited_odd_start_count_is_exact": true,
+            "natural_scan_contains_coarse_signature_collisions": true,
+            "natural_scan_samples_are_nonempty": true
+          }
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The no-go family is an exact affine valuation-word statement, not a divergent Collatz orbit. Position-weighted gain remains exact, but no theorem forces every natural valuation ray to cross its affine threshold.",
+      "route_decision": {
+        "discard": "replacing the exact position-weighted inversion gain by word length, valuation sum, multiset, and ordinary inversion count",
+        "retain": "derive a prefix-localized gain process on natural valuation rays and prove an eventual affine-threshold crossing theorem",
+        "next_theorem": "NaturalValuationPrefixLocalizedGainCrossesAffineThresholdOnEveryRay"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T158-REJECTED",
+            "label": "CoarseInversionCountDeterminesCollatzAffineGain",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T158-CLOSED",
+            "label": "LocalizedInversionGainAndCoarseStatisticNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T158-OPEN",
+            "label": "NaturalValuationPrefixLocalizedGainCrossesAffineThresholdOnEveryRay",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T158-REJECTED",
+            "CO-T158-CLOSED"
+          ],
+          [
+            "CO-T158-CLOSED",
+            "CO-T158-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit. One infinite abstract word counterfamily and a natural first-descent collision audit through 100,000."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-158",
+      "theorem_name": "MovingAverageVariationProxyAndSharpnessNoGo",
+      "declared_proposition": "For a cyclic complex sequence w of length L, let A_b w be its trailing average over b consecutive coordinates and TV(w)=sum_k|w_k-w_(k-1)|. Then ||w-A_b w||_1<=(b-1)TV(w)/2, and therefore N_-(w)<=N_-(A_b w)+(b-1)TV(w)/2. The residual constant is sharp: an alternating +/-1 sequence with b=2 attains equality. This replaces an uncontrolled L1 proxy residual by an explicit phase-variation obligation, but does not itself provide the required arithmetic variation bound.",
+      "mathematical_argument": "Write w_k-(A_b w)_k as b^-1 times the sum over j=1,...,b-1 of w_k-w_(k-j). Each difference is bounded by the j adjacent cyclic increments on its path. Summing first over k and then over j gives b^-1 sum_j j TV(w)=(b-1)TV(w)/2. Apply the TICKET-157 one-Lipschitz negative-mass inequality. For the alternating sequence A_2 w=0, the residual L1 is L and TV(w)=2L, so equality holds.",
+      "reproducible_computation": {
+        "theorem": "For a cyclic complex sequence w of length L, let A_b w be its trailing average over b consecutive coordinates and TV(w)=sum_k|w_k-w_(k-1)|. Then ||w-A_b w||_1<=(b-1)TV(w)/2, and therefore N_-(w)<=N_-(A_b w)+(b-1)TV(w)/2. The residual constant is sharp: an alternating +/-1 sequence with b=2 attains equality. This replaces an uncontrolled L1 proxy residual by an explicit phase-variation obligation, but does not itself provide the required arithmetic variation bound.",
+        "proof": "Write w_k-(A_b w)_k as b^-1 times the sum over j=1,...,b-1 of w_k-w_(k-j). Each difference is bounded by the j adjacent cyclic increments on its path. Summing first over k and then over j gives b^-1 sum_j j TV(w)=(b-1)TV(w)/2. Apply the TICKET-157 one-Lipschitz negative-mass inequality. For the alternating sequence A_2 w=0, the residual L1 is L and TV(w)=2L, so equality holds.",
+        "finite_goldbach_variation_proxy_rows": [
+          {
+            "even_endpoint_N": 1000,
+            "transform_size_L": 2048,
+            "major_signed_mass": 1513.6023307338382,
+            "actual_minor_negative_mass": 776.8718951616396,
+            "masked_minor_cyclic_total_variation": 3382.8861533222994,
+            "unordered_prime_pair_representations": 28,
+            "moving_average_variation_rows": [
+              {
+                "moving_average_width_b": 2,
+                "proxy_negative_mass": 666.6509723796504,
+                "actual_complex_residual_l1": 1691.4430766611497,
+                "variation_residual_upper_bound": 1691.4430766611497,
+                "stable_negative_mass_upper_bound": 2358.0940490408,
+                "certificate_lower_bound": -844.491718306962,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 4,
+                "proxy_negative_mass": 559.8238663955063,
+                "actual_complex_residual_l1": 2625.1893014480256,
+                "variation_residual_upper_bound": 5074.329229983449,
+                "stable_negative_mass_upper_bound": 5634.1530963789555,
+                "certificate_lower_bound": -4120.550765645117,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 8,
+                "proxy_negative_mass": 453.46309525646296,
+                "actual_complex_residual_l1": 3019.7576550415074,
+                "variation_residual_upper_bound": 11840.101536628048,
+                "stable_negative_mass_upper_bound": 12293.56463188451,
+                "certificate_lower_bound": -10779.962301150672,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              }
+            ]
+          },
+          {
+            "even_endpoint_N": 2000,
+            "transform_size_L": 4096,
+            "major_signed_mass": 2836.0047695459302,
+            "actual_minor_negative_mass": 2187.5841849585,
+            "masked_minor_cyclic_total_variation": 8348.2311494287,
+            "unordered_prime_pair_representations": 37,
+            "moving_average_variation_rows": [
+              {
+                "moving_average_width_b": 2,
+                "proxy_negative_mass": 1968.7571152031796,
+                "actual_complex_residual_l1": 4174.11557471435,
+                "variation_residual_upper_bound": 4174.11557471435,
+                "stable_negative_mass_upper_bound": 6142.87268991753,
+                "certificate_lower_bound": -3306.8679203715997,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 4,
+                "proxy_negative_mass": 1718.2841249129435,
+                "actual_complex_residual_l1": 6667.295659754509,
+                "variation_residual_upper_bound": 12522.346724143052,
+                "stable_negative_mass_upper_bound": 14240.630849055995,
+                "certificate_lower_bound": -11404.626079510064,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 8,
+                "proxy_negative_mass": 1452.9731730528374,
+                "actual_complex_residual_l1": 7732.044277323321,
+                "variation_residual_upper_bound": 29218.809023000453,
+                "stable_negative_mass_upper_bound": 30671.78219605329,
+                "certificate_lower_bound": -27835.77742650736,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              }
+            ]
+          },
+          {
+            "even_endpoint_N": 4000,
+            "transform_size_L": 8192,
+            "major_signed_mass": 6078.704598621174,
+            "actual_minor_negative_mass": 5156.486200682449,
+            "masked_minor_cyclic_total_variation": 19648.082460988666,
+            "unordered_prime_pair_representations": 65,
+            "moving_average_variation_rows": [
+              {
+                "moving_average_width_b": 2,
+                "proxy_negative_mass": 4633.861315838662,
+                "actual_complex_residual_l1": 9824.041230494333,
+                "variation_residual_upper_bound": 9824.041230494333,
+                "stable_negative_mass_upper_bound": 14457.902546332996,
+                "certificate_lower_bound": -8379.197947711822,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 4,
+                "proxy_negative_mass": 4044.2269548369936,
+                "actual_complex_residual_l1": 15922.140355532942,
+                "variation_residual_upper_bound": 29472.123691483,
+                "stable_negative_mass_upper_bound": 33516.350646319996,
+                "certificate_lower_bound": -27437.64604769882,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 8,
+                "proxy_negative_mass": 3472.276329812067,
+                "actual_complex_residual_l1": 18466.203773814213,
+                "variation_residual_upper_bound": 68768.28861346033,
+                "stable_negative_mass_upper_bound": 72240.5649432724,
+                "certificate_lower_bound": -66161.86034465123,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              }
+            ]
+          },
+          {
+            "even_endpoint_N": 8000,
+            "transform_size_L": 16384,
+            "major_signed_mass": 11829.959922662785,
+            "actual_minor_negative_mass": 12033.845290816733,
+            "masked_minor_cyclic_total_variation": 45121.93494473363,
+            "unordered_prime_pair_representations": 106,
+            "moving_average_variation_rows": [
+              {
+                "moving_average_width_b": 2,
+                "proxy_negative_mass": 10907.108545198751,
+                "actual_complex_residual_l1": 22560.967472366814,
+                "variation_residual_upper_bound": 22560.967472366814,
+                "stable_negative_mass_upper_bound": 33468.07601756557,
+                "certificate_lower_bound": -21638.116094902784,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 4,
+                "proxy_negative_mass": 9629.739452564563,
+                "actual_complex_residual_l1": 37272.41419301924,
+                "variation_residual_upper_bound": 67682.90241710044,
+                "stable_negative_mass_upper_bound": 77312.641869665,
+                "certificate_lower_bound": -65482.681947002224,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 8,
+                "proxy_negative_mass": 8205.883397885682,
+                "actual_complex_residual_l1": 43716.85675295254,
+                "variation_residual_upper_bound": 157926.7723065677,
+                "stable_negative_mass_upper_bound": 166132.65570445338,
+                "certificate_lower_bound": -154302.6957817906,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              }
+            ]
+          },
+          {
+            "even_endpoint_N": 16000,
+            "transform_size_L": 32768,
+            "major_signed_mass": 24799.60441165435,
+            "actual_minor_negative_mass": 27394.48795801522,
+            "masked_minor_cyclic_total_variation": 104175.38127438384,
+            "unordered_prime_pair_representations": 191,
+            "moving_average_variation_rows": [
+              {
+                "moving_average_width_b": 2,
+                "proxy_negative_mass": 24747.88474048217,
+                "actual_complex_residual_l1": 52087.69063719192,
+                "variation_residual_upper_bound": 52087.69063719192,
+                "stable_negative_mass_upper_bound": 76835.57537767409,
+                "certificate_lower_bound": -52035.97096601974,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 4,
+                "proxy_negative_mass": 21835.993193450584,
+                "actual_complex_residual_l1": 85311.23261047494,
+                "variation_residual_upper_bound": 156263.07191157574,
+                "stable_negative_mass_upper_bound": 178099.06510502633,
+                "certificate_lower_bound": -153299.46069337198,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 8,
+                "proxy_negative_mass": 18897.976527265713,
+                "actual_complex_residual_l1": 100479.5406418843,
+                "variation_residual_upper_bound": 364613.8344603434,
+                "stable_negative_mass_upper_bound": 383511.81098760915,
+                "certificate_lower_bound": -358712.2065759548,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              }
+            ]
+          },
+          {
+            "even_endpoint_N": 32000,
+            "transform_size_L": 65536,
+            "major_signed_mass": 48507.37386062002,
+            "actual_minor_negative_mass": 62365.80986027828,
+            "masked_minor_cyclic_total_variation": 229700.10035305444,
+            "unordered_prime_pair_representations": 312,
+            "moving_average_variation_rows": [
+              {
+                "moving_average_width_b": 2,
+                "proxy_negative_mass": 56921.998463894946,
+                "actual_complex_residual_l1": 114850.05017652722,
+                "variation_residual_upper_bound": 114850.05017652722,
+                "stable_negative_mass_upper_bound": 171772.04864042217,
+                "certificate_lower_bound": -123264.67477980215,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 4,
+                "proxy_negative_mass": 50519.03728201207,
+                "actual_complex_residual_l1": 191134.28801272056,
+                "variation_residual_upper_bound": 344550.15052958165,
+                "stable_negative_mass_upper_bound": 395069.1878115937,
+                "certificate_lower_bound": -346561.8139509737,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              },
+              {
+                "moving_average_width_b": 8,
+                "proxy_negative_mass": 43569.872839546704,
+                "actual_complex_residual_l1": 226322.20095466587,
+                "variation_residual_upper_bound": 803950.3512356905,
+                "stable_negative_mass_upper_bound": 847520.2240752373,
+                "certificate_lower_bound": -799012.8502146173,
+                "certificate_passes": false,
+                "checks": {
+                  "moving_average_residual_obeys_variation_bound": true,
+                  "negative_mass_obeys_stability_and_variation_bound": true,
+                  "proxy_length_matches_frequency_grid": true
+                }
+              }
+            ]
+          }
+        ],
+        "exact_variation_constant_sharpness_rows": [
+          {
+            "dimension_m": 8,
+            "moving_average_width_b": 2,
+            "actual_residual_l1": 8.0,
+            "cyclic_total_variation": 16.0,
+            "variation_residual_upper_bound": 8.0,
+            "checks": {
+              "width_two_proxy_is_zero": true,
+              "residual_l1_equals_dimension": true,
+              "total_variation_equals_twice_dimension": true,
+              "variation_residual_bound_is_saturated": true
+            }
+          },
+          {
+            "dimension_m": 32,
+            "moving_average_width_b": 2,
+            "actual_residual_l1": 32.0,
+            "cyclic_total_variation": 64.0,
+            "variation_residual_upper_bound": 32.0,
+            "checks": {
+              "width_two_proxy_is_zero": true,
+              "residual_l1_equals_dimension": true,
+              "total_variation_equals_twice_dimension": true,
+              "variation_residual_bound_is_saturated": true
+            }
+          },
+          {
+            "dimension_m": 128,
+            "moving_average_width_b": 2,
+            "actual_residual_l1": 128.0,
+            "cyclic_total_variation": 256.0,
+            "variation_residual_upper_bound": 128.0,
+            "checks": {
+              "width_two_proxy_is_zero": true,
+              "residual_l1_equals_dimension": true,
+              "total_variation_equals_twice_dimension": true,
+              "variation_residual_bound_is_saturated": true
+            }
+          }
+        ],
+        "variation_proxy_certificate_counts": {
+          "2": 0,
+          "4": 0,
+          "8": 0
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The moving average is an explicit linear proxy and the variation inequality is exact, but the finite total variation values are observations. No uniform arithmetic minor-arc phase-variation bound or finite join is proved.",
+      "route_decision": {
+        "discard": "assuming smoothing gives a small L1 residual without paying the sharp total-variation term",
+        "retain": "bound the masked binary-Goldbach minor-arc phase variation arithmetically below the major margin and join it to finite verification",
+        "next_theorem": "ArithmeticMinorArcPhaseVariationBelowMajorMarginWithEffectiveFiniteJoin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T158-REJECTED",
+            "label": "MovingAverageSmoothingHasDimensionFreeUnpaidResidual",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T158-CLOSED",
+            "label": "MovingAverageVariationProxyAndSharpnessNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T158-OPEN",
+            "label": "ArithmeticMinorArcPhaseVariationBelowMajorMarginWithEffectiveFiniteJoin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T158-REJECTED",
+            "GB-T158-CLOSED"
+          ],
+          [
+            "GB-T158-CLOSED",
+            "GB-T158-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact variation proxy theorem, a sharp alternating no-go family, and six finite phase-variation diagnostics."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-158",
+      "theorem_name": "SignedInformationBudgetAndDirectionBlindnessNoGo",
+      "declared_proposition": "Write each cubic-rough conditional semiprime fraction as q_i=p_i+delta_i. Then M/R=sum_i p_i+sum_i delta_i exactly. For an upper bound only positive shifts require a Pinsker budget: M/R<=sum_i p_i+sum_(delta_i>0) sqrt(I_i/(2rho_i)). This is never weaker than charging both absolute shifts. However mutual information, p, and rho do not determine the sign: at p=rho=1/2, the tables with q=1/2+delta and q=1/2-delta have identical mutual information and opposite conditional shifts.",
+      "mathematical_argument": "The signed decomposition is algebra. Negative delta_i can only lower the target upper bound, while Pinsker bounds each positive delta_i by sqrt(I_i/(2rho_i)). For the no-go pair, the complement conditional is 1-q and mutual information is KL(Ber(q)||Ber(1/2)); binary entropy is symmetric under q->1-q. Thus an information-only argument cannot claim an anticorrelation credit without an independently proved sign.",
+      "reproducible_computation": {
+        "theorem": "Write each cubic-rough conditional semiprime fraction as q_i=p_i+delta_i. Then M/R=sum_i p_i+sum_i delta_i exactly. For an upper bound only positive shifts require a Pinsker budget: M/R<=sum_i p_i+sum_(delta_i>0) sqrt(I_i/(2rho_i)). This is never weaker than charging both absolute shifts. However mutual information, p, and rho do not determine the sign: at p=rho=1/2, the tables with q=1/2+delta and q=1/2-delta have identical mutual information and opposite conditional shifts.",
+        "proof": "The signed decomposition is algebra. Negative delta_i can only lower the target upper bound, while Pinsker bounds each positive delta_i by sqrt(I_i/(2rho_i)). For the no-go pair, the complement conditional is 1-q and mutual information is KL(Ber(q)||Ber(1/2)); binary entropy is symmetric under q->1-q. Thus an information-only argument cannot claim an anticorrelation credit without an independently proved sign.",
+        "finite_directional_information_margin_rows": [
+          {
+            "X": 1000,
+            "ambient_semiprime_sum": {
+              "exact": "126/227",
+              "decimal": 0.5550660792951542
+            },
+            "actual_conditional_incidence_M_over_R": {
+              "exact": "41/70",
+              "decimal": 0.5857142857142857
+            },
+            "left_signed_shift": {
+              "exact": "-162/7945",
+              "decimal": -0.02039018250471995
+            },
+            "right_signed_shift": {
+              "exact": "811/15890",
+              "decimal": 0.05103838892385148
+            },
+            "absolute_pinsker_budget": 0.09540855193332659,
+            "positive_shift_only_pinsker_budget": 0.06790994256797128,
+            "absolute_information_upper_ratio": 0.6504746312284808,
+            "directional_information_upper_ratio": 0.6229760218631255,
+            "directional_budget_saving": 0.02749860936535531,
+            "directional_certificate_slack": 0.3770239781368745,
+            "checks": {
+              "exact_signed_decomposition_holds": true,
+              "actual_ratio_is_below_directional_upper": true,
+              "directional_budget_never_exceeds_absolute_budget": true,
+              "directional_certificate_is_below_one": true
+            }
+          },
+          {
+            "X": 10000,
+            "ambient_semiprime_sum": {
+              "exact": "163/285",
+              "decimal": 0.5719298245614035
+            },
+            "actual_conditional_incidence_M_over_R": {
+              "exact": "112/195",
+              "decimal": 0.5743589743589743
+            },
+            "left_signed_shift": {
+              "exact": "-1/741",
+              "decimal": -0.001349527665317139
+            },
+            "right_signed_shift": {
+              "exact": "14/3705",
+              "decimal": 0.003778677462887989
+            },
+            "absolute_pinsker_budget": 0.00645465923160621,
+            "positive_shift_only_pinsker_budget": 0.004754492738212314,
+            "absolute_information_upper_ratio": 0.5783844837930098,
+            "directional_information_upper_ratio": 0.5766843172996158,
+            "directional_budget_saving": 0.0017001664933938955,
+            "directional_certificate_slack": 0.4233156827003842,
+            "checks": {
+              "exact_signed_decomposition_holds": true,
+              "actual_ratio_is_below_directional_upper": true,
+              "directional_budget_never_exceeds_absolute_budget": true,
+              "directional_certificate_is_below_one": true
+            }
+          },
+          {
+            "X": 100000,
+            "ambient_semiprime_sum": {
+              "exact": "9250/14203",
+              "decimal": 0.6512708582693797
+            },
+            "actual_conditional_incidence_M_over_R": {
+              "exact": "1747/2681",
+              "decimal": 0.6516225289071242
+            },
+            "left_signed_shift": {
+              "exact": "-34551/5439749",
+              "decimal": -0.006351579824730884
+            },
+            "right_signed_shift": {
+              "exact": "36464/5439749",
+              "decimal": 0.006703250462475383
+            },
+            "absolute_pinsker_budget": 0.01546435174584963,
+            "positive_shift_only_pinsker_budget": 0.007930228656236216,
+            "absolute_information_upper_ratio": 0.6667352100152293,
+            "directional_information_upper_ratio": 0.659201086925616,
+            "directional_budget_saving": 0.007534123089613414,
+            "directional_certificate_slack": 0.34079891307438404,
+            "checks": {
+              "exact_signed_decomposition_holds": true,
+              "actual_ratio_is_below_directional_upper": true,
+              "directional_budget_never_exceeds_absolute_budget": true,
+              "directional_certificate_is_below_one": true
+            }
+          },
+          {
+            "X": 1000000,
+            "ambient_semiprime_sum": {
+              "exact": "84572/120759",
+              "decimal": 0.7003370349207927
+            },
+            "actual_conditional_incidence_M_over_R": {
+              "exact": "3397/4824",
+              "decimal": 0.7041873963515755
+            },
+            "left_signed_shift": {
+              "exact": "1857607/776721888",
+              "decimal": 0.0023915986258391626
+            },
+            "right_signed_shift": {
+              "exact": "1133053/776721888",
+              "decimal": 0.0014587628049436403
+            },
+            "absolute_pinsker_budget": 0.004401309495858023,
+            "positive_shift_only_pinsker_budget": 0.004401309495858023,
+            "absolute_information_upper_ratio": 0.7047383444166507,
+            "directional_information_upper_ratio": 0.7047383444166507,
+            "directional_budget_saving": 0.0,
+            "directional_certificate_slack": 0.29526165558334927,
+            "checks": {
+              "exact_signed_decomposition_holds": true,
+              "actual_ratio_is_below_directional_upper": true,
+              "directional_budget_never_exceeds_absolute_budget": true,
+              "directional_certificate_is_below_one": true
+            }
+          },
+          {
+            "X": 10000000,
+            "ambient_semiprime_sum": {
+              "exact": "749734/1039399",
+              "decimal": 0.72131491371456
+            },
+            "actual_conditional_incidence_M_over_R": {
+              "exact": "103016/142907",
+              "decimal": 0.72086041971352
+            },
+            "left_signed_shift": {
+              "exact": "-11927298/148537392893",
+              "decimal": -8.029828562153313e-05
+            },
+            "right_signed_shift": {
+              "exact": "-55582056/148537392893",
+              "decimal": -0.000374195715418534
+            },
+            "absolute_pinsker_budget": 0.0005095954665527724,
+            "positive_shift_only_pinsker_budget": 0,
+            "absolute_information_upper_ratio": 0.7218245091811128,
+            "directional_information_upper_ratio": 0.72131491371456,
+            "directional_budget_saving": 0.0005095954665527724,
+            "directional_certificate_slack": 0.27868508628544,
+            "checks": {
+              "exact_signed_decomposition_holds": true,
+              "actual_ratio_is_below_directional_upper": true,
+              "directional_budget_never_exceeds_absolute_budget": true,
+              "directional_certificate_is_below_one": true
+            }
+          }
+        ],
+        "exact_information_direction_blindness_rows": [
+          {
+            "ambient_label_fraction_p": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "selection_probability_rho": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "positive_conditional_fraction": {
+              "exact": "5/8",
+              "decimal": 0.625
+            },
+            "negative_conditional_fraction": {
+              "exact": "3/8",
+              "decimal": 0.375
+            },
+            "positive_conditional_shift": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "negative_conditional_shift": {
+              "exact": "-1/8",
+              "decimal": -0.125
+            },
+            "shared_mutual_information_nats": 0.03158394240196326,
+            "checks": {
+              "same_ambient_fraction": true,
+              "same_selection_probability": true,
+              "mutual_information_is_identical": true,
+              "conditional_shifts_have_opposite_sign": true
+            }
+          },
+          {
+            "ambient_label_fraction_p": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "selection_probability_rho": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "positive_conditional_fraction": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "negative_conditional_fraction": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "positive_conditional_shift": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "negative_conditional_shift": {
+              "exact": "-1/4",
+              "decimal": -0.25
+            },
+            "shared_mutual_information_nats": 0.13081203594113697,
+            "checks": {
+              "same_ambient_fraction": true,
+              "same_selection_probability": true,
+              "mutual_information_is_identical": true,
+              "conditional_shifts_have_opposite_sign": true
+            }
+          },
+          {
+            "ambient_label_fraction_p": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "selection_probability_rho": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "positive_conditional_fraction": {
+              "exact": "7/8",
+              "decimal": 0.875
+            },
+            "negative_conditional_fraction": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "positive_conditional_shift": {
+              "exact": "3/8",
+              "decimal": 0.375
+            },
+            "negative_conditional_shift": {
+              "exact": "-3/8",
+              "decimal": -0.375
+            },
+            "shared_mutual_information_nats": 0.3163770193035085,
+            "checks": {
+              "same_ambient_fraction": true,
+              "same_selection_probability": true,
+              "mutual_information_is_identical": true,
+              "conditional_shifts_have_opposite_sign": true
+            }
+          }
+        ],
+        "finite_directional_certificate_count": 5,
+        "finite_rows_with_strict_directional_saving": 4,
+        "failure_count": 0
+      },
+      "logical_limit": "The five finite rows have known empirical shift signs, but mutual information alone cannot certify those signs uniformly. A post-cutoff theorem must bound positive shifts or prove semiprime anticorrelation.",
+      "route_decision": {
+        "discard": "charging proved negative shifts as adverse errors, or inferring a favorable shift sign from unsigned mutual information",
+        "retain": "prove a uniform budget only for positive cubic-rough semiprime shifts, or prove the relevant shifts are nonpositive after an effective cutoff",
+        "next_theorem": "UniformPositiveCubicRoughInformationBudgetOrSemiprimeAnticorrelationAfterEffectiveCutoff"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T158-REJECTED",
+            "label": "UnsignedMutualInformationDeterminesConditionalShiftSign",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T158-CLOSED",
+            "label": "SignedInformationBudgetAndDirectionBlindnessNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T158-OPEN",
+            "label": "UniformPositiveCubicRoughInformationBudgetOrSemiprimeAnticorrelationAfterEffectiveCutoff",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T158-REJECTED",
+            "TP-T158-CLOSED"
+          ],
+          [
+            "TP-T158-CLOSED",
+            "TP-T158-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no counterexample. One exact signed information reduction, three direction-blindness counterpairs, and five finite directional certificates."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Groskin, A finite Guinand-Weil dictionary and archimedean tail order for the truncated Weil quadratic form, 2026",
+        "url": "https://arxiv.org/abs/2607.02828",
+        "role": "Supplies the fixed-(c,N) positive archimedean tail context. PrimeProject does not claim its theorem as new and does not import its asymptotic indicator as an exact interval certificate."
+      },
+      {
+        "citation": "Suzuki, Weil's quadratic form via the screw function, 2026",
+        "url": "https://arxiv.org/abs/2606.09096",
+        "role": "Independent continuous-function context for the Weil form; the proposed limit operator remains separate from this ticket's abstract budget composition."
+      },
+      {
+        "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values",
+        "url": "https://arxiv.org/abs/1909.03562",
+        "role": "Almost-all progress does not supply the pointwise prefix-localized gain theorem."
+      },
+      {
+        "citation": "Helfgott, The ternary Goldbach problem",
+        "url": "https://arxiv.org/abs/1501.05438",
+        "role": "Primary explicit major/minor-arc context; this ticket does not transfer ternary estimates to binary Goldbach."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary Type I/II lower-bound context. The finite directional information audit is not a replacement for the missing shifted-prime lower bound."
+      }
+    ],
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-158",
+      "attempt": "Let V_N be a nested form core. On V_N suppose q_c,N,infty and q_c,N,T satisfy 0<=q_c,N,infty-q_c,N,T<=B_c,N,T||f||^2, and suppose the full form satisfies |q-q_c,N,infty|<=A_c,N||f||^2. Then q(f)>=q_c,N,T(f)-A_c,N||f||^2 and q(f)<=q_c,N,T(f)+(A_c,N+B_c,N,T)||f||^2. Hence positivity of every nested finite form above A_c,N promotes to q>=0, while a value below -(A_c,N+B_c,N,T) certifies a negative direction. Driving only B_c,N,T to zero cannot close the argument when A_c,N is uncontrolled.",
+      "bounded_result": {
+        "audit_ref": "two_cutoff_localized_variation_directional_audit.riemann"
+      },
+      "obstruction": "The July 2026 archimedean tail-order theorem supplies the fixed-(c,N) B axis, but PrimeProject has not proved the prime/band remainder A_c,N, a joint (c,N,T) schedule, or positivity on every member of an explicit nested Weil form core.",
+      "candidate_theorem": "UniformPrimeBandRemainderOnExplicitNestedWeilCoreWithJointCutoffSchedule",
+      "next_experiment": "combine the published positive archimedean tail with a new uniform prime/band remainder on a nested explicit Weil core and a joint cutoff schedule",
+      "claim_boundary": "No RH proof and no off-critical zero. One exact two-cutoff composition theorem, scalar single-cutoff counterfamily, and noncertifying literature scaling audit."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-158",
+      "attempt": "The exact Collatz inversion gain is localized: it is not a function of word length m, valuation sum S, the valuation multiset, and ordinary inversion count. For every K>=6, A_K=(K,1,1,1,2) and B_K=(2,1,1,K,1) share all four coarse statistics and have inversion count three, but C(A_K)=81+65*2^K and C(B_K)=309+16*2^K. Relative to the same descending word their gains are 38*2^K and 87*2^K-228. At the abstract start n=1, B_K satisfies the affine descent inequality while A_K does not.",
+      "bounded_result": {
+        "audit_ref": "two_cutoff_localized_variation_directional_audit.collatz"
+      },
+      "obstruction": "The no-go family is an exact affine valuation-word statement, not a divergent Collatz orbit. Position-weighted gain remains exact, but no theorem forces every natural valuation ray to cross its affine threshold.",
+      "candidate_theorem": "NaturalValuationPrefixLocalizedGainCrossesAffineThresholdOnEveryRay",
+      "next_experiment": "derive a prefix-localized gain process on natural valuation rays and prove an eventual affine-threshold crossing theorem",
+      "claim_boundary": "No Collatz proof and no divergent orbit. One infinite abstract word counterfamily and a natural first-descent collision audit through 100,000."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-158",
+      "attempt": "For a cyclic complex sequence w of length L, let A_b w be its trailing average over b consecutive coordinates and TV(w)=sum_k|w_k-w_(k-1)|. Then ||w-A_b w||_1<=(b-1)TV(w)/2, and therefore N_-(w)<=N_-(A_b w)+(b-1)TV(w)/2. The residual constant is sharp: an alternating +/-1 sequence with b=2 attains equality. This replaces an uncontrolled L1 proxy residual by an explicit phase-variation obligation, but does not itself provide the required arithmetic variation bound.",
+      "bounded_result": {
+        "audit_ref": "two_cutoff_localized_variation_directional_audit.goldbach"
+      },
+      "obstruction": "The moving average is an explicit linear proxy and the variation inequality is exact, but the finite total variation values are observations. No uniform arithmetic minor-arc phase-variation bound or finite join is proved.",
+      "candidate_theorem": "ArithmeticMinorArcPhaseVariationBelowMajorMarginWithEffectiveFiniteJoin",
+      "next_experiment": "bound the masked binary-Goldbach minor-arc phase variation arithmetically below the major margin and join it to finite verification",
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact variation proxy theorem, a sharp alternating no-go family, and six finite phase-variation diagnostics."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-158",
+      "attempt": "Write each cubic-rough conditional semiprime fraction as q_i=p_i+delta_i. Then M/R=sum_i p_i+sum_i delta_i exactly. For an upper bound only positive shifts require a Pinsker budget: M/R<=sum_i p_i+sum_(delta_i>0) sqrt(I_i/(2rho_i)). This is never weaker than charging both absolute shifts. However mutual information, p, and rho do not determine the sign: at p=rho=1/2, the tables with q=1/2+delta and q=1/2-delta have identical mutual information and opposite conditional shifts.",
+      "bounded_result": {
+        "audit_ref": "two_cutoff_localized_variation_directional_audit.twin_prime"
+      },
+      "obstruction": "The five finite rows have known empirical shift signs, but mutual information alone cannot certify those signs uniformly. A post-cutoff theorem must bound positive shifts or prove semiprime anticorrelation.",
+      "candidate_theorem": "UniformPositiveCubicRoughInformationBudgetOrSemiprimeAnticorrelationAfterEffectiveCutoff",
+      "next_experiment": "prove a uniform budget only for positive cubic-rough semiprime shifts, or prove the relevant shifts are nonpositive after an effective cutoff",
+      "claim_boundary": "No Twin Prime proof and no counterexample. One exact signed information reduction, three direction-blindness counterpairs, and five finite directional certificates."
+    }
+  ]
+}

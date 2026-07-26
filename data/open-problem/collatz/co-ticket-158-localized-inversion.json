@@ -1,0 +1,1042 @@
+{
+  "schema": "primeproject.ticket158-two-cutoff-localized-variation-directional.v1",
+  "generated_at": "2026-07-26T20:10:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-158",
+  "attempt": "The exact Collatz inversion gain is localized: it is not a function of word length m, valuation sum S, the valuation multiset, and ordinary inversion count. For every K>=6, A_K=(K,1,1,1,2) and B_K=(2,1,1,K,1) share all four coarse statistics and have inversion count three, but C(A_K)=81+65*2^K and C(B_K)=309+16*2^K. Relative to the same descending word their gains are 38*2^K and 87*2^K-228. At the abstract start n=1, B_K satisfies the affine descent inequality while A_K does not.",
+  "bounded_result": {
+    "audit_ref": "two_cutoff_localized_variation_directional_audit.collatz"
+  },
+  "obstruction": "The no-go family is an exact affine valuation-word statement, not a divergent Collatz orbit. Position-weighted gain remains exact, but no theorem forces every natural valuation ray to cross its affine threshold.",
+  "candidate_theorem": "NaturalValuationPrefixLocalizedGainCrossesAffineThresholdOnEveryRay",
+  "next_experiment": "derive a prefix-localized gain process on natural valuation rays and prove an eventual affine-threshold crossing theorem",
+  "claim_boundary": "No Collatz proof and no divergent orbit. One infinite abstract word counterfamily and a natural first-descent collision audit through 100,000.",
+  "result": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-158",
+    "theorem_name": "LocalizedInversionGainAndCoarseStatisticNoGo",
+    "declared_proposition": "The exact Collatz inversion gain is localized: it is not a function of word length m, valuation sum S, the valuation multiset, and ordinary inversion count. For every K>=6, A_K=(K,1,1,1,2) and B_K=(2,1,1,K,1) share all four coarse statistics and have inversion count three, but C(A_K)=81+65*2^K and C(B_K)=309+16*2^K. Relative to the same descending word their gains are 38*2^K and 87*2^K-228. At the abstract start n=1, B_K satisfies the affine descent inequality while A_K does not.",
+    "mathematical_argument": "Direct substitution in C(w)=sum_j 3^(m-j)2^(a_1+...+a_(j-1)) gives the two closed forms. Their common descending arrangement has Cmax=81+103*2^K. Subtraction gives the gains. Both words have exactly three pairs a_i<a_j. Their common denominator is D=2^(K+5)-243. For K>=6, 309+16*2^K<D, while 81+65*2^K>D. Thus any route replacing the position-weighted gain by ordinary inversion count loses information required even by the affine word inequality.",
+    "reproducible_computation": {
+      "theorem": "The exact Collatz inversion gain is localized: it is not a function of word length m, valuation sum S, the valuation multiset, and ordinary inversion count. For every K>=6, A_K=(K,1,1,1,2) and B_K=(2,1,1,K,1) share all four coarse statistics and have inversion count three, but C(A_K)=81+65*2^K and C(B_K)=309+16*2^K. Relative to the same descending word their gains are 38*2^K and 87*2^K-228. At the abstract start n=1, B_K satisfies the affine descent inequality while A_K does not.",
+      "proof": "Direct substitution in C(w)=sum_j 3^(m-j)2^(a_1+...+a_(j-1)) gives the two closed forms. Their common descending arrangement has Cmax=81+103*2^K. Subtraction gives the gains. Both words have exactly three pairs a_i<a_j. Their common denominator is D=2^(K+5)-243. For K>=6, 309+16*2^K<D, while 81+65*2^K>D. Thus any route replacing the position-weighted gain by ordinary inversion count loses information required even by the affine word inequality.",
+      "parametric_coarse_inversion_no_go_rows": [
+        {
+          "large_valuation_K": 6,
+          "word_A": [
+            6,
+            1,
+            1,
+            1,
+            2
+          ],
+          "word_B": [
+            2,
+            1,
+            1,
+            6,
+            1
+          ],
+          "ordinary_inversion_count": 3,
+          "contracting_denominator_D": 1805,
+          "affine_constant_A": 4241,
+          "affine_constant_B": 1333,
+          "descending_affine_constant_Cmax": 6673,
+          "localized_inversion_gain_A": 2432,
+          "localized_inversion_gain_B": 5340,
+          "gain_ratio_B_over_A": 2.195723684210526,
+          "abstract_start_one_descends_under_A": false,
+          "abstract_start_one_descends_under_B": true,
+          "checks": {
+            "same_length_total_and_multiset": true,
+            "same_ordinary_inversion_count": true,
+            "closed_form_constant_a": true,
+            "closed_form_constant_b": true,
+            "closed_form_gain_a": true,
+            "closed_form_gain_b": true,
+            "abstract_word_b_descends_at_one": true,
+            "abstract_word_a_does_not_descend_at_one": true
+          }
+        },
+        {
+          "large_valuation_K": 8,
+          "word_A": [
+            8,
+            1,
+            1,
+            1,
+            2
+          ],
+          "word_B": [
+            2,
+            1,
+            1,
+            8,
+            1
+          ],
+          "ordinary_inversion_count": 3,
+          "contracting_denominator_D": 7949,
+          "affine_constant_A": 16721,
+          "affine_constant_B": 4405,
+          "descending_affine_constant_Cmax": 26449,
+          "localized_inversion_gain_A": 9728,
+          "localized_inversion_gain_B": 22044,
+          "gain_ratio_B_over_A": 2.266036184210526,
+          "abstract_start_one_descends_under_A": false,
+          "abstract_start_one_descends_under_B": true,
+          "checks": {
+            "same_length_total_and_multiset": true,
+            "same_ordinary_inversion_count": true,
+            "closed_form_constant_a": true,
+            "closed_form_constant_b": true,
+            "closed_form_gain_a": true,
+            "closed_form_gain_b": true,
+            "abstract_word_b_descends_at_one": true,
+            "abstract_word_a_does_not_descend_at_one": true
+          }
+        },
+        {
+          "large_valuation_K": 10,
+          "word_A": [
+            10,
+            1,
+            1,
+            1,
+            2
+          ],
+          "word_B": [
+            2,
+            1,
+            1,
+            10,
+            1
+          ],
+          "ordinary_inversion_count": 3,
+          "contracting_denominator_D": 32525,
+          "affine_constant_A": 66641,
+          "affine_constant_B": 16693,
+          "descending_affine_constant_Cmax": 105553,
+          "localized_inversion_gain_A": 38912,
+          "localized_inversion_gain_B": 88860,
+          "gain_ratio_B_over_A": 2.283614309210526,
+          "abstract_start_one_descends_under_A": false,
+          "abstract_start_one_descends_under_B": true,
+          "checks": {
+            "same_length_total_and_multiset": true,
+            "same_ordinary_inversion_count": true,
+            "closed_form_constant_a": true,
+            "closed_form_constant_b": true,
+            "closed_form_gain_a": true,
+            "closed_form_gain_b": true,
+            "abstract_word_b_descends_at_one": true,
+            "abstract_word_a_does_not_descend_at_one": true
+          }
+        },
+        {
+          "large_valuation_K": 12,
+          "word_A": [
+            12,
+            1,
+            1,
+            1,
+            2
+          ],
+          "word_B": [
+            2,
+            1,
+            1,
+            12,
+            1
+          ],
+          "ordinary_inversion_count": 3,
+          "contracting_denominator_D": 130829,
+          "affine_constant_A": 266321,
+          "affine_constant_B": 65845,
+          "descending_affine_constant_Cmax": 421969,
+          "localized_inversion_gain_A": 155648,
+          "localized_inversion_gain_B": 356124,
+          "gain_ratio_B_over_A": 2.288008840460526,
+          "abstract_start_one_descends_under_A": false,
+          "abstract_start_one_descends_under_B": true,
+          "checks": {
+            "same_length_total_and_multiset": true,
+            "same_ordinary_inversion_count": true,
+            "closed_form_constant_a": true,
+            "closed_form_constant_b": true,
+            "closed_form_gain_a": true,
+            "closed_form_gain_b": true,
+            "abstract_word_b_descends_at_one": true,
+            "abstract_word_a_does_not_descend_at_one": true
+          }
+        }
+      ],
+      "finite_natural_first_descent_collision_scan": {
+        "odd_start_range": "3<=n<=100000",
+        "audited_odd_start_count": 49999,
+        "coarse_signature_count": 3862,
+        "ambiguous_coarse_signature_count": 677,
+        "sampled_ambiguous_start_count": 2029,
+        "sample_ambiguous_signature_rows": [
+          {
+            "word_length_m": 10,
+            "total_valuation_S": 16,
+            "descending_multiset": [
+              3,
+              2,
+              2,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "ordinary_inversion_count": 23,
+            "distinct_localized_gain_count": 19,
+            "minimum_localized_gain": 673906,
+            "maximum_localized_gain": 690186,
+            "examples": [
+              {
+                "initial_odd_start_n": 3695,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  2,
+                  3,
+                  1,
+                  2,
+                  2
+                ],
+                "localized_inversion_gain_G": 677650
+              },
+              {
+                "initial_odd_start_n": 3815,
+                "valuation_word": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1,
+                  3,
+                  2,
+                  2
+                ],
+                "localized_inversion_gain_G": 685642
+              },
+              {
+                "initial_odd_start_n": 14363,
+                "valuation_word": [
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  3,
+                  2,
+                  2
+                ],
+                "localized_inversion_gain_G": 680350
+              },
+              {
+                "initial_odd_start_n": 27879,
+                "valuation_word": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  2,
+                  2,
+                  1,
+                  3
+                ],
+                "localized_inversion_gain_G": 689226
+              },
+              {
+                "initial_odd_start_n": 28447,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  3,
+                  2,
+                  1,
+                  2,
+                  2
+                ],
+                "localized_inversion_gain_G": 674626
+              }
+            ]
+          },
+          {
+            "word_length_m": 10,
+            "total_valuation_S": 16,
+            "descending_multiset": [
+              3,
+              3,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "ordinary_inversion_count": 22,
+            "distinct_localized_gain_count": 19,
+            "minimum_localized_gain": 971842,
+            "maximum_localized_gain": 990762,
+            "examples": [
+              {
+                "initial_odd_start_n": 4319,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  2,
+                  1,
+                  1,
+                  2,
+                  3
+                ],
+                "localized_inversion_gain_G": 980706
+              },
+              {
+                "initial_odd_start_n": 4379,
+                "valuation_word": [
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  2,
+                  3
+                ],
+                "localized_inversion_gain_G": 984702
+              },
+              {
+                "initial_odd_start_n": 5087,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  2,
+                  1,
+                  3,
+                  2
+                ],
+                "localized_inversion_gain_G": 979426
+              },
+              {
+                "initial_odd_start_n": 17391,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  3,
+                  2,
+                  1,
+                  3
+                ],
+                "localized_inversion_gain_G": 986226
+              },
+              {
+                "initial_odd_start_n": 19151,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  1,
+                  1,
+                  2,
+                  3,
+                  2
+                ],
+                "localized_inversion_gain_G": 972370
+              }
+            ]
+          },
+          {
+            "word_length_m": 10,
+            "total_valuation_S": 16,
+            "descending_multiset": [
+              3,
+              2,
+              2,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "ordinary_inversion_count": 22,
+            "distinct_localized_gain_count": 18,
+            "minimum_localized_gain": 666994,
+            "maximum_localized_gain": 684042,
+            "examples": [
+              {
+                "initial_odd_start_n": 603,
+                "valuation_word": [
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  2,
+                  3
+                ],
+                "localized_inversion_gain_G": 681438
+              },
+              {
+                "initial_odd_start_n": 1351,
+                "valuation_word": [
+                  1,
+                  1,
+                  2,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  3,
+                  2
+                ],
+                "localized_inversion_gain_G": 678826
+              },
+              {
+                "initial_odd_start_n": 3535,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  2,
+                  1,
+                  2,
+                  2,
+                  2
+                ],
+                "localized_inversion_gain_G": 666994
+              },
+              {
+                "initial_odd_start_n": 10727,
+                "valuation_word": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  3,
+                  1,
+                  2,
+                  2,
+                  2
+                ],
+                "localized_inversion_gain_G": 674122
+              },
+              {
+                "initial_odd_start_n": 13615,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  2,
+                  2,
+                  1,
+                  2,
+                  1,
+                  3
+                ],
+                "localized_inversion_gain_G": 682962
+              }
+            ]
+          },
+          {
+            "word_length_m": 10,
+            "total_valuation_S": 16,
+            "descending_multiset": [
+              3,
+              2,
+              2,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "ordinary_inversion_count": 21,
+            "distinct_localized_gain_count": 15,
+            "minimum_localized_gain": 657778,
+            "maximum_localized_gain": 676266,
+            "examples": [
+              {
+                "initial_odd_start_n": 2887,
+                "valuation_word": [
+                  1,
+                  1,
+                  2,
+                  2,
+                  1,
+                  1,
+                  2,
+                  2,
+                  1,
+                  3
+                ],
+                "localized_inversion_gain_G": 676266
+              },
+              {
+                "initial_odd_start_n": 24731,
+                "valuation_word": [
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  3,
+                  1,
+                  2,
+                  2
+                ],
+                "localized_inversion_gain_G": 663070
+              },
+              {
+                "initial_odd_start_n": 28327,
+                "valuation_word": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  3,
+                  1,
+                  2,
+                  2
+                ],
+                "localized_inversion_gain_G": 666634
+              },
+              {
+                "initial_odd_start_n": 35279,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  2,
+                  2,
+                  1,
+                  2,
+                  2
+                ],
+                "localized_inversion_gain_G": 657778
+              },
+              {
+                "initial_odd_start_n": 40187,
+                "valuation_word": [
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  3,
+                  2
+                ],
+                "localized_inversion_gain_G": 670078
+              }
+            ]
+          },
+          {
+            "word_length_m": 10,
+            "total_valuation_S": 16,
+            "descending_multiset": [
+              3,
+              3,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "ordinary_inversion_count": 23,
+            "distinct_localized_gain_count": 15,
+            "minimum_localized_gain": 980562,
+            "maximum_localized_gain": 996594,
+            "examples": [
+              {
+                "initial_odd_start_n": 17511,
+                "valuation_word": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  3,
+                  3
+                ],
+                "localized_inversion_gain_G": 994218
+              },
+              {
+                "initial_odd_start_n": 39919,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  3,
+                  1,
+                  2,
+                  3
+                ],
+                "localized_inversion_gain_G": 992370
+              },
+              {
+                "initial_odd_start_n": 40687,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  3,
+                  3,
+                  2
+                ],
+                "localized_inversion_gain_G": 991090
+              },
+              {
+                "initial_odd_start_n": 54751,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  1,
+                  2,
+                  3,
+                  2
+                ],
+                "localized_inversion_gain_G": 984034
+              },
+              {
+                "initial_odd_start_n": 63519,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  2,
+                  1,
+                  3,
+                  1,
+                  3
+                ],
+                "localized_inversion_gain_G": 991266
+              }
+            ]
+          },
+          {
+            "word_length_m": 10,
+            "total_valuation_S": 16,
+            "descending_multiset": [
+              3,
+              3,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "ordinary_inversion_count": 21,
+            "distinct_localized_gain_count": 14,
+            "minimum_localized_gain": 964066,
+            "maximum_localized_gain": 985578,
+            "examples": [
+              {
+                "initial_odd_start_n": 6703,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  2,
+                  1,
+                  1,
+                  3,
+                  1,
+                  3
+                ],
+                "localized_inversion_gain_G": 982194
+              },
+              {
+                "initial_odd_start_n": 14303,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  3,
+                  1,
+                  2,
+                  2
+                ],
+                "localized_inversion_gain_G": 964066
+              },
+              {
+                "initial_odd_start_n": 20687,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  1,
+                  2,
+                  2,
+                  1,
+                  3
+                ],
+                "localized_inversion_gain_G": 969810
+              },
+              {
+                "initial_odd_start_n": 51055,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  3,
+                  1,
+                  1,
+                  3,
+                  2
+                ],
+                "localized_inversion_gain_G": 973810
+              },
+              {
+                "initial_odd_start_n": 60955,
+                "valuation_word": [
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  2,
+                  3
+                ],
+                "localized_inversion_gain_G": 977790
+              }
+            ]
+          },
+          {
+            "word_length_m": 10,
+            "total_valuation_S": 17,
+            "descending_multiset": [
+              4,
+              3,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "ordinary_inversion_count": 22,
+            "distinct_localized_gain_count": 12,
+            "minimum_localized_gain": 2023026,
+            "maximum_localized_gain": 2045618,
+            "examples": [
+              {
+                "initial_odd_start_n": 19099,
+                "valuation_word": [
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  3,
+                  4
+                ],
+                "localized_inversion_gain_G": 2042054
+              },
+              {
+                "initial_odd_start_n": 22695,
+                "valuation_word": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  3,
+                  4
+                ],
+                "localized_inversion_gain_G": 2045618
+              },
+              {
+                "initial_odd_start_n": 23143,
+                "valuation_word": [
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  4,
+                  1,
+                  2,
+                  3
+                ],
+                "localized_inversion_gain_G": 2023026
+              },
+              {
+                "initial_odd_start_n": 34255,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  2,
+                  1,
+                  1,
+                  2,
+                  4
+                ],
+                "localized_inversion_gain_G": 2029082
+              },
+              {
+                "initial_odd_start_n": 36639,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  3,
+                  2,
+                  1,
+                  1,
+                  4
+                ],
+                "localized_inversion_gain_G": 2030570
+              }
+            ]
+          },
+          {
+            "word_length_m": 10,
+            "total_valuation_S": 16,
+            "descending_multiset": [
+              4,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "ordinary_inversion_count": 20,
+            "distinct_localized_gain_count": 11,
+            "minimum_localized_gain": 1367562,
+            "maximum_localized_gain": 1387066,
+            "examples": [
+              {
+                "initial_odd_start_n": 1183,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                "localized_inversion_gain_G": 1386858
+              },
+              {
+                "initial_odd_start_n": 4335,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  4
+                ],
+                "localized_inversion_gain_G": 1387066
+              },
+              {
+                "initial_odd_start_n": 30079,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  4,
+                  1,
+                  3,
+                  2
+                ],
+                "localized_inversion_gain_G": 1371466
+              },
+              {
+                "initial_odd_start_n": 36159,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  3,
+                  1,
+                  2,
+                  1,
+                  4
+                ],
+                "localized_inversion_gain_G": 1383178
+              },
+              {
+                "initial_odd_start_n": 38847,
+                "valuation_word": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2,
+                  1,
+                  4,
+                  1,
+                  3
+                ],
+                "localized_inversion_gain_G": 1378698
+              }
+            ]
+          }
+        ],
+        "checks": {
+          "audited_odd_start_count_is_exact": true,
+          "natural_scan_contains_coarse_signature_collisions": true,
+          "natural_scan_samples_are_nonempty": true
+        }
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The no-go family is an exact affine valuation-word statement, not a divergent Collatz orbit. Position-weighted gain remains exact, but no theorem forces every natural valuation ray to cross its affine threshold.",
+    "route_decision": {
+      "discard": "replacing the exact position-weighted inversion gain by word length, valuation sum, multiset, and ordinary inversion count",
+      "retain": "derive a prefix-localized gain process on natural valuation rays and prove an eventual affine-threshold crossing theorem",
+      "next_theorem": "NaturalValuationPrefixLocalizedGainCrossesAffineThresholdOnEveryRay"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T158-REJECTED",
+          "label": "CoarseInversionCountDeterminesCollatzAffineGain",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "CO-T158-CLOSED",
+          "label": "LocalizedInversionGainAndCoarseStatisticNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T158-OPEN",
+          "label": "NaturalValuationPrefixLocalizedGainCrossesAffineThresholdOnEveryRay",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T158-REJECTED",
+          "CO-T158-CLOSED"
+        ],
+        [
+          "CO-T158-CLOSED",
+          "CO-T158-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Collatz proof and no divergent orbit. One infinite abstract word counterfamily and a natural first-descent collision audit through 100,000."
+  }
+}

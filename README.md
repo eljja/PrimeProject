@@ -115,19 +115,22 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-seventeen-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-eighteen-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-157. It proves the nested form-core
-promotion theorem and finite-core sweep no-go for RH; the exact Collatz
-valuation-order inversion-gain identity; the Goldbach negative-phase `L1`
-stability theorem with a sharp `L2` dimension-loss no-go; and the Twin
-information-budget margin certificate with a little-o necessity no-go.
-Finite Collatz and Twin diagnostics reach 100K and 10M respectively, but no
-finite row is promoted to an infinite theorem. All four conjectures remain
-open.
+The latest proof-search track is TICKET-158. It proves an exact two-cutoff
+form-budget composition and single-cutoff no-go for RH; an infinite Collatz
+valuation-word family showing that coarse inversion statistics do not
+determine localized affine gain; a sharp Goldbach moving-average residual
+bound priced by cyclic phase variation; and a one-sided Twin information
+budget with an exact direction-blindness counterfamily. The finite audits
+find 677 ambiguous natural Collatz coarse signatures, zero Goldbach
+variation certificates out of 18, and strict directional Twin savings on
+four of five scales. No finite row is promoted to an infinite theorem. All
+four conjectures remain open.
 See
+[TICKET158](docs/two-cutoff-localized-variation-directional.md),
 [TICKET157](docs/formcore-inversion-proxy-margin.md),
 [TICKET156](docs/cutoff-potential-signed-information.md),
 [TICKET155](docs/range-prefix-sublinear-conditional.md),
@@ -144,20 +147,21 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-157입니다. 리만 가설 트랙에서는
-nested form core 전체의 양성과 균일 cutoff-form 오차를 결합한 승격
-정리를 증명하고, 어떤 유한 core sweep에도 숨은 음의 방향을 붙일 수
-있다는 정확한 반례를 만들었습니다. 콜라츠 트랙에서는 valuation
-순서를 바꾸는 인접 swap 이득이 정확히 망원합을 이루는 inversion-gain
-하강 인증을 유도했습니다. 10만 이하 49,999개 첫 하강 중 266개는
-multiset의 최악 순서로는 인증되지 않고 실제 자연 순서의 이득이
-필요했습니다. 골드바흐 트랙에서는 음의 위상 질량이 복소 `L1`
-잔차에 대해 1-Lipschitz임을 증명하고, `L2`만으로는 정확히
-제곱근 차원손실이 필요함을 반례로 확정했습니다. 단순 block proxy
-18개는 모두 실패했습니다. 쌍둥이 소수 트랙에서는 normalized
-information budget을 실제 ambient semiprime margin과 결합해 다섯
-유한 규모를 인증했고, `I=o(rho)`가 필요조건은 아니라는 정확한
-반례 가족을 만들었습니다. 네 문제는 모두 미해결입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-158입니다. 리만 가설
+트랙에서는 positive archimedean tail과 별도의 prime/band remainder를
+합성하는 정확한 2-cutoff 정리를 증명하고, archimedean cutoff만
+줄이는 경로를 scalar 반례군으로 폐기했습니다. 콜라츠 트랙에서는
+길이, valuation 합, multiset, 보통 inversion 수가 모두 같아도
+position-weighted affine gain이 달라지는 무한 word 반례군을
+구성했습니다. 10만 이하 자연 first-descent word에서도 3,862개
+coarse signature 중 677개가 서로 다른 exact gain을 가졌습니다.
+골드바흐 트랙에서는 이동평균 `L1` 잔차를 cyclic total variation으로
+제어하는 날카로운 정리를 증명했지만 18개 raw variation 인증은 모두
+실패했습니다. 쌍둥이 소수 트랙에서는 양의 conditional shift만
+정보량 비용으로 세어 다섯 유한 규모를 인증하고, 네 규모에서 기존
+절댓값 예산보다 엄밀히 개선했습니다. 동시에 mutual information만으로
+shift 부호를 결정할 수 없다는 반례를 만들었습니다. 네 문제는 모두
+미해결입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 

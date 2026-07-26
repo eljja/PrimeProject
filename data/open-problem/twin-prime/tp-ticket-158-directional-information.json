@@ -1,0 +1,322 @@
+{
+  "schema": "primeproject.ticket158-two-cutoff-localized-variation-directional.v1",
+  "generated_at": "2026-07-26T20:10:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-158",
+  "attempt": "Write each cubic-rough conditional semiprime fraction as q_i=p_i+delta_i. Then M/R=sum_i p_i+sum_i delta_i exactly. For an upper bound only positive shifts require a Pinsker budget: M/R<=sum_i p_i+sum_(delta_i>0) sqrt(I_i/(2rho_i)). This is never weaker than charging both absolute shifts. However mutual information, p, and rho do not determine the sign: at p=rho=1/2, the tables with q=1/2+delta and q=1/2-delta have identical mutual information and opposite conditional shifts.",
+  "bounded_result": {
+    "audit_ref": "two_cutoff_localized_variation_directional_audit.twin_prime"
+  },
+  "obstruction": "The five finite rows have known empirical shift signs, but mutual information alone cannot certify those signs uniformly. A post-cutoff theorem must bound positive shifts or prove semiprime anticorrelation.",
+  "candidate_theorem": "UniformPositiveCubicRoughInformationBudgetOrSemiprimeAnticorrelationAfterEffectiveCutoff",
+  "next_experiment": "prove a uniform budget only for positive cubic-rough semiprime shifts, or prove the relevant shifts are nonpositive after an effective cutoff",
+  "claim_boundary": "No Twin Prime proof and no counterexample. One exact signed information reduction, three direction-blindness counterpairs, and five finite directional certificates.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-158",
+    "theorem_name": "SignedInformationBudgetAndDirectionBlindnessNoGo",
+    "declared_proposition": "Write each cubic-rough conditional semiprime fraction as q_i=p_i+delta_i. Then M/R=sum_i p_i+sum_i delta_i exactly. For an upper bound only positive shifts require a Pinsker budget: M/R<=sum_i p_i+sum_(delta_i>0) sqrt(I_i/(2rho_i)). This is never weaker than charging both absolute shifts. However mutual information, p, and rho do not determine the sign: at p=rho=1/2, the tables with q=1/2+delta and q=1/2-delta have identical mutual information and opposite conditional shifts.",
+    "mathematical_argument": "The signed decomposition is algebra. Negative delta_i can only lower the target upper bound, while Pinsker bounds each positive delta_i by sqrt(I_i/(2rho_i)). For the no-go pair, the complement conditional is 1-q and mutual information is KL(Ber(q)||Ber(1/2)); binary entropy is symmetric under q->1-q. Thus an information-only argument cannot claim an anticorrelation credit without an independently proved sign.",
+    "reproducible_computation": {
+      "theorem": "Write each cubic-rough conditional semiprime fraction as q_i=p_i+delta_i. Then M/R=sum_i p_i+sum_i delta_i exactly. For an upper bound only positive shifts require a Pinsker budget: M/R<=sum_i p_i+sum_(delta_i>0) sqrt(I_i/(2rho_i)). This is never weaker than charging both absolute shifts. However mutual information, p, and rho do not determine the sign: at p=rho=1/2, the tables with q=1/2+delta and q=1/2-delta have identical mutual information and opposite conditional shifts.",
+      "proof": "The signed decomposition is algebra. Negative delta_i can only lower the target upper bound, while Pinsker bounds each positive delta_i by sqrt(I_i/(2rho_i)). For the no-go pair, the complement conditional is 1-q and mutual information is KL(Ber(q)||Ber(1/2)); binary entropy is symmetric under q->1-q. Thus an information-only argument cannot claim an anticorrelation credit without an independently proved sign.",
+      "finite_directional_information_margin_rows": [
+        {
+          "X": 1000,
+          "ambient_semiprime_sum": {
+            "exact": "126/227",
+            "decimal": 0.5550660792951542
+          },
+          "actual_conditional_incidence_M_over_R": {
+            "exact": "41/70",
+            "decimal": 0.5857142857142857
+          },
+          "left_signed_shift": {
+            "exact": "-162/7945",
+            "decimal": -0.02039018250471995
+          },
+          "right_signed_shift": {
+            "exact": "811/15890",
+            "decimal": 0.05103838892385148
+          },
+          "absolute_pinsker_budget": 0.09540855193332659,
+          "positive_shift_only_pinsker_budget": 0.06790994256797128,
+          "absolute_information_upper_ratio": 0.6504746312284808,
+          "directional_information_upper_ratio": 0.6229760218631255,
+          "directional_budget_saving": 0.02749860936535531,
+          "directional_certificate_slack": 0.3770239781368745,
+          "checks": {
+            "exact_signed_decomposition_holds": true,
+            "actual_ratio_is_below_directional_upper": true,
+            "directional_budget_never_exceeds_absolute_budget": true,
+            "directional_certificate_is_below_one": true
+          }
+        },
+        {
+          "X": 10000,
+          "ambient_semiprime_sum": {
+            "exact": "163/285",
+            "decimal": 0.5719298245614035
+          },
+          "actual_conditional_incidence_M_over_R": {
+            "exact": "112/195",
+            "decimal": 0.5743589743589743
+          },
+          "left_signed_shift": {
+            "exact": "-1/741",
+            "decimal": -0.001349527665317139
+          },
+          "right_signed_shift": {
+            "exact": "14/3705",
+            "decimal": 0.003778677462887989
+          },
+          "absolute_pinsker_budget": 0.00645465923160621,
+          "positive_shift_only_pinsker_budget": 0.004754492738212314,
+          "absolute_information_upper_ratio": 0.5783844837930098,
+          "directional_information_upper_ratio": 0.5766843172996158,
+          "directional_budget_saving": 0.0017001664933938955,
+          "directional_certificate_slack": 0.4233156827003842,
+          "checks": {
+            "exact_signed_decomposition_holds": true,
+            "actual_ratio_is_below_directional_upper": true,
+            "directional_budget_never_exceeds_absolute_budget": true,
+            "directional_certificate_is_below_one": true
+          }
+        },
+        {
+          "X": 100000,
+          "ambient_semiprime_sum": {
+            "exact": "9250/14203",
+            "decimal": 0.6512708582693797
+          },
+          "actual_conditional_incidence_M_over_R": {
+            "exact": "1747/2681",
+            "decimal": 0.6516225289071242
+          },
+          "left_signed_shift": {
+            "exact": "-34551/5439749",
+            "decimal": -0.006351579824730884
+          },
+          "right_signed_shift": {
+            "exact": "36464/5439749",
+            "decimal": 0.006703250462475383
+          },
+          "absolute_pinsker_budget": 0.01546435174584963,
+          "positive_shift_only_pinsker_budget": 0.007930228656236216,
+          "absolute_information_upper_ratio": 0.6667352100152293,
+          "directional_information_upper_ratio": 0.659201086925616,
+          "directional_budget_saving": 0.007534123089613414,
+          "directional_certificate_slack": 0.34079891307438404,
+          "checks": {
+            "exact_signed_decomposition_holds": true,
+            "actual_ratio_is_below_directional_upper": true,
+            "directional_budget_never_exceeds_absolute_budget": true,
+            "directional_certificate_is_below_one": true
+          }
+        },
+        {
+          "X": 1000000,
+          "ambient_semiprime_sum": {
+            "exact": "84572/120759",
+            "decimal": 0.7003370349207927
+          },
+          "actual_conditional_incidence_M_over_R": {
+            "exact": "3397/4824",
+            "decimal": 0.7041873963515755
+          },
+          "left_signed_shift": {
+            "exact": "1857607/776721888",
+            "decimal": 0.0023915986258391626
+          },
+          "right_signed_shift": {
+            "exact": "1133053/776721888",
+            "decimal": 0.0014587628049436403
+          },
+          "absolute_pinsker_budget": 0.004401309495858023,
+          "positive_shift_only_pinsker_budget": 0.004401309495858023,
+          "absolute_information_upper_ratio": 0.7047383444166507,
+          "directional_information_upper_ratio": 0.7047383444166507,
+          "directional_budget_saving": 0.0,
+          "directional_certificate_slack": 0.29526165558334927,
+          "checks": {
+            "exact_signed_decomposition_holds": true,
+            "actual_ratio_is_below_directional_upper": true,
+            "directional_budget_never_exceeds_absolute_budget": true,
+            "directional_certificate_is_below_one": true
+          }
+        },
+        {
+          "X": 10000000,
+          "ambient_semiprime_sum": {
+            "exact": "749734/1039399",
+            "decimal": 0.72131491371456
+          },
+          "actual_conditional_incidence_M_over_R": {
+            "exact": "103016/142907",
+            "decimal": 0.72086041971352
+          },
+          "left_signed_shift": {
+            "exact": "-11927298/148537392893",
+            "decimal": -8.029828562153313e-05
+          },
+          "right_signed_shift": {
+            "exact": "-55582056/148537392893",
+            "decimal": -0.000374195715418534
+          },
+          "absolute_pinsker_budget": 0.0005095954665527724,
+          "positive_shift_only_pinsker_budget": 0,
+          "absolute_information_upper_ratio": 0.7218245091811128,
+          "directional_information_upper_ratio": 0.72131491371456,
+          "directional_budget_saving": 0.0005095954665527724,
+          "directional_certificate_slack": 0.27868508628544,
+          "checks": {
+            "exact_signed_decomposition_holds": true,
+            "actual_ratio_is_below_directional_upper": true,
+            "directional_budget_never_exceeds_absolute_budget": true,
+            "directional_certificate_is_below_one": true
+          }
+        }
+      ],
+      "exact_information_direction_blindness_rows": [
+        {
+          "ambient_label_fraction_p": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "selection_probability_rho": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "positive_conditional_fraction": {
+            "exact": "5/8",
+            "decimal": 0.625
+          },
+          "negative_conditional_fraction": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "positive_conditional_shift": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "negative_conditional_shift": {
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          "shared_mutual_information_nats": 0.03158394240196326,
+          "checks": {
+            "same_ambient_fraction": true,
+            "same_selection_probability": true,
+            "mutual_information_is_identical": true,
+            "conditional_shifts_have_opposite_sign": true
+          }
+        },
+        {
+          "ambient_label_fraction_p": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "selection_probability_rho": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "positive_conditional_fraction": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "negative_conditional_fraction": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "positive_conditional_shift": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "negative_conditional_shift": {
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          "shared_mutual_information_nats": 0.13081203594113697,
+          "checks": {
+            "same_ambient_fraction": true,
+            "same_selection_probability": true,
+            "mutual_information_is_identical": true,
+            "conditional_shifts_have_opposite_sign": true
+          }
+        },
+        {
+          "ambient_label_fraction_p": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "selection_probability_rho": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "positive_conditional_fraction": {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          "negative_conditional_fraction": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "positive_conditional_shift": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "negative_conditional_shift": {
+            "exact": "-3/8",
+            "decimal": -0.375
+          },
+          "shared_mutual_information_nats": 0.3163770193035085,
+          "checks": {
+            "same_ambient_fraction": true,
+            "same_selection_probability": true,
+            "mutual_information_is_identical": true,
+            "conditional_shifts_have_opposite_sign": true
+          }
+        }
+      ],
+      "finite_directional_certificate_count": 5,
+      "finite_rows_with_strict_directional_saving": 4,
+      "failure_count": 0
+    },
+    "logical_limit": "The five finite rows have known empirical shift signs, but mutual information alone cannot certify those signs uniformly. A post-cutoff theorem must bound positive shifts or prove semiprime anticorrelation.",
+    "route_decision": {
+      "discard": "charging proved negative shifts as adverse errors, or inferring a favorable shift sign from unsigned mutual information",
+      "retain": "prove a uniform budget only for positive cubic-rough semiprime shifts, or prove the relevant shifts are nonpositive after an effective cutoff",
+      "next_theorem": "UniformPositiveCubicRoughInformationBudgetOrSemiprimeAnticorrelationAfterEffectiveCutoff"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T158-REJECTED",
+          "label": "UnsignedMutualInformationDeterminesConditionalShiftSign",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T158-CLOSED",
+          "label": "SignedInformationBudgetAndDirectionBlindnessNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T158-OPEN",
+          "label": "UniformPositiveCubicRoughInformationBudgetOrSemiprimeAnticorrelationAfterEffectiveCutoff",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T158-REJECTED",
+          "TP-T158-CLOSED"
+        ],
+        [
+          "TP-T158-CLOSED",
+          "TP-T158-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof and no counterexample. One exact signed information reduction, three direction-blindness counterpairs, and five finite directional certificates."
+  }
+}

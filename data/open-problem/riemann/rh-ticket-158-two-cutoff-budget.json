@@ -1,0 +1,383 @@
+{
+  "schema": "primeproject.ticket158-two-cutoff-localized-variation-directional.v1",
+  "generated_at": "2026-07-26T20:10:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-158",
+  "attempt": "Let V_N be a nested form core. On V_N suppose q_c,N,infty and q_c,N,T satisfy 0<=q_c,N,infty-q_c,N,T<=B_c,N,T||f||^2, and suppose the full form satisfies |q-q_c,N,infty|<=A_c,N||f||^2. Then q(f)>=q_c,N,T(f)-A_c,N||f||^2 and q(f)<=q_c,N,T(f)+(A_c,N+B_c,N,T)||f||^2. Hence positivity of every nested finite form above A_c,N promotes to q>=0, while a value below -(A_c,N+B_c,N,T) certifies a negative direction. Driving only B_c,N,T to zero cannot close the argument when A_c,N is uncontrolled.",
+  "bounded_result": {
+    "audit_ref": "two_cutoff_localized_variation_directional_audit.riemann"
+  },
+  "obstruction": "The July 2026 archimedean tail-order theorem supplies the fixed-(c,N) B axis, but PrimeProject has not proved the prime/band remainder A_c,N, a joint (c,N,T) schedule, or positivity on every member of an explicit nested Weil form core.",
+  "candidate_theorem": "UniformPrimeBandRemainderOnExplicitNestedWeilCoreWithJointCutoffSchedule",
+  "next_experiment": "combine the published positive archimedean tail with a new uniform prime/band remainder on a nested explicit Weil core and a joint cutoff schedule",
+  "claim_boundary": "No RH proof and no off-critical zero. One exact two-cutoff composition theorem, scalar single-cutoff counterfamily, and noncertifying literature scaling audit.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-158",
+    "theorem_name": "TwoCutoffFormBudgetCompositionAndSingleCutoffNoGo",
+    "declared_proposition": "Let V_N be a nested form core. On V_N suppose q_c,N,infty and q_c,N,T satisfy 0<=q_c,N,infty-q_c,N,T<=B_c,N,T||f||^2, and suppose the full form satisfies |q-q_c,N,infty|<=A_c,N||f||^2. Then q(f)>=q_c,N,T(f)-A_c,N||f||^2 and q(f)<=q_c,N,T(f)+(A_c,N+B_c,N,T)||f||^2. Hence positivity of every nested finite form above A_c,N promotes to q>=0, while a value below -(A_c,N+B_c,N,T) certifies a negative direction. Driving only B_c,N,T to zero cannot close the argument when A_c,N is uncontrolled.",
+    "mathematical_argument": "The positive tail gives q_c,N,infty>=q_c,N,T. Subtracting the absolute prime/band remainder A_c,N proves the lower bound. The upper tail budget gives q_c,N,infty<=q_c,N,T+B_c,N,T, and adding A_c,N proves the negative certificate. Form-core density promotes positivity when the lower bound holds for every N. The scalar no-go rows keep q_c,N,T=1 and let B tend to zero, but choose an uncontrolled prime/band remainder that sends the full value to -1.",
+    "reproducible_computation": {
+      "theorem": "Let V_N be a nested form core. On V_N suppose q_c,N,infty and q_c,N,T satisfy 0<=q_c,N,infty-q_c,N,T<=B_c,N,T||f||^2, and suppose the full form satisfies |q-q_c,N,infty|<=A_c,N||f||^2. Then q(f)>=q_c,N,T(f)-A_c,N||f||^2 and q(f)<=q_c,N,T(f)+(A_c,N+B_c,N,T)||f||^2. Hence positivity of every nested finite form above A_c,N promotes to q>=0, while a value below -(A_c,N+B_c,N,T) certifies a negative direction. Driving only B_c,N,T to zero cannot close the argument when A_c,N is uncontrolled.",
+      "proof": "The positive tail gives q_c,N,infty>=q_c,N,T. Subtracting the absolute prime/band remainder A_c,N proves the lower bound. The upper tail budget gives q_c,N,infty<=q_c,N,T+B_c,N,T, and adding A_c,N proves the negative certificate. Form-core density promotes positivity when the lower bound holds for every N. The scalar no-go rows keep q_c,N,T=1 and let B tend to zero, but choose an uncontrolled prime/band remainder that sends the full value to -1.",
+      "finite_positive_composition_rows": [
+        {
+          "nested_core_dimension_N": 1,
+          "finite_archimedean_cutoff_value_q_c_N_T": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "prime_band_remainder_A_c_N": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "archimedean_tail_budget_B_c_N_T": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "promoted_full_form_lower_bound": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "finite_value_dominates_prime_band_error": true,
+            "positive_archimedean_tail_needs_no_subtraction": true,
+            "promoted_lower_bound_is_nonnegative": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 2,
+          "finite_archimedean_cutoff_value_q_c_N_T": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "prime_band_remainder_A_c_N": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "archimedean_tail_budget_B_c_N_T": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "promoted_full_form_lower_bound": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "finite_value_dominates_prime_band_error": true,
+            "positive_archimedean_tail_needs_no_subtraction": true,
+            "promoted_lower_bound_is_nonnegative": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 4,
+          "finite_archimedean_cutoff_value_q_c_N_T": {
+            "exact": "9/8",
+            "decimal": 1.125
+          },
+          "prime_band_remainder_A_c_N": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "archimedean_tail_budget_B_c_N_T": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "promoted_full_form_lower_bound": {
+            "exact": "5/8",
+            "decimal": 0.625
+          },
+          "checks": {
+            "finite_value_dominates_prime_band_error": true,
+            "positive_archimedean_tail_needs_no_subtraction": true,
+            "promoted_lower_bound_is_nonnegative": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 8,
+          "finite_archimedean_cutoff_value_q_c_N_T": {
+            "exact": "17/16",
+            "decimal": 1.0625
+          },
+          "prime_band_remainder_A_c_N": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "archimedean_tail_budget_B_c_N_T": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "promoted_full_form_lower_bound": {
+            "exact": "13/16",
+            "decimal": 0.8125
+          },
+          "checks": {
+            "finite_value_dominates_prime_band_error": true,
+            "positive_archimedean_tail_needs_no_subtraction": true,
+            "promoted_lower_bound_is_nonnegative": true
+          }
+        }
+      ],
+      "finite_negative_composition_rows": [
+        {
+          "nested_core_dimension_N": 1,
+          "finite_archimedean_cutoff_value_q_c_N_T": {
+            "exact": "-2/1",
+            "decimal": -2.0
+          },
+          "prime_band_remainder_A_c_N": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "archimedean_tail_budget_B_c_N_T": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "promoted_full_form_upper_bound": {
+            "exact": "-3/2",
+            "decimal": -1.5
+          },
+          "checks": {
+            "finite_value_beats_both_error_budgets": true,
+            "promoted_upper_bound_is_negative": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 2,
+          "finite_archimedean_cutoff_value_q_c_N_T": {
+            "exact": "-3/2",
+            "decimal": -1.5
+          },
+          "prime_band_remainder_A_c_N": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "archimedean_tail_budget_B_c_N_T": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "promoted_full_form_upper_bound": {
+            "exact": "-9/8",
+            "decimal": -1.125
+          },
+          "checks": {
+            "finite_value_beats_both_error_budgets": true,
+            "promoted_upper_bound_is_negative": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 4,
+          "finite_archimedean_cutoff_value_q_c_N_T": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "prime_band_remainder_A_c_N": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "archimedean_tail_budget_B_c_N_T": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "promoted_full_form_upper_bound": {
+            "exact": "-13/16",
+            "decimal": -0.8125
+          },
+          "checks": {
+            "finite_value_beats_both_error_budgets": true,
+            "promoted_upper_bound_is_negative": true
+          }
+        }
+      ],
+      "single_cutoff_no_go_rows": [
+        {
+          "tail_refinement_exponent": 2,
+          "finite_archimedean_cutoff_value": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "positive_archimedean_tail": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "cutoff_free_fixed_prime_band_value": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "uncontrolled_prime_band_remainder": {
+            "exact": "5/2",
+            "decimal": 2.5
+          },
+          "full_form_value": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "archimedean_budget_tends_toward_zero": true,
+            "finite_archimedean_value_is_positive": true,
+            "full_value_is_negative": true,
+            "missing_prime_band_remainder_explains_sign_flip": true
+          }
+        },
+        {
+          "tail_refinement_exponent": 4,
+          "finite_archimedean_cutoff_value": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "positive_archimedean_tail": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "cutoff_free_fixed_prime_band_value": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "uncontrolled_prime_band_remainder": {
+            "exact": "9/4",
+            "decimal": 2.25
+          },
+          "full_form_value": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "archimedean_budget_tends_toward_zero": true,
+            "finite_archimedean_value_is_positive": true,
+            "full_value_is_negative": true,
+            "missing_prime_band_remainder_explains_sign_flip": true
+          }
+        },
+        {
+          "tail_refinement_exponent": 8,
+          "finite_archimedean_cutoff_value": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "positive_archimedean_tail": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "cutoff_free_fixed_prime_band_value": {
+            "exact": "9/8",
+            "decimal": 1.125
+          },
+          "uncontrolled_prime_band_remainder": {
+            "exact": "17/8",
+            "decimal": 2.125
+          },
+          "full_form_value": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "archimedean_budget_tends_toward_zero": true,
+            "finite_archimedean_value_is_positive": true,
+            "full_value_is_negative": true,
+            "missing_prime_band_remainder_explains_sign_flip": true
+          }
+        },
+        {
+          "tail_refinement_exponent": 16,
+          "finite_archimedean_cutoff_value": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "positive_archimedean_tail": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "cutoff_free_fixed_prime_band_value": {
+            "exact": "17/16",
+            "decimal": 1.0625
+          },
+          "uncontrolled_prime_band_remainder": {
+            "exact": "33/16",
+            "decimal": 2.0625
+          },
+          "full_form_value": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "archimedean_budget_tends_toward_zero": true,
+            "finite_archimedean_value_is_positive": true,
+            "full_value_is_negative": true,
+            "missing_prime_band_remainder_explains_sign_flip": true
+          }
+        }
+      ],
+      "published_leading_order_scaling_rows": [
+        {
+          "prime_cutoff_c": 13,
+          "frequency_band_N": 4,
+          "archimedean_cutoff_T": 800,
+          "rho_2pi_over_log_c": 2.449633279854652,
+          "leading_order_tail_indicator": 0.018665087800118933,
+          "claim_boundary": "This is the published leading-order scaling indicator B_T~(2N+1)rho log(T)/(pi^2 T), not the paper's exact interval certificate."
+        },
+        {
+          "prime_cutoff_c": 29,
+          "frequency_band_N": 16,
+          "archimedean_cutoff_T": 10000,
+          "rho_2pi_over_log_c": 1.8659439575301064,
+          "leading_order_tail_indicator": 0.005746302311221233,
+          "claim_boundary": "This is the published leading-order scaling indicator B_T~(2N+1)rho log(T)/(pi^2 T), not the paper's exact interval certificate."
+        },
+        {
+          "prime_cutoff_c": 100,
+          "frequency_band_N": 50,
+          "archimedean_cutoff_T": 1000000,
+          "rho_2pi_over_log_c": 1.3643763538418412,
+          "leading_order_tail_indicator": 0.00019289579102737715,
+          "claim_boundary": "This is the published leading-order scaling indicator B_T~(2N+1)rho log(T)/(pi^2 T), not the paper's exact interval certificate."
+        },
+        {
+          "prime_cutoff_c": 100,
+          "frequency_band_N": 200,
+          "archimedean_cutoff_T": 1000000000,
+          "rho_2pi_over_log_c": 1.3643763538418412,
+          "leading_order_tail_indicator": 1.1487803792373005e-06,
+          "claim_boundary": "This is the published leading-order scaling indicator B_T~(2N+1)rho log(T)/(pi^2 T), not the paper's exact interval certificate."
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The July 2026 archimedean tail-order theorem supplies the fixed-(c,N) B axis, but PrimeProject has not proved the prime/band remainder A_c,N, a joint (c,N,T) schedule, or positivity on every member of an explicit nested Weil form core.",
+    "route_decision": {
+      "discard": "treating archimedean cutoff convergence alone as a continuum RH certificate",
+      "retain": "combine the published positive archimedean tail with a new uniform prime/band remainder on a nested explicit Weil core and a joint cutoff schedule",
+      "next_theorem": "UniformPrimeBandRemainderOnExplicitNestedWeilCoreWithJointCutoffSchedule"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T158-REJECTED",
+          "label": "ArchimedeanTailControlAlonePromotesToWeilPositivity",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T158-CLOSED",
+          "label": "TwoCutoffFormBudgetCompositionAndSingleCutoffNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T158-OPEN",
+          "label": "UniformPrimeBandRemainderOnExplicitNestedWeilCoreWithJointCutoffSchedule",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T158-REJECTED",
+          "RH-T158-CLOSED"
+        ],
+        [
+          "RH-T158-CLOSED",
+          "RH-T158-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One exact two-cutoff composition theorem, scalar single-cutoff counterfamily, and noncertifying literature scaling audit."
+  }
+}

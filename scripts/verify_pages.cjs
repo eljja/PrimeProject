@@ -14,16 +14,16 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET157 through TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET158 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260804-ticket157-priority")) {
-      errors.push(`${page}: missing TICKET157 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260805-ticket158-priority")) {
+      errors.push(`${page}: missing TICKET158 priority cache key`);
     }
   }
 
@@ -1245,9 +1245,35 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket158 title", "Ticket 158 two-cutoff composition, localized inversion gain, phase variation, and directional information");
+    requireText("ticket158 table", "TICKET158 audit");
+    requireText("ticket158 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket158 resolutions", "Resolution count0");
+    requireText("ticket158 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket158 RH theorem", "TwoCutoffFormBudgetCompositionAndSingleCutoffNoGo");
+      requireText("ticket158 RH compositions", "Positive compositions4");
+      requireText("ticket158 RH no-gos", "Single-cutoff no-gos4");
+      requireText("ticket158 RH target", "UniformPrimeBandRemainderOnExplicitNestedWeilCoreWithJointCutoffSchedule");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket158 Collatz theorem", "LocalizedInversionGainAndCoarseStatisticNoGo");
+      requireText("ticket158 Collatz signatures", "Coarse signatures3,862");
+      requireText("ticket158 Collatz ambiguous", "Ambiguous signatures677");
+      requireText("ticket158 Collatz target", "NaturalValuationPrefixLocalizedGainCrossesAffineThresholdOnEveryRay");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket158 Goldbach theorem", "MovingAverageVariationProxyAndSharpnessNoGo");
+      requireText("ticket158 Goldbach proxies", "Variation-proxy passes0/18");
+      requireText("ticket158 Goldbach sharpness", "Sharpness rows3");
+      requireText("ticket158 Goldbach target", "ArithmeticMinorArcPhaseVariationBelowMajorMarginWithEffectiveFiniteJoin");
+    } else {
+      requireText("ticket158 Twin theorem", "SignedInformationBudgetAndDirectionBlindnessNoGo");
+      requireText("ticket158 Twin certificates", "Directional certificates5/5");
+      requireText("ticket158 Twin savings", "Strict savings4");
+      requireText("ticket158 Twin target", "UniformPositiveCubicRoughInformationBudgetOrSemiprimeAnticorrelationAfterEffectiveCutoff");
+    }
     requireText("ticket157 title", "Ticket 157 form-core promotion, valuation inversion gain, phase-proxy stability, and information margins");
     requireText("ticket157 table", "TICKET157 audit");
-    requireText("ticket157 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket157 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket157 resolutions", "Resolution count0");
     requireText("ticket157 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {

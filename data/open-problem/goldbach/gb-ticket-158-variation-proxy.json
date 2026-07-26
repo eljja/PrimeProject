@@ -1,0 +1,422 @@
+{
+  "schema": "primeproject.ticket158-two-cutoff-localized-variation-directional.v1",
+  "generated_at": "2026-07-26T20:10:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-158",
+  "attempt": "For a cyclic complex sequence w of length L, let A_b w be its trailing average over b consecutive coordinates and TV(w)=sum_k|w_k-w_(k-1)|. Then ||w-A_b w||_1<=(b-1)TV(w)/2, and therefore N_-(w)<=N_-(A_b w)+(b-1)TV(w)/2. The residual constant is sharp: an alternating +/-1 sequence with b=2 attains equality. This replaces an uncontrolled L1 proxy residual by an explicit phase-variation obligation, but does not itself provide the required arithmetic variation bound.",
+  "bounded_result": {
+    "audit_ref": "two_cutoff_localized_variation_directional_audit.goldbach"
+  },
+  "obstruction": "The moving average is an explicit linear proxy and the variation inequality is exact, but the finite total variation values are observations. No uniform arithmetic minor-arc phase-variation bound or finite join is proved.",
+  "candidate_theorem": "ArithmeticMinorArcPhaseVariationBelowMajorMarginWithEffectiveFiniteJoin",
+  "next_experiment": "bound the masked binary-Goldbach minor-arc phase variation arithmetically below the major margin and join it to finite verification",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact variation proxy theorem, a sharp alternating no-go family, and six finite phase-variation diagnostics.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-158",
+    "theorem_name": "MovingAverageVariationProxyAndSharpnessNoGo",
+    "declared_proposition": "For a cyclic complex sequence w of length L, let A_b w be its trailing average over b consecutive coordinates and TV(w)=sum_k|w_k-w_(k-1)|. Then ||w-A_b w||_1<=(b-1)TV(w)/2, and therefore N_-(w)<=N_-(A_b w)+(b-1)TV(w)/2. The residual constant is sharp: an alternating +/-1 sequence with b=2 attains equality. This replaces an uncontrolled L1 proxy residual by an explicit phase-variation obligation, but does not itself provide the required arithmetic variation bound.",
+    "mathematical_argument": "Write w_k-(A_b w)_k as b^-1 times the sum over j=1,...,b-1 of w_k-w_(k-j). Each difference is bounded by the j adjacent cyclic increments on its path. Summing first over k and then over j gives b^-1 sum_j j TV(w)=(b-1)TV(w)/2. Apply the TICKET-157 one-Lipschitz negative-mass inequality. For the alternating sequence A_2 w=0, the residual L1 is L and TV(w)=2L, so equality holds.",
+    "reproducible_computation": {
+      "theorem": "For a cyclic complex sequence w of length L, let A_b w be its trailing average over b consecutive coordinates and TV(w)=sum_k|w_k-w_(k-1)|. Then ||w-A_b w||_1<=(b-1)TV(w)/2, and therefore N_-(w)<=N_-(A_b w)+(b-1)TV(w)/2. The residual constant is sharp: an alternating +/-1 sequence with b=2 attains equality. This replaces an uncontrolled L1 proxy residual by an explicit phase-variation obligation, but does not itself provide the required arithmetic variation bound.",
+      "proof": "Write w_k-(A_b w)_k as b^-1 times the sum over j=1,...,b-1 of w_k-w_(k-j). Each difference is bounded by the j adjacent cyclic increments on its path. Summing first over k and then over j gives b^-1 sum_j j TV(w)=(b-1)TV(w)/2. Apply the TICKET-157 one-Lipschitz negative-mass inequality. For the alternating sequence A_2 w=0, the residual L1 is L and TV(w)=2L, so equality holds.",
+      "finite_goldbach_variation_proxy_rows": [
+        {
+          "even_endpoint_N": 1000,
+          "transform_size_L": 2048,
+          "major_signed_mass": 1513.6023307338382,
+          "actual_minor_negative_mass": 776.8718951616396,
+          "masked_minor_cyclic_total_variation": 3382.8861533222994,
+          "unordered_prime_pair_representations": 28,
+          "moving_average_variation_rows": [
+            {
+              "moving_average_width_b": 2,
+              "proxy_negative_mass": 666.6509723796504,
+              "actual_complex_residual_l1": 1691.4430766611497,
+              "variation_residual_upper_bound": 1691.4430766611497,
+              "stable_negative_mass_upper_bound": 2358.0940490408,
+              "certificate_lower_bound": -844.491718306962,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 4,
+              "proxy_negative_mass": 559.8238663955063,
+              "actual_complex_residual_l1": 2625.1893014480256,
+              "variation_residual_upper_bound": 5074.329229983449,
+              "stable_negative_mass_upper_bound": 5634.1530963789555,
+              "certificate_lower_bound": -4120.550765645117,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 8,
+              "proxy_negative_mass": 453.46309525646296,
+              "actual_complex_residual_l1": 3019.7576550415074,
+              "variation_residual_upper_bound": 11840.101536628048,
+              "stable_negative_mass_upper_bound": 12293.56463188451,
+              "certificate_lower_bound": -10779.962301150672,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            }
+          ]
+        },
+        {
+          "even_endpoint_N": 2000,
+          "transform_size_L": 4096,
+          "major_signed_mass": 2836.0047695459302,
+          "actual_minor_negative_mass": 2187.5841849585,
+          "masked_minor_cyclic_total_variation": 8348.2311494287,
+          "unordered_prime_pair_representations": 37,
+          "moving_average_variation_rows": [
+            {
+              "moving_average_width_b": 2,
+              "proxy_negative_mass": 1968.7571152031796,
+              "actual_complex_residual_l1": 4174.11557471435,
+              "variation_residual_upper_bound": 4174.11557471435,
+              "stable_negative_mass_upper_bound": 6142.87268991753,
+              "certificate_lower_bound": -3306.8679203715997,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 4,
+              "proxy_negative_mass": 1718.2841249129435,
+              "actual_complex_residual_l1": 6667.295659754509,
+              "variation_residual_upper_bound": 12522.346724143052,
+              "stable_negative_mass_upper_bound": 14240.630849055995,
+              "certificate_lower_bound": -11404.626079510064,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 8,
+              "proxy_negative_mass": 1452.9731730528374,
+              "actual_complex_residual_l1": 7732.044277323321,
+              "variation_residual_upper_bound": 29218.809023000453,
+              "stable_negative_mass_upper_bound": 30671.78219605329,
+              "certificate_lower_bound": -27835.77742650736,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            }
+          ]
+        },
+        {
+          "even_endpoint_N": 4000,
+          "transform_size_L": 8192,
+          "major_signed_mass": 6078.704598621174,
+          "actual_minor_negative_mass": 5156.486200682449,
+          "masked_minor_cyclic_total_variation": 19648.082460988666,
+          "unordered_prime_pair_representations": 65,
+          "moving_average_variation_rows": [
+            {
+              "moving_average_width_b": 2,
+              "proxy_negative_mass": 4633.861315838662,
+              "actual_complex_residual_l1": 9824.041230494333,
+              "variation_residual_upper_bound": 9824.041230494333,
+              "stable_negative_mass_upper_bound": 14457.902546332996,
+              "certificate_lower_bound": -8379.197947711822,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 4,
+              "proxy_negative_mass": 4044.2269548369936,
+              "actual_complex_residual_l1": 15922.140355532942,
+              "variation_residual_upper_bound": 29472.123691483,
+              "stable_negative_mass_upper_bound": 33516.350646319996,
+              "certificate_lower_bound": -27437.64604769882,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 8,
+              "proxy_negative_mass": 3472.276329812067,
+              "actual_complex_residual_l1": 18466.203773814213,
+              "variation_residual_upper_bound": 68768.28861346033,
+              "stable_negative_mass_upper_bound": 72240.5649432724,
+              "certificate_lower_bound": -66161.86034465123,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            }
+          ]
+        },
+        {
+          "even_endpoint_N": 8000,
+          "transform_size_L": 16384,
+          "major_signed_mass": 11829.959922662785,
+          "actual_minor_negative_mass": 12033.845290816733,
+          "masked_minor_cyclic_total_variation": 45121.93494473363,
+          "unordered_prime_pair_representations": 106,
+          "moving_average_variation_rows": [
+            {
+              "moving_average_width_b": 2,
+              "proxy_negative_mass": 10907.108545198751,
+              "actual_complex_residual_l1": 22560.967472366814,
+              "variation_residual_upper_bound": 22560.967472366814,
+              "stable_negative_mass_upper_bound": 33468.07601756557,
+              "certificate_lower_bound": -21638.116094902784,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 4,
+              "proxy_negative_mass": 9629.739452564563,
+              "actual_complex_residual_l1": 37272.41419301924,
+              "variation_residual_upper_bound": 67682.90241710044,
+              "stable_negative_mass_upper_bound": 77312.641869665,
+              "certificate_lower_bound": -65482.681947002224,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 8,
+              "proxy_negative_mass": 8205.883397885682,
+              "actual_complex_residual_l1": 43716.85675295254,
+              "variation_residual_upper_bound": 157926.7723065677,
+              "stable_negative_mass_upper_bound": 166132.65570445338,
+              "certificate_lower_bound": -154302.6957817906,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            }
+          ]
+        },
+        {
+          "even_endpoint_N": 16000,
+          "transform_size_L": 32768,
+          "major_signed_mass": 24799.60441165435,
+          "actual_minor_negative_mass": 27394.48795801522,
+          "masked_minor_cyclic_total_variation": 104175.38127438384,
+          "unordered_prime_pair_representations": 191,
+          "moving_average_variation_rows": [
+            {
+              "moving_average_width_b": 2,
+              "proxy_negative_mass": 24747.88474048217,
+              "actual_complex_residual_l1": 52087.69063719192,
+              "variation_residual_upper_bound": 52087.69063719192,
+              "stable_negative_mass_upper_bound": 76835.57537767409,
+              "certificate_lower_bound": -52035.97096601974,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 4,
+              "proxy_negative_mass": 21835.993193450584,
+              "actual_complex_residual_l1": 85311.23261047494,
+              "variation_residual_upper_bound": 156263.07191157574,
+              "stable_negative_mass_upper_bound": 178099.06510502633,
+              "certificate_lower_bound": -153299.46069337198,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 8,
+              "proxy_negative_mass": 18897.976527265713,
+              "actual_complex_residual_l1": 100479.5406418843,
+              "variation_residual_upper_bound": 364613.8344603434,
+              "stable_negative_mass_upper_bound": 383511.81098760915,
+              "certificate_lower_bound": -358712.2065759548,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            }
+          ]
+        },
+        {
+          "even_endpoint_N": 32000,
+          "transform_size_L": 65536,
+          "major_signed_mass": 48507.37386062002,
+          "actual_minor_negative_mass": 62365.80986027828,
+          "masked_minor_cyclic_total_variation": 229700.10035305444,
+          "unordered_prime_pair_representations": 312,
+          "moving_average_variation_rows": [
+            {
+              "moving_average_width_b": 2,
+              "proxy_negative_mass": 56921.998463894946,
+              "actual_complex_residual_l1": 114850.05017652722,
+              "variation_residual_upper_bound": 114850.05017652722,
+              "stable_negative_mass_upper_bound": 171772.04864042217,
+              "certificate_lower_bound": -123264.67477980215,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 4,
+              "proxy_negative_mass": 50519.03728201207,
+              "actual_complex_residual_l1": 191134.28801272056,
+              "variation_residual_upper_bound": 344550.15052958165,
+              "stable_negative_mass_upper_bound": 395069.1878115937,
+              "certificate_lower_bound": -346561.8139509737,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            },
+            {
+              "moving_average_width_b": 8,
+              "proxy_negative_mass": 43569.872839546704,
+              "actual_complex_residual_l1": 226322.20095466587,
+              "variation_residual_upper_bound": 803950.3512356905,
+              "stable_negative_mass_upper_bound": 847520.2240752373,
+              "certificate_lower_bound": -799012.8502146173,
+              "certificate_passes": false,
+              "checks": {
+                "moving_average_residual_obeys_variation_bound": true,
+                "negative_mass_obeys_stability_and_variation_bound": true,
+                "proxy_length_matches_frequency_grid": true
+              }
+            }
+          ]
+        }
+      ],
+      "exact_variation_constant_sharpness_rows": [
+        {
+          "dimension_m": 8,
+          "moving_average_width_b": 2,
+          "actual_residual_l1": 8.0,
+          "cyclic_total_variation": 16.0,
+          "variation_residual_upper_bound": 8.0,
+          "checks": {
+            "width_two_proxy_is_zero": true,
+            "residual_l1_equals_dimension": true,
+            "total_variation_equals_twice_dimension": true,
+            "variation_residual_bound_is_saturated": true
+          }
+        },
+        {
+          "dimension_m": 32,
+          "moving_average_width_b": 2,
+          "actual_residual_l1": 32.0,
+          "cyclic_total_variation": 64.0,
+          "variation_residual_upper_bound": 32.0,
+          "checks": {
+            "width_two_proxy_is_zero": true,
+            "residual_l1_equals_dimension": true,
+            "total_variation_equals_twice_dimension": true,
+            "variation_residual_bound_is_saturated": true
+          }
+        },
+        {
+          "dimension_m": 128,
+          "moving_average_width_b": 2,
+          "actual_residual_l1": 128.0,
+          "cyclic_total_variation": 256.0,
+          "variation_residual_upper_bound": 128.0,
+          "checks": {
+            "width_two_proxy_is_zero": true,
+            "residual_l1_equals_dimension": true,
+            "total_variation_equals_twice_dimension": true,
+            "variation_residual_bound_is_saturated": true
+          }
+        }
+      ],
+      "variation_proxy_certificate_counts": {
+        "2": 0,
+        "4": 0,
+        "8": 0
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The moving average is an explicit linear proxy and the variation inequality is exact, but the finite total variation values are observations. No uniform arithmetic minor-arc phase-variation bound or finite join is proved.",
+    "route_decision": {
+      "discard": "assuming smoothing gives a small L1 residual without paying the sharp total-variation term",
+      "retain": "bound the masked binary-Goldbach minor-arc phase variation arithmetically below the major margin and join it to finite verification",
+      "next_theorem": "ArithmeticMinorArcPhaseVariationBelowMajorMarginWithEffectiveFiniteJoin"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T158-REJECTED",
+          "label": "MovingAverageSmoothingHasDimensionFreeUnpaidResidual",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T158-CLOSED",
+          "label": "MovingAverageVariationProxyAndSharpnessNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T158-OPEN",
+          "label": "ArithmeticMinorArcPhaseVariationBelowMajorMarginWithEffectiveFiniteJoin",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T158-REJECTED",
+          "GB-T158-CLOSED"
+        ],
+        [
+          "GB-T158-CLOSED",
+          "GB-T158-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One exact variation proxy theorem, a sharp alternating no-go family, and six finite phase-variation diagnostics."
+  }
+}
