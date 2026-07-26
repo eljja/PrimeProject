@@ -1,11 +1,10 @@
 from __future__ import annotations
 
+import cmath
 import json
 import math
 from fractions import Fraction
 from typing import Any
-
-import numpy as np
 
 from ticket30_potential_synthesis_lab import ROOT, write_json
 from ticket154_compact_suffix_wheel_leastfactor import prime_theta_values
@@ -360,12 +359,49 @@ def next_power_of_two_above(value: int) -> int:
     return result
 
 
+def radix_two_fft(values: list[float]) -> list[complex]:
+    size = len(values)
+    if size == 0 or size & (size - 1):
+        raise ValueError("radix-two FFT input length must be a power of two")
+
+    transformed = [complex(value) for value in values]
+    target = 0
+    for source in range(1, size):
+        bit = size >> 1
+        while target & bit:
+            target ^= bit
+            bit >>= 1
+        target ^= bit
+        if source < target:
+            transformed[source], transformed[target] = (
+                transformed[target],
+                transformed[source],
+            )
+
+    block_size = 2
+    while block_size <= size:
+        root = cmath.exp(-2j * math.pi / block_size)
+        half = block_size // 2
+        for block_start in range(0, size, block_size):
+            phase = 1.0 + 0.0j
+            for offset in range(half):
+                left = block_start + offset
+                right = left + half
+                upper = transformed[left]
+                lower = phase * transformed[right]
+                transformed[left] = upper + lower
+                transformed[right] = upper - lower
+                phase *= root
+        block_size *= 2
+    return transformed
+
+
 def farey_major_mask(
     transform_size: int,
     denominator_limit: int,
     half_width_bins: int,
-) -> np.ndarray:
-    mask = np.zeros(transform_size, dtype=np.bool_)
+) -> list[bool]:
+    mask = [False] * transform_size
     for denominator in range(1, denominator_limit + 1):
         for numerator in range(denominator):
             if math.gcd(numerator, denominator) != 1:
@@ -388,30 +424,46 @@ def goldbach_signed_minor_audit() -> dict[str, object]:
 
     for endpoint in endpoints:
         transform_size = next_power_of_two_above(2 * endpoint)
-        weights = np.zeros(transform_size, dtype=np.float64)
+        weights = [0.0] * transform_size
         weights[: endpoint + 1] = theta[: endpoint + 1]
-        transform = np.fft.fft(weights)
-        frequencies = np.arange(transform_size, dtype=np.float64)
-        phase = np.exp(
-            2j * math.pi * frequencies * endpoint / transform_size
+        transform = radix_two_fft(weights)
+        phase_root = cmath.exp(
+            2j * math.pi * endpoint / transform_size
         )
-        signed_terms = np.real(transform * transform * phase) / transform_size
+        phase = 1.0 + 0.0j
+        signed_terms: list[float] = []
+        for value in transform:
+            signed_terms.append(
+                (value * value * phase).real / transform_size
+            )
+            phase *= phase_root
         major_mask = farey_major_mask(
             transform_size,
             denominator_limit,
             half_width_bins,
         )
-        minor_mask = ~major_mask
-        minor_terms = signed_terms[minor_mask]
-        major_signed = float(np.sum(signed_terms[major_mask]))
-        minor_positive = float(
-            np.sum(minor_terms[minor_terms >= 0.0])
+        major_signed = sum(
+            term
+            for term, is_major in zip(signed_terms, major_mask)
+            if is_major
         )
-        minor_negative = float(
-            -np.sum(minor_terms[minor_terms < 0.0])
+        minor_positive = sum(
+            term
+            for term, is_major in zip(signed_terms, major_mask)
+            if not is_major and term >= 0.0
         )
-        phase_blind_budget = float(
-            np.sum(np.abs(transform[minor_mask]) ** 2) / transform_size
+        minor_negative = -sum(
+            term
+            for term, is_major in zip(signed_terms, major_mask)
+            if not is_major and term < 0.0
+        )
+        phase_blind_budget = (
+            sum(
+                abs(value) ** 2
+                for value, is_major in zip(transform, major_mask)
+                if not is_major
+            )
+            / transform_size
         )
         direct = sum(
             theta[value] * theta[endpoint - value]
@@ -446,7 +498,7 @@ def goldbach_signed_minor_audit() -> dict[str, object]:
                 "transform_size_L": transform_size,
                 "farey_denominator_limit_Q": denominator_limit,
                 "half_width_bins_H": half_width_bins,
-                "major_bin_count": int(np.sum(major_mask)),
+                "major_bin_count": sum(major_mask),
                 "major_signed_mass": major_signed,
                 "minor_positive_signed_mass": minor_positive,
                 "minor_negative_signed_mass": minor_negative,

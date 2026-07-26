@@ -15,6 +15,7 @@ if str(SCRIPTS) not in sys.path:
 from ticket156_cutoff_potential_signed_information import (  # noqa: E402
     SCHEMA,
     build_audit,
+    radix_two_fft,
 )
 
 
@@ -37,6 +38,24 @@ class Ticket156CutoffPotentialSignedInformationTests(unittest.TestCase):
         self.assertEqual(machine["proof_dag_count"], 4)
         self.assertEqual(machine["conjecture_resolution_count"], 0)
         self.assertEqual(machine["total_failure_count"], 0)
+
+    def test_standard_library_fft_direction_and_parseval(self) -> None:
+        values = [1.0, 2.0, 3.0, 4.0]
+        transformed = radix_two_fft(values)
+        expected = [
+            10.0 + 0.0j,
+            -2.0 + 2.0j,
+            -2.0 + 0.0j,
+            -2.0 - 2.0j,
+        ]
+        for observed, target in zip(transformed, expected):
+            self.assertAlmostEqual(observed.real, target.real, places=12)
+            self.assertAlmostEqual(observed.imag, target.imag, places=12)
+        self.assertAlmostEqual(
+            sum(abs(value) ** 2 for value in transformed) / len(values),
+            sum(value * value for value in values),
+            places=12,
+        )
 
     def test_global_and_per_problem_artifacts_match_schema(self) -> None:
         self.assertEqual(self.payload["schema"], SCHEMA)
