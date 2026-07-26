@@ -1,0 +1,726 @@
+{
+  "schema": "primeproject.ticket152-compression-cylinder-energy-selection.v1",
+  "generated_at": "2026-07-26T15:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-152",
+  "attempt": "Every finite accelerated valuation word a=(a_1,...,a_m), with S=sum a_i and affine constant C, is realized by exactly one positive odd residue r modulo 2^(S+1). Its starts are n=r+k2^(S+1). If D=2^S-3^m>0, descent at time m holds exactly for the terminal tail k>=k_min; if D<=0 it never holds at that time. Moreover the next valuation is unbounded on every such cylinder. Therefore a nonterminal cylinder cannot be covered by any finite family of strict valuation-word extensions.",
+  "bounded_result": {
+    "audit_ref": "compression_cylinder_energy_selection_audit.collatz"
+  },
+  "obstruction": "The terminal-tail formula handles one fixed word, and the no-go rules out finite strict-extension covers. It does not control the countably many next valuations uniformly or prove that every natural start eventually enters a descending leaf.",
+  "candidate_theorem": "TypeTwoCountableExtensionCoverWithUniformAnalyticValuationTail",
+  "next_experiment": "use a countable prefix cover plus an analytic estimate for the unbounded valuation tail",
+  "claim_boundary": "No Collatz proof and no divergent orbit. One exact cylinder classification and a no-go for finite strict-extension coverage.",
+  "result": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-152",
+    "theorem_name": "AffineCylinderTailAndFiniteExtensionCoverNoGo",
+    "declared_proposition": "Every finite accelerated valuation word a=(a_1,...,a_m), with S=sum a_i and affine constant C, is realized by exactly one positive odd residue r modulo 2^(S+1). Its starts are n=r+k2^(S+1). If D=2^S-3^m>0, descent at time m holds exactly for the terminal tail k>=k_min; if D<=0 it never holds at that time. Moreover the next valuation is unbounded on every such cylinder. Therefore a nonterminal cylinder cannot be covered by any finite family of strict valuation-word extensions.",
+    "mathematical_argument": "The congruence 3^m n+C congruent to 2^S modulo 2^(S+1) has a unique solution because 3^m is odd; induction through the accelerated map shows it realizes all exact prefix valuations. The identity T^m(n)-n=(C-Dn)/2^S gives the tail threshold. If t is the terminal value at r, then terminals along the cylinder are t+2*3^m k. For any b>=1, the congruence (3t+1)/2+3^(m+1)k congruent to 2^(b-1) modulo 2^b has a unique solution, so v2(3T^m(n)+1)=b is realizable. Choosing b larger than every first new valuation in a finite extension family produces an uncovered natural start.",
+    "reproducible_computation": {
+      "theorem": "Every finite accelerated valuation word a=(a_1,...,a_m), with S=sum a_i and affine constant C, is realized by exactly one positive odd residue r modulo 2^(S+1). Its starts are n=r+k2^(S+1). If D=2^S-3^m>0, descent at time m holds exactly for the terminal tail k>=k_min; if D<=0 it never holds at that time. Moreover the next valuation is unbounded on every such cylinder. Therefore a nonterminal cylinder cannot be covered by any finite family of strict valuation-word extensions.",
+      "proof": "The congruence 3^m n+C congruent to 2^S modulo 2^(S+1) has a unique solution because 3^m is odd; induction through the accelerated map shows it realizes all exact prefix valuations. The identity T^m(n)-n=(C-Dn)/2^S gives the tail threshold. If t is the terminal value at r, then terminals along the cylinder are t+2*3^m k. For any b>=1, the congruence (3t+1)/2+3^(m+1)k congruent to 2^(b-1) modulo 2^b has a unique solution, so v2(3T^m(n)+1)=b is realizable. Choosing b larger than every first new valuation in a finite extension family produces an uncovered natural start.",
+      "finite_cylinder_tail_rows": [
+        {
+          "valuation_word": [
+            1
+          ],
+          "length_m": 1,
+          "valuation_sum_S": 1,
+          "affine_constant_C": "1",
+          "cylinder_modulus_2_to_S_plus_1": "4",
+          "least_positive_residue_r": "3",
+          "multiplier_gap_D": "-1",
+          "first_descent_lift_index_k": null,
+          "checks": {
+            "least_residue_realizes_word": true,
+            "first_64_lifts_realize_same_word": true,
+            "tail_descent_prediction_exact": true
+          }
+        },
+        {
+          "valuation_word": [
+            2
+          ],
+          "length_m": 1,
+          "valuation_sum_S": 2,
+          "affine_constant_C": "1",
+          "cylinder_modulus_2_to_S_plus_1": "8",
+          "least_positive_residue_r": "1",
+          "multiplier_gap_D": "1",
+          "first_descent_lift_index_k": 1,
+          "checks": {
+            "least_residue_realizes_word": true,
+            "first_64_lifts_realize_same_word": true,
+            "tail_descent_prediction_exact": true
+          }
+        },
+        {
+          "valuation_word": [
+            3
+          ],
+          "length_m": 1,
+          "valuation_sum_S": 3,
+          "affine_constant_C": "1",
+          "cylinder_modulus_2_to_S_plus_1": "16",
+          "least_positive_residue_r": "13",
+          "multiplier_gap_D": "5",
+          "first_descent_lift_index_k": 0,
+          "checks": {
+            "least_residue_realizes_word": true,
+            "first_64_lifts_realize_same_word": true,
+            "tail_descent_prediction_exact": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            1
+          ],
+          "length_m": 2,
+          "valuation_sum_S": 2,
+          "affine_constant_C": "5",
+          "cylinder_modulus_2_to_S_plus_1": "8",
+          "least_positive_residue_r": "7",
+          "multiplier_gap_D": "-5",
+          "first_descent_lift_index_k": null,
+          "checks": {
+            "least_residue_realizes_word": true,
+            "first_64_lifts_realize_same_word": true,
+            "tail_descent_prediction_exact": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            2
+          ],
+          "length_m": 2,
+          "valuation_sum_S": 3,
+          "affine_constant_C": "5",
+          "cylinder_modulus_2_to_S_plus_1": "16",
+          "least_positive_residue_r": "11",
+          "multiplier_gap_D": "-1",
+          "first_descent_lift_index_k": null,
+          "checks": {
+            "least_residue_realizes_word": true,
+            "first_64_lifts_realize_same_word": true,
+            "tail_descent_prediction_exact": true
+          }
+        },
+        {
+          "valuation_word": [
+            2,
+            1
+          ],
+          "length_m": 2,
+          "valuation_sum_S": 3,
+          "affine_constant_C": "7",
+          "cylinder_modulus_2_to_S_plus_1": "16",
+          "least_positive_residue_r": "9",
+          "multiplier_gap_D": "-1",
+          "first_descent_lift_index_k": null,
+          "checks": {
+            "least_residue_realizes_word": true,
+            "first_64_lifts_realize_same_word": true,
+            "tail_descent_prediction_exact": true
+          }
+        },
+        {
+          "valuation_word": [
+            3,
+            1
+          ],
+          "length_m": 2,
+          "valuation_sum_S": 4,
+          "affine_constant_C": "11",
+          "cylinder_modulus_2_to_S_plus_1": "32",
+          "least_positive_residue_r": "29",
+          "multiplier_gap_D": "7",
+          "first_descent_lift_index_k": 0,
+          "checks": {
+            "least_residue_realizes_word": true,
+            "first_64_lifts_realize_same_word": true,
+            "tail_descent_prediction_exact": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            1,
+            1
+          ],
+          "length_m": 3,
+          "valuation_sum_S": 3,
+          "affine_constant_C": "19",
+          "cylinder_modulus_2_to_S_plus_1": "16",
+          "least_positive_residue_r": "15",
+          "multiplier_gap_D": "-19",
+          "first_descent_lift_index_k": null,
+          "checks": {
+            "least_residue_realizes_word": true,
+            "first_64_lifts_realize_same_word": true,
+            "tail_descent_prediction_exact": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            2,
+            3
+          ],
+          "length_m": 3,
+          "valuation_sum_S": 6,
+          "affine_constant_C": "23",
+          "cylinder_modulus_2_to_S_plus_1": "128",
+          "least_positive_residue_r": "11",
+          "multiplier_gap_D": "37",
+          "first_descent_lift_index_k": 0,
+          "checks": {
+            "least_residue_realizes_word": true,
+            "first_64_lifts_realize_same_word": true,
+            "tail_descent_prediction_exact": true
+          }
+        },
+        {
+          "valuation_word": [
+            2,
+            2,
+            1
+          ],
+          "length_m": 3,
+          "valuation_sum_S": 5,
+          "affine_constant_C": "37",
+          "cylinder_modulus_2_to_S_plus_1": "64",
+          "least_positive_residue_r": "33",
+          "multiplier_gap_D": "5",
+          "first_descent_lift_index_k": 0,
+          "checks": {
+            "least_residue_realizes_word": true,
+            "first_64_lifts_realize_same_word": true,
+            "tail_descent_prediction_exact": true
+          }
+        }
+      ],
+      "finite_unbounded_next_valuation_rows": [
+        {
+          "parent_word": [
+            1
+          ],
+          "finite_first_extension_cap_B": 4,
+          "constructed_missing_next_valuation_B_plus_1": 5,
+          "lift_index_k": "8",
+          "witness_start_n": "35",
+          "replayed_extended_word": [
+            1,
+            5
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1
+          ],
+          "finite_first_extension_cap_B": 8,
+          "constructed_missing_next_valuation_B_plus_1": 9,
+          "lift_index_k": "312",
+          "witness_start_n": "1251",
+          "replayed_extended_word": [
+            1,
+            9
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1
+          ],
+          "finite_first_extension_cap_B": 16,
+          "constructed_missing_next_valuation_B_plus_1": 17,
+          "lift_index_k": "36408",
+          "witness_start_n": "145635",
+          "replayed_extended_word": [
+            1,
+            17
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1
+          ],
+          "finite_first_extension_cap_B": 24,
+          "constructed_missing_next_valuation_B_plus_1": 25,
+          "lift_index_k": "31690296",
+          "witness_start_n": "126761187",
+          "replayed_extended_word": [
+            1,
+            25
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1
+          ],
+          "finite_first_extension_cap_B": 32,
+          "constructed_missing_next_valuation_B_plus_1": 33,
+          "lift_index_k": "5249404472",
+          "witness_start_n": "20997617891",
+          "replayed_extended_word": [
+            1,
+            33
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            2
+          ],
+          "finite_first_extension_cap_B": 4,
+          "constructed_missing_next_valuation_B_plus_1": 5,
+          "lift_index_k": "30",
+          "witness_start_n": "241",
+          "replayed_extended_word": [
+            2,
+            5
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            2
+          ],
+          "finite_first_extension_cap_B": 8,
+          "constructed_missing_next_valuation_B_plus_1": 9,
+          "lift_index_k": "142",
+          "witness_start_n": "1137",
+          "replayed_extended_word": [
+            2,
+            9
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            2
+          ],
+          "finite_first_extension_cap_B": 16,
+          "constructed_missing_next_valuation_B_plus_1": 17,
+          "lift_index_k": "123790",
+          "witness_start_n": "990321",
+          "replayed_extended_word": [
+            2,
+            17
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            2
+          ],
+          "finite_first_extension_cap_B": 24,
+          "constructed_missing_next_valuation_B_plus_1": 25,
+          "lift_index_k": "20505486",
+          "witness_start_n": "164043889",
+          "replayed_extended_word": [
+            2,
+            25
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            2
+          ],
+          "finite_first_extension_cap_B": 32,
+          "constructed_missing_next_valuation_B_plus_1": 33,
+          "lift_index_k": "2386092942",
+          "witness_start_n": "19088743537",
+          "replayed_extended_word": [
+            2,
+            33
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1,
+            1
+          ],
+          "finite_first_extension_cap_B": 4,
+          "constructed_missing_next_valuation_B_plus_1": 5,
+          "lift_index_k": "2",
+          "witness_start_n": "23",
+          "replayed_extended_word": [
+            1,
+            1,
+            5
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1,
+            1
+          ],
+          "finite_first_extension_cap_B": 8,
+          "constructed_missing_next_valuation_B_plus_1": 9,
+          "lift_index_k": "274",
+          "witness_start_n": "2199",
+          "replayed_extended_word": [
+            1,
+            1,
+            9
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1,
+            1
+          ],
+          "finite_first_extension_cap_B": 16,
+          "constructed_missing_next_valuation_B_plus_1": 17,
+          "lift_index_k": "55826",
+          "witness_start_n": "446615",
+          "replayed_extended_word": [
+            1,
+            1,
+            17
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1,
+            1
+          ],
+          "finite_first_extension_cap_B": 24,
+          "constructed_missing_next_valuation_B_plus_1": 25,
+          "lift_index_k": "21748242",
+          "witness_start_n": "173985943",
+          "replayed_extended_word": [
+            1,
+            1,
+            25
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1,
+            1
+          ],
+          "finite_first_extension_cap_B": 32,
+          "constructed_missing_next_valuation_B_plus_1": 33,
+          "lift_index_k": "1749801490",
+          "witness_start_n": "13998411927",
+          "replayed_extended_word": [
+            1,
+            1,
+            33
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1,
+            2
+          ],
+          "finite_first_extension_cap_B": 4,
+          "constructed_missing_next_valuation_B_plus_1": 5,
+          "lift_index_k": "20",
+          "witness_start_n": "331",
+          "replayed_extended_word": [
+            1,
+            2,
+            5
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1,
+            2
+          ],
+          "finite_first_extension_cap_B": 8,
+          "constructed_missing_next_valuation_B_plus_1": 9,
+          "lift_index_k": "388",
+          "witness_start_n": "6219",
+          "replayed_extended_word": [
+            1,
+            2,
+            9
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1,
+            2
+          ],
+          "finite_first_extension_cap_B": 16,
+          "constructed_missing_next_valuation_B_plus_1": 17,
+          "lift_index_k": "128644",
+          "witness_start_n": "2058315",
+          "replayed_extended_word": [
+            1,
+            2,
+            17
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1,
+            2
+          ],
+          "finite_first_extension_cap_B": 24,
+          "constructed_missing_next_valuation_B_plus_1": 25,
+          "lift_index_k": "18019972",
+          "witness_start_n": "288319563",
+          "replayed_extended_word": [
+            1,
+            2,
+            25
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            1,
+            2
+          ],
+          "finite_first_extension_cap_B": 32,
+          "constructed_missing_next_valuation_B_plus_1": 33,
+          "lift_index_k": "3658675844",
+          "witness_start_n": "58538813515",
+          "replayed_extended_word": [
+            1,
+            2,
+            33
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            2,
+            1
+          ],
+          "finite_first_extension_cap_B": 4,
+          "constructed_missing_next_valuation_B_plus_1": 5,
+          "lift_index_k": "13",
+          "witness_start_n": "217",
+          "replayed_extended_word": [
+            2,
+            1,
+            5
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            2,
+            1
+          ],
+          "finite_first_extension_cap_B": 8,
+          "constructed_missing_next_valuation_B_plus_1": 9,
+          "lift_index_k": "445",
+          "witness_start_n": "7129",
+          "replayed_extended_word": [
+            2,
+            1,
+            9
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            2,
+            1
+          ],
+          "finite_first_extension_cap_B": 16,
+          "constructed_missing_next_valuation_B_plus_1": 17,
+          "lift_index_k": "99517",
+          "witness_start_n": "1592281",
+          "replayed_extended_word": [
+            2,
+            1,
+            17
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            2,
+            1
+          ],
+          "finite_first_extension_cap_B": 24,
+          "constructed_missing_next_valuation_B_plus_1": 25,
+          "lift_index_k": "32933053",
+          "witness_start_n": "526928857",
+          "replayed_extended_word": [
+            2,
+            1,
+            25
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        },
+        {
+          "parent_word": [
+            2,
+            1
+          ],
+          "finite_first_extension_cap_B": 32,
+          "constructed_missing_next_valuation_B_plus_1": 33,
+          "lift_index_k": "4613113021",
+          "witness_start_n": "73809808345",
+          "replayed_extended_word": [
+            2,
+            1,
+            33
+          ],
+          "checks": {
+            "parent_word_replayed": true,
+            "missing_next_valuation_replayed": true,
+            "outside_every_first_extension_at_or_below_cap": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The terminal-tail formula handles one fixed word, and the no-go rules out finite strict-extension covers. It does not control the countably many next valuations uniformly or prove that every natural start eventually enters a descending leaf.",
+    "route_decision": {
+      "discard": "searching for a finite strict valuation-word tree that covers an entire nonterminal type-two cylinder",
+      "retain": "use a countable prefix cover plus an analytic estimate for the unbounded valuation tail",
+      "next_theorem": "TypeTwoCountableExtensionCoverWithUniformAnalyticValuationTail"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T152-REJECTED",
+          "label": "FiniteTypeTwoStrictExtensionTreeCoversCylinder",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "CO-T152-CLOSED",
+          "label": "AffineCylinderTailAndFiniteExtensionCoverNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T152-OPEN",
+          "label": "TypeTwoCountableExtensionCoverWithUniformAnalyticValuationTail",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T152-REJECTED",
+          "CO-T152-CLOSED"
+        ],
+        [
+          "CO-T152-CLOSED",
+          "CO-T152-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Collatz proof and no divergent orbit. One exact cylinder classification and a no-go for finite strict-extension coverage."
+  }
+}

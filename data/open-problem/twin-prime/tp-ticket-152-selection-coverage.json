@@ -1,0 +1,251 @@
+{
+  "schema": "primeproject.ticket152-compression-cylinder-energy-selection.v1",
+  "generated_at": "2026-07-26T15:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-152",
+  "attempt": "Let x_i be signs with ambient size M and total A<0, and retain E=M-q of them. Every retained subset has negative sum if and only if q<-A; equivalently E/M>1+A/M. This bound is sharp. For cubic-rough integers the ambient mean tends to (log 2-1)/(log 2+1), so an ambient-only argument would require retaining more than 2 log(2)/(1+log(2)), about 81.87 percent. Standard one- and two-dimensional sieve bounds give rough vertex mass of order X/log z and gap-two rough-pair mass at most order X/(log z)^2; their coverage therefore tends to zero. The unshifted log-two bias cannot transfer by deletion robustness.",
+  "bounded_result": {
+    "audit_ref": "compression_cylinder_energy_selection_audit.twin_prime"
+  },
+  "obstruction": "The sharp selection lemma proves ambient bias is insufficient. It does not estimate the actual shifted Liouville sums or prove positive twin-prime mass at every large scale.",
+  "candidate_theorem": "DirectShiftedCubicRoughLiouvilleSumNegativeProportion",
+  "next_experiment": "estimate the two shifted Liouville sums directly on the cubic-rough gap-two support",
+  "claim_boundary": "No Twin Prime proof and no finite counterexample to the conjecture. One sharp transfer threshold and an asymptotic coverage no-go.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-152",
+    "theorem_name": "SharpMarginalDeletionTransferAndVanishingCoverageNoGo",
+    "declared_proposition": "Let x_i be signs with ambient size M and total A<0, and retain E=M-q of them. Every retained subset has negative sum if and only if q<-A; equivalently E/M>1+A/M. This bound is sharp. For cubic-rough integers the ambient mean tends to (log 2-1)/(log 2+1), so an ambient-only argument would require retaining more than 2 log(2)/(1+log(2)), about 81.87 percent. Standard one- and two-dimensional sieve bounds give rough vertex mass of order X/log z and gap-two rough-pair mass at most order X/(log z)^2; their coverage therefore tends to zero. The unshifted log-two bias cannot transfer by deletion robustness.",
+    "mathematical_argument": "The largest sum of an E-subset is E if enough positive signs exist, and otherwise A+q, obtained by deleting q negative signs first. Since A<0, this maximum is negative exactly when q<-A, proving necessity, sufficiency, and sharpness. In the cubic-rough population A/M tends to the stated log-two mean. Buchstab/linear-sieve size for one rough variable and the Selberg upper-bound sieve for the admissible pair (n,n+2) give the coverage orders. This no-go does not determine the actual shifted Liouville sign; it proves that sign must be estimated directly rather than inherited from the ambient marginal.",
+    "reproducible_computation": {
+      "theorem": "Let x_i be signs with ambient size M and total A<0, and retain E=M-q of them. Every retained subset has negative sum if and only if q<-A; equivalently E/M>1+A/M. This bound is sharp. For cubic-rough integers the ambient mean tends to (log 2-1)/(log 2+1), so an ambient-only argument would require retaining more than 2 log(2)/(1+log(2)), about 81.87 percent. Standard one- and two-dimensional sieve bounds give rough vertex mass of order X/log z and gap-two rough-pair mass at most order X/(log z)^2; their coverage therefore tends to zero. The unshifted log-two bias cannot transfer by deletion robustness.",
+      "proof": "The largest sum of an E-subset is E if enough positive signs exist, and otherwise A+q, obtained by deleting q negative signs first. Since A<0, this maximum is negative exactly when q<-A, proving necessity, sufficiency, and sharpness. In the cubic-rough population A/M tends to the stated log-two mean. Buchstab/linear-sieve size for one rough variable and the Selberg upper-bound sieve for the admissible pair (n,n+2) give the coverage orders. This no-go does not determine the actual shifted Liouville sign; it proves that sign must be estimated directly rather than inherited from the ambient marginal.",
+      "finite_actual_selection_rows": [
+        {
+          "X": 1000,
+          "cubic_roughness_floor_y": 10,
+          "ambient_rough_vertices_M": 227,
+          "ambient_liouville_sum_A": -101,
+          "ambient_negative_bias_delta": {
+            "exact": "101/227",
+            "decimal": 0.44493392070484583
+          },
+          "gap_two_selected_edges_E": 70,
+          "omitted_vertices_q": 157,
+          "selected_coverage_E_over_M": {
+            "exact": "70/227",
+            "decimal": 0.30837004405286345
+          },
+          "worst_case_required_coverage": {
+            "exact": "126/227",
+            "decimal": 0.5550660792951542
+          },
+          "ambient_bias_guarantees_selected_negative": false,
+          "actual_selected_left_liouville_sum": -34,
+          "actual_selected_right_liouville_sum": -24,
+          "distance_to_log_two_limit_mean": 0.26370170240556334,
+          "checks": {
+            "ambient_liouville_sum_negative": true,
+            "gap_two_support_nonempty": true,
+            "actual_coverage_below_worst_case_transfer_threshold": true,
+            "ambient_bias_does_not_force_selected_sign": true,
+            "actual_left_selected_sum_negative_finite_only": true,
+            "actual_right_selected_sum_negative_finite_only": true
+          }
+        },
+        {
+          "X": 10000,
+          "cubic_roughness_floor_y": 21,
+          "ambient_rough_vertices_M": 1710,
+          "ambient_liouville_sum_A": -732,
+          "ambient_negative_bias_delta": {
+            "exact": "122/285",
+            "decimal": 0.4280701754385965
+          },
+          "gap_two_selected_edges_E": 390,
+          "omitted_vertices_q": 1320,
+          "selected_coverage_E_over_M": {
+            "exact": "13/57",
+            "decimal": 0.22807017543859648
+          },
+          "worst_case_required_coverage": {
+            "exact": "163/285",
+            "decimal": 0.5719298245614035
+          },
+          "ambient_bias_guarantees_selected_negative": false,
+          "actual_selected_left_liouville_sum": -168,
+          "actual_selected_right_liouville_sum": -164,
+          "distance_to_log_two_limit_mean": 0.24683795713931397,
+          "checks": {
+            "ambient_liouville_sum_negative": true,
+            "gap_two_support_nonempty": true,
+            "actual_coverage_below_worst_case_transfer_threshold": true,
+            "ambient_bias_does_not_force_selected_sign": true,
+            "actual_left_selected_sum_negative_finite_only": true,
+            "actual_right_selected_sum_negative_finite_only": true
+          }
+        },
+        {
+          "X": 100000,
+          "cubic_roughness_floor_y": 46,
+          "ambient_rough_vertices_M": 14203,
+          "ambient_liouville_sum_A": -4953,
+          "ambient_negative_bias_delta": {
+            "exact": "4953/14203",
+            "decimal": 0.3487291417306203
+          },
+          "gap_two_selected_edges_E": 2681,
+          "omitted_vertices_q": 11522,
+          "selected_coverage_E_over_M": {
+            "exact": "383/2029",
+            "decimal": 0.18876293740758995
+          },
+          "worst_case_required_coverage": {
+            "exact": "9250/14203",
+            "decimal": 0.6512708582693797
+          },
+          "ambient_bias_guarantees_selected_negative": false,
+          "actual_selected_left_liouville_sum": -969,
+          "actual_selected_right_liouville_sum": -899,
+          "distance_to_log_two_limit_mean": 0.1674969234313378,
+          "checks": {
+            "ambient_liouville_sum_negative": true,
+            "gap_two_support_nonempty": true,
+            "actual_coverage_below_worst_case_transfer_threshold": true,
+            "ambient_bias_does_not_force_selected_sign": true,
+            "actual_left_selected_sum_negative_finite_only": true,
+            "actual_right_selected_sum_negative_finite_only": true
+          }
+        },
+        {
+          "X": 1000000,
+          "cubic_roughness_floor_y": 100,
+          "ambient_rough_vertices_M": 120759,
+          "ambient_liouville_sum_A": -36187,
+          "ambient_negative_bias_delta": {
+            "exact": "36187/120759",
+            "decimal": 0.29966296507920737
+          },
+          "gap_two_selected_edges_E": 19296,
+          "omitted_vertices_q": 101463,
+          "selected_coverage_E_over_M": {
+            "exact": "6432/40253",
+            "decimal": 0.15978933247211388
+          },
+          "worst_case_required_coverage": {
+            "exact": "84572/120759",
+            "decimal": 0.7003370349207927
+          },
+          "ambient_bias_guarantees_selected_negative": false,
+          "actual_selected_left_liouville_sum": -5690,
+          "actual_selected_right_liouville_sum": -5726,
+          "distance_to_log_two_limit_mean": 0.11843074677992485,
+          "checks": {
+            "ambient_liouville_sum_negative": true,
+            "gap_two_support_nonempty": true,
+            "actual_coverage_below_worst_case_transfer_threshold": true,
+            "ambient_bias_does_not_force_selected_sign": true,
+            "actual_left_selected_sum_negative_finite_only": true,
+            "actual_right_selected_sum_negative_finite_only": true
+          }
+        }
+      ],
+      "finite_sharp_counterselection_rows": [
+        {
+          "X": 1000,
+          "ambient_size_M": 227,
+          "ambient_sum_A": -101,
+          "selected_size_E": 70,
+          "omitted_q": 157,
+          "sharp_maximum_selected_sum": 56,
+          "checks": {
+            "maximum_formula_nonnegative_in_audit": true,
+            "counterselection_exists_at_same_size": true,
+            "guarantee_threshold_fails_exactly": true
+          }
+        },
+        {
+          "X": 10000,
+          "ambient_size_M": 1710,
+          "ambient_sum_A": -732,
+          "selected_size_E": 390,
+          "omitted_q": 1320,
+          "sharp_maximum_selected_sum": 390,
+          "checks": {
+            "maximum_formula_nonnegative_in_audit": true,
+            "counterselection_exists_at_same_size": true,
+            "guarantee_threshold_fails_exactly": true
+          }
+        },
+        {
+          "X": 100000,
+          "ambient_size_M": 14203,
+          "ambient_sum_A": -4953,
+          "selected_size_E": 2681,
+          "omitted_q": 11522,
+          "sharp_maximum_selected_sum": 2681,
+          "checks": {
+            "maximum_formula_nonnegative_in_audit": true,
+            "counterselection_exists_at_same_size": true,
+            "guarantee_threshold_fails_exactly": true
+          }
+        },
+        {
+          "X": 1000000,
+          "ambient_size_M": 120759,
+          "ambient_sum_A": -36187,
+          "selected_size_E": 19296,
+          "omitted_q": 101463,
+          "sharp_maximum_selected_sum": 19296,
+          "checks": {
+            "maximum_formula_nonnegative_in_audit": true,
+            "counterselection_exists_at_same_size": true,
+            "guarantee_threshold_fails_exactly": true
+          }
+        }
+      ],
+      "finite_coverage_strictly_decreasing": true,
+      "target_constants": {
+        "ambient_liouville_limit": -0.18123221829928252,
+        "required_retention_limit": 0.8187677817007174
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The sharp selection lemma proves ambient bias is insufficient. It does not estimate the actual shifted Liouville sums or prove positive twin-prime mass at every large scale.",
+    "route_decision": {
+      "discard": "using high-retention deletion robustness to transfer the one-variable log-two bias to cubic-rough gap-two support",
+      "retain": "estimate the two shifted Liouville sums directly on the cubic-rough gap-two support",
+      "next_theorem": "DirectShiftedCubicRoughLiouvilleSumNegativeProportion"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T152-REJECTED",
+          "label": "AmbientLogTwoBiasTransfersBySelectionRetention",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T152-CLOSED",
+          "label": "SharpMarginalDeletionTransferAndVanishingCoverageNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T152-OPEN",
+          "label": "DirectShiftedCubicRoughLiouvilleSumNegativeProportion",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T152-REJECTED",
+          "TP-T152-CLOSED"
+        ],
+        [
+          "TP-T152-CLOSED",
+          "TP-T152-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof and no finite counterexample to the conjecture. One sharp transfer threshold and an asymptotic coverage no-go."
+  }
+}

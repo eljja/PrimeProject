@@ -149,6 +149,7 @@ TICKET148_SCHEMA = "primeproject.ticket148-multiscale-renewal-sharpness-matching
 TICKET149_SCHEMA = "primeproject.ticket149-smooth-escape-wheel-cover.v1"
 TICKET150_SCHEMA = "primeproject.ticket150-relative-delay-hole-parity.v1"
 TICKET151_SCHEMA = "primeproject.ticket151-negative-affine-transversal-logtwo.v1"
+TICKET152_SCHEMA = "primeproject.ticket152-compression-cylinder-energy-selection.v1"
 
 
 def fail(message: str) -> int:
@@ -8989,6 +8990,260 @@ def main() -> int:
         not in str(ticket151.get("claim_boundary", "")).lower()
     ):
         return fail("ticket151 proof boundary changed")
+
+    path152 = Path(
+        "data/open-problem/"
+        "ticket152-compression-cylinder-energy-selection.json"
+    )
+    if not path152.exists():
+        return fail(
+            "missing ticket152 compression-cylinder-energy-selection audit"
+        )
+    ticket152 = read_json(path152)
+    if (
+        ticket152.get("schema") != TICKET152_SCHEMA
+        or ticket152.get("status")
+        != "exact_target_corrections_all_four_conjectures_open"
+    ):
+        return fail("ticket152 schema or status changed")
+    attempts152 = ticket152.get("attempts", [])
+    by_id152 = {
+        str(row.get("problem_id")): row
+        for row in attempts152
+        if isinstance(row, dict)
+    } if isinstance(attempts152, list) else {}
+    if set(by_id152) != EXPECTED_PROBLEMS:
+        return fail("ticket152 attempts missing problems")
+    paths152 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-152-compression-tail.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-152-cylinder-cover.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-152-global-l2-no-go.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-152-selection-coverage.json"
+        ),
+    }
+    next152 = {
+        "riemann": (
+            "ActualWeilCoreCompressionWithCertifiedOperatorNorm"
+            "TailBelowMargin"
+        ),
+        "collatz": (
+            "TypeTwoCountableExtensionCoverWithUniformAnalytic"
+            "ValuationTail"
+        ),
+        "goldbach": (
+            "EndpointBilinearVonMangoldtErrorBelowSingularSeries"
+            "MainTermK56"
+        ),
+        "twin-prime": (
+            "DirectShiftedCubicRoughLiouvilleSumNegativeProportion"
+        ),
+    }
+    for problem_id, attempt in by_id152.items():
+        if (
+            not paths152[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+        ):
+            return fail(
+                f"{problem_id}: ticket152 artifact or boundary missing"
+            )
+        per_problem152 = read_json(paths152[problem_id])
+        if (
+            per_problem152.get("schema") != TICKET152_SCHEMA
+            or per_problem152.get("problem_id") != problem_id
+            or per_problem152.get("candidate_theorem")
+            != next152[problem_id]
+            or attempt.get("candidate_theorem") != next152[problem_id]
+        ):
+            return fail(
+                f"{problem_id}: ticket152 per-problem contract changed"
+            )
+
+    audit152 = ticket152.get(
+        "compression_cylinder_energy_selection_audit",
+        {},
+    )
+    machine152 = audit152.get("machine_audit", {})
+    if (
+        audit152.get("theorem_name")
+        != "FourConjectureCompressionCylinderEnergySelectionAudit"
+        or int(machine152.get("exact_theorem_count", -1)) != 4
+        or int(machine152.get("rejected_target_count", -1)) != 4
+        or int(machine152.get("proof_dag_count", -1)) != 4
+        or int(machine152.get("conjecture_resolution_count", -1)) != 0
+        or int(machine152.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket152 global machine audit changed")
+
+    riemann152 = audit152.get("riemann", {})
+    compression152 = riemann152.get("reproducible_computation", {})
+    hidden152 = compression152.get("finite_hidden_direction_rows", [])
+    tails152 = compression152.get(
+        "finite_tail_certificate_rows",
+        [],
+    )
+    if (
+        riemann152.get("theorem_name")
+        != "NestedCompressionExhaustionAndFiniteCutoffNoGo"
+        or len(hidden152) != 7
+        or len(tails152) != 9
+        or any(
+            Fraction(
+                row.get("full_spectral_infimum", {}).get("exact", "0")
+            )
+            >= -1
+            or not all(row.get("checks", {}).values())
+            for row in hidden152
+        )
+        or any(
+            Fraction(
+                row.get(
+                    "certified_full_lower_bound",
+                    {},
+                ).get("exact", "-2")
+            )
+            < -1
+            or not all(row.get("checks", {}).values())
+            for row in tails152
+        )
+        or int(compression152.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket152 RH compression audit changed")
+
+    collatz152 = audit152.get("collatz", {})
+    cylinder152 = collatz152.get("reproducible_computation", {})
+    tail_rows152 = cylinder152.get("finite_cylinder_tail_rows", [])
+    unbounded152 = cylinder152.get(
+        "finite_unbounded_next_valuation_rows",
+        [],
+    )
+    if (
+        collatz152.get("theorem_name")
+        != "AffineCylinderTailAndFiniteExtensionCoverNoGo"
+        or len(tail_rows152) != 10
+        or len(unbounded152) != 25
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in tail_rows152 + unbounded152
+        )
+        or int(cylinder152.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket152 Collatz cylinder audit changed")
+
+    goldbach152 = audit152.get("goldbach", {})
+    energy152 = goldbach152.get("reproducible_computation", {})
+    energy_rows152 = energy152.get("finite_uniform_baseline_rows", [])
+    ratios152 = [
+        float(row.get("l2_to_hole_radius_squared_ratio", 0))
+        for row in energy_rows152
+    ]
+    if (
+        goldbach152.get("theorem_name")
+        != "VonMangoldtGlobalL2HoleBallDivergenceNoGo"
+        or [int(row.get("even_endpoint_N", -1)) for row in energy_rows152]
+        != [1000, 10000, 100000, 1000000]
+        or any(
+            float(row.get("von_mangoldt_minus_one_l2_squared", 0))
+            <= float(
+                row.get(
+                    "uniform_endpoint_hole_radius_squared",
+                    float("inf"),
+                )
+            )
+            or not all(row.get("checks", {}).values())
+            for row in energy_rows152
+        )
+        or any(
+            right <= left
+            for left, right in zip(ratios152, ratios152[1:])
+        )
+        or int(energy152.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket152 Goldbach global-L2 audit changed")
+
+    twin152 = audit152.get("twin_prime", {})
+    selection152 = twin152.get("reproducible_computation", {})
+    selected_rows152 = selection152.get(
+        "finite_actual_selection_rows",
+        [],
+    )
+    sharp_rows152 = selection152.get(
+        "finite_sharp_counterselection_rows",
+        [],
+    )
+    coverage152 = [
+        Fraction(
+            row.get(
+                "selected_coverage_E_over_M",
+                {},
+            ).get("exact", "1")
+        )
+        for row in selected_rows152
+    ]
+    if (
+        twin152.get("theorem_name")
+        != "SharpMarginalDeletionTransferAndVanishingCoverageNoGo"
+        or len(selected_rows152) != 4
+        or len(sharp_rows152) != 4
+        or any(
+            bool(
+                row.get(
+                    "ambient_bias_guarantees_selected_negative",
+                    True,
+                )
+            )
+            or not all(row.get("checks", {}).values())
+            for row in selected_rows152
+        )
+        or any(
+            int(row.get("sharp_maximum_selected_sum", -1)) < 0
+            or not all(row.get("checks", {}).values())
+            for row in sharp_rows152
+        )
+        or any(
+            right >= left
+            for left, right in zip(coverage152, coverage152[1:])
+        )
+        or int(selection152.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket152 Twin selection audit changed")
+
+    sections152 = {
+        "riemann": riemann152,
+        "collatz": collatz152,
+        "goldbach": goldbach152,
+        "twin-prime": twin152,
+    }
+    for problem_id, section in sections152.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next152[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket152 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit152.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket152.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket152 proof boundary changed")
 
     print("open problem structure verified")
     return 0

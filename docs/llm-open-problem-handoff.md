@@ -62,7 +62,57 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-151
+## Latest Continuation After TICKET-152
+
+Read `docs/compression-cylinder-energy-selection.md`,
+`data/open-problem/ticket152-compression-cylinder-energy-selection.json`,
+`scripts/ticket152_compression_cylinder_energy_selection.py`, and
+`tests/test_ticket152_compression_cylinder_energy_selection.py` first.
+
+Do not reopen these rejected routes without a theorem that defeats the
+recorded counterexample or asymptotic obstruction:
+
+- promoting positivity at any fixed RH Galerkin cutoff to global positivity
+  without a certified operator-norm tail;
+- covering a nonterminal Collatz valuation cylinder by finitely many strict
+  word extensions;
+- placing the global von Mangoldt error inside the endpoint-hole `L2` ball
+  of a uniformly bounded dense Goldbach baseline;
+- transferring the one-variable cubic-rough `log 2` bias to gap-two support
+  by a high-retention deletion argument.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `ActualWeilCoreCompressionWithCertifiedOperatorNormTailBelowMargin` |
+| Collatz | `TypeTwoCountableExtensionCoverWithUniformAnalyticValuationTail` |
+| Goldbach | `EndpointBilinearVonMangoldtErrorBelowSingularSeriesMainTermK56` |
+| Twin Prime | `DirectShiftedCubicRoughLiouvilleSumNegativeProportion` |
+
+한국어: RH는 실제 Weil form core의 유한 압축과 함께 남은 tail의
+operator norm이 finite spectral margin보다 작음을 증명해야 한다.
+Collatz는 유한 트리가 아니라 countable extension cover와 unbounded
+valuation tail의 균일 해석적 상계를 결합해야 한다. Goldbach는 전역
+norm을 버리고 endpoint별 bilinear/quadratic 오차를 singular-series
+main term보다 작게 만들어야 한다. Twin Prime은 주변 평균에서
+이전하지 말고 cubic-rough gap-two support의 shifted Liouville 합을
+직접 음의 비율로 추정해야 한다. 네 난제는 모두
+`open_not_proven`이다.
+
+Exact TICKET-152 corrections:
+
+- RH: nested compression minima converge to the global spectral infimum,
+  but every fixed cutoff admits a hidden negative direction.
+- Collatz: every finite word is one exact arithmetic cylinder with a
+  terminal descent tail, while its next valuation is unbounded.
+- Goldbach: bounded dense endpoint-hole radii have energy `O(N)`, whereas
+  the global von Mangoldt error has energy `N log N`.
+- Twin Prime: ambient sign bias survives all selections exactly above a
+  sharp retention threshold, while rough gap-two coverage tends to zero.
+
+These are partial and no-go theorems, not solutions or counterexamples to the
+four conjectures.
+
+## Historical Continuation After TICKET-151
 
 Read `docs/negative-affine-transversal-logtwo.md`,
 `data/open-problem/ticket151-negative-affine-transversal-logtwo.json`,

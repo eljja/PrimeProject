@@ -31,20 +31,23 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-151: Negative Spectrum, Affine Thresholds, Reflection Transversals,
-and the Log-Two Bias](docs/negative-affine-transversal-logtwo.md). It proves
-four exact partial or no-go theorems. The RH target is reduced from a
-two-sided relative norm to the exact negative spectral-part bound. The
-Collatz route now includes the exact affine threshold `n>C/D` and a natural
-counterexample to surplus-only descent. The Goldbach route has the exact
-weighted reflection-hole radius and a no-go for permutation-invariant global
-moments. The Twin route derives the one-variable cubic-rough `1:log 2`
-prime/semiprime ratio and proves that its sign does not automatically survive
-gap-two selection. Every conjecture remains `open_not_proven`.
+[TICKET-152: Compression Exhaustion, Collatz Cylinders, Goldbach Energy, and
+Twin Selection](docs/compression-cylinder-energy-selection.md). It proves
+four exact partial or no-go theorems. For RH, nested compression minima
+exhaust the global spectral floor, but every fixed cutoff can hide a new
+negative direction unless an operator-norm tail is certified. For Collatz,
+each finite valuation word is one exact arithmetic cylinder with a terminal
+descent tail, while unbounded next valuations make every finite strict
+extension cover incomplete. For Goldbach, the global von Mangoldt error has
+energy `N log N` against only `O(N)` endpoint-hole radius, so the open bridge
+must use endpoint bilinear cancellation rather than a global `L2` ball. For
+Twin Prime, the sharp ambient-bias retention threshold is incompatible with
+vanishing cubic-rough gap-two coverage, so shifted Liouville sums must be
+estimated directly. Every conjecture remains `open_not_proven`.
 
 The preserved previous boundary is
-[TICKET-150: Relative Form Bounds, Delayed Collatz Escape, Sharp Endpoint
-Holes, and Parity Equivalence](docs/relative-delay-hole-parity.md).
+[TICKET-151: Negative Spectrum, Affine Thresholds, Reflection Transversals,
+and the Log-Two Bias](docs/negative-affine-transversal-logtwo.md).
 
 The corrected TICKET77 sublemma is written separately in [Collatz Fixed-Prefix Boundary Orbit](docs/collatz-fixed-prefix-boundary-orbit.md), with a bilingual theorem statement, equality-rollback correction, periodic-orbit classification, 2-adic admissibility analysis, and explicit remaining bridge.
 
@@ -100,18 +103,20 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-eleven-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-twelve-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-151. For RH it proves that positivity
-is equivalent to `||B_-||<=1`, while a full relative norm bound is
-unnecessarily strong. For Collatz it proves the exact finite-word affine
-threshold and refutes positive-surplus-only descent with `n=165`. For
-Goldbach it gives the exact weighted reflection-hole radius and shows that
-global moments cannot determine endpoint positivity. For Twin Prime it
-derives the cubic-rough `log 2` marginal and blocks its automatic transfer to
-gap-two selected support. All four conjectures remain open. See
+The latest proof-search track is TICKET-152. For RH it proves exact nested
+compression exhaustion, a finite-cutoff no-go, and the sufficient
+finite-margin-plus-tail contract. For Collatz it proves the exact arithmetic
+cylinder and terminal descent tail, then constructs a missed natural start
+for every finite strict-extension cap. For Goldbach it proves the proposed
+global von Mangoldt `L2` bridge diverges relative to the exact endpoint-hole
+radius. For Twin Prime it proves the sharp selection-retention threshold and
+that ambient `log 2` bias cannot transfer through vanishing rough-pair
+coverage. All four conjectures remain open. See
+[TICKET152](docs/compression-cylinder-energy-selection.md),
 [TICKET151](docs/negative-affine-transversal-logtwo.md),
 [TICKET150](docs/relative-delay-hole-parity.md),
 [TICKET149](docs/smooth-escape-wheel-cover.md),
@@ -122,16 +127,19 @@ gap-two selected support. All four conjectures remain open. See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-151입니다. RH에서는 합성 form의
-양성이 전체 상대 norm이 아니라 음의 스펙트럼 부분 `||B_-||<=1`과
-정확히 동치임을 증명했습니다. Collatz에서는 유한 valuation word의
-정확한 affine 하강 임계값 `n>C/D`를 얻고, surplus가 양수인데도
-하강하지 않는 실제 예 `n=165`를 확인했습니다. Goldbach에서는 가중
-반사 궤도의 정확한 endpoint-hole 거리를 증명하고 전역 모멘트만으로는
-endpoint 양성을 정할 수 없음을 보였습니다. Twin Prime에서는
-cubic-rough 소수/semiprime 비 `1:log 2`를 유도했지만 이 편향이
-gap-two 선택 집합으로 자동 이전되지 않음을 확정했습니다. 네 문제는
-모두 미해결이며 완전 증명이나 추측의 반례는 없습니다.
+한국어 최신 요약: 최신 탐색은 TICKET-152입니다. RH에서는 nested 유한
+압축의 최소값이 전역 spectral floor로 수렴함을 증명했지만, 어떤
+고정 cutoff도 숨은 음의 방향을 배제하지 못하므로 실제 operator-norm
+tail certificate가 필요함을 확정했습니다. Collatz에서는 유한
+valuation word가 하나의 정확한 산술 cylinder이고 하강 집합이 terminal
+tail임을 증명한 뒤, 다음 valuation이 unbounded라서 유한 strict
+extension cover는 불가능함을 증명했습니다. Goldbach에서는 전역
+von Mangoldt 오차 energy가 `N log N`이고 endpoint-hole 허용량은
+`O(N)`이므로 전역 `L2` 경로를 폐기했습니다. Twin Prime에서는 주변
+`log 2` 편향을 보존하려면 높은 선택률이 필요하지만 cubic-rough
+gap-two coverage는 0으로 가므로 shifted Liouville 합을 직접 추정해야
+함을 확정했습니다. 네 문제는 모두 미해결이며 완전 증명이나 추측의
+반례는 없습니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -151,15 +159,16 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-151입니다.
-[음의 스펙트럼, affine 임계값, 반사 transversal, log-two 편향
-보고서](docs/negative-affine-transversal-logtwo.md)는 네 트랙의 정확
-명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과 영문으로
-정리합니다. RH의 one-sided 음의 스펙트럼 기준, Collatz의 정확한
-`C/D` 임계값, Goldbach의 weighted endpoint-hole 반지름, Twin의
-한 변수 `log 2` 편향과 shifted-selection no-go를 확정했습니다. 각
-proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
-보조정리를 세 상태로 분리합니다.
+최신 난제 연구 트랙은 TICKET-152입니다.
+[압축 exhaustion, 콜라츠 cylinder, 골드바흐 energy, Twin selection
+보고서](docs/compression-cylinder-energy-selection.md)는 네 트랙의
+정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과
+영문으로 정리합니다. RH의 유한 cutoff no-go와 tail certificate,
+Collatz의 정확한 cylinder tail과 finite-cover no-go, Goldbach의
+전역 `L2` divergence no-go, Twin의 sharp selection threshold와
+vanishing-coverage no-go를 확정했습니다. 각 proof DAG는 폐기된 표적,
+이번에 닫힌 정확 정리, 다음 단일 미증명 보조정리를 세 상태로
+분리합니다.
 
 주요 진입점:
 

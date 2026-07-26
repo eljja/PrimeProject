@@ -1,0 +1,121 @@
+{
+  "schema": "primeproject.ticket152-compression-cylinder-energy-selection.v1",
+  "generated_at": "2026-07-26T15:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-152",
+  "attempt": "For the reflection a maps to N-a on {1,...,N-1}, the constant baseline w=1 has exact endpoint-hole radius squared N/2. Yet ||Lambda-1||_2^2 is asymptotic to N log N, so the squared-error to radius ratio is asymptotic to 2 log N and diverges. More generally, for any dense baselines uniformly bounded between fixed positive constants c and C, the hole radius is O(N) while ||Lambda-w_N||_2^2 is asymptotic to N log N. Thus the global L2-ball transfer proposed after TICKET-151 is asymptotically unreachable for this natural baseline class.",
+  "bounded_result": {
+    "audit_ref": "compression_cylinder_energy_selection_audit.goldbach"
+  },
+  "obstruction": "The argument rejects a global norm sufficient condition; it neither proves a pointwise lower bound for the actual Goldbach convolution nor rules out an even counterexample. Endpoint-specific signed cancellation remains open.",
+  "candidate_theorem": "EndpointBilinearVonMangoldtErrorBelowSingularSeriesMainTermK56",
+  "next_experiment": "bound the endpoint bilinear and quadratic error against the singular-series main term, with explicit major and minor arcs",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One asymptotic no-go that replaces an unreachable global L2 bridge by an endpoint bilinear target.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-152",
+    "theorem_name": "VonMangoldtGlobalL2HoleBallDivergenceNoGo",
+    "declared_proposition": "For the reflection a maps to N-a on {1,...,N-1}, the constant baseline w=1 has exact endpoint-hole radius squared N/2. Yet ||Lambda-1||_2^2 is asymptotic to N log N, so the squared-error to radius ratio is asymptotic to 2 log N and diverges. More generally, for any dense baselines uniformly bounded between fixed positive constants c and C, the hole radius is O(N) while ||Lambda-w_N||_2^2 is asymptotic to N log N. Thus the global L2-ball transfer proposed after TICKET-151 is asymptotically unreachable for this natural baseline class.",
+    "mathematical_argument": "The reflection has (N-2)/2 two-cycles and one fixed point, each costing one, so rho_N(1)^2=N/2. The prime number theorem and partial summation give sum_{n<=N} Lambda(n)^2=N log N+O(N) and psi(N)=N+o(N); hence sum(Lambda(n)-1)^2=N log N+O(N). For c<=w_N<=C, the exact orbit formula gives rho_N(w_N)^2<=C^2 N/2, while sum(Lambda-w_N)^2>=sum Lambda^2-2C psi(N), still N log N+O(N). This rejects only global norm transfer, not endpoint-resolved circle-method cancellation.",
+    "reproducible_computation": {
+      "theorem": "For the reflection a maps to N-a on {1,...,N-1}, the constant baseline w=1 has exact endpoint-hole radius squared N/2. Yet ||Lambda-1||_2^2 is asymptotic to N log N, so the squared-error to radius ratio is asymptotic to 2 log N and diverges. More generally, for any dense baselines uniformly bounded between fixed positive constants c and C, the hole radius is O(N) while ||Lambda-w_N||_2^2 is asymptotic to N log N. Thus the global L2-ball transfer proposed after TICKET-151 is asymptotically unreachable for this natural baseline class.",
+      "proof": "The reflection has (N-2)/2 two-cycles and one fixed point, each costing one, so rho_N(1)^2=N/2. The prime number theorem and partial summation give sum_{n<=N} Lambda(n)^2=N log N+O(N) and psi(N)=N+o(N); hence sum(Lambda(n)-1)^2=N log N+O(N). For c<=w_N<=C, the exact orbit formula gives rho_N(w_N)^2<=C^2 N/2, while sum(Lambda-w_N)^2>=sum Lambda^2-2C psi(N), still N log N+O(N). This rejects only global norm transfer, not endpoint-resolved circle-method cancellation.",
+      "finite_uniform_baseline_rows": [
+        {
+          "even_endpoint_N": 1000,
+          "uniform_endpoint_hole_radius_squared": 500.0,
+          "von_mangoldt_minus_one_l2_squared": 4779.814265768664,
+          "l2_to_hole_radius_squared_ratio": 9.559628531537328,
+          "two_log_N_reference": 13.815510557964274,
+          "von_mangoldt_endpoint_convolution": 1880.0702208146956,
+          "checks": {
+            "uniform_hole_radius_formula": true,
+            "global_l2_error_exceeds_hole_radius": true,
+            "finite_endpoint_von_mangoldt_convolution_positive": true,
+            "ratio_positive": true
+          }
+        },
+        {
+          "even_endpoint_N": 10000,
+          "uniform_endpoint_hole_radius_squared": 5000.0,
+          "von_mangoldt_minus_one_l2_squared": 71737.58048980043,
+          "l2_to_hole_radius_squared_ratio": 14.347516097960085,
+          "two_log_N_reference": 18.420680743952367,
+          "von_mangoldt_endpoint_convolution": 16855.21372255407,
+          "checks": {
+            "uniform_hole_radius_formula": true,
+            "global_l2_error_exceeds_hole_radius": true,
+            "finite_endpoint_von_mangoldt_convolution_positive": true,
+            "ratio_positive": true
+          }
+        },
+        {
+          "even_endpoint_N": 100000,
+          "uniform_endpoint_hole_radius_squared": 50000.0,
+          "von_mangoldt_minus_one_l2_squared": 949917.2236921041,
+          "l2_to_hole_radius_squared_ratio": 18.99834447384208,
+          "two_log_N_reference": 23.025850929940457,
+          "von_mangoldt_endpoint_convolution": 176573.6498138455,
+          "checks": {
+            "uniform_hole_radius_formula": true,
+            "global_l2_error_exceeds_hole_radius": true,
+            "finite_endpoint_von_mangoldt_convolution_positive": true,
+            "ratio_positive": true
+          }
+        },
+        {
+          "even_endpoint_N": 1000000,
+          "uniform_endpoint_hole_radius_squared": 500000.0,
+          "von_mangoldt_minus_one_l2_squared": 11803812.289137663,
+          "l2_to_hole_radius_squared_ratio": 23.607624578275328,
+          "two_log_N_reference": 27.631021115928547,
+          "von_mangoldt_endpoint_convolution": 1756567.536732241,
+          "checks": {
+            "uniform_hole_radius_formula": true,
+            "global_l2_error_exceeds_hole_radius": true,
+            "finite_endpoint_von_mangoldt_convolution_positive": true,
+            "ratio_positive": true
+          }
+        }
+      ],
+      "finite_ratio_strictly_increasing": true,
+      "failure_count": 0
+    },
+    "logical_limit": "The argument rejects a global norm sufficient condition; it neither proves a pointwise lower bound for the actual Goldbach convolution nor rules out an even counterexample. Endpoint-specific signed cancellation remains open.",
+    "route_decision": {
+      "discard": "placing the global von Mangoldt error inside the weighted endpoint-hole L2 ball of a uniformly bounded dense baseline",
+      "retain": "bound the endpoint bilinear and quadratic error against the singular-series main term, with explicit major and minor arcs",
+      "next_theorem": "EndpointBilinearVonMangoldtErrorBelowSingularSeriesMainTermK56"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T152-REJECTED",
+          "label": "GlobalVonMangoldtL2InsideWeightedHoleRadiusK56",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T152-CLOSED",
+          "label": "VonMangoldtGlobalL2HoleBallDivergenceNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T152-OPEN",
+          "label": "EndpointBilinearVonMangoldtErrorBelowSingularSeriesMainTermK56",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T152-REJECTED",
+          "GB-T152-CLOSED"
+        ],
+        [
+          "GB-T152-CLOSED",
+          "GB-T152-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One asymptotic no-go that replaces an unreachable global L2 bridge by an endpoint bilinear target."
+  }
+}

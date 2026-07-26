@@ -1,0 +1,1516 @@
+{
+  "schema": "primeproject.ticket152-compression-cylinder-energy-selection.v1",
+  "generated_at": "2026-07-26T15:00:00+09:00",
+  "status": "exact_target_corrections_all_four_conjectures_open",
+  "claim_boundary": "TICKET-152 proves four exact partial or no-go theorems and resolves no target conjecture. It turns RH finite compression tests into an exhaustion-plus-tail contract, proves finite strict Collatz extension trees cannot cover a nonterminal valuation cylinder, rejects a globally unreachable Goldbach von Mangoldt L2 transfer, and proves the Twin ambient log-two bias cannot survive gap-two selection by deletion robustness.",
+  "compression_cylinder_energy_selection_audit": {
+    "theorem_name": "FourConjectureCompressionCylinderEnergySelectionAudit",
+    "status": "exact_target_corrections_all_four_conjectures_open",
+    "proof_boundary": "TICKET-152 proves four exact partial or no-go theorems and resolves no target conjecture. It turns RH finite compression tests into an exhaustion-plus-tail contract, proves finite strict Collatz extension trees cannot cover a nonterminal valuation cylinder, rejects a globally unreachable Goldbach von Mangoldt L2 transfer, and proves the Twin ambient log-two bias cannot survive gap-two selection by deletion robustness.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-152",
+      "theorem_name": "NestedCompressionExhaustionAndFiniteCutoffNoGo",
+      "declared_proposition": "Let B be bounded and self-adjoint on a separable Hilbert space, and let H_N be nested finite-dimensional subspaces with dense union. If mu_N is the minimum Rayleigh quotient of B on H_N, then mu_N decreases to inf sigma(B), and ||B_-||=sup_N max(0,-mu_N). Hence B>=-I exactly when every compression has mu_N>=-1. No finite cutoff can certify this: a diagonal entry below -1 can be placed at the first unchecked coordinate. A finite-rank approximation F with ||B-F||<=epsilon and lambda_min(F)>=-1+epsilon does certify B>=-I.",
+      "mathematical_argument": "Nestedness makes mu_N nonincreasing. Density and continuity of the bounded quadratic form let every unit vector be approximated by normalized vectors from the union, so the limit equals the global Rayleigh infimum, namely inf sigma(B). Spectral calculus gives ||B_-||=max(0,-inf sigma(B)). For the finite-cutoff counterexample use diag(0,...,0,-1-delta,0,...). Finally, |<x,(B-F)x>|<=epsilon||x||^2 yields inf sigma(B)>=lambda_min(F)-epsilon.",
+      "reproducible_computation": {
+        "theorem": "Let B be bounded and self-adjoint on a separable Hilbert space, and let H_N be nested finite-dimensional subspaces with dense union. If mu_N is the minimum Rayleigh quotient of B on H_N, then mu_N decreases to inf sigma(B), and ||B_-||=sup_N max(0,-mu_N). Hence B>=-I exactly when every compression has mu_N>=-1. No finite cutoff can certify this: a diagonal entry below -1 can be placed at the first unchecked coordinate. A finite-rank approximation F with ||B-F||<=epsilon and lambda_min(F)>=-1+epsilon does certify B>=-I.",
+        "proof": "Nestedness makes mu_N nonincreasing. Density and continuity of the bounded quadratic form let every unit vector be approximated by normalized vectors from the union, so the limit equals the global Rayleigh infimum, namely inf sigma(B). Spectral calculus gives ||B_-||=max(0,-inf sigma(B)). For the finite-cutoff counterexample use diag(0,...,0,-1-delta,0,...). Finally, |<x,(B-F)x>|<=epsilon||x||^2 yields inf sigma(B)>=lambda_min(F)-epsilon.",
+        "finite_hidden_direction_rows": [
+          {
+            "checked_cutoff_N": 1,
+            "checked_compression_minimum_mu_N": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_coordinate": 2,
+            "hidden_eigenvalue": {
+              "exact": "-3/2",
+              "decimal": -1.5
+            },
+            "full_spectral_infimum": {
+              "exact": "-3/2",
+              "decimal": -1.5
+            },
+            "checks": {
+              "all_checked_compressions_pass_floor_minus_one": true,
+              "full_operator_fails_floor_minus_one": true,
+              "negative_direction_is_first_hidden_coordinate": true
+            }
+          },
+          {
+            "checked_cutoff_N": 2,
+            "checked_compression_minimum_mu_N": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_coordinate": 3,
+            "hidden_eigenvalue": {
+              "exact": "-4/3",
+              "decimal": -1.3333333333333333
+            },
+            "full_spectral_infimum": {
+              "exact": "-4/3",
+              "decimal": -1.3333333333333333
+            },
+            "checks": {
+              "all_checked_compressions_pass_floor_minus_one": true,
+              "full_operator_fails_floor_minus_one": true,
+              "negative_direction_is_first_hidden_coordinate": true
+            }
+          },
+          {
+            "checked_cutoff_N": 4,
+            "checked_compression_minimum_mu_N": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_coordinate": 5,
+            "hidden_eigenvalue": {
+              "exact": "-6/5",
+              "decimal": -1.2
+            },
+            "full_spectral_infimum": {
+              "exact": "-6/5",
+              "decimal": -1.2
+            },
+            "checks": {
+              "all_checked_compressions_pass_floor_minus_one": true,
+              "full_operator_fails_floor_minus_one": true,
+              "negative_direction_is_first_hidden_coordinate": true
+            }
+          },
+          {
+            "checked_cutoff_N": 8,
+            "checked_compression_minimum_mu_N": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_coordinate": 9,
+            "hidden_eigenvalue": {
+              "exact": "-10/9",
+              "decimal": -1.1111111111111112
+            },
+            "full_spectral_infimum": {
+              "exact": "-10/9",
+              "decimal": -1.1111111111111112
+            },
+            "checks": {
+              "all_checked_compressions_pass_floor_minus_one": true,
+              "full_operator_fails_floor_minus_one": true,
+              "negative_direction_is_first_hidden_coordinate": true
+            }
+          },
+          {
+            "checked_cutoff_N": 16,
+            "checked_compression_minimum_mu_N": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_coordinate": 17,
+            "hidden_eigenvalue": {
+              "exact": "-18/17",
+              "decimal": -1.0588235294117647
+            },
+            "full_spectral_infimum": {
+              "exact": "-18/17",
+              "decimal": -1.0588235294117647
+            },
+            "checks": {
+              "all_checked_compressions_pass_floor_minus_one": true,
+              "full_operator_fails_floor_minus_one": true,
+              "negative_direction_is_first_hidden_coordinate": true
+            }
+          },
+          {
+            "checked_cutoff_N": 32,
+            "checked_compression_minimum_mu_N": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_coordinate": 33,
+            "hidden_eigenvalue": {
+              "exact": "-34/33",
+              "decimal": -1.0303030303030303
+            },
+            "full_spectral_infimum": {
+              "exact": "-34/33",
+              "decimal": -1.0303030303030303
+            },
+            "checks": {
+              "all_checked_compressions_pass_floor_minus_one": true,
+              "full_operator_fails_floor_minus_one": true,
+              "negative_direction_is_first_hidden_coordinate": true
+            }
+          },
+          {
+            "checked_cutoff_N": 64,
+            "checked_compression_minimum_mu_N": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_coordinate": 65,
+            "hidden_eigenvalue": {
+              "exact": "-66/65",
+              "decimal": -1.0153846153846153
+            },
+            "full_spectral_infimum": {
+              "exact": "-66/65",
+              "decimal": -1.0153846153846153
+            },
+            "checks": {
+              "all_checked_compressions_pass_floor_minus_one": true,
+              "full_operator_fails_floor_minus_one": true,
+              "negative_direction_is_first_hidden_coordinate": true
+            }
+          }
+        ],
+        "finite_tail_certificate_rows": [
+          {
+            "operator_norm_tail_epsilon": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "finite_rank_minimum": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "certified_full_lower_bound": {
+              "exact": "-3/4",
+              "decimal": -0.75
+            },
+            "checks": {
+              "finite_rank_margin_dominates_tail": true,
+              "certified_full_floor_at_least_minus_one": true,
+              "strict_margin_survives": true
+            }
+          },
+          {
+            "operator_norm_tail_epsilon": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "finite_rank_minimum": {
+              "exact": "-3/4",
+              "decimal": -0.75
+            },
+            "certified_full_lower_bound": {
+              "exact": "-7/8",
+              "decimal": -0.875
+            },
+            "checks": {
+              "finite_rank_margin_dominates_tail": true,
+              "certified_full_floor_at_least_minus_one": true,
+              "strict_margin_survives": true
+            }
+          },
+          {
+            "operator_norm_tail_epsilon": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "finite_rank_minimum": {
+              "exact": "-7/8",
+              "decimal": -0.875
+            },
+            "certified_full_lower_bound": {
+              "exact": "-15/16",
+              "decimal": -0.9375
+            },
+            "checks": {
+              "finite_rank_margin_dominates_tail": true,
+              "certified_full_floor_at_least_minus_one": true,
+              "strict_margin_survives": true
+            }
+          },
+          {
+            "operator_norm_tail_epsilon": {
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "finite_rank_minimum": {
+              "exact": "-15/16",
+              "decimal": -0.9375
+            },
+            "certified_full_lower_bound": {
+              "exact": "-31/32",
+              "decimal": -0.96875
+            },
+            "checks": {
+              "finite_rank_margin_dominates_tail": true,
+              "certified_full_floor_at_least_minus_one": true,
+              "strict_margin_survives": true
+            }
+          },
+          {
+            "operator_norm_tail_epsilon": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "finite_rank_minimum": {
+              "exact": "-31/32",
+              "decimal": -0.96875
+            },
+            "certified_full_lower_bound": {
+              "exact": "-63/64",
+              "decimal": -0.984375
+            },
+            "checks": {
+              "finite_rank_margin_dominates_tail": true,
+              "certified_full_floor_at_least_minus_one": true,
+              "strict_margin_survives": true
+            }
+          },
+          {
+            "operator_norm_tail_epsilon": {
+              "exact": "1/128",
+              "decimal": 0.0078125
+            },
+            "finite_rank_minimum": {
+              "exact": "-63/64",
+              "decimal": -0.984375
+            },
+            "certified_full_lower_bound": {
+              "exact": "-127/128",
+              "decimal": -0.9921875
+            },
+            "checks": {
+              "finite_rank_margin_dominates_tail": true,
+              "certified_full_floor_at_least_minus_one": true,
+              "strict_margin_survives": true
+            }
+          },
+          {
+            "operator_norm_tail_epsilon": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "finite_rank_minimum": {
+              "exact": "-127/128",
+              "decimal": -0.9921875
+            },
+            "certified_full_lower_bound": {
+              "exact": "-255/256",
+              "decimal": -0.99609375
+            },
+            "checks": {
+              "finite_rank_margin_dominates_tail": true,
+              "certified_full_floor_at_least_minus_one": true,
+              "strict_margin_survives": true
+            }
+          },
+          {
+            "operator_norm_tail_epsilon": {
+              "exact": "1/512",
+              "decimal": 0.001953125
+            },
+            "finite_rank_minimum": {
+              "exact": "-255/256",
+              "decimal": -0.99609375
+            },
+            "certified_full_lower_bound": {
+              "exact": "-511/512",
+              "decimal": -0.998046875
+            },
+            "checks": {
+              "finite_rank_margin_dominates_tail": true,
+              "certified_full_floor_at_least_minus_one": true,
+              "strict_margin_survives": true
+            }
+          },
+          {
+            "operator_norm_tail_epsilon": {
+              "exact": "1/1024",
+              "decimal": 0.0009765625
+            },
+            "finite_rank_minimum": {
+              "exact": "-511/512",
+              "decimal": -0.998046875
+            },
+            "certified_full_lower_bound": {
+              "exact": "-1023/1024",
+              "decimal": -0.9990234375
+            },
+            "checks": {
+              "finite_rank_margin_dominates_tail": true,
+              "certified_full_floor_at_least_minus_one": true,
+              "strict_margin_survives": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem is functional analysis for an already constructed bounded relative operator. PrimeProject still does not construct the actual Weil operator on a proved form core or certify an operator-norm tail. No zeta zero is excluded from the off-critical region.",
+      "route_decision": {
+        "discard": "treating any fixed Galerkin cutoff, however large, as a positivity proof",
+        "retain": "combine nested actual-Weil compressions with a rigorous operator-norm tail smaller than the finite spectral margin",
+        "next_theorem": "ActualWeilCoreCompressionWithCertifiedOperatorNormTailBelowMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T152-REJECTED",
+            "label": "FiniteWeilCompressionPositivityImpliesGlobalPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T152-CLOSED",
+            "label": "NestedCompressionExhaustionAndFiniteCutoffNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T152-OPEN",
+            "label": "ActualWeilCoreCompressionWithCertifiedOperatorNormTailBelowMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T152-REJECTED",
+            "RH-T152-CLOSED"
+          ],
+          [
+            "RH-T152-CLOSED",
+            "RH-T152-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero. One exact exhaustion criterion, a rigorous finite-cutoff no-go, and a certified tail template."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-152",
+      "theorem_name": "AffineCylinderTailAndFiniteExtensionCoverNoGo",
+      "declared_proposition": "Every finite accelerated valuation word a=(a_1,...,a_m), with S=sum a_i and affine constant C, is realized by exactly one positive odd residue r modulo 2^(S+1). Its starts are n=r+k2^(S+1). If D=2^S-3^m>0, descent at time m holds exactly for the terminal tail k>=k_min; if D<=0 it never holds at that time. Moreover the next valuation is unbounded on every such cylinder. Therefore a nonterminal cylinder cannot be covered by any finite family of strict valuation-word extensions.",
+      "mathematical_argument": "The congruence 3^m n+C congruent to 2^S modulo 2^(S+1) has a unique solution because 3^m is odd; induction through the accelerated map shows it realizes all exact prefix valuations. The identity T^m(n)-n=(C-Dn)/2^S gives the tail threshold. If t is the terminal value at r, then terminals along the cylinder are t+2*3^m k. For any b>=1, the congruence (3t+1)/2+3^(m+1)k congruent to 2^(b-1) modulo 2^b has a unique solution, so v2(3T^m(n)+1)=b is realizable. Choosing b larger than every first new valuation in a finite extension family produces an uncovered natural start.",
+      "reproducible_computation": {
+        "theorem": "Every finite accelerated valuation word a=(a_1,...,a_m), with S=sum a_i and affine constant C, is realized by exactly one positive odd residue r modulo 2^(S+1). Its starts are n=r+k2^(S+1). If D=2^S-3^m>0, descent at time m holds exactly for the terminal tail k>=k_min; if D<=0 it never holds at that time. Moreover the next valuation is unbounded on every such cylinder. Therefore a nonterminal cylinder cannot be covered by any finite family of strict valuation-word extensions.",
+        "proof": "The congruence 3^m n+C congruent to 2^S modulo 2^(S+1) has a unique solution because 3^m is odd; induction through the accelerated map shows it realizes all exact prefix valuations. The identity T^m(n)-n=(C-Dn)/2^S gives the tail threshold. If t is the terminal value at r, then terminals along the cylinder are t+2*3^m k. For any b>=1, the congruence (3t+1)/2+3^(m+1)k congruent to 2^(b-1) modulo 2^b has a unique solution, so v2(3T^m(n)+1)=b is realizable. Choosing b larger than every first new valuation in a finite extension family produces an uncovered natural start.",
+        "finite_cylinder_tail_rows": [
+          {
+            "valuation_word": [
+              1
+            ],
+            "length_m": 1,
+            "valuation_sum_S": 1,
+            "affine_constant_C": "1",
+            "cylinder_modulus_2_to_S_plus_1": "4",
+            "least_positive_residue_r": "3",
+            "multiplier_gap_D": "-1",
+            "first_descent_lift_index_k": null,
+            "checks": {
+              "least_residue_realizes_word": true,
+              "first_64_lifts_realize_same_word": true,
+              "tail_descent_prediction_exact": true
+            }
+          },
+          {
+            "valuation_word": [
+              2
+            ],
+            "length_m": 1,
+            "valuation_sum_S": 2,
+            "affine_constant_C": "1",
+            "cylinder_modulus_2_to_S_plus_1": "8",
+            "least_positive_residue_r": "1",
+            "multiplier_gap_D": "1",
+            "first_descent_lift_index_k": 1,
+            "checks": {
+              "least_residue_realizes_word": true,
+              "first_64_lifts_realize_same_word": true,
+              "tail_descent_prediction_exact": true
+            }
+          },
+          {
+            "valuation_word": [
+              3
+            ],
+            "length_m": 1,
+            "valuation_sum_S": 3,
+            "affine_constant_C": "1",
+            "cylinder_modulus_2_to_S_plus_1": "16",
+            "least_positive_residue_r": "13",
+            "multiplier_gap_D": "5",
+            "first_descent_lift_index_k": 0,
+            "checks": {
+              "least_residue_realizes_word": true,
+              "first_64_lifts_realize_same_word": true,
+              "tail_descent_prediction_exact": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              1
+            ],
+            "length_m": 2,
+            "valuation_sum_S": 2,
+            "affine_constant_C": "5",
+            "cylinder_modulus_2_to_S_plus_1": "8",
+            "least_positive_residue_r": "7",
+            "multiplier_gap_D": "-5",
+            "first_descent_lift_index_k": null,
+            "checks": {
+              "least_residue_realizes_word": true,
+              "first_64_lifts_realize_same_word": true,
+              "tail_descent_prediction_exact": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              2
+            ],
+            "length_m": 2,
+            "valuation_sum_S": 3,
+            "affine_constant_C": "5",
+            "cylinder_modulus_2_to_S_plus_1": "16",
+            "least_positive_residue_r": "11",
+            "multiplier_gap_D": "-1",
+            "first_descent_lift_index_k": null,
+            "checks": {
+              "least_residue_realizes_word": true,
+              "first_64_lifts_realize_same_word": true,
+              "tail_descent_prediction_exact": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              1
+            ],
+            "length_m": 2,
+            "valuation_sum_S": 3,
+            "affine_constant_C": "7",
+            "cylinder_modulus_2_to_S_plus_1": "16",
+            "least_positive_residue_r": "9",
+            "multiplier_gap_D": "-1",
+            "first_descent_lift_index_k": null,
+            "checks": {
+              "least_residue_realizes_word": true,
+              "first_64_lifts_realize_same_word": true,
+              "tail_descent_prediction_exact": true
+            }
+          },
+          {
+            "valuation_word": [
+              3,
+              1
+            ],
+            "length_m": 2,
+            "valuation_sum_S": 4,
+            "affine_constant_C": "11",
+            "cylinder_modulus_2_to_S_plus_1": "32",
+            "least_positive_residue_r": "29",
+            "multiplier_gap_D": "7",
+            "first_descent_lift_index_k": 0,
+            "checks": {
+              "least_residue_realizes_word": true,
+              "first_64_lifts_realize_same_word": true,
+              "tail_descent_prediction_exact": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              1,
+              1
+            ],
+            "length_m": 3,
+            "valuation_sum_S": 3,
+            "affine_constant_C": "19",
+            "cylinder_modulus_2_to_S_plus_1": "16",
+            "least_positive_residue_r": "15",
+            "multiplier_gap_D": "-19",
+            "first_descent_lift_index_k": null,
+            "checks": {
+              "least_residue_realizes_word": true,
+              "first_64_lifts_realize_same_word": true,
+              "tail_descent_prediction_exact": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              2,
+              3
+            ],
+            "length_m": 3,
+            "valuation_sum_S": 6,
+            "affine_constant_C": "23",
+            "cylinder_modulus_2_to_S_plus_1": "128",
+            "least_positive_residue_r": "11",
+            "multiplier_gap_D": "37",
+            "first_descent_lift_index_k": 0,
+            "checks": {
+              "least_residue_realizes_word": true,
+              "first_64_lifts_realize_same_word": true,
+              "tail_descent_prediction_exact": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              2,
+              1
+            ],
+            "length_m": 3,
+            "valuation_sum_S": 5,
+            "affine_constant_C": "37",
+            "cylinder_modulus_2_to_S_plus_1": "64",
+            "least_positive_residue_r": "33",
+            "multiplier_gap_D": "5",
+            "first_descent_lift_index_k": 0,
+            "checks": {
+              "least_residue_realizes_word": true,
+              "first_64_lifts_realize_same_word": true,
+              "tail_descent_prediction_exact": true
+            }
+          }
+        ],
+        "finite_unbounded_next_valuation_rows": [
+          {
+            "parent_word": [
+              1
+            ],
+            "finite_first_extension_cap_B": 4,
+            "constructed_missing_next_valuation_B_plus_1": 5,
+            "lift_index_k": "8",
+            "witness_start_n": "35",
+            "replayed_extended_word": [
+              1,
+              5
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1
+            ],
+            "finite_first_extension_cap_B": 8,
+            "constructed_missing_next_valuation_B_plus_1": 9,
+            "lift_index_k": "312",
+            "witness_start_n": "1251",
+            "replayed_extended_word": [
+              1,
+              9
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1
+            ],
+            "finite_first_extension_cap_B": 16,
+            "constructed_missing_next_valuation_B_plus_1": 17,
+            "lift_index_k": "36408",
+            "witness_start_n": "145635",
+            "replayed_extended_word": [
+              1,
+              17
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1
+            ],
+            "finite_first_extension_cap_B": 24,
+            "constructed_missing_next_valuation_B_plus_1": 25,
+            "lift_index_k": "31690296",
+            "witness_start_n": "126761187",
+            "replayed_extended_word": [
+              1,
+              25
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1
+            ],
+            "finite_first_extension_cap_B": 32,
+            "constructed_missing_next_valuation_B_plus_1": 33,
+            "lift_index_k": "5249404472",
+            "witness_start_n": "20997617891",
+            "replayed_extended_word": [
+              1,
+              33
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              2
+            ],
+            "finite_first_extension_cap_B": 4,
+            "constructed_missing_next_valuation_B_plus_1": 5,
+            "lift_index_k": "30",
+            "witness_start_n": "241",
+            "replayed_extended_word": [
+              2,
+              5
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              2
+            ],
+            "finite_first_extension_cap_B": 8,
+            "constructed_missing_next_valuation_B_plus_1": 9,
+            "lift_index_k": "142",
+            "witness_start_n": "1137",
+            "replayed_extended_word": [
+              2,
+              9
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              2
+            ],
+            "finite_first_extension_cap_B": 16,
+            "constructed_missing_next_valuation_B_plus_1": 17,
+            "lift_index_k": "123790",
+            "witness_start_n": "990321",
+            "replayed_extended_word": [
+              2,
+              17
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              2
+            ],
+            "finite_first_extension_cap_B": 24,
+            "constructed_missing_next_valuation_B_plus_1": 25,
+            "lift_index_k": "20505486",
+            "witness_start_n": "164043889",
+            "replayed_extended_word": [
+              2,
+              25
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              2
+            ],
+            "finite_first_extension_cap_B": 32,
+            "constructed_missing_next_valuation_B_plus_1": 33,
+            "lift_index_k": "2386092942",
+            "witness_start_n": "19088743537",
+            "replayed_extended_word": [
+              2,
+              33
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              1
+            ],
+            "finite_first_extension_cap_B": 4,
+            "constructed_missing_next_valuation_B_plus_1": 5,
+            "lift_index_k": "2",
+            "witness_start_n": "23",
+            "replayed_extended_word": [
+              1,
+              1,
+              5
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              1
+            ],
+            "finite_first_extension_cap_B": 8,
+            "constructed_missing_next_valuation_B_plus_1": 9,
+            "lift_index_k": "274",
+            "witness_start_n": "2199",
+            "replayed_extended_word": [
+              1,
+              1,
+              9
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              1
+            ],
+            "finite_first_extension_cap_B": 16,
+            "constructed_missing_next_valuation_B_plus_1": 17,
+            "lift_index_k": "55826",
+            "witness_start_n": "446615",
+            "replayed_extended_word": [
+              1,
+              1,
+              17
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              1
+            ],
+            "finite_first_extension_cap_B": 24,
+            "constructed_missing_next_valuation_B_plus_1": 25,
+            "lift_index_k": "21748242",
+            "witness_start_n": "173985943",
+            "replayed_extended_word": [
+              1,
+              1,
+              25
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              1
+            ],
+            "finite_first_extension_cap_B": 32,
+            "constructed_missing_next_valuation_B_plus_1": 33,
+            "lift_index_k": "1749801490",
+            "witness_start_n": "13998411927",
+            "replayed_extended_word": [
+              1,
+              1,
+              33
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              2
+            ],
+            "finite_first_extension_cap_B": 4,
+            "constructed_missing_next_valuation_B_plus_1": 5,
+            "lift_index_k": "20",
+            "witness_start_n": "331",
+            "replayed_extended_word": [
+              1,
+              2,
+              5
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              2
+            ],
+            "finite_first_extension_cap_B": 8,
+            "constructed_missing_next_valuation_B_plus_1": 9,
+            "lift_index_k": "388",
+            "witness_start_n": "6219",
+            "replayed_extended_word": [
+              1,
+              2,
+              9
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              2
+            ],
+            "finite_first_extension_cap_B": 16,
+            "constructed_missing_next_valuation_B_plus_1": 17,
+            "lift_index_k": "128644",
+            "witness_start_n": "2058315",
+            "replayed_extended_word": [
+              1,
+              2,
+              17
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              2
+            ],
+            "finite_first_extension_cap_B": 24,
+            "constructed_missing_next_valuation_B_plus_1": 25,
+            "lift_index_k": "18019972",
+            "witness_start_n": "288319563",
+            "replayed_extended_word": [
+              1,
+              2,
+              25
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              1,
+              2
+            ],
+            "finite_first_extension_cap_B": 32,
+            "constructed_missing_next_valuation_B_plus_1": 33,
+            "lift_index_k": "3658675844",
+            "witness_start_n": "58538813515",
+            "replayed_extended_word": [
+              1,
+              2,
+              33
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              1
+            ],
+            "finite_first_extension_cap_B": 4,
+            "constructed_missing_next_valuation_B_plus_1": 5,
+            "lift_index_k": "13",
+            "witness_start_n": "217",
+            "replayed_extended_word": [
+              2,
+              1,
+              5
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              1
+            ],
+            "finite_first_extension_cap_B": 8,
+            "constructed_missing_next_valuation_B_plus_1": 9,
+            "lift_index_k": "445",
+            "witness_start_n": "7129",
+            "replayed_extended_word": [
+              2,
+              1,
+              9
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              1
+            ],
+            "finite_first_extension_cap_B": 16,
+            "constructed_missing_next_valuation_B_plus_1": 17,
+            "lift_index_k": "99517",
+            "witness_start_n": "1592281",
+            "replayed_extended_word": [
+              2,
+              1,
+              17
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              1
+            ],
+            "finite_first_extension_cap_B": 24,
+            "constructed_missing_next_valuation_B_plus_1": 25,
+            "lift_index_k": "32933053",
+            "witness_start_n": "526928857",
+            "replayed_extended_word": [
+              2,
+              1,
+              25
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          },
+          {
+            "parent_word": [
+              2,
+              1
+            ],
+            "finite_first_extension_cap_B": 32,
+            "constructed_missing_next_valuation_B_plus_1": 33,
+            "lift_index_k": "4613113021",
+            "witness_start_n": "73809808345",
+            "replayed_extended_word": [
+              2,
+              1,
+              33
+            ],
+            "checks": {
+              "parent_word_replayed": true,
+              "missing_next_valuation_replayed": true,
+              "outside_every_first_extension_at_or_below_cap": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The terminal-tail formula handles one fixed word, and the no-go rules out finite strict-extension covers. It does not control the countably many next valuations uniformly or prove that every natural start eventually enters a descending leaf.",
+      "route_decision": {
+        "discard": "searching for a finite strict valuation-word tree that covers an entire nonterminal type-two cylinder",
+        "retain": "use a countable prefix cover plus an analytic estimate for the unbounded valuation tail",
+        "next_theorem": "TypeTwoCountableExtensionCoverWithUniformAnalyticValuationTail"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T152-REJECTED",
+            "label": "FiniteTypeTwoStrictExtensionTreeCoversCylinder",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T152-CLOSED",
+            "label": "AffineCylinderTailAndFiniteExtensionCoverNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T152-OPEN",
+            "label": "TypeTwoCountableExtensionCoverWithUniformAnalyticValuationTail",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T152-REJECTED",
+            "CO-T152-CLOSED"
+          ],
+          [
+            "CO-T152-CLOSED",
+            "CO-T152-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit. One exact cylinder classification and a no-go for finite strict-extension coverage."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-152",
+      "theorem_name": "VonMangoldtGlobalL2HoleBallDivergenceNoGo",
+      "declared_proposition": "For the reflection a maps to N-a on {1,...,N-1}, the constant baseline w=1 has exact endpoint-hole radius squared N/2. Yet ||Lambda-1||_2^2 is asymptotic to N log N, so the squared-error to radius ratio is asymptotic to 2 log N and diverges. More generally, for any dense baselines uniformly bounded between fixed positive constants c and C, the hole radius is O(N) while ||Lambda-w_N||_2^2 is asymptotic to N log N. Thus the global L2-ball transfer proposed after TICKET-151 is asymptotically unreachable for this natural baseline class.",
+      "mathematical_argument": "The reflection has (N-2)/2 two-cycles and one fixed point, each costing one, so rho_N(1)^2=N/2. The prime number theorem and partial summation give sum_{n<=N} Lambda(n)^2=N log N+O(N) and psi(N)=N+o(N); hence sum(Lambda(n)-1)^2=N log N+O(N). For c<=w_N<=C, the exact orbit formula gives rho_N(w_N)^2<=C^2 N/2, while sum(Lambda-w_N)^2>=sum Lambda^2-2C psi(N), still N log N+O(N). This rejects only global norm transfer, not endpoint-resolved circle-method cancellation.",
+      "reproducible_computation": {
+        "theorem": "For the reflection a maps to N-a on {1,...,N-1}, the constant baseline w=1 has exact endpoint-hole radius squared N/2. Yet ||Lambda-1||_2^2 is asymptotic to N log N, so the squared-error to radius ratio is asymptotic to 2 log N and diverges. More generally, for any dense baselines uniformly bounded between fixed positive constants c and C, the hole radius is O(N) while ||Lambda-w_N||_2^2 is asymptotic to N log N. Thus the global L2-ball transfer proposed after TICKET-151 is asymptotically unreachable for this natural baseline class.",
+        "proof": "The reflection has (N-2)/2 two-cycles and one fixed point, each costing one, so rho_N(1)^2=N/2. The prime number theorem and partial summation give sum_{n<=N} Lambda(n)^2=N log N+O(N) and psi(N)=N+o(N); hence sum(Lambda(n)-1)^2=N log N+O(N). For c<=w_N<=C, the exact orbit formula gives rho_N(w_N)^2<=C^2 N/2, while sum(Lambda-w_N)^2>=sum Lambda^2-2C psi(N), still N log N+O(N). This rejects only global norm transfer, not endpoint-resolved circle-method cancellation.",
+        "finite_uniform_baseline_rows": [
+          {
+            "even_endpoint_N": 1000,
+            "uniform_endpoint_hole_radius_squared": 500.0,
+            "von_mangoldt_minus_one_l2_squared": 4779.814265768664,
+            "l2_to_hole_radius_squared_ratio": 9.559628531537328,
+            "two_log_N_reference": 13.815510557964274,
+            "von_mangoldt_endpoint_convolution": 1880.0702208146956,
+            "checks": {
+              "uniform_hole_radius_formula": true,
+              "global_l2_error_exceeds_hole_radius": true,
+              "finite_endpoint_von_mangoldt_convolution_positive": true,
+              "ratio_positive": true
+            }
+          },
+          {
+            "even_endpoint_N": 10000,
+            "uniform_endpoint_hole_radius_squared": 5000.0,
+            "von_mangoldt_minus_one_l2_squared": 71737.58048980043,
+            "l2_to_hole_radius_squared_ratio": 14.347516097960085,
+            "two_log_N_reference": 18.420680743952367,
+            "von_mangoldt_endpoint_convolution": 16855.21372255407,
+            "checks": {
+              "uniform_hole_radius_formula": true,
+              "global_l2_error_exceeds_hole_radius": true,
+              "finite_endpoint_von_mangoldt_convolution_positive": true,
+              "ratio_positive": true
+            }
+          },
+          {
+            "even_endpoint_N": 100000,
+            "uniform_endpoint_hole_radius_squared": 50000.0,
+            "von_mangoldt_minus_one_l2_squared": 949917.2236921041,
+            "l2_to_hole_radius_squared_ratio": 18.99834447384208,
+            "two_log_N_reference": 23.025850929940457,
+            "von_mangoldt_endpoint_convolution": 176573.6498138455,
+            "checks": {
+              "uniform_hole_radius_formula": true,
+              "global_l2_error_exceeds_hole_radius": true,
+              "finite_endpoint_von_mangoldt_convolution_positive": true,
+              "ratio_positive": true
+            }
+          },
+          {
+            "even_endpoint_N": 1000000,
+            "uniform_endpoint_hole_radius_squared": 500000.0,
+            "von_mangoldt_minus_one_l2_squared": 11803812.289137663,
+            "l2_to_hole_radius_squared_ratio": 23.607624578275328,
+            "two_log_N_reference": 27.631021115928547,
+            "von_mangoldt_endpoint_convolution": 1756567.536732241,
+            "checks": {
+              "uniform_hole_radius_formula": true,
+              "global_l2_error_exceeds_hole_radius": true,
+              "finite_endpoint_von_mangoldt_convolution_positive": true,
+              "ratio_positive": true
+            }
+          }
+        ],
+        "finite_ratio_strictly_increasing": true,
+        "failure_count": 0
+      },
+      "logical_limit": "The argument rejects a global norm sufficient condition; it neither proves a pointwise lower bound for the actual Goldbach convolution nor rules out an even counterexample. Endpoint-specific signed cancellation remains open.",
+      "route_decision": {
+        "discard": "placing the global von Mangoldt error inside the weighted endpoint-hole L2 ball of a uniformly bounded dense baseline",
+        "retain": "bound the endpoint bilinear and quadratic error against the singular-series main term, with explicit major and minor arcs",
+        "next_theorem": "EndpointBilinearVonMangoldtErrorBelowSingularSeriesMainTermK56"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T152-REJECTED",
+            "label": "GlobalVonMangoldtL2InsideWeightedHoleRadiusK56",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T152-CLOSED",
+            "label": "VonMangoldtGlobalL2HoleBallDivergenceNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T152-OPEN",
+            "label": "EndpointBilinearVonMangoldtErrorBelowSingularSeriesMainTermK56",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T152-REJECTED",
+            "GB-T152-CLOSED"
+          ],
+          [
+            "GB-T152-CLOSED",
+            "GB-T152-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample. One asymptotic no-go that replaces an unreachable global L2 bridge by an endpoint bilinear target."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-152",
+      "theorem_name": "SharpMarginalDeletionTransferAndVanishingCoverageNoGo",
+      "declared_proposition": "Let x_i be signs with ambient size M and total A<0, and retain E=M-q of them. Every retained subset has negative sum if and only if q<-A; equivalently E/M>1+A/M. This bound is sharp. For cubic-rough integers the ambient mean tends to (log 2-1)/(log 2+1), so an ambient-only argument would require retaining more than 2 log(2)/(1+log(2)), about 81.87 percent. Standard one- and two-dimensional sieve bounds give rough vertex mass of order X/log z and gap-two rough-pair mass at most order X/(log z)^2; their coverage therefore tends to zero. The unshifted log-two bias cannot transfer by deletion robustness.",
+      "mathematical_argument": "The largest sum of an E-subset is E if enough positive signs exist, and otherwise A+q, obtained by deleting q negative signs first. Since A<0, this maximum is negative exactly when q<-A, proving necessity, sufficiency, and sharpness. In the cubic-rough population A/M tends to the stated log-two mean. Buchstab/linear-sieve size for one rough variable and the Selberg upper-bound sieve for the admissible pair (n,n+2) give the coverage orders. This no-go does not determine the actual shifted Liouville sign; it proves that sign must be estimated directly rather than inherited from the ambient marginal.",
+      "reproducible_computation": {
+        "theorem": "Let x_i be signs with ambient size M and total A<0, and retain E=M-q of them. Every retained subset has negative sum if and only if q<-A; equivalently E/M>1+A/M. This bound is sharp. For cubic-rough integers the ambient mean tends to (log 2-1)/(log 2+1), so an ambient-only argument would require retaining more than 2 log(2)/(1+log(2)), about 81.87 percent. Standard one- and two-dimensional sieve bounds give rough vertex mass of order X/log z and gap-two rough-pair mass at most order X/(log z)^2; their coverage therefore tends to zero. The unshifted log-two bias cannot transfer by deletion robustness.",
+        "proof": "The largest sum of an E-subset is E if enough positive signs exist, and otherwise A+q, obtained by deleting q negative signs first. Since A<0, this maximum is negative exactly when q<-A, proving necessity, sufficiency, and sharpness. In the cubic-rough population A/M tends to the stated log-two mean. Buchstab/linear-sieve size for one rough variable and the Selberg upper-bound sieve for the admissible pair (n,n+2) give the coverage orders. This no-go does not determine the actual shifted Liouville sign; it proves that sign must be estimated directly rather than inherited from the ambient marginal.",
+        "finite_actual_selection_rows": [
+          {
+            "X": 1000,
+            "cubic_roughness_floor_y": 10,
+            "ambient_rough_vertices_M": 227,
+            "ambient_liouville_sum_A": -101,
+            "ambient_negative_bias_delta": {
+              "exact": "101/227",
+              "decimal": 0.44493392070484583
+            },
+            "gap_two_selected_edges_E": 70,
+            "omitted_vertices_q": 157,
+            "selected_coverage_E_over_M": {
+              "exact": "70/227",
+              "decimal": 0.30837004405286345
+            },
+            "worst_case_required_coverage": {
+              "exact": "126/227",
+              "decimal": 0.5550660792951542
+            },
+            "ambient_bias_guarantees_selected_negative": false,
+            "actual_selected_left_liouville_sum": -34,
+            "actual_selected_right_liouville_sum": -24,
+            "distance_to_log_two_limit_mean": 0.26370170240556334,
+            "checks": {
+              "ambient_liouville_sum_negative": true,
+              "gap_two_support_nonempty": true,
+              "actual_coverage_below_worst_case_transfer_threshold": true,
+              "ambient_bias_does_not_force_selected_sign": true,
+              "actual_left_selected_sum_negative_finite_only": true,
+              "actual_right_selected_sum_negative_finite_only": true
+            }
+          },
+          {
+            "X": 10000,
+            "cubic_roughness_floor_y": 21,
+            "ambient_rough_vertices_M": 1710,
+            "ambient_liouville_sum_A": -732,
+            "ambient_negative_bias_delta": {
+              "exact": "122/285",
+              "decimal": 0.4280701754385965
+            },
+            "gap_two_selected_edges_E": 390,
+            "omitted_vertices_q": 1320,
+            "selected_coverage_E_over_M": {
+              "exact": "13/57",
+              "decimal": 0.22807017543859648
+            },
+            "worst_case_required_coverage": {
+              "exact": "163/285",
+              "decimal": 0.5719298245614035
+            },
+            "ambient_bias_guarantees_selected_negative": false,
+            "actual_selected_left_liouville_sum": -168,
+            "actual_selected_right_liouville_sum": -164,
+            "distance_to_log_two_limit_mean": 0.24683795713931397,
+            "checks": {
+              "ambient_liouville_sum_negative": true,
+              "gap_two_support_nonempty": true,
+              "actual_coverage_below_worst_case_transfer_threshold": true,
+              "ambient_bias_does_not_force_selected_sign": true,
+              "actual_left_selected_sum_negative_finite_only": true,
+              "actual_right_selected_sum_negative_finite_only": true
+            }
+          },
+          {
+            "X": 100000,
+            "cubic_roughness_floor_y": 46,
+            "ambient_rough_vertices_M": 14203,
+            "ambient_liouville_sum_A": -4953,
+            "ambient_negative_bias_delta": {
+              "exact": "4953/14203",
+              "decimal": 0.3487291417306203
+            },
+            "gap_two_selected_edges_E": 2681,
+            "omitted_vertices_q": 11522,
+            "selected_coverage_E_over_M": {
+              "exact": "383/2029",
+              "decimal": 0.18876293740758995
+            },
+            "worst_case_required_coverage": {
+              "exact": "9250/14203",
+              "decimal": 0.6512708582693797
+            },
+            "ambient_bias_guarantees_selected_negative": false,
+            "actual_selected_left_liouville_sum": -969,
+            "actual_selected_right_liouville_sum": -899,
+            "distance_to_log_two_limit_mean": 0.1674969234313378,
+            "checks": {
+              "ambient_liouville_sum_negative": true,
+              "gap_two_support_nonempty": true,
+              "actual_coverage_below_worst_case_transfer_threshold": true,
+              "ambient_bias_does_not_force_selected_sign": true,
+              "actual_left_selected_sum_negative_finite_only": true,
+              "actual_right_selected_sum_negative_finite_only": true
+            }
+          },
+          {
+            "X": 1000000,
+            "cubic_roughness_floor_y": 100,
+            "ambient_rough_vertices_M": 120759,
+            "ambient_liouville_sum_A": -36187,
+            "ambient_negative_bias_delta": {
+              "exact": "36187/120759",
+              "decimal": 0.29966296507920737
+            },
+            "gap_two_selected_edges_E": 19296,
+            "omitted_vertices_q": 101463,
+            "selected_coverage_E_over_M": {
+              "exact": "6432/40253",
+              "decimal": 0.15978933247211388
+            },
+            "worst_case_required_coverage": {
+              "exact": "84572/120759",
+              "decimal": 0.7003370349207927
+            },
+            "ambient_bias_guarantees_selected_negative": false,
+            "actual_selected_left_liouville_sum": -5690,
+            "actual_selected_right_liouville_sum": -5726,
+            "distance_to_log_two_limit_mean": 0.11843074677992485,
+            "checks": {
+              "ambient_liouville_sum_negative": true,
+              "gap_two_support_nonempty": true,
+              "actual_coverage_below_worst_case_transfer_threshold": true,
+              "ambient_bias_does_not_force_selected_sign": true,
+              "actual_left_selected_sum_negative_finite_only": true,
+              "actual_right_selected_sum_negative_finite_only": true
+            }
+          }
+        ],
+        "finite_sharp_counterselection_rows": [
+          {
+            "X": 1000,
+            "ambient_size_M": 227,
+            "ambient_sum_A": -101,
+            "selected_size_E": 70,
+            "omitted_q": 157,
+            "sharp_maximum_selected_sum": 56,
+            "checks": {
+              "maximum_formula_nonnegative_in_audit": true,
+              "counterselection_exists_at_same_size": true,
+              "guarantee_threshold_fails_exactly": true
+            }
+          },
+          {
+            "X": 10000,
+            "ambient_size_M": 1710,
+            "ambient_sum_A": -732,
+            "selected_size_E": 390,
+            "omitted_q": 1320,
+            "sharp_maximum_selected_sum": 390,
+            "checks": {
+              "maximum_formula_nonnegative_in_audit": true,
+              "counterselection_exists_at_same_size": true,
+              "guarantee_threshold_fails_exactly": true
+            }
+          },
+          {
+            "X": 100000,
+            "ambient_size_M": 14203,
+            "ambient_sum_A": -4953,
+            "selected_size_E": 2681,
+            "omitted_q": 11522,
+            "sharp_maximum_selected_sum": 2681,
+            "checks": {
+              "maximum_formula_nonnegative_in_audit": true,
+              "counterselection_exists_at_same_size": true,
+              "guarantee_threshold_fails_exactly": true
+            }
+          },
+          {
+            "X": 1000000,
+            "ambient_size_M": 120759,
+            "ambient_sum_A": -36187,
+            "selected_size_E": 19296,
+            "omitted_q": 101463,
+            "sharp_maximum_selected_sum": 19296,
+            "checks": {
+              "maximum_formula_nonnegative_in_audit": true,
+              "counterselection_exists_at_same_size": true,
+              "guarantee_threshold_fails_exactly": true
+            }
+          }
+        ],
+        "finite_coverage_strictly_decreasing": true,
+        "target_constants": {
+          "ambient_liouville_limit": -0.18123221829928252,
+          "required_retention_limit": 0.8187677817007174
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The sharp selection lemma proves ambient bias is insufficient. It does not estimate the actual shifted Liouville sums or prove positive twin-prime mass at every large scale.",
+      "route_decision": {
+        "discard": "using high-retention deletion robustness to transfer the one-variable log-two bias to cubic-rough gap-two support",
+        "retain": "estimate the two shifted Liouville sums directly on the cubic-rough gap-two support",
+        "next_theorem": "DirectShiftedCubicRoughLiouvilleSumNegativeProportion"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T152-REJECTED",
+            "label": "AmbientLogTwoBiasTransfersBySelectionRetention",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T152-CLOSED",
+            "label": "SharpMarginalDeletionTransferAndVanishingCoverageNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T152-OPEN",
+            "label": "DirectShiftedCubicRoughLiouvilleSumNegativeProportion",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T152-REJECTED",
+            "TP-T152-CLOSED"
+          ],
+          [
+            "TP-T152-CLOSED",
+            "TP-T152-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no finite counterexample to the conjecture. One sharp transfer threshold and an asymptotic coverage no-go."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Connes and Consani, The Scaling Hamiltonian",
+        "url": "https://arxiv.org/abs/1910.14368",
+        "role": "Primary Weil-positivity operator context; TICKET-152 supplies only the abstract compression-and-tail logic."
+      },
+      {
+        "citation": "Niu, Parity vectors and paradoxical sequences in the accelerated Collatz map",
+        "url": "https://arxiv.org/abs/2605.13886",
+        "role": "Current parity-vector context; the new congruence proof isolates the unbounded next-valuation obstruction."
+      },
+      {
+        "citation": "Helfgott, Minor arcs for Goldbach's problem",
+        "url": "https://arxiv.org/abs/1205.5252",
+        "role": "Primary explicit circle-method context; TICKET-152 redirects the open bridge to endpoint signed errors."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary sieve-boundary context; rough-pair sparsity does not determine the shifted Liouville sign."
+      }
+    ],
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-152",
+      "attempt": "Let B be bounded and self-adjoint on a separable Hilbert space, and let H_N be nested finite-dimensional subspaces with dense union. If mu_N is the minimum Rayleigh quotient of B on H_N, then mu_N decreases to inf sigma(B), and ||B_-||=sup_N max(0,-mu_N). Hence B>=-I exactly when every compression has mu_N>=-1. No finite cutoff can certify this: a diagonal entry below -1 can be placed at the first unchecked coordinate. A finite-rank approximation F with ||B-F||<=epsilon and lambda_min(F)>=-1+epsilon does certify B>=-I.",
+      "bounded_result": {
+        "audit_ref": "compression_cylinder_energy_selection_audit.riemann"
+      },
+      "obstruction": "The theorem is functional analysis for an already constructed bounded relative operator. PrimeProject still does not construct the actual Weil operator on a proved form core or certify an operator-norm tail. No zeta zero is excluded from the off-critical region.",
+      "candidate_theorem": "ActualWeilCoreCompressionWithCertifiedOperatorNormTailBelowMargin",
+      "next_experiment": "combine nested actual-Weil compressions with a rigorous operator-norm tail smaller than the finite spectral margin",
+      "claim_boundary": "No RH proof and no off-critical zero. One exact exhaustion criterion, a rigorous finite-cutoff no-go, and a certified tail template."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-152",
+      "attempt": "Every finite accelerated valuation word a=(a_1,...,a_m), with S=sum a_i and affine constant C, is realized by exactly one positive odd residue r modulo 2^(S+1). Its starts are n=r+k2^(S+1). If D=2^S-3^m>0, descent at time m holds exactly for the terminal tail k>=k_min; if D<=0 it never holds at that time. Moreover the next valuation is unbounded on every such cylinder. Therefore a nonterminal cylinder cannot be covered by any finite family of strict valuation-word extensions.",
+      "bounded_result": {
+        "audit_ref": "compression_cylinder_energy_selection_audit.collatz"
+      },
+      "obstruction": "The terminal-tail formula handles one fixed word, and the no-go rules out finite strict-extension covers. It does not control the countably many next valuations uniformly or prove that every natural start eventually enters a descending leaf.",
+      "candidate_theorem": "TypeTwoCountableExtensionCoverWithUniformAnalyticValuationTail",
+      "next_experiment": "use a countable prefix cover plus an analytic estimate for the unbounded valuation tail",
+      "claim_boundary": "No Collatz proof and no divergent orbit. One exact cylinder classification and a no-go for finite strict-extension coverage."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-152",
+      "attempt": "For the reflection a maps to N-a on {1,...,N-1}, the constant baseline w=1 has exact endpoint-hole radius squared N/2. Yet ||Lambda-1||_2^2 is asymptotic to N log N, so the squared-error to radius ratio is asymptotic to 2 log N and diverges. More generally, for any dense baselines uniformly bounded between fixed positive constants c and C, the hole radius is O(N) while ||Lambda-w_N||_2^2 is asymptotic to N log N. Thus the global L2-ball transfer proposed after TICKET-151 is asymptotically unreachable for this natural baseline class.",
+      "bounded_result": {
+        "audit_ref": "compression_cylinder_energy_selection_audit.goldbach"
+      },
+      "obstruction": "The argument rejects a global norm sufficient condition; it neither proves a pointwise lower bound for the actual Goldbach convolution nor rules out an even counterexample. Endpoint-specific signed cancellation remains open.",
+      "candidate_theorem": "EndpointBilinearVonMangoldtErrorBelowSingularSeriesMainTermK56",
+      "next_experiment": "bound the endpoint bilinear and quadratic error against the singular-series main term, with explicit major and minor arcs",
+      "claim_boundary": "No Goldbach proof and no even counterexample. One asymptotic no-go that replaces an unreachable global L2 bridge by an endpoint bilinear target."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-152",
+      "attempt": "Let x_i be signs with ambient size M and total A<0, and retain E=M-q of them. Every retained subset has negative sum if and only if q<-A; equivalently E/M>1+A/M. This bound is sharp. For cubic-rough integers the ambient mean tends to (log 2-1)/(log 2+1), so an ambient-only argument would require retaining more than 2 log(2)/(1+log(2)), about 81.87 percent. Standard one- and two-dimensional sieve bounds give rough vertex mass of order X/log z and gap-two rough-pair mass at most order X/(log z)^2; their coverage therefore tends to zero. The unshifted log-two bias cannot transfer by deletion robustness.",
+      "bounded_result": {
+        "audit_ref": "compression_cylinder_energy_selection_audit.twin_prime"
+      },
+      "obstruction": "The sharp selection lemma proves ambient bias is insufficient. It does not estimate the actual shifted Liouville sums or prove positive twin-prime mass at every large scale.",
+      "candidate_theorem": "DirectShiftedCubicRoughLiouvilleSumNegativeProportion",
+      "next_experiment": "estimate the two shifted Liouville sums directly on the cubic-rough gap-two support",
+      "claim_boundary": "No Twin Prime proof and no finite counterexample to the conjecture. One sharp transfer threshold and an asymptotic coverage no-go."
+    }
+  ]
+}

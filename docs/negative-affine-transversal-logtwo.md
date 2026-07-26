@@ -1,5 +1,19 @@
 # TICKET-151: Negative Spectrum, Affine Thresholds, Reflection Transversals, and the Log-Two Bias
 
+> Continued by [TICKET-152: Compression Exhaustion, Collatz Cylinders,
+> Goldbach Energy, and Twin Selection](compression-cylinder-energy-selection.md).
+> TICKET-152 proves that a finite RH compression cutoff, a finite strict
+> Collatz extension cover, a global bounded-baseline Goldbach \(L^2\) ball,
+> and a deletion-robust Twin marginal transfer cannot close the respective
+> infinite gaps.
+>
+> 다음 단계는 [TICKET-152: 압축 exhaustion, 콜라츠 cylinder, 골드바흐
+> energy, Twin selection](compression-cylinder-energy-selection.md)에
+> 정리되어 있다. TICKET-152는 유한 RH cutoff, 유한 strict Collatz
+> extension cover, bounded baseline에 대한 전역 Goldbach \(L^2\) ball,
+> Twin marginal의 deletion-robust 이전이 각각의 무한 간극을 닫지
+> 못함을 증명한다.
+
 **Status:** four exact partial or no-go theorems; all four conjectures remain
 open.
 

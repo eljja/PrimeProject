@@ -1,0 +1,384 @@
+{
+  "schema": "primeproject.ticket152-compression-cylinder-energy-selection.v1",
+  "generated_at": "2026-07-26T15:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-152",
+  "attempt": "Let B be bounded and self-adjoint on a separable Hilbert space, and let H_N be nested finite-dimensional subspaces with dense union. If mu_N is the minimum Rayleigh quotient of B on H_N, then mu_N decreases to inf sigma(B), and ||B_-||=sup_N max(0,-mu_N). Hence B>=-I exactly when every compression has mu_N>=-1. No finite cutoff can certify this: a diagonal entry below -1 can be placed at the first unchecked coordinate. A finite-rank approximation F with ||B-F||<=epsilon and lambda_min(F)>=-1+epsilon does certify B>=-I.",
+  "bounded_result": {
+    "audit_ref": "compression_cylinder_energy_selection_audit.riemann"
+  },
+  "obstruction": "The theorem is functional analysis for an already constructed bounded relative operator. PrimeProject still does not construct the actual Weil operator on a proved form core or certify an operator-norm tail. No zeta zero is excluded from the off-critical region.",
+  "candidate_theorem": "ActualWeilCoreCompressionWithCertifiedOperatorNormTailBelowMargin",
+  "next_experiment": "combine nested actual-Weil compressions with a rigorous operator-norm tail smaller than the finite spectral margin",
+  "claim_boundary": "No RH proof and no off-critical zero. One exact exhaustion criterion, a rigorous finite-cutoff no-go, and a certified tail template.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-152",
+    "theorem_name": "NestedCompressionExhaustionAndFiniteCutoffNoGo",
+    "declared_proposition": "Let B be bounded and self-adjoint on a separable Hilbert space, and let H_N be nested finite-dimensional subspaces with dense union. If mu_N is the minimum Rayleigh quotient of B on H_N, then mu_N decreases to inf sigma(B), and ||B_-||=sup_N max(0,-mu_N). Hence B>=-I exactly when every compression has mu_N>=-1. No finite cutoff can certify this: a diagonal entry below -1 can be placed at the first unchecked coordinate. A finite-rank approximation F with ||B-F||<=epsilon and lambda_min(F)>=-1+epsilon does certify B>=-I.",
+    "mathematical_argument": "Nestedness makes mu_N nonincreasing. Density and continuity of the bounded quadratic form let every unit vector be approximated by normalized vectors from the union, so the limit equals the global Rayleigh infimum, namely inf sigma(B). Spectral calculus gives ||B_-||=max(0,-inf sigma(B)). For the finite-cutoff counterexample use diag(0,...,0,-1-delta,0,...). Finally, |<x,(B-F)x>|<=epsilon||x||^2 yields inf sigma(B)>=lambda_min(F)-epsilon.",
+    "reproducible_computation": {
+      "theorem": "Let B be bounded and self-adjoint on a separable Hilbert space, and let H_N be nested finite-dimensional subspaces with dense union. If mu_N is the minimum Rayleigh quotient of B on H_N, then mu_N decreases to inf sigma(B), and ||B_-||=sup_N max(0,-mu_N). Hence B>=-I exactly when every compression has mu_N>=-1. No finite cutoff can certify this: a diagonal entry below -1 can be placed at the first unchecked coordinate. A finite-rank approximation F with ||B-F||<=epsilon and lambda_min(F)>=-1+epsilon does certify B>=-I.",
+      "proof": "Nestedness makes mu_N nonincreasing. Density and continuity of the bounded quadratic form let every unit vector be approximated by normalized vectors from the union, so the limit equals the global Rayleigh infimum, namely inf sigma(B). Spectral calculus gives ||B_-||=max(0,-inf sigma(B)). For the finite-cutoff counterexample use diag(0,...,0,-1-delta,0,...). Finally, |<x,(B-F)x>|<=epsilon||x||^2 yields inf sigma(B)>=lambda_min(F)-epsilon.",
+      "finite_hidden_direction_rows": [
+        {
+          "checked_cutoff_N": 1,
+          "checked_compression_minimum_mu_N": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "hidden_coordinate": 2,
+          "hidden_eigenvalue": {
+            "exact": "-3/2",
+            "decimal": -1.5
+          },
+          "full_spectral_infimum": {
+            "exact": "-3/2",
+            "decimal": -1.5
+          },
+          "checks": {
+            "all_checked_compressions_pass_floor_minus_one": true,
+            "full_operator_fails_floor_minus_one": true,
+            "negative_direction_is_first_hidden_coordinate": true
+          }
+        },
+        {
+          "checked_cutoff_N": 2,
+          "checked_compression_minimum_mu_N": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "hidden_coordinate": 3,
+          "hidden_eigenvalue": {
+            "exact": "-4/3",
+            "decimal": -1.3333333333333333
+          },
+          "full_spectral_infimum": {
+            "exact": "-4/3",
+            "decimal": -1.3333333333333333
+          },
+          "checks": {
+            "all_checked_compressions_pass_floor_minus_one": true,
+            "full_operator_fails_floor_minus_one": true,
+            "negative_direction_is_first_hidden_coordinate": true
+          }
+        },
+        {
+          "checked_cutoff_N": 4,
+          "checked_compression_minimum_mu_N": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "hidden_coordinate": 5,
+          "hidden_eigenvalue": {
+            "exact": "-6/5",
+            "decimal": -1.2
+          },
+          "full_spectral_infimum": {
+            "exact": "-6/5",
+            "decimal": -1.2
+          },
+          "checks": {
+            "all_checked_compressions_pass_floor_minus_one": true,
+            "full_operator_fails_floor_minus_one": true,
+            "negative_direction_is_first_hidden_coordinate": true
+          }
+        },
+        {
+          "checked_cutoff_N": 8,
+          "checked_compression_minimum_mu_N": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "hidden_coordinate": 9,
+          "hidden_eigenvalue": {
+            "exact": "-10/9",
+            "decimal": -1.1111111111111112
+          },
+          "full_spectral_infimum": {
+            "exact": "-10/9",
+            "decimal": -1.1111111111111112
+          },
+          "checks": {
+            "all_checked_compressions_pass_floor_minus_one": true,
+            "full_operator_fails_floor_minus_one": true,
+            "negative_direction_is_first_hidden_coordinate": true
+          }
+        },
+        {
+          "checked_cutoff_N": 16,
+          "checked_compression_minimum_mu_N": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "hidden_coordinate": 17,
+          "hidden_eigenvalue": {
+            "exact": "-18/17",
+            "decimal": -1.0588235294117647
+          },
+          "full_spectral_infimum": {
+            "exact": "-18/17",
+            "decimal": -1.0588235294117647
+          },
+          "checks": {
+            "all_checked_compressions_pass_floor_minus_one": true,
+            "full_operator_fails_floor_minus_one": true,
+            "negative_direction_is_first_hidden_coordinate": true
+          }
+        },
+        {
+          "checked_cutoff_N": 32,
+          "checked_compression_minimum_mu_N": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "hidden_coordinate": 33,
+          "hidden_eigenvalue": {
+            "exact": "-34/33",
+            "decimal": -1.0303030303030303
+          },
+          "full_spectral_infimum": {
+            "exact": "-34/33",
+            "decimal": -1.0303030303030303
+          },
+          "checks": {
+            "all_checked_compressions_pass_floor_minus_one": true,
+            "full_operator_fails_floor_minus_one": true,
+            "negative_direction_is_first_hidden_coordinate": true
+          }
+        },
+        {
+          "checked_cutoff_N": 64,
+          "checked_compression_minimum_mu_N": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "hidden_coordinate": 65,
+          "hidden_eigenvalue": {
+            "exact": "-66/65",
+            "decimal": -1.0153846153846153
+          },
+          "full_spectral_infimum": {
+            "exact": "-66/65",
+            "decimal": -1.0153846153846153
+          },
+          "checks": {
+            "all_checked_compressions_pass_floor_minus_one": true,
+            "full_operator_fails_floor_minus_one": true,
+            "negative_direction_is_first_hidden_coordinate": true
+          }
+        }
+      ],
+      "finite_tail_certificate_rows": [
+        {
+          "operator_norm_tail_epsilon": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "finite_rank_minimum": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "certified_full_lower_bound": {
+            "exact": "-3/4",
+            "decimal": -0.75
+          },
+          "checks": {
+            "finite_rank_margin_dominates_tail": true,
+            "certified_full_floor_at_least_minus_one": true,
+            "strict_margin_survives": true
+          }
+        },
+        {
+          "operator_norm_tail_epsilon": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "finite_rank_minimum": {
+            "exact": "-3/4",
+            "decimal": -0.75
+          },
+          "certified_full_lower_bound": {
+            "exact": "-7/8",
+            "decimal": -0.875
+          },
+          "checks": {
+            "finite_rank_margin_dominates_tail": true,
+            "certified_full_floor_at_least_minus_one": true,
+            "strict_margin_survives": true
+          }
+        },
+        {
+          "operator_norm_tail_epsilon": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "finite_rank_minimum": {
+            "exact": "-7/8",
+            "decimal": -0.875
+          },
+          "certified_full_lower_bound": {
+            "exact": "-15/16",
+            "decimal": -0.9375
+          },
+          "checks": {
+            "finite_rank_margin_dominates_tail": true,
+            "certified_full_floor_at_least_minus_one": true,
+            "strict_margin_survives": true
+          }
+        },
+        {
+          "operator_norm_tail_epsilon": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "finite_rank_minimum": {
+            "exact": "-15/16",
+            "decimal": -0.9375
+          },
+          "certified_full_lower_bound": {
+            "exact": "-31/32",
+            "decimal": -0.96875
+          },
+          "checks": {
+            "finite_rank_margin_dominates_tail": true,
+            "certified_full_floor_at_least_minus_one": true,
+            "strict_margin_survives": true
+          }
+        },
+        {
+          "operator_norm_tail_epsilon": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "finite_rank_minimum": {
+            "exact": "-31/32",
+            "decimal": -0.96875
+          },
+          "certified_full_lower_bound": {
+            "exact": "-63/64",
+            "decimal": -0.984375
+          },
+          "checks": {
+            "finite_rank_margin_dominates_tail": true,
+            "certified_full_floor_at_least_minus_one": true,
+            "strict_margin_survives": true
+          }
+        },
+        {
+          "operator_norm_tail_epsilon": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "finite_rank_minimum": {
+            "exact": "-63/64",
+            "decimal": -0.984375
+          },
+          "certified_full_lower_bound": {
+            "exact": "-127/128",
+            "decimal": -0.9921875
+          },
+          "checks": {
+            "finite_rank_margin_dominates_tail": true,
+            "certified_full_floor_at_least_minus_one": true,
+            "strict_margin_survives": true
+          }
+        },
+        {
+          "operator_norm_tail_epsilon": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "finite_rank_minimum": {
+            "exact": "-127/128",
+            "decimal": -0.9921875
+          },
+          "certified_full_lower_bound": {
+            "exact": "-255/256",
+            "decimal": -0.99609375
+          },
+          "checks": {
+            "finite_rank_margin_dominates_tail": true,
+            "certified_full_floor_at_least_minus_one": true,
+            "strict_margin_survives": true
+          }
+        },
+        {
+          "operator_norm_tail_epsilon": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "finite_rank_minimum": {
+            "exact": "-255/256",
+            "decimal": -0.99609375
+          },
+          "certified_full_lower_bound": {
+            "exact": "-511/512",
+            "decimal": -0.998046875
+          },
+          "checks": {
+            "finite_rank_margin_dominates_tail": true,
+            "certified_full_floor_at_least_minus_one": true,
+            "strict_margin_survives": true
+          }
+        },
+        {
+          "operator_norm_tail_epsilon": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "finite_rank_minimum": {
+            "exact": "-511/512",
+            "decimal": -0.998046875
+          },
+          "certified_full_lower_bound": {
+            "exact": "-1023/1024",
+            "decimal": -0.9990234375
+          },
+          "checks": {
+            "finite_rank_margin_dominates_tail": true,
+            "certified_full_floor_at_least_minus_one": true,
+            "strict_margin_survives": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The theorem is functional analysis for an already constructed bounded relative operator. PrimeProject still does not construct the actual Weil operator on a proved form core or certify an operator-norm tail. No zeta zero is excluded from the off-critical region.",
+    "route_decision": {
+      "discard": "treating any fixed Galerkin cutoff, however large, as a positivity proof",
+      "retain": "combine nested actual-Weil compressions with a rigorous operator-norm tail smaller than the finite spectral margin",
+      "next_theorem": "ActualWeilCoreCompressionWithCertifiedOperatorNormTailBelowMargin"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T152-REJECTED",
+          "label": "FiniteWeilCompressionPositivityImpliesGlobalPositivity",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T152-CLOSED",
+          "label": "NestedCompressionExhaustionAndFiniteCutoffNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T152-OPEN",
+          "label": "ActualWeilCoreCompressionWithCertifiedOperatorNormTailBelowMargin",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T152-REJECTED",
+          "RH-T152-CLOSED"
+        ],
+        [
+          "RH-T152-CLOSED",
+          "RH-T152-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One exact exhaustion criterion, a rigorous finite-cutoff no-go, and a certified tail template."
+  }
+}

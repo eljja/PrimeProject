@@ -6121,3 +6121,42 @@ conjecture resolutions.
 결과는 유한 반사 기하이며 실제 von Mangoldt 오차를 제어하지 않는다.
 Twin의 `log 2` 결과는 한 변수 점근식이고 gap-two shifted 상관 하한이
 아니다. 네 추측은 모두 `open_not_proven`이고 해결 카운터는 0이다.
+
+## TICKET-152 continuation: compression exhaustion, cylinders, energy, and selection
+
+TICKET-152 tests the four TICKET-151 next lemmas before investing in larger
+searches. Three targets require correction.
+
+1. **Riemann Hypothesis.** Nested finite-dimensional compression minima
+   decrease to the full spectral infimum. Every finite cutoff can hide a
+   new eigenvalue below `-1`, while a finite-rank spectral margin combined
+   with a smaller operator-norm tail does certify the full lower bound.
+   The next target is
+   `ActualWeilCoreCompressionWithCertifiedOperatorNormTailBelowMargin`.
+2. **Collatz.** A finite valuation word is one exact residue class modulo
+   `2^(S+1)`, and its time-`m` descent set is a terminal arithmetic tail.
+   Every possible next valuation occurs inside every cylinder. Consequently
+   no finite family of strict word extensions can cover a nonterminal
+   cylinder. The next target is
+   `TypeTwoCountableExtensionCoverWithUniformAnalyticValuationTail`.
+3. **Goldbach.** For a constant baseline, the exact endpoint-hole radius
+   squared is `N/2`, whereas the global von Mangoldt error energy is
+   asymptotic to `N log N`. The same mismatch holds for uniformly bounded
+   dense baselines. The global `L2` bridge is therefore retired. The next
+   target is
+   `EndpointBilinearVonMangoldtErrorBelowSingularSeriesMainTermK56`.
+4. **Twin Prime.** An ambient sign sum `A<0` survives every deletion of
+   `q` entries exactly when `q<-A`. The cubic-rough `log 2` limit would
+   require about `81.87%` retention, but gap-two rough coverage tends to
+   zero by standard sieve orders. The next target is
+   `DirectShiftedCubicRoughLiouvilleSumNegativeProportion`.
+
+한국어 경계: RH의 압축 정리는 실제 Weil tail bound가 아니며, Collatz
+정리는 countable valuation tail을 제어하지 않는다. Goldbach 정리는
+전역 norm 경로를 폐기했을 뿐 endpoint convolution을 하한하지 않고,
+Twin 정리는 주변 편향의 이전을 폐기했을 뿐 실제 shifted Liouville
+합의 부호를 증명하지 않는다. 네 추측은 모두 `open_not_proven`이며
+완전한 증명이나 반례는 없다.
+
+Full bilingual report / 전체 한영 보고서:
+[TICKET-152 compression-cylinder-energy-selection](compression-cylinder-energy-selection.md).
