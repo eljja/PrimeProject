@@ -158,6 +158,9 @@ TICKET157_SCHEMA = "primeproject.ticket157-formcore-inversion-proxy-margin.v1"
 TICKET158_SCHEMA = (
     "primeproject.ticket158-two-cutoff-localized-variation-directional.v1"
 )
+TICKET159_SCHEMA = (
+    "primeproject.ticket159-diagonal-threshold-phase-parity.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -10965,6 +10968,293 @@ def main() -> int:
         not in str(ticket158.get("claim_boundary", "")).lower()
     ):
         return fail("ticket158 proof boundary changed")
+
+    path159 = Path(
+        "data/open-problem/"
+        "ticket159-diagonal-threshold-phase-parity.json"
+    )
+    if not path159.exists():
+        return fail("missing ticket159 diagonal-threshold-phase-parity audit")
+    ticket159 = read_json(path159)
+    if (
+        ticket159.get("schema") != TICKET159_SCHEMA
+        or ticket159.get("status")
+        != (
+            "four_exact_reductions_and_no_go_results_"
+            "all_conjectures_open"
+        )
+    ):
+        return fail("ticket159 schema or status changed")
+    attempts159 = ticket159.get("attempts", [])
+    by_id159 = {
+        str(row.get("problem_id")): row
+        for row in attempts159
+        if isinstance(row, dict)
+    }
+    if set(by_id159) != EXPECTED_PROBLEMS:
+        return fail("ticket159 attempts missing problems")
+
+    paths159 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-159-effective-diagonal-selector.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-159-affine-threshold.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-159-phase-energy.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-159-rough-fiber.json"
+        ),
+    }
+    next159 = {
+        "riemann": (
+            "CertifiedPrimeBandMajorantAndPositiveGalerkinMargin"
+            "OnEveryNestedWeilCore"
+        ),
+        "collatz": (
+            "EveryNaturalOddOrbitHasARealizedPrefixAbove"
+            "ItsExactAffineThreshold"
+        ),
+        "goldbach": (
+            "PhaseSensitiveBilinearMinorArcCoefficientBelow"
+            "ExplicitSingularSeriesMargin"
+        ),
+        "twin-prime": (
+            "NonlocalTypeIIOrParitySensitiveCorrelationSeparates"
+            "PrimePairsFromRoughCompositePairsUniformly"
+        ),
+    }
+    for problem_id, attempt in by_id159.items():
+        if (
+            not paths159[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+        ):
+            return fail(
+                f"{problem_id}: ticket159 artifact or boundary missing"
+            )
+        per_problem159 = read_json(paths159[problem_id])
+        if (
+            per_problem159.get("schema") != TICKET159_SCHEMA
+            or per_problem159.get("problem_id") != problem_id
+            or per_problem159.get("candidate_theorem")
+            != next159[problem_id]
+            or attempt.get("candidate_theorem") != next159[problem_id]
+        ):
+            return fail(
+                f"{problem_id}: ticket159 per-problem contract changed"
+            )
+
+    audit159 = ticket159.get(
+        "diagonal_threshold_phase_parity_audit",
+        {},
+    )
+    machine159 = audit159.get("machine_audit", {})
+    if (
+        audit159.get("theorem_name")
+        != "FourConjectureDiagonalThresholdPhaseParityAudit"
+        or int(machine159.get("exact_theorem_count", -1)) != 4
+        or int(machine159.get("rejected_target_count", -1)) != 4
+        or int(machine159.get("proof_dag_count", -1)) != 4
+        or int(machine159.get("conjecture_resolution_count", -1)) != 0
+        or int(machine159.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket159 global machine audit changed")
+
+    riemann159 = audit159.get("riemann", {})
+    diagonal159 = riemann159.get("reproducible_computation", {})
+    selector159 = diagonal159.get(
+        "finite_effective_diagonal_selector_rows",
+        [],
+    )
+    schedule159 = diagonal159.get(
+        "exact_preassigned_schedule_no_go_families",
+        [],
+    )
+    if (
+        riemann159.get("theorem_name")
+        != (
+            "EffectiveDiagonalCutoffSelectorAnd"
+            "PreassignedScheduleNoGo"
+        )
+        or [int(row.get("nested_core_dimension_N", -1)) for row in selector159]
+        != [1, 2, 4, 8, 16]
+        or len(schedule159) != 4
+        or any(
+            Fraction(
+                row.get(
+                    "promoted_full_form_core_lower_bound",
+                    {},
+                ).get("exact", "0")
+            )
+            <= 0
+            or not all(row.get("checks", {}).values())
+            for row in selector159
+        )
+        or any(
+            any(
+                Fraction(
+                    row.get(
+                        "bound_at_preassigned_cutoff",
+                        {},
+                    ).get("exact", "0")
+                )
+                != 1
+                or Fraction(
+                    row.get("bound_at_next_cutoff", {}).get(
+                        "exact",
+                        "1",
+                    )
+                )
+                != 0
+                or not all(row.get("checks", {}).values())
+                for row in family.get("rows", [])
+            )
+            for family in schedule159
+        )
+        or int(diagonal159.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket159 RH diagonal-selector audit changed")
+
+    collatz159 = audit159.get("collatz", {})
+    threshold159 = collatz159.get("reproducible_computation", {})
+    records159 = threshold159.get(
+        "finite_record_rotation_threshold_rows",
+        [],
+    )
+    record_values159 = [
+        Fraction(
+            row.get(
+                "universal_first_term_lower_bound",
+                {},
+            ).get("exact", "0")
+        )
+        for row in records159
+    ]
+    if (
+        collatz159.get("theorem_name")
+        != "ContractingCylinderTailAndAverageExcessThresholdNoGo"
+        or int(threshold159.get("record_scan_maximum_length", -1)) != 768
+        or int(threshold159.get("record_count", -1)) != 11
+        or len(records159) != 11
+        or any(
+            later <= earlier
+            for earlier, later in zip(
+                record_values159,
+                record_values159[1:],
+            )
+        )
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in records159
+        )
+        or Fraction(
+            threshold159.get(
+                "largest_observed_lower_bound",
+                {},
+            ).get("exact", "0")
+        )
+        <= 300
+        or int(threshold159.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket159 Collatz affine-threshold audit changed")
+
+    goldbach159 = audit159.get("goldbach", {})
+    phase159 = goldbach159.get("reproducible_computation", {})
+    energy159 = phase159.get("finite_prime_dft_energy_rows", [])
+    blindness159 = phase159.get(
+        "exact_energy_phase_blindness_rows",
+        [],
+    )
+    if (
+        goldbach159.get("theorem_name")
+        != "MinorArcEnergyCoefficientBoundAndPhaseBlindnessNoGo"
+        or [int(row.get("even_endpoint_N", -1)) for row in energy159]
+        != [1000, 1000, 2000, 2000, 4000, 4000, 8000, 8000]
+        or int(phase159.get("finite_energy_certificate_total", -1)) != 0
+        or [int(row.get("transform_size_L", -1)) for row in blindness159]
+        != [4, 8, 16, 32]
+        or any(
+            int(row.get("observed_zero_representation_count", -1)) != 0
+            or float(row.get("maximum_decomposition_error", 1)) >= 1e-7
+            or float(row.get("maximum_absolute_minor_coefficient", 1))
+            > float(row.get("minor_energy_l2_squared", 0)) + 1e-7
+            or not all(row.get("checks", {}).values())
+            for row in energy159
+        )
+        or any(
+            float(row.get("positive_zero_coefficient", 0))
+            != -float(row.get("negative_zero_coefficient", 1))
+            or not all(row.get("checks", {}).values())
+            for row in blindness159
+        )
+        or int(phase159.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket159 Goldbach phase-energy audit changed")
+
+    twin159 = audit159.get("twin_prime", {})
+    rough159 = twin159.get("reproducible_computation", {})
+    rough_rows159 = rough159.get("finite_rough_stratum_rows", [])
+    if (
+        twin159.get("theorem_name")
+        != (
+            "RoughStratumSigmaAlgebraBlindnessAnd"
+            "ParitySensitiveFeatureNecessity"
+        )
+        or [int(row.get("roughness_bound_z", -1)) for row in rough_rows159]
+        != [3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
+        or not bool(rough159.get("all_rows_have_both_labels"))
+        or not bool(
+            rough159.get(
+                "all_rows_have_twin_and_double_composite_witnesses"
+            )
+        )
+        or any(
+            int(row.get("twin_prime_pair_count", 0)) <= 0
+            or int(row.get("rough_both_composite_pair_count", 0)) <= 0
+            or float(
+                row.get("conditional_mutual_information_bits", -1)
+            )
+            != 0
+            or float(row.get("conditional_label_entropy_bits", 0)) <= 0
+            or not all(row.get("checks", {}).values())
+            for row in rough_rows159
+        )
+        or int(rough159.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket159 Twin rough-fiber audit changed")
+
+    sections159 = {
+        "riemann": riemann159,
+        "collatz": collatz159,
+        "goldbach": goldbach159,
+        "twin-prime": twin159,
+    }
+    for problem_id, section in sections159.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next159[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket159 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit159.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket159.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket159 proof boundary changed")
 
     print("open problem structure verified")
     return 0

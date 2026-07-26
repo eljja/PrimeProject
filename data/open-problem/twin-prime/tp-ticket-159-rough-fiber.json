@@ -1,0 +1,337 @@
+{
+  "schema": "primeproject.ticket159-diagonal-threshold-phase-parity.v1",
+  "generated_at": "2026-07-27T00:30:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-159",
+  "attempt": "Let D_z(n,n+2) be the vector of divisibility bits by primes p<=z for n and n+2. On the z-rough stratum gcd(n(n+2),P(z))=1, D_z is the constant zero vector. Hence every statistic measurable only from D_z is constant there and I(Y;D_z | z-rough)=0 for the twin-prime label Y. Whenever that stratum contains both a twin pair and a non-twin rough pair, no low-divisor classifier can separate them.",
+  "bounded_result": {
+    "audit_ref": "diagonal_threshold_phase_parity_audit.twin_prime"
+  },
+  "obstruction": "The no-go applies only to statistics measurable from divisibility by primes p<=z. It neither proves the parity barrier for every possible method nor supplies the missing nonlocal Type II lower bound.",
+  "candidate_theorem": "NonlocalTypeIIOrParitySensitiveCorrelationSeparatesPrimePairsFromRoughCompositePairsUniformly",
+  "next_experiment": "introduce a rigorously controlled nonlocal Type II, bilinear, or parity-sensitive feature and prove uniform separation after an effective cutoff",
+  "claim_boundary": "No Twin Prime proof and no finite terminal counterexample. One exact conditional-information no-go and ten bounded rough-stratum audits.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-159",
+    "theorem_name": "RoughStratumSigmaAlgebraBlindnessAndParitySensitiveFeatureNecessity",
+    "declared_proposition": "Let D_z(n,n+2) be the vector of divisibility bits by primes p<=z for n and n+2. On the z-rough stratum gcd(n(n+2),P(z))=1, D_z is the constant zero vector. Hence every statistic measurable only from D_z is constant there and I(Y;D_z | z-rough)=0 for the twin-prime label Y. Whenever that stratum contains both a twin pair and a non-twin rough pair, no low-divisor classifier can separate them.",
+    "mathematical_argument": "The roughness definition says that no prime p<=z divides either coordinate, so every bit in D_z is zero. A constant random variable has zero conditional mutual information with every label. If two examples in the same fiber have different labels, any function of the fiber feature assigns them the same output and cannot be correct on both. This is a precise finite-sigma-algebra form of the parity obstruction; it does not refute classifiers using Type II, bilinear, or other nonlocal arithmetic information.",
+    "reproducible_computation": {
+      "theorem": "Let D_z(n,n+2) be the vector of divisibility bits by primes p<=z for n and n+2. On the z-rough stratum gcd(n(n+2),P(z))=1, D_z is the constant zero vector. Hence every statistic measurable only from D_z is constant there and I(Y;D_z | z-rough)=0 for the twin-prime label Y. Whenever that stratum contains both a twin pair and a non-twin rough pair, no low-divisor classifier can separate them.",
+      "proof": "The roughness definition says that no prime p<=z divides either coordinate, so every bit in D_z is zero. A constant random variable has zero conditional mutual information with every label. If two examples in the same fiber have different labels, any function of the fiber feature assigns them the same output and cannot be correct on both. This is a precise finite-sigma-algebra form of the parity obstruction; it does not refute classifiers using Type II, bilinear, or other nonlocal arithmetic information.",
+      "finite_rough_stratum_rows": [
+        {
+          "range": "3<=n<250000, n odd",
+          "roughness_bound_z": 3,
+          "small_prime_feature_count": 2,
+          "rough_pair_count": 41666,
+          "twin_prime_pair_count": 2587,
+          "rough_non_twin_pair_count": 39079,
+          "rough_both_composite_pair_count": 22211,
+          "rough_mixed_prime_composite_pair_count": 16868,
+          "first_twin_prime_witness_n": 5,
+          "first_rough_non_twin_witness_n": 23,
+          "first_rough_both_composite_witness_n": 119,
+          "twin_label_rate": {
+            "exact": "2587/41666",
+            "decimal": 0.06208899342389478
+          },
+          "conditional_label_entropy_bits": 0.3356822249686351,
+          "conditional_mutual_information_bits": 0.0,
+          "checks": {
+            "rough_stratum_nonempty": true,
+            "rough_feature_is_constant_zero_vector": true,
+            "both_twin_and_non_twin_labels_occur": true,
+            "both_twin_and_double_composite_witnesses_occur": true,
+            "conditional_mutual_information_is_zero": true,
+            "label_entropy_is_positive": true
+          }
+        },
+        {
+          "range": "3<=n<250000, n odd",
+          "roughness_bound_z": 5,
+          "small_prime_feature_count": 3,
+          "rough_pair_count": 24999,
+          "twin_prime_pair_count": 2586,
+          "rough_non_twin_pair_count": 22413,
+          "rough_both_composite_pair_count": 11043,
+          "rough_mixed_prime_composite_pair_count": 11370,
+          "first_twin_prime_witness_n": 11,
+          "first_rough_non_twin_witness_n": 47,
+          "first_rough_both_composite_witness_n": 119,
+          "twin_label_rate": {
+            "exact": "862/8333",
+            "decimal": 0.10344413776551062
+          },
+          "conditional_label_entropy_bits": 0.47981913133739346,
+          "conditional_mutual_information_bits": 0.0,
+          "checks": {
+            "rough_stratum_nonempty": true,
+            "rough_feature_is_constant_zero_vector": true,
+            "both_twin_and_non_twin_labels_occur": true,
+            "both_twin_and_double_composite_witnesses_occur": true,
+            "conditional_mutual_information_is_zero": true,
+            "label_entropy_is_positive": true
+          }
+        },
+        {
+          "range": "3<=n<250000, n odd",
+          "roughness_bound_z": 7,
+          "small_prime_feature_count": 4,
+          "rough_pair_count": 17856,
+          "twin_prime_pair_count": 2586,
+          "rough_non_twin_pair_count": 15270,
+          "rough_both_composite_pair_count": 6658,
+          "rough_mixed_prime_composite_pair_count": 8612,
+          "first_twin_prime_witness_n": 11,
+          "first_rough_non_twin_witness_n": 167,
+          "first_rough_both_composite_witness_n": 527,
+          "twin_label_rate": {
+            "exact": "431/2976",
+            "decimal": 0.1448252688172043
+          },
+          "conditional_label_entropy_bits": 0.5967375781717468,
+          "conditional_mutual_information_bits": 0.0,
+          "checks": {
+            "rough_stratum_nonempty": true,
+            "rough_feature_is_constant_zero_vector": true,
+            "both_twin_and_non_twin_labels_occur": true,
+            "both_twin_and_double_composite_witnesses_occur": true,
+            "conditional_mutual_information_is_zero": true,
+            "label_entropy_is_positive": true
+          }
+        },
+        {
+          "range": "3<=n<250000, n odd",
+          "roughness_bound_z": 11,
+          "small_prime_feature_count": 5,
+          "rough_pair_count": 14610,
+          "twin_prime_pair_count": 2585,
+          "rough_non_twin_pair_count": 12025,
+          "rough_both_composite_pair_count": 4766,
+          "rough_mixed_prime_composite_pair_count": 7259,
+          "first_twin_prime_witness_n": 17,
+          "first_rough_non_twin_witness_n": 167,
+          "first_rough_both_composite_witness_n": 527,
+          "twin_label_rate": {
+            "exact": "517/2922",
+            "decimal": 0.17693360711841205
+          },
+          "conditional_label_entropy_bits": 0.6733227633428964,
+          "conditional_mutual_information_bits": 0.0,
+          "checks": {
+            "rough_stratum_nonempty": true,
+            "rough_feature_is_constant_zero_vector": true,
+            "both_twin_and_non_twin_labels_occur": true,
+            "both_twin_and_double_composite_witnesses_occur": true,
+            "conditional_mutual_information_is_zero": true,
+            "label_entropy_is_positive": true
+          }
+        },
+        {
+          "range": "3<=n<250000, n odd",
+          "roughness_bound_z": 13,
+          "small_prime_feature_count": 6,
+          "rough_pair_count": 12363,
+          "twin_prime_pair_count": 2585,
+          "rough_non_twin_pair_count": 9778,
+          "rough_both_composite_pair_count": 3559,
+          "rough_mixed_prime_composite_pair_count": 6219,
+          "first_twin_prime_witness_n": 17,
+          "first_rough_non_twin_witness_n": 359,
+          "first_rough_both_composite_witness_n": 527,
+          "twin_label_rate": {
+            "exact": "2585/12363",
+            "decimal": 0.2090916444228747
+          },
+          "conditional_label_entropy_bits": 0.7397428601035319,
+          "conditional_mutual_information_bits": 0.0,
+          "checks": {
+            "rough_stratum_nonempty": true,
+            "rough_feature_is_constant_zero_vector": true,
+            "both_twin_and_non_twin_labels_occur": true,
+            "both_twin_and_double_composite_witnesses_occur": true,
+            "conditional_mutual_information_is_zero": true,
+            "label_entropy_is_positive": true
+          }
+        },
+        {
+          "range": "3<=n<250000, n odd",
+          "roughness_bound_z": 17,
+          "small_prime_feature_count": 7,
+          "rough_pair_count": 10908,
+          "twin_prime_pair_count": 2584,
+          "rough_non_twin_pair_count": 8324,
+          "rough_both_composite_pair_count": 2833,
+          "rough_mixed_prime_composite_pair_count": 5491,
+          "first_twin_prime_witness_n": 29,
+          "first_rough_non_twin_witness_n": 359,
+          "first_rough_both_composite_witness_n": 1271,
+          "twin_label_rate": {
+            "exact": "646/2727",
+            "decimal": 0.23689035570223688
+          },
+          "conditional_label_entropy_bits": 0.7898306938146007,
+          "conditional_mutual_information_bits": 0.0,
+          "checks": {
+            "rough_stratum_nonempty": true,
+            "rough_feature_is_constant_zero_vector": true,
+            "both_twin_and_non_twin_labels_occur": true,
+            "both_twin_and_double_composite_witnesses_occur": true,
+            "conditional_mutual_information_is_zero": true,
+            "label_entropy_is_positive": true
+          }
+        },
+        {
+          "range": "3<=n<250000, n odd",
+          "roughness_bound_z": 19,
+          "small_prime_feature_count": 8,
+          "rough_pair_count": 9758,
+          "twin_prime_pair_count": 2584,
+          "rough_non_twin_pair_count": 7174,
+          "rough_both_composite_pair_count": 2280,
+          "rough_mixed_prime_composite_pair_count": 4894,
+          "first_twin_prime_witness_n": 29,
+          "first_rough_non_twin_witness_n": 839,
+          "first_rough_both_composite_witness_n": 1679,
+          "twin_label_rate": {
+            "exact": "76/287",
+            "decimal": 0.26480836236933797
+          },
+          "conditional_label_entropy_bits": 0.8339159167839507,
+          "conditional_mutual_information_bits": 0.0,
+          "checks": {
+            "rough_stratum_nonempty": true,
+            "rough_feature_is_constant_zero_vector": true,
+            "both_twin_and_non_twin_labels_occur": true,
+            "both_twin_and_double_composite_witnesses_occur": true,
+            "conditional_mutual_information_is_zero": true,
+            "label_entropy_is_positive": true
+          }
+        },
+        {
+          "range": "3<=n<250000, n odd",
+          "roughness_bound_z": 23,
+          "small_prime_feature_count": 9,
+          "rough_pair_count": 8907,
+          "twin_prime_pair_count": 2584,
+          "rough_non_twin_pair_count": 6323,
+          "rough_both_composite_pair_count": 1871,
+          "rough_mixed_prime_composite_pair_count": 4452,
+          "first_twin_prime_witness_n": 29,
+          "first_rough_non_twin_witness_n": 839,
+          "first_rough_both_composite_witness_n": 4031,
+          "twin_label_rate": {
+            "exact": "2584/8907",
+            "decimal": 0.29010890310991355
+          },
+          "conditional_label_entropy_bits": 0.868861882140923,
+          "conditional_mutual_information_bits": 0.0,
+          "checks": {
+            "rough_stratum_nonempty": true,
+            "rough_feature_is_constant_zero_vector": true,
+            "both_twin_and_non_twin_labels_occur": true,
+            "both_twin_and_double_composite_witnesses_occur": true,
+            "conditional_mutual_information_is_zero": true,
+            "label_entropy_is_positive": true
+          }
+        },
+        {
+          "range": "3<=n<250000, n odd",
+          "roughness_bound_z": 29,
+          "small_prime_feature_count": 10,
+          "rough_pair_count": 8294,
+          "twin_prime_pair_count": 2583,
+          "rough_non_twin_pair_count": 5711,
+          "rough_both_composite_pair_count": 1610,
+          "rough_mixed_prime_composite_pair_count": 4101,
+          "first_twin_prime_witness_n": 41,
+          "first_rough_non_twin_witness_n": 1367,
+          "first_rough_both_composite_witness_n": 4181,
+          "twin_label_rate": {
+            "exact": "2583/8294",
+            "decimal": 0.31142994936098384
+          },
+          "conditional_label_entropy_bits": 0.8948171993460634,
+          "conditional_mutual_information_bits": 0.0,
+          "checks": {
+            "rough_stratum_nonempty": true,
+            "rough_feature_is_constant_zero_vector": true,
+            "both_twin_and_non_twin_labels_occur": true,
+            "both_twin_and_double_composite_witnesses_occur": true,
+            "conditional_mutual_information_is_zero": true,
+            "label_entropy_is_positive": true
+          }
+        },
+        {
+          "range": "3<=n<250000, n odd",
+          "roughness_bound_z": 31,
+          "small_prime_feature_count": 11,
+          "rough_pair_count": 7766,
+          "twin_prime_pair_count": 2583,
+          "rough_non_twin_pair_count": 5183,
+          "rough_both_composite_pair_count": 1389,
+          "rough_mixed_prime_composite_pair_count": 3794,
+          "first_twin_prime_witness_n": 41,
+          "first_rough_non_twin_witness_n": 1367,
+          "first_rough_both_composite_witness_n": 4181,
+          "twin_label_rate": {
+            "exact": "2583/7766",
+            "decimal": 0.3326036569662632
+          },
+          "conditional_label_entropy_bits": 0.9175644287618524,
+          "conditional_mutual_information_bits": 0.0,
+          "checks": {
+            "rough_stratum_nonempty": true,
+            "rough_feature_is_constant_zero_vector": true,
+            "both_twin_and_non_twin_labels_occur": true,
+            "both_twin_and_double_composite_witnesses_occur": true,
+            "conditional_mutual_information_is_zero": true,
+            "label_entropy_is_positive": true
+          }
+        }
+      ],
+      "audited_limit": 250000,
+      "all_rows_have_both_labels": true,
+      "all_rows_have_twin_and_double_composite_witnesses": true,
+      "failure_count": 0
+    },
+    "logical_limit": "The no-go applies only to statistics measurable from divisibility by primes p<=z. It neither proves the parity barrier for every possible method nor supplies the missing nonlocal Type II lower bound.",
+    "route_decision": {
+      "discard": "using only small-prime divisibility fingerprints or their mutual information to distinguish prime pairs inside the rough survivor stratum",
+      "retain": "introduce a rigorously controlled nonlocal Type II, bilinear, or parity-sensitive feature and prove uniform separation after an effective cutoff",
+      "next_theorem": "NonlocalTypeIIOrParitySensitiveCorrelationSeparatesPrimePairsFromRoughCompositePairsUniformly"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T159-REJECTED",
+          "label": "LowDivisorInformationSeparatesPrimeAndSemiprimeRoughPairs",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T159-CLOSED",
+          "label": "RoughStratumSigmaAlgebraBlindnessAndParitySensitiveFeatureNecessity",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T159-OPEN",
+          "label": "NonlocalTypeIIOrParitySensitiveCorrelationSeparatesPrimePairsFromRoughCompositePairsUniformly",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T159-REJECTED",
+          "TP-T159-CLOSED"
+        ],
+        [
+          "TP-T159-CLOSED",
+          "TP-T159-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof and no finite terminal counterexample. One exact conditional-information no-go and ten bounded rough-stratum audits."
+  }
+}

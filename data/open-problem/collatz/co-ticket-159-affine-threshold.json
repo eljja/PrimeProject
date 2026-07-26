@@ -1,0 +1,429 @@
+{
+  "schema": "primeproject.ticket159-diagonal-threshold-phase-parity.v1",
+  "generated_at": "2026-07-27T00:30:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-159",
+  "attempt": "For an accelerated Collatz valuation prefix w of length m, total S, and affine constant C(w), every realizing odd start n satisfies T_w(n)<n exactly when Dn>C(w), where D=2^S-3^m. If D<=0 the prefix cannot descend. If D>0, all realizing starts above C(w)/D descend. Positive average logarithmic contraction alone has no uniform affine threshold: for S_m=ceil(m log_2 3), D_m=2^S_m-3^m and any positive word of that length and total, C(w)/D_m>=3^(m-1)/D_m; this lower bound is unbounded along a subsequence.",
+  "bounded_result": {
+    "audit_ref": "diagonal_threshold_phase_parity_audit.collatz"
+  },
+  "obstruction": "The unbounded-threshold theorem concerns abstract positive valuation words and does not construct a divergent natural orbit. The exact threshold criterion must still be crossed by a realized prefix for every odd start.",
+  "candidate_theorem": "EveryNaturalOddOrbitHasARealizedPrefixAboveItsExactAffineThreshold",
+  "next_experiment": "track the exact affine constant and prove that every natural odd orbit realizes a prefix whose own start lies above C/(2^S-3^m)",
+  "claim_boundary": "No Collatz proof and no divergent orbit. One exact cylinder threshold theorem and an irrational-rotation no-go for average contraction alone.",
+  "result": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-159",
+    "theorem_name": "ContractingCylinderTailAndAverageExcessThresholdNoGo",
+    "declared_proposition": "For an accelerated Collatz valuation prefix w of length m, total S, and affine constant C(w), every realizing odd start n satisfies T_w(n)<n exactly when Dn>C(w), where D=2^S-3^m. If D<=0 the prefix cannot descend. If D>0, all realizing starts above C(w)/D descend. Positive average logarithmic contraction alone has no uniform affine threshold: for S_m=ceil(m log_2 3), D_m=2^S_m-3^m and any positive word of that length and total, C(w)/D_m>=3^(m-1)/D_m; this lower bound is unbounded along a subsequence.",
+    "mathematical_argument": "Unrolling the accelerated odd recurrence gives T_w(n)=(3^m n+C(w))/2^S, so descent is equivalent to Dn>C. The first summand of C is 3^(m-1), proving the lower bound. The number alpha=log_2 3 is irrational by unique factorization. Irrational rotations {m alpha} are dense, so they approach one from below. Along that subsequence ceil(m alpha)-m alpha approaches zero, hence D_m/3^m=2^(ceil(m alpha)-m alpha)-1 approaches zero and the threshold lower bound diverges. This refutes any uniform threshold inferred only from positive average contraction.",
+    "reproducible_computation": {
+      "theorem": "For an accelerated Collatz valuation prefix w of length m, total S, and affine constant C(w), every realizing odd start n satisfies T_w(n)<n exactly when Dn>C(w), where D=2^S-3^m. If D<=0 the prefix cannot descend. If D>0, all realizing starts above C(w)/D descend. Positive average logarithmic contraction alone has no uniform affine threshold: for S_m=ceil(m log_2 3), D_m=2^S_m-3^m and any positive word of that length and total, C(w)/D_m>=3^(m-1)/D_m; this lower bound is unbounded along a subsequence.",
+      "proof": "Unrolling the accelerated odd recurrence gives T_w(n)=(3^m n+C(w))/2^S, so descent is equivalent to Dn>C. The first summand of C is 3^(m-1), proving the lower bound. The number alpha=log_2 3 is irrational by unique factorization. Irrational rotations {m alpha} are dense, so they approach one from below. Along that subsequence ceil(m alpha)-m alpha approaches zero, hence D_m/3^m=2^(ceil(m alpha)-m alpha)-1 approaches zero and the threshold lower bound diverges. This refutes any uniform threshold inferred only from positive average contraction.",
+      "finite_exact_threshold_identity_rows": [
+        {
+          "valuation_word": [
+            2
+          ],
+          "length_m": 1,
+          "total_valuation_S": 2,
+          "affine_constant_C": 1,
+          "contracting_denominator_D": 1,
+          "threshold_C_over_D": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "least_integer_above_threshold": 2,
+          "checks": {
+            "threshold_exists_exactly_when_prefix_contracts": true,
+            "integer_above_threshold_satisfies_affine_descent": true,
+            "integer_at_or_below_threshold_does_not_cross": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            3
+          ],
+          "length_m": 2,
+          "total_valuation_S": 4,
+          "affine_constant_C": 5,
+          "contracting_denominator_D": 7,
+          "threshold_C_over_D": {
+            "exact": "5/7",
+            "decimal": 0.7142857142857143
+          },
+          "least_integer_above_threshold": 1,
+          "checks": {
+            "threshold_exists_exactly_when_prefix_contracts": true,
+            "integer_above_threshold_satisfies_affine_descent": true,
+            "integer_at_or_below_threshold_does_not_cross": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            1,
+            4
+          ],
+          "length_m": 3,
+          "total_valuation_S": 6,
+          "affine_constant_C": 19,
+          "contracting_denominator_D": 37,
+          "threshold_C_over_D": {
+            "exact": "19/37",
+            "decimal": 0.5135135135135135
+          },
+          "least_integer_above_threshold": 1,
+          "checks": {
+            "threshold_exists_exactly_when_prefix_contracts": true,
+            "integer_above_threshold_satisfies_affine_descent": true,
+            "integer_at_or_below_threshold_does_not_cross": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            1,
+            2,
+            3
+          ],
+          "length_m": 4,
+          "total_valuation_S": 7,
+          "affine_constant_C": 73,
+          "contracting_denominator_D": 47,
+          "threshold_C_over_D": {
+            "exact": "73/47",
+            "decimal": 1.553191489361702
+          },
+          "least_integer_above_threshold": 2,
+          "checks": {
+            "threshold_exists_exactly_when_prefix_contracts": true,
+            "integer_above_threshold_satisfies_affine_descent": true,
+            "integer_at_or_below_threshold_does_not_cross": true
+          }
+        },
+        {
+          "valuation_word": [
+            2,
+            1,
+            3
+          ],
+          "length_m": 3,
+          "total_valuation_S": 6,
+          "affine_constant_C": 29,
+          "contracting_denominator_D": 37,
+          "threshold_C_over_D": {
+            "exact": "29/37",
+            "decimal": 0.7837837837837838
+          },
+          "least_integer_above_threshold": 1,
+          "checks": {
+            "threshold_exists_exactly_when_prefix_contracts": true,
+            "integer_above_threshold_satisfies_affine_descent": true,
+            "integer_at_or_below_threshold_does_not_cross": true
+          }
+        },
+        {
+          "valuation_word": [
+            3,
+            1,
+            1,
+            1,
+            2
+          ],
+          "length_m": 5,
+          "total_valuation_S": 8,
+          "affine_constant_C": 601,
+          "contracting_denominator_D": 13,
+          "threshold_C_over_D": {
+            "exact": "601/13",
+            "decimal": 46.23076923076923
+          },
+          "least_integer_above_threshold": 47,
+          "checks": {
+            "threshold_exists_exactly_when_prefix_contracts": true,
+            "integer_above_threshold_satisfies_affine_descent": true,
+            "integer_at_or_below_threshold_does_not_cross": true
+          }
+        }
+      ],
+      "finite_record_rotation_threshold_rows": [
+        {
+          "word_length_m": 2,
+          "minimal_contracting_total_S": 4,
+          "valuation_excess_S_minus_m_log2_3": 0.8300749985576878,
+          "denominator_D": 7,
+          "front_loaded_first_valuation": 3,
+          "affine_threshold_C_over_D": {
+            "exact": "11/7",
+            "decimal": 1.5714285714285714
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "3/7",
+            "decimal": 0.42857142857142855
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        },
+        {
+          "word_length_m": 3,
+          "minimal_contracting_total_S": 5,
+          "valuation_excess_S_minus_m_log2_3": 0.24511249783653177,
+          "denominator_D": 5,
+          "front_loaded_first_valuation": 3,
+          "affine_threshold_C_over_D": {
+            "exact": "49/5",
+            "decimal": 9.8
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "9/5",
+            "decimal": 1.8
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        },
+        {
+          "word_length_m": 5,
+          "minimal_contracting_total_S": 8,
+          "valuation_excess_S_minus_m_log2_3": 0.07518749639421962,
+          "denominator_D": 13,
+          "front_loaded_first_valuation": 4,
+          "affine_threshold_C_over_D": {
+            "exact": "1121/13",
+            "decimal": 86.23076923076923
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "81/13",
+            "decimal": 6.230769230769231
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        },
+        {
+          "word_length_m": 17,
+          "minimal_contracting_total_S": 27,
+          "valuation_excess_S_minus_m_log2_3": 0.05563748774034849,
+          "denominator_D": 5077565,
+          "front_loaded_first_valuation": 11,
+          "affine_threshold_C_over_D": {
+            "exact": "88068513601/5077565",
+            "decimal": 17344.63539137362
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "43046721/5077565",
+            "decimal": 8.4778276595179
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        },
+        {
+          "word_length_m": 29,
+          "minimal_contracting_total_S": 46,
+          "valuation_excess_S_minus_m_log2_3": 0.03608747908647558,
+          "denominator_D": 1738366812781,
+          "front_loaded_first_valuation": 18,
+          "affine_threshold_C_over_D": {
+            "exact": "5996966389361573681/1738366812781",
+            "decimal": 3449770.408218828
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "22876792454961/1738366812781",
+            "decimal": 13.159933960291857
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        },
+        {
+          "word_length_m": 41,
+          "minimal_contracting_total_S": 65,
+          "valuation_excess_S_minus_m_log2_3": 0.01653747043259557,
+          "denominator_D": 420491770248316829,
+          "front_loaded_first_valuation": 25,
+          "affine_threshold_C_over_D": {
+            "exact": "407943534188851813219821601/420491770248316829",
+            "decimal": 970158188.7035393
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "12157665459056928801/420491770248316829",
+            "decimal": 28.91296885995498
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        },
+        {
+          "word_length_m": 94,
+          "minimal_contracting_total_S": 149,
+          "valuation_excess_S_minus_m_log2_3": 0.013524932211339546,
+          "denominator_D": 6658797337875234031939788887132653648015943,
+          "front_loaded_first_valuation": 56,
+          "affine_threshold_C_over_D": {
+            "exact": "16980733500311412835879964772886312447002902409042774495265939/6658797337875234031939788887132653648015943",
+            "decimal": 2.5501201851759345e+18
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "235655016338368235499067731945871638181119123/6658797337875234031939788887132653648015943",
+            "decimal": 35.390026814296135
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        },
+        {
+          "word_length_m": 147,
+          "minimal_contracting_total_S": 233,
+          "valuation_excess_S_minus_m_log2_3": 0.010512393990069313,
+          "denominator_D": 100215470057906355436149411528249268366177189165848154207107510496805,
+          "front_loaded_first_valuation": 87,
+          "affine_threshold_C_over_D": {
+            "exact": "706826481017783050619122020618849254779763780228330244871803881701915936222676684943394991659849/100215470057906355436149411528249268366177189165848154207107510496805",
+            "decimal": 7.053067561419066e+27
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "4567759074507740406477787437675267212178680251724974985372646979033929/100215470057906355436149411528249268366177189165848154207107510496805",
+            "decimal": 45.579380826816504
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        },
+        {
+          "word_length_m": 200,
+          "minimal_contracting_total_S": 317,
+          "valuation_excess_S_minus_m_log2_3": 0.00749985576879908,
+          "denominator_D": 1384390614238990960596391235414387496104612641187100268805239238684974821277885758485561823071,
+          "front_loaded_first_valuation": 118,
+          "affine_threshold_C_over_D": {
+            "exact": "29421795840492996621103759602221466299075857646957080798932428002960275937672622958961930278813260129571769659124870852044477621643/1384390614238990960596391235414387496104612641187100268805239238684974821277885758485561823071",
+            "decimal": 2.1252524784463639e+37
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "88537996291958256446260440678593208943077817551131498658191653913030830300434060998128233014667/1384390614238990960596391235414387496104612641187100268805239238684974821277885758485561823071",
+            "decimal": 63.95449043161001
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        },
+        {
+          "word_length_m": 253,
+          "minimal_contracting_total_S": 401,
+          "valuation_excess_S_minus_m_log2_3": 0.0044873175475004246,
+          "denominator_D": 16038557020308558388142536981531040725380074231441914861140030487366628116406984037002960111771606508411323925165378029,
+          "front_loaded_first_valuation": 149,
+          "affine_threshold_C_over_D": {
+            "exact": "1224688227913000764783843174601887250912010541468631818802174263941414351003125316317863078356455006856525425654078194804133891258784172301886830735319536133609749681/16038557020308558388142536981531040725380074231441914861140030487366628116406984037002960111771606508411323925165378029",
+            "decimal": 7.635900326708067e+46
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "1716153733051169540307898602341497569311343837142335036933392894197976205305758468407429248816168018787798340006776536241/16038557020308558388142536981531040725380074231441914861140030487366628116406984037002960111771606508411323925165378029",
+            "decimal": 107.00175401553383
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        },
+        {
+          "word_length_m": 306,
+          "minimal_contracting_total_S": 485,
+          "valuation_excess_S_minus_m_log2_3": 0.0014747793262586129,
+          "denominator_D": 102065376400825306534437391838939444403106454408085639783964140880896699835673006969445010534504805079858638689074275443284439551032910142670903,
+          "front_loaded_first_valuation": 180,
+          "affine_threshold_C_over_D": {
+            "exact": "50977896241276962615929180428419337847068153373909575570791549779358234307718571434955390395243854735057963543718014898211254872990533190941391227992049979067089014308631430148830289938612136548269379/102065376400825306534437391838939444403106454408085639783964140880896699835673006969445010534504805079858638689074275443284439551032910142670903",
+            "decimal": 4.9946316800987915e+56
+          },
+          "universal_first_term_lower_bound": {
+            "exact": "33264629411236975365892224653847460779850678036956997062569686189043666314132275612293450095832412757344867719065312552403683594062064073219538243/102065376400825306534437391838939444403106454408085639783964140880896699835673006969445010534504805079858638689074275443284439551032910142670903",
+            "decimal": 325.9149241815562
+          },
+          "checks": {
+            "minimal_total_is_contracting": true,
+            "previous_total_is_not_contracting": true,
+            "affine_constant_dominates_first_term": true,
+            "exact_threshold_dominates_rotation_lower_bound": true
+          }
+        }
+      ],
+      "record_scan_maximum_length": 768,
+      "record_count": 11,
+      "largest_observed_lower_bound": {
+        "exact": "33264629411236975365892224653847460779850678036956997062569686189043666314132275612293450095832412757344867719065312552403683594062064073219538243/102065376400825306534437391838939444403106454408085639783964140880896699835673006969445010534504805079858638689074275443284439551032910142670903",
+        "decimal": 325.9149241815562
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The unbounded-threshold theorem concerns abstract positive valuation words and does not construct a divergent natural orbit. The exact threshold criterion must still be crossed by a realized prefix for every odd start.",
+    "route_decision": {
+      "discard": "using positive average valuation excess alone as a uniform pointwise descent certificate",
+      "retain": "track the exact affine constant and prove that every natural odd orbit realizes a prefix whose own start lies above C/(2^S-3^m)",
+      "next_theorem": "EveryNaturalOddOrbitHasARealizedPrefixAboveItsExactAffineThreshold"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T159-REJECTED",
+          "label": "PositiveAverageLogContractionUniformlyBoundsAffineThreshold",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "CO-T159-CLOSED",
+          "label": "ContractingCylinderTailAndAverageExcessThresholdNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T159-OPEN",
+          "label": "EveryNaturalOddOrbitHasARealizedPrefixAboveItsExactAffineThreshold",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T159-REJECTED",
+          "CO-T159-CLOSED"
+        ],
+        [
+          "CO-T159-CLOSED",
+          "CO-T159-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Collatz proof and no divergent orbit. One exact cylinder threshold theorem and an irrational-rotation no-go for average contraction alone."
+  }
+}

@@ -62,7 +62,60 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-158
+## Latest Continuation After TICKET-159
+
+Read `docs/diagonal-threshold-phase-parity.md`,
+`data/open-problem/ticket159-diagonal-threshold-phase-parity.json`,
+`scripts/ticket159_diagonal_threshold_phase_parity.py`, and
+`tests/test_ticket159_diagonal_threshold_phase_parity.py` first.
+
+Do not reopen these rejected routes without defeating the exact theorem or
+counterexample recorded in TICKET-159:
+
+- inferring a preassigned polynomial, exponential, factorial, or other RH
+  cutoff schedule from pointwise convergence alone;
+- using positive average Collatz log contraction as a uniform affine
+  threshold bound;
+- replacing the signed binary-Goldbach minor coefficient by unsigned `L2`
+  energy and treating that phase-blind quantity as sign information;
+- using only divisibility by primes `p<=z`, or mutual information derived
+  from those bits, to separate prime pairs inside the `z`-rough fiber.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `CertifiedPrimeBandMajorantAndPositiveGalerkinMarginOnEveryNestedWeilCore` |
+| Collatz | `EveryNaturalOddOrbitHasARealizedPrefixAboveItsExactAffineThreshold` |
+| Goldbach | `PhaseSensitiveBilinearMinorArcCoefficientBelowExplicitSingularSeriesMargin` |
+| Twin Prime | `NonlocalTypeIIOrParitySensitiveCorrelationSeparatesPrimePairsFromRoughCompositePairsUniformly` |
+
+한국어: RH에는 미리 정한 예쁜 cutoff 속도가 아니라 각 실제 Weil
+core의 검증 가능한 prime/band 오차 상계와 양의 Galerkin margin이
+필요하다. 콜라츠에는 평균 수축량이 아니라 모든 자연 odd orbit이
+자기 valuation prefix의 정확한 affine threshold를 넘는다는 전칭
+정리가 필요하다. 골드바흐에는 unsigned energy가 아니라 signed
+minor coefficient의 위상 민감한 bilinear 상계가 필요하다. 쌍둥이
+소수에는 rough fiber에서 사라지는 저소수 divisibility 정보가 아니라
+Type II 또는 parity-sensitive 비국소 상관이 필요하다.
+
+Exact TICKET-159 results:
+
+- RH: computable monotone error majorants admit finite diagonal doubling
+  selectors; an adversarial family refutes every preassigned schedule as a
+  consequence of pointwise convergence alone.
+- Collatz: a realizing prefix descends exactly when
+  `(2^S-3^m)n>C(w)`; irrational rotation proves positive average
+  contraction has unbounded affine-threshold lower bounds.
+- Goldbach: the minor coefficient is bounded by minor `L2` energy, but
+  Hermitian spectra with equal magnitudes have opposite squared
+  coefficients; all eight finite energy-only settings fail to certify.
+- Twin Prime: low-divisor features are constant on every rough fiber, hence
+  have exactly zero conditional mutual information; all ten finite fibers
+  contain both twin and double-composite witnesses.
+
+These are exact reductions and no-go results, not solutions or
+counterexamples to the four conjectures.
+
+## Previous Continuation After TICKET-158
 
 Read `docs/two-cutoff-localized-variation-directional.md`,
 `data/open-problem/ticket158-two-cutoff-localized-variation-directional.json`,

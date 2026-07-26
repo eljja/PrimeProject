@@ -1,0 +1,271 @@
+{
+  "schema": "primeproject.ticket159-diagonal-threshold-phase-parity.v1",
+  "generated_at": "2026-07-27T00:30:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-159",
+  "attempt": "For a finite Fourier transform F and a major/minor frequency partition, the binary convolution coefficient decomposes exactly as r(n)=M(n)+E(n), with |E(n)|<=(1/L)sum_minor |F(k)|^2. Therefore M(n) greater than this minor L2 energy is a valid positivity certificate. The energy statistic cannot determine the sign of E(n) on the class of real sequences: on a symmetric two-frequency minor set, Hermitian spectra with values (1,1) and (i,-i) have identical frequency magnitudes and energy, but their zero coefficients after pointwise squaring are exact opposites.",
+  "bounded_result": {
+    "audit_ref": "diagonal_threshold_phase_parity_audit.goldbach"
+  },
+  "obstruction": "The DFT identities are exact and finite, but the absolute minor energy is too phase blind to prove the required uniform binary Goldbach coefficient bound. Finite nonzero representations are not an all-even theorem.",
+  "candidate_theorem": "PhaseSensitiveBilinearMinorArcCoefficientBelowExplicitSingularSeriesMargin",
+  "next_experiment": "prove a phase-sensitive bilinear or large-sieve minor-arc coefficient bound below an explicit singular-series major margin",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact Fourier energy bound, four phase-blindness counterpairs, and eight finite prime DFT audits.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-159",
+    "theorem_name": "MinorArcEnergyCoefficientBoundAndPhaseBlindnessNoGo",
+    "declared_proposition": "For a finite Fourier transform F and a major/minor frequency partition, the binary convolution coefficient decomposes exactly as r(n)=M(n)+E(n), with |E(n)|<=(1/L)sum_minor |F(k)|^2. Therefore M(n) greater than this minor L2 energy is a valid positivity certificate. The energy statistic cannot determine the sign of E(n) on the class of real sequences: on a symmetric two-frequency minor set, Hermitian spectra with values (1,1) and (i,-i) have identical frequency magnitudes and energy, but their zero coefficients after pointwise squaring are exact opposites.",
+    "mathematical_argument": "Fourier inversion gives the exact major/minor decomposition. The triangle inequality and |F(k)^2|=|F(k)|^2 prove the energy bound. The displayed Hermitian pair is the DFT of real sequences; declare that symmetric support to be minor. Squaring changes both supported values from +1 to -1 while preserving every magnitude. Hence energy alone is phase blind on the ambient real-sequence class. This is not a prime-DFT counterexample; a binary Goldbach proof may exploit additional arithmetic structure, but it must retain phase-sensitive cancellation through a bilinear or large-sieve coefficient estimate.",
+    "reproducible_computation": {
+      "theorem": "For a finite Fourier transform F and a major/minor frequency partition, the binary convolution coefficient decomposes exactly as r(n)=M(n)+E(n), with |E(n)|<=(1/L)sum_minor |F(k)|^2. Therefore M(n) greater than this minor L2 energy is a valid positivity certificate. The energy statistic cannot determine the sign of E(n) on the class of real sequences: on a symmetric two-frequency minor set, Hermitian spectra with values (1,1) and (i,-i) have identical frequency magnitudes and energy, but their zero coefficients after pointwise squaring are exact opposites.",
+      "proof": "Fourier inversion gives the exact major/minor decomposition. The triangle inequality and |F(k)^2|=|F(k)|^2 prove the energy bound. The displayed Hermitian pair is the DFT of real sequences; declare that symmetric support to be minor. Squaring changes both supported values from +1 to -1 while preserving every magnitude. Hence energy alone is phase blind on the ambient real-sequence class. This is not a prime-DFT counterexample; a binary Goldbach proof may exploit additional arithmetic structure, but it must retain phase-sensitive cancellation through a bilinear or large-sieve coefficient estimate.",
+      "finite_prime_dft_energy_rows": [
+        {
+          "even_endpoint_N": 1000,
+          "transform_size_L": 2048,
+          "farey_denominator_limit_Q": 4,
+          "major_half_width_bins": 1,
+          "minor_energy_l2_squared": 106.77896799532213,
+          "maximum_absolute_minor_coefficient": 43.99077680707852,
+          "minor_coefficient_to_energy_ratio": 0.4119797899620617,
+          "energy_only_positive_certificate_count": 0,
+          "audited_even_count": 499,
+          "observed_zero_representation_count": 0,
+          "minimum_ordered_prime_representation_count": 1,
+          "maximum_decomposition_error": 7.105427357601002e-13,
+          "checks": {
+            "fft_matches_direct_convolution": true,
+            "minor_coefficient_is_bounded_by_minor_energy": true,
+            "finite_goldbach_range_has_no_observed_zero": true,
+            "energy_bound_is_nonnegative": true
+          }
+        },
+        {
+          "even_endpoint_N": 1000,
+          "transform_size_L": 2048,
+          "farey_denominator_limit_Q": 8,
+          "major_half_width_bins": 2,
+          "minor_energy_l2_squared": 83.33019253726395,
+          "maximum_absolute_minor_coefficient": 27.246958997723397,
+          "minor_coefficient_to_energy_ratio": 0.32697583154555876,
+          "energy_only_positive_certificate_count": 0,
+          "audited_even_count": 499,
+          "observed_zero_representation_count": 0,
+          "minimum_ordered_prime_representation_count": 1,
+          "maximum_decomposition_error": 7.105427357601002e-13,
+          "checks": {
+            "fft_matches_direct_convolution": true,
+            "minor_coefficient_is_bounded_by_minor_energy": true,
+            "finite_goldbach_range_has_no_observed_zero": true,
+            "energy_bound_is_nonnegative": true
+          }
+        },
+        {
+          "even_endpoint_N": 2000,
+          "transform_size_L": 4096,
+          "farey_denominator_limit_Q": 4,
+          "major_half_width_bins": 1,
+          "minor_energy_l2_squared": 202.93287079973442,
+          "maximum_absolute_minor_coefficient": 82.36081843771362,
+          "minor_coefficient_to_energy_ratio": 0.4058525270604973,
+          "energy_only_positive_certificate_count": 0,
+          "audited_even_count": 999,
+          "observed_zero_representation_count": 0,
+          "minimum_ordered_prime_representation_count": 1,
+          "maximum_decomposition_error": 1.4949819160392508e-11,
+          "checks": {
+            "fft_matches_direct_convolution": true,
+            "minor_coefficient_is_bounded_by_minor_energy": true,
+            "finite_goldbach_range_has_no_observed_zero": true,
+            "energy_bound_is_nonnegative": true
+          }
+        },
+        {
+          "even_endpoint_N": 2000,
+          "transform_size_L": 4096,
+          "farey_denominator_limit_Q": 8,
+          "major_half_width_bins": 2,
+          "minor_energy_l2_squared": 164.40313810689148,
+          "maximum_absolute_minor_coefficient": 45.438823234512824,
+          "minor_coefficient_to_energy_ratio": 0.27638659308905317,
+          "energy_only_positive_certificate_count": 0,
+          "audited_even_count": 999,
+          "observed_zero_representation_count": 0,
+          "minimum_ordered_prime_representation_count": 1,
+          "maximum_decomposition_error": 1.4949819160392508e-11,
+          "checks": {
+            "fft_matches_direct_convolution": true,
+            "minor_coefficient_is_bounded_by_minor_energy": true,
+            "finite_goldbach_range_has_no_observed_zero": true,
+            "energy_bound_is_nonnegative": true
+          }
+        },
+        {
+          "even_endpoint_N": 4000,
+          "transform_size_L": 8192,
+          "farey_denominator_limit_Q": 4,
+          "major_half_width_bins": 1,
+          "minor_energy_l2_squared": 384.2021551484802,
+          "maximum_absolute_minor_coefficient": 162.8341281830883,
+          "minor_coefficient_to_energy_ratio": 0.4238240884415623,
+          "energy_only_positive_certificate_count": 0,
+          "audited_even_count": 1999,
+          "observed_zero_representation_count": 0,
+          "minimum_ordered_prime_representation_count": 1,
+          "maximum_decomposition_error": 7.219114195322618e-12,
+          "checks": {
+            "fft_matches_direct_convolution": true,
+            "minor_coefficient_is_bounded_by_minor_energy": true,
+            "finite_goldbach_range_has_no_observed_zero": true,
+            "energy_bound_is_nonnegative": true
+          }
+        },
+        {
+          "even_endpoint_N": 4000,
+          "transform_size_L": 8192,
+          "farey_denominator_limit_Q": 8,
+          "major_half_width_bins": 2,
+          "minor_energy_l2_squared": 321.0437821886146,
+          "maximum_absolute_minor_coefficient": 102.48890262023139,
+          "minor_coefficient_to_energy_ratio": 0.3192365288047183,
+          "energy_only_positive_certificate_count": 0,
+          "audited_even_count": 1999,
+          "observed_zero_representation_count": 0,
+          "minimum_ordered_prime_representation_count": 1,
+          "maximum_decomposition_error": 7.219114195322618e-12,
+          "checks": {
+            "fft_matches_direct_convolution": true,
+            "minor_coefficient_is_bounded_by_minor_energy": true,
+            "finite_goldbach_range_has_no_observed_zero": true,
+            "energy_bound_is_nonnegative": true
+          }
+        },
+        {
+          "even_endpoint_N": 8000,
+          "transform_size_L": 16384,
+          "farey_denominator_limit_Q": 4,
+          "major_half_width_bins": 1,
+          "minor_energy_l2_squared": 728.4929657568334,
+          "maximum_absolute_minor_coefficient": 273.3199586039609,
+          "minor_coefficient_to_energy_ratio": 0.3751854464648235,
+          "energy_only_positive_certificate_count": 0,
+          "audited_even_count": 3999,
+          "observed_zero_representation_count": 0,
+          "minimum_ordered_prime_representation_count": 1,
+          "maximum_decomposition_error": 2.198703441536054e-10,
+          "checks": {
+            "fft_matches_direct_convolution": true,
+            "minor_coefficient_is_bounded_by_minor_energy": true,
+            "finite_goldbach_range_has_no_observed_zero": true,
+            "energy_bound_is_nonnegative": true
+          }
+        },
+        {
+          "even_endpoint_N": 8000,
+          "transform_size_L": 16384,
+          "farey_denominator_limit_Q": 8,
+          "major_half_width_bins": 2,
+          "minor_energy_l2_squared": 622.6549713097996,
+          "maximum_absolute_minor_coefficient": 171.23308151934214,
+          "minor_coefficient_to_energy_ratio": 0.2750047609178178,
+          "energy_only_positive_certificate_count": 0,
+          "audited_even_count": 3999,
+          "observed_zero_representation_count": 0,
+          "minimum_ordered_prime_representation_count": 1,
+          "maximum_decomposition_error": 2.198703441536054e-10,
+          "checks": {
+            "fft_matches_direct_convolution": true,
+            "minor_coefficient_is_bounded_by_minor_energy": true,
+            "finite_goldbach_range_has_no_observed_zero": true,
+            "energy_bound_is_nonnegative": true
+          }
+        }
+      ],
+      "exact_energy_phase_blindness_rows": [
+        {
+          "transform_size_L": 4,
+          "common_energy": 0.5,
+          "positive_zero_coefficient": 0.5,
+          "negative_zero_coefficient": -0.5,
+          "checks": {
+            "same_frequency_magnitudes": true,
+            "same_energy": true,
+            "opposite_target_coefficient": true
+          }
+        },
+        {
+          "transform_size_L": 8,
+          "common_energy": 0.25,
+          "positive_zero_coefficient": 0.25,
+          "negative_zero_coefficient": -0.25,
+          "checks": {
+            "same_frequency_magnitudes": true,
+            "same_energy": true,
+            "opposite_target_coefficient": true
+          }
+        },
+        {
+          "transform_size_L": 16,
+          "common_energy": 0.125,
+          "positive_zero_coefficient": 0.125,
+          "negative_zero_coefficient": -0.125,
+          "checks": {
+            "same_frequency_magnitudes": true,
+            "same_energy": true,
+            "opposite_target_coefficient": true
+          }
+        },
+        {
+          "transform_size_L": 32,
+          "common_energy": 0.0625,
+          "positive_zero_coefficient": 0.0625,
+          "negative_zero_coefficient": -0.0625,
+          "checks": {
+            "same_frequency_magnitudes": true,
+            "same_energy": true,
+            "opposite_target_coefficient": true
+          }
+        }
+      ],
+      "finite_energy_certificate_total": 0,
+      "failure_count": 0
+    },
+    "logical_limit": "The DFT identities are exact and finite, but the absolute minor energy is too phase blind to prove the required uniform binary Goldbach coefficient bound. Finite nonzero representations are not an all-even theorem.",
+    "route_decision": {
+      "discard": "replacing the signed minor-arc Fourier coefficient by its unsigned L2 energy and expecting that summary to retain coefficient sign",
+      "retain": "prove a phase-sensitive bilinear or large-sieve minor-arc coefficient bound below an explicit singular-series major margin",
+      "next_theorem": "PhaseSensitiveBilinearMinorArcCoefficientBelowExplicitSingularSeriesMargin"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T159-REJECTED",
+          "label": "UnsignedMinorArcEnergyDeterminesCoefficientSign",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T159-CLOSED",
+          "label": "MinorArcEnergyCoefficientBoundAndPhaseBlindnessNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T159-OPEN",
+          "label": "PhaseSensitiveBilinearMinorArcCoefficientBelowExplicitSingularSeriesMargin",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T159-REJECTED",
+          "GB-T159-CLOSED"
+        ],
+        [
+          "GB-T159-CLOSED",
+          "GB-T159-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One exact Fourier energy bound, four phase-blindness counterpairs, and eight finite prime DFT audits."
+  }
+}

@@ -1,0 +1,625 @@
+{
+  "schema": "primeproject.ticket159-diagonal-threshold-phase-parity.v1",
+  "generated_at": "2026-07-27T00:30:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-159",
+  "attempt": "Let V_N be a nested form core and let mu_N>0 be a certified rational margin. If computable rational majorants A_N(c) and B_N(T) tend monotonically to zero for each fixed N, doubling search selects finite c_N,T_N with A_N(c_N),B_N(T_N)<=mu_N/4. If the finite form minimum is at least mu_N+A_N(c_N), the TICKET-158 positive-tail composition gives q>=mu_N on V_N. No uniform-in-N rate is logically required. Conversely, pointwise convergence alone implies no preassigned joint schedule: for any g(N), A_g(c,N)=1 when c<=g(N) and 0 otherwise converges for every fixed N but fails exactly at c=g(N).",
+  "bounded_result": {
+    "audit_ref": "diagonal_threshold_phase_parity_audit.riemann"
+  },
+  "obstruction": "The selector theorem is conditional on computable rigorous prime/band majorants and positive finite core margins. Neither arithmetic input is proved for the actual Weil form, so no RH conclusion follows.",
+  "candidate_theorem": "CertifiedPrimeBandMajorantAndPositiveGalerkinMarginOnEveryNestedWeilCore",
+  "next_experiment": "certify a separate effective error majorant and positive Galerkin margin for every explicit nested core, then select cutoffs diagonally",
+  "claim_boundary": "No RH proof and no off-critical zero. One conditional effective selector and an exact adversarial schedule counterfamily.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-159",
+    "theorem_name": "EffectiveDiagonalCutoffSelectorAndPreassignedScheduleNoGo",
+    "declared_proposition": "Let V_N be a nested form core and let mu_N>0 be a certified rational margin. If computable rational majorants A_N(c) and B_N(T) tend monotonically to zero for each fixed N, doubling search selects finite c_N,T_N with A_N(c_N),B_N(T_N)<=mu_N/4. If the finite form minimum is at least mu_N+A_N(c_N), the TICKET-158 positive-tail composition gives q>=mu_N on V_N. No uniform-in-N rate is logically required. Conversely, pointwise convergence alone implies no preassigned joint schedule: for any g(N), A_g(c,N)=1 when c<=g(N) and 0 otherwise converges for every fixed N but fails exactly at c=g(N).",
+    "mathematical_argument": "Monotone convergence and positivity of mu_N make both doubling searches terminate. Substitution into q>=q_c,N,T-A_N proves the core lower bound; the positive archimedean tail is not subtracted in that direction. For the no-go, fixing N makes A_g(c,N) identically zero after g(N), while evaluation at the preassigned cutoff is one. Thus no chosen rate follows from the bare quantifiers. Density can promote all separately certified cores, but the arithmetic majorant and finite positive margin remain unproved.",
+    "reproducible_computation": {
+      "theorem": "Let V_N be a nested form core and let mu_N>0 be a certified rational margin. If computable rational majorants A_N(c) and B_N(T) tend monotonically to zero for each fixed N, doubling search selects finite c_N,T_N with A_N(c_N),B_N(T_N)<=mu_N/4. If the finite form minimum is at least mu_N+A_N(c_N), the TICKET-158 positive-tail composition gives q>=mu_N on V_N. No uniform-in-N rate is logically required. Conversely, pointwise convergence alone implies no preassigned joint schedule: for any g(N), A_g(c,N)=1 when c<=g(N) and 0 otherwise converges for every fixed N but fails exactly at c=g(N).",
+      "proof": "Monotone convergence and positivity of mu_N make both doubling searches terminate. Substitution into q>=q_c,N,T-A_N proves the core lower bound; the positive archimedean tail is not subtracted in that direction. For the no-go, fixing N makes A_g(c,N) identically zero after g(N), while evaluation at the preassigned cutoff is one. Thus no chosen rate follows from the bare quantifiers. Density can promote all separately certified cores, but the arithmetic majorant and finite positive margin remain unproved.",
+      "finite_effective_diagonal_selector_rows": [
+        {
+          "nested_core_dimension_N": 1,
+          "certified_target_margin_mu_N": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "selected_prime_band_cutoff_c_N": 32,
+          "selected_archimedean_cutoff_T_N": 64,
+          "prime_band_error_A_c_N": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "archimedean_tail_error_B_c_N_T": {
+            "exact": "3/64",
+            "decimal": 0.046875
+          },
+          "combined_symmetric_error": {
+            "exact": "7/64",
+            "decimal": 0.109375
+          },
+          "finite_form_minimum_lambda_c_N_T": {
+            "exact": "5/16",
+            "decimal": 0.3125
+          },
+          "promoted_full_form_core_lower_bound": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "prime_selector_iterations": 6,
+          "tail_selector_iterations": 7,
+          "checks": {
+            "prime_selector_meets_quarter_margin": true,
+            "tail_selector_meets_quarter_margin": true,
+            "combined_error_at_most_half_margin": true,
+            "positive_tail_lower_bound_uses_only_prime_error": true,
+            "promoted_core_margin_is_positive": true,
+            "searches_terminate_with_finite_cutoffs": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 2,
+          "certified_target_margin_mu_N": {
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          },
+          "selected_prime_band_cutoff_c_N": 128,
+          "selected_archimedean_cutoff_T_N": 256,
+          "prime_band_error_A_c_N": {
+            "exact": "3/128",
+            "decimal": 0.0234375
+          },
+          "archimedean_tail_error_B_c_N_T": {
+            "exact": "5/256",
+            "decimal": 0.01953125
+          },
+          "combined_symmetric_error": {
+            "exact": "11/256",
+            "decimal": 0.04296875
+          },
+          "finite_form_minimum_lambda_c_N_T": {
+            "exact": "155/1152",
+            "decimal": 0.1345486111111111
+          },
+          "promoted_full_form_core_lower_bound": {
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          },
+          "prime_selector_iterations": 8,
+          "tail_selector_iterations": 9,
+          "checks": {
+            "prime_selector_meets_quarter_margin": true,
+            "tail_selector_meets_quarter_margin": true,
+            "combined_error_at_most_half_margin": true,
+            "positive_tail_lower_bound_uses_only_prime_error": true,
+            "promoted_core_margin_is_positive": true,
+            "searches_terminate_with_finite_cutoffs": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 4,
+          "certified_target_margin_mu_N": {
+            "exact": "1/25",
+            "decimal": 0.04
+          },
+          "selected_prime_band_cutoff_c_N": 512,
+          "selected_archimedean_cutoff_T_N": 1024,
+          "prime_band_error_A_c_N": {
+            "exact": "5/512",
+            "decimal": 0.009765625
+          },
+          "archimedean_tail_error_B_c_N_T": {
+            "exact": "9/1024",
+            "decimal": 0.0087890625
+          },
+          "combined_symmetric_error": {
+            "exact": "19/1024",
+            "decimal": 0.0185546875
+          },
+          "finite_form_minimum_lambda_c_N_T": {
+            "exact": "637/12800",
+            "decimal": 0.049765625
+          },
+          "promoted_full_form_core_lower_bound": {
+            "exact": "1/25",
+            "decimal": 0.04
+          },
+          "prime_selector_iterations": 10,
+          "tail_selector_iterations": 11,
+          "checks": {
+            "prime_selector_meets_quarter_margin": true,
+            "tail_selector_meets_quarter_margin": true,
+            "combined_error_at_most_half_margin": true,
+            "positive_tail_lower_bound_uses_only_prime_error": true,
+            "promoted_core_margin_is_positive": true,
+            "searches_terminate_with_finite_cutoffs": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 8,
+          "certified_target_margin_mu_N": {
+            "exact": "1/81",
+            "decimal": 0.012345679012345678
+          },
+          "selected_prime_band_cutoff_c_N": 4096,
+          "selected_archimedean_cutoff_T_N": 8192,
+          "prime_band_error_A_c_N": {
+            "exact": "9/4096",
+            "decimal": 0.002197265625
+          },
+          "archimedean_tail_error_B_c_N_T": {
+            "exact": "17/8192",
+            "decimal": 0.0020751953125
+          },
+          "combined_symmetric_error": {
+            "exact": "35/8192",
+            "decimal": 0.0042724609375
+          },
+          "finite_form_minimum_lambda_c_N_T": {
+            "exact": "4825/331776",
+            "decimal": 0.014542944637345678
+          },
+          "promoted_full_form_core_lower_bound": {
+            "exact": "1/81",
+            "decimal": 0.012345679012345678
+          },
+          "prime_selector_iterations": 13,
+          "tail_selector_iterations": 14,
+          "checks": {
+            "prime_selector_meets_quarter_margin": true,
+            "tail_selector_meets_quarter_margin": true,
+            "combined_error_at_most_half_margin": true,
+            "positive_tail_lower_bound_uses_only_prime_error": true,
+            "promoted_core_margin_is_positive": true,
+            "searches_terminate_with_finite_cutoffs": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 16,
+          "certified_target_margin_mu_N": {
+            "exact": "1/289",
+            "decimal": 0.0034602076124567475
+          },
+          "selected_prime_band_cutoff_c_N": 32768,
+          "selected_archimedean_cutoff_T_N": 65536,
+          "prime_band_error_A_c_N": {
+            "exact": "17/32768",
+            "decimal": 0.000518798828125
+          },
+          "archimedean_tail_error_B_c_N_T": {
+            "exact": "33/65536",
+            "decimal": 0.0005035400390625
+          },
+          "combined_symmetric_error": {
+            "exact": "67/65536",
+            "decimal": 0.0010223388671875
+          },
+          "finite_form_minimum_lambda_c_N_T": {
+            "exact": "37681/9469952",
+            "decimal": 0.0039790064405817475
+          },
+          "promoted_full_form_core_lower_bound": {
+            "exact": "1/289",
+            "decimal": 0.0034602076124567475
+          },
+          "prime_selector_iterations": 16,
+          "tail_selector_iterations": 17,
+          "checks": {
+            "prime_selector_meets_quarter_margin": true,
+            "tail_selector_meets_quarter_margin": true,
+            "combined_error_at_most_half_margin": true,
+            "positive_tail_lower_bound_uses_only_prime_error": true,
+            "promoted_core_margin_is_positive": true,
+            "searches_terminate_with_finite_cutoffs": true
+          }
+        }
+      ],
+      "exact_preassigned_schedule_no_go_families": [
+        {
+          "schedule_name": "linear",
+          "construction": "A_g(c,N)=1 for c<=g(N), and A_g(c,N)=0 otherwise.",
+          "rows": [
+            {
+              "nested_core_dimension_N": 2,
+              "preassigned_cutoff_g_N": 2,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 3,
+              "preassigned_cutoff_g_N": 3,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 4,
+              "preassigned_cutoff_g_N": 4,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 5,
+              "preassigned_cutoff_g_N": 5,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 6,
+              "preassigned_cutoff_g_N": 6,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            }
+          ]
+        },
+        {
+          "schedule_name": "quadratic",
+          "construction": "A_g(c,N)=1 for c<=g(N), and A_g(c,N)=0 otherwise.",
+          "rows": [
+            {
+              "nested_core_dimension_N": 2,
+              "preassigned_cutoff_g_N": 4,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 3,
+              "preassigned_cutoff_g_N": 9,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 4,
+              "preassigned_cutoff_g_N": 16,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 5,
+              "preassigned_cutoff_g_N": 25,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 6,
+              "preassigned_cutoff_g_N": 36,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            }
+          ]
+        },
+        {
+          "schedule_name": "single_exponential",
+          "construction": "A_g(c,N)=1 for c<=g(N), and A_g(c,N)=0 otherwise.",
+          "rows": [
+            {
+              "nested_core_dimension_N": 2,
+              "preassigned_cutoff_g_N": 4,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 3,
+              "preassigned_cutoff_g_N": 8,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 4,
+              "preassigned_cutoff_g_N": 16,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 5,
+              "preassigned_cutoff_g_N": 32,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 6,
+              "preassigned_cutoff_g_N": 64,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            }
+          ]
+        },
+        {
+          "schedule_name": "factorial",
+          "construction": "A_g(c,N)=1 for c<=g(N), and A_g(c,N)=0 otherwise.",
+          "rows": [
+            {
+              "nested_core_dimension_N": 2,
+              "preassigned_cutoff_g_N": 2,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 3,
+              "preassigned_cutoff_g_N": 6,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 4,
+              "preassigned_cutoff_g_N": 24,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 5,
+              "preassigned_cutoff_g_N": 120,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            },
+            {
+              "nested_core_dimension_N": 6,
+              "preassigned_cutoff_g_N": 720,
+              "bound_at_preassigned_cutoff": {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "bound_at_next_cutoff": {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              "checks": {
+                "pointwise_bound_eventually_zero_for_fixed_N": true,
+                "preassigned_schedule_fails": true,
+                "one_later_cutoff_succeeds": true
+              }
+            }
+          ]
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The selector theorem is conditional on computable rigorous prime/band majorants and positive finite core margins. Neither arithmetic input is proved for the actual Weil form, so no RH conclusion follows.",
+    "route_decision": {
+      "discard": "requiring or guessing one preassigned polynomial, exponential, or other universal joint cutoff rate from pointwise convergence alone",
+      "retain": "certify a separate effective error majorant and positive Galerkin margin for every explicit nested core, then select cutoffs diagonally",
+      "next_theorem": "CertifiedPrimeBandMajorantAndPositiveGalerkinMarginOnEveryNestedWeilCore"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T159-REJECTED",
+          "label": "PointwiseCutoffConvergenceSuppliesAPreassignedJointRate",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T159-CLOSED",
+          "label": "EffectiveDiagonalCutoffSelectorAndPreassignedScheduleNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T159-OPEN",
+          "label": "CertifiedPrimeBandMajorantAndPositiveGalerkinMarginOnEveryNestedWeilCore",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T159-REJECTED",
+          "RH-T159-CLOSED"
+        ],
+        [
+          "RH-T159-CLOSED",
+          "RH-T159-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One conditional effective selector and an exact adversarial schedule counterfamily."
+  }
+}

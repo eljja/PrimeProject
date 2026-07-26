@@ -6394,3 +6394,41 @@ shift 부호는 유한 데이터에서 계산되었지만 mutual information만�
 
 Full bilingual report / 전체 한영 보고서:
 [TICKET-158 two-cutoff-localized-variation-directional](two-cutoff-localized-variation-directional.md).
+
+## TICKET-159 continuation: diagonal selectors, affine thresholds, Fourier phase, and parity
+
+TICKET-159 attacks the four TICKET-158 open lemmas. It proves four exact
+reductions or no-go theorems, removes one unnecessary or information-losing
+condition per track, and keeps every conjecture-resolution counter at zero.
+
+1. **Riemann Hypothesis.** Computable monotone prime/band and tail
+   majorants can be searched separately for every nested core by a finite
+   doubling selector. An adversarial family proves that pointwise
+   convergence supplies no preassigned cutoff schedule. The next target is
+   `CertifiedPrimeBandMajorantAndPositiveGalerkinMarginOnEveryNestedWeilCore`.
+2. **Collatz.** A valuation prefix descends exactly when
+   `(2^S-3^m)n>C(w)`. Minimal positive log contraction has unbounded affine
+   thresholds along an irrational-rotation subsequence, so average
+   contraction alone is insufficient. The next target is
+   `EveryNaturalOddOrbitHasARealizedPrefixAboveItsExactAffineThreshold`.
+3. **Goldbach.** The signed minor coefficient is bounded by minor `L2`
+   energy, but equal-energy Hermitian spectra can have opposite target
+   coefficient signs. All eight finite energy-only audits fail to certify.
+   The next target is
+   `PhaseSensitiveBilinearMinorArcCoefficientBelowExplicitSingularSeriesMargin`.
+4. **Twin Prime.** Low-prime divisibility bits are constant on a rough
+   fiber and therefore have exactly zero conditional mutual information.
+   All ten finite fibers contain twin and double-composite witnesses. The
+   next target is
+   `NonlocalTypeIIOrParitySensitiveCorrelationSeparatesPrimePairsFromRoughCompositePairsUniformly`.
+
+한국어 경계: RH의 selector는 실제 Weil 오차 상계와 양의 finite-core
+margin을 증명하지 않는다. Collatz threshold 정리는 자연 orbit마다
+threshold crossing이 존재함을 증명하지 않는다. Goldbach energy
+상계는 위상을 버리므로 uniform signed coefficient 정리가 아니다.
+Twin rough-fiber no-go는 저소수 divisibility sigma algebra에만
+적용되며 Type II 상관을 배제하지 않는다. 네 추측은 모두
+`open_not_proven`이다.
+
+Full bilingual report / 전체 한영 보고서:
+[TICKET-159 diagonal-threshold-phase-parity](diagonal-threshold-phase-parity.md).
