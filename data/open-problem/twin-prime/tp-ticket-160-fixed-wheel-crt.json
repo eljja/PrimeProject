@@ -1,0 +1,496 @@
+{
+  "schema": "primeproject.ticket160-exact-support-cylinder-bilinear-wheel.v1",
+  "generated_at": "2026-07-27T01:30:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-160",
+  "attempt": "Let M>=1 and suppose (p,p+2) is a twin-prime pair with gcd(p(p+2),M)=1. Choose distinct primes q,r not dividing M. The Chinese remainder theorem gives infinitely many n with n=p (mod M), n=0 (mod q), and n=-2 (mod r). Taking n large makes both n and n+2 proper composites. Therefore no classifier measurable only from the fixed wheel residue n mod M can correctly separate every twin-prime pair from every double-composite pair. This strictly extends the TICKET-159 low-divisor-bit no-go to every feature of one fixed residue class. Separately, on the cubic-rough finite set Omega_X, let Phi_{X,y} record proper prime divisors z<p<=y of both endpoints and define tau_X as the maximum over double-composite pairs of the smaller endpoint least factor. A pointwise Phi_{X,y} classifier separates all PP from all QQ if and only if y>=tau_X. Unrestricted factor features therefore separate only by searching to the exact factor horizon; that is factorization information, not a parity breakthrough.",
+  "bounded_result": {
+    "audit_ref": "exact_support_cylinder_bilinear_wheel_audit.twin_prime"
+  },
+  "obstruction": "The CRT no-go applies to one fixed modulus at a time. It does not rule out scale-growing moduli or Type II bilinear estimates. The factor-horizon classifier uses explicit factor information and is not a prime-producing method; the observed tau_X/sqrt(X) trend is finite only.",
+  "candidate_theorem": "IndependentCubicRoughBilinearIncidenceDeficit",
+  "next_experiment": "derive the cubic-rough least-factor incidence deficit from an independent Type I/II estimate rather than from labels or explicit factorization",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample. One exact CRT no-go for fixed wheel features and one exact finite factor-search threshold characterization.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-160",
+    "theorem_name": "FixedWheelCRTBlindnessAndExactFactorHorizonThreshold",
+    "declared_proposition": "Let M>=1 and suppose (p,p+2) is a twin-prime pair with gcd(p(p+2),M)=1. Choose distinct primes q,r not dividing M. The Chinese remainder theorem gives infinitely many n with n=p (mod M), n=0 (mod q), and n=-2 (mod r). Taking n large makes both n and n+2 proper composites. Therefore no classifier measurable only from the fixed wheel residue n mod M can correctly separate every twin-prime pair from every double-composite pair. This strictly extends the TICKET-159 low-divisor-bit no-go to every feature of one fixed residue class. Separately, on the cubic-rough finite set Omega_X, let Phi_{X,y} record proper prime divisors z<p<=y of both endpoints and define tau_X as the maximum over double-composite pairs of the smaller endpoint least factor. A pointwise Phi_{X,y} classifier separates all PP from all QQ if and only if y>=tau_X. Unrestricted factor features therefore separate only by searching to the exact factor horizon; that is factorization information, not a parity breakthrough.",
+    "mathematical_argument": "The three moduli M,q,r are pairwise coprime, so CRT supplies one class modulo Mqr and therefore infinitely many positive solutions. Add a multiple of Mqr until n>q and n+2>r. Then q is a proper factor of n and r a proper factor of n+2, while n and p have the same residue modulo M. Any function of that residue assigns the twin and double-composite examples the same feature value. For the factor horizon, every PP has the all-zero proper-factor vector. A QQ also has the zero vector exactly while both endpoint least factors exceed y. Removing every such collision is equivalent to y being at least the maximum smaller least factor over QQ, namely tau_X. Cubic roughness makes every retained composite a semiprime, so the feature interpretation is exact.",
+    "reproducible_computation": {
+      "theorem": "Let M>=1 and suppose (p,p+2) is a twin-prime pair with gcd(p(p+2),M)=1. Choose distinct primes q,r not dividing M. The Chinese remainder theorem gives infinitely many n with n=p (mod M), n=0 (mod q), and n=-2 (mod r). Taking n large makes both n and n+2 proper composites. Therefore no classifier measurable only from the fixed wheel residue n mod M can correctly separate every twin-prime pair from every double-composite pair. This strictly extends the TICKET-159 low-divisor-bit no-go to every feature of one fixed residue class. Separately, on the cubic-rough finite set Omega_X, let Phi_{X,y} record proper prime divisors z<p<=y of both endpoints and define tau_X as the maximum over double-composite pairs of the smaller endpoint least factor. A pointwise Phi_{X,y} classifier separates all PP from all QQ if and only if y>=tau_X. Unrestricted factor features therefore separate only by searching to the exact factor horizon; that is factorization information, not a parity breakthrough.",
+      "proof": "The three moduli M,q,r are pairwise coprime, so CRT supplies one class modulo Mqr and therefore infinitely many positive solutions. Add a multiple of Mqr until n>q and n+2>r. Then q is a proper factor of n and r a proper factor of n+2, while n and p have the same residue modulo M. Any function of that residue assigns the twin and double-composite examples the same feature value. For the factor horizon, every PP has the all-zero proper-factor vector. A QQ also has the zero vector exactly while both endpoint least factors exceed y. Removing every such collision is equivalent to y being at least the maximum smaller least factor over QQ, namely tau_X. Cubic roughness makes every retained composite a semiprime, so the feature interpretation is exact.",
+      "finite_fixed_wheel_crt_rows": [
+        {
+          "roughness_bound_z": 3,
+          "wheel_modulus_M": 6,
+          "wheel_prime_count": 2,
+          "twin_witness": [
+            5,
+            7
+          ],
+          "auxiliary_composite_divisors": [
+            11,
+            13
+          ],
+          "double_composite_witness": [
+            869,
+            871
+          ],
+          "shared_residue_mod_M": 5,
+          "combined_crt_modulus_Mqr": 858,
+          "checks": {
+            "twin_witness_is_prime_pair": true,
+            "wheel_residues_are_identical": true,
+            "first_composite_is_proper_multiple": true,
+            "second_composite_is_proper_multiple": true,
+            "crt_moduli_are_pairwise_coprime": true
+          }
+        },
+        {
+          "roughness_bound_z": 5,
+          "wheel_modulus_M": 30,
+          "wheel_prime_count": 3,
+          "twin_witness": [
+            11,
+            13
+          ],
+          "auxiliary_composite_divisors": [
+            17,
+            19
+          ],
+          "double_composite_witness": [
+            5831,
+            5833
+          ],
+          "shared_residue_mod_M": 11,
+          "combined_crt_modulus_Mqr": 9690,
+          "checks": {
+            "twin_witness_is_prime_pair": true,
+            "wheel_residues_are_identical": true,
+            "first_composite_is_proper_multiple": true,
+            "second_composite_is_proper_multiple": true,
+            "crt_moduli_are_pairwise_coprime": true
+          }
+        },
+        {
+          "roughness_bound_z": 7,
+          "wheel_modulus_M": 210,
+          "wheel_prime_count": 4,
+          "twin_witness": [
+            11,
+            13
+          ],
+          "auxiliary_composite_divisors": [
+            17,
+            19
+          ],
+          "double_composite_witness": [
+            25211,
+            25213
+          ],
+          "shared_residue_mod_M": 11,
+          "combined_crt_modulus_Mqr": 67830,
+          "checks": {
+            "twin_witness_is_prime_pair": true,
+            "wheel_residues_are_identical": true,
+            "first_composite_is_proper_multiple": true,
+            "second_composite_is_proper_multiple": true,
+            "crt_moduli_are_pairwise_coprime": true
+          }
+        },
+        {
+          "roughness_bound_z": 11,
+          "wheel_modulus_M": 2310,
+          "wheel_prime_count": 5,
+          "twin_witness": [
+            17,
+            19
+          ],
+          "auxiliary_composite_divisors": [
+            23,
+            29
+          ],
+          "double_composite_witness": [
+            734597,
+            734599
+          ],
+          "shared_residue_mod_M": 17,
+          "combined_crt_modulus_Mqr": 1540770,
+          "checks": {
+            "twin_witness_is_prime_pair": true,
+            "wheel_residues_are_identical": true,
+            "first_composite_is_proper_multiple": true,
+            "second_composite_is_proper_multiple": true,
+            "crt_moduli_are_pairwise_coprime": true
+          }
+        },
+        {
+          "roughness_bound_z": 13,
+          "wheel_modulus_M": 30030,
+          "wheel_prime_count": 6,
+          "twin_witness": [
+            17,
+            19
+          ],
+          "auxiliary_composite_divisors": [
+            23,
+            29
+          ],
+          "double_composite_witness": [
+            8438447,
+            8438449
+          ],
+          "shared_residue_mod_M": 17,
+          "combined_crt_modulus_Mqr": 20030010,
+          "checks": {
+            "twin_witness_is_prime_pair": true,
+            "wheel_residues_are_identical": true,
+            "first_composite_is_proper_multiple": true,
+            "second_composite_is_proper_multiple": true,
+            "crt_moduli_are_pairwise_coprime": true
+          }
+        },
+        {
+          "roughness_bound_z": 17,
+          "wheel_modulus_M": 510510,
+          "wheel_prime_count": 7,
+          "twin_witness": [
+            29,
+            31
+          ],
+          "auxiliary_composite_divisors": [
+            37,
+            41
+          ],
+          "double_composite_witness": [
+            254744519,
+            254744521
+          ],
+          "shared_residue_mod_M": 29,
+          "combined_crt_modulus_Mqr": 774443670,
+          "checks": {
+            "twin_witness_is_prime_pair": true,
+            "wheel_residues_are_identical": true,
+            "first_composite_is_proper_multiple": true,
+            "second_composite_is_proper_multiple": true,
+            "crt_moduli_are_pairwise_coprime": true
+          }
+        },
+        {
+          "roughness_bound_z": 19,
+          "wheel_modulus_M": 9699690,
+          "wheel_prime_count": 8,
+          "twin_witness": [
+            29,
+            31
+          ],
+          "auxiliary_composite_divisors": [
+            37,
+            41
+          ],
+          "double_composite_witness": [
+            6450293879,
+            6450293881
+          ],
+          "shared_residue_mod_M": 29,
+          "combined_crt_modulus_Mqr": 14714429730,
+          "checks": {
+            "twin_witness_is_prime_pair": true,
+            "wheel_residues_are_identical": true,
+            "first_composite_is_proper_multiple": true,
+            "second_composite_is_proper_multiple": true,
+            "crt_moduli_are_pairwise_coprime": true
+          }
+        },
+        {
+          "roughness_bound_z": 23,
+          "wheel_modulus_M": 223092870,
+          "wheel_prime_count": 9,
+          "twin_witness": [
+            29,
+            31
+          ],
+          "auxiliary_composite_divisors": [
+            37,
+            41
+          ],
+          "double_composite_witness": [
+            315453318209,
+            315453318211
+          ],
+          "shared_residue_mod_M": 29,
+          "combined_crt_modulus_Mqr": 338431883790,
+          "checks": {
+            "twin_witness_is_prime_pair": true,
+            "wheel_residues_are_identical": true,
+            "first_composite_is_proper_multiple": true,
+            "second_composite_is_proper_multiple": true,
+            "crt_moduli_are_pairwise_coprime": true
+          }
+        },
+        {
+          "roughness_bound_z": 29,
+          "wheel_modulus_M": 6469693230,
+          "wheel_prime_count": 10,
+          "twin_witness": [
+            41,
+            43
+          ],
+          "auxiliary_composite_divisors": [
+            47,
+            53
+          ],
+          "double_composite_witness": [
+            13120537870481,
+            13120537870483
+          ],
+          "shared_residue_mod_M": 41,
+          "combined_crt_modulus_Mqr": 16116005835930,
+          "checks": {
+            "twin_witness_is_prime_pair": true,
+            "wheel_residues_are_identical": true,
+            "first_composite_is_proper_multiple": true,
+            "second_composite_is_proper_multiple": true,
+            "crt_moduli_are_pairwise_coprime": true
+          }
+        },
+        {
+          "roughness_bound_z": 31,
+          "wheel_modulus_M": 200560490130,
+          "wheel_prime_count": 11,
+          "twin_witness": [
+            41,
+            43
+          ],
+          "auxiliary_composite_divisors": [
+            47,
+            53
+          ],
+          "double_composite_witness": [
+            448252695440591,
+            448252695440593
+          ],
+          "shared_residue_mod_M": 41,
+          "combined_crt_modulus_Mqr": 499596180913830,
+          "checks": {
+            "twin_witness_is_prime_pair": true,
+            "wheel_residues_are_identical": true,
+            "first_composite_is_proper_multiple": true,
+            "second_composite_is_proper_multiple": true,
+            "crt_moduli_are_pairwise_coprime": true
+          }
+        }
+      ],
+      "finite_cubic_rough_factor_horizon_rows": [
+        {
+          "X": 1000,
+          "cubic_roughness_floor_z": 10,
+          "prime_prime_pair_count_PP": 33,
+          "semiprime_semiprime_pair_count_QQ": 4,
+          "exact_separation_factor_horizon_tau_X": 17,
+          "tau_X_over_sqrt_X": 0.5375872022286245,
+          "first_prime_pair_zero_feature_witness": [
+            11,
+            13
+          ],
+          "critical_double_composite_witness": [
+            527,
+            529
+          ],
+          "critical_witness_factorizations": [
+            [
+              17,
+              31
+            ],
+            [
+              23,
+              23
+            ]
+          ],
+          "checks": {
+            "both_target_classes_exist": true,
+            "critical_qq_is_invisible_below_threshold": true,
+            "critical_qq_is_visible_at_threshold": true,
+            "every_qq_is_visible_at_threshold": true,
+            "pp_feature_is_zero_at_every_factor_horizon": true,
+            "cubic_rough_composites_are_semiprimes": true
+          }
+        },
+        {
+          "X": 10000,
+          "cubic_roughness_floor_z": 21,
+          "prime_prime_pair_count_PP": 201,
+          "semiprime_semiprime_pair_count_QQ": 35,
+          "exact_separation_factor_horizon_tau_X": 71,
+          "tau_X_over_sqrt_X": 0.71,
+          "first_prime_pair_zero_feature_witness": [
+            29,
+            31
+          ],
+          "critical_double_composite_witness": [
+            6887,
+            6889
+          ],
+          "critical_witness_factorizations": [
+            [
+              71,
+              97
+            ],
+            [
+              83,
+              83
+            ]
+          ],
+          "checks": {
+            "both_target_classes_exist": true,
+            "critical_qq_is_invisible_below_threshold": true,
+            "critical_qq_is_visible_at_threshold": true,
+            "every_qq_is_visible_at_threshold": true,
+            "pp_feature_is_zero_at_every_factor_horizon": true,
+            "cubic_rough_composites_are_semiprimes": true
+          }
+        },
+        {
+          "X": 100000,
+          "cubic_roughness_floor_z": 46,
+          "prime_prime_pair_count_PP": 1218,
+          "semiprime_semiprime_pair_count_QQ": 284,
+          "exact_separation_factor_horizon_tau_X": 251,
+          "tau_X_over_sqrt_X": 0.7937316927022632,
+          "first_prime_pair_zero_feature_witness": [
+            59,
+            61
+          ],
+          "critical_double_composite_witness": [
+            77057,
+            77059
+          ],
+          "critical_witness_factorizations": [
+            [
+              251,
+              307
+            ],
+            [
+              263,
+              293
+            ]
+          ],
+          "checks": {
+            "both_target_classes_exist": true,
+            "critical_qq_is_invisible_below_threshold": true,
+            "critical_qq_is_visible_at_threshold": true,
+            "every_qq_is_visible_at_threshold": true,
+            "pp_feature_is_zero_at_every_factor_horizon": true,
+            "cubic_rough_composites_are_semiprimes": true
+          }
+        },
+        {
+          "X": 1000000,
+          "cubic_roughness_floor_z": 100,
+          "prime_prime_pair_count_PP": 8161,
+          "semiprime_semiprime_pair_count_QQ": 2453,
+          "exact_separation_factor_horizon_tau_X": 811,
+          "tau_X_over_sqrt_X": 0.811,
+          "first_prime_pair_zero_feature_witness": [
+            101,
+            103
+          ],
+          "critical_double_composite_witness": [
+            862091,
+            862093
+          ],
+          "critical_witness_factorizations": [
+            [
+              877,
+              983
+            ],
+            [
+              811,
+              1063
+            ]
+          ],
+          "checks": {
+            "both_target_classes_exist": true,
+            "critical_qq_is_invisible_below_threshold": true,
+            "critical_qq_is_visible_at_threshold": true,
+            "every_qq_is_visible_at_threshold": true,
+            "pp_feature_is_zero_at_every_factor_horizon": true,
+            "cubic_rough_composites_are_semiprimes": true
+          }
+        },
+        {
+          "X": 10000000,
+          "cubic_roughness_floor_z": 215,
+          "prime_prime_pair_count_PP": 58965,
+          "semiprime_semiprime_pair_count_QQ": 19074,
+          "exact_separation_factor_horizon_tau_X": 3037,
+          "tau_X_over_sqrt_X": 0.9603837253931368,
+          "first_prime_pair_zero_feature_witness": [
+            227,
+            229
+          ],
+          "critical_double_composite_witness": [
+            9770027,
+            9770029
+          ],
+          "critical_witness_factorizations": [
+            [
+              3083,
+              3169
+            ],
+            [
+              3037,
+              3217
+            ]
+          ],
+          "checks": {
+            "both_target_classes_exist": true,
+            "critical_qq_is_invisible_below_threshold": true,
+            "critical_qq_is_visible_at_threshold": true,
+            "every_qq_is_visible_at_threshold": true,
+            "pp_feature_is_zero_at_every_factor_horizon": true,
+            "cubic_rough_composites_are_semiprimes": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The CRT no-go applies to one fixed modulus at a time. It does not rule out scale-growing moduli or Type II bilinear estimates. The factor-horizon classifier uses explicit factor information and is not a prime-producing method; the observed tau_X/sqrt(X) trend is finite only.",
+    "route_decision": {
+      "discard": "using any fixed wheel residue or finite collection of characters through it as a uniform classifier, or calling unrestricted trial-division features a nonlocal parity breakthrough",
+      "retain": "derive the cubic-rough least-factor incidence deficit from an independent Type I/II estimate rather than from labels or explicit factorization",
+      "next_theorem": "IndependentCubicRoughBilinearIncidenceDeficit"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T160-REJECTED",
+          "label": "FixedWheelOrUnrestrictedFactorFeatureBreaksParity",
+          "status": "refuted_or_misidentified"
+        },
+        {
+          "id": "TP-T160-CLOSED",
+          "label": "FixedWheelCRTBlindnessAndExactFactorHorizonThreshold",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T160-OPEN",
+          "label": "IndependentCubicRoughBilinearIncidenceDeficit",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T160-REJECTED",
+          "TP-T160-CLOSED"
+        ],
+        [
+          "TP-T160-CLOSED",
+          "TP-T160-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof and no terminal counterexample. One exact CRT no-go for fixed wheel features and one exact finite factor-search threshold characterization."
+  }
+}

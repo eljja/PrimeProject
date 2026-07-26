@@ -6432,3 +6432,40 @@ Twin rough-fiber no-go는 저소수 divisibility sigma algebra에만
 
 Full bilingual report / 전체 한영 보고서:
 [TICKET-159 diagonal-threshold-phase-parity](diagonal-threshold-phase-parity.md).
+
+## TICKET-160 continuation: exact support, natural cylinders, bilinear phase, and wheel limits
+
+TICKET-160 audits and corrects the four TICKET-159 next targets. It proves four
+exact theorem/no-go packages, records one stricter next lemma per track, and
+keeps all conjecture-resolution counters at zero.
+
+1. **Riemann Hypothesis.** In the finite Guinand-Weil dictionary, every
+   prime power above cutoff `c` has exactly zero Fourier weight. Raw
+   zero-extended Galerkin spaces at distinct cutoffs have zero intersection,
+   so they cannot be treated as nested compressions. The next target is
+   `EffectiveCommonNestedWeilCoreTransport`.
+2. **Collatz.** Every finite valuation word has one exact odd residue
+   cylinder, and contracting cylinders have cofinite descending tails. The
+   infinite family `w_m=(m+1,1,...,1)` has thresholds tending to infinity,
+   yet every natural realizer descends. The next target is
+   `MinimalContractingFrontLoadedNaturalTransfer`.
+3. **Goldbach.** The minor proxy defect is an exact reflection bilinear form
+   with no explicit square-root dimension loss. Centered cosine and sine
+   modes saturate the Cauchy bound with signs `+1` and `-1`, proving that
+   arithmetic input is necessary. The next target is
+   `PrimeRestrictedMinorProxyDefectBelowExplicitSingularSeriesMargin`.
+4. **Twin Prime.** CRT creates double-composite mimics in every fixed wheel
+   residue. On cubic-rough finite ranges, proper-factor features separate PP
+   from QQ exactly when their search depth reaches the factor horizon
+   `tau_X`; at `X=10M`, `tau_X=3037`. The next target is
+   `IndependentCubicRoughBilinearIncidenceDeficit`.
+
+한국어 경계: RH 결과는 common Weil core나 양의 margin을 만들지 않는다.
+Collatz의 무한 가족 정리는 선택한 front-loaded 가족만 닫으며 모든
+orbit을 다루지 않는다. Goldbach의 sharp 반례는 일반 실수 수열이고
+prime DFT 반례가 아니다. Twin의 factor horizon은 유한 trial-division
+복잡도를 측정하며 Type II 하계를 제공하지 않는다. 네 추측은 모두
+`open_not_proven`이다.
+
+Full bilingual report / 전체 한영 보고서:
+[TICKET-160 exact-support-cylinder-bilinear-wheel](exact-support-cylinder-bilinear-wheel.md).

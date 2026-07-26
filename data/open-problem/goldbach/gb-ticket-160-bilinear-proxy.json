@@ -1,0 +1,198 @@
+{
+  "schema": "primeproject.ticket160-exact-support-cylinder-bilinear-wheel.v1",
+  "generated_at": "2026-07-27T01:30:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-160",
+  "attempt": "On G=Z/LZ let S=-S be a minor-frequency set, P_S the orthogonal Fourier projection, and R_N h(x)=h(N-x). For real f,g, the minor bilinear coefficient equals E_S(N;f,g)=<P_S f,R_N P_S g>. Hence for every real proxy p, E_S(N;f,f)-E_S(N;p,p)=<P_S(f-p),R_N P_S(f+p)>, and its absolute value is at most ||P_S(f-p)||_2 ||P_S(f+p)||_2. The constant one is sharp on the ambient real-sequence class: a normalized cosine centered at N/2 is a +1 reflection eigenvector, while the corresponding sine is a -1 eigenvector, both supported on one conjugate frequency pair.",
+  "bounded_result": {
+    "audit_ref": "exact_support_cylinder_bilinear_wheel_audit.goldbach"
+  },
+  "obstruction": "The reflection identity is exact but supplies no prime-restricted proxy or singular-series margin. The sharp examples are signed real sequences, not prime DFTs and not Goldbach counterexamples.",
+  "candidate_theorem": "PrimeRestrictedMinorProxyDefectBelowExplicitSingularSeriesMargin",
+  "next_experiment": "construct an arithmetic proxy for prime weights whose projected bilinear defect is uniformly below an explicit binary major-arc margin",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact phase-sensitive bilinear identity and four sharp ambient reflection counterexamples.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-160",
+    "theorem_name": "MinorReflectionBilinearProxyIdentityAndSharpAmbientNoGo",
+    "declared_proposition": "On G=Z/LZ let S=-S be a minor-frequency set, P_S the orthogonal Fourier projection, and R_N h(x)=h(N-x). For real f,g, the minor bilinear coefficient equals E_S(N;f,g)=<P_S f,R_N P_S g>. Hence for every real proxy p, E_S(N;f,f)-E_S(N;p,p)=<P_S(f-p),R_N P_S(f+p)>, and its absolute value is at most ||P_S(f-p)||_2 ||P_S(f+p)||_2. The constant one is sharp on the ambient real-sequence class: a normalized cosine centered at N/2 is a +1 reflection eigenvector, while the corresponding sine is a -1 eigenvector, both supported on one conjugate frequency pair.",
+    "mathematical_argument": "Fourier inversion gives the reflection bilinear identity. The operator R_N is a self-adjoint unitary involution and commutes with a conjugation-closed projection. Expanding the difference of the two quadratic forms cancels the cross terms and Cauchy-Schwarz gives the product bound without an explicit sqrt(|S|) loss. The centered cosine and sine are exact reflection eigenfunctions of signs +1 and -1, respectively, so p=0 attains equality. Therefore no universal constant c<1 follows from Hilbert-space geometry alone; any saving must use arithmetic restrictions of prime weights.",
+    "reproducible_computation": {
+      "theorem": "On G=Z/LZ let S=-S be a minor-frequency set, P_S the orthogonal Fourier projection, and R_N h(x)=h(N-x). For real f,g, the minor bilinear coefficient equals E_S(N;f,g)=<P_S f,R_N P_S g>. Hence for every real proxy p, E_S(N;f,f)-E_S(N;p,p)=<P_S(f-p),R_N P_S(f+p)>, and its absolute value is at most ||P_S(f-p)||_2 ||P_S(f+p)||_2. The constant one is sharp on the ambient real-sequence class: a normalized cosine centered at N/2 is a +1 reflection eigenvector, while the corresponding sine is a -1 eigenvector, both supported on one conjugate frequency pair.",
+      "proof": "Fourier inversion gives the reflection bilinear identity. The operator R_N is a self-adjoint unitary involution and commutes with a conjugation-closed projection. Expanding the difference of the two quadratic forms cancels the cross terms and Cauchy-Schwarz gives the product bound without an explicit sqrt(|S|) loss. The centered cosine and sine are exact reflection eigenfunctions of signs +1 and -1, respectively, so p=0 attains equality. Therefore no universal constant c<1 follows from Hilbert-space geometry alone; any saving must use arithmetic restrictions of prime weights.",
+      "finite_bilinear_proxy_identity_rows": [
+        {
+          "group_size_L": 8,
+          "target_even_N": 6,
+          "minor_frequency_count": 4,
+          "observed_minor_form": -5.428932188134532,
+          "proxy_minor_form": -1.0784271247461878,
+          "observed_minus_proxy_defect": -4.3505050633883435,
+          "factorized_defect": -4.350505063388343,
+          "cauchy_product_bound": 12.390131901622143,
+          "bound_slack": 8.039626838233799,
+          "checks": {
+            "symmetric_projection_is_real": true,
+            "bilinear_defect_factorization_holds": true,
+            "cauchy_bound_holds": true
+          }
+        },
+        {
+          "group_size_L": 12,
+          "target_even_N": 8,
+          "minor_frequency_count": 4,
+          "observed_minor_form": -2.021585071520802,
+          "proxy_minor_form": -1.5598306414370646,
+          "observed_minus_proxy_defect": -0.4617544300837375,
+          "factorized_defect": -0.461754430083737,
+          "cauchy_product_bound": 16.183936092387814,
+          "bound_slack": 15.722181662304077,
+          "checks": {
+            "symmetric_projection_is_real": true,
+            "bilinear_defect_factorization_holds": true,
+            "cauchy_bound_holds": true
+          }
+        },
+        {
+          "group_size_L": 16,
+          "target_even_N": 10,
+          "minor_frequency_count": 4,
+          "observed_minor_form": 4.262020108497127,
+          "proxy_minor_form": 0.13904330268496518,
+          "observed_minus_proxy_defect": 4.122976805812162,
+          "factorized_defect": 4.122976805812161,
+          "cauchy_product_bound": 8.91421608458086,
+          "bound_slack": 4.791239278768697,
+          "checks": {
+            "symmetric_projection_is_real": true,
+            "bilinear_defect_factorization_holds": true,
+            "cauchy_bound_holds": true
+          }
+        },
+        {
+          "group_size_L": 20,
+          "target_even_N": 14,
+          "minor_frequency_count": 4,
+          "observed_minor_form": -0.3108241880037592,
+          "proxy_minor_form": -3.4365519278904244e-29,
+          "observed_minus_proxy_defect": -0.3108241880037592,
+          "factorized_defect": -0.3108241880037591,
+          "cauchy_product_bound": 1.2772291754441398,
+          "bound_slack": 0.9664049874403806,
+          "checks": {
+            "symmetric_projection_is_real": true,
+            "bilinear_defect_factorization_holds": true,
+            "cauchy_bound_holds": true
+          }
+        }
+      ],
+      "exact_sharp_reflection_counterexample_rows": [
+        {
+          "group_size_L": 11,
+          "target_N": 4,
+          "frequency_k": 1,
+          "positive_norm": 1.0,
+          "negative_norm": 1.0,
+          "positive_reflection_form": 1.0000000000000002,
+          "negative_reflection_form": -1.0,
+          "maximum_off_pair_dft_leakage": 2.7775344423124534e-15,
+          "checks": {
+            "positive_reflection_eigenfunction_has_unit_form": true,
+            "negative_reflection_eigenfunction_has_minus_unit_form": true,
+            "both_norms_are_one": true,
+            "support_is_one_conjugate_frequency_pair": true,
+            "cauchy_constant_one_is_saturated": true
+          }
+        },
+        {
+          "group_size_L": 12,
+          "target_N": 7,
+          "frequency_k": 2,
+          "positive_norm": 1.0,
+          "negative_norm": 0.9999999999999999,
+          "positive_reflection_form": 1.0000000000000002,
+          "negative_reflection_form": -0.9999999999999999,
+          "maximum_off_pair_dft_leakage": 6.50567004529465e-15,
+          "checks": {
+            "positive_reflection_eigenfunction_has_unit_form": true,
+            "negative_reflection_eigenfunction_has_minus_unit_form": true,
+            "both_norms_are_one": true,
+            "support_is_one_conjugate_frequency_pair": true,
+            "cauchy_constant_one_is_saturated": true
+          }
+        },
+        {
+          "group_size_L": 17,
+          "target_N": 10,
+          "frequency_k": 3,
+          "positive_norm": 0.9999999999999999,
+          "negative_norm": 1.0,
+          "positive_reflection_form": 0.9999999999999999,
+          "negative_reflection_form": -1.0000000000000004,
+          "maximum_off_pair_dft_leakage": 7.562175176094797e-15,
+          "checks": {
+            "positive_reflection_eigenfunction_has_unit_form": true,
+            "negative_reflection_eigenfunction_has_minus_unit_form": true,
+            "both_norms_are_one": true,
+            "support_is_one_conjugate_frequency_pair": true,
+            "cauchy_constant_one_is_saturated": true
+          }
+        },
+        {
+          "group_size_L": 32,
+          "target_N": 18,
+          "frequency_k": 5,
+          "positive_norm": 1.0,
+          "negative_norm": 0.9999999999999999,
+          "positive_reflection_form": 1.0,
+          "negative_reflection_form": -1.0,
+          "maximum_off_pair_dft_leakage": 1.0463888818135594e-14,
+          "checks": {
+            "positive_reflection_eigenfunction_has_unit_form": true,
+            "negative_reflection_eigenfunction_has_minus_unit_form": true,
+            "both_norms_are_one": true,
+            "support_is_one_conjugate_frequency_pair": true,
+            "cauchy_constant_one_is_saturated": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The reflection identity is exact but supplies no prime-restricted proxy or singular-series margin. The sharp examples are signed real sequences, not prime DFTs and not Goldbach counterexamples.",
+    "route_decision": {
+      "discard": "expecting a universal constant below one from phase-sensitive Hilbert-space geometry alone",
+      "retain": "construct an arithmetic proxy for prime weights whose projected bilinear defect is uniformly below an explicit binary major-arc margin",
+      "next_theorem": "PrimeRestrictedMinorProxyDefectBelowExplicitSingularSeriesMargin"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T160-REJECTED",
+          "label": "AmbientBilinearGeometrySuppliesAUniformSavingBelowOne",
+          "status": "refuted_or_misidentified"
+        },
+        {
+          "id": "GB-T160-CLOSED",
+          "label": "MinorReflectionBilinearProxyIdentityAndSharpAmbientNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T160-OPEN",
+          "label": "PrimeRestrictedMinorProxyDefectBelowExplicitSingularSeriesMargin",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T160-REJECTED",
+          "GB-T160-CLOSED"
+        ],
+        [
+          "GB-T160-CLOSED",
+          "GB-T160-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One exact phase-sensitive bilinear identity and four sharp ambient reflection counterexamples."
+  }
+}

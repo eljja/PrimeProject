@@ -161,6 +161,9 @@ TICKET158_SCHEMA = (
 TICKET159_SCHEMA = (
     "primeproject.ticket159-diagonal-threshold-phase-parity.v1"
 )
+TICKET160_SCHEMA = (
+    "primeproject.ticket160-exact-support-cylinder-bilinear-wheel.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -11255,6 +11258,245 @@ def main() -> int:
         not in str(ticket159.get("claim_boundary", "")).lower()
     ):
         return fail("ticket159 proof boundary changed")
+
+    path160 = Path(
+        "data/open-problem/"
+        "ticket160-exact-support-cylinder-bilinear-wheel.json"
+    )
+    if not path160.exists():
+        return fail(
+            "missing ticket160 exact-support-cylinder-bilinear-wheel audit"
+        )
+    ticket160 = read_json(path160)
+    if (
+        ticket160.get("schema") != TICKET160_SCHEMA
+        or ticket160.get("status")
+        != (
+            "four_exact_reductions_and_no_go_results_"
+            "all_conjectures_open"
+        )
+    ):
+        return fail("ticket160 schema or status changed")
+    attempts160 = ticket160.get("attempts", [])
+    by_id160 = {
+        str(row.get("problem_id")): row
+        for row in attempts160
+        if isinstance(row, dict)
+    }
+    if set(by_id160) != EXPECTED_PROBLEMS:
+        return fail("ticket160 attempts missing problems")
+
+    paths160 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-160-exact-support-transport.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-160-cylinder-realizability.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-160-bilinear-proxy.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-160-fixed-wheel-crt.json"
+        ),
+    }
+    next160 = {
+        "riemann": "EffectiveCommonNestedWeilCoreTransport",
+        "collatz": "MinimalContractingFrontLoadedNaturalTransfer",
+        "goldbach": (
+            "PrimeRestrictedMinorProxyDefectBelow"
+            "ExplicitSingularSeriesMargin"
+        ),
+        "twin-prime": "IndependentCubicRoughBilinearIncidenceDeficit",
+    }
+    for problem_id, attempt in by_id160.items():
+        if (
+            not paths160[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+        ):
+            return fail(
+                f"{problem_id}: ticket160 artifact or boundary missing"
+            )
+        per_problem160 = read_json(paths160[problem_id])
+        if (
+            per_problem160.get("schema") != TICKET160_SCHEMA
+            or per_problem160.get("problem_id") != problem_id
+            or per_problem160.get("candidate_theorem")
+            != next160[problem_id]
+            or attempt.get("candidate_theorem") != next160[problem_id]
+        ):
+            return fail(
+                f"{problem_id}: ticket160 per-problem contract changed"
+            )
+
+    audit160 = ticket160.get(
+        "exact_support_cylinder_bilinear_wheel_audit",
+        {},
+    )
+    machine160 = audit160.get("machine_audit", {})
+    if (
+        audit160.get("theorem_name")
+        != "FourConjectureExactSupportCylinderBilinearWheelAudit"
+        or int(machine160.get("exact_theorem_count", -1)) != 4
+        or int(machine160.get("rejected_target_count", -1)) != 4
+        or int(machine160.get("proof_dag_count", -1)) != 4
+        or int(machine160.get("conjecture_resolution_count", -1)) != 0
+        or int(machine160.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket160 global machine audit changed")
+
+    riemann160 = audit160.get("riemann", {})
+    support160 = riemann160.get("reproducible_computation", {})
+    support_rows160 = support160.get("finite_prime_support_rows", [])
+    profile_rows160 = support160.get(
+        "exact_cross_cutoff_profile_rows",
+        [],
+    )
+    if (
+        riemann160.get("theorem_name")
+        != "ExactPrimeSupportClosureAndCrossCutoffNestingNoGo"
+        or [int(row.get("prime_cutoff_c", -1)) for row in support_rows160]
+        != [4, 16, 64, 256]
+        or len(profile_rows160) != 2
+        or support160.get("prime_support_remainder", {}).get("exact")
+        != "0/1"
+        or any(
+            float(row.get("maximum_absolute_omitted_weight", 1)) != 0
+            or not all(row.get("checks", {}).values())
+            for row in support_rows160
+        )
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in profile_rows160
+        )
+        or int(support160.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket160 RH exact-support audit changed")
+
+    collatz160 = audit160.get("collatz", {})
+    cylinders160 = collatz160.get("reproducible_computation", {})
+    cylinder_rows160 = cylinders160.get(
+        "finite_cylinder_summary_rows",
+        [],
+    )
+    front160 = cylinders160.get(
+        "front_loaded_unbounded_threshold_natural_transfer",
+        {},
+    )
+    transfer_rows160 = front160.get("exact_natural_transfer_rows", [])
+    if (
+        collatz160.get("theorem_name")
+        != "UniqueCylinderAndFrontLoadedNaturalTransferNoGo"
+        or [int(row.get("word_length_m", -1)) for row in cylinder_rows160]
+        != [2, 3, 4, 5]
+        or [int(row.get("word_count", -1)) for row in cylinder_rows160]
+        != [25, 125, 625, 3125]
+        or any(
+            int(row.get("word_count", -1))
+            != int(row.get("unique_residue_count", -2))
+            or not all(row.get("checks", {}).values())
+            for row in cylinder_rows160
+        )
+        or not transfer_rows160
+        or int(transfer_rows160[-1].get("word_length_m", -1)) != 1024
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in transfer_rows160
+        )
+        or int(cylinders160.get("failure_count", -1)) != 0
+        or int(front160.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket160 Collatz cylinder audit changed")
+
+    goldbach160 = audit160.get("goldbach", {})
+    bilinear160 = goldbach160.get("reproducible_computation", {})
+    identity_rows160 = bilinear160.get(
+        "finite_bilinear_proxy_identity_rows",
+        [],
+    )
+    sharp_rows160 = bilinear160.get(
+        "exact_sharp_reflection_counterexample_rows",
+        [],
+    )
+    if (
+        goldbach160.get("theorem_name")
+        != "MinorReflectionBilinearProxyIdentityAndSharpAmbientNoGo"
+        or len(identity_rows160) != 4
+        or [int(row.get("group_size_L", -1)) for row in sharp_rows160]
+        != [11, 12, 17, 32]
+        or any(
+            abs(
+                float(row.get("observed_minus_proxy_defect", 0))
+                - float(row.get("factorized_defect", 1))
+            )
+            >= 1e-9
+            or not all(row.get("checks", {}).values())
+            for row in identity_rows160
+        )
+        or any(
+            float(row.get("maximum_off_pair_dft_leakage", 1)) >= 1e-12
+            or not all(row.get("checks", {}).values())
+            for row in sharp_rows160
+        )
+        or int(bilinear160.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket160 Goldbach bilinear audit changed")
+
+    twin160 = audit160.get("twin_prime", {})
+    wheel160 = twin160.get("reproducible_computation", {})
+    crt_rows160 = wheel160.get("finite_fixed_wheel_crt_rows", [])
+    horizon_rows160 = wheel160.get(
+        "finite_cubic_rough_factor_horizon_rows",
+        [],
+    )
+    if (
+        twin160.get("theorem_name")
+        != "FixedWheelCRTBlindnessAndExactFactorHorizonThreshold"
+        or [int(row.get("roughness_bound_z", -1)) for row in crt_rows160]
+        != [3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
+        or [
+            int(row.get("exact_separation_factor_horizon_tau_X", -1))
+            for row in horizon_rows160
+        ]
+        != [17, 71, 251, 811, 3037]
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in crt_rows160 + horizon_rows160
+        )
+        or int(wheel160.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket160 Twin wheel audit changed")
+
+    sections160 = {
+        "riemann": riemann160,
+        "collatz": collatz160,
+        "goldbach": goldbach160,
+        "twin-prime": twin160,
+    }
+    for problem_id, section in sections160.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_misidentified",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next160[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket160 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit160.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket160.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket160 proof boundary changed")
 
     print("open problem structure verified")
     return 0

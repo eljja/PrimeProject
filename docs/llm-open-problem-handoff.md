@@ -62,7 +62,63 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-159
+## Latest Continuation After TICKET-160
+
+Read `docs/exact-support-cylinder-bilinear-wheel.md`,
+`data/open-problem/ticket160-exact-support-cylinder-bilinear-wheel.json`,
+`scripts/ticket160_exact_support_cylinder_bilinear_wheel.py`, and
+`tests/test_ticket160_exact_support_cylinder_bilinear_wheel.py` first.
+
+Do not reopen these rejected or corrected routes without defeating the exact
+TICKET-160 theorem:
+
+- searching for a decaying omitted-prime remainder in the exact finite
+  Guinand-Weil dictionary, or treating raw cutoff spaces as nested;
+- treating an unbounded abstract Collatz affine threshold as evidence that a
+  natural realizer lies below it;
+- expecting phase-sensitive ambient Hilbert geometry alone to improve the
+  Goldbach bilinear defect constant below one;
+- treating a fixed wheel residue, or unrestricted proper-factor trial
+  division, as a Twin parity-breaking statistic.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `EffectiveCommonNestedWeilCoreTransport` |
+| Collatz | `MinimalContractingFrontLoadedNaturalTransfer` |
+| Goldbach | `PrimeRestrictedMinorProxyDefectBelowExplicitSingularSeriesMargin` |
+| Twin Prime | `IndependentCubicRoughBilinearIncidenceDeficit` |
+
+한국어: RH의 cutoff 밖 prime-power 항은 Fourier support 때문에 이미
+정확히 0이며, 남은 핵심은 서로 교차하지 않는 raw cutoff 공간을 하나의
+공통 nested Weil core와 연결하는 transport 정리다. Collatz의 모든
+유한 valuation word는 정확한 residue cylinder를 가지며, threshold가
+무한히 커지는 명시적 가족조차 모든 자연수 실현자가 하강한다. 다음
+목표는 최소 수축 front-loaded 가족의 자연수 transfer다. Goldbach의
+bilinear identity는 위상을 보존하지만, 일반 수열에서는 상수 1이
+최적이므로 prime-restricted proxy가 필요하다. Twin에서는 고정 wheel
+전체가 CRT mimic에 막히며, 완전 factor feature는 trial division이므로
+독립적인 Type I/II incidence deficit가 필요하다.
+
+Exact TICKET-160 results:
+
+- RH: the finite dictionary has exact prime-support closure
+  `A_(c,N)=0`; raw zero-extended Galerkin spaces at distinct cutoffs have
+  zero intersection, so a common-core transport cannot be skipped.
+- Collatz: every finite valuation word has one odd residue cylinder and every
+  contracting cylinder has a cofinite descending tail. The family
+  `w_m=(m+1,1,...,1)` has unbounded thresholds but all natural realizers
+  descend.
+- Goldbach: the minor proxy defect factors as a reflection bilinear form
+  before squaring. Centered cosine/sine eigenfunctions prove the ambient
+  Cauchy constant one is sharp.
+- Twin Prime: CRT creates double-composite pairs sharing any fixed wheel
+  residue with a twin witness. On cubic-rough ranges, the exact PP/QQ factor
+  separation threshold is `tau_X`, reaching 3,037 at `X=10M`.
+
+These are exact reductions and no-go results, not solutions or
+counterexamples to the four conjectures.
+
+## Previous Continuation After TICKET-159
 
 Read `docs/diagonal-threshold-phase-parity.md`,
 `data/open-problem/ticket159-diagonal-threshold-phase-parity.json`,

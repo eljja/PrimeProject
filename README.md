@@ -115,22 +115,23 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-nineteen-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-twenty-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-159. It proves an effective diagonal
-cutoff selector and an exact no-go for inferring any preassigned RH cutoff
-rate from pointwise convergence; the exact Collatz affine cylinder threshold
-and an irrational-rotation family with unbounded threshold lower bounds; an
-exact Goldbach minor-energy coefficient bound together with equal-energy,
-opposite-sign Fourier counterpairs; and exact zero conditional information
-for every low-divisor feature inside a Twin rough survivor fiber. The finite
-audits find 11 Collatz record thresholds through word length 768, zero
-Goldbach energy-only certificates in eight settings, and both twin-prime and
-double-composite witnesses in all ten rough fibers. No finite row is promoted
-to an infinite theorem. All four conjectures remain open.
+The latest proof-search track is TICKET-160. It corrects the finite
+Guinand-Weil prime-band remainder to exact support closure and proves that raw
+spaces at different cutoffs cannot form a nested Galerkin chain; proves unique
+Collatz valuation cylinders and an infinite family whose affine thresholds
+diverge although every natural realizer descends; derives an exact
+phase-sensitive Goldbach reflection-bilinear proxy identity and proves its
+ambient Cauchy constant is sharp; and extends Twin local-feature blindness
+through fixed-wheel CRT composite mimics and an exact finite factor-search
+horizon. The audits reach Collatz depth 1,024, Twin cubic-rough scale 10M, and
+record four sharp Fourier counterexamples. No finite row is promoted to an
+infinite theorem. All four conjectures remain open.
 See
+[TICKET160](docs/exact-support-cylinder-bilinear-wheel.md),
 [TICKET159](docs/diagonal-threshold-phase-parity.md),
 [TICKET158](docs/two-cutoff-localized-variation-directional.md),
 [TICKET157](docs/formcore-inversion-proxy-margin.md),
@@ -149,20 +150,20 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-159입니다. 리만 가설
-트랙에서는 실제 오차 상계가 주어졌을 때 core마다 cutoff를 따로
-찾는 effective diagonal selector를 증명하고, 점별 수렴만으로 미리
-정한 cutoff 속도를 얻을 수 없다는 정확한 반례군을 만들었습니다.
-콜라츠 트랙에서는 valuation prefix의 하강 조건
-`(2^S-3^m)n>C(w)`를 정확히 유도하고, 평균 수축량이 양수여도 affine
-임계값 하한이 무한히 커질 수 있음을 irrational rotation으로
-증명했습니다. 골드바흐 트랙에서는 minor Fourier coefficient의
-에너지 상계를 증명했지만, 같은 에너지로 목표 계수 부호가 반대인
-스펙트럼을 구성하여 energy-only 경로를 폐기했습니다. 쌍둥이 소수
-트랙에서는 작은 소수 divisibility 정보가 rough fiber 내부에서
-상수 0이므로 conditional mutual information도 정확히 0임을
-증명했습니다. 유한 감사의 모든 rough fiber에는 쌍둥이 소수와
-double-composite 쌍이 함께 존재합니다. 네 문제는 모두 미해결입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-160입니다. 리만 가설
+트랙에서는 유한 Guinand-Weil dictionary의 cutoff 밖 prime-power
+기여가 support 때문에 정확히 0임을 확인하고, 실제 병목을 서로 다른
+cutoff 공간 사이의 common nested Weil-core transport로 교정했습니다.
+콜라츠 트랙에서는 모든 유한 valuation word가 하나의 정확한 2-adic
+cylinder를 정함을 증명하고, threshold가 무한히 커지지만 모든 자연수
+실현자가 하강하는 front-loaded 무한 가족을 닫았습니다. 골드바흐
+트랙에서는 minor coefficient를 reflection bilinear form으로 정확히
+바꾸었지만 일반 실수 수열에서는 Cauchy 상수 1이 최적임을
+증명했습니다. 쌍둥이 소수 트랙에서는 고정 wheel residue 전체를
+무력화하는 CRT composite mimic과, cubic-rough 범위의 완전 분리에
+필요한 정확한 factor horizon을 계산했습니다. 이 factor 특징은
+인수분해 정보이므로 parity 돌파가 아닙니다. 네 문제는 모두
+미해결입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
