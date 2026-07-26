@@ -1,0 +1,402 @@
+{
+  "schema": "primeproject.ticket157-formcore-inversion-proxy-margin.v1",
+  "generated_at": "2026-07-26T23:30:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-157",
+  "attempt": "In the left and right cubic-rough populations, let d_L,d_R be ambient semiprime fractions, rho_L,rho_R the shifted rough-pair selection probabilities, and I_L,I_R the mutual informations between the semiprime labels and those selection events. Combining the exact TICKET-155 transfer identity with TICKET-156 Pinsker bounds gives M/R<=d_L+d_R+sqrt(I_L/(2rho_L))+sqrt(I_R/(2rho_R)). Therefore the information budget being smaller than eta=1-d_L-d_R is a sufficient certificate for M/R<1. The stronger asymptotic demand I=o(rho) is not necessary: a fixed negative conditional shift can keep M/R uniformly below one while I/rho tends to a positive constant.",
+  "bounded_result": {
+    "audit_ref": "formcore_inversion_proxy_margin_audit.twin_prime"
+  },
+  "obstruction": "Five finite scales satisfy the information-margin certificate, but no uniform post-cutoff inequality or effective cutoff is proved for all scales.",
+  "candidate_theorem": "UniformCubicRoughInformationBudgetBelowSemiprimeMarginAfterEffectiveCutoff",
+  "next_experiment": "prove the combined information budget stays below the ambient semiprime margin uniformly after an effective cutoff, then join finite verification",
+  "claim_boundary": "No Twin Prime proof and no counterexample. One exact target-level information certificate, five finite passes through X=10,000,000, and a necessity no-go.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-157",
+    "theorem_name": "InformationBudgetMarginCertificateAndLittleONecessityNoGo",
+    "declared_proposition": "In the left and right cubic-rough populations, let d_L,d_R be ambient semiprime fractions, rho_L,rho_R the shifted rough-pair selection probabilities, and I_L,I_R the mutual informations between the semiprime labels and those selection events. Combining the exact TICKET-155 transfer identity with TICKET-156 Pinsker bounds gives M/R<=d_L+d_R+sqrt(I_L/(2rho_L))+sqrt(I_R/(2rho_R)). Therefore the information budget being smaller than eta=1-d_L-d_R is a sufficient certificate for M/R<1. The stronger asymptotic demand I=o(rho) is not necessary: a fixed negative conditional shift can keep M/R uniformly below one while I/rho tends to a positive constant.",
+    "mathematical_argument": "TICKET-155 writes M/R as the ambient sum plus the two conditional shifts. TICKET-156 bounds the absolute value of each shift by sqrt(I/(2rho)); adding the inequalities proves the certificate. In the no-go family each side has ambient fraction 2/5, selected conditional fraction 1/5, and rho=2^-k. The two-side conditional sum is 2/5, while direct contingency-table evaluation gives I/rho tending to KL(Ber(1/5)||Ber(2/5))>0. Thus little-o is sufficient but strictly stronger than the target.",
+    "reproducible_computation": {
+      "theorem": "In the left and right cubic-rough populations, let d_L,d_R be ambient semiprime fractions, rho_L,rho_R the shifted rough-pair selection probabilities, and I_L,I_R the mutual informations between the semiprime labels and those selection events. Combining the exact TICKET-155 transfer identity with TICKET-156 Pinsker bounds gives M/R<=d_L+d_R+sqrt(I_L/(2rho_L))+sqrt(I_R/(2rho_R)). Therefore the information budget being smaller than eta=1-d_L-d_R is a sufficient certificate for M/R<1. The stronger asymptotic demand I=o(rho) is not necessary: a fixed negative conditional shift can keep M/R uniformly below one while I/rho tends to a positive constant.",
+      "proof": "TICKET-155 writes M/R as the ambient sum plus the two conditional shifts. TICKET-156 bounds the absolute value of each shift by sqrt(I/(2rho)); adding the inequalities proves the certificate. In the no-go family each side has ambient fraction 2/5, selected conditional fraction 1/5, and rho=2^-k. The two-side conditional sum is 2/5, while direct contingency-table evaluation gives I/rho tending to KL(Ber(1/5)||Ber(2/5))>0. Thus little-o is sufficient but strictly stronger than the target.",
+      "finite_cubic_rough_information_margin_rows": [
+        {
+          "X": 1000,
+          "ambient_semiprime_sum_dL_plus_dR": {
+            "exact": "126/227",
+            "decimal": 0.5550660792951542
+          },
+          "ambient_margin_eta": {
+            "exact": "101/227",
+            "decimal": 0.44493392070484583
+          },
+          "actual_conditional_incidence_M_over_R": {
+            "exact": "41/70",
+            "decimal": 0.5857142857142857
+          },
+          "left_normalized_information_I_over_rho": 0.0015123470340568127,
+          "right_normalized_information_I_over_rho": 0.009223520599170315,
+          "pinsker_information_budget": 0.09540855193332659,
+          "information_upper_bound_for_M_over_R": 0.6504746312284808,
+          "certificate_slack": 0.3495253687715192,
+          "checks": {
+            "actual_ratio_is_below_information_upper_bound": true,
+            "information_budget_is_below_ambient_margin": true,
+            "information_certificate_proves_ratio_below_one": true,
+            "direct_conditional_ratio_is_below_one": true
+          }
+        },
+        {
+          "X": 10000,
+          "ambient_semiprime_sum_dL_plus_dR": {
+            "exact": "163/285",
+            "decimal": 0.5719298245614035
+          },
+          "ambient_margin_eta": {
+            "exact": "122/285",
+            "decimal": 0.4280701754385965
+          },
+          "actual_conditional_incidence_M_over_R": {
+            "exact": "112/195",
+            "decimal": 0.5743589743589743
+          },
+          "left_normalized_information_I_over_rho": 5.781132210518588e-06,
+          "right_normalized_information_I_over_rho": 4.521040239542725e-05,
+          "pinsker_information_budget": 0.00645465923160621,
+          "information_upper_bound_for_M_over_R": 0.5783844837930098,
+          "certificate_slack": 0.4216155162069902,
+          "checks": {
+            "actual_ratio_is_below_information_upper_bound": true,
+            "information_budget_is_below_ambient_margin": true,
+            "information_certificate_proves_ratio_below_one": true,
+            "direct_conditional_ratio_is_below_one": true
+          }
+        },
+        {
+          "X": 100000,
+          "ambient_semiprime_sum_dL_plus_dR": {
+            "exact": "9250/14203",
+            "decimal": 0.6512708582693797
+          },
+          "ambient_margin_eta": {
+            "exact": "4953/14203",
+            "decimal": 0.3487291417306203
+          },
+          "actual_conditional_incidence_M_over_R": {
+            "exact": "1747/2681",
+            "decimal": 0.6516225289071242
+          },
+          "left_normalized_information_I_over_rho": 0.00011352602145889194,
+          "right_normalized_information_I_over_rho": 0.0001257770530803801,
+          "pinsker_information_budget": 0.01546435174584963,
+          "information_upper_bound_for_M_over_R": 0.6667352100152293,
+          "certificate_slack": 0.3332647899847707,
+          "checks": {
+            "actual_ratio_is_below_information_upper_bound": true,
+            "information_budget_is_below_ambient_margin": true,
+            "information_certificate_proves_ratio_below_one": true,
+            "direct_conditional_ratio_is_below_one": true
+          }
+        },
+        {
+          "X": 1000000,
+          "ambient_semiprime_sum_dL_plus_dR": {
+            "exact": "84572/120759",
+            "decimal": 0.7003370349207927
+          },
+          "ambient_margin_eta": {
+            "exact": "36187/120759",
+            "decimal": 0.29966296507920737
+          },
+          "actual_conditional_incidence_M_over_R": {
+            "exact": "3397/4824",
+            "decimal": 0.7041873963515755
+          },
+          "left_normalized_information_I_over_rho": 1.4945598575472063e-05,
+          "right_normalized_information_I_over_rho": 5.562228895049821e-06,
+          "pinsker_information_budget": 0.004401309495858023,
+          "information_upper_bound_for_M_over_R": 0.7047383444166507,
+          "certificate_slack": 0.29526165558334927,
+          "checks": {
+            "actual_ratio_is_below_information_upper_bound": true,
+            "information_budget_is_below_ambient_margin": true,
+            "information_certificate_proves_ratio_below_one": true,
+            "direct_conditional_ratio_is_below_one": true
+          }
+        },
+        {
+          "X": 10000000,
+          "ambient_semiprime_sum_dL_plus_dR": {
+            "exact": "749734/1039399",
+            "decimal": 0.72131491371456
+          },
+          "ambient_margin_eta": {
+            "exact": "289665/1039399",
+            "decimal": 0.27868508628544
+          },
+          "actual_conditional_incidence_M_over_R": {
+            "exact": "103016/142907",
+            "decimal": 0.72086041971352
+          },
+          "left_normalized_information_I_over_rho": 1.621069799438649e-08,
+          "right_normalized_information_I_over_rho": 3.520708452119846e-07,
+          "pinsker_information_budget": 0.0005095954665527724,
+          "information_upper_bound_for_M_over_R": 0.7218245091811128,
+          "certificate_slack": 0.27817549081888715,
+          "checks": {
+            "actual_ratio_is_below_information_upper_bound": true,
+            "information_budget_is_below_ambient_margin": true,
+            "information_certificate_proves_ratio_below_one": true,
+            "direct_conditional_ratio_is_below_one": true
+          }
+        }
+      ],
+      "finite_little_o_not_necessary_rows": [
+        {
+          "rarity_exponent_k": 2,
+          "selection_probability_rho": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "ambient_side_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_side_fraction": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "conditional_shift_delta": {
+            "exact": "-1/5",
+            "decimal": -0.2
+          },
+          "mutual_information_nats": 0.02971857913934592,
+          "mutual_information_over_rho": 0.11887431655738367,
+          "two_side_actual_conditional_sum": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "two_side_pinsker_upper_bound": 1.287594742706243,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_is_negative_one_fifth": true,
+            "two_side_target_holds_with_fixed_margin": true,
+            "normalized_information_is_positive": true,
+            "pinsker_sufficient_bound_can_fail_while_target_holds": true
+          }
+        },
+        {
+          "rarity_exponent_k": 4,
+          "selection_probability_rho": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "ambient_side_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_side_fraction": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "conditional_shift_delta": {
+            "exact": "-1/5",
+            "decimal": -0.2
+          },
+          "mutual_information_nats": 0.00606574949086648,
+          "mutual_information_over_rho": 0.09705199185386368,
+          "two_side_actual_conditional_sum": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "two_side_pinsker_upper_bound": 1.240572336521175,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_is_negative_one_fifth": true,
+            "two_side_target_holds_with_fixed_margin": true,
+            "normalized_information_is_positive": true,
+            "pinsker_sufficient_bound_can_fail_while_target_holds": true
+          }
+        },
+        {
+          "rarity_exponent_k": 8,
+          "selection_probability_rho": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "ambient_side_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_side_fraction": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "conditional_shift_delta": {
+            "exact": "-1/5",
+            "decimal": -0.2
+          },
+          "mutual_information_nats": 0.00035876151640672313,
+          "mutual_information_over_rho": 0.09184294820012112,
+          "two_side_actual_conditional_sum": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "two_side_pinsker_upper_bound": 1.2285859265074417,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_is_negative_one_fifth": true,
+            "two_side_target_holds_with_fixed_margin": true,
+            "normalized_information_is_positive": true,
+            "pinsker_sufficient_bound_can_fail_while_target_holds": true
+          }
+        },
+        {
+          "rarity_exponent_k": 12,
+          "selection_probability_rho": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "ambient_side_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_side_fraction": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "conditional_shift_delta": {
+            "exact": "-1/5",
+            "decimal": -0.2
+          },
+          "mutual_information_nats": 2.2347795799231405e-05,
+          "mutual_information_over_rho": 0.09153657159365183,
+          "two_side_actual_conditional_sum": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "two_side_pinsker_upper_bound": 1.2278704747786457,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_is_negative_one_fifth": true,
+            "two_side_target_holds_with_fixed_margin": true,
+            "normalized_information_is_positive": true,
+            "pinsker_sufficient_bound_can_fail_while_target_holds": true
+          }
+        },
+        {
+          "rarity_exponent_k": 16,
+          "selection_probability_rho": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "ambient_side_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_side_fraction": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "conditional_shift_delta": {
+            "exact": "-1/5",
+            "decimal": -0.2
+          },
+          "mutual_information_nats": 1.3964461278307454e-06,
+          "mutual_information_over_rho": 0.09151749343351573,
+          "two_side_actual_conditional_sum": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "two_side_pinsker_upper_bound": 1.2278258838207798,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_is_negative_one_fifth": true,
+            "two_side_target_holds_with_fixed_margin": true,
+            "normalized_information_is_positive": true,
+            "pinsker_sufficient_bound_can_fail_while_target_holds": true
+          }
+        },
+        {
+          "rarity_exponent_k": 20,
+          "selection_probability_rho": {
+            "exact": "1/1048576",
+            "decimal": 9.5367431640625e-07
+          },
+          "ambient_side_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_side_fraction": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "conditional_shift_delta": {
+            "exact": "-1/5",
+            "decimal": -0.2
+          },
+          "mutual_information_nats": 8.727674612584112e-08,
+          "mutual_information_over_rho": 0.09151630134564998,
+          "two_side_actual_conditional_sum": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "two_side_pinsker_upper_bound": 1.2278230974261441,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_is_negative_one_fifth": true,
+            "two_side_target_holds_with_fixed_margin": true,
+            "normalized_information_is_positive": true,
+            "pinsker_sufficient_bound_can_fail_while_target_holds": true
+          }
+        }
+      ],
+      "normalized_information_positive_limit_nats": 0.09151622184943564,
+      "finite_information_certificate_count": 5,
+      "failure_count": 0
+    },
+    "logical_limit": "Five finite scales satisfy the information-margin certificate, but no uniform post-cutoff inequality or effective cutoff is proved for all scales.",
+    "route_decision": {
+      "discard": "requiring I=o(rho) as a necessary target and reporting small normalized information without comparing it to the ambient semiprime margin",
+      "retain": "prove the combined information budget stays below the ambient semiprime margin uniformly after an effective cutoff, then join finite verification",
+      "next_theorem": "UniformCubicRoughInformationBudgetBelowSemiprimeMarginAfterEffectiveCutoff"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T157-REJECTED",
+          "label": "MutualInformationLittleOSelectionMassIsNecessary",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T157-CLOSED",
+          "label": "InformationBudgetMarginCertificateAndLittleONecessityNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T157-OPEN",
+          "label": "UniformCubicRoughInformationBudgetBelowSemiprimeMarginAfterEffectiveCutoff",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T157-REJECTED",
+          "TP-T157-CLOSED"
+        ],
+        [
+          "TP-T157-CLOSED",
+          "TP-T157-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof and no counterexample. One exact target-level information certificate, five finite passes through X=10,000,000, and a necessity no-go."
+  }
+}

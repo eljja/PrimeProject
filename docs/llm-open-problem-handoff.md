@@ -62,7 +62,62 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-156
+## Latest Continuation After TICKET-157
+
+Read `docs/formcore-inversion-proxy-margin.md`,
+`data/open-problem/ticket157-formcore-inversion-proxy-margin.json`,
+`scripts/ticket157_formcore_inversion_proxy_margin.py`, and
+`tests/test_ticket157_formcore_inversion_proxy_margin.py` first.
+
+Do not reopen these rejected routes without defeating the exact theorem or
+counterexample recorded in TICKET-157:
+
+- treating any finite Galerkin sweep as RH continuum positivity, or
+  demanding a separate basis operator-norm error after a genuine nested
+  form core and a uniform cutoff-form estimate have been proved;
+- requiring every realized Collatz valuation multiset to descend in its
+  descending worst order and discarding the actual valuation order;
+- controlling Goldbach negative phase with an `L2` proxy while hiding the
+  sharp square-root dimension loss, or promoting target-fitted block means;
+- requiring Twin `I=o(rho)` as a necessary condition instead of comparing
+  the finite or uniform information budget with the ambient semiprime
+  margin.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `UniformArchimedeanTailFormBoundOnNestedExplicitWeilCore` |
+| Collatz | `NaturalValuationInversionGainDominatesWorstOrderThresholdExcess` |
+| Goldbach | `ArithmeticBinaryGoldbachPhaseProxyWithUniformL1ResidualAndFiniteJoin` |
+| Twin Prime | `UniformCubicRoughInformationBudgetBelowSemiprimeMarginAfterEffectiveCutoff` |
+
+한국어: 리만 가설은 실제 nested Weil form core의 합집합 전체에서
+유효한 archimedean tail-form 오차를 증명해야 한다. 콜라츠는 자연
+valuation 순서의 inversion gain이 최악 순서 threshold excess를
+언젠가 넘는다는 전칭 정리가 필요하다. 골드바흐는 target transform을
+보기 전에 정한 arithmetic phase proxy와 균일 `L1` 잔차 상계를
+finite join과 결합해야 한다. 쌍둥이 소수는 cubic-rough information
+budget이 effective cutoff 이후 ambient semiprime margin보다 작다는
+uniform 정리가 필요하다.
+
+Exact TICKET-157 results:
+
+- RH: nested form-core positivity plus one uniform cutoff-form bound
+  promotes to the closed form; exact diagonal countermodels reject every
+  finite-core-only promotion.
+- Collatz: adjacent valuation swaps telescope to an exact inversion gain.
+  Of 49,999 first descents through 100,000, 266 require the natural order
+  rather than the multiset's descending worst order.
+- Goldbach: negative real phase mass is one-Lipschitz in complex `L1`;
+  equal negative residuals prove the square-root dimension loss from `L2`
+  is sharp, and all 18 target-fitted block proxies fail.
+- Twin Prime: combining TICKET-155 and TICKET-156 gives a direct
+  information-margin certificate. All five finite scales pass, while an
+  exact family proves `I=o(rho)` is sufficient but not necessary.
+
+These are exact reductions and no-go results, not solutions or
+counterexamples to the four conjectures.
+
+## Previous Continuation After TICKET-156
 
 Read `docs/cutoff-potential-signed-information.md`,
 `data/open-problem/ticket156-cutoff-potential-signed-information.json`,

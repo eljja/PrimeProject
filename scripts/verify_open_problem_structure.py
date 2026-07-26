@@ -154,6 +154,7 @@ TICKET153_SCHEMA = "primeproject.ticket153-essential-tail-geometric-reflection-p
 TICKET154_SCHEMA = "primeproject.ticket154-compact-suffix-wheel-leastfactor.v1"
 TICKET155_SCHEMA = "primeproject.ticket155-range-prefix-sublinear-conditional.v1"
 TICKET156_SCHEMA = "primeproject.ticket156-cutoff-potential-signed-information.v1"
+TICKET157_SCHEMA = "primeproject.ticket157-formcore-inversion-proxy-margin.v1"
 
 
 def fail(message: str) -> int:
@@ -10370,6 +10371,280 @@ def main() -> int:
         not in str(ticket156.get("claim_boundary", "")).lower()
     ):
         return fail("ticket156 proof boundary changed")
+
+    path157 = Path(
+        "data/open-problem/"
+        "ticket157-formcore-inversion-proxy-margin.json"
+    )
+    if not path157.exists():
+        return fail("missing ticket157 formcore-inversion-proxy-margin audit")
+    ticket157 = read_json(path157)
+    if (
+        ticket157.get("schema") != TICKET157_SCHEMA
+        or ticket157.get("status")
+        != "four_exact_reductions_or_no_go_results_all_conjectures_open"
+    ):
+        return fail("ticket157 schema or status changed")
+    attempts157 = ticket157.get("attempts", [])
+    by_id157 = {
+        str(row.get("problem_id")): row
+        for row in attempts157
+        if isinstance(row, dict)
+    }
+    if set(by_id157) != EXPECTED_PROBLEMS:
+        return fail("ticket157 attempts missing problems")
+
+    paths157 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-157-nested-form-core.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-157-inversion-gain.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-157-phase-proxy-l1.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-157-information-margin.json"
+        ),
+    }
+    next157 = {
+        "riemann": (
+            "UniformArchimedeanTailFormBoundOn"
+            "NestedExplicitWeilCore"
+        ),
+        "collatz": (
+            "NaturalValuationInversionGainDominates"
+            "WorstOrderThresholdExcess"
+        ),
+        "goldbach": (
+            "ArithmeticBinaryGoldbachPhaseProxyWithUniformL1Residual"
+            "AndFiniteJoin"
+        ),
+        "twin-prime": (
+            "UniformCubicRoughInformationBudgetBelowSemiprimeMargin"
+            "AfterEffectiveCutoff"
+        ),
+    }
+    for problem_id, attempt in by_id157.items():
+        if (
+            not paths157[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+        ):
+            return fail(
+                f"{problem_id}: ticket157 artifact or boundary missing"
+            )
+        per_problem157 = read_json(paths157[problem_id])
+        if (
+            per_problem157.get("schema") != TICKET157_SCHEMA
+            or per_problem157.get("problem_id") != problem_id
+            or per_problem157.get("candidate_theorem")
+            != next157[problem_id]
+            or attempt.get("candidate_theorem") != next157[problem_id]
+        ):
+            return fail(
+                f"{problem_id}: ticket157 per-problem contract changed"
+            )
+
+    audit157 = ticket157.get(
+        "formcore_inversion_proxy_margin_audit",
+        {},
+    )
+    machine157 = audit157.get("machine_audit", {})
+    if (
+        audit157.get("theorem_name")
+        != "FourConjectureFormCoreInversionProxyMarginAudit"
+        or int(machine157.get("exact_theorem_count", -1)) != 4
+        or int(machine157.get("rejected_target_count", -1)) != 4
+        or int(machine157.get("proof_dag_count", -1)) != 4
+        or int(machine157.get("conjecture_resolution_count", -1)) != 0
+        or int(machine157.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket157 global machine audit changed")
+
+    riemann157 = audit157.get("riemann", {})
+    formcore157 = riemann157.get("reproducible_computation", {})
+    core_rows157 = formcore157.get(
+        "finite_nested_form_core_rows",
+        [],
+    )
+    hidden_rows157 = formcore157.get(
+        "finite_hidden_direction_no_go_rows",
+        [],
+    )
+    if (
+        riemann157.get("theorem_name")
+        != "NestedFormCorePromotionAndFiniteCoreSweepNoGo"
+        or [int(row.get("nested_core_dimension_N", -1)) for row in core_rows157]
+        != [1, 2, 4, 8, 16]
+        or len(hidden_rows157) != 4
+        or any(
+            Fraction(
+                row.get("promoted_exact_form_lower_bound", {}).get(
+                    "exact",
+                    "0",
+                )
+            )
+            <= 0
+            or not all(row.get("checks", {}).values())
+            for row in core_rows157
+        )
+        or any(
+            Fraction(
+                row.get("full_operator_minimum", {}).get("exact", "0")
+            )
+            != -1
+            or not all(row.get("checks", {}).values())
+            for row in hidden_rows157
+        )
+        or int(formcore157.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket157 RH form-core audit changed")
+
+    collatz157 = audit157.get("collatz", {})
+    inversion157 = collatz157.get("reproducible_computation", {})
+    scan157 = inversion157.get(
+        "finite_first_descent_inversion_scan",
+        {},
+    )
+    samples157 = scan157.get(
+        "sample_inversion_gain_required_rows",
+        [],
+    )
+    if (
+        collatz157.get("theorem_name")
+        != "ValuationRearrangementInversionGainDescentCertificate"
+        or int(scan157.get("audited_odd_start_count", -1)) != 49999
+        or int(
+            scan157.get("worst_order_multiset_certificate_count", -1)
+        )
+        != 49733
+        or int(
+            scan157.get(
+                "natural_order_inversion_gain_required_count",
+                -1,
+            )
+        )
+        != 266
+        or not samples157
+        or int(samples157[0].get("initial_odd_start_n", -1)) != 27
+        or int(samples157[0].get("inversion_gain_G", 0))
+        <= int(samples157[0].get("worst_order_threshold_excess", 0))
+        or int(inversion157.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket157 Collatz inversion-gain audit changed")
+
+    goldbach157 = audit157.get("goldbach", {})
+    proxy157 = goldbach157.get("reproducible_computation", {})
+    proxy_rows157 = proxy157.get("finite_phase_proxy_rows", [])
+    saturation157 = proxy157.get(
+        "exact_l2_dimension_loss_saturation_rows",
+        [],
+    )
+    if (
+        goldbach157.get("theorem_name")
+        != "NegativePhaseL1StabilityAndL2DimensionLossNoGo"
+        or [int(row.get("even_endpoint_N", -1)) for row in proxy_rows157]
+        != [1000, 2000, 4000, 8000, 16000, 32000]
+        or proxy157.get("block_proxy_certificate_counts")
+        != {"8": 0, "32": 0, "128": 0}
+        or [int(row.get("dimension_m", -1)) for row in saturation157]
+        != [4, 16, 64, 256]
+        or any(
+            Fraction(
+                row.get("residual_l2_squared", {}).get("exact", "0")
+            )
+            != 1
+            or not all(row.get("checks", {}).values())
+            for row in saturation157
+        )
+        or any(
+            any(
+                not all(proxy.get("checks", {}).values())
+                for proxy in row.get(
+                    "data_dependent_block_proxy_rows",
+                    [],
+                )
+            )
+            for row in proxy_rows157
+        )
+        or int(proxy157.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket157 Goldbach phase-proxy audit changed")
+
+    twin157 = audit157.get("twin_prime", {})
+    margin157 = twin157.get("reproducible_computation", {})
+    margin_rows157 = margin157.get(
+        "finite_cubic_rough_information_margin_rows",
+        [],
+    )
+    necessity_rows157 = margin157.get(
+        "finite_little_o_not_necessary_rows",
+        [],
+    )
+    if (
+        twin157.get("theorem_name")
+        != (
+            "InformationBudgetMarginCertificateAnd"
+            "LittleONecessityNoGo"
+        )
+        or [int(row.get("X", -1)) for row in margin_rows157]
+        != [1000, 10000, 100000, 1000000, 10000000]
+        or int(
+            margin157.get("finite_information_certificate_count", -1)
+        )
+        != 5
+        or len(necessity_rows157) != 6
+        or any(
+            float(row.get("certificate_slack", 0)) <= 0
+            or not all(row.get("checks", {}).values())
+            for row in margin_rows157
+        )
+        or any(
+            Fraction(
+                row.get("conditional_shift_delta", {}).get(
+                    "exact",
+                    "0",
+                )
+            )
+            != Fraction(-1, 5)
+            or not all(row.get("checks", {}).values())
+            for row in necessity_rows157
+        )
+        or int(margin157.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket157 Twin information-margin audit changed")
+
+    sections157 = {
+        "riemann": riemann157,
+        "collatz": collatz157,
+        "goldbach": goldbach157,
+        "twin-prime": twin157,
+    }
+    for problem_id, section in sections157.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next157[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket157 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit157.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket157.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket157 proof boundary changed")
 
     print("open problem structure verified")
     return 0

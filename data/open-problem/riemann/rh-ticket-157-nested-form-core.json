@@ -1,0 +1,270 @@
+{
+  "schema": "primeproject.ticket157-formcore-inversion-proxy-margin.v1",
+  "generated_at": "2026-07-26T23:30:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-157",
+  "attempt": "Let q be a closed semibounded quadratic form and let V_1 subset V_2 subset ... have union equal to a form core. Let q_T be defined on that union and satisfy |q_T(f)-q(f)|<=epsilon_T||f||^2 there. If the minimum Rayleigh quotient of q_T on every V_N is at least epsilon_T, then q is nonnegative on its full form domain. Thus a nested form-core argument can remove a separate basis operator-norm error, but it still requires all N and a uniform cutoff-form bound. No finite N sweep suffices: diag(1,...,1,-1) is positive on every checked coordinate core and negative on the first unchecked direction.",
+  "bounded_result": {
+    "audit_ref": "formcore_inversion_proxy_margin_audit.riemann"
+  },
+  "obstruction": "The theorem is abstract. PrimeProject has not constructed the actual nested Weil form core or proved a uniform archimedean tail-form error on it.",
+  "candidate_theorem": "UniformArchimedeanTailFormBoundOnNestedExplicitWeilCore",
+  "next_experiment": "construct the explicit Weil form core and prove one uniform cutoff-form bound valid on its entire union",
+  "claim_boundary": "No RH proof and no off-critical zero. One abstract form-core promotion theorem and an exact finite-sweep counterfamily; no explicit Weil tail bound.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-157",
+    "theorem_name": "NestedFormCorePromotionAndFiniteCoreSweepNoGo",
+    "declared_proposition": "Let q be a closed semibounded quadratic form and let V_1 subset V_2 subset ... have union equal to a form core. Let q_T be defined on that union and satisfy |q_T(f)-q(f)|<=epsilon_T||f||^2 there. If the minimum Rayleigh quotient of q_T on every V_N is at least epsilon_T, then q is nonnegative on its full form domain. Thus a nested form-core argument can remove a separate basis operator-norm error, but it still requires all N and a uniform cutoff-form bound. No finite N sweep suffices: diag(1,...,1,-1) is positive on every checked coordinate core and negative on the first unchecked direction.",
+    "mathematical_argument": "For f in the form-core union, q(f) is at least q_T(f)-epsilon_T||f||^2 and hence is nonnegative. Form-core density and continuity of a closed semibounded form in its form norm extend the inequality to the full form domain. Nestedness also makes the finite Rayleigh minima nonincreasing. For the no-go, choose a diagonal matrix with +1 on the first N_max coordinates and -1 on coordinate N_max+1. Every reported finite core has minimum +1 while the full matrix has minimum -1.",
+    "reproducible_computation": {
+      "theorem": "Let q be a closed semibounded quadratic form and let V_1 subset V_2 subset ... have union equal to a form core. Let q_T be defined on that union and satisfy |q_T(f)-q(f)|<=epsilon_T||f||^2 there. If the minimum Rayleigh quotient of q_T on every V_N is at least epsilon_T, then q is nonnegative on its full form domain. Thus a nested form-core argument can remove a separate basis operator-norm error, but it still requires all N and a uniform cutoff-form bound. No finite N sweep suffices: diag(1,...,1,-1) is positive on every checked coordinate core and negative on the first unchecked direction.",
+      "proof": "For f in the form-core union, q(f) is at least q_T(f)-epsilon_T||f||^2 and hence is nonnegative. Form-core density and continuity of a closed semibounded form in its form norm extend the inequality to the full form domain. Nestedness also makes the finite Rayleigh minima nonincreasing. For the no-go, choose a diagonal matrix with +1 on the first N_max coordinates and -1 on coordinate N_max+1. Every reported finite core has minimum +1 while the full matrix has minimum -1.",
+      "finite_nested_form_core_rows": [
+        {
+          "nested_core_dimension_N": 1,
+          "exact_form_core_minimum": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "truncated_form_core_minimum": {
+            "exact": "7/4",
+            "decimal": 1.75
+          },
+          "uniform_cutoff_form_error_epsilon_T": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "promoted_exact_form_lower_bound": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "checks": {
+            "truncated_core_minus_error_matches_exact_lower_bound": true,
+            "nested_core_margin_is_positive": true,
+            "core_minima_decrease_under_nested_expansion": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 2,
+          "exact_form_core_minimum": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "truncated_form_core_minimum": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "uniform_cutoff_form_error_epsilon_T": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "promoted_exact_form_lower_bound": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "truncated_core_minus_error_matches_exact_lower_bound": true,
+            "nested_core_margin_is_positive": true,
+            "core_minima_decrease_under_nested_expansion": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 4,
+          "exact_form_core_minimum": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "truncated_form_core_minimum": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "uniform_cutoff_form_error_epsilon_T": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "promoted_exact_form_lower_bound": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "checks": {
+            "truncated_core_minus_error_matches_exact_lower_bound": true,
+            "nested_core_margin_is_positive": true,
+            "core_minima_decrease_under_nested_expansion": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 8,
+          "exact_form_core_minimum": {
+            "exact": "9/8",
+            "decimal": 1.125
+          },
+          "truncated_form_core_minimum": {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          "uniform_cutoff_form_error_epsilon_T": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "promoted_exact_form_lower_bound": {
+            "exact": "5/8",
+            "decimal": 0.625
+          },
+          "checks": {
+            "truncated_core_minus_error_matches_exact_lower_bound": true,
+            "nested_core_margin_is_positive": true,
+            "core_minima_decrease_under_nested_expansion": true
+          }
+        },
+        {
+          "nested_core_dimension_N": 16,
+          "exact_form_core_minimum": {
+            "exact": "17/16",
+            "decimal": 1.0625
+          },
+          "truncated_form_core_minimum": {
+            "exact": "13/16",
+            "decimal": 0.8125
+          },
+          "uniform_cutoff_form_error_epsilon_T": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "promoted_exact_form_lower_bound": {
+            "exact": "9/16",
+            "decimal": 0.5625
+          },
+          "checks": {
+            "truncated_core_minus_error_matches_exact_lower_bound": true,
+            "nested_core_margin_is_positive": true,
+            "core_minima_decrease_under_nested_expansion": true
+          }
+        }
+      ],
+      "finite_hidden_direction_no_go_rows": [
+        {
+          "maximum_checked_dimension": 4,
+          "checked_diagonal_entries": "all +1",
+          "checked_core_minimum": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "first_unchecked_diagonal_entry": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_operator_minimum": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "every_checked_core_is_positive": true,
+            "one_unchecked_direction_is_negative": true,
+            "finite_sweep_does_not_cover_the_ambient_space": true
+          }
+        },
+        {
+          "maximum_checked_dimension": 8,
+          "checked_diagonal_entries": "all +1",
+          "checked_core_minimum": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "first_unchecked_diagonal_entry": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_operator_minimum": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "every_checked_core_is_positive": true,
+            "one_unchecked_direction_is_negative": true,
+            "finite_sweep_does_not_cover_the_ambient_space": true
+          }
+        },
+        {
+          "maximum_checked_dimension": 16,
+          "checked_diagonal_entries": "all +1",
+          "checked_core_minimum": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "first_unchecked_diagonal_entry": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_operator_minimum": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "every_checked_core_is_positive": true,
+            "one_unchecked_direction_is_negative": true,
+            "finite_sweep_does_not_cover_the_ambient_space": true
+          }
+        },
+        {
+          "maximum_checked_dimension": 32,
+          "checked_diagonal_entries": "all +1",
+          "checked_core_minimum": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "first_unchecked_diagonal_entry": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_operator_minimum": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "every_checked_core_is_positive": true,
+            "one_unchecked_direction_is_negative": true,
+            "finite_sweep_does_not_cover_the_ambient_space": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The theorem is abstract. PrimeProject has not constructed the actual nested Weil form core or proved a uniform archimedean tail-form error on it.",
+    "route_decision": {
+      "discard": "requiring an operator-norm basis truncation estimate when a genuine nested form core is available, and promoting any finite core sweep",
+      "retain": "construct the explicit Weil form core and prove one uniform cutoff-form bound valid on its entire union",
+      "next_theorem": "UniformArchimedeanTailFormBoundOnNestedExplicitWeilCore"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T157-REJECTED",
+          "label": "FiniteGalerkinSweepCertifiesContinuumPositivity",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T157-CLOSED",
+          "label": "NestedFormCorePromotionAndFiniteCoreSweepNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T157-OPEN",
+          "label": "UniformArchimedeanTailFormBoundOnNestedExplicitWeilCore",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T157-REJECTED",
+          "RH-T157-CLOSED"
+        ],
+        [
+          "RH-T157-CLOSED",
+          "RH-T157-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One abstract form-core promotion theorem and an exact finite-sweep counterfamily; no explicit Weil tail bound."
+  }
+}

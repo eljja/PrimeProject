@@ -31,25 +31,31 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-156: Cutoff, Potential, Signed Mass, and Normalized
-Information](docs/cutoff-potential-signed-information.md). It proves four
-exact bridge or no-go theorems. For RH, a valid spectral certificate must
-separately bound basis/core, archimedean-cutoff, and rounding errors;
-precision stability at fixed cutoffs cannot determine the continuum sign.
-For Collatz, an exact weighted suffix potential equals the normalized affine
-constant and proves that the previous floor-two rule is sufficient but not
-necessary. For Goldbach, only negative real minor phase mass is harmful;
-the sharper one-sided finite certificate succeeds on three of six audited
-endpoints, while a fixed small Farey mask still fails later. For Twin Prime,
-Pinsker's inequality shows that rare conditional transfer requires mutual
-information `o(selection probability)`, not merely information tending to
-zero. Every conjecture remains `open_not_proven`.
+[TICKET-157: Form Cores, Inversion Gain, Phase Proxies, and Information
+Margins](docs/formcore-inversion-proxy-margin.md). It proves four exact
+reductions or no-go theorems. For RH, positivity on every member of a nested
+form core promotes to the closed form when one uniform cutoff-form bound is
+available, while any finite core sweep admits an exact hidden-negative-
+direction countermodel. For Collatz, adjacent valuation swaps telescope to
+an exact inversion-gain descent certificate; 266 of 49,999 audited first
+descents require the natural order rather than the multiset's descending
+worst order. For Goldbach, negative phase mass is one-Lipschitz in complex
+`L1`, whereas an `L2`-only proxy pays a sharp square-root dimension factor
+and all 18 target-fitted block proxies fail. For Twin Prime, the normalized
+information budget is compared directly with the ambient semiprime margin;
+all five finite scales pass, while an exact counterfamily proves that
+`I=o(selection probability)` is sufficient but not necessary. Every
+conjecture remains `open_not_proven`.
 
 The preserved previous boundary is
+[TICKET-156: Cutoff, Potential, Signed Mass, and Normalized
+Information](docs/cutoff-potential-signed-information.md).
+
+The earlier boundary is
 [TICKET-155: Range Exactness, Initial-Prefix Descent, Sublinear Wheels, and
 Conditional Transfer](docs/range-prefix-sublinear-conditional.md).
 
-The earlier boundary is
+The still earlier boundary is
 [TICKET-154: Compact Schur Tails, Reverse-Suffix Descent, Wheel Projection,
 and Least-Factor Deficit](docs/compact-suffix-wheel-leastfactor.md). Its
 Collatz occurrence-to-induction bridge is superseded by the explicit
@@ -109,19 +115,20 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-sixteen-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-seventeen-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-156. It proves the three-axis RH
-spectral error certificate and fixed-cutoff sign no-go; the exact Collatz
-weighted suffix-potential identity and floor-two necessity counterexample;
-the one-sided Goldbach negative-phase certificate with a fixed-mask no-go;
-and the rare-event normalized-information transfer inequality with an exact
-countermodel. The finite Collatz and Twin diagnostics reach 100K and 10M
-respectively, but no finite row is promoted to an infinite theorem. All four
-conjectures remain open.
+The latest proof-search track is TICKET-157. It proves the nested form-core
+promotion theorem and finite-core sweep no-go for RH; the exact Collatz
+valuation-order inversion-gain identity; the Goldbach negative-phase `L1`
+stability theorem with a sharp `L2` dimension-loss no-go; and the Twin
+information-budget margin certificate with a little-o necessity no-go.
+Finite Collatz and Twin diagnostics reach 100K and 10M respectively, but no
+finite row is promoted to an infinite theorem. All four conjectures remain
+open.
 See
+[TICKET157](docs/formcore-inversion-proxy-margin.md),
 [TICKET156](docs/cutoff-potential-signed-information.md),
 [TICKET155](docs/range-prefix-sublinear-conditional.md),
 [TICKET154](docs/compact-suffix-wheel-leastfactor.md),
@@ -137,21 +144,20 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-156입니다. 리만 가설 트랙에서는
-basis/core, archimedean cutoff, rounding의 세 오차를 분리한 spectral
-인증식을 증명하고, 고정 cutoff에서 정밀도를 높인 것만으로 continuum
-부호를 정할 수 없다는 정확한 반례 가족을 만들었습니다. 콜라츠
-트랙에서는 가중 접미사 potential이 정규화 affine 상수와 정확히 같음을
-증명했고, 실제 궤도 `7→11→17→13→5`가 기존 floor-two 충분조건을
-위반함을 확인했습니다. 10만 이하 홀수 49,999개의 첫 하강 중 12,991개가
-같은 충분조건을 위반하지만, 이 유한 스캔은 전칭 증명이 아닙니다.
-골드바흐 트랙에서는 전체 minor 에너지 대신 실제로 해로운 음의 실수
-위상 질량만 세는 단측 인증을 유도했습니다. 이 인증은 검사한 여섯
-endpoint 중 세 곳에서만 통과해, 고정된 작은 Farey mask도 충분하지
-않음을 함께 보였습니다. 쌍둥이 소수 트랙에서는 희귀 조건부 편향을
-없애려면 mutual information 자체가 아니라 선택확률로 나눈 정보량이
-0으로 가야 한다는 Pinsker 기반 정리와 정확한 no-go 모형을
-확정했습니다. 네 문제는 모두 미해결입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-157입니다. 리만 가설 트랙에서는
+nested form core 전체의 양성과 균일 cutoff-form 오차를 결합한 승격
+정리를 증명하고, 어떤 유한 core sweep에도 숨은 음의 방향을 붙일 수
+있다는 정확한 반례를 만들었습니다. 콜라츠 트랙에서는 valuation
+순서를 바꾸는 인접 swap 이득이 정확히 망원합을 이루는 inversion-gain
+하강 인증을 유도했습니다. 10만 이하 49,999개 첫 하강 중 266개는
+multiset의 최악 순서로는 인증되지 않고 실제 자연 순서의 이득이
+필요했습니다. 골드바흐 트랙에서는 음의 위상 질량이 복소 `L1`
+잔차에 대해 1-Lipschitz임을 증명하고, `L2`만으로는 정확히
+제곱근 차원손실이 필요함을 반례로 확정했습니다. 단순 block proxy
+18개는 모두 실패했습니다. 쌍둥이 소수 트랙에서는 normalized
+information budget을 실제 ambient semiprime margin과 결합해 다섯
+유한 규모를 인증했고, `I=o(rho)`가 필요조건은 아니라는 정확한
+반례 가족을 만들었습니다. 네 문제는 모두 미해결입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -171,13 +177,13 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-156입니다.
-[cutoff, weighted potential, signed minor mass, normalized information
-보고서](docs/cutoff-potential-signed-information.md)는 네 트랙의
-정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과
-영문으로 정리합니다. 리만 가설의 세 오차 spectral gate, 콜라츠의
-정확한 weighted suffix potential, 골드바흐의 negative phase mass,
-쌍둥이 소수의 selection-normalized information 조건을 확정했습니다.
+최신 난제 연구 트랙은 TICKET-157입니다.
+[form core, inversion gain, phase proxy, information margin
+보고서](docs/formcore-inversion-proxy-margin.md)는 네 트랙의 정확 명제,
+증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과 영문으로
+정리합니다. 리만 가설의 nested form-core 승격, 콜라츠 valuation
+순서의 inversion gain, 골드바흐 negative phase의 `L1` 안정성,
+쌍둥이 소수의 information-margin 인증을 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

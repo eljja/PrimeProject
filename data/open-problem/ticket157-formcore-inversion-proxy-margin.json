@@ -1,0 +1,2639 @@
+{
+  "schema": "primeproject.ticket157-formcore-inversion-proxy-margin.v1",
+  "generated_at": "2026-07-26T23:30:00+09:00",
+  "status": "four_exact_reductions_or_no_go_results_all_conjectures_open",
+  "claim_boundary": "TICKET-157 proves four exact reductions or no-go results and resolves no target conjecture. It promotes nested form cores only with a uniform cutoff bound, isolates Collatz valuation order as an exact inversion gain, proves Goldbach negative phase is L1-stable but not dimension-free L2-stable, and compares Twin normalized information directly with the semiprime margin.",
+  "formcore_inversion_proxy_margin_audit": {
+    "theorem_name": "FourConjectureFormCoreInversionProxyMarginAudit",
+    "status": "four_exact_reductions_or_no_go_results_all_conjectures_open",
+    "proof_boundary": "TICKET-157 proves four exact reductions or no-go results and resolves no target conjecture. It promotes nested form cores only with a uniform cutoff bound, isolates Collatz valuation order as an exact inversion gain, proves Goldbach negative phase is L1-stable but not dimension-free L2-stable, and compares Twin normalized information directly with the semiprime margin.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-157",
+      "theorem_name": "NestedFormCorePromotionAndFiniteCoreSweepNoGo",
+      "declared_proposition": "Let q be a closed semibounded quadratic form and let V_1 subset V_2 subset ... have union equal to a form core. Let q_T be defined on that union and satisfy |q_T(f)-q(f)|<=epsilon_T||f||^2 there. If the minimum Rayleigh quotient of q_T on every V_N is at least epsilon_T, then q is nonnegative on its full form domain. Thus a nested form-core argument can remove a separate basis operator-norm error, but it still requires all N and a uniform cutoff-form bound. No finite N sweep suffices: diag(1,...,1,-1) is positive on every checked coordinate core and negative on the first unchecked direction.",
+      "mathematical_argument": "For f in the form-core union, q(f) is at least q_T(f)-epsilon_T||f||^2 and hence is nonnegative. Form-core density and continuity of a closed semibounded form in its form norm extend the inequality to the full form domain. Nestedness also makes the finite Rayleigh minima nonincreasing. For the no-go, choose a diagonal matrix with +1 on the first N_max coordinates and -1 on coordinate N_max+1. Every reported finite core has minimum +1 while the full matrix has minimum -1.",
+      "reproducible_computation": {
+        "theorem": "Let q be a closed semibounded quadratic form and let V_1 subset V_2 subset ... have union equal to a form core. Let q_T be defined on that union and satisfy |q_T(f)-q(f)|<=epsilon_T||f||^2 there. If the minimum Rayleigh quotient of q_T on every V_N is at least epsilon_T, then q is nonnegative on its full form domain. Thus a nested form-core argument can remove a separate basis operator-norm error, but it still requires all N and a uniform cutoff-form bound. No finite N sweep suffices: diag(1,...,1,-1) is positive on every checked coordinate core and negative on the first unchecked direction.",
+        "proof": "For f in the form-core union, q(f) is at least q_T(f)-epsilon_T||f||^2 and hence is nonnegative. Form-core density and continuity of a closed semibounded form in its form norm extend the inequality to the full form domain. Nestedness also makes the finite Rayleigh minima nonincreasing. For the no-go, choose a diagonal matrix with +1 on the first N_max coordinates and -1 on coordinate N_max+1. Every reported finite core has minimum +1 while the full matrix has minimum -1.",
+        "finite_nested_form_core_rows": [
+          {
+            "nested_core_dimension_N": 1,
+            "exact_form_core_minimum": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "truncated_form_core_minimum": {
+              "exact": "7/4",
+              "decimal": 1.75
+            },
+            "uniform_cutoff_form_error_epsilon_T": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "promoted_exact_form_lower_bound": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "checks": {
+              "truncated_core_minus_error_matches_exact_lower_bound": true,
+              "nested_core_margin_is_positive": true,
+              "core_minima_decrease_under_nested_expansion": true
+            }
+          },
+          {
+            "nested_core_dimension_N": 2,
+            "exact_form_core_minimum": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "truncated_form_core_minimum": {
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            "uniform_cutoff_form_error_epsilon_T": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "promoted_exact_form_lower_bound": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "truncated_core_minus_error_matches_exact_lower_bound": true,
+              "nested_core_margin_is_positive": true,
+              "core_minima_decrease_under_nested_expansion": true
+            }
+          },
+          {
+            "nested_core_dimension_N": 4,
+            "exact_form_core_minimum": {
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            "truncated_form_core_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "uniform_cutoff_form_error_epsilon_T": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "promoted_exact_form_lower_bound": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "checks": {
+              "truncated_core_minus_error_matches_exact_lower_bound": true,
+              "nested_core_margin_is_positive": true,
+              "core_minima_decrease_under_nested_expansion": true
+            }
+          },
+          {
+            "nested_core_dimension_N": 8,
+            "exact_form_core_minimum": {
+              "exact": "9/8",
+              "decimal": 1.125
+            },
+            "truncated_form_core_minimum": {
+              "exact": "7/8",
+              "decimal": 0.875
+            },
+            "uniform_cutoff_form_error_epsilon_T": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "promoted_exact_form_lower_bound": {
+              "exact": "5/8",
+              "decimal": 0.625
+            },
+            "checks": {
+              "truncated_core_minus_error_matches_exact_lower_bound": true,
+              "nested_core_margin_is_positive": true,
+              "core_minima_decrease_under_nested_expansion": true
+            }
+          },
+          {
+            "nested_core_dimension_N": 16,
+            "exact_form_core_minimum": {
+              "exact": "17/16",
+              "decimal": 1.0625
+            },
+            "truncated_form_core_minimum": {
+              "exact": "13/16",
+              "decimal": 0.8125
+            },
+            "uniform_cutoff_form_error_epsilon_T": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "promoted_exact_form_lower_bound": {
+              "exact": "9/16",
+              "decimal": 0.5625
+            },
+            "checks": {
+              "truncated_core_minus_error_matches_exact_lower_bound": true,
+              "nested_core_margin_is_positive": true,
+              "core_minima_decrease_under_nested_expansion": true
+            }
+          }
+        ],
+        "finite_hidden_direction_no_go_rows": [
+          {
+            "maximum_checked_dimension": 4,
+            "checked_diagonal_entries": "all +1",
+            "checked_core_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "first_unchecked_diagonal_entry": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_operator_minimum": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "every_checked_core_is_positive": true,
+              "one_unchecked_direction_is_negative": true,
+              "finite_sweep_does_not_cover_the_ambient_space": true
+            }
+          },
+          {
+            "maximum_checked_dimension": 8,
+            "checked_diagonal_entries": "all +1",
+            "checked_core_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "first_unchecked_diagonal_entry": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_operator_minimum": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "every_checked_core_is_positive": true,
+              "one_unchecked_direction_is_negative": true,
+              "finite_sweep_does_not_cover_the_ambient_space": true
+            }
+          },
+          {
+            "maximum_checked_dimension": 16,
+            "checked_diagonal_entries": "all +1",
+            "checked_core_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "first_unchecked_diagonal_entry": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_operator_minimum": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "every_checked_core_is_positive": true,
+              "one_unchecked_direction_is_negative": true,
+              "finite_sweep_does_not_cover_the_ambient_space": true
+            }
+          },
+          {
+            "maximum_checked_dimension": 32,
+            "checked_diagonal_entries": "all +1",
+            "checked_core_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "first_unchecked_diagonal_entry": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_operator_minimum": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "every_checked_core_is_positive": true,
+              "one_unchecked_direction_is_negative": true,
+              "finite_sweep_does_not_cover_the_ambient_space": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem is abstract. PrimeProject has not constructed the actual nested Weil form core or proved a uniform archimedean tail-form error on it.",
+      "route_decision": {
+        "discard": "requiring an operator-norm basis truncation estimate when a genuine nested form core is available, and promoting any finite core sweep",
+        "retain": "construct the explicit Weil form core and prove one uniform cutoff-form bound valid on its entire union",
+        "next_theorem": "UniformArchimedeanTailFormBoundOnNestedExplicitWeilCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T157-REJECTED",
+            "label": "FiniteGalerkinSweepCertifiesContinuumPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T157-CLOSED",
+            "label": "NestedFormCorePromotionAndFiniteCoreSweepNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T157-OPEN",
+            "label": "UniformArchimedeanTailFormBoundOnNestedExplicitWeilCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T157-REJECTED",
+            "RH-T157-CLOSED"
+          ],
+          [
+            "RH-T157-CLOSED",
+            "RH-T157-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero. One abstract form-core promotion theorem and an exact finite-sweep counterfamily; no explicit Weil tail bound."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-157",
+      "theorem_name": "ValuationRearrangementInversionGainDescentCertificate",
+      "declared_proposition": "For an accelerated odd Collatz valuation word w with length m, total valuation S, affine constant C(w), and contracting denominator D=2^S-3^m>0, let w_down be the nonincreasing rearrangement and G=C(w_down)-C(w). Then G>=0 and theta(w)=theta(w_down)-G/D. Swapping adjacent valuations x<y at zero-based position i increases C by 3^(m-i-2)2^(a_1+...+a_(i-1))(2^y-2^x), so bubble sorting proves the formula exactly. A realizing start n descends after w exactly when G>C(w_down)-nD. Hence natural valuation order can certify descent even when the multiset's worst-order threshold fails.",
+      "mathematical_argument": "The affine composition is T_w(n)=(3^m n+C(w))/2^S with C(w)=sum_j 3^(m-j)2^(a_1+...+a_(j-1)). For one adjacent swap, all earlier and later additive terms agree; direct subtraction gives the displayed positive gain. Repeated swaps put the largest valuations first and telescope to G. Dividing C(w)=C(w_down)-G by D gives the threshold identity, and C(w)<nD is exactly T_w(n)<n.",
+      "reproducible_computation": {
+        "theorem": "For an accelerated odd Collatz valuation word w with length m, total valuation S, affine constant C(w), and contracting denominator D=2^S-3^m>0, let w_down be the nonincreasing rearrangement and G=C(w_down)-C(w). Then G>=0 and theta(w)=theta(w_down)-G/D. Swapping adjacent valuations x<y at zero-based position i increases C by 3^(m-i-2)2^(a_1+...+a_(i-1))(2^y-2^x), so bubble sorting proves the formula exactly. A realizing start n descends after w exactly when G>C(w_down)-nD. Hence natural valuation order can certify descent even when the multiset's worst-order threshold fails.",
+        "proof": "The affine composition is T_w(n)=(3^m n+C(w))/2^S with C(w)=sum_j 3^(m-j)2^(a_1+...+a_(j-1)). For one adjacent swap, all earlier and later additive terms agree; direct subtraction gives the displayed positive gain. Repeated swaps put the largest valuations first and telescope to G. Dividing C(w)=C(w_down)-G by D gives the threshold identity, and C(w)<nD is exactly T_w(n)<n.",
+        "finite_rearrangement_identity_rows": [
+          {
+            "valuation_word": [
+              1,
+              1,
+              2,
+              3
+            ],
+            "descending_rearrangement": [
+              3,
+              2,
+              1,
+              1
+            ],
+            "word_length_m": 4,
+            "total_valuation_S": 7,
+            "affine_constant_C": 73,
+            "descending_affine_constant_Cmax": 259,
+            "inversion_gain_G": 186,
+            "contracting_denominator_2S_minus_3m": 47,
+            "actual_threshold": {
+              "exact": "73/47",
+              "decimal": 1.553191489361702
+            },
+            "worst_order_threshold": {
+              "exact": "259/47",
+              "decimal": 5.51063829787234
+            },
+            "adjacent_swap_certificate": {
+              "descending_word": [
+                3,
+                2,
+                1,
+                1
+              ],
+              "swap_count": 5,
+              "swaps": [
+                {
+                  "index": 1,
+                  "left_valuation": 1,
+                  "right_valuation": 2,
+                  "prefix_valuation_sum": 1,
+                  "remaining_suffix_length": 1,
+                  "predicted_affine_constant_gain": 12,
+                  "observed_affine_constant_gain": 12,
+                  "formula_holds": true
+                },
+                {
+                  "index": 2,
+                  "left_valuation": 1,
+                  "right_valuation": 3,
+                  "prefix_valuation_sum": 3,
+                  "remaining_suffix_length": 0,
+                  "predicted_affine_constant_gain": 48,
+                  "observed_affine_constant_gain": 48,
+                  "formula_holds": true
+                },
+                {
+                  "index": 0,
+                  "left_valuation": 1,
+                  "right_valuation": 2,
+                  "prefix_valuation_sum": 0,
+                  "remaining_suffix_length": 2,
+                  "predicted_affine_constant_gain": 18,
+                  "observed_affine_constant_gain": 18,
+                  "formula_holds": true
+                },
+                {
+                  "index": 1,
+                  "left_valuation": 1,
+                  "right_valuation": 3,
+                  "prefix_valuation_sum": 2,
+                  "remaining_suffix_length": 1,
+                  "predicted_affine_constant_gain": 72,
+                  "observed_affine_constant_gain": 72,
+                  "formula_holds": true
+                },
+                {
+                  "index": 0,
+                  "left_valuation": 2,
+                  "right_valuation": 3,
+                  "prefix_valuation_sum": 0,
+                  "remaining_suffix_length": 2,
+                  "predicted_affine_constant_gain": 36,
+                  "observed_affine_constant_gain": 36,
+                  "formula_holds": true
+                }
+              ],
+              "summed_adjacent_swap_gain": 186,
+              "direct_affine_constant_gain": 186
+            },
+            "checks": {
+              "every_adjacent_swap_formula_holds": true,
+              "summed_gain_matches_direct_gain": true,
+              "descending_order_maximizes_affine_constant": true,
+              "total_valuation_is_permutation_invariant": true,
+              "threshold_rearrangement_identity_holds": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              3
+            ],
+            "descending_rearrangement": [
+              3,
+              1
+            ],
+            "word_length_m": 2,
+            "total_valuation_S": 4,
+            "affine_constant_C": 5,
+            "descending_affine_constant_Cmax": 11,
+            "inversion_gain_G": 6,
+            "contracting_denominator_2S_minus_3m": 7,
+            "actual_threshold": {
+              "exact": "5/7",
+              "decimal": 0.7142857142857143
+            },
+            "worst_order_threshold": {
+              "exact": "11/7",
+              "decimal": 1.5714285714285714
+            },
+            "adjacent_swap_certificate": {
+              "descending_word": [
+                3,
+                1
+              ],
+              "swap_count": 1,
+              "swaps": [
+                {
+                  "index": 0,
+                  "left_valuation": 1,
+                  "right_valuation": 3,
+                  "prefix_valuation_sum": 0,
+                  "remaining_suffix_length": 0,
+                  "predicted_affine_constant_gain": 6,
+                  "observed_affine_constant_gain": 6,
+                  "formula_holds": true
+                }
+              ],
+              "summed_adjacent_swap_gain": 6,
+              "direct_affine_constant_gain": 6
+            },
+            "checks": {
+              "every_adjacent_swap_formula_holds": true,
+              "summed_gain_matches_direct_gain": true,
+              "descending_order_maximizes_affine_constant": true,
+              "total_valuation_is_permutation_invariant": true,
+              "threshold_rearrangement_identity_holds": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              1,
+              3
+            ],
+            "descending_rearrangement": [
+              3,
+              2,
+              1
+            ],
+            "word_length_m": 3,
+            "total_valuation_S": 6,
+            "affine_constant_C": 29,
+            "descending_affine_constant_Cmax": 65,
+            "inversion_gain_G": 36,
+            "contracting_denominator_2S_minus_3m": 37,
+            "actual_threshold": {
+              "exact": "29/37",
+              "decimal": 0.7837837837837838
+            },
+            "worst_order_threshold": {
+              "exact": "65/37",
+              "decimal": 1.7567567567567568
+            },
+            "adjacent_swap_certificate": {
+              "descending_word": [
+                3,
+                2,
+                1
+              ],
+              "swap_count": 2,
+              "swaps": [
+                {
+                  "index": 1,
+                  "left_valuation": 1,
+                  "right_valuation": 3,
+                  "prefix_valuation_sum": 2,
+                  "remaining_suffix_length": 0,
+                  "predicted_affine_constant_gain": 24,
+                  "observed_affine_constant_gain": 24,
+                  "formula_holds": true
+                },
+                {
+                  "index": 0,
+                  "left_valuation": 2,
+                  "right_valuation": 3,
+                  "prefix_valuation_sum": 0,
+                  "remaining_suffix_length": 1,
+                  "predicted_affine_constant_gain": 12,
+                  "observed_affine_constant_gain": 12,
+                  "formula_holds": true
+                }
+              ],
+              "summed_adjacent_swap_gain": 36,
+              "direct_affine_constant_gain": 36
+            },
+            "checks": {
+              "every_adjacent_swap_formula_holds": true,
+              "summed_gain_matches_direct_gain": true,
+              "descending_order_maximizes_affine_constant": true,
+              "total_valuation_is_permutation_invariant": true,
+              "threshold_rearrangement_identity_holds": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              2,
+              2
+            ],
+            "descending_rearrangement": [
+              2,
+              2,
+              1
+            ],
+            "word_length_m": 3,
+            "total_valuation_S": 5,
+            "affine_constant_C": 23,
+            "descending_affine_constant_Cmax": 37,
+            "inversion_gain_G": 14,
+            "contracting_denominator_2S_minus_3m": 5,
+            "actual_threshold": {
+              "exact": "23/5",
+              "decimal": 4.6
+            },
+            "worst_order_threshold": {
+              "exact": "37/5",
+              "decimal": 7.4
+            },
+            "adjacent_swap_certificate": {
+              "descending_word": [
+                2,
+                2,
+                1
+              ],
+              "swap_count": 2,
+              "swaps": [
+                {
+                  "index": 0,
+                  "left_valuation": 1,
+                  "right_valuation": 2,
+                  "prefix_valuation_sum": 0,
+                  "remaining_suffix_length": 1,
+                  "predicted_affine_constant_gain": 6,
+                  "observed_affine_constant_gain": 6,
+                  "formula_holds": true
+                },
+                {
+                  "index": 1,
+                  "left_valuation": 1,
+                  "right_valuation": 2,
+                  "prefix_valuation_sum": 2,
+                  "remaining_suffix_length": 0,
+                  "predicted_affine_constant_gain": 8,
+                  "observed_affine_constant_gain": 8,
+                  "formula_holds": true
+                }
+              ],
+              "summed_adjacent_swap_gain": 14,
+              "direct_affine_constant_gain": 14
+            },
+            "checks": {
+              "every_adjacent_swap_formula_holds": true,
+              "summed_gain_matches_direct_gain": true,
+              "descending_order_maximizes_affine_constant": true,
+              "total_valuation_is_permutation_invariant": true,
+              "threshold_rearrangement_identity_holds": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              1,
+              4
+            ],
+            "descending_rearrangement": [
+              4,
+              1,
+              1
+            ],
+            "word_length_m": 3,
+            "total_valuation_S": 6,
+            "affine_constant_C": 19,
+            "descending_affine_constant_Cmax": 89,
+            "inversion_gain_G": 70,
+            "contracting_denominator_2S_minus_3m": 37,
+            "actual_threshold": {
+              "exact": "19/37",
+              "decimal": 0.5135135135135135
+            },
+            "worst_order_threshold": {
+              "exact": "89/37",
+              "decimal": 2.4054054054054053
+            },
+            "adjacent_swap_certificate": {
+              "descending_word": [
+                4,
+                1,
+                1
+              ],
+              "swap_count": 2,
+              "swaps": [
+                {
+                  "index": 1,
+                  "left_valuation": 1,
+                  "right_valuation": 4,
+                  "prefix_valuation_sum": 1,
+                  "remaining_suffix_length": 0,
+                  "predicted_affine_constant_gain": 28,
+                  "observed_affine_constant_gain": 28,
+                  "formula_holds": true
+                },
+                {
+                  "index": 0,
+                  "left_valuation": 1,
+                  "right_valuation": 4,
+                  "prefix_valuation_sum": 0,
+                  "remaining_suffix_length": 1,
+                  "predicted_affine_constant_gain": 42,
+                  "observed_affine_constant_gain": 42,
+                  "formula_holds": true
+                }
+              ],
+              "summed_adjacent_swap_gain": 70,
+              "direct_affine_constant_gain": 70
+            },
+            "checks": {
+              "every_adjacent_swap_formula_holds": true,
+              "summed_gain_matches_direct_gain": true,
+              "descending_order_maximizes_affine_constant": true,
+              "total_valuation_is_permutation_invariant": true,
+              "threshold_rearrangement_identity_holds": true
+            }
+          },
+          {
+            "valuation_word": [
+              3,
+              1,
+              1
+            ],
+            "descending_rearrangement": [
+              3,
+              1,
+              1
+            ],
+            "word_length_m": 3,
+            "total_valuation_S": 5,
+            "affine_constant_C": 49,
+            "descending_affine_constant_Cmax": 49,
+            "inversion_gain_G": 0,
+            "contracting_denominator_2S_minus_3m": 5,
+            "actual_threshold": {
+              "exact": "49/5",
+              "decimal": 9.8
+            },
+            "worst_order_threshold": {
+              "exact": "49/5",
+              "decimal": 9.8
+            },
+            "adjacent_swap_certificate": {
+              "descending_word": [
+                3,
+                1,
+                1
+              ],
+              "swap_count": 0,
+              "swaps": [],
+              "summed_adjacent_swap_gain": 0,
+              "direct_affine_constant_gain": 0
+            },
+            "checks": {
+              "every_adjacent_swap_formula_holds": true,
+              "summed_gain_matches_direct_gain": true,
+              "descending_order_maximizes_affine_constant": true,
+              "total_valuation_is_permutation_invariant": true,
+              "threshold_rearrangement_identity_holds": true
+            }
+          }
+        ],
+        "finite_first_descent_inversion_scan": {
+          "odd_start_range": "3<=n<=100000",
+          "audited_odd_start_count": 49999,
+          "worst_order_multiset_certificate_count": 49733,
+          "natural_order_inversion_gain_required_count": 266,
+          "maximum_first_descent_length": 85,
+          "maximum_inversion_gain": 187362620688854957883667551631681284711938283804918,
+          "maximum_inversion_gain_row": {
+            "initial_odd_start_n": 35655,
+            "first_descent_length": 85,
+            "valuation_word": [
+              1,
+              1,
+              2,
+              2,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              2,
+              2,
+              1,
+              3,
+              2,
+              2,
+              1,
+              2,
+              2,
+              1,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              6,
+              1,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              4,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              4,
+              1,
+              1,
+              5,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              5,
+              3
+            ],
+            "descending_rearrangement": [
+              6,
+              5,
+              5,
+              4,
+              4,
+              3,
+              3,
+              3,
+              3,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "inversion_gain_G": 187362620688854957883667551631681284711938283804918
+          },
+          "sample_inversion_gain_required_rows": [
+            {
+              "initial_odd_start_n": 27,
+              "first_descent_endpoint": 23,
+              "valuation_word": [
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4,
+                3
+              ],
+              "descending_rearrangement": [
+                4,
+                4,
+                3,
+                3,
+                3,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "inversion_gain_G": 8428368324903855196578,
+              "worst_order_threshold_excess": 8426062481894641502626,
+              "actual_threshold": {
+                "exact": "1100931843921811423/126176846412426125",
+                "decimal": 8.725307972298392
+              },
+              "worst_order_threshold": {
+                "exact": "8429469256747777008001/126176846412426125",
+                "decimal": 66806.78346639696
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "contracting_denominator_is_positive": true,
+                "inversion_certificate_matches_descent": true,
+                "swap_gain_matches_direct_difference": true
+              }
+            },
+            {
+              "initial_odd_start_n": 31,
+              "first_descent_endpoint": 23,
+              "valuation_word": [
+                1,
+                1,
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4,
+                3
+              ],
+              "descending_rearrangement": [
+                4,
+                4,
+                3,
+                3,
+                3,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "inversion_gain_G": 696883342502089351038,
+              "worst_order_threshold_excess": 696306881749785927550,
+              "actual_threshold": {
+                "exact": "106346764803351611/22026048938928229",
+                "decimal": 4.828227027835087
+              },
+              "worst_order_threshold": {
+                "exact": "696989689266892702649/22026048938928229",
+                "decimal": 31643.88180555853
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "contracting_denominator_is_positive": true,
+                "inversion_certificate_matches_descent": true,
+                "swap_gain_matches_direct_difference": true
+              }
+            },
+            {
+              "initial_odd_start_n": 47,
+              "first_descent_endpoint": 23,
+              "valuation_word": [
+                1,
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4,
+                3
+              ],
+              "descending_rearrangement": [
+                4,
+                4,
+                3,
+                3,
+                3,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "inversion_gain_G": 232273052031739403706,
+              "worst_order_threshold_excess": 231408360903284268474,
+              "actual_threshold": {
+                "exact": "44834791551842521/19351615319297399",
+                "decimal": 2.316850082645728
+              },
+              "worst_order_threshold": {
+                "exact": "232317886823291246227/19351615319297399",
+                "decimal": 12005.09016896508
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "contracting_denominator_is_positive": true,
+                "inversion_certificate_matches_descent": true,
+                "swap_gain_matches_direct_difference": true
+              }
+            },
+            {
+              "initial_odd_start_n": 63,
+              "first_descent_endpoint": 61,
+              "valuation_word": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                4,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4
+              ],
+              "descending_rearrangement": [
+                4,
+                4,
+                4,
+                3,
+                3,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "inversion_gain_G": 254789519620103360074,
+              "worst_order_threshold_excess": 254753490823084396106,
+              "actual_threshold": {
+                "exact": "48215861999407177/1337216809815415",
+                "decimal": 36.056876974245284
+              },
+              "worst_order_threshold": {
+                "exact": "254837735482102767251/1337216809815415",
+                "decimal": 190573.2365997401
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "contracting_denominator_is_positive": true,
+                "inversion_certificate_matches_descent": true,
+                "swap_gain_matches_direct_difference": true
+              }
+            },
+            {
+              "initial_odd_start_n": 71,
+              "first_descent_endpoint": 61,
+              "valuation_word": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4
+              ],
+              "descending_rearrangement": [
+                4,
+                4,
+                3,
+                3,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "inversion_gain_G": 9669222436772849282,
+              "worst_order_threshold_excess": 9646704438635996802,
+              "actual_threshold": {
+                "exact": "5795355226319417/398779624833407",
+                "decimal": 14.532726512144315
+              },
+              "worst_order_threshold": {
+                "exact": "9675017791999168699/398779624833407",
+                "decimal": 24261.56500859585
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "contracting_denominator_is_positive": true,
+                "inversion_certificate_matches_descent": true,
+                "swap_gain_matches_direct_difference": true
+              }
+            },
+            {
+              "initial_odd_start_n": 91,
+              "first_descent_endpoint": 61,
+              "valuation_word": [
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4
+              ],
+              "descending_rearrangement": [
+                4,
+                4,
+                3,
+                3,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "inversion_gain_G": 65448245629296566,
+              "worst_order_threshold_excess": 64392714466631606,
+              "actual_threshold": {
+                "exact": "64458584017301/12307579633871",
+                "decimal": 5.237307897639609
+              },
+              "worst_order_threshold": {
+                "exact": "65512704213313867/12307579633871",
+                "decimal": 5322.955947651968
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "contracting_denominator_is_positive": true,
+                "inversion_certificate_matches_descent": true,
+                "swap_gain_matches_direct_difference": true
+              }
+            },
+            {
+              "initial_odd_start_n": 103,
+              "first_descent_endpoint": 61,
+              "valuation_word": [
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4
+              ],
+              "descending_rearrangement": [
+                4,
+                4,
+                3,
+                3,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "inversion_gain_G": 5346354331517554,
+              "worst_order_threshold_excess": 5161636378051186,
+              "actual_threshold": {
+                "exact": "6468656859457/1856180682775",
+                "decimal": 3.4849284444585016
+              },
+              "worst_order_threshold": {
+                "exact": "5352822988377011/1856180682775",
+                "decimal": 2883.7833719799905
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "contracting_denominator_is_positive": true,
+                "inversion_certificate_matches_descent": true,
+                "swap_gain_matches_direct_difference": true
+              }
+            },
+            {
+              "initial_odd_start_n": 111,
+              "first_descent_endpoint": 61,
+              "valuation_word": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4
+              ],
+              "descending_rearrangement": [
+                4,
+                4,
+                3,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "inversion_gain_G": 478437253742,
+              "worst_order_threshold_excess": 371063071342,
+              "actual_threshold": {
+                "exact": "1985479691/985222181",
+                "decimal": 2.015260851095272
+              },
+              "worst_order_threshold": {
+                "exact": "480422733433/985222181",
+                "decimal": 487.62882393225374
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "contracting_denominator_is_positive": true,
+                "inversion_certificate_matches_descent": true,
+                "swap_gain_matches_direct_difference": true
+              }
+            },
+            {
+              "initial_odd_start_n": 155,
+              "first_descent_endpoint": 61,
+              "valuation_word": [
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4
+              ],
+              "descending_rearrangement": [
+                4,
+                4,
+                3,
+                3,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "inversion_gain_G": 1780730637582146,
+              "worst_order_threshold_excess": 1574022451560258,
+              "actual_threshold": {
+                "exact": "2810684125007/1351734646109",
+                "decimal": 2.0793164790867946
+              },
+              "worst_order_threshold": {
+                "exact": "1783541321707153/1351734646109",
+                "decimal": 1319.4463327851504
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "contracting_denominator_is_positive": true,
+                "inversion_certificate_matches_descent": true,
+                "swap_gain_matches_direct_difference": true
+              }
+            },
+            {
+              "initial_odd_start_n": 167,
+              "first_descent_endpoint": 61,
+              "valuation_word": [
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4
+              ],
+              "descending_rearrangement": [
+                4,
+                4,
+                3,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "inversion_gain_G": 158983967602,
+              "worst_order_threshold_excess": 45167334258,
+              "actual_threshold": {
+                "exact": "799029601/686321335",
+                "decimal": 1.1642208397907374
+              },
+              "worst_order_threshold": {
+                "exact": "159782997203/686321335",
+                "decimal": 232.81076815570654
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "contracting_denominator_is_positive": true,
+                "inversion_certificate_matches_descent": true,
+                "swap_gain_matches_direct_difference": true
+              }
+            }
+          ]
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The inversion inequality exactly re-expresses descent for a chosen prefix. No theorem proves that every natural valuation ray eventually accumulates the required gain.",
+      "route_decision": {
+        "discard": "requiring the descending worst-order threshold of every realized valuation multiset to lie below the start",
+        "retain": "bound the arithmetic inversion gain of natural valuation order against the worst-order threshold excess",
+        "next_theorem": "NaturalValuationInversionGainDominatesWorstOrderThresholdExcess"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T157-REJECTED",
+            "label": "WorstOrderMultisetThresholdIsNecessaryForFirstDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T157-CLOSED",
+            "label": "ValuationRearrangementInversionGainDescentCertificate",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T157-OPEN",
+            "label": "NaturalValuationInversionGainDominatesWorstOrderThresholdExcess",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T157-REJECTED",
+            "CO-T157-CLOSED"
+          ],
+          [
+            "CO-T157-CLOSED",
+            "CO-T157-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit. One exact valuation-order rearrangement theorem and a finite first-descent audit through 100,000."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-157",
+      "theorem_name": "NegativePhaseL1StabilityAndL2DimensionLossNoGo",
+      "declared_proposition": "For complex minor-arc terms w_k and any proxy v_k, define N_-(w)=sum_k max(-Re(w_k),0). Then N_-(w)<=N_-(v)+sum_k|w_k-v_k|. This follows because the negative-part map is one-Lipschitz after taking real parts. If only an l2 residual E is known, Cauchy-Schwarz gives the dimension-dependent bound N_-(w)<=N_-(v)+sqrt(m)E, and the factor sqrt(m) is sharp: m equal negative real residuals of size 1/sqrt(m) have l2 norm one and negative mass sqrt(m). Therefore an l2-only, dimension-free phase proxy cannot close the binary Goldbach signed-minor route.",
+      "mathematical_argument": "For real x and y, |max(-x,0)-max(-y,0)|<=|x-y|. Apply this with x=Re(w_k), y=Re(v_k), sum, and use |Re(w_k-v_k)|<=|w_k-v_k|. Cauchy-Schwarz supplies the sqrt(m) conversion from l2 to l1. The constant negative residual vectors in the exact rows attain equality in both steps, proving sharpness without an arithmetic structure assumption.",
+      "reproducible_computation": {
+        "theorem": "For complex minor-arc terms w_k and any proxy v_k, define N_-(w)=sum_k max(-Re(w_k),0). Then N_-(w)<=N_-(v)+sum_k|w_k-v_k|. This follows because the negative-part map is one-Lipschitz after taking real parts. If only an l2 residual E is known, Cauchy-Schwarz gives the dimension-dependent bound N_-(w)<=N_-(v)+sqrt(m)E, and the factor sqrt(m) is sharp: m equal negative real residuals of size 1/sqrt(m) have l2 norm one and negative mass sqrt(m). Therefore an l2-only, dimension-free phase proxy cannot close the binary Goldbach signed-minor route.",
+        "proof": "For real x and y, |max(-x,0)-max(-y,0)|<=|x-y|. Apply this with x=Re(w_k), y=Re(v_k), sum, and use |Re(w_k-v_k)|<=|w_k-v_k|. Cauchy-Schwarz supplies the sqrt(m) conversion from l2 to l1. The constant negative residual vectors in the exact rows attain equality in both steps, proving sharpness without an arithmetic structure assumption.",
+        "finite_phase_proxy_rows": [
+          {
+            "even_endpoint_N": 1000,
+            "transform_size_L": 2048,
+            "minor_coordinate_count": 1938,
+            "major_signed_mass": 1513.6023307338382,
+            "actual_minor_negative_mass": 776.8718951616396,
+            "oracle_one_sided_lower_bound": 736.7304355721986,
+            "direct_prime_theta_correlation": 1823.0445906906646,
+            "unordered_prime_pair_representations": 28,
+            "data_dependent_block_proxy_rows": [
+              {
+                "block_size": 8,
+                "proxy_negative_mass": 441.20214892367187,
+                "complex_residual_l1": 2776.9971494388,
+                "stable_negative_mass_upper_bound": 3218.199298362472,
+                "certificate_lower_bound": -1704.5969676286336,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 32,
+                "proxy_negative_mass": 296.9920199630894,
+                "complex_residual_l1": 2965.818336147808,
+                "stable_negative_mass_upper_bound": 3262.8103561108974,
+                "certificate_lower_bound": -1749.2080253770591,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 128,
+                "proxy_negative_mass": 83.53702555548091,
+                "complex_residual_l1": 2895.9543146904384,
+                "stable_negative_mass_upper_bound": 2979.491340245919,
+                "certificate_lower_bound": -1465.889009512081,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              }
+            ],
+            "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+          },
+          {
+            "even_endpoint_N": 2000,
+            "transform_size_L": 4096,
+            "minor_coordinate_count": 3986,
+            "major_signed_mass": 2836.0047695459302,
+            "actual_minor_negative_mass": 2187.5841849585,
+            "oracle_one_sided_lower_bound": 648.4205845874303,
+            "direct_prime_theta_correlation": 3095.549388432873,
+            "unordered_prime_pair_representations": 37,
+            "data_dependent_block_proxy_rows": [
+              {
+                "block_size": 8,
+                "proxy_negative_mass": 1476.706621344338,
+                "complex_residual_l1": 7134.105881858522,
+                "stable_negative_mass_upper_bound": 8610.81250320286,
+                "certificate_lower_bound": -5774.8077336569295,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 32,
+                "proxy_negative_mass": 884.3278485554434,
+                "complex_residual_l1": 7599.486753412229,
+                "stable_negative_mass_upper_bound": 8483.814601967671,
+                "certificate_lower_bound": -5647.809832421741,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 128,
+                "proxy_negative_mass": 523.8918685784246,
+                "complex_residual_l1": 7362.826809440865,
+                "stable_negative_mass_upper_bound": 7886.71867801929,
+                "certificate_lower_bound": -5050.713908473359,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              }
+            ],
+            "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+          },
+          {
+            "even_endpoint_N": 4000,
+            "transform_size_L": 8192,
+            "minor_coordinate_count": 8082,
+            "major_signed_mass": 6078.704598621174,
+            "actual_minor_negative_mass": 5156.486200682449,
+            "oracle_one_sided_lower_bound": 922.2183979387255,
+            "direct_prime_theta_correlation": 6768.050668704769,
+            "unordered_prime_pair_representations": 65,
+            "data_dependent_block_proxy_rows": [
+              {
+                "block_size": 8,
+                "proxy_negative_mass": 3494.7504940685903,
+                "complex_residual_l1": 17096.599993465905,
+                "stable_negative_mass_upper_bound": 20591.350487534495,
+                "certificate_lower_bound": -14512.645888913321,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 32,
+                "proxy_negative_mass": 2312.747418081252,
+                "complex_residual_l1": 18447.099936505183,
+                "stable_negative_mass_upper_bound": 20759.847354586436,
+                "certificate_lower_bound": -14681.142755965262,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 128,
+                "proxy_negative_mass": 1557.1911573003413,
+                "complex_residual_l1": 17922.893039870512,
+                "stable_negative_mass_upper_bound": 19480.084197170854,
+                "certificate_lower_bound": -13401.37959854968,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              }
+            ],
+            "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+          },
+          {
+            "even_endpoint_N": 8000,
+            "transform_size_L": 16384,
+            "minor_coordinate_count": 16274,
+            "major_signed_mass": 11829.959922662785,
+            "actual_minor_negative_mass": 12033.845290816733,
+            "oracle_one_sided_lower_bound": -203.88536815394764,
+            "direct_prime_theta_correlation": 13258.288471092015,
+            "unordered_prime_pair_representations": 106,
+            "data_dependent_block_proxy_rows": [
+              {
+                "block_size": 8,
+                "proxy_negative_mass": 8222.225849590215,
+                "complex_residual_l1": 40268.937048778425,
+                "stable_negative_mass_upper_bound": 48491.16289836864,
+                "certificate_lower_bound": -36661.202975705855,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 32,
+                "proxy_negative_mass": 5571.408310325345,
+                "complex_residual_l1": 43789.34361517442,
+                "stable_negative_mass_upper_bound": 49360.75192549976,
+                "certificate_lower_bound": -37530.79200283698,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 128,
+                "proxy_negative_mass": 3490.4979484556143,
+                "complex_residual_l1": 42413.28582556849,
+                "stable_negative_mass_upper_bound": 45903.78377402411,
+                "certificate_lower_bound": -34073.823851361325,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              }
+            ],
+            "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+          },
+          {
+            "even_endpoint_N": 16000,
+            "transform_size_L": 32768,
+            "minor_coordinate_count": 32658,
+            "major_signed_mass": 24799.60441165435,
+            "actual_minor_negative_mass": 27394.48795801522,
+            "oracle_one_sided_lower_bound": -2594.8835463608702,
+            "direct_prime_theta_correlation": 28126.118589430505,
+            "unordered_prime_pair_representations": 191,
+            "data_dependent_block_proxy_rows": [
+              {
+                "block_size": 8,
+                "proxy_negative_mass": 18876.446785654625,
+                "complex_residual_l1": 92624.63831577092,
+                "stable_negative_mass_upper_bound": 111501.08510142555,
+                "certificate_lower_bound": -86701.4806897712,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 32,
+                "proxy_negative_mass": 13253.469526651843,
+                "complex_residual_l1": 102110.43303792726,
+                "stable_negative_mass_upper_bound": 115363.9025645791,
+                "certificate_lower_bound": -90564.29815292475,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 128,
+                "proxy_negative_mass": 8747.47677849871,
+                "complex_residual_l1": 98944.03115934864,
+                "stable_negative_mass_upper_bound": 107691.50793784735,
+                "certificate_lower_bound": -82891.903526193,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              }
+            ],
+            "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+          },
+          {
+            "even_endpoint_N": 32000,
+            "transform_size_L": 65536,
+            "minor_coordinate_count": 65426,
+            "major_signed_mass": 48507.37386062002,
+            "actual_minor_negative_mass": 62365.80986027828,
+            "oracle_one_sided_lower_bound": -13858.435999658257,
+            "direct_prime_theta_correlation": 53608.90467088895,
+            "unordered_prime_pair_representations": 312,
+            "data_dependent_block_proxy_rows": [
+              {
+                "block_size": 8,
+                "proxy_negative_mass": 43592.29580128409,
+                "complex_residual_l1": 207167.0761094845,
+                "stable_negative_mass_upper_bound": 250759.3719107686,
+                "certificate_lower_bound": -202251.99805014857,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 32,
+                "proxy_negative_mass": 31163.64291052212,
+                "complex_residual_l1": 231011.3731256359,
+                "stable_negative_mass_upper_bound": 262175.016036158,
+                "certificate_lower_bound": -213667.642175538,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              },
+              {
+                "block_size": 128,
+                "proxy_negative_mass": 22464.945256118182,
+                "complex_residual_l1": 226202.69352746225,
+                "stable_negative_mass_upper_bound": 248667.63878358045,
+                "certificate_lower_bound": -200160.26492296043,
+                "certificate_passes": false,
+                "checks": {
+                  "negative_mass_is_below_l1_stability_bound": true,
+                  "proxy_length_matches_minor_vector": true
+                }
+              }
+            ],
+            "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+          }
+        ],
+        "exact_l2_dimension_loss_saturation_rows": [
+          {
+            "dimension_m": 4,
+            "residual_coordinate": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "residual_l2_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "residual_l1": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "negative_real_mass": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "sqrt_dimension_factor": 2,
+            "checks": {
+              "l2_norm_is_one": true,
+              "l1_norm_equals_sqrt_dimension": true,
+              "negative_mass_saturates_l1_bound": true
+            }
+          },
+          {
+            "dimension_m": 16,
+            "residual_coordinate": {
+              "exact": "-1/4",
+              "decimal": -0.25
+            },
+            "residual_l2_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "residual_l1": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "negative_real_mass": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "sqrt_dimension_factor": 4,
+            "checks": {
+              "l2_norm_is_one": true,
+              "l1_norm_equals_sqrt_dimension": true,
+              "negative_mass_saturates_l1_bound": true
+            }
+          },
+          {
+            "dimension_m": 64,
+            "residual_coordinate": {
+              "exact": "-1/8",
+              "decimal": -0.125
+            },
+            "residual_l2_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "residual_l1": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "negative_real_mass": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "sqrt_dimension_factor": 8,
+            "checks": {
+              "l2_norm_is_one": true,
+              "l1_norm_equals_sqrt_dimension": true,
+              "negative_mass_saturates_l1_bound": true
+            }
+          },
+          {
+            "dimension_m": 256,
+            "residual_coordinate": {
+              "exact": "-1/16",
+              "decimal": -0.0625
+            },
+            "residual_l2_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "residual_l1": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "negative_real_mass": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "sqrt_dimension_factor": 16,
+            "checks": {
+              "l2_norm_is_one": true,
+              "l1_norm_equals_sqrt_dimension": true,
+              "negative_mass_saturates_l1_bound": true
+            }
+          }
+        ],
+        "block_proxy_certificate_counts": {
+          "8": 0,
+          "32": 0,
+          "128": 0
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The tested block proxies are computed from each target transform and are not a priori arithmetic models. No uniform L1 residual bound or finite-to-infinite join is proved.",
+      "route_decision": {
+        "discard": "using only an L2 proxy residual while suppressing the unavoidable square-root dimension factor, or treating target-fitted block means as analytic bounds",
+        "retain": "build an arithmetic phase proxy before observing the target transform and prove a uniform L1 residual bound with an effective finite join",
+        "next_theorem": "ArithmeticBinaryGoldbachPhaseProxyWithUniformL1ResidualAndFiniteJoin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T157-REJECTED",
+            "label": "DimensionFreeL2PhaseProxyControlsNegativeMinorMass",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T157-CLOSED",
+            "label": "NegativePhaseL1StabilityAndL2DimensionLossNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T157-OPEN",
+            "label": "ArithmeticBinaryGoldbachPhaseProxyWithUniformL1ResidualAndFiniteJoin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T157-REJECTED",
+            "GB-T157-CLOSED"
+          ],
+          [
+            "GB-T157-CLOSED",
+            "GB-T157-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact L1 stability reduction, a sharp L2 no-go family, and six finite target-fitted diagnostics."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-157",
+      "theorem_name": "InformationBudgetMarginCertificateAndLittleONecessityNoGo",
+      "declared_proposition": "In the left and right cubic-rough populations, let d_L,d_R be ambient semiprime fractions, rho_L,rho_R the shifted rough-pair selection probabilities, and I_L,I_R the mutual informations between the semiprime labels and those selection events. Combining the exact TICKET-155 transfer identity with TICKET-156 Pinsker bounds gives M/R<=d_L+d_R+sqrt(I_L/(2rho_L))+sqrt(I_R/(2rho_R)). Therefore the information budget being smaller than eta=1-d_L-d_R is a sufficient certificate for M/R<1. The stronger asymptotic demand I=o(rho) is not necessary: a fixed negative conditional shift can keep M/R uniformly below one while I/rho tends to a positive constant.",
+      "mathematical_argument": "TICKET-155 writes M/R as the ambient sum plus the two conditional shifts. TICKET-156 bounds the absolute value of each shift by sqrt(I/(2rho)); adding the inequalities proves the certificate. In the no-go family each side has ambient fraction 2/5, selected conditional fraction 1/5, and rho=2^-k. The two-side conditional sum is 2/5, while direct contingency-table evaluation gives I/rho tending to KL(Ber(1/5)||Ber(2/5))>0. Thus little-o is sufficient but strictly stronger than the target.",
+      "reproducible_computation": {
+        "theorem": "In the left and right cubic-rough populations, let d_L,d_R be ambient semiprime fractions, rho_L,rho_R the shifted rough-pair selection probabilities, and I_L,I_R the mutual informations between the semiprime labels and those selection events. Combining the exact TICKET-155 transfer identity with TICKET-156 Pinsker bounds gives M/R<=d_L+d_R+sqrt(I_L/(2rho_L))+sqrt(I_R/(2rho_R)). Therefore the information budget being smaller than eta=1-d_L-d_R is a sufficient certificate for M/R<1. The stronger asymptotic demand I=o(rho) is not necessary: a fixed negative conditional shift can keep M/R uniformly below one while I/rho tends to a positive constant.",
+        "proof": "TICKET-155 writes M/R as the ambient sum plus the two conditional shifts. TICKET-156 bounds the absolute value of each shift by sqrt(I/(2rho)); adding the inequalities proves the certificate. In the no-go family each side has ambient fraction 2/5, selected conditional fraction 1/5, and rho=2^-k. The two-side conditional sum is 2/5, while direct contingency-table evaluation gives I/rho tending to KL(Ber(1/5)||Ber(2/5))>0. Thus little-o is sufficient but strictly stronger than the target.",
+        "finite_cubic_rough_information_margin_rows": [
+          {
+            "X": 1000,
+            "ambient_semiprime_sum_dL_plus_dR": {
+              "exact": "126/227",
+              "decimal": 0.5550660792951542
+            },
+            "ambient_margin_eta": {
+              "exact": "101/227",
+              "decimal": 0.44493392070484583
+            },
+            "actual_conditional_incidence_M_over_R": {
+              "exact": "41/70",
+              "decimal": 0.5857142857142857
+            },
+            "left_normalized_information_I_over_rho": 0.0015123470340568127,
+            "right_normalized_information_I_over_rho": 0.009223520599170315,
+            "pinsker_information_budget": 0.09540855193332659,
+            "information_upper_bound_for_M_over_R": 0.6504746312284808,
+            "certificate_slack": 0.3495253687715192,
+            "checks": {
+              "actual_ratio_is_below_information_upper_bound": true,
+              "information_budget_is_below_ambient_margin": true,
+              "information_certificate_proves_ratio_below_one": true,
+              "direct_conditional_ratio_is_below_one": true
+            }
+          },
+          {
+            "X": 10000,
+            "ambient_semiprime_sum_dL_plus_dR": {
+              "exact": "163/285",
+              "decimal": 0.5719298245614035
+            },
+            "ambient_margin_eta": {
+              "exact": "122/285",
+              "decimal": 0.4280701754385965
+            },
+            "actual_conditional_incidence_M_over_R": {
+              "exact": "112/195",
+              "decimal": 0.5743589743589743
+            },
+            "left_normalized_information_I_over_rho": 5.781132210518588e-06,
+            "right_normalized_information_I_over_rho": 4.521040239542725e-05,
+            "pinsker_information_budget": 0.00645465923160621,
+            "information_upper_bound_for_M_over_R": 0.5783844837930098,
+            "certificate_slack": 0.4216155162069902,
+            "checks": {
+              "actual_ratio_is_below_information_upper_bound": true,
+              "information_budget_is_below_ambient_margin": true,
+              "information_certificate_proves_ratio_below_one": true,
+              "direct_conditional_ratio_is_below_one": true
+            }
+          },
+          {
+            "X": 100000,
+            "ambient_semiprime_sum_dL_plus_dR": {
+              "exact": "9250/14203",
+              "decimal": 0.6512708582693797
+            },
+            "ambient_margin_eta": {
+              "exact": "4953/14203",
+              "decimal": 0.3487291417306203
+            },
+            "actual_conditional_incidence_M_over_R": {
+              "exact": "1747/2681",
+              "decimal": 0.6516225289071242
+            },
+            "left_normalized_information_I_over_rho": 0.00011352602145889194,
+            "right_normalized_information_I_over_rho": 0.0001257770530803801,
+            "pinsker_information_budget": 0.01546435174584963,
+            "information_upper_bound_for_M_over_R": 0.6667352100152293,
+            "certificate_slack": 0.3332647899847707,
+            "checks": {
+              "actual_ratio_is_below_information_upper_bound": true,
+              "information_budget_is_below_ambient_margin": true,
+              "information_certificate_proves_ratio_below_one": true,
+              "direct_conditional_ratio_is_below_one": true
+            }
+          },
+          {
+            "X": 1000000,
+            "ambient_semiprime_sum_dL_plus_dR": {
+              "exact": "84572/120759",
+              "decimal": 0.7003370349207927
+            },
+            "ambient_margin_eta": {
+              "exact": "36187/120759",
+              "decimal": 0.29966296507920737
+            },
+            "actual_conditional_incidence_M_over_R": {
+              "exact": "3397/4824",
+              "decimal": 0.7041873963515755
+            },
+            "left_normalized_information_I_over_rho": 1.4945598575472063e-05,
+            "right_normalized_information_I_over_rho": 5.562228895049821e-06,
+            "pinsker_information_budget": 0.004401309495858023,
+            "information_upper_bound_for_M_over_R": 0.7047383444166507,
+            "certificate_slack": 0.29526165558334927,
+            "checks": {
+              "actual_ratio_is_below_information_upper_bound": true,
+              "information_budget_is_below_ambient_margin": true,
+              "information_certificate_proves_ratio_below_one": true,
+              "direct_conditional_ratio_is_below_one": true
+            }
+          },
+          {
+            "X": 10000000,
+            "ambient_semiprime_sum_dL_plus_dR": {
+              "exact": "749734/1039399",
+              "decimal": 0.72131491371456
+            },
+            "ambient_margin_eta": {
+              "exact": "289665/1039399",
+              "decimal": 0.27868508628544
+            },
+            "actual_conditional_incidence_M_over_R": {
+              "exact": "103016/142907",
+              "decimal": 0.72086041971352
+            },
+            "left_normalized_information_I_over_rho": 1.621069799438649e-08,
+            "right_normalized_information_I_over_rho": 3.520708452119846e-07,
+            "pinsker_information_budget": 0.0005095954665527724,
+            "information_upper_bound_for_M_over_R": 0.7218245091811128,
+            "certificate_slack": 0.27817549081888715,
+            "checks": {
+              "actual_ratio_is_below_information_upper_bound": true,
+              "information_budget_is_below_ambient_margin": true,
+              "information_certificate_proves_ratio_below_one": true,
+              "direct_conditional_ratio_is_below_one": true
+            }
+          }
+        ],
+        "finite_little_o_not_necessary_rows": [
+          {
+            "rarity_exponent_k": 2,
+            "selection_probability_rho": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "ambient_side_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_side_fraction": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "conditional_shift_delta": {
+              "exact": "-1/5",
+              "decimal": -0.2
+            },
+            "mutual_information_nats": 0.02971857913934592,
+            "mutual_information_over_rho": 0.11887431655738367,
+            "two_side_actual_conditional_sum": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "two_side_pinsker_upper_bound": 1.287594742706243,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_is_negative_one_fifth": true,
+              "two_side_target_holds_with_fixed_margin": true,
+              "normalized_information_is_positive": true,
+              "pinsker_sufficient_bound_can_fail_while_target_holds": true
+            }
+          },
+          {
+            "rarity_exponent_k": 4,
+            "selection_probability_rho": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "ambient_side_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_side_fraction": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "conditional_shift_delta": {
+              "exact": "-1/5",
+              "decimal": -0.2
+            },
+            "mutual_information_nats": 0.00606574949086648,
+            "mutual_information_over_rho": 0.09705199185386368,
+            "two_side_actual_conditional_sum": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "two_side_pinsker_upper_bound": 1.240572336521175,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_is_negative_one_fifth": true,
+              "two_side_target_holds_with_fixed_margin": true,
+              "normalized_information_is_positive": true,
+              "pinsker_sufficient_bound_can_fail_while_target_holds": true
+            }
+          },
+          {
+            "rarity_exponent_k": 8,
+            "selection_probability_rho": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "ambient_side_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_side_fraction": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "conditional_shift_delta": {
+              "exact": "-1/5",
+              "decimal": -0.2
+            },
+            "mutual_information_nats": 0.00035876151640672313,
+            "mutual_information_over_rho": 0.09184294820012112,
+            "two_side_actual_conditional_sum": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "two_side_pinsker_upper_bound": 1.2285859265074417,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_is_negative_one_fifth": true,
+              "two_side_target_holds_with_fixed_margin": true,
+              "normalized_information_is_positive": true,
+              "pinsker_sufficient_bound_can_fail_while_target_holds": true
+            }
+          },
+          {
+            "rarity_exponent_k": 12,
+            "selection_probability_rho": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "ambient_side_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_side_fraction": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "conditional_shift_delta": {
+              "exact": "-1/5",
+              "decimal": -0.2
+            },
+            "mutual_information_nats": 2.2347795799231405e-05,
+            "mutual_information_over_rho": 0.09153657159365183,
+            "two_side_actual_conditional_sum": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "two_side_pinsker_upper_bound": 1.2278704747786457,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_is_negative_one_fifth": true,
+              "two_side_target_holds_with_fixed_margin": true,
+              "normalized_information_is_positive": true,
+              "pinsker_sufficient_bound_can_fail_while_target_holds": true
+            }
+          },
+          {
+            "rarity_exponent_k": 16,
+            "selection_probability_rho": {
+              "exact": "1/65536",
+              "decimal": 1.52587890625e-05
+            },
+            "ambient_side_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_side_fraction": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "conditional_shift_delta": {
+              "exact": "-1/5",
+              "decimal": -0.2
+            },
+            "mutual_information_nats": 1.3964461278307454e-06,
+            "mutual_information_over_rho": 0.09151749343351573,
+            "two_side_actual_conditional_sum": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "two_side_pinsker_upper_bound": 1.2278258838207798,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_is_negative_one_fifth": true,
+              "two_side_target_holds_with_fixed_margin": true,
+              "normalized_information_is_positive": true,
+              "pinsker_sufficient_bound_can_fail_while_target_holds": true
+            }
+          },
+          {
+            "rarity_exponent_k": 20,
+            "selection_probability_rho": {
+              "exact": "1/1048576",
+              "decimal": 9.5367431640625e-07
+            },
+            "ambient_side_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_side_fraction": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "conditional_shift_delta": {
+              "exact": "-1/5",
+              "decimal": -0.2
+            },
+            "mutual_information_nats": 8.727674612584112e-08,
+            "mutual_information_over_rho": 0.09151630134564998,
+            "two_side_actual_conditional_sum": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "two_side_pinsker_upper_bound": 1.2278230974261441,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_is_negative_one_fifth": true,
+              "two_side_target_holds_with_fixed_margin": true,
+              "normalized_information_is_positive": true,
+              "pinsker_sufficient_bound_can_fail_while_target_holds": true
+            }
+          }
+        ],
+        "normalized_information_positive_limit_nats": 0.09151622184943564,
+        "finite_information_certificate_count": 5,
+        "failure_count": 0
+      },
+      "logical_limit": "Five finite scales satisfy the information-margin certificate, but no uniform post-cutoff inequality or effective cutoff is proved for all scales.",
+      "route_decision": {
+        "discard": "requiring I=o(rho) as a necessary target and reporting small normalized information without comparing it to the ambient semiprime margin",
+        "retain": "prove the combined information budget stays below the ambient semiprime margin uniformly after an effective cutoff, then join finite verification",
+        "next_theorem": "UniformCubicRoughInformationBudgetBelowSemiprimeMarginAfterEffectiveCutoff"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T157-REJECTED",
+            "label": "MutualInformationLittleOSelectionMassIsNecessary",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T157-CLOSED",
+            "label": "InformationBudgetMarginCertificateAndLittleONecessityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T157-OPEN",
+            "label": "UniformCubicRoughInformationBudgetBelowSemiprimeMarginAfterEffectiveCutoff",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T157-REJECTED",
+            "TP-T157-CLOSED"
+          ],
+          [
+            "TP-T157-CLOSED",
+            "TP-T157-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no counterexample. One exact target-level information certificate, five finite passes through X=10,000,000, and a necessity no-go."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Connes and Consani, Weil positivity and Trace formula, the archimedean place",
+        "url": "https://arxiv.org/abs/2006.13771",
+        "role": "Primary Weil-positivity context; the abstract form-core theorem is not asserted to construct their operator or its cutoff bound."
+      },
+      {
+        "citation": "Groskin, High-Precision Approximation of Riemann Zeros via the Truncated Weil Form, 2026",
+        "url": "https://arxiv.org/abs/2605.20224",
+        "role": "Current computational context; finite Galerkin stability remains separate from a uniform tail proof."
+      },
+      {
+        "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values",
+        "url": "https://arxiv.org/abs/1909.03562",
+        "role": "Almost-all progress remains distinct from the pointwise natural valuation-order target."
+      },
+      {
+        "citation": "Niu, Parity vectors and paradoxical sequences in the accelerated Collatz map, 2026",
+        "url": "https://arxiv.org/abs/2605.13886",
+        "role": "Recent valuation-vector context; no conjectural observation is imported as a theorem."
+      },
+      {
+        "citation": "Helfgott, Minor arcs for Goldbach's problem",
+        "url": "https://arxiv.org/abs/1205.5252",
+        "role": "Primary minor-arc context; the new L1 reduction does not supply the required arithmetic residual estimate."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary Type I/II context for the still-unproved uniform cubic-rough information-margin separation."
+      }
+    ],
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-157",
+      "attempt": "Let q be a closed semibounded quadratic form and let V_1 subset V_2 subset ... have union equal to a form core. Let q_T be defined on that union and satisfy |q_T(f)-q(f)|<=epsilon_T||f||^2 there. If the minimum Rayleigh quotient of q_T on every V_N is at least epsilon_T, then q is nonnegative on its full form domain. Thus a nested form-core argument can remove a separate basis operator-norm error, but it still requires all N and a uniform cutoff-form bound. No finite N sweep suffices: diag(1,...,1,-1) is positive on every checked coordinate core and negative on the first unchecked direction.",
+      "bounded_result": {
+        "audit_ref": "formcore_inversion_proxy_margin_audit.riemann"
+      },
+      "obstruction": "The theorem is abstract. PrimeProject has not constructed the actual nested Weil form core or proved a uniform archimedean tail-form error on it.",
+      "candidate_theorem": "UniformArchimedeanTailFormBoundOnNestedExplicitWeilCore",
+      "next_experiment": "construct the explicit Weil form core and prove one uniform cutoff-form bound valid on its entire union",
+      "claim_boundary": "No RH proof and no off-critical zero. One abstract form-core promotion theorem and an exact finite-sweep counterfamily; no explicit Weil tail bound."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-157",
+      "attempt": "For an accelerated odd Collatz valuation word w with length m, total valuation S, affine constant C(w), and contracting denominator D=2^S-3^m>0, let w_down be the nonincreasing rearrangement and G=C(w_down)-C(w). Then G>=0 and theta(w)=theta(w_down)-G/D. Swapping adjacent valuations x<y at zero-based position i increases C by 3^(m-i-2)2^(a_1+...+a_(i-1))(2^y-2^x), so bubble sorting proves the formula exactly. A realizing start n descends after w exactly when G>C(w_down)-nD. Hence natural valuation order can certify descent even when the multiset's worst-order threshold fails.",
+      "bounded_result": {
+        "audit_ref": "formcore_inversion_proxy_margin_audit.collatz"
+      },
+      "obstruction": "The inversion inequality exactly re-expresses descent for a chosen prefix. No theorem proves that every natural valuation ray eventually accumulates the required gain.",
+      "candidate_theorem": "NaturalValuationInversionGainDominatesWorstOrderThresholdExcess",
+      "next_experiment": "bound the arithmetic inversion gain of natural valuation order against the worst-order threshold excess",
+      "claim_boundary": "No Collatz proof and no divergent orbit. One exact valuation-order rearrangement theorem and a finite first-descent audit through 100,000."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-157",
+      "attempt": "For complex minor-arc terms w_k and any proxy v_k, define N_-(w)=sum_k max(-Re(w_k),0). Then N_-(w)<=N_-(v)+sum_k|w_k-v_k|. This follows because the negative-part map is one-Lipschitz after taking real parts. If only an l2 residual E is known, Cauchy-Schwarz gives the dimension-dependent bound N_-(w)<=N_-(v)+sqrt(m)E, and the factor sqrt(m) is sharp: m equal negative real residuals of size 1/sqrt(m) have l2 norm one and negative mass sqrt(m). Therefore an l2-only, dimension-free phase proxy cannot close the binary Goldbach signed-minor route.",
+      "bounded_result": {
+        "audit_ref": "formcore_inversion_proxy_margin_audit.goldbach"
+      },
+      "obstruction": "The tested block proxies are computed from each target transform and are not a priori arithmetic models. No uniform L1 residual bound or finite-to-infinite join is proved.",
+      "candidate_theorem": "ArithmeticBinaryGoldbachPhaseProxyWithUniformL1ResidualAndFiniteJoin",
+      "next_experiment": "build an arithmetic phase proxy before observing the target transform and prove a uniform L1 residual bound with an effective finite join",
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact L1 stability reduction, a sharp L2 no-go family, and six finite target-fitted diagnostics."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-157",
+      "attempt": "In the left and right cubic-rough populations, let d_L,d_R be ambient semiprime fractions, rho_L,rho_R the shifted rough-pair selection probabilities, and I_L,I_R the mutual informations between the semiprime labels and those selection events. Combining the exact TICKET-155 transfer identity with TICKET-156 Pinsker bounds gives M/R<=d_L+d_R+sqrt(I_L/(2rho_L))+sqrt(I_R/(2rho_R)). Therefore the information budget being smaller than eta=1-d_L-d_R is a sufficient certificate for M/R<1. The stronger asymptotic demand I=o(rho) is not necessary: a fixed negative conditional shift can keep M/R uniformly below one while I/rho tends to a positive constant.",
+      "bounded_result": {
+        "audit_ref": "formcore_inversion_proxy_margin_audit.twin_prime"
+      },
+      "obstruction": "Five finite scales satisfy the information-margin certificate, but no uniform post-cutoff inequality or effective cutoff is proved for all scales.",
+      "candidate_theorem": "UniformCubicRoughInformationBudgetBelowSemiprimeMarginAfterEffectiveCutoff",
+      "next_experiment": "prove the combined information budget stays below the ambient semiprime margin uniformly after an effective cutoff, then join finite verification",
+      "claim_boundary": "No Twin Prime proof and no counterexample. One exact target-level information certificate, five finite passes through X=10,000,000, and a necessity no-go."
+    }
+  ]
+}

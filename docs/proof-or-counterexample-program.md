@@ -6321,3 +6321,40 @@ Pinsker 정리는 충분조건을 제시하지만 실제 cubic-rough shift에서
 
 Full bilingual report / 전체 한영 보고서:
 [TICKET-156 cutoff-potential-signed-information](cutoff-potential-signed-information.md).
+
+## TICKET-157 continuation: form cores, inversion gain, phase proxies, and information margins
+
+TICKET-157 attacks the four TICKET-156 next lemmas. It proves four exact
+reductions or no-go theorems, rejects one overstrong or dimension-blind
+target per track, and leaves every conjecture-resolution counter at zero.
+
+1. **Riemann Hypothesis.** Positivity on every member of a nested form core
+   plus one uniform cutoff-form error promotes to the full closed form.
+   Exact diagonal countermodels show that no finite core sweep suffices.
+   The actual Weil core and its tail bound remain open. The next target is
+   `UniformArchimedeanTailFormBoundOnNestedExplicitWeilCore`.
+2. **Collatz.** Adjacent valuation swaps telescope to an exact affine
+   inversion gain. The descent condition is exactly that this gain exceeds
+   the descending worst-order threshold excess. Of 49,999 audited first
+   descents, 266 require natural order. The next target is
+   `NaturalValuationInversionGainDominatesWorstOrderThresholdExcess`.
+3. **Goldbach.** Negative minor phase mass is one-Lipschitz in complex
+   `L1`. An exact constant-residual family proves that converting an `L2`
+   proxy error costs a sharp square-root dimension factor. All 18
+   target-fitted block proxies fail. The next target is
+   `ArithmeticBinaryGoldbachPhaseProxyWithUniformL1ResidualAndFiniteJoin`.
+4. **Twin Prime.** Combining the exact conditional-transfer identity with
+   Pinsker gives an information upper bound for `M/R`; all five finite
+   scales through 10M lie below one. A rare-event family proves
+   `I=o(rho)` is sufficient but not necessary. The next target is
+   `UniformCubicRoughInformationBudgetBelowSemiprimeMarginAfterEffectiveCutoff`.
+
+한국어 경계: RH 결과는 actual Weil tail-form bound를 제공하지 않는다.
+Collatz inversion gain은 선택한 prefix의 하강을 다시 표현할 뿐 모든
+자연수 ray의 gain 하한을 증명하지 않는다. Goldbach block proxy는
+target-fitted 진단이며 analytic major-arc 모형이 아니다. Twin의 다섯
+정보량 인증은 유한 결과이고 uniform post-cutoff 정리가 아니다. 네
+추측은 모두 `open_not_proven`이다.
+
+Full bilingual report / 전체 한영 보고서:
+[TICKET-157 formcore-inversion-proxy-margin](formcore-inversion-proxy-margin.md).

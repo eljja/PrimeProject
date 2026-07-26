@@ -1,0 +1,465 @@
+{
+  "schema": "primeproject.ticket157-formcore-inversion-proxy-margin.v1",
+  "generated_at": "2026-07-26T23:30:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-157",
+  "attempt": "For complex minor-arc terms w_k and any proxy v_k, define N_-(w)=sum_k max(-Re(w_k),0). Then N_-(w)<=N_-(v)+sum_k|w_k-v_k|. This follows because the negative-part map is one-Lipschitz after taking real parts. If only an l2 residual E is known, Cauchy-Schwarz gives the dimension-dependent bound N_-(w)<=N_-(v)+sqrt(m)E, and the factor sqrt(m) is sharp: m equal negative real residuals of size 1/sqrt(m) have l2 norm one and negative mass sqrt(m). Therefore an l2-only, dimension-free phase proxy cannot close the binary Goldbach signed-minor route.",
+  "bounded_result": {
+    "audit_ref": "formcore_inversion_proxy_margin_audit.goldbach"
+  },
+  "obstruction": "The tested block proxies are computed from each target transform and are not a priori arithmetic models. No uniform L1 residual bound or finite-to-infinite join is proved.",
+  "candidate_theorem": "ArithmeticBinaryGoldbachPhaseProxyWithUniformL1ResidualAndFiniteJoin",
+  "next_experiment": "build an arithmetic phase proxy before observing the target transform and prove a uniform L1 residual bound with an effective finite join",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact L1 stability reduction, a sharp L2 no-go family, and six finite target-fitted diagnostics.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-157",
+    "theorem_name": "NegativePhaseL1StabilityAndL2DimensionLossNoGo",
+    "declared_proposition": "For complex minor-arc terms w_k and any proxy v_k, define N_-(w)=sum_k max(-Re(w_k),0). Then N_-(w)<=N_-(v)+sum_k|w_k-v_k|. This follows because the negative-part map is one-Lipschitz after taking real parts. If only an l2 residual E is known, Cauchy-Schwarz gives the dimension-dependent bound N_-(w)<=N_-(v)+sqrt(m)E, and the factor sqrt(m) is sharp: m equal negative real residuals of size 1/sqrt(m) have l2 norm one and negative mass sqrt(m). Therefore an l2-only, dimension-free phase proxy cannot close the binary Goldbach signed-minor route.",
+    "mathematical_argument": "For real x and y, |max(-x,0)-max(-y,0)|<=|x-y|. Apply this with x=Re(w_k), y=Re(v_k), sum, and use |Re(w_k-v_k)|<=|w_k-v_k|. Cauchy-Schwarz supplies the sqrt(m) conversion from l2 to l1. The constant negative residual vectors in the exact rows attain equality in both steps, proving sharpness without an arithmetic structure assumption.",
+    "reproducible_computation": {
+      "theorem": "For complex minor-arc terms w_k and any proxy v_k, define N_-(w)=sum_k max(-Re(w_k),0). Then N_-(w)<=N_-(v)+sum_k|w_k-v_k|. This follows because the negative-part map is one-Lipschitz after taking real parts. If only an l2 residual E is known, Cauchy-Schwarz gives the dimension-dependent bound N_-(w)<=N_-(v)+sqrt(m)E, and the factor sqrt(m) is sharp: m equal negative real residuals of size 1/sqrt(m) have l2 norm one and negative mass sqrt(m). Therefore an l2-only, dimension-free phase proxy cannot close the binary Goldbach signed-minor route.",
+      "proof": "For real x and y, |max(-x,0)-max(-y,0)|<=|x-y|. Apply this with x=Re(w_k), y=Re(v_k), sum, and use |Re(w_k-v_k)|<=|w_k-v_k|. Cauchy-Schwarz supplies the sqrt(m) conversion from l2 to l1. The constant negative residual vectors in the exact rows attain equality in both steps, proving sharpness without an arithmetic structure assumption.",
+      "finite_phase_proxy_rows": [
+        {
+          "even_endpoint_N": 1000,
+          "transform_size_L": 2048,
+          "minor_coordinate_count": 1938,
+          "major_signed_mass": 1513.6023307338382,
+          "actual_minor_negative_mass": 776.8718951616396,
+          "oracle_one_sided_lower_bound": 736.7304355721986,
+          "direct_prime_theta_correlation": 1823.0445906906646,
+          "unordered_prime_pair_representations": 28,
+          "data_dependent_block_proxy_rows": [
+            {
+              "block_size": 8,
+              "proxy_negative_mass": 441.20214892367187,
+              "complex_residual_l1": 2776.9971494388,
+              "stable_negative_mass_upper_bound": 3218.199298362472,
+              "certificate_lower_bound": -1704.5969676286336,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 32,
+              "proxy_negative_mass": 296.9920199630894,
+              "complex_residual_l1": 2965.818336147808,
+              "stable_negative_mass_upper_bound": 3262.8103561108974,
+              "certificate_lower_bound": -1749.2080253770591,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 128,
+              "proxy_negative_mass": 83.53702555548091,
+              "complex_residual_l1": 2895.9543146904384,
+              "stable_negative_mass_upper_bound": 2979.491340245919,
+              "certificate_lower_bound": -1465.889009512081,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            }
+          ],
+          "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+        },
+        {
+          "even_endpoint_N": 2000,
+          "transform_size_L": 4096,
+          "minor_coordinate_count": 3986,
+          "major_signed_mass": 2836.0047695459302,
+          "actual_minor_negative_mass": 2187.5841849585,
+          "oracle_one_sided_lower_bound": 648.4205845874303,
+          "direct_prime_theta_correlation": 3095.549388432873,
+          "unordered_prime_pair_representations": 37,
+          "data_dependent_block_proxy_rows": [
+            {
+              "block_size": 8,
+              "proxy_negative_mass": 1476.706621344338,
+              "complex_residual_l1": 7134.105881858522,
+              "stable_negative_mass_upper_bound": 8610.81250320286,
+              "certificate_lower_bound": -5774.8077336569295,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 32,
+              "proxy_negative_mass": 884.3278485554434,
+              "complex_residual_l1": 7599.486753412229,
+              "stable_negative_mass_upper_bound": 8483.814601967671,
+              "certificate_lower_bound": -5647.809832421741,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 128,
+              "proxy_negative_mass": 523.8918685784246,
+              "complex_residual_l1": 7362.826809440865,
+              "stable_negative_mass_upper_bound": 7886.71867801929,
+              "certificate_lower_bound": -5050.713908473359,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            }
+          ],
+          "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+        },
+        {
+          "even_endpoint_N": 4000,
+          "transform_size_L": 8192,
+          "minor_coordinate_count": 8082,
+          "major_signed_mass": 6078.704598621174,
+          "actual_minor_negative_mass": 5156.486200682449,
+          "oracle_one_sided_lower_bound": 922.2183979387255,
+          "direct_prime_theta_correlation": 6768.050668704769,
+          "unordered_prime_pair_representations": 65,
+          "data_dependent_block_proxy_rows": [
+            {
+              "block_size": 8,
+              "proxy_negative_mass": 3494.7504940685903,
+              "complex_residual_l1": 17096.599993465905,
+              "stable_negative_mass_upper_bound": 20591.350487534495,
+              "certificate_lower_bound": -14512.645888913321,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 32,
+              "proxy_negative_mass": 2312.747418081252,
+              "complex_residual_l1": 18447.099936505183,
+              "stable_negative_mass_upper_bound": 20759.847354586436,
+              "certificate_lower_bound": -14681.142755965262,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 128,
+              "proxy_negative_mass": 1557.1911573003413,
+              "complex_residual_l1": 17922.893039870512,
+              "stable_negative_mass_upper_bound": 19480.084197170854,
+              "certificate_lower_bound": -13401.37959854968,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            }
+          ],
+          "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+        },
+        {
+          "even_endpoint_N": 8000,
+          "transform_size_L": 16384,
+          "minor_coordinate_count": 16274,
+          "major_signed_mass": 11829.959922662785,
+          "actual_minor_negative_mass": 12033.845290816733,
+          "oracle_one_sided_lower_bound": -203.88536815394764,
+          "direct_prime_theta_correlation": 13258.288471092015,
+          "unordered_prime_pair_representations": 106,
+          "data_dependent_block_proxy_rows": [
+            {
+              "block_size": 8,
+              "proxy_negative_mass": 8222.225849590215,
+              "complex_residual_l1": 40268.937048778425,
+              "stable_negative_mass_upper_bound": 48491.16289836864,
+              "certificate_lower_bound": -36661.202975705855,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 32,
+              "proxy_negative_mass": 5571.408310325345,
+              "complex_residual_l1": 43789.34361517442,
+              "stable_negative_mass_upper_bound": 49360.75192549976,
+              "certificate_lower_bound": -37530.79200283698,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 128,
+              "proxy_negative_mass": 3490.4979484556143,
+              "complex_residual_l1": 42413.28582556849,
+              "stable_negative_mass_upper_bound": 45903.78377402411,
+              "certificate_lower_bound": -34073.823851361325,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            }
+          ],
+          "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+        },
+        {
+          "even_endpoint_N": 16000,
+          "transform_size_L": 32768,
+          "minor_coordinate_count": 32658,
+          "major_signed_mass": 24799.60441165435,
+          "actual_minor_negative_mass": 27394.48795801522,
+          "oracle_one_sided_lower_bound": -2594.8835463608702,
+          "direct_prime_theta_correlation": 28126.118589430505,
+          "unordered_prime_pair_representations": 191,
+          "data_dependent_block_proxy_rows": [
+            {
+              "block_size": 8,
+              "proxy_negative_mass": 18876.446785654625,
+              "complex_residual_l1": 92624.63831577092,
+              "stable_negative_mass_upper_bound": 111501.08510142555,
+              "certificate_lower_bound": -86701.4806897712,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 32,
+              "proxy_negative_mass": 13253.469526651843,
+              "complex_residual_l1": 102110.43303792726,
+              "stable_negative_mass_upper_bound": 115363.9025645791,
+              "certificate_lower_bound": -90564.29815292475,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 128,
+              "proxy_negative_mass": 8747.47677849871,
+              "complex_residual_l1": 98944.03115934864,
+              "stable_negative_mass_upper_bound": 107691.50793784735,
+              "certificate_lower_bound": -82891.903526193,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            }
+          ],
+          "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+        },
+        {
+          "even_endpoint_N": 32000,
+          "transform_size_L": 65536,
+          "minor_coordinate_count": 65426,
+          "major_signed_mass": 48507.37386062002,
+          "actual_minor_negative_mass": 62365.80986027828,
+          "oracle_one_sided_lower_bound": -13858.435999658257,
+          "direct_prime_theta_correlation": 53608.90467088895,
+          "unordered_prime_pair_representations": 312,
+          "data_dependent_block_proxy_rows": [
+            {
+              "block_size": 8,
+              "proxy_negative_mass": 43592.29580128409,
+              "complex_residual_l1": 207167.0761094845,
+              "stable_negative_mass_upper_bound": 250759.3719107686,
+              "certificate_lower_bound": -202251.99805014857,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 32,
+              "proxy_negative_mass": 31163.64291052212,
+              "complex_residual_l1": 231011.3731256359,
+              "stable_negative_mass_upper_bound": 262175.016036158,
+              "certificate_lower_bound": -213667.642175538,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            },
+            {
+              "block_size": 128,
+              "proxy_negative_mass": 22464.945256118182,
+              "complex_residual_l1": 226202.69352746225,
+              "stable_negative_mass_upper_bound": 248667.63878358045,
+              "certificate_lower_bound": -200160.26492296043,
+              "certificate_passes": false,
+              "checks": {
+                "negative_mass_is_below_l1_stability_bound": true,
+                "proxy_length_matches_minor_vector": true
+              }
+            }
+          ],
+          "claim_boundary": "The block mean uses the target transform and is only a compression diagnostic, not an a priori major-arc model or an analytic Goldbach certificate."
+        }
+      ],
+      "exact_l2_dimension_loss_saturation_rows": [
+        {
+          "dimension_m": 4,
+          "residual_coordinate": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "residual_l2_squared": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "residual_l1": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "negative_real_mass": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "sqrt_dimension_factor": 2,
+          "checks": {
+            "l2_norm_is_one": true,
+            "l1_norm_equals_sqrt_dimension": true,
+            "negative_mass_saturates_l1_bound": true
+          }
+        },
+        {
+          "dimension_m": 16,
+          "residual_coordinate": {
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          "residual_l2_squared": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "residual_l1": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "negative_real_mass": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "sqrt_dimension_factor": 4,
+          "checks": {
+            "l2_norm_is_one": true,
+            "l1_norm_equals_sqrt_dimension": true,
+            "negative_mass_saturates_l1_bound": true
+          }
+        },
+        {
+          "dimension_m": 64,
+          "residual_coordinate": {
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          "residual_l2_squared": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "residual_l1": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "negative_real_mass": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "sqrt_dimension_factor": 8,
+          "checks": {
+            "l2_norm_is_one": true,
+            "l1_norm_equals_sqrt_dimension": true,
+            "negative_mass_saturates_l1_bound": true
+          }
+        },
+        {
+          "dimension_m": 256,
+          "residual_coordinate": {
+            "exact": "-1/16",
+            "decimal": -0.0625
+          },
+          "residual_l2_squared": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "residual_l1": {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          "negative_real_mass": {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          "sqrt_dimension_factor": 16,
+          "checks": {
+            "l2_norm_is_one": true,
+            "l1_norm_equals_sqrt_dimension": true,
+            "negative_mass_saturates_l1_bound": true
+          }
+        }
+      ],
+      "block_proxy_certificate_counts": {
+        "8": 0,
+        "32": 0,
+        "128": 0
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The tested block proxies are computed from each target transform and are not a priori arithmetic models. No uniform L1 residual bound or finite-to-infinite join is proved.",
+    "route_decision": {
+      "discard": "using only an L2 proxy residual while suppressing the unavoidable square-root dimension factor, or treating target-fitted block means as analytic bounds",
+      "retain": "build an arithmetic phase proxy before observing the target transform and prove a uniform L1 residual bound with an effective finite join",
+      "next_theorem": "ArithmeticBinaryGoldbachPhaseProxyWithUniformL1ResidualAndFiniteJoin"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T157-REJECTED",
+          "label": "DimensionFreeL2PhaseProxyControlsNegativeMinorMass",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T157-CLOSED",
+          "label": "NegativePhaseL1StabilityAndL2DimensionLossNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T157-OPEN",
+          "label": "ArithmeticBinaryGoldbachPhaseProxyWithUniformL1ResidualAndFiniteJoin",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T157-REJECTED",
+          "GB-T157-CLOSED"
+        ],
+        [
+          "GB-T157-CLOSED",
+          "GB-T157-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One exact L1 stability reduction, a sharp L2 no-go family, and six finite target-fitted diagnostics."
+  }
+}
